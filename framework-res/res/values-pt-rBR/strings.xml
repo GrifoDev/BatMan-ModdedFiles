@@ -1329,7 +1329,7 @@ Tente novamente dentro de %2$d segundos."</string>
     <string name="lock_to_app_toast">Para desafixar o aplicativo, mantenha pressionadas as Teclas Aplicações recentes e Voltar simultaneamente.</string>
     <string name="lock_to_app_toast_for_navibar">Para desafixar o aplicativo, mantenha pressionados os botões Aplicações recentes e Voltar simultaneamente.</string>
     <string name="lock_to_app_toast_accessible">Para desmarcar o aplicativo, mantenha pressionada a Tecla Aplicativos recentes.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Para desafixar um aplicativo, mantenha pressionado o botão Aplicações recentes.</string>
     <string name="lock_to_app_toast_locked">Modo Bloquear para aplicativo foi ativado.</string>
     <string name="lock_to_app_start">Aplicativo marcado.</string>
     <string name="lock_to_app_exit">Aplicativo não marcado.</string>
@@ -2046,6 +2046,7 @@ Ativar o Modo offline?"</string>
     <string name="multisound_hun_change">Alterar</string>
     <string name="my_device">Meu telefone</string>
     <string name="headset">Fone de ouvido</string>
+    <string name="my_phone">Telefone</string>
     <string name="bixby_edgecase_mpsm">Não é possível usar o Bixby com o Modo economia máxima ativado.</string>
     <string name="bixby_edgecase_emergencymode">Não é possível usar o Bixby no Modo de emergência.</string>
     <string name="bixby_edgecase_kidsmode">Não é possível usar o Bixby no Modo Infantil.</string>

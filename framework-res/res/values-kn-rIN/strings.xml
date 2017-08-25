@@ -1328,7 +1328,7 @@
     <string name="lock_to_app_toast">ಅನ್ವಯಿಸುವಿಕೆ ಅನ್‌ಪಿನ್ ಮಾಡಲು, ಇತ್ತೀಚಿನವುಗಳು ಮತ್ತು ಬ್ಯಾಕ್ ಕೀಗಳನ್ನು ಒಂದೇ ಸಮಯಕ್ಕೆ ಒತ್ತಿ ಹಿಡಿಯಿರಿ.</string>
     <string name="lock_to_app_toast_for_navibar">ಅನ್ವಯಿಸುವಿಕೆ ಅನ್‌ಪಿನ್ ಮಾಡಲು, ಇತ್ತೀಚಿನವುಗಳು ಮತ್ತು ಬ್ಯಾಕ್ ಬಟನ್‍ಗಳನ್ನು ಒಂದೇ ಸಮಯಕ್ಕೆ ಸ್ಪರ್ಶಿಸಿ ಹಿಡಿಯಿರಿ.</string>
     <string name="lock_to_app_toast_accessible">ಈ ಅನ್ವಯಿಸುವಿಕೆಯನ್ನು ಅನ್‌ಪಿನ್ ಮಾಡಲು, ಇತ್ತೀಚಿನವುಗಳ ಕೀಯನ್ನು ಒತ್ತಿ ಹಿಡಿಯಿರಿ.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">ಅನ್ವಯಿಸುವಿಕೆ ಅನ್‍ಪಿನ್ ಮಾಡಲು, ಇತ್ತೀಚಿನವುಗಳು ಬಟನ್ ಸ್ಪರ್ಶಿಸಿ ಹಿಡಿಯಿರಿ.</string>
     <string name="lock_to_app_toast_locked">ಅನ್ವಯಿಸುವಿಕೆಗೆ-ಲಾಕ್ ಮಾಡಿ ಮೋಡ್ ಶಕ್ತಗೊಳಿಸಲಾಗಿದೆ.</string>
     <string name="lock_to_app_start">ಅನ್ವಯಿಸುವಿಕೆ ಪಿನ್ ಮಾಡಲಾಗಿದೆ.</string>
     <string name="lock_to_app_exit">ಅನ್ವಯಿಸುವಿಕೆ ಅನ್‍ಪಿನ್ ಮಾಡಲಾಗಿದೆ.</string>
@@ -2042,6 +2042,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">ಬದಲಾಯಿಸಿ</string>
     <string name="my_device">My phone</string>
     <string name="headset">ಹೆಡ್‍ಸೆಟ್</string>
+    <string name="my_phone">ಫೋನ್</string>
     <string name="bixby_edgecase_mpsm">ಗರಿಷ್ಠ ಪವರ್ ಉಳಿತಾಯ ಮೋಡ್ ಆನ್ ಆಗಿರುವಾಗ Bixby ಬಳಸಲು ಸಾಧ್ಯವಾಗುವುದಿಲ್ಲ.</string>
     <string name="bixby_edgecase_emergencymode">ತುರ್ತುಸ್ಥಿತಿ ಮೋಡ್‌ನಲ್ಲಿ Bixby ಬಳಸಲು ಸಾಧ್ಯವಾಗುತ್ತಿಲ್ಲ.</string>
     <string name="bixby_edgecase_kidsmode">ಕಿಡ್ಸ್ ಮೋಡ್‌ನಲ್ಲಿ Bixby ತೆರೆಯಲು ಸಾಧ್ಯವಿಲ್ಲ.</string>

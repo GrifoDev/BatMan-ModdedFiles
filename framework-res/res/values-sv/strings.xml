@@ -1333,7 +1333,7 @@ Försök igen om %2$d sekunder."</string>
     <string name="lock_to_app_toast">Ta loss ett program genom att hålla ned knappen Senaste och bakåtknappen samtidigt.</string>
     <string name="lock_to_app_toast_for_navibar">Ta loss ett program genom att hålla ned knappen Senaste och bakåtknappen samtidigt.</string>
     <string name="lock_to_app_toast_accessible">Ta loss programmet genom att hålla ned knappen Senaste.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Du kan ta loss en app genom att hålla ned knappen Senaste.</string>
     <string name="lock_to_app_toast_locked">Programlåsläget har aktiverats.</string>
     <string name="lock_to_app_start">Programmet har fästs.</string>
     <string name="lock_to_app_exit">Programmet har lossats.</string>
@@ -2050,6 +2050,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Ändra</string>
     <string name="my_device">My phone</string>
     <string name="headset">Headset</string>
+    <string name="my_phone">Telefon</string>
     <string name="bixby_edgecase_mpsm">Det går inte att använda Bixby när Maximalt energisparläge är på.</string>
     <string name="bixby_edgecase_emergencymode">Det går inte att använda Bixby i Nödläge.</string>
     <string name="bixby_edgecase_kidsmode">Det går inte att använda Bixby i Barnläge.</string>

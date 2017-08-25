@@ -1328,7 +1328,7 @@ Uni yopishni xohlaysizmi?"</string>
     <string name="lock_to_app_toast">Ilovani olib tashlash uchun Oxirgilar va Orqaga tugmalarini bir vaqtda bosib turing.</string>
     <string name="lock_to_app_toast_for_navibar">Ilovani olib tashlash uchun Oxirgilar va Orqaga tugmalariga bir vaqtda tegib turing.</string>
     <string name="lock_to_app_toast_accessible">Ilovani olib tashlash uchun oxirgilar tugmasini bosib turing.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Ilovani olib tashlash uchun Oxirgilar tugmasiga tegib turing.</string>
     <string name="lock_to_app_toast_locked">Ilovaga mahkamlash rejimi yoqilgan.</string>
     <string name="lock_to_app_start">Ilova qo‘shildi.</string>
     <string name="lock_to_app_exit">Ilova olib tashlandi.</string>
@@ -2045,6 +2045,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">O‘zgartirish</string>
     <string name="my_device">My phone</string>
     <string name="headset">Quloqlik</string>
+    <string name="my_phone">Telefon</string>
     <string name="bixby_edgecase_mpsm">Maksimal quvvat tejash rejimi yoqilganda Bixby’dan foydalanib bo‘lmaydi.</string>
     <string name="bixby_edgecase_emergencymode">Favqulodda rejimda Bixby’dan foydalanib bo‘lmaydi.</string>
     <string name="bixby_edgecase_kidsmode">Bolalar rejimida Bixby’dan foydalanib bo‘lmaydi.</string>

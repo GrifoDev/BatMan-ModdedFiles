@@ -1328,7 +1328,7 @@ Probatu berriz %2$d segundo barru."</string>
     <string name="lock_to_app_toast">Aplikazioa desainguratzeko, sakatu eta eutsi Azkenak eta Atzera teklei aldi berean.</string>
     <string name="lock_to_app_toast_for_navibar">Aplikazioa desainguratzeko, ukitu eta eutsi Azkenak eta Atzera botoiei aldi berean.</string>
     <string name="lock_to_app_toast_accessible">Aplikazio hau kentzeko, sakatu eta eutsi berriki erabilitakoen tekla.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Aplikazioak desainguratzeko, ukitu eta eutsi Azkenak teklari.</string>
     <string name="lock_to_app_toast_locked">Lotu aplikazioa modua gaituta dago.</string>
     <string name="lock_to_app_start">Ainguratu da aplikazioa.</string>
     <string name="lock_to_app_exit">Aingura kendu zaio aplikazioari.</string>
@@ -2045,6 +2045,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Aldatu</string>
     <string name="my_device">My phone</string>
     <string name="headset">Entzungailua</string>
+    <string name="my_phone">Telefonoa</string>
     <string name="bixby_edgecase_mpsm">Ezin da erabili Bixby Bateria aurrezteko gehienezko modua aktibatuta badago.</string>
     <string name="bixby_edgecase_emergencymode">Ezin da erabili Bixby Larrialdi moduan.</string>
     <string name="bixby_edgecase_kidsmode">Ezin da erabili Bixby Ume moduan.</string>

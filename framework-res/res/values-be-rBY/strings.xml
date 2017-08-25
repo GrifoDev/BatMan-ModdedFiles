@@ -1328,6 +1328,7 @@
     <string name="deleted_key">Выдалена: %1$s</string>
     <string name="managed_profile_label_badge">%1$s (праца)</string>
     <string name="lock_to_app_toast">Каб адмацаваць праграму, націсніце і ўтрымлівайце клавішу «Апошнія» і клавішу вяртання адначасова.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Каб адмацаваць праграму, дакраніцеся да кнопкі «Апошнія» і ўтрымлівайце яе.</string>
     <string name="lock_to_app_toast_locked">Быў уключаны рэжым замацавання праграмы.</string>
     <string name="lock_to_app_start">Экран замацаваны</string>
     <string name="lock_to_app_exit">Экран адмацаваны</string>
@@ -1494,6 +1495,7 @@
     <string name="multisound_hun_change">Змяніць</string>
     <string name="my_device">My phone</string>
     <string name="headset">Гарнітура</string>
+    <string name="my_phone">Тэлефон</string>
     <string name="bixby_edgecase_mpsm">Немагчыма выкарыстоўваць Bixby пры ўключаным рэжыме максімальнага энергазберажэння.</string>
     <string name="bixby_edgecase_emergencymode">Немагчыма выкарыстоўваць Bixby у экстранным рэжыме.</string>
     <string name="bixby_edgecase_kidsmode">Немагчыма выкарыстоўваць Bixby у дзіцячым рэжыме.</string>

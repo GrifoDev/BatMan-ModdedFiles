@@ -1333,7 +1333,7 @@ Pokušaj ponovo za %2$d sekundi."</string>
     <string name="lock_to_app_toast">Da biste otkačili aplikaciju, istovremeno pritisnite i zadržite tastere Nedavno i Nazad.</string>
     <string name="lock_to_app_toast_for_navibar">Da biste otkačili aplikaciju, istovremeno dodirnite i zadržite dugmad Nedavno i Nazad.</string>
     <string name="lock_to_app_toast_accessible">Da bi otkačio/la aplikaciju, pritisni i zadrži nedavno korišćene tastere.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Da biste otkačili aplikaciju, dodirnite i zadržite dugme Nedavno.</string>
     <string name="lock_to_app_toast_locked">Režim zadržavanja aplikacije je omogućen.</string>
     <string name="lock_to_app_start">Aplikacija je zakačena.</string>
     <string name="lock_to_app_exit">Aplikacija je otkačena.</string>
@@ -2049,6 +2049,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Promeni</string>
     <string name="my_device">My phone</string>
     <string name="headset">Slušalice</string>
+    <string name="my_phone">Telefon</string>
     <string name="bixby_edgecase_mpsm">Ne može da se koristi aplikacija Bixby dok je uključen režim Maksimalna ušteda energije.</string>
     <string name="bixby_edgecase_emergencymode">Ne može da se koristi aplikacija Bixby u režimu Opasnost.</string>
     <string name="bixby_edgecase_kidsmode">Ne može da se koristi aplikacija Bixby u Režimu za decu.</string>

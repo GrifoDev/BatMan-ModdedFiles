@@ -696,7 +696,7 @@
     <string name="lock_to_app_toast">Goýma berkitmeden aýyrmak üçin, Soňkular we Yza düwmelerini bilelikde basyp saklaň.</string>
     <string name="lock_to_app_toast_for_navibar">Goýma berkitmeden aýyrmak üçin, Soňkular we Yza düwmelerini bilelikde degip saklaň.</string>
     <string name="lock_to_app_toast_accessible">Goýmany aýyrmak üçin, soňkular düwmesini basyp saklaň.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Goýma aýyrmak üçin, Soňkular düwmesini degip saklaň.</string>
     <string name="lock_to_app_toast_locked">Goýma-gulp tertibi işledildi.</string>
     <string name="lock_to_app_start">Goýma berkidildi.</string>
     <string name="lock_to_app_exit">Goýma aýryldy.</string>
@@ -1345,6 +1345,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Üýtgetmek</string>
     <string name="my_device">My phone</string>
     <string name="headset">Gulaklyklar</string>
+    <string name="my_phone">Telefon</string>
     <string name="bixby_edgecase_mpsm">Maksimum güýç tygşytlaýjy tertip açyk wagty, Bixby ulanyp bolmaýar.</string>
     <string name="bixby_edgecase_emergencymode">Gyssagly tertipde Bixby ulanyp bolmaýar.</string>
     <string name="bixby_edgecase_kidsmode">Çagalar tertibinde Bixby ulanyp bolmaýar.</string>

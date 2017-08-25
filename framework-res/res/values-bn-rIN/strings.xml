@@ -693,7 +693,7 @@
     <string name="lock_to_app_toast">অ্যাপ আনপিন করতে, একসাথে সাম্প্রতিক ও ব্যাক কীগুলি টিপুন এবং ধরে থাকুন।</string>
     <string name="lock_to_app_toast_for_navibar">অ্যাপ আনপিন করতে, একসাথে সাম্প্রতিক ও ব্যাক বোতামগুলি স্পর্শ করে ধরে থাকুন।</string>
     <string name="lock_to_app_toast_accessible">অ্যাপ্লিকেশনটি আনপিন করতে সাম্প্রতিক কীগুলি টিপুন এবং ধরে থাকুন।</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">অ্যাপ আনপিন করতে, সম্প্রতি বোতামটি স্পর্শ করে ধরে রাখুন।</string>
     <string name="lock_to_app_toast_locked">লক-টু-অ্যাপ মোড সক্ষম হয়েছে।</string>
     <string name="lock_to_app_start">অ্যাপ পিন হয়েছে।</string>
     <string name="lock_to_app_exit">অ্যাপ আনপিন হয়েছে।</string>
@@ -1342,6 +1342,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">পরিবর্তন</string>
     <string name="my_device">My phone</string>
     <string name="headset">হেডসেট</string>
+    <string name="my_phone">ফোন</string>
     <string name="bixby_edgecase_mpsm">সর্বাধিক পাওয়ার সাশ্রয় মোড চালু থাকার সময় Bixby ব্যবহার করা যাচ্ছে না।</string>
     <string name="bixby_edgecase_emergencymode">আপৎকালীন মোডে Bixby ব্যবহার করা যাচ্ছে না।</string>
     <string name="bixby_edgecase_kidsmode">বাচ্চাদের মোডে Bixby ব্যবহার করা যাচ্ছে না।</string>

@@ -1333,7 +1333,7 @@ Versuchen Sie es in %2$d Sekunden erneut."</string>
     <string name="lock_to_app_toast">Um eine App zu lösen, drücken und halten Sie gleichzeitig die Tasten „Aktuelle Anwendungen“ und „Zurück“.</string>
     <string name="lock_to_app_toast_for_navibar">Um eine App zu lösen, berühren und halten Sie gleichzeitig die Schaltflächen „Aktuelle Anwendungen“ und „Zurück“ gedrückt.</string>
     <string name="lock_to_app_toast_accessible">Um das Anheften der Anwendung aufzuheben, halten Sie die Taste „Aktuelle Anwendungen“ gedrückt.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Zum Lösen der App berühren und halten Sie die Schaltfläche „Aktuelle Anwendungen“.</string>
     <string name="lock_to_app_toast_locked">Der Modus „Auf App sperren“ wurde aktiviert.</string>
     <string name="lock_to_app_start">App angeheftet.</string>
     <string name="lock_to_app_exit">App gelöst.</string>
@@ -2047,6 +2047,7 @@ Offline-Modus einschalten?"</string>
     <string name="multisound_hun_change">Ändern</string>
     <string name="my_device">Eigenes Telefon</string>
     <string name="headset">Headset</string>
+    <string name="my_phone">Telefon</string>
     <string name="bixby_edgecase_mpsm">Bixby kann nicht verwendet werden, solange der maximale Energiesparmodus eingeschaltet ist.</string>
     <string name="bixby_edgecase_emergencymode">Bixby kann im Notfallmodus nicht verwendet werden.</string>
     <string name="bixby_edgecase_kidsmode">Bixby kann im Kindermodus nicht verwendet werden.</string>
@@ -2434,4 +2435,10 @@ USB-Funktionen sind möglicherweise eingeschränkt, wenn der maximale Energiespa
     <string name="charging_connected_via_usb">Verbundenes Gerät wird über USB aufgeladen…</string>
     <string name="lacking_filenode_internal_storage_view_title">Dateisystembeschränkung</string>
     <string name="lacking_filenode_internal_storage_view_text">Auf Ihrem Telefon wurden zu viele Dateien erstellt. Apps funktionieren möglicherweise nicht richtig und Ihr Telefon startet gegebenenfalls nicht mehr. Alle wichtigen Daten sichern und Ihr Telefon auf die Werkseinstellungen zurücksetzen.</string>
+    <string name="tw_ic_do_rebootrecovery">Neustart in die Recovery</string>
+    <string name="global_action_screenshot">Screenshot aufnehmen</string>
+    <string name="screenrec">Bildschirmvideo starten</string>
+    <string name="global_action_flashlight">Taschenlampe</string>
+    <string name="global_action_fast_reboot">Schneller Neustart</string>
+    <string name="global_action_download">Download Modus</string>
 </resources>

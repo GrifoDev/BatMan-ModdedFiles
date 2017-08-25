@@ -1329,7 +1329,7 @@
     <string name="lock_to_app_toast">Щоб відкріпити програму, одночасно натисніть та утримуйте клавіші «Останні» та «Назад».</string>
     <string name="lock_to_app_toast_for_navibar">Щоб відкріпити програму, одночасно торкніться та утримуйте клавіші «Останні» та «Назад».</string>
     <string name="lock_to_app_toast_accessible">Щоб скасувати закріплення програми, торкніться та утримуйте клавішу «Останні програми».</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Щоб відкріпити програму, торкніться кнопки «Останні» та утримуйте її.</string>
     <string name="lock_to_app_toast_locked">Увімкнено режим блокування програм.</string>
     <string name="lock_to_app_start">Програму закріплено.</string>
     <string name="lock_to_app_exit">Програму відкріплено.</string>
@@ -2037,6 +2037,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Змінити</string>
     <string name="my_device">My phone</string>
     <string name="headset">Гарнітура</string>
+    <string name="my_phone">Телефон</string>
     <string name="bixby_edgecase_mpsm">Неможливо використовувати Bixby в режимі максимального енергозбереження.</string>
     <string name="bixby_edgecase_emergencymode">Неможливо використовувати Bixby в екстреному режимі.</string>
     <string name="bixby_edgecase_kidsmode">Неможливо використовувати Bixby в дитячому режимі.</string>

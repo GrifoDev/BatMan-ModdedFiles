@@ -695,7 +695,7 @@
     <string name="lock_to_app_toast">အက္ပ္ကို ပင္ျဖဳတ္ရန္ လတ္တေလာမ်ားႏွင့္ ေနာက္သို႔ ကီးမ်ားကို တစ္ၿပိဳင္တည္း ဖိ၍ ႏွိပ္ထားပါ။</string>
     <string name="lock_to_app_toast_for_navibar">အက္ပ္ကို ပင္ျဖဳတ္ရန္ လတ္တေလာမ်ားႏွင့္ ေနာက္သို႔ ခလုတ္မ်ားကို တစ္ၿပိဳင္တည္း ဖိ၍ ႏွိပ္ထားပါ။</string>
     <string name="lock_to_app_toast_accessible">အပလီေကးရွင္းကို ျပန္ျဖဳတ္ရန္၊ မၾကာမီက ကီးကို ႏွိပ္ၿပီး ကိုင္ထားပါ။</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">အက္ပ္ကုိ ပင္ျဖဳတ္ရန္ လတ္တေလာ ခလုတ္ကုိ ထိ၍ ႏွိပ္ထားပါ။</string>
     <string name="lock_to_app_toast_locked">အက္ပ္-ေသာ့-ပိတ္ျခင္း အေနအထားကို ဖြင့္ထားခဲ့ၿပီးၿပီ။</string>
     <string name="lock_to_app_start">အက္ပ္ကို ပင္ထိုးထားသည္။</string>
     <string name="lock_to_app_exit">အက္ပ္ကို ပင္ျဖဳတ္ထားသည္။</string>
@@ -1343,6 +1343,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">ေျပာင္းပါ</string>
     <string name="my_device">My phone</string>
     <string name="headset">နားၾကပ္</string>
+    <string name="my_phone">ဖုန္း</string>
     <string name="bixby_edgecase_mpsm">အမ်ားဆုံး ပါဝါေခၽြတာေရးအေနအထားကို ဖြင့္ထားစဥ္အတြင္း Bixby ကို သုံး၍မရပါ။</string>
     <string name="bixby_edgecase_emergencymode">အေရးေပၚ အေနအထားတြင္ Bixby ကုိ အသံုးမျပဳႏုိင္ပါ။</string>
     <string name="bixby_edgecase_kidsmode">ကေလး အေနအထားတြင္ Bixby ကုိ အသံုးမျပဳႏုိင္ပါ။</string>

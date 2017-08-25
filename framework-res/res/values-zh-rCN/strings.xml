@@ -2050,6 +2050,7 @@
     <string name="multisound_hun_change">更改</string>
     <string name="my_device">我的手机</string>
     <string name="headset">耳机</string>
+    <string name="my_phone">手机</string>
     <string name="bixby_edgecase_mpsm">在启用超级省电模式时无法使用 Bixby</string>
     <string name="bixby_edgecase_emergencymode">在紧急模式中无法使用 Bixby</string>
     <string name="bixby_edgecase_kidsmode">在儿童模式中无法使用 Bixby</string>

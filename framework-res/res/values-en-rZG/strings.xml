@@ -1341,6 +1341,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Change</string>
     <string name="my_device">My phone</string>
     <string name="headset">Headset</string>
+    <string name="my_phone">Phone</string>
     <string name="bixby_edgecase_mpsm">"Can't use Bixby while Maximum power saving mode is on."</string>
     <string name="bixby_edgecase_emergencymode">"Can't use Bixby in Emergency mode."</string>
     <string name="bixby_edgecase_kidsmode">"Can't use Bixby in Kids Mode."</string>

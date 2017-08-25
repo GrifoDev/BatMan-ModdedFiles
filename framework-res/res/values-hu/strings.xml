@@ -1333,7 +1333,7 @@ Próbálja újra %2$d másodperc múlva."</string>
     <string name="lock_to_app_toast">Az alkalmazás rögzítésének feloldásához tartsa nyomva egyszerre a Legutóbbi és a Vissza gombot.</string>
     <string name="lock_to_app_toast_for_navibar">Az alkalmazás rögzítésének feloldásához tartsa ujjait egyszerre a Legutóbbi és a Vissza gombot.</string>
     <string name="lock_to_app_toast_accessible">Az alkalmazás rögzítésének feloldásához tartsa nyomva a Legutóbbi gombot.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Az alkalmazás rögzítésének feloldásához tartsa ujját a Legutóbbi gombon.</string>
     <string name="lock_to_app_toast_locked">Bekapcsolt a Zárolás alkalmazással üzemmód.</string>
     <string name="lock_to_app_start">Rögzítette az alkalmazást.</string>
     <string name="lock_to_app_exit">Feloldotta az alkalmazás rögzítését.</string>
@@ -2046,6 +2046,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Módosít</string>
     <string name="my_device">My phone</string>
     <string name="headset">Mikrofonos fülhallgató</string>
+    <string name="my_phone">Telefon</string>
     <string name="bixby_edgecase_mpsm">Maximálisan energiatakarékos módban nem használható a Bixby.</string>
     <string name="bixby_edgecase_emergencymode">Vészhelyzet üzemmódban nem használható a Bixby.</string>
     <string name="bixby_edgecase_kidsmode">Gyermek üzemmódban nem használható a Bixby.</string>

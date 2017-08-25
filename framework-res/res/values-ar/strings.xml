@@ -1333,7 +1333,7 @@
     <string name="lock_to_app_toast">لإلغاء تثبيت تطبيق، اضغط مع الاستمرار على مفتاحي التطبيقات الأخيرة والرجوع في الوقت نفسه.</string>
     <string name="lock_to_app_toast_for_navibar">لإلغاء تثبيت تطبيق، المس مع الاستمرار على زري التطبيقات الأخيرة والرجوع في الوقت نفسه.</string>
     <string name="lock_to_app_toast_accessible">لإلغاء تثبيت التطبيق، اضغط مع الاستمرار على مفتاح التطبيقات الأخيرة.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">لإلغاء تثبيت التطبيق، المس مع الاستمرار على زر التطبيقات الأخيرة.</string>
     <string name="lock_to_app_toast_locked">تم تفعيل وضع الإقفال عند فتح التطبيق.</string>
     <string name="lock_to_app_start">تم تثبيت التطبيق.</string>
     <string name="lock_to_app_exit">تم إلغاء تثبيت التطبيق.</string>
@@ -2049,6 +2049,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">تغيير</string>
     <string name="my_device">My phone</string>
     <string name="headset">السماعة</string>
+    <string name="my_phone">الهاتف</string>
     <string name="bixby_edgecase_mpsm">يتعذر استخدام Bixby عندما يكون وضع توفير الطاقة إلى الحد الأقصى في حالة التشغيل.</string>
     <string name="bixby_edgecase_emergencymode">يتعذر استخدام Bixby في وضع الطوارئ.</string>
     <string name="bixby_edgecase_kidsmode">يتعذر استخدام Bixby في وضع الأطفال.</string>

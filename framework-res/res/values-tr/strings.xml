@@ -1333,7 +1333,7 @@ izin talep edildi"</string>
     <string name="lock_to_app_toast">Uygulamayı serbest bırakmak için Donanım ve Geri tuşlarını aynı anda basılı tutun.</string>
     <string name="lock_to_app_toast_for_navibar">Uygulamayı serbest bırakmak için Donanım ve Geri tuşlarına aynı anda dokunup basılı tutun.</string>
     <string name="lock_to_app_toast_accessible">Uygulamayı serbest bırakmak için donanım tuşunu basılı tutun.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Uygulamayı serbest bırakmak için Donanım tuşuna dokunup basılı tutun.</string>
     <string name="lock_to_app_toast_locked">Uygulamaya kilitle modu etkinleştirildi.</string>
     <string name="lock_to_app_start">Uygulama sabitlendi.</string>
     <string name="lock_to_app_exit">Uygulama serbest bırakıldı.</string>
@@ -2047,6 +2047,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Değiştir</string>
     <string name="my_device">My phone</string>
     <string name="headset">Kulaklık</string>
+    <string name="my_phone">Telefon</string>
     <string name="bixby_edgecase_mpsm">Maksimum güç tasarrufu modu açıkken Bixby kullanılamaz.</string>
     <string name="bixby_edgecase_emergencymode">Acil durum modunda Bixby kullanılamaz.</string>
     <string name="bixby_edgecase_kidsmode">"Çocuk Modu'nda Bixby kullanılamaz."</string>

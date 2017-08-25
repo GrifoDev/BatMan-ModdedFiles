@@ -1333,7 +1333,7 @@ Accesați "<b>google.com/accounts/recovery</b>.</string>
     <string name="lock_to_app_toast">Pentru a anula fixarea unei aplicații, mențineți apăsate simultan tastele Aplicații recente și Înapoi.</string>
     <string name="lock_to_app_toast_for_navibar">Pentru a anula fixarea unei aplicații, mențineți apăsate simultan butoanele Aplicații recente și Înapoi.</string>
     <string name="lock_to_app_toast_accessible">Pentru a anula fixarea aplicației, mențineți apăsată tasta Aplicații recente.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Pentru a anula fixarea aplicației, mențineți apăsat butonul Aplicații recente.</string>
     <string name="lock_to_app_toast_locked">Modul Blocare pe aplicație a fost activat.</string>
     <string name="lock_to_app_start">Aplicație fixată.</string>
     <string name="lock_to_app_exit">Fixare aplicație anulată.</string>
@@ -2049,6 +2049,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Schimbare</string>
     <string name="my_device">My phone</string>
     <string name="headset">Cască</string>
+    <string name="my_phone">Telefon</string>
     <string name="bixby_edgecase_mpsm">Nu se poate utiliza serviciul Bixby în timp ce Modul Economisire maximă energie este pornit.</string>
     <string name="bixby_edgecase_emergencymode">Nu se poate utiliza serviciul Bixby în Modul Urgență.</string>
     <string name="bixby_edgecase_kidsmode">Nu se poate utiliza serviciul Bixby în Modul Copii.</string>

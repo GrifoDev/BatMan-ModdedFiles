@@ -1328,7 +1328,7 @@
     <string name="managed_profile_label_badge">වැඩ %1$s</string>
     <string name="lock_to_app_toast">මෙම තිරය ඇමුණුම් ඉවත් කිරීමට, ස්පර්ශ කර අල්ලා ගෙන සිටින්න.</string>
     <string name="lock_to_app_toast_for_navibar">යෙදුම නොඇමිණීමට, මෑත සහ ආපසු බොත්තම් එකවර ස්පර්ශ කර අල්ලාගෙන සිටින්න.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">යෙදුම නොඇමිණීමට, මෑත බොත්තම ස්පර්ශ කර අල්ලාගෙන සිටින්න.</string>
     <string name="lock_to_app_toast_locked">යෙදුමට-අගුල ප්‍රකාරය සක්‍රිය කර ඇත.</string>
     <string name="lock_to_app_start">තිරය අගුළු දමා ඇත</string>
     <string name="lock_to_app_exit">තිරයේ අගුළු ඇර ඇත</string>
@@ -1497,6 +1497,7 @@
     <string name="multisound_hun_change">වෙනස් කරන්න</string>
     <string name="my_device">My phone</string>
     <string name="headset">හෙඩ්සෙටය</string>
+    <string name="my_phone">දුරකථනය</string>
     <string name="bixby_edgecase_mpsm">උපරිම බල සුරැකුම් ප්‍රකාරය ක්‍රියාත්මක අතරේ Bixby භාවිතා කළ නොහැක.</string>
     <string name="bixby_edgecase_emergencymode">හදිසි ප්‍රකාරය තුළ Bixby භාවිතා කළ නොහැක.</string>
     <string name="bixby_edgecase_kidsmode">ළමා ප්‍රකාරය තුළ Bixby භාවිතා කළ නොහැක.</string>

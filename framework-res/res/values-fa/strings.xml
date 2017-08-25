@@ -1333,7 +1333,7 @@
     <string name="lock_to_app_toast">برای برداشتن اتصال برنامه، کلیدهای موارد اخیر و برگشت را همزمان فشار داده و نگهدارید.</string>
     <string name="lock_to_app_toast_for_navibar">برای برداشتن اتصال برنامه، دکمه‌های موارد اخیر و برگشت را همزمان لمس کرده و نگهدارید.</string>
     <string name="lock_to_app_toast_accessible">برای برداشتن اتصال برنامه، کلید موارد اخیر را فشار داده و نگهدارید.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">برای لغو اتصال برنامه، دکمه موارد اخیر را لمس کرده و نگه دارید.</string>
     <string name="lock_to_app_toast_locked">حالت برنامه در صفحه قفل فعال شد.</string>
     <string name="lock_to_app_start">برنامه متصل شد.</string>
     <string name="lock_to_app_exit">اتصال برنامه برداشته شد.</string>
@@ -2050,6 +2050,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">تعويض</string>
     <string name="my_device">My phone</string>
     <string name="headset">هدست</string>
+    <string name="my_phone">تلفن</string>
     <string name="bixby_edgecase_mpsm">وقتی حالت ذخیره نیروی حداکثر روشن است، استفاده از Bixby ممکن نیست.</string>
     <string name="bixby_edgecase_emergencymode">استفاده از Bixby در حالت اضطراری ممکن نیست.</string>
     <string name="bixby_edgecase_kidsmode">استفاده از Bixby در حالت کودک ممکن نیست.</string>

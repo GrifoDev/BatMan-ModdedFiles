@@ -696,7 +696,7 @@ Sprōbuj jeszcze rŏz za %2$d s."</string>
     <string name="lock_to_app_toast">Coby ôdepnōńć aplikacyjŏ, naciś i trzimej wrŏz knefle Niydŏwne i Nazŏd.</string>
     <string name="lock_to_app_toast_for_navibar">Coby ôdepnōńć aplikacyjŏ, tyknij narŏz knefli Niydŏwne i Nazŏd, a potym trzimej je.</string>
     <string name="lock_to_app_toast_accessible">Coby ôdepnōńć aplikacyjŏ, naciś i trzimej knefel z niydŏwnymi.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Coby ôdepnōńć aplikacyjo, tyknij knefel Niydŏwne i ônego przichyć.</string>
     <string name="lock_to_app_toast_locked">Tryb zawarte-z-aplikacyjōm je załōnczōny.</string>
     <string name="lock_to_app_start">Przipniynto aplikacyjo.</string>
     <string name="lock_to_app_exit">Ôdepniynto aplikacyjo.</string>
@@ -1345,6 +1345,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Zmiyń</string>
     <string name="my_device">Mōj telefōn</string>
     <string name="headset">Zestŏw suchawkowy</string>
+    <string name="my_phone">Mobilniŏk</string>
     <string name="bixby_edgecase_mpsm">Niy idzie używać aplikacyji Bixby przi załōnczōnym Trybie maksimum szporowanio ynergji.</string>
     <string name="bixby_edgecase_emergencymode">Niy idzie używać aplikacyji Bixby w Trybie awaryjnym.</string>
     <string name="bixby_edgecase_kidsmode">Niy idzie używać aplikacyji Bixby w Trybie bajtel.</string>

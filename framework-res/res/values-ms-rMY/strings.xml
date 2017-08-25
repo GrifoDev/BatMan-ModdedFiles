@@ -1329,7 +1329,7 @@ Cuba lagi dalam masa %2$d saat."</string>
     <string name="lock_to_app_toast">Untuk nyahpin aplikasi, tekan dan tahan kekunci Terkini dan Kembali pada masa yang sama.</string>
     <string name="lock_to_app_toast_for_navibar">Untuk nyahpin aplikasi, sentuh dan tahan kekunci Terkini dan Kembali pada masa yang sama.</string>
     <string name="lock_to_app_toast_accessible">Untuk nyahpin aplikasi, tekan dan tahan kekunci terkini.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Untuk menyahpin aplikasi, sentuh dan tahan butang Terkini.</string>
     <string name="lock_to_app_toast_locked">Mod kunci untuk aplikasi telah diaktifkan.</string>
     <string name="lock_to_app_start">Aplikasi dipin.</string>
     <string name="lock_to_app_exit">Aplikasi dinyahpin.</string>
@@ -2046,6 +2046,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Ubah</string>
     <string name="my_device">My phone</string>
     <string name="headset">Set kepala</string>
+    <string name="my_phone">Telefon</string>
     <string name="bixby_edgecase_mpsm">Tidak dapat menggunakan Bixby semasa Mod penjimatan kuasa maksimum dihidupkan.</string>
     <string name="bixby_edgecase_emergencymode">Tidak dapat menggunakan Bixby dalam Mod kecemasan.</string>
     <string name="bixby_edgecase_kidsmode">Tidak dapat menggunakan Bixby dalam Mod Kanak-kanak.</string>

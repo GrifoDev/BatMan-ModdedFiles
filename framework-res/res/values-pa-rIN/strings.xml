@@ -1328,7 +1328,7 @@
     <string name="lock_to_app_toast">ਐਪ ਨੂੰ ਅਨਪਿਨ ਕਰਨ ਲਈ, ਇੱਕ ਹੀ ਸਮੇਂ ਤੇ ਹਾਲ ਹੀ ਦੇ ਅਤੇ ਵਾਪਸ ਜਾਉ ਬਟਨਸ ਨੂੰ ਦਬਾ ਕੇ ਰੱਖੋ।</string>
     <string name="lock_to_app_toast_for_navibar">ਐਪ ਨੂੰ ਅਨਪਿਨ ਕਰਨ ਲਈ, ਇੱਕ ਹੀ ਸਮੇਂ ਤੇ ਹਾਲ ਹੀ ਦੇ ਅਤੇ ਵਾਪਸ ਜਾਉ ਬਟਨਸ ਨੂੰ ਟੱਚ ਕਰਕੇ ਰੱਖੋ।</string>
     <string name="lock_to_app_toast_accessible">ਇਸ ਅਨੁਪ੍ਰਯੋਗ ਨੂੰ ਅਨਪਿਨ ਕਰਨ ਲਈ, ਹਾਲ ਹੀ ਬਟਨ ਨੂੰ ਦਬਾ ਕੇ ਰੱਖੋ।</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">ਐਪ ਨੂੰ ਅਨਪਿਨ ਕਰਨ ਲਈ, ਹਾਲ ਹੀ ਦੇ ਬਟਨ ਨੂੰ ਟੱਚ ਕਰਕੇ ਰੱਖੋ।</string>
     <string name="lock_to_app_toast_locked">ਲੌਕ-ਟੂ-ਐਪ ਮੋਡ ਨੂੰ ਸਮਰੱਥ ਕੀਤਾ ਗਿਆ ਹੈ।</string>
     <string name="lock_to_app_start">ਐਪ ਨੂੰ ਪਿੰਨ ਕੀਤਾ ਗਿਆ।</string>
     <string name="lock_to_app_exit">ਐਪ ਨੂੰ ਅਨਪਿੰਨ ਕੀਤਾ ਗਿਆ।</string>
@@ -2042,6 +2042,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">ਬਦਲੋ</string>
     <string name="my_device">My phone</string>
     <string name="headset">ਹੈੱਡਸੈੱਟ</string>
+    <string name="my_phone">ਫ਼ੋਨ</string>
     <string name="bixby_edgecase_mpsm">ਅਧਿਕਤਮ ਪਾਵਰ ਸੇਵਿੰਗ ਮੋਡ ਦੇ ਚਾਲੂ ਹੋਣ ਦੌਰਾਨ Bixby ਦੀ ਵਰਤੋਂ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕਦੀ।</string>
     <string name="bixby_edgecase_emergencymode">ਅਪਾਤਕਾਲ ਮੋਡ ਵਿੱਚ Bixby ਦੀ ਵਰਤੋਂ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕਦੀ।</string>
     <string name="bixby_edgecase_kidsmode">ਕਿਡਸ ਮੋਡ ਵਿੱਚ Bixby ਦੀ ਵਰਤੋਂ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕਦੀ।</string>

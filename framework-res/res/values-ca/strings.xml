@@ -1333,7 +1333,7 @@ Torni-ho a intentar en %2$d segons."</string>
     <string name="lock_to_app_toast">"Per desenganxar l'aplicació, mantingui premudes les tecles Recents i Tornar simultàniament."</string>
     <string name="lock_to_app_toast_for_navibar">"Per desenganxar l'aplicació, mantingui tocats els botons Recents i Tornar simultàniament."</string>
     <string name="lock_to_app_toast_accessible">"Per desenganxar l'aplicació, mantingui premuda la tecla recents."</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">"Per desenganxar l'aplicació, mantén premut el botó Recents."</string>
     <string name="lock_to_app_toast_locked">"S'ha habilitat el mode Bloquejar a aplicació."</string>
     <string name="lock_to_app_start">App enganxada.</string>
     <string name="lock_to_app_exit">App desenganxada.</string>
@@ -2050,6 +2050,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Canviar</string>
     <string name="my_device">My phone</string>
     <string name="headset">Auricular</string>
+    <string name="my_phone">Telèfon</string>
     <string name="bixby_edgecase_mpsm">"No es pot utilitzar Bixby mentre el mode Estalvi d'energia màxim estigui activat."</string>
     <string name="bixby_edgecase_emergencymode">No es pot utilitzar Bixby en el mode Emergència.</string>
     <string name="bixby_edgecase_kidsmode">No es pot utilitzar Bixby en el mode Nens.</string>

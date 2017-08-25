@@ -1328,7 +1328,7 @@
     <string name="lock_to_app_toast">అప్లికేషన్‌ను అన్‌పిన్ చేయడానికి, ఇటీవలి మరియు వెనుకకు కీలను ఒకేసారి నొక్కి, పట్టుకోండి.</string>
     <string name="lock_to_app_toast_for_navibar">అప్లికేషన్‌ను అన్‌పిన్ చేయడానికి, ఇటీవలి మరియు వెనుకకు బటన్‌లను ఒకేసారి తాకి, పట్టుకోండి.</string>
     <string name="lock_to_app_toast_accessible">అప్లికేషన్‌ను అన్‌పిన్ చేసేందుకు ఇటీవలి అంశాల కీని నొక్కి పట్టుకోండి.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">అప్లికేషన్‌ను అన్‌పిన్ చేయడానికి, ఇటీవల బటన్‌ను నొక్కి, పట్టుకోండి.</string>
     <string name="lock_to_app_toast_locked">అప్లికేషన్-కు-లాక్ మోడ్ ప్రారంభించబడింది.</string>
     <string name="lock_to_app_start">అప్లికేషన్ పిన్ చేయబడింది.</string>
     <string name="lock_to_app_exit">అప్లికేషన్ అన్‌పిన్ చేయబడింది.</string>
@@ -2042,6 +2042,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">మార్చు</string>
     <string name="my_device">My phone</string>
     <string name="headset">హెడ్సెట్</string>
+    <string name="my_phone">ఫోన్</string>
     <string name="bixby_edgecase_mpsm">గరిష్ట శక్తి ఆదా మోడ్ ఆన్ చేయబడినప్పుడు Bixby మోడ్‌ని ఉపయోగించలేరు.</string>
     <string name="bixby_edgecase_emergencymode">అత్యవసర మోడ్‌లో Bixbyని ఉపయోగించలేరు.</string>
     <string name="bixby_edgecase_kidsmode">Bixbyని పిల్లల మోడ్‌లో ఉపయోగించలేరు.</string>

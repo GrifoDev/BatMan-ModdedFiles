@@ -1333,7 +1333,7 @@ Tente novamente dentro de %2$d segundos."</string>
     <string name="lock_to_app_toast">Para desafixar uma aplicação, prima sem soltar as Teclas de aplicações recentes e de retrocesso ao mesmo tempo.</string>
     <string name="lock_to_app_toast_for_navibar">Para desafixar uma aplicação, toque sem soltar nos Botões de aplicações recentes e de retrocesso ao mesmo tempo.</string>
     <string name="lock_to_app_toast_accessible">Para desafixar esta aplicação, prima sem soltar a tecla de aplicações recentes.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Para desafixar a aplicação, toque sem soltar no Botão de aplicações recentes.</string>
     <string name="lock_to_app_toast_locked">O Modo bloquear na aplicação foi activado.</string>
     <string name="lock_to_app_start">Aplicação afixada.</string>
     <string name="lock_to_app_exit">Aplicação desafixada.</string>
@@ -2049,6 +2049,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Alterar</string>
     <string name="my_device">My phone</string>
     <string name="headset">Auricular</string>
+    <string name="my_phone">Telefone</string>
     <string name="bixby_edgecase_mpsm">Impossível utilizar Bixby com o Modo de máxima economia de energia ligado.</string>
     <string name="bixby_edgecase_emergencymode">Impossível utilizar Bixby em Modo de emergência.</string>
     <string name="bixby_edgecase_kidsmode">Impossível utilizar Bixby em Modo de Crianças.</string>

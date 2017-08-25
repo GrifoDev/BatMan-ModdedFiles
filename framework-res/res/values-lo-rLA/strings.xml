@@ -1329,7 +1329,7 @@
     <string name="lock_to_app_toast">ເພື່ອ​ຖອນ​ປັກ​ໝຸດ​ແອັບ, ກົດປຸ່ມຫຼ້າສຸດແລະປຸ່ມກັບຄືນຄ້າງໄວ້ໃນເວລາດຽວກັນ.</string>
     <string name="lock_to_app_toast_for_navibar">ເພື່ອ​ຖອນ​ປັກ​ໝຸດ​ແອັບ, ສຳພັດປຸ່ມຫຼ້າສຸດແລະປຸ່ມກັບຄືນຄ້າງໄວ້ໃນເວລາດຽວກັນ.</string>
     <string name="lock_to_app_toast_accessible">ເພື່ອ​ຖອນ​ປັກ​ໝຸດ​ແອ​ພ​ພ​ລິ​ເຄ​ຊັນ​ນີ້, ກົດປຸ່ມບໍ່​ດົນ​ມາ​ນີ້ຄ້າງໄວ້.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">ເພື່ອຖອນປັກໝຸດແອັບ, ສຳພັດປຸ່ມຫຼ້າ​ສຸດຄ້າງໄວ້.</string>
     <string name="lock_to_app_toast_locked">ໂໝດລັອກໃສ່ແອັບເປີດໃຊ້ງານແລ້ວ.</string>
     <string name="lock_to_app_start">ປັກໝຸດແອັບແລ້ວ.</string>
     <string name="lock_to_app_exit">ຖອນປັກໝຸດແອັບແລ້ວ.</string>
@@ -2043,6 +2043,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">ປ່ຽນແປງ</string>
     <string name="my_device">My phone</string>
     <string name="headset">ຊຸດຫູຟັງ</string>
+    <string name="my_phone">ໂທລະສັບ</string>
     <string name="bixby_edgecase_mpsm">ບໍ່ສາມາດໃຊ້ Bixby ໃນຂະນະທີ່ໂໝດປະຢັດໄຟສູງສຸດເປີດຢູ່.</string>
     <string name="bixby_edgecase_emergencymode">ບໍ່ສາມາດໃຊ້ Bixby ໃນໂໝດສຸກເສີນໄດ້.</string>
     <string name="bixby_edgecase_kidsmode">ບໍ່ສາມາດໃຊ້ Bixby ໃນໂໝດເດັກນ້ອຍໄດ້.</string>

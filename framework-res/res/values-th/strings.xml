@@ -1335,7 +1335,7 @@
     <string name="lock_to_app_toast">หากต้องการยกเลิกการปักหมุดแอพ ให้กดค้างที่ปุ่มล่าสุดและปุ่มกลับพร้อมกัน</string>
     <string name="lock_to_app_toast_for_navibar">หากต้องการยกเลิกการปักหมุดแอพ ให้แตะค้างที่ปุ่มล่าสุดและปุ่มกลับพร้อมกัน</string>
     <string name="lock_to_app_toast_accessible">ในการยกเลิกการปักหมุดแอพพลิเคชั่น ให้กดปุ่มล่าสุดค้างไว้</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">หากต้องการยกเลิกปักหมุดแอพ ให้แตะค้างที่ปุ่ม ล่าสุด</string>
     <string name="lock_to_app_toast_locked">โหมด Lock-to-app ถูกเปิดใช้งานแล้ว</string>
     <string name="lock_to_app_start">ปักหมุดแอพแล้ว</string>
     <string name="lock_to_app_exit">ยกเลิกการปักหมุดแอพแล้ว</string>
@@ -2052,6 +2052,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">เปลี่ยน</string>
     <string name="my_device">My phone</string>
     <string name="headset">เฮ​ดเซ็ท</string>
+    <string name="my_phone">โทรศัพท์</string>
     <string name="bixby_edgecase_mpsm">ไม่สามารถใช้ Bixby ในขณะเปิดโหมดประหยัดพลังงานสูงสุดได้</string>
     <string name="bixby_edgecase_emergencymode">ไม่สามารถใช้ Bixby ในโหมดฉุกเฉิน</string>
     <string name="bixby_edgecase_kidsmode">ไม่สามารถใช้ Bixby ใน Kids Mode</string>

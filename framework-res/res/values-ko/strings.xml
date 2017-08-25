@@ -2073,6 +2073,7 @@ google.com/accounts/recovery"</string>
     <string name="multisound_hun_change">변경</string>
     <string name="my_device">내 휴대전화</string>
     <string name="headset">헤드셋</string>
+    <string name="my_phone">휴대전화</string>
     <string name="bixby_edgecase_mpsm">초절전 모드 실행 중에는 Bixby를 사용할 수 없습니다.</string>
     <string name="bixby_edgecase_emergencymode">긴급 모드에서는 Bixby를 사용할 수 없습니다.</string>
     <string name="bixby_edgecase_kidsmode">키즈 모드에서는 Bixby를 사용할 수 없습니다.</string>

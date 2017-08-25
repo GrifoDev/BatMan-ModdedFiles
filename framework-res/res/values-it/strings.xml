@@ -1333,7 +1333,7 @@ Riprovate tra %2$d secondi."</string>
     <string name="lock_to_app_toast">"Per sbloccare un'applicazione, tenete premuti contemporaneamente i tasti Applicazioni recenti e Indietro."</string>
     <string name="lock_to_app_toast_for_navibar">"Per sbloccare un'applicazione, tenete premuti contemporaneamente i pulsanti Applicazioni recenti e Indietro."</string>
     <string name="lock_to_app_toast_accessible">"Per sbloccare l'applicazione, tenete premuto il tasto Recenti."</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">"Per sbloccare l'applicazione, tenete premuto il pulsante Applicazioni recenti."</string>
     <string name="lock_to_app_toast_locked">È stata attivata la modalità Blocco su applicazione.</string>
     <string name="lock_to_app_start">Applicazione bloccata sullo schermo.</string>
     <string name="lock_to_app_exit">Applicazione sbloccata sullo schermo.</string>
@@ -2050,6 +2050,7 @@ Attivare la modalità Offline?"</string>
     <string name="multisound_hun_change">Cambia</string>
     <string name="my_device">Telefono personale</string>
     <string name="headset">Auricolare</string>
+    <string name="my_phone">Telefono</string>
     <string name="bixby_edgecase_mpsm">Impossibile utilizzare Bixby mentre la modalità di risparmio energetico massimo è attiva.</string>
     <string name="bixby_edgecase_emergencymode">Impossibile utilizzare Bixby nella Modalità di emergenza.</string>
     <string name="bixby_edgecase_kidsmode">Impossibile utilizzare Bixby nella Modalità bambino.</string>

@@ -1329,7 +1329,7 @@ Proovige uuesti %2$d sekundi pärast."</string>
     <string name="lock_to_app_toast">Rakenduse eemaldamiseks vajutage korraga pikalt hiljutiste ja tagasiliikumise klahvi.</string>
     <string name="lock_to_app_toast_for_navibar">Rakenduse eemaldamiseks puudutage korraga pikalt hiljutiste ja tagasiliikumise nuppu.</string>
     <string name="lock_to_app_toast_accessible">Rakenduse eemaldamiseks vajutage ja hoidke klahvi Tagasiliikumine.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Rakenduse eemaldamiseks puudutage ja hoidke hiljutise nuppu.</string>
     <string name="lock_to_app_toast_locked">Rakenduse lukustamise režiim on aktiveeritud.</string>
     <string name="lock_to_app_start">Rakendus kinnitatud.</string>
     <string name="lock_to_app_exit">Rakendus eemaldatud.</string>
@@ -2046,6 +2046,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Muuda</string>
     <string name="my_device">My phone</string>
     <string name="headset">Peakomplekt</string>
+    <string name="my_phone">Telefon</string>
     <string name="bixby_edgecase_mpsm">Bixbyt ei saa kasutada, kui maksimaalne energiasäästurežiim on sisse lülitatud.</string>
     <string name="bixby_edgecase_emergencymode">Bixbyt ei saa kasutada hädaabirežiimis.</string>
     <string name="bixby_edgecase_kidsmode">Bixbyt ei saa kasutada lasterežiimis.</string>

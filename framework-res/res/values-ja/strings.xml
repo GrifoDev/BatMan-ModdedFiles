@@ -2048,6 +2048,7 @@
     <string name="multisound_hun_change">変更</string>
     <string name="my_device">自分の端末</string>
     <string name="headset">ヘッドセット</string>
+    <string name="my_phone">端末</string>
     <string name="bixby_edgecase_mpsm">最大省電力モードがONの間は、Bixbyを使用できません。</string>
     <string name="bixby_edgecase_emergencymode">緊急時長持ちモードでは、Bixbyを使用できません。</string>
     <string name="bixby_edgecase_kidsmode">キッズモードでは、Bixbyを使用できません。</string>

@@ -1333,7 +1333,7 @@
     <string name="lock_to_app_toast">"כדי לבטל את ההצמדה, לחץ בו-זמנית לחיצה ארוכה על מקש 'אחרונים' ומקש החזרה."</string>
     <string name="lock_to_app_toast_for_navibar">"כדי לבטל את הצמדת היישום, לחץ בו-זמנית לחיצה ארוכה על מקש 'אחרונים' ומקש החזרה."</string>
     <string name="lock_to_app_toast_accessible">כדי לבטל את הצמדת היישום, לחץ לחיצה ארוכה על מקש הפריטים האחרונים.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">"כדי לבטל הצמדה של יישום, לחץ לחיצה ארוכה על לחצן 'אחרונים'."</string>
     <string name="lock_to_app_toast_locked">"מצב 'נעילה ליישום' הופעל."</string>
     <string name="lock_to_app_start">היישום הוצמד.</string>
     <string name="lock_to_app_exit">בוטלה הצמדת היישום.</string>
@@ -2050,6 +2050,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">שנה</string>
     <string name="my_device">My phone</string>
     <string name="headset">אוזנייה</string>
+    <string name="my_phone">טלפון</string>
     <string name="bixby_edgecase_mpsm">"לא ניתן להשתמש ב-Bixby כאשר מצב 'חיסכון מרבי בחשמל' מופעל."</string>
     <string name="bixby_edgecase_emergencymode">"לא ניתן להשתמש ב-Bixby במצב 'חירום'."</string>
     <string name="bixby_edgecase_kidsmode">"לא ניתן להשתמש ב-Bixby במצב 'ילדים'."</string>

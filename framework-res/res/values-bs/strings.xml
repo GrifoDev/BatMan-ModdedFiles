@@ -71,7 +71,7 @@
     <string name="sec_immersive_cling_help_text_additional_land270">Kako god držali telefon, dugmad će uvijek biti locirana do priključka za punjenje. Kada rotirate telefon u smjeru kazaljke na satu, prevucite nadesno s ruba ekrana kako je prikazano strelicom.</string>
     <string name="lock_to_app_toast">Da biste otkačili aplikaciju, istovremeno pritisnite i zadržite tipke Nedavno korišteno i Nazad.</string>
     <string name="lock_to_app_toast_for_navibar">Da biste otkačili aplikaciju, istovremeno dodirnite i zadržite dugmad Nedavno korišteno i Nazad.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Da otkačite aplikaciju, dodirnite i zadržite dugme Nedavno korišteno.</string>
     <string name="language_selection_title">Dodaj jezik</string>
     <string name="language_picker_section_suggested">Predloženo</string>
     <string name="language_picker_section_all">All languages</string>
@@ -634,6 +634,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Promijeni</string>
     <string name="my_device">My phone</string>
     <string name="headset">Slušalice sa mikrofonom</string>
+    <string name="my_phone">Telefon</string>
     <string name="bixby_edgecase_mpsm">Ne može se koristiti Bixby dok je uključen režim Maksimalna štednja energije.</string>
     <string name="bixby_edgecase_emergencymode">Ne može se koristiti Bixby u Režimu za hitne slučajeve.</string>
     <string name="bixby_edgecase_kidsmode">Ne može se koristiti Bixby u Režimu za djecu.</string>

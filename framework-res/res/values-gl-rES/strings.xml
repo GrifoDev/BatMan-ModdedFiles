@@ -1328,7 +1328,7 @@ Téntao de novo en %2$d segundos."</string>
     <string name="lock_to_app_toast">Para quitar unha aplicación, mantén pulsados os botóns Recentes e Atrás ao mesmo tempo.</string>
     <string name="lock_to_app_toast_for_navibar">Para quitar unha aplicación, mantén tocados os botóns Recentes e Atrás ao mesmo tempo.</string>
     <string name="lock_to_app_toast_accessible">Para quitar a aplicación, mantén pulsada a tecla Recentes.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Para quitar a aplicación, mantén tocado o botón Recentes.</string>
     <string name="lock_to_app_toast_locked">Activouse o modo Bloquear en aplicación.</string>
     <string name="lock_to_app_start">Aplicación fixada.</string>
     <string name="lock_to_app_exit">Aplicación quitada.</string>
@@ -2045,6 +2045,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Cambiar</string>
     <string name="my_device">My phone</string>
     <string name="headset">Auriculares</string>
+    <string name="my_phone">Teléfono</string>
     <string name="bixby_edgecase_mpsm">Non se pode usar Bixby co modo Aforro de enerxía máximo activado.</string>
     <string name="bixby_edgecase_emergencymode">Non se pode usar Bixby no modo Urxencia.</string>
     <string name="bixby_edgecase_kidsmode">Non se pode usar Bixby no modo Nenos.</string>

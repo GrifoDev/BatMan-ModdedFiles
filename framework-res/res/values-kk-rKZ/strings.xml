@@ -1328,7 +1328,7 @@
     <string name="lock_to_app_toast">Қолданбаны бекітуден алып тастау үшін бір уақытта “Соңғылар” және “Артқа” пернелерін басып тұрыңыз.</string>
     <string name="lock_to_app_toast_for_navibar">Қолданбаны бекітуден алып тастау үшін бір уақытта “Соңғылар” және “Артқа” пернелерін түртіп ұстап тұрыңыз.</string>
     <string name="lock_to_app_toast_accessible">Бағдарлама бекітуін алып тастау үшін, “Соңғылар” пернесін басып ұстап тұрыңыз.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Қолданбаны бекітуден алып тастау үшін “Соңғылар” түймесін түртіп ұстап тұрыңыз.</string>
     <string name="lock_to_app_toast_locked">Бағдарламаны құлыптау режимі қосылды.</string>
     <string name="lock_to_app_start">Қолданба бекітілді.</string>
     <string name="lock_to_app_exit">Қолданба бекітуден алынып тасталды.</string>
@@ -2045,6 +2045,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Өзгерту</string>
     <string name="my_device">My phone</string>
     <string name="headset">Құлақшын</string>
+    <string name="my_phone">Телефон</string>
     <string name="bixby_edgecase_mpsm">“Қуатты барынша үнемдеу режимі” қосылған кезде Bixby пайдалану мүмкін емес.</string>
     <string name="bixby_edgecase_emergencymode">Bixby төтенше жағдай режимінде пайдалану мүмкін емес.</string>
     <string name="bixby_edgecase_kidsmode">Bixby балалар режимінде пайдалану мүмкін емес.</string>

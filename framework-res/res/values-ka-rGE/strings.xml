@@ -1329,7 +1329,7 @@
     <string name="lock_to_app_toast">ჩამაგრებული აპლიკაციის მოსახსნელად, ერთდროულად ხანგრძლივად დააჭირეთ კლავიშებს „ბოლოდროინდელები“ და „უკან“.</string>
     <string name="lock_to_app_toast_for_navibar">ჩამაგრებული აპლიკაციის მოსახსნელად, ერთდროულად ხანგრძლივად შეეხეთ ღილაკებს „ბოლოდროინდელები“ და „უკან“.</string>
     <string name="lock_to_app_toast_accessible">ჩამაგრებული აპლიკაციის მოსახსნელად, ხანგრძლივად დააჭირეთ ბოლოდროინდელთა ღილაკს.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">ჩამაგრებული აპლიკაციის მოსახსნელად, ხანგრძლივად შეეხეთ ბოლოდროინდელთა ღილაკს.</string>
     <string name="lock_to_app_toast_locked">აპლიკაციის ეკრანზე მიმაგრების რეჟიმი ჩაირთო.</string>
     <string name="lock_to_app_start">აპლიკაცია ჩამაგრდა.</string>
     <string name="lock_to_app_exit">აპლიკაციის ჩამაგრება მოიხსნა.</string>
@@ -2045,6 +2045,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">შეცვლა</string>
     <string name="my_device">My phone</string>
     <string name="headset">გარნიტურა</string>
+    <string name="my_phone">ტელეფონი</string>
     <string name="bixby_edgecase_mpsm">Bixby-ის გამოყენება შეუძლებელია, როდესაც ჩართულია „ენერგიის მაქსიმალური დაზოგვის რეჟიმი“.</string>
     <string name="bixby_edgecase_emergencymode">Bixby-ის გამოყენება „საგანგებო რეჟიმში“ შეუძლებელია.</string>
     <string name="bixby_edgecase_kidsmode">Bixby-ის გამოყენება „საბავშვო რეჟიმში“ შეუძლებელია.</string>

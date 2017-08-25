@@ -1333,7 +1333,7 @@ Zkuste to znovu za %2$d sekund."</string>
     <string name="lock_to_app_toast">Chcete-li aplikaci odepnout, současně stiskněte a přidržte tlačítka Poslední a Zpět.</string>
     <string name="lock_to_app_toast_for_navibar">Chcete-li aplikaci odepnout, současně se dotkněte tlačítek Poslední a Zpět a přidržte je.</string>
     <string name="lock_to_app_toast_accessible">Chcete-li aplikaci odepnout, stiskněte a přidržte tlačítko Poslední.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Chcete-li aplikaci odepnout, dotkněte se tlačítka Poslední a přidržte ho.</string>
     <string name="lock_to_app_toast_locked">Byl zapnut režim Zamknutí s aplikací.</string>
     <string name="lock_to_app_start">Aplikace byla připnuta.</string>
     <string name="lock_to_app_exit">Aplikace byla odepnuta.</string>
@@ -2049,6 +2049,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Změnit</string>
     <string name="my_device">My phone</string>
     <string name="headset">Náhlavní souprava</string>
+    <string name="my_phone">Telefon</string>
     <string name="bixby_edgecase_mpsm">Když je zapnutý Maximální úsporný režim, nelze použít Bixby.</string>
     <string name="bixby_edgecase_emergencymode">V Tísňovém režimu nelze použít Bixby.</string>
     <string name="bixby_edgecase_kidsmode">V režimu Děti nelze použít Bixby.</string>

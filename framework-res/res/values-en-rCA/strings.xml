@@ -46,6 +46,7 @@
     <string name="sec_immersive_cling_help_text_additional_land90">"However you're holding your phone, the buttons will always be located next to the charging port. When your phone is rotated counterclockwise, swipe left from the edge of the screen as shown by the arrow."</string>
     <string name="sec_immersive_cling_help_text_additional_land270">"However you're holding your phone, the buttons will always be located next to the charging port. When your phone is rotated clockwise, swipe right from the edge of the screen as shown by the arrow."</string>
     <string name="lock_to_app_toast">To unpin an app, press and hold the Recents and Back keys at the same time.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">To unpin the app, touch and hold Recents button.</string>
     <string name="clipboard_exceed_text_size">"Can't copy. Text too long."</string>
     <string name="clipboard_restrict">Security policy restricts use of clipboard.</string>
     <string name="hdmi_connect">HDMI connected.</string>
@@ -96,6 +97,7 @@
     <string name="multisound_hun_change">Change</string>
     <string name="my_device">My phone</string>
     <string name="headset">Headset</string>
+    <string name="my_phone">Phone</string>
     <string name="bixby_edgecase_mpsm">"Can't use Bixby while Maximum power saving mode is on."</string>
     <string name="bixby_edgecase_emergencymode">"Can't use Bixby in Emergency mode."</string>
     <string name="bixby_edgecase_kidsmode">"Can't use Bixby in Kids Mode."</string>

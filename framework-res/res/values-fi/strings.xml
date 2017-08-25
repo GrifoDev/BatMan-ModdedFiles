@@ -1333,7 +1333,7 @@ Yritä %2$d sekunnin kuluttua uudelleen."</string>
     <string name="lock_to_app_toast">Voit poistaa sovelluksen kiinnityksen pitämällä viimeksi käytettyjen sovellusten näppäintä ja paluunäppäintä samanaikaisesti painettuina.</string>
     <string name="lock_to_app_toast_for_navibar">Voit poistaa sovelluksen kiinnityksen pitämällä viimeksi käytettyjen sovellusten painiketta ja paluupainiketta samanaikaisesti painettuina.</string>
     <string name="lock_to_app_toast_accessible">Voit poistaa sovelluksen kiinnityksen pitämällä viimeksi käytettyjen sovellusten näppäintä painettuna.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Voit poistaa sovelluksen kiinnityksen pitämällä viim. käyt. sovell. pain. painettuna.</string>
     <string name="lock_to_app_toast_locked">Sovelluksen lukitustila on käytössä.</string>
     <string name="lock_to_app_start">Sovellus kiinnitetty.</string>
     <string name="lock_to_app_exit">Sovellus irrotettu.</string>
@@ -2049,6 +2049,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Vaihda</string>
     <string name="my_device">My phone</string>
     <string name="headset">Kuulokemikrofoni</string>
+    <string name="my_phone">Puhelin</string>
     <string name="bixby_edgecase_mpsm">Bixbyä ei voi käyttää, kun maksimivirransäästötila on käytössä.</string>
     <string name="bixby_edgecase_emergencymode">Bixbyä ei voi käyttää hätätilassa.</string>
     <string name="bixby_edgecase_kidsmode">Bixbyä ei voi käyttää Lasten tilassa.</string>

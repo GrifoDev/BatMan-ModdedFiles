@@ -1333,7 +1333,7 @@ Prøv på nytt om %2$d sekunder."</string>
     <string name="lock_to_app_toast">For å løsne appen trykker du på og holder inne nylig- og tilbaketastene samtidig.</string>
     <string name="lock_to_app_toast_for_navibar">For å løsne appen trykker du på og holder inne nylig- og tilbakeknappene samtidig.</string>
     <string name="lock_to_app_toast_accessible">For å løsne appen trykker du på og holder inne nyligtasten.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">For å løsne en app trykker du på og holder inne nyligknappen.</string>
     <string name="lock_to_app_toast_locked">Lås til app-modus er blitt aktivert.</string>
     <string name="lock_to_app_start">Appen er festet.</string>
     <string name="lock_to_app_exit">Appen er løsnet.</string>
@@ -2050,6 +2050,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Endre</string>
     <string name="my_device">My phone</string>
     <string name="headset">Hodesett</string>
+    <string name="my_phone">Telefon</string>
     <string name="bixby_edgecase_mpsm">Kan ikke bruke Bixby mens Maksimal strømsparingsmodus er på.</string>
     <string name="bixby_edgecase_emergencymode">Kan ikke bruke Bixby i Nødmodus.</string>
     <string name="bixby_edgecase_kidsmode">Kan ikke bruke Bixby i Barnemodus.</string>

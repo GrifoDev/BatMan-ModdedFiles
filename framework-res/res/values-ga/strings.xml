@@ -696,7 +696,7 @@ Triail arís i gceann %2$d soicind."</string>
     <string name="lock_to_app_toast">Le feidhmchlár a dhíphionnáil, brúigh agus coinnigh na heochracha Le déanaí agus Siar ag an am céanna.</string>
     <string name="lock_to_app_toast_for_navibar">Le feidhmchlár a dhíphionnáil, tadhaill agus coinnigh na cnaipí Le déanaí agus Siar ag an am céanna.</string>
     <string name="lock_to_app_toast_accessible">Le feidhmchlár a dhíphionnáil, brúigh agus coinnigh an eochair Le déanaí.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Le feidhmchlár a dhíphionnáil, tadhaill agus coinnigh an cnaipe Le déanaí.</string>
     <string name="lock_to_app_toast_locked">Mód glasála le feidhmchlár cumasaithe.</string>
     <string name="lock_to_app_start">Feidhmchlár pionnáilte.</string>
     <string name="lock_to_app_exit">Feidhmchlár díphionnáilte.</string>
@@ -1347,6 +1347,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Athraigh</string>
     <string name="my_device">My phone</string>
     <string name="headset">Gléas cinn</string>
+    <string name="my_phone">Fón</string>
     <string name="bixby_edgecase_mpsm">Ní féidir Bixby a úsáid agus Uasmhód coigilte cumhachta casta air.</string>
     <string name="bixby_edgecase_emergencymode">Ní féidir Bixby a úsáid i Mód éigeandála.</string>
     <string name="bixby_edgecase_kidsmode">Ní féidir Bixby a úsáid i Mód Leanaí.</string>

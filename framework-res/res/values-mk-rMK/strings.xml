@@ -1327,7 +1327,7 @@
     <string name="lock_to_app_toast">За да откачите апликација, притиснете и држете ги копчињата Последни и Назад истовремено.</string>
     <string name="lock_to_app_toast_for_navibar">За да откачите апликација, допрете и држете ги копчињата Последни и Назад истовремено.</string>
     <string name="lock_to_app_toast_accessible">За да откачите апликација, притиснете го и држете го копчето последни.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">За да откачите апликација, допрете и држете го копчето Последни.</string>
     <string name="lock_to_app_toast_locked">Вклучен е режимот за заклучување во апликација.</string>
     <string name="lock_to_app_start">Апликацијата е закачена.</string>
     <string name="lock_to_app_exit">Апликацијата е откачена.</string>
@@ -2043,6 +2043,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Смени</string>
     <string name="my_device">My phone</string>
     <string name="headset">Слушалки</string>
+    <string name="my_phone">Телефон</string>
     <string name="bixby_edgecase_mpsm">Не може да се користи Bixby додека е вклучен Режим за максимално штедење енергија.</string>
     <string name="bixby_edgecase_emergencymode">Не може да се користи Bixby во Итен режим.</string>
     <string name="bixby_edgecase_kidsmode">Не може да се користи Bixby во Детски режим.</string>

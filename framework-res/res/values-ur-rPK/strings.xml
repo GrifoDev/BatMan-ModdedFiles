@@ -1328,7 +1328,7 @@
     <string name="lock_to_app_toast">ایپلیکیشن کو ان پن کرنے کے لیے، حالیہ اور پیچھے کی کلید کو ایک ہی ساتھ دبا کر ہولڈ کریں۔</string>
     <string name="lock_to_app_toast_for_navibar">ایپلیکیشن کو ان پن کرنے کے لیے، حالیہ اور پیچھے کے بٹن کو ایک ہی ساتھ دبا کر ہولڈ کریں۔</string>
     <string name="lock_to_app_toast_accessible">اس ایپلیکیشن کو ان پن کرنے کے لیے، حالیہ کلید کو دبائیں اور ہولڈ کریں۔</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">ایپلیکیشن ان پن کرنے کے لیے، حالیہ بٹن ٹچ کرکے ہولڈ کریں۔</string>
     <string name="lock_to_app_toast_locked">ایپ پر مقفل موڈ فعال کر دیا گیا ہے۔</string>
     <string name="lock_to_app_start">ایپلیکیشن کو پن کیا گیا۔</string>
     <string name="lock_to_app_exit">ایپلیکیشن کو ان پن کیا گیا۔</string>
@@ -2042,6 +2042,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">تبدیل</string>
     <string name="my_device">My phone</string>
     <string name="headset">ہیڈسیٹ</string>
+    <string name="my_phone">فون</string>
     <string name="bixby_edgecase_mpsm">زیادہ سے زیادہ پاور بچت موڈ کے آن ہونے پر Bixby استعمال نہیں کرسکتے۔</string>
     <string name="bixby_edgecase_emergencymode">ایمرجنسی موڈ میں Bixby استعمال نہیں کرسکتے۔</string>
     <string name="bixby_edgecase_kidsmode">کڈز موڈ میں Bixby استعمال نہیں کرسکتے۔</string>

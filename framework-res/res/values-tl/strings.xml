@@ -1333,7 +1333,7 @@ Subukang muli pagkatapos ng %2$d segundo."</string>
     <string name="lock_to_app_toast">Para i-unpin ang app, i-press at i-hold ang Recents at Back key nang sabay.</string>
     <string name="lock_to_app_toast_for_navibar">Para i-unpin ang app, i-touch at i-hold ang Recents at Back button nang sabay.</string>
     <string name="lock_to_app_toast_accessible">Para mag-unpin ng application, pindutin at i-hold ang mga recent key.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Para i-unpin ang app, i-touch at i-hold ang Recents button.</string>
     <string name="lock_to_app_toast_locked">Pinagana na ang mode na lock-to-app.</string>
     <string name="lock_to_app_start">Naka-pin ang app</string>
     <string name="lock_to_app_exit">Naka-unpin ang app</string>
@@ -2050,6 +2050,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Baguhin</string>
     <string name="my_device">My phone</string>
     <string name="headset">Headset</string>
+    <string name="my_phone">Telepono</string>
     <string name="bixby_edgecase_mpsm">Hindi magagamit ang Bixby habang naka-on ang Maximum power saving mode.</string>
     <string name="bixby_edgecase_emergencymode">Hindi magagamit ang Bixby sa Emergency mode.</string>
     <string name="bixby_edgecase_kidsmode">Hindi magagamit ang Bixby sa Kids Mode.</string>

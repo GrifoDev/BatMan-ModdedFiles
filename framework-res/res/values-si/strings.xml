@@ -697,7 +697,7 @@
     <string name="lock_to_app_toast">යෙදුම නොඇමිණීමට, මෑත සහ ආපසු යතුරු එකවර ඔබාගෙන සිටින්න.</string>
     <string name="lock_to_app_toast_for_navibar">යෙදුම නොඇමිණීමට, මෑත සහ ආපසු බොත්තම් එකවර ස්පර්ශ කර අල්ලාගෙන සිටින්න.</string>
     <string name="lock_to_app_toast_accessible">මෙම යෙදුම පින් කිරීමෙන් ඉවත් කිරීමට, මෑත යතුර ඔබාගෙන සිටින්න.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">යෙදුම නොඇමිණීමට, මෑත බොත්තම ස්පර්ශ කර අල්ලාගෙන සිටින්න.</string>
     <string name="lock_to_app_toast_locked">යෙදුමට-අගුල ප්‍රකාරය සක්‍රිය කර ඇත.</string>
     <string name="lock_to_app_start">යෙදුම ඇමිනිණි.</string>
     <string name="lock_to_app_exit">යෙදුම ඇමිණීමෙන් ඉවත් කෙරිණි.</string>
@@ -1346,6 +1346,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">වෙනස් කරන්න</string>
     <string name="my_device">My phone</string>
     <string name="headset">හෙඩ්සෙටය</string>
+    <string name="my_phone">දුරකථනය</string>
     <string name="bixby_edgecase_mpsm">උපරිම බල සුරැකුම් ප්‍රකාරය ක්‍රියාත්මක අතරේ Bixby භාවිතා කළ නොහැක.</string>
     <string name="bixby_edgecase_emergencymode">හදිසි ප්‍රකාරය තුළ Bixby භාවිතා කළ නොහැක.</string>
     <string name="bixby_edgecase_kidsmode">ළමා ප්‍රකාරය තුළ Bixby භාවිතා කළ නොහැක.</string>

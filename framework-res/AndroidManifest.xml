@@ -1022,7 +1022,6 @@
     <protected-broadcast android:name="ACTION_REQUEST_FORCE_SPN_UPDATE"/>
     <protected-broadcast android:name="com.samsung.systemui.power.action.ACTION_BATTERY_LOW_CLOSE_BUTTON"/>
     <protected-broadcast android:name="com.samsung.systemui.power.action.ACTION_BATTERY_CLOSE_SAVER_RECOMMEND"/>
-    <protected-broadcast android:name="com.samsung.systemui.power.action.ACTION_BATTERY_SAVER_RECOMMEND_DISMISSED"/>
     <protected-broadcast android:name="com.samsung.Keyguard.UNLOCK_FMM_ALERT"/>
     <protected-broadcast android:name="com.sec.android.FindingLostPhonePlus.RELEASE"/>
     <protected-broadcast android:name="com.samsung.systemui.statusbar.action.FLASHLIGHT_OFF"/>

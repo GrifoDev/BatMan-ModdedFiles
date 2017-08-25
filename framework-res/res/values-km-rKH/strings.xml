@@ -1329,7 +1329,7 @@
     <string name="lock_to_app_toast">ដើម្បី​ឈប់ខ្ទាស់​កម្មវិធី សូម​ចុច​ឲ្យជាប់​លើ​គ្រាប់ចុច​ថ្មីៗ​និង​គ្រាប់ចុច​ថយ​ក្នុង​ពេល​តែមួយ។</string>
     <string name="lock_to_app_toast_for_navibar">ដើម្បី​ឈប់ខ្ទាស់​កម្មវិធី សូម​ប៉ះ​ឲ្យជាប់​លើ​គ្រាប់ចុច​ថ្មីៗ​និង​គ្រាប់ចុច​ថយ​ក្នុង​ពេល​តែមួយ។</string>
     <string name="lock_to_app_toast_accessible">ដើម្បី​ឈប់​ខ្ទាស់​កម្មវិធី សូម​ចុច​ឲ្យ​ជាប់​លើ​គ្រាប់ចុច​ថ្មីៗ។</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">ដើម្បី​ឈប់​ខ្ទាស់​កម្មវិធី សូម​ប៉ះ​ឲ្យ​ជាប់​លើ​ប៊ូតុង​ថ្មីៗ។</string>
     <string name="lock_to_app_toast_locked">បាន​បើកប្រើ​ទម្រង់​ចាក់សោ​ចំពោះ​កម្មវិធី។</string>
     <string name="lock_to_app_start">បាន​ខ្ទាស់​កម្មវិធី។</string>
     <string name="lock_to_app_exit">បាន​ឈប់​ខ្ទាស់​កម្មវិធី។</string>
@@ -2046,6 +2046,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">ប្តូរ</string>
     <string name="my_device">My phone</string>
     <string name="headset">កាស</string>
+    <string name="my_phone">ទូរសព្ទ</string>
     <string name="bixby_edgecase_mpsm">មិន​អាច​ប្រើ Bixby ខណៈពេល​បាន​បើក​ទម្រង់​សំចៃ​ថាមពល​អតិបរមា។</string>
     <string name="bixby_edgecase_emergencymode">មិន​អាច​ប្រើ Bixby ក្នុង​ទម្រង់​អាសន្ន។</string>
     <string name="bixby_edgecase_kidsmode">មិន​អាច​ប្រើ Bixby ក្នុង Kids Mode។</string>

@@ -1333,7 +1333,7 @@ Probeer het opnieuw over %2$d seconden."</string>
     <string name="lock_to_app_toast">Houd toetsen Recent en Terug tegelijk ingedrukt om app los te maken.</string>
     <string name="lock_to_app_toast_for_navibar">Tik tegelijk op de knoppen Recent en Terug en houd vast om app los te maken.</string>
     <string name="lock_to_app_toast_accessible">Houd de toets Recent ingedrukt om de applicatie los te maken.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Raak de toets Recent aan en houd vast om app los te maken.</string>
     <string name="lock_to_app_toast_locked">Appvergrendelstand is ingeschakeld.</string>
     <string name="lock_to_app_start">App vastgemaakt.</string>
     <string name="lock_to_app_exit">App losgemaakt.</string>
@@ -2052,6 +2052,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Wijzigen</string>
     <string name="my_device">My phone</string>
     <string name="headset">Headset</string>
+    <string name="my_phone">Telefoon</string>
     <string name="bixby_edgecase_mpsm">Kan Bixby niet gebruiken terwijl Maximale spaarstand is ingeschakeld.</string>
     <string name="bixby_edgecase_emergencymode">Kan Bixby niet gebruiken in Alarmstand.</string>
     <string name="bixby_edgecase_kidsmode">Kan Bixby niet gebruiken in Kids-stand.</string>

@@ -1333,7 +1333,7 @@ Skúste to znova po uplynutí %2$d sekúnd."</string>
     <string name="lock_to_app_toast">Príslušnú aplikáciu môžete odopnúť súčasným stlačením a podržaním tlačidiel Nedávne a Späť.</string>
     <string name="lock_to_app_toast_for_navibar">Príslušnú aplikáciu môžete odopnúť súčasným dotykom a podržaním tlačidiel Nedávne a Späť.</string>
     <string name="lock_to_app_toast_accessible">Ak chcete príslušnú aplikáciu odopnúť, stlačte a podržte tlačidlo naposledy použitých aplikácií.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Aplikáciu môžete odopnúť dotykom a podržaním tlačidla Nedávne.</string>
     <string name="lock_to_app_toast_locked">Zapol sa režim zamknutia k aplikácii.</string>
     <string name="lock_to_app_start">Aplikácia sa pripla.</string>
     <string name="lock_to_app_exit">Aplikácia sa odopla.</string>
@@ -2050,6 +2050,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Zmeniť</string>
     <string name="my_device">My phone</string>
     <string name="headset">Náhlavná súprava</string>
+    <string name="my_phone">Telefón</string>
     <string name="bixby_edgecase_mpsm">Bixby sa nedá použiť, kým je zapnutý režim maximálneho šetrenia energie.</string>
     <string name="bixby_edgecase_emergencymode">Tiesňový režim nepodporuje funkciu Bixby.</string>
     <string name="bixby_edgecase_kidsmode">Detský režim nepodporuje funkciu Bixby.</string>

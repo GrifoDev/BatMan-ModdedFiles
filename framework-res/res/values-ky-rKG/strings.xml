@@ -1328,7 +1328,7 @@
     <string name="lock_to_app_toast">Колдонмону тиркөөдөн алып салуу үчүн Жакынкылар жана Артка баскычтарын бир убакта басып, кармап туруңуз.</string>
     <string name="lock_to_app_toast_for_navibar">Колдонмону тиркөөдөн алып салуу үчүн Жакынкылар жана Артка баскычтарын бир убакта басып, кармап туруңуз.</string>
     <string name="lock_to_app_toast_accessible">Колдонмону тиркөөдөн алып салуу үчүн жакынкыларды басып, кармап туруңуз.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Колдонмону тиркөөдөн чыгарууга, Жакынкылар баскычын басып, кармап туруңуз.</string>
     <string name="lock_to_app_toast_locked">Колдонмого-кулпулоо режими иштетилди.</string>
     <string name="lock_to_app_start">Колдонмо кадалды.</string>
     <string name="lock_to_app_exit">Колдонмо кадоодон алынды.</string>
@@ -2042,6 +2042,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Өзгөртүү</string>
     <string name="my_device">My phone</string>
     <string name="headset">Гарнитура</string>
+    <string name="my_phone">Телефон</string>
     <string name="bixby_edgecase_mpsm">Максималдык кубат үнөмдөө режиминде Bixby колдонулбайт.</string>
     <string name="bixby_edgecase_emergencymode">Шашылыш кырдаал режиминде Bixby колдонулбайт.</string>
     <string name="bixby_edgecase_kidsmode">Балдар режиминде Bixby колдонулбайт.</string>

@@ -1333,7 +1333,7 @@ Mēģiniet vēlreiz pēc %3$d sekundēm."</string>
     <string name="lock_to_app_toast">Lai atspraustu programmu, vienlaikus nospiediet pēdējo lietoto programmu taustiņu un turiet un taustiņu Atpakaļ.</string>
     <string name="lock_to_app_toast_for_navibar">Lai atspraustu programmu, vienlaikus nospiediet pēdējo lietoto programmu taustiņu un turiet un taustiņu Atpakaļ.</string>
     <string name="lock_to_app_toast_accessible">Lai atspraustu programmu, nospiediet un turiet pēdējo lietoto programmu taustiņu.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Lai atspraustu programmu, pieskarieties pogai Pēdējās lietotās un turiet.</string>
     <string name="lock_to_app_toast_locked">Ir aktivizēts režīms Bloķēt programmā.</string>
     <string name="lock_to_app_start">Programma ir piesprausta.</string>
     <string name="lock_to_app_exit">Programma ir atsprausta.</string>
@@ -2052,6 +2052,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Mainīt</string>
     <string name="my_device">My phone</string>
     <string name="headset">Austiņas</string>
+    <string name="my_phone">Tālrunis</string>
     <string name="bixby_edgecase_mpsm">Bixby nevar izmantot, kamēr ir ieslēgts Maksimālais enerģijas taupīšanas režīms.</string>
     <string name="bixby_edgecase_emergencymode">Bixby nevar izmantot ārkārtas režīmā.</string>
     <string name="bixby_edgecase_kidsmode">Bixby nevar izmantot bērnu režīmā.</string>

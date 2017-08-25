@@ -1328,7 +1328,7 @@ Reyndu aftur eftir %2$d sekúndur."</string>
     <string name="lock_to_app_toast">Til að losa forrit skaltu halda takkanum fyrir nýlegt og bakktakkanum inni á sama tíma.</string>
     <string name="lock_to_app_toast_for_navibar">Til að losa forrit skaltu halda fingri á takkanum fyrir nýlegt og bakktakkanum á sama tíma.</string>
     <string name="lock_to_app_toast_accessible">Til að losa forrit skaltu halda takkanum fyrir nýlegt inni.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Til að losa forrit skaltu halda fingri á hnappinum fyrir nýlegt.</string>
     <string name="lock_to_app_toast_locked">Kveikt hefur verið á forritslæsingu.</string>
     <string name="lock_to_app_start">Forrit fest.</string>
     <string name="lock_to_app_exit">Forrit losað.</string>
@@ -2045,6 +2045,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Breyta</string>
     <string name="my_device">My phone</string>
     <string name="headset">Höfuðtól</string>
+    <string name="my_phone">Sími</string>
     <string name="bixby_edgecase_mpsm">Ekki er hægt að nota Bixby þegar kveikt er á hámarksofursparnaðarstillingu.</string>
     <string name="bixby_edgecase_emergencymode">Ekki er hægt að nota Bixby í neyðarstillingu.</string>
     <string name="bixby_edgecase_kidsmode">Ekki er hægt að nota Bixby í barnaútgáfu.</string>

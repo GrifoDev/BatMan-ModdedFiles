@@ -1333,7 +1333,7 @@
     <string name="lock_to_app_toast">Για να ξεκαρφιτσώσετε μια εφαρμογή, πιέστε παρατεταμένα τα πλήκτρα «Πρόσφατα» και «Πίσω» ταυτόχρονα.</string>
     <string name="lock_to_app_toast_for_navibar">Για να ξεκαρφιτσώσετε μια εφαρμογή, πατήστε παρατεταμένα τα κουμπιά «Πρόσφατα» και «Πίσω» ταυτόχρονα.</string>
     <string name="lock_to_app_toast_accessible">Για να ξεκαρφιτσώσετε την εφαρμογή, πιέστε παρατεταμένα το πλήκτρο πρόσφατων.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Για το ξεκαρφίτσωμα της εφαρμογής, αγγίξτε παρατεταμένα το κουμπί «Πρόσφατα».</string>
     <string name="lock_to_app_toast_locked">Ενεργοποιήθηκε η λειτουργία κλειδώματος σε εφαρμογή.</string>
     <string name="lock_to_app_start">Η εφαρμογή καρφιτσώθηκε.</string>
     <string name="lock_to_app_exit">Η εφαρμογή ξεκαρφιτσώθηκε.</string>
@@ -2050,6 +2050,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Αλλαγή</string>
     <string name="my_device">My phone</string>
     <string name="headset">Σετ ακουστικών</string>
+    <string name="my_phone">Τηλέφωνο</string>
     <string name="bixby_edgecase_mpsm">Δεν είναι δυνατή η χρήση του Bixby όσο είναι ενεργή η λειτουργία μέγιστης εξοικονόμησης ενέργειας.</string>
     <string name="bixby_edgecase_emergencymode">Δεν είναι δυνατή η χρήση του Bixby στη Λειτουργία έκτακτης ανάγκης.</string>
     <string name="bixby_edgecase_kidsmode">Δεν είναι δυνατή η χρήση του Bixby στη Λειτουργία για παιδιά.</string>

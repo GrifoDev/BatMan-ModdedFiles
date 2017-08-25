@@ -1333,7 +1333,7 @@ Inténtelo de nuevo en %2$d segundos."</string>
     <string name="lock_to_app_toast">Para desanclar la aplicación, mantenga presionadas las teclas Reciente y Atrás al mismo tiempo.</string>
     <string name="lock_to_app_toast_for_navibar">Para desanclar la aplicación, mantenga pulsados los botones Reciente y Atrás al mismo tiempo.</string>
     <string name="lock_to_app_toast_accessible">Para desanclar la aplicación, mantenga presionada la tecla Reciente.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Para desanclar la aplicación, mantenga pulsado el botón Reciente.</string>
     <string name="lock_to_app_toast_locked">Se activó el modo Fijar a la aplicación.</string>
     <string name="lock_to_app_start">Aplicación anclada.</string>
     <string name="lock_to_app_exit">Aplicación desanclada.</string>
@@ -2049,6 +2049,7 @@ Para desanclar una aplicación, mantenga presionada la tecla Menú."</string>
     <string name="multisound_hun_change">Cambiar</string>
     <string name="my_device">Mi teléfono</string>
     <string name="headset">Auricular</string>
+    <string name="my_phone">Teléfono</string>
     <string name="bixby_edgecase_mpsm">No es posible usar Bixby con el modo Ahorro de energía máximo activado.</string>
     <string name="bixby_edgecase_emergencymode">No es posible usar Bixby en el modo Emergencia.</string>
     <string name="bixby_edgecase_kidsmode">No es posible usar Bixby en el modo Niños.</string>

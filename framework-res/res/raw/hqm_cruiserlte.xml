@@ -231,45 +231,107 @@
     <!-- Device : Battery -->
     <hwparam_info compID="Battery" feature="BATT" hitType="sm" compVer="0.0" compManufacture="" order_compID="6" order_feature="1" >
         <sysfs_node type="M" key="CISD" value="/sys/class/power_supply/battery/cisd_data_json" clear="0" >
+            <key_info keyname="RESET_ALG" min="" max="" desc1="reset alg flag" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="ALG_INDEX" min="" max="" desc1="alg index" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="FULL_CNT" min="" max="" desc1="battery full count" desc2="" desc3="" desc4="" type1="1" type2="99" />
             <key_info keyname="CAP_MAX" min="2800" max="5000" desc1="battery fullcap max" desc2="" desc3="" desc4="" type1="1" type2="99" />
             <key_info keyname="CAP_MIN" min="2800" max="5000" desc1="battery fullcap min" desc2="" desc3="" desc4="" type1="1" type2="99" />
-            <key_info keyname="CAP_ONCE" min="2800" max="5000" desc1="battery fullcap once" desc2="" desc3="" desc4="" type1="1" type2="99" />
-            <key_info keyname="FULL_COUNT" min="" max="" desc1="battery full count" desc2="" desc3="" desc4="" type1="1" type2="99" />
-            <key_info keyname="ERRCAP_LOW" min="" max="" desc1="battery fullcap 4000 count" desc2="" desc3="" desc4="" type1="1" type2="99" />
-            <key_info keyname="ERRCAP_HIGH" min="" max="" desc1="battery fullcap 4500 count" desc2="" desc3="" desc4="" type1="1" type2="99" />
-            <key_info keyname="OVER_VOLTAGE" min="" max="" desc1="battery overvoltage count" desc2="" desc3="" desc4="" type1="1" type2="99" />
-            <key_info keyname="VALERT_COUNT" min="" max="" desc1="battery lowvoltage count" desc2="" desc3="" desc4="" type1="1" type2="99" />
-            <key_info keyname="LEAKAGE_A" min="" max="" desc1="battery leakage A count" desc2="" desc3="" desc4="" type1="1" type2="99" />
-            <key_info keyname="LEAKAGE_B" min="" max="" desc1="battery leakage B count" desc2="" desc3="" desc4="" type1="1" type2="99" />
-            <key_info keyname="LEAKAGE_C" min="" max="" desc1="battery leakage C count" desc2="" desc3="" desc4="" type1="1" type2="99" />
-            <key_info keyname="LEAKAGE_D" min="" max="" desc1="battery leakage D count" desc2="" desc3="" desc4="" type1="1" type2="99" />
-            <key_info keyname="LEAKAGE_E" min="" max="" desc1="battery leakage E count" desc2="" desc3="" desc4="" type1="1" type2="99" />
-            <key_info keyname="LEAKAGE_F" min="" max="" desc1="battery leakage F count" desc2="" desc3="" desc4="" type1="1" type2="99" />
-            <key_info keyname="LEAKAGE_G" min="" max="" desc1="battery leakage G count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="RECHARGING_CNT" min="0" max="" desc1="battery fullcap once" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="VALERT_CNT" min="" max="" desc1="battery lowvoltage count" desc2="" desc3="" desc4="" type1="1" type2="99" />
             <key_info keyname="BATT_CYCLE" min="" max="" desc1="battery cycle" desc2="" desc3="" desc4="" type1="1" type2="99" />
-            <key_info keyname="WIRE_COUNT" min="" max="" desc1="wired charging count" desc2="" desc3="" desc4="" type1="1" type2="99" />
-            <key_info keyname="WIRELESS_COUNT" min="" max="" desc1="wireless charging count" desc2="" desc3="" desc4="" type1="1" type2="99" />
-            <key_info keyname="HIGH_SWELLING_COUNT" min="" max="" desc1="high swelling count" desc2="" desc3="" desc4="" type1="1" type2="99" />
-            <key_info keyname="LOW_SWELLING_COUNT" min="" max="" desc1="low swelling count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="WIRE_CNT" min="" max="" desc1="wired charging count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="WIRELESS_CNT" min="" max="" desc1="wireless charging count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="HIGH_SWELLING_CNT" min="" max="" desc1="high swelling count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="LOW_SWELLING_CNT" min="" max="" desc1="low swelling count" desc2="" desc3="" desc4="" type1="1" type2="99" />
             <key_info keyname="SWELLING_CHARGING" min="" max="" desc1="swelling charging count" desc2="" desc3="" desc4="" type1="1" type2="99" />
-            <key_info keyname="SAFETY_TIMER_3" min="" max="" desc1="safety timer 3 count" desc2="" desc3="" desc4="" type1="1" type2="99" />
-            <key_info keyname="SAFETY_TIMER_5" min="" max="" desc1="safety timer 5 count" desc2="" desc3="" desc4="" type1="1" type2="99" />
-            <key_info keyname="SAFETY_TIMER_10" min="" max="" desc1="safety timer 10 count" desc2="" desc3="" desc4="" type1="1" type2="99" />
-            <key_info keyname="AICL_COUNT" min="" max="" desc1="aicl count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="SWELLING_FULL_CNT" min="" max="" desc1="swelling full count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="SWELLING_RECOVERY_CNT" min="" max="" desc1="swelling recovery count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="AICL_CNT" min="" max="" desc1="aicl count" desc2="" desc3="" desc4="" type1="1" type2="99" />
             <key_info keyname="BATT_THM_MAX" min="" max="" desc1="batt_thm max value" desc2="" desc3="" desc4="" type1="1" type2="99" />
             <key_info keyname="BATT_THM_MIN" min="" max="" desc1="batt_thm min value" desc2="" desc3="" desc4="" type1="1" type2="99" />
             <key_info keyname="CHG_THM_MAX" min="" max="" desc1="chg_thm max value" desc2="" desc3="" desc4="" type1="1" type2="99" />
             <key_info keyname="CHG_THM_MIN" min="" max="" desc1="chg_thm min value" desc2="" desc3="" desc4="" type1="1" type2="99" />
             <key_info keyname="WPC_THM_MAX" min="" max="" desc1="wpc_thm max value" desc2="" desc3="" desc4="" type1="1" type2="99" />
             <key_info keyname="WPC_THM_MIN" min="" max="" desc1="wpc_thm min value" desc2="" desc3="" desc4="" type1="1" type2="99" />
-            <key_info keyname="UNSAFE_VOLTAGE" min="" max="" desc1="unsafe voltage count" desc2="" desc3="" desc4="" type1="1" type2="99" />
-            <key_info keyname="UNSAFE_TEMPERATURE" min="" max="" desc1="unsafe temperature count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="USB_THM_MAX" min="" max="" desc1="usb_thm max value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="USB_THM_MIN" min="" max="" desc1="usb_thm min value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_BATT_THM_MAX" min="" max="" desc1="during charging batt_thm max value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_BATT_THM_MIN" min="" max="" desc1="during chargingbatt_thm min value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_CHG_THM_MAX" min="" max="" desc1="during chargingchg_thm max value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_CHG_THM_MIN" min="" max="" desc1="during chargingchg_thm min value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_WPC_THM_MAX" min="" max="" desc1="during chargingwpc_thm max value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_WPC_THM_MIN" min="" max="" desc1="during chargingwpc_thm min value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_USB_THM_MAX" min="" max="" desc1="during charging usb_thm max value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_USB_THM_MIN" min="" max="" desc1="during charging usb_thm min value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="USB_OVERHEAT_CHARGING" min="0" max="" desc1="usb thm over60 count during charging" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="UNSAFETY_VOLT" min="" max="" desc1="unsafe voltage count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="UNSAFETY_TEMP" min="" max="" desc1="unsafe temperature count" desc2="" desc3="" desc4="" type1="1" type2="99" />
             <key_info keyname="SAFETY_TIMER" min="" max="" desc1="safety timer expired count" desc2="" desc3="" desc4="" type1="1" type2="99" />
             <key_info keyname="VSYS_OVP" min="" max="" desc1="vsys ovp count" desc2="" desc3="" desc4="" type1="1" type2="99" />
             <key_info keyname="VBAT_OVP" min="" max="" desc1="vbat ovp count" desc2="" desc3="" desc4="" type1="1" type2="99" />
-            <key_info keyname="WATER_DETECT" min="" max="" desc1="water detect count" desc2="" desc3="" desc4="" type1="1" type2="99" />
             <key_info keyname="AFC_FAIL" min="" max="" desc1="wired afc fail count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="BUCK_OFF" min="" max="" desc1="buck off count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="WATER_DET" min="" max="" desc1="water detect count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="DROP_SENSOR" min="" max="" desc1="drop sensor" desc2="" desc3="" desc4="" type1="1" type2="99" />
+         </sysfs_node>
+    </hwparam_info>
+
+    <hwparam_info compID="Battery" feature="BATD" hitType="sm" compVer="0.0" compManufacture="" order_compID="6" order_feature="2" >
+        <sysfs_node type="M" key="CISD_D" value="/sys/class/power_supply/battery/cisd_data_d_json" clear="0" >
+            <key_info keyname="FULL_CNT_D" min="" max="" desc1="battery full count per day" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CAP_MAX_D" min="2800" max="5000" desc1="battery fullcap max" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CAP_MIN_D" min="2800" max="5000" desc1="battery fullcap min" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="RECHARGING_CNT_D" min="0" max="" desc1="battery fullcap once" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="VALERT_CNT_D" min="" max="" desc1="battery lowvoltage count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="WIRE_CNT_D" min="" max="" desc1="wired charging count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="WIRELESS_CNT_D" min="" max="" desc1="wireless charging count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="HIGH_SWELLING_CNT_D" min="" max="" desc1="high swelling count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="LOW_SWELLING_CNT_D" min="" max="" desc1="low swelling count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="SWELLING_CHARGING_D" min="" max="" desc1="swelling charging count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="SWELLING_FULL_CNT_D" min="" max="" desc1="swelling full count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="SWELLING_RECOVERY_CNT_D" min="" max="" desc1="swelling recovery count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="AICL_CNT_D" min="" max="" desc1="aicl count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="BATT_THM_MAX_D" min="" max="" desc1="batt_thm max value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="BATT_THM_MIN_D" min="" max="" desc1="batt_thm min value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_THM_MAX_D" min="" max="" desc1="chg_thm max value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_THM_MIN_D" min="" max="" desc1="chg_thm min value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="WPC_THM_MAX_D" min="" max="" desc1="wpc_thm max value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="WPC_THM_MIN_D" min="" max="" desc1="wpc_thm min value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="USB_THM_MAX_D" min="" max="" desc1="usb_thm max value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="USB_THM_MIN_D" min="" max="" desc1="usb_thm min value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_BATT_THM_MAX_D" min="" max="" desc1="during charging batt_thm max value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_BATT_THM_MIN_D" min="" max="" desc1="during chargingbatt_thm min value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_CHG_THM_MAX_D" min="" max="" desc1="during chargingchg_thm max value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_CHG_THM_MIN_D" min="" max="" desc1="during chargingchg_thm min value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_WPC_THM_MAX_D" min="" max="" desc1="during chargingwpc_thm max value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_WPC_THM_MIN_D" min="" max="" desc1="during chargingwpc_thm min value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_USB_THM_MAX_D" min="" max="" desc1="during charging usb_thm max value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="CHG_USB_THM_MIN_D" min="" max="" desc1="during charging usb_thm min value" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="USB_OVERHEAT_CHARGING_D" min="0" max="" desc1="usb thm over60 count during charging" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="UNSAFETY_VOLT_D" min="" max="" desc1="unsafe voltage count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="UNSAFETY_TEMP_D" min="" max="" desc1="unsafe temperature count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="SAFETY_TIMER_D" min="" max="" desc1="safety timer expired count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="VSYS_OVP_D" min="" max="" desc1="vsys ovp count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="VBAT_OVP_D" min="" max="" desc1="vbat ovp count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="AFC_FAIL_D" min="" max="" desc1="wired afc fail count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="BUCK_OFF_D" min="" max="" desc1="buck off count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="WATER_DET_D" min="" max="" desc1="water detect count" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="DROP_SENSOR_D" min="" max="" desc1="drop sensor" desc2="" desc3="" desc4="" type1="1" type2="99" />
         </sysfs_node>
+    </hwparam_info>
+
+    <hwparam_info compID="Battery" feature="BATE" hitType="sm" compVer="0.0" compManufacture="" order_compID="6" order_feature="3" >
+        <sysfs_node type="M" key="CISD_WC" value="/sys/class/power_supply/battery/cisd_wc_data_json" clear="0" >
+            <key_info keyname="SNGL_NOBLE" min="" max="" desc1="SNGL_NOBLE PAD" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="SNGL_VEHICLE" min="" max="" desc1="SNGL_VEHICLE PAD" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="SNGL_MINI" min="" max="" desc1="SNGL_MINI PAD" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="SNGL_ZERO" min="" max="" desc1="SNGL_ZERO PAD" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="SNGL_DREAM" min="" max="" desc1="SNGL_DREAM PAD" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="STAND_HERO" min="" max="" desc1="STAND_HERO PAD" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="STAND_DREAM" min="" max="" desc1="STAND_DREAM PAD" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="EXT_PACK" min="" max="" desc1="EXT_PACK PAD" desc2="" desc3="" desc4="" type1="1" type2="99" />
+            <key_info keyname="EXT_PACK_TA" min="" max="" desc1="EXT_PACK_TA PAD" desc2="" desc3="" desc4="" type1="1" type2="99" />
+        </sysfs_node>    
         <sysfs_node type="S" key="BATTQR" value="/sys/class/power_supply/battery/batt_type" clear="0" >
             <key_info keyname="BATTQR" min="" max="" desc1="battery QR info" desc2="" desc3="" desc4="" type1="1" type2="10" />
         </sysfs_node>

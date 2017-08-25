@@ -1333,7 +1333,7 @@ Coba lagi dalam %3$d detik."</string>
     <string name="lock_to_app_toast">Untuk melepas sematan aplikasi, tekan dan tahan tombol Terbaru dan Kembali secara bersamaan.</string>
     <string name="lock_to_app_toast_for_navibar">Untuk melepas sematan aplikasi, tekan dan tahan tombol Terbaru dan Kembali secara bersamaan.</string>
     <string name="lock_to_app_toast_accessible">Untuk melepas sematan aplikasi, tekan dan tahan tombol terbaru.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Untuk melepaskan sematan aplikasi, sentuh dan tahan tombol Terkini.</string>
     <string name="lock_to_app_toast_locked">Mode Kunci-ke-aplikasi sudah diaktifkan.</string>
     <string name="lock_to_app_start">Aplikasi disematkan.</string>
     <string name="lock_to_app_exit">Sematan aplikasi dicabut.</string>
@@ -2050,6 +2050,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Mengubah</string>
     <string name="my_device">My phone</string>
     <string name="headset">Headset</string>
+    <string name="my_phone">Ponsel</string>
     <string name="bixby_edgecase_mpsm">Tidak dapat menggunakan Bixby saat Mode hemat daya maksimum aktif.</string>
     <string name="bixby_edgecase_emergencymode">Tidak dapat menggunakan Bixby dalam Mode darurat.</string>
     <string name="bixby_edgecase_kidsmode">Tidak dapat menggunakan Bixby di Mode Anak.</string>

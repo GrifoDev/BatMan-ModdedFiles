@@ -696,7 +696,7 @@
     <string name="lock_to_app_toast">Барои барномаро кандан, тугмаҳои Охиринҳо ва Қафоро якҷоя пахш карда нигоҳ доред.</string>
     <string name="lock_to_app_toast_for_navibar">Барои барномаро кандан, тугмаҳои Охиринҳо ва Қафоро якҷоя зарба зада нигоҳ доред.</string>
     <string name="lock_to_app_toast_accessible">Барои ҷудо кардани васли барнома, тугмаи охиринҳоро пахш карда нигоҳ доред.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Барои барномаро кандан, тугмаи Охиринҳоро пахш карда нигоҳ доред.</string>
     <string name="lock_to_app_toast_locked">Реҷаи банд ба барнома фаъол шуд.</string>
     <string name="lock_to_app_start">Барнома часпонда шуд.</string>
     <string name="lock_to_app_exit">Барнома канда шуд.</string>
@@ -1348,6 +1348,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Иваз кардан</string>
     <string name="my_device">My phone</string>
     <string name="headset">Гарнитура</string>
+    <string name="my_phone">Телефон</string>
     <string name="bixby_edgecase_mpsm">Ҳангоми фурӯзон будани реҷаи Сарфаи ҳадди аксари барқ истифодаи Bixby ғайриимкон аст.</string>
     <string name="bixby_edgecase_emergencymode">Истифодаи Bixby дар реҷаи Фавқулода ғайриимкон аст.</string>
     <string name="bixby_edgecase_kidsmode">Истифодаи Bixby дар реҷаи Кӯдакона ғайриимкон аст.</string>

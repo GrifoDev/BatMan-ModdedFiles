@@ -2045,6 +2045,7 @@ Memo"</string>
     <string name="multisound_hun_change">更改</string>
     <string name="my_device">我的手機</string>
     <string name="headset">耳機</string>
+    <string name="my_phone">手機</string>
     <string name="bixby_edgecase_mpsm">最大省電模式已開啟時無法使用 Bixby。</string>
     <string name="bixby_edgecase_emergencymode">在緊急模式中無法使用 Bixby。</string>
     <string name="bixby_edgecase_kidsmode">在孩童模式中無法使用 Bixby。</string>

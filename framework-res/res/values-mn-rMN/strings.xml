@@ -1329,7 +1329,7 @@
     <string name="lock_to_app_toast">Хэрэглүүрийг салгахдаа Сүүлийн товчийг Буцах товчтой зэрэг удаан дарна уу.</string>
     <string name="lock_to_app_toast_for_navibar">Хэрэглүүрийг салгахдаа Сүүлийн товчийг Буцах товчтой зэрэг удаан дарна уу.</string>
     <string name="lock_to_app_toast_accessible">Аппликейшн хатгахаа болих бол сүүлчийн товчийг удаан дарж хэсэг хугацаанд барь.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Хэрэглүүрийг салгахын тулд Саяхны товчийг товшоод удаан дарна уу.</string>
     <string name="lock_to_app_toast_locked">Аппад түгжих горимыг идэвхжүүлсэн.</string>
     <string name="lock_to_app_start">Хэрэглүүр бэхлэгдсэн.</string>
     <string name="lock_to_app_exit">Хэрэглүүрийг салгасан.</string>
@@ -2042,6 +2042,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Өөрчлөх</string>
     <string name="my_device">My phone</string>
     <string name="headset">Чихэвч</string>
+    <string name="my_phone">Утас</string>
     <string name="bixby_edgecase_mpsm">Тэжээлийг дээд зэргээр хэмнэх горим асаалттай үед Bixby ашиглах боломжгүй.</string>
     <string name="bixby_edgecase_emergencymode">Яаралтай тусламжийн горим дээр Bixby ашиглах боломжгүй.</string>
     <string name="bixby_edgecase_kidsmode">Хүүхдийн горим дээр Bixby ашиглах боломжгүй.</string>

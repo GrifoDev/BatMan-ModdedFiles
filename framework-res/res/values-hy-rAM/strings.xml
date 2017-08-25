@@ -1329,7 +1329,7 @@
     <string name="lock_to_app_toast">Ծրագրի ամրակցումը հանելու համար միաժամանակ սեղմեք և պահեք Վերջին օգտագործումների ու Վերադարձի ստեղները:</string>
     <string name="lock_to_app_toast_for_navibar">Ծրագրի ամրակցումը հանելու համար միաժամանակ հպեք և պահեք Վերջին օգտագործումների ու Վերադարձի կոճակները:</string>
     <string name="lock_to_app_toast_accessible">Ծրագրի ամրակցումը հանելու համար սեղմեք և պահեք վերջին օգտագործումների ստեղնը:</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Ծրագրի ամրակցումը հանելու համար հպեք և պահեք Վերջին օգտագործումների կոճակը:</string>
     <string name="lock_to_app_toast_locked">«Սևեռել ծրագրին» ռեժիմն ընձեռվել է:</string>
     <string name="lock_to_app_start">Ծրագիրն ամրակցվեց:</string>
     <string name="lock_to_app_exit">Ծրագրի ամրակցումը հանվեց:</string>
@@ -2046,6 +2046,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Փոփոխել</string>
     <string name="my_device">My phone</string>
     <string name="headset">Գլխային հեռախոս</string>
+    <string name="my_phone">Հեռախոս</string>
     <string name="bixby_edgecase_mpsm">Հնարավոր չէ օգտագործել Bixby, քանի դեռ Էներգիայի առավելագույն խնայման ռեժիմը միացված է:</string>
     <string name="bixby_edgecase_emergencymode">Հնարավոր չէ Bixby-ն օգտագործել Արտակարգ իրավիճակի ռեժիմում:</string>
     <string name="bixby_edgecase_kidsmode">Հնարավոր չէ Bixby-ն օգտագործել Երեխաների Ռեժիմում:</string>

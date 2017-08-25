@@ -1333,7 +1333,7 @@ Poskusite znova čez %3$d s."</string>
     <string name="lock_to_app_toast">Če želite odpeti aplikacijo, hkrati pritisnite in pridržite tipki Nedavno ter Nazaj.</string>
     <string name="lock_to_app_toast_for_navibar">Če želite odpeti aplikacijo, se dotaknite gumbov Nedavno in Nazaj ter ju pridržite.</string>
     <string name="lock_to_app_toast_accessible">Če želite odpeti aplikacijo, pritisnite in pridržite tipko za nedavna dejanja.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Če želite aplikacijo odpeti, pritisnite in pridržite gumb Nedavno.</string>
     <string name="lock_to_app_toast_locked">Način zaklepanja aplikacije je omogočen.</string>
     <string name="lock_to_app_start">Aplikacija je pripeta.</string>
     <string name="lock_to_app_exit">Aplikacija je odpeta.</string>
@@ -2049,6 +2049,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Zamenjaj</string>
     <string name="my_device">My phone</string>
     <string name="headset">Slušalke</string>
+    <string name="my_phone">Telefon</string>
     <string name="bixby_edgecase_mpsm">Aplikacije Bixby ni mogoče uporabljati, ko je vklopljen način največjega možnega varčevanja z energijo.</string>
     <string name="bixby_edgecase_emergencymode">Aplikacije Bixby ni mogoče uporabljati v načinu v sili.</string>
     <string name="bixby_edgecase_kidsmode">Aplikacije Bixby ni mogoče uporabljati v otroškem načinu.</string>

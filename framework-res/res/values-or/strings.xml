@@ -698,7 +698,7 @@
     <string name="lock_to_app_toast">ଆପ୍ଲିକେସନ୍ ଅନପିନ୍‌ କରିବାକୁ‌, ସମାନ ସମୟରେ ସମ୍ପ୍ରତି ଏବଂ ବ୍ୟାକ୍ କୀ ଦବାନ୍ତୁ ଏବଂ ଧରି ରଖନ୍ତୁ।</string>
     <string name="lock_to_app_toast_for_navibar">ଆପ୍ଲିକେସନ୍ ଅନପିନ୍‌ କରିବାକୁ‌, ସମାନ ସମୟରେ ସମ୍ପ୍ରତି ଏବଂ ବ୍ୟାକ୍ ବଟନ ଦବାନ୍ତୁ ଏବଂ ଧରି ରଖନ୍ତୁ।</string>
     <string name="lock_to_app_toast_accessible">ଏହି ଆପ୍ଲିକେସନ୍‍ ଅନପିନ୍ କରିବାକୁ, ସମ୍ପ୍ରତି କୀ ଦବାଇ ଧରି ରଖନ୍ତୁ।</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">ଆପ୍ଲିକେସନ୍ ଅନପିନ୍ କରିବାକୁ, ସମ୍ପ୍ରତି ବଟନ୍ ସ୍ପର୍ଶ କରି ଧରି ରଖନ୍ତୁ।</string>
     <string name="lock_to_app_toast_locked">ଆପ୍ଲିକେସନ୍‌ ଲକ୍‌ ମୋଡ୍‍ ସକ୍ଷମ ହୋଇଛି।</string>
     <string name="lock_to_app_start">ପିନ୍‌ ହୋଇଥିବା ଆପ୍ଲିକେସନ୍।</string>
     <string name="lock_to_app_exit">ଅଣପିନ୍‌ ହୋଇଥିବା ଆପ୍ଲିକେସନ୍।</string>
@@ -1347,6 +1347,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">ପରିବର୍ତ୍ତନ</string>
     <string name="my_device">My phone</string>
     <string name="headset">ହେଡସେଟ୍</string>
+    <string name="my_phone">ଫୋନ୍</string>
     <string name="bixby_edgecase_mpsm">ସର୍ବାଧିକ ପାୱାର୍ ସଞ୍ଚୟ ମୋଡ୍ ଅନ୍ ହୋଇଥିବା ସମୟରେ Bixby ବ୍ୟବହାର ହୋଇପାରିବ ନାହିଁ।</string>
     <string name="bixby_edgecase_emergencymode">ଜରୁରୀକାଳୀନ ମୋଡରେ Bixby ବ୍ୟବହାର ହୋଇପାରିବ ନାହିଁ।</string>
     <string name="bixby_edgecase_kidsmode">ଶିଶୁଙ୍କ ମୋଡରେ Bixby ବ୍ୟବହାର ହୋଇପାରିବ ନାହିଁ।</string>

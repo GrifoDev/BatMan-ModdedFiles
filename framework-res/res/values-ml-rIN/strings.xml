@@ -1328,7 +1328,7 @@
     <string name="lock_to_app_toast">ആപ്ലിക്കേഷന്‍ പിന്‍ ചെയ്തതു നീക്കം ചെയ്യുന്നതിന്, സമീപകാല, ബാക്ക് കീകൾ ഒരേ സമയം അമർത്തിപ്പിടിക്കുക.</string>
     <string name="lock_to_app_toast_for_navibar">ആപ്ലിക്കേഷന്‍ പിന്‍ ചെയ്തതു നീക്കം ചെയ്യുന്നതിന്, സമീപകാല, ബാക്ക് കീകൾ ഒരേ സമയം സ്പർശിച്ചുപിടിക്കുക.</string>
     <string name="lock_to_app_toast_accessible">ആപ്ലിക്കേഷന്‍ പിന്‍ ചെയ്തതു നീക്കം ചെയ്യുന്നതിന്, സമീപകാല കീ അമർത്തിപ്പിടിക്കുക.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">ആപ്പ് അൺപിൻ ചെയ്യാൻ, സമീപകാലത്തേത് ബട്ടൺ സപർശിച്ചുപിടിക്കുക.</string>
     <string name="lock_to_app_toast_locked">ലോക്ക്-ടു-ആപ്ലിക്കേഷൻ മോഡ് പ്രാപ്തമാക്കപ്പെട്ടു.</string>
     <string name="lock_to_app_start">ആപ്ലിക്കേഷൻ പിൻ ചെയ്തു.</string>
     <string name="lock_to_app_exit">ആപ്ലിക്കേഷൻ പിന്‍ ചെയ്തതു നീക്കം ചെയ്തു.</string>
@@ -2042,6 +2042,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">മാറ്റു</string>
     <string name="my_device">My phone</string>
     <string name="headset">ഹെഡ്‌സെറ്റ്‌</string>
+    <string name="my_phone">ഫോൺ</string>
     <string name="bixby_edgecase_mpsm">മാക്സിമം പവർ സേവിംഗ് മോഡ് ഓൺ ചെയ്തിരിക്കുന്ന സമയത്ത് Bixby ഉപയോഗിക്കാനാവില്ല.</string>
     <string name="bixby_edgecase_emergencymode">എമർജൻസി മോഡിൽ Bixby ഉപയോഗിക്കാനാവില്ല.</string>
     <string name="bixby_edgecase_kidsmode">കിഡ്സ് മോഡിൽ Bixby ഉപയോഗിക്കാനാവില്ല.</string>

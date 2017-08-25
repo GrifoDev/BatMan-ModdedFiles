@@ -1333,7 +1333,7 @@ Hãy thử lại sau %2$d giây."</string>
     <string name="lock_to_app_toast">Để bỏ ghim ứng dụng, hãy nhấn và giữ đồng thời phím Gần đây và phím Trở về.</string>
     <string name="lock_to_app_toast_for_navibar">Để bỏ ghim ứng dụng, hãy chạm và giữ đồng thời phím Gần đây và phím Trở về.</string>
     <string name="lock_to_app_toast_accessible">Để bỏ ghim ứng dụng, hãy nhấn và giữ phím gần đây.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Để bỏ ghim ứng dụng, hãy chạm và giữ phím Gần đây.</string>
     <string name="lock_to_app_toast_locked">Chế độ khóa vào ứng dụng đã được bật.</string>
     <string name="lock_to_app_start">Ứng dụng đã được ghim.</string>
     <string name="lock_to_app_exit">Ứng dụng đã được bỏ ghim.</string>
@@ -2050,6 +2050,7 @@ Bật chế độ Máy bay?"</string>
     <string name="multisound_hun_change">Thay đổi</string>
     <string name="my_device">Điện thoại của bạn</string>
     <string name="headset">Tai nghe Bluetooth</string>
+    <string name="my_phone">Điện thoại</string>
     <string name="bixby_edgecase_mpsm">Không thể dùng Bixby khi bật chế độ Tiết kiệm pin tối đa.</string>
     <string name="bixby_edgecase_emergencymode">Không thể dùng Bixby ở chế độ Khẩn cấp.</string>
     <string name="bixby_edgecase_kidsmode">Không thể dùng Bixby ở Chế độ Trẻ em.</string>

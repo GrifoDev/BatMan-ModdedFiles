@@ -1333,7 +1333,7 @@ Po %2$d sek. bandykite dar kartą."</string>
     <string name="lock_to_app_toast">Jei programą norite atsegti, vienu metu nuspauskite ir palaikykite mygtukus „Vėliausi“ ir atgal.</string>
     <string name="lock_to_app_toast_for_navibar">Jei programą norite atsegti, vienu metu palieskite ir palaikykite mygtukus „Vėliausi“ ir atgal.</string>
     <string name="lock_to_app_toast_accessible">Norėdami atsegti šią programą, paspauskite ir palaikykite vėliausiai naudotų mygtuką.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Jei norite atsegti programą, palieskite ir palaikykite mygtuką „Vėliausi“.</string>
     <string name="lock_to_app_toast_locked">Programos užrakinimo režimas įjungtas.</string>
     <string name="lock_to_app_start">Programa prisegta.</string>
     <string name="lock_to_app_exit">Programa atsegta.</string>
@@ -2050,6 +2050,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Keisti</string>
     <string name="my_device">My phone</string>
     <string name="headset">Ausinės</string>
+    <string name="my_phone">Telefonas</string>
     <string name="bixby_edgecase_mpsm">Veikiant itin taupiam energijos vartojimo režimui negalima naudoti „Bixby“.</string>
     <string name="bixby_edgecase_emergencymode">Veikiant pavojaus režimui negalima naudoti „Bixby“.</string>
     <string name="bixby_edgecase_kidsmode">Veikiant vaikų režimui negalima naudoti „Bixby“.</string>

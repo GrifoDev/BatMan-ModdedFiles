@@ -1333,7 +1333,7 @@ Ponovite nakon %2$d sekundi."</string>
     <string name="lock_to_app_toast">Da biste otkvačili aplikaciju, istovremeno pritisnite i držite tipku Nedavno i tipku Natrag.</string>
     <string name="lock_to_app_toast_for_navibar">Da biste otkvačili aplikaciju, istovremeno dodirnite i držite gumb Nedavno i Natrag.</string>
     <string name="lock_to_app_toast_accessible">Kako biste otkvačili aplikaciju, pritisnite i držite nedavnu tipku.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Da biste otkvačili aplikaciju, dodirnite i držite gumb Nedavno.</string>
     <string name="lock_to_app_toast_locked">Uključen je način Zaključaj aplikaciju.</string>
     <string name="lock_to_app_start">Aplikacija prikvačena.</string>
     <string name="lock_to_app_exit">Aplikacija otkvačena.</string>
@@ -2050,6 +2050,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Promijeni</string>
     <string name="my_device">My phone</string>
     <string name="headset">Slušalice</string>
+    <string name="my_phone">Telefon</string>
     <string name="bixby_edgecase_mpsm">Nije moguće upotrebljavati Bixby dok je uključena Maksimalna štednja baterije.</string>
     <string name="bixby_edgecase_emergencymode">Nije moguće upotrebljavati Bixby u Hitnom načinu.</string>
     <string name="bixby_edgecase_kidsmode">Nije moguće upotrebljavati Bixby u Načinu rada za djecu.</string>

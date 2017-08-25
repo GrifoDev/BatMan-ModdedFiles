@@ -1333,7 +1333,7 @@ Spróbuj ponownie za %2$d s."</string>
     <string name="lock_to_app_toast">Aby odpiąć aplikację, naciśnij i przytrzymaj jednocześnie klawisze Ostatnie i Wstecz.</string>
     <string name="lock_to_app_toast_for_navibar">Aby odpiąć aplikację, dotknij jednocześnie przycisków Ostatnie i Wstecz, a następnie przytrzymaj je.</string>
     <string name="lock_to_app_toast_accessible">Aby odpiąć aplikację, naciśnij i przytrzymaj klawisz Ostatnie.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Aby odpiąć aplikację, dotknij przycisku Ostatnie i przytrzymaj go.</string>
     <string name="lock_to_app_toast_locked">Włączono tryb blokowania dla aplikacji.</string>
     <string name="lock_to_app_start">Przypięto aplikację.</string>
     <string name="lock_to_app_exit">Odpięto aplikację.</string>
@@ -2050,6 +2050,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Zmień</string>
     <string name="my_device">My phone</string>
     <string name="headset">Zestaw słuchawkowy</string>
+    <string name="my_phone">Telefon</string>
     <string name="bixby_edgecase_mpsm">Nie można używać aplikacji Bixby przy włączonym Trybie maksymalnego oszczędzania energii.</string>
     <string name="bixby_edgecase_emergencymode">Nie można używać aplikacji Bixby w Trybie awaryjnym.</string>
     <string name="bixby_edgecase_kidsmode">Nie można używać aplikacji Bixby w Trybie dziecko.</string>

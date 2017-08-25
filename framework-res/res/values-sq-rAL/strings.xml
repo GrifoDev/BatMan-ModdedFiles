@@ -1328,7 +1328,7 @@ Provo sërish pas %2$d sekondash."</string>
     <string name="lock_to_app_toast">Për ta çngulitur app-in, shtyp dhe mbaj tastet Së fundi dhe Prapa njëkohësisht.</string>
     <string name="lock_to_app_toast_for_navibar">Për ta çngulitur app-in, prek dhe mbaj butonat Së fundi dhe Prapa njëkohësisht.</string>
     <string name="lock_to_app_toast_accessible">Për ta çngulitur aplikacionin, shtyp dhe mbaj tastin së fundi.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Për ta çngulitur app-in, prek dhe mbaj butonin Së fundi.</string>
     <string name="lock_to_app_toast_locked">Regjimi kyç-në-app është aftësuar.</string>
     <string name="lock_to_app_start">App-i u ngulit.</string>
     <string name="lock_to_app_exit">App-i u çngulit.</string>
@@ -2044,6 +2044,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Ndrysho</string>
     <string name="my_device">My phone</string>
     <string name="headset">Kufja</string>
+    <string name="my_phone">Telefon</string>
     <string name="bixby_edgecase_mpsm">S’mund të përdorësh Bixby kur është ndezur regjimi Kursim energjie maksimal.</string>
     <string name="bixby_edgecase_emergencymode">S’mund të përdorësh Bixby në Regjimin urgjencë.</string>
     <string name="bixby_edgecase_kidsmode">S’mund të përdorësh Bixby në Regjimin Fëmijë.</string>

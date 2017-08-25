@@ -1329,7 +1329,7 @@ icazə sorğusu"</string>
     <string name="lock_to_app_toast">Proqramı bərkidildiyi yerdən çıxarmaq üçün Sonuncular və Geri düymələrini eyni anda sıxıb saxlayın.</string>
     <string name="lock_to_app_toast_for_navibar">Proqramı bərkidildiyi yerdən çıxarmaq üçün Sonuncular və Geri düymələrinə eyni anda vurub saxlayın.</string>
     <string name="lock_to_app_toast_accessible">Proqramı çıxarmaq üçün sonuncular düyməsinə vurub saxlayın.</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">Proqramı çıxarmaq üçün Sonuncular düyməsinə vurub saxlayın.</string>
     <string name="lock_to_app_toast_locked">Proqrama kilidlə rejimi aktiv edilmişdir.</string>
     <string name="lock_to_app_start">Proqram qoşuldu.</string>
     <string name="lock_to_app_exit">Proqram götürüldü.</string>
@@ -2046,6 +2046,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">Dəyişdir</string>
     <string name="my_device">My phone</string>
     <string name="headset">Qulaqlıqlar</string>
+    <string name="my_phone">Telefon</string>
     <string name="bixby_edgecase_mpsm">Maksimal Enerjiyə qənaət rejimi yanılı olduqda Bixby-dən istifadə etmək olmur.</string>
     <string name="bixby_edgecase_emergencymode">Fövqəladə Rejimdə Bixby-dən istifadə etmək olmur.</string>
     <string name="bixby_edgecase_kidsmode">Uşaq Rejimində Bixby-dən istifadə etmək olmur.</string>

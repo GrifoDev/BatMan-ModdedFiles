@@ -697,7 +697,7 @@
     <string name="lock_to_app_toast">এপ আনপিন কৰিবলৈ, একে সময়তে শেহতীয়া আৰু পিছলৈ কী দবাওক আৰু ধৰি থাকক।</string>
     <string name="lock_to_app_toast_for_navibar">এপ আনপিন কৰিবলৈ, একে সময়তে শেহতীয়া আৰু পিছলৈ বুটাম টাচ্চ্‌ কৰক আৰু ধৰি থাকক।</string>
     <string name="lock_to_app_toast_accessible">এই এপ্লিকেশ্বনটো আনপিন কৰিবলৈ, শেহতীয়া কীটো দবাওক আৰু ধৰি ৰাখক৷</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">এপ আনপিন কৰিবলৈ, শেহতীয়া বুটামটো টাচ্চ্‌ কৰক আৰু ধৰি থাকক।</string>
     <string name="lock_to_app_toast_locked">"লক-টু-এপ ম'ড সক্ষম হৈছে৷"</string>
     <string name="lock_to_app_start">এপ পিন হৈছে।</string>
     <string name="lock_to_app_exit">এপ আনপিন হৈছে।</string>
@@ -1346,6 +1346,7 @@ Turn on Airplane mode?"</string>
     <string name="multisound_hun_change">পৰিৱৰ্তন</string>
     <string name="my_device">My phone</string>
     <string name="headset">হেডচেট</string>
+    <string name="my_phone">ফোন</string>
     <string name="bixby_edgecase_mpsm">"সৰ্বাধিক পাৱাৰ সংৰক্ষণ ম'ড অন হৈ থাকোতে Bixby ব্যৱহাৰ কৰিব নোৱাৰে।"</string>
     <string name="bixby_edgecase_emergencymode">"জৰুৰীকালীন ম'ডত Bixby ব্যৱহাৰ কৰিব নোৱাৰে।"</string>
     <string name="bixby_edgecase_kidsmode">"শিশু ম'ডত Bixby ব্যৱহাৰ কৰিব নোৱাৰে।"</string>

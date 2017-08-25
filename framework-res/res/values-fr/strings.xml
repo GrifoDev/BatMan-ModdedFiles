@@ -1333,7 +1333,7 @@ Réessayez dans %2$d secondes."</string>
     <string name="lock_to_app_toast">Pour décrocher une application, maintenez simultanément appuyées les touches Applications récentes et Retour.</string>
     <string name="lock_to_app_toast_for_navibar">Pour décrocher une application, touchez simultanément les boutons Applications récentes et Retour.</string>
     <string name="lock_to_app_toast_accessible">"Pour décrocher l'application, maintenez votre doigt appuyé sur la touche Applications récentes."</string>
-    <string name="lock_to_app_toast_accessible_for_navibar">To unpin app, touch and hold Recents button.</string>
+    <string name="lock_to_app_toast_accessible_for_navibar">"Pour décrocher l'application, maintenez la touche Applications récentes appuyée."</string>
     <string name="lock_to_app_toast_locked">"Le mode Verrouillage d'application a été activé."</string>
     <string name="lock_to_app_start">"L'application a été épinglée."</string>
     <string name="lock_to_app_exit">"L'application a été décrochée."</string>
@@ -2049,6 +2049,7 @@ Activer le mode Hors ligne ?"</string>
     <string name="multisound_hun_change">Modifier</string>
     <string name="my_device">Mon téléphone</string>
     <string name="headset">Casque</string>
+    <string name="my_phone">Téléphone</string>
     <string name="bixby_edgecase_mpsm">"Impossible d'utiliser Bixby lorsque le mode Économie d'énergie maximale est activé."</string>
     <string name="bixby_edgecase_emergencymode">"Impossible d'utiliser Bixby en mode Urgence."</string>
     <string name="bixby_edgecase_kidsmode">"Impossible d'utiliser Bixby en mode Enfant."</string>
