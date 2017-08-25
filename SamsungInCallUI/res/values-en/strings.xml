@@ -269,7 +269,7 @@ This video call is now using data and Mobile data will be turned off when the ca
     <string name="download_application_description">"To use this function, download the following application:
 
 %s"</string>
-    <string name="downloading_via_wi_fi">Download files via Wi-Fi</string>
+    <string name="downloading_via_wi_fi">Download files via <cst>Wi-Fi</cst></string>
     <string name="downloading_via_wlan">Download files via WLAN</string>
     <string name="effect_beauty">Beauty face</string>
     <string name="effect_mono">Greyscale</string>
@@ -555,7 +555,7 @@ IVR call screen menu uses contents provided by a third party service provider ca
     <string name="photoring_unblock_toast">Contact unblocked from sending media to you via PhotoRing.</string>
     <string name="photoring_unblock_toast_2nd">Media sent by this contact will be received next time they call you.</string>
     <string name="please_wait">Checking verification code. Please wait…</string>
-    <string name="popup_download_large_wificheck">Download via Wi-Fi only</string>
+    <string name="popup_download_large_wificheck">Download via <cst>Wi-Fi</cst> only</string>
     <string name="popup_download_large_wlancheck">Download via WLAN only</string>
     <string name="popup_start_record_during_alerting">Recording will start after call connected.</string>
     <string name="postalLabelsGroup">Address</string>
@@ -739,6 +739,7 @@ Camera"</string>
     <string name="settings_glance_reply_explain_text_vzw">Reject an incoming call and send a preset message to the caller by placing your finger on the heart rate sensor and holding it in place for %d seconds while the device is turned over.</string>
     <string name="settings_glance_reply_reached_maximum_text">Maximum number of characters (%d) reached.</string>
     <string name="settings_glance_reply_text">Quick reply messages</string>
+    <string name="settings_subappbar_switch_dimmed">Dimmed</string>
     <string name="settings_subappbar_switch_off">Off</string>
     <string name="settings_subappbar_switch_on">On</string>
     <string name="simple_sharing">Link sharing</string>
@@ -784,6 +785,7 @@ Camera"</string>
     <string name="swipe_right_to_answer_call_with_video">Swipe right to answer call with video.</string>
     <string name="swipe_right_to_answer_call_without_video">Swipe right to answer call without video.</string>
     <string name="switch_rejected_by_mt">Request to switch to video call rejected.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Request to switch to video call failed.</string>
     <string name="switch_to_video_call_failed_tmo">Request to switch to video call was declined.</string>
     <string name="switch_to_voice_call_failed">Request to switch to voice call failed.</string>
@@ -809,7 +811,7 @@ Camera"</string>
     <string name="unknown_cdma">Unavailable</string>
     <string name="upload_using_wifi_only">Upload via <cst>Wi-Fi</cst> only</string>
     <string name="upload_using_wlan_only">Upload via WLAN only</string>
-    <string name="upload_wifi_and_mobile_nw">Upload via Wi-Fi or mobile network</string>
+    <string name="upload_wifi_and_mobile_nw">Upload via <cst>Wi-Fi</cst> or mobile network</string>
     <string name="upload_wlan_and_mobile_nw">Upload via WLAN or mobile network</string>
     <string name="usa_att_connected_as_voice">Call connected as voice only.</string>
     <string name="usa_att_data_usage_charge_alert">Your Data Usage that you set on your device is about to reach its limit. Your Video call requires data.</string>
@@ -867,7 +869,7 @@ Your video call is still running on the mobile network. (Data usage applies if y
 
 Your video call is now running on the mobile network. (Data usage applies if you choose to continue.)"</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast"><cst>Wi-Fi</cst> connection lost. Call ended.</string>
-    <string name="use_wifi_and_mobile_nw">Use Wi-Fi and mobile networks</string>
+    <string name="use_wifi_and_mobile_nw">Use <cst>Wi-Fi</cst> and mobile networks</string>
     <string name="use_wlan_and_mobile_nw">Use WLAN and mobile networks</string>
     <string name="verify">Verify</string>
     <string name="verify_your_phone_number">Verify your phone number</string>

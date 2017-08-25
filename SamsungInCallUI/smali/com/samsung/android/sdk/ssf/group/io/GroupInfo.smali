@@ -15,6 +15,8 @@
 
 .field public message:Ljava/lang/String;
 
+.field public meta_data:Ljava/lang/Object;
+
 .field public option:I
 
 .field public owner_id:Ljava/lang/String;

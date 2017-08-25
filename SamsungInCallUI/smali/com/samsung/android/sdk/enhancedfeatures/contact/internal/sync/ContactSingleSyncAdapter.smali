@@ -100,9 +100,8 @@
 
     invoke-static {v4, p1, v0}, Lcom/samsung/android/sdk/ssf/contact/ContactsManager;->readContactList(Lcom/samsung/android/sdk/ssf/SsfClient;ZLjava/lang/Long;)Lcom/samsung/android/sdk/ssf/contact/io/ContactReadResponse;
     :try_end_0
-    .catch Lcom/samsung/android/sdk/ssf/contact/server/ContactException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_2
+    .catch Lcom/samsung/android/sdk/ssf/contact/server/ContactException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_1
 
     move-result-object v0
 
@@ -252,11 +251,6 @@
     move-exception v0
 
     goto :goto_2
-
-    :catch_2
-    move-exception v0
-
-    goto :goto_2
 .end method
 
 .method private insertCoreAppsInfoToContactDB(Ljava/util/List;Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionContactChanged;ZZLcom/samsung/android/sdk/enhancedfeatures/contact/apis/listener/DownloadImageListener;)V
@@ -341,6 +335,14 @@
     const-string v2, "changed_contact_id"
 
     invoke-virtual {p2}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionContactChanged;->getChangedContactIds()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v5, v2, v3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v2, "new_contact_id"
+
+    invoke-virtual {p2}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionContactChanged;->getNewContactIds()Ljava/lang/String;
 
     move-result-object v3
 
@@ -849,9 +851,8 @@
 
     invoke-static {v4, v0, v2}, Lcom/samsung/android/sdk/ssf/contact/ContactsManager;->createContactList(Lcom/samsung/android/sdk/ssf/SsfClient;Ljava/util/List;Lcom/samsung/android/sdk/ssf/common/ConnectTimeout;)Lcom/samsung/android/sdk/ssf/contact/io/ContactsListResponse;
     :try_end_0
-    .catch Lcom/samsung/android/sdk/ssf/contact/server/ContactException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_2
+    .catch Lcom/samsung/android/sdk/ssf/contact/server/ContactException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_0 .. :try_end_0} :catch_1
 
     move-result-object v0
 
@@ -914,9 +915,8 @@
 
     invoke-static {v4, v0, v2}, Lcom/samsung/android/sdk/ssf/contact/ContactsManager;->updateContactList(Lcom/samsung/android/sdk/ssf/SsfClient;Ljava/util/List;Lcom/samsung/android/sdk/ssf/common/ConnectTimeout;)Lcom/samsung/android/sdk/ssf/contact/io/ContactsListResponse;
     :try_end_1
-    .catch Lcom/samsung/android/sdk/ssf/contact/server/ContactException; {:try_start_1 .. :try_end_1} :catch_1
-    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_0
-    .catch Ljava/util/concurrent/ExecutionException; {:try_start_1 .. :try_end_1} :catch_2
+    .catch Lcom/samsung/android/sdk/ssf/contact/server/ContactException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_1 .. :try_end_1} :catch_1
 
     move-result-object v0
 
@@ -1106,11 +1106,6 @@
     goto :goto_3
 
     :catch_1
-    move-exception v0
-
-    goto/16 :goto_2
-
-    :catch_2
     move-exception v0
 
     goto/16 :goto_2
@@ -1487,6 +1482,7 @@
     .catch Landroid/content/OperationApplicationException; {:try_start_6 .. :try_end_6} :catch_3
     .catch Ljava/lang/IllegalArgumentException; {:try_start_6 .. :try_end_6} :catch_4
     .catch Ljava/lang/SecurityException; {:try_start_6 .. :try_end_6} :catch_5
+    .catch Ljava/lang/InterruptedException; {:try_start_6 .. :try_end_6} :catch_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_2
 
     :goto_4
@@ -1506,6 +1502,7 @@
     .catch Landroid/content/OperationApplicationException; {:try_start_7 .. :try_end_7} :catch_3
     .catch Ljava/lang/IllegalArgumentException; {:try_start_7 .. :try_end_7} :catch_4
     .catch Ljava/lang/SecurityException; {:try_start_7 .. :try_end_7} :catch_5
+    .catch Ljava/lang/InterruptedException; {:try_start_7 .. :try_end_7} :catch_6
     .catchall {:try_start_7 .. :try_end_7} :catchall_2
 
     goto :goto_3
@@ -1571,6 +1568,7 @@
     .catch Landroid/content/OperationApplicationException; {:try_start_9 .. :try_end_9} :catch_3
     .catch Ljava/lang/IllegalArgumentException; {:try_start_9 .. :try_end_9} :catch_4
     .catch Ljava/lang/SecurityException; {:try_start_9 .. :try_end_9} :catch_5
+    .catch Ljava/lang/InterruptedException; {:try_start_9 .. :try_end_9} :catch_6
     .catchall {:try_start_9 .. :try_end_9} :catchall_2
 
     goto :goto_4
@@ -1626,6 +1624,36 @@
     invoke-direct {v0, v2, v1}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/response/ContactSyncResponse;-><init>(ILjava/lang/String;)V
     :try_end_b
     .catchall {:try_start_b .. :try_end_b} :catchall_2
+
+    const-string v1, "onPerformSync - exited"
+
+    sget-object v2, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ContactSingleSyncAdapter;->TAG:Ljava/lang/String;
+
+    invoke-static {v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/util/CLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    :catch_6
+    move-exception v0
+
+    move-object v1, v0
+
+    :try_start_c
+    sget-object v0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ContactSingleSyncAdapter;->TAG:Ljava/lang/String;
+
+    invoke-static {v1, v0}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/util/CLog;->e(Ljava/lang/Throwable;Ljava/lang/String;)V
+
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/response/ContactSyncResponse;
+
+    const/4 v2, -0x1
+
+    invoke-virtual {v1}, Ljava/lang/InterruptedException;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-direct {v0, v2, v1}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/response/ContactSyncResponse;-><init>(ILjava/lang/String;)V
+    :try_end_c
+    .catchall {:try_start_c .. :try_end_c} :catchall_2
 
     const-string v1, "onPerformSync - exited"
 

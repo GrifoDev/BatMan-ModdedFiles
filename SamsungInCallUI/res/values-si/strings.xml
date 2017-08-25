@@ -304,6 +304,7 @@
 
 %s"</string>
     <string name="downloading_via_wi_fi">Wi-Fi ඔස්සේ ගොනු බාගන්න</string>
+    <string name="downloading_via_wlan">WLAN ඔස්සේ ගොනු බාගැනීම</string>
     <string name="effect_beauty">සොඳුරු මු.</string>
     <string name="effect_mono">අළුපැහැය</string>
     <string name="effect_negative">දළ සේයාපට</string>
@@ -577,6 +578,7 @@ IVR ඇමතුම් තිර මෙනුව විසින් Dianhuabang 
     <string name="outgoing_img_take_picture">පින්තූරයක් ගන්න</string>
     <string name="outgoing_img_video">වීඩියෝ</string>
     <string name="over_storage_only_wifi_download">මුළු ගොනු තරම %1$d %2$s ට වඩා වැඩිය. යම් අමතර ගාස්තු වැළැක්වීමට Wi-Fi හරහා පමණක් බාගැනීමට අපි නිර්දේශ කරමු.</string>
+    <string name="over_storage_only_wlan_download">මුළු ගොනු ප්‍රමාණය %1$d %2$s වඩා වැඩිය. ඕනෑම අතිරේක ගාස්තුවක් වැළැක්වීමට WLAN ඔස්සේ පමණක් බාගැනීමට අපි නිර්දේශ කරමු.</string>
     <string name="overlay_warning_toast">දුරකථනය භාවිතා කිරීමට, ඔබට දුරකථන සැකසුම් තුළ ඉහළම දිස් විය හැකි යෙදුම් ක්‍රියාත්මක කිරීමට අවශ්‍ය වේ.</string>
     <string name="payphone_sbm">ගෙවන දුරකථනය</string>
     <string name="phoneLabelsGroup">දුරකථනය</string>
@@ -589,6 +591,7 @@ IVR ඇමතුම් තිර මෙනුව විසින් Dianhuabang 
     <string name="photoring_unblock_toast_2nd">මෙම සබඳතා මගින් යැවූ මාධ්‍ය ඔවුන් ඊළඟ මොහොතේ ඔබව අමතන විට ලැබෙනු ඇත.</string>
     <string name="please_wait">තහවුරු කිරීමේ කේතය පරීක්ෂා කරමින්. කරුණාකර රැඳී සිටින්න…</string>
     <string name="popup_download_large_wificheck">Wi-Fi හරහා පමණක් බාගැනීම</string>
+    <string name="popup_download_large_wlancheck">WLAN ඔස්සේ පමණක් බාගන්න</string>
     <string name="popup_start_record_during_alerting">ඇමතුම සම්බන්ධ වූ පසු පටිගත කිරීම ඇරඹෙනු ඇත.</string>
     <string name="postalLabelsGroup">ලිපිනය</string>
     <string name="postal_city">නගරය</string>
@@ -772,6 +775,7 @@ IVR ඇමතුම් තිර මෙනුව විසින් Dianhuabang 
     <string name="settings_glance_reply_explain_text_vzw">උපාංගය හරවා ඇති අතරතුර හෘද ස්පන්දනය සංවේදකය මත ඔබේ ඇඟිල්ල තත්පර %d තබාගෙන සිටීම මගින් එන ඇමතුමක් ප්‍රතික්ෂේප කරන්න සහ අමතන්නාට පෙරසකසු පණිවිඩයක් යවන්න.</string>
     <string name="settings_glance_reply_reached_maximum_text">උපරිම අනු ලකුණු ගණන (%d) ළඟා විය.</string>
     <string name="settings_glance_reply_text">යුහු පිළිතුරු පණිවිඩ</string>
+    <string name="settings_subappbar_switch_dimmed">අඳුරු විය</string>
     <string name="settings_subappbar_switch_off">අක්‍රියයි</string>
     <string name="settings_subappbar_switch_on">සක්‍රියයි</string>
     <string name="simple_sharing">Link sharing</string>
@@ -817,6 +821,7 @@ IVR ඇමතුම් තිර මෙනුව විසින් Dianhuabang 
     <string name="swipe_right_to_answer_call_with_video">වීඩියෝව සමග ඇමතුමට පිළිතුරු දීමට දකුණට ස්වයිප් කරන්න.</string>
     <string name="swipe_right_to_answer_call_without_video">වීඩියෝවෙන් තොරව ඇමතුමට පිළිතුරු දීමට දකුණට ස්වයිප් කරන්න.</string>
     <string name="switch_rejected_by_mt">වීඩියෝ ඇමතුමට සම්බන්ධ වීම සඳහා ඉල්ලුම ප්‍රතික්ෂේප කෙරිණි.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">වීඩියෝ ඇමතුමට මාරු වීමට ඉල්ලීම අසාර්ථක විය.</string>
     <string name="switch_to_video_call_failed_tmo">වීඩියෝ ඇමතුම වෙත මාරු වීමට ඉල්ලුම ප්‍රතික්ෂේප කරන ලදී.</string>
     <string name="switch_to_voice_call_failed">හඬ ඇමතුමට මාරු වීම සඳහා ඉල්ලීම අසාර්ථක විය.</string>
@@ -841,7 +846,9 @@ IVR ඇමතුම් තිර මෙනුව විසින් Dianhuabang 
     <string name="units_mb">MB</string>
     <string name="unknown_cdma">නොමැත</string>
     <string name="upload_using_wifi_only">Wi-Fi හරහා පමණක් උඩුගත කරන්න</string>
+    <string name="upload_using_wlan_only">WLAN ඔස්සේ පමණක් උඩුගත කරන්න</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fi හෝ ජංගම ජාලය ඔස්සේ උඩුගත කරන්න</string>
+    <string name="upload_wlan_and_mobile_nw">WLAN හෝ ජංගම ජාලය ඔස්සේ උඩුගත කරන්න</string>
     <string name="usa_att_connected_as_voice">ඇමතුම හඬ පමණක් ලෙස සම්බන්ධ කරන ලදී.</string>
     <string name="usa_att_data_usage_charge_alert">ඔබ ඔබේ උපාංගය මත තැබූ ඔබේ දත්ත භාවිතය එහි සීමාව කරා ළඟා වීමට ආසන්නයි. ඔබේ වීඩියෝ ඇමතුමට දත්ත අවශ්‍ය වේ.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">ඇමතුම Wi-Fi හරහා ගත නොහැක, සෙලියුලර් ජාලයක් හරහා සම්බන්ධ වෙමින්. හඬ සහ දත්ත ගාස්තු අදාළ වනු ඇත.</string>
@@ -899,6 +906,7 @@ IVR ඇමතුම් තිර මෙනුව විසින් Dianhuabang 
 ඔබේ වීඩියෝ ඇමතුම දැන් ජංගම ජාලය මත ධාවනය වේ. (දත්ත භාවිතය ඔබ ඉදිරියට යාමට තෝරයි නම් අදාළ වේ.)"</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi සම්බන්ධතාව බිඳ වැටිණි. ඇමතුම අවසන් විය.</string>
     <string name="use_wifi_and_mobile_nw">Wi-Fi හා ජංගම ජාල භාවිතා කරන්න</string>
+    <string name="use_wlan_and_mobile_nw">WLAN සහ ජංගම ජාල භාවිතය</string>
     <string name="verify">සත්‍යාපනය</string>
     <string name="verify_your_phone_number">ඔබේ දුරකථන අංකය සත්‍යාපනය</string>
     <string name="verify_your_phone_number_body">සැම්සුං සේවාවල මිතුරන් සමග සම්බන්ධ වීමට ඔබේ දුරකථන අංකය සත්‍යාපනය කරන්න.</string>

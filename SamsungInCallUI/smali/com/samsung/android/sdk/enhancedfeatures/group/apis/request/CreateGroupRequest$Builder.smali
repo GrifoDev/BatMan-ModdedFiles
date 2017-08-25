@@ -38,6 +38,8 @@
 
 .field private message:Ljava/lang/String;
 
+.field private meta_data:Ljava/lang/String;
+
 .field private option:I
 
 .field private sid:I
@@ -95,12 +97,20 @@
 .method static synthetic access$400(Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/CreateGroupRequest$Builder;)Ljava/lang/String;
     .locals 1
 
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/CreateGroupRequest$Builder;->meta_data:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method static synthetic access$500(Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/CreateGroupRequest$Builder;)Ljava/lang/String;
+    .locals 1
+
     iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/CreateGroupRequest$Builder;->message:Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method static synthetic access$500(Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/CreateGroupRequest$Builder;)Ljava/util/List;
+.method static synthetic access$600(Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/CreateGroupRequest$Builder;)Ljava/util/List;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/CreateGroupRequest$Builder;->members:Ljava/util/List;
@@ -162,6 +172,14 @@
     .locals 0
 
     iput-object p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/CreateGroupRequest$Builder;->message:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method public setMetaData(Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/CreateGroupRequest$Builder;
+    .locals 0
+
+    iput-object p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/CreateGroupRequest$Builder;->meta_data:Ljava/lang/String;
 
     return-object p0
 .end method

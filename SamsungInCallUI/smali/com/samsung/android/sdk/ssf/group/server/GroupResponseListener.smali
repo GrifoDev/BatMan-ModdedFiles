@@ -133,25 +133,27 @@
     if-ne v6, v0, :cond_9
 
     :goto_5
-    const-string v0, "HTTP ERROR [%d : %s]"
+    sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    const/4 v1, 0x2
+    const-string v1, "HTTP ERROR [%d : %s]"
 
-    new-array v1, v1, [Ljava/lang/Object;
+    const/4 v4, 0x2
 
-    const/4 v4, 0x0
+    new-array v4, v4, [Ljava/lang/Object;
+
+    const/4 v7, 0x0
 
     invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v6
 
-    aput-object v6, v1, v4
+    aput-object v6, v4, v7
 
-    const/4 v4, 0x1
+    const/4 v6, 0x1
 
-    aput-object v5, v1, v4
+    aput-object v5, v4, v6
 
-    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v0, v1, v4}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -272,7 +274,7 @@
     :cond_a
     move-object v0, v4
 
-    goto :goto_3
+    goto/16 :goto_3
 
     :cond_b
     move-object v5, v0

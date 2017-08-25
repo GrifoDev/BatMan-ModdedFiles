@@ -89,7 +89,6 @@
     <uses-permission android:name="android.permission.WRITE_SMS"/>
     <uses-permission android:name="sec.android.permission.READ_MSG_PREF"/>
     <uses-permission android:name="com.sec.android.providers.iwlansettings.permission.READ_IWLANSETTINGS"/>
-    <uses-permission android:name="com.google.android.c2dm.permission.SEND"/>
     <uses-permission android:name="com.android.incallui.permission.MAPS_RECEIVE"/>
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
     <uses-permission android:name="com.samsung.rcs.autoconfigurationprovider.READ_PERMISSION"/>
@@ -147,6 +146,7 @@
     <uses-permission android:name="com.samsung.android.provider.agifcallprovider.permission.WRITE_AGIFCALL_PROVIDER"/>
     <uses-permission android:name="com.samsung.android.communicationservice.permission.BACKGROUND_SEND"/>
     <uses-permission android:name="com.android.contacts.permission.ACTION_AGIF_CALL_REGISTRATION"/>
+    <uses-permission android:name="com.samsung.android.coreapps.contact.provider.Permission.READ"/>
     <uses-permission android:name="com.sec.spp.permission.PUSH_SERVICE_PROVIDER"/>
     <uses-permission android:name="android.permission.RECEIVE_SMS"/>
     <uses-permission android:name="com.samsung.android.providers.context.permission.WRITE_USE_APP_FEATURE_SURVEY"/>
@@ -293,11 +293,6 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </activity>
-        <activity android:configChanges="keyboardHidden|mcc|mnc|orientation|screenSize|uiMode" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.android.incallui.util.SecReminderDialog" android:theme="@style/SecErrorDialogTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-            </intent-filter>
-        </activity>
         <activity android:configChanges="keyboardHidden|mcc|mnc|orientation|screenSize|uiMode" android:excludeFromRecents="true" android:launchMode="singleInstance" android:name="com.android.incallui.operator.chn.SReminderDialog" android:theme="@style/SecErrorDialogTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -388,7 +383,7 @@
         </receiver>
         <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
         <provider android:authorities="com.samsung.android.incallui.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
-        <meta-data android:name="SPDE.build.signature" android:value="4185720/14903427/release/SamsungInCallUI-214025-2.1.03"/>
+        <meta-data android:name="SPDE.build.signature" android:value="4338631/15629191/release/SamsungInCallUI-214036-2.1.04"/>
         <meta-data android:name="SPDE.env.version" android:value="2.2.3/L24.3.7/24.3.4"/>
     </application>
 </manifest>

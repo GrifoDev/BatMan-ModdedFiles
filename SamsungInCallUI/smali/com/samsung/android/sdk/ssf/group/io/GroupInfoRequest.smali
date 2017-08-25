@@ -20,6 +20,8 @@
 
 .field public message:Ljava/lang/String;
 
+.field public meta_data:Ljava/lang/String;
+
 .field public option:I
 
 .field public optional_id:Ljava/lang/String;

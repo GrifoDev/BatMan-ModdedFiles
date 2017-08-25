@@ -580,7 +580,7 @@ Menuja e ekranit të thirrjes IVR përdor materiale nga një ofrues shërbimesh 
     <string name="photoring_unblock_toast_2nd">"Mediat e dërguara nga ky kontakt do t'i marrësh herën e ardhshme që ai të thërret"</string>
     <string name="please_wait">Duke kontrolluar kodin e verifikimit. Prit pak…</string>
     <string name="popup_download_large_wificheck">Shkarko me Wi-Fi vetëm</string>
-    <string name="popup_download_large_wlancheck">Download via WLAN only</string>
+    <string name="popup_download_large_wlancheck">Shkarko me WLAN vetëm</string>
     <string name="popup_start_record_during_alerting">Regjistrimi do të nisë pasi të lidhet thirrja.</string>
     <string name="postalLabelsGroup">Adresa</string>
     <string name="postal_city">Qyteti</string>
@@ -764,6 +764,7 @@ njëkahshe"</string>
     <string name="settings_glance_reply_explain_text_vzw">Refuzo thirrjen hyrëse dhe dërgoji marrësit një mesazh të paracilësuar duke vendosur gishtin mbi sensorin e rrahjeve të zemrës dhe duke e mbajtur atje për %d sekonda kur pajisja jote është e kthyer përmbys.</string>
     <string name="settings_glance_reply_reached_maximum_text">U arrit numri maksimal (%d) i karaktereve.</string>
     <string name="settings_glance_reply_text">Mszh përgjigje e shpejtë</string>
+    <string name="settings_subappbar_switch_dimmed">Errësuar</string>
     <string name="settings_subappbar_switch_off">"Ç'aktivizuar"</string>
     <string name="settings_subappbar_switch_on">Aktiv</string>
     <string name="simple_sharing">Përbashkimi i linkut</string>
@@ -809,6 +810,7 @@ njëkahshe"</string>
     <string name="swipe_right_to_answer_call_with_video">Rrëshqit djathtas për t‘iu përgjigjur thirrjes me video.</string>
     <string name="swipe_right_to_answer_call_without_video">Rrëshqit djathtas për t‘iu përgjigjur thirrjes pa video.</string>
     <string name="switch_rejected_by_mt">Kërkesa për kalim në videotelefonatë u refuzua.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Kërkesa për të kaluar në thirrje video dështoi.</string>
     <string name="switch_to_video_call_failed_tmo">Kërkesa për kalim në thirrje video u refuzua.</string>
     <string name="switch_to_voice_call_failed">Kërkesa për të kaluar në thirrje zanore dështoi.</string>

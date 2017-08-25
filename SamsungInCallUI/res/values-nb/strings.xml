@@ -607,7 +607,7 @@ Skjermmenyen for IVR-samtaler bruker innhold som leveres av en tredjeparts tjene
     <string name="photoring_unblock_toast_2nd">Media sendt av denne kontakten blir mottatt neste gang de ringer deg.</string>
     <string name="please_wait">Kontrollerer bekreftelseskode. Vent litt…</string>
     <string name="popup_download_large_wificheck">Last ned bare via Wi-Fi</string>
-    <string name="popup_download_large_wlancheck">Download via WLAN only</string>
+    <string name="popup_download_large_wlancheck">Last ned bare via WLAN</string>
     <string name="popup_start_record_during_alerting">Opptaket starter etter at anropet er koblet til.</string>
     <string name="postalLabelsGroup">Adresse</string>
     <string name="postal_city">Sted</string>
@@ -791,6 +791,7 @@ kamera"</string>
     <string name="settings_glance_reply_explain_text_vzw">Avvis et innkommende anrop, og send en forhåndsskrevet melding til den som ringer, ved å legge fingeren på pulsmåleren og holde den der i %d sekunder mens enheten er snudd.</string>
     <string name="settings_glance_reply_reached_maximum_text">Maksimalt antall tegn (%d) er nådd.</string>
     <string name="settings_glance_reply_text">Hurtigsvarmeldinger</string>
+    <string name="settings_subappbar_switch_dimmed">Nedtonet</string>
     <string name="settings_subappbar_switch_off">Av</string>
     <string name="settings_subappbar_switch_on">På</string>
     <string name="simple_sharing">Koblingsdeling</string>
@@ -836,6 +837,7 @@ kamera"</string>
     <string name="swipe_right_to_answer_call_with_video">Stryk mot høyre for å besvare anrop med video.</string>
     <string name="swipe_right_to_answer_call_without_video">Stryk mot høyre for å besvare anrop uten video.</string>
     <string name="switch_rejected_by_mt">Forespørsel om å bytte til videosamtale avvist.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Forespørsel om å bytte til videoanrop mislyktes.</string>
     <string name="switch_to_video_call_failed_tmo">Forespørsel om å bytte til videoanrop ble avvist.</string>
     <string name="switch_to_voice_call_failed">Forespørsel om å bytte til taleanrop mislyktes.</string>

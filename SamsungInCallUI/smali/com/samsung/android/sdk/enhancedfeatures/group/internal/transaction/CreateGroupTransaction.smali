@@ -72,6 +72,14 @@
 
     iput v0, v3, Lcom/samsung/android/sdk/ssf/group/io/GroupInfoRequest;->option:I
 
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/group/internal/transaction/CreateGroupTransaction;->mRequest:Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/CreateGroupRequest;
+
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/CreateGroupRequest;->getMetaData()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, v3, Lcom/samsung/android/sdk/ssf/group/io/GroupInfoRequest;->meta_data:Ljava/lang/String;
+
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
@@ -90,11 +98,11 @@
 
     move-result-object v0
 
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-nez v0, :cond_1
 
     iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/group/internal/transaction/CreateGroupTransaction;->mRequest:Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/CreateGroupRequest;
 

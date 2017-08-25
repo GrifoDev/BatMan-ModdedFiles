@@ -269,33 +269,35 @@
 
     invoke-static {v8, v9}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string v8, "my region=%s org=%s cc = %d, num =%d"
+    sget-object v8, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    const/4 v9, 0x4
+    const-string v9, "my region=%s org=%s cc = %d, num =%d"
 
-    new-array v9, v9, [Ljava/lang/Object;
+    const/4 v10, 0x4
 
-    const/4 v10, 0x0
+    new-array v10, v10, [Ljava/lang/Object;
 
-    aput-object v0, v9, v10
+    const/4 v11, 0x0
 
-    const/4 v10, 0x1
+    aput-object v0, v10, v11
 
-    aput-object v1, v9, v10
+    const/4 v11, 0x1
 
-    const/4 v10, 0x2
+    aput-object v1, v10, v11
+
+    const/4 v11, 0x2
 
     invoke-virtual {v1}, Lcom/google/i18n/phonenumbers/Phonenumber$PhoneNumber;->getCountryCode()I
 
-    move-result v11
+    move-result v12
 
-    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v12}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v11
+    move-result-object v12
 
-    aput-object v11, v9, v10
+    aput-object v12, v10, v11
 
-    const/4 v10, 0x3
+    const/4 v11, 0x3
 
     invoke-virtual {v1}, Lcom/google/i18n/phonenumbers/Phonenumber$PhoneNumber;->getNationalNumber()J
 
@@ -303,11 +305,11 @@
 
     invoke-static {v12, v13}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v11
+    move-result-object v12
 
-    aput-object v11, v9, v10
+    aput-object v12, v10, v11
 
-    invoke-static {v8, v9}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v8, v9, v10}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v8
 
@@ -374,29 +376,31 @@
 
     move-result-object v1
 
-    const-string v8, "rg=%s mcc=%s ccc=%s c.number=%s"
+    sget-object v8, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    const/4 v9, 0x4
+    const-string v9, "rg=%s mcc=%s ccc=%s c.number=%s"
 
-    new-array v9, v9, [Ljava/lang/Object;
+    const/4 v10, 0x4
 
-    const/4 v10, 0x0
+    new-array v10, v10, [Ljava/lang/Object;
 
-    aput-object v0, v9, v10
+    const/4 v11, 0x0
 
-    const/4 v10, 0x1
+    aput-object v0, v10, v11
 
-    aput-object v5, v9, v10
+    const/4 v11, 0x1
 
-    const/4 v10, 0x2
+    aput-object v5, v10, v11
 
-    aput-object v1, v9, v10
+    const/4 v11, 0x2
 
-    const/4 v10, 0x3
+    aput-object v1, v10, v11
 
-    aput-object v7, v9, v10
+    const/4 v11, 0x3
 
-    invoke-static {v8, v9}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    aput-object v7, v10, v11
+
+    invoke-static {v8, v9, v10}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v8
 

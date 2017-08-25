@@ -578,7 +578,7 @@
     <string name="photoring_unblock_toast_2nd">Медиумите пратени од овој контакт ќе се примат следниот пат кога ќе Ве повика</string>
     <string name="please_wait">Се проверува шифрата за потврда. Почекајте…</string>
     <string name="popup_download_large_wificheck">Преземај само преку Wi-Fi</string>
-    <string name="popup_download_large_wlancheck">Download via WLAN only</string>
+    <string name="popup_download_large_wlancheck">Преземај само преку WLAN</string>
     <string name="popup_start_record_during_alerting">Снимањето ќе почне откако ќе се поврзе повикот.</string>
     <string name="postalLabelsGroup">Адреса</string>
     <string name="postal_city">Град</string>
@@ -762,6 +762,7 @@
     <string name="settings_glance_reply_explain_text_vzw">Одбивајте дојдовни повици и праќајте готова порака на повикувачот ставајќи го прстот на сензорот за пулс и држејќи го на место %d секунди додека е исклучен уредот.</string>
     <string name="settings_glance_reply_reached_maximum_text">Достигнат е максималниот број знаци (%d).</string>
     <string name="settings_glance_reply_text">Пораки за брз одговор</string>
+    <string name="settings_subappbar_switch_dimmed">Затемнетo</string>
     <string name="settings_subappbar_switch_off">Исклучено</string>
     <string name="settings_subappbar_switch_on">Вклучено</string>
     <string name="simple_sharing">Споделување врски</string>
@@ -807,6 +808,7 @@
     <string name="swipe_right_to_answer_call_with_video">Поминете надесно за да одговорите на повик со видео.</string>
     <string name="swipe_right_to_answer_call_without_video">Поминете надесно за да одговорите на повик без видео.</string>
     <string name="switch_rejected_by_mt">Барањето за префрлување на видео повик е одбиено.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Барањето за префрлување на видео повик не успеа.</string>
     <string name="switch_to_video_call_failed_tmo">Барањето за префрлување на видео повик е одбиено.</string>
     <string name="switch_to_voice_call_failed">Барањето за префрлување на говорен повик не успеа.</string>
@@ -831,9 +833,9 @@
     <string name="units_mb">MB</string>
     <string name="unknown_cdma">Кога сте недостапни</string>
     <string name="upload_using_wifi_only">Испраќај само преку Wi-Fi</string>
-    <string name="upload_using_wlan_only">Upload via WLAN only</string>
+    <string name="upload_using_wlan_only">Прати само преку WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Праќај преку Wi-Fi или мобилна мрежа</string>
-    <string name="upload_wlan_and_mobile_nw">Upload via WLAN or mobile network</string>
+    <string name="upload_wlan_and_mobile_nw">Прати преку WLAN или мобилна мрежа</string>
     <string name="usa_att_connected_as_voice">Повикот е поврзан како само со глас.</string>
     <string name="usa_att_data_usage_charge_alert">Користењето податоци што сте го поставиле на Вашиот уред тукушто ќе го достигне своето ограничување. Вашиот Видео повик бара податоци.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Повикот не може да се оствари преку Wi-Fi, се поврзува преку мобилна мрежа. Говорот и податоците ќе се наплаќаат.</string>
@@ -891,7 +893,7 @@
 Вашиот видео повик сега работи на мобилната мрежа. (Користењето на податоци важи ако изберете да продолжите.)"</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Поврзувањето со Wi-Fi е изгубено. Повикот заврши.</string>
     <string name="use_wifi_and_mobile_nw">Користи Wi-Fi и мобилни мрежи</string>
-    <string name="use_wlan_and_mobile_nw">Use WLAN and mobile networks</string>
+    <string name="use_wlan_and_mobile_nw">Користете WLAN и мобилни мрежи</string>
     <string name="verify">Потврди</string>
     <string name="verify_your_phone_number">Потврда на телефонскиот број</string>
     <string name="verify_your_phone_number_body">Потврдете го телефонскиот број за да се поврзете со пријателите на услуги Samsung.</string>

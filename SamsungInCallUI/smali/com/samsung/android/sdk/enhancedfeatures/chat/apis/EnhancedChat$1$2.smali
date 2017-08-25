@@ -80,9 +80,9 @@
 
     iget-object v5, v5, Lcom/samsung/android/sdk/enhancedfeatures/chat/apis/EnhancedChat$1;->val$enhancedChatListener:Lcom/samsung/android/sdk/enhancedfeatures/chat/apis/listeners/EnhancedChatListener;
 
-    invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->getAutherizationListener()Lcom/samsung/android/sdk/ssf/account/AuthorizationListener;
+    new-instance v6, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/AuthorizationListenerImpl;
 
-    move-result-object v6
+    invoke-direct {v6}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/AuthorizationListenerImpl;-><init>()V
 
     invoke-direct/range {v0 .. v6}, Lcom/samsung/android/sdk/enhancedfeatures/chat/apis/EnhancedChatChannel;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/chat/apis/EnhancedChat;Lcom/samsung/android/sdk/ssf/SsfClient;Lcom/samsung/android/sdk/ssf/message/io/KeySet;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/chat/apis/listeners/EnhancedChatListener;Lcom/samsung/android/sdk/ssf/account/AuthorizationListener;)V
 

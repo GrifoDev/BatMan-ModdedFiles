@@ -169,25 +169,27 @@
     if-ne v5, v0, :cond_17
 
     :goto_4
-    const-string v0, "HTTP ERROR [%d : %s]"
+    sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    const/4 v1, 0x2
+    const-string v1, "HTTP ERROR [%d : %s]"
 
-    new-array v1, v1, [Ljava/lang/Object;
+    const/4 v6, 0x2
 
-    const/4 v6, 0x0
+    new-array v6, v6, [Ljava/lang/Object;
+
+    const/4 v7, 0x0
 
     invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v5
 
-    aput-object v5, v1, v6
+    aput-object v5, v6, v7
 
     const/4 v5, 0x1
 
-    aput-object v4, v1, v5
+    aput-object v4, v6, v5
 
-    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v0, v1, v6}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -246,7 +248,7 @@
 
     move v1, v2
 
-    goto :goto_1
+    goto/16 :goto_1
 
     :cond_7
     instance-of v1, p1, Lcom/android/volley/ServerError;

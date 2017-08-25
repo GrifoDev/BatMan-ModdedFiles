@@ -14,6 +14,8 @@
 
 .field private static mContext:Landroid/content/Context;
 
+.field private static newContactIds:Ljava/lang/String;
+
 
 # instance fields
 .field private agentCPO:Ljava/util/ArrayList;
@@ -71,6 +73,10 @@
     const-string v0, ""
 
     sput-object v0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionContactChanged;->changedContactIds:Ljava/lang/String;
+
+    const-string v0, ""
+
+    sput-object v0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionContactChanged;->newContactIds:Ljava/lang/String;
 
     return-void
 .end method
@@ -272,7 +278,7 @@
 .end method
 
 .method public static declared-synchronized insertCoreAppsContact(Ljava/util/List;Z)Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/data/ImageMetaList;
-    .locals 20
+    .locals 22
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -315,18 +321,26 @@
 
     invoke-direct/range {v18 .. v18}, Ljava/util/ArrayList;-><init>()V
 
+    new-instance v19, Ljava/util/ArrayList;
+
+    invoke-direct/range {v19 .. v19}, Ljava/util/ArrayList;-><init>()V
+
+    new-instance v20, Ljava/util/ArrayList;
+
+    invoke-direct/range {v20 .. v20}, Ljava/util/ArrayList;-><init>()V
+
     invoke-interface/range {p0 .. p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v19
+    move-result-object v21
 
     :goto_0
-    invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface/range {v21 .. v21}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_3d
+    if-eqz v2, :cond_3e
 
-    invoke-interface/range {v19 .. v19}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface/range {v21 .. v21}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
@@ -535,6 +549,10 @@
     move-result-object v5
 
     invoke-static {v2, v3, v5}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/AgentQueryHelper;->deleteCoreAppsContact(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Z
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -666,7 +684,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_15
+    if-eqz v5, :cond_16
 
     invoke-virtual {v13}, Ljava/util/ArrayList;->size()I
 
@@ -808,15 +826,36 @@
     const/4 v9, 0x1
 
     :cond_7
+    invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getDeviceuniqueId()Ljava/lang/String;
+
+    move-result-object v5
+
+    move-object/from16 v0, v20
+
+    invoke-virtual {v0, v5}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_8
+
+    invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getDeviceuniqueId()Ljava/lang/String;
+
+    move-result-object v5
+
+    move-object/from16 v0, v20
+
+    invoke-virtual {v0, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_8
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getMsisdn()Ljava/lang/String;
 
     move-result-object v5
 
-    if-nez v5, :cond_8
+    if-nez v5, :cond_9
 
     const-string v5, ""
 
-    :cond_8
+    :cond_9
     const-string v6, "sync_raw_contacts"
 
     invoke-static {v6}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO;->newInsert(Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;
@@ -854,16 +893,16 @@
 
     move-result v2
 
-    if-gez v2, :cond_9
+    if-gez v2, :cond_a
 
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getDeviceuniqueId()Ljava/lang/String;
 
     move-result-object v2
 
-    if-eqz v2, :cond_10
+    if-eqz v2, :cond_11
 
-    :cond_9
-    if-eqz v10, :cond_17
+    :cond_a
+    if-eqz v10, :cond_18
 
     sget-object v2, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionContactChanged;->mContext:Landroid/content/Context;
 
@@ -879,7 +918,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_16
+    if-nez v2, :cond_17
 
     const-string v2, "sync_data"
 
@@ -926,7 +965,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_b
 
     const-string v4, "data3"
 
@@ -936,12 +975,12 @@
 
     invoke-virtual {v2, v4, v5}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;
 
-    :cond_a
+    :cond_b
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getType()I
 
     move-result v4
 
-    if-eqz v4, :cond_b
+    if-eqz v4, :cond_c
 
     const-string v4, "data10"
 
@@ -955,12 +994,12 @@
 
     invoke-virtual {v2, v4, v5}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;
 
-    :cond_b
+    :cond_c
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getDeviceuniqueId()Ljava/lang/String;
 
     move-result-object v4
 
-    if-eqz v4, :cond_c
+    if-eqz v4, :cond_d
 
     const-string v4, "data4"
 
@@ -970,12 +1009,12 @@
 
     invoke-virtual {v2, v4, v5}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;
 
-    :cond_c
+    :cond_d
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getName()Ljava/lang/String;
 
     move-result-object v4
 
-    if-eqz v4, :cond_d
+    if-eqz v4, :cond_e
 
     const-string v4, "data5"
 
@@ -985,12 +1024,12 @@
 
     invoke-virtual {v2, v4, v5}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;
 
-    :cond_d
+    :cond_e
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getDevice_idx()Ljava/lang/String;
 
     move-result-object v4
 
-    if-eqz v4, :cond_e
+    if-eqz v4, :cond_f
 
     const-string v4, "data6"
 
@@ -1000,7 +1039,7 @@
 
     invoke-virtual {v2, v4, v5}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;
 
-    :cond_e
+    :cond_f
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getStatusTimestamp()J
 
     move-result-wide v4
@@ -1009,7 +1048,7 @@
 
     cmp-long v4, v4, v6
 
-    if-eqz v4, :cond_f
+    if-eqz v4, :cond_10
 
     const-string v4, "timestamp"
 
@@ -1023,21 +1062,21 @@
 
     invoke-virtual {v2, v4, v5}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;
 
-    :cond_f
+    :cond_10
     invoke-virtual {v2}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;->build()Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO;
 
     move-result-object v2
 
     invoke-virtual {v13, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_10
+    :cond_11
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getType()I
 
     move-result v2
 
-    if-eqz v2, :cond_11
+    if-eqz v2, :cond_12
 
-    if-eqz v10, :cond_11
+    if-eqz v10, :cond_12
 
     const-string v2, "sync_data"
 
@@ -1085,14 +1124,14 @@
 
     invoke-virtual {v13, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_11
+    :cond_12
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getName()Ljava/lang/String;
 
     move-result-object v2
 
-    if-eqz v2, :cond_12
+    if-eqz v2, :cond_13
 
-    if-eqz v10, :cond_12
+    if-eqz v10, :cond_13
 
     const-string v2, "sync_data"
 
@@ -1132,7 +1171,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_18
+    if-eqz v2, :cond_19
 
     const/4 v2, 0x0
 
@@ -1145,14 +1184,14 @@
 
     invoke-virtual {v13, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_12
+    :cond_13
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getEvents()Ljava/util/List;
 
     move-result-object v2
 
-    if-eqz v2, :cond_1a
+    if-eqz v2, :cond_1b
 
-    if-eqz v10, :cond_13
+    if-eqz v10, :cond_14
 
     const-string v2, "mimetype"
 
@@ -1164,7 +1203,7 @@
 
     invoke-virtual {v13, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_13
+    :cond_14
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getEvents()Ljava/util/List;
 
     move-result-object v2
@@ -1173,13 +1212,13 @@
 
     move-result-object v5
 
-    :cond_14
+    :cond_15
     :goto_4
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1b
+    if-eqz v2, :cond_1c
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1201,9 +1240,9 @@
 
     move-result v4
 
-    if-eqz v4, :cond_14
+    if-eqz v4, :cond_15
 
-    if-nez v10, :cond_19
+    if-nez v10, :cond_1a
 
     const-string v4, "sync_data"
 
@@ -1278,7 +1317,7 @@
 
     goto :goto_4
 
-    :cond_15
+    :cond_16
     const/4 v2, 0x1
 
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getDeviceuniqueId()Ljava/lang/String;
@@ -1297,7 +1336,7 @@
 
     goto/16 :goto_1
 
-    :cond_16
+    :cond_17
     const-string v2, "sync_data"
 
     invoke-static {v2}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO;->newUpdate(Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;
@@ -1328,7 +1367,7 @@
 
     goto/16 :goto_2
 
-    :cond_17
+    :cond_18
     const-string v2, "sync_data"
 
     invoke-static {v2}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO;->newInsert(Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;
@@ -1343,14 +1382,14 @@
 
     goto/16 :goto_2
 
-    :cond_18
+    :cond_19
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getName()Ljava/lang/String;
 
     move-result-object v2
 
     goto/16 :goto_3
 
-    :cond_19
+    :cond_1a
     const-string v4, "sync_data"
 
     invoke-static {v4}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO;->newInsert(Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;
@@ -1377,21 +1416,21 @@
 
     goto/16 :goto_5
 
-    :cond_1a
+    :cond_1b
     const-string v2, "entry.getEvent()is null"
 
     sget-object v4, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionContactChanged;->TAG:Ljava/lang/String;
 
     invoke-static {v2, v4}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/util/CLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_1b
+    :cond_1c
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getAddresses()Ljava/util/List;
 
     move-result-object v2
 
-    if-eqz v2, :cond_1e
+    if-eqz v2, :cond_1f
 
-    if-eqz v10, :cond_1c
+    if-eqz v10, :cond_1d
 
     const-string v2, "mimetype"
 
@@ -1403,7 +1442,7 @@
 
     invoke-virtual {v13, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_1c
+    :cond_1d
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getAddresses()Ljava/util/List;
 
     move-result-object v2
@@ -1417,7 +1456,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1f
+    if-eqz v2, :cond_20
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1425,7 +1464,7 @@
 
     check-cast v2, Lcom/samsung/android/sdk/ssf/contact/io/AddressInfo;
 
-    if-nez v10, :cond_1d
+    if-nez v10, :cond_1e
 
     const-string v4, "sync_data"
 
@@ -1540,7 +1579,7 @@
 
     goto/16 :goto_6
 
-    :cond_1d
+    :cond_1e
     const-string v4, "sync_data"
 
     invoke-static {v4}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO;->newInsert(Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;
@@ -1567,21 +1606,21 @@
 
     goto :goto_7
 
-    :cond_1e
+    :cond_1f
     const-string v2, "entry.getEvent()is null"
 
     sget-object v4, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionContactChanged;->TAG:Ljava/lang/String;
 
     invoke-static {v2, v4}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/util/CLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_1f
+    :cond_20
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getMails()Ljava/util/List;
 
     move-result-object v2
 
-    if-eqz v2, :cond_22
+    if-eqz v2, :cond_23
 
-    if-eqz v10, :cond_20
+    if-eqz v10, :cond_21
 
     const-string v2, "mimetype"
 
@@ -1593,7 +1632,7 @@
 
     invoke-virtual {v13, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_20
+    :cond_21
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getMails()Ljava/util/List;
 
     move-result-object v2
@@ -1607,7 +1646,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_23
+    if-eqz v2, :cond_24
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1615,7 +1654,7 @@
 
     check-cast v2, Lcom/samsung/android/sdk/ssf/contact/io/EmailInfo;
 
-    if-nez v10, :cond_21
+    if-nez v10, :cond_22
 
     const-string v4, "sync_data"
 
@@ -1674,7 +1713,7 @@
 
     goto :goto_8
 
-    :cond_21
+    :cond_22
     const-string v4, "sync_data"
 
     invoke-static {v4}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO;->newInsert(Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;
@@ -1701,21 +1740,21 @@
 
     goto :goto_9
 
-    :cond_22
+    :cond_23
     const-string v2, "entry.getMail()is null"
 
     sget-object v4, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionContactChanged;->TAG:Ljava/lang/String;
 
     invoke-static {v2, v4}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/util/CLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_23
+    :cond_24
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getOrganization()Lcom/samsung/android/sdk/ssf/contact/io/OrganizationInfo;
 
     move-result-object v2
 
-    if-eqz v2, :cond_2a
+    if-eqz v2, :cond_2b
 
-    if-eqz v10, :cond_29
+    if-eqz v10, :cond_2a
 
     sget-object v2, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionContactChanged;->mContext:Landroid/content/Context;
 
@@ -1735,7 +1774,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_28
+    if-nez v2, :cond_29
 
     const-string v2, "sync_data"
 
@@ -1792,7 +1831,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_24
+    if-eqz v4, :cond_25
 
     const-string v4, "data4"
 
@@ -1806,7 +1845,7 @@
 
     invoke-virtual {v2, v4, v5}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;
 
-    :cond_24
+    :cond_25
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getOrganization()Lcom/samsung/android/sdk/ssf/contact/io/OrganizationInfo;
 
     move-result-object v4
@@ -1815,7 +1854,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_25
+    if-eqz v4, :cond_26
 
     const-string v4, "data5"
 
@@ -1829,7 +1868,7 @@
 
     invoke-virtual {v2, v4, v5}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;
 
-    :cond_25
+    :cond_26
     invoke-virtual {v2}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;->build()Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO;
 
     move-result-object v2
@@ -1841,9 +1880,9 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_26
+    if-eqz v2, :cond_27
 
-    if-eqz v10, :cond_2c
+    if-eqz v10, :cond_2d
 
     sget-object v2, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionContactChanged;->mContext:Landroid/content/Context;
 
@@ -1859,7 +1898,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_2b
+    if-nez v2, :cond_2c
 
     const-string v2, "sync_data"
 
@@ -1896,14 +1935,14 @@
 
     invoke-virtual {v2}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;->build()Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO;
 
-    :cond_26
+    :cond_27
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getAppList()Ljava/util/List;
 
     move-result-object v2
 
-    if-eqz v2, :cond_2e
+    if-eqz v2, :cond_2f
 
-    if-eqz v10, :cond_27
+    if-eqz v10, :cond_28
 
     const-string v2, "mimetype"
 
@@ -1915,7 +1954,7 @@
 
     invoke-virtual {v13, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_27
+    :cond_28
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getAppList()Ljava/util/List;
 
     move-result-object v2
@@ -1929,7 +1968,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2f
+    if-eqz v2, :cond_30
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1937,7 +1976,7 @@
 
     check-cast v2, Lcom/samsung/android/sdk/ssf/contact/io/AppListInfo;
 
-    if-nez v10, :cond_2d
+    if-nez v10, :cond_2e
 
     const-string v4, "sync_data"
 
@@ -2020,7 +2059,7 @@
 
     sget-object v6, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionContactChanged;->TAG:Ljava/lang/String;
 
-    invoke-static {v2, v6}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/util/CLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v2, v6}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/util/CLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-virtual {v4}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;->build()Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO;
 
@@ -2030,7 +2069,7 @@
 
     goto :goto_d
 
-    :cond_28
+    :cond_29
     const-string v2, "sync_data"
 
     invoke-static {v2}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO;->newUpdate(Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;
@@ -2061,7 +2100,7 @@
 
     goto/16 :goto_a
 
-    :cond_29
+    :cond_2a
     const-string v2, "sync_data"
 
     invoke-static {v2}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO;->newInsert(Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;
@@ -2074,7 +2113,7 @@
 
     goto/16 :goto_a
 
-    :cond_2a
+    :cond_2b
     const-string v2, "entry.getOrganization()is null"
 
     sget-object v4, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionContactChanged;->TAG:Ljava/lang/String;
@@ -2083,7 +2122,7 @@
 
     goto/16 :goto_b
 
-    :cond_2b
+    :cond_2c
     const-string v2, "sync_data"
 
     invoke-static {v2}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO;->newUpdate(Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;
@@ -2114,7 +2153,7 @@
 
     goto/16 :goto_c
 
-    :cond_2c
+    :cond_2d
     const-string v2, "sync_data"
 
     invoke-static {v2}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO;->newInsert(Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;
@@ -2127,7 +2166,7 @@
 
     goto/16 :goto_c
 
-    :cond_2d
+    :cond_2e
     const-string v4, "sync_data"
 
     invoke-static {v4}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO;->newInsert(Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;
@@ -2142,21 +2181,21 @@
 
     goto/16 :goto_e
 
-    :cond_2e
+    :cond_2f
     const-string v2, "entry.getAppList() is null"
 
     sget-object v4, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionContactChanged;->TAG:Ljava/lang/String;
 
     invoke-static {v2, v4}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/util/CLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_2f
+    :cond_30
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getStatus()Ljava/lang/String;
 
     move-result-object v2
 
-    if-eqz v2, :cond_48
+    if-eqz v2, :cond_4b
 
-    if-eqz v10, :cond_48
+    if-eqz v10, :cond_4b
 
     const-string v2, "sync_data"
 
@@ -2196,7 +2235,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_35
+    if-eqz v2, :cond_36
 
     const/4 v2, 0x0
 
@@ -2212,7 +2251,7 @@
     const/4 v5, 0x1
 
     :goto_10
-    if-eqz v10, :cond_46
+    if-eqz v10, :cond_49
 
     const/4 v4, 0x0
 
@@ -2226,18 +2265,18 @@
 
     move-result v2
 
-    if-nez v2, :cond_30
+    if-nez v2, :cond_31
 
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getImage()Ljava/lang/String;
 
     move-result-object v2
 
-    if-nez v2, :cond_36
-
-    :cond_30
-    const/4 v4, 0x0
+    if-nez v2, :cond_37
 
     :cond_31
+    const/4 v4, 0x0
+
+    :cond_32
     :goto_11
     sget-object v2, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionContactChanged;->mContext:Landroid/content/Context;
 
@@ -2253,7 +2292,7 @@
 
     move-result-object v6
 
-    if-ne v4, v2, :cond_32
+    if-ne v4, v2, :cond_33
 
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getImage()Ljava/lang/String;
 
@@ -2263,13 +2302,13 @@
 
     move-result v2
 
-    if-nez v2, :cond_46
+    if-nez v2, :cond_49
 
-    :cond_32
+    :cond_33
     const/4 v2, 0x1
 
     :goto_12
-    if-eqz v2, :cond_33
+    if-eqz v2, :cond_34
 
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getDeviceuniqueId()Ljava/lang/String;
 
@@ -2281,7 +2320,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_33
+    if-nez v2, :cond_34
 
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getDeviceuniqueId()Ljava/lang/String;
 
@@ -2291,8 +2330,8 @@
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_33
-    if-eqz v10, :cond_34
+    :cond_34
+    if-eqz v10, :cond_35
 
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getImage()Ljava/lang/String;
 
@@ -2302,7 +2341,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_38
+    if-eqz v2, :cond_39
 
     const-string v2, "sync_data"
 
@@ -2342,12 +2381,12 @@
 
     invoke-static {v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/util/ImageFileManager;->deleteUserProfile(Landroid/content/Context;Ljava/lang/String;)Z
 
-    :cond_34
+    :cond_35
     invoke-virtual {v13}, Ljava/util/ArrayList;->size()I
 
     move-result v2
 
-    if-lez v2, :cond_3c
+    if-lez v2, :cond_3d
 
     invoke-virtual {v13}, Ljava/util/ArrayList;->size()I
     :try_end_1
@@ -2357,7 +2396,7 @@
 
     const/16 v3, 0xfa
 
-    if-le v2, v3, :cond_3c
+    if-le v2, v3, :cond_3d
 
     :try_start_2
     new-instance v2, Ljava/lang/StringBuilder;
@@ -2431,7 +2470,7 @@
 
     move-result v2
 
-    if-ge v3, v2, :cond_3b
+    if-ge v3, v2, :cond_3c
 
     invoke-virtual {v14, v3}, Landroid/support/v4/c/e;->a(I)J
 
@@ -2466,7 +2505,7 @@
 
     goto :goto_13
 
-    :cond_35
+    :cond_36
     :try_start_3
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getStatus()Ljava/lang/String;
 
@@ -2474,12 +2513,12 @@
 
     goto/16 :goto_f
 
-    :cond_36
+    :cond_37
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getImgs()Ljava/util/ArrayList;
 
     move-result-object v2
 
-    if-eqz v2, :cond_37
+    if-eqz v2, :cond_38
 
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getImgs()Ljava/util/ArrayList;
 
@@ -2494,7 +2533,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_31
+    if-eqz v2, :cond_32
 
     invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2510,7 +2549,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_47
+    if-nez v2, :cond_4a
 
     add-int/lit8 v2, v4, 0x1
 
@@ -2519,17 +2558,17 @@
 
     goto :goto_14
 
-    :cond_37
+    :cond_38
     const/4 v4, 0x1
 
     goto/16 :goto_11
 
-    :cond_38
+    :cond_39
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getImgs()Ljava/util/ArrayList;
 
     move-result-object v2
 
-    if-eqz v2, :cond_3a
+    if-eqz v2, :cond_3b
 
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getImgs()Ljava/util/ArrayList;
 
@@ -2539,13 +2578,13 @@
 
     move-result-object v4
 
-    :cond_39
+    :cond_3a
     :goto_16
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_34
+    if-eqz v2, :cond_35
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2563,7 +2602,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_39
+    if-eqz v5, :cond_3a
 
     const-string v5, "sync_data"
 
@@ -2621,7 +2660,7 @@
 
     goto :goto_16
 
-    :cond_3a
+    :cond_3b
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getTy()Ljava/lang/String;
 
     move-result-object v2
@@ -2636,7 +2675,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_34
+    if-eqz v2, :cond_35
 
     const-string v2, "sync_data"
 
@@ -2691,7 +2730,7 @@
     const/4 v2, 0x2
 
     :goto_17
-    if-lez v4, :cond_34
+    if-lez v4, :cond_35
 
     sget-object v5, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionContactChanged;->mContext:Landroid/content/Context;
 
@@ -2705,7 +2744,7 @@
 
     goto :goto_17
 
-    :cond_3b
+    :cond_3c
     :try_start_4
     invoke-virtual {v14}, Landroid/support/v4/c/e;->c()V
     :try_end_4
@@ -2717,7 +2756,7 @@
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    :cond_3c
+    :cond_3d
     :goto_18
     move v4, v11
 
@@ -2745,14 +2784,14 @@
 
     throw v2
 
-    :cond_3d
+    :cond_3e
     invoke-virtual {v13}, Ljava/util/ArrayList;->size()I
     :try_end_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_0
 
     move-result v2
 
-    if-lez v2, :cond_3f
+    if-lez v2, :cond_40
 
     :try_start_8
     new-instance v2, Ljava/lang/StringBuilder;
@@ -2826,7 +2865,7 @@
 
     move-result v2
 
-    if-ge v3, v2, :cond_3e
+    if-ge v3, v2, :cond_3f
 
     invoke-virtual {v14, v3}, Landroid/support/v4/c/e;->a(I)J
 
@@ -2858,7 +2897,7 @@
 
     goto :goto_19
 
-    :cond_3e
+    :cond_3f
     invoke-virtual {v14}, Landroid/support/v4/c/e;->c()V
     :try_end_8
     .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_1
@@ -2867,18 +2906,18 @@
     :try_start_9
     invoke-virtual {v13}, Ljava/util/ArrayList;->clear()V
 
-    :cond_3f
+    :cond_40
     :goto_1a
     invoke-interface/range {p0 .. p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v9
 
-    :cond_40
+    :cond_41
     invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_44
+    if-eqz v2, :cond_46
 
     invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2916,13 +2955,30 @@
 
     move-result v2
 
-    if-eqz v2, :cond_41
+    if-eqz v2, :cond_42
 
     move-object/from16 v0, v17
 
     invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_41
+    :cond_42
+    invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getDeviceuniqueId()Ljava/lang/String;
+
+    move-result-object v2
+
+    move-object/from16 v0, v20
+
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_43
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_43
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getImage()Ljava/lang/String;
 
     move-result-object v2
@@ -2931,13 +2987,13 @@
 
     move-result v2
 
-    if-nez v2, :cond_40
+    if-nez v2, :cond_41
 
     invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
-    if-nez v2, :cond_42
+    if-nez v2, :cond_44
 
     sget-object v2, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionContactChanged;->mContext:Landroid/content/Context;
 
@@ -2953,12 +3009,12 @@
 
     invoke-static/range {v2 .. v7}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/AgentQueryHelper;->insertProfileImageInfo(Landroid/content/Context;Ljava/lang/String;ILjava/lang/String;J)V
 
-    :cond_42
+    :cond_44
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getImgs()Ljava/util/ArrayList;
 
     move-result-object v2
 
-    if-eqz v2, :cond_40
+    if-eqz v2, :cond_41
 
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getImgs()Ljava/util/ArrayList;
 
@@ -2968,13 +3024,13 @@
 
     move-result v2
 
-    if-lez v2, :cond_40
+    if-lez v2, :cond_41
 
     invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
-    if-nez v2, :cond_40
+    if-nez v2, :cond_41
 
     invoke-virtual {v8}, Lcom/samsung/android/sdk/ssf/contact/io/ContactResponse;->getImgs()Ljava/util/ArrayList;
 
@@ -2984,13 +3040,13 @@
 
     move-result-object v8
 
-    :cond_43
+    :cond_45
     :goto_1b
     invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v2
 
-    if-eqz v2, :cond_40
+    if-eqz v2, :cond_41
 
     invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -3008,7 +3064,7 @@
 
     const/4 v4, 0x1
 
-    if-le v2, v4, :cond_43
+    if-le v2, v4, :cond_45
 
     invoke-virtual {v6}, Lcom/samsung/android/sdk/ssf/contact/io/ImageInfo;->getImage()Ljava/lang/String;
 
@@ -3018,7 +3074,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_43
+    if-nez v2, :cond_45
 
     sget-object v2, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionContactChanged;->mContext:Landroid/content/Context;
 
@@ -3062,12 +3118,12 @@
 
     throw v2
 
-    :cond_44
+    :cond_46
     invoke-virtual/range {v17 .. v17}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v2
 
-    if-nez v2, :cond_45
+    if-nez v2, :cond_47
 
     const-string v2, ";"
 
@@ -3079,7 +3135,24 @@
 
     sput-object v2, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionContactChanged;->changedContactIds:Ljava/lang/String;
 
-    :cond_45
+    :cond_47
+    invoke-virtual/range {v19 .. v19}, Ljava/util/ArrayList;->isEmpty()Z
+
+    move-result v2
+
+    if-nez v2, :cond_48
+
+    const-string v2, ";"
+
+    move-object/from16 v0, v19
+
+    invoke-static {v2, v0}, Landroid/text/TextUtils;->join(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;
+
+    move-result-object v2
+
+    sput-object v2, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionContactChanged;->newContactIds:Ljava/lang/String;
+
+    :cond_48
     sget-object v2, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionContactChanged;->mContext:Landroid/content/Context;
 
     invoke-static {v2}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/AgentQueryHelper;->getImageInfoList(Landroid/content/Context;)Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/data/ImageMetaList;
@@ -3092,17 +3165,17 @@
 
     return-object v2
 
-    :cond_46
+    :cond_49
     move v2, v5
 
     goto/16 :goto_12
 
-    :cond_47
+    :cond_4a
     move v2, v4
 
     goto/16 :goto_15
 
-    :cond_48
+    :cond_4b
     move v5, v9
 
     goto/16 :goto_10
@@ -3169,6 +3242,14 @@
     .locals 1
 
     sget-object v0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionContactChanged;->changedContactIds:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public getNewContactIds()Ljava/lang/String;
+    .locals 1
+
+    sget-object v0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionContactChanged;->newContactIds:Ljava/lang/String;
 
     return-object v0
 .end method

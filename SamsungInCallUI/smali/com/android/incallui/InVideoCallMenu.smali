@@ -346,7 +346,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/InVideoCallMenu;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0905b0
+    const v2, 0x7f0905b2
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -446,7 +446,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f0905b3
+    const v0, 0x7f0905b5
 
     invoke-static {v0}, Lcom/android/incallui/util/InCallUtils;->displayToast(I)V
 
@@ -825,17 +825,13 @@
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    invoke-static {v0}, Lcom/android/incallui/service/vt/VideoCallLog;->menu(Ljava/lang/String;)V
-
-    invoke-direct {p0}, Lcom/android/incallui/InVideoCallMenu;->canAddCall()Z
-
-    move-result v0
+    invoke-static {v2}, Lcom/android/incallui/service/vt/VideoCallLog;->menu(Ljava/lang/String;)V
 
     invoke-interface {v1, v0}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
 

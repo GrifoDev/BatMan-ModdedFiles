@@ -3,7 +3,9 @@
 
 
 # static fields
-.field private static final PATH_RESOURCE_CONTENT:Ljava/lang/String; = "content/acc/v1/content"
+.field private static final PATH_RESOURCE_CONTENT_V1:Ljava/lang/String; = "content/acc/v1/content"
+
+.field private static final PATH_RESOURCE_CONTENT_V2:Ljava/lang/String; = "content/acc/v2/content"
 
 .field private static final PATH_RESOURCE_DEREGISTER:Ljava/lang/String; = "resource/v1/deregister"
 
@@ -616,7 +618,7 @@
 
     move-result-object v0
 
-    const-string v2, "content/acc/v1/content"
+    const-string v2, "content/acc/v2/content"
 
     invoke-virtual {v0, v2}, Landroid/net/Uri$Builder;->appendEncodedPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
 

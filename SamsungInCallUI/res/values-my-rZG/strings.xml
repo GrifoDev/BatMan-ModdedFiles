@@ -744,6 +744,7 @@ IVR ဖုန္းေခၚဆို ဖန္သားျပင္ မီႏ�
     <string name="settings_glance_reply_explain_text_vzw">သင့္ကိရိယာ ေမွာက္ထားစဥ္ သင့္လက္ေခ်ာင္းကို ႏွလုံး ခုန္ႏႈန္း အာ႐ုံခံကိရိယာေပၚတြင္ထားရွိၿပီး %d ၾကာေအာင္ ကိုင္ထားျခင္းျဖင့္ အဝင္ ေခၚဆိုမႈတစ္ခုကို ပယ္ခ်ၿပီး ေခၚဆိုသူထံသို႔ ႀကိဳတင္ေရး မက္ေဆ့ခ္်တစ္ခု ပို႔ပါ။</string>
     <string name="settings_glance_reply_reached_maximum_text">အကၡရာ အမ်ားဆံုး အေရအတြက္ (%d) သို႔ ေရာက္ေနပါၿပီ။</string>
     <string name="settings_glance_reply_text">အျမန္ စာျပန္ မက္ေဆ့ခ္်မ်ား</string>
+    <string name="settings_subappbar_switch_dimmed">မီးမွိန္ထားသည္</string>
     <string name="settings_subappbar_switch_off">ပိတ္</string>
     <string name="settings_subappbar_switch_on">ဖြင့္</string>
     <string name="simple_sharing">Link sharing</string>
@@ -789,6 +790,7 @@ IVR ဖုန္းေခၚဆို ဖန္သားျပင္ မီႏ�
     <string name="swipe_right_to_answer_call_with_video">ေခၚဆိုမႈကို ဗီဒီယိုျဖင့္ ေျဖၾကားရန္ ညာဘက္သို႔ ပြတ္ဆြဲပါ။</string>
     <string name="swipe_right_to_answer_call_without_video">ေခၚဆိုမႈကို ဗီဒီယိုမပါဘဲေျဖၾကားရန္ ညာဘက္သို႔ ပြတ္ဆြဲပါ။</string>
     <string name="switch_rejected_by_mt">ဗြီဒီယုိေခၚဆိုမႈ အျဖစ္ေျပာင္းလဲရန္ ေတာင္းဆိုမႈ ျငင္းပယ္သည္။</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">ဗီဒီယို ေခၚဆိုမႈသို႔ ေျပာင္းရန္ ေတာင္းခံမႈ မေအာင္ျမင္ပါ။</string>
     <string name="switch_to_video_call_failed_tmo">ဗီဒီယိုဖုန္းသို႔ ကူးေျပာင္းရန္အတြက္ ေတာင္းဆိုခ်က္ကို ပယ္ခ်ခဲ့သည္။</string>
     <string name="switch_to_voice_call_failed">အသံ ေခၚဆိုမႈသို႔ ေျပာင္းရန္ ေတာင္းခံမႈ မေအာင္ျမင္ပါ။</string>

@@ -638,7 +638,7 @@ Menu IVR ekranu połączeń korzysta z treści dostarczanych przez zewnętrznego
     <string name="photoring_unblock_toast_2nd">Multimedia wysłane przez ten kontakt zostaną odebrane przy okazji kolejnego połączenia się tego kontaktu z Tobą</string>
     <string name="please_wait">Sprawdzanie kodu weryfikacji. Czekaj…</string>
     <string name="popup_download_large_wificheck">Pobieraj tylko przez Wi-Fi</string>
-    <string name="popup_download_large_wlancheck">Download via WLAN only</string>
+    <string name="popup_download_large_wlancheck">Pobieraj tylko przez WLAN</string>
     <string name="popup_start_record_during_alerting">Nagrywanie rozpocznie się po nawiązaniu połączenia.</string>
     <string name="postalLabelsGroup">Adres</string>
     <string name="postal_city">Miasto</string>
@@ -822,6 +822,7 @@ jednokier."</string>
     <string name="settings_glance_reply_explain_text_vzw">Odrzuć połączenie przychodzące i wyślij do rozmówcy wcześniej ustawioną wiadomość, umieszczając palec na czujniku pulsu i przytrzymując go przez %d s, gdy urządzenie jest obrócone.</string>
     <string name="settings_glance_reply_reached_maximum_text">Osiągnięto maksymalną liczbę znaków (%d).</string>
     <string name="settings_glance_reply_text">Wiadomości Szybk. odpow.</string>
+    <string name="settings_subappbar_switch_dimmed">Przyciemnione</string>
     <string name="settings_subappbar_switch_off">Wyłączone</string>
     <string name="settings_subappbar_switch_on">Włączone</string>
     <string name="simple_sharing">Udostępnianie łącza</string>
@@ -867,6 +868,7 @@ jednokier."</string>
     <string name="swipe_right_to_answer_call_with_video">Przeciągnij w prawo, aby odebrać połączenie z wideo.</string>
     <string name="swipe_right_to_answer_call_without_video">Przeciągnij w prawo, aby odebrać połączenie bez wideo.</string>
     <string name="switch_rejected_by_mt">Żądanie przejścia do połączenia wideo zostało odrzucone.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Żądanie przejścia do połączenia wideo nie powiodło się.</string>
     <string name="switch_to_video_call_failed_tmo">Żądanie przejścia na połączenie wideo zostało odrzucone.</string>
     <string name="switch_to_voice_call_failed">Żądanie przejścia do połączenia głosowego nie powiodło się.</string>
@@ -891,9 +893,9 @@ jednokier."</string>
     <string name="units_mb">MB</string>
     <string name="unknown_cdma">Niedostępny</string>
     <string name="upload_using_wifi_only">Przekazuj tylko przez Wi-Fi</string>
-    <string name="upload_using_wlan_only">Upload via WLAN only</string>
+    <string name="upload_using_wlan_only">Przesyłaj tylko przez sieć WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Przekaż przez Wi-Fi lub sieć komórkową</string>
-    <string name="upload_wlan_and_mobile_nw">Upload via WLAN or mobile network</string>
+    <string name="upload_wlan_and_mobile_nw">Przesyłaj przez sieć WLAN lub sieć komórkową</string>
     <string name="usa_att_connected_as_voice">Połączenie nawiązane w trybie głosowym.</string>
     <string name="usa_att_data_usage_charge_alert">Wkrótce zostanie osiągnięty limit Wykorzystania danych skonfigurowany na urządzeniu. Połączenie wideo wymaga danych.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Nie można nawiązać połączenia przez sieć Wi-Fi. Łączenie przez sieć komórkową. Obowiązują opłaty za połączenie głosowe i dane.</string>
@@ -951,7 +953,7 @@ Połączenie wideo jest nadal realizowane w sieci komórkowej. (Jeśli będziesz
 Połączenie wideo jest teraz realizowane w sieci komórkowej. (Jeśli będziesz kontynuować, zostaną naliczone opłaty za wykorzystanie danych)."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Połączenie Wi-Fi zostało utracone. Połączenie zakończone.</string>
     <string name="use_wifi_and_mobile_nw">Używaj Wi-Fi i sieci komórkowych</string>
-    <string name="use_wlan_and_mobile_nw">Use WLAN and mobile networks</string>
+    <string name="use_wlan_and_mobile_nw">Użyj sieci WLAN i sieci komórkowych</string>
     <string name="verify">Zweryfikuj</string>
     <string name="verify_your_phone_number">Weryfikowanie numeru telefonu</string>
     <string name="verify_your_phone_number_body">Zweryfikuj numer telefonu, aby łączyć się ze znajomymi w usługach Samsung.</string>

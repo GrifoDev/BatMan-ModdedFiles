@@ -822,6 +822,7 @@ Satu Arah"</string>
     <string name="settings_glance_reply_explain_text_vzw">Tolak panggilan masuk dan kirim pesan prasetel ke penelepon dengan meletakkan jari Anda di sensor denyut jantung dan menahannya selama %d detik saat perangkat dibalik.</string>
     <string name="settings_glance_reply_reached_maximum_text">Jumlah maksimum karakter (%d) tercapai.</string>
     <string name="settings_glance_reply_text">Pesan Balas cepat</string>
+    <string name="settings_subappbar_switch_dimmed">Diredupkan</string>
     <string name="settings_subappbar_switch_off">Tidak aktif</string>
     <string name="settings_subappbar_switch_on">Aktif</string>
     <string name="simple_sharing">Link sharing</string>
@@ -867,6 +868,7 @@ Satu Arah"</string>
     <string name="swipe_right_to_answer_call_with_video">Usap ke kanan untuk menjawab panggilan dengan video.</string>
     <string name="swipe_right_to_answer_call_without_video">Usap ke kanan untuk menjawab panggilan tanpa video.</string>
     <string name="switch_rejected_by_mt">Permintaan untuk beralih ke panggilan video ditolak.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Permintaan untuk beralih ke panggilan video gagal.</string>
     <string name="switch_to_video_call_failed_tmo">Permintaan untuk beralih ke panggilan video ditolak.</string>
     <string name="switch_to_voice_call_failed">Permintaan untuk beralih ke panggilan suara gagal.</string>

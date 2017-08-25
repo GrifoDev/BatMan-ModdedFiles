@@ -69,6 +69,8 @@
 
 .field private mSilencePush:Z
 
+.field private mTitle:Ljava/lang/String;
+
 .field private requestToken:J
 
 
@@ -498,6 +500,12 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ShareRequest;->access$102(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ShareRequest;Ljava/util/ArrayList;)Ljava/util/ArrayList;
 
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ShareRequest$Builder;->mRequest:Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ShareRequest;
+
+    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ShareRequest$Builder;->mTitle:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ShareRequest;->access$202(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ShareRequest;Ljava/lang/String;)Ljava/lang/String;
+
     const-string v0, "request has been built"
 
     iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ShareRequest$Builder;->TAG:Ljava/lang/String;
@@ -573,6 +581,14 @@
     .locals 0
 
     iput-boolean p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ShareRequest$Builder;->mSilencePush:Z
+
+    return-object p0
+.end method
+
+.method public setTitle(Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ShareRequest$Builder;
+    .locals 0
+
+    iput-object p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ShareRequest$Builder;->mTitle:Ljava/lang/String;
 
     return-object p0
 .end method

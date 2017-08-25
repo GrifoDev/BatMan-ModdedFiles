@@ -25,12 +25,16 @@
 
 .field public static THREE_WIDGET:I
 
+.field public static VIDEO_QUALITY:I
+
 .field public static mType:I
 
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .locals 2
+
+    const/16 v1, 0x200
 
     const/4 v0, 0x0
 
@@ -72,9 +76,9 @@
 
     sput v0, Lcom/android/incallui/service/vt/VideoCallCapability;->THREE_WIDGET:I
 
-    const/16 v0, 0x200
+    sput v1, Lcom/android/incallui/service/vt/VideoCallCapability;->VIDEO_QUALITY:I
 
-    sput v0, Lcom/android/incallui/service/vt/VideoCallCapability;->MULTITASKING_PIP:I
+    sput v1, Lcom/android/incallui/service/vt/VideoCallCapability;->MULTITASKING_PIP:I
 
     sget v0, Lcom/android/incallui/service/vt/VideoCallCapability;->NOTHING:I
 
@@ -278,9 +282,22 @@
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_9
 
     const-string v1, "PRIVACY_CAPTURE"
+
+    invoke-static {v0, v1}, Lcom/android/incallui/service/vt/VideoCallCapability;->listAppend(Ljava/lang/StringBuffer;Ljava/lang/String;)V
+
+    :cond_9
+    sget v1, Lcom/android/incallui/service/vt/VideoCallCapability;->VIDEO_QUALITY:I
+
+    invoke-static {v1}, Lcom/android/incallui/service/vt/VideoCallCapability;->can(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const-string v1, "VIDEO_QUALITY"
 
     invoke-static {v0, v1}, Lcom/android/incallui/service/vt/VideoCallCapability;->listAppend(Ljava/lang/StringBuffer;Ljava/lang/String;)V
 

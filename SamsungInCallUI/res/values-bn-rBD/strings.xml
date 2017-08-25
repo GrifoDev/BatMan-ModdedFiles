@@ -606,7 +606,7 @@ IVR কল স্ক্রিন মেন্যু Dianhuabang নামের 
     <string name="photoring_unblock_toast_2nd">পরের বার তারা আপনাকে কল করলে এই পরিচিতি দ্বারা প্রেরিত মিডিয়া প্রাপ্ত হবে।</string>
     <string name="please_wait">যাচাইকরণ কোড পরীক্ষা করা হচ্ছে। অনুগ্রহপূর্বক অপেক্ষা করুন…</string>
     <string name="popup_download_large_wificheck">কেবলমাত্র Wi-Fi-এর মাধ্যমে ডাউনলোড করুন</string>
-    <string name="popup_download_large_wlancheck">Download via WLAN only</string>
+    <string name="popup_download_large_wlancheck">শুধু WLAN দিয়ে ডাউনলোড করুন</string>
     <string name="popup_start_record_during_alerting">কল সংযুক্ত হওয়ার পরে রেকর্ডিং শুরু হবে।</string>
     <string name="postalLabelsGroup">ঠিকানা</string>
     <string name="postal_city">শহর</string>
@@ -790,6 +790,7 @@ IVR কল স্ক্রিন মেন্যু Dianhuabang নামের 
     <string name="settings_glance_reply_explain_text_vzw">আপনার আঙুল হৃদযন্ত্রের হারের সেন্সরে রেখে এবং ডিভাইসটি উল্টানোর সময় এটিকে %d সেকেন্ড সেখানে ধরে রেখে একটি আগত কল প্রত্যাখ্যান করুন এবং একটি পূর্বনির্ধারিত বার্তা পাঠান।</string>
     <string name="settings_glance_reply_reached_maximum_text">অক্ষরের সর্বাধিক সংখ্যায় (%dটি) পৌঁছেছে।</string>
     <string name="settings_glance_reply_text">দ্রুত প্রত্যুত্তর বার্তা</string>
+    <string name="settings_subappbar_switch_dimmed">নিষ্প্রভ</string>
     <string name="settings_subappbar_switch_off">বন্ধ</string>
     <string name="settings_subappbar_switch_on">চালু</string>
     <string name="simple_sharing">লিংক শেয়ারিং</string>
@@ -835,6 +836,7 @@ IVR কল স্ক্রিন মেন্যু Dianhuabang নামের 
     <string name="swipe_right_to_answer_call_with_video">ভিডিওসহ কলের উত্তর দিতে ডানে সোয়াইপ করুন৷</string>
     <string name="swipe_right_to_answer_call_without_video">ভিডিও ছাড়া কলের উত্তর দিতে ডানে সোয়াইপ করুন৷</string>
     <string name="switch_rejected_by_mt">ভিডিও কলে স্যুইচ করার অনুরোধ প্রত্যাখ্যান করা হয়েছে।</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">ভিডিও কলে স্যুইচ করার অনুরোধ ব্যর্থ হয়েছে।</string>
     <string name="switch_to_video_call_failed_tmo">ভিডিও কলে সুইচ করার অনুরোধ প্রত্যাখ্যাত হয়েছে৷</string>
     <string name="switch_to_voice_call_failed">ভয়েস কলে স্যুইচ করার অনুরোধ ব্যর্থ হয়েছে।</string>
@@ -859,9 +861,9 @@ IVR কল স্ক্রিন মেন্যু Dianhuabang নামের 
     <string name="units_mb">MB</string>
     <string name="unknown_cdma">ব্যবহারঅযোগ্য</string>
     <string name="upload_using_wifi_only">কেবলমাত্র Wi-Fi-এর মাধ্যমে আপলোড করুন</string>
-    <string name="upload_using_wlan_only">Upload via WLAN only</string>
+    <string name="upload_using_wlan_only">শুধু WLAN-এর মাধ্যমে আপলোড করুন</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fi বা মোবাইল নেটওয়ার্কের মাধ্যমে আপলোড করুন</string>
-    <string name="upload_wlan_and_mobile_nw">Upload via WLAN or mobile network</string>
+    <string name="upload_wlan_and_mobile_nw">WLAN বা মোবাইল নেটওয়ার্কের মাধ্যমে আপলোড করুন</string>
     <string name="usa_att_connected_as_voice">কলটি শুধু ভয়েস হিসেবে সংযুক্ত হয়েছে৷</string>
     <string name="usa_att_data_usage_charge_alert">আপনার ডিভাইসে আপনার সেট করা ডাটা ব্যবহারের সীমায় প্রায় পৌঁছে যাচ্ছে৷ আপনার ভিডিও কলের জন্য ডাটা প্রয়োজন৷</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">ওয়াই-ফাই এর মাধ্যমে কল করা যাবে না, সেলুলার নেটওয়ার্কের মাধ্যমে সংযোগ করা হচ্ছে৷ ভয়েস ও ডাটা চার্জ প্রযোজ্য হবে।</string>
@@ -919,7 +921,7 @@ IVR কল স্ক্রিন মেন্যু Dianhuabang নামের 
 আপনার ভিডিও কলটি এখন মোবাইল নেটওয়ার্কে চলছে৷ (আপনি অব্যাহত রাখার সিদ্ধান্ত নিলে ডাটা ব্যবহার প্রযোজ্য হবে৷)"</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">ওয়াই-ফাই সংযোগ হারিয়ে গেছে৷ কল শেষ হয়েছে৷</string>
     <string name="use_wifi_and_mobile_nw">Wi-Fi ও মোবাইল নেটওয়ার্কগুলো ব্যবহার করুন</string>
-    <string name="use_wlan_and_mobile_nw">Use WLAN and mobile networks</string>
+    <string name="use_wlan_and_mobile_nw">WLAN ও মোবাইল নেটওয়ার্ক ব্যবহার করুন</string>
     <string name="verify">যাচাই করুন</string>
     <string name="verify_your_phone_number">আপনার ফোন নম্বর যাচাই করুন</string>
     <string name="verify_your_phone_number_body">Samsung সার্ভিসে আপনার বন্ধুদের সাথে সংযোগ করতে আপনার ফোন নম্বর যাচাই করুন৷</string>

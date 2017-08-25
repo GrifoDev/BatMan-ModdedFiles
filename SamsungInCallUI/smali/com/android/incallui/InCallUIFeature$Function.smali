@@ -62,6 +62,8 @@
 
 .field public static final MULTI_NUMBER_CMCC:Ljava/lang/String; = "multi_number_cmcc"
 
+.field public static final NOT_SUPPORT_APP_UPDATE:Ljava/lang/String; = "not_support_app_update"
+
 .field public static final OTA_MODE_DISABLE_EXPAND:Ljava/lang/String; = "ota_mode_disable_expand"
 
 .field public static final SMART_AUTO_ANSWERING:Ljava/lang/String; = "smart_auto_answering"
@@ -85,6 +87,8 @@
 .field public static final SUPPORT_SPAM_CALL:Ljava/lang/String; = "support_spam_call"
 
 .field public static final SUPPORT_SPAM_CALL_REPORT:Ljava/lang/String; = "support_spam_call_report"
+
+.field public static final SUPPORT_STICKER_DOWNLOAD:Ljava/lang/String; = "support_sticker_download"
 
 .field public static final SUPPORT_SYNC_CALL:Ljava/lang/String; = "support_sync_call"
 

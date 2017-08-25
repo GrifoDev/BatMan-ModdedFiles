@@ -764,6 +764,7 @@ IVR қоңыраулар экранының мәзірі “Dianhuabang” де�
     <string name="settings_glance_reply_explain_text_vzw">Құрылғы аударылған кезде кіріс қоңырауын қабылдамаңыз және саусағыңызды жүрек соғуы сенсорына қойып, оны орнында %d секунд ұстап тұру арқылы қоңырау шалушыға алдан ала орнатылған хабар жіберіңіз.</string>
     <string name="settings_glance_reply_reached_maximum_text">Ең көп таңбалар санына (%d) жетті.</string>
     <string name="settings_glance_reply_text">Жылдам жауап хабарлары</string>
+    <string name="settings_subappbar_switch_dimmed">Жарамсыз</string>
     <string name="settings_subappbar_switch_off">Өшірілген</string>
     <string name="settings_subappbar_switch_on">Қосылған</string>
     <string name="simple_sharing">Сілтемені бөлісу</string>
@@ -809,6 +810,7 @@ IVR қоңыраулар экранының мәзірі “Dianhuabang” де�
     <string name="swipe_right_to_answer_call_with_video">Қоңырауға бейнемен жауап беру үшін, оңға қарай сипаңыз.</string>
     <string name="swipe_right_to_answer_call_without_video">Қоңырауға бейнесіз жауап беру үшін, оңға қарай сипаңыз.</string>
     <string name="switch_rejected_by_mt">Бейне қоңырауға ауысу сұрауы қабылданбады.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Бейне қоңырауға ауысу сұрауы сәтсіз болды.</string>
     <string name="switch_to_video_call_failed_tmo">Бейне қоңырауға ауысу сұрауынан бас тартылды.</string>
     <string name="switch_to_voice_call_failed">Дауыстық қоңырауға ауысу сұрауы сәтсіз болды.</string>

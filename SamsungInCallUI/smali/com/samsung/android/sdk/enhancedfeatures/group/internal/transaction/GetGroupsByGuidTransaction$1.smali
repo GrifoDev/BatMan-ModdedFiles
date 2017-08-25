@@ -209,9 +209,21 @@
 
     invoke-virtual {v7, v8}, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/response/GroupUserResponse;->setStatus(I)V
 
-    iget-object v0, v0, Lcom/samsung/android/sdk/ssf/group/io/GroupUserInfoDetails;->type:Ljava/lang/String;
+    iget-object v8, v0, Lcom/samsung/android/sdk/ssf/group/io/GroupUserInfoDetails;->type:Ljava/lang/String;
 
-    invoke-virtual {v7, v0}, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/response/GroupUserResponse;->setType(Ljava/lang/String;)V
+    invoke-virtual {v7, v8}, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/response/GroupUserResponse;->setType(Ljava/lang/String;)V
+
+    new-instance v8, Lcom/google/gson/Gson;
+
+    invoke-direct {v8}, Lcom/google/gson/Gson;-><init>()V
+
+    iget-object v0, v0, Lcom/samsung/android/sdk/ssf/group/io/GroupUserInfoDetails;->meta_data:Ljava/lang/Object;
+
+    invoke-virtual {v8, v0}, Lcom/google/gson/Gson;->toJson(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v7, v0}, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/response/GroupUserResponse;->setMetaData(Ljava/lang/String;)V
 
     invoke-interface {v5, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
@@ -223,7 +235,7 @@
     :cond_2
     invoke-interface {v2, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    goto :goto_1
+    goto/16 :goto_1
 
     :cond_3
     invoke-virtual {v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/response/GetGroupsByGuidResponse;->setGroups(Ljava/util/List;)V

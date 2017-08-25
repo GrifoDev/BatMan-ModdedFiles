@@ -1292,7 +1292,7 @@
 .method public static showModifyCallException(ILcom/android/incallui/Call;Landroid/telecom/VideoProfile;)V
     .locals 3
 
-    const v2, 0x7f090356
+    const v2, 0x7f090357
 
     const/4 v0, 0x1
 
@@ -1330,7 +1330,7 @@
 
     const/4 v0, 0x5
 
-    if-ne p0, v0, :cond_5
+    if-ne p0, v0, :cond_6
 
     const-string v0, "vzw_volte_ui"
 
@@ -1368,11 +1368,24 @@
     goto :goto_0
 
     :cond_4
-    invoke-static {v2}, Lcom/android/incallui/util/InCallUtils;->displayToast(I)V
+    invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->CONCEPT_USA_ATT()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    const v0, 0x7f090358
+
+    invoke-static {v0}, Lcom/android/incallui/util/InCallUtils;->displayToast(I)V
 
     goto :goto_0
 
     :cond_5
+    invoke-static {v2}, Lcom/android/incallui/util/InCallUtils;->displayToast(I)V
+
+    goto :goto_0
+
+    :cond_6
     const/4 v0, 0x2
 
     if-ne p0, v0, :cond_0
@@ -1385,15 +1398,15 @@
 
     move-result v0
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_7
 
-    const v0, 0x7f090359
+    const v0, 0x7f09035b
 
     invoke-static {v0}, Lcom/android/incallui/util/InCallUtils;->displayToast(I)V
 
     goto :goto_0
 
-    :cond_6
+    :cond_7
     invoke-virtual {p2}, Landroid/telecom/VideoProfile;->getVideoState()I
 
     move-result v0
@@ -1410,16 +1423,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_8
 
-    const v0, 0x7f090358
+    const v0, 0x7f09035a
 
     invoke-static {v0}, Lcom/android/incallui/util/InCallUtils;->displayToast(I)V
 
     goto :goto_0
 
-    :cond_7
-    const v0, 0x7f090357
+    :cond_8
+    const v0, 0x7f090359
 
     invoke-static {v0}, Lcom/android/incallui/util/InCallUtils;->displayToast(I)V
 

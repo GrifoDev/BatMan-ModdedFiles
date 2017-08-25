@@ -107,11 +107,7 @@
 
     invoke-virtual {v6, v7}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/CloudResponse;->setAuthCode(Ljava/lang/String;)V
 
-    iget-object v7, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/CloudContentsInfoTransaction$1$1;->this$1:Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/CloudContentsInfoTransaction$1;
-
-    iget-object v7, v7, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/CloudContentsInfoTransaction$1;->this$0:Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/CloudContentsInfoTransaction;
-
-    invoke-static {v7, v5}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/CloudContentsInfoTransaction;->access$300(Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/CloudContentsInfoTransaction;Lcom/samsung/android/sdk/ssf/file/io/UpdatePublicTokenData;)Ljava/lang/String;
+    invoke-virtual {v5}, Lcom/samsung/android/sdk/ssf/file/io/UpdatePublicTokenData;->getPublic_url()Ljava/lang/String;
 
     move-result-object v5
 
@@ -142,7 +138,7 @@
 
     iget-object v0, v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/CloudContentsInfoTransaction$1;->this$0:Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/CloudContentsInfoTransaction;
 
-    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/CloudContentsInfoTransaction;->access$400(Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/CloudContentsInfoTransaction;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/CloudContentsInfoTransaction;->access$300(Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/CloudContentsInfoTransaction;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;
 
     move-result-object v0
 

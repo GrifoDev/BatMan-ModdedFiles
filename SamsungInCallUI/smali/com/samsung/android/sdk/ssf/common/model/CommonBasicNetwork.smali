@@ -316,25 +316,27 @@
     if-lez v0, :cond_1
 
     :cond_0
-    const-string v1, "HTTP response for request=<%s> [lifetime=%d], [size=%s], [rc=%d], [retryCount=%s]"
+    sget-object v1, Ljava/util/Locale;->US:Ljava/util/Locale;
+
+    const-string v2, "HTTP response for request=<%s> [lifetime=%d], [size=%s], [rc=%d], [retryCount=%s]"
 
     const/4 v0, 0x5
 
-    new-array v2, v0, [Ljava/lang/Object;
+    new-array v3, v0, [Ljava/lang/Object;
 
     const/4 v0, 0x0
 
-    aput-object p3, v2, v0
+    aput-object p3, v3, v0
 
     const/4 v0, 0x1
 
     invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v3
+    move-result-object v4
 
-    aput-object v3, v2, v0
+    aput-object v4, v3, v0
 
-    const/4 v3, 0x2
+    const/4 v4, 0x2
 
     if-eqz p4, :cond_2
 
@@ -345,37 +347,37 @@
     move-result-object v0
 
     :goto_0
-    aput-object v0, v2, v3
+    aput-object v0, v3, v4
 
     const/4 v0, 0x3
 
     invoke-interface {p5}, Lorg/apache/http/StatusLine;->getStatusCode()I
 
-    move-result v3
+    move-result v4
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v4
 
-    aput-object v3, v2, v0
+    aput-object v4, v3, v0
 
     const/4 v0, 0x4
 
     invoke-virtual {p3}, Lcom/android/volley/Request;->getRetryPolicy()Lcom/android/volley/RetryPolicy;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-interface {v3}, Lcom/android/volley/RetryPolicy;->getCurrentRetryCount()I
+    invoke-interface {v4}, Lcom/android/volley/RetryPolicy;->getCurrentRetryCount()I
 
-    move-result v3
+    move-result v4
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v4
 
-    aput-object v3, v2, v0
+    aput-object v4, v3, v0
 
-    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 

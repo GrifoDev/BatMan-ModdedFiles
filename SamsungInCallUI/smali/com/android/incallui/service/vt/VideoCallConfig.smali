@@ -62,8 +62,6 @@
 
 .field public static UI_MULTIPARTY_SECONDARY_PHOTO:Z
 
-.field public static UI_NOTIFY_VIDEO_QUALITY:Z
-
 .field public static UI_OUTGOING_KEYPAD_BUTTON:Z
 
 .field public static UI_PRIMARY_VIDEO_TYPE_ICON:Z
@@ -100,8 +98,6 @@
     sput-object v0, Lcom/android/incallui/service/vt/VideoCallConfig;->mCSC:Lcom/android/incallui/service/vt/VideoCallCSC;
 
     sput-boolean v3, Lcom/android/incallui/service/vt/VideoCallConfig;->UI_PRIMARY_VIDEO_TYPE_ICON:Z
-
-    sput-boolean v2, Lcom/android/incallui/service/vt/VideoCallConfig;->UI_NOTIFY_VIDEO_QUALITY:Z
 
     sput-boolean v3, Lcom/android/incallui/service/vt/VideoCallConfig;->UI_MULTIPARTY_SECONDARY_ICON:Z
 
@@ -554,177 +550,168 @@
     invoke-static {v0, v1}, Lcom/android/incallui/service/vt/VideoCallConfig;->listAppend(Ljava/lang/StringBuffer;Ljava/lang/String;)V
 
     :cond_0
-    sget-boolean v1, Lcom/android/incallui/service/vt/VideoCallConfig;->UI_NOTIFY_VIDEO_QUALITY:Z
-
-    if-eqz v1, :cond_1
-
-    const-string v1, "UI_NOTIFY_VIDEO_QUALITY"
-
-    invoke-static {v0, v1}, Lcom/android/incallui/service/vt/VideoCallConfig;->listAppend(Ljava/lang/StringBuffer;Ljava/lang/String;)V
-
-    :cond_1
     sget-boolean v1, Lcom/android/incallui/service/vt/VideoCallConfig;->UI_MULTIPARTY_SECONDARY_ICON:Z
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1
 
     const-string v1, "UI_MULTIPARTY_SECONDARY_ICON"
 
     invoke-static {v0, v1}, Lcom/android/incallui/service/vt/VideoCallConfig;->listAppend(Ljava/lang/StringBuffer;Ljava/lang/String;)V
 
-    :cond_2
+    :cond_1
     sget-boolean v1, Lcom/android/incallui/service/vt/VideoCallConfig;->UI_MULTIPARTY_SECONDARY_PHOTO:Z
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2
 
     const-string v1, "UI_MULTIPARTY_SECONDARY_PHOTO"
 
     invoke-static {v0, v1}, Lcom/android/incallui/service/vt/VideoCallConfig;->listAppend(Ljava/lang/StringBuffer;Ljava/lang/String;)V
 
-    :cond_3
+    :cond_2
     sget-boolean v1, Lcom/android/incallui/service/vt/VideoCallConfig;->UI_MULTIPARTY_SECONDARY_PANNEL:Z
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_3
 
     const-string v1, "UI_MULTIPARTY_SECONDARY_PANNEL"
 
     invoke-static {v0, v1}, Lcom/android/incallui/service/vt/VideoCallConfig;->listAppend(Ljava/lang/StringBuffer;Ljava/lang/String;)V
 
-    :cond_4
+    :cond_3
     sget-boolean v1, Lcom/android/incallui/service/vt/VideoCallConfig;->UI_MODIFY_SWITCH_REJECT_POPUP:Z
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_4
 
     const-string v1, "UI_MODIFY_SWITCH_REJECT_POPUP"
 
     invoke-static {v0, v1}, Lcom/android/incallui/service/vt/VideoCallConfig;->listAppend(Ljava/lang/StringBuffer;Ljava/lang/String;)V
 
-    :cond_5
+    :cond_4
     sget-boolean v1, Lcom/android/incallui/service/vt/VideoCallConfig;->UI_MENU_EMERGENCY:Z
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_5
 
     const-string v1, "UI_MENU_EMERGENCY"
 
     invoke-static {v0, v1}, Lcom/android/incallui/service/vt/VideoCallConfig;->listAppend(Ljava/lang/StringBuffer;Ljava/lang/String;)V
 
-    :cond_6
+    :cond_5
     sget-boolean v1, Lcom/android/incallui/service/vt/VideoCallConfig;->UI_OUTGOING_KEYPAD_BUTTON:Z
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_6
 
     const-string v1, "UI_OUTGOING_KEYPAD_BUTTON"
 
     invoke-static {v0, v1}, Lcom/android/incallui/service/vt/VideoCallConfig;->listAppend(Ljava/lang/StringBuffer;Ljava/lang/String;)V
 
-    :cond_7
+    :cond_6
     sget-boolean v1, Lcom/android/incallui/service/vt/VideoCallConfig;->UI_ANSWER_OPTION:Z
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_7
 
     const-string v1, "UI_ANSWER_OPTION"
 
     invoke-static {v0, v1}, Lcom/android/incallui/service/vt/VideoCallConfig;->listAppend(Ljava/lang/StringBuffer;Ljava/lang/String;)V
 
-    :cond_8
+    :cond_7
     sget-boolean v1, Lcom/android/incallui/service/vt/VideoCallConfig;->UI_SOFTPHONE:Z
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_8
 
     const-string v1, "UI_SOFTPHONE"
 
     invoke-static {v0, v1}, Lcom/android/incallui/service/vt/VideoCallConfig;->listAppend(Ljava/lang/StringBuffer;Ljava/lang/String;)V
 
-    :cond_9
+    :cond_8
     sget-boolean v1, Lcom/android/incallui/service/vt/VideoCallConfig;->UI_DATA_USAGE_LIMITED_GSM:Z
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_9
 
     const-string v1, "UI_DATA_USAGE_LIMITED_GSM"
 
     invoke-static {v0, v1}, Lcom/android/incallui/service/vt/VideoCallConfig;->listAppend(Ljava/lang/StringBuffer;Ljava/lang/String;)V
 
-    :cond_a
+    :cond_9
     sget-boolean v1, Lcom/android/incallui/service/vt/VideoCallConfig;->UI_DATA_USAGE_LIMITED_CDMA:Z
 
-    if-eqz v1, :cond_b
+    if-eqz v1, :cond_a
 
     const-string v1, "UI_DATA_USAGE_LIMITED_CDMA"
 
     invoke-static {v0, v1}, Lcom/android/incallui/service/vt/VideoCallConfig;->listAppend(Ljava/lang/StringBuffer;Ljava/lang/String;)V
 
-    :cond_b
+    :cond_a
     sget-boolean v1, Lcom/android/incallui/service/vt/VideoCallConfig;->PROHIBIT_CANDID_SHOT:Z
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_b
 
     const-string v1, "PROHIBIT_CANDID_SHOT"
 
     invoke-static {v0, v1}, Lcom/android/incallui/service/vt/VideoCallConfig;->listAppend(Ljava/lang/StringBuffer;Ljava/lang/String;)V
 
-    :cond_c
+    :cond_b
     sget-boolean v1, Lcom/android/incallui/service/vt/VideoCallConfig;->EPDG_ERROR_EVENT:Z
 
-    if-eqz v1, :cond_d
+    if-eqz v1, :cond_c
 
     const-string v1, "EPDG_ERROR_EVENT"
 
     invoke-static {v0, v1}, Lcom/android/incallui/service/vt/VideoCallConfig;->listAppend(Ljava/lang/StringBuffer;Ljava/lang/String;)V
 
-    :cond_d
+    :cond_c
     sget-boolean v1, Lcom/android/incallui/service/vt/VideoCallConfig;->CONFERENCE_HIDE_PREVIEW:Z
 
-    if-eqz v1, :cond_e
+    if-eqz v1, :cond_d
 
     const-string v1, "CONFERENCE_HIDE_PREVIEW"
 
     invoke-static {v0, v1}, Lcom/android/incallui/service/vt/VideoCallConfig;->listAppend(Ljava/lang/StringBuffer;Ljava/lang/String;)V
 
-    :cond_e
+    :cond_d
     sget-boolean v1, Lcom/android/incallui/service/vt/VideoCallConfig;->DEVICE_ROTATION:Z
 
-    if-eqz v1, :cond_f
+    if-eqz v1, :cond_e
 
     const-string v1, "DEVICE_ROTATION"
 
     invoke-static {v0, v1}, Lcom/android/incallui/service/vt/VideoCallConfig;->listAppend(Ljava/lang/StringBuffer;Ljava/lang/String;)V
 
-    :cond_f
+    :cond_e
     sget-boolean v1, Lcom/android/incallui/service/vt/VideoCallConfig;->RESIZE_SCREEN:Z
 
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_f
 
     const-string v1, "RESIZE_SCREEN"
 
     invoke-static {v0, v1}, Lcom/android/incallui/service/vt/VideoCallConfig;->listAppend(Ljava/lang/StringBuffer;Ljava/lang/String;)V
 
-    :cond_10
+    :cond_f
     sget-boolean v1, Lcom/android/incallui/service/vt/VideoCallConfig;->CAMERA_EFFECT:Z
 
-    if-eqz v1, :cond_11
+    if-eqz v1, :cond_10
 
     const-string v1, "CAMERA_EFFECT"
 
     invoke-static {v0, v1}, Lcom/android/incallui/service/vt/VideoCallConfig;->listAppend(Ljava/lang/StringBuffer;Ljava/lang/String;)V
 
-    :cond_11
+    :cond_10
     sget-boolean v1, Lcom/android/incallui/service/vt/VideoCallConfig;->OVERLAY_POPUP_PLAY:Z
 
-    if-eqz v1, :cond_12
+    if-eqz v1, :cond_11
 
     const-string v1, "OVERLAY_POPUP_PLAY"
 
     invoke-static {v0, v1}, Lcom/android/incallui/service/vt/VideoCallConfig;->listAppend(Ljava/lang/StringBuffer;Ljava/lang/String;)V
 
-    :cond_12
+    :cond_11
     sget-boolean v1, Lcom/android/incallui/service/vt/VideoCallConfig;->PICK_GALLERY_IMAGE:Z
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_12
 
     const-string v1, "PICK_GALLERY_IMAGE"
 
     invoke-static {v0, v1}, Lcom/android/incallui/service/vt/VideoCallConfig;->listAppend(Ljava/lang/StringBuffer;Ljava/lang/String;)V
 
-    :cond_13
+    :cond_12
     invoke-virtual {v0}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v0
@@ -1155,6 +1142,23 @@
     sput-boolean v0, Lcom/android/incallui/service/vt/VideoCallConfig;->PIP_TYPE_PREVIEW:Z
 
     :cond_d
+    sget-object v0, Lcom/android/incallui/service/vt/VideoCallConfig;->mCSC:Lcom/android/incallui/service/vt/VideoCallCSC;
+
+    iget-object v0, v0, Lcom/android/incallui/service/vt/VideoCallCSC;->CAPABILITY:Ljava/lang/String;
+
+    const-string v1, "quality"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_e
+
+    sget v0, Lcom/android/incallui/service/vt/VideoCallCapability;->VIDEO_QUALITY:I
+
+    invoke-static {v0}, Lcom/android/incallui/service/vt/VideoCallCapability;->add(I)V
+
+    :cond_e
     return-void
 .end method
 
@@ -1279,155 +1283,146 @@
     sput-boolean v1, Lcom/android/incallui/service/vt/VideoCallConfig;->UI_MENU_EMERGENCY:Z
 
     :cond_9
-    invoke-static {}, Lcom/android/incallui/service/vt/VideoCallOperator;->isUsa_TMO()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_a
-
-    sput-boolean v1, Lcom/android/incallui/service/vt/VideoCallConfig;->UI_NOTIFY_VIDEO_QUALITY:Z
-
-    :cond_a
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->CONCEPT_USA_ATT()Z
 
     move-result v0
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_a
 
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->CONCEPT_CAN_VOLTE()Z
 
     move-result v0
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_a
 
     sput-boolean v1, Lcom/android/incallui/service/vt/VideoCallConfig;->CONFERENCE_HIDE_PREVIEW:Z
 
-    :cond_b
+    :cond_a
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallOperator;->isUsa_VZW()Z
 
     move-result v0
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_b
 
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallOperator;->isUsa_USC()Z
 
     move-result v0
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_b
 
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallOperator;->isUsa_CCT()Z
 
     move-result v0
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_c
 
-    :cond_c
+    :cond_b
     sput-boolean v1, Lcom/android/incallui/service/vt/VideoCallConfig;->UI_DATA_USAGE_LIMITED_CDMA:Z
 
-    :cond_d
+    :cond_c
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallOperator;->isUsa_ATT()Z
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_d
 
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallOperator;->isCan_BMC()Z
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_d
 
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallOperator;->isCan_VMC()Z
 
     move-result v0
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_d
 
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallOperator;->isUsa_TMO()Z
 
     move-result v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_e
 
-    :cond_e
+    :cond_d
     sput-boolean v1, Lcom/android/incallui/service/vt/VideoCallConfig;->UI_DATA_USAGE_LIMITED_GSM:Z
 
-    :cond_f
+    :cond_e
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->isKorUX()Z
 
     move-result v0
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_f
 
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->isChnUX()Z
 
     move-result v0
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_f
 
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->isGloblaUX()Z
 
     move-result v0
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_f
 
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->CONCEPT_USA_ATT()Z
 
     move-result v0
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_f
 
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->CONCEPT_USA_TMO()Z
 
     move-result v0
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_f
 
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->CONCEPT_JPN_DCM()Z
 
     move-result v0
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_f
 
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->CONCEPT_CAN_GSM()Z
 
     move-result v0
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_f
 
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->CONCEPT_IND_INS()Z
 
     move-result v0
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_f
 
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->CONCEPT_IND_INU()Z
 
     move-result v0
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_f
 
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->CONCEPT_HKTW_COMMON()Z
 
     move-result v0
 
-    if-nez v0, :cond_10
+    if-nez v0, :cond_f
 
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->CONCEPT_AUS_COMMON()Z
 
     move-result v0
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_10
 
-    :cond_10
+    :cond_f
     sput-boolean v1, Lcom/android/incallui/service/vt/VideoCallConfig;->UI_MODIFY_SWITCH_REJECT_POPUP:Z
 
-    :cond_11
+    :cond_10
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->CONCEPT_KOR_COMMON()Z
 
     move-result v0
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_11
 
     sput-boolean v2, Lcom/android/incallui/service/vt/VideoCallConfig;->DEVICE_ROTATION:Z
 
@@ -1439,28 +1434,28 @@
 
     sput-boolean v1, Lcom/android/incallui/service/vt/VideoCallConfig;->PICK_GALLERY_IMAGE:Z
 
-    :cond_12
+    :cond_11
     sget-boolean v0, Lcom/android/incallui/service/vt/VideoCallConfig;->DEVICE_ROTATION:Z
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_12
 
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->CONCEPT_USA_COMMON()Z
 
     move-result v0
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_13
 
     move v0, v1
 
     :goto_0
     sput-boolean v0, Lcom/android/incallui/service/vt/VideoCallConfig;->DEVICE_ROTATION_ACCELEROMETER:Z
 
-    :cond_13
+    :cond_12
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->CONCEPT_KOR_COMMON()Z
 
     move-result v0
 
-    if-nez v0, :cond_15
+    if-nez v0, :cond_14
 
     move v0, v1
 
@@ -1471,24 +1466,24 @@
 
     move-result v0
 
-    if-nez v0, :cond_16
+    if-nez v0, :cond_15
 
     :goto_2
     sput-boolean v1, Lcom/android/incallui/service/vt/VideoCallConfig;->CAN_USE_SEND_STILL_IMAGE:Z
 
     return-void
 
-    :cond_14
+    :cond_13
     move v0, v2
 
     goto :goto_0
 
-    :cond_15
+    :cond_14
     move v0, v2
 
     goto :goto_1
 
-    :cond_16
+    :cond_15
     move v1, v2
 
     goto :goto_2

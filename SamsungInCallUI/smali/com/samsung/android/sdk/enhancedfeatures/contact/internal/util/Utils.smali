@@ -664,7 +664,7 @@
 
     move-result v0
 
-    invoke-virtual {v4, v0}, Lcom/samsung/android/sdk/enhancedfeatures/contact/apis/response/AppSerivceIDDetails;->setSvcId(I)V
+    invoke-virtual {v4, v0}, Lcom/samsung/android/sdk/enhancedfeatures/contact/apis/response/AppSerivceIDDetails;->setServiceId(I)V
 
     invoke-virtual {v1, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 

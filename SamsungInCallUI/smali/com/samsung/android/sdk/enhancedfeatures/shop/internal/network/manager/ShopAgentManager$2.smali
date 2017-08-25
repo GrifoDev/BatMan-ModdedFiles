@@ -4,7 +4,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;->getCategoryList(Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/CategoryListListener;)V
+    value = Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;->getCategoryList(Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/CategoryListListener;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

@@ -29,6 +29,18 @@
 
 .field private mFile:Ljava/io/File;
 
+.field protected mHeaders:Ljava/util/Map;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field protected mHttpStatusCode:I
 
 .field private mInputStream:Ljava/io/InputStream;
@@ -86,109 +98,172 @@
 .end method
 
 .method public constructor <init>(ILjava/lang/String;)V
-    .locals 2
-
-    const/4 v1, -0x1
+    .locals 1
 
     const/4 v0, 0x0
 
-    invoke-direct {p0, p1, p2, v0}, Lcom/android/volley/Request;-><init>(ILjava/lang/String;Lcom/android/volley/Response$ErrorListener;)V
-
-    iput-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mResponseListener:Lcom/samsung/android/sdk/ssf/common/model/ResponseListener;
-
-    iput v1, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mReqWhat:I
-
-    iput v1, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mHttpStatusCode:I
-
-    iput-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mUserData:Ljava/lang/Object;
-
-    iput-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mPriorityInt:Ljava/lang/Integer;
-
-    iput-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mFile:Ljava/io/File;
-
-    iput v1, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mOffset:I
-
-    iput v1, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mLength:I
-
-    iput-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mProgressWhat:Ljava/lang/Integer;
+    invoke-direct {p0, p1, p2, v0}, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;-><init>(ILjava/lang/String;Lcom/android/volley/Response$ErrorListener;)V
 
     return-void
 .end method
 
 .method public constructor <init>(ILjava/lang/String;ILcom/samsung/android/sdk/ssf/common/model/ResponseListener;)V
-    .locals 2
+    .locals 6
 
-    const/4 v1, -0x1
+    const/4 v5, 0x0
 
-    const/4 v0, 0x0
+    move-object v0, p0
 
-    invoke-direct {p0, p1, p2, v0}, Lcom/android/volley/Request;-><init>(ILjava/lang/String;Lcom/android/volley/Response$ErrorListener;)V
+    move v1, p1
 
-    iput-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mResponseListener:Lcom/samsung/android/sdk/ssf/common/model/ResponseListener;
+    move-object v2, p2
 
-    iput v1, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mReqWhat:I
+    move v3, p3
 
-    iput v1, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mHttpStatusCode:I
+    move-object v4, p4
 
-    iput-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mUserData:Ljava/lang/Object;
-
-    iput-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mPriorityInt:Ljava/lang/Integer;
-
-    iput-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mFile:Ljava/io/File;
-
-    iput v1, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mOffset:I
-
-    iput v1, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mLength:I
-
-    iput-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mProgressWhat:Ljava/lang/Integer;
-
-    iput-object p2, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->modifiedUrl:Ljava/lang/String;
-
-    iput p3, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mReqWhat:I
-
-    iput-object p4, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mResponseListener:Lcom/samsung/android/sdk/ssf/common/model/ResponseListener;
+    invoke-direct/range {v0 .. v5}, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;-><init>(ILjava/lang/String;ILcom/samsung/android/sdk/ssf/common/model/ResponseListener;Ljava/lang/Object;)V
 
     return-void
 .end method
 
 .method public constructor <init>(ILjava/lang/String;ILcom/samsung/android/sdk/ssf/common/model/ResponseListener;Ljava/lang/Object;)V
-    .locals 0
+    .locals 7
 
-    invoke-direct {p0, p1, p2, p3, p4}, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;-><init>(ILjava/lang/String;ILcom/samsung/android/sdk/ssf/common/model/ResponseListener;)V
+    const/4 v6, 0x0
 
-    iput-object p5, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mUserData:Ljava/lang/Object;
+    move-object v0, p0
+
+    move v1, p1
+
+    move-object v2, p2
+
+    move-object v3, p5
+
+    move v4, p3
+
+    move-object v5, p4
+
+    invoke-direct/range {v0 .. v6}, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;-><init>(ILjava/lang/String;Ljava/lang/Object;ILcom/samsung/android/sdk/ssf/common/model/ResponseListener;Lcom/android/volley/Response$ErrorListener;)V
 
     return-void
 .end method
 
 .method public constructor <init>(ILjava/lang/String;Lcom/android/volley/Response$ErrorListener;)V
-    .locals 2
+    .locals 7
 
-    const/4 v1, -0x1
+    const/4 v3, 0x0
 
-    const/4 v0, 0x0
+    const/4 v4, -0x1
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/volley/Request;-><init>(ILjava/lang/String;Lcom/android/volley/Response$ErrorListener;)V
+    move-object v0, p0
 
-    iput-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mResponseListener:Lcom/samsung/android/sdk/ssf/common/model/ResponseListener;
+    move v1, p1
 
-    iput v1, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mReqWhat:I
+    move-object v2, p2
 
-    iput v1, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mHttpStatusCode:I
+    move-object v5, v3
 
-    iput-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mUserData:Ljava/lang/Object;
+    move-object v6, p3
 
-    iput-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mPriorityInt:Ljava/lang/Integer;
+    invoke-direct/range {v0 .. v6}, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;-><init>(ILjava/lang/String;Ljava/lang/Object;ILcom/samsung/android/sdk/ssf/common/model/ResponseListener;Lcom/android/volley/Response$ErrorListener;)V
 
-    iput-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mFile:Ljava/io/File;
+    return-void
+.end method
 
-    iput v1, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mOffset:I
+.method public constructor <init>(ILjava/lang/String;Ljava/lang/Object;ILcom/samsung/android/sdk/ssf/common/model/ResponseListener;Lcom/android/volley/Response$ErrorListener;)V
+    .locals 8
 
-    iput v1, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mLength:I
+    new-instance v4, Ljava/util/HashMap;
 
-    iput-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mProgressWhat:Ljava/lang/Integer;
+    invoke-direct {v4}, Ljava/util/HashMap;-><init>()V
+
+    move-object v0, p0
+
+    move v1, p1
+
+    move-object v2, p2
+
+    move-object v3, p3
+
+    move v5, p4
+
+    move-object v6, p5
+
+    move-object v7, p6
+
+    invoke-direct/range {v0 .. v7}, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;-><init>(ILjava/lang/String;Ljava/lang/Object;Ljava/util/Map;ILcom/samsung/android/sdk/ssf/common/model/ResponseListener;Lcom/android/volley/Response$ErrorListener;)V
+
+    return-void
+.end method
+
+.method public constructor <init>(ILjava/lang/String;Ljava/lang/Object;Ljava/util/Map;ILcom/samsung/android/sdk/ssf/common/model/ResponseListener;Lcom/android/volley/Response$ErrorListener;)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(I",
+            "Ljava/lang/String;",
+            "Ljava/lang/Object;",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;I",
+            "Lcom/samsung/android/sdk/ssf/common/model/ResponseListener;",
+            "Lcom/android/volley/Response$ErrorListener;",
+            ")V"
+        }
+    .end annotation
+
+    const/4 v0, -0x1
+
+    const/4 v2, 0x0
+
+    invoke-direct {p0, p1, p2, p7}, Lcom/android/volley/Request;-><init>(ILjava/lang/String;Lcom/android/volley/Response$ErrorListener;)V
+
+    iput-object v2, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mResponseListener:Lcom/samsung/android/sdk/ssf/common/model/ResponseListener;
+
+    iput v0, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mReqWhat:I
+
+    iput v0, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mHttpStatusCode:I
+
+    iput-object v2, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mUserData:Ljava/lang/Object;
+
+    iput-object v2, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mHeaders:Ljava/util/Map;
+
+    iput-object v2, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mPriorityInt:Ljava/lang/Integer;
+
+    iput-object v2, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mFile:Ljava/io/File;
+
+    iput v0, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mOffset:I
+
+    iput v0, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mLength:I
+
+    iput-object v2, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mProgressWhat:Ljava/lang/Integer;
 
     iput-object p2, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->modifiedUrl:Ljava/lang/String;
+
+    iput-object p3, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mUserData:Ljava/lang/Object;
+
+    iput p5, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mReqWhat:I
+
+    iput-object p6, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mResponseListener:Lcom/samsung/android/sdk/ssf/common/model/ResponseListener;
+
+    iput-object p4, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mHeaders:Ljava/util/Map;
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mHeaders:Ljava/util/Map;
+
+    const-string v1, "User-Agent"
+
+    invoke-static {v2}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->getSsfClient(Ljava/lang/String;)Lcom/samsung/android/sdk/ssf/SsfClient;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/samsung/android/sdk/ssf/SsfClient;->getUserAgent()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     return-void
 .end method
@@ -303,7 +378,7 @@
 .end method
 
 .method public deliverProgress(IJ)V
-    .locals 4
+    .locals 6
 
     iget-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mProgressWhat:Ljava/lang/Integer;
 
@@ -316,29 +391,31 @@
     :cond_1
     if-lez p1, :cond_0
 
-    const-string v0, "progress bytes %,d what = %d"
+    sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    const/4 v1, 0x2
+    const-string v1, "progress bytes %,d what = %d"
 
-    new-array v1, v1, [Ljava/lang/Object;
+    const/4 v2, 0x2
 
-    const/4 v2, 0x0
+    new-array v2, v2, [Ljava/lang/Object;
+
+    const/4 v3, 0x0
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v4
 
-    aput-object v3, v1, v2
+    aput-object v4, v2, v3
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
     invoke-static {p2, p3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v3
+    move-result-object v4
 
-    aput-object v3, v1, v2
+    aput-object v4, v2, v3
 
-    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v0, v1, v2}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -373,6 +450,34 @@
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mFile:Ljava/io/File;
+
+    return-object v0
+.end method
+
+.method public getHeaders()Ljava/util/Map;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Map",
+            "<",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ">;"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mHeaders:Ljava/util/Map;
+
+    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->TAG:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/ssf/common/util/CommonLog;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;->mHeaders:Ljava/util/Map;
 
     return-object v0
 .end method

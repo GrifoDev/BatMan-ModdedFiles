@@ -49,37 +49,39 @@
 .end method
 
 .method protected processMessage(Landroid/os/Message;)V
-    .locals 6
+    .locals 7
 
     iget v0, p1, Landroid/os/Message;->what:I
 
     iget v1, p1, Landroid/os/Message;->arg2:I
 
-    const-string v2, "[%s] Process BindState startId=%d"
+    sget-object v2, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    const/4 v3, 0x2
+    const-string v3, "[%s] Process BindState startId=%d"
 
-    new-array v3, v3, [Ljava/lang/Object;
+    const/4 v4, 0x2
 
-    const/4 v4, 0x0
+    new-array v4, v4, [Ljava/lang/Object;
 
-    iget-object v5, p0, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/transaction/SppAckService$BindState;->this$0:Lcom/samsung/android/sdk/enhancedfeatures/internal/common/transaction/SppAckService;
+    const/4 v5, 0x0
 
-    invoke-static {v5, v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/transaction/SppAckService;->access$800(Lcom/samsung/android/sdk/enhancedfeatures/internal/common/transaction/SppAckService;I)Ljava/lang/String;
+    iget-object v6, p0, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/transaction/SppAckService$BindState;->this$0:Lcom/samsung/android/sdk/enhancedfeatures/internal/common/transaction/SppAckService;
+
+    invoke-static {v6, v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/transaction/SppAckService;->access$800(Lcom/samsung/android/sdk/enhancedfeatures/internal/common/transaction/SppAckService;I)Ljava/lang/String;
 
     move-result-object v0
 
-    aput-object v0, v3, v4
+    aput-object v0, v4, v5
 
     const/4 v0, 0x1
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v4
+    move-result-object v5
 
-    aput-object v4, v3, v0
+    aput-object v5, v4, v0
 
-    invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v2, v3, v4}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 

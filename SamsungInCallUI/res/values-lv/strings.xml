@@ -823,6 +823,7 @@ kamera"</string>
     <string name="settings_glance_reply_explain_text_vzw">Noraidiet ienākošo zvanu un nosūtiet zvanītājam iepriekš iestatītu ziņu, novietojot pirkstu uz sirds ritma sensora un turot to %d sekundes, vienlaikus apgriežot ierīci otrādi.</string>
     <string name="settings_glance_reply_reached_maximum_text">Sasniegts maksimālais rakstzīmju skaits (%d).</string>
     <string name="settings_glance_reply_text">Ātrās atbildes ziņas</string>
+    <string name="settings_subappbar_switch_dimmed">Aptumšots</string>
     <string name="settings_subappbar_switch_off">Izslēgts</string>
     <string name="settings_subappbar_switch_on">Ieslēgts</string>
     <string name="simple_sharing">Saites kopīgošana</string>
@@ -868,6 +869,7 @@ kamera"</string>
     <string name="swipe_right_to_answer_call_with_video">Pavelciet pa labi, lai atbildētu uz zvanu ar video.</string>
     <string name="swipe_right_to_answer_call_without_video">Pavelciet pa labi, lai atbildētu uz zvanu bez video.</string>
     <string name="switch_rejected_by_mt">Pieprasījums pārslēgties uz video zvanu tika atteikts.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Pieprasījums pārslēgties uz video zvanu neizdevās.</string>
     <string name="switch_to_video_call_failed_tmo">Pieprasījums pārslēgties uz videozvanu tika noraidīts.</string>
     <string name="switch_to_voice_call_failed">Pieprasījums pārslēgties uz balss zvanu neizdevās.</string>

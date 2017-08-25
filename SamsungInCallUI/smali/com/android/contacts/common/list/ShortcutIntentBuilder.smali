@@ -133,7 +133,7 @@
 
     iget-object v1, p0, Lcom/android/contacts/common/list/ShortcutIntentBuilder;->i:Landroid/content/res/Resources;
 
-    const v2, 0x7f0a067e
+    const v2, 0x7f0a067d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -338,7 +338,7 @@
 
     invoke-direct {v8, v5}, Landroid/text/TextPaint;-><init>(I)V
 
-    const v5, 0x7f0a0680
+    const v5, 0x7f0a067f
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -386,7 +386,7 @@
 
     invoke-virtual {v5, v6}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    const v6, 0x7f0a067f
+    const v6, 0x7f0a067e
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -637,7 +637,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0905f1
+    const v3, 0x7f0905f3
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -726,7 +726,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0905f1
+    const v2, 0x7f0905f3
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -749,7 +749,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0904f6
+    const v3, 0x7f0904f8
 
     new-array v4, v4, [Ljava/lang/Object;
 
@@ -801,7 +801,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f09064c
+    const v3, 0x7f09064e
 
     new-array v4, v4, [Ljava/lang/Object;
 

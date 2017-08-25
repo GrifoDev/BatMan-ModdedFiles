@@ -21,9 +21,17 @@
 
 .field private static final SERVICE_ID_CONTACT:I = 0x0
 
+.field public static final SERVICE_NOT_DECIDED:I = -0x1
+
 .field public static final SERVICE_OFF:I = 0x0
 
 .field public static final SERVICE_ON:I = 0x1
+
+.field public static SHOP_CONTENT_TYPE:Ljava/lang/String; = null
+
+.field public static SHOP_FILE_TYPE:Ljava/lang/String; = null
+
+.field public static SHOP_SERVICE_NAME:Ljava/lang/String; = null
 
 .field public static SPP_ID:Ljava/lang/String; = null
 
@@ -34,6 +42,8 @@
 .field private static mEnhancedFeatures:Lcom/samsung/android/sdk/enhancedfeatures/EnhancedFeatures;
 
 .field private static mEnhancedShare:Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;
+
+.field private static mEnhancedShop:Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/EnhancedShop;
 
 
 # direct methods
@@ -67,6 +77,18 @@
     move-result-object v0
 
     sput-object v0, Lcom/android/incallui/coreapps/CoreAppsUtils;->BASE_CONTENT_URI_PUBLIC:Landroid/net/Uri;
+
+    const-string v0, "stickeragent"
+
+    sput-object v0, Lcom/android/incallui/coreapps/CoreAppsUtils;->SHOP_SERVICE_NAME:Ljava/lang/String;
+
+    const-string v0, "sticker"
+
+    sput-object v0, Lcom/android/incallui/coreapps/CoreAppsUtils;->SHOP_CONTENT_TYPE:Ljava/lang/String;
+
+    const-string v0, "gif"
+
+    sput-object v0, Lcom/android/incallui/coreapps/CoreAppsUtils;->SHOP_FILE_TYPE:Ljava/lang/String;
 
     return-void
 .end method
@@ -190,6 +212,99 @@
 
     :cond_0
     return-void
+.end method
+
+.method public static downloadFile(Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/DownloadListener;)V
+    .locals 5
+
+    const/4 v4, 0x1
+
+    invoke-static {}, Lcom/android/incallui/coreapps/CoreAppsUtils;->getEnhancedShop()Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/EnhancedShop;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    sget-object v0, Lcom/android/incallui/coreapps/CoreAppsUtils;->SHOP_FILE_TYPE:Ljava/lang/String;
+
+    const-string v1, "\\."
+
+    invoke-virtual {p0, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v1
+
+    array-length v2, v1
+
+    if-ge v2, v4, :cond_1
+
+    const-string v0, "Agifflow-Agifflow-CoreAppsUtils"
+
+    const-string v1, "downloadFile splitStr is under 1"
+
+    invoke-static {v0, v1, v4}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    array-length v2, v1
+
+    add-int/lit8 v2, v2, -0x1
+
+    aget-object v1, v1, v2
+
+    const-string v2, "png"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_2
+
+    const-string v2, "gif"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
+
+    :cond_2
+    const-string v0, "Agifflow-Agifflow-CoreAppsUtils"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "downloadFile fileType = "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v0, v2, v4}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    move-object v0, v1
+
+    :cond_3
+    invoke-static {}, Lcom/android/incallui/coreapps/CoreAppsUtils;->getEnhancedShop()Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/EnhancedShop;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/android/incallui/coreapps/CoreAppsUtils;->SHOP_CONTENT_TYPE:Ljava/lang/String;
+
+    invoke-virtual {v1, p0, v2, v0, p1}, Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/EnhancedShop;->downloadFilesByFileName(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/DownloadListener;)V
+
+    goto :goto_0
 .end method
 
 .method public static getAgifEnableState(Landroid/content/Context;)I
@@ -336,6 +451,12 @@
 
     move-result-object v0
 
+    sget-object v1, Lcom/android/incallui/coreapps/CoreAppsUtils;->SHOP_SERVICE_NAME:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/EnhancedFeatures$Builder;->addEnhancedShop(Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/EnhancedFeatures$Builder;
+
+    move-result-object v0
+
     invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/EnhancedFeatures$Builder;->enableEnhancedModule()Lcom/samsung/android/sdk/enhancedfeatures/EnhancedFeatures$Builder;
 
     move-result-object v0
@@ -418,6 +539,41 @@
 
     :cond_1
     sget-object v0, Lcom/android/incallui/coreapps/CoreAppsUtils;->mEnhancedShare:Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;
+
+    return-object v0
+.end method
+
+.method public static getEnhancedShop()Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/EnhancedShop;
+    .locals 1
+
+    sget-object v0, Lcom/android/incallui/coreapps/CoreAppsUtils;->SHOP_SERVICE_NAME:Ljava/lang/String;
+
+    invoke-static {v0}, Lcom/android/incallui/coreapps/CoreAppsUtils;->getEnhancedShop(Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/EnhancedShop;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public static getEnhancedShop(Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/EnhancedShop;
+    .locals 1
+
+    sget-object v0, Lcom/android/incallui/coreapps/CoreAppsUtils;->mEnhancedShop:Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/EnhancedShop;
+
+    if-nez v0, :cond_0
+
+    invoke-static {}, Lcom/android/incallui/coreapps/CoreAppsUtils;->getEnhancedFeatures()Lcom/samsung/android/sdk/enhancedfeatures/EnhancedFeatures;
+
+    move-result-object v0
+
+    invoke-static {v0, p0}, Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/EnhancedShop;->getInstance(Lcom/samsung/android/sdk/enhancedfeatures/EnhancedFeatures;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/EnhancedShop;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/android/incallui/coreapps/CoreAppsUtils;->mEnhancedShop:Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/EnhancedShop;
+
+    :cond_0
+    sget-object v0, Lcom/android/incallui/coreapps/CoreAppsUtils;->mEnhancedShop:Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/EnhancedShop;
 
     return-object v0
 .end method
@@ -793,6 +949,170 @@
     goto :goto_0
 .end method
 
+.method public static getProfilSharingServiceStatus()I
+    .locals 9
+
+    const/4 v3, 0x0
+
+    const/4 v8, 0x1
+
+    const/4 v7, 0x0
+
+    const-string v6, ""
+
+    sget-object v0, Lcom/android/incallui/coreapps/CoreAppsUtils;->BASE_CONTENT_URI_PUBLIC:Landroid/net/Uri;
+
+    invoke-virtual {v0}, Landroid/net/Uri;->buildUpon()Landroid/net/Uri$Builder;
+
+    move-result-object v0
+
+    const-string v1, "sids"
+
+    invoke-virtual {v0, v1}, Landroid/net/Uri$Builder;->appendPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
+
+    move-result-object v1
+
+    invoke-static {}, Lcom/android/incallui/InCallApp;->getInstance()Lcom/android/incallui/InCallApp;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/incallui/InCallApp;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    new-array v2, v8, [Ljava/lang/String;
+
+    const-string v4, "sids"
+
+    aput-object v4, v2, v7
+
+    move-object v4, v3
+
+    move-object v5, v3
+
+    invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_3
+
+    invoke-interface {v1}, Landroid/database/Cursor;->moveToFirst()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    const-string v0, "sids"
+
+    invoke-interface {v1, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+
+    move-result v0
+
+    invoke-interface {v1, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    :goto_0
+    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+
+    :goto_1
+    invoke-static {v0}, Lcom/android/incallui/coreapps/CoreAppsUtils;->convertToIntArray(Ljava/lang/String;)[I
+
+    move-result-object v1
+
+    if-eqz v1, :cond_1
+
+    move v0, v7
+
+    :goto_2
+    array-length v2, v1
+
+    if-ge v0, v2, :cond_1
+
+    aget v2, v1, v0
+
+    if-ne v7, v2, :cond_0
+
+    move v0, v8
+
+    :goto_3
+    const-string v1, "Agifflow-Agifflow-CoreAppsUtils"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "getServiceStatus : serviceId ("
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, ") is "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2, v8}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    return v0
+
+    :cond_0
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_2
+
+    :cond_1
+    move v0, v7
+
+    goto :goto_3
+
+    :cond_2
+    move-object v0, v6
+
+    goto :goto_0
+
+    :cond_3
+    move-object v0, v6
+
+    goto :goto_1
+.end method
+
+.method public static getProfileAndCapabilityfromEFServer(Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/contact/apis/listener/GetProfileAndCapabilityListener;)V
+    .locals 2
+
+    invoke-static {}, Lcom/android/incallui/coreapps/CoreAppsUtils;->getEnhancedFeatures()Lcom/samsung/android/sdk/enhancedfeatures/EnhancedFeatures;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/contact/apis/EnhancedProfile;->getInstance(Lcom/samsung/android/sdk/enhancedfeatures/EnhancedFeatures;)Lcom/samsung/android/sdk/enhancedfeatures/contact/apis/EnhancedProfile;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1, p0, p1}, Lcom/samsung/android/sdk/enhancedfeatures/contact/apis/EnhancedProfile;->getProfileAndCapability(Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/contact/apis/listener/GetProfileAndCapabilityListener;)V
+
+    return-void
+.end method
+
 .method public static getSimCountryIso(I)Ljava/lang/String;
     .locals 3
 
@@ -842,6 +1162,8 @@
     invoke-static {}, Lcom/android/incallui/coreapps/CoreAppsUtils;->getEnhancedAccount()Lcom/samsung/android/sdk/enhancedfeatures/easysignup/apis/EnhancedAccount;
 
     invoke-static {}, Lcom/android/incallui/coreapps/CoreAppsUtils;->getEnhancedShare()Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;
+
+    invoke-static {}, Lcom/android/incallui/coreapps/CoreAppsUtils;->getEnhancedShop()Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/EnhancedShop;
 
     return-void
 .end method
@@ -946,187 +1268,6 @@
     const/4 v0, 0x1
 
     goto :goto_0
-.end method
-
-.method public static isProfilSharingServiceOn()Z
-    .locals 9
-
-    const/4 v3, 0x0
-
-    const/4 v7, 0x0
-
-    const/4 v8, 0x1
-
-    const-string v6, ""
-
-    sget-object v0, Lcom/android/incallui/coreapps/CoreAppsUtils;->BASE_CONTENT_URI_PUBLIC:Landroid/net/Uri;
-
-    invoke-virtual {v0}, Landroid/net/Uri;->buildUpon()Landroid/net/Uri$Builder;
-
-    move-result-object v0
-
-    const-string v1, "sids"
-
-    invoke-virtual {v0, v1}, Landroid/net/Uri$Builder;->appendPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
-
-    move-result-object v1
-
-    invoke-static {}, Lcom/android/incallui/InCallApp;->getInstance()Lcom/android/incallui/InCallApp;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/incallui/InCallApp;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    new-array v2, v8, [Ljava/lang/String;
-
-    const-string v4, "sids"
-
-    aput-object v4, v2, v7
-
-    move-object v4, v3
-
-    move-object v5, v3
-
-    invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_5
-
-    invoke-interface {v1}, Landroid/database/Cursor;->moveToFirst()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    const-string v0, "sids"
-
-    invoke-interface {v1, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
-
-    move-result v0
-
-    invoke-interface {v1, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    :goto_0
-    invoke-interface {v1}, Landroid/database/Cursor;->close()V
-
-    :goto_1
-    invoke-static {v0}, Lcom/android/incallui/coreapps/CoreAppsUtils;->convertToIntArray(Ljava/lang/String;)[I
-
-    move-result-object v1
-
-    if-eqz v1, :cond_3
-
-    move v0, v7
-
-    :goto_2
-    array-length v2, v1
-
-    if-ge v0, v2, :cond_3
-
-    aget v2, v1, v0
-
-    if-ne v7, v2, :cond_1
-
-    move v0, v8
-
-    :goto_3
-    if-ne v0, v8, :cond_2
-
-    const-string v1, "Agifflow-Agifflow-CoreAppsUtils"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "getServiceStatus : serviceId ("
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, ") is ON"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2, v8}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    :goto_4
-    if-ne v0, v8, :cond_0
-
-    move v7, v8
-
-    :cond_0
-    return v7
-
-    :cond_1
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_2
-
-    :cond_2
-    const-string v1, "Agifflow-Agifflow-CoreAppsUtils"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "getServiceStatus : serviceId ("
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, ") is OFF"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2, v8}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    goto :goto_4
-
-    :cond_3
-    move v0, v7
-
-    goto :goto_3
-
-    :cond_4
-    move-object v0, v6
-
-    goto :goto_0
-
-    :cond_5
-    move-object v0, v6
-
-    goto :goto_1
 .end method
 
 .method public static register()V
@@ -1297,9 +1438,9 @@
 .end method
 
 .method public static updateGeoDescriptionAsync(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 5
+    .locals 4
 
-    const/4 v4, 0x1
+    const/4 v3, 0x1
 
     const-string v0, "Agifflow-Agifflow-CoreAppsUtils"
 
@@ -1325,7 +1466,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1, v4}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v0, v1, v3}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
     if-eqz p1, :cond_0
 
@@ -1336,7 +1477,7 @@
 
     const-string v1, "updateGeoDescriptionAsync: return"
 
-    invoke-static {v0, v1, v4}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v0, v1, v3}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
     :cond_1
     new-instance v0, Lcom/android/incallui/coreapps/CoreAppsUtils$3;
@@ -1370,27 +1511,11 @@
     :catch_0
     move-exception v0
 
-    const-string v1, "Agifflow-Agifflow-CoreAppsUtils"
+    const-string v0, "Agifflow-Agifflow-CoreAppsUtils"
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    const-string v1, "updateGeoDescriptionAsync - exception occured"
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "updateGeoDescriptionAsync: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v1, v0, v4}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v0, v1, v3}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
     goto :goto_0
 .end method

@@ -822,6 +822,7 @@
     <string name="settings_glance_reply_explain_text_vzw">Отклонять входящий звонок и отправлять звонящему готовое сообщение, поместив палец на датчик сердечного ритма перевернутого устройства и подержав его %d секунды.</string>
     <string name="settings_glance_reply_reached_maximum_text">Достигнуто максимальное число символов (%d).</string>
     <string name="settings_glance_reply_text">“Быстрые ответы”</string>
+    <string name="settings_subappbar_switch_dimmed">Затемненный</string>
     <string name="settings_subappbar_switch_off">Выключено</string>
     <string name="settings_subappbar_switch_on">Включено</string>
     <string name="simple_sharing">Поделиться ссылкой</string>
@@ -867,6 +868,7 @@
     <string name="swipe_right_to_answer_call_with_video">Проведите вправо для ответа на вызов с видео.</string>
     <string name="swipe_right_to_answer_call_without_video">Проведите вправо для ответа на вызов без видео.</string>
     <string name="switch_rejected_by_mt">Предложение переключиться на видеовызов отклонено.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Сбой предложения переключиться на видеовызов.</string>
     <string name="switch_to_video_call_failed_tmo">Предложение переключиться на видеовызов отклонено.</string>
     <string name="switch_to_voice_call_failed">Сбой предложения переключиться на голосовой вызов.</string>

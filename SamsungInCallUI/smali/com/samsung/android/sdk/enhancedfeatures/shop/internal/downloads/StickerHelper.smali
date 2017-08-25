@@ -376,7 +376,7 @@
 .end method
 
 .method public static declared-synchronized installPackage(Landroid/content/Context;Ljava/lang/String;Ljava/io/File;Ljava/util/ArrayList;JJ)V
-    .locals 8
+    .locals 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -390,9 +390,9 @@
         }
     .end annotation
 
-    const-class v6, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/StickerHelper;
+    const-class v7, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/StickerHelper;
 
-    monitor-enter v6
+    monitor-enter v7
 
     :try_start_0
     invoke-static {p0}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/StickerHelper;->getStickerRootDirectory(Landroid/content/Context;)Ljava/io/File;
@@ -451,31 +451,33 @@
 
     invoke-static {v1, v2}, Lcom/samsung/android/sdk/ssf/shop/util/ShopLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-static {p0, p2, v0}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/utils/ZipUtils;->UNZIP(Landroid/content/Context;Ljava/io/File;Ljava/io/File;)Ljava/io/File;
+    invoke-static {p0, p2, v0}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/utils/ZipUtils;->unzip(Landroid/content/Context;Ljava/io/File;Ljava/io/File;)Ljava/io/File;
 
-    new-instance v7, Ljava/util/ArrayList;
+    new-instance v8, Ljava/util/ArrayList;
 
-    invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v8}, Ljava/util/ArrayList;-><init>()V
 
     sget-object v0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/constant/ItemType;->Sticker:Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/constant/ItemType;
+
+    const-string v6, ""
 
     move-object v1, p1
 
     move-wide v2, p4
 
-    move-wide v4, p6
+    move-wide/from16 v4, p6
 
-    invoke-static/range {v0 .. v5}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/database/helper/DownloadItemDBHelper;->updateInstallItem(Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/constant/ItemType;Ljava/lang/String;JJ)Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO;
+    invoke-static/range {v0 .. v6}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/database/helper/DownloadItemDBHelper;->updateInstallItem(Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/constant/ItemType;Ljava/lang/String;JJLjava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO;
 
     move-result-object v0
 
-    invoke-virtual {v7, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/provider/ShopProvider;
 
     invoke-direct {v0, p0}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/provider/ShopProvider;-><init>(Landroid/content/Context;)V
 
-    invoke-virtual {v0, v7}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/provider/ShopProvider;->applyBatch(Ljava/util/ArrayList;)[J
+    invoke-virtual {v0, v8}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/provider/ShopProvider;->applyBatch(Ljava/util/ArrayList;)[J
 
     invoke-virtual {p3}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
@@ -500,7 +502,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v7, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     :try_end_0
     .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -526,7 +528,7 @@
     :catchall_0
     move-exception v0
 
-    monitor-exit v6
+    monitor-exit v7
 
     throw v0
 
@@ -536,12 +538,12 @@
 
     invoke-direct {v0, p0}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/provider/ShopProvider;-><init>(Landroid/content/Context;)V
 
-    invoke-virtual {v0, v7}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/provider/ShopProvider;->applyBatch(Ljava/util/ArrayList;)[J
+    invoke-virtual {v0, v8}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/provider/ShopProvider;->applyBatch(Ljava/util/ArrayList;)[J
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    monitor-exit v6
+    monitor-exit v7
 
     return-void
 .end method
@@ -636,7 +638,7 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     :try_start_3
-    invoke-static {p0, p2, v2}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/utils/ZipUtils;->UNZIP(Landroid/content/Context;Ljava/io/File;Ljava/io/File;)Ljava/io/File;
+    invoke-static {p0, p2, v2}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/utils/ZipUtils;->unzip(Landroid/content/Context;Ljava/io/File;Ljava/io/File;)Ljava/io/File;
 
     invoke-static {p0, p1}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/StickerHelper;->getStickerDirectory(Landroid/content/Context;Ljava/lang/String;)Ljava/io/File;
     :try_end_3

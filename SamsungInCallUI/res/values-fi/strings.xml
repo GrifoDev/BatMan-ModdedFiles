@@ -823,6 +823,7 @@ kamera"</string>
     <string name="settings_glance_reply_explain_text_vzw">Hylkää saapuva puhelu ja lähetä soittajalle esimääritetty viesti asettamalla sormesi sykemittarin anturille ja pitämällä sitä %d sekuntia paikallaan, kun laite on käännetty ylösalaisin.</string>
     <string name="settings_glance_reply_reached_maximum_text">Merkkien enimmäismäärä (%d) on saavutettu.</string>
     <string name="settings_glance_reply_text">Pikavastausviestit</string>
+    <string name="settings_subappbar_switch_dimmed">Himmennetty</string>
     <string name="settings_subappbar_switch_off">Pois</string>
     <string name="settings_subappbar_switch_on">Päällä</string>
     <string name="simple_sharing">Linkkien jako</string>
@@ -868,6 +869,7 @@ kamera"</string>
     <string name="swipe_right_to_answer_call_with_video">Pyyhkäise oikealle, jos haluat vastata puheluun kuvan kanssa.</string>
     <string name="swipe_right_to_answer_call_without_video">Pyyhkäise oikealle, jos haluat vastata puheluun ilman kuvaa.</string>
     <string name="switch_rejected_by_mt">Pyyntö vaihtaa videopuheluun on hylätty.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Pyyntö vaihtaa videopuheluun epäonnistui.</string>
     <string name="switch_to_video_call_failed_tmo">Pyyntö vaihtaa videopuheluun on hylätty.</string>
     <string name="switch_to_voice_call_failed">Pyyntö vaihtaa äänipuheluun epäonnistui.</string>

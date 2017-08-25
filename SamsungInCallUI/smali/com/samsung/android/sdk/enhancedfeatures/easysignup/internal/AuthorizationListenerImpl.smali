@@ -10,20 +10,12 @@
 
 .field private static final SYNC_FOLDER_TOKEN:Ljava/lang/Object;
 
-.field private static final TAG:Ljava/lang/String;
+.field private static final TAG:Ljava/lang/String; = "AuthorizationListenerImpl"
 
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
-
-    const-class v0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/AuthorizationListenerImpl;
-
-    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/AuthorizationListenerImpl;->TAG:Ljava/lang/String;
 
     new-instance v0, Ljava/lang/Object;
 
@@ -138,7 +130,7 @@
 
     move-result-object v2
 
-    sget-object v3, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/AuthorizationListenerImpl;->TAG:Ljava/lang/String;
+    const-string v3, "AuthorizationListenerImpl"
 
     invoke-static {v2, v3}, Lcom/samsung/android/sdk/ssf/common/util/CommonLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -206,19 +198,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    sget-object v4, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/AuthorizationListenerImpl;->TAG:Ljava/lang/String;
-
-    invoke-static {v3, v4}, Lcom/samsung/android/sdk/ssf/common/util/CommonLog;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "RMsg: "
+    const-string v4, " RMsg: "
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -236,9 +216,9 @@
 
     move-result-object v3
 
-    sget-object v4, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/AuthorizationListenerImpl;->TAG:Ljava/lang/String;
+    const-string v4, "AuthorizationListenerImpl"
 
-    invoke-static {v3, v4}, Lcom/samsung/android/sdk/ssf/common/util/CommonLog;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v3, v4}, Lcom/samsung/android/sdk/ssf/common/util/CommonLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-virtual {v2}, Lcom/samsung/android/sdk/ssf/account/io/ErrorResponse;->getRcode()J
 
@@ -295,6 +275,16 @@
     move-result-wide v4
 
     const-wide v6, 0xee714ac0L
+
+    cmp-long v3, v4, v6
+
+    if-eqz v3, :cond_0
+
+    invoke-virtual {v2}, Lcom/samsung/android/sdk/ssf/account/io/ErrorResponse;->getRcode()J
+
+    move-result-wide v4
+
+    const-wide v6, 0xee7146ffL
 
     cmp-long v3, v4, v6
 
@@ -360,19 +350,11 @@
 
     move-result-object v3
 
-    invoke-virtual {p1}, Lcom/android/volley/Request;->getUrl()Ljava/lang/String;
-
-    move-result-object v2
-
-    const-string v4, "cid"
-
-    invoke-direct {p0, v2, v4}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/AuthorizationListenerImpl;->getDetailsFromURL(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
     if-nez v3, :cond_1
 
     const-string v2, "mGroupId is null, hence exiting"
 
-    sget-object v3, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/AuthorizationListenerImpl;->TAG:Ljava/lang/String;
+    const-string v3, "AuthorizationListenerImpl"
 
     invoke-static {v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -386,7 +368,7 @@
     :cond_1
     const-string v2, "Refreshing folder token."
 
-    sget-object v4, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/AuthorizationListenerImpl;->TAG:Ljava/lang/String;
+    const-string v4, "AuthorizationListenerImpl"
 
     invoke-static {v2, v4}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->d(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_0
@@ -418,7 +400,7 @@
 
     const-string v2, "Got new folder token: "
 
-    sget-object v4, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/AuthorizationListenerImpl;->TAG:Ljava/lang/String;
+    const-string v4, "AuthorizationListenerImpl"
 
     invoke-static {v2, v4}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->d(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_2
@@ -501,7 +483,7 @@
 
     move-result-object v2
 
-    sget-object v3, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/AuthorizationListenerImpl;->TAG:Ljava/lang/String;
+    const-string v3, "AuthorizationListenerImpl"
 
     invoke-static {v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -628,7 +610,7 @@
     :try_start_5
     const-string v2, "Refresh folder_token failed. Returning null"
 
-    sget-object v4, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/AuthorizationListenerImpl;->TAG:Ljava/lang/String;
+    const-string v4, "AuthorizationListenerImpl"
 
     invoke-static {v2, v4}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->d(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_5
@@ -650,7 +632,7 @@
 
     move-result-object v2
 
-    sget-object v4, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/AuthorizationListenerImpl;->TAG:Ljava/lang/String;
+    const-string v4, "AuthorizationListenerImpl"
 
     invoke-static {v2, v4}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -663,7 +645,7 @@
 
     move-result-object v2
 
-    sget-object v4, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/AuthorizationListenerImpl;->TAG:Ljava/lang/String;
+    const-string v4, "AuthorizationListenerImpl"
 
     invoke-static {v2, v4}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -755,6 +737,16 @@
 
     if-eqz v3, :cond_8
 
+    invoke-virtual {v2}, Lcom/samsung/android/sdk/ssf/account/io/ErrorResponse;->getRcode()J
+
+    move-result-wide v6
+
+    const-wide v8, 0xee7146ffL
+
+    cmp-long v3, v6, v8
+
+    if-eqz v3, :cond_8
+
     const-string v3, "Invalid refresh_token."
 
     invoke-virtual {v2}, Lcom/samsung/android/sdk/ssf/account/io/ErrorResponse;->getRmsg()Ljava/lang/String;
@@ -776,15 +768,15 @@
 
     invoke-direct {v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;-><init>(Landroid/content/Context;)V
 
-    invoke-virtual {v2}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;->updateRefreshToken()Z
+    invoke-virtual {v2}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;->updateRefreshToken()I
 
     move-result v2
 
-    if-eqz v2, :cond_9
+    if-nez v2, :cond_9
 
     const-string v2, "Got new refresh_token "
 
-    sget-object v3, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/AuthorizationListenerImpl;->TAG:Ljava/lang/String;
+    const-string v3, "AuthorizationListenerImpl"
 
     invoke-static {v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->d(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_9
@@ -853,7 +845,7 @@
 
     move-result-object v2
 
-    sget-object v3, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/AuthorizationListenerImpl;->TAG:Ljava/lang/String;
+    const-string v3, "AuthorizationListenerImpl"
 
     invoke-static {v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -976,7 +968,7 @@
     :cond_c
     const-string v2, "Refreshing access token."
 
-    sget-object v3, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/AuthorizationListenerImpl;->TAG:Ljava/lang/String;
+    const-string v3, "AuthorizationListenerImpl"
 
     invoke-static {v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -988,15 +980,15 @@
 
     invoke-direct {v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;-><init>(Landroid/content/Context;)V
 
-    invoke-virtual {v2}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;->updateAccessToken()Z
+    invoke-virtual {v2}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;->updateAccessToken()I
 
     move-result v2
 
-    if-eqz v2, :cond_d
+    if-nez v2, :cond_d
 
     const-string v2, "Got new access_token: "
 
-    sget-object v3, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/AuthorizationListenerImpl;->TAG:Ljava/lang/String;
+    const-string v3, "AuthorizationListenerImpl"
 
     invoke-static {v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -1005,7 +997,7 @@
     :cond_d
     const-string v2, "Refresh access_token failed. Returning null"
 
-    sget-object v3, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/AuthorizationListenerImpl;->TAG:Ljava/lang/String;
+    const-string v3, "AuthorizationListenerImpl"
 
     invoke-static {v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -1018,7 +1010,7 @@
     :cond_e
     const-string v2, "Refreshed access token less than 600000 ms"
 
-    sget-object v3, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/AuthorizationListenerImpl;->TAG:Ljava/lang/String;
+    const-string v3, "AuthorizationListenerImpl"
 
     invoke-static {v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->d(Ljava/lang/String;Ljava/lang/String;)V
     :try_end_c
@@ -1067,7 +1059,7 @@
 
     const-string v0, "refreshAccessToken() of TCP channel."
 
-    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/AuthorizationListenerImpl;->TAG:Ljava/lang/String;
+    const-string v1, "AuthorizationListenerImpl"
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -1079,15 +1071,15 @@
 
     invoke-direct {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;-><init>(Landroid/content/Context;)V
 
-    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;->updateAccessToken()Z
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;->updateAccessToken()I
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
     const-string v0, "Got new access_token: "
 
-    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/AuthorizationListenerImpl;->TAG:Ljava/lang/String;
+    const-string v1, "AuthorizationListenerImpl"
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -1099,7 +1091,7 @@
     :cond_0
     const-string v0, "Refresh access_token failed. Returning null"
 
-    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/AuthorizationListenerImpl;->TAG:Ljava/lang/String;
+    const-string v1, "AuthorizationListenerImpl"
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->d(Ljava/lang/String;Ljava/lang/String;)V
 

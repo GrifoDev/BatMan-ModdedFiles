@@ -823,6 +823,7 @@ stillinger"</string>
     <string name="settings_glance_reply_explain_text_vzw">Afvis et indgående opkald, og send en forudindstillet besked til opkalderen ved at placere din finger på pulssensoren og holde den nede i %d sekunder, mens enheden bliver vendt om.</string>
     <string name="settings_glance_reply_reached_maximum_text">Det maksimale antal tegn (%d) er nået.</string>
     <string name="settings_glance_reply_text">Hurtigt svar-beskeder</string>
+    <string name="settings_subappbar_switch_dimmed">Nedtonet</string>
     <string name="settings_subappbar_switch_off">Fra</string>
     <string name="settings_subappbar_switch_on">Til</string>
     <string name="simple_sharing">Linkdeling</string>
@@ -868,6 +869,7 @@ stillinger"</string>
     <string name="swipe_right_to_answer_call_with_video">Stryg til højre for at besvare opkald med video.</string>
     <string name="swipe_right_to_answer_call_without_video">Stryg til højre for at besvare opkald uden video.</string>
     <string name="switch_rejected_by_mt">Anmodning om at skifte til videoopkald er afvist.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Anmodning om at skifte til videoopkald mislykkedes.</string>
     <string name="switch_to_video_call_failed_tmo">Anmodning om at skifte til videoopkald blev afslået.</string>
     <string name="switch_to_voice_call_failed">Anmodning om at skifte til stemmeopkald mislykkedes.</string>

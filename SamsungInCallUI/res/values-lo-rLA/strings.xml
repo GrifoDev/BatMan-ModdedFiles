@@ -764,6 +764,7 @@ IVR ເມນູໜ້າຈໍການໂທ ໃຊ້ເນື້ອໃນທ
     <string name="settings_glance_reply_explain_text_vzw">ປະ​ຕິ​ເສດ​ສາຍ​ໂທ​ເຂົ້າ ແລະ​ສົ່ງ​ຂໍ້​ຄວາມ​ທີ່​ຕັ້ງ​ຄ່າ​ມາ​ກ່ອນ​ຫາ​ຜູ້​ໂທ ໂດຍ​ການ​ວາງ​ນີ້ວ​ມື​ຂອງ​ທ່ານ​ຢູ່​ເທິງ​ເຊັນ​ເຊີ​ອັດ​ຕາ​ຫົວ​ໃຈ ແລະ​ຖື​ມັນ​ໄວ້​ຢູ່​ໃນ​ສະ​ຖານ​ທີ່​ເປັນ​ເວ​ລາ %d ວິ​ນາ​ທີ ໃນ​ຂະ​ນະ​ທີ່​ອຸ​ປະ​ກອນ​ປີ້ນ.</string>
     <string name="settings_glance_reply_reached_maximum_text">ຮອດຈໍານວນຕົວອັກສູງສຸດ (%d) ແລ້ວ.</string>
     <string name="settings_glance_reply_text">ຕອບຄືນຂໍ້​ຄວາມດ່ວນ</string>
+    <string name="settings_subappbar_switch_dimmed">ລີ່​ລົງ</string>
     <string name="settings_subappbar_switch_off">ປິດ</string>
     <string name="settings_subappbar_switch_on">ເປີດ</string>
     <string name="simple_sharing">Link sharing</string>
@@ -809,6 +810,7 @@ IVR ເມນູໜ້າຈໍການໂທ ໃຊ້ເນື້ອໃນທ
     <string name="swipe_right_to_answer_call_with_video">ຮູບໄປທາງຂວາເພື່ອຮັບສາຍໂທທີ່ມີວິດີໂອ.</string>
     <string name="swipe_right_to_answer_call_without_video">ຮູບໄປທາງຂວາເພື່ອຮັບສາຍໂທໂດຍບໍ່ມີວິດີໂອ.</string>
     <string name="switch_rejected_by_mt">ການສະເໜີຍ້າຍໄປຫາການໂທດ້ວຍວິດີໂອຖືກປະຕິເສດ.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">ການຂໍຍ້າຍໄປໂທດ້ວຍວິດີໂອບໍ່ສໍາເລັດ.</string>
     <string name="switch_to_video_call_failed_tmo">ຂໍ​ເພື່ອສັບປ່ຽນເປັນໂທວິດີໂອ ຖືກປະຕິເສດແລ້ວ.</string>
     <string name="switch_to_voice_call_failed">ການສະເໜີຂໍປ່ຽນເປັນການໂທດ້ວຍສຽງບໍ່ສໍາເລັດ.</string>

@@ -638,7 +638,7 @@ Meni zaslona za klic IVR uporablja vsebino, ki jo zagotavlja drugi ponudnik stor
     <string name="photoring_unblock_toast_2nd">Medije, ki vam jih je poslal ta stik, boste prejeli naslednjič, ko vas pokliče</string>
     <string name="please_wait">Preverjanje kode za potrditev. Počakajte …</string>
     <string name="popup_download_large_wificheck">Prenos samo prek omrežja Wi-Fi</string>
-    <string name="popup_download_large_wlancheck">Download via WLAN only</string>
+    <string name="popup_download_large_wlancheck">Prenos samo prek omrežja WLAN</string>
     <string name="popup_start_record_during_alerting">Snemanje se bo začelo po vzpostavitvi klica.</string>
     <string name="postalLabelsGroup">Naslov</string>
     <string name="postal_city">Mesto</string>
@@ -822,6 +822,7 @@ kamera"</string>
     <string name="settings_glance_reply_explain_text_vzw">Postavite prst na senzor srčnega utripa in ga %d s držite na mestu, ko je naprava obrnjena, da zavrnete dohodni klic in klicatelju pošljete vnaprej nastavljeno sporočilo.</string>
     <string name="settings_glance_reply_reached_maximum_text">Doseženo je največje število znakov (%d).</string>
     <string name="settings_glance_reply_text">Sporoč. za hitri odgovor</string>
+    <string name="settings_subappbar_switch_dimmed">Zatemnjeno</string>
     <string name="settings_subappbar_switch_off">Izključeno</string>
     <string name="settings_subappbar_switch_on">Vključeno</string>
     <string name="simple_sharing">Deljenje povezave</string>
@@ -867,6 +868,7 @@ kamera"</string>
     <string name="swipe_right_to_answer_call_with_video">Podrsajte v desno za sprejem klica z videom.</string>
     <string name="swipe_right_to_answer_call_without_video">Podrsajte v desno za sprejem klica brez videa.</string>
     <string name="switch_rejected_by_mt">Zahteva za preklop na video klic zavrnjena.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Zahteva za preklop na video klic ni bila uspešna.</string>
     <string name="switch_to_video_call_failed_tmo">Zahteva za preklop na video klic je bila zavrnjena.</string>
     <string name="switch_to_voice_call_failed">Zahteva za preklop na glasovni klic ni uspela.</string>

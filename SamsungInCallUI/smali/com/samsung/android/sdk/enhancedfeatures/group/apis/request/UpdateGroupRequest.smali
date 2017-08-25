@@ -15,6 +15,8 @@
 
 .field private id:Ljava/lang/String;
 
+.field private meta_data:Ljava/lang/String;
+
 .field private option:I
 
 .field private owner_id:Ljava/lang/String;
@@ -50,6 +52,12 @@
 
     iput v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/UpdateGroupRequest;->option:I
 
+    invoke-static {p1}, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/UpdateGroupRequest$Builder;->access$400(Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/UpdateGroupRequest$Builder;)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/UpdateGroupRequest;->meta_data:Ljava/lang/String;
+
     return-void
 .end method
 
@@ -75,6 +83,14 @@
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/UpdateGroupRequest;->id:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public getMetaData()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/UpdateGroupRequest;->meta_data:Ljava/lang/String;
 
     return-object v0
 .end method

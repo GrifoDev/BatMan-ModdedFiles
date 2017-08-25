@@ -351,25 +351,21 @@
 
     move-result v2
 
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_1
 
     invoke-static {}, Lcom/android/incallui/bike/BikeModeUtils;->isBikeCallAnswered()Z
 
     move-result v2
 
     invoke-static {}, Lcom/android/incallui/bike/BikeModeUtils;->isBikeModeOn()Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result v3
 
     if-eqz v3, :cond_1
 
     if-nez v2, :cond_1
-
-    const/4 v0, 0x1
-
-    invoke-virtual {p0, v0}, Lcom/android/incallui/ProximitySensor;->turnOffProximitySensor(Z)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :cond_0
     :goto_0
@@ -379,42 +375,19 @@
 
     :cond_1
     :try_start_1
-    invoke-static {}, Lcom/android/incallui/bike/BikeModeUtils;->isBikeModeOn()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_2
-
-    if-eqz v2, :cond_2
-
-    invoke-direct {p0}, Lcom/android/incallui/ProximitySensor;->turnOnProximitySensor()V
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    goto :goto_0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit p0
-
-    throw v0
-
-    :cond_2
-    :try_start_2
     const-string v2, "support_tphone"
 
     invoke-static {v2}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_2
 
     invoke-static {}, Lcom/android/incallui/InCallUISystemDB;->isTPhoneMode()Z
 
     move-result v2
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_2
 
     invoke-static {}, Lcom/android/incallui/util/CallTypeUtils;->isVideoCall()Z
 
@@ -422,7 +395,7 @@
 
     if-eqz v2, :cond_0
 
-    :cond_3
+    :cond_2
     iget-object v2, p0, Lcom/android/incallui/ProximitySensor;->mAudioModeProvider:Lcom/android/incallui/AudioModeProvider;
 
     invoke-virtual {v2}, Lcom/android/incallui/AudioModeProvider;->getAudioMode()I
@@ -431,17 +404,17 @@
 
     const/4 v2, 0x4
 
-    if-eq v2, v4, :cond_4
+    if-eq v2, v4, :cond_3
 
     const/16 v2, 0x8
 
-    if-eq v2, v4, :cond_4
+    if-eq v2, v4, :cond_3
 
     const/4 v2, 0x2
 
-    if-ne v2, v4, :cond_b
+    if-ne v2, v4, :cond_a
 
-    :cond_4
+    :cond_3
     move v2, v0
 
     :goto_1
@@ -449,12 +422,12 @@
 
     move-result v3
 
-    if-nez v3, :cond_5
+    if-nez v3, :cond_4
 
     move v2, v0
 
-    :cond_5
-    if-nez v2, :cond_6
+    :cond_4
+    if-nez v2, :cond_5
 
     invoke-static {}, Lcom/android/incallui/util/CallTypeUtils;->isAliveVideoCall()Z
 
@@ -462,7 +435,7 @@
 
     or-int/2addr v2, v3
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_5
 
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -486,8 +459,8 @@
 
     invoke-static {p0, v3, v5}, Lcom/android/incallui/Log;->v(Ljava/lang/Object;Ljava/lang/String;Z)V
 
-    :cond_6
-    if-nez v2, :cond_7
+    :cond_5
+    if-nez v2, :cond_6
 
     invoke-static {}, Lcom/android/incallui/util/AudioUtils;->isCallForwardingState()Z
 
@@ -495,7 +468,7 @@
 
     or-int/2addr v2, v3
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_6
 
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -519,12 +492,12 @@
 
     invoke-static {p0, v3, v5}, Lcom/android/incallui/Log;->v(Ljava/lang/Object;Ljava/lang/String;Z)V
 
-    :cond_7
+    :cond_6
     iget-object v3, p0, Lcom/android/incallui/ProximitySensor;->mSamsungAudioManager:Landroid/media/AudioManager;
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_7
 
-    if-nez v2, :cond_8
+    if-nez v2, :cond_7
 
     invoke-static {}, Lcom/android/incallui/accessory/AccessoryEventHandler;->getInstance()Lcom/android/incallui/accessory/AccessoryEventHandler;
 
@@ -534,7 +507,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_7
 
     iget-object v5, p0, Lcom/android/incallui/ProximitySensor;->mSamsungAudioManager:Landroid/media/AudioManager;
 
@@ -544,7 +517,7 @@
 
     or-int/2addr v2, v5
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_7
 
     new-instance v6, Ljava/lang/StringBuilder;
 
@@ -578,14 +551,14 @@
 
     invoke-static {p0, v3, v5}, Lcom/android/incallui/Log;->v(Ljava/lang/Object;Ljava/lang/String;Z)V
 
-    :cond_8
-    if-nez v2, :cond_9
+    :cond_7
+    if-nez v2, :cond_8
 
     iget-boolean v3, p0, Lcom/android/incallui/ProximitySensor;->mFromRcsShare:Z
 
     or-int/2addr v2, v3
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_8
 
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -611,7 +584,7 @@
 
     invoke-static {p0, v3, v5}, Lcom/android/incallui/Log;->v(Ljava/lang/Object;Ljava/lang/String;Z)V
 
-    :cond_9
+    :cond_8
     move v3, v2
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -644,7 +617,7 @@
 
     iget-boolean v2, p0, Lcom/android/incallui/ProximitySensor;->mIsHardKeyboardOpen:Z
 
-    if-eqz v2, :cond_c
+    if-eqz v2, :cond_b
 
     move v2, v0
 
@@ -657,7 +630,7 @@
 
     iget-boolean v2, p0, Lcom/android/incallui/ProximitySensor;->mDialpadVisible:Z
 
-    if-eqz v2, :cond_d
+    if-eqz v2, :cond_c
 
     move v2, v0
 
@@ -670,7 +643,7 @@
 
     iget-boolean v2, p0, Lcom/android/incallui/ProximitySensor;->mIsPhoneOffhook:Z
 
-    if-eqz v2, :cond_e
+    if-eqz v2, :cond_d
 
     move v2, v0
 
@@ -683,7 +656,7 @@
 
     iget-boolean v6, p0, Lcom/android/incallui/ProximitySensor;->mUiShowing:Z
 
-    if-eqz v6, :cond_f
+    if-eqz v6, :cond_e
 
     :goto_5
     invoke-virtual {v2, v5, v0}, Lcom/google/a/a/d$a;->a(Ljava/lang/String;I)Lcom/google/a/a/d$a;
@@ -724,13 +697,13 @@
 
     iget-boolean v2, p0, Lcom/android/incallui/ProximitySensor;->mIsPhoneOffhook:Z
 
-    if-eqz v2, :cond_10
+    if-eqz v2, :cond_f
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_9
 
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_f
 
-    :cond_a
+    :cond_9
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
@@ -772,46 +745,56 @@
     const/4 v0, 0x1
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/ProximitySensor;->turnOffProximitySensor(Z)V
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     goto/16 :goto_0
 
-    :cond_b
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
+
+    :cond_a
     move v2, v1
 
     goto/16 :goto_1
 
-    :cond_c
+    :cond_b
     move v2, v1
 
-    goto :goto_2
+    goto/16 :goto_2
 
-    :cond_d
+    :cond_c
     move v2, v1
 
     goto :goto_3
 
-    :cond_e
+    :cond_d
     move v2, v1
 
     goto :goto_4
 
-    :cond_f
+    :cond_e
     move v0, v1
 
     goto :goto_5
 
-    :cond_10
+    :cond_f
+    :try_start_2
     iget-boolean v0, p0, Lcom/android/incallui/ProximitySensor;->mIsPhoneOffhook:Z
 
-    if-eqz v0, :cond_11
+    if-eqz v0, :cond_10
 
-    if-nez v3, :cond_11
+    if-nez v3, :cond_10
 
     invoke-static {}, Lcom/android/incallui/util/CallTypeUtils;->hasVideoState()Z
 
     move-result v0
 
-    if-nez v0, :cond_11
+    if-nez v0, :cond_10
 
     const-string v0, "Turning on proximity sensor"
 
@@ -823,7 +806,7 @@
 
     goto/16 :goto_0
 
-    :cond_11
+    :cond_10
     const-string v0, "Turning off proximity sensor"
 
     const/4 v1, 0x1

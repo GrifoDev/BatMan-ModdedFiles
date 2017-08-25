@@ -184,7 +184,7 @@
     goto :goto_0
 .end method
 
-.method public onReceveShareMessage(Landroid/net/Uri;Lcom/android/incallui/Call;)V
+.method public onReceveShareMessage(Landroid/net/Uri;Ljava/io/File;Lcom/android/incallui/Call;)V
     .locals 0
 
     return-void

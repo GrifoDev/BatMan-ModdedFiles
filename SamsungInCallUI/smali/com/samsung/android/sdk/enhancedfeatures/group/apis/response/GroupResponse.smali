@@ -13,6 +13,8 @@
 
 .field protected members_count:I
 
+.field protected meta_data:Ljava/lang/String;
+
 .field protected option:I
 
 .field protected owner_id:Ljava/lang/String;
@@ -71,6 +73,14 @@
     iget v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/response/GroupResponse;->members_count:I
 
     return v0
+.end method
+
+.method public getMetaData()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/response/GroupResponse;->meta_data:Ljava/lang/String;
+
+    return-object v0
 .end method
 
 .method public getOption()I
@@ -141,6 +151,14 @@
     .locals 0
 
     iput p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/response/GroupResponse;->members_count:I
+
+    return-void
+.end method
+
+.method public setMetaData(Ljava/lang/String;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/response/GroupResponse;->meta_data:Ljava/lang/String;
 
     return-void
 .end method

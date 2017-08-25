@@ -13,6 +13,8 @@
 
 .field public members_count:I
 
+.field public meta_data:Ljava/lang/Object;
+
 .field public option:I
 
 .field public owner_id:Ljava/lang/String;

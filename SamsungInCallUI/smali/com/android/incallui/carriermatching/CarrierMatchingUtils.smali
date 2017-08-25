@@ -1074,35 +1074,31 @@
 .end method
 
 .method private getPrefixFromDialNumberWithIDN(Ljava/lang/String;)Ljava/lang/String;
-    .locals 5
+    .locals 4
 
-    const/4 v4, 0x0
-
-    invoke-static {p1}, Lcom/google/i18n/phonenumbers/PhoneNumberUtil;->normalizeDigitsOnly(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
+    const/4 v3, 0x0
 
     const/4 v0, 0x0
 
-    const-string v2, "+"
+    const-string v1, "+"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_1
 
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v2
+    move-result v1
 
-    const/16 v3, 0xf
+    const/16 v2, 0xf
 
-    if-ne v2, v3, :cond_1
+    if-ne v1, v2, :cond_1
 
     const/4 v0, 0x6
 
-    invoke-virtual {v1, v4, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {p1, v3, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v0
 
@@ -1133,17 +1129,17 @@
     return-object v0
 
     :cond_1
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v2
+    move-result v1
 
-    const/16 v3, 0xd
+    const/16 v2, 0xd
 
-    if-ne v2, v3, :cond_0
+    if-ne v1, v2, :cond_0
 
     const/4 v0, 0x4
 
-    invoke-virtual {v1, v4, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {p1, v3, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v0
 
@@ -1151,35 +1147,31 @@
 .end method
 
 .method private getPrefixFromDialNumberWithMYM(Ljava/lang/String;)Ljava/lang/String;
-    .locals 5
+    .locals 4
 
-    const/4 v4, 0x0
-
-    invoke-static {p1}, Lcom/google/i18n/phonenumbers/PhoneNumberUtil;->normalizeDigitsOnly(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
+    const/4 v3, 0x0
 
     const/4 v0, 0x0
 
-    const-string v2, "+"
+    const-string v1, "+"
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v1}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_1
 
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v2
+    move-result v1
 
-    const/16 v3, 0xd
+    const/16 v2, 0xd
 
-    if-ne v2, v3, :cond_1
+    if-ne v1, v2, :cond_1
 
     const/4 v0, 0x6
 
-    invoke-virtual {v1, v4, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {p1, v3, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v0
 
@@ -1210,17 +1202,17 @@
     return-object v0
 
     :cond_1
-    invoke-virtual {v1}, Ljava/lang/String;->length()I
+    invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v2
+    move-result v1
 
-    const/16 v3, 0xb
+    const/16 v2, 0xb
 
-    if-ne v2, v3, :cond_0
+    if-ne v1, v2, :cond_0
 
     const/4 v0, 0x4
 
-    invoke-virtual {v1, v4, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {p1, v3, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v0
 

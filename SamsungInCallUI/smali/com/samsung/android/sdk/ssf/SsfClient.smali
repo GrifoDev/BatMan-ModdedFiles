@@ -2,6 +2,10 @@
 .super Ljava/lang/Object;
 
 
+# static fields
+.field private static final TAG:Ljava/lang/String; = "SsfClient"
+
+
 # instance fields
 .field private apiServerUrl:Ljava/lang/String;
 
@@ -43,7 +47,7 @@
 
 
 # direct methods
-.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Lcom/android/volley/Network;Lcom/android/volley/toolbox/DiskBasedCache;)V
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -51,24 +55,58 @@
     iput-object p1, p0, Lcom/samsung/android/sdk/ssf/SsfClient;->mAppId:Ljava/lang/String;
 
     iput-object p2, p0, Lcom/samsung/android/sdk/ssf/SsfClient;->mAppSecret:Ljava/lang/String;
-
-    invoke-static {p3, p4}, Lcom/samsung/android/sdk/ssf/common/model/RequestManager;->init(Lcom/android/volley/Network;Lcom/android/volley/toolbox/DiskBasedCache;)V
 
     return-void
 .end method
 
-.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;Lcom/android/volley/Network;Lcom/android/volley/toolbox/DiskBasedCache;Ljava/lang/Integer;)V
-    .locals 0
+.method private getServerFromDb(Ljava/lang/String;)Ljava/lang/String;
+    .locals 3
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    const-string v0, "SsfClient"
 
-    iput-object p1, p0, Lcom/samsung/android/sdk/ssf/SsfClient;->mAppId:Ljava/lang/String;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    iput-object p2, p0, Lcom/samsung/android/sdk/ssf/SsfClient;->mAppSecret:Ljava/lang/String;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static {p3, p4, p5}, Lcom/samsung/android/sdk/ssf/common/model/RequestManager;->init(Lcom/android/volley/Network;Lcom/android/volley/toolbox/DiskBasedCache;Ljava/lang/Integer;)V
+    const-string v2, "setServerFromDb "
 
-    return-void
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    const-string v0, "SsfClient"
+
+    const-string v1, "setServerFromDb. cannot get context."
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v0, 0x0
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    invoke-static {v0, p1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/EasySignUpInterface;->getUrl(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
 .end method
 
 
@@ -667,7 +705,7 @@
 .end method
 
 .method public validateInstance()Z
-    .locals 3
+    .locals 5
 
     const-string v0, "SsfClient instance is not initialized properly. "
 
@@ -850,7 +888,19 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_6
+
+    const-string v1, "orca"
+
+    invoke-direct {p0, v1}, Lcom/samsung/android/sdk/ssf/SsfClient;->getServerFromDb(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_5
 
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
@@ -877,6 +927,9 @@
     throw v1
 
     :cond_5
+    invoke-virtual {p0, v1}, Lcom/samsung/android/sdk/ssf/SsfClient;->setApiServerUrl(Ljava/lang/String;)V
+
+    :cond_6
     invoke-virtual {p0}, Lcom/samsung/android/sdk/ssf/SsfClient;->getFileServerUrl()Ljava/lang/String;
 
     move-result-object v1
@@ -885,7 +938,19 @@
 
     move-result v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_8
+
+    const-string v1, "ors"
+
+    invoke-direct {p0, v1}, Lcom/samsung/android/sdk/ssf/SsfClient;->getServerFromDb(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_7
 
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
@@ -911,7 +976,10 @@
 
     throw v1
 
-    :cond_6
+    :cond_7
+    invoke-virtual {p0, v1}, Lcom/samsung/android/sdk/ssf/SsfClient;->setFileServerUrl(Ljava/lang/String;)V
+
+    :cond_8
     invoke-virtual {p0}, Lcom/samsung/android/sdk/ssf/SsfClient;->getQuotaServerUrl()Ljava/lang/String;
 
     move-result-object v1
@@ -920,7 +988,19 @@
 
     move-result v1
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_a
+
+    const-string v1, "quota"
+
+    invoke-direct {p0, v1}, Lcom/samsung/android/sdk/ssf/SsfClient;->getServerFromDb(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_9
 
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
@@ -946,7 +1026,10 @@
 
     throw v1
 
-    :cond_7
+    :cond_9
+    invoke-virtual {p0, v1}, Lcom/samsung/android/sdk/ssf/SsfClient;->setQuotaServerUrl(Ljava/lang/String;)V
+
+    :cond_a
     invoke-virtual {p0}, Lcom/samsung/android/sdk/ssf/SsfClient;->getPrimaryMessageProxy()Ljava/lang/String;
 
     move-result-object v1
@@ -955,7 +1038,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_d
 
     invoke-virtual {p0}, Lcom/samsung/android/sdk/ssf/SsfClient;->getSecondaryMessageProxy()Ljava/lang/String;
 
@@ -965,7 +1048,31 @@
 
     move-result v1
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_d
+
+    const-string v1, "msgproxy-primary"
+
+    invoke-direct {p0, v1}, Lcom/samsung/android/sdk/ssf/SsfClient;->getServerFromDb(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "msgproxy-secondary"
+
+    invoke-direct {p0, v2}, Lcom/samsung/android/sdk/ssf/SsfClient;->getServerFromDb(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-eqz v3, :cond_b
+
+    if-eqz v4, :cond_b
 
     new-instance v1, Ljava/lang/IllegalArgumentException;
 
@@ -991,7 +1098,37 @@
 
     throw v1
 
-    :cond_8
+    :cond_b
+    if-nez v3, :cond_c
+
+    const-string v0, "tcp://"
+
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
+
+    move-result v0
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/samsung/android/sdk/ssf/SsfClient;->setPrimaryMessageProxy(Ljava/lang/String;)V
+
+    :cond_c
+    if-nez v4, :cond_d
+
+    const-string v0, "tcp://"
+
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
+
+    move-result v0
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {p0, v0}, Lcom/samsung/android/sdk/ssf/SsfClient;->setSecondaryMessageProxy(Ljava/lang/String;)V
+
+    :cond_d
     const/4 v0, 0x0
 
     return v0

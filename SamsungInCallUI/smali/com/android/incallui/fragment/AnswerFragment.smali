@@ -951,7 +951,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0903ba
+    const v3, 0x7f0903bc
 
     const/4 v4, 0x2
 
@@ -1040,7 +1040,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a02f5
+    const v2, 0x7f0a02f1
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1289,7 +1289,7 @@
 .method protected onFinishInflate(Landroid/view/View;)V
     .locals 5
 
-    const v2, 0x7f090333
+    const v2, 0x7f090334
 
     const/4 v4, 0x1
 
@@ -1852,7 +1852,7 @@
 
     const-string v1, "rejected_compose_message"
 
-    invoke-static {v0, v1}, Lcom/android/incallui/util/InCallUtils;->sendBroadcastReminder(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lcom/android/incallui/util/InCallUtils;->startActivitySendToReminder(Landroid/content/Context;Ljava/lang/String;)V
 
     :cond_0
     :goto_0
@@ -1865,7 +1865,7 @@
 
     const-string v1, "rejected_fullscreen"
 
-    invoke-static {v0, v1}, Lcom/android/incallui/util/InCallUtils;->sendBroadcastReminder(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lcom/android/incallui/util/InCallUtils;->startActivitySendToReminder(Landroid/content/Context;Ljava/lang/String;)V
 
     goto :goto_0
 .end method
@@ -2699,7 +2699,7 @@
 .method public updateSmartCallRejectMsg(Lcom/android/incallui/Call;)V
     .locals 4
 
-    const v2, 0x7f090333
+    const v2, 0x7f090334
 
     const/4 v3, 0x0
 

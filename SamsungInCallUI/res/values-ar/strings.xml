@@ -822,6 +822,7 @@
     <string name="settings_glance_reply_explain_text_vzw">ارفض مكالمة واردة وأرسل رسالة مضبوطة مسبقاً إلى المتصل عبر وضع إصبعك على مستشعر سرعة ضربات القلب بشكلٍ مستمر لمدة %d من الثواني عندما يكون جهازك مقلوباً.</string>
     <string name="settings_glance_reply_reached_maximum_text">تم بلوغ أقصى عدد من الأحرف (%d).</string>
     <string name="settings_glance_reply_text">رسائل الرد السريع</string>
+    <string name="settings_subappbar_switch_dimmed">إضاءة خافتة</string>
     <string name="settings_subappbar_switch_off">غير مفعل</string>
     <string name="settings_subappbar_switch_on">مفعل</string>
     <string name="simple_sharing">Link sharing</string>
@@ -867,6 +868,7 @@
     <string name="swipe_right_to_answer_call_with_video">اسحب لليمين للرد على المكالمة مع الفيديو.</string>
     <string name="swipe_right_to_answer_call_without_video">اسحب لليمين للرد على المكالمة من دون الفيديو.</string>
     <string name="switch_rejected_by_mt">تم رفض طلب التبديل إلى مكالمة فيديو.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">فشل طلب التبديل إلى مكالمة فيديو.</string>
     <string name="switch_to_video_call_failed_tmo">تم رفض طلب التبديل إلى مكالمة فيديو.</string>
     <string name="switch_to_voice_call_failed">فشل طلب التبديل إلى المكالمة الصوتية.</string>

@@ -2121,7 +2121,7 @@
     </style>
     <style name="SecVideoCallDialpadKeySubLettersStyle" parent="@style/SecDialpadKeyLettersStyle">
         <item name="android:textSize">@dimen/sec_video_dialpad_key_sub_letters_size</item>
-        <item name="android:layout_marginTop">-5.0dip</item>
+        <item name="android:layout_marginTop">@dimen/sec_video_dialpad_key_sub_letters_margin_top</item>
     </style>
     <style name="SecVideoCallModifyButtonWithText">
         <item name="android:textSize">@dimen/sec_video_incall_button_with_text_text_size</item>

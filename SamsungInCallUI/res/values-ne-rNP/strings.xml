@@ -788,6 +788,7 @@ IVR कल स्क्रिन मेनुले Dianhuabang भनिने 
     <string name="settings_glance_reply_explain_text_vzw">यन्त्र पल्टाइएको हुँदा तपाईको औंलालाई हृदय गति सेन्सर मा राख्दै र त्यसलाई %d सेकेन्डको लागि राख्दै इन्कमिङ कल अस्वीकार गर्नुहोस् र कलरलाई एउटा पूर्वनिश्चित संदेश पठाउनुहोस्।</string>
     <string name="settings_glance_reply_reached_maximum_text">क्यारेक्टरहरूको अधिकतम संख्या (%d) पुग्यो।</string>
     <string name="settings_glance_reply_text">संदेशहरूको द्रुत जवाफ दिनुहोस्</string>
+    <string name="settings_subappbar_switch_dimmed">मधुरो बनाइयो</string>
     <string name="settings_subappbar_switch_off">अफ</string>
     <string name="settings_subappbar_switch_on">अन</string>
     <string name="simple_sharing">Link sharing</string>
@@ -833,6 +834,7 @@ IVR कल स्क्रिन मेनुले Dianhuabang भनिने 
     <string name="swipe_right_to_answer_call_with_video">भिडियोको साथ कलको जवाफ दिन दायाँ स्वाइप गर्नुहोस्।</string>
     <string name="swipe_right_to_answer_call_without_video">भिडियो बिना कलको जवाफ दिन दायाँ स्वाइप गर्नुहोस्।</string>
     <string name="switch_rejected_by_mt">भिडियो कलमा जाने अनुरोध अस्वीकार गरियो।</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">भिडियो कलमा स्विच गर्ने अनुरोध असफल भयो।</string>
     <string name="switch_to_video_call_failed_tmo">भिडियो कलमा स्विच गर्ने अनुरोध अस्वीकार गरियो।</string>
     <string name="switch_to_voice_call_failed">भ्वाइस कलमा स्विच गर्ने अनुरोध असफल भयो।</string>

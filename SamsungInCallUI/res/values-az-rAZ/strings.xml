@@ -764,6 +764,7 @@ Kamera"</string>
     <string name="settings_glance_reply_explain_text_vzw">Barmağınızı ürək döyüntü sensoruna toxunduraraq və cihaz çevrilən zaman %d saniyə saxlayaraq daxil olan zəngi rədd edin və zəng edənə əvvəldən qurulmuş mesajı göndərin.</string>
     <string name="settings_glance_reply_reached_maximum_text">Simvolların sayı maksimuma (%d) çatıb.</string>
     <string name="settings_glance_reply_text">Cəld cavab mesajları</string>
+    <string name="settings_subappbar_switch_dimmed">Tutqunlaşdırılıb</string>
     <string name="settings_subappbar_switch_off">Söndür</string>
     <string name="settings_subappbar_switch_on">Qoş</string>
     <string name="simple_sharing">Keçid paylaşımı</string>
@@ -809,6 +810,7 @@ Kamera"</string>
     <string name="swipe_right_to_answer_call_with_video">Zəngə video ilə cavab vermək üçün sağa sürüşdür.</string>
     <string name="swipe_right_to_answer_call_without_video">Zəngə videosuz cavab vermək üçün sağa sürüşdür.</string>
     <string name="switch_rejected_by_mt">Video zəngə keçid sorğusu rədd edildi.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Video zəngə keçid sorğusu baş tutmadı.</string>
     <string name="switch_to_video_call_failed_tmo">Video zəngə keçirmə sorğusundan imtina edildi.</string>
     <string name="switch_to_voice_call_failed">Səsli zəngə keçid sorğusu verildi.</string>

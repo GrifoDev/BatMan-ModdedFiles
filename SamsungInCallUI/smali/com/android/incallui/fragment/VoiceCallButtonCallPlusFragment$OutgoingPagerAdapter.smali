@@ -107,9 +107,9 @@
 .method public instantiateItem(Landroid/view/View;I)Ljava/lang/Object;
     .locals 9
 
-    const v8, 0x7f0a046c
+    const v8, 0x7f0a046b
 
-    const v7, 0x7f0a0467
+    const v7, 0x7f0a0466
 
     const/4 v6, 0x0
 
@@ -387,7 +387,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a046d
+    const v1, 0x7f0a046c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -401,7 +401,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f0a0468
+    const v3, 0x7f0a0467
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimension(I)F
 

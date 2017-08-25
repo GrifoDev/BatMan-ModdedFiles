@@ -17,6 +17,8 @@
 
 .field private mDescription:Ljava/lang/String;
 
+.field private mTitle:Ljava/lang/String;
+
 
 # direct methods
 .method public constructor <init>()V
@@ -51,6 +53,14 @@
     return-object p1
 .end method
 
+.method static synthetic access$302(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/CreateShareCodeRequest;Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+
+    iput-object p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/CreateShareCodeRequest;->mTitle:Ljava/lang/String;
+
+    return-object p1
+.end method
+
 
 # virtual methods
 .method public getAppName()Ljava/lang/String;
@@ -73,6 +83,14 @@
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/CreateShareCodeRequest;->mDescription:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public getTitle()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/CreateShareCodeRequest;->mTitle:Ljava/lang/String;
 
     return-object v0
 .end method

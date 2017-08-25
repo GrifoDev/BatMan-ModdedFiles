@@ -1315,7 +1315,7 @@
     :cond_2
     const-string v0, "rejected_fullscreen"
 
-    invoke-static {v2, v0}, Lcom/android/incallui/util/InCallUtils;->sendBroadcastReminder(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-static {v2, v0}, Lcom/android/incallui/util/InCallUtils;->startActivitySendToReminder(Landroid/content/Context;Ljava/lang/String;)V
 
     goto :goto_0
 .end method

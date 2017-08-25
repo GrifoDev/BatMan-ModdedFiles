@@ -822,6 +822,7 @@ Schermmenu IVR-oproep gebruikt inhoud van een externe serviceleverancier, Dianhu
     <string name="settings_glance_reply_explain_text_vzw">Weiger een inkomende oproep en verzend een vooringesteld bericht naar de beller door uw vinger op de hartslagsensor te plaatsen en deze %d seconden op zijn plaats te houden terwijl het apparaat wordt omgekeerd.</string>
     <string name="settings_glance_reply_reached_maximum_text">Maximumaantal tekens (%d) bereikt.</string>
     <string name="settings_glance_reply_text">Snel antwoord-berichten</string>
+    <string name="settings_subappbar_switch_dimmed">Gedimd</string>
     <string name="settings_subappbar_switch_off">Uit</string>
     <string name="settings_subappbar_switch_on">Aan</string>
     <string name="simple_sharing">Koppeling delen</string>
@@ -867,6 +868,7 @@ Schermmenu IVR-oproep gebruikt inhoud van een externe serviceleverancier, Dianhu
     <string name="swipe_right_to_answer_call_with_video">Veeg naar rechts om oproep met video te beantwoorden.</string>
     <string name="swipe_right_to_answer_call_without_video">Veeg naar rechts om oproep zonder video te beantwoorden.</string>
     <string name="switch_rejected_by_mt">Verzoek voor overschakelen naar video-oproep geweigerd.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Verzoek voor overschakelen naar video-oproep is mislukt.</string>
     <string name="switch_to_video_call_failed_tmo">Verzoek voor overschakelen naar video-oproep is geweigerd.</string>
     <string name="switch_to_voice_call_failed">Verzoek voor overschakelen naar spraakoproep mislukt.</string>

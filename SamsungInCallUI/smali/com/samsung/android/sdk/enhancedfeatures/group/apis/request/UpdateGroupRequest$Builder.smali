@@ -27,6 +27,8 @@
 
 .field private id:Ljava/lang/String;
 
+.field private meta_data:Ljava/lang/String;
+
 .field private option:I
 
 .field private owner_id:Ljava/lang/String;
@@ -73,6 +75,14 @@
     return v0
 .end method
 
+.method static synthetic access$400(Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/UpdateGroupRequest$Builder;)Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/UpdateGroupRequest$Builder;->meta_data:Ljava/lang/String;
+
+    return-object v0
+.end method
+
 
 # virtual methods
 .method public bridge synthetic build()Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/BaseRequest;
@@ -109,6 +119,14 @@
     .locals 0
 
     iput-object p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/UpdateGroupRequest$Builder;->id:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method public setMetaData(Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/UpdateGroupRequest$Builder;
+    .locals 0
+
+    iput-object p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/UpdateGroupRequest$Builder;->meta_data:Ljava/lang/String;
 
     return-object p0
 .end method

@@ -308,31 +308,33 @@
 .end method
 
 .method private stop(IILjava/lang/String;)V
-    .locals 4
+    .locals 5
 
-    const-string v0, "Fail locking object, st=%d r=%d "
+    sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    const/4 v1, 0x2
+    const-string v1, "Fail locking object, st=%d r=%d "
 
-    new-array v1, v1, [Ljava/lang/Object;
+    const/4 v2, 0x2
 
-    const/4 v2, 0x0
+    new-array v2, v2, [Ljava/lang/Object;
+
+    const/4 v3, 0x0
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v4
 
-    aput-object v3, v1, v2
+    aput-object v4, v2, v3
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v4
 
-    aput-object v3, v1, v2
+    aput-object v4, v2, v3
 
-    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v0, v1, v2}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 

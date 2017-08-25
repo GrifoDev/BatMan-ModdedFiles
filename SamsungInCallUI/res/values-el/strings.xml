@@ -638,7 +638,7 @@
     <string name="photoring_unblock_toast_2nd">Τα πολυμέσα που εστάλησαν από αυτήν την επαφή θα ληφθούν την επόμενη φορά που θα σας καλέσουν</string>
     <string name="please_wait">Έλεγχος κωδικού επαλήθευσης. Περιμένετε…</string>
     <string name="popup_download_large_wificheck">Λήψη μόνο μέσω Wi-Fi</string>
-    <string name="popup_download_large_wlancheck">Download via WLAN only</string>
+    <string name="popup_download_large_wlancheck">Λήψη μόνο μέσω WLAN</string>
     <string name="popup_start_record_during_alerting">Η καταγραφή θα ξεκινήσει μετά τη σύνδεση της κλήσης.</string>
     <string name="postalLabelsGroup">Διεύθυνση</string>
     <string name="postal_city">Πόλη</string>
@@ -822,6 +822,7 @@
     <string name="settings_glance_reply_explain_text_vzw">Απορρίψτε μια εισερχόμενη κλήση και στείλτε ένα προκαθορισμένο μήνυμα στον καλούντα, τοποθετώντας το δάχτυλό σας στον αισθητήρα καρδιακών παλμών για %d δευτερόλεπτα όταν η συσκευή είναι αναποδογυρισμένη.</string>
     <string name="settings_glance_reply_reached_maximum_text">Συμπληρώθηκε ο μέγιστος αριθμός χαρακτήρων (%d).</string>
     <string name="settings_glance_reply_text">Μηνύμ. γρήγορης απάντησης</string>
+    <string name="settings_subappbar_switch_dimmed">Με μειωμένη φωτεινότητα</string>
     <string name="settings_subappbar_switch_off">Ανενεργό</string>
     <string name="settings_subappbar_switch_on">Ενεργό</string>
     <string name="simple_sharing">Κοινή χρήση συνδέσμου</string>
@@ -867,6 +868,7 @@
     <string name="swipe_right_to_answer_call_with_video">Κάντε σάρωση δεξιά, για να απαντήσετε στην κλήση με βίντεο.</string>
     <string name="swipe_right_to_answer_call_without_video">Κάντε σάρωση δεξιά, για να απαντήσετε στην κλήση χωρίς βίντεο.</string>
     <string name="switch_rejected_by_mt">Το αίτημα αλλαγής σε κλήση βίντεο απορρίφθηκε.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Το αίτημα αλλαγής σε κλήση βίντεο απέτυχε.</string>
     <string name="switch_to_video_call_failed_tmo">Το αίτημα αλλαγής σε κλήση βίντεο απορρίφθηκε.</string>
     <string name="switch_to_voice_call_failed">Το αίτημα αλλαγής σε φωνητική κλήση απέτυχε.</string>
@@ -891,9 +893,9 @@
     <string name="units_mb">MB</string>
     <string name="unknown_cdma">Μη διαθέσιμο</string>
     <string name="upload_using_wifi_only">Αποστολή μόνο μέσω Wi-Fi</string>
-    <string name="upload_using_wlan_only">Upload via WLAN only</string>
+    <string name="upload_using_wlan_only">Αποστολή μόνο μέσω WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Αποστολή μέσω Wi-Fi ή δικτύου κινητής τηλεφωνίας</string>
-    <string name="upload_wlan_and_mobile_nw">Upload via WLAN or mobile network</string>
+    <string name="upload_wlan_and_mobile_nw">Αποστολή μέσω WLAN ή δικτύων κινητής τηλεφωνίας</string>
     <string name="usa_att_connected_as_voice">Η κλήση συνδέθηκε μόνο ως φωνητική κλήση.</string>
     <string name="usa_att_data_usage_charge_alert">Πρόκειται να συμπληρώσετε το όριο για τη χρήση δεδομένων που έχετε ορίσει στη συσκευή. Η κλήση βίντεο απαιτεί δεδομένα.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Η κλήση δεν μπορεί να πραγματοποιηθεί μέσω Wi-Fi, γίνεται σύνδεση μέσω δικτύου κινητής τηλεφωνίας. Ισχύουν χρεώσεις φωνής και δεδομένων.</string>
@@ -951,7 +953,7 @@
 Η κλήση βίντεο εκτελείται τώρα στο δίκτυο κινητής τηλεφωνίας. (Ισχύει χρήση δεδομένων αν επιλέξετε να συνεχίσετε.)"</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Η σύνδεση Wi-Fi χάθηκε. Η κλήση τερματίστηκε.</string>
     <string name="use_wifi_and_mobile_nw">Χρήση Wi-Fi και δικτύων κινητής τηλεφωνίας</string>
-    <string name="use_wlan_and_mobile_nw">Use WLAN and mobile networks</string>
+    <string name="use_wlan_and_mobile_nw">Χρήση WLAN και δικτύων κινητής τηλεφωνίας</string>
     <string name="verify">Επαλήθευση</string>
     <string name="verify_your_phone_number">Επαληθεύστε τον αριθμό τηλεφώνου σας</string>
     <string name="verify_your_phone_number_body">Επαληθεύστε τον αριθμό τηλεφώνου σας για να συνδεθείτε με φίλους σας στις υπηρεσίες της Samsung.</string>

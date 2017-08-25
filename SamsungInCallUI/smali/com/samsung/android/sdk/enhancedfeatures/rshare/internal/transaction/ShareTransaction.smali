@@ -88,6 +88,8 @@
 
 .field private mTag:J
 
+.field private mTitle:Ljava/lang/String;
+
 .field private mTrBusyMap:Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/TransactionMap;
 
 .field private mTzStr:Ljava/lang/String;
@@ -979,37 +981,39 @@
 
     invoke-virtual/range {v0 .. v6}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/ShareTransaction$QueryHandler;->startUpdate(ILjava/lang/Object;Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)V
 
-    const-string v0, "Failed to share , r=%d, %s, tz=[%s] %s"
+    sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    const/4 v1, 0x4
+    const-string v1, "Failed to share , r=%d, %s, tz=[%s] %s"
 
-    new-array v1, v1, [Ljava/lang/Object;
+    const/4 v2, 0x4
 
-    const/4 v2, 0x0
+    new-array v2, v2, [Ljava/lang/Object;
+
+    const/4 v3, 0x0
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v4
 
-    aput-object v3, v1, v2
+    aput-object v4, v2, v3
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    aput-object p2, v1, v2
+    aput-object p2, v2, v3
 
-    const/4 v2, 0x2
+    const/4 v3, 0x2
 
-    iget-object v3, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/ShareTransaction;->mTzStr:Ljava/lang/String;
+    iget-object v4, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/ShareTransaction;->mTzStr:Ljava/lang/String;
 
-    aput-object v3, v1, v2
+    aput-object v4, v2, v3
 
-    const/4 v2, 0x3
+    const/4 v3, 0x3
 
-    iget-object v3, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/ShareTransaction;->mShareApiId:Ljava/lang/String;
+    iget-object v4, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/ShareTransaction;->mShareApiId:Ljava/lang/String;
 
-    aput-object v3, v1, v2
+    aput-object v4, v2, v3
 
-    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v0, v1, v2}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -1031,11 +1035,11 @@
 .end method
 
 .method private restoreQuota()V
-    .locals 8
+    .locals 9
 
     const-wide/16 v2, 0x0
 
-    const/4 v7, 0x1
+    const/4 v8, 0x1
 
     iget-boolean v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/ShareTransaction;->mRestored:Z
 
@@ -1046,7 +1050,7 @@
     return-void
 
     :cond_1
-    iput-boolean v7, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/ShareTransaction;->mRestored:Z
+    iput-boolean v8, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/ShareTransaction;->mRestored:Z
 
     invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/RQuota;->get()Landroid/os/Bundle;
 
@@ -1071,27 +1075,29 @@
     if-lez v6, :cond_2
 
     :goto_1
-    const-string v2, "Restore usage %d -> %d"
+    sget-object v2, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    const/4 v3, 0x2
+    const-string v3, "Restore usage %d -> %d"
 
-    new-array v3, v3, [Ljava/lang/Object;
+    const/4 v6, 0x2
 
-    const/4 v6, 0x0
+    new-array v6, v6, [Ljava/lang/Object;
+
+    const/4 v7, 0x0
 
     invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v4
 
-    aput-object v4, v3, v6
+    aput-object v4, v6, v7
 
     invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v4
 
-    aput-object v4, v3, v7
+    aput-object v4, v6, v8
 
-    invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v2, v3, v6}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v2
 
@@ -1237,6 +1243,14 @@
 
     iput-boolean v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/ShareTransaction;->mSilencePush:Z
 
+    sget-object v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/ShareTransaction;->mRequest:Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ShareRequest;
+
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ShareRequest;->getTitle()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/ShareTransaction;->mTitle:Ljava/lang/String;
+
     iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/ShareTransaction;->mUploadShareContentsResponse:Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/UploadShareContentsResponse;
 
     sget-object v2, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/ShareTransaction;->mRequest:Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ShareRequest;
@@ -1324,6 +1338,10 @@
     invoke-direct/range {v0 .. v7}, Lcom/samsung/android/sdk/ssf/share/io/ShareContentsRequest;-><init>(Ljava/util/List;Ljava/lang/String;Ljava/util/ArrayList;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;)V
 
     :goto_2
+    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/ShareTransaction;->mTitle:Ljava/lang/String;
+
+    iput-object v1, v0, Lcom/samsung/android/sdk/ssf/share/io/ShareContentsRequest;->title:Ljava/lang/String;
+
     iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/ShareTransaction;->mPref:Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Pref;
 
     invoke-virtual {v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Pref;->generateTdkApiId()Ljava/lang/String;

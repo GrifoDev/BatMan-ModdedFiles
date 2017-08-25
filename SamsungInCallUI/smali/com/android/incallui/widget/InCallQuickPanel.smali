@@ -355,7 +355,7 @@
 
     iget-object v4, p0, Lcom/android/incallui/widget/InCallQuickPanel;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f090363
+    const v8, 0x7f090365
 
     invoke-virtual {v4, v8}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -375,7 +375,7 @@
 
     iget-object v5, p0, Lcom/android/incallui/widget/InCallQuickPanel;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f090365
+    const v8, 0x7f090367
 
     invoke-virtual {v5, v8}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -401,7 +401,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/widget/InCallQuickPanel;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f090362
+    const v2, 0x7f090364
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -1657,7 +1657,7 @@
 
     if-eqz v3, :cond_11
 
-    const v0, 0x7f09032b
+    const v0, 0x7f09032c
 
     :goto_e
     new-instance v3, Ljava/lang/StringBuilder;
@@ -1714,7 +1714,7 @@
     goto :goto_d
 
     :cond_11
-    const v0, 0x7f09032a
+    const v0, 0x7f09032b
 
     goto :goto_e
 
@@ -1744,7 +1744,7 @@
 
     if-eqz v1, :cond_16
 
-    const v0, 0x7f09032b
+    const v0, 0x7f09032c
 
     :goto_11
     new-instance v1, Ljava/lang/StringBuilder;
@@ -1806,7 +1806,7 @@
     goto :goto_10
 
     :cond_16
-    const v0, 0x7f09032a
+    const v0, 0x7f09032b
 
     goto :goto_11
 

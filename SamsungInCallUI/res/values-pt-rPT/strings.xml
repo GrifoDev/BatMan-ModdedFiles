@@ -674,7 +674,7 @@ O menu do ecrã de chamadas IVR utiliza conteúdos disponibilizados por um forne
     <string name="rcs_share_toast_lowmemory">Memória insuficiente</string>
     <string name="rcs_share_toast_terminated">Terminou</string>
     <string name="rcs_share_toast_toolarge">Ficheiro demasiado grande</string>
-    <string name="receiver">Destinatário</string>
+    <string name="receiver">Receptor</string>
     <string name="recently_use_sim_for_callback">SIM utilizado recentemente</string>
     <string name="record_notification_button_text_close">Fechar</string>
     <string name="record_notification_button_text_record_list">Gravações</string>
@@ -822,6 +822,7 @@ Unidirec."</string>
     <string name="settings_glance_reply_explain_text_vzw">Rejeite uma chamada recebida e envie uma mensagem predefinida ao chamador, encostando o dedo ao sensor de frequência cardíaca e mantendo-o aí durante %d segundos, quando o dispositivo estiver virado ao contrário.</string>
     <string name="settings_glance_reply_reached_maximum_text">Número máximo de caracteres (%d) atingido.</string>
     <string name="settings_glance_reply_text">Mensagens resposta rápida</string>
+    <string name="settings_subappbar_switch_dimmed">Atenuado</string>
     <string name="settings_subappbar_switch_off">Desligado</string>
     <string name="settings_subappbar_switch_on">Ligado</string>
     <string name="simple_sharing">Partilha de ligação</string>
@@ -867,6 +868,7 @@ Unidirec."</string>
     <string name="swipe_right_to_answer_call_with_video">Deslize para a direita, para atender a chamada com vídeo.</string>
     <string name="swipe_right_to_answer_call_without_video">Deslize para a direita, para atender a chamada sem vídeo.</string>
     <string name="switch_rejected_by_mt">Pedido para mudança para chamada de vídeo rejeitado.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Pedido de mudança para chamada de vídeo falhou.</string>
     <string name="switch_to_video_call_failed_tmo">Pedido de mudança para chamada de vídeo recusado.</string>
     <string name="switch_to_voice_call_failed">Pedido de mudança para chamada de voz falhou.</string>

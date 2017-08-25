@@ -87,6 +87,18 @@
 
 
 # virtual methods
+.method public cancel()V
+    .locals 2
+
+    const-string v0, "Transaction Cancel"
+
+    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/Transaction;->TAG:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    return-void
+.end method
+
 .method public cancel(I)V
     .locals 4
 

@@ -13,8 +13,6 @@
 
 .field private static final COREAPPS_PREPRD_SERVER:Ljava/lang/String; = "CoreApps_PREPRD_Server.test"
 
-.field private static final COREAPPS_SERVER_TYPE:Ljava/lang/String; = "coreapps_server_type"
-
 .field private static final COREAPPS_STG_SERVER:Ljava/lang/String; = "CoreApps_STG_Server.test"
 
 .field public static final DP_PRD_SERVER:Ljava/lang/String; = "https://cas.samsungcloud.com"
@@ -34,8 +32,6 @@
 .field private static final TAG:Ljava/lang/String;
 
 .field private static final mBuildType:Ljava/lang/String;
-
-.field private static final mForceToPrd:Z
 
 
 # direct methods
@@ -58,12 +54,6 @@
 
     sput-object v0, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/ServerInterface;->mBuildType:Ljava/lang/String;
 
-    invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/ServerInterface;->isForceToConnectPrdServer()Z
-
-    move-result v0
-
-    sput-boolean v0, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/ServerInterface;->mForceToPrd:Z
-
     const/4 v0, 0x1
 
     sput v0, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/ServerInterface;->SERVER_TYPE:I
@@ -80,11 +70,33 @@
 .end method
 
 .method public static getDPServer()Ljava/lang/String;
-    .locals 2
+    .locals 3
 
     invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/ServerInterface;->getServerEnv()Ljava/lang/String;
 
     move-result-object v0
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "dp server : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/ServerInterface;->TAG:Ljava/lang/String;
+
+    invoke-static {v1, v2}, Lcom/samsung/android/sdk/ssf/common/util/CommonLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
     const-string v1, "DEV"
 
@@ -550,17 +562,6 @@
 .method public static getServerEnv()Ljava/lang/String;
     .locals 2
 
-    sget-boolean v0, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/ServerInterface;->mForceToPrd:Z
-
-    if-eqz v0, :cond_1
-
-    const-string v0, "PRD"
-
-    :cond_0
-    :goto_0
-    return-object v0
-
-    :cond_1
     const-string v0, "user"
 
     sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/ServerInterface;->mBuildType:Ljava/lang/String;
@@ -569,49 +570,51 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     const-string v0, "PRD"
 
-    :goto_1
+    :goto_0
     invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/ServerInterface;->isPrePrdServer()Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_2
 
+    const-string v0, "PREPRD"
+
+    :cond_0
+    :goto_1
+    return-object v0
+
+    :cond_1
     const-string v0, "PREPRD"
 
     goto :goto_0
 
     :cond_2
-    const-string v0, "PREPRD"
+    invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/ServerInterface;->isPrdServer()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    const-string v0, "PRD"
 
     goto :goto_1
 
     :cond_3
-    invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/ServerInterface;->isPrdServer()Z
+    invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/ServerInterface;->isDevServer()Z
 
     move-result v1
 
     if-eqz v1, :cond_4
 
-    const-string v0, "PRD"
-
-    goto :goto_0
-
-    :cond_4
-    invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/ServerInterface;->isDevServer()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_5
-
     const-string v0, "DEV"
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_5
+    :cond_4
     invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/ServerInterface;->isStgServer()Z
 
     move-result v1
@@ -620,7 +623,7 @@
 
     const-string v0, "STG"
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method private static isDevServer()Z
@@ -642,55 +645,24 @@
 
     if-eqz v0, :cond_0
 
+    const-string v0, "dev exists"
+
+    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/ServerInterface;->TAG:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/ssf/common/util/CommonLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
     const/4 v0, 0x1
 
     :goto_0
     return v0
 
     :cond_0
-    const/4 v0, 0x0
+    const-string v0, "can\'t find dev"
 
-    goto :goto_0
-.end method
+    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/ServerInterface;->TAG:Ljava/lang/String;
 
-.method private static isForceToConnectPrdServer()Z
-    .locals 2
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/ssf/common/util/CommonLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string v0, "true"
-
-    const-string v1, "ro.product_ship"
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/apiInterface/SystemPropertiesRef;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    const-string v0, "samsung"
-
-    const-string v1, "ro.product.manufacturer"
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/apiInterface/SystemPropertiesRef;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    :cond_0
-    const/4 v0, 0x1
-
-    :goto_0
-    return v0
-
-    :cond_1
     const/4 v0, 0x0
 
     goto :goto_0
@@ -729,12 +701,24 @@
 
     if-eqz v0, :cond_0
 
+    const-string v0, "prd exists"
+
+    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/ServerInterface;->TAG:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/ssf/common/util/CommonLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
     const/4 v0, 0x1
 
     :goto_0
     return v0
 
     :cond_0
+    const-string v0, "can\'t find prd"
+
+    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/ServerInterface;->TAG:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/ssf/common/util/CommonLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
     const/4 v0, 0x0
 
     goto :goto_0
@@ -759,12 +743,24 @@
 
     if-eqz v0, :cond_0
 
+    const-string v0, "pre-prd exists"
+
+    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/ServerInterface;->TAG:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/ssf/common/util/CommonLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
     const/4 v0, 0x1
 
     :goto_0
     return v0
 
     :cond_0
+    const-string v0, "can\'t find pre-prd"
+
+    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/ServerInterface;->TAG:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/ssf/common/util/CommonLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
     const/4 v0, 0x0
 
     goto :goto_0
@@ -789,12 +785,24 @@
 
     if-eqz v0, :cond_0
 
+    const-string v0, "stg exists"
+
+    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/ServerInterface;->TAG:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/ssf/common/util/CommonLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
     const/4 v0, 0x1
 
     :goto_0
     return v0
 
     :cond_0
+    const-string v0, "can\'t find stg"
+
+    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/ServerInterface;->TAG:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/ssf/common/util/CommonLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
     const/4 v0, 0x0
 
     goto :goto_0

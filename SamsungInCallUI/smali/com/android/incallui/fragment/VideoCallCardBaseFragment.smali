@@ -672,7 +672,7 @@
 
     aput-object v4, v2, v3
 
-    const v3, 0x7f090363
+    const v3, 0x7f090365
 
     invoke-virtual {p0, v3}, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -694,7 +694,7 @@
 
     aput-object v5, v3, v4
 
-    const v4, 0x7f090365
+    const v4, 0x7f090367
 
     invoke-virtual {p0, v4}, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -718,7 +718,7 @@
 
     aput-object v6, v4, v5
 
-    const v5, 0x7f090362
+    const v5, 0x7f090364
 
     invoke-virtual {p0, v5}, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -1749,7 +1749,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090519
+    const v2, 0x7f09051b
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3299,7 +3299,11 @@
 
     if-eqz v0, :cond_0
 
-    sget-boolean v0, Lcom/android/incallui/service/vt/VideoCallConfig;->UI_NOTIFY_VIDEO_QUALITY:Z
+    sget v0, Lcom/android/incallui/service/vt/VideoCallCapability;->VIDEO_QUALITY:I
+
+    invoke-static {v0}, Lcom/android/incallui/service/vt/VideoCallCapability;->can(I)Z
+
+    move-result v0
 
     if-eqz v0, :cond_0
 
@@ -3319,7 +3323,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0903ae
+    const v1, 0x7f0903b0
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -4933,7 +4937,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0a031b
+    const v6, 0x7f0a0317
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -6239,7 +6243,7 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f09067d
+    const v1, 0x7f09067f
 
     invoke-virtual {p0, v1}, Lcom/android/incallui/fragment/VideoCallCardBaseFragment;->getString(I)Ljava/lang/String;
 
@@ -6699,7 +6703,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a02bb
+    const v2, 0x7f0a02b7
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 

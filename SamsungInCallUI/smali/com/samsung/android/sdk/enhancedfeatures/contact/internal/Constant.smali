@@ -57,6 +57,8 @@
 
 .field public static final MIME_TYPE_PHOTO_DELETED:Ljava/lang/String; = "vnd.android.cursor.item/photo_deleted"
 
+.field public static final NEW_CONTACT_ID:Ljava/lang/String; = "new_contact_id"
+
 .field public static final NO_IMAGE_NUM:I = 0x0
 
 .field public static final ONE_MINUTE:I = 0xea60

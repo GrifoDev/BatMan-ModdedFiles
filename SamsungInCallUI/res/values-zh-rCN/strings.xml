@@ -350,7 +350,7 @@
     <string name="download_application_description">"若要使用该功能，请下载以下应用程序：
 
 %s"</string>
-    <string name="downloading_via_wi_fi">通过 Wi-Fi 下载文件</string>
+    <string name="downloading_via_wi_fi">通过 <cst>Wi-Fi</cst> 下载文件</string>
     <string name="downloading_via_wlan">通过 WLAN 下载文件</string>
     <string name="effect_beauty">美肌</string>
     <string name="effect_mono">灰度</string>
@@ -637,7 +637,7 @@
     <string name="photoring_unblock_toast">联系人已解除阻止通过照片墙向您发送媒体。</string>
     <string name="photoring_unblock_toast_2nd">由该联系人发送的媒体将在其下次呼叫您时接收</string>
     <string name="please_wait">正在检查验证码。请稍候…</string>
-    <string name="popup_download_large_wificheck">仅通过 Wi-Fi 下载</string>
+    <string name="popup_download_large_wificheck">仅通过 <cst>Wi-Fi</cst> 下载</string>
     <string name="popup_download_large_wlancheck">只通过 WLAN 下载</string>
     <string name="popup_start_record_during_alerting">录制将在通话已连接后开始</string>
     <string name="postalLabelsGroup">地址</string>
@@ -822,6 +822,7 @@
     <string name="settings_glance_reply_explain_text_vzw">通过将您的手指放在心率传感器上以及在设备翻转时保持不动 %d 秒来拒绝来电并向呼叫方发送预设的信息。</string>
     <string name="settings_glance_reply_reached_maximum_text">已达到最大字符数(%d)。</string>
     <string name="settings_glance_reply_text">快速回复信息</string>
+    <string name="settings_subappbar_switch_dimmed">已变暗</string>
     <string name="settings_subappbar_switch_off">关</string>
     <string name="settings_subappbar_switch_on">开</string>
     <string name="simple_sharing">链接分享</string>
@@ -867,6 +868,7 @@
     <string name="swipe_right_to_answer_call_with_video">向右滑动可接听视频来电</string>
     <string name="swipe_right_to_answer_call_without_video">向右滑动可接听非视频来电</string>
     <string name="switch_rejected_by_mt">请求切换至视频通话被拒绝。</string>
+    <string name="switch_rejected_by_mt_att">已连接语音通话，此通话不能使用视频。</string>
     <string name="switch_to_video_call_failed">请求切换至视频通话失败</string>
     <string name="switch_to_video_call_failed_tmo">切换为视频通话的请求被拒绝</string>
     <string name="switch_to_voice_call_failed">请求切换至语音通话失败</string>
@@ -892,7 +894,7 @@
     <string name="unknown_cdma">不适用</string>
     <string name="upload_using_wifi_only">仅通过 <cst>Wi-Fi</cst> 上传</string>
     <string name="upload_using_wlan_only">只通过 WLAN 上传</string>
-    <string name="upload_wifi_and_mobile_nw">通过 Wi-Fi 或移动网络上传</string>
+    <string name="upload_wifi_and_mobile_nw">通过 <cst>Wi-Fi</cst> 或移动网络上传</string>
     <string name="upload_wlan_and_mobile_nw">通过 WLAN 或移动网络上传</string>
     <string name="usa_att_connected_as_voice">通话仅以语音连接</string>
     <string name="usa_att_data_usage_charge_alert">您在手机上设置的数据使用量即将达到限制。您的视频通话需要使用数据。</string>
@@ -950,7 +952,7 @@
 
 您的视频通话正在使用移动网络。(如果您选择继续，将使用您的流量。)"</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast"><cst>Wi-Fi</cst> 连接丢失。通话已结束。</string>
-    <string name="use_wifi_and_mobile_nw">使用 Wi-Fi 和移动网络</string>
+    <string name="use_wifi_and_mobile_nw">使用 <cst>Wi-Fi</cst> 和移动网络</string>
     <string name="use_wlan_and_mobile_nw">使用 WLAN 和移动网络</string>
     <string name="verify">验证</string>
     <string name="verify_your_phone_number">验证您的手机号码</string>

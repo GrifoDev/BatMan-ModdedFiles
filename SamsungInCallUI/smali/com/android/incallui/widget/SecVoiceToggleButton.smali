@@ -11,6 +11,8 @@
 
 .field private mBackgroundDrawable:Landroid/graphics/drawable/Drawable;
 
+.field private mContext:Landroid/content/Context;
+
 .field private mIsAnimatorRunning:Z
 
 .field private mMeasuredHeight:I
@@ -80,6 +82,8 @@
 .method private init(Landroid/content/Context;)V
     .locals 4
 
+    iput-object p1, p0, Lcom/android/incallui/widget/SecVoiceToggleButton;->mContext:Landroid/content/Context;
+
     invoke-static {}, Lcom/android/incallui/util/InCallUtils;->isMobileKeyboardCovered()Z
 
     move-result v0
@@ -90,7 +94,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a029f
+    const v1, 0x7f0a029b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -102,7 +106,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a029e
+    const v1, 0x7f0a029a
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -115,7 +119,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a024b
+    const v1, 0x7f0a0247
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -137,7 +141,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0507
+    const v1, 0x7f0a0506
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -155,7 +159,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a053f
+    const v1, 0x7f0a053e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -212,7 +216,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a02a5
+    const v1, 0x7f0a02a1
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -224,7 +228,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a02a4
+    const v1, 0x7f0a02a0
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -239,7 +243,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0675
+    const v1, 0x7f0a0674
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -251,7 +255,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0674
+    const v1, 0x7f0a0673
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -277,7 +281,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0a0673
+    const v5, 0x7f0a0672
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -385,7 +389,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0a00ac
+    const v2, 0x7f0a00a9
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -403,7 +407,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0a024c
+    const v2, 0x7f0a0248
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -426,7 +430,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0a022e
+    const v2, 0x7f0a022a
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -671,147 +675,6 @@
 
 
 # virtual methods
-.method public dispatchPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)Z
-    .locals 3
-
-    const v2, 0x7f0900d5
-
-    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getEventType()I
-
-    move-result v0
-
-    const/4 v1, 0x1
-
-    if-ne v0, v1, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/incallui/widget/SecVoiceToggleButton;->isChecked()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {p0}, Lcom/android/incallui/widget/SecVoiceToggleButton;->getTextOn()Ljava/lang/CharSequence;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string v1, " "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {p0}, Lcom/android/incallui/widget/SecVoiceToggleButton;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string v1, ", "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {p0}, Lcom/android/incallui/widget/SecVoiceToggleButton;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v2, 0x7f09032b
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    :goto_0
-    invoke-virtual {p1, v0}, Landroid/view/accessibility/AccessibilityEvent;->setContentDescription(Ljava/lang/CharSequence;)V
-
-    :cond_0
-    invoke-super {p0, p1}, Landroid/widget/ToggleButton;->dispatchPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)Z
-
-    move-result v0
-
-    return v0
-
-    :cond_1
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {p0}, Lcom/android/incallui/widget/SecVoiceToggleButton;->getTextOff()Ljava/lang/CharSequence;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string v1, " "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {p0}, Lcom/android/incallui/widget/SecVoiceToggleButton;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string v1, ", "
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {p0}, Lcom/android/incallui/widget/SecVoiceToggleButton;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v2, 0x7f09032a
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-.end method
-
 .method protected onDraw(Landroid/graphics/Canvas;)V
     .locals 4
 
@@ -853,6 +716,141 @@
     iget v0, p0, Lcom/android/incallui/widget/SecVoiceToggleButton;->mMeasuredHeight:I
 
     goto :goto_0
+.end method
+
+.method public sendAccessibilityEvent(I)V
+    .locals 6
+
+    const v2, 0x8000
+
+    invoke-static {}, Lcom/android/incallui/InCallUISystemDB;->isUniversalSwitchEnable()Z
+
+    move-result v0
+
+    if-nez v0, :cond_3
+
+    if-ne v2, p1, :cond_3
+
+    iget-object v0, p0, Lcom/android/incallui/widget/SecVoiceToggleButton;->mContext:Landroid/content/Context;
+
+    const-string v1, "accessibility"
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/view/accessibility/AccessibilityManager;
+
+    if-eqz v0, :cond_3
+
+    invoke-virtual {v0}, Landroid/view/accessibility/AccessibilityManager;->isEnabled()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    if-ne v2, p1, :cond_3
+
+    invoke-virtual {p0}, Lcom/android/incallui/widget/SecVoiceToggleButton;->isChecked()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/incallui/widget/SecVoiceToggleButton;->getTextOn()Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    :goto_0
+    invoke-virtual {p0}, Lcom/android/incallui/widget/SecVoiceToggleButton;->isChecked()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    const v2, 0x7f09032c
+
+    :goto_1
+    const/16 v3, 0x4000
+
+    invoke-static {v3}, Landroid/view/accessibility/AccessibilityEvent;->obtain(I)Landroid/view/accessibility/AccessibilityEvent;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/view/accessibility/AccessibilityEvent;->getText()Ljava/util/List;
+
+    move-result-object v4
+
+    invoke-interface {v4, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    invoke-virtual {v3}, Landroid/view/accessibility/AccessibilityEvent;->getText()Ljava/util/List;
+
+    move-result-object v1
+
+    iget-object v4, p0, Lcom/android/incallui/widget/SecVoiceToggleButton;->mContext:Landroid/content/Context;
+
+    const v5, 0x7f0900d5
+
+    invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-interface {v1, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    invoke-virtual {v3}, Landroid/view/accessibility/AccessibilityEvent;->getText()Ljava/util/List;
+
+    move-result-object v1
+
+    iget-object v4, p0, Lcom/android/incallui/widget/SecVoiceToggleButton;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v4, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    invoke-virtual {p0}, Lcom/android/incallui/widget/SecVoiceToggleButton;->isEnabled()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    invoke-virtual {v3}, Landroid/view/accessibility/AccessibilityEvent;->getText()Ljava/util/List;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/incallui/widget/SecVoiceToggleButton;->mContext:Landroid/content/Context;
+
+    const v4, 0x7f09032a
+
+    invoke-virtual {v2, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-interface {v1, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    :cond_0
+    invoke-virtual {v0, v3}, Landroid/view/accessibility/AccessibilityManager;->sendAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)V
+
+    :goto_2
+    return-void
+
+    :cond_1
+    invoke-virtual {p0}, Lcom/android/incallui/widget/SecVoiceToggleButton;->getTextOff()Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    goto :goto_0
+
+    :cond_2
+    const v2, 0x7f09032b
+
+    goto :goto_1
+
+    :cond_3
+    invoke-super {p0, p1}, Landroid/widget/ToggleButton;->sendAccessibilityEvent(I)V
+
+    goto :goto_2
 .end method
 
 .method public setChecked(Z)V

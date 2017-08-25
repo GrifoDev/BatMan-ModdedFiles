@@ -764,6 +764,7 @@ IVR ဖုန်းခေါ်ဆို ဖန်သားပြင် မီ�
     <string name="settings_glance_reply_explain_text_vzw">သင့်ကိရိယာ မှောက်ထားစဉ် သင့်လက်ချောင်းကို နှလုံး ခုန်နှုန်း အာရုံခံကိရိယာပေါ်တွင်ထားရှိပြီး %d ကြာအောင် ကိုင်ထားခြင်းဖြင့် အဝင် ခေါ်ဆိုမှုတစ်ခုကို ပယ်ချပြီး ခေါ်ဆိုသူထံသို့ ကြိုတင်ရေး မက်ဆေ့ချ်တစ်ခု ပို့ပါ။</string>
     <string name="settings_glance_reply_reached_maximum_text">အက္ခရာ အများဆုံး အရေအတွက် (%d) သို့ ရောက်နေပါပြီ။</string>
     <string name="settings_glance_reply_text">အမြန် စာပြန် မက်ဆေ့ချ်များ</string>
+    <string name="settings_subappbar_switch_dimmed">မီးမှိန်ထားသည်</string>
     <string name="settings_subappbar_switch_off">ပိတ်</string>
     <string name="settings_subappbar_switch_on">ဖွင့်</string>
     <string name="simple_sharing">Link sharing</string>
@@ -809,6 +810,7 @@ IVR ဖုန်းခေါ်ဆို ဖန်သားပြင် မီ�
     <string name="swipe_right_to_answer_call_with_video">ခေါ်ဆိုမှုကို ဗီဒီယိုဖြင့် ဖြေကြားရန် ညာဘက်သို့ ပွတ်ဆွဲပါ။</string>
     <string name="swipe_right_to_answer_call_without_video">ခေါ်ဆိုမှုကို ဗီဒီယိုမပါဘဲဖြေကြားရန် ညာဘက်သို့ ပွတ်ဆွဲပါ။</string>
     <string name="switch_rejected_by_mt">ဗွီဒီယိုခေါ်ဆိုမှု အဖြစ်ပြောင်းလဲရန် တောင်းဆိုမှု ငြင်းပယ်သည်။</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">ဗီဒီယို ခေါ်ဆိုမှုသို့ ပြောင်းရန် တောင်းခံမှု မအောင်မြင်ပါ။</string>
     <string name="switch_to_video_call_failed_tmo">ဗီဒီယိုဖုန်းသို့ ကူးပြောင်းရန်အတွက် တောင်းဆိုချက်ကို ပယ်ချခဲ့သည်။</string>
     <string name="switch_to_voice_call_failed">အသံ ခေါ်ဆိုမှုသို့ ပြောင်းရန် တောင်းခံမှု မအောင်မြင်ပါ။</string>

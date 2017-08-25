@@ -22,6 +22,8 @@
 
 .field public static final PIP_PREVIEW:Ljava/lang/String; = "pip_preview"
 
+.field public static final QUALITY:Ljava/lang/String; = "quality"
+
 .field public static final RX_HELD:Ljava/lang/String; = "rx_held"
 
 .field public static final THREE_WIDGET:Ljava/lang/String; = "three_widget"

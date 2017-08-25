@@ -1,8 +1,5 @@
 .class Lcom/android/incallui/coreapps/CoreAppsManager$4;
-.super Ljava/lang/Object;
-
-# interfaces
-.implements Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;
+.super Landroid/os/Handler;
 
 
 # annotations
@@ -21,19 +18,19 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/incallui/coreapps/CoreAppsManager;)V
+.method constructor <init>(Lcom/android/incallui/coreapps/CoreAppsManager;Landroid/os/Looper;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/incallui/coreapps/CoreAppsManager$4;->this$0:Lcom/android/incallui/coreapps/CoreAppsManager;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onError(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
+.method public handleMessage(Landroid/os/Message;)V
     .locals 3
 
     const-string v0, "Agifflow-CoreAppsManager"
@@ -42,17 +39,15 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "onError - "
+    const-string v2, "message what = "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    invoke-virtual {p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;->getErrorMessage()Ljava/lang/String;
+    iget v2, p1, Landroid/os/Message;->what:I
 
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
@@ -62,140 +57,45 @@
 
     const/4 v2, 0x1
 
-    invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    return-void
-.end method
+    iget v0, p1, Landroid/os/Message;->what:I
 
-.method public onSuccess(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/ShareResponse;)V
-    .locals 5
-
-    invoke-virtual {p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/ShareResponse;->getPushStatusList()Ljava/util/ArrayList;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v1
+    packed-switch v0, :pswitch_data_0
 
     :cond_0
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    return-void
 
-    move-result v0
+    :pswitch_0
+    iget-object v0, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
-    if-eqz v0, :cond_1
-
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/data/ShareMessagePushStatus;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "mMessageShareListenerforOpponentCheck - needToSms = "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/data/ShareMessagePushStatus;->isNeedToSms()Z
-
-    move-result v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, ", m = "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/data/ShareMessagePushStatus;->getReceiverMsisdn()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v3}, Lcom/android/incallui/coreapps/CoreAppsUtils;->toLogSafePhoneNumberforAgif(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, ", pushable = "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/data/ShareMessagePushStatus;->isPushable()Z
-
-    move-result v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, ", pushFailedReason = "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/data/ShareMessagePushStatus;->getPushFailedReason()I
-
-    move-result v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/data/ShareMessagePushStatus;->isPushable()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const-string v3, "Agifflow-CoreAppsManager"
-
-    const/4 v4, 0x1
-
-    invoke-static {v3, v2, v4}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
+    check-cast v0, Ljava/lang/String;
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/data/ShareMessagePushStatus;->getReceiverMsisdn()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v2, v0}, Lcom/android/incallui/CallList;->getCallByAgifNumber(Ljava/lang/String;)Lcom/android/incallui/Call;
+    invoke-virtual {v1, v0}, Lcom/android/incallui/CallList;->getCallById(Ljava/lang/String;)Lcom/android/incallui/Call;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    iget-object v2, p0, Lcom/android/incallui/coreapps/CoreAppsManager$4;->this$0:Lcom/android/incallui/coreapps/CoreAppsManager;
+    iget-object v1, p0, Lcom/android/incallui/coreapps/CoreAppsManager$4;->this$0:Lcom/android/incallui/coreapps/CoreAppsManager;
 
     invoke-virtual {v0}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-static {v2, v0}, Lcom/android/incallui/coreapps/CoreAppsManager;->access$100(Lcom/android/incallui/coreapps/CoreAppsManager;Ljava/lang/String;)V
+    invoke-static {v1, v0}, Lcom/android/incallui/coreapps/CoreAppsManager;->access$100(Lcom/android/incallui/coreapps/CoreAppsManager;Ljava/lang/String;)V
 
     goto :goto_0
 
-    :cond_1
-    return-void
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_0
+    .end packed-switch
 .end method

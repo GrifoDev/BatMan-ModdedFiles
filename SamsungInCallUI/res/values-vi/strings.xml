@@ -822,6 +822,7 @@ một chiều"</string>
     <string name="settings_glance_reply_explain_text_vzw">Từ chối cuộc gọi đến và gửi tin nhắn đặt sẵn đến người gọi bằng cách đặt ngón tay lên cảm biến nhịp tim và giữ trong %d giây trong khi lật úp thiết bị.</string>
     <string name="settings_glance_reply_reached_maximum_text">Đã đạt số ký tự tối đa (%d).</string>
     <string name="settings_glance_reply_text">Tin nhắn Trả lời nhanh</string>
+    <string name="settings_subappbar_switch_dimmed">Tối</string>
     <string name="settings_subappbar_switch_off">\"TẮT\"</string>
     <string name="settings_subappbar_switch_on">Bật</string>
     <string name="simple_sharing">Link sharing</string>
@@ -867,6 +868,7 @@ một chiều"</string>
     <string name="swipe_right_to_answer_call_with_video">Vuốt sang phải để trả lời cuộc gọi có video.</string>
     <string name="swipe_right_to_answer_call_without_video">Vuốt sang phải để trả lời cuộc gọi không có video.</string>
     <string name="switch_rejected_by_mt">Yêu cầu chuyển sang cuộc gọi video bị từ chối.</string>
+    <string name="switch_rejected_by_mt_att">Không có video cho cuộc gọi này. Cuộc gọi được kết nối như cuộc gọi thoại.</string>
     <string name="switch_to_video_call_failed">Yêu cầu chuyển sang cuộc gọi video không thành công.</string>
     <string name="switch_to_video_call_failed_tmo">Yêu cầu chuyển sang cuộc gọi video đã bị từ chối.</string>
     <string name="switch_to_voice_call_failed">Yêu cầu chuyển sang cuộc gọi thoại không thành công.</string>

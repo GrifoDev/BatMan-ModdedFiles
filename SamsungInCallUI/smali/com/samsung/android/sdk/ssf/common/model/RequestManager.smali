@@ -49,6 +49,65 @@
     return-void
 .end method
 
+.method private static getDiskBasedCache()Lcom/android/volley/toolbox/DiskBasedCache;
+    .locals 3
+
+    invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/Context;->getCacheDir()Ljava/io/File;
+
+    move-result-object v1
+
+    const/4 v0, 0x0
+
+    if-eqz v1, :cond_0
+
+    new-instance v0, Ljava/io/File;
+
+    invoke-virtual {v1}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "Volley"
+
+    invoke-direct {v0, v1, v2}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
+    new-instance v1, Lcom/android/volley/toolbox/DiskBasedCache;
+
+    invoke-direct {v1, v0}, Lcom/android/volley/toolbox/DiskBasedCache;-><init>(Ljava/io/File;)V
+
+    return-object v1
+.end method
+
+.method private static getNetwork()Lcom/android/volley/Network;
+    .locals 4
+
+    new-instance v0, Lcom/samsung/android/sdk/ssf/common/model/CommonBasicNetwork;
+
+    new-instance v1, Lcom/samsung/android/sdk/ssf/common/model/CommonHurlStack;
+
+    const/4 v2, 0x0
+
+    invoke-static {}, Lcom/samsung/android/sdk/ssf/common/model/RequestManager;->getSSLSocketFactory()Ljavax/net/ssl/SSLSocketFactory;
+
+    move-result-object v3
+
+    invoke-direct {v1, v2, v3}, Lcom/samsung/android/sdk/ssf/common/model/CommonHurlStack;-><init>(Lcom/samsung/android/sdk/ssf/common/model/CommonHurlStack$UrlRewriter;Ljavax/net/ssl/SSLSocketFactory;)V
+
+    invoke-direct {v0, v1}, Lcom/samsung/android/sdk/ssf/common/model/CommonBasicNetwork;-><init>(Lcom/android/volley/toolbox/HttpStack;)V
+
+    new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/AuthorizationListenerImpl;
+
+    invoke-direct {v1}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/AuthorizationListenerImpl;-><init>()V
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/ssf/common/model/CommonBasicNetwork;->setAuthorizationListener(Lcom/samsung/android/sdk/ssf/account/AuthorizationListener;)V
+
+    return-object v0
+.end method
+
 .method public static declared-synchronized getRequestQueue()Lcom/android/volley/RequestQueue;
     .locals 3
 
@@ -59,8 +118,23 @@
     :try_start_0
     sget-object v0, Lcom/samsung/android/sdk/ssf/common/model/RequestManager;->mRequestQueue:Lcom/android/volley/RequestQueue;
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
+    invoke-static {}, Lcom/samsung/android/sdk/ssf/common/model/RequestManager;->getNetwork()Lcom/android/volley/Network;
+
+    move-result-object v0
+
+    invoke-static {}, Lcom/samsung/android/sdk/ssf/common/model/RequestManager;->getDiskBasedCache()Lcom/android/volley/toolbox/DiskBasedCache;
+
+    move-result-object v2
+
+    invoke-static {v0, v2}, Lcom/samsung/android/sdk/ssf/common/model/RequestManager;->newRequestQueue(Lcom/android/volley/Network;Lcom/android/volley/toolbox/DiskBasedCache;)Lcom/android/volley/RequestQueue;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/samsung/android/sdk/ssf/common/model/RequestManager;->mRequestQueue:Lcom/android/volley/RequestQueue;
+
+    :cond_0
     sget-object v0, Lcom/samsung/android/sdk/ssf/common/model/RequestManager;->mRequestQueue:Lcom/android/volley/RequestQueue;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -69,136 +143,144 @@
 
     return-object v0
 
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
+.end method
+
+.method private static getSSLSocketFactory()Ljavax/net/ssl/SSLSocketFactory;
+    .locals 7
+
+    const/4 v2, 0x0
+
+    invoke-static {}, Ljava/security/KeyStore;->getDefaultType()Ljava/lang/String;
+
+    move-result-object v0
+
+    :try_start_0
+    invoke-static {v0}, Ljava/security/KeyStore;->getInstance(Ljava/lang/String;)Ljava/security/KeyStore;
+
+    move-result-object v3
+
+    const/4 v0, 0x0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v3, v0, v1}, Ljava/security/KeyStore;->load(Ljava/io/InputStream;[C)V
+
+    const-string v0, "AndroidCAStore"
+
+    invoke-static {v0}, Ljava/security/KeyStore;->getInstance(Ljava/lang/String;)Ljava/security/KeyStore;
+
+    move-result-object v4
+
+    const/4 v0, 0x0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v4, v0, v1}, Ljava/security/KeyStore;->load(Ljava/io/InputStream;[C)V
+
+    invoke-virtual {v4}, Ljava/security/KeyStore;->aliases()Ljava/util/Enumeration;
+
+    move-result-object v5
+
     :cond_0
+    :goto_0
+    invoke-interface {v5}, Ljava/util/Enumeration;->hasMoreElements()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-interface {v5}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    invoke-virtual {v4, v0}, Ljava/security/KeyStore;->getCertificate(Ljava/lang/String;)Ljava/security/cert/Certificate;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/security/cert/X509Certificate;
+
+    const-string v6, "system:"
+
+    invoke-virtual {v0, v6}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_0
+
+    invoke-virtual {v3, v0, v1}, Ljava/security/KeyStore;->setCertificateEntry(Ljava/lang/String;Ljava/security/cert/Certificate;)V
+    :try_end_0
+    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    throw v0
+
+    :cond_1
     :try_start_1
-    const-string v0, "mRequestQueue is null"
+    invoke-static {}, Ljavax/net/ssl/TrustManagerFactory;->getDefaultAlgorithm()Ljava/lang/String;
 
-    sget-object v2, Lcom/samsung/android/sdk/ssf/common/model/RequestManager;->TAG:Ljava/lang/String;
+    move-result-object v0
 
-    invoke-static {v0, v2}, Lcom/samsung/android/sdk/ssf/common/util/CommonLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0}, Ljavax/net/ssl/TrustManagerFactory;->getInstance(Ljava/lang/String;)Ljavax/net/ssl/TrustManagerFactory;
 
-    new-instance v0, Ljava/lang/IllegalStateException;
+    move-result-object v0
 
-    const-string v2, "Not initialized"
+    invoke-virtual {v0, v3}, Ljavax/net/ssl/TrustManagerFactory;->init(Ljava/security/KeyStore;)V
 
-    invoke-direct {v0, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+    const-string v1, "TLS"
 
-    throw v0
+    invoke-static {v1}, Ljavax/net/ssl/SSLContext;->getInstance(Ljava/lang/String;)Ljavax/net/ssl/SSLContext;
+
+    move-result-object v1
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v0}, Ljavax/net/ssl/TrustManagerFactory;->getTrustManagers()[Ljavax/net/ssl/TrustManager;
+
+    move-result-object v0
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v1, v3, v0, v4}, Ljavax/net/ssl/SSLContext;->init([Ljavax/net/ssl/KeyManager;[Ljavax/net/ssl/TrustManager;Ljava/security/SecureRandom;)V
+
+    invoke-virtual {v1}, Ljavax/net/ssl/SSLContext;->getSocketFactory()Ljavax/net/ssl/SSLSocketFactory;
     :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-
-    throw v0
-.end method
-
-.method public static declared-synchronized init(Lcom/android/volley/Network;Lcom/android/volley/toolbox/DiskBasedCache;)V
-    .locals 3
-
-    const-class v1, Lcom/samsung/android/sdk/ssf/common/model/RequestManager;
-
-    monitor-enter v1
-
-    :try_start_0
-    sget-object v0, Lcom/samsung/android/sdk/ssf/common/model/RequestManager;->mRequestQueue:Lcom/android/volley/RequestQueue;
-
-    if-eqz v0, :cond_0
-
-    sget-object v0, Lcom/samsung/android/sdk/ssf/common/model/RequestManager;->mRequestQueue:Lcom/android/volley/RequestQueue;
-
-    invoke-virtual {v0}, Lcom/android/volley/RequestQueue;->stop()V
-
-    const/4 v0, 0x0
-
-    sput-object v0, Lcom/samsung/android/sdk/ssf/common/model/RequestManager;->mRequestQueue:Lcom/android/volley/RequestQueue;
-
-    const-string v0, "init1 : mRequestQueue is not null. Stop and make newRequestQueue is null"
-
-    sget-object v2, Lcom/samsung/android/sdk/ssf/common/model/RequestManager;->TAG:Ljava/lang/String;
-
-    invoke-static {v0, v2}, Lcom/samsung/android/sdk/ssf/common/util/CommonLog;->i(Ljava/lang/String;Ljava/lang/String;)V
-
-    :cond_0
-    invoke-static {p0, p1}, Lcom/samsung/android/sdk/ssf/common/model/RequestManager;->newRequestQueue(Lcom/android/volley/Network;Lcom/android/volley/toolbox/DiskBasedCache;)Lcom/android/volley/RequestQueue;
+    .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
 
     move-result-object v0
 
-    sput-object v0, Lcom/samsung/android/sdk/ssf/common/model/RequestManager;->mRequestQueue:Lcom/android/volley/RequestQueue;
+    :goto_1
+    return-object v0
 
-    const-string v0, "init1 - Alloc new RequestQueue to mRequestQueue"
-
-    sget-object v2, Lcom/samsung/android/sdk/ssf/common/model/RequestManager;->TAG:Ljava/lang/String;
-
-    invoke-static {v0, v2}, Lcom/samsung/android/sdk/ssf/common/util/CommonLog;->i(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit v1
-
-    return-void
-
-    :catchall_0
+    :catch_1
     move-exception v0
 
-    monitor-exit v1
+    sget-object v1, Lcom/samsung/android/sdk/ssf/common/model/RequestManager;->TAG:Ljava/lang/String;
 
-    throw v0
-.end method
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/SDKLog;->e(Ljava/lang/Throwable;Ljava/lang/String;)V
 
-.method public static declared-synchronized init(Lcom/android/volley/Network;Lcom/android/volley/toolbox/DiskBasedCache;Ljava/lang/Integer;)V
-    .locals 3
+    const-string v0, "SSL Certificate was null"
 
-    const-class v1, Lcom/samsung/android/sdk/ssf/common/model/RequestManager;
+    sget-object v1, Lcom/samsung/android/sdk/ssf/common/model/RequestManager;->TAG:Ljava/lang/String;
 
-    monitor-enter v1
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/SDKLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
-    :try_start_0
-    sget-object v0, Lcom/samsung/android/sdk/ssf/common/model/RequestManager;->mRequestQueue:Lcom/android/volley/RequestQueue;
+    move-object v0, v2
 
-    if-eqz v0, :cond_0
-
-    sget-object v0, Lcom/samsung/android/sdk/ssf/common/model/RequestManager;->mRequestQueue:Lcom/android/volley/RequestQueue;
-
-    invoke-virtual {v0}, Lcom/android/volley/RequestQueue;->stop()V
-
-    const/4 v0, 0x0
-
-    sput-object v0, Lcom/samsung/android/sdk/ssf/common/model/RequestManager;->mRequestQueue:Lcom/android/volley/RequestQueue;
-
-    const-string v0, "init2 : mRequestQueue is not null. Stop and make newRequestQueue is null"
-
-    sget-object v2, Lcom/samsung/android/sdk/ssf/common/model/RequestManager;->TAG:Ljava/lang/String;
-
-    invoke-static {v0, v2}, Lcom/samsung/android/sdk/ssf/common/util/CommonLog;->i(Ljava/lang/String;Ljava/lang/String;)V
-
-    :cond_0
-    invoke-static {p0, p1, p2}, Lcom/samsung/android/sdk/ssf/common/model/RequestManager;->newRequestQueue(Lcom/android/volley/Network;Lcom/android/volley/toolbox/DiskBasedCache;Ljava/lang/Integer;)Lcom/android/volley/RequestQueue;
-
-    move-result-object v0
-
-    sput-object v0, Lcom/samsung/android/sdk/ssf/common/model/RequestManager;->mRequestQueue:Lcom/android/volley/RequestQueue;
-
-    const-string v0, "init1 - Alloc new RequestQueue to mRequestQueue"
-
-    sget-object v2, Lcom/samsung/android/sdk/ssf/common/model/RequestManager;->TAG:Ljava/lang/String;
-
-    invoke-static {v0, v2}, Lcom/samsung/android/sdk/ssf/common/util/CommonLog;->i(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit v1
-
-    return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-
-    throw v0
+    goto :goto_1
 .end method
 
 .method public static newPriorityRequestQueue(Lcom/android/volley/Network;Lcom/android/volley/toolbox/DiskBasedCache;)Lcom/android/volley/RequestQueue;

@@ -822,6 +822,7 @@ sens uniq."</string>
     <string name="settings_glance_reply_explain_text_vzw">"Refusez un appel entrant et envoyez un message prédéfini à l'appelant en plaçant votre doigt sur le capteur cardiaque pendant %d secondes lorsque l'appareil est retourné."</string>
     <string name="settings_glance_reply_reached_maximum_text">Nombre maximum de caractères (%d) atteint</string>
     <string name="settings_glance_reply_text">Réponses rapides</string>
+    <string name="settings_subappbar_switch_dimmed">Tamisé</string>
     <string name="settings_subappbar_switch_off">Désactivé</string>
     <string name="settings_subappbar_switch_on">Activé</string>
     <string name="simple_sharing">Partage de liens</string>
@@ -867,6 +868,7 @@ sens uniq."</string>
     <string name="swipe_right_to_answer_call_with_video">"Glissez un doigt vers la droite pour répondre à l'appel avec vidéo."</string>
     <string name="swipe_right_to_answer_call_without_video">"Glissez un doigt vers la droite pour répondre à l'appel sans vidéo."</string>
     <string name="switch_rejected_by_mt">Demande de passage en mode appel vidéo rejetée</string>
+    <string name="switch_rejected_by_mt_att">"La fonction Vidéo n'est pas disponible pour cet appel. Celui-ci est basculé en appel vocal."</string>
     <string name="switch_to_video_call_failed">Échec de la demande de passage en mode appel vidéo.</string>
     <string name="switch_to_video_call_failed_tmo">La demande de passage en mode appel vidéo a été refusée.</string>
     <string name="switch_to_voice_call_failed">Échec de la demande de passage en mode appel vocal.</string>

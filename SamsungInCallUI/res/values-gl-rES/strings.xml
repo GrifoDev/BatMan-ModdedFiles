@@ -579,7 +579,7 @@ O menú da pantalla de chamadas de IVR usa contidos fornecidos por un provedor d
     <string name="photoring_unblock_toast_2nd">O arquivo multimedia enviado por este contacto será recibido a próxima vez que te chamen</string>
     <string name="please_wait">Comprobando código de verificación. Agarda…</string>
     <string name="popup_download_large_wificheck">Descargar só por Wi-Fi</string>
-    <string name="popup_download_large_wlancheck">Download via WLAN only</string>
+    <string name="popup_download_large_wlancheck">Descargar só a través de WLAN</string>
     <string name="popup_start_record_during_alerting">A gravación iniciarase unha vez conectada a chamada.</string>
     <string name="postalLabelsGroup">Enderezo</string>
     <string name="postal_city">Cidade</string>
@@ -763,6 +763,7 @@ unidireccional"</string>
     <string name="settings_glance_reply_explain_text_vzw">Rexeita unha chamada entrante e envía unha mensaxe preestablecida ao emisor da chamada colocando o dedo no sensor de ritmo cardíaco e manténdoo durante %d segundos mentres o dispositivo está dado a volta.</string>
     <string name="settings_glance_reply_reached_maximum_text">Alcanzouse o número máximo de carácteres (%d)</string>
     <string name="settings_glance_reply_text">Mensaxes resposta rápida</string>
+    <string name="settings_subappbar_switch_dimmed">Atenuado</string>
     <string name="settings_subappbar_switch_off">Desactivado</string>
     <string name="settings_subappbar_switch_on">Activado</string>
     <string name="simple_sharing">Compartir ligazóns</string>
@@ -808,6 +809,7 @@ unidireccional"</string>
     <string name="swipe_right_to_answer_call_with_video">Pasa o dedo á dereita para responder á chamada con vídeo.</string>
     <string name="swipe_right_to_answer_call_without_video">Pasa o dedo á dereita para responder á chamada sen vídeo.</string>
     <string name="switch_rejected_by_mt">Solicitude de cambio a unha videochamada rexeitada</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Produciuse un erro na solicitude de cambio a unha videochamada.</string>
     <string name="switch_to_video_call_failed_tmo">Rexeitouse a solicitude de cambio a videochamada.</string>
     <string name="switch_to_voice_call_failed">Produciuse un erro na solicitude de cambio a unha chamada de voz.</string>

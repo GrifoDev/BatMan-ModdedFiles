@@ -117,9 +117,9 @@
 .method private DisplayWaitingCallDialogWhenDoNotHaveHoldingCall(I)V
     .locals 13
 
-    const v12, 0x7f0903b7
+    const v12, 0x7f0903b9
 
-    const v11, 0x7f0903b6
+    const v11, 0x7f0903b8
 
     const/4 v10, 0x2
 
@@ -395,7 +395,7 @@
 
     move-result-object v1
 
-    const v5, 0x7f0903b8
+    const v5, 0x7f0903ba
 
     invoke-virtual {v1, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -425,7 +425,7 @@
 
     aput-object v0, v4, v10
 
-    const v0, 0x7f0903bb
+    const v0, 0x7f0903bd
 
     invoke-virtual {v7, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -531,7 +531,7 @@
 
     aput-object v0, v1, v3
 
-    const v0, 0x7f0903bb
+    const v0, 0x7f0903bd
 
     invoke-virtual {v7, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -571,9 +571,9 @@
 .method private DisplayWaitingCallDialogWhenHaveHoldingCall(I)V
     .locals 12
 
-    const v11, 0x7f0903bb
+    const v11, 0x7f0903bd
 
-    const v1, 0x7f0903b6
+    const v1, 0x7f0903b8
 
     const/4 v10, 0x2
 
@@ -4789,6 +4789,16 @@
     if-eqz v0, :cond_0
 
     if-nez p1, :cond_0
+
+    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/incallui/CallList;->getActiveOrBackgroundCall()Lcom/android/incallui/Call;
+
+    move-result-object v1
+
+    if-nez v1, :cond_0
 
     sget-object v1, Lcom/android/incallui/AnswerPresenter;->TAG:Ljava/lang/String;
 

@@ -123,7 +123,7 @@
     <string name="agif_write_permission_label">Modificar contenido AGIF</string>
     <string name="agree">Acepto</string>
     <string name="am_cover_toggle_string">Abra la cubierta para responder o rechazar.</string>
-    <string name="am_device_memory_full_warning">No se puede usar Respuesta automática con mensaje. No hay espacio suficiente en la memoria del dispositivo para guardar mensajes de voz. Elimine algunos elementos e inténtelo de nuevo.</string>
+    <string name="am_device_memory_full_warning">No se puede usar Respuesta automática con mensaje. No hay espacio suficiente en la memoria del dispositivo para guardar mensajes de voz. Elimina algunos elementos e inténtalo de nuevo.</string>
     <string name="another_device_pickup_message">Otro dispositivo ha cogido la llamada.</string>
     <string name="answering_memo_Playing_text">Reproduciendo mensaje de respuesta…</string>
     <string name="answering_memo_Recording_text">Grabando mensaje…</string>
@@ -140,18 +140,18 @@
     <string name="bluetooth_popup_title">Selecc disposit audio</string>
     <string name="button">Botón</string>
     <string name="call_accept_reject_tip1">Pulse cualquiera de los extremos del botón Volumen para silenciar el tono de las llamadas entrantes.</string>
-    <string name="call_drug_up_panel_for_kk">Deslice botón ENVIAR MENSAJE arriba para enviar mensaje rápido y rechazar llamada entrante.</string>
+    <string name="call_drug_up_panel_for_kk">Desliza arriba botón ENVIAR MENSAJE para enviar mensaje rápido y rechazar llamada entrante.</string>
     <string name="call_drug_up_panel_for_kk_tts">Arrastre el panel de rechazar llamada con mensaje hacia arriba para enviar un mensaje de llamada rechazada cuando rechace una entrante.</string>
     <string name="call_ended_toast">Llamada finalizada</string>
     <string name="call_forwarded_to">Llamada desviada a:</string>
     <string name="call_forwarding_from">Llamada desviada desde:</string>
     <string name="call_incoming_voice_call2">Pulse %s para responder una llamada.</string>
     <string name="call_incoming_voice_call2_tts">Pulse el botón de responder llamada para responder una llamada.</string>
-    <string name="call_incoming_voice_call3">Pulse %s para rechazar llamada.</string>
+    <string name="call_incoming_voice_call3">Pulsa %s para rechazar llamada.</string>
     <string name="call_incoming_voice_call3_tts">Pulse el botón de rechazar llamada para rechazar una llamada.</string>
     <string name="call_incoming_voice_call_for_kk_1">Deslice %s de izquierda a derecha para responder una llamada.</string>
     <string name="call_incoming_voice_call_for_kk_1_tts">Deslice el botón responder de izquierda a derecha para contestar una llamada.</string>
-    <string name="call_incoming_voice_call_for_kk_2">Deslice %s de derecha a izquierda para rechazar una llamada.</string>
+    <string name="call_incoming_voice_call_for_kk_2">Desliza %s de derecha a izquierda para rechazar una llamada.</string>
     <string name="call_incoming_voice_call_for_kk_2_tts">Deslice el botón rechazar de derecha a izquierda para rechazar una llamada.</string>
     <string name="call_incoming_voice_title2">Responder y rechazar llamadas mientras se utilizan otras aplicaciones</string>
     <string name="call_menu_during_call_detail">Puede realizar las acciones siguientes durante las llamadas:</string>
@@ -193,18 +193,18 @@
     <string name="card_title_dialing_to_korea">Llamando a Corea del Sur</string>
     <string name="card_title_wifi_call_ended">Llamada Wi-Fi finalizada</string>
     <string name="carrier_matching_call_made_via">Llamada realizada mediante la tarjeta SIM de %s</string>
-    <string name="carrier_matching_dialog_content_1">El proveedor de servicios del número al que está intentando llamar es %s.</string>
-    <string name="carrier_matching_dialog_content_1_cannot_find">Es la primera vez que llama a este número. Seleccione la tarjeta SIM que quiere usar.</string>
+    <string name="carrier_matching_dialog_content_1">El proveedor de servicios del número al que estás intentando llamar es %s.</string>
+    <string name="carrier_matching_dialog_content_1_cannot_find">Es la primera vez que llamas a este número. Selecciona la tarjeta SIM que quieres usar.</string>
     <string name="carrier_matching_dialog_content_1_cannot_find_operator">Cada una de las tarjetas SIM es para un proveedor de servicios distinto.</string>
-    <string name="carrier_matching_dialog_content_1_default_sim">Se recomienda su tarjeta SIM predeterminada.</string>
+    <string name="carrier_matching_dialog_content_1_default_sim">Se recomienda tu tarjeta SIM predeterminada.</string>
     <string name="carrier_matching_dialog_content_1_find_service_state">Una de las tarjetas SIM está fuera de servicio.</string>
-    <string name="carrier_matching_dialog_content_1_two_sim_no_service">No tiene ningún servicio con ninguna de las tarjetas SIM.</string>
-    <string name="carrier_matching_dialog_content_2">Se recomienda su tarjeta SIM de %s.</string>
-    <string name="carrier_matching_dialog_content_2_find_history">Se recomienda la tarjeta SIM que seleccionó anteriormente.</string>
+    <string name="carrier_matching_dialog_content_1_two_sim_no_service">No tienes ningún servicio con ninguna de las tarjetas SIM.</string>
+    <string name="carrier_matching_dialog_content_2">Se recomienda tu tarjeta SIM de %s.</string>
+    <string name="carrier_matching_dialog_content_2_find_history">Se recomienda la tarjeta SIM que seleccionaste anteriormente.</string>
     <string name="carrier_matching_dialog_content_2_find_service_state">Se recomienda la tarjeta SIM que está en servicio.</string>
-    <string name="carrier_matching_dialog_content_2_two_sim_no_service">Seleccione una tarjeta SIM para usar.</string>
+    <string name="carrier_matching_dialog_content_2_two_sim_no_service">Selecciona una tarjeta SIM para usar.</string>
     <string name="carrier_matching_dialog_title">Seleccionar tarjeta SIM</string>
-    <string name="carrier_matching_dialog_video_call">Seleccione una tarjeta SIM para esta videollamada.</string>
+    <string name="carrier_matching_dialog_video_call">Selecciona una tarjeta SIM para esta videollamada.</string>
     <string name="carrier_matching_switch_to_call_by_other_sim">Cambiar SIM</string>
     <string name="cdnip_service_prefix">Mi número</string>
     <string name="chat">Chat</string>
@@ -236,10 +236,10 @@
     <string name="data_usage_charge_alert">La función Videollamadas requiere el uso tanto de datos como de minutos de voz a través de la red móvil. Se pueden aplicar costes.</string>
     <string name="data_usage_limit_dialog_continue_call">Continuar llamada</string>
     <string name="data_usage_limit_dialog_end_current_call">Terminar llamada actual</string>
-    <string name="data_usage_limit_dialog_message">"Se ha alcanzado el límite de datos que estableció en el teléfono. Para consultar el uso de datos, vaya a Ajustes > Uso de datos.
-Esta videollamada está usando datos ahora y los datos móviles se desactivarán cuando finalice la llamada. ¿Quiere continuar con la llamada?"</string>
-    <string name="data_usage_limit_dialog_message_default">El uso de datos que ha establecido en el teléfono está a punto de alcanzar su límite. Esta videollamada necesita el uso de datos.</string>
-    <string name="data_usage_limit_dialog_message_tmo">Se ha alcanzado el límite de uso de datos establecido en el teléfono y los datos se han desactivado. Es necesaria la conexión de datos para realizar videollamadas. Active los datos móviles o conéctese a cualquier red Wi-Fi disponible.</string>
+    <string name="data_usage_limit_dialog_message">"Se ha alcanzado el límite de datos que estableciste en el teléfono. Para consultar el uso de datos, ve a Ajustes > Uso de datos.
+Esta videollamada está usando datos ahora y los datos móviles se desactivarán cuando finalice la llamada. ¿Quieres continuar con la llamada?"</string>
+    <string name="data_usage_limit_dialog_message_default">El uso de datos que has establecido en el teléfono está a punto de alcanzar su límite. Esta videollamada necesita el uso de datos.</string>
+    <string name="data_usage_limit_dialog_message_tmo">Se ha alcanzado el límite de uso de datos establecido en el teléfono y los datos se han desactivado. Es necesaria la conexión de datos para realizar videollamadas. Activa los datos móviles o conéctate a cualquier red Wi-Fi disponible.</string>
     <string name="date_day">Día</string>
     <string name="decline">Rechazar</string>
     <string name="deregister">Anular el registro del número de teléfono</string>
@@ -291,7 +291,7 @@ Esta videollamada está usando datos ahora y los datos móviles se desactivarán
     <string name="enhanced_messaging">Mensajería Pro</string>
     <string name="enter_code">Introduce el código</string>
     <string name="enter_number">Introduzca números.</string>
-    <string name="enter_phone_country_number">Introduzca el código de país y el número de este teléfono.</string>
+    <string name="enter_phone_country_number">Introduce el código del país y el número de teléfono.</string>
     <string name="enter_your_phone_number">Introduzca su código de país y el número de teléfono.</string>
     <string name="enter_your_verification_code">Introducir código de verificación</string>
     <string name="eventLabelsGroup">Evento</string>
@@ -316,8 +316,8 @@ Esta videollamada está usando datos ahora y los datos móviles se desactivarán
     <string name="incall_decline_emergency_wifi_not_allow">Las llamadas de emergencia mediante Wi-Fi no se permiten en esta ubicación.</string>
     <string name="incall_decline_other_secondary_device">Hay otro dispositivo secundario en uso.</string>
     <string name="incall_decline_service_not_allowed">El servicio no está permitido en esta ubicación.</string>
-    <string name="incall_decline_simultaneous_call_limit_vzw">Todas las líneas disponibles para (MDN) están en uso. Para hacer una llamada, finalice una de las llamadas en el teléfono móvil o la tableta.</string>
-    <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">Todas las líneas disponibles para %s están en uso. Para hacer una llamada, finalice una de las llamadas en el teléfono móvil o la tableta.</string>
+    <string name="incall_decline_simultaneous_call_limit_vzw">Todas las líneas disponibles para (MDN) están en uso. Para hacer una llamada, finaliza una de las llamadas en el teléfono móvil o la tableta.</string>
+    <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">Todas las líneas disponibles para %s están en uso. Para hacer una llamada, finaliza una de las llamadas en el teléfono móvil o la tableta.</string>
     <string name="incall_decline_transferred_to_another_device">Se ha transferido la llamada a otro dispositivo.</string>
     <string name="incall_error_supp_service_switch">No se puede cambiar entre llamadas</string>
     <string name="incall_extra_volume_disabled_BT">No se puede utilizar el intervalo de volumen extra mientras el auricular Bluetooth está conectado</string>
@@ -478,9 +478,9 @@ Esta videollamada está usando datos ahora y los datos móviles se desactivarán
     <string name="kt_nomal_quality_video_call_3g">Solo está disponible la calidad normal para la llamada. El dispositivo de la otra persona está restringido a la red 3G.</string>
     <string name="label_notes">Notas</string>
     <string name="label_sip_address">Llamada por Internet</string>
-    <string name="legal_popup_content">"¿Tiene problemas al usar centros de llamadas de respuesta por voz? En el menú de la pantalla de llamada de IVR (Interactive Voice Response) encontrará un entorno ideal para usar centros de llamada, ya que aparecerá el menú del servicio en pantalla.
+    <string name="legal_popup_content">"¿Tienes problemas al usar centros de llamadas de respuesta por voz? En el menú de la pantalla de llamada de IVR (Interactive Voice Response) encontrarás un entorno ideal para usar centros de llamada, ya que aparecerá el menú del servicio en pantalla.
 
-El menú de la pantalla de llamada de IVR hace uso del contenido de un proveedor de servicios externo llamado Dianhuabang. Si usa este menú, confirma que acepta los %1$sTérminos y condiciones%2$s de Dianhuabang."</string>
+El menú de la pantalla de llamada de IVR hace uso del contenido de un proveedor de servicios externo llamado Dianhuabang. Si usas este menú, confirma que aceptas los %1$sTérminos y condiciones%2$s de Dianhuabang."</string>
     <string name="legal_popup_terms_conditions">Términos y condiciones</string>
     <string name="legal_pupup_title">Información legal</string>
     <string name="lock_screen_during_call_double_tab">Pulse dos veces para desbloquear</string>
@@ -547,7 +547,7 @@ El menú de la pantalla de llamada de IVR hace uso del contenido de un proveedor
     <string name="outgoing_img_video">Vídeos</string>
     <string name="over_storage_only_wifi_download">El tamaño total del archivo es mayor de %1$d %2$s. Se recomienda descargar solo mediante Wi-Fi para evitar costes adicionales.</string>
     <string name="over_storage_only_wlan_download">El tamaño total del archivo es superior a %1$d %2$s. Se recomienda descargar solo mediante WLAN para evitar costes adicionales.</string>
-    <string name="overlay_warning_toast">Para usar Teléfono, vaya a los ajustes de Teléfono y active Apps que se pueden mostrar encima.</string>
+    <string name="overlay_warning_toast">Para usar Teléfono, ve a los ajustes de Teléfono y activa Apps que se pueden mostrar encima.</string>
     <string name="payphone_sbm">Teléfono público</string>
     <string name="phoneLabelsGroup">Teléfono</string>
     <string name="phone_number_verification_failed">No se puede verificar el número de teléfono. Hágalo manualmente.</string>
@@ -600,9 +600,9 @@ El menú de la pantalla de llamada de IVR hace uso del contenido de un proveedor
     <string name="record_notification_button_text_close">Cerrar</string>
     <string name="record_notification_button_text_record_list">Grabaciones</string>
     <string name="record_notification_button_text_storage">Almacenamiento</string>
-    <string name="record_notification_content">Pulse GRABACIONES para ver las llamadas grabadas.</string>
+    <string name="record_notification_content">Pulsa GRABACIONES para ver las llamadas grabadas.</string>
     <string name="record_notification_content_unable_not_to_record_entire_call">No hay espacio en el dispositivo. Se guardó una grabación parcial de la llamada.</string>
-    <string name="record_notification_content_unable_to_record">No hay espacio en el dispositivo. Elimine algunos archivos e inténtelo de nuevo.</string>
+    <string name="record_notification_content_unable_to_record">No hay espacio en el dispositivo. Elimina algunos archivos e inténtalo de nuevo.</string>
     <string name="record_notification_title">Llamada grabada</string>
     <string name="record_notification_title_not_to_record_entire_call">No se ha grabado toda la llamada</string>
     <string name="record_notification_title_unable_to_record">No se puede grabar la llamada</string>
@@ -619,7 +619,7 @@ El menú de la pantalla de llamada de IVR hace uso del contenido de un proveedor
     <string name="rejected_call_notification_action_reminder">Recordatorio</string>
     <string name="rejected_call_notification_title">Llamada rechazada</string>
     <string name="relationLabelsGroup">Relación</string>
-    <string name="request_explain_text">Si no ha introducido el código antes de un minuto, solicite un código nuevo.</string>
+    <string name="request_explain_text">Si no has introducido el código antes de que pase un minuto, solicita un código nuevo.</string>
     <string name="requested_video_call">El receptor desea cambiar a videollamada. ¿Desea aceptar?</string>
     <string name="resend">Reenviar</string>
     <string name="returnToInCallScreen">Cambiar a pantalla completa</string>
@@ -726,9 +726,9 @@ cional"</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Pulse dos veces para abrir la lista.</string>
     <string name="sec_showme_text">Mostrar</string>
     <string name="second_screen_hold_text">%d en esp</string>
-    <string name="section_contacts_only_summary">Cree y administre contactos.</string>
+    <string name="section_contacts_only_summary">Crea y administra contactos.</string>
     <string name="select_callback_sim_card">Seleccionar tarjeta SIM de devolución de llamada</string>
-    <string name="select_callback_sim_card_content">La última llamada o el último mensaje de o a este número no usó la tarjeta SIM preferida para las llamadas. Seleccione la tarjeta SIM que quiera usar.</string>
+    <string name="select_callback_sim_card_content">La última llamada o el último mensaje de o a este número no usó la tarjeta SIM preferida para las llamadas. Selecciona la tarjeta SIM que quieras usar.</string>
     <string name="select_from_gallery">Selec. desde Galería</string>
     <string name="select_sim">Seleccionar SIM</string>
     <string name="select_sim_for_call">Seleccionar SIM para llamar</string>
@@ -743,11 +743,12 @@ cional"</string>
     <string name="settings_glance_reply_explain_text_vzw">Rechace una llamada entrante y envíe un mensaje predeterminado a un llamante colocando el dedo en el sensor de frecuencia cardiaca y manteniéndolo pulsado durante %d segundos mientras el dispositivo está boca abajo.</string>
     <string name="settings_glance_reply_reached_maximum_text">Número máximo de caracteres alcanzado (%d).</string>
     <string name="settings_glance_reply_text">Mensajes Respuesta rápida</string>
+    <string name="settings_subappbar_switch_dimmed">Atenuado</string>
     <string name="settings_subappbar_switch_off">Desactivado</string>
     <string name="settings_subappbar_switch_on">Activado</string>
     <string name="simple_sharing">Compartir vínculos</string>
     <string name="skip">Omitir</string>
-    <string name="skip_verification">Puede omitir la verificación y verificar su número de teléfono más tarde cuando se lo solicite un servicio de Samsung.</string>
+    <string name="skip_verification">Puedes omitir la verificación y verificar tu número de teléfono más tarde cuando te lo solicite un servicio de Samsung.</string>
     <string name="slide_left_to_reject_content_description">Desliza hacia la izquierda con dos dedos para rechazar la llamada.</string>
     <string name="slide_right_to_answer_content_description">Desliza hacia la derecha con dos dedos para responder la llamada.</string>
     <string name="smart_call_block_button">Bloquear</string>
@@ -782,12 +783,13 @@ cional"</string>
     <string name="spam_call_type_and_count">Notificado como %1$s %2$d veces</string>
     <string name="sub_number_item">%d alternativo</string>
     <string name="suguden_guide_do_not_show_again_dcm">No volver a mostrar</string>
-    <string name="suguden_guide_main_text_dcm">Responda la llamada acercando el dispositivo a su oído.</string>
+    <string name="suguden_guide_main_text_dcm">Responde la llamada acercando el dispositivo a tu oído.</string>
     <string name="swipe_left">Deslice izquierda.</string>
     <string name="swipe_right">Desplazar a dcha.</string>
-    <string name="swipe_right_to_answer_call_with_video">Deslice a la derecha para responder llamadas con vídeo.</string>
-    <string name="swipe_right_to_answer_call_without_video">Deslice a la derecha para responder llamadas sin vídeo.</string>
+    <string name="swipe_right_to_answer_call_with_video">Desliza a la derecha para responder llamadas con vídeo.</string>
+    <string name="swipe_right_to_answer_call_without_video">Desliza a la derecha para responder llamadas sin vídeo.</string>
     <string name="switch_rejected_by_mt">Solicitud de cambio a videollamada rechazada</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Error de solicitud de cambio a videollamada.</string>
     <string name="switch_to_video_call_failed_tmo">Se ha rechazado la solicitud de cambio a videollamada.</string>
     <string name="switch_to_voice_call_failed">Error de solicitud de cambio a llamada de voz.</string>
@@ -805,7 +807,7 @@ cional"</string>
     <string name="tts_seconds">%d segundos</string>
     <string name="tty_mode_option_title">Modo TTY</string>
     <string name="tutorial_incoming_call_app_answer">Pulse para responder la llamada.</string>
-    <string name="tutorial_incoming_call_app_reject">Pulse para rechazar la llamada.</string>
+    <string name="tutorial_incoming_call_app_reject">Pulsa para rechazar la llamada.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">No se puede conectar a la red. Compruebe sus ajustes de conexión e inténtelo de nuevo.</string>
     <string name="units_kb">KB</string>
@@ -816,7 +818,7 @@ cional"</string>
     <string name="upload_wifi_and_mobile_nw">Cargar mediante Wi-Fi o red móvil</string>
     <string name="upload_wlan_and_mobile_nw">Cargar a través de WLAN o red móvil</string>
     <string name="usa_att_connected_as_voice">La llamada solo está usando voz.</string>
-    <string name="usa_att_data_usage_charge_alert">El uso de datos que ha establecido en el dispositivo está a punto de alcanzar su límite. La videollamada necesita datos.</string>
+    <string name="usa_att_data_usage_charge_alert">El uso de datos que has establecido en el dispositivo está a punto de alcanzar su límite. La videollamada necesita datos.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">No se puede realizar mediante la Wi-Fi. Conectando mediante la red móvil. Se aplicarán cargos por el uso de voz y datos.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
     <string name="usa_att_modify_receive_to_video_share">%s is requesting to share their video.</string>
@@ -831,7 +833,7 @@ cional"</string>
     <string name="usa_gsm_switching_to_voice_call">Cambiando a voz solo.</string>
     <string name="usa_tmo_notify_wifi_to_lte_popup_text">Se ha desactivado el vídeo porque los datos móviles no están disponibles.</string>
     <string name="usa_volte_reject_upgrade_request">%s no puede recibir videollamadas en este momento.</string>
-    <string name="usa_volte_reject_upgrade_request_tmo">Videollamadas no está disponible.</string>
+    <string name="usa_volte_reject_upgrade_request_tmo">La videollamada no está disponible.</string>
     <string name="usa_vzw_change_to_oneway_video">"Cambiar a vídeo
 unidireccional"</string>
     <string name="usa_vzw_change_to_video">Cambiar a vídeo</string>
@@ -859,8 +861,8 @@ unidireccional"</string>
     <string name="usa_vzw_ugrade_request_rejected_by_caller">%s quiere seguir con la llamada de voz.</string>
     <string name="usa_vzw_upgrade_receive_reject">La llamada seguirá como llamada de voz.</string>
     <string name="usa_vzw_video_call_hold_from_other_party">%s ha puesto la llamada en espera.</string>
-    <string name="usa_vzw_video_incoming_during_wifi_video">Si se responde como llamada de voz, finalizará la llamada en curso.</string>
-    <string name="usa_vzw_voice_incoming_during_wifi_video">Si responde a la llamada entrante, finalizará la llamada actual.</string>
+    <string name="usa_vzw_video_incoming_during_wifi_video">Si respondes como llamada de voz, finalizará la llamada en curso.</string>
+    <string name="usa_vzw_voice_incoming_during_wifi_video">Si respondes a la llamada entrante, finalizará la llamada actual.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_text">La señal Wi-Fi no es lo suficientemente buena como para continuar con la llamada. El uso de redes móviles para continuar la llamada se realizará con tu plan de datos.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Usar datos móviles</string>
     <string name="usa_vzw_volte_weak_wifi_text">"Lo hemos intentado, pero no podemos cambiar la videollamada a Wi-Fi en este momento.
@@ -869,21 +871,21 @@ La videollamada continúa usando la red móvil. (Se usarán datos si elige conti
     <string name="usa_vzw_volte_weak_wifi_toast">La videollamada sigue usando la red móvil. (Se aplican cargos por el uso de datos).</string>
     <string name="usa_vzw_vowifi_wifi_low_signal_text">"La señal Wi-Fi no era lo suficientemente buena para continuar con la videollamada.
 
-La videollamada está utilizando la red móvil en este momento. (Se usarán datos si decide continuar)."</string>
+La videollamada está utilizando la red móvil en este momento. (Se usarán datos si decides continuar)."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Se ha perdido conexión Wi-Fi. La llamada ha finalizado.</string>
     <string name="use_wifi_and_mobile_nw">Usar redes móviles y Wi-Fi</string>
     <string name="use_wlan_and_mobile_nw">Usar WLAN y redes móviles</string>
     <string name="verify">Verificar</string>
-    <string name="verify_your_phone_number">Verificar su número de teléfono</string>
-    <string name="verify_your_phone_number_body">Verifique su número de teléfono para conectarse con amigos en los servicios de Samsung.</string>
+    <string name="verify_your_phone_number">Verifica tu número de teléfono</string>
+    <string name="verify_your_phone_number_body">Verifica tu número de teléfono para conectarte con amigos en los servicios de Samsung.</string>
     <string name="vibo_operator_name">T Star</string>
     <string name="video_alert_show_never_again">No volver a mostrar</string>
     <string name="video_call_not_allowed">No se pueden realizar ni recibir videollamadas mientras el modo Reservar batería está activado.</string>
     <string name="video_calling_incoming">Videollamadas</string>
     <string name="video_calls_quality_poor_tmo">Calidad de conexión deficiente. Es posible que la videollamada se cambie a llamada de voz.</string>
     <string name="video_calls_temporarily_not_available">Las llamadas de vídeo no están disponibles temporalmente. La llamada se ha cambiado a llamada de voz.</string>
-    <string name="video_calls_temporarily_not_available_att">El número al que está llamando no puede recibir videollamadas en este momento. La llamada se ha conectado como llamada de voz.</string>
-    <string name="video_calls_temporarily_not_available_tmo">Videollamadas no está disponible.</string>
+    <string name="video_calls_temporarily_not_available_att">El número al que estás llamando no puede recibir videollamadas en este momento. La llamada se ha conectado como llamada de voz.</string>
+    <string name="video_calls_temporarily_not_available_tmo">La videollamada no está disponible.</string>
     <string name="video_paused_info_text">Vídeo pausado</string>
     <string name="video_saved">Vídeo guardado en %s.</string>
     <string name="video_saved_by_memory_full">No hay espacio de almacenamiento suficiente. Vídeo guardado en %s.</string>

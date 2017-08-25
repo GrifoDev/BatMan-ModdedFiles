@@ -638,7 +638,7 @@
     <string name="photoring_unblock_toast_2nd">Мултимедията, изпращана от този контакт, ще бъде получена следващия път, когато той ви се обади</string>
     <string name="please_wait">Проверява се кодът за потвърждение. Изчакайте…</string>
     <string name="popup_download_large_wificheck">Изтегляне само през Wi-Fi</string>
-    <string name="popup_download_large_wlancheck">Download via WLAN only</string>
+    <string name="popup_download_large_wlancheck">Изтегляне само през WLAN</string>
     <string name="popup_start_record_during_alerting">Записването ще започне, след като повикването е свързано.</string>
     <string name="postalLabelsGroup">Адрес</string>
     <string name="postal_city">Град</string>
@@ -822,6 +822,7 @@
     <string name="settings_glance_reply_explain_text_vzw">Отхвърлете входящо повикване и изпратете предварително зададено съобщение на обаждащия се, като поставите пръста си върху сензора за сърдечен ритъм и го задържите намясто за %d секунди, докато устройството е обърнато.</string>
     <string name="settings_glance_reply_reached_maximum_text">Достигнат е максималният брой знаци (%d).</string>
     <string name="settings_glance_reply_text">Съобщения за бърз отговор</string>
+    <string name="settings_subappbar_switch_dimmed">Затъмнено</string>
     <string name="settings_subappbar_switch_off">Изключено</string>
     <string name="settings_subappbar_switch_on">Включено</string>
     <string name="simple_sharing">Споделяне на връзка</string>
@@ -867,6 +868,7 @@
     <string name="swipe_right_to_answer_call_with_video">Плъзнете надясно, за да отговаряте на повиквания с видео.</string>
     <string name="swipe_right_to_answer_call_without_video">Плъзнете надясно, за да отговаряте на повиквания без видео.</string>
     <string name="switch_rejected_by_mt">Заявката за превключване на видео разговор е отхвърлена.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Заявката за превключване на видео разговор е неуспешна.</string>
     <string name="switch_to_video_call_failed_tmo">Заявката за превключване на видеоразговор е отхвърлена.</string>
     <string name="switch_to_voice_call_failed">Заявката за превключване към гласов разговор е неуспешна.</string>

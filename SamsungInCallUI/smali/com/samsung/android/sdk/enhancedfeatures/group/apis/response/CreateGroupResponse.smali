@@ -9,6 +9,8 @@
 
 .field protected id:Ljava/lang/String;
 
+.field protected meta_data:Ljava/lang/String;
+
 .field protected non_members:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -60,6 +62,14 @@
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/response/CreateGroupResponse;->id:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public getMetaData()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/response/CreateGroupResponse;->meta_data:Ljava/lang/String;
 
     return-object v0
 .end method
@@ -133,6 +143,14 @@
     .locals 0
 
     iput-object p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/response/CreateGroupResponse;->id:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method public setMetaData(Ljava/lang/String;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/response/CreateGroupResponse;->meta_data:Ljava/lang/String;
 
     return-void
 .end method

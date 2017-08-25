@@ -604,7 +604,7 @@ Das Bildschirmmenü für IVR-Anruf nutzt Inhalte eines Drittanbieters namens Dia
     <string name="not_enable_to_video">Videoanrufe sind bei aktiviertem Notfallmodus nicht verfügbar.</string>
     <string name="not_enable_to_video_emergencymode">Videoanrufe können nicht getätigt oder entgegengenommen werden, wenn der Notfallmodus aktiviert ist.</string>
     <string name="noti_permission_desc">Wechseln Sie zum Verwenden von %s zu „EINSTELLUNGEN > Berechtigungen“ und erlauben Sie die folgenden Berechtigungen:</string>
-    <string name="noti_permission_title">Verwend. von %s nicht mögl.</string>
+    <string name="noti_permission_title">Verwenden von %s nicht möglich</string>
     <string name="notification_action_answer">Antworten</string>
     <string name="notification_of_sub_number_empty_body">Um alternative Nummern anzuzeigen, abonnieren Sie einen SIM-Kartendienst mit mehreren Nummern, und versuchen Sie es erneut.</string>
     <string name="notification_of_sub_number_empty_title">Finden von alternativen Nummern nicht möglich</string>
@@ -822,6 +822,7 @@ Kamera"</string>
     <string name="settings_glance_reply_explain_text_vzw">Lehnen Sie einen eingehenden Anruf ab und senden Sie eine voreingestellte Nachricht an den Anrufer, indem Sie den Pulssensor %d s gedrückt halten, während das Gerät umgedreht ist.</string>
     <string name="settings_glance_reply_reached_maximum_text">Maximale Anzahl an Zeichen (%d) erreicht.</string>
     <string name="settings_glance_reply_text">Schnellantwortnachrichten</string>
+    <string name="settings_subappbar_switch_dimmed">Abgeblendet</string>
     <string name="settings_subappbar_switch_off">Deaktiviert</string>
     <string name="settings_subappbar_switch_on">Ein</string>
     <string name="simple_sharing">Link-Freigabe</string>
@@ -867,6 +868,7 @@ Kamera"</string>
     <string name="swipe_right_to_answer_call_with_video">Nach rechts streichen, um einen Anruf mit Video anzunehmen.</string>
     <string name="swipe_right_to_answer_call_without_video">Nach rechts streichen, um einen Anruf ohne Video anzunehmen.</string>
     <string name="switch_rejected_by_mt">Anfrage auf Wechsel zu Videoanruf abgelehnt</string>
+    <string name="switch_rejected_by_mt_att">Video ist für diesen Anruf nicht verfügbar. Anruf ist als Sprachanruf verbunden.</string>
     <string name="switch_to_video_call_failed">Anfrage nach Wechsel zu Videoanruf fehlgeschlagen.</string>
     <string name="switch_to_video_call_failed_tmo">Anfrage nach Wechsel zu Videoanruf wurde abgelehnt.</string>
     <string name="switch_to_voice_call_failed">Anfrage nach Wechsel zu Sprachanruf fehlgeschlagen.</string>

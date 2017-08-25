@@ -13,6 +13,8 @@
 
 .field public members_count:I
 
+.field public meta_data:Ljava/lang/Object;
+
 .field public non_members:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {

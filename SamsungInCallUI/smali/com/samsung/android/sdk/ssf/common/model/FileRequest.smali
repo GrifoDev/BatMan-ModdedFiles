@@ -18,20 +18,6 @@
 .field private static final TAG:Ljava/lang/String;
 
 
-# instance fields
-.field private mHeaderMap:Ljava/util/Map;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-.end field
-
-
 # direct methods
 .method static constructor <clinit>()V
     .locals 2
@@ -70,12 +56,6 @@
 
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;-><init>(ILjava/lang/String;ILcom/samsung/android/sdk/ssf/common/model/ResponseListener;)V
 
-    new-instance v0, Ljava/util/HashMap;
-
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
-
-    iput-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/FileRequest;->mHeaderMap:Ljava/util/Map;
-
     const/4 v0, 0x0
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/sdk/ssf/common/model/FileRequest;->setShouldCache(Z)Lcom/android/volley/Request;
@@ -87,12 +67,6 @@
     .locals 1
 
     invoke-direct/range {p0 .. p5}, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;-><init>(ILjava/lang/String;ILcom/samsung/android/sdk/ssf/common/model/ResponseListener;Ljava/lang/Object;)V
-
-    new-instance v0, Ljava/util/HashMap;
-
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
-
-    iput-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/FileRequest;->mHeaderMap:Ljava/util/Map;
 
     const/4 v0, 0x0
 
@@ -111,12 +85,6 @@
     .locals 1
 
     invoke-direct/range {p0 .. p5}, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;-><init>(ILjava/lang/String;ILcom/samsung/android/sdk/ssf/common/model/ResponseListener;Ljava/lang/Object;)V
-
-    new-instance v0, Ljava/util/HashMap;
-
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
-
-    iput-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/FileRequest;->mHeaderMap:Ljava/util/Map;
 
     const/4 v0, 0x0
 
@@ -274,7 +242,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/FileRequest;->mHeaderMap:Ljava/util/Map;
+    iget-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/FileRequest;->mHeaders:Ljava/util/Map;
 
     invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -374,34 +342,6 @@
     invoke-virtual {v0, v1, p1, v2, v3}, Lcom/samsung/android/sdk/ssf/common/model/ResponseListener;->onResponse(ILjava/lang/Object;ILjava/lang/Object;)V
 
     return-void
-.end method
-
-.method public getHeaders()Ljava/util/Map;
-    .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-
-    iget-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/FileRequest;->mHeaderMap:Ljava/util/Map;
-
-    invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    sget-object v1, Lcom/samsung/android/sdk/ssf/common/model/FileRequest;->TAG:Ljava/lang/String;
-
-    invoke-static {v0, v1}, Lcom/samsung/android/sdk/ssf/common/util/CommonLog;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/FileRequest;->mHeaderMap:Ljava/util/Map;
-
-    return-object v0
 .end method
 
 .method protected parseNetworkResponse(Lcom/android/volley/NetworkResponse;)Lcom/android/volley/Response;

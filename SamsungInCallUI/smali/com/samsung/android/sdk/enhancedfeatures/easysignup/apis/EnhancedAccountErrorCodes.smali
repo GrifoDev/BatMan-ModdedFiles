@@ -23,6 +23,8 @@
 
 .field public static final DORMANT_USER:I = 0x493e3
 
+.field public static final GCMID_UPDATE_FAILED:I = 0x493e7
+
 .field public static final INCORRECT_AUTH_CODE:I = 0x4e24
 
 .field public static final INVALID_ACCESS_TOKEN:I = 0x4e2a
@@ -30,6 +32,8 @@
 .field public static final INVALID_DEVICE_ID:I = 0x6b
 
 .field public static final INVALID_GUID:I = 0x4e42
+
+.field public static final INVALID_PARAMETER:I = 0x6d
 
 .field public static final INVALID_PHONE_NUMBER:I = 0x4e3f
 
@@ -56,8 +60,6 @@
 .field private static final NETWORK_START:I = 0x2af8
 
 .field public static final NETWORK_TIMEOUT:I = 0x2af9
-
-.field public static final ON_REGISTRATION:I = 0x6d
 
 .field public static final PUSH_DISABLED:I = 0x493e1
 

@@ -111,7 +111,7 @@
 .method public abstract onDialpadVisiblityChange(Z)V
 .end method
 
-.method public abstract onSelectAgifContents(Landroid/net/Uri;Z)V
+.method public abstract onSelectAgifContents(Landroid/net/Uri;Ljava/io/File;Z)V
 .end method
 
 .method public abstract onVolumeKeyDown(ILandroid/view/KeyEvent;)Z
@@ -274,6 +274,9 @@
 .end method
 
 .method public abstract updateAgifContainer(Z)V
+.end method
+
+.method public abstract updateAgifImage()V
 .end method
 
 .method public abstract updateBelowButtonMargin(Z)V

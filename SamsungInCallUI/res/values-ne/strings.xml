@@ -304,6 +304,7 @@
 
 %s"</string>
     <string name="downloading_via_wi_fi">Wi-Fi मार्फत फाइल डाउनलोड</string>
+    <string name="downloading_via_wlan">WLAN मार्फत फाइलहरू डाउनलोड गर्नु</string>
     <string name="effect_beauty">सुन्दर अनुहार</string>
     <string name="effect_mono">ग्रेस्केल</string>
     <string name="effect_negative">नेगेटिभ</string>
@@ -577,6 +578,7 @@ IVR कल स्क्रिन मेनुले Dianhuabang भनिने 
     <string name="outgoing_img_take_picture">छवि लिनुहोस्</string>
     <string name="outgoing_img_video">भिडियोहरु</string>
     <string name="over_storage_only_wifi_download">जम्मा फाइल साइज %1$d %2$s भन्दा बढी छ। कुनै अतिरिक्त शुल्कहरूबाट बच्न हामी Wi-Fi मार्फत मात्र डाउनलोड गर्ने सुझाव दिन्छौं।</string>
+    <string name="over_storage_only_wlan_download">फाइलको कुल साइज %1$d %2$s भन्दा बढी छ। अतिरिक्त शुल्कहरूबाट जोगिन हामी WLAN मार्फत मात्र डाउनलोड गर्न सिफारिस गर्छौं।</string>
     <string name="overlay_warning_toast">फोन प्रयोग गर्न तपाईले फोनका सेटिङहरूमा गई शीर्षमा देखिन सक्ने एप्सलाई अन गर्नुपर्ने हुन्छ।</string>
     <string name="payphone_sbm">पे फोन</string>
     <string name="phoneLabelsGroup">फोन</string>
@@ -589,6 +591,7 @@ IVR कल स्क्रिन मेनुले Dianhuabang भनिने 
     <string name="photoring_unblock_toast_2nd">यो सम्पर्क द्वारा पठाइएको मिडिया तिनीहरूले अर्को पटक तपाईलाई गरेको बेला प्राप्त हुनेछ।</string>
     <string name="please_wait">प्रमाणीकरण कोड जाँच गर्दैछ। कृपया प्रतीक्षा गर्नुहोस्…</string>
     <string name="popup_download_large_wificheck">Wi-Fi मार्फत मात्र डाउनलोड गर्नुहोस्</string>
+    <string name="popup_download_large_wlancheck">WLAN मार्फत मात्र डाउनलोड गर्नुहोस्</string>
     <string name="popup_start_record_during_alerting">कल जडान भएपछि रेकर्डिङ सुरू हुनेछ।</string>
     <string name="postalLabelsGroup">ठेगाना</string>
     <string name="postal_city">शहर</string>
@@ -772,6 +775,7 @@ IVR कल स्क्रिन मेनुले Dianhuabang भनिने 
     <string name="settings_glance_reply_explain_text_vzw">यन्त्र पल्टाइएको हुँदा तपाईको औंलालाई हृदय गति सेन्सर मा राख्दै र त्यसलाई %d सेकेन्डको लागि राख्दै इन्कमिङ कल अस्वीकार गर्नुहोस् र कलरलाई एउटा पूर्वनिश्चित संदेश पठाउनुहोस्।</string>
     <string name="settings_glance_reply_reached_maximum_text">क्यारेक्टरहरूको अधिकतम संख्या (%d) पुग्यो।</string>
     <string name="settings_glance_reply_text">संदेशहरूको द्रुत जवाफ दिनुहोस्</string>
+    <string name="settings_subappbar_switch_dimmed">मधुरो बनाइयो</string>
     <string name="settings_subappbar_switch_off">अफ</string>
     <string name="settings_subappbar_switch_on">अन</string>
     <string name="simple_sharing">Link sharing</string>
@@ -817,6 +821,7 @@ IVR कल स्क्रिन मेनुले Dianhuabang भनिने 
     <string name="swipe_right_to_answer_call_with_video">भिडियोको साथ कलको जवाफ दिन दायाँ स्वाइप गर्नुहोस्।</string>
     <string name="swipe_right_to_answer_call_without_video">भिडियो बिना कलको जवाफ दिन दायाँ स्वाइप गर्नुहोस्।</string>
     <string name="switch_rejected_by_mt">भिडियो कलमा जाने अनुरोध अस्वीकार गरियो।</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">भिडियो कलमा स्विच गर्ने अनुरोध असफल भयो।</string>
     <string name="switch_to_video_call_failed_tmo">भिडियो कलमा स्विच गर्ने अनुरोध अस्वीकार गरियो।</string>
     <string name="switch_to_voice_call_failed">भ्वाइस कलमा स्विच गर्ने अनुरोध असफल भयो।</string>
@@ -841,7 +846,9 @@ IVR कल स्क्रिन मेनुले Dianhuabang भनिने 
     <string name="units_mb">MB</string>
     <string name="unknown_cdma">अनुपलब्‍ध</string>
     <string name="upload_using_wifi_only">Wi-Fi मार्फत मात्र अपलोड गर्नुहोस्</string>
+    <string name="upload_using_wlan_only">WLAN मार्फत मात्र अपलोड गर्नुहोस्</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fi वा मोबाइल नेटवर्क मार्फत अपलोड गर्नुहोस्</string>
+    <string name="upload_wlan_and_mobile_nw">WLAN वा मोबाइल नेटवर्क मार्फत अपलोड गर्नुहोस्</string>
     <string name="usa_att_connected_as_voice">कल भ्वाइस मात्रको रूपमा जडान गरिएको छ।</string>
     <string name="usa_att_data_usage_charge_alert">तपाईले आफ्नो यन्त्रमा सेट गनुभएको डाटा प्रयोग यसको सीमामा पुग्न जादैछ। तपाईको भिडियो कललाई डाटाको आवश्यकता पर्छ।</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Wi-Fi मार्फत कल गर्न सकिँदैन, सेलुलर नेटवर्क मार्फत कल गर्दै। भ्वाइस र डाटा शुल्कहरू लागू हुन सक्छन्।</string>
@@ -899,6 +906,7 @@ IVR कल स्क्रिन मेनुले Dianhuabang भनिने 
 तपाईको भिडियो कल अहिले मोबाइल नेटवर्कमा चलिरहेको छ। (तपाईले जारी राख्नको लागि छनौट गर्नुभयो भने डाटा प्रयोग लागू हुन्छ।)"</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi जडान गुम्यो। कल समाप्त भयो।</string>
     <string name="use_wifi_and_mobile_nw">Wi-Fi र मोबाइल नेटवर्कहरूको प्रयोग गर्नुहोस्</string>
+    <string name="use_wlan_and_mobile_nw">WLAN र मोबाइल नेटवर्कहरू प्रयोग गर्नुहोस्</string>
     <string name="verify">प्रमाणीकरण गर्नु</string>
     <string name="verify_your_phone_number">आफ्नो फोन नम्बर प्रमाणीकरण गर्नुहोस्</string>
     <string name="verify_your_phone_number_body">सैमसंग सेवाहरूमा रहेका साथिहरूसँग जडान गर्न आफ्नो फोन नम्बर प्रमाणीकरण गर्नुहोस्।</string>

@@ -38,23 +38,23 @@
 .end method
 
 .method public static compareProfile(Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ProfileComparator$ProfileChangeAction;)Lcom/samsung/android/sdk/ssf/contact/io/ProfileInfo;
-    .locals 11
+    .locals 12
 
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
-    const/4 v9, 0x1
+    const/4 v10, 0x1
 
     invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->getContext()Landroid/content/Context;
 
-    move-result-object v10
+    move-result-object v11
 
-    invoke-virtual {v10}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v11}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    new-instance v7, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/db/CAgentProvider;
+    new-instance v8, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/db/CAgentProvider;
 
-    invoke-direct {v7, v10}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/db/CAgentProvider;-><init>(Landroid/content/Context;)V
+    invoke-direct {v8, v11}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/db/CAgentProvider;-><init>(Landroid/content/Context;)V
 
     const-string v1, "vnd.sec.cursor.item/name_card"
 
@@ -69,7 +69,7 @@
 
     const-string v1, "vnd.android.cursor.item/email_v2"
 
-    invoke-static {v10, v1}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/AgentQueryHelper;->deleteProfileDataByMimeType(Landroid/content/Context;Ljava/lang/String;)I
+    invoke-static {v11, v1}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/AgentQueryHelper;->deleteProfileDataByMimeType(Landroid/content/Context;Ljava/lang/String;)I
 
     move-result v1
 
@@ -115,7 +115,7 @@
 
     const-string v1, "vnd.android.cursor.item/organization"
 
-    invoke-static {v10, v1}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/AgentQueryHelper;->deleteProfileDataByMimeType(Landroid/content/Context;Ljava/lang/String;)I
+    invoke-static {v11, v1}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/AgentQueryHelper;->deleteProfileDataByMimeType(Landroid/content/Context;Ljava/lang/String;)I
 
     move-result v1
 
@@ -161,7 +161,7 @@
 
     const-string v1, "vnd.android.cursor.item/contact_event"
 
-    invoke-static {v10, v1}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/AgentQueryHelper;->deleteProfileDataByMimeType(Landroid/content/Context;Ljava/lang/String;)I
+    invoke-static {v11, v1}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/AgentQueryHelper;->deleteProfileDataByMimeType(Landroid/content/Context;Ljava/lang/String;)I
 
     move-result v1
 
@@ -207,7 +207,7 @@
 
     const-string v1, "vnd.android.cursor.item/postal-address_v2"
 
-    invoke-static {v10, v1}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/AgentQueryHelper;->deleteProfileDataByMimeType(Landroid/content/Context;Ljava/lang/String;)I
+    invoke-static {v11, v1}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/AgentQueryHelper;->deleteProfileDataByMimeType(Landroid/content/Context;Ljava/lang/String;)I
 
     move-result v1
 
@@ -315,9 +315,9 @@
 
     const/4 v5, 0x0
 
-    const-string v8, "vnd.sec.cursor.item/samsung_easysignup"
+    const-string v6, "vnd.sec.cursor.item/samsung_easysignup"
 
-    aput-object v8, v4, v5
+    aput-object v6, v4, v5
 
     const-string v5, "_id ASC"
 
@@ -326,31 +326,31 @@
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_3
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    move-result-object v8
+    move-result-object v9
 
     :try_start_3
-    const-string v1, "profile"
-
-    const/4 v2, 0x0
+    const-string v2, "profile"
 
     const/4 v3, 0x0
 
     const/4 v4, 0x0
 
-    const-string v5, "_id ASC"
+    const/4 v5, 0x0
 
-    move-object v0, v7
+    const-string v6, "_id ASC"
 
-    invoke-virtual/range {v0 .. v5}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/db/CAgentProvider;->query(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+    move-object v1, v8
+
+    invoke-virtual/range {v1 .. v6}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/db/CAgentProvider;->query(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
     :try_end_3
     .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_4
     .catchall {:try_start_3 .. :try_end_3} :catchall_2
 
-    move-result-object v7
+    move-result-object v8
 
-    if-eqz v8, :cond_5
+    if-eqz v9, :cond_5
 
-    if-nez v7, :cond_a
+    if-nez v8, :cond_a
 
     :cond_5
     :try_start_4
@@ -363,11 +363,11 @@
     .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_2
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
+    invoke-static {v9}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/QueryHelper;->closeCursor(Landroid/database/Cursor;)V
+
     invoke-static {v8}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/QueryHelper;->closeCursor(Landroid/database/Cursor;)V
 
-    invoke-static {v7}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/QueryHelper;->closeCursor(Landroid/database/Cursor;)V
-
-    move-object v0, v6
+    move-object v0, v7
 
     :goto_5
     return-object v0
@@ -432,17 +432,17 @@
 
     :cond_a
     :try_start_7
+    invoke-interface {v9}, Landroid/database/Cursor;->getCount()I
+
+    move-result v1
+
+    if-nez v1, :cond_b
+
     invoke-interface {v8}, Landroid/database/Cursor;->getCount()I
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_b
-
-    invoke-interface {v7}, Landroid/database/Cursor;->getCount()I
-
-    move-result v0
-
-    if-eqz v0, :cond_b
+    if-eqz v1, :cond_b
 
     const-string v0, "Me profile is deleted"
 
@@ -450,11 +450,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/util/CLog;->e(Ljava/lang/String;Ljava/lang/String;)V
 
+    invoke-static {v9}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/QueryHelper;->closeCursor(Landroid/database/Cursor;)V
+
     invoke-static {v8}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/QueryHelper;->closeCursor(Landroid/database/Cursor;)V
 
-    invoke-static {v7}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/QueryHelper;->closeCursor(Landroid/database/Cursor;)V
-
-    invoke-static {v10}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/AgentQueryHelper;->clearProfileTable(Landroid/content/Context;)V
+    invoke-static {v11}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/AgentQueryHelper;->clearProfileTable(Landroid/content/Context;)V
 
     const-string v0, ""
 
@@ -485,14 +485,20 @@
     .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_2
     .catchall {:try_start_7 .. :try_end_7} :catchall_0
 
-    invoke-static {v8}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/QueryHelper;->closeCursor(Landroid/database/Cursor;)V
+    invoke-static {v9}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/QueryHelper;->closeCursor(Landroid/database/Cursor;)V
 
-    invoke-static {v7}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/QueryHelper;->closeCursor(Landroid/database/Cursor;)V
+    invoke-static {v8}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/QueryHelper;->closeCursor(Landroid/database/Cursor;)V
 
     goto :goto_5
 
     :cond_b
     :try_start_8
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ProfileComparator;->havePhotoDeletedMimeType(Landroid/content/ContentResolver;)Z
+
+    move-result v0
+
+    invoke-interface {p0, v0}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ProfileComparator$ProfileChangeAction;->setHavePhotoDeletedMimeType(Z)V
+
     new-instance v0, Landroid/database/CursorJoiner;
 
     const/4 v1, 0x1
@@ -515,7 +521,7 @@
 
     aput-object v4, v2, v3
 
-    invoke-direct {v0, v8, v1, v7, v2}, Landroid/database/CursorJoiner;-><init>(Landroid/database/Cursor;[Ljava/lang/String;Landroid/database/Cursor;[Ljava/lang/String;)V
+    invoke-direct {v0, v9, v1, v8, v2}, Landroid/database/CursorJoiner;-><init>(Landroid/database/Cursor;[Ljava/lang/String;Landroid/database/Cursor;[Ljava/lang/String;)V
 
     invoke-virtual {v0}, Landroid/database/CursorJoiner;->iterator()Ljava/util/Iterator;
 
@@ -553,6 +559,134 @@
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
     const-string v2, "Added : id="
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v2, "_id"
+
+    invoke-interface {v9, v2}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+
+    move-result v2
+
+    invoke-interface {v9, v2}, Landroid/database/Cursor;->getLong(I)J
+
+    move-result-wide v2
+
+    invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v2, " mimeType= "
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v2, "mimetype"
+
+    invoke-interface {v9, v2}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+
+    move-result v2
+
+    invoke-interface {v9, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    sget-object v2, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ProfileComparator;->TAG:Ljava/lang/String;
+
+    invoke-static {v0, v2}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/util/CLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v0, "mimetype"
+
+    invoke-interface {v9, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+
+    move-result v0
+
+    invoke-interface {v9, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v2, "vnd.sec.cursor.item/name_card"
+
+    invoke-static {v0, v2}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_d
+
+    const-string v0, "Don\'t share mimetype : vnd.sec.cursor.item/name_card"
+
+    sget-object v2, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ProfileComparator;->TAG:Ljava/lang/String;
+
+    invoke-static {v0, v2}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/util/CLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_8
+    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_2
+    .catchall {:try_start_8 .. :try_end_8} :catchall_0
+
+    goto :goto_6
+
+    :catch_2
+    move-exception v0
+
+    move-object v7, v8
+
+    move-object v1, v9
+
+    :goto_7
+    :try_start_9
+    sget-object v2, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ProfileComparator;->TAG:Ljava/lang/String;
+
+    invoke-static {v0, v2}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/util/CLog;->e(Ljava/lang/Throwable;Ljava/lang/String;)V
+    :try_end_9
+    .catchall {:try_start_9 .. :try_end_9} :catchall_3
+
+    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/QueryHelper;->closeCursor(Landroid/database/Cursor;)V
+
+    invoke-static {v7}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/QueryHelper;->closeCursor(Landroid/database/Cursor;)V
+
+    :goto_8
+    invoke-interface {p0}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ProfileComparator$ProfileChangeAction;->getResult()Lcom/samsung/android/sdk/ssf/contact/io/ProfileInfo;
+
+    move-result-object v0
+
+    goto/16 :goto_5
+
+    :cond_d
+    :try_start_a
+    invoke-interface {p0, v9, v8}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ProfileComparator$ProfileChangeAction;->onInserted(Landroid/database/Cursor;Landroid/database/Cursor;)V
+    :try_end_a
+    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_a} :catch_2
+    .catchall {:try_start_a .. :try_end_a} :catchall_0
+
+    goto :goto_6
+
+    :catchall_0
+    move-exception v0
+
+    :goto_9
+    invoke-static {v9}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/QueryHelper;->closeCursor(Landroid/database/Cursor;)V
+
+    invoke-static {v8}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/QueryHelper;->closeCursor(Landroid/database/Cursor;)V
+
+    throw v0
+
+    :pswitch_1
+    :try_start_b
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "Deleted : id="
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -616,134 +750,6 @@
 
     move-result v0
 
-    if-eqz v0, :cond_d
-
-    const-string v0, "Don\'t share mimetype : vnd.sec.cursor.item/name_card"
-
-    sget-object v2, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ProfileComparator;->TAG:Ljava/lang/String;
-
-    invoke-static {v0, v2}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/util/CLog;->e(Ljava/lang/String;Ljava/lang/String;)V
-    :try_end_8
-    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_2
-    .catchall {:try_start_8 .. :try_end_8} :catchall_0
-
-    goto :goto_6
-
-    :catch_2
-    move-exception v0
-
-    move-object v6, v7
-
-    move-object v1, v8
-
-    :goto_7
-    :try_start_9
-    sget-object v2, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ProfileComparator;->TAG:Ljava/lang/String;
-
-    invoke-static {v0, v2}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/util/CLog;->e(Ljava/lang/Throwable;Ljava/lang/String;)V
-    :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_3
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/QueryHelper;->closeCursor(Landroid/database/Cursor;)V
-
-    invoke-static {v6}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/QueryHelper;->closeCursor(Landroid/database/Cursor;)V
-
-    :goto_8
-    invoke-interface {p0}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ProfileComparator$ProfileChangeAction;->getResult()Lcom/samsung/android/sdk/ssf/contact/io/ProfileInfo;
-
-    move-result-object v0
-
-    goto/16 :goto_5
-
-    :cond_d
-    :try_start_a
-    invoke-interface {p0, v8, v7}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ProfileComparator$ProfileChangeAction;->onInserted(Landroid/database/Cursor;Landroid/database/Cursor;)V
-    :try_end_a
-    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_a} :catch_2
-    .catchall {:try_start_a .. :try_end_a} :catchall_0
-
-    goto :goto_6
-
-    :catchall_0
-    move-exception v0
-
-    :goto_9
-    invoke-static {v8}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/QueryHelper;->closeCursor(Landroid/database/Cursor;)V
-
-    invoke-static {v7}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/QueryHelper;->closeCursor(Landroid/database/Cursor;)V
-
-    throw v0
-
-    :pswitch_1
-    :try_start_b
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "Deleted : id="
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string v2, "_id"
-
-    invoke-interface {v7, v2}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
-
-    move-result v2
-
-    invoke-interface {v7, v2}, Landroid/database/Cursor;->getLong(I)J
-
-    move-result-wide v2
-
-    invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string v2, " mimeType= "
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    const-string v2, "mimetype"
-
-    invoke-interface {v7, v2}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
-
-    move-result v2
-
-    invoke-interface {v7, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    sget-object v2, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ProfileComparator;->TAG:Ljava/lang/String;
-
-    invoke-static {v0, v2}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/util/CLog;->i(Ljava/lang/String;Ljava/lang/String;)V
-
-    const-string v0, "mimetype"
-
-    invoke-interface {v7, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
-
-    move-result v0
-
-    invoke-interface {v7, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v2, "vnd.sec.cursor.item/name_card"
-
-    invoke-static {v0, v2}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
-
-    move-result v0
-
     if-eqz v0, :cond_e
 
     const-string v0, "Don\'t share mimetype : vnd.sec.cursor.item/name_card"
@@ -755,38 +761,38 @@
     goto/16 :goto_6
 
     :cond_e
-    invoke-interface {p0, v8, v7}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ProfileComparator$ProfileChangeAction;->onDeleted(Landroid/database/Cursor;Landroid/database/Cursor;)V
+    invoke-interface {p0, v9, v8}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ProfileComparator$ProfileChangeAction;->onDeleted(Landroid/database/Cursor;Landroid/database/Cursor;)V
 
     goto/16 :goto_6
 
     :pswitch_2
     const-string v0, "data_version"
 
-    invoke-interface {v8, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    invoke-interface {v9, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
     move-result v0
 
-    invoke-interface {v8, v0}, Landroid/database/Cursor;->getInt(I)I
+    invoke-interface {v9, v0}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v0
 
     const-string v2, "data_version"
 
-    invoke-interface {v7, v2}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    invoke-interface {v8, v2}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
     move-result v2
 
-    invoke-interface {v7, v2}, Landroid/database/Cursor;->getInt(I)I
+    invoke-interface {v8, v2}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v2
 
     const-string v3, "mimetype"
 
-    invoke-interface {v8, v3}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    invoke-interface {v9, v3}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
     move-result v3
 
-    invoke-interface {v8, v3}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    invoke-interface {v9, v3}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
@@ -817,11 +823,11 @@
 
     const-string v0, "mimetype"
 
-    invoke-interface {v8, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    invoke-interface {v9, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
     move-result v0
 
-    invoke-interface {v8, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    invoke-interface {v9, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
@@ -831,12 +837,12 @@
 
     if-eqz v0, :cond_10
 
-    invoke-interface {p0, v8, v7}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ProfileComparator$ProfileChangeAction;->onChanged(Landroid/database/Cursor;Landroid/database/Cursor;)V
+    invoke-interface {p0, v9, v8}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ProfileComparator$ProfileChangeAction;->onChanged(Landroid/database/Cursor;Landroid/database/Cursor;)V
 
     goto/16 :goto_6
 
     :cond_10
-    move v0, v9
+    move v0, v10
 
     :goto_a
     const/16 v2, 0xf
@@ -865,19 +871,19 @@
 
     move-result-object v2
 
-    invoke-interface {v8, v2}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    invoke-interface {v9, v2}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
     move-result v3
 
-    invoke-interface {v8, v3}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    invoke-interface {v9, v3}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-interface {v7, v2}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    invoke-interface {v8, v2}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
     move-result v2
 
-    invoke-interface {v7, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    invoke-interface {v8, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -887,7 +893,7 @@
 
     if-nez v2, :cond_11
 
-    invoke-interface {p0, v8, v7}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ProfileComparator$ProfileChangeAction;->onChanged(Landroid/database/Cursor;Landroid/database/Cursor;)V
+    invoke-interface {p0, v9, v8}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ProfileComparator$ProfileChangeAction;->onChanged(Landroid/database/Cursor;Landroid/database/Cursor;)V
     :try_end_b
     .catch Ljava/lang/Exception; {:try_start_b .. :try_end_b} :catch_2
     .catchall {:try_start_b .. :try_end_b} :catchall_0
@@ -900,52 +906,50 @@
     goto :goto_a
 
     :cond_12
-    invoke-static {v8}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/QueryHelper;->closeCursor(Landroid/database/Cursor;)V
+    invoke-static {v9}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/QueryHelper;->closeCursor(Landroid/database/Cursor;)V
 
-    invoke-static {v7}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/QueryHelper;->closeCursor(Landroid/database/Cursor;)V
+    invoke-static {v8}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/QueryHelper;->closeCursor(Landroid/database/Cursor;)V
 
     goto/16 :goto_8
 
     :catchall_1
     move-exception v0
 
-    move-object v7, v6
+    move-object v8, v7
 
-    move-object v8, v6
+    move-object v9, v7
 
     goto/16 :goto_9
 
     :catchall_2
     move-exception v0
 
-    move-object v7, v6
+    move-object v8, v7
 
     goto/16 :goto_9
 
     :catchall_3
     move-exception v0
 
-    move-object v7, v6
+    move-object v8, v7
 
-    move-object v8, v1
+    move-object v9, v1
 
     goto/16 :goto_9
 
     :catch_3
     move-exception v0
 
-    move-object v1, v6
+    move-object v1, v7
 
     goto/16 :goto_7
 
     :catch_4
     move-exception v0
 
-    move-object v1, v8
+    move-object v1, v9
 
     goto/16 :goto_7
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x1
@@ -953,4 +957,219 @@
         :pswitch_1
         :pswitch_2
     .end packed-switch
+.end method
+
+.method private static havePhotoDeletedMimeType(Landroid/content/ContentResolver;)Z
+    .locals 9
+
+    const/4 v6, 0x0
+
+    const/4 v8, 0x1
+
+    const/4 v7, 0x0
+
+    sget-object v0, Landroid/provider/ContactsContract$Profile;->CONTENT_URI:Landroid/net/Uri;
+
+    const-string v1, "data"
+
+    invoke-static {v0, v1}, Landroid/net/Uri;->withAppendedPath(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/net/Uri;->buildUpon()Landroid/net/Uri$Builder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
+
+    move-result-object v1
+
+    invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonFeature;->getIsSamsungDevice()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v1}, Landroid/net/Uri;->buildUpon()Landroid/net/Uri$Builder;
+
+    move-result-object v0
+
+    const-string v1, "account_name"
+
+    invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonFeature;->getProfileAccountName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
+
+    move-result-object v0
+
+    const-string v1, "account_type"
+
+    invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonFeature;->getProfileAccountType()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
+
+    move-result-object v1
+
+    :cond_0
+    const/4 v0, 0x1
+
+    :try_start_0
+    new-array v2, v0, [Ljava/lang/String;
+
+    const/4 v0, 0x0
+
+    const-string v3, "_id"
+
+    aput-object v3, v2, v0
+
+    const-string v3, "mimetype = ?"
+
+    const/4 v0, 0x1
+
+    new-array v4, v0, [Ljava/lang/String;
+
+    const/4 v0, 0x0
+
+    const-string v5, "vnd.android.cursor.item/photo_deleted"
+
+    aput-object v5, v4, v0
+
+    const/4 v5, 0x0
+
+    move-object v0, p0
+
+    invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_3
+
+    move-result-object v2
+
+    const/4 v1, 0x0
+
+    if-eqz v2, :cond_5
+
+    :try_start_1
+    invoke-interface {v2}, Landroid/database/Cursor;->getCount()I
+    :try_end_1
+    .catch Ljava/lang/Throwable; {:try_start_1 .. :try_end_1} :catch_2
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    move-result v0
+
+    if-lez v0, :cond_5
+
+    move v0, v8
+
+    :goto_0
+    if-eqz v2, :cond_1
+
+    if-eqz v6, :cond_2
+
+    :try_start_2
+    invoke-interface {v2}, Landroid/database/Cursor;->close()V
+    :try_end_2
+    .catch Ljava/lang/Throwable; {:try_start_2 .. :try_end_2} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
+
+    :cond_1
+    :goto_1
+    return v0
+
+    :catch_0
+    move-exception v2
+
+    :try_start_3
+    invoke-virtual {v1, v2}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+    :try_end_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_1
+
+    goto :goto_1
+
+    :catch_1
+    move-exception v1
+
+    :goto_2
+    sget-object v2, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ProfileComparator;->TAG:Ljava/lang/String;
+
+    invoke-static {v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/util/CLog;->e(Ljava/lang/Throwable;Ljava/lang/String;)V
+
+    goto :goto_1
+
+    :cond_2
+    :try_start_4
+    invoke-interface {v2}, Landroid/database/Cursor;->close()V
+    :try_end_4
+    .catch Ljava/lang/Exception; {:try_start_4 .. :try_end_4} :catch_1
+
+    goto :goto_1
+
+    :catch_2
+    move-exception v1
+
+    :try_start_5
+    throw v1
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+
+    :catchall_0
+    move-exception v0
+
+    :goto_3
+    if-eqz v2, :cond_3
+
+    if-eqz v1, :cond_4
+
+    :try_start_6
+    invoke-interface {v2}, Landroid/database/Cursor;->close()V
+    :try_end_6
+    .catch Ljava/lang/Throwable; {:try_start_6 .. :try_end_6} :catch_4
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_3
+
+    :cond_3
+    :goto_4
+    :try_start_7
+    throw v0
+
+    :catch_3
+    move-exception v0
+
+    move-object v1, v0
+
+    move v0, v7
+
+    goto :goto_2
+
+    :catch_4
+    move-exception v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/Throwable;->addSuppressed(Ljava/lang/Throwable;)V
+
+    goto :goto_4
+
+    :cond_4
+    invoke-interface {v2}, Landroid/database/Cursor;->close()V
+    :try_end_7
+    .catch Ljava/lang/Exception; {:try_start_7 .. :try_end_7} :catch_3
+
+    goto :goto_4
+
+    :catchall_1
+    move-exception v0
+
+    move-object v1, v6
+
+    goto :goto_3
+
+    :cond_5
+    move v0, v7
+
+    goto :goto_0
 .end method

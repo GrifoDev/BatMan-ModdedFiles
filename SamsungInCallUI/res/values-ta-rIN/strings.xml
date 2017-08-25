@@ -791,6 +791,7 @@ IVR அழைப்புத் திரை மெனு, Dianhuabang என்
     <string name="settings_glance_reply_explain_text_vzw">சாதனம் திருப்பப்படும் போது, %d வினாடிகளுக்கு உங்கள் விரலை இதயத்துடிப்பு விகித உணர்வீ மீது வைத்து, அதை சரியான இடத்தில் பிடித்து வைத்திருப்பதன் மூலம் உள்வரும் அழைப்பைத் தவிர்த்து, அழைப்பாளருக்கு முன்னமைவுத் தகவலை அனுப்பவும்.</string>
     <string name="settings_glance_reply_reached_maximum_text">அதிகபட்ச எழுத்துகளின் (%d) எண்ணிக்கையை அடைந்தது.</string>
     <string name="settings_glance_reply_text">துரித பதிலளிப்புத் தகவல்.</string>
+    <string name="settings_subappbar_switch_dimmed">மங்கலான</string>
     <string name="settings_subappbar_switch_off">ஆஃப்</string>
     <string name="settings_subappbar_switch_on">ஆன்</string>
     <string name="simple_sharing">Link sharing</string>
@@ -836,6 +837,7 @@ IVR அழைப்புத் திரை மெனு, Dianhuabang என்
     <string name="swipe_right_to_answer_call_with_video">நிகழ்படத்துடன் அழைப்புக்குப் பதிலளிக்க வலது புறமாக ஸ்வைப் செய்யவும்.</string>
     <string name="swipe_right_to_answer_call_without_video">நிகழ்படம் இல்லாமல் அழைப்புக்குப் பதிலளிக்க வலது புறமாக ஸ்வைப் செய்யவும்.</string>
     <string name="switch_rejected_by_mt">தவிர்க்கப்பட்ட நிகழ்பட அழைப்பிற்கு மாறக் கோரவும்.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">நிகழ்பட அழைப்பிற்கு மாறுவதற்கான கோரிக்கை தோல்வியடைந்தது.</string>
     <string name="switch_to_video_call_failed_tmo">நிகழ்பட அழைப்பிற்கு மாறுவதற்கான கோரிக்கை தவிர்க்கப்பட்டது.</string>
     <string name="switch_to_voice_call_failed">குரல் அழைப்பிற்கு மாறுவதற்கான கோரிக்கை தோல்வியுற்றது.</string>

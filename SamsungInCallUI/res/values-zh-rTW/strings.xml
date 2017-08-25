@@ -178,7 +178,7 @@
     <string name="account_phone">裝置</string>
     <string name="acs">語音通話</string>
     <string name="active_calls">進行中通話</string>
-    <string name="add_reminder">新增提醒</string>
+    <string name="add_reminder">新增Reminder</string>
     <string name="agif_button_close_description">關閉</string>
     <string name="agif_decline_message">抱歉，現在不方便說話。</string>
     <string name="agif_decline_sticker_header">透過動態貼圖拒接</string>
@@ -822,6 +822,7 @@
     <string name="settings_glance_reply_explain_text_vzw">將手指放在心跳率感應器上並於裝置翻轉時停留 %d 秒，即可拒接來電並傳送預設訊息給來電者。</string>
     <string name="settings_glance_reply_reached_maximum_text">達到%d個最大字元。</string>
     <string name="settings_glance_reply_text">觸感回覆訊息</string>
+    <string name="settings_subappbar_switch_dimmed">變暗</string>
     <string name="settings_subappbar_switch_off">關</string>
     <string name="settings_subappbar_switch_on">開</string>
     <string name="simple_sharing">連結分享</string>
@@ -867,6 +868,7 @@
     <string name="swipe_right_to_answer_call_with_video">向右滑動以接聽視訊來電</string>
     <string name="swipe_right_to_answer_call_without_video">向右滑動以接聽非視訊來電</string>
     <string name="switch_rejected_by_mt">要求切換至視訊通話被拒絕。</string>
+    <string name="switch_rejected_by_mt_att">此通話無法使用視訊。已透過語音通話連接。</string>
     <string name="switch_to_video_call_failed">要求切換至視訊通話失敗。</string>
     <string name="switch_to_video_call_failed_tmo">切換為視訊通話的要求被拒。</string>
     <string name="switch_to_voice_call_failed">要求切換至語音通話失敗。</string>

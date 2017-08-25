@@ -28,3 +28,6 @@
 
 .method public abstract onInserted(Landroid/database/Cursor;Landroid/database/Cursor;)V
 .end method
+
+.method public abstract setHavePhotoDeletedMimeType(Z)V
+.end method

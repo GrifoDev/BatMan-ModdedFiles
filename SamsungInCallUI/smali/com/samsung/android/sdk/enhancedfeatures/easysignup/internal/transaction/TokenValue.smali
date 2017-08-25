@@ -93,8 +93,6 @@
 
 .field public static final TOKEN_UPDATE:I = 0xbe
 
-.field public static final TOKEN_UPDATE_SERVICE:I = 0xc8
-
 .field public static final TOKEN_USER_ACTIVATE:I = 0xf0
 
 .field public static final TOKEN_VOLLEYERROR:I = 0x2711

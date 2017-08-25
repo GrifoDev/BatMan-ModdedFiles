@@ -611,7 +611,7 @@ Esse recurso usa conteúdos fornecidos por uma operadora de terceiros chamada Di
     <string name="photoring_unblock_toast_2nd">A mídia enviada por este contato será recebida na próxima vez que ele chamá-lo</string>
     <string name="please_wait">Verificando o código de verificação. Aguarde…</string>
     <string name="popup_download_large_wificheck">Baixar por Wi-Fi somente</string>
-    <string name="popup_download_large_wlancheck">Download via WLAN only</string>
+    <string name="popup_download_large_wlancheck">Baixar apenas via WLAN</string>
     <string name="popup_start_record_during_alerting">A gravação começará após conectar a chamada.</string>
     <string name="postalLabelsGroup">Endereço</string>
     <string name="postal_city">Cidade</string>
@@ -647,7 +647,7 @@ Esse recurso usa conteúdos fornecidos por uma operadora de terceiros chamada Di
     <string name="rcs_share_toast_lowmemory">Memória insuficiente</string>
     <string name="rcs_share_toast_terminated">Encer.</string>
     <string name="rcs_share_toast_toolarge">Arquivo muito grande</string>
-    <string name="receiver">Destinatário</string>
+    <string name="receiver">Receptor</string>
     <string name="recently_use_sim_for_callback">Chip usado recentemente</string>
     <string name="record_notification_button_text_close">Fechar</string>
     <string name="record_notification_button_text_record_list">Gravações</string>
@@ -795,6 +795,7 @@ unidirec."</string>
     <string name="settings_glance_reply_explain_text_vzw">Rejeite uma chamada recebida e envie uma mensagem predefinida para quem chamou colocando seu dedo no sensor de frequência cardíaca e mantendo-o no local por %d segundos enquanto o aparelho estiver em suspensão.</string>
     <string name="settings_glance_reply_reached_maximum_text">Número máximo de caracteres (%d) atingido.</string>
     <string name="settings_glance_reply_text">Mensagens Resposta rápida</string>
+    <string name="settings_subappbar_switch_dimmed">Brilho reduzido</string>
     <string name="settings_subappbar_switch_off">Desativado</string>
     <string name="settings_subappbar_switch_on">Ativado</string>
     <string name="simple_sharing">Compartilhamento de link</string>
@@ -840,6 +841,7 @@ unidirec."</string>
     <string name="swipe_right_to_answer_call_with_video">Deslize para a direita para atender a chamada com vídeo.</string>
     <string name="swipe_right_to_answer_call_without_video">Deslize para a direita para atender a chamada sem vídeo.</string>
     <string name="switch_rejected_by_mt">Solicitação de mudança para videochamada rejeitada.</string>
+    <string name="switch_rejected_by_mt_att">Vídeo indisponível para esta chamada. Chamada conectada como chamada de voz.</string>
     <string name="switch_to_video_call_failed">Falha na solicitação de mudança para chamada de vídeo.</string>
     <string name="switch_to_video_call_failed_tmo">A solicitação para alternar para videochamada foi recusada.</string>
     <string name="switch_to_voice_call_failed">Falha na solicitação de mudança para chamada com voz.</string>
@@ -864,9 +866,9 @@ unidirec."</string>
     <string name="units_mb">MB</string>
     <string name="unknown_cdma">Indisponível</string>
     <string name="upload_using_wifi_only">Carregar apenas por Wi-Fi</string>
-    <string name="upload_using_wlan_only">Upload via WLAN only</string>
+    <string name="upload_using_wlan_only">Carregar apenas via WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Carregar por Wi-Fi ou rede móvel</string>
-    <string name="upload_wlan_and_mobile_nw">Upload via WLAN or mobile network</string>
+    <string name="upload_wlan_and_mobile_nw">Carregar via WLAN ou rede móvel</string>
     <string name="usa_att_connected_as_voice">Chamada conectada como voz apenas.</string>
     <string name="usa_att_data_usage_charge_alert">O seu Uso de dados definido no aparelho está prestes a atingir o limite. Sua videochamada requer dados.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">A chamada não pode ser colocada em Wi-Fi. Conectando à rede celular. As cobranças de voz e dados serão aplicadas.</string>
@@ -924,7 +926,7 @@ Sua videochamada continua em execução na rede móvel. (O uso de dados será ap
 Sua videochamada agora está em execução na rede móvel. (O uso de dados será aplicável se você decidir continuar.)"</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Conexão Wi-Fi perdida. Chamada encerrada.</string>
     <string name="use_wifi_and_mobile_nw">Usar redes Wi-Fi e móvel</string>
-    <string name="use_wlan_and_mobile_nw">Use WLAN and mobile networks</string>
+    <string name="use_wlan_and_mobile_nw">Usar WLAN e redes móveis</string>
     <string name="verify">Validar</string>
     <string name="verify_your_phone_number">Validar seu número de telefone</string>
     <string name="verify_your_phone_number_body">Valide seu número de telefone para conectar-se aos amigos nos serviços Samsung.</string>

@@ -580,7 +580,7 @@ IVR-símatalavalmyndin notar efni sem veitt er af þriðja aðila sem nefnist Di
     <string name="photoring_unblock_toast_2nd">Efni sem þessi tengiliður sendir verður móttekið næst þegar viðkomandi hringir í þig</string>
     <string name="please_wait">Athuga staðfestingarkóða. Augnablik…</string>
     <string name="popup_download_large_wificheck">Sækja um Wi-Fi eingöngu</string>
-    <string name="popup_download_large_wlancheck">Download via WLAN only</string>
+    <string name="popup_download_large_wlancheck">Hlaða aðeins niður um WLAN</string>
     <string name="popup_start_record_during_alerting">Skráning hefst þegar símtali er svarað.</string>
     <string name="postalLabelsGroup">Heimilisfang</string>
     <string name="postal_city">Borg</string>
@@ -764,6 +764,7 @@ mín megin"</string>
     <string name="settings_glance_reply_explain_text_vzw">Hafnaðu símtali og sendu fyrirframskilgreind skilaboð til þess sem hringir með því að setja fingur á hjartsláttarskynjarann og halda honum þar í %d sekúndur þegar tækið er á hvolfi.</string>
     <string name="settings_glance_reply_reached_maximum_text">Hámarkfjölda stafa (%d) hefur verið náð.</string>
     <string name="settings_glance_reply_text">Snarsvarsskilaboð</string>
+    <string name="settings_subappbar_switch_dimmed">Myrkvaður</string>
     <string name="settings_subappbar_switch_off">Slökkt</string>
     <string name="settings_subappbar_switch_on">Kveikt</string>
     <string name="simple_sharing">Deiling með tengli</string>
@@ -809,6 +810,7 @@ mín megin"</string>
     <string name="swipe_right_to_answer_call_with_video">Strjúktu til hægri til að svara símtali með myndskeiði.</string>
     <string name="swipe_right_to_answer_call_without_video">Strjúktu til hægri til að svara símtali án myndskeiðs.</string>
     <string name="switch_rejected_by_mt">Beiðni um að skipta í myndsímtal hafnað.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Beiðni um að skipta yfir í myndsímtal mistókst.</string>
     <string name="switch_to_video_call_failed_tmo">Beiðni um að skipta yfir í myndsímtal var hafnað.</string>
     <string name="switch_to_voice_call_failed">Beiðni um að skipta yfir í símtal mistókst.</string>

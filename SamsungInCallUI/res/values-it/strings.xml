@@ -734,7 +734,7 @@ Il menu a schermo della chiamata IVR utilizza contenuti forniti da un fornitore 
     <string name="secOnscreenKeypadText">Tastiera</string>
     <string name="secOnscreenManageText">Gestisci</string>
     <string name="secOnscreenManageText_sbm">Membri</string>
-    <string name="secOnscreenMemoText">Memo</string>
+    <string name="secOnscreenMemoText">Promemoria</string>
     <string name="secOnscreenMenuAddCallText">Aggiungi chiamata</string>
     <string name="secOnscreenMenuCallTransfer">Trasferisci</string>
     <string name="secOnscreenMenuCaptureImageText">Cattura immagine</string>
@@ -822,6 +822,7 @@ a 1 via"</string>
     <string name="settings_glance_reply_explain_text_vzw">Rifiutate una chiamata in arrivo e inviate un messaggio preimpostato al chiamante posizionando il dito sul sensore della frequenza cardiaca e tenendolo in posizione per %d secondi mentre il dispositivo è girato.</string>
     <string name="settings_glance_reply_reached_maximum_text">Raggiunto numero massimo di caratteri (%d).</string>
     <string name="settings_glance_reply_text">Messaggi risposta rapida</string>
+    <string name="settings_subappbar_switch_dimmed">Oscurato</string>
     <string name="settings_subappbar_switch_off">Non attivo</string>
     <string name="settings_subappbar_switch_on">Attivo</string>
     <string name="simple_sharing">Condivisione collegamenti</string>
@@ -867,6 +868,7 @@ a 1 via"</string>
     <string name="swipe_right_to_answer_call_with_video">Trascinate lo schermo verso destra per rispondere alla chiamata con il video.</string>
     <string name="swipe_right_to_answer_call_without_video">Trascinate lo schermo verso destra per rispondere alla chiamata senza il video.</string>
     <string name="switch_rejected_by_mt">Richiesta di passaggio a videochiamata rifiutata.</string>
+    <string name="switch_rejected_by_mt_att">Il video non è disponibile per questa chiamata. La chiamata è stata connessa come chiamata vocale.</string>
     <string name="switch_to_video_call_failed">Richiesta di passaggio alla videochiamata non riuscita.</string>
     <string name="switch_to_video_call_failed_tmo">La richiesta di passaggio alla videochiamata è stata rifiutata.</string>
     <string name="switch_to_voice_call_failed">Richiesta di passaggio alla chiamata vocale non riuscita.</string>

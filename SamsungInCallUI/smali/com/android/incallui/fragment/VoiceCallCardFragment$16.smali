@@ -91,21 +91,21 @@
 
     invoke-virtual {v0}, Landroid/view/View;->getWidth()I
 
-    move-result v2
-
-    iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$16;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
-
-    iget-object v0, v0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mOnScreenMoreMenuContainer:Landroid/view/View;
-
-    invoke-virtual {v0, v3, v3}, Landroid/view/View;->measure(II)V
-
-    iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$16;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
-
-    iget-object v0, v0, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mOnScreenMoreMenuContainer:Landroid/view/View;
-
-    invoke-virtual {v0}, Landroid/view/View;->getMeasuredWidth()I
-
     move-result v0
+
+    iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$16;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
+
+    iget-object v2, v2, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mOnScreenMoreMenuContainer:Landroid/view/View;
+
+    invoke-virtual {v2, v3, v3}, Landroid/view/View;->measure(II)V
+
+    iget-object v2, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$16;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
+
+    iget-object v2, v2, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mOnScreenMoreMenuContainer:Landroid/view/View;
+
+    invoke-virtual {v2}, Landroid/view/View;->getMeasuredWidth()I
+
+    move-result v2
 
     iget-object v3, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$16;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
@@ -149,7 +149,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0a015c
+    const v8, 0x7f0a0159
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -163,7 +163,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0a0087
+    const v9, 0x7f0a0084
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -183,23 +183,23 @@
 
     add-int/2addr v3, v6
 
-    add-int/2addr v3, v2
-
     add-int/2addr v0, v3
 
-    mul-int/lit8 v3, v8, 0x2
+    add-int/2addr v0, v2
 
-    add-int/2addr v0, v3
+    mul-int/lit8 v2, v8, 0x2
+
+    add-int/2addr v0, v2
 
     sub-int v0, v9, v0
 
-    const/4 v3, 0x4
+    const/4 v2, 0x4
 
-    if-eq v1, v3, :cond_2
+    if-eq v1, v2, :cond_2
 
-    const/4 v3, 0x6
+    const/4 v2, 0x6
 
-    if-ne v1, v3, :cond_3
+    if-ne v1, v2, :cond_3
 
     :cond_2
     iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$16;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
@@ -246,38 +246,6 @@
     sub-int/2addr v0, v1
 
     :cond_4
-    const-string v1, "VoiceCallCardFragment"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "calculateWidthOfAgifView menuWidth :"
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, " mMaxWidth :"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
     iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallCardFragment$16;->this$0:Lcom/android/incallui/fragment/VoiceCallCardFragment;
 
     iget-object v1, v1, Lcom/android/incallui/fragment/VoiceCallCardFragment;->mAgifName:Landroid/widget/TextView;

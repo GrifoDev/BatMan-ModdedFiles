@@ -33,8 +33,6 @@
 
 .field private hasNationalNumberPattern:Z
 
-.field private hasPossibleNumberPattern:Z
-
 .field private nationalNumberPattern_:Ljava/lang/String;
 
 .field private possibleLengthLocalOnly_:Ljava/util/List;
@@ -59,8 +57,6 @@
     .end annotation
 .end field
 
-.field private possibleNumberPattern_:Ljava/lang/String;
-
 
 # direct methods
 .method public constructor <init>()V
@@ -71,10 +67,6 @@
     const-string v0, ""
 
     iput-object v0, p0, Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneNumberDesc;->nationalNumberPattern_:Ljava/lang/String;
-
-    const-string v0, ""
-
-    iput-object v0, p0, Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneNumberDesc;->possibleNumberPattern_:Ljava/lang/String;
 
     new-instance v0, Ljava/util/ArrayList;
 
@@ -183,36 +175,12 @@
     return-object p0
 .end method
 
-.method public clearPossibleNumberPattern()Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneNumberDesc;
-    .locals 1
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneNumberDesc;->hasPossibleNumberPattern:Z
-
-    const-string v0, ""
-
-    iput-object v0, p0, Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneNumberDesc;->possibleNumberPattern_:Ljava/lang/String;
-
-    return-object p0
-.end method
-
 .method public exactlySameAs(Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneNumberDesc;)Z
     .locals 2
 
     iget-object v0, p0, Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneNumberDesc;->nationalNumberPattern_:Ljava/lang/String;
 
     iget-object v1, p1, Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneNumberDesc;->nationalNumberPattern_:Ljava/lang/String;
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneNumberDesc;->possibleNumberPattern_:Ljava/lang/String;
-
-    iget-object v1, p1, Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneNumberDesc;->possibleNumberPattern_:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -371,14 +339,6 @@
     return-object v0
 .end method
 
-.method public getPossibleNumberPattern()Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneNumberDesc;->possibleNumberPattern_:Ljava/lang/String;
-
-    return-object v0
-.end method
-
 .method public hasExampleNumber()Z
     .locals 1
 
@@ -391,14 +351,6 @@
     .locals 1
 
     iget-boolean v0, p0, Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneNumberDesc;->hasNationalNumberPattern:Z
-
-    return v0
-.end method
-
-.method public hasPossibleNumberPattern()Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneNumberDesc;->hasPossibleNumberPattern:Z
 
     return v0
 .end method
@@ -421,19 +373,6 @@
     invoke-virtual {p0, v1}, Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneNumberDesc;->setNationalNumberPattern(Ljava/lang/String;)Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneNumberDesc;
 
     :cond_0
-    invoke-interface {p1}, Ljava/io/ObjectInput;->readBoolean()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    invoke-interface {p1}, Ljava/io/ObjectInput;->readUTF()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {p0, v1}, Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneNumberDesc;->setPossibleNumberPattern(Ljava/lang/String;)Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneNumberDesc;
-
-    :cond_1
     invoke-interface {p1}, Ljava/io/ObjectInput;->readInt()I
 
     move-result v2
@@ -441,7 +380,7 @@
     move v1, v0
 
     :goto_0
-    if-ge v1, v2, :cond_2
+    if-ge v1, v2, :cond_1
 
     iget-object v3, p0, Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneNumberDesc;->possibleLength_:Ljava/util/List;
 
@@ -459,13 +398,13 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_1
     invoke-interface {p1}, Ljava/io/ObjectInput;->readInt()I
 
     move-result v1
 
     :goto_1
-    if-ge v0, v1, :cond_3
+    if-ge v0, v1, :cond_2
 
     iget-object v2, p0, Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneNumberDesc;->possibleLengthLocalOnly_:Ljava/util/List;
 
@@ -483,12 +422,12 @@
 
     goto :goto_1
 
-    :cond_3
+    :cond_2
     invoke-interface {p1}, Ljava/io/ObjectInput;->readBoolean()Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_3
 
     invoke-interface {p1}, Ljava/io/ObjectInput;->readUTF()Ljava/lang/String;
 
@@ -496,7 +435,7 @@
 
     invoke-virtual {p0, v0}, Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneNumberDesc;->setExampleNumber(Ljava/lang/String;)Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneNumberDesc;
 
-    :cond_4
+    :cond_3
     return-void
 .end method
 
@@ -524,18 +463,6 @@
     return-object p0
 .end method
 
-.method public setPossibleNumberPattern(Ljava/lang/String;)Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneNumberDesc;
-    .locals 1
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneNumberDesc;->hasPossibleNumberPattern:Z
-
-    iput-object p1, p0, Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneNumberDesc;->possibleNumberPattern_:Ljava/lang/String;
-
-    return-object p0
-.end method
-
 .method public writeExternal(Ljava/io/ObjectOutput;)V
     .locals 4
 
@@ -554,19 +481,6 @@
     invoke-interface {p1, v0}, Ljava/io/ObjectOutput;->writeUTF(Ljava/lang/String;)V
 
     :cond_0
-    iget-boolean v0, p0, Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneNumberDesc;->hasPossibleNumberPattern:Z
-
-    invoke-interface {p1, v0}, Ljava/io/ObjectOutput;->writeBoolean(Z)V
-
-    iget-boolean v0, p0, Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneNumberDesc;->hasPossibleNumberPattern:Z
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneNumberDesc;->possibleNumberPattern_:Ljava/lang/String;
-
-    invoke-interface {p1, v0}, Ljava/io/ObjectOutput;->writeUTF(Ljava/lang/String;)V
-
-    :cond_1
     invoke-virtual {p0}, Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneNumberDesc;->getPossibleLengthCount()I
 
     move-result v3
@@ -576,7 +490,7 @@
     move v2, v1
 
     :goto_0
-    if-ge v2, v3, :cond_2
+    if-ge v2, v3, :cond_1
 
     iget-object v0, p0, Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneNumberDesc;->possibleLength_:Ljava/util/List;
 
@@ -598,7 +512,7 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_1
     invoke-virtual {p0}, Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneNumberDesc;->getPossibleLengthLocalOnlyCount()I
 
     move-result v2
@@ -606,7 +520,7 @@
     invoke-interface {p1, v2}, Ljava/io/ObjectOutput;->writeInt(I)V
 
     :goto_1
-    if-ge v1, v2, :cond_3
+    if-ge v1, v2, :cond_2
 
     iget-object v0, p0, Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneNumberDesc;->possibleLengthLocalOnly_:Ljava/util/List;
 
@@ -628,19 +542,19 @@
 
     goto :goto_1
 
-    :cond_3
+    :cond_2
     iget-boolean v0, p0, Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneNumberDesc;->hasExampleNumber:Z
 
     invoke-interface {p1, v0}, Ljava/io/ObjectOutput;->writeBoolean(Z)V
 
     iget-boolean v0, p0, Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneNumberDesc;->hasExampleNumber:Z
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_3
 
     iget-object v0, p0, Lcom/google/i18n/phonenumbers/Phonemetadata$PhoneNumberDesc;->exampleNumber_:Ljava/lang/String;
 
     invoke-interface {p1, v0}, Ljava/io/ObjectOutput;->writeUTF(Ljava/lang/String;)V
 
-    :cond_4
+    :cond_3
     return-void
 .end method

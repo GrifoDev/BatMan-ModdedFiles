@@ -744,6 +744,7 @@ Camera"</string>
     <string name="settings_glance_reply_explain_text_vzw">Reject an incoming call and send a preset message to the caller by placing your finger on the heart rate sensor and holding it in place for %d seconds while the device is turned over.</string>
     <string name="settings_glance_reply_reached_maximum_text">Maximum number of characters (%d) reached.</string>
     <string name="settings_glance_reply_text">Quick reply messages</string>
+    <string name="settings_subappbar_switch_dimmed">Dimmed</string>
     <string name="settings_subappbar_switch_off">Off</string>
     <string name="settings_subappbar_switch_on">On</string>
     <string name="simple_sharing">Link sharing</string>
@@ -789,6 +790,7 @@ Camera"</string>
     <string name="swipe_right_to_answer_call_with_video">Swipe right to answer call with video.</string>
     <string name="swipe_right_to_answer_call_without_video">Swipe right to answer call without video.</string>
     <string name="switch_rejected_by_mt">Request to switch to video call rejected.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Request to switch to video call failed.</string>
     <string name="switch_to_video_call_failed_tmo">Request to switch to video call was declined.</string>
     <string name="switch_to_voice_call_failed">Request to switch to voice call failed.</string>

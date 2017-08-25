@@ -64,9 +64,15 @@
 
 .field private mContext:Landroid/content/Context;
 
+.field private mDeletedPhotoPath:Ljava/lang/String;
+
+.field private mDeletedPhotoUrl:Ljava/lang/String;
+
 .field private mEmailChanged:Z
 
 .field private mEventChanged:Z
+
+.field private mHavePhotoDeletedMimeType:Z
 
 .field private mNameChanged:Z
 
@@ -101,7 +107,9 @@
 .end method
 
 .method public constructor <init>()V
-    .locals 5
+    .locals 6
+
+    const/4 v5, 0x0
 
     const/4 v4, 0x0
 
@@ -159,9 +167,7 @@
 
     iput v4, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->insertprofileno:I
 
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->profilepath:Ljava/lang/String;
+    iput-object v5, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->profilepath:Ljava/lang/String;
 
     const/4 v0, 0x2
 
@@ -172,6 +178,12 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
     iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->imageInfoList:Ljava/util/ArrayList;
+
+    iput-boolean v4, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->mHavePhotoDeletedMimeType:Z
+
+    iput-object v5, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->mDeletedPhotoUrl:Ljava/lang/String;
+
+    iput-object v5, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->mDeletedPhotoPath:Ljava/lang/String;
 
     return-void
 .end method
@@ -3534,6 +3546,8 @@
 
     if-eqz v0, :cond_2
 
+    if-nez v6, :cond_2
+
     new-instance v0, Lcom/samsung/android/sdk/ssf/contact/io/OrganizationInfo;
 
     const-string v2, "data1"
@@ -4072,9 +4086,54 @@
 
     if-eqz v0, :cond_1
 
-    invoke-static {p2}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->deleteProfileImageFromOrsServer(Landroid/database/Cursor;)V
+    iget-boolean v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->mHavePhotoDeletedMimeType:Z
+
+    if-eqz v0, :cond_2
+
+    const-string v0, "vnd.android.cursor.item/photo"
+
+    const-string v1, "mimetype"
+
+    invoke-interface {p2, v1}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-interface {p2, v1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    const-string v0, "data13"
+
+    invoke-interface {p2, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+
+    move-result v0
+
+    invoke-interface {p2, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->mDeletedPhotoUrl:Ljava/lang/String;
+
+    const-string v0, "data12"
+
+    invoke-interface {p2, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+
+    move-result v0
+
+    invoke-interface {p2, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->mDeletedPhotoPath:Ljava/lang/String;
 
     :cond_1
+    :goto_1
     iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->agentCPO:Ljava/util/ArrayList;
 
     invoke-static {p2}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/AgentQueryHelper;->deleteProfileData(Landroid/database/Cursor;)Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO;
@@ -4086,26 +4145,90 @@
     invoke-direct {p0, p2}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->detectChanged(Landroid/database/Cursor;)V
 
     goto :goto_0
+
+    :cond_2
+    invoke-static {p2}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->deleteProfileImageFromOrsServer(Landroid/database/Cursor;)V
+
+    goto :goto_1
 .end method
 
 .method public onInserted(Landroid/database/Cursor;Landroid/database/Cursor;)V
-    .locals 5
+    .locals 4
 
-    const/4 v1, 0x0
-
-    const/4 v4, 0x1
-
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     invoke-direct {p0, p1}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->checkExcludingItemList(Landroid/database/Cursor;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
-    :cond_0
     :goto_0
     return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->mDeletedPhotoUrl:Ljava/lang/String;
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    const-string v0, "vnd.android.cursor.item/photo_deleted"
+
+    const-string v1, "mimetype"
+
+    invoke-interface {p1, v1}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-interface {p1, v1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->insertprofileUrl:[Ljava/lang/String;
+
+    iget v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->insertprofileno:I
+
+    iget-object v2, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->mDeletedPhotoUrl:Ljava/lang/String;
+
+    aput-object v2, v0, v1
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->mDeletedPhotoPath:Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->profilepath:Ljava/lang/String;
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->agentCPO:Ljava/util/ArrayList;
+
+    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->insertprofileUrl:[Ljava/lang/String;
+
+    iget v2, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->insertprofileno:I
+
+    add-int/lit8 v3, v2, 0x1
+
+    iput v3, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->insertprofileno:I
+
+    aget-object v1, v1, v2
+
+    iget-object v2, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->profilepath:Ljava/lang/String;
+
+    invoke-static {p1, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/AgentQueryHelper;->insertProfileData(Landroid/database/Cursor;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :goto_1
+    invoke-direct {p0, p1}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->detectChanged(Landroid/database/Cursor;)V
+
+    goto :goto_0
 
     :cond_1
     const-string v0, "mimetype"
@@ -4122,7 +4245,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     const-string v0, "data14"
 
@@ -4154,21 +4277,25 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    :goto_2
+    if-eqz v0, :cond_3
 
     iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->insertprofileUrl:[Ljava/lang/String;
 
     iget v2, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->insertprofileno:I
 
+    const/4 v3, 0x0
+
     aget-object v3, v0, v3
 
     aput-object v3, v1, v2
 
-    aget-object v0, v0, v4
+    const/4 v1, 0x1
+
+    aget-object v0, v0, v1
 
     iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->profilepath:Ljava/lang/String;
 
-    :goto_1
     iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->agentCPO:Ljava/util/ArrayList;
 
     iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->insertprofileUrl:[Ljava/lang/String;
@@ -4189,10 +4316,7 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :goto_2
-    invoke-direct {p0, p1}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->detectChanged(Landroid/database/Cursor;)V
-
-    goto :goto_0
+    goto :goto_1
 
     :cond_2
     const-string v0, "data15"
@@ -4209,30 +4333,33 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
-
-    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->insertprofileUrl:[Ljava/lang/String;
-
-    iget v2, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->insertprofileno:I
-
-    aget-object v3, v0, v3
-
-    aput-object v3, v1, v2
-
-    aget-object v0, v0, v4
-
-    iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->profilepath:Ljava/lang/String;
-
-    goto :goto_1
+    goto :goto_2
 
     :cond_3
+    const-string v0, "uploadProfileImage result is NULL!!!!"
+
+    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->TAG:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/util/CLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    :cond_4
     iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->agentCPO:Ljava/util/ArrayList;
 
-    invoke-static {p1, v1, v1}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/AgentQueryHelper;->insertProfileData(Landroid/database/Cursor;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO;
+    invoke-static {p1, v2, v2}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/AgentQueryHelper;->insertProfileData(Landroid/database/Cursor;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO;
 
     move-result-object v1
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_2
+    goto :goto_1
+.end method
+
+.method public setHavePhotoDeletedMimeType(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ActionProfileChanged;->mHavePhotoDeletedMimeType:Z
+
+    return-void
 .end method

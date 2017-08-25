@@ -765,6 +765,7 @@ Kamera"</string>
     <string name="settings_glance_reply_explain_text_vzw">Barmog‘ingizni yurak urish sensori ustiga qo‘yish va uni qurilma teskari o‘girilgan holda joyida %d soniya davomida ushlab turish orqali qo‘ng‘iroqni rad eting va qo‘ng‘iroq qiluvchiga oldindan o‘rnatilgan xabarni yuboring.</string>
     <string name="settings_glance_reply_reached_maximum_text">Belgilar soni ruxsat etilgan maksimal miqdorga (%d) yetdi.</string>
     <string name="settings_glance_reply_text">Tezkor javob xabarlari</string>
+    <string name="settings_subappbar_switch_dimmed">Xiralashdi</string>
     <string name="settings_subappbar_switch_off">O‘ch.</string>
     <string name="settings_subappbar_switch_on">Yoq.</string>
     <string name="simple_sharing">Havolani ulashish</string>
@@ -810,6 +811,7 @@ Kamera"</string>
     <string name="swipe_right_to_answer_call_with_video">Qo‘ng‘iroqqa video bilan javob berish uchun o‘ngga suring.</string>
     <string name="swipe_right_to_answer_call_without_video">Qo‘ng‘iroqqa videosiz javob berish uchun o‘ngga suring.</string>
     <string name="switch_rejected_by_mt">Video qo‘ng‘iroqqa o‘tish so‘rovi rad etildi.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Video qo‘ng‘iroqqa o‘tish so‘rovi yuborilmadi.</string>
     <string name="switch_to_video_call_failed_tmo">Vide qo‘ng‘iroqqa o‘tish haqida so‘rov rad etildi.</string>
     <string name="switch_to_voice_call_failed">Ovozli qo‘ng‘iroqqa o‘tish so‘rovi yuborilmadi.</string>

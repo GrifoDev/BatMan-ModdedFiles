@@ -127,8 +127,6 @@
 .method public static checkAndNotifyInfo(II)V
     .locals 1
 
-    invoke-static {p0, p1}, Lcom/android/incallui/util/VideoCallUtils;->notifyQualityInfo(II)V
-
     invoke-static {}, Lcom/android/incallui/util/VideoCallUtils;->isCameraRestricted()Z
 
     move-result v0
@@ -3416,14 +3414,14 @@
     goto :goto_0
 .end method
 
-.method private static notifyQualityInfo(II)V
-    .locals 13
+.method public static notifyQualityInfo(I)V
+    .locals 12
+
+    const/4 v10, 0x4
+
+    const/4 v11, 0x3
 
     const/4 v4, -0x1
-
-    const/4 v12, 0x6
-
-    const/4 v11, 0x4
 
     const/4 v2, 0x0
 
@@ -3455,71 +3453,57 @@
 
     const-string v0, "QCIF"
 
-    if-ne v5, v0, :cond_7
+    if-ne v5, v0, :cond_5
 
     invoke-static {}, Lcom/android/incallui/util/SystemServiceUtils;->isDeviceOn3G()Z
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_5
 
-    if-ne p1, v12, :cond_0
+    const/4 v0, 0x6
 
-    if-ne p0, v12, :cond_1
+    if-eq p0, v0, :cond_0
+
+    if-ne p0, v10, :cond_5
 
     :cond_0
-    if-ne p1, v11, :cond_7
-
-    if-eq p0, v11, :cond_7
-
-    :cond_1
     move v0, v1
 
     :goto_0
     const-string v3, "QCIF"
 
-    if-ne v5, v3, :cond_8
+    if-ne v5, v3, :cond_6
 
     invoke-static {}, Lcom/android/incallui/util/SystemServiceUtils;->isDeviceOnLTE()Z
 
     move-result v3
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_6
 
-    const/4 v3, 0x3
+    if-eq p0, v11, :cond_1
 
-    if-ne p1, v3, :cond_8
+    if-ne p0, v10, :cond_6
 
-    if-eq p0, v12, :cond_2
-
-    if-ne p0, v11, :cond_8
-
-    :cond_2
+    :cond_1
     move v3, v1
 
     :goto_1
     const-string v10, "QVGA"
 
-    if-eq v5, v10, :cond_3
+    if-eq v5, v10, :cond_2
 
     const-string v10, "QVGALAND"
 
-    if-ne v5, v10, :cond_9
+    if-ne v5, v10, :cond_7
 
-    :cond_3
-    const/4 v5, 0x3
+    :cond_2
+    if-ne p0, v11, :cond_7
 
-    if-ne p1, v5, :cond_9
-
-    if-eq p0, v12, :cond_4
-
-    if-ne p0, v11, :cond_9
-
-    :cond_4
     move v5, v1
 
     :goto_2
-    if-eqz v7, :cond_b
+    if-eqz v7, :cond_9
 
     invoke-virtual {v6}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -3531,30 +3515,60 @@
 
     move-result v9
 
-    if-nez v9, :cond_a
+    if-nez v9, :cond_8
 
-    :cond_5
+    :cond_3
     :goto_3
-    if-nez v2, :cond_d
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    :cond_6
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v9, "bShowQualityInfo : "
+
+    invoke-virtual {v1, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/incallui/util/VideoCallUtils;->log(Ljava/lang/String;)V
+
+    if-nez v2, :cond_b
+
+    :cond_4
     :goto_4
     return-void
 
-    :cond_7
+    :cond_5
     move v0, v2
 
     goto :goto_0
 
-    :cond_8
+    :cond_6
     move v3, v2
 
     goto :goto_1
 
-    :cond_9
+    :cond_7
     move v5, v2
 
     goto :goto_2
+
+    :cond_8
+    move v2, v1
+
+    goto :goto_3
+
+    :cond_9
+    if-nez v8, :cond_a
+
+    if-eqz v9, :cond_3
 
     :cond_a
     move v2, v1
@@ -3562,24 +3576,30 @@
     goto :goto_3
 
     :cond_b
-    if-nez v8, :cond_c
+    if-eqz v0, :cond_14
 
-    if-eqz v9, :cond_5
-
-    :cond_c
-    move v2, v1
-
-    goto :goto_3
-
-    :cond_d
-    if-eqz v0, :cond_16
-
-    if-eqz v7, :cond_10
+    if-eqz v7, :cond_e
 
     const v0, 0x7f0901ad
 
     :goto_5
-    if-eqz v3, :cond_e
+    if-eqz v3, :cond_c
+
+    if-eqz v7, :cond_10
+
+    invoke-static {}, Lcom/android/incallui/StringManager;->getInstance()Lcom/android/incallui/StringManager;
+
+    move-result-object v0
+
+    const-string v1, "kor_psvt_low_quality_by_far"
+
+    invoke-virtual {v0, v6, v1}, Lcom/android/incallui/StringManager;->getStringId(Landroid/content/Context;Ljava/lang/String;)I
+
+    move-result v0
+
+    :cond_c
+    :goto_6
+    if-eqz v5, :cond_d
 
     if-eqz v7, :cond_12
 
@@ -3593,48 +3613,52 @@
 
     move-result v0
 
-    :cond_e
-    :goto_6
-    if-eqz v5, :cond_f
-
-    if-eqz v7, :cond_14
-
-    invoke-static {}, Lcom/android/incallui/StringManager;->getInstance()Lcom/android/incallui/StringManager;
-
-    move-result-object v0
-
-    const-string v1, "kor_psvt_low_quality_by_far"
-
-    invoke-virtual {v0, v6, v1}, Lcom/android/incallui/StringManager;->getStringId(Landroid/content/Context;Ljava/lang/String;)I
-
-    move-result v0
-
-    :cond_f
+    :cond_d
     :goto_7
-    if-eq v0, v4, :cond_6
+    if-eq v0, v4, :cond_4
 
     invoke-static {v0}, Lcom/android/incallui/util/InCallUtils;->displayToastLong(I)V
 
     goto :goto_4
 
-    :cond_10
-    if-eqz v8, :cond_11
+    :cond_e
+    if-eqz v8, :cond_f
 
     const v0, 0x7f09021e
 
     goto :goto_5
 
-    :cond_11
+    :cond_f
     const v0, 0x7f0901b0
 
     goto :goto_5
 
-    :cond_12
-    if-eqz v8, :cond_13
+    :cond_10
+    if-eqz v8, :cond_11
 
     const v0, 0x7f090223
 
     goto :goto_6
+
+    :cond_11
+    invoke-static {}, Lcom/android/incallui/StringManager;->getInstance()Lcom/android/incallui/StringManager;
+
+    move-result-object v0
+
+    const-string v1, "kor_psvt_quality_qcif_4g"
+
+    invoke-virtual {v0, v6, v1}, Lcom/android/incallui/StringManager;->getStringId(Landroid/content/Context;Ljava/lang/String;)I
+
+    move-result v0
+
+    goto :goto_6
+
+    :cond_12
+    if-eqz v8, :cond_13
+
+    const v0, 0x7f090222
+
+    goto :goto_7
 
     :cond_13
     invoke-static {}, Lcom/android/incallui/StringManager;->getInstance()Lcom/android/incallui/StringManager;
@@ -3647,29 +3671,9 @@
 
     move-result v0
 
-    goto :goto_6
+    goto :goto_7
 
     :cond_14
-    if-eqz v8, :cond_15
-
-    const v0, 0x7f090222
-
-    goto :goto_7
-
-    :cond_15
-    invoke-static {}, Lcom/android/incallui/StringManager;->getInstance()Lcom/android/incallui/StringManager;
-
-    move-result-object v0
-
-    const-string v1, "kor_psvt_quality_qcif_4g"
-
-    invoke-virtual {v0, v6, v1}, Lcom/android/incallui/StringManager;->getStringId(Landroid/content/Context;Ljava/lang/String;)I
-
-    move-result v0
-
-    goto :goto_7
-
-    :cond_16
     move v0, v4
 
     goto :goto_5
@@ -4698,7 +4702,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0903b4
+    const v1, 0x7f0903b6
 
     new-array v2, v2, [Ljava/lang/Object;
 
@@ -4718,7 +4722,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0903b3
+    const v1, 0x7f0903b5
 
     new-array v2, v2, [Ljava/lang/Object;
 

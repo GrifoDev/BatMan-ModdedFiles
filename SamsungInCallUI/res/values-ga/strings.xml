@@ -560,7 +560,7 @@ Tá an glao físe seo ag úsáid sonraí anois agus casfar as Sonraí móibílea
     <string name="photoring_unblock_toast_2nd">Gheofar meáin arna seoladh ag an teagmhálaí seo an chéad uair eile a ghlaofaidh sé/sí ort</string>
     <string name="please_wait">Cód fíoraithe á sheiceáil. Fan go fóill…</string>
     <string name="popup_download_large_wificheck">Íoslódáil le Wi-Fi amháin</string>
-    <string name="popup_download_large_wlancheck">Download via WLAN only</string>
+    <string name="popup_download_large_wlancheck">Íoslódáil trí WLAN amháin</string>
     <string name="popup_start_record_during_alerting">Tosófar ar thaifeadadh tar éis nascadh an ghlao.</string>
     <string name="postalLabelsGroup">Seoladh</string>
     <string name="postal_city">Cathair</string>
@@ -744,6 +744,7 @@ Aontreoch"</string>
     <string name="settings_glance_reply_explain_text_vzw">Diúltaigh do ghlao isteach agus seol teachtaireacht réamhshocraithe chuig an nglaoiteoir trí do mhéar a chur ar an mbraiteoir croíráta agus í a choinneáil air ar feadh %d soicind agus an gléas casta bunoscionn.</string>
     <string name="settings_glance_reply_reached_maximum_text">Uaslíon na gcarachtar (%d) bainte amach.</string>
     <string name="settings_glance_reply_text">Tchtaí. mearfhreagartha</string>
+    <string name="settings_subappbar_switch_dimmed">Maolaithe</string>
     <string name="settings_subappbar_switch_off">As</string>
     <string name="settings_subappbar_switch_on">Air</string>
     <string name="simple_sharing">Comhroinnt naisc</string>
@@ -789,6 +790,7 @@ Aontreoch"</string>
     <string name="swipe_right_to_answer_call_with_video">Svaidhpeáil ar dheis le glao a fhreagairt le físeán.</string>
     <string name="swipe_right_to_answer_call_without_video">Svaidhpeáil ar dheis le glao a fhreagairt gan fhíseán.</string>
     <string name="switch_rejected_by_mt">Diúltaíodh don iarratas ar aistriú go glao físe.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Theip ar an iarratas ar aistriú go glao físe.</string>
     <string name="switch_to_video_call_failed_tmo">Diúltaíodh don iarratas ar aistriú go glao físe.</string>
     <string name="switch_to_voice_call_failed">Theip ar an iarratas ar aistriú go glao gutha.</string>
@@ -813,9 +815,9 @@ Aontreoch"</string>
     <string name="units_mb">MB</string>
     <string name="unknown_cdma">Níl sé ar fáil</string>
     <string name="upload_using_wifi_only">Uaslódáil le Wi-Fi amháin</string>
-    <string name="upload_using_wlan_only">Upload via WLAN only</string>
+    <string name="upload_using_wlan_only">Uaslódáil trí WLAN amháin</string>
     <string name="upload_wifi_and_mobile_nw">Uaslódáil trí Wi-Fi nó trí líonra móibíleach</string>
-    <string name="upload_wlan_and_mobile_nw">Upload via WLAN or mobile network</string>
+    <string name="upload_wlan_and_mobile_nw">Uaslódáil trí WLAN nó trí líonra móibíleach</string>
     <string name="usa_att_connected_as_voice">Glao nasctha mar ghlao gutha amháin.</string>
     <string name="usa_att_data_usage_charge_alert">"Tá d'Úsáid sonraí, a shocraigh tú ar do ghléas, ar tí an teorainn a bhaint amach. Tá sonraí de dhíth ar do Ghlao físe."</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Ní féidir an glao a chur trí Wi-Fi, nascadh tríd an líonra ceallach. Beidh feidhm ag táillí gutha agus sonraí.</string>
@@ -873,7 +875,7 @@ Tá do ghlao físe fós á chur tríd an líonra móibíleach. (Tá feidhm ag ú
 Tá do ghlao físe á chur tríd an líonra móibíleach anois. (Tá feidhm ag úsáid sonraí má roghnaíonn tú leanúint leis.)"</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Nasc Wi-Fi caillte. Glao scortha.</string>
     <string name="use_wifi_and_mobile_nw">Úsáid Wi-Fi agus líonraí móibíleacha</string>
-    <string name="use_wlan_and_mobile_nw">Use WLAN and mobile networks</string>
+    <string name="use_wlan_and_mobile_nw">Úsáid WLAN agus líonraí móibíleacha</string>
     <string name="verify">Fíoraigh</string>
     <string name="verify_your_phone_number">"Fíoraigh d'uimhir fóin"</string>
     <string name="verify_your_phone_number_body">"Fíoraigh d'uimhir fóin le nascadh le cairde ar sheirbhísí Samsung."</string>

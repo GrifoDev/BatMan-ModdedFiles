@@ -188,11 +188,11 @@
 
     const-wide/16 v2, 0x0
 
-    const/4 v11, 0x2
+    const/4 v12, 0x2
 
-    const/4 v10, 0x0
+    const/4 v11, 0x0
 
-    const/4 v9, 0x1
+    const/4 v10, 0x1
 
     iget-boolean v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/RemoveShareTranasction;->mRestored:Z
 
@@ -203,7 +203,7 @@
     return-void
 
     :cond_1
-    iput-boolean v9, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/RemoveShareTranasction;->mRestored:Z
+    iput-boolean v10, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/RemoveShareTranasction;->mRestored:Z
 
     invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/RQuota;->get()Landroid/os/Bundle;
 
@@ -240,23 +240,25 @@
 
     invoke-virtual {v4, v3, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    const-string v3, "Restore usage %d -> %d"
+    sget-object v3, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    new-array v8, v11, [Ljava/lang/Object;
+    const-string v8, "Restore usage %d -> %d"
+
+    new-array v9, v12, [Ljava/lang/Object;
 
     invoke-static {v6, v7}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v6
 
-    aput-object v6, v8, v10
+    aput-object v6, v9, v11
 
     invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v0
 
-    aput-object v0, v8, v9
+    aput-object v0, v9, v10
 
-    invoke-static {v3, v8}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v3, v8, v9}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -264,23 +266,25 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string v0, "Restore fileCount %d -> %d"
+    sget-object v0, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    new-array v1, v11, [Ljava/lang/Object;
+    const-string v1, "Restore fileCount %d -> %d"
+
+    new-array v3, v12, [Ljava/lang/Object;
 
     invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v5
 
-    aput-object v3, v1, v10
+    aput-object v5, v3, v11
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
 
-    aput-object v2, v1, v9
+    aput-object v2, v3, v10
 
-    invoke-static {v0, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v0, v1, v3}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v0
 

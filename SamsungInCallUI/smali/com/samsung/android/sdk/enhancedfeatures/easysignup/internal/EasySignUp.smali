@@ -28,7 +28,7 @@
 
     if-eqz v1, :cond_0
 
-    const-string v1, "gcm_registered_app_version"
+    const-string v1, "updated_app_version"
 
     const/high16 v2, -0x80000000
 
@@ -69,7 +69,7 @@
 
     invoke-direct {v2}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/EasySignUp$1;-><init>()V
 
-    invoke-virtual {v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/UpdateTransaction;->updateGCMID(Landroid/content/Intent;Lcom/samsung/android/sdk/enhancedfeatures/easysignup/apis/listener/EnhancedAccountListener;)V
+    invoke-virtual {v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/UpdateTransaction;->update(Landroid/content/Intent;Lcom/samsung/android/sdk/enhancedfeatures/easysignup/apis/listener/EnhancedAccountListener;)V
     :try_end_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 

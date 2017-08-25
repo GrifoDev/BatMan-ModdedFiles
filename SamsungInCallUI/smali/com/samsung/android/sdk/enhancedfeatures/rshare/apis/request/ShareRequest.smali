@@ -71,6 +71,8 @@
 
 .field protected mSilencePush:Z
 
+.field private mTitle:Ljava/lang/String;
+
 .field protected requestToken:J
 
 
@@ -103,6 +105,14 @@
     .locals 0
 
     iput-object p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ShareRequest;->mRecipientList:Ljava/util/ArrayList;
+
+    return-object p1
+.end method
+
+.method static synthetic access$202(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ShareRequest;Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+
+    iput-object p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ShareRequest;->mTitle:Ljava/lang/String;
 
     return-object p1
 .end method
@@ -238,6 +248,14 @@
     iget v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ShareRequest;->mShareType:I
 
     return v0
+.end method
+
+.method public getTitle()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ShareRequest;->mTitle:Ljava/lang/String;
+
+    return-object v0
 .end method
 
 .method public getUploadDirectory()Ljava/lang/String;

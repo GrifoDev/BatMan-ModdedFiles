@@ -22,6 +22,8 @@
 
 .field public share_type:I
 
+.field public title:Ljava/lang/String;
+
 .field public to_list:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {

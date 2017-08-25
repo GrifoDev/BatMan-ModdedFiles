@@ -823,6 +823,7 @@
     <string name="settings_glance_reply_explain_text_vzw">ปฏิเสธการโทรเข้า และส่งข้อความที่ตั้งค่าไว้ล่วงหน้าไปยังผู้โทร โดยการวางนิ้วของคุณ บนเซ็นเซอร์วัดอัตราการเต้นของหัวใจนาน %d วินาที ขณะอุปกรณ์พลิกอยู่</string>
     <string name="settings_glance_reply_reached_maximum_text">ถึง​จำนวน​ตัว​อักษร​สูง​สุด (%d)</string>
     <string name="settings_glance_reply_text">ข้อความตอบกลับด่วน</string>
+    <string name="settings_subappbar_switch_dimmed">หรี่แสง</string>
     <string name="settings_subappbar_switch_off">ปิด</string>
     <string name="settings_subappbar_switch_on">เปิด</string>
     <string name="simple_sharing">Link sharing</string>
@@ -868,6 +869,7 @@
     <string name="swipe_right_to_answer_call_with_video">ปัดไปทางขวาเพื่อรับโทรศัพท์โดยมีวิดีโอ</string>
     <string name="swipe_right_to_answer_call_without_video">ปัดไปทางขวาเพื่อรับโทรศัพท์โดยไม่มีวิดีโอ</string>
     <string name="switch_rejected_by_mt">ขอ​ให้​สลับ​ไป​ยัง​โทรวี​ดี​โอ​ที่​ถูก​ปฏิเสธ</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">คำขอให้สลับไปยังการโทรวิดีโอล้มเหลว</string>
     <string name="switch_to_video_call_failed_tmo">การขอสลับไปยังการโทรวิดีโอถูกปฏิเสธ</string>
     <string name="switch_to_voice_call_failed">คำขอสลับไปยังการโทรปกติล้มเหลว</string>

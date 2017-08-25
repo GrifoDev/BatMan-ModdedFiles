@@ -764,6 +764,7 @@ sehala"</string>
     <string name="settings_glance_reply_explain_text_vzw">Menolak panggilan masuk dan menghantar mesej pratetap kepada pemanggil dengan meletakkan jari anda pada penderia kadar jantung dan menahannya di situ selama %d saat ketika peranti diterbalikkan.</string>
     <string name="settings_glance_reply_reached_maximum_text">Bilangan maksimum aksara (%d) dicapai.</string>
     <string name="settings_glance_reply_text">Mesej balasan cepat</string>
+    <string name="settings_subappbar_switch_dimmed">Lebih malap</string>
     <string name="settings_subappbar_switch_off">Matikan</string>
     <string name="settings_subappbar_switch_on">Hidupkan</string>
     <string name="simple_sharing">Link sharing</string>
@@ -809,6 +810,7 @@ sehala"</string>
     <string name="swipe_right_to_answer_call_with_video">Leret ke kanan untuk menjawab panggilan dengan video.</string>
     <string name="swipe_right_to_answer_call_without_video">Leret ke kanan untuk menjawab panggilan tanpa video.</string>
     <string name="switch_rejected_by_mt">Permintaan untuk beralih ke panggilan video ditolak.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Permintaan untuk menukar kepada panggilan video gagal.</string>
     <string name="switch_to_video_call_failed_tmo">Permintaan untuk menukar kepada panggilan video ditolak.</string>
     <string name="switch_to_voice_call_failed">Permintaan untuk bertukar ke panggilan suara gagal.</string>

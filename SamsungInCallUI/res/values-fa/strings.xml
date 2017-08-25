@@ -822,6 +822,7 @@
     <string name="settings_glance_reply_explain_text_vzw">تماس ورودی را رد کرده و در حالی که دستگاه وارونه است، با قرار دادن انگشت روی حسگر ضربان قلب و نگه داشتن آن به مدت ‎%d ثانیه، یک پیام پیش‌تنظیم به تماس گیرنده ارسال کنید.</string>
     <string name="settings_glance_reply_reached_maximum_text">به حداکثر تعداد کاراکتر های (%d) رسیده‌اید.</string>
     <string name="settings_glance_reply_text">پیام‌های پاسخ سریع</string>
+    <string name="settings_subappbar_switch_dimmed">کم‌نور</string>
     <string name="settings_subappbar_switch_off">خاموش</string>
     <string name="settings_subappbar_switch_on">روشن</string>
     <string name="simple_sharing">Link sharing</string>
@@ -867,6 +868,7 @@
     <string name="swipe_right_to_answer_call_with_video">برای پاسخ به تماس همراه با ویدیو، انگشت را به راست بکشید.</string>
     <string name="swipe_right_to_answer_call_without_video">برای پاسخ به تماس بدون ویدیو، انگشت را به راست بکشید.</string>
     <string name="switch_rejected_by_mt">درخواست برای رفتن به تماس ویدیویی رد شد.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">درخواست برای تماس ویدیویی ناموفق بود.</string>
     <string name="switch_to_video_call_failed_tmo">درخواست برای تغییر وضعیت به تماس ویدیویی رد شد.</string>
     <string name="switch_to_voice_call_failed">درخواست برای تغییر به تماس صوتی ناموفق بود.</string>

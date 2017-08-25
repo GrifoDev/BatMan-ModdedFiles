@@ -26,6 +26,8 @@
 
 .field private message:Ljava/lang/String;
 
+.field private meta_data:Ljava/lang/String;
+
 .field private option:I
 
 .field private sid:I
@@ -73,9 +75,15 @@
 
     move-result-object v0
 
+    iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/CreateGroupRequest;->meta_data:Ljava/lang/String;
+
+    invoke-static {p1}, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/CreateGroupRequest$Builder;->access$500(Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/CreateGroupRequest$Builder;)Ljava/lang/String;
+
+    move-result-object v0
+
     iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/CreateGroupRequest;->message:Ljava/lang/String;
 
-    invoke-static {p1}, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/CreateGroupRequest$Builder;->access$500(Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/CreateGroupRequest$Builder;)Ljava/util/List;
+    invoke-static {p1}, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/CreateGroupRequest$Builder;->access$600(Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/CreateGroupRequest$Builder;)Ljava/util/List;
 
     move-result-object v0
 
@@ -123,6 +131,14 @@
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/CreateGroupRequest;->message:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public getMetaData()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/CreateGroupRequest;->meta_data:Ljava/lang/String;
 
     return-object v0
 .end method

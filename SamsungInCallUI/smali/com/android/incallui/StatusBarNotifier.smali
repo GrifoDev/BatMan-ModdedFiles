@@ -2287,7 +2287,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0346
+    const v2, 0x7f0a0342
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -4077,7 +4077,7 @@
 
     iget-object v4, p0, Lcom/android/incallui/StatusBarNotifier;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0905f0
+    const v5, 0x7f0905f2
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -4089,7 +4089,7 @@
 
     iget-object v4, p0, Lcom/android/incallui/StatusBarNotifier;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0905ef
+    const v5, 0x7f0905f1
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

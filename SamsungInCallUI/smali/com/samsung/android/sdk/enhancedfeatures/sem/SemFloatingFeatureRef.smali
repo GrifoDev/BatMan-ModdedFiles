@@ -228,6 +228,28 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/common/SemLog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
+    sget-boolean v0, Lcom/samsung/android/sdk/enhancedfeatures/sem/SemFloatingFeatureRef;->isSupported:Z
+
+    if-eqz v0, :cond_1
+
+    sget-object v0, Lcom/samsung/android/sdk/enhancedfeatures/sem/SemFloatingFeatureRef;->sFloatingFeatureInstance:Lcom/samsung/android/feature/SemFloatingFeature;
+
+    if-nez v0, :cond_0
+
+    invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/samsung/android/sdk/enhancedfeatures/sem/SemFloatingFeatureRef;->sFloatingFeatureInstance:Lcom/samsung/android/feature/SemFloatingFeature;
+
+    :cond_0
+    sget-object v0, Lcom/samsung/android/sdk/enhancedfeatures/sem/SemFloatingFeatureRef;->sFloatingFeatureInstance:Lcom/samsung/android/feature/SemFloatingFeature;
+
+    invoke-virtual {v0, p1, p2}, Lcom/samsung/android/feature/SemFloatingFeature;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object p2
+
+    :cond_1
     return-object p2
 .end method
 

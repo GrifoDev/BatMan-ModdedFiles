@@ -100,7 +100,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f0a0456
+    const v3, 0x7f0a0455
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -829,7 +829,7 @@
 
     if-ne v3, v7, :cond_3
 
-    const v3, 0x7f090569
+    const v3, 0x7f09056b
 
     invoke-virtual {v9, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -921,7 +921,7 @@
 
     if-ne v3, v7, :cond_4
 
-    const v3, 0x7f09056c
+    const v3, 0x7f09056e
 
     invoke-virtual {v9, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1047,7 +1047,7 @@
 
     check-cast v0, Lcom/android/phone/common/dialpad/DialpadKeyButton;
 
-    const v1, 0x7f09054a
+    const v1, 0x7f09054c
 
     invoke-virtual {v9, v1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1063,7 +1063,7 @@
 
     check-cast v0, Lcom/android/phone/common/dialpad/DialpadKeyButton;
 
-    const v1, 0x7f090541
+    const v1, 0x7f090543
 
     invoke-virtual {v9, v1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1075,9 +1075,8 @@
 
     :array_0
     .array-data 4
-        0x7f090551
-        0x7f090554
-        0x7f090557
+        0x7f090553
+        0x7f090556
         0x7f090559
         0x7f09055b
         0x7f09055d
@@ -1085,8 +1084,9 @@
         0x7f090561
         0x7f090563
         0x7f090565
-        0x7f09056b
-        0x7f090568
+        0x7f090567
+        0x7f09056d
+        0x7f09056a
     .end array-data
 .end method
 

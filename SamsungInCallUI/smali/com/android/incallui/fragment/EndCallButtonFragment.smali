@@ -2890,7 +2890,11 @@
 
     if-eqz v4, :cond_5
 
-    move v3, v2
+    const-string v0, "mmtel-video"
+
+    invoke-static {v0}, Lcom/android/incallui/util/ImsCommonUtils;->isServiceAvailable(Ljava/lang/String;)Z
+
+    move-result v3
 
     goto :goto_2
 
@@ -3403,7 +3407,7 @@
 
     const-string v1, "end_incoming"
 
-    invoke-static {v0, v1}, Lcom/android/incallui/util/InCallUtils;->sendBroadcastReminder(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lcom/android/incallui/util/InCallUtils;->startActivitySendToReminder(Landroid/content/Context;Ljava/lang/String;)V
 
     goto/16 :goto_0
 
@@ -3414,7 +3418,7 @@
 
     const-string v1, "end_outgoing"
 
-    invoke-static {v0, v1}, Lcom/android/incallui/util/InCallUtils;->sendBroadcastReminder(Landroid/content/Context;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lcom/android/incallui/util/InCallUtils;->startActivitySendToReminder(Landroid/content/Context;Ljava/lang/String;)V
 
     goto/16 :goto_0
 
@@ -4176,7 +4180,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f09033e
+    const v5, 0x7f09033f
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4843,7 +4847,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f09034f
+    const v9, 0x7f090350
 
     new-array v10, v1, [Ljava/lang/Object;
 
@@ -7087,6 +7091,57 @@
     return-void
 .end method
 
+.method public updateNavigationBar()V
+    .locals 3
+
+    const/4 v2, 0x1
+
+    invoke-super {p0}, Lcom/android/incallui/fragment/CallButtonFragment;->updateNavigationBar()V
+
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/incallui/util/ScreenControlUtils;->hasNavigationBar(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {}, Lcom/android/incallui/util/CallTypeUtils;->isVideoCall()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {}, Lcom/android/incallui/util/VideoCallUtils;->isQCIF()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v0
+
+    if-nez v0, :cond_1
+
+    const-string v0, "EndCallButtonFragment"
+
+    const-string v1, "updateNavigationBar : Activity is null."
+
+    invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    invoke-static {v0, v2}, Lcom/android/incallui/util/ScreenControlUtils;->showNavigationBar(Landroid/app/Activity;Z)V
+
+    goto :goto_0
+.end method
+
 .method public updateVerticalMargin(Landroid/view/View;Landroid/view/ViewGroup;Landroid/view/ViewGroup;Landroid/view/View;)V
     .locals 5
 
@@ -7208,7 +7263,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0a024b
+    const v2, 0x7f0a0247
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -7686,7 +7741,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0903ac
+    const v1, 0x7f0903ae
 
     invoke-static {v0, v1, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

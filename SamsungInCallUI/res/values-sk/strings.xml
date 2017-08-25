@@ -638,7 +638,7 @@ Menu IHO na obrazovke hovoru používa obsah, ktorý poskytuje externý subjekt,
     <string name="photoring_unblock_toast_2nd">Médiá odoslané týmto kontaktom sa prijmú, keď vám nabudúce zavolá</string>
     <string name="please_wait">Kontroluje sa overovací kód. Počkajte, prosím…</string>
     <string name="popup_download_large_wificheck">Sťahovať iba cez Wi-Fi</string>
-    <string name="popup_download_large_wlancheck">Download via WLAN only</string>
+    <string name="popup_download_large_wlancheck">Sťahovať iba cez sieť WLAN</string>
     <string name="popup_start_record_during_alerting">Nahrávanie sa spustí po spojení hovoru.</string>
     <string name="postalLabelsGroup">Adresa</string>
     <string name="postal_city">Mesto</string>
@@ -822,6 +822,7 @@ kamera"</string>
     <string name="settings_glance_reply_explain_text_vzw">Keď je zariadenie prevrátené, môžete odmietnuť prichádzajúci hovor a odoslať predvolenú správu volajúcemu, položením a podržaním prsta na snímač srdcového tepu po dobu %d sekúnd.</string>
     <string name="settings_glance_reply_reached_maximum_text">Dosiahol sa maximálny počet znakov (%d).</string>
     <string name="settings_glance_reply_text">Rýchla odpoveď – správy</string>
+    <string name="settings_subappbar_switch_dimmed">Stlmené</string>
     <string name="settings_subappbar_switch_off">Vyp.</string>
     <string name="settings_subappbar_switch_on">Zap.</string>
     <string name="simple_sharing">Zdieľanie prepojení</string>
@@ -867,6 +868,7 @@ kamera"</string>
     <string name="swipe_right_to_answer_call_with_video">Potiahnutím doprava môžete prijať hovor s videom.</string>
     <string name="swipe_right_to_answer_call_without_video">Potiahnutím doprava môžete prijať hovor bez videa.</string>
     <string name="switch_rejected_by_mt">Žiadosť o prepnutie na videohovor bola odmietnutá.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Žiadosť o prepnutie na videohovor zlyhala.</string>
     <string name="switch_to_video_call_failed_tmo">Žiadosť o prepnutie na videohovor bola odmietnutá.</string>
     <string name="switch_to_voice_call_failed">Žiadosť o prepnutie na hlasový hovor zlyhala.</string>

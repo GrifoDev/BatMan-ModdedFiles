@@ -53,8 +53,6 @@
 
 .field public static final PREF_GCMID:Ljava/lang/String; = "gcm_id"
 
-.field public static final PREF_GCM_REGISTERED_APP_VERSION:Ljava/lang/String; = "gcm_registered_app_version"
-
 .field public static final PREF_GCM_REG_ID:Ljava/lang/String; = "gcm_regId"
 
 .field public static final PREF_IS_ANONYMOUS:Ljava/lang/String; = "is_anonymous"
@@ -74,6 +72,8 @@
 .field public static final PREF_SPPID:Ljava/lang/String; = "spp_id"
 
 .field public static final PREF_SPP_REG_ID:Ljava/lang/String; = "spp_regId"
+
+.field public static final PREF_UPDATED_APP_VERSION:Ljava/lang/String; = "updated_app_version"
 
 .field public static final PREF_WRITE_CURRENT_STATUS:Ljava/lang/String; = "write_current_status"
 

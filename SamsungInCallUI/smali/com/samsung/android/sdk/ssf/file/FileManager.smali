@@ -3,6 +3,10 @@
 
 
 # static fields
+.field private static final ID_FOR_PROGRESS:I = 0x0
+
+.field private static final PATH_FILE_UPLOAD_BINARY:Ljava/lang/String; = "ors/v2/binaries/tokens"
+
 .field private static final PATH_ORS_DELETE_FILE:Ljava/lang/String; = "ors/v2/rm"
 
 .field private static final PATH_ORS_DOWNLOAD_FILE:Ljava/lang/String; = "ors/v2/download"
@@ -14,6 +18,8 @@
 .field private static final PATH_ORS_GET_POLICY:Ljava/lang/String; = "ors/v2/policy"
 
 .field private static final PATH_ORS_GET_TIMESTAMP:Ljava/lang/String; = "ors/v2/timestamp"
+
+.field private static final PATH_ORS_ISSUE_UPLOAD_TOKEN:Ljava/lang/String; = "ors/v2/binaries/tokens"
 
 .field private static final PATH_ORS_LINK_FILE:Ljava/lang/String; = "ors/v2/link"
 
@@ -4322,6 +4328,325 @@
     return v6
 .end method
 
+.method public static getUploadedBytesOfUploadToken(Lcom/samsung/android/sdk/ssf/SsfClient;ILjava/lang/Object;Lcom/samsung/android/sdk/ssf/SsfListener;Landroid/os/Bundle;Ljava/lang/String;Lcom/samsung/android/sdk/ssf/common/ConnectTimeout;)V
+    .locals 7
+
+    const-string v0, "File 3.26.3 getUploadedBytesOfUploadToken "
+
+    sget-object v1, Lcom/samsung/android/sdk/ssf/file/FileManager;->TAG:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/ssf/common/util/CommonLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-static {p0, p3}, Lcom/samsung/android/sdk/ssf/file/FileManager;->validateCommonParams(Lcom/samsung/android/sdk/ssf/SsfClient;Lcom/samsung/android/sdk/ssf/SsfListener;)V
+
+    new-instance v5, Lcom/samsung/android/sdk/ssf/file/server/FileResponseListener;
+
+    invoke-direct {v5, p3}, Lcom/samsung/android/sdk/ssf/file/server/FileResponseListener;-><init>(Lcom/samsung/android/sdk/ssf/SsfListener;)V
+
+    invoke-static {p5}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/net/Uri;->buildUpon()Landroid/net/Uri$Builder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/net/Uri;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    new-instance v0, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;
+
+    const/4 v1, 0x0
+
+    const-class v3, Lcom/samsung/android/sdk/ssf/file/io/GetUploadedBytesOfUploadTokenResponse;
+
+    move v4, p1
+
+    move-object v6, p4
+
+    invoke-direct/range {v0 .. v6}, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;-><init>(ILjava/lang/String;Ljava/lang/Class;ILcom/samsung/android/sdk/ssf/common/model/ResponseListener;Ljava/lang/Object;)V
+
+    if-nez p6, :cond_0
+
+    new-instance p6, Lcom/samsung/android/sdk/ssf/common/ConnectTimeout;
+
+    const/16 v1, 0x1388
+
+    const/4 v2, 0x1
+
+    const/high16 v3, 0x3f800000    # 1.0f
+
+    invoke-direct {p6, v1, v2, v3}, Lcom/samsung/android/sdk/ssf/common/ConnectTimeout;-><init>(IIF)V
+
+    :cond_0
+    invoke-virtual {p6}, Lcom/samsung/android/sdk/ssf/common/ConnectTimeout;->getTimeout()I
+
+    move-result v1
+
+    invoke-virtual {p6}, Lcom/samsung/android/sdk/ssf/common/ConnectTimeout;->getRetris()I
+
+    move-result v2
+
+    invoke-virtual {p6}, Lcom/samsung/android/sdk/ssf/common/ConnectTimeout;->getBackoffMult()F
+
+    move-result v3
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->setTimeout(IIF)V
+
+    const-string v1, "User-Agent"
+
+    invoke-virtual {p0}, Lcom/samsung/android/sdk/ssf/SsfClient;->getUserAgent()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->addHeader(Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;
+
+    const-string v1, "x-sc-appId"
+
+    invoke-virtual {p0}, Lcom/samsung/android/sdk/ssf/SsfClient;->getAppId()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->addHeader(Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;
+
+    invoke-virtual {v0, p2}, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->setTag(Ljava/lang/Object;)Lcom/android/volley/Request;
+
+    invoke-static {}, Lcom/samsung/android/sdk/ssf/common/model/RequestManager;->getRequestQueue()Lcom/android/volley/RequestQueue;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Lcom/android/volley/RequestQueue;->add(Lcom/android/volley/Request;)Lcom/android/volley/Request;
+
+    return-void
+.end method
+
+.method public static issueUploadToken(Lcom/samsung/android/sdk/ssf/SsfClient;ILcom/samsung/android/sdk/ssf/file/io/IssueUploadTokenRequest;Lcom/samsung/android/sdk/ssf/SsfListener;Landroid/os/Bundle;Lcom/samsung/android/sdk/ssf/common/ConnectTimeout;J)V
+    .locals 8
+
+    const/4 v1, 0x1
+
+    const-string v0, "File 3.26.1 Issue Upload Token "
+
+    sget-object v2, Lcom/samsung/android/sdk/ssf/file/FileManager;->TAG:Ljava/lang/String;
+
+    invoke-static {v0, v2}, Lcom/samsung/android/sdk/ssf/common/util/CommonLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-static {p0, p3}, Lcom/samsung/android/sdk/ssf/file/FileManager;->validateCommonParams(Lcom/samsung/android/sdk/ssf/SsfClient;Lcom/samsung/android/sdk/ssf/SsfListener;)V
+
+    new-instance v5, Lcom/samsung/android/sdk/ssf/file/server/FileResponseListener;
+
+    invoke-direct {v5, p3}, Lcom/samsung/android/sdk/ssf/file/server/FileResponseListener;-><init>(Lcom/samsung/android/sdk/ssf/SsfListener;)V
+
+    invoke-virtual {p0}, Lcom/samsung/android/sdk/ssf/SsfClient;->getFileServerUrl()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/net/Uri;->buildUpon()Landroid/net/Uri$Builder;
+
+    move-result-object v0
+
+    const-string v2, "ors/v2/binaries/tokens"
+
+    invoke-virtual {v0, v2}, Landroid/net/Uri$Builder;->appendEncodedPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
+
+    move-result-object v2
+
+    const-string v3, "device_id"
+
+    invoke-virtual {p0}, Lcom/samsung/android/sdk/ssf/SsfClient;->getDeviceId()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v2, v3, v4}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
+
+    move-result-object v2
+
+    const-string v3, "uid"
+
+    invoke-virtual {p0}, Lcom/samsung/android/sdk/ssf/SsfClient;->getDuid()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v2, v3, v4}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
+
+    move-result-object v2
+
+    const-string v3, "cid"
+
+    invoke-virtual {p0}, Lcom/samsung/android/sdk/ssf/SsfClient;->getCid()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v2, v3, v4}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
+
+    move-result-object v2
+
+    const-string v3, "Duid"
+
+    invoke-virtual {p0}, Lcom/samsung/android/sdk/ssf/SsfClient;->getDuid()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v2, v3, v4}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
+
+    move-result-object v2
+
+    const-string v3, "access_token"
+
+    invoke-virtual {p0}, Lcom/samsung/android/sdk/ssf/SsfClient;->getAccessToken()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v2, v3, v4}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
+
+    invoke-virtual {v0}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/net/Uri;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    new-instance v0, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;
+
+    const-class v3, Lcom/samsung/android/sdk/ssf/file/io/IssueUploadTokenResponse;
+
+    move v4, p1
+
+    move-object v6, p4
+
+    invoke-direct/range {v0 .. v6}, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;-><init>(ILjava/lang/String;Ljava/lang/Class;ILcom/samsung/android/sdk/ssf/common/model/ResponseListener;Ljava/lang/Object;)V
+
+    if-nez p5, :cond_0
+
+    new-instance p5, Lcom/samsung/android/sdk/ssf/common/ConnectTimeout;
+
+    const/16 v2, 0x1388
+
+    const/high16 v3, 0x3f800000    # 1.0f
+
+    invoke-direct {p5, v2, v1, v3}, Lcom/samsung/android/sdk/ssf/common/ConnectTimeout;-><init>(IIF)V
+
+    :cond_0
+    invoke-virtual {p5}, Lcom/samsung/android/sdk/ssf/common/ConnectTimeout;->getTimeout()I
+
+    move-result v1
+
+    invoke-virtual {p5}, Lcom/samsung/android/sdk/ssf/common/ConnectTimeout;->getRetris()I
+
+    move-result v2
+
+    invoke-virtual {p5}, Lcom/samsung/android/sdk/ssf/common/ConnectTimeout;->getBackoffMult()F
+
+    move-result v3
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->setTimeout(IIF)V
+
+    const-string v1, "User-Agent"
+
+    invoke-virtual {p0}, Lcom/samsung/android/sdk/ssf/SsfClient;->getUserAgent()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->addHeader(Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;
+
+    const-string v1, "x-sc-appId"
+
+    invoke-virtual {p0}, Lcom/samsung/android/sdk/ssf/SsfClient;->getAppId()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->addHeader(Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;
+
+    const-string v1, "Content-Type"
+
+    const-string v2, "application/json"
+
+    invoke-virtual {v0, v1, v2}, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->addHeader(Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;
+
+    invoke-virtual {v0, p2}, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->setBody(Ljava/lang/Object;)V
+
+    const/4 v1, 0x0
+
+    :try_start_0
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->getBody()[B
+
+    move-result-object v2
+
+    array-length v1, v2
+    :try_end_0
+    .catch Lcom/android/volley/AuthFailureError; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    const-string v2, "Content-Length"
+
+    invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v2, v1}, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->addHeader(Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;
+
+    invoke-static {p6, p7}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->setTag(Ljava/lang/Object;)Lcom/android/volley/Request;
+
+    invoke-static {}, Lcom/samsung/android/sdk/ssf/common/model/RequestManager;->getRequestQueue()Lcom/android/volley/RequestQueue;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Lcom/android/volley/RequestQueue;->add(Lcom/android/volley/Request;)Lcom/android/volley/Request;
+
+    return-void
+
+    :catch_0
+    move-exception v2
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, " bodysize = "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string v4, "AuthFailureError = "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    sget-object v3, Lcom/samsung/android/sdk/ssf/file/FileManager;->TAG:Ljava/lang/String;
+
+    invoke-static {v2, v3}, Lcom/samsung/android/sdk/ssf/common/util/CommonLog;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
+.end method
+
 .method public static linkFile(Lcom/samsung/android/sdk/ssf/file/io/LinkFileRequest;)V
     .locals 10
 
@@ -7298,6 +7623,162 @@
     move-object v9, v0
 
     goto :goto_1
+.end method
+
+.method public static uploadFileUsingToken(Lcom/samsung/android/sdk/ssf/SsfClient;ILjava/lang/Object;Lcom/samsung/android/sdk/ssf/SsfListener;Landroid/os/Bundle;Ljava/lang/String;Ljava/lang/String;IILjava/io/File;Ljava/io/InputStream;Lcom/samsung/android/sdk/ssf/common/ConnectTimeout;)V
+    .locals 11
+
+    const-string v1, "File 3.26.2 Issue Upload Token "
+
+    sget-object v2, Lcom/samsung/android/sdk/ssf/file/FileManager;->TAG:Ljava/lang/String;
+
+    invoke-static {v1, v2}, Lcom/samsung/android/sdk/ssf/common/util/CommonLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-static {p0, p3}, Lcom/samsung/android/sdk/ssf/file/FileManager;->validateCommonParams(Lcom/samsung/android/sdk/ssf/SsfClient;Lcom/samsung/android/sdk/ssf/SsfListener;)V
+
+    new-instance v6, Lcom/samsung/android/sdk/ssf/file/server/FileResponseListener;
+
+    invoke-direct {v6, p3}, Lcom/samsung/android/sdk/ssf/file/server/FileResponseListener;-><init>(Lcom/samsung/android/sdk/ssf/SsfListener;)V
+
+    invoke-static/range {p5 .. p5}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/net/Uri;->buildUpon()Landroid/net/Uri$Builder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/net/Uri;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    new-instance v1, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;
+
+    const/4 v2, 0x2
+
+    const-class v4, Lcom/samsung/android/sdk/ssf/file/io/UploadFileUsingTokenResponse;
+
+    invoke-virtual/range {p11 .. p11}, Lcom/samsung/android/sdk/ssf/common/ConnectTimeout;->getTimeout()I
+
+    move-result v8
+
+    invoke-virtual/range {p11 .. p11}, Lcom/samsung/android/sdk/ssf/common/ConnectTimeout;->getRetris()I
+
+    move-result v9
+
+    invoke-virtual/range {p11 .. p11}, Lcom/samsung/android/sdk/ssf/common/ConnectTimeout;->getBackoffMult()F
+
+    move-result v10
+
+    move v5, p1
+
+    move-object v7, p4
+
+    invoke-direct/range {v1 .. v10}, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;-><init>(ILjava/lang/String;Ljava/lang/Class;ILcom/samsung/android/sdk/ssf/common/model/ResponseListener;Ljava/lang/Object;IIF)V
+
+    const-string v2, "User-Agent"
+
+    invoke-virtual {p0}, Lcom/samsung/android/sdk/ssf/SsfClient;->getUserAgent()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v2, v3}, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->addHeader(Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;
+
+    const-string v2, "x-sc-appId"
+
+    invoke-virtual {p0}, Lcom/samsung/android/sdk/ssf/SsfClient;->getAppId()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v2, v3}, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->addHeader(Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;
+
+    const-string v2, "Content-Type"
+
+    move-object/from16 v0, p6
+
+    invoke-virtual {v1, v2, v0}, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->addHeader(Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "bytes="
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-static/range {p7 .. p7}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, "-"
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    add-int v3, p7, p8
+
+    add-int/lit8 v3, v3, -0x1
+
+    invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v3, "Range"
+
+    invoke-virtual {v1, v3, v2}, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->addHeader(Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;
+
+    const-string v2, "application/octet-stream"
+
+    invoke-virtual {v1, v2}, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->setBodyContentType(Ljava/lang/String;)V
+
+    move-object/from16 v0, p9
+
+    invoke-virtual {v1, v0}, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->setFile(Ljava/io/File;)V
+
+    move-object/from16 v0, p10
+
+    invoke-virtual {v1, v0}, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->setInputStream(Ljava/io/InputStream;)V
+
+    move/from16 v0, p8
+
+    invoke-virtual {v1, v0}, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->setLength(I)V
+
+    move/from16 v0, p7
+
+    invoke-virtual {v1, v0}, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->setOffset(I)V
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v2}, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->setProgressWhat(I)V
+
+    invoke-virtual {v1, p2}, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->setTag(Ljava/lang/Object;)Lcom/android/volley/Request;
+
+    invoke-static {}, Lcom/samsung/android/sdk/ssf/common/model/RequestManager;->getRequestQueue()Lcom/android/volley/RequestQueue;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v1}, Lcom/android/volley/RequestQueue;->add(Lcom/android/volley/Request;)Lcom/android/volley/Request;
+
+    return-void
 .end method
 
 .method public static uploadMultiPart(Lcom/samsung/android/sdk/ssf/SsfClient;IILjava/lang/Object;Lcom/samsung/android/sdk/ssf/SsfListener;Landroid/os/Bundle;Ljava/io/File;Ljava/lang/String;IIILcom/samsung/android/sdk/ssf/common/ConnectTimeout;Ljava/lang/String;)V

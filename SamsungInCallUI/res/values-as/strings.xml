@@ -744,6 +744,7 @@ IVR কল চেণ্টাৰ মেনুয়ে Dianhuabang নামৰ এ
     <string name="settings_glance_reply_explain_text_vzw">"এটা ইনকামিং কল নাকচ কৰক আৰু ডিভাইচটো ওলোটাই দিয়াৰ সময়ত হৃদস্পন্দন হাৰৰ চেনচৰৰ ওপৰত ভিত্তি কৰি আপোনাৰ আঙুলিটো ৰাখি আৰু %d ছেকেণ্ডৰ বাবে স্থানত ইয়াক হ'ল্ড কৰি কলাৰলৈ এটা পূৰ্বছেট মেচেজ প্ৰেৰণ কৰক৷"</string>
     <string name="settings_glance_reply_reached_maximum_text">বৰ্ণৰ সৰ্বাধিক সংখ্যা (%d) উপনীত হৈছে৷</string>
     <string name="settings_glance_reply_text">ক্ষিপ্ৰভাৱে মেতেজসমূহ প্ৰত্যুত্তৰ দিয়ক</string>
+    <string name="settings_subappbar_switch_dimmed">অস্পষ্ট</string>
     <string name="settings_subappbar_switch_off">বন্ধ</string>
     <string name="settings_subappbar_switch_on">অন</string>
     <string name="simple_sharing">Link sharing</string>
@@ -789,6 +790,7 @@ IVR কল চেণ্টাৰ মেনুয়ে Dianhuabang নামৰ এ
     <string name="swipe_right_to_answer_call_with_video">"ভিডিঅ'ৰ সৈতে কলৰ উত্তৰ দিবলৈ সোঁফালে ঘহাঁওক।"</string>
     <string name="swipe_right_to_answer_call_without_video">"ভিডিঅ' নোহোৱাকৈ কলৰ উত্তৰ দিবলৈ সোঁফালে ঘহাঁওক।"</string>
     <string name="switch_rejected_by_mt">"ভিডিঅ' কললৈ সলনি কৰিবলৈ কৰা অনুৰোধক নাকচ কৰা হৈছে৷"</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">"ভিডিঅ' কললৈ চুইচ কৰিবলৈ কৰা অনুৰোধ বিফল হৈছে৷"</string>
     <string name="switch_to_video_call_failed_tmo">"ভিডিঅ' কললৈ সলনি কৰাৰ অনুৰোধ অস্বীকাৰ কৰিছে।"</string>
     <string name="switch_to_voice_call_failed">মাত কললৈ সলনি কৰিবলৈ কৰা অনুৰোধ বিফল হৈছে৷</string>

@@ -9,6 +9,8 @@
 # instance fields
 .field public characterName:Ljava/lang/String;
 
+.field public expiryTime:J
+
 .field public install:J
 
 .field public isDownloading:Z

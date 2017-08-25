@@ -512,7 +512,7 @@
 .end method
 
 .method private restoreQuota(J)V
-    .locals 7
+    .locals 9
 
     const-wide/16 v2, 0x0
 
@@ -535,19 +535,21 @@
     if-lez v6, :cond_1
 
     :goto_0
-    const-string v2, "Restore usage %d -> %d"
+    sget-object v2, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    const/4 v3, 0x2
+    const-string v3, "Restore usage %d -> %d"
 
-    new-array v3, v3, [Ljava/lang/Object;
+    const/4 v6, 0x2
 
-    const/4 v6, 0x0
+    new-array v6, v6, [Ljava/lang/Object;
+
+    const/4 v7, 0x0
 
     invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v4
 
-    aput-object v4, v3, v6
+    aput-object v4, v6, v7
 
     const/4 v4, 0x1
 
@@ -555,9 +557,9 @@
 
     move-result-object v5
 
-    aput-object v5, v3, v4
+    aput-object v5, v6, v4
 
-    invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v2, v3, v6}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v2
 
@@ -1155,6 +1157,18 @@
     invoke-static {v2}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
     goto/16 :goto_0
+.end method
+
+.method public cancelUploadBinary(Ljava/lang/String;)V
+    .locals 1
+
+    invoke-static {}, Lcom/samsung/android/sdk/ssf/common/model/RequestManager;->getRequestQueue()Lcom/android/volley/RequestQueue;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Lcom/android/volley/RequestQueue;->cancelAll(Ljava/lang/Object;)V
+
+    return-void
 .end method
 
 .method public createPublicFolderToken(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/CreatePublicFolderTokenRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
@@ -3691,6 +3705,166 @@
     goto :goto_0
 .end method
 
+.method public getSharedContentsInfoSync(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/ContentsInfoResponse;
+    .locals 11
+
+    const/4 v10, 0x0
+
+    const-string v0, "13.GET SHARED CONTENTS INFO Sync"
+
+    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->TAG:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    :try_start_0
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->mShareUtil:Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RUtil;
+
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RUtil;->isUserAuthenticated()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-string v0, "user not authenticated"
+
+    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->TAG:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_0
+    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-object v10
+
+    :catch_0
+    move-exception v0
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "getSharedContentsInfoSync"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->TAG:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_0
+    new-instance v8, Lcom/samsung/android/sdk/ssf/common/ConnectTimeout;
+
+    const/16 v0, 0x7530
+
+    const/4 v1, 0x2
+
+    const/high16 v2, 0x40000000    # 2.0f
+
+    invoke-direct {v8, v0, v1, v2}, Lcom/samsung/android/sdk/ssf/common/ConnectTimeout;-><init>(IIF)V
+
+    const/4 v0, 0x0
+
+    :try_start_1
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->getSsfClient(Ljava/lang/String;)Lcom/samsung/android/sdk/ssf/SsfClient;
+
+    move-result-object v0
+
+    invoke-virtual {p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;->getReqId()I
+
+    move-result v1
+
+    invoke-virtual {p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;->getContentToken()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;->getShareCode()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;->getContentStart()I
+
+    move-result v4
+
+    invoke-virtual {p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;->getContentCount()I
+
+    move-result v5
+
+    invoke-virtual {p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;->getUserData()Landroid/os/Bundle;
+
+    move-result-object v6
+
+    invoke-virtual {p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;->isToList()Z
+
+    move-result v7
+
+    invoke-virtual {p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;->getRequestType()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static/range {v0 .. v9}, Lcom/samsung/android/sdk/ssf/share/ShareManager;->getSharedContentsInfoSync(Lcom/samsung/android/sdk/ssf/SsfClient;ILjava/lang/String;Ljava/lang/String;IILjava/lang/Object;ZLcom/samsung/android/sdk/ssf/common/ConnectTimeout;Ljava/lang/String;)Lcom/samsung/android/sdk/ssf/share/io/GetSharedContentsInfoResponse;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/ContentsInfoResponse;->convertToResponse(Lcom/samsung/android/sdk/ssf/share/io/GetSharedContentsInfoResponse;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/ContentsInfoResponse;
+    :try_end_1
+    .catch Ljava/util/concurrent/ExecutionException; {:try_start_1 .. :try_end_1} :catch_2
+    .catch Ljava/lang/InterruptedException; {:try_start_1 .. :try_end_1} :catch_1
+
+    move-result-object v0
+
+    :goto_1
+    move-object v10, v0
+
+    goto :goto_0
+
+    :catch_1
+    move-exception v0
+
+    :goto_2
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "getSharedContentsInfoSync can not get response"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->TAG:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    move-object v0, v10
+
+    goto :goto_1
+
+    :catch_2
+    move-exception v0
+
+    goto :goto_2
+.end method
+
 .method public getSharedContentsList(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentListRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ContentsInfoListener;)V
     .locals 2
 
@@ -3769,6 +3943,46 @@
     goto :goto_0
 .end method
 
+.method public getUploadedBytes(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/GetUploadedBytesRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadBinaryListener;)V
+    .locals 2
+
+    const-string v0, "3.26.3 getUploadedBytes"
+
+    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->TAG:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    if-eqz p1, :cond_0
+
+    if-nez p2, :cond_1
+
+    :cond_0
+    const-string v0, "request or listener is null"
+
+    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->TAG:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string v1, "request or listener is null"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_1
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/GetUploadedBytesTransaction;
+
+    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->mContext:Landroid/content/Context;
+
+    invoke-direct {v0, v1, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/GetUploadedBytesTransaction;-><init>(Landroid/content/Context;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/GetUploadedBytesRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadBinaryListener;)V
+
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/Transaction;->start()V
+
+    return-void
+.end method
+
 .method public getUploadedCapacityQuota()Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/data/QuotaInfo;
     .locals 4
 
@@ -3823,6 +4037,14 @@
     move-result-wide v2
 
     invoke-virtual {v0, v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/data/QuotaInfo;->setTotalQuota(J)V
+
+    const-string v2, "timestamp"
+
+    invoke-virtual {v1, v2}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
+
+    move-result-wide v2
+
+    invoke-virtual {v0, v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/data/QuotaInfo;->setTimeStamp(J)V
 
     goto :goto_0
 .end method
@@ -4037,6 +4259,46 @@
     invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/Transaction;->start()V
 
     goto :goto_0
+.end method
+
+.method public lookUpFilesInServer(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LookUpFilesInServerRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadBinaryListener;)V
+    .locals 2
+
+    const-string v0, "3.26.1 LookUpFilesInServer"
+
+    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->TAG:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    if-eqz p1, :cond_0
+
+    if-nez p2, :cond_1
+
+    :cond_0
+    const-string v0, "request or listener is null"
+
+    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->TAG:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string v1, "request or listener is null"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_1
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;
+
+    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->mContext:Landroid/content/Context;
+
+    invoke-direct {v0, v1, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;-><init>(Landroid/content/Context;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LookUpFilesInServerRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadBinaryListener;)V
+
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/Transaction;->start()V
+
+    return-void
 .end method
 
 .method public pause(JLcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
@@ -5648,6 +5910,60 @@
     goto :goto_0
 .end method
 
+.method public stopUploadContentsToSamsungCloud(JLcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
+    .locals 3
+
+    const-string v0, "stop to samsung cloud"
+
+    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->TAG:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->mTrBusyMap:Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/TransactionMap;
+
+    invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/TransactionMap;->get(Ljava/lang/Object;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/Transaction;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/Transaction;->cancel()V
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->mTrBusyMap:Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/TransactionMap;
+
+    invoke-virtual {v0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/TransactionMap;->remove(J)Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/Transaction;
+
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/ShareResponse;
+
+    invoke-direct {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/ShareResponse;-><init>()V
+
+    invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/ShareResponse;->setShareId(Ljava/lang/Long;)V
+
+    invoke-interface {p3, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;->onSuccess(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/ShareResponse;)V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
+
+    invoke-direct {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;-><init>()V
+
+    invoke-virtual {v0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;->setShareId(J)V
+
+    invoke-interface {p3, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;->onError(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
+
+    goto :goto_0
+.end method
+
 .method public touchObject(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/TouchObjectRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;)V
     .locals 3
     .annotation runtime Ljava/lang/Deprecated;
@@ -6151,6 +6467,46 @@
     goto :goto_0
 .end method
 
+.method public uploadBinary(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadBinaryRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadBinaryListener;)V
+    .locals 2
+
+    const-string v0, "3.26.2 uploadBinary"
+
+    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->TAG:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    if-eqz p1, :cond_0
+
+    if-nez p2, :cond_1
+
+    :cond_0
+    const-string v0, "request or listener is null"
+
+    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->TAG:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string v1, "request or listener is null"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_1
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadBinayTransaction;
+
+    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->mContext:Landroid/content/Context;
+
+    invoke-direct {v0, v1, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadBinayTransaction;-><init>(Landroid/content/Context;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadBinaryRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadBinaryListener;)V
+
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/Transaction;->start()V
+
+    return-void
+.end method
+
 .method public uploadContentsFromSamsungCloud(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContentsFromSamsungCloudRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadShareContentsListener;)V
     .locals 4
 
@@ -6408,6 +6764,68 @@
     invoke-direct {p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->startUploading(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/BasicUploadRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/BasicListener;)V
 
     goto :goto_0
+.end method
+
+.method public uploadContentsToSamsungCloud(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContentsToSamsungCloudRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadSamsungCloudListener;)V
+    .locals 6
+
+    const-string v0, "3.26.1, 3.26.2, 3.26.3, 3.25 combine api"
+
+    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->TAG:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    if-eqz p1, :cond_0
+
+    if-nez p2, :cond_1
+
+    :cond_0
+    const-string v0, "request or listener is null"
+
+    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->TAG:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string v1, "request or listener is null"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_1
+    invoke-static {}, Ljava/lang/System;->nanoTime()J
+
+    move-result-wide v2
+
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;
+
+    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->mContext:Landroid/content/Context;
+
+    move-object v4, p1
+
+    move-object v5, p2
+
+    invoke-direct/range {v0 .. v5}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;-><init>(Landroid/content/Context;JLcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContentsToSamsungCloudRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadSamsungCloudListener;)V
+
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->start()V
+
+    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->mTrBusyMap:Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/TransactionMap;
+
+    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v4
+
+    invoke-virtual {v1, v4, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/TransactionMap;->add(Ljava/lang/Object;Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/Transaction;)V
+
+    invoke-virtual {p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContentsToSamsungCloudRequest;->getRequestToken()J
+
+    move-result-wide v0
+
+    invoke-interface {p2, v0, v1, v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadSamsungCloudListener;->onPreparingUpload(JJ)V
+
+    return-void
 .end method
 
 .method public uploadPinCodeContents(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadPinCodeContentsRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadShareContentsListener;)V

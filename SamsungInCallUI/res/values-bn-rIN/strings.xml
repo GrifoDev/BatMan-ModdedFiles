@@ -744,6 +744,7 @@ IVR কল স্ক্রীণের মেনু Dianhuabang নামক এ
     <string name="settings_glance_reply_explain_text_vzw">হৃদযন্ত্রের হারের সেন্সরে আপনার আঙুল রেখে ও ডিভাইসটিকে ওল্টানোর সময় এটিকে %d সেকেন্ড সেখানে ধরে রেখে একটি আগত কল প্রত্যাখান করুন ও একটি প্রিসেট বার্তা পাঠান।</string>
     <string name="settings_glance_reply_reached_maximum_text">অক্ষরের সর্বাধিক সংখ্যায় (%dটি) পৌঁছেছে।</string>
     <string name="settings_glance_reply_text">দ্রুত প্রত্যুত্তর বার্তা</string>
+    <string name="settings_subappbar_switch_dimmed">নিষ্প্রভ</string>
     <string name="settings_subappbar_switch_off">বন্ধ</string>
     <string name="settings_subappbar_switch_on">চালু</string>
     <string name="simple_sharing">Link sharing</string>
@@ -789,6 +790,7 @@ IVR কল স্ক্রীণের মেনু Dianhuabang নামক এ
     <string name="swipe_right_to_answer_call_with_video">ভিডিও সহ কলের উত্তর দিতে ডানে সোয়াইপ করুন।</string>
     <string name="swipe_right_to_answer_call_without_video">ভিডিও ছাড়া কলের উত্তর দিতে ডানে সোয়াইপ করুন।</string>
     <string name="switch_rejected_by_mt">ভিডিও কলে স্যুইচ করার অনুরোধ প্রত্যাখান করা হয়েছে।</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">ভিডিও কলে স্যুইচ করার অনুরোধ ব্যর্থ হয়েছে।</string>
     <string name="switch_to_video_call_failed_tmo">ভিডিও কলে স্যুইচ করার অনুরোধ অস্বীকৃত হয়েছে।</string>
     <string name="switch_to_voice_call_failed">ভয়েস কলে স্যুইচ করার অনুরোধ ব্যর্থ হয়েছে।</string>

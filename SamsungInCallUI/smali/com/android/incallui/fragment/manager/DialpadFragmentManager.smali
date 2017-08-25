@@ -483,17 +483,13 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/manager/DialpadFragmentManager;->getFragment()Lcom/android/incallui/fragment/DialpadFragment;
 
     move-result-object v0
 
     invoke-virtual {v0}, Lcom/android/incallui/fragment/DialpadFragment;->hideSoftInput()V
-
-    iget-object v0, p0, Lcom/android/incallui/fragment/manager/DialpadFragmentManager;->mSavedDtmfText:Ljava/lang/String;
-
-    if-eqz v0, :cond_0
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/manager/DialpadFragmentManager;->getFragment()Lcom/android/incallui/fragment/DialpadFragment;
 
@@ -505,7 +501,6 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/manager/DialpadFragmentManager;->mSavedDtmfText:Ljava/lang/String;
 
-    :cond_0
     invoke-virtual {p0}, Lcom/android/incallui/fragment/manager/DialpadFragmentManager;->getFragment()Lcom/android/incallui/fragment/DialpadFragment;
 
     move-result-object v0
@@ -518,7 +513,7 @@
 
     invoke-direct {p0}, Lcom/android/incallui/fragment/manager/DialpadFragmentManager;->removeCurrentDialpadFragment()V
 
-    :cond_1
+    :cond_0
     iput-boolean v2, p0, Lcom/android/incallui/fragment/manager/DialpadFragmentManager;->mIsShowing:Z
 
     invoke-static {}, Lcom/android/incallui/InCallApp;->getInstance()Lcom/android/incallui/InCallApp;
@@ -529,7 +524,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/manager/DialpadFragmentManager;->dtmfDialog:Landroid/app/AlertDialog;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/incallui/fragment/manager/DialpadFragmentManager;->dtmfDialog:Landroid/app/AlertDialog;
 
@@ -539,7 +534,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/manager/DialpadFragmentManager;->dtmfDialog:Landroid/app/AlertDialog;
 
-    :cond_2
+    :cond_1
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallManager;->getInstance()Lcom/android/incallui/service/vt/VideoCallManager;
 
     move-result-object v0
@@ -1348,9 +1343,9 @@
     goto :goto_0
 
     :pswitch_2
-    new-instance v0, Lcom/android/incallui/fragment/DialpadFragment;
+    new-instance v0, Lcom/android/incallui/fragment/VoiceCallDialpadFragment;
 
-    invoke-direct {v0}, Lcom/android/incallui/fragment/DialpadFragment;-><init>()V
+    invoke-direct {v0}, Lcom/android/incallui/fragment/VoiceCallDialpadFragment;-><init>()V
 
     goto :goto_0
 

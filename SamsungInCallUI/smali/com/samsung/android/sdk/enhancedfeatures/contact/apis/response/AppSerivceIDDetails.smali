@@ -5,7 +5,7 @@
 # instance fields
 .field private appId:Ljava/lang/String;
 
-.field private svcId:I
+.field private serviceId:I
 
 
 # direct methods
@@ -27,10 +27,10 @@
     return-object v0
 .end method
 
-.method public getSvcId()I
+.method public getServiceId()I
     .locals 1
 
-    iget v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/apis/response/AppSerivceIDDetails;->svcId:I
+    iget v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/apis/response/AppSerivceIDDetails;->serviceId:I
 
     return v0
 .end method
@@ -43,10 +43,10 @@
     return-void
 .end method
 
-.method public setSvcId(I)V
+.method public setServiceId(I)V
     .locals 0
 
-    iput p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/apis/response/AppSerivceIDDetails;->svcId:I
+    iput p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/apis/response/AppSerivceIDDetails;->serviceId:I
 
     return-void
 .end method

@@ -638,7 +638,7 @@ Samtalsskärmmenyn IVR använder innehåll som tillhandahålls av en tredjeparts
     <string name="photoring_unblock_toast_2nd">Media som har skickats av denna kontakt kommer att tas emot nästa gång de ringer dig.</string>
     <string name="please_wait">Kontrollerar verifieringskod. Vänta …</string>
     <string name="popup_download_large_wificheck">Hämta endast via Wi-Fi</string>
-    <string name="popup_download_large_wlancheck">Download via WLAN only</string>
+    <string name="popup_download_large_wlancheck">Hämta endast via WLAN</string>
     <string name="popup_start_record_during_alerting">Inspelningen startar efter att samtalet har kopplats fram.</string>
     <string name="postalLabelsGroup">Adress</string>
     <string name="postal_city">Ort</string>
@@ -822,6 +822,7 @@ kamera"</string>
     <string name="settings_glance_reply_explain_text_vzw">Avvisa ett inkommande samtal och skicka ett förinställt meddelande till den som ringer genom att hålla fingret på pulsmätaren i %d sekunder medan enheten är vänd upp och ner.</string>
     <string name="settings_glance_reply_reached_maximum_text">Högsta antal tecken (%d) har uppnåtts.</string>
     <string name="settings_glance_reply_text">Snabbsvarsmeddelanden</string>
+    <string name="settings_subappbar_switch_dimmed">Nedtonat</string>
     <string name="settings_subappbar_switch_off">Av</string>
     <string name="settings_subappbar_switch_on">På</string>
     <string name="simple_sharing">Länkdelning</string>
@@ -867,6 +868,7 @@ kamera"</string>
     <string name="swipe_right_to_answer_call_with_video">Svep åt höger om du vill svara på samtal med video.</string>
     <string name="swipe_right_to_answer_call_without_video">Svep åt höger om du vill svara på samtal utan video.</string>
     <string name="switch_rejected_by_mt">Begäran om växling till videosamtal avvisad.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Begäran om växling till videosamtal misslyckades.</string>
     <string name="switch_to_video_call_failed_tmo">Begäran om att växla till videosamtal avvisades.</string>
     <string name="switch_to_voice_call_failed">Begäran om växling till röstsamtal misslyckades.</string>

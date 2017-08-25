@@ -1770,29 +1770,35 @@
 
     const/4 v5, 0x0
 
-    const/4 v0, 0x5
+    const/4 v0, 0x6
 
     new-array v2, v0, [Ljava/lang/String;
 
-    const-string v0, "mimetype"
+    const-string v0, "_id"
 
     aput-object v0, v2, v5
 
-    const-string v0, "data12"
+    const-string v0, "mimetype"
 
     aput-object v0, v2, v6
 
-    const-string v0, "data13"
+    const-string v0, "data12"
 
     aput-object v0, v2, v4
 
     const/4 v0, 0x3
 
-    const-string v1, "data14"
+    const-string v1, "data13"
 
     aput-object v1, v2, v0
 
     const/4 v0, 0x4
+
+    const-string v1, "data14"
+
+    aput-object v1, v2, v0
+
+    const/4 v0, 0x5
 
     const-string v1, "data15"
 

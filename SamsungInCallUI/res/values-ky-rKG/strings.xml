@@ -764,6 +764,7 @@ IVR чалуу экран менюсу Dianhuabang деп аталган үчү�
     <string name="settings_glance_reply_explain_text_vzw">Жүрөк согушунун сенсоруна бармагыңызды коюп, түзмөктү тескери кармап, %d секунда кармап туруп, кирүүчү чалууларды четке кагыңыз жана алдын ала коюлбаган билдирүүлөрдү жөнөтүңүз.</string>
     <string name="settings_glance_reply_reached_maximum_text">Белгилер саны (%d) нары четине жетти</string>
     <string name="settings_glance_reply_text">Тез жооп берүү билдрүүлрү</string>
+    <string name="settings_subappbar_switch_dimmed">Караңгылатылган</string>
     <string name="settings_subappbar_switch_off">Өчүк</string>
     <string name="settings_subappbar_switch_on">Күйүк</string>
     <string name="simple_sharing">Link sharing</string>
@@ -809,6 +810,7 @@ IVR чалуу экран менюсу Dianhuabang деп аталган үчү�
     <string name="swipe_right_to_answer_call_with_video">Чалууга видео менен жооп берүү үчүн, оңго жылдырыңыз.</string>
     <string name="swipe_right_to_answer_call_without_video">Чалууга видеосуз жооп берүү үчүн, оңго жылдырыңыз.</string>
     <string name="switch_rejected_by_mt">Видео чалууга которуу суроосу четке кагылды</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Видео чалууга которуу суроосу кыйрады.</string>
     <string name="switch_to_video_call_failed_tmo">Видео чалууга которуу суроосу четке кагылды.</string>
     <string name="switch_to_voice_call_failed">Үн чалууга которуу суроосу кыйрады.</string>

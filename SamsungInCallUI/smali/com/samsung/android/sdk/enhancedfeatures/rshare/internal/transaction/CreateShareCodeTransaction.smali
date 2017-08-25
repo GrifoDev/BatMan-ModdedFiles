@@ -251,6 +251,14 @@
 
     iput-object v1, v0, Lcom/samsung/android/sdk/ssf/share/io/ShareContentsRequest;->description:Ljava/lang/String;
 
+    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/CreateShareCodeTransaction;->mRequest:Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/CreateShareCodeRequest;
+
+    invoke-virtual {v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/CreateShareCodeRequest;->getTitle()Ljava/lang/String;
+
+    move-result-object v1
+
+    iput-object v1, v0, Lcom/samsung/android/sdk/ssf/share/io/ShareContentsRequest;->title:Ljava/lang/String;
+
     sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/GcmType;->NORMAL:Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/GcmType;
 
     iput-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/CreateShareCodeTransaction;->mGcmPriority:Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/GcmType;

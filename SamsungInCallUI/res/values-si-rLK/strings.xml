@@ -788,6 +788,7 @@ IVR ඇමතුම් තිර මෙනුව විසින් Dianhuabang 
     <string name="settings_glance_reply_explain_text_vzw">උපාංගය හරවා ඇති අතරතුර හෘද ස්පන්දනය සංවේදකය මත ඔබේ ඇඟිල්ල තත්පර %d තබාගෙන සිටීම මගින් එන ඇමතුමක් ප්‍රතික්ෂේප කරන්න සහ අමතන්නාට පෙරසකසු පණිවිඩයක් යවන්න.</string>
     <string name="settings_glance_reply_reached_maximum_text">උපරිම අනු ලකුණු ගණන (%d) ළඟා විය.</string>
     <string name="settings_glance_reply_text">යුහු පිළිතුරු පණිවිඩ</string>
+    <string name="settings_subappbar_switch_dimmed">අඳුරු විය</string>
     <string name="settings_subappbar_switch_off">අක්‍රියයි</string>
     <string name="settings_subappbar_switch_on">සක්‍රියයි</string>
     <string name="simple_sharing">Link sharing</string>
@@ -833,6 +834,7 @@ IVR ඇමතුම් තිර මෙනුව විසින් Dianhuabang 
     <string name="swipe_right_to_answer_call_with_video">වීඩියෝව සමග ඇමතුමට පිළිතුරු දීමට දකුණට ස්වයිප් කරන්න.</string>
     <string name="swipe_right_to_answer_call_without_video">වීඩියෝවෙන් තොරව ඇමතුමට පිළිතුරු දීමට දකුණට ස්වයිප් කරන්න.</string>
     <string name="switch_rejected_by_mt">වීඩියෝ ඇමතුමට සම්බන්ධ වීම සඳහා ඉල්ලුම ප්‍රතික්ෂේප කෙරිණි.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">වීඩියෝ ඇමතුමට මාරු වීමට ඉල්ලීම අසාර්ථක විය.</string>
     <string name="switch_to_video_call_failed_tmo">වීඩියෝ ඇමතුම වෙත මාරු වීමට ඉල්ලුම ප්‍රතික්ෂේප කරන ලදී.</string>
     <string name="switch_to_voice_call_failed">හඬ ඇමතුමට මාරු වීම සඳහා ඉල්ලීම අසාර්ථක විය.</string>

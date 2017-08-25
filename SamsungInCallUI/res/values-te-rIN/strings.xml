@@ -764,6 +764,7 @@ Dianhuabang అనే మూడవ పక్ష సేవా ప్రదాత 
     <string name="settings_glance_reply_explain_text_vzw">పరికరాన్ని వెనుకకు తిప్పి ఉన్నప్పుడు హృదయ స్పందన రేటు సెన్సార్‌పై మీ వేలిని ఉంచి, %d సెకన్ల పాటు పట్టుకోవడం ద్వారా ఇన్‌కమింగ్ కాల్‌ను తిరస్కరించి, ముందే సెట్ చేసిన సందేశాన్ని కాలర్‌కు పంపండి.</string>
     <string name="settings_glance_reply_reached_maximum_text">అక్షరాల గరిష్ఠ సంఖ్యకు (%d) చేరుకున్నాయి.</string>
     <string name="settings_glance_reply_text">త్వరిత ప్రత్యుత్తర సందేశాలు</string>
+    <string name="settings_subappbar_switch_dimmed">మసకగా చేయబడింది</string>
     <string name="settings_subappbar_switch_off">ఆఫ్</string>
     <string name="settings_subappbar_switch_on">ఆన్</string>
     <string name="simple_sharing">Link sharing</string>
@@ -809,6 +810,7 @@ Dianhuabang అనే మూడవ పక్ష సేవా ప్రదాత 
     <string name="swipe_right_to_answer_call_with_video">వీడియోతో కాల్‌కు సమాధానం ఇవ్వడానికి కుడివైపుకి స్వైప్ చేయండి.</string>
     <string name="swipe_right_to_answer_call_without_video">వీడియో లేకుండా కాల్‌కు సమాధానం ఇవ్వడానికి కుడివైపుకి స్వైప్ చేయండి.</string>
     <string name="switch_rejected_by_mt">వీడియో కాల్‌కు మారే అభ్యర్థన తిరస్కరించబడింది.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">వీడియో కాల్‌కు మారేందుకు చేసిన విజ్ఞప్తి విఫలమైంది.</string>
     <string name="switch_to_video_call_failed_tmo">వీడియో కాల్‌కు మారడానికి అభ్యర్థన తిరస్కరించబడింది.</string>
     <string name="switch_to_voice_call_failed">వాయిస్ కాల్‌ను మార్చేందుకు చేసిన విజ్ఞప్తి విఫలమైంది.</string>

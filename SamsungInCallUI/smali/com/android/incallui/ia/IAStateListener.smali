@@ -501,13 +501,17 @@
 
     invoke-static {v0, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    invoke-virtual {v6}, Lcom/android/incallui/Call;->getNumber()Ljava/lang/String;
+
+    move-result-object v7
+
     const/4 v0, -0x1
 
     invoke-virtual {v5}, Ljava/lang/String;->hashCode()I
 
-    move-result v7
+    move-result v8
 
-    sparse-switch v7, :sswitch_data_0
+    sparse-switch v8, :sswitch_data_0
 
     :cond_1
     :goto_1
@@ -527,9 +531,9 @@
     goto :goto_0
 
     :sswitch_0
-    const-string v7, "IncomingCall"
+    const-string v8, "IncomingCall"
 
-    invoke-virtual {v5, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
@@ -540,9 +544,9 @@
     goto :goto_1
 
     :sswitch_1
-    const-string v7, "CallAccept"
+    const-string v8, "CallAccept"
 
-    invoke-virtual {v5, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
@@ -553,9 +557,9 @@
     goto :goto_1
 
     :sswitch_2
-    const-string v7, "VoiceCallAccept"
+    const-string v8, "VoiceCallAccept"
 
-    invoke-virtual {v5, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
@@ -566,9 +570,9 @@
     goto :goto_1
 
     :sswitch_3
-    const-string v7, "CallReject"
+    const-string v8, "CallReject"
 
-    invoke-virtual {v5, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
@@ -579,9 +583,9 @@
     goto :goto_1
 
     :sswitch_4
-    const-string v7, "RejectCallWithMessage"
+    const-string v8, "RejectCallWithMessage"
 
-    invoke-virtual {v5, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
@@ -592,9 +596,9 @@
     goto :goto_1
 
     :sswitch_5
-    const-string v7, "CrossMessagesConversationViewShare"
+    const-string v8, "CrossMessagesConversationViewShare"
 
-    invoke-virtual {v5, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
@@ -605,9 +609,9 @@
     goto :goto_1
 
     :sswitch_6
-    const-string v7, "OutgoingCall"
+    const-string v8, "OutgoingCall"
 
-    invoke-virtual {v5, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
@@ -618,9 +622,9 @@
     goto :goto_1
 
     :sswitch_7
-    const-string v7, "SpeakerControl"
+    const-string v8, "SpeakerControl"
 
-    invoke-virtual {v5, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
@@ -631,9 +635,9 @@
     goto :goto_1
 
     :sswitch_8
-    const-string v7, "ReminderOn"
+    const-string v8, "ReminderOn"
 
-    invoke-virtual {v5, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
@@ -644,9 +648,9 @@
     goto :goto_1
 
     :sswitch_9
-    const-string v7, "ReminderOff"
+    const-string v8, "ReminderOff"
 
-    invoke-virtual {v5, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
@@ -657,9 +661,9 @@
     goto :goto_1
 
     :sswitch_a
-    const-string v7, "ShowReminder"
+    const-string v8, "ShowReminder"
 
-    invoke-virtual {v5, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v5, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v5
 
@@ -946,11 +950,7 @@
     goto/16 :goto_0
 
     :pswitch_5
-    invoke-virtual {v6}, Lcom/android/incallui/Call;->getNumber()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
@@ -1094,6 +1094,18 @@
 
     move-result-object v0
 
+    new-instance v1, Lcom/samsung/android/sdk/bixby/data/a;
+
+    const-string v2, "SpeakerControl"
+
+    invoke-direct {v1, v2}, Lcom/samsung/android/sdk/bixby/data/a;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/bixby/a;->a(Lcom/samsung/android/sdk/bixby/data/a;)V
+
+    invoke-static {}, Lcom/samsung/android/sdk/bixby/a;->a()Lcom/samsung/android/sdk/bixby/a;
+
+    move-result-object v0
+
     sget-object v1, Lcom/samsung/android/sdk/bixby/a$h;->c:Lcom/samsung/android/sdk/bixby/a$h;
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/bixby/a;->a(Lcom/samsung/android/sdk/bixby/a$h;)V
@@ -1101,16 +1113,217 @@
     goto/16 :goto_0
 
     :pswitch_8
+    invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_8
+
+    const-string v0, "IAStateListener"
+
+    const-string v1, "Bixby_InCall - requestNlg - ReminderOn, IncomingCallNumber, Exist, no"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {}, Lcom/samsung/android/sdk/bixby/a;->a()Lcom/samsung/android/sdk/bixby/a;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/samsung/android/sdk/bixby/data/a;
+
+    const-string v2, "ReminderOn"
+
+    invoke-direct {v1, v2}, Lcom/samsung/android/sdk/bixby/data/a;-><init>(Ljava/lang/String;)V
+
+    const-string v2, "IncomingCallNumber"
+
+    const-string v3, "Exist"
+
+    const-string v4, "no"
+
+    invoke-virtual {v1, v2, v3, v4}, Lcom/samsung/android/sdk/bixby/data/a;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/a;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/bixby/a;->a(Lcom/samsung/android/sdk/bixby/data/a;)V
+
+    invoke-static {}, Lcom/samsung/android/sdk/bixby/a;->a()Lcom/samsung/android/sdk/bixby/a;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/samsung/android/sdk/bixby/a$h;->c:Lcom/samsung/android/sdk/bixby/a$h;
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/bixby/a;->a(Lcom/samsung/android/sdk/bixby/a$h;)V
+
+    goto/16 :goto_0
+
+    :cond_8
+    invoke-static {}, Lcom/samsung/android/sdk/bixby/a;->a()Lcom/samsung/android/sdk/bixby/a;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/samsung/android/sdk/bixby/data/a;
+
+    const-string v3, "ReminderOn"
+
+    invoke-direct {v1, v3}, Lcom/samsung/android/sdk/bixby/data/a;-><init>(Ljava/lang/String;)V
+
+    const-string v3, "IncomingCallNumber"
+
+    const-string v4, "Exist"
+
+    const-string v5, "yes"
+
+    invoke-virtual {v1, v3, v4, v5}, Lcom/samsung/android/sdk/bixby/data/a;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/a;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/bixby/a;->a(Lcom/samsung/android/sdk/bixby/data/a;)V
+
     invoke-direct {p0, v2}, Lcom/android/incallui/ia/IAStateListener;->setReminder(Z)V
 
     goto/16 :goto_0
 
     :pswitch_9
+    invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_9
+
+    const-string v0, "IAStateListener"
+
+    const-string v1, "Bixby_InCall - requestNlg - ReminderOff, IncomingCallNumber, Exist, no"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {}, Lcom/samsung/android/sdk/bixby/a;->a()Lcom/samsung/android/sdk/bixby/a;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/samsung/android/sdk/bixby/data/a;
+
+    const-string v2, "ReminderOff"
+
+    invoke-direct {v1, v2}, Lcom/samsung/android/sdk/bixby/data/a;-><init>(Ljava/lang/String;)V
+
+    const-string v2, "IncomingCallNumber"
+
+    const-string v3, "Exist"
+
+    const-string v4, "no"
+
+    invoke-virtual {v1, v2, v3, v4}, Lcom/samsung/android/sdk/bixby/data/a;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/a;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/bixby/a;->a(Lcom/samsung/android/sdk/bixby/data/a;)V
+
+    invoke-static {}, Lcom/samsung/android/sdk/bixby/a;->a()Lcom/samsung/android/sdk/bixby/a;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/samsung/android/sdk/bixby/a$h;->c:Lcom/samsung/android/sdk/bixby/a$h;
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/bixby/a;->a(Lcom/samsung/android/sdk/bixby/a$h;)V
+
+    goto/16 :goto_0
+
+    :cond_9
+    invoke-static {}, Lcom/samsung/android/sdk/bixby/a;->a()Lcom/samsung/android/sdk/bixby/a;
+
+    move-result-object v0
+
+    new-instance v2, Lcom/samsung/android/sdk/bixby/data/a;
+
+    const-string v3, "ReminderOff"
+
+    invoke-direct {v2, v3}, Lcom/samsung/android/sdk/bixby/data/a;-><init>(Ljava/lang/String;)V
+
+    const-string v3, "IncomingCallNumber"
+
+    const-string v4, "Exist"
+
+    const-string v5, "yes"
+
+    invoke-virtual {v2, v3, v4, v5}, Lcom/samsung/android/sdk/bixby/data/a;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/a;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Lcom/samsung/android/sdk/bixby/a;->a(Lcom/samsung/android/sdk/bixby/data/a;)V
+
     invoke-direct {p0, v1}, Lcom/android/incallui/ia/IAStateListener;->setReminder(Z)V
 
     goto/16 :goto_0
 
     :pswitch_a
+    invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_a
+
+    const-string v0, "IAStateListener"
+
+    const-string v1, "Bixby_InCall - requestNlg - ShowReminder, IncomingCallNumber, Exist, no"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {}, Lcom/samsung/android/sdk/bixby/a;->a()Lcom/samsung/android/sdk/bixby/a;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/samsung/android/sdk/bixby/data/a;
+
+    const-string v2, "ShowReminder"
+
+    invoke-direct {v1, v2}, Lcom/samsung/android/sdk/bixby/data/a;-><init>(Ljava/lang/String;)V
+
+    const-string v2, "IncomingCallNumber"
+
+    const-string v3, "Exist"
+
+    const-string v4, "no"
+
+    invoke-virtual {v1, v2, v3, v4}, Lcom/samsung/android/sdk/bixby/data/a;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/a;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/bixby/a;->a(Lcom/samsung/android/sdk/bixby/data/a;)V
+
+    invoke-static {}, Lcom/samsung/android/sdk/bixby/a;->a()Lcom/samsung/android/sdk/bixby/a;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/samsung/android/sdk/bixby/a$h;->c:Lcom/samsung/android/sdk/bixby/a$h;
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/bixby/a;->a(Lcom/samsung/android/sdk/bixby/a$h;)V
+
+    goto/16 :goto_0
+
+    :cond_a
+    invoke-static {}, Lcom/samsung/android/sdk/bixby/a;->a()Lcom/samsung/android/sdk/bixby/a;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/samsung/android/sdk/bixby/data/a;
+
+    const-string v2, "ShowReminder"
+
+    invoke-direct {v1, v2}, Lcom/samsung/android/sdk/bixby/data/a;-><init>(Ljava/lang/String;)V
+
+    const-string v2, "IncomingCallNumber"
+
+    const-string v3, "Exist"
+
+    const-string v4, "yes"
+
+    invoke-virtual {v1, v2, v3, v4}, Lcom/samsung/android/sdk/bixby/data/a;->a(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/a;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/bixby/a;->a(Lcom/samsung/android/sdk/bixby/data/a;)V
+
     invoke-direct {p0}, Lcom/android/incallui/ia/IAStateListener;->showReminder()V
 
     goto/16 :goto_0

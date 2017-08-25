@@ -823,6 +823,7 @@ fotoap."</string>
     <string name="settings_glance_reply_explain_text_vzw">Atmeskite gaunamą skambutį ir nusiųskite žinutę skambinančiajam – uždėkite pirštą ant širdies ritmo jutiklio ir palaikykite %d sek, kai įrenginys įjungtas.</string>
     <string name="settings_glance_reply_reached_maximum_text">Pasiektas didžiausias simbolių skaičius (%d).</string>
     <string name="settings_glance_reply_text">Greitų atsakymų žinutės</string>
+    <string name="settings_subappbar_switch_dimmed">Pritemdytas</string>
     <string name="settings_subappbar_switch_off">Išjungta</string>
     <string name="settings_subappbar_switch_on">Įjungta</string>
     <string name="simple_sharing">Nuorodos bendrinimas</string>
@@ -868,6 +869,7 @@ fotoap."</string>
     <string name="swipe_right_to_answer_call_with_video">Jei norite skambinti su vaizdu, braukite į dešinę.</string>
     <string name="swipe_right_to_answer_call_without_video">Jei norite skambinti be vaizdo, braukite į dešinę.</string>
     <string name="switch_rejected_by_mt">Prašymas perjungti į vaizdo skambutį atmestas.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Nepavyko pateikti užklausos dėl perjungimo į vaizdo skambutį.</string>
     <string name="switch_to_video_call_failed_tmo">Prašymas perjungti į vaizdo skambutį atmestas.</string>
     <string name="switch_to_voice_call_failed">Nepavyko pateikti užklausos dėl perjungimo į balso skambutį.</string>

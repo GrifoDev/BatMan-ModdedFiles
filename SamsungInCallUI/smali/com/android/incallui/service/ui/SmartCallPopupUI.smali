@@ -739,7 +739,7 @@
 
     move-result-object v1
 
-    const v5, 0x7f0a052a
+    const v5, 0x7f0a0529
 
     invoke-virtual {v1, v5}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -831,7 +831,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f09034c
+    const v2, 0x7f09034d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -968,7 +968,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f09034e
+    const v2, 0x7f09034f
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1402,7 +1402,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0a052a
+    const v5, 0x7f0a0529
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1536,7 +1536,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0a0092
+    const v5, 0x7f0a008f
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1601,7 +1601,7 @@
 
     iget-object v3, p0, Lcom/android/incallui/service/ui/SmartCallPopupUI;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f090339
+    const v4, 0x7f09033a
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1683,7 +1683,7 @@
 
     move-result-object v0
 
-    const v4, 0x7f0a052a
+    const v4, 0x7f0a0529
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2018,7 +2018,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f09033a
+    const v3, 0x7f09033b
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

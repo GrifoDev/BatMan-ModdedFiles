@@ -4,9 +4,6 @@
     <dimen name="abc_alert_dialog_button_bar_height">48.0dip</dimen>
     <dimen name="sec_incall_pager_indicator_height">58.0dip</dimen>
     <dimen name="sec_incall_pager_indicator_padding_top">16.0dip</dimen>
-    <dimen name="carrier_matching_dialog_progress_margin_end">30.0dip</dimen>
-    <dimen name="carrier_matching_dialog_progress_margin_top">-15.0dip</dimen>
-    <dimen name="carrier_matching_dialog_progress_size">60.0dip</dimen>
     <dimen name="sec_call_banner_height">272.0dip</dimen>
     <dimen name="sec_dialpad_button_height">68.0dip</dimen>
     <dimen name="sec_dialpad_button_width">120.0dip</dimen>
@@ -418,7 +415,6 @@
     <dimen name="sec_call_buttons_padding_side_right_onehand">87.0dip</dimen>
     <dimen name="sec_incall_layout_height_onehand">295.0dip</dimen>
     <dimen name="sec_video_vga_incall_button_height">160.0dip</dimen>
-    <dimen name="carrier_matching_dialog_progress_stroke">3.0dip</dimen>
     <dimen name="sec_video_dialpad_container_margin_top_onehand">247.0dip</dimen>
     <dimen name="sec_video_incall_button_arrow_left_margin_start_onehand">17.0dip</dimen>
     <dimen name="sec_video_qcif_incall_button_drawable_padding_onehand">0.0dip</dimen>
@@ -877,6 +873,7 @@
     <dimen name="tablet_volume_text_size_mw">14.0dip</dimen>
     <dimen name="vt_dtmf_qcif_twelve_key_dialer_view_height">272.0dip</dimen>
     <dimen name="sec_video_dialpad_key_letters_with_subtext_margin_top">-3.0dip</dimen>
+    <dimen name="sec_video_dialpad_key_sub_letters_margin_top">-5.0dip</dimen>
     <dimen name="abc_switch_padding">3.0dip</dimen>
     <dimen name="agif_indicator_bottom_divider">2.0px</dimen>
     <dimen name="agif_list_bottom_divider">1.0px</dimen>
@@ -1024,6 +1021,8 @@
     <dimen name="carrier_matching_dialog_operator_margin_bottom">5.0dip</dimen>
     <dimen name="carrier_matching_dialog_operator_margin_text">3.0dip</dimen>
     <dimen name="carrier_matching_dialog_padding">24.0dip</dimen>
+    <dimen name="carrier_matching_dialog_progress_size">60.0dip</dimen>
+    <dimen name="carrier_matching_dialog_progress_stroke">3.0dip</dimen>
     <dimen name="carrier_matching_dialog_title_margin_bottom">24.0dip</dimen>
     <dimen name="carrier_matching_dialog_title_text_size">19.0dip</dimen>
     <dimen name="carrier_matching_dialog_width">308.0dip</dimen>

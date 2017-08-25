@@ -961,7 +961,7 @@
 
     iput v1, v0, Lcom/android/contacts/common/model/dataitem/DataKind;->d:I
 
-    const v1, 0x7f09033f
+    const v1, 0x7f090340
 
     iput v1, v0, Lcom/android/contacts/common/model/dataitem/DataKind;->e:I
 
@@ -1871,7 +1871,7 @@
 .method protected n(Landroid/content/Context;)Lcom/android/contacts/common/model/dataitem/DataKind;
     .locals 6
 
-    const v5, 0x7f0903bd
+    const v5, 0x7f0903bf
 
     new-instance v0, Lcom/android/contacts/common/model/dataitem/DataKind;
 

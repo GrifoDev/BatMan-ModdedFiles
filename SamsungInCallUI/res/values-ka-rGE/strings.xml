@@ -765,6 +765,7 @@ IVR ზარის ეკრანული მენიუ იყენებ�
     <string name="settings_glance_reply_explain_text_vzw">გადაბრუნებულ მოწყობილობაზე %d წამით დადეთ თითი პულსის სენსორზე, თუ გსურთ უარყოთ შემოსული ზარი და აბონენტს გაუგზავნოთ წინასწარ დაყენებული შეტყობინება.</string>
     <string name="settings_glance_reply_reached_maximum_text">მიღწეულია სიმბოლოების მაქსიმალური რაოდენობა (%d).</string>
     <string name="settings_glance_reply_text">სწრაფი პასუხის ტექსტები</string>
+    <string name="settings_subappbar_switch_dimmed">ჩამქრალი</string>
     <string name="settings_subappbar_switch_off">გამორთ.</string>
     <string name="settings_subappbar_switch_on">ჩართვა</string>
     <string name="simple_sharing">ბმულის გაზიარება</string>
@@ -810,6 +811,7 @@ IVR ზარის ეკრანული მენიუ იყენებ�
     <string name="swipe_right_to_answer_call_with_video">გადაუსვით თითი მარჯვნივ, რომ უპასუხოთ ზარს ვიდეოთი.</string>
     <string name="swipe_right_to_answer_call_without_video">გადაუსვით თითი მარჯვნივ, რომ უპასუხოთ ზარს ვიდეოს გარეშე.</string>
     <string name="switch_rejected_by_mt">ვიდეო ზარზე გადართვის მოთხოვნა უარყოფილია.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">ვიდეო ზარზე გადართვის მოთხოვნა ვერ შესრულდა.</string>
     <string name="switch_to_video_call_failed_tmo">ვიდეო ზარზე გადართვის მოთხოვნა უარყოფილია.</string>
     <string name="switch_to_voice_call_failed">ხმოვან ზარზე გადართვის მოთხოვნა ვერ შესრულდა.</string>

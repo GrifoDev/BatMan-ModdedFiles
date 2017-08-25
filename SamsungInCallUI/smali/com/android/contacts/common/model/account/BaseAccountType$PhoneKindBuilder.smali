@@ -484,7 +484,7 @@
 
     iput v1, v0, Lcom/android/contacts/common/model/dataitem/DataKind;->d:I
 
-    const v1, 0x7f09033f
+    const v1, 0x7f090340
 
     iput v1, v0, Lcom/android/contacts/common/model/dataitem/DataKind;->e:I
 

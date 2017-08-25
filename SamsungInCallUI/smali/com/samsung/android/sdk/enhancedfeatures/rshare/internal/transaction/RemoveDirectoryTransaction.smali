@@ -150,7 +150,7 @@
 .end method
 
 .method private restoreQuota(J)V
-    .locals 7
+    .locals 9
 
     const-wide/16 v2, 0x0
 
@@ -173,19 +173,21 @@
     if-lez v6, :cond_1
 
     :goto_0
-    const-string v2, "Restore usage %d -> %d"
+    sget-object v2, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    const/4 v3, 0x2
+    const-string v3, "Restore usage %d -> %d"
 
-    new-array v3, v3, [Ljava/lang/Object;
+    const/4 v6, 0x2
 
-    const/4 v6, 0x0
+    new-array v6, v6, [Ljava/lang/Object;
+
+    const/4 v7, 0x0
 
     invoke-static {v4, v5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v4
 
-    aput-object v4, v3, v6
+    aput-object v4, v6, v7
 
     const/4 v4, 0x1
 
@@ -193,9 +195,9 @@
 
     move-result-object v5
 
-    aput-object v5, v3, v4
+    aput-object v5, v6, v4
 
-    invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v2, v3, v6}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v2
 

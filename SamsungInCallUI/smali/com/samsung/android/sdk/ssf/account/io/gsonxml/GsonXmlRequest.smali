@@ -38,18 +38,6 @@
 
 .field private final mGsonXml:Lcom/samsung/android/sdk/ssf/account/io/gsonxml/GsonXml;
 
-.field private mHeaderMap:Ljava/util/Map;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 .field private mProtocolContentType:Ljava/lang/String;
 
 
@@ -70,12 +58,6 @@
     const/4 v3, 0x0
 
     invoke-direct {p0, p1, p2, p4, p5}, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;-><init>(ILjava/lang/String;ILcom/samsung/android/sdk/ssf/common/model/ResponseListener;)V
-
-    new-instance v0, Ljava/util/HashMap;
-
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
-
-    iput-object v0, p0, Lcom/samsung/android/sdk/ssf/account/io/gsonxml/GsonXmlRequest;->mHeaderMap:Ljava/util/Map;
 
     const-string v0, "text/xml"
 
@@ -177,8 +159,18 @@
 # virtual methods
 .method public addHeader(Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/ssf/account/io/gsonxml/GsonXmlRequest;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            ")",
+            "Lcom/samsung/android/sdk/ssf/account/io/gsonxml/GsonXmlRequest",
+            "<TT;>;"
+        }
+    .end annotation
 
-    iget-object v0, p0, Lcom/samsung/android/sdk/ssf/account/io/gsonxml/GsonXmlRequest;->mHeaderMap:Ljava/util/Map;
+    iget-object v0, p0, Lcom/samsung/android/sdk/ssf/account/io/gsonxml/GsonXmlRequest;->mHeaders:Ljava/util/Map;
 
     invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -244,36 +236,6 @@
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/sdk/ssf/account/io/gsonxml/GsonXmlRequest;->mProtocolContentType:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method public getHeaders()Ljava/util/Map;
-    .locals 3
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()",
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-
-    const-string v0, "ELog"
-
-    iget-object v1, p0, Lcom/samsung/android/sdk/ssf/account/io/gsonxml/GsonXmlRequest;->mHeaderMap:Ljava/util/Map;
-
-    invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string v2, "GsonXmlRequest"
-
-    invoke-static {v0, v1, v2}, Lcom/samsung/android/sdk/ssf/common/util/CommonLog;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v0, p0, Lcom/samsung/android/sdk/ssf/account/io/gsonxml/GsonXmlRequest;->mHeaderMap:Ljava/util/Map;
 
     return-object v0
 .end method

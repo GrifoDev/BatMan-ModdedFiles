@@ -127,6 +127,18 @@
 
     invoke-virtual {v0, p4}, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/response/GroupResponse;->setUserData(Ljava/lang/Object;)V
 
+    new-instance v1, Lcom/google/gson/Gson;
+
+    invoke-direct {v1}, Lcom/google/gson/Gson;-><init>()V
+
+    iget-object v2, p2, Lcom/samsung/android/sdk/ssf/group/io/GroupInfo;->meta_data:Ljava/lang/Object;
+
+    invoke-virtual {v1, v2}, Lcom/google/gson/Gson;->toJson(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/response/GroupResponse;->setMetaData(Ljava/lang/String;)V
+
     iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/group/internal/transaction/GetGroupInfoTransaction$1;->this$0:Lcom/samsung/android/sdk/enhancedfeatures/group/internal/transaction/GetGroupInfoTransaction;
 
     invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/group/internal/transaction/GetGroupInfoTransaction;->access$000(Lcom/samsung/android/sdk/enhancedfeatures/group/internal/transaction/GetGroupInfoTransaction;)Lcom/samsung/android/sdk/enhancedfeatures/group/apis/listener/GetGroupInfoListener;

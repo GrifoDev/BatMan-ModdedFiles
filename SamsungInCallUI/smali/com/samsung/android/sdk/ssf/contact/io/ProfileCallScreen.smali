@@ -3,6 +3,17 @@
 
 
 # instance fields
+.field protected app_list:Ljava/util/List;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/List",
+            "<",
+            "Lcom/samsung/android/sdk/ssf/contact/io/AppListInfo;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field protected img:Ljava/lang/String;
 
 .field protected nm:Ljava/lang/String;
@@ -21,6 +32,23 @@
 
 
 # virtual methods
+.method public getAppList()Ljava/util/List;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/List",
+            "<",
+            "Lcom/samsung/android/sdk/ssf/contact/io/AppListInfo;",
+            ">;"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/ssf/contact/io/ProfileCallScreen;->app_list:Ljava/util/List;
+
+    return-object v0
+.end method
+
 .method public getImage()Ljava/lang/String;
     .locals 1
 
@@ -43,6 +71,23 @@
     iget-object v0, p0, Lcom/samsung/android/sdk/ssf/contact/io/ProfileCallScreen;->status:Ljava/lang/String;
 
     return-object v0
+.end method
+
+.method public setAppList(Ljava/util/List;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<",
+            "Lcom/samsung/android/sdk/ssf/contact/io/AppListInfo;",
+            ">;)V"
+        }
+    .end annotation
+
+    iput-object p1, p0, Lcom/samsung/android/sdk/ssf/contact/io/ProfileCallScreen;->app_list:Ljava/util/List;
+
+    return-void
 .end method
 
 .method public setImage(Ljava/lang/String;)V

@@ -898,6 +898,8 @@
 
     if-eqz v0, :cond_3
 
+    invoke-static {v3}, Lcom/android/incallui/bike/BikeModeUtils;->setBikeModeCall(Z)V
+
     iget-object v0, p0, Lcom/android/incallui/bike/BikeModeController;->mBikeModeWaitingForAccountCall:Lcom/android/incallui/Call;
 
     if-eqz v0, :cond_0
@@ -1598,6 +1600,208 @@
     goto/16 :goto_0
 
     nop
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_0
+        :pswitch_1
+    .end packed-switch
+.end method
+
+.method public onTriggerCover(I)V
+    .locals 5
+
+    const/4 v4, 0x7
+
+    const/4 v3, 0x0
+
+    packed-switch p1, :pswitch_data_0
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :pswitch_0
+    const-string v0, "bike_mode"
+
+    invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {}, Lcom/android/incallui/bike/BikeModeUtils;->isBikeCall()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    invoke-static {}, Lcom/android/incallui/InCallApp;->getInstance()Lcom/android/incallui/InCallApp;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/incallui/InCallApp;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    new-instance v1, Landroid/content/Intent;
+
+    const-string v2, "com.samsung.BikeMode.StartSpeedTracker"
+
+    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v0, v1}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+
+    :cond_1
+    invoke-static {v3}, Lcom/android/incallui/bike/BikeModeUtils;->setBikeModeCall(Z)V
+
+    invoke-virtual {p0}, Lcom/android/incallui/bike/BikeModeController;->resetBikeModeTimer()V
+
+    iget-object v0, p0, Lcom/android/incallui/bike/BikeModeController;->mBikeModeAudioManager:Lcom/android/incallui/bike/BikeModeAudioManager;
+
+    invoke-virtual {v0}, Lcom/android/incallui/bike/BikeModeAudioManager;->stopRingtone()V
+
+    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/incallui/CallList;->getBackgroundCall()Lcom/android/incallui/Call;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_2
+
+    const-string v1, "BikeModeController"
+
+    const-string v2, "unhold call!"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {}, Lcom/android/incallui/TelecomAdapter;->getInstance()Lcom/android/incallui/TelecomAdapter;
+
+    move-result-object v1
+
+    invoke-virtual {v0}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Lcom/android/incallui/TelecomAdapter;->unholdCall(Ljava/lang/String;)V
+
+    invoke-static {}, Lcom/android/incallui/TelecomAdapter;->getInstance()Lcom/android/incallui/TelecomAdapter;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v3}, Lcom/android/incallui/TelecomAdapter;->mute(Z)V
+
+    :goto_1
+    invoke-static {v4}, Lcom/android/incallui/bike/BikeModeUtils;->setBikeModeCallType(I)V
+
+    const/4 v0, 0x1
+
+    invoke-static {v0}, Lcom/android/incallui/bike/BikeModeUtils;->setBikeCallAnswered(Z)V
+
+    invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/incallui/UiAdapter;->getAnswerUi()Lcom/android/incallui/AnswerUi;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v0}, Lcom/android/incallui/AnswerUi;->isAnswerAnimationRunning()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    invoke-interface {v0, v3}, Lcom/android/incallui/AnswerUi;->animateForAnswerCall(I)V
+
+    goto :goto_0
+
+    :cond_2
+    invoke-static {}, Lcom/android/incallui/TelecomAdapter;->getInstance()Lcom/android/incallui/TelecomAdapter;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v3}, Lcom/android/incallui/TelecomAdapter;->mute(Z)V
+
+    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/incallui/InCallPresenter;->sendMsgCallListChange()V
+
+    goto :goto_1
+
+    :cond_3
+    iget-object v0, p0, Lcom/android/incallui/bike/BikeModeController;->mBikeModeAudioManager:Lcom/android/incallui/bike/BikeModeAudioManager;
+
+    invoke-static {}, Lcom/android/incallui/bike/BikeModeAudioManager;->isRingtonePlaying()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/incallui/bike/BikeModeController;->mBikeModeAudioManager:Lcom/android/incallui/bike/BikeModeAudioManager;
+
+    invoke-virtual {v0}, Lcom/android/incallui/bike/BikeModeAudioManager;->stopRingtone()V
+
+    goto/16 :goto_0
+
+    :pswitch_1
+    const-string v0, "bike_mode"
+
+    invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {}, Lcom/android/incallui/bike/BikeModeUtils;->isBikeCall()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {v3}, Lcom/android/incallui/bike/BikeModeUtils;->setBikeModeCall(Z)V
+
+    iget-object v0, p0, Lcom/android/incallui/bike/BikeModeController;->mBikeModeAudioManager:Lcom/android/incallui/bike/BikeModeAudioManager;
+
+    invoke-virtual {v0}, Lcom/android/incallui/bike/BikeModeAudioManager;->stopRingtone()V
+
+    invoke-static {v4}, Lcom/android/incallui/bike/BikeModeUtils;->setBikeModeCallType(I)V
+
+    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/incallui/CallList;->getActiveOrBackgroundCall()Lcom/android/incallui/Call;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    const-string v1, "BikeModeController"
+
+    const-string v2, "InCallUi: BikeModeCall: rejectCall"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {}, Lcom/android/incallui/TelecomAdapter;->getInstance()Lcom/android/incallui/TelecomAdapter;
+
+    move-result-object v1
+
+    invoke-virtual {v0}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Lcom/android/incallui/TelecomAdapter;->disconnectCall(Ljava/lang/String;)V
+
+    goto/16 :goto_0
 
     :pswitch_data_0
     .packed-switch 0x1

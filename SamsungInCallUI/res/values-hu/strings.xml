@@ -638,7 +638,7 @@ Az IVR hívásképernyő-menüje a Dianhuabang nevű szolgáltató harmadik fél
     <string name="photoring_unblock_toast_2nd">A partner által küldött médiát akkor tölti majd le az eszköz, amikor a partner a legközelebb felhívja Önt</string>
     <string name="please_wait">Megerősítési kód ellenőrzése. Kis türelmet…</string>
     <string name="popup_download_large_wificheck">Letöltés csak Wi-Fi-n</string>
-    <string name="popup_download_large_wlancheck">Download via WLAN only</string>
+    <string name="popup_download_large_wlancheck">Letöltés csak WLAN-on</string>
     <string name="popup_start_record_during_alerting">A hívás kapcsolása után megkezdődik a rögzítés.</string>
     <string name="postalLabelsGroup">Cím</string>
     <string name="postal_city">Város</string>
@@ -822,6 +822,7 @@ kamera"</string>
     <string name="settings_glance_reply_explain_text_vzw">Ujját %d másodpercig a képernyővel lefelé fordított eszköz pulzusérzékelőjén tartva elutasíthatja a bejövő hívást, és előre beállított üzenetet küldhet a hívónak.</string>
     <string name="settings_glance_reply_reached_maximum_text">Elérte a karakterek maximális számát (%d).</string>
     <string name="settings_glance_reply_text">Gyors válaszüzenetek</string>
+    <string name="settings_subappbar_switch_dimmed">Elsötétítve</string>
     <string name="settings_subappbar_switch_off">Ki</string>
     <string name="settings_subappbar_switch_on">Be</string>
     <string name="simple_sharing">Hivatkozásmegosztás</string>
@@ -867,6 +868,7 @@ kamera"</string>
     <string name="swipe_right_to_answer_call_with_video">A hívás videóval történő fogadásához simítson jobbra.</string>
     <string name="swipe_right_to_answer_call_without_video">A hívás videó nélküli fogadásához simítson jobbra.</string>
     <string name="switch_rejected_by_mt">Videohívásra kapcsolás kérése elutasítva.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">A videohívásra kapcsolás kérése sikertelen volt.</string>
     <string name="switch_to_video_call_failed_tmo">A másik fél elutasította a videohívásra kapcsolásra vonatkozó kérést.</string>
     <string name="switch_to_voice_call_failed">A hanghívásra kapcsolás kérése sikertelen volt.</string>

@@ -764,6 +764,7 @@ kaamera"</string>
     <string name="settings_glance_reply_explain_text_vzw">Saate saabuvast kõnest keelduda ja saata helistajale eelseadistatud sõnumi, asetades oma sõrme ümberpööratud seadme korral südame löögisageduse sensorile ja hoides seda seal %d sekundit.</string>
     <string name="settings_glance_reply_reached_maximum_text">Maksimaalne tähemärkide arv (%d) on saavutatud.</string>
     <string name="settings_glance_reply_text">Sõnumitele kiirvastamine</string>
+    <string name="settings_subappbar_switch_dimmed">Tuhm</string>
     <string name="settings_subappbar_switch_off">Väljas</string>
     <string name="settings_subappbar_switch_on">Sees</string>
     <string name="simple_sharing">Lingi jagamine</string>
@@ -809,6 +810,7 @@ kaamera"</string>
     <string name="swipe_right_to_answer_call_with_video">Libistage paremale, et vastata kõnele koos videoga.</string>
     <string name="swipe_right_to_answer_call_without_video">Libistage paremale, et vastata kõnele ilma videota.</string>
     <string name="switch_rejected_by_mt">Taotlusest lülituda videokõnele on keeldutud.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Taotlus lülituda videokõnele nurjus.</string>
     <string name="switch_to_video_call_failed_tmo">Taotlus lülituda videokõnele lükati tagasi.</string>
     <string name="switch_to_voice_call_failed">Taotlus lülituda häälkõnele nurjus.</string>

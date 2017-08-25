@@ -638,7 +638,7 @@ El menú IVR de la pantalla de llamada utiliza contenidos proporcionados por un 
     <string name="photoring_unblock_toast_2nd">El archivo multimedia que envió este contacto se recibirá la próxima vez que lo llamen</string>
     <string name="please_wait">Comprobando código de verificación. Espere…</string>
     <string name="popup_download_large_wificheck">Descargar solo vía Wi-Fi</string>
-    <string name="popup_download_large_wlancheck">Download via WLAN only</string>
+    <string name="popup_download_large_wlancheck">Descargar solo vía WLAN</string>
     <string name="popup_start_record_during_alerting">La grabación comenzará después que se conecte la llamada.</string>
     <string name="postalLabelsGroup">Dirección</string>
     <string name="postal_city">Ciudad</string>
@@ -821,6 +821,7 @@ El menú IVR de la pantalla de llamada utiliza contenidos proporcionados por un 
     <string name="settings_glance_reply_explain_text_vzw">Para rechazar una llamada entrante y enviar un mensaje predefinido a la persona que está llamando, coloque el dedo en el sensor de ritmo cardiaco y manténgalo apoyado allí durante %d segundos cuando el dispositivo esté con la pantalla hacia abajo.</string>
     <string name="settings_glance_reply_reached_maximum_text">Número máximo de caracteres (%d) alcanzado.</string>
     <string name="settings_glance_reply_text">Mensajes respuesta rápida</string>
+    <string name="settings_subappbar_switch_dimmed">Atenuado</string>
     <string name="settings_subappbar_switch_off">Desactivado</string>
     <string name="settings_subappbar_switch_on">Activado</string>
     <string name="simple_sharing">Compartir vínculos</string>
@@ -866,6 +867,7 @@ El menú IVR de la pantalla de llamada utiliza contenidos proporcionados por un 
     <string name="swipe_right_to_answer_call_with_video">Deslice hacia la derecha para responder la llamada con video.</string>
     <string name="swipe_right_to_answer_call_without_video">Deslice hacia la derecha para responder la llamada sin video.</string>
     <string name="switch_rejected_by_mt">Se ha rechazado la solicitud de cambio a videollamada.</string>
+    <string name="switch_rejected_by_mt_att">Esta llamada no puede usar video. La llamada se ha conectado como llamada de voz.</string>
     <string name="switch_to_video_call_failed">No se pudo cambiar a videollamada.</string>
     <string name="switch_to_video_call_failed_tmo">Se ha rechazado la solicitud de cambio a videollamada.</string>
     <string name="switch_to_voice_call_failed">No se pudo cambiar a llamada de voz.</string>

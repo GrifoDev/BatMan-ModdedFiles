@@ -94,28 +94,32 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     sput-boolean v2, Lcom/samsung/android/sdk/ssf/common/util/CommonLog;->SHIP_BUILD:Z
 
     :goto_1
-    sput-boolean v2, Lcom/android/volley/VolleyLog;->DEBUG:Z
-
     sget-boolean v0, Lcom/samsung/android/sdk/ssf/common/util/CommonLog;->ENG_VER:Z
 
     if-nez v0, :cond_0
 
     sget-boolean v0, Lcom/samsung/android/sdk/ssf/common/util/CommonLog;->SHIP_BUILD:Z
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_1
 
+    :cond_0
+    sget-boolean v0, Lcom/samsung/android/sdk/ssf/common/util/CommonLog;->SEC_LOG:Z
+
+    if-nez v0, :cond_3
+
+    :cond_1
     sput-boolean v3, Lcom/samsung/android/sdk/ssf/common/util/CommonLog;->V_FLAG:Z
 
     sput-boolean v3, Lcom/samsung/android/sdk/ssf/common/util/CommonLog;->D_FLAG:Z
 
     sput-boolean v3, Lcom/android/volley/VolleyLog;->DEBUG:Z
 
-    :cond_0
+    :goto_2
     return-void
 
     :catch_0
@@ -125,10 +129,15 @@
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     sput-boolean v3, Lcom/samsung/android/sdk/ssf/common/util/CommonLog;->SHIP_BUILD:Z
 
     goto :goto_1
+
+    :cond_3
+    sput-boolean v2, Lcom/android/volley/VolleyLog;->DEBUG:Z
+
+    goto :goto_2
 .end method
 
 .method public constructor <init>()V

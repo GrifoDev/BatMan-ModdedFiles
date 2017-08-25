@@ -1966,7 +1966,7 @@
 
     aput-object v4, v7, v2
 
-    const v4, 0x7f090363
+    const v4, 0x7f090365
 
     invoke-virtual {p0, v4}, Lcom/android/incallui/service/VideoPipService;->getText(I)Ljava/lang/CharSequence;
 
@@ -1984,7 +1984,7 @@
 
     aput-object v5, v7, v2
 
-    const v5, 0x7f090365
+    const v5, 0x7f090367
 
     invoke-virtual {p0, v5}, Lcom/android/incallui/service/VideoPipService;->getText(I)Ljava/lang/CharSequence;
 
@@ -2008,7 +2008,7 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f090362
+    const v1, 0x7f090364
 
     invoke-virtual {p0, v1}, Lcom/android/incallui/service/VideoPipService;->getText(I)Ljava/lang/CharSequence;
 

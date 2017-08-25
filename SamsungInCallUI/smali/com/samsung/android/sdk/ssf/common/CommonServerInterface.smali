@@ -35,6 +35,8 @@
 
 .field public static final DISPLAY_VAL:Ljava/lang/String; = "display"
 
+.field public static final FILENAME:Ljava/lang/String; = "fname"
+
 .field public static final FILE_TYPE:Ljava/lang/String; = "filetype"
 
 .field public static final FREEMESSAGE:Ljava/lang/String; = "freemessage"
@@ -292,6 +294,8 @@
 .field public static final PRODUCT_MODEL:Ljava/lang/String; = "product_model"
 
 .field public static final SALES_CODE:Ljava/lang/String; = "sales_code"
+
+.field public static final SEARCH_KEY:Ljava/lang/String; = "skey"
 
 .field public static final SEND_PUSH:Ljava/lang/String; = "send_push"
 

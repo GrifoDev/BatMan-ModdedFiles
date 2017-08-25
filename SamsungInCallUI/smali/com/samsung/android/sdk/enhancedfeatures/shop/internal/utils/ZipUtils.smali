@@ -29,7 +29,152 @@
     return-void
 .end method
 
-.method public static final UNZIP(Landroid/content/Context;Ljava/io/File;Ljava/io/File;)Ljava/io/File;
+.method private static createDirectoryIfNeeds(Ljava/io/File;)V
+    .locals 2
+
+    if-nez p0, :cond_0
+
+    new-instance v0, Ljava/io/IOException;
+
+    const-string v1, "Can\'t create directory. The directory is null."
+
+    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_0
+    invoke-virtual {p0}, Ljava/io/File;->exists()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    invoke-virtual {p0}, Ljava/io/File;->mkdirs()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    new-instance v0, Ljava/io/IOException;
+
+    const-string v1, "Can\'t create directory."
+
+    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_1
+    return-void
+.end method
+
+.method private static deleteDirectory(Ljava/io/File;)V
+    .locals 5
+
+    invoke-virtual {p0}, Ljava/io/File;->listFiles()[Ljava/io/File;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_2
+
+    array-length v2, v1
+
+    if-lez v2, :cond_2
+
+    const/4 v0, 0x0
+
+    :goto_0
+    if-ge v0, v2, :cond_2
+
+    aget-object v3, v1, v0
+
+    invoke-virtual {v3}, Ljava/io/File;->isFile()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    aget-object v3, v1, v0
+
+    invoke-virtual {v3}, Ljava/io/File;->delete()Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    const-string v3, "child file delete fail"
+
+    sget-object v4, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/utils/ZipUtils;->TAG:Ljava/lang/String;
+
+    invoke-static {v3, v4}, Lcom/samsung/android/sdk/ssf/shop/util/ShopLog;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
+    :goto_1
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    aget-object v3, v1, v0
+
+    invoke-static {v3}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/utils/ZipUtils;->deleteDirectory(Ljava/io/File;)V
+
+    aget-object v3, v1, v0
+
+    invoke-virtual {v3}, Ljava/io/File;->delete()Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    aget-object v3, v1, v0
+
+    invoke-virtual {v3}, Ljava/io/File;->delete()Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    const-string v3, "child file delete fail"
+
+    sget-object v4, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/utils/ZipUtils;->TAG:Ljava/lang/String;
+
+    invoke-static {v3, v4}, Lcom/samsung/android/sdk/ssf/shop/util/ShopLog;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_1
+
+    :cond_2
+    return-void
+.end method
+
+.method private static throwIOException(Ljava/lang/String;Ljava/lang/Throwable;)V
+    .locals 2
+    .annotation build Landroid/annotation/SuppressLint;
+        value = {
+            "NewApi"
+        }
+    .end annotation
+
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v1, 0x9
+
+    if-gt v0, v1, :cond_0
+
+    new-instance v0, Ljava/io/IOException;
+
+    invoke-direct {v0, p0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_0
+    new-instance v0, Ljava/io/IOException;
+
+    invoke-direct {v0, p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
+
+    throw v0
+.end method
+
+.method public static final unzip(Landroid/content/Context;Ljava/io/File;Ljava/io/File;)Ljava/io/File;
     .locals 11
 
     const/16 v10, 0x400
@@ -152,7 +297,7 @@
     :cond_0
     :goto_1
     :try_start_4
-    const-string v0, "UNZIP is completed"
+    const-string v0, "Unzip is completed"
 
     sget-object v3, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/utils/ZipUtils;->TAG:Ljava/lang/String;
 
@@ -184,7 +329,7 @@
     invoke-virtual {v5}, Ljava/util/zip/ZipFile;->close()V
 
     :cond_2
-    const-string v0, "Finally UNZIP is completed"
+    const-string v0, "Finally unzip is completed"
 
     sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/utils/ZipUtils;->TAG:Ljava/lang/String;
 
@@ -240,7 +385,7 @@
 
     :goto_4
     :try_start_7
-    const-string v3, "UNZIP is completed"
+    const-string v3, "Unzip is completed"
 
     sget-object v4, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/utils/ZipUtils;->TAG:Ljava/lang/String;
 
@@ -259,7 +404,7 @@
     invoke-virtual {v5}, Ljava/util/zip/ZipFile;->close()V
 
     :cond_4
-    const-string v1, "Finally UNZIP is completed"
+    const-string v1, "Finally unzip is completed"
 
     sget-object v2, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/utils/ZipUtils;->TAG:Ljava/lang/String;
 
@@ -370,7 +515,7 @@
     invoke-virtual {v5}, Ljava/util/zip/ZipFile;->close()V
 
     :cond_d
-    const-string v0, "Finally UNZIP is completed"
+    const-string v0, "Finally unzip is completed"
 
     sget-object v2, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/utils/ZipUtils;->TAG:Ljava/lang/String;
 
@@ -411,7 +556,7 @@
     goto :goto_5
 .end method
 
-.method public static final ZIP(Landroid/content/Context;[Ljava/io/File;Ljava/io/File;)Landroid/net/Uri;
+.method public static final zip(Landroid/content/Context;[Ljava/io/File;Ljava/io/File;)Landroid/net/Uri;
     .locals 12
 
     const/4 v1, 0x0
@@ -572,18 +717,10 @@
 
     :cond_2
     throw v0
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
     :cond_3
-    :try_start_6
-    invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
-    :try_end_6
-    .catchall {:try_start_6 .. :try_end_6} :catchall_1
-
     if-eqz v1, :cond_4
 
-    :try_start_7
     invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
 
     :cond_4
@@ -618,8 +755,8 @@
     move-result-object v2
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_7
-    .catchall {:try_start_7 .. :try_end_7} :catchall_0
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
     add-int/lit8 v0, v0, 0x1
 
@@ -690,149 +827,4 @@
     move-object v1, v2
 
     goto :goto_3
-.end method
-
-.method private static createDirectoryIfNeeds(Ljava/io/File;)V
-    .locals 2
-
-    if-nez p0, :cond_0
-
-    new-instance v0, Ljava/io/IOException;
-
-    const-string v1, "Can\'t create directory. The directory is null."
-
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_0
-    invoke-virtual {p0}, Ljava/io/File;->exists()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    invoke-virtual {p0}, Ljava/io/File;->mkdirs()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    new-instance v0, Ljava/io/IOException;
-
-    const-string v1, "Can\'t create directory."
-
-    invoke-direct {v0, v1}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_1
-    return-void
-.end method
-
-.method private static deleteDirectory(Ljava/io/File;)V
-    .locals 5
-
-    invoke-virtual {p0}, Ljava/io/File;->listFiles()[Ljava/io/File;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_2
-
-    array-length v2, v1
-
-    if-lez v2, :cond_2
-
-    const/4 v0, 0x0
-
-    :goto_0
-    if-ge v0, v2, :cond_2
-
-    aget-object v3, v1, v0
-
-    invoke-virtual {v3}, Ljava/io/File;->isFile()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    aget-object v3, v1, v0
-
-    invoke-virtual {v3}, Ljava/io/File;->delete()Z
-
-    move-result v3
-
-    if-nez v3, :cond_0
-
-    const-string v3, "child file delete fail"
-
-    sget-object v4, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/utils/ZipUtils;->TAG:Ljava/lang/String;
-
-    invoke-static {v3, v4}, Lcom/samsung/android/sdk/ssf/shop/util/ShopLog;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    :cond_0
-    :goto_1
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    aget-object v3, v1, v0
-
-    invoke-static {v3}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/utils/ZipUtils;->deleteDirectory(Ljava/io/File;)V
-
-    aget-object v3, v1, v0
-
-    invoke-virtual {v3}, Ljava/io/File;->delete()Z
-
-    move-result v3
-
-    if-nez v3, :cond_0
-
-    aget-object v3, v1, v0
-
-    invoke-virtual {v3}, Ljava/io/File;->delete()Z
-
-    move-result v3
-
-    if-nez v3, :cond_0
-
-    const-string v3, "child file delete fail"
-
-    sget-object v4, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/utils/ZipUtils;->TAG:Ljava/lang/String;
-
-    invoke-static {v3, v4}, Lcom/samsung/android/sdk/ssf/shop/util/ShopLog;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_1
-
-    :cond_2
-    return-void
-.end method
-
-.method private static throwIOException(Ljava/lang/String;Ljava/lang/Throwable;)V
-    .locals 2
-    .annotation build Landroid/annotation/SuppressLint;
-        value = {
-            "NewApi"
-        }
-    .end annotation
-
-    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v1, 0x9
-
-    if-gt v0, v1, :cond_0
-
-    new-instance v0, Ljava/io/IOException;
-
-    invoke-direct {v0, p0}, Ljava/io/IOException;-><init>(Ljava/lang/String;)V
-
-    throw v0
-
-    :cond_0
-    new-instance v0, Ljava/io/IOException;
-
-    invoke-direct {v0, p0, p1}, Ljava/io/IOException;-><init>(Ljava/lang/String;Ljava/lang/Throwable;)V
-
-    throw v0
 .end method

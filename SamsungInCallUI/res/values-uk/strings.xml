@@ -823,6 +823,7 @@
     <string name="settings_glance_reply_explain_text_vzw">Відхилити вхідний виклик та надіслати шаблонне повідомлення абоненту, що здійснює виклик, натиснувши на сенсор ЧCC і утримуючи палець протягом %d секунд за перевернутого пристрою.</string>
     <string name="settings_glance_reply_reached_maximum_text">Досягнуто максимальної кількості символів: %d.</string>
     <string name="settings_glance_reply_text">«Швидкі відповіді»</string>
+    <string name="settings_subappbar_switch_dimmed">Затемнений</string>
     <string name="settings_subappbar_switch_off">Вимкнено</string>
     <string name="settings_subappbar_switch_on">Увімкнено</string>
     <string name="simple_sharing">Обмін посиланнями</string>
@@ -868,6 +869,7 @@
     <string name="swipe_right_to_answer_call_with_video">Проведіть вправо, щоб відповісти на виклик з відео.</string>
     <string name="swipe_right_to_answer_call_without_video">Проведіть вправо, щоб відповісти на виклик без відео.</string>
     <string name="switch_rejected_by_mt">Запит на переключення в режим відеовиклику відхилено.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Не вдалося надіслати запит на переключення в режим відеовиклику.</string>
     <string name="switch_to_video_call_failed_tmo">Запит на переключення до режиму відеовиклику відхилено.</string>
     <string name="switch_to_voice_call_failed">Не вдалося надіслати запит на переключення в режим голосового виклику.</string>

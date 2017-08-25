@@ -314,6 +314,8 @@
     invoke-virtual {v0, v1}, Lcom/android/incallui/VideoBanner;->controlModifyReceiveTimer(I)V
 
     :cond_1
+    invoke-virtual {p0}, Lcom/android/incallui/VideoCallPresenter;->checkForResolutionChange()V
+
     invoke-virtual {p0}, Lcom/android/incallui/VideoCallPresenter;->checkForCallStateChange()V
 
     iget-object v0, p0, Lcom/android/incallui/VideoCallPresenter;->mPrimaryCall:Lcom/android/incallui/Call;
@@ -704,6 +706,53 @@
     invoke-virtual {p0, v0, v1}, Lcom/android/incallui/VideoCallPresenter;->onCallStateChange(II)V
 
     :cond_1
+    return-void
+.end method
+
+.method public checkForResolutionChange()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/incallui/VideoCallPresenter;->mPrimaryCall:Lcom/android/incallui/Call;
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/incallui/VideoCallPresenter;->mPrimaryVideoContext:Lcom/android/incallui/VideoContext;
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/incallui/VideoCallPresenter;->mPrimaryCall:Lcom/android/incallui/Call;
+
+    invoke-static {v0}, Lcom/android/incallui/util/VideoCallUtils;->isQCIF(Lcom/android/incallui/Call;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/incallui/VideoCallPresenter;->mPrimaryVideoContext:Lcom/android/incallui/VideoContext;
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/incallui/VideoCallPresenter;->mPrimaryVideoContext:Lcom/android/incallui/VideoContext;
+
+    iget-object v1, p0, Lcom/android/incallui/VideoCallPresenter;->mPrimaryCall:Lcom/android/incallui/Call;
+
+    invoke-virtual {v0, v1}, Lcom/android/incallui/VideoContext;->isVideoResolutionChanged(Lcom/android/incallui/Call;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/incallui/VideoCallPresenter;->mPrimaryCall:Lcom/android/incallui/Call;
+
+    invoke-virtual {v0}, Lcom/android/incallui/Call;->getState()I
+
+    move-result v0
+
+    invoke-static {v0}, Lcom/android/incallui/util/VideoCallUtils;->notifyQualityInfo(I)V
+
+    :cond_2
     return-void
 .end method
 
@@ -1930,7 +1979,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a02ec
+    const v1, 0x7f0a02e8
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 

@@ -276,7 +276,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a008e
+    const v2, 0x7f0a008b
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -471,7 +471,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0a008e
+    const v5, 0x7f0a008b
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -815,7 +815,7 @@
 .method private onViewCreated(Lcom/android/incallui/fragment/VoiceCallCardFragment;Landroid/view/View;)V
     .locals 5
 
-    const v4, 0x7f0a008d
+    const v4, 0x7f0a008a
 
     const/4 v3, 0x1
 
@@ -1567,7 +1567,7 @@
 
     move-result-object v1
 
-    const v7, 0x7f0a031b
+    const v7, 0x7f0a0317
 
     invoke-virtual {v1, v7}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1645,7 +1645,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f09034c
+    const v3, 0x7f09034d
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1771,7 +1771,7 @@
 
     move-result-object v0
 
-    const v7, 0x7f09034e
+    const v7, 0x7f09034f
 
     invoke-virtual {v0, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1950,7 +1950,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a0089
+    const v4, 0x7f0a0086
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2391,7 +2391,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a031b
+    const v2, 0x7f0a0317
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2483,7 +2483,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a008e
+    const v2, 0x7f0a008b
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2642,7 +2642,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0a0089
+    const v6, 0x7f0a0086
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -4253,7 +4253,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->mSmartCallStatusText:Landroid/widget/TextView;
 
-    const v3, 0x7f090339
+    const v3, 0x7f09033a
 
     invoke-virtual {p2, v3}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->getString(I)Ljava/lang/String;
 

@@ -59,7 +59,7 @@
 
     if-eqz v0, :cond_0
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_6
 
     invoke-virtual {v3}, Lcom/android/incallui/Call;->getState()I
 
@@ -67,7 +67,7 @@
 
     const/16 v4, 0x8
 
-    if-ne v0, v4, :cond_5
+    if-ne v0, v4, :cond_6
 
     move v0, v1
 
@@ -78,7 +78,7 @@
 
     move-result-object v4
 
-    if-nez v0, :cond_6
+    if-nez v0, :cond_7
 
     :goto_1
     invoke-interface {v4, v1}, Lcom/android/incallui/CallButtonUi;->enableDialpadButton(Z)V
@@ -166,14 +166,31 @@
     invoke-interface {v0}, Lcom/android/incallui/AgifPresenter$AgifUi;->updateAgifButtons()V
 
     :cond_4
-    return-void
+    iget-object v0, p0, Lcom/android/incallui/InCallActivity$1;->this$0:Lcom/android/incallui/InCallActivity;
+
+    invoke-virtual {v0}, Lcom/android/incallui/InCallActivity;->getCallCardFragment()Lcom/android/incallui/CallCardUi;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_5
+
+    iget-object v0, p0, Lcom/android/incallui/InCallActivity$1;->this$0:Lcom/android/incallui/InCallActivity;
+
+    invoke-virtual {v0}, Lcom/android/incallui/InCallActivity;->getCallCardFragment()Lcom/android/incallui/CallCardUi;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Lcom/android/incallui/CallCardUi;->updateAgifImage()V
 
     :cond_5
+    return-void
+
+    :cond_6
     move v0, v2
 
     goto :goto_0
 
-    :cond_6
+    :cond_7
     move v1, v2
 
     goto :goto_1

@@ -11,7 +11,13 @@
 
 .field protected static final CONTACT_START:I = 0x7530
 
+.field protected static final ERROR_START:I = 0x15f90
+
 .field protected static final FILE_START:I = 0x9c40
+
+.field public static final INVALID_HEADER_DATA:I = 0x15f91
+
+.field public static final INVALID_PARAMETER:I = 0x15f92
 
 .field protected static final MESSAGE_START:I = 0xea60
 
@@ -49,7 +55,7 @@
 
 .field public static final SUCCEEDED_PARTIALLY:I = 0x2711
 
-.field private static final SUCCEEDED_START:I = 0x2710
+.field protected static final SUCCEEDED_START:I = 0x2710
 
 
 # direct methods

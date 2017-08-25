@@ -47,9 +47,9 @@
 .method private arrangeRichScreenInfoView(Landroid/view/View;)V
     .locals 9
 
-    const v8, 0x7f0a0126
+    const v8, 0x7f0a0123
 
-    const v7, 0x7f0a060a
+    const v7, 0x7f0a0609
 
     const/4 v2, 0x0
 
@@ -67,7 +67,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a01dc
+    const v1, 0x7f0a01d8
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -127,7 +127,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0a04ea
+    const v3, 0x7f0a04e9
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -141,7 +141,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0a04eb
+    const v3, 0x7f0a04ea
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -182,7 +182,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0608
+    const v1, 0x7f0a0607
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -210,7 +210,7 @@
 
     move-result-object v1
 
-    const v5, 0x7f0a04ec
+    const v5, 0x7f0a04eb
 
     invoke-virtual {v1, v5}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -336,7 +336,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0603
+    const v1, 0x7f0a0602
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 

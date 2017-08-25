@@ -2362,7 +2362,7 @@
     move-result-object v0
 
     :goto_2
-    const v1, 0x7f09063d
+    const v1, 0x7f09063f
 
     iget-object v2, p0, Lcom/android/incallui/InCallActivity;->mSelectAcctListener:Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment$SelectPhoneAccountListener;
 
@@ -4598,7 +4598,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/InCallActivity;->confirmDialogBuilder:Landroid/app/AlertDialog$Builder;
 
-    const v1, 0x7f09052c
+    const v1, 0x7f09052e
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -6600,7 +6600,7 @@
     goto :goto_0
 
     :pswitch_4
-    const v0, 0x7f090622
+    const v0, 0x7f090624
 
     invoke-static {p0, v0, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -6611,7 +6611,7 @@
     goto :goto_0
 
     :pswitch_5
-    const v0, 0x7f090623
+    const v0, 0x7f090625
 
     invoke-static {p0, v0, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -6666,7 +6666,7 @@
     goto :goto_0
 
     :pswitch_a
-    const v0, 0x7f090621
+    const v0, 0x7f090623
 
     invoke-static {p0, v0, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -8659,7 +8659,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a02ff
+    const v1, 0x7f0a02fb
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -11083,9 +11083,9 @@
 
     move-result v0
 
-    if-nez v0, :cond_1d
+    if-nez v0, :cond_1c
 
-    if-nez v3, :cond_1d
+    if-nez v3, :cond_1c
 
     :cond_5
     move v0, v1
@@ -11161,27 +11161,20 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1e
+    if-eqz v0, :cond_1d
 
     move v3, v1
 
     :goto_1
-    if-nez v3, :cond_a
+    if-eqz v3, :cond_1e
 
-    invoke-static {}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->isAutoAnswered()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1f
-
-    :cond_a
     iget-object v0, p0, Lcom/android/incallui/InCallActivity;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v0, v9}, Landroid/os/Handler;->hasMessages(I)Z
 
     move-result v0
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_a
 
     iget-object v0, p0, Lcom/android/incallui/InCallActivity;->mHandler:Landroid/os/Handler;
 
@@ -11189,14 +11182,14 @@
 
     invoke-virtual {v0, v9, v6, v7}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    :cond_b
+    :cond_a
     iget-object v0, p0, Lcom/android/incallui/InCallActivity;->mHandler:Landroid/os/Handler;
 
     invoke-virtual {v0, v10}, Landroid/os/Handler;->hasMessages(I)Z
 
     move-result v0
 
-    if-nez v0, :cond_c
+    if-nez v0, :cond_b
 
     iget-object v0, p0, Lcom/android/incallui/InCallActivity;->mHandler:Landroid/os/Handler;
 
@@ -11204,7 +11197,7 @@
 
     invoke-virtual {v0, v10, v6, v7}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    :cond_c
+    :cond_b
     invoke-virtual {p0, v1}, Lcom/android/incallui/InCallActivity;->updateAppSwitchSystemKeyEvent(Z)V
 
     invoke-virtual {p0, v2}, Lcom/android/incallui/InCallActivity;->setStatusBar(Z)V
@@ -11214,15 +11207,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_22
+    if-eqz v0, :cond_21
 
-    :cond_d
+    :cond_c
     :goto_3
     invoke-static {}, Lcom/android/incallui/InCallUISystemDB;->isKidsModeCallApp()Z
 
     move-result v0
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_d
 
     invoke-virtual {p0, v8, v1}, Lcom/android/incallui/InCallActivity;->requestSystemKeyEvent(IZ)Z
 
@@ -11230,7 +11223,7 @@
 
     invoke-static {p0, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    :cond_e
+    :cond_d
     const-string v0, "true"
 
     const-string v4, "ril.domesticOtaStart"
@@ -11243,7 +11236,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_e
 
     const-string v0, "domesticOtaStart - Disable home key"
 
@@ -11255,16 +11248,16 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/android/incallui/InCallActivity;->requestSystemKeyEvent(IZ)Z
 
-    :cond_f
+    :cond_e
     iget v0, p0, Lcom/android/incallui/InCallActivity;->mShowDialpadRequest:I
 
-    if-eq v0, v1, :cond_11
+    if-eq v0, v1, :cond_10
 
     iget v0, p0, Lcom/android/incallui/InCallActivity;->mShowDialpadRequest:I
 
     const/4 v4, 0x2
 
-    if-ne v0, v4, :cond_23
+    if-ne v0, v4, :cond_22
 
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
@@ -11282,7 +11275,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_f
 
     invoke-virtual {p0}, Lcom/android/incallui/InCallActivity;->getDialpadFragment()Lcom/android/incallui/DialpadUi;
 
@@ -11292,18 +11285,18 @@
 
     invoke-interface {v0, v4}, Lcom/android/incallui/DialpadUi;->setDtmfText(Ljava/lang/String;)V
 
-    :cond_10
+    :cond_f
     :goto_4
     iput v1, p0, Lcom/android/incallui/InCallActivity;->mShowDialpadRequest:I
 
-    :cond_11
+    :cond_10
     const-string v0, "ims_rcs"
 
     invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_13
+    if-eqz v0, :cond_12
 
     const-string v0, "RcsShareUI.registerRcsObservers"
 
@@ -11325,7 +11318,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_11
 
     invoke-virtual {v0}, Landroid/view/Window;->getDecorView()Landroid/view/View;
 
@@ -11337,7 +11330,7 @@
 
     invoke-virtual {v0, v4}, Landroid/view/View;->post(Ljava/lang/Runnable;)Z
 
-    :cond_12
+    :cond_11
     new-instance v0, Landroid/content/Intent;
 
     const-string v4, "com.samsung.rcs.framework.mediatransfer.contentshare.notification.PHONE_ACTIVE"
@@ -11402,9 +11395,9 @@
 
     invoke-static {p0, v5, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Z)V
 
-    if-nez v3, :cond_13
+    if-nez v3, :cond_12
 
-    if-eqz v4, :cond_13
+    if-eqz v4, :cond_12
 
     const-string v4, " RcsShareUI resumeShare called"
 
@@ -11424,10 +11417,10 @@
 
     invoke-virtual {v4, v5, v0}, Lcom/android/incallui/secrcs/RcsShareUI;->resumeShare(Landroid/content/Context;Lcom/android/incallui/Call;)V
 
-    :cond_13
+    :cond_12
     iget-boolean v0, p0, Lcom/android/incallui/InCallActivity;->mShowPostCharWaitDialogOnResume:Z
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_13
 
     iget-object v0, p0, Lcom/android/incallui/InCallActivity;->mShowPostCharWaitDialogCallId:Ljava/lang/String;
 
@@ -11435,20 +11428,20 @@
 
     invoke-virtual {p0, v0, v4}, Lcom/android/incallui/InCallActivity;->showPostCharWaitDialog(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_14
+    :cond_13
     const-string v0, "vzw_volte_ui"
 
     invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_14
 
     invoke-static {}, Lcom/android/incallui/InCallUISystemDB;->getTtyNotification()Z
 
     move-result v0
 
-    if-eqz v0, :cond_15
+    if-eqz v0, :cond_14
 
     const-string v0, "display tty notification!"
 
@@ -11456,58 +11449,58 @@
 
     invoke-virtual {p0, v1}, Lcom/android/incallui/InCallActivity;->onTtyNotification(Z)V
 
-    :cond_15
+    :cond_14
     invoke-static {}, Lcom/android/incallui/InCallUISystemDB;->needToUseLockScreenDuringCall()Z
 
     move-result v0
 
-    if-eqz v0, :cond_16
+    if-eqz v0, :cond_15
 
-    invoke-virtual {p0}, Lcom/android/incallui/InCallActivity;->sendLockScreenEvent()V
+    invoke-virtual {p0, v1}, Lcom/android/incallui/InCallActivity;->sendLockScreenEvent(Z)V
 
-    :cond_16
+    :cond_15
     const-string v0, "support_tphone"
 
     invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_16
 
     invoke-static {}, Lcom/android/incallui/InCallUISystemDB;->isTPhoneMode()Z
 
     move-result v0
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_16
 
     invoke-static {}, Lcom/android/incallui/util/CallTypeUtils;->isVideoCall()Z
 
     move-result v0
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_16
 
     invoke-virtual {p0}, Lcom/android/incallui/InCallActivity;->isInMultiWindowMode()Z
 
     move-result v0
 
-    if-eqz v0, :cond_17
+    if-eqz v0, :cond_16
 
     invoke-virtual {p0}, Lcom/android/incallui/InCallActivity;->returnToNormalWindowMode()V
 
-    :cond_17
+    :cond_16
     iget-object v0, p0, Lcom/android/incallui/InCallActivity;->mScreenOffReceiver:Landroid/content/BroadcastReceiver;
 
-    if-eqz v0, :cond_18
+    if-eqz v0, :cond_17
 
     iget-boolean v0, p0, Lcom/android/incallui/InCallActivity;->mScreenOffRegistered:Z
 
-    if-eqz v0, :cond_24
+    if-eqz v0, :cond_23
 
     invoke-virtual {p0}, Lcom/android/incallui/InCallActivity;->isInMultiWindowMode()Z
 
     move-result v0
 
-    if-nez v0, :cond_18
+    if-nez v0, :cond_17
 
     :try_start_0
     iget-object v0, p0, Lcom/android/incallui/InCallActivity;->mScreenOffReceiver:Landroid/content/BroadcastReceiver;
@@ -11523,7 +11516,7 @@
 
     invoke-static {p0, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    :cond_18
+    :cond_17
     :goto_6
     invoke-virtual {p0}, Lcom/android/incallui/InCallActivity;->getResources()Landroid/content/res/Resources;
 
@@ -11533,13 +11526,13 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_19
+    if-eqz v4, :cond_18
 
     iget v0, v4, Landroid/content/res/Configuration;->smallestScreenWidthDp:I
 
     sget v5, Lcom/android/incallui/InCallActivity;->TABLET_SMALL_WIDTH_VALUE:I
 
-    if-lt v0, v5, :cond_25
+    if-lt v0, v5, :cond_24
 
     move v0, v1
 
@@ -11554,14 +11547,14 @@
 
     iput-boolean v0, p0, Lcom/android/incallui/InCallActivity;->mIsMultiWindowUX:Z
 
-    :cond_19
+    :cond_18
     const-string v0, "support_bixby"
 
     invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1a
+    if-eqz v0, :cond_19
 
     invoke-static {}, Lcom/samsung/android/sdk/bixby/a;->a()Lcom/samsung/android/sdk/bixby/a;
 
@@ -11573,10 +11566,10 @@
 
     invoke-virtual {v0, v4}, Lcom/samsung/android/sdk/bixby/a;->a(Lcom/samsung/android/sdk/bixby/a$d;)V
 
-    :cond_1a
+    :cond_19
     iget-boolean v0, p0, Lcom/android/incallui/InCallActivity;->mNeedToInitialize:Z
 
-    if-eqz v0, :cond_1c
+    if-eqz v0, :cond_1b
 
     iget-object v0, p0, Lcom/android/incallui/InCallActivity;->mHandler:Landroid/os/Handler;
 
@@ -11586,7 +11579,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_1c
+    if-nez v0, :cond_1b
 
     invoke-virtual {p0}, Lcom/android/incallui/InCallActivity;->updateGradientColor()V
 
@@ -11596,19 +11589,19 @@
 
     move-result v4
 
-    if-nez v4, :cond_1b
+    if-nez v4, :cond_1a
 
     invoke-virtual {p0}, Lcom/android/incallui/InCallActivity;->isInMultiWindowMode()Z
 
     move-result v4
 
-    if-nez v4, :cond_1b
+    if-nez v4, :cond_1a
 
     iget-boolean v4, p0, Lcom/android/incallui/InCallActivity;->mIsFromPopup:Z
 
-    if-eqz v4, :cond_26
+    if-eqz v4, :cond_25
 
-    :cond_1b
+    :cond_1a
     :goto_8
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -11644,7 +11637,7 @@
 
     invoke-virtual {v0, v3, v4, v5}, Landroid/os/Handler;->sendEmptyMessageDelayed(IJ)Z
 
-    :cond_1c
+    :cond_1b
     invoke-virtual {p0}, Lcom/android/incallui/InCallActivity;->updateGradientBackground()V
 
     const-string v0, "VerificationLog"
@@ -11659,41 +11652,41 @@
 
     return-void
 
-    :cond_1d
+    :cond_1c
     move v0, v2
 
     goto/16 :goto_0
 
-    :cond_1e
+    :cond_1d
     move v3, v2
 
     goto/16 :goto_1
 
-    :cond_1f
+    :cond_1e
     invoke-static {}, Lcom/android/incallui/InCallUISystemDB;->isLostPhoneLock()Z
 
     move-result v0
 
-    if-nez v0, :cond_20
+    if-nez v0, :cond_1f
 
     invoke-static {}, Lcom/android/incallui/util/PhoneModeUtils;->isOtaMode()Z
 
     move-result v0
 
-    if-eqz v0, :cond_21
+    if-eqz v0, :cond_20
 
-    :cond_20
+    :cond_1f
     invoke-virtual {p0, v2}, Lcom/android/incallui/InCallActivity;->setStatusBar(Z)V
 
     goto/16 :goto_2
 
-    :cond_21
+    :cond_20
     invoke-virtual {p0, v1}, Lcom/android/incallui/InCallActivity;->setStatusBar(Z)V
 
     goto/16 :goto_2
 
-    :cond_22
-    if-eqz v4, :cond_d
+    :cond_21
+    if-eqz v4, :cond_c
 
     invoke-virtual {v4}, Lcom/android/incallui/Call;->getState()I
 
@@ -11703,7 +11696,7 @@
 
     goto/16 :goto_3
 
-    :cond_23
+    :cond_22
     const-string v0, "onResume : force hide dialpad"
 
     invoke-static {p0, v0}, Lcom/android/incallui/Log;->v(Ljava/lang/Object;Ljava/lang/String;)V
@@ -11712,18 +11705,18 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_10
+    if-eqz v0, :cond_f
 
     invoke-virtual {p0, v2, v2}, Lcom/android/incallui/InCallActivity;->displayDialpad(ZZ)V
 
     goto/16 :goto_4
 
-    :cond_24
+    :cond_23
     invoke-virtual {p0}, Lcom/android/incallui/InCallActivity;->isInMultiWindowMode()Z
 
     move-result v0
 
-    if-eqz v0, :cond_18
+    if-eqz v0, :cond_17
 
     new-instance v0, Landroid/content/IntentFilter;
 
@@ -11749,19 +11742,19 @@
 
     goto/16 :goto_6
 
-    :cond_25
+    :cond_24
     move v0, v2
 
     goto/16 :goto_7
 
-    :cond_26
-    if-eqz v3, :cond_27
+    :cond_25
+    if-eqz v3, :cond_26
 
     invoke-static {}, Lcom/android/incallui/util/SystemServiceUtils;->isScreenOn()Z
 
     move-result v2
 
-    if-nez v2, :cond_27
+    if-nez v2, :cond_26
 
     const/16 v2, 0x1f4
 
@@ -11772,7 +11765,7 @@
 
     goto/16 :goto_5
 
-    :cond_27
+    :cond_26
     move v2, v0
 
     goto/16 :goto_8
@@ -12187,13 +12180,13 @@
 
     invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f090678
+    const v1, 0x7f09067a
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f090366
+    const v1, 0x7f090368
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -13359,7 +13352,7 @@
 
     invoke-virtual {v1, v0}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    const v0, 0x7f0903ad
+    const v0, 0x7f0903af
 
     invoke-virtual {v1, v0}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -13397,7 +13390,7 @@
 .method public showDataChargeAlertToast()V
     .locals 2
 
-    const v0, 0x7f090373
+    const v0, 0x7f090375
 
     const/4 v1, 0x1
 
@@ -13702,7 +13695,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    const v2, 0x7f090377
+    const v2, 0x7f090379
 
     invoke-virtual {p0, v2}, Lcom/android/incallui/InCallActivity;->getString(I)Ljava/lang/String;
 
@@ -15090,8 +15083,16 @@
 
     move-result v2
 
-    if-nez v2, :cond_4
+    if-eqz v2, :cond_5
 
+    :cond_4
+    invoke-static {}, Lcom/android/incallui/operator/dcm/AnswerMemoUtils;->isAutoAnswered()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_6
+
+    :cond_5
     invoke-virtual {p0}, Lcom/android/incallui/InCallActivity;->getWindow()Landroid/view/Window;
 
     move-result-object v2
@@ -15131,7 +15132,7 @@
 
     goto :goto_2
 
-    :cond_4
+    :cond_6
     invoke-virtual {p0}, Lcom/android/incallui/InCallActivity;->getWindow()Landroid/view/Window;
 
     move-result-object v2
@@ -15169,7 +15170,7 @@
     .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_2
     .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_1} :catch_3
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :catch_2
     move-exception v0

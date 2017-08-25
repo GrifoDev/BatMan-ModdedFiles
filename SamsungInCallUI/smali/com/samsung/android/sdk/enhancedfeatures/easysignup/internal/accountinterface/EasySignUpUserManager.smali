@@ -562,64 +562,14 @@
     return-void
 .end method
 
-.method public updateUser(Ljava/lang/String;[Lcom/samsung/android/sdk/ssf/account/io/PushInfo;ILcom/samsung/android/sdk/ssf/SsfListener;)V
+.method public updateUser(Ljava/lang/String;[Lcom/samsung/android/sdk/ssf/account/io/PushInfo;Lcom/samsung/android/sdk/ssf/account/io/PackageInfo;ILcom/samsung/android/sdk/ssf/SsfListener;)V
     .locals 2
 
     new-instance v0, Lcom/samsung/android/sdk/ssf/account/io/UpdateReqInfo;
 
     invoke-direct {v0, p2}, Lcom/samsung/android/sdk/ssf/account/io/UpdateReqInfo;-><init>([Lcom/samsung/android/sdk/ssf/account/io/PushInfo;)V
 
-    invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->getPackageInfo()Lcom/samsung/android/sdk/ssf/account/io/PackageInfo;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/ssf/account/io/UpdateReqInfo;->setPkg(Lcom/samsung/android/sdk/ssf/account/io/PackageInfo;)V
-
-    invoke-static {p1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->getSsfClient(Ljava/lang/String;)Lcom/samsung/android/sdk/ssf/SsfClient;
-
-    move-result-object v1
-
-    invoke-static {v1, v0, p3, p4}, Lcom/samsung/android/sdk/ssf/account/UserManager;->update(Lcom/samsung/android/sdk/ssf/SsfClient;Lcom/samsung/android/sdk/ssf/account/io/UpdateReqInfo;ILcom/samsung/android/sdk/ssf/SsfListener;)Z
-
-    move-result v0
-
-    iput-boolean v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/accountinterface/EasySignUpUserManager;->isSuccess:Z
-
-    new-instance v0, Ljava/lang/StringBuilder;
-
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v1, "updateUser:"
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    iget-boolean v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/accountinterface/EasySignUpUserManager;->isSuccess:Z
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/accountinterface/EasySignUpUserManager;->TAG:Ljava/lang/String;
-
-    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->i(Ljava/lang/String;Ljava/lang/String;)V
-
-    return-void
-.end method
-
-.method public updateUser(Ljava/lang/String;[Lcom/samsung/android/sdk/ssf/account/io/PushInfo;[IILcom/samsung/android/sdk/ssf/SsfListener;)V
-    .locals 2
-
-    new-instance v0, Lcom/samsung/android/sdk/ssf/account/io/UpdateReqInfo;
-
-    invoke-direct {v0, p2}, Lcom/samsung/android/sdk/ssf/account/io/UpdateReqInfo;-><init>([Lcom/samsung/android/sdk/ssf/account/io/PushInfo;)V
-
-    invoke-virtual {v0, p3}, Lcom/samsung/android/sdk/ssf/account/io/UpdateReqInfo;->putSidsArray([I)V
+    invoke-virtual {v0, p3}, Lcom/samsung/android/sdk/ssf/account/io/UpdateReqInfo;->setPkg(Lcom/samsung/android/sdk/ssf/account/io/PackageInfo;)V
 
     invoke-static {p1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->getSsfClient(Ljava/lang/String;)Lcom/samsung/android/sdk/ssf/SsfClient;
 

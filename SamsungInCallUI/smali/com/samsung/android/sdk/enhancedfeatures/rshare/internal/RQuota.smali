@@ -207,21 +207,27 @@
 
     move-result-wide v2
 
-    new-instance v1, Landroid/text/format/Time;
+    invoke-static {}, Ljava/util/TimeZone;->getDefault()Ljava/util/TimeZone;
 
-    invoke-static {}, Landroid/text/format/Time;->getCurrentTimezone()Ljava/lang/String;
+    move-result-object v1
 
-    move-result-object v4
-
-    invoke-direct {v1, v4}, Landroid/text/format/Time;-><init>(Ljava/lang/String;)V
-
-    iget-wide v4, v1, Landroid/text/format/Time;->gmtoff:J
-
-    invoke-static {v2, v3, v4, v5}, Landroid/text/format/Time;->getJulianDay(JJ)I
+    invoke-virtual {v1}, Ljava/util/TimeZone;->getRawOffset()I
 
     move-result v1
 
-    int-to-long v2, v1
+    int-to-long v4, v1
+
+    add-long/2addr v2, v4
+
+    sget-object v1, Ljava/util/concurrent/TimeUnit;->DAYS:Ljava/util/concurrent/TimeUnit;
+
+    const-wide/16 v4, 0x1
+
+    invoke-virtual {v1, v4, v5}, Ljava/util/concurrent/TimeUnit;->toMillis(J)J
+
+    move-result-wide v4
+
+    div-long/2addr v2, v4
 
     if-nez p0, :cond_0
 

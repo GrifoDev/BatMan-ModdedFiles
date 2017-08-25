@@ -638,7 +638,7 @@ El menú de la pantalla de trucades d’IVR utilitza el contingut proporcionat p
     <string name="photoring_unblock_toast_2nd">Els elements multimèdia que enviï aquest contacte es rebran el proper cop que el truqui</string>
     <string name="please_wait">Comprovant codi de verificació. Esperi…</string>
     <string name="popup_download_large_wificheck">Descarregar només amb Wi-Fi</string>
-    <string name="popup_download_large_wlancheck">Download via WLAN only</string>
+    <string name="popup_download_large_wlancheck">Descarregar només mitjançant WLAN</string>
     <string name="popup_start_record_during_alerting">El registre començarà després de connectar la trucada.</string>
     <string name="postalLabelsGroup">Adreça</string>
     <string name="postal_city">Ciutat</string>
@@ -822,6 +822,7 @@ unidirecc"</string>
     <string name="settings_glance_reply_explain_text_vzw">"Rebutgi una trucada d'entrada i enviï un missatge predefinit a la persona que truca col·locant el dit al sensor de ritme cardíac i mantenir-lo durant %d segons mentre el dispositiu estigui girat."</string>
     <string name="settings_glance_reply_reached_maximum_text">"S'ha assolit el nombre màxim de caràcters (%d)"</string>
     <string name="settings_glance_reply_text">Missatges Resposta ràpida</string>
+    <string name="settings_subappbar_switch_dimmed">Atenuat</string>
     <string name="settings_subappbar_switch_off">Desactivat</string>
     <string name="settings_subappbar_switch_on">Activat</string>
     <string name="simple_sharing">Compartir enllaços</string>
@@ -867,6 +868,7 @@ unidirecc"</string>
     <string name="swipe_right_to_answer_call_with_video">"Desplaci's cap a la dreta per respondre la trucada amb vídeo."</string>
     <string name="swipe_right_to_answer_call_without_video">"Desplaci's cap a la dreta per respondre la trucada sense vídeo."</string>
     <string name="switch_rejected_by_mt">Sol·licitud de canvi a videotrucada rebutjada</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Ha fallat la sol·licitud de canvi a videotrucada.</string>
     <string name="switch_to_video_call_failed_tmo">"S'ha rebutjat la sol·licitud de canvi a videotrucada."</string>
     <string name="switch_to_voice_call_failed">Ha fallat la sol·licitud de canvi a trucada de veu.</string>

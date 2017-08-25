@@ -2,7 +2,7 @@
 .super Ljava/lang/Object;
 
 # interfaces
-.implements Landroid/media/MediaPlayer$OnCompletionListener;
+.implements Landroid/media/MediaPlayer$OnErrorListener;
 
 
 # annotations
@@ -33,18 +33,11 @@
 
 
 # virtual methods
-.method public onCompletion(Landroid/media/MediaPlayer;)V
+.method public onError(Landroid/media/MediaPlayer;II)Z
     .locals 2
-
-    invoke-virtual {p1}, Landroid/media/MediaPlayer;->isPlaying()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
 
     invoke-virtual {p1}, Landroid/media/MediaPlayer;->stop()V
 
-    :cond_0
     invoke-virtual {p1}, Landroid/media/MediaPlayer;->release()V
 
     iget-object v0, p0, Lcom/android/incallui/coreapps/CoreAppsManager$6;->this$0:Lcom/android/incallui/coreapps/CoreAppsManager;
@@ -53,5 +46,7 @@
 
     invoke-static {v0, v1}, Lcom/android/incallui/coreapps/CoreAppsManager;->access$402(Lcom/android/incallui/coreapps/CoreAppsManager;Landroid/media/MediaPlayer;)Landroid/media/MediaPlayer;
 
-    return-void
+    const/4 v0, 0x1
+
+    return v0
 .end method

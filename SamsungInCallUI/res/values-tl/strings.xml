@@ -791,6 +791,7 @@ Camera"</string>
     <string name="settings_glance_reply_explain_text_vzw">Tanggihan ang isang papasok na tawag at magpadala ng naka-preset na mensahe sa tumatawag sa pamamagitan ng paglagay ng iyong daliri sa sensor ng heart rate at i-hold ito nang %d (na) segundo habang naka-on ang device.</string>
     <string name="settings_glance_reply_reached_maximum_text">Naabot na ang maximum na bilang ng mga character (%d).</string>
     <string name="settings_glance_reply_text">Mga mensahe ng mabilis na tugon</string>
+    <string name="settings_subappbar_switch_dimmed">Diniliman</string>
     <string name="settings_subappbar_switch_off">I-off</string>
     <string name="settings_subappbar_switch_on">I-on</string>
     <string name="simple_sharing">Link sharing</string>
@@ -836,6 +837,7 @@ Camera"</string>
     <string name="swipe_right_to_answer_call_with_video">Mag-swipe pakanan para sagutin ang tawag nang may video.</string>
     <string name="swipe_right_to_answer_call_without_video">Mag-swipe pakanan para sagutin ang tawag nang walang video.</string>
     <string name="switch_rejected_by_mt">Tinanggihan ang kahilingan na lumipat sa video call.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Nabigo ang kahilingang lumipat sa video call.</string>
     <string name="switch_to_video_call_failed_tmo">Tinanggihan ang hiling na lumipat sa video call.</string>
     <string name="switch_to_voice_call_failed">Hindi pinayagan ang hiling na lumipat sa voice call.</string>

@@ -449,210 +449,216 @@
     goto :goto_0
 .end method
 
-.method public updateAccessToken()Z
-    .locals 5
+.method public updateAccessToken()I
+    .locals 7
 
-    const/16 v4, 0x4e22
+    const/16 v6, 0x4e22
 
-    const/16 v3, 0x4e21
+    const/16 v5, 0x4e21
+
+    const/16 v1, 0x64
+
+    const/16 v0, 0x2af8
 
     :try_start_0
     invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/SimUtil;->getIMSI()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;->mImsi:Ljava/lang/String;
-
-    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;->mImsi:Ljava/lang/String;
-
-    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->getSsfClient(Ljava/lang/String;)Lcom/samsung/android/sdk/ssf/SsfClient;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/samsung/android/sdk/ssf/account/TokenManager;->updateAccessTokenInSync(Lcom/samsung/android/sdk/ssf/SsfClient;)Lcom/samsung/android/sdk/ssf/account/io/LoginResponse;
-
-    move-result-object v0
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "Login response: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, ", IMSI: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
+    iput-object v2, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;->mImsi:Ljava/lang/String;
 
     iget-object v2, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;->mImsi:Ljava/lang/String;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string v2, "LoginTransaction"
-
-    invoke-static {v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    if-eqz v0, :cond_2
-
-    iget v1, v0, Lcom/samsung/android/sdk/ssf/account/io/LoginResponse;->httpStatusCode:I
-
-    const/16 v2, 0xc8
-
-    if-ne v1, v2, :cond_0
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "New access_token: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v0}, Lcom/samsung/android/sdk/ssf/account/io/LoginResponse;->getAccessToken()Ljava/lang/String;
+    invoke-static {v2}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->getSsfClient(Ljava/lang/String;)Lcom/samsung/android/sdk/ssf/SsfClient;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v2}, Lcom/samsung/android/sdk/ssf/account/TokenManager;->updateAccessTokenInSync(Lcom/samsung/android/sdk/ssf/SsfClient;)Lcom/samsung/android/sdk/ssf/account/io/LoginResponse;
 
-    move-result-object v1
+    move-result-object v2
 
-    const-string v2, ", IMSI: "
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v1
+    const-string v4, "Login response: "
 
-    iget-object v2, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;->mImsi:Ljava/lang/String;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    move-result-object v1
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v1
+    const-string v4, ", IMSI: "
 
-    const-string v2, "LoginTransaction"
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->d(Ljava/lang/String;Ljava/lang/String;)V
+    move-result-object v3
 
-    invoke-virtual {v0}, Lcom/samsung/android/sdk/ssf/account/io/LoginResponse;->getAccessToken()Ljava/lang/String;
+    iget-object v4, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;->mImsi:Ljava/lang/String;
 
-    move-result-object v0
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;->mNewAccessToken:Ljava/lang/String;
+    move-result-object v3
 
-    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;->mImsi:Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;->mNewAccessToken:Ljava/lang/String;
+    move-result-object v3
 
-    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/AccountDBMgr;->setAccessToken(Ljava/lang/String;Ljava/lang/String;)V
+    const-string v4, "LoginTransaction"
 
-    invoke-direct {p0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;->startHeartbeat()V
+    invoke-static {v3, v4}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/4 v0, 0x1
+    if-nez v2, :cond_1
 
+    :cond_0
     :goto_0
     return v0
 
-    :cond_0
-    iget v1, v0, Lcom/samsung/android/sdk/ssf/account/io/LoginResponse;->resultCode:I
-
-    if-ne v1, v4, :cond_1
-
-    const-string v0, "Invalid refresh token. Refresh \'Refresh_Token\'."
-
-    const-string v1, "LoginTransaction"
-
-    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;->updateRefreshToken()Z
-
-    move-result v0
-
-    goto :goto_0
-
     :cond_1
-    iget v0, v0, Lcom/samsung/android/sdk/ssf/account/io/LoginResponse;->resultCode:I
+    iget v3, v2, Lcom/samsung/android/sdk/ssf/account/io/LoginResponse;->httpStatusCode:I
 
-    if-ne v0, v3, :cond_2
+    const/16 v4, 0xc8
 
-    const-string v0, "Device was not authenticated atlogin response. "
+    if-ne v3, v4, :cond_2
 
-    const-string v1, "LoginTransaction"
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;->mImsi:Ljava/lang/String;
+    const-string v4, "New access_token: "
 
-    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/AccountDBMgr;->removeAccount(Ljava/lang/String;)V
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->getEnhancedFeaturesInstance()Lcom/samsung/android/sdk/enhancedfeatures/EnhancedFeatures;
+    move-result-object v3
 
-    move-result-object v0
+    invoke-virtual {v2}, Lcom/samsung/android/sdk/ssf/account/io/LoginResponse;->getAccessToken()Ljava/lang/String;
 
-    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/EnhancedFeatures;->notifyDeregister()V
-    :try_end_0
-    .catch Lcom/samsung/android/sdk/ssf/contact/server/ContactException; {:try_start_0 .. :try_end_0} :catch_0
+    move-result-object v4
 
-    :cond_2
-    :goto_1
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string v4, ", IMSI: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;->mImsi:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    const-string v4, "LoginTransaction"
+
+    invoke-static {v3, v4}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v2}, Lcom/samsung/android/sdk/ssf/account/io/LoginResponse;->getAccessToken()Ljava/lang/String;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;->mNewAccessToken:Ljava/lang/String;
+
+    iget-object v2, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;->mImsi:Ljava/lang/String;
+
+    iget-object v3, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;->mNewAccessToken:Ljava/lang/String;
+
+    invoke-static {v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/AccountDBMgr;->setAccessToken(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-direct {p0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;->startHeartbeat()V
+
     const/4 v0, 0x0
 
     goto :goto_0
 
-    :catch_0
-    move-exception v0
+    :cond_2
+    iget v3, v2, Lcom/samsung/android/sdk/ssf/account/io/LoginResponse;->resultCode:I
 
-    invoke-virtual {v0}, Lcom/samsung/android/sdk/ssf/contact/server/ContactException;->printStackTrace()V
+    if-ne v3, v6, :cond_3
 
-    invoke-virtual {v0}, Lcom/samsung/android/sdk/ssf/contact/server/ContactException;->getErrorCode()I
+    const-string v2, "Invalid refresh token. Refresh \'Refresh_Token\'."
 
-    move-result v1
+    const-string v3, "LoginTransaction"
 
-    if-ne v1, v4, :cond_3
+    invoke-static {v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string v0, "Invalid refresh token. Refresh \'Refresh_Token\'."
-
-    const-string v1, "LoginTransaction"
-
-    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    invoke-virtual {p0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;->updateRefreshToken()Z
+    invoke-virtual {p0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;->updateRefreshToken()I
 
     move-result v0
 
     goto :goto_0
 
     :cond_3
-    invoke-virtual {v0}, Lcom/samsung/android/sdk/ssf/contact/server/ContactException;->getErrorCode()I
+    iget v2, v2, Lcom/samsung/android/sdk/ssf/account/io/LoginResponse;->resultCode:I
 
-    move-result v0
+    if-ne v2, v5, :cond_0
 
-    if-ne v0, v3, :cond_2
+    const-string v2, "Device was not authenticated atlogin response. "
 
-    const-string v0, "Device was not authenticated."
+    const-string v3, "LoginTransaction"
+
+    invoke-static {v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v2, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;->mImsi:Ljava/lang/String;
+
+    invoke-static {v2}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/AccountDBMgr;->removeAccount(Ljava/lang/String;)V
+
+    invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->getEnhancedFeaturesInstance()Lcom/samsung/android/sdk/enhancedfeatures/EnhancedFeatures;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/samsung/android/sdk/enhancedfeatures/EnhancedFeatures;->notifyDeregister()V
+    :try_end_0
+    .catch Lcom/samsung/android/sdk/ssf/contact/server/ContactException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move v0, v1
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v2
+
+    invoke-virtual {v2}, Lcom/samsung/android/sdk/ssf/contact/server/ContactException;->printStackTrace()V
+
+    invoke-virtual {v2}, Lcom/samsung/android/sdk/ssf/contact/server/ContactException;->getErrorCode()I
+
+    move-result v3
+
+    if-ne v3, v6, :cond_4
+
+    const-string v0, "Invalid refresh token. Refresh \'Refresh_Token\'."
 
     const-string v1, "LoginTransaction"
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;->updateRefreshToken()I
+
+    move-result v0
+
+    goto :goto_0
+
+    :cond_4
+    invoke-virtual {v2}, Lcom/samsung/android/sdk/ssf/contact/server/ContactException;->getErrorCode()I
+
+    move-result v2
+
+    if-ne v2, v5, :cond_0
+
+    const-string v0, "Device was not authenticated."
+
+    const-string v2, "LoginTransaction"
+
+    invoke-static {v0, v2}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/ELog;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;->mImsi:Ljava/lang/String;
 
@@ -664,11 +670,15 @@
 
     invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/EnhancedFeatures;->notifyDeregister()V
 
-    goto :goto_1
+    move v0, v1
+
+    goto/16 :goto_0
 .end method
 
-.method public updateRefreshToken()Z
-    .locals 9
+.method public updateRefreshToken()I
+    .locals 10
+
+    const/16 v8, 0x2af8
 
     const/4 v7, 0x0
 
@@ -746,9 +756,9 @@
 
     move-result-object v3
 
-    new-array v8, v7, [Lcom/samsung/android/sdk/ssf/account/io/PushInfo;
+    new-array v9, v7, [Lcom/samsung/android/sdk/ssf/account/io/PushInfo;
 
-    invoke-virtual {v4, v8}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
+    invoke-virtual {v4, v9}, Ljava/util/ArrayList;->toArray([Ljava/lang/Object;)[Ljava/lang/Object;
 
     move-result-object v4
 
@@ -816,18 +826,25 @@
     invoke-direct {p0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;->startHeartbeat()V
 
     :cond_2
+    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/LoginTransaction;->mContext:Landroid/content/Context;
+
     invoke-virtual {v0}, Lcom/samsung/android/sdk/ssf/account/io/JoinResponse;->getServerUrls()[Lcom/samsung/android/sdk/ssf/account/io/ServerInfo;
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/GldDBMgr;->setGldData([Lcom/samsung/android/sdk/ssf/account/io/ServerInfo;)V
+    invoke-static {v1, v0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/GldDBMgr;->setGldData(Landroid/content/Context;[Lcom/samsung/android/sdk/ssf/account/io/ServerInfo;)V
     :try_end_0
     .catch Lcom/samsung/android/sdk/ssf/contact/server/ContactException; {:try_start_0 .. :try_end_0} :catch_0
 
-    const/4 v0, 0x1
+    move v0, v7
 
     :goto_0
     return v0
+
+    :cond_3
+    move v0, v8
+
+    goto :goto_0
 
     :catch_0
     move-exception v0
@@ -842,7 +859,7 @@
 
     const/16 v1, 0x4e21
 
-    if-ne v0, v1, :cond_3
+    if-ne v0, v1, :cond_4
 
     const-string v0, "Device was not authenticated."
 
@@ -860,8 +877,12 @@
 
     invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/EnhancedFeatures;->notifyDeregister()V
 
-    :cond_3
-    move v0, v7
+    const/16 v0, 0x64
+
+    goto :goto_0
+
+    :cond_4
+    move v0, v8
 
     goto :goto_0
 .end method

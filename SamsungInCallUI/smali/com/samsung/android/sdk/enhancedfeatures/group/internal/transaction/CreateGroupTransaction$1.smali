@@ -115,17 +115,29 @@
 
     invoke-virtual {v1, p4}, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/response/CreateGroupResponse;->setUserData(Ljava/lang/Object;)V
 
+    new-instance v0, Lcom/google/gson/Gson;
+
+    invoke-direct {v0}, Lcom/google/gson/Gson;-><init>()V
+
+    iget-object v2, p2, Lcom/samsung/android/sdk/ssf/group/io/GroupInfoDetails;->meta_data:Ljava/lang/Object;
+
+    invoke-virtual {v0, v2}, Lcom/google/gson/Gson;->toJson(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v1, v0}, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/response/CreateGroupResponse;->setMetaData(Ljava/lang/String;)V
+
     iget-object v0, p2, Lcom/samsung/android/sdk/ssf/group/io/GroupInfoDetails;->non_members:Ljava/util/ArrayList;
 
     if-eqz v0, :cond_2
 
     iget-object v0, p2, Lcom/samsung/android/sdk/ssf/group/io/GroupInfoDetails;->non_members:Ljava/util/ArrayList;
 
-    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v0
 
-    if-lez v0, :cond_2
+    if-nez v0, :cond_2
 
     new-instance v2, Ljava/util/ArrayList;
 

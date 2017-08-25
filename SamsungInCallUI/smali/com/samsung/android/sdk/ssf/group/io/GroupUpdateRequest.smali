@@ -7,6 +7,8 @@
 
 .field public group_name:Ljava/lang/String;
 
+.field public meta_data:Ljava/lang/String;
+
 .field public option:I
 
 .field public owner_id:Ljava/lang/String;

@@ -1324,13 +1324,7 @@
 
     invoke-static {v0, p2, v1}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/AccountDBMgr;->addAccount(Ljava/lang/String;Lcom/samsung/android/sdk/ssf/account/io/JoinResponse;Ljava/util/ArrayList;)V
 
-    invoke-virtual {p2}, Lcom/samsung/android/sdk/ssf/account/io/JoinResponse;->getServerUrls()[Lcom/samsung/android/sdk/ssf/account/io/ServerInfo;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/GldDBMgr;->setGldData([Lcom/samsung/android/sdk/ssf/account/io/ServerInfo;)V
-
-    const-string v0, "gcm_registered_app_version"
+    const-string v0, "updated_app_version"
 
     invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/PackageUtils;->getAppVersionCode()I
 
@@ -1385,6 +1379,14 @@
     move-result-object v1
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/ssf/SsfClient;->setServerURL([Lcom/samsung/android/sdk/ssf/account/io/ServerInfo;)V
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/TwoFATransaction;->mContext:Landroid/content/Context;
+
+    invoke-virtual {p2}, Lcom/samsung/android/sdk/ssf/account/io/JoinResponse;->getServerUrls()[Lcom/samsung/android/sdk/ssf/account/io/ServerInfo;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/GldDBMgr;->setGldData(Landroid/content/Context;[Lcom/samsung/android/sdk/ssf/account/io/ServerInfo;)V
 
     const-string v0, "BR : com.samsung.android.coreapps.easysignup.ACTION_LOGIN_RESULT, result = 0"
 

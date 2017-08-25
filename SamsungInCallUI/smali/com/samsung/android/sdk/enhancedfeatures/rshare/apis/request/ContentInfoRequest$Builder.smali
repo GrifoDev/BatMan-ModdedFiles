@@ -26,9 +26,15 @@
 
 .field private mReceipientListStatus:Z
 
+.field private mReqId:I
+
 .field private mRequestType:Ljava/lang/String;
 
 .field private mShareCode:Ljava/lang/String;
+
+.field private mToList:Z
+
+.field private mUserData:Landroid/os/Bundle;
 
 
 # direct methods
@@ -79,6 +85,14 @@
 
     iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest$Builder;->mRequestType:Ljava/lang/String;
 
+    iput-object v3, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest$Builder;->mUserData:Landroid/os/Bundle;
+
+    iput-boolean v2, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest$Builder;->mToList:Z
+
+    const/4 v0, -0x1
+
+    iput v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest$Builder;->mReqId:I
+
     return-void
 .end method
 
@@ -93,11 +107,15 @@
 
     iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest$Builder;->mContentToken:Ljava/lang/String;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest$Builder;->mContentToken:Ljava/lang/String;
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;->access$002(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;Ljava/lang/String;)Ljava/lang/String;
+
+    const-string v1, "app"
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;->access$102(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;Ljava/lang/String;)Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -124,30 +142,49 @@
     invoke-static {v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
     :goto_0
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;->getUserData()Landroid/os/Bundle;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest$Builder;->mUserData:Landroid/os/Bundle;
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;->access$302(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;Landroid/os/Bundle;)Landroid/os/Bundle;
+
+    :cond_0
     iget v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest$Builder;->mContentStart:I
 
-    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;->access$202(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;I)I
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;->access$402(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;I)I
 
     iget v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest$Builder;->mContentCount:I
 
-    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;->access$302(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;I)I
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;->access$502(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;I)I
 
     iget-boolean v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest$Builder;->mReceipientListStatus:Z
 
-    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;->access$402(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;Z)Z
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;->access$602(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;Z)Z
 
-    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest$Builder;->mRequestType:Ljava/lang/String;
+    iget-boolean v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest$Builder;->mToList:Z
 
-    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;->access$502(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;->access$702(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;Z)Z
+
+    iget v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest$Builder;->mReqId:I
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;->access$802(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;I)I
 
     return-object v0
 
-    :cond_0
+    :cond_1
     iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest$Builder;->mShareCode:Ljava/lang/String;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
     iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest$Builder;->mShareCode:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;->access$202(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;Ljava/lang/String;)Ljava/lang/String;
+
+    const-string v1, "cloud"
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;->access$102(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;Ljava/lang/String;)Ljava/lang/String;
 
@@ -177,7 +214,7 @@
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
     const-string v1, "cannon build request, one of (contentstoken and sharecode)  are not null "
@@ -227,8 +264,18 @@
     return-object p0
 .end method
 
+.method public setReqId(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest$Builder;->mReqId:I
+
+    return-void
+.end method
+
 .method public setRequestType(Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest$Builder;
     .locals 3
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
 
     const-string v0, "app"
 
@@ -295,4 +342,20 @@
     iput-object p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest$Builder;->mShareCode:Ljava/lang/String;
 
     return-object p0
+.end method
+
+.method public setToList(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest$Builder;->mToList:Z
+
+    return-void
+.end method
+
+.method public setUserData(Landroid/os/Bundle;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest$Builder;->mUserData:Landroid/os/Bundle;
+
+    return-void
 .end method

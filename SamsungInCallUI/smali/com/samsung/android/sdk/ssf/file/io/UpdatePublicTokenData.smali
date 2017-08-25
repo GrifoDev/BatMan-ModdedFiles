@@ -11,6 +11,8 @@
 
 .field private public_token:Ljava/lang/String;
 
+.field private public_url:Ljava/lang/String;
+
 .field private rcode:Ljava/lang/String;
 
 .field private revision:Ljava/lang/String;
@@ -57,6 +59,14 @@
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/sdk/ssf/file/io/UpdatePublicTokenData;->public_token:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public getPublic_url()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/ssf/file/io/UpdatePublicTokenData;->public_url:Ljava/lang/String;
 
     return-object v0
 .end method
@@ -113,6 +123,14 @@
     .locals 0
 
     iput-object p1, p0, Lcom/samsung/android/sdk/ssf/file/io/UpdatePublicTokenData;->public_token:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method public setPublic_url(Ljava/lang/String;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/samsung/android/sdk/ssf/file/io/UpdatePublicTokenData;->public_url:Ljava/lang/String;
 
     return-void
 .end method

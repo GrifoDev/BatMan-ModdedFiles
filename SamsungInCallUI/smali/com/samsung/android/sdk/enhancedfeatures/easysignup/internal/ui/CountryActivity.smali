@@ -112,8 +112,6 @@
 
 .field private selectedCountry:Ljava/lang/String;
 
-.field textview:[Landroid/widget/TextView;
-
 
 # direct methods
 .method static constructor <clinit>()V
@@ -183,12 +181,6 @@
 
     iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/CountryActivity;->INDEX_START:Ljava/lang/String;
 
-    const/16 v0, 0x1a
-
-    new-array v0, v0, [Landroid/widget/TextView;
-
-    iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/CountryActivity;->textview:[Landroid/widget/TextView;
-
     return-void
 .end method
 
@@ -236,260 +228,6 @@
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/CountryActivity;->listRoot:Landroid/view/ViewGroup;
-
-    return-object v0
-.end method
-
-.method private createAlphabetTrack()Landroid/view/ViewGroup;
-    .locals 12
-
-    const/4 v11, 0x1
-
-    const/4 v3, 0x0
-
-    const/4 v6, -0x1
-
-    new-instance v0, Landroid/widget/LinearLayout;
-
-    invoke-direct {v0, p0}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
-
-    iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/CountryActivity;->alphabetlayout:Landroid/widget/LinearLayout;
-
-    new-instance v0, Landroid/widget/RelativeLayout$LayoutParams;
-
-    const/high16 v1, 0x41b00000    # 22.0f
-
-    invoke-virtual {p0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/CountryActivity;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
-
-    move-result-object v2
-
-    iget v2, v2, Landroid/util/DisplayMetrics;->density:F
-
-    mul-float/2addr v1, v2
-
-    float-to-int v1, v1
-
-    invoke-direct {v0, v1, v6}, Landroid/widget/RelativeLayout$LayoutParams;-><init>(II)V
-
-    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
-
-    move-result-object v1
-
-    invoke-static {v1}, Landroid/text/TextUtils;->getLayoutDirectionFromLocale(Ljava/util/Locale;)I
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const/16 v1, 0xb
-
-    invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(I)V
-
-    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/CountryActivity;->alphabetlayout:Landroid/widget/LinearLayout;
-
-    invoke-virtual {p0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/CountryActivity;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    sget v4, Lcom/samsung/android/sdk/enhancedfeatures/R$drawable;->efsdk_tw_scrollbar_handle_right_bg_mtrl:I
-
-    invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setBackground(Landroid/graphics/drawable/Drawable;)V
-
-    :goto_0
-    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/CountryActivity;->alphabetlayout:Landroid/widget/LinearLayout;
-
-    invoke-virtual {v1, v0}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/CountryActivity;->alphabetlayout:Landroid/widget/LinearLayout;
-
-    invoke-virtual {v0, v11}, Landroid/widget/LinearLayout;->setOrientation(I)V
-
-    new-instance v4, Landroid/widget/LinearLayout$LayoutParams;
-
-    invoke-direct {v4, v6, v3}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
-
-    new-instance v5, Landroid/widget/LinearLayout$LayoutParams;
-
-    const/4 v0, 0x2
-
-    invoke-direct {v5, v6, v0}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
-
-    const-string v0, "#cecece"
-
-    invoke-static {v0}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
-
-    move-result v6
-
-    const-string v0, "#a0a0a0"
-
-    invoke-static {v0}, Landroid/graphics/Color;->parseColor(Ljava/lang/String;)I
-
-    move-result v7
-
-    const/high16 v0, 0x3f800000    # 1.0f
-
-    iput v0, v4, Landroid/widget/LinearLayout$LayoutParams;->weight:F
-
-    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/CountryActivity;->alphabetlayout:Landroid/widget/LinearLayout;
-
-    const/high16 v1, 0x41d00000    # 26.0f
-
-    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setWeightSum(F)V
-
-    invoke-virtual {p0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/CountryActivity;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
-
-    move-result-object v0
-
-    iget v0, v0, Landroid/content/res/Configuration;->orientation:I
-
-    if-ne v0, v11, :cond_1
-
-    invoke-virtual {p0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/CountryActivity;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    sget v1, Lcom/samsung/android/sdk/enhancedfeatures/R$dimen;->layout_indexer_textsize:I
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v0
-
-    :goto_1
-    const/16 v1, 0x41
-
-    move v2, v3
-
-    :goto_2
-    const/16 v8, 0x5a
-
-    if-gt v1, v8, :cond_2
-
-    iget-object v8, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/CountryActivity;->textview:[Landroid/widget/TextView;
-
-    new-instance v9, Landroid/widget/TextView;
-
-    invoke-direct {v9, p0}, Landroid/widget/TextView;-><init>(Landroid/content/Context;)V
-
-    aput-object v9, v8, v2
-
-    new-instance v8, Landroid/view/View;
-
-    invoke-direct {v8, p0}, Landroid/view/View;-><init>(Landroid/content/Context;)V
-
-    iget-object v9, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/CountryActivity;->textview:[Landroid/widget/TextView;
-
-    aget-object v9, v9, v2
-
-    invoke-virtual {v9, v1}, Landroid/widget/TextView;->setId(I)V
-
-    iget-object v9, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/CountryActivity;->textview:[Landroid/widget/TextView;
-
-    aget-object v9, v9, v2
-
-    invoke-virtual {v9, v4}, Landroid/widget/TextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    iget-object v9, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/CountryActivity;->textview:[Landroid/widget/TextView;
-
-    aget-object v9, v9, v2
-
-    const/16 v10, 0x11
-
-    invoke-virtual {v9, v10}, Landroid/widget/TextView;->setGravity(I)V
-
-    iget-object v9, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/CountryActivity;->textview:[Landroid/widget/TextView;
-
-    aget-object v9, v9, v2
-
-    invoke-static {v1}, Ljava/lang/Character;->toString(C)Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-virtual {v9, v10}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    iget-object v9, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/CountryActivity;->textview:[Landroid/widget/TextView;
-
-    aget-object v9, v9, v2
-
-    invoke-virtual {v9, v7}, Landroid/widget/TextView;->setTextColor(I)V
-
-    iget-object v9, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/CountryActivity;->textview:[Landroid/widget/TextView;
-
-    aget-object v9, v9, v2
-
-    invoke-virtual {v9, v3, v0}, Landroid/widget/TextView;->setTextSize(IF)V
-
-    invoke-virtual {v8, v5}, Landroid/view/View;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    invoke-virtual {v8, v6}, Landroid/view/View;->setBackgroundColor(I)V
-
-    iget-object v9, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/CountryActivity;->alphabetlayout:Landroid/widget/LinearLayout;
-
-    iget-object v10, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/CountryActivity;->textview:[Landroid/widget/TextView;
-
-    aget-object v10, v10, v2
-
-    invoke-virtual {v9, v10}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
-
-    iget-object v9, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/CountryActivity;->alphabetlayout:Landroid/widget/LinearLayout;
-
-    invoke-virtual {v9, v8}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
-
-    add-int/lit8 v2, v2, 0x1
-
-    add-int/2addr v1, v11
-
-    int-to-char v1, v1
-
-    goto :goto_2
-
-    :cond_0
-    const/16 v1, 0x9
-
-    invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(I)V
-
-    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/CountryActivity;->alphabetlayout:Landroid/widget/LinearLayout;
-
-    invoke-virtual {p0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/CountryActivity;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    sget v4, Lcom/samsung/android/sdk/enhancedfeatures/R$drawable;->tw_scrollbar_handle_left_bg_mtrl:I
-
-    invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setBackground(Landroid/graphics/drawable/Drawable;)V
-
-    goto/16 :goto_0
-
-    :cond_1
-    invoke-virtual {p0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/CountryActivity;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    sget v1, Lcom/samsung/android/sdk/enhancedfeatures/R$dimen;->layout_indexer_textsize_landscape:I
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v0
-
-    goto :goto_1
-
-    :cond_2
-    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/CountryActivity;->alphabetlayout:Landroid/widget/LinearLayout;
 
     return-object v0
 .end method
@@ -619,11 +357,9 @@
 .end method
 
 .method public onConfigurationChanged(Landroid/content/res/Configuration;)V
-    .locals 5
+    .locals 4
 
-    const/4 v2, 0x0
-
-    const/16 v4, 0x400
+    const/16 v3, 0x400
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onConfigurationChanged(Landroid/content/res/Configuration;)V
 
@@ -633,11 +369,11 @@
 
     iget v1, p1, Landroid/content/res/Configuration;->orientation:I
 
-    const/4 v3, 0x2
+    const/4 v2, 0x2
 
-    if-ne v1, v3, :cond_0
+    if-ne v1, v2, :cond_0
 
-    invoke-virtual {v0, v4, v4}, Landroid/view/Window;->setFlags(II)V
+    invoke-virtual {v0, v3, v3}, Landroid/view/Window;->setFlags(II)V
 
     invoke-virtual {p0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/CountryActivity;->getResources()Landroid/content/res/Resources;
 
@@ -647,28 +383,11 @@
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
-    move-result v0
-
     :goto_0
-    move v1, v2
-
-    :goto_1
-    const/16 v3, 0x1a
-
-    if-ge v1, v3, :cond_1
-
-    iget-object v3, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/CountryActivity;->textview:[Landroid/widget/TextView;
-
-    aget-object v3, v3, v1
-
-    invoke-virtual {v3, v2, v0}, Landroid/widget/TextView;->setTextSize(IF)V
-
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_1
+    return-void
 
     :cond_0
-    invoke-virtual {v0, v4}, Landroid/view/Window;->clearFlags(I)V
+    invoke-virtual {v0, v3}, Landroid/view/Window;->clearFlags(I)V
 
     invoke-virtual {p0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/CountryActivity;->getResources()Landroid/content/res/Resources;
 
@@ -678,12 +397,7 @@
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
-    move-result v0
-
     goto :goto_0
-
-    :cond_1
-    return-void
 .end method
 
 .method public onCreate(Landroid/os/Bundle;)V

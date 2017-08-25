@@ -20,6 +20,8 @@
 
 .field private mDescription:Ljava/lang/String;
 
+.field private mTitle:Ljava/lang/String;
+
 
 # direct methods
 .method public constructor <init>()V
@@ -55,6 +57,10 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/CreateShareCodeRequest;->access$202(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/CreateShareCodeRequest;Ljava/lang/String;)Ljava/lang/String;
 
+    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/CreateShareCodeRequest$Builder;->mTitle:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/CreateShareCodeRequest;->access$302(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/CreateShareCodeRequest;Ljava/lang/String;)Ljava/lang/String;
+
     return-object v0
 .end method
 
@@ -78,6 +84,14 @@
     .locals 0
 
     iput-object p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/CreateShareCodeRequest$Builder;->mDescription:Ljava/lang/String;
+
+    return-object p0
+.end method
+
+.method public setTitle(Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/CreateShareCodeRequest$Builder;
+    .locals 0
+
+    iput-object p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/CreateShareCodeRequest$Builder;->mTitle:Ljava/lang/String;
 
     return-object p0
 .end method

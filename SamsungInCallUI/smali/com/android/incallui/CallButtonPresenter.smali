@@ -1388,6 +1388,16 @@
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/Call;->setState(I)V
 
+    invoke-static {}, Lcom/android/incallui/TelecomAdapter;->getInstance()Lcom/android/incallui/TelecomAdapter;
+
+    move-result-object v1
+
+    invoke-virtual {v0}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Lcom/android/incallui/TelecomAdapter;->disconnectCall(Ljava/lang/String;)V
+
     invoke-direct {p0, v0}, Lcom/android/incallui/CallButtonPresenter;->updateNotUpdatingCalls(Lcom/android/incallui/Call;)V
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
@@ -1395,16 +1405,6 @@
     move-result-object v1
 
     invoke-virtual {v1, v0}, Lcom/android/incallui/CallList;->onUpdate(Lcom/android/incallui/Call;)V
-
-    invoke-static {}, Lcom/android/incallui/TelecomAdapter;->getInstance()Lcom/android/incallui/TelecomAdapter;
-
-    move-result-object v1
-
-    invoke-virtual {v0}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v1, v0}, Lcom/android/incallui/TelecomAdapter;->disconnectCall(Ljava/lang/String;)V
 
     goto :goto_0
 

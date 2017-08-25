@@ -822,6 +822,7 @@ Kamera"</string>
     <string name="settings_glance_reply_explain_text_vzw">Cihaz ters çevrilmiş haldeyken parmağınızı kalp hızı sensörünün üzerine yerleştirip %d saniye burada tutarak gelen bir aramayı reddedip arayana önayarlı bir mesaj gönderin.</string>
     <string name="settings_glance_reply_reached_maximum_text">Maksimum karakter sayısına (%d) ulaşıldı.</string>
     <string name="settings_glance_reply_text">Hızlı yanıt mesajları</string>
+    <string name="settings_subappbar_switch_dimmed">Kısıldı</string>
     <string name="settings_subappbar_switch_off">Kapalı</string>
     <string name="settings_subappbar_switch_on">Açık</string>
     <string name="simple_sharing">Link sharing</string>
@@ -867,6 +868,7 @@ Kamera"</string>
     <string name="swipe_right_to_answer_call_with_video">Aramayı videoyla yanıtlamak için sağa kaydırın.</string>
     <string name="swipe_right_to_answer_call_without_video">Aramayı videosuz yanıtlamak için sağa kaydırın.</string>
     <string name="switch_rejected_by_mt">Görüntülü görüşmeye geçme talebi reddedildi.</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Görüntülü aramaya geçme talebi başarısız.</string>
     <string name="switch_to_video_call_failed_tmo">Görüntülü aramaya geçme isteği reddedildi.</string>
     <string name="switch_to_voice_call_failed">Sesli aramaya geçme talebi başarısız.</string>

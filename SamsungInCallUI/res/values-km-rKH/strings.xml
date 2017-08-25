@@ -764,6 +764,7 @@
     <string name="settings_glance_reply_explain_text_vzw">ច្រានចោល​ការហៅ​ចូល និង ផ្ញើ​សារ​បុរេកំណត់​ទៅ​អ្នកហៅ ដោយ​ដាក់​ម្រាមដៃ​របស់​អ្នក​លើ​សិនសឺ​អត្រា​បេះដូង ហើយ​ដាក់​វា​ជាប់​ក្នុង​ពេល %d វិនាទី ខណៈពេល​ផ្កាប់​ឧបករណ៍។</string>
     <string name="settings_glance_reply_reached_maximum_text">បាន​ដល់​ចំនួន​តួអក្សរ​អតិបរមា (%d)។</string>
     <string name="settings_glance_reply_text">សារ​ឆ្លើយតប​រហ័ស</string>
+    <string name="settings_subappbar_switch_dimmed">ស្រអាប់</string>
     <string name="settings_subappbar_switch_off">បិទ</string>
     <string name="settings_subappbar_switch_on">បើក</string>
     <string name="simple_sharing">Link Sharing</string>
@@ -809,6 +810,7 @@
     <string name="swipe_right_to_answer_call_with_video">អូស​ទៅ​ស្ដាំ​ដើម្បី​ឆ្លើយ​ការហៅ​ជាមួយ​វីដេអូ។</string>
     <string name="swipe_right_to_answer_call_without_video">អូស​ទៅ​ស្ដាំ​ដើម្បី​ឆ្លើយ​ការហៅ​ដោយ​គ្មាន​វីដេអូ។</string>
     <string name="switch_rejected_by_mt">បាន​ច្រានចោល​សំណើ​ឲ្យ​ប្ដូរ​ទៅ​ការហៅ​វីដេអូ។</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">សំណើ​សុំ​ប្ដូរ​ទៅ​ការហៅ​វីដេអូ​ត្រូវ​បាន​បរាជ័យ។</string>
     <string name="switch_to_video_call_failed_tmo">សំណើ​សុំ​ប្ដូរ​ទៅ​ការហៅ​វីដេអូ​ត្រូវ​បាន​បដិសេធ។</string>
     <string name="switch_to_voice_call_failed">សំណើ​សុំ​ប្ដូរ​ទៅ​ការហៅ​សំឡេង​បាន​បរាជ័យ។</string>

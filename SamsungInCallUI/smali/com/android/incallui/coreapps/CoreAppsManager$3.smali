@@ -34,7 +34,9 @@
 
 # virtual methods
 .method public onError(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
-    .locals 3
+    .locals 5
+
+    const/4 v4, 0x1
 
     const-string v0, "Agifflow-CoreAppsManager"
 
@@ -60,9 +62,7 @@
 
     move-result-object v1
 
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v0, v1, v4}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
     iget-object v0, p0, Lcom/android/incallui/coreapps/CoreAppsManager$3;->this$0:Lcom/android/incallui/coreapps/CoreAppsManager;
 
@@ -80,7 +80,41 @@
 
     move-result-object v0
 
-    invoke-static {v0}, Lcom/android/incallui/util/InCallUtils;->displayToast(Ljava/lang/String;)V
+    const-string v1, "Agifflow-CoreAppsManager"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "mMessageShareListener - toast meesage = "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2, v4}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    iget-object v1, p0, Lcom/android/incallui/coreapps/CoreAppsManager$3;->this$0:Lcom/android/incallui/coreapps/CoreAppsManager;
+
+    invoke-static {v1}, Lcom/android/incallui/coreapps/CoreAppsManager;->access$000(Lcom/android/incallui/coreapps/CoreAppsManager;)Landroid/content/Context;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    invoke-static {v1, v0, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
     invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
 

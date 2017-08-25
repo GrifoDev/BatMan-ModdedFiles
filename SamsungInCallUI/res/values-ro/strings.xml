@@ -638,7 +638,7 @@ Meniul ecranului de apel IVR utilizează conținuturile furnizate de un furnizor
     <string name="photoring_unblock_toast_2nd">Conținutul media trimis de acest contact va fi primit data următoare când acesta vă apelează</string>
     <string name="please_wait">Se verifică codul de verificare. Aşteptaţi…</string>
     <string name="popup_download_large_wificheck">Descărcare date numai prin Wi-Fi</string>
-    <string name="popup_download_large_wlancheck">Download via WLAN only</string>
+    <string name="popup_download_large_wlancheck">Descărcare doar prin WLAN</string>
     <string name="popup_start_record_during_alerting">Înregistrarea va începe după conectarea apelului.</string>
     <string name="postalLabelsGroup">Adresă</string>
     <string name="postal_city">Oraș</string>
@@ -822,6 +822,7 @@ Cameră foto"</string>
     <string name="settings_glance_reply_explain_text_vzw">Respingeți un apel de intrare și trimiteți apelantului un mesaj presetat menținând degetul pe senzorul pentru puls timp de %d secunde atunci când dispozitivul este întors.</string>
     <string name="settings_glance_reply_reached_maximum_text">Numărul maxim de caractere (%d) a fost atins.</string>
     <string name="settings_glance_reply_text">Mesaje de Răspuns rapid</string>
+    <string name="settings_subappbar_switch_dimmed">Estompat</string>
     <string name="settings_subappbar_switch_off">Oprit</string>
     <string name="settings_subappbar_switch_on">Pornit</string>
     <string name="simple_sharing">Partajare link</string>
@@ -867,6 +868,7 @@ Cameră foto"</string>
     <string name="swipe_right_to_answer_call_with_video">Glisați spre dreapta pentru a prelua apelul cu video.</string>
     <string name="swipe_right_to_answer_call_without_video">Glisați spre dreapta pentru a prelua apelul fără video.</string>
     <string name="switch_rejected_by_mt">Solicitare de comutare la apel video respinsă</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Solicitarea de comutare la apel video nu a reușit.</string>
     <string name="switch_to_video_call_failed_tmo">Solicitarea de comutare la apel video a fost refuzată.</string>
     <string name="switch_to_voice_call_failed">Solicitarea de comutare la apelul vocal nu a reușit.</string>
@@ -887,8 +889,8 @@ Cameră foto"</string>
     <string name="tutorial_incoming_call_app_reject">Atingeți pentru a respinge apelul.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Nu se poate stabili conexiunea la reţea. Verificaţi setările conexiunii şi încercaţi din nou.</string>
-    <string name="units_kb">KO</string>
-    <string name="units_mb">MO</string>
+    <string name="units_kb">KB</string>
+    <string name="units_mb">MB</string>
     <string name="unknown_cdma">Indisponibil</string>
     <string name="upload_using_wifi_only">Încărcare doar prin Wi-Fi</string>
     <string name="upload_using_wlan_only">Încărcare doar prin WLAN</string>

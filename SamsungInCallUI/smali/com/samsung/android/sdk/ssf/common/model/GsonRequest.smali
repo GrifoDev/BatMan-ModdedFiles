@@ -29,18 +29,6 @@
 
 .field private final mGson:Lcom/google/gson/Gson;
 
-.field private final mHeaderMap:Ljava/util/Map;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/Map",
-            "<",
-            "Ljava/lang/String;",
-            "Ljava/lang/String;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 .field private mProtocolContentType:Ljava/lang/String;
 
 .field private final mResponseClass:Ljava/lang/Class;
@@ -107,12 +95,6 @@
 
     invoke-direct {p0, p1, p2, p4, p5}, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;-><init>(ILjava/lang/String;ILcom/samsung/android/sdk/ssf/common/model/ResponseListener;)V
 
-    new-instance v0, Ljava/util/HashMap;
-
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
-
-    iput-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->mHeaderMap:Ljava/util/Map;
-
     const-string v0, "application/json"
 
     iput-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->mProtocolContentType:Ljava/lang/String;
@@ -162,12 +144,6 @@
     const/4 v1, 0x0
 
     invoke-direct {p0, p1, p2, p4, p5}, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;-><init>(ILjava/lang/String;ILcom/samsung/android/sdk/ssf/common/model/ResponseListener;)V
-
-    new-instance v0, Ljava/util/HashMap;
-
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
-
-    iput-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->mHeaderMap:Ljava/util/Map;
 
     const-string v0, "application/json"
 
@@ -226,12 +202,6 @@
     move-object v5, p6
 
     invoke-direct/range {v0 .. v5}, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;-><init>(ILjava/lang/String;ILcom/samsung/android/sdk/ssf/common/model/ResponseListener;Ljava/lang/Object;)V
-
-    new-instance v0, Ljava/util/HashMap;
-
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
-
-    iput-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->mHeaderMap:Ljava/util/Map;
 
     const-string v0, "application/json"
 
@@ -294,12 +264,6 @@
     move-object v5, p6
 
     invoke-direct/range {v0 .. v5}, Lcom/samsung/android/sdk/ssf/common/model/CommonRequest;-><init>(ILjava/lang/String;ILcom/samsung/android/sdk/ssf/common/model/ResponseListener;Ljava/lang/Object;)V
-
-    new-instance v0, Ljava/util/HashMap;
-
-    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
-
-    iput-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->mHeaderMap:Ljava/util/Map;
 
     const-string v0, "application/json"
 
@@ -397,7 +361,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->mHeaderMap:Ljava/util/Map;
+    iget-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->mHeaders:Ljava/util/Map;
 
     invoke-interface {v0, p1, p2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -515,7 +479,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->mHeaderMap:Ljava/util/Map;
+    iget-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->mHeaders:Ljava/util/Map;
 
     invoke-virtual {v0}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
@@ -531,7 +495,7 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->mHeaderMap:Ljava/util/Map;
+    iget-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->mHeaders:Ljava/util/Map;
 
     const-string v1, "Accept-Encoding"
 
@@ -554,7 +518,7 @@
 
     if-ne v0, v1, :cond_1
 
-    iget-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->mHeaderMap:Ljava/util/Map;
+    iget-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->mHeaders:Ljava/util/Map;
 
     const-string v1, "Content-Encoding"
 
@@ -563,7 +527,7 @@
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_1
-    iget-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->mHeaderMap:Ljava/util/Map;
+    iget-object v0, p0, Lcom/samsung/android/sdk/ssf/common/model/GsonRequest;->mHeaders:Ljava/util/Map;
 
     return-object v0
 .end method

@@ -609,7 +609,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a016b
+    const v2, 0x7f0a0168
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1337,7 +1337,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0173
+    const v2, 0x7f0a0170
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1351,7 +1351,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0174
+    const v2, 0x7f0a0171
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1388,7 +1388,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a016e
+    const v2, 0x7f0a016b
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1402,7 +1402,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a016d
+    const v2, 0x7f0a016a
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1439,7 +1439,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0170
+    const v2, 0x7f0a016d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1453,7 +1453,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a016f
+    const v2, 0x7f0a016c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1519,7 +1519,7 @@
 
     aput-object v4, v7, v2
 
-    const v4, 0x7f090363
+    const v4, 0x7f090365
 
     invoke-virtual {p0, v4}, Lcom/android/incallui/service/SecVideoPopupService;->getText(I)Ljava/lang/CharSequence;
 
@@ -1537,7 +1537,7 @@
 
     aput-object v5, v7, v2
 
-    const v5, 0x7f090365
+    const v5, 0x7f090367
 
     invoke-virtual {p0, v5}, Lcom/android/incallui/service/SecVideoPopupService;->getText(I)Ljava/lang/CharSequence;
 
@@ -1561,7 +1561,7 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f090362
+    const v1, 0x7f090364
 
     invoke-virtual {p0, v1}, Lcom/android/incallui/service/SecVideoPopupService;->getText(I)Ljava/lang/CharSequence;
 

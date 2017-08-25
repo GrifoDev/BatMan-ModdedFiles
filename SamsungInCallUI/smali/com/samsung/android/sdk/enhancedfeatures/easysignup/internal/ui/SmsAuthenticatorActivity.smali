@@ -1895,6 +1895,16 @@
 
     invoke-virtual {v0, p0}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/SmsAuthenticatorActivity;->mButtonCancel:Landroid/widget/TextView;
+
+    sget v2, Lcom/samsung/android/sdk/enhancedfeatures/R$string;->cancel:I
+
+    invoke-virtual {p0, v2}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/SmsAuthenticatorActivity;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v2}, Landroid/widget/TextView;->setContentDescription(Ljava/lang/CharSequence;)V
+
     sget v0, Lcom/samsung/android/sdk/enhancedfeatures/R$id;->choose_verification_method:I
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/SmsAuthenticatorActivity;->findViewById(I)Landroid/view/View;

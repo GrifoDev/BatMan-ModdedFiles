@@ -7,9 +7,13 @@
 
 .field private static final EXTRA_DOWNLOAD_PANEL:Ljava/lang/String; = "extra_download_panel"
 
+.field private static final EXTRA_FILE_TYPE:Ljava/lang/String; = "extra_file_type"
+
 .field private static final TAG:Ljava/lang/String;
 
 .field public static final TOKEN_DOWNLOADFILE:I = 0x3
+
+.field public static final TOKEN_DOWNLOADFILEBYFILENAME:I = 0x4
 
 .field public static final TOKEN_DOWNLOADITEMPACKAGE:I = 0x1
 
@@ -179,12 +183,28 @@
     return-void
 .end method
 
-.method static synthetic access$700(Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;Lcom/samsung/android/sdk/ssf/SsfResult;Lcom/samsung/android/sdk/ssf/shop/io/DownloadItemEntry;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/DownloadListener;)V
+.method static synthetic access$700(Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;Lcom/samsung/android/sdk/ssf/SsfResult;Lcom/samsung/android/sdk/ssf/shop/io/DownloadItemEntry;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/DownloadListener;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2, p3, p4}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;->onDownloadFileResponse(Lcom/samsung/android/sdk/ssf/SsfResult;Lcom/samsung/android/sdk/ssf/shop/io/DownloadItemEntry;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/DownloadListener;)V
+    invoke-direct/range {p0 .. p5}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;->onDownloadFileResponse(Lcom/samsung/android/sdk/ssf/SsfResult;Lcom/samsung/android/sdk/ssf/shop/io/DownloadItemEntry;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/DownloadListener;)V
 
     return-void
+.end method
+
+.method static synthetic access$800(Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;)Landroid/content/Context;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;->context:Landroid/content/Context;
+
+    return-object v0
+.end method
+
+.method static synthetic access$900(Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;)Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;->contentType:Ljava/lang/String;
+
+    return-object v0
 .end method
 
 .method public static buildShopManager(Landroid/os/Handler;Landroid/content/Context;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;
@@ -333,6 +353,57 @@
     invoke-direct {v2, v3, v3, v0, v1}, Landroid/graphics/Rect;-><init>(IIII)V
 
     return-object v2
+.end method
+
+.method public static getFileNameFromContentUrl(Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
+
+    invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    const-string v0, "?"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
+
+    move-result v0
+
+    if-ltz v0, :cond_0
+
+    const/4 v0, 0x0
+
+    const-string v1, "?"
+
+    invoke-virtual {p0, v1}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
+
+    move-result v1
+
+    invoke-virtual {p0, v0, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object p0
+
+    :cond_0
+    const-string v0, "/"
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
+
+    move-result v0
+
+    add-int/lit8 v0, v0, 0x1
+
+    invoke-virtual {p0, v0}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    :goto_0
+    return-object v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public static installPackagePanel(Lcom/samsung/android/sdk/ssf/shop/io/ItemList;)V
@@ -513,8 +584,8 @@
     goto :goto_1
 .end method
 
-.method private onDownloadFileResponse(Lcom/samsung/android/sdk/ssf/SsfResult;Lcom/samsung/android/sdk/ssf/shop/io/DownloadItemEntry;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/DownloadListener;)V
-    .locals 7
+.method private onDownloadFileResponse(Lcom/samsung/android/sdk/ssf/SsfResult;Lcom/samsung/android/sdk/ssf/shop/io/DownloadItemEntry;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/DownloadListener;)V
+    .locals 8
 
     iget v0, p1, Lcom/samsung/android/sdk/ssf/SsfResult;->httpStatusCode:I
 
@@ -542,7 +613,7 @@
 
     new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;
 
-    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/constant/ItemType;->Video:Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/constant/ItemType;
+    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/constant/ItemType;->Unknown:Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/constant/ItemType;
 
     iget-object v2, p2, Lcom/samsung/android/sdk/ssf/shop/io/DownloadItemEntry;->item:Lcom/samsung/android/sdk/ssf/shop/io/Item;
 
@@ -550,19 +621,21 @@
 
     invoke-static {v2, v3}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
     iget-object v2, p2, Lcom/samsung/android/sdk/ssf/shop/io/DownloadItemEntry;->item:Lcom/samsung/android/sdk/ssf/shop/io/Item;
 
-    iget-object v4, v2, Lcom/samsung/android/sdk/ssf/shop/io/Item;->contenturl:Ljava/lang/String;
+    iget-object v5, v2, Lcom/samsung/android/sdk/ssf/shop/io/Item;->contenturl:Ljava/lang/String;
 
     move-object v2, p3
 
-    move-object v5, p2
+    move-object v3, p4
 
-    move-object v6, p4
+    move-object v6, p2
 
-    invoke-direct/range {v0 .. v6}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/constant/ItemType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/ssf/shop/io/DownloadItemEntry;Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/DownloadListener;)V
+    move-object v7, p5
+
+    invoke-direct/range {v0 .. v7}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/constant/ItemType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/ssf/shop/io/DownloadItemEntry;Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/DownloadListener;)V
 
     const/4 v1, 0x0
 
@@ -656,7 +729,7 @@
     :cond_2
     const/4 v1, 0x5
 
-    invoke-interface {p4, v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/DownloadListener;->updateStatus(Ljava/lang/String;I)V
+    invoke-interface {p5, v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/DownloadListener;->updateStatus(Ljava/lang/String;I)V
 
     goto :goto_0
 .end method
@@ -1519,6 +1592,8 @@
 
     iput-object p4, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;->downloadListener:Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/DownloadListener;
 
+    iput-object p2, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;->contentType:Ljava/lang/String;
+
     new-instance v7, Landroid/os/Bundle;
 
     invoke-direct {v7}, Landroid/os/Bundle;-><init>()V
@@ -1526,6 +1601,10 @@
     const-string v0, "extra_content_type"
 
     invoke-virtual {v7, v0, p2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v0, "extra_file_type"
+
+    invoke-virtual {v7, v0, p3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;->mSsfClient:Lcom/samsung/android/sdk/ssf/SsfClient;
 
@@ -1542,6 +1621,44 @@
     move-object v4, p1
 
     invoke-static/range {v0 .. v7}, Lcom/samsung/android/sdk/ssf/shop/ShopManager;->downloadFile(Lcom/samsung/android/sdk/ssf/SsfClient;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/ssf/SsfListener;Ljava/lang/String;Landroid/os/Bundle;)V
+
+    return-void
+.end method
+
+.method public downloadFilesByFileName(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/DownloadListener;)V
+    .locals 8
+
+    iput-object p4, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;->downloadListener:Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/DownloadListener;
+
+    iput-object p2, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;->contentType:Ljava/lang/String;
+
+    new-instance v7, Landroid/os/Bundle;
+
+    invoke-direct {v7}, Landroid/os/Bundle;-><init>()V
+
+    const-string v0, "extra_content_type"
+
+    invoke-virtual {v7, v0, p2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v0, "extra_file_type"
+
+    invoke-virtual {v7, v0, p3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;->mSsfClient:Lcom/samsung/android/sdk/ssf/SsfClient;
+
+    const/4 v1, 0x4
+
+    iget-object v5, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;->mSsfListener:Lcom/samsung/android/sdk/ssf/SsfListener;
+
+    iget-object v6, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;->serviceName:Ljava/lang/String;
+
+    move-object v2, p2
+
+    move-object v3, p3
+
+    move-object v4, p1
+
+    invoke-static/range {v0 .. v7}, Lcom/samsung/android/sdk/ssf/shop/ShopManager;->downloadFileByFileName(Lcom/samsung/android/sdk/ssf/SsfClient;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/ssf/SsfListener;Ljava/lang/String;Landroid/os/Bundle;)V
 
     return-void
 .end method
@@ -1630,24 +1747,26 @@
     goto :goto_0
 .end method
 
-.method public getCategoryList(Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/CategoryListListener;)V
-    .locals 6
+.method public getCategoryList(Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/CategoryListListener;)V
+    .locals 7
 
-    new-instance v3, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager$2;
+    new-instance v4, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager$2;
 
-    invoke-direct {v3, p0, p2}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager$2;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/CategoryListListener;)V
+    invoke-direct {v4, p0, p3}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager$2;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/CategoryListListener;)V
 
     iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;->mSsfClient:Lcom/samsung/android/sdk/ssf/SsfClient;
 
     const/16 v1, 0xa
 
-    iget-object v4, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;->serviceName:Ljava/lang/String;
+    iget-object v5, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;->serviceName:Ljava/lang/String;
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
     move-object v2, p1
 
-    invoke-static/range {v0 .. v5}, Lcom/samsung/android/sdk/ssf/shop/ShopManager;->getCategoryList(Lcom/samsung/android/sdk/ssf/SsfClient;ILjava/lang/String;Lcom/samsung/android/sdk/ssf/SsfListener;Ljava/lang/String;Landroid/os/Bundle;)V
+    move-object v3, p2
+
+    invoke-static/range {v0 .. v6}, Lcom/samsung/android/sdk/ssf/shop/ShopManager;->getCategoryList(Lcom/samsung/android/sdk/ssf/SsfClient;ILjava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/ssf/SsfListener;Ljava/lang/String;Landroid/os/Bundle;)V
 
     return-void
 .end method
@@ -1670,12 +1789,12 @@
     return-void
 .end method
 
-.method public getItemList(Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/ItemListDownloadListener;)V
-    .locals 8
+.method public getItemList(Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/Dimensions;Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/ItemListDownloadListener;)V
+    .locals 9
 
     const-wide/16 v6, 0x0
 
-    iput-object p2, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;->itemListListener:Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/ItemListDownloadListener;
+    iput-object p3, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;->itemListListener:Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/ItemListDownloadListener;
 
     iput-object p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;->contentType:Ljava/lang/String;
 
@@ -1712,13 +1831,15 @@
 
     iget-object v4, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;->mDeviceResolution:Landroid/graphics/Rect;
 
-    iget-object v6, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;->serviceName:Ljava/lang/String;
+    iget-object v7, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;->serviceName:Ljava/lang/String;
 
-    const/4 v7, 0x0
+    const/4 v8, 0x0
 
     move-object v5, p1
 
-    invoke-static/range {v0 .. v7}, Lcom/samsung/android/sdk/ssf/shop/ShopManager;->getPackagesInfoList(Lcom/samsung/android/sdk/ssf/SsfClient;ILcom/samsung/android/sdk/ssf/shop/ShopManager$ItemType;Lcom/samsung/android/sdk/ssf/SsfListener;Landroid/graphics/Rect;Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)V
+    move-object v6, p2
+
+    invoke-static/range {v0 .. v8}, Lcom/samsung/android/sdk/ssf/shop/ShopManager;->getPackagesInfoList(Lcom/samsung/android/sdk/ssf/SsfClient;ILcom/samsung/android/sdk/ssf/shop/ShopManager$ItemType;Lcom/samsung/android/sdk/ssf/SsfListener;Landroid/graphics/Rect;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/Dimensions;Ljava/lang/String;Landroid/os/Bundle;)V
 
     :goto_0
     return-void
@@ -1731,4 +1852,178 @@
     invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
     goto :goto_0
+.end method
+
+.method public isDownloadedFile(Ljava/lang/String;Ljava/lang/String;)Z
+    .locals 8
+
+    const/4 v6, 0x1
+
+    const/4 v7, 0x0
+
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string v1, "itemId is empty"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_0
+    invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string v1, "version is empty"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_1
+    new-array v2, v6, [Ljava/lang/String;
+
+    const-string v0, "file_path"
+
+    aput-object v0, v2, v7
+
+    const-string v3, "item_id=? AND local_version=? "
+
+    const/4 v0, 0x2
+
+    new-array v4, v0, [Ljava/lang/String;
+
+    aput-object p1, v4, v7
+
+    aput-object p2, v4, v6
+
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/provider/ShopProvider;
+
+    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;->context:Landroid/content/Context;
+
+    invoke-direct {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/provider/ShopProvider;-><init>(Landroid/content/Context;)V
+
+    const-string v1, "contents_list"
+
+    const/4 v5, 0x0
+
+    invoke-virtual/range {v0 .. v5}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/provider/ShopProvider;->query(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_3
+
+    const-string v0, "Cursor is not null"
+
+    sget-object v2, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;->TAG:Ljava/lang/String;
+
+    invoke-static {v0, v2}, Lcom/samsung/android/sdk/ssf/shop/util/ShopLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "Cursor count"
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-interface {v1}, Landroid/database/Cursor;->getCount()I
+
+    move-result v2
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    sget-object v2, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;->TAG:Ljava/lang/String;
+
+    invoke-static {v0, v2}, Lcom/samsung/android/sdk/ssf/shop/util/ShopLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-interface {v1}, Landroid/database/Cursor;->moveToFirst()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    const-string v0, "file_path"
+
+    invoke-interface {v1, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+
+    move-result v0
+
+    invoke-interface {v1, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "file path : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    sget-object v3, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;->TAG:Ljava/lang/String;
+
+    invoke-static {v2, v3}, Lcom/samsung/android/sdk/ssf/shop/util/ShopLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_2
+
+    new-instance v2, Ljava/io/File;
+
+    invoke-direct {v2, v0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v2}, Ljava/io/File;->exists()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    move v0, v6
+
+    :goto_0
+    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+
+    :goto_1
+    return v0
+
+    :cond_2
+    move v0, v7
+
+    goto :goto_0
+
+    :cond_3
+    move v0, v7
+
+    goto :goto_1
 .end method

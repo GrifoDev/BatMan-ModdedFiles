@@ -744,6 +744,7 @@ Kamera"</string>
     <string name="settings_glance_reply_explain_text_vzw">Enjam beýlesine öwrülende, ýürek ritmi sensoryna barmagyňyzy goýup, ony %d sekunt ýerinde saklap, gelýän jaňy ret ediň we jaň edýäne standart hat iberiň.</string>
     <string name="settings_glance_reply_reached_maximum_text">Nyşanlar maksimum sanyna (%d) ýetdi</string>
     <string name="settings_glance_reply_text">Çalt jogap hatlary</string>
+    <string name="settings_subappbar_switch_dimmed">Öçügsi</string>
     <string name="settings_subappbar_switch_off">Ýapyk</string>
     <string name="settings_subappbar_switch_on">Açyk</string>
     <string name="simple_sharing">Bag paýlaşyk</string>
@@ -789,6 +790,7 @@ Kamera"</string>
     <string name="swipe_right_to_answer_call_with_video">Jaňy wideoly almak üçin, saga syryň.</string>
     <string name="swipe_right_to_answer_call_without_video">Jaňy wideosyz almak üçin, saga syryň.</string>
     <string name="switch_rejected_by_mt">Wideo jaňa geçmek talaby ret edildi</string>
+    <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">Wideo jaňy geçirmek talaby ýerine ýetirmek başartmady.</string>
     <string name="switch_to_video_call_failed_tmo">Wideo jaňa geçmek haýyşy ret edildi.</string>
     <string name="switch_to_voice_call_failed">Sesli jaňa geçirmek haýyşy şowsuz boldy.</string>

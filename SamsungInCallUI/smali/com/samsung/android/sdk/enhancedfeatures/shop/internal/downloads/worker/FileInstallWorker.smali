@@ -30,7 +30,11 @@
 # instance fields
 .field private mContentType:Ljava/lang/String;
 
+.field private mDownloadFileName:Ljava/lang/String;
+
 .field private mDownloadUrl:Ljava/lang/String;
+
+.field private mFileType:Ljava/lang/String;
 
 .field private mItemEntry:Lcom/samsung/android/sdk/ssf/shop/io/DownloadItemEntry;
 
@@ -58,18 +62,26 @@
     return-void
 .end method
 
-.method public constructor <init>(Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/constant/ItemType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/ssf/shop/io/DownloadItemEntry;Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/DownloadListener;)V
-    .locals 0
+.method public constructor <init>(Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/constant/ItemType;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/ssf/shop/io/DownloadItemEntry;Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/DownloadListener;)V
+    .locals 1
 
-    invoke-direct {p0, p1, p3, p6}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/InstallAsyncWorker;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/constant/ItemType;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/DownloadListener;)V
+    invoke-direct {p0, p1, p4, p7}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/InstallAsyncWorker;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/constant/ItemType;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/DownloadListener;)V
 
     iput-object p2, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->mContentType:Ljava/lang/String;
 
-    iput-object p3, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->mItemId:Ljava/lang/String;
+    iput-object p3, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->mFileType:Ljava/lang/String;
 
-    iput-object p4, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->mDownloadUrl:Ljava/lang/String;
+    iput-object p4, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->mItemId:Ljava/lang/String;
 
-    iput-object p5, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->mItemEntry:Lcom/samsung/android/sdk/ssf/shop/io/DownloadItemEntry;
+    iput-object p5, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->mDownloadUrl:Ljava/lang/String;
+
+    invoke-direct {p0}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->getFileNameFromUrl()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->mDownloadFileName:Ljava/lang/String;
+
+    iput-object p6, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->mItemEntry:Lcom/samsung/android/sdk/ssf/shop/io/DownloadItemEntry;
 
     return-void
 .end method
@@ -80,6 +92,76 @@
     invoke-virtual {p0, p1}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->publishProgress([Ljava/lang/Object;)V
 
     return-void
+.end method
+
+.method private getFileNameFromUrl()Ljava/lang/String;
+    .locals 3
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->mDownloadUrl:Ljava/lang/String;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->mDownloadUrl:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "."
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->mFileType:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->mFileType:Ljava/lang/String;
+
+    invoke-virtual {v1}, Ljava/lang/String;->length()I
+
+    move-result v1
+
+    add-int/2addr v0, v1
+
+    add-int/lit8 v0, v0, 0x1
+
+    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->mDownloadUrl:Ljava/lang/String;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v2, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "/"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->lastIndexOf(Ljava/lang/String;)I
+
+    move-result v2
+
+    invoke-virtual {v1, v2, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v0
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 
@@ -170,7 +252,7 @@
 
     if-nez v3, :cond_1
 
-    const-string v3, "tmpPackageZipfile delete fail"
+    const-string v3, "tmpFile delete fail"
 
     sget-object v4, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->TAG:Ljava/lang/String;
 
@@ -192,7 +274,7 @@
 
     move-result-object v2
 
-    const-string v3, "], tmpPackageZipFile : "
+    const-string v3, "], tmpFile : "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -398,9 +480,11 @@
 .end method
 
 .method protected varargs onInstalling([Ljava/io/File;[Ljava/lang/Void;)Ljava/lang/Boolean;
-    .locals 8
+    .locals 12
 
-    const/4 v1, 0x0
+    const/4 v7, 0x1
+
+    const/4 v6, 0x0
 
     invoke-super {p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/InstallAsyncWorker;->onInstalling(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Boolean;
 
@@ -408,7 +492,7 @@
 
     if-nez v0, :cond_1
 
-    invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-static {v6}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
 
@@ -417,32 +501,145 @@
     return-object v0
 
     :cond_1
-    aget-object v3, p1, v1
+    aget-object v10, p1, v6
 
     :try_start_0
     invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->getContext()Landroid/content/Context;
 
-    move-result-object v0
+    move-result-object v11
 
+    const/4 v0, 0x2
+
+    new-array v2, v0, [Ljava/lang/String;
+
+    const/4 v0, 0x0
+
+    const-string v1, "install"
+
+    aput-object v1, v2, v0
+
+    const/4 v0, 0x1
+
+    const-string v1, "local_version"
+
+    aput-object v1, v2, v0
+
+    const-string v3, "item_id=?"
+
+    const/4 v0, 0x1
+
+    new-array v4, v0, [Ljava/lang/String;
+
+    const/4 v0, 0x0
+
+    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->mItemId:Ljava/lang/String;
+
+    aput-object v1, v4, v0
+
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/provider/ShopProvider;
+
+    invoke-direct {v0, v11}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/provider/ShopProvider;-><init>(Landroid/content/Context;)V
+
+    const-string v1, "contents_list"
+
+    const/4 v5, 0x0
+
+    invoke-virtual/range {v0 .. v5}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/provider/ShopProvider;->query(Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_7
+
+    invoke-interface {v1}, Landroid/database/Cursor;->moveToFirst()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_6
+
+    const-string v0, "install"
+
+    invoke-interface {v1, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+
+    move-result v0
+
+    invoke-interface {v1, v0}, Landroid/database/Cursor;->getInt(I)I
+
+    move-result v0
+
+    int-to-long v2, v0
+
+    const-string v0, "local_version"
+
+    invoke-interface {v1, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+
+    move-result v0
+
+    invoke-interface {v1, v0}, Landroid/database/Cursor;->getInt(I)I
+
+    move-result v0
+
+    const-wide/16 v4, 0x0
+
+    cmp-long v2, v2, v4
+
+    if-lez v2, :cond_6
+
+    iget-object v2, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->mItemEntry:Lcom/samsung/android/sdk/ssf/shop/io/DownloadItemEntry;
+
+    iget-object v2, v2, Lcom/samsung/android/sdk/ssf/shop/io/DownloadItemEntry;->item:Lcom/samsung/android/sdk/ssf/shop/io/Item;
+
+    iget-wide v2, v2, Lcom/samsung/android/sdk/ssf/shop/io/Item;->version:J
+
+    int-to-long v4, v0
+
+    cmp-long v0, v2, v4
+
+    if-lez v0, :cond_6
+
+    move v0, v7
+
+    :goto_1
+    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+
+    :goto_2
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->mContentType:Ljava/lang/String;
+
+    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->mItemId:Ljava/lang/String;
+
+    const/4 v2, 0x0
+
+    invoke-static {v11, v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/FileHelper;->uninstallPackage(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/shop/apis/listener/DownloadListener;)V
+
+    :cond_2
     iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->mContentType:Ljava/lang/String;
+
+    iget-object v2, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->mFileType:Ljava/lang/String;
+
+    iget-object v3, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->mDownloadFileName:Ljava/lang/String;
 
     invoke-virtual {p0}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->getItemId()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v4
 
-    iget-object v4, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->mItemEntry:Lcom/samsung/android/sdk/ssf/shop/io/DownloadItemEntry;
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->mItemEntry:Lcom/samsung/android/sdk/ssf/shop/io/DownloadItemEntry;
 
-    iget-object v4, v4, Lcom/samsung/android/sdk/ssf/shop/io/DownloadItemEntry;->item:Lcom/samsung/android/sdk/ssf/shop/io/Item;
+    iget-object v0, v0, Lcom/samsung/android/sdk/ssf/shop/io/DownloadItemEntry;->item:Lcom/samsung/android/sdk/ssf/shop/io/Item;
 
-    iget-wide v4, v4, Lcom/samsung/android/sdk/ssf/shop/io/Item;->expirytime:J
+    iget-wide v6, v0, Lcom/samsung/android/sdk/ssf/shop/io/Item;->expirytime:J
 
-    iget-object v6, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->mItemEntry:Lcom/samsung/android/sdk/ssf/shop/io/DownloadItemEntry;
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->mItemEntry:Lcom/samsung/android/sdk/ssf/shop/io/DownloadItemEntry;
 
-    iget-object v6, v6, Lcom/samsung/android/sdk/ssf/shop/io/DownloadItemEntry;->item:Lcom/samsung/android/sdk/ssf/shop/io/Item;
+    iget-object v0, v0, Lcom/samsung/android/sdk/ssf/shop/io/DownloadItemEntry;->item:Lcom/samsung/android/sdk/ssf/shop/io/Item;
 
-    iget-wide v6, v6, Lcom/samsung/android/sdk/ssf/shop/io/Item;->version:J
+    iget-wide v8, v0, Lcom/samsung/android/sdk/ssf/shop/io/Item;->version:J
 
-    invoke-static/range {v0 .. v7}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/FileHelper;->installPackage(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/io/File;JJ)V
+    move-object v0, v11
+
+    move-object v5, v10
+
+    invoke-static/range {v0 .. v9}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/FileHelper;->installPackage(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/io/File;JJ)V
 
     const/4 v0, 0x1
 
@@ -453,101 +650,15 @@
 
     move-result-object v0
 
-    if-eqz v3, :cond_2
+    if-eqz v10, :cond_3
 
-    invoke-virtual {v3}, Ljava/io/File;->exists()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    invoke-virtual {v3}, Ljava/io/File;->delete()Z
-
-    move-result v1
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "download_file delete temp file (result/filePath) : "
-
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, "/"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v3}, Ljava/io/File;->getPath()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    sget-object v2, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->TAG:Ljava/lang/String;
-
-    invoke-static {v1, v2}, Lcom/samsung/android/sdk/ssf/shop/util/ShopLog;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    :cond_2
-    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;->downloadItemMap:Ljava/util/HashMap;
-
-    iget-object v2, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->mItemId:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;->downloadItemMap:Ljava/util/HashMap;
-
-    iget-object v2, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->mItemId:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v0
-
-    :try_start_1
-    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->TAG:Ljava/lang/String;
-
-    invoke-static {v0, v1}, Lcom/samsung/android/sdk/ssf/shop/util/ShopLog;->e(Ljava/lang/Throwable;Ljava/lang/String;)V
-
-    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/InstallAsyncWorker$InstallException;->buildInstallException(Ljava/lang/Throwable;)Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/InstallAsyncWorker$InstallException;
-
-    move-result-object v0
-
-    throw v0
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    :catchall_0
-    move-exception v0
-
-    if-eqz v3, :cond_3
-
-    invoke-virtual {v3}, Ljava/io/File;->exists()Z
+    invoke-virtual {v10}, Ljava/io/File;->exists()Z
 
     move-result v1
 
     if-eqz v1, :cond_3
 
-    invoke-virtual {v3}, Ljava/io/File;->delete()Z
+    invoke-virtual {v10}, Ljava/io/File;->delete()Z
 
     move-result v1
 
@@ -555,9 +666,9 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "download_file delete temp file (result/filePath) : "
+    const-string v3, "download_file delete temp file (result/filePath) : "
 
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
@@ -571,7 +682,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v3}, Ljava/io/File;->getPath()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/io/File;->getPath()Ljava/lang/String;
 
     move-result-object v2
 
@@ -596,7 +707,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_0
 
     sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;->downloadItemMap:Ljava/util/HashMap;
 
@@ -604,6 +715,102 @@
 
     invoke-virtual {v1, v2}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_4
+    goto/16 :goto_0
+
+    :catch_0
+    move-exception v0
+
+    :try_start_1
+    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->TAG:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/ssf/shop/util/ShopLog;->e(Ljava/lang/Throwable;Ljava/lang/String;)V
+
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/InstallAsyncWorker$InstallException;->buildInstallException(Ljava/lang/Throwable;)Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/InstallAsyncWorker$InstallException;
+
+    move-result-object v0
+
     throw v0
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :catchall_0
+    move-exception v0
+
+    if-eqz v10, :cond_4
+
+    invoke-virtual {v10}, Ljava/io/File;->exists()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    invoke-virtual {v10}, Ljava/io/File;->delete()Z
+
+    move-result v1
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "download_file delete temp file (result/filePath) : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, "/"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v10}, Ljava/io/File;->getPath()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->TAG:Ljava/lang/String;
+
+    invoke-static {v1, v2}, Lcom/samsung/android/sdk/ssf/shop/util/ShopLog;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_4
+    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;->downloadItemMap:Ljava/util/HashMap;
+
+    iget-object v2, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->mItemId:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_5
+
+    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/network/manager/ShopAgentManager;->downloadItemMap:Ljava/util/HashMap;
+
+    iget-object v2, p0, Lcom/samsung/android/sdk/enhancedfeatures/shop/internal/downloads/worker/FileInstallWorker;->mItemId:Ljava/lang/String;
+
+    invoke-virtual {v1, v2}, Ljava/util/HashMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_5
+    throw v0
+
+    :cond_6
+    move v0, v6
+
+    goto/16 :goto_1
+
+    :cond_7
+    move v0, v6
+
+    goto/16 :goto_2
 .end method

@@ -23,6 +23,8 @@
 
 
 # instance fields
+.field private mAgifImageFile:Ljava/io/File;
+
 .field private mAgifUri:Landroid/net/Uri;
 
 .field private final mCallDetails:Lcom/android/incallui/CallDetails;
@@ -69,6 +71,8 @@
 .field private mLogState:Lcom/android/incallui/Call$LogState;
 
 .field private mNsriSecureContentObserver:Landroid/database/ContentObserver;
+
+.field private mOutgoingCall:Z
 
 .field private mPhoneAccountHandle:Landroid/telecom/PhoneAccountHandle;
 
@@ -211,6 +215,8 @@
 
     iput v2, p0, Lcom/android/incallui/Call;->mSubId:I
 
+    iput-boolean v2, p0, Lcom/android/incallui/Call;->mOutgoingCall:Z
+
     const/4 v0, -0x1
 
     iput v0, p0, Lcom/android/incallui/Call;->mPhoneType:I
@@ -238,6 +244,8 @@
     iput-boolean v2, p0, Lcom/android/incallui/Call;->mShowToastAsConnectVoice:Z
 
     iput-object v3, p0, Lcom/android/incallui/Call;->mAgifUri:Landroid/net/Uri;
+
+    iput-object v3, p0, Lcom/android/incallui/Call;->mAgifImageFile:Ljava/io/File;
 
     new-instance v0, Lcom/android/incallui/Call$3;
 
@@ -1711,6 +1719,14 @@
     return-object v0
 .end method
 
+.method public getAgifImageFile()Ljava/io/File;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/incallui/Call;->mAgifImageFile:Ljava/io/File;
+
+    return-object v0
+.end method
+
 .method public getAgifUri()Landroid/net/Uri;
     .locals 1
 
@@ -2054,6 +2070,14 @@
     move-result-object v0
 
     return-object v0
+.end method
+
+.method public getIsOutgoingCall()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/incallui/Call;->mOutgoingCall:Z
+
+    return v0
 .end method
 
 .method public getLastForwardedNumber()Ljava/lang/String;
@@ -3036,6 +3060,14 @@
     return-void
 .end method
 
+.method public setAgifImageFile(Ljava/io/File;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/incallui/Call;->mAgifImageFile:Ljava/io/File;
+
+    return-void
+.end method
+
 .method public setAgifUri(Landroid/net/Uri;)V
     .locals 0
 
@@ -3088,6 +3120,14 @@
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/incallui/Call;->mIsIllusion:Z
+
+    return-void
+.end method
+
+.method public setIsOutgoingCall(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/incallui/Call;->mOutgoingCall:Z
 
     return-void
 .end method

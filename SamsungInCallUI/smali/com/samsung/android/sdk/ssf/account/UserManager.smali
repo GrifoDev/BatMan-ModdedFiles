@@ -19,6 +19,8 @@
 
 .field private static final PATH_USER_UPDATE:Ljava/lang/String; = "dp/v1/update"
 
+.field private static final TAG:Ljava/lang/String; = "UserManager"
+
 
 # direct methods
 .method private constructor <init>()V
@@ -2996,6 +2998,10 @@
 .method public static update(Lcom/samsung/android/sdk/ssf/SsfClient;Lcom/samsung/android/sdk/ssf/account/io/UpdateReqInfo;ILcom/samsung/android/sdk/ssf/SsfListener;Lcom/samsung/android/sdk/ssf/common/ConnectTimeout;)Z
     .locals 6
 
+    const/4 v3, 0x0
+
+    const/4 v0, 0x0
+
     if-eqz p0, :cond_0
 
     if-eqz p1, :cond_0
@@ -3050,19 +3056,17 @@
     :cond_1
     invoke-virtual {p0}, Lcom/samsung/android/sdk/ssf/SsfClient;->getDuid()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-eqz v0, :cond_2
+    if-eqz v1, :cond_2
 
     invoke-virtual {p0}, Lcom/samsung/android/sdk/ssf/SsfClient;->getAccessToken()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    if-nez v0, :cond_3
+    if-nez v1, :cond_4
 
     :cond_2
-    new-instance v0, Ljava/lang/IllegalArgumentException;
-
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -3099,24 +3103,32 @@
 
     move-result-object v1
 
-    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    const-string v2, "UserManager"
 
-    throw v0
+    invoke-static {v1, v2}, Lcom/samsung/android/sdk/ssf/common/util/CommonLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    new-instance v1, Lcom/samsung/android/sdk/ssf/SsfResult;
+
+    invoke-direct {v1}, Lcom/samsung/android/sdk/ssf/SsfResult;-><init>()V
+
+    const v2, 0x15f91
+
+    iput v2, v1, Lcom/samsung/android/sdk/ssf/SsfResult;->resultCode:I
+
+    invoke-virtual {p3, p2, v3, v1, v3}, Lcom/samsung/android/sdk/ssf/SsfListener;->onResponse(ILjava/lang/Object;Lcom/samsung/android/sdk/ssf/SsfResult;Ljava/lang/Object;)V
 
     :cond_3
-    invoke-virtual {p0}, Lcom/samsung/android/sdk/ssf/SsfClient;->getServer()Ljava/lang/String;
-
-    move-result-object v0
-
-    if-nez v0, :cond_4
-
-    const/4 v0, 0x0
-
     :goto_0
     return v0
 
     :cond_4
-    invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+    invoke-virtual {p0}, Lcom/samsung/android/sdk/ssf/SsfClient;->getServer()Ljava/lang/String;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_3
+
+    invoke-static {v1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 

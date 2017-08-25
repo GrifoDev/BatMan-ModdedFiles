@@ -72,6 +72,14 @@
 
     iput v0, v4, Lcom/samsung/android/sdk/ssf/group/io/GroupUpdateRequest;->option:I
 
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/group/internal/transaction/UpdateGroupTransaction;->mRequest:Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/UpdateGroupRequest;
+
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/group/apis/request/UpdateGroupRequest;->getMetaData()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, v4, Lcom/samsung/android/sdk/ssf/group/io/GroupUpdateRequest;->meta_data:Ljava/lang/String;
+
     invoke-static {v6}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->getSsfClient(Ljava/lang/String;)Lcom/samsung/android/sdk/ssf/SsfClient;
 
     move-result-object v0

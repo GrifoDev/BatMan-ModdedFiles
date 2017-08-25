@@ -1216,7 +1216,7 @@
 
     if-eqz v1, :cond_2
 
-    const v1, 0x7f0905bf
+    const v1, 0x7f0905c1
 
     invoke-virtual {p0, v1}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->getString(I)Ljava/lang/String;
 
@@ -1510,7 +1510,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090364
+    const v1, 0x7f090366
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2367,7 +2367,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mPowerByBreeze:Landroid/widget/TextView;
 
-    const v0, 0x7f090613
+    const v0, 0x7f090615
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->getString(I)Ljava/lang/String;
 

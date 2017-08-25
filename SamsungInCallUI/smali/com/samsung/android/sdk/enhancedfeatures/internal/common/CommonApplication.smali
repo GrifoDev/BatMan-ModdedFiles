@@ -23,8 +23,6 @@
     .end annotation
 .end field
 
-.field private static mAuthorizationListener:Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/AuthorizationListenerImpl;
-
 .field private static mEnhancedFeatures:Lcom/samsung/android/sdk/enhancedfeatures/EnhancedFeatures;
 
 .field private static sApplicationContext:Landroid/content/Context;
@@ -95,41 +93,6 @@
     invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonFeature;->init(Landroid/content/Context;)V
 
     return-void
-.end method
-
-.method public static declared-synchronized getAutherizationListener()Lcom/samsung/android/sdk/ssf/account/AuthorizationListener;
-    .locals 2
-
-    const-class v1, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;
-
-    monitor-enter v1
-
-    :try_start_0
-    sget-object v0, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->mAuthorizationListener:Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/AuthorizationListenerImpl;
-
-    if-nez v0, :cond_0
-
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/AuthorizationListenerImpl;
-
-    invoke-direct {v0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/AuthorizationListenerImpl;-><init>()V
-
-    sput-object v0, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->mAuthorizationListener:Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/AuthorizationListenerImpl;
-
-    :cond_0
-    sget-object v0, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->mAuthorizationListener:Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/AuthorizationListenerImpl;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    monitor-exit v1
-
-    return-object v0
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-
-    throw v0
 .end method
 
 .method public static getContext()Landroid/content/Context;
@@ -239,142 +202,8 @@
     goto :goto_0
 .end method
 
-.method private static getSSLSocketFactory()Ljavax/net/ssl/SSLSocketFactory;
-    .locals 7
-
-    const/4 v2, 0x0
-
-    invoke-static {}, Ljava/security/KeyStore;->getDefaultType()Ljava/lang/String;
-
-    move-result-object v0
-
-    :try_start_0
-    invoke-static {v0}, Ljava/security/KeyStore;->getInstance(Ljava/lang/String;)Ljava/security/KeyStore;
-
-    move-result-object v3
-
-    const/4 v0, 0x0
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v3, v0, v1}, Ljava/security/KeyStore;->load(Ljava/io/InputStream;[C)V
-
-    const-string v0, "AndroidCAStore"
-
-    invoke-static {v0}, Ljava/security/KeyStore;->getInstance(Ljava/lang/String;)Ljava/security/KeyStore;
-
-    move-result-object v4
-
-    const/4 v0, 0x0
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v4, v0, v1}, Ljava/security/KeyStore;->load(Ljava/io/InputStream;[C)V
-
-    invoke-virtual {v4}, Ljava/security/KeyStore;->aliases()Ljava/util/Enumeration;
-
-    move-result-object v5
-
-    :cond_0
-    :goto_0
-    invoke-interface {v5}, Ljava/util/Enumeration;->hasMoreElements()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    invoke-interface {v5}, Ljava/util/Enumeration;->nextElement()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/String;
-
-    invoke-virtual {v4, v0}, Ljava/security/KeyStore;->getCertificate(Ljava/lang/String;)Ljava/security/cert/Certificate;
-
-    move-result-object v1
-
-    check-cast v1, Ljava/security/cert/X509Certificate;
-
-    const-string v6, "system:"
-
-    invoke-virtual {v0, v6}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_0
-
-    invoke-virtual {v3, v0, v1}, Ljava/security/KeyStore;->setCertificateEntry(Ljava/lang/String;Ljava/security/cert/Certificate;)V
-    :try_end_0
-    .catch Ljava/lang/RuntimeException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_1
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v0
-
-    throw v0
-
-    :cond_1
-    :try_start_1
-    invoke-static {}, Ljavax/net/ssl/TrustManagerFactory;->getDefaultAlgorithm()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-static {v0}, Ljavax/net/ssl/TrustManagerFactory;->getInstance(Ljava/lang/String;)Ljavax/net/ssl/TrustManagerFactory;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v3}, Ljavax/net/ssl/TrustManagerFactory;->init(Ljava/security/KeyStore;)V
-
-    const-string v1, "TLS"
-
-    invoke-static {v1}, Ljavax/net/ssl/SSLContext;->getInstance(Ljava/lang/String;)Ljavax/net/ssl/SSLContext;
-
-    move-result-object v1
-
-    const/4 v3, 0x0
-
-    invoke-virtual {v0}, Ljavax/net/ssl/TrustManagerFactory;->getTrustManagers()[Ljavax/net/ssl/TrustManager;
-
-    move-result-object v0
-
-    const/4 v4, 0x0
-
-    invoke-virtual {v1, v3, v0, v4}, Ljavax/net/ssl/SSLContext;->init([Ljavax/net/ssl/KeyManager;[Ljavax/net/ssl/TrustManager;Ljava/security/SecureRandom;)V
-
-    invoke-virtual {v1}, Ljavax/net/ssl/SSLContext;->getSocketFactory()Ljavax/net/ssl/SSLSocketFactory;
-    :try_end_1
-    .catch Ljava/lang/RuntimeException; {:try_start_1 .. :try_end_1} :catch_0
-    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_1
-
-    move-result-object v0
-
-    :goto_1
-    return-object v0
-
-    :catch_1
-    move-exception v0
-
-    const-string v1, "CommonApplication"
-
-    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/SDKLog;->e(Ljava/lang/Throwable;Ljava/lang/String;)V
-
-    const-string v0, "SSL Certificate was null"
-
-    const-string v1, "CommonApplication"
-
-    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/SDKLog;->e(Ljava/lang/String;Ljava/lang/String;)V
-
-    move-object v0, v2
-
-    goto :goto_1
-.end method
-
 .method public static getSsfClient(Ljava/lang/String;)Lcom/samsung/android/sdk/ssf/SsfClient;
-    .locals 5
-
-    const/4 v1, 0x0
+    .locals 3
 
     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -397,62 +226,19 @@
 
     if-nez v0, :cond_2
 
-    const-string v0, "ssf client was null"
+    const-string v0, "CommonApplication"
 
-    const-string v2, "CommonApplication"
+    const-string v1, "ssf client was null"
 
-    invoke-static {v0, v2}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/SDKLog;->i(Ljava/lang/String;Ljava/lang/String;)V
-
-    invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->getContext()Landroid/content/Context;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/content/Context;->getCacheDir()Ljava/io/File;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_5
-
-    new-instance v0, Ljava/io/File;
-
-    invoke-virtual {v2}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
-
-    move-result-object v2
-
-    const-string v3, "Volley"
-
-    invoke-direct {v0, v2, v3}, Ljava/io/File;-><init>(Ljava/lang/String;Ljava/lang/String;)V
-
-    :goto_0
-    new-instance v2, Lcom/samsung/android/sdk/ssf/common/model/CommonBasicNetwork;
-
-    new-instance v3, Lcom/samsung/android/sdk/ssf/common/model/CommonHurlStack;
-
-    invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->getSSLSocketFactory()Ljavax/net/ssl/SSLSocketFactory;
-
-    move-result-object v4
-
-    invoke-direct {v3, v1, v4}, Lcom/samsung/android/sdk/ssf/common/model/CommonHurlStack;-><init>(Lcom/samsung/android/sdk/ssf/common/model/CommonHurlStack$UrlRewriter;Ljavax/net/ssl/SSLSocketFactory;)V
-
-    invoke-direct {v2, v3}, Lcom/samsung/android/sdk/ssf/common/model/CommonBasicNetwork;-><init>(Lcom/android/volley/toolbox/HttpStack;)V
-
-    invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->getAutherizationListener()Lcom/samsung/android/sdk/ssf/account/AuthorizationListener;
-
-    move-result-object v1
-
-    invoke-virtual {v2, v1}, Lcom/samsung/android/sdk/ssf/common/model/CommonBasicNetwork;->setAuthorizationListener(Lcom/samsung/android/sdk/ssf/account/AuthorizationListener;)V
-
-    new-instance v1, Lcom/android/volley/toolbox/DiskBasedCache;
-
-    invoke-direct {v1, v0}, Lcom/android/volley/toolbox/DiskBasedCache;-><init>(Ljava/io/File;)V
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     new-instance v0, Lcom/samsung/android/sdk/ssf/SsfClient;
 
-    sget-object v3, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->appId:Ljava/lang/String;
+    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->appId:Ljava/lang/String;
 
-    sget-object v4, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->appSecret:Ljava/lang/String;
+    sget-object v2, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->appSecret:Ljava/lang/String;
 
-    invoke-direct {v0, v3, v4, v2, v1}, Lcom/samsung/android/sdk/ssf/SsfClient;-><init>(Ljava/lang/String;Ljava/lang/String;Lcom/android/volley/Network;Lcom/android/volley/toolbox/DiskBasedCache;)V
+    invoke-direct {v0, v1, v2}, Lcom/samsung/android/sdk/ssf/SsfClient;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
     sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->cid:Ljava/lang/String;
 
@@ -502,7 +288,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/ssf/SsfClient;->setSalesCode(Ljava/lang/String;)V
 
-    :goto_1
+    :goto_0
     invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CscUtil;->getProductCode()Ljava/lang/String;
 
     move-result-object v1
@@ -517,7 +303,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/ssf/SsfClient;->setModelNumber(Ljava/lang/String;)V
 
-    :goto_2
+    :goto_1
     invoke-static {p0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/AccountDBMgr;->getAccessToken(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
@@ -528,27 +314,11 @@
 
     if-nez v1, :cond_1
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    const-string v1, "CommonApplication"
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v2, "it is authenticated"
 
-    const-string v2, "it is authenticated for "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string v2, "CommonApplication"
-
-    invoke-static {v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/SDKLog;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->getContext()Landroid/content/Context;
 
@@ -561,11 +331,11 @@
 
     invoke-virtual {v1, p0, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const-string v1, "SSF initialization is done."
+    const-string v1, "CommonApplication"
 
-    const-string v2, "CommonApplication"
+    const-string v2, "SSF initialization is done."
 
-    invoke-static {v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/SDKLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
     return-object v0
@@ -577,7 +347,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/ssf/SsfClient;->setSalesCode(Ljava/lang/String;)V
 
-    goto :goto_1
+    goto :goto_0
 
     :cond_4
     invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CscUtil;->getProductCode()Ljava/lang/String;
@@ -586,12 +356,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/ssf/SsfClient;->setModelNumber(Ljava/lang/String;)V
 
-    goto :goto_2
-
-    :cond_5
-    move-object v0, v1
-
-    goto/16 :goto_0
+    goto :goto_1
 .end method
 
 .method private static getUserAgent()Ljava/lang/String;
@@ -636,17 +401,19 @@
 
     move-result-object v3
 
-    const-string v4, "; "
+    const-string v4, ";"
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    sget-object v3, Landroid/os/Build;->DISPLAY:Ljava/lang/String;
+    invoke-static {}, Landroid/os/Build;->getRadioVersion()Ljava/lang/String;
+
+    move-result-object v3
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    const-string v4, "; "
+    const-string v4, ";"
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -665,6 +432,56 @@
     move-result-object v2
 
     invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v2, ";"
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v0, "android sdk="
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    sget v2, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v2, ",sw="
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    sget-object v2, Landroid/os/Build$VERSION;->RELEASE:Ljava/lang/String;
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v2, ";"
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v0, "EFSDK/"
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v2, "1.3.3"
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v2, ";"
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 

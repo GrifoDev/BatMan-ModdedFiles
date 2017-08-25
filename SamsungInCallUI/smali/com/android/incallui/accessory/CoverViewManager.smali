@@ -458,7 +458,7 @@
 
     move-result-object v1
 
-    const/4 v3, 0x1
+    const/4 v3, 0x0
 
     invoke-virtual {v1, v3}, Lcom/android/incallui/ProximitySensor;->turnOffProximitySensor(Z)V
 
@@ -523,6 +523,10 @@
     move-result-object v3
 
     invoke-virtual {v1, v2, v2, v3}, Lcom/android/incallui/accessory/CoverScreen;->onStateChange(Lcom/android/incallui/InCallPresenter$InCallState;Lcom/android/incallui/InCallPresenter$InCallState;Lcom/android/incallui/CallList;)V
+
+    const/4 v1, 0x0
+
+    invoke-static {v1}, Lcom/android/incallui/util/SystemServiceUtils;->forceWakeUpScreen(Landroid/content/Context;)V
 
     :cond_4
     :goto_2

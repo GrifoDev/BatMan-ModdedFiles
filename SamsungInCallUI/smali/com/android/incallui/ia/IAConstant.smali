@@ -2,12 +2,18 @@
 .super Ljava/lang/Object;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/android/incallui/ia/IAConstant$NlgParam;
+    }
+.end annotation
+
+
 # static fields
 .field public static final IA_NLG_ATT_EXIST:Ljava/lang/String; = "Exist"
 
 .field public static final IA_NLG_NAME_INCOMINGCALL:Ljava/lang/String; = "IncomingCallNumber"
-
-.field public static final IA_NLG_VAL_NO:Ljava/lang/String; = "no"
 
 .field public static final IA_STATE_ID_ACCEPT_CALL:Ljava/lang/String; = "CallAccept"
 

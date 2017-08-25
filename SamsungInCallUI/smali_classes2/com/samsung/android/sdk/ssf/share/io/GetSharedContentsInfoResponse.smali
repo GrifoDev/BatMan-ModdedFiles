@@ -34,6 +34,8 @@
 
 .field public share_type:I
 
+.field public title:Ljava/lang/String;
+
 .field public to_list:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -311,6 +313,18 @@
     iget v1, p0, Lcom/samsung/android/sdk/ssf/share/io/GetSharedContentsInfoResponse;->contents_total_to_upload:I
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v1, ", title="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/samsung/android/sdk/ssf/share/io/GetSharedContentsInfoResponse;->title:Ljava/lang/String;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
