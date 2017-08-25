@@ -638,6 +638,8 @@
 
 .field public static final SEM_ENABLED_NOTIFICATION_LISTENERS:Ljava/lang/String; = "enabled_notification_listeners"
 
+.field public static final SEM_FACE_FASTER_RECOGNITION:Ljava/lang/String; = "face_faster_recognition"
+
 .field public static final SEM_INCALL_POWER_BUTTON_BEHAVIOR:Ljava/lang/String; = "incall_power_button_behavior"
 
 .field public static final SEM_INCALL_POWER_BUTTON_BEHAVIOR_DEFAULT:I = 0x1

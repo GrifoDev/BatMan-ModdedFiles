@@ -126,23 +126,11 @@
 
 # virtual methods
 .method public destroy()V
-    .locals 3
+    .locals 1
 
     iget-object v0, p0, Landroid/telecom/VideoCallImpl;->mCallback:Landroid/telecom/InCallService$VideoCall$Callback;
 
     invoke-virtual {p0, v0}, Landroid/telecom/VideoCallImpl;->unregisterCallback(Landroid/telecom/InCallService$VideoCall$Callback;)V
-
-    iget-object v0, p0, Landroid/telecom/VideoCallImpl;->mVideoProvider:Lcom/android/internal/telecom/IVideoProvider;
-
-    invoke-interface {v0}, Lcom/android/internal/telecom/IVideoProvider;->asBinder()Landroid/os/IBinder;
-
-    move-result-object v0
-
-    iget-object v1, p0, Landroid/telecom/VideoCallImpl;->mDeathRecipient:Landroid/os/IBinder$DeathRecipient;
-
-    const/4 v2, 0x0
-
-    invoke-interface {v0, v1, v2}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
 
     return-void
 .end method
@@ -404,7 +392,7 @@
 .end method
 
 .method public unregisterCallback(Landroid/telecom/InCallService$VideoCall$Callback;)V
-    .locals 3
+    .locals 4
 
     const-string/jumbo v1, "VideoCallImpl"
 
@@ -435,8 +423,20 @@
     iget-object v2, p0, Landroid/telecom/VideoCallImpl;->mBinder:Landroid/telecom/VideoCallImpl$VideoCallListenerBinder;
 
     invoke-interface {v1, v2}, Lcom/android/internal/telecom/IVideoProvider;->removeVideoCallback(Landroid/os/IBinder;)V
+
+    iget-object v1, p0, Landroid/telecom/VideoCallImpl;->mVideoProvider:Lcom/android/internal/telecom/IVideoProvider;
+
+    invoke-interface {v1}, Lcom/android/internal/telecom/IVideoProvider;->asBinder()Landroid/os/IBinder;
+
+    move-result-object v1
+
+    iget-object v2, p0, Landroid/telecom/VideoCallImpl;->mDeathRecipient:Landroid/os/IBinder$DeathRecipient;
+
+    const/4 v3, 0x0
+
+    invoke-interface {v1, v2, v3}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
     :try_end_0
-    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_0
     return-void

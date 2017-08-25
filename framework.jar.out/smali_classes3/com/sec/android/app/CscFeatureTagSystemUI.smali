@@ -30,6 +30,8 @@
 
 .field public static final TAG_CSCFEATURE_SYSTEMUI_CONFIGMAXSTATUSFORNFC:Ljava/lang/String; = "CscFeature_SystemUI_ConfigMaxStatusForNfc"
 
+.field public static final TAG_CSCFEATURE_SYSTEMUI_CONFIGNAVIGATIONBARPOLICY:Ljava/lang/String; = "CscFeature_SystemUI_ConfigNavigationBarPolicy"
+
 .field public static final TAG_CSCFEATURE_SYSTEMUI_CONFIGOPBRANDINGFORDATAINDICATOR:Ljava/lang/String; = "CscFeature_SystemUI_ConfigOpBrandingForDataIndicator"
 
 .field public static final TAG_CSCFEATURE_SYSTEMUI_CONFIGOPBRANDINGFORINDICATORICON:Ljava/lang/String; = "CscFeature_SystemUI_ConfigOpBrandingForIndicatorIcon"
