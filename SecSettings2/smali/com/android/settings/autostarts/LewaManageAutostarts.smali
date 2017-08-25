@@ -508,7 +508,7 @@
 
     iget-object v0, p0, Lcom/android/settings/autostarts/LewaManageAutostarts;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x7f0403ce
+    const v1, 0x7f0403cf
 
     invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 

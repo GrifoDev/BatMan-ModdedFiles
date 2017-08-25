@@ -129,7 +129,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0403cf
+    const v6, 0x7f0403d0
 
     const/4 v7, 0x0
 
