@@ -349,7 +349,15 @@
     return-void
 .end method
 
-.method static synthetic -wrap12(Lcom/android/server/fingerprint/FingerprintService;Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceLockoutResetMonitor;)V
+.method static synthetic -wrap12(Lcom/android/server/fingerprint/FingerprintService;Lcom/android/server/fingerprint/ClientMonitor;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/fingerprint/FingerprintService;->removeClient(Lcom/android/server/fingerprint/ClientMonitor;)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap13(Lcom/android/server/fingerprint/FingerprintService;Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceLockoutResetMonitor;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/fingerprint/FingerprintService;->removeLockoutResetCallback(Lcom/android/server/fingerprint/FingerprintService$FingerprintServiceLockoutResetMonitor;)V
@@ -357,7 +365,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap13(Lcom/android/server/fingerprint/FingerprintService;)V
+.method static synthetic -wrap14(Lcom/android/server/fingerprint/FingerprintService;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/fingerprint/FingerprintService;->resetFailedAttempts()V
@@ -365,7 +373,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap14(Lcom/android/server/fingerprint/FingerprintService;)V
+.method static synthetic -wrap15(Lcom/android/server/fingerprint/FingerprintService;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/fingerprint/FingerprintService;->scheduleLockoutReset()V
@@ -373,7 +381,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap15(Lcom/android/server/fingerprint/FingerprintService;II)V
+.method static synthetic -wrap16(Lcom/android/server/fingerprint/FingerprintService;II)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/fingerprint/FingerprintService;->semRequestNavigationMode(II)V
@@ -381,7 +389,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap16(Lcom/android/server/fingerprint/FingerprintService;Ljava/lang/String;II)V
+.method static synthetic -wrap17(Lcom/android/server/fingerprint/FingerprintService;Ljava/lang/String;II)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/fingerprint/FingerprintService;->sendBroadcast(Ljava/lang/String;II)V
@@ -389,7 +397,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap17(Lcom/android/server/fingerprint/FingerprintService;Landroid/os/IBinder;JIILandroid/hardware/fingerprint/IFingerprintServiceReceiver;IZLjava/lang/String;Landroid/os/Bundle;)V
+.method static synthetic -wrap18(Lcom/android/server/fingerprint/FingerprintService;Landroid/os/IBinder;JIILandroid/hardware/fingerprint/IFingerprintServiceReceiver;IZLjava/lang/String;Landroid/os/Bundle;)V
     .locals 0
 
     invoke-direct/range {p0 .. p10}, Lcom/android/server/fingerprint/FingerprintService;->startAuthentication(Landroid/os/IBinder;JIILandroid/hardware/fingerprint/IFingerprintServiceReceiver;IZLjava/lang/String;Landroid/os/Bundle;)V
@@ -397,18 +405,10 @@
     return-void
 .end method
 
-.method static synthetic -wrap18(Lcom/android/server/fingerprint/FingerprintService;Landroid/os/IBinder;[BILandroid/hardware/fingerprint/IFingerprintServiceReceiver;IZLjava/lang/String;Landroid/os/Bundle;)V
+.method static synthetic -wrap19(Lcom/android/server/fingerprint/FingerprintService;Landroid/os/IBinder;[BILandroid/hardware/fingerprint/IFingerprintServiceReceiver;IZLjava/lang/String;Landroid/os/Bundle;)V
     .locals 0
 
     invoke-direct/range {p0 .. p8}, Lcom/android/server/fingerprint/FingerprintService;->startEnrollment(Landroid/os/IBinder;[BILandroid/hardware/fingerprint/IFingerprintServiceReceiver;IZLjava/lang/String;Landroid/os/Bundle;)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap19(Lcom/android/server/fingerprint/FingerprintService;Z)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/fingerprint/FingerprintService;->stopPendingClient(Z)V
 
     return-void
 .end method
@@ -423,7 +423,15 @@
     return v0
 .end method
 
-.method static synthetic -wrap20(Lcom/android/server/fingerprint/FingerprintService;)V
+.method static synthetic -wrap20(Lcom/android/server/fingerprint/FingerprintService;Z)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/fingerprint/FingerprintService;->stopPendingClient(Z)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap21(Lcom/android/server/fingerprint/FingerprintService;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/fingerprint/FingerprintService;->userActivity()V
@@ -769,105 +777,55 @@
 .end method
 
 .method private canStopExclusiveIdentify(Lcom/android/server/fingerprint/ClientMonitor;Landroid/os/Bundle;ZLjava/lang/String;)Z
-    .locals 6
+    .locals 3
 
-    const/4 v5, 0x1
+    const/4 v2, 0x1
 
-    const/4 v4, 0x0
+    const/4 v1, 0x0
 
     if-nez p3, :cond_1
 
     if-eqz p4, :cond_0
 
-    sget-object v2, Lcom/android/server/fingerprint/FingerprintService;->mKeyguardPackage:Ljava/lang/String;
+    sget-object v0, Lcom/android/server/fingerprint/FingerprintService;->mKeyguardPackage:Ljava/lang/String;
 
-    invoke-virtual {p4, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v0
 
-    if-eqz v2, :cond_0
+    if-eqz v0, :cond_0
 
-    const-string/jumbo v2, "FingerprintService"
+    const-string/jumbo v0, "FingerprintService"
 
-    const-string/jumbo v3, "canStopExclusiveIdentify : Keyguard client"
+    const-string/jumbo v1, "canStopExclusiveIdentify : Keyguard client"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v5
+    return v2
 
     :cond_0
     if-eqz p2, :cond_1
 
-    const-string/jumbo v2, "privileged_attr"
+    const-string/jumbo v0, "privileged_attr"
 
-    invoke-virtual {p2, v2, v4}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
+    invoke-virtual {p2, v0, v1}, Landroid/os/Bundle;->getInt(Ljava/lang/String;I)I
 
-    move-result v2
+    move-result v0
 
-    and-int/lit8 v2, v2, 0x4
+    and-int/lit8 v0, v0, 0x4
 
-    if-eqz v2, :cond_1
+    if-eqz v0, :cond_1
 
-    const-string/jumbo v2, "FingerprintService"
+    const-string/jumbo v0, "FingerprintService"
 
-    const-string/jumbo v3, "canStopExclusiveIdentify : have PRIVILEGED_ATTR_EXCLUSIVE_IDENTIFY attr"
+    const-string/jumbo v1, "canStopExclusiveIdentify : have PRIVILEGED_ATTR_EXCLUSIVE_IDENTIFY attr"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v5
+    return v2
 
     :cond_1
-    :try_start_0
-    invoke-virtual {p0}, Lcom/android/server/fingerprint/FingerprintService;->getFingerprintDaemon()Landroid/hardware/fingerprint/IFingerprintDaemon;
-
-    move-result-object v0
-
-    if-nez v0, :cond_2
-
-    const-string/jumbo v2, "FingerprintService"
-
-    const-string/jumbo v3, "canStopExclusiveIdentify: no fingeprintd!"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v4
-
-    :cond_2
-    invoke-direct {p0, v0}, Lcom/android/server/fingerprint/FingerprintService;->getSensorStatus(Landroid/hardware/fingerprint/IFingerprintDaemon;)I
-
-    move-result v2
-
-    const v3, 0x186c9
-
-    if-ne v3, v2, :cond_3
-
-    const-string/jumbo v2, "FingerprintService"
-
-    const-string/jumbo v3, "canStopExclusiveIdentify : sensor is working"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
-
-    return v4
-
-    :catch_0
-    move-exception v1
-
-    const-string/jumbo v2, "FingerprintService"
-
-    const-string/jumbo v3, "canStopExclusiveIdentify: failed"
-
-    invoke-static {v2, v3, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    :cond_3
-    const-string/jumbo v2, "FingerprintService"
-
-    const-string/jumbo v3, "canStopExclusiveIdentify : false"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v4
+    return v1
 .end method
 
 .method private canUseFingerprint(Ljava/lang/String;ZII)Z
@@ -975,7 +933,7 @@
 
     const/16 v4, 0x37
 
-    invoke-virtual {v3, v4, p3, p1}, Landroid/app/AppOpsManager;->noteOp(IILjava/lang/String;)I
+    invoke-virtual {v3, v4, p3, p1}, Landroid/app/AppOpsManager;->noteOpNoThrow(IILjava/lang/String;)I
 
     move-result v3
 
@@ -4078,6 +4036,8 @@
 
     const-string/jumbo v6, "sec"
 
+    const-string/jumbo v7, ""
+
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -4110,9 +4070,7 @@
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v7
-
-    const-string/jumbo v8, ""
+    move-result-object v8
 
     const-string/jumbo v9, ""
 

@@ -9851,7 +9851,7 @@
 
     if-nez v6, :cond_2
 
-    const v6, 0x104094e
+    const v6, 0x104094f
 
     invoke-static {v6}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -12657,7 +12657,7 @@
 
     if-eqz p2, :cond_3
 
-    const v4, 0x104094f
+    const v4, 0x1040950
 
     invoke-static {v4}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -14781,7 +14781,7 @@
 
     if-eqz p3, :cond_0
 
-    const v1, 0x104094c
+    const v1, 0x104094d
 
     invoke-static {v1}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -14811,7 +14811,7 @@
 
     if-eqz p2, :cond_0
 
-    const v1, 0x104094e
+    const v1, 0x104094f
 
     invoke-static {v1}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -20463,14 +20463,6 @@
     move/from16 v1, v21
 
     invoke-direct {v0, v1, v2}, Lcom/android/server/enterprise/wifi/WifiPolicy;->asyncEnableNetwork(IZ)V
-
-    move-object/from16 v0, p0
-
-    iget-object v2, v0, Lcom/android/server/enterprise/wifi/WifiPolicy;->mWifiAdapter:Lcom/android/server/enterprise/adapterlayer/WifiManagerAdapter;
-
-    move/from16 v0, v21
-
-    invoke-virtual {v2, v0}, Lcom/android/server/enterprise/adapterlayer/WifiManagerAdapter;->connect(I)V
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 

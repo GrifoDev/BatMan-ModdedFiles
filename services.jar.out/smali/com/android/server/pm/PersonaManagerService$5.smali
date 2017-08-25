@@ -122,7 +122,7 @@
 
     iget-object v4, p0, Lcom/android/server/pm/PersonaManagerService$5;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
-    invoke-static {v4, v0}, Lcom/android/server/pm/PersonaManagerService;->-wrap61(Lcom/android/server/pm/PersonaManagerService;I)V
+    invoke-static {v4, v0}, Lcom/android/server/pm/PersonaManagerService;->-wrap62(Lcom/android/server/pm/PersonaManagerService;I)V
 
     :cond_0
     :goto_0
@@ -205,7 +205,7 @@
 
     iget-object v4, p0, Lcom/android/server/pm/PersonaManagerService$5;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
-    invoke-static {v4, v3}, Lcom/android/server/pm/PersonaManagerService;->-wrap66(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;)V
+    invoke-static {v4, v3}, Lcom/android/server/pm/PersonaManagerService;->-wrap67(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;)V
 
     goto :goto_0
 

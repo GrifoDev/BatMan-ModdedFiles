@@ -32,6 +32,8 @@
 
 .field private mOp0Lux:Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
 
+.field private mOp0LuxChangedByUser:Z
+
 .field private mOpBeforeHbmLux:Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
 
 .field final synthetic this$0:Lcom/android/server/display/AutomaticBrightnessController;
@@ -156,13 +158,17 @@
 .end method
 
 .method private addToListAfterBoundaryCheckLocked(FIF)I
-    .locals 10
+    .locals 12
 
-    const/high16 v9, 0x40a00000    # 5.0f
+    const/4 v11, 0x1
+
+    const/high16 v10, 0x40a00000    # 5.0f
+
+    const/4 v9, 0x0
 
     const/4 v8, 0x0
 
-    cmpg-float v5, p1, v9
+    cmpg-float v5, p1, v10
 
     if-gtz v5, :cond_2
 
@@ -191,7 +197,7 @@
 
     iget v5, v3, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
 
-    cmpg-float v5, v5, v9
+    cmpg-float v5, v5, v10
 
     if-gtz v5, :cond_0
 
@@ -235,7 +241,7 @@
 
     iget v5, v5, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mOffset:F
 
-    cmpl-float v5, v5, v8
+    cmpl-float v5, v5, v9
 
     if-eqz v5, :cond_2
 
@@ -269,7 +275,9 @@
 
     iget-object v5, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOp0Lux:Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
 
-    iput v8, v5, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mOffset:F
+    iput v9, v5, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mOffset:F
+
+    iput-boolean v8, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOp0LuxChangedByUser:Z
 
     :cond_2
     iget-object v5, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
@@ -316,13 +324,15 @@
 
     invoke-static {v5, v6}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    cmpl-float v5, p1, v8
+    cmpl-float v5, p1, v9
 
     if-nez v5, :cond_3
 
     iget-object v5, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOp0Lux:Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
 
     iput p3, v5, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mOffset:F
+
+    iput-boolean v11, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOp0LuxChangedByUser:Z
 
     const-string/jumbo v5, "AutomaticBrightnessController"
 
@@ -431,9 +441,7 @@
 
     iget-object v5, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
 
-    const/4 v6, 0x1
-
-    invoke-direct {v3, v5, p1, p3, v6}, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;-><init>(Lcom/android/server/display/AutomaticBrightnessController;FFI)V
+    invoke-direct {v3, v5, p1, p3, v11}, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;-><init>(Lcom/android/server/display/AutomaticBrightnessController;FFI)V
 
     iget-object v5, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
 
@@ -2109,119 +2117,196 @@
 .end method
 
 .method private loadPoint()V
-    .locals 11
+    .locals 12
 
-    const-string/jumbo v7, "AutomaticBrightnessController"
+    const/4 v11, -0x2
 
-    const-string/jumbo v8, "[PAB] Load PAC point"
+    const/4 v10, 0x0
 
-    invoke-static {v7, v8}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string/jumbo v8, "AutomaticBrightnessController"
 
-    iget-object v7, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
+    const-string/jumbo v9, "[PAB] Load PAC point"
 
-    invoke-static {v7}, Lcom/android/server/display/AutomaticBrightnessController;->-get5(Lcom/android/server/display/AutomaticBrightnessController;)Landroid/content/Context;
+    invoke-static {v8, v9}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v8, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
+
+    invoke-static {v8}, Lcom/android/server/display/AutomaticBrightnessController;->-get5(Lcom/android/server/display/AutomaticBrightnessController;)Landroid/content/Context;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v7
 
-    invoke-virtual {v7}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    const-string/jumbo v8, "pac_offset_list"
 
-    move-result-object v6
-
-    const-string/jumbo v7, "pac_offset_list"
-
-    const/4 v8, -0x2
-
-    invoke-static {v6, v7, v8}, Landroid/provider/Settings$System;->getStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Ljava/lang/String;
+    invoke-static {v7, v8, v11}, Landroid/provider/Settings$System;->getStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object v4
 
-    if-eqz v4, :cond_0
+    const-string/jumbo v8, "pac_0lux_changed"
 
-    const-string/jumbo v7, ";"
+    invoke-static {v7, v8, v10, v11}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
 
-    invoke-virtual {v4, v7}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    move-result v8
+
+    if-lez v8, :cond_0
+
+    const/4 v6, 0x1
+
+    :goto_0
+    if-eqz v4, :cond_3
+
+    const-string/jumbo v8, ";"
+
+    invoke-virtual {v4, v8}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v3
 
-    iget-object v7, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
+    iget-object v8, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
 
-    invoke-virtual {v7}, Ljava/util/ArrayList;->clear()V
+    invoke-virtual {v8}, Ljava/util/ArrayList;->clear()V
+
+    iput-boolean v6, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOp0LuxChangedByUser:Z
 
     const/4 v1, 0x0
 
-    :goto_0
-    array-length v7, v3
+    :goto_1
+    array-length v8, v3
 
-    if-ge v1, v7, :cond_0
+    if-ge v1, v8, :cond_3
 
-    aget-object v7, v3, v1
+    aget-object v8, v3, v1
 
-    const-string/jumbo v8, ","
+    const-string/jumbo v9, ","
 
-    invoke-virtual {v7, v8}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-virtual {v8, v9}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v2
 
     :try_start_0
     new-instance v5, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
 
-    iget-object v7, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
+    iget-object v8, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
 
-    const/4 v8, 0x0
-
-    aget-object v8, v2, v8
-
-    invoke-static {v8}, Ljava/lang/Float;->valueOf(Ljava/lang/String;)Ljava/lang/Float;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/Float;->floatValue()F
-
-    move-result v8
-
-    const/4 v9, 0x1
+    const/4 v9, 0x0
 
     aget-object v9, v2, v9
 
-    invoke-static {v9}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
+    invoke-static {v9}, Ljava/lang/Float;->valueOf(Ljava/lang/String;)Ljava/lang/Float;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/Float;->floatValue()F
 
     move-result v9
 
-    const/4 v10, 0x2
+    const/4 v10, 0x1
 
     aget-object v10, v2, v10
 
-    invoke-static {v10}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static {v10}, Ljava/lang/Float;->parseFloat(Ljava/lang/String;)F
 
     move-result v10
 
-    invoke-direct {v5, v7, v8, v9, v10}, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;-><init>(Lcom/android/server/display/AutomaticBrightnessController;FFI)V
+    const/4 v11, 0x2
 
-    iget-object v7, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
+    aget-object v11, v2, v11
 
-    invoke-virtual {v7, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-static {v11}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    :goto_1
+    move-result v11
+
+    invoke-direct {v5, v8, v9, v10, v11}, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;-><init>(Lcom/android/server/display/AutomaticBrightnessController;FFI)V
+
+    iget v8, v5, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
+
+    const/4 v9, 0x0
+
+    cmpl-float v8, v8, v9
+
+    if-nez v8, :cond_1
+
+    iget-object v8, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOp0Lux:Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+
+    iget v9, v5, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mOffset:F
+
+    iput v9, v8, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mOffset:F
+
+    iget-object v8, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
+
+    iget-object v9, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOp0Lux:Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+
+    invoke-virtual {v8, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :goto_2
     add-int/lit8 v1, v1, 0x1
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v0
-
-    const-string/jumbo v7, "AutomaticBrightnessController"
-
-    const-string/jumbo v8, "[PAB] Failed to load PAC point"
-
-    invoke-static {v7, v8}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {p0}, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->resetPersonalAutoBrightness()V
 
     goto :goto_1
 
     :cond_0
+    const/4 v6, 0x0
+
+    goto :goto_0
+
+    :cond_1
+    iget v8, v5, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
+
+    iget-object v9, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
+
+    invoke-static {v9}, Lcom/android/server/display/AutomaticBrightnessController;->-get0(Lcom/android/server/display/AutomaticBrightnessController;)I
+
+    move-result v9
+
+    add-int/lit8 v9, v9, -0x1
+
+    int-to-float v9, v9
+
+    cmpl-float v8, v8, v9
+
+    if-nez v8, :cond_2
+
+    iget-object v8, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOpBeforeHbmLux:Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+
+    iget v9, v5, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mOffset:F
+
+    iput v9, v8, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mOffset:F
+
+    iget-object v8, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
+
+    iget-object v9, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOpBeforeHbmLux:Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+
+    invoke-virtual {v8, v9}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_2
+
+    :catch_0
+    move-exception v0
+
+    const-string/jumbo v8, "AutomaticBrightnessController"
+
+    const-string/jumbo v9, "[PAB] Failed to load PAC point"
+
+    invoke-static {v8, v9}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {p0}, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->resetPersonalAutoBrightness()V
+
+    goto :goto_2
+
+    :cond_2
+    :try_start_1
+    iget-object v8, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOffsetList:Ljava/util/ArrayList;
+
+    invoke-virtual {v8, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    :try_end_1
+    .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
+
+    goto :goto_2
+
+    :cond_3
     return-void
 .end method
 
@@ -2267,11 +2352,13 @@
 .end method
 
 .method private refreshFixedOffsetPointsLocked(I)V
-    .locals 7
+    .locals 8
 
     const/4 v3, 0x2
 
-    const/high16 v6, 0x41f00000    # 30.0f
+    const/high16 v7, 0x41f00000    # 30.0f
+
+    const/4 v6, 0x0
 
     const/4 v5, 0x0
 
@@ -2354,7 +2441,7 @@
 
     move-result v2
 
-    if-le v2, v3, :cond_9
+    if-le v2, v3, :cond_a
 
     if-eqz p1, :cond_4
 
@@ -2378,7 +2465,7 @@
 
     iget v2, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
 
-    cmpg-float v2, v2, v6
+    cmpg-float v2, v2, v7
 
     if-gtz v2, :cond_5
 
@@ -2414,9 +2501,9 @@
 
     iget v2, v1, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mLux:F
 
-    cmpg-float v2, v2, v6
+    cmpg-float v2, v2, v7
 
-    if-gtz v2, :cond_7
+    if-gtz v2, :cond_8
 
     iget-object v2, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOpBeforeHbmLux:Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
 
@@ -2458,6 +2545,15 @@
     goto :goto_1
 
     :cond_6
+    iget-boolean v2, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOp0LuxChangedByUser:Z
+
+    if-nez v2, :cond_7
+
+    iget-object v2, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOp0Lux:Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+
+    iput v5, v2, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mOffset:F
+
+    :cond_7
     iget-object v2, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOp0Lux:Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
 
     iget v2, v2, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mOrgCd:F
@@ -2494,14 +2590,16 @@
 
     iput v3, v2, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mOffset:F
 
+    iput-boolean v6, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOp0LuxChangedByUser:Z
+
     goto :goto_1
 
-    :cond_7
+    :cond_8
     iget v2, v1, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mOffset:F
 
     cmpl-float v2, v2, v5
 
-    if-ltz v2, :cond_8
+    if-ltz v2, :cond_9
 
     iget-object v2, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOpBeforeHbmLux:Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
 
@@ -2509,7 +2607,7 @@
 
     goto/16 :goto_0
 
-    :cond_8
+    :cond_9
     iget-object v2, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOpBeforeHbmLux:Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
 
     iget v3, v1, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mOffset:F
@@ -2518,7 +2616,7 @@
 
     goto/16 :goto_0
 
-    :cond_9
+    :cond_a
     const-string/jumbo v2, "AutomaticBrightnessController"
 
     new-instance v3, Ljava/lang/StringBuilder;
@@ -2681,6 +2779,8 @@
     sub-float v6, v4, v6
 
     iput v6, v3, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mOffset:F
+
+    iput-boolean v9, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOp0LuxChangedByUser:Z
 
     goto :goto_1
 
@@ -2926,6 +3026,8 @@
 .method private savePoint()V
     .locals 7
 
+    const/4 v6, -0x2
+
     const-string/jumbo v4, "AutomaticBrightnessController"
 
     const-string/jumbo v5, "[PAB] Save PAC point"
@@ -3043,11 +3145,25 @@
 
     move-result-object v5
 
-    const/4 v6, -0x2
-
     invoke-static {v3, v4, v5, v6}, Landroid/provider/Settings$System;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
 
+    const-string/jumbo v5, "pac_0lux_changed"
+
+    iget-boolean v4, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOp0LuxChangedByUser:Z
+
+    if-eqz v4, :cond_2
+
+    const/4 v4, 0x1
+
+    :goto_1
+    invoke-static {v3, v5, v4, v6}, Landroid/provider/Settings$System;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
+
     return-void
+
+    :cond_2
+    const/4 v4, 0x0
+
+    goto :goto_1
 .end method
 
 
@@ -3207,6 +3323,28 @@
     move-result-object v1
 
     invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p1, v1}, Ljava/io/PrintWriter;->println(Ljava/lang/String;)V
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "[PAB] mOp0LuxChangedByUser="
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-boolean v2, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOp0LuxChangedByUser:Z
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
@@ -3677,6 +3815,10 @@
 
     iput v2, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mOffset:F
 
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOp0LuxChangedByUser:Z
+
     iget-object v0, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOpBeforeHbmLux:Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
 
     const/4 v2, 0x0
@@ -3698,6 +3840,72 @@
     const/4 v3, 0x1
 
     invoke-virtual {v0, v3, v2}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit v1
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+
+    throw v0
+.end method
+
+.method public updatePacOffset()V
+    .locals 4
+
+    iget-object v0, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
+
+    invoke-static {v0}, Lcom/android/server/display/AutomaticBrightnessController;->-get14(Lcom/android/server/display/AutomaticBrightnessController;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    monitor-enter v1
+
+    :try_start_0
+    iget-object v0, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOp0Lux:Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+
+    iget-object v2, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
+
+    invoke-static {v2}, Lcom/android/server/display/AutomaticBrightnessController;->-get6(Lcom/android/server/display/AutomaticBrightnessController;)Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v2, v3}, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->getDynamicAutoBrightnessValue(F)F
+
+    move-result v2
+
+    iput v2, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mOrgCd:F
+
+    iget-object v0, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->mOpBeforeHbmLux:Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;
+
+    iget-object v2, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
+
+    invoke-static {v2}, Lcom/android/server/display/AutomaticBrightnessController;->-get6(Lcom/android/server/display/AutomaticBrightnessController;)Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->this$0:Lcom/android/server/display/AutomaticBrightnessController;
+
+    invoke-static {v3}, Lcom/android/server/display/AutomaticBrightnessController;->-get0(Lcom/android/server/display/AutomaticBrightnessController;)I
+
+    move-result v3
+
+    add-int/lit8 v3, v3, -0x1
+
+    int-to-float v3, v3
+
+    invoke-virtual {v2, v3}, Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;->getDynamicAutoBrightnessValue(F)F
+
+    move-result v2
+
+    iput v2, v0, Lcom/android/server/display/AutomaticBrightnessController$OffsetPoint;->mOrgCd:F
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

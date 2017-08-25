@@ -209,7 +209,7 @@
 
     const/16 v1, 0xf
 
-    invoke-static {v0, v1, v3}, Lcom/android/server/fingerprint/FingerprintService;->-wrap15(Lcom/android/server/fingerprint/FingerprintService;II)V
+    invoke-static {v0, v1, v3}, Lcom/android/server/fingerprint/FingerprintService;->-wrap16(Lcom/android/server/fingerprint/FingerprintService;II)V
 
     :goto_0
     return-void
@@ -219,7 +219,7 @@
 
     const/16 v1, 0x10
 
-    invoke-static {v0, v1, v3}, Lcom/android/server/fingerprint/FingerprintService;->-wrap15(Lcom/android/server/fingerprint/FingerprintService;II)V
+    invoke-static {v0, v1, v3}, Lcom/android/server/fingerprint/FingerprintService;->-wrap16(Lcom/android/server/fingerprint/FingerprintService;II)V
 
     goto :goto_0
 .end method

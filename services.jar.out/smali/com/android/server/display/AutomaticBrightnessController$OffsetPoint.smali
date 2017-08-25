@@ -27,7 +27,7 @@
 
 .field public final mOffsetType:I
 
-.field public final mOrgCd:F
+.field public mOrgCd:F
 
 .field final synthetic this$0:Lcom/android/server/display/AutomaticBrightnessController;
 

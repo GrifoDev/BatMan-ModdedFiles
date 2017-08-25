@@ -5230,6 +5230,15 @@
 
     iput-object p1, p0, Lcom/android/server/display/AutomaticBrightnessController;->mDynamicAutoBrightnessConfig:Lcom/android/server/display/DisplayPowerController$DynamicAutoBrightnessConfig;
 
+    sget-boolean v0, Lcom/android/server/power/PowerManagerUtil;->USE_PERSONAL_AUTO_BRIGHTNESS:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/server/display/AutomaticBrightnessController;->mPersonalAutoBrightness:Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;
+
+    invoke-virtual {v0}, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->updatePacOffset()V
+
+    :cond_0
     const/4 v0, 0x1
 
     invoke-direct {p0, v0}, Lcom/android/server/display/AutomaticBrightnessController;->updateAutoBrightnessSEC(Z)V

@@ -198,7 +198,7 @@
 
     move-object/from16 v1, p1
 
-    invoke-static {v0, v1, v5}, Lcom/android/server/pm/PersonaManagerService;->-wrap59(Lcom/android/server/pm/PersonaManagerService;Landroid/content/Context;I)V
+    invoke-static {v0, v1, v5}, Lcom/android/server/pm/PersonaManagerService;->-wrap60(Lcom/android/server/pm/PersonaManagerService;Landroid/content/Context;I)V
 
     :cond_2
     :goto_2

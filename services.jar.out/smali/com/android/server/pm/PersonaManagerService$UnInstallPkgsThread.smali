@@ -369,7 +369,7 @@
 
     iget-object v2, p0, Lcom/android/server/pm/PersonaManagerService$UnInstallPkgsThread;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
-    invoke-static {v2, v0}, Lcom/android/server/pm/PersonaManagerService;->-wrap69(Lcom/android/server/pm/PersonaManagerService;Lcom/samsung/android/knox/SemPersonaInfo;)V
+    invoke-static {v2, v0}, Lcom/android/server/pm/PersonaManagerService;->-wrap70(Lcom/android/server/pm/PersonaManagerService;Lcom/samsung/android/knox/SemPersonaInfo;)V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 

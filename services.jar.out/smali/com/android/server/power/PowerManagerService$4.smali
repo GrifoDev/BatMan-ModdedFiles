@@ -715,25 +715,25 @@
 .end method
 
 .method public updateDuration([J)V
-    .locals 9
-
-    const/4 v8, 0x3
+    .locals 10
 
     invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
 
-    move-result-wide v4
+    move-result-wide v6
 
     iget-object v1, p0, Lcom/android/server/power/PowerManagerService$4;->this$0:Lcom/android/server/power/PowerManagerService;
 
     invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-get36(Lcom/android/server/power/PowerManagerService;)J
 
-    move-result-wide v6
+    move-result-wide v8
 
-    sub-long/2addr v4, v6
+    sub-long/2addr v6, v8
 
-    const-wide/16 v6, 0x3e8
+    const-wide/16 v8, 0x3e8
 
-    div-long v2, v4, v6
+    div-long v2, v6, v8
+
+    const-wide/16 v4, 0x0
 
     const/4 v0, 0x0
 
@@ -748,59 +748,65 @@
 
     if-ge v0, v1, :cond_0
 
-    iget-object v1, p0, Lcom/android/server/power/PowerManagerService$4;->this$0:Lcom/android/server/power/PowerManagerService;
-
-    invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-get13(Lcom/android/server/power/PowerManagerService;)[J
-
-    move-result-object v1
-
-    aget-wide v4, v1, v0
-
     aget-wide v6, p1, v0
 
     add-long/2addr v4, v6
-
-    aput-wide v4, v1, v0
 
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
     :cond_0
+    cmp-long v1, v2, v4
+
+    if-ltz v1, :cond_2
+
+    const/4 v0, 0x0
+
+    :goto_1
+    invoke-static {}, Lcom/android/server/power/PowerManagerService;->-get0()[Ljava/lang/String;
+
+    move-result-object v1
+
+    array-length v1, v1
+
+    add-int/lit8 v1, v1, -0x1
+
+    if-ge v0, v1, :cond_1
+
     iget-object v1, p0, Lcom/android/server/power/PowerManagerService$4;->this$0:Lcom/android/server/power/PowerManagerService;
 
     invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-get13(Lcom/android/server/power/PowerManagerService;)[J
 
     move-result-object v1
 
-    aget-wide v4, v1, v8
+    aget-wide v6, v1, v0
 
-    add-long/2addr v4, v2
+    aget-wide v8, p1, v0
 
-    aput-wide v4, v1, v8
+    add-long/2addr v6, v8
 
-    iget-object v1, p0, Lcom/android/server/power/PowerManagerService$4;->this$0:Lcom/android/server/power/PowerManagerService;
+    aput-wide v6, v1, v0
 
-    invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-get13(Lcom/android/server/power/PowerManagerService;)[J
+    add-int/lit8 v0, v0, 0x1
 
-    move-result-object v1
-
-    aget-wide v4, v1, v8
-
-    const-wide/32 v6, 0xa8c0
-
-    cmp-long v1, v4, v6
-
-    if-ltz v1, :cond_1
-
-    iget-object v1, p0, Lcom/android/server/power/PowerManagerService$4;->this$0:Lcom/android/server/power/PowerManagerService;
-
-    invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-wrap39(Lcom/android/server/power/PowerManagerService;)V
-
-    iget-object v1, p0, Lcom/android/server/power/PowerManagerService$4;->this$0:Lcom/android/server/power/PowerManagerService;
-
-    invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-wrap38(Lcom/android/server/power/PowerManagerService;)V
+    goto :goto_1
 
     :cond_1
+    iget-object v1, p0, Lcom/android/server/power/PowerManagerService$4;->this$0:Lcom/android/server/power/PowerManagerService;
+
+    invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-get13(Lcom/android/server/power/PowerManagerService;)[J
+
+    move-result-object v1
+
+    const/4 v6, 0x3
+
+    aget-wide v8, v1, v6
+
+    add-long/2addr v8, v2
+
+    aput-wide v8, v1, v6
+
+    :cond_2
     return-void
 .end method

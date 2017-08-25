@@ -10221,6 +10221,12 @@
 
     const/4 v1, 0x4
 
+    if-eq v0, v1, :cond_2
+
+    iget v0, p0, Lcom/android/server/audio/AudioService;->mMode:I
+
+    const/4 v1, 0x1
+
     if-ne v0, v1, :cond_5
 
     goto :goto_0
@@ -35879,7 +35885,7 @@
 
     const/4 v0, 0x2
 
-    if-ne p3, v0, :cond_c
+    if-ne p3, v0, :cond_b
 
     const/4 v0, 0x4
 
@@ -35995,7 +36001,7 @@
     :cond_3
     if-eqz p1, :cond_4
 
-    if-eqz p2, :cond_d
+    if-eqz p2, :cond_c
 
     invoke-virtual {p1}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
 
@@ -36017,7 +36023,7 @@
 
     const/4 v0, 0x2
 
-    if-ne p3, v0, :cond_10
+    if-ne p3, v0, :cond_f
 
     const/16 v2, 0x66
 
@@ -36044,9 +36050,15 @@
 
     const/4 v1, 0x4
 
+    if-eq v0, v1, :cond_1
+
+    iget v0, p0, Lcom/android/server/audio/AudioService;->mMode:I
+
+    const/4 v1, 0x1
+
     if-ne v0, v1, :cond_2
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_6
     const/4 v0, 0x1
@@ -36092,78 +36104,45 @@
     return v0
 
     :cond_8
-    if-nez p2, :cond_9
-
-    :try_start_3
-    iget v0, p0, Lcom/android/server/audio/AudioService;->mMode:I
-
-    const/4 v1, 0x1
-
-    if-ne v0, v1, :cond_9
-
-    iget v0, p0, Lcom/android/server/audio/AudioService;->mRingerMode:I
-
-    const/4 v1, 0x2
-
-    if-ne v0, v1, :cond_9
-
-    const-string/jumbo v0, "AudioService"
-
-    const-string/jumbo v1, "Don\'t send becoming noisy intent when disconnecting a2dp"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    goto/16 :goto_1
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v10
-
-    throw v0
-
-    :cond_9
     const/4 v0, 0x1
 
-    if-eq p2, v0, :cond_a
+    if-eq p2, v0, :cond_9
 
     const/4 v0, 0x2
 
-    if-ne p2, v0, :cond_b
+    if-ne p2, v0, :cond_a
 
-    :cond_a
+    :cond_9
     const/4 v0, 0x1
 
     :goto_4
     const/16 v1, 0x80
 
-    :try_start_4
+    :try_start_3
     invoke-direct {p0, v1, v0}, Lcom/android/server/audio/AudioService;->checkSendBecomingNoisyIntent(II)I
 
     move-result v6
 
     goto/16 :goto_1
 
-    :cond_b
+    :cond_a
     const/4 v0, 0x0
 
     goto :goto_4
 
-    :cond_c
+    :cond_b
     const/4 v6, 0x0
 
     goto/16 :goto_1
 
-    :cond_d
-    if-eqz p2, :cond_e
+    :cond_c
+    if-eqz p2, :cond_d
 
     const/4 v0, 0x4
 
     if-ne p2, v0, :cond_4
 
-    :cond_e
+    :cond_d
     invoke-virtual {p1}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
 
     move-result-object v0
@@ -36174,15 +36153,25 @@
 
     move-result v0
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_e
 
     const-string/jumbo v0, ""
 
     iput-object v0, p0, Lcom/android/server/audio/AudioService;->m1stBTAddr:Ljava/lang/String;
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     goto :goto_2
 
-    :cond_f
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v10
+
+    throw v0
+
+    :cond_e
+    :try_start_4
     invoke-virtual {p1}, Landroid/bluetooth/BluetoothDevice;->getAddress()Ljava/lang/String;
 
     move-result-object v0
@@ -36201,12 +36190,12 @@
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    goto/16 :goto_2
+    goto :goto_2
 
-    :cond_10
+    :cond_f
     const/16 v2, 0x65
 
-    goto/16 :goto_3
+    goto :goto_3
 .end method
 
 .method public setBluetoothA2dpOn(Z)V
@@ -39240,7 +39229,7 @@
 
     move-result-object v17
 
-    const v18, 0x1040928
+    const v18, 0x104092a
 
     invoke-virtual/range {v17 .. v18}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

@@ -2938,6 +2938,8 @@
 
     if-ne v2, v4, :cond_1
 
+    if-eqz p1, :cond_1
+
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getActionMasked()I
 
     move-result v2

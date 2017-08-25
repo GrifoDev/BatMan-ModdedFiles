@@ -12308,6 +12308,45 @@
     return-object v3
 .end method
 
+.method public getActiveAdminPackageName(I)Ljava/lang/String;
+    .locals 4
+
+    const/4 v3, 0x0
+
+    iget-object v1, p0, Lcom/android/server/enterprise/EnterpriseDeviceManagerService;->mAdminMap:Ljava/util/HashMap;
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/samsung/android/knox/EnterpriseDeviceAdminInfo;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/samsung/android/knox/EnterpriseDeviceAdminInfo;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v0}, Lcom/samsung/android/knox/EnterpriseDeviceAdminInfo;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v1
+
+    return-object v1
+
+    :cond_0
+    return-object v3
+.end method
+
 .method public getActiveAdmins(I)Ljava/util/List;
     .locals 9
     .annotation system Ldalvik/annotation/Signature;
@@ -16410,7 +16449,7 @@
     return-void
 
     :pswitch_0
-    const v0, 0x1040a33
+    const v0, 0x1040a34
 
     :goto_0
     invoke-static {v0}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
@@ -16418,12 +16457,12 @@
     return-void
 
     :pswitch_1
-    const v0, 0x1040a35
+    const v0, 0x1040a36
 
     goto :goto_0
 
     :pswitch_2
-    const v0, 0x1040a24
+    const v0, 0x1040a25
 
     goto :goto_0
 

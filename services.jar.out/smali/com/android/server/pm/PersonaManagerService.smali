@@ -2060,7 +2060,15 @@
     return-void
 .end method
 
-.method static synthetic -wrap51(Lcom/android/server/pm/PersonaManagerService;Z)V
+.method static synthetic -wrap51(Lcom/android/server/pm/PersonaManagerService;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/server/pm/PersonaManagerService;->removeCallLogAndSMS()V
+
+    return-void
+.end method
+
+.method static synthetic -wrap52(Lcom/android/server/pm/PersonaManagerService;Z)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->removeKnoxBadge(Z)V
@@ -2068,7 +2076,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap52(Lcom/android/server/pm/PersonaManagerService;Ljava/util/ArrayList;)V
+.method static synthetic -wrap53(Lcom/android/server/pm/PersonaManagerService;Ljava/util/ArrayList;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->removePartialContainer(Ljava/util/ArrayList;)V
@@ -2076,7 +2084,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap53(Lcom/android/server/pm/PersonaManagerService;I)V
+.method static synthetic -wrap54(Lcom/android/server/pm/PersonaManagerService;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->removePersonaHelper(I)V
@@ -2084,7 +2092,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap54(Lcom/android/server/pm/PersonaManagerService;I)V
+.method static synthetic -wrap55(Lcom/android/server/pm/PersonaManagerService;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->removeUserStateExternal(I)V
@@ -2092,7 +2100,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap55(Lcom/android/server/pm/PersonaManagerService;I)V
+.method static synthetic -wrap56(Lcom/android/server/pm/PersonaManagerService;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->removeUserStateLocked(I)V
@@ -2100,7 +2108,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap56(Lcom/android/server/pm/PersonaManagerService;IZ)V
+.method static synthetic -wrap57(Lcom/android/server/pm/PersonaManagerService;IZ)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/pm/PersonaManagerService;->scheduleTimer(IZ)V
@@ -2108,7 +2116,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap57(Lcom/android/server/pm/PersonaManagerService;IIJ)V
+.method static synthetic -wrap58(Lcom/android/server/pm/PersonaManagerService;IIJ)V
     .locals 1
 
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/pm/PersonaManagerService;->scheduleTimer(IIJ)V
@@ -2116,18 +2124,10 @@
     return-void
 .end method
 
-.method static synthetic -wrap58(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;II)V
+.method static synthetic -wrap59(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;II)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/pm/PersonaManagerService;->sendIntentForAdminLock(Ljava/lang/String;II)V
-
-    return-void
-.end method
-
-.method static synthetic -wrap59(Lcom/android/server/pm/PersonaManagerService;Landroid/content/Context;I)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2}, Lcom/android/server/pm/PersonaManagerService;->setKnoxAppsComponentSetting(Landroid/content/Context;I)V
 
     return-void
 .end method
@@ -2142,7 +2142,15 @@
     return v0
 .end method
 
-.method static synthetic -wrap60(Lcom/android/server/pm/PersonaManagerService;IZ)V
+.method static synthetic -wrap60(Lcom/android/server/pm/PersonaManagerService;Landroid/content/Context;I)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2}, Lcom/android/server/pm/PersonaManagerService;->setKnoxAppsComponentSetting(Landroid/content/Context;I)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap61(Lcom/android/server/pm/PersonaManagerService;IZ)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/server/pm/PersonaManagerService;->setSdpActive(IZ)V
@@ -2150,7 +2158,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap61(Lcom/android/server/pm/PersonaManagerService;I)V
+.method static synthetic -wrap62(Lcom/android/server/pm/PersonaManagerService;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->showSecureFolder(I)V
@@ -2158,7 +2166,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap62(Lcom/android/server/pm/PersonaManagerService;III)V
+.method static synthetic -wrap63(Lcom/android/server/pm/PersonaManagerService;III)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/server/pm/PersonaManagerService;->startActivityAdminLocked(III)V
@@ -2166,7 +2174,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap63(Lcom/android/server/pm/PersonaManagerService;IIIZ)V
+.method static synthetic -wrap64(Lcom/android/server/pm/PersonaManagerService;IIIZ)V
     .locals 0
 
     invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/server/pm/PersonaManagerService;->startActivityKnoxAppsUpdate(IIIZ)V
@@ -2174,7 +2182,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap64(Lcom/android/server/pm/PersonaManagerService;I)V
+.method static synthetic -wrap65(Lcom/android/server/pm/PersonaManagerService;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->triggerAppUninstallationonReset(I)V
@@ -2182,7 +2190,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap65(Lcom/android/server/pm/PersonaManagerService;I)V
+.method static synthetic -wrap66(Lcom/android/server/pm/PersonaManagerService;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->updateCurrentUserPolicy(I)V
@@ -2190,7 +2198,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap66(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;)V
+.method static synthetic -wrap67(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->updateRCPCalendarSyncAccountInfo(Ljava/lang/String;)V
@@ -2198,7 +2206,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap67(Lcom/android/server/pm/PersonaManagerService;)V
+.method static synthetic -wrap68(Lcom/android/server/pm/PersonaManagerService;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/pm/PersonaManagerService;->updateUserIdsLocked()V
@@ -2206,18 +2214,10 @@
     return-void
 .end method
 
-.method static synthetic -wrap68(Lcom/android/server/pm/PersonaManagerService;Lcom/samsung/android/knox/SemPersonaInfo;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->upgradeContainer(Lcom/samsung/android/knox/SemPersonaInfo;)V
-
-    return-void
-.end method
-
 .method static synthetic -wrap69(Lcom/android/server/pm/PersonaManagerService;Lcom/samsung/android/knox/SemPersonaInfo;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->writeUserLocked(Lcom/samsung/android/knox/SemPersonaInfo;)V
+    invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->upgradeContainer(Lcom/samsung/android/knox/SemPersonaInfo;)V
 
     return-void
 .end method
@@ -2232,7 +2232,15 @@
     return v0
 .end method
 
-.method static synthetic -wrap70(Lcom/android/server/pm/PersonaManagerService;[B)V
+.method static synthetic -wrap70(Lcom/android/server/pm/PersonaManagerService;Lcom/samsung/android/knox/SemPersonaInfo;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->writeUserLocked(Lcom/samsung/android/knox/SemPersonaInfo;)V
+
+    return-void
+.end method
+
+.method static synthetic -wrap71(Lcom/android/server/pm/PersonaManagerService;[B)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->zeroOut([B)V
@@ -2240,7 +2248,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap71(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;)V
+.method static synthetic -wrap72(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/server/pm/PersonaManagerService;->zeroOut(Ljava/lang/String;)V
@@ -29601,6 +29609,272 @@
         :pswitch_0
         :pswitch_2
     .end packed-switch
+.end method
+
+.method private removeCallLogAndSMS()V
+    .locals 10
+
+    const/16 v9, 0xf
+
+    iget-object v5, p0, Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v6, "appops"
+
+    invoke-virtual {v5, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/app/AppOpsManager;
+
+    iget-object v5, p0, Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v5
+
+    iget v2, v5, Landroid/content/pm/ApplicationInfo;->uid:I
+
+    iget-object v5, p0, Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v9, v2, v3}, Landroid/app/AppOpsManager;->checkOp(IILjava/lang/String;)I
+
+    move-result v4
+
+    const/16 v5, 0xf
+
+    const/4 v6, 0x0
+
+    :try_start_0
+    invoke-virtual {v1, v5, v2, v3, v6}, Landroid/app/AppOpsManager;->setMode(IILjava/lang/String;I)V
+
+    iget-object v5, p0, Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    sget-object v6, Landroid/provider/CallLog$Calls;->CONTENT_URI:Landroid/net/Uri;
+
+    const/4 v7, 0x0
+
+    const/4 v8, 0x0
+
+    invoke-virtual {v5, v6, v7, v8}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
+
+    iget-object v5, p0, Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "content://sms/"
+
+    invoke-static {v6}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v6
+
+    const/4 v7, 0x0
+
+    const/4 v8, 0x0
+
+    invoke-virtual {v5, v6, v7, v8}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
+
+    iget-object v5, p0, Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "content://mms/"
+
+    invoke-static {v6}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v6
+
+    const/4 v7, 0x0
+
+    const/4 v8, 0x0
+
+    invoke-virtual {v5, v6, v7, v8}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
+
+    iget-object v5, p0, Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "content://spamsms/"
+
+    invoke-static {v6}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v6
+
+    const/4 v7, 0x0
+
+    const/4 v8, 0x0
+
+    invoke-virtual {v5, v6, v7, v8}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
+
+    iget-object v5, p0, Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "content://spammms/"
+
+    invoke-static {v6}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v6
+
+    const/4 v7, 0x0
+
+    const/4 v8, 0x0
+
+    invoke-virtual {v5, v6, v7, v8}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
+
+    iget-object v5, p0, Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "content://spam_im/chat_inbox/"
+
+    invoke-static {v6}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v6
+
+    const/4 v7, 0x0
+
+    const/4 v8, 0x0
+
+    invoke-virtual {v5, v6, v7, v8}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
+
+    iget-object v5, p0, Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "content://spam_im/ft_inbox/"
+
+    invoke-static {v6}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v6
+
+    const/4 v7, 0x0
+
+    const/4 v8, 0x0
+
+    invoke-virtual {v5, v6, v7, v8}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
+
+    iget-object v5, p0, Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "content://mms-sms/spam-filter/"
+
+    invoke-static {v6}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v6
+
+    const/4 v7, 0x0
+
+    const/4 v8, 0x0
+
+    invoke-virtual {v5, v6, v7, v8}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
+
+    iget-object v5, p0, Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "content://mms-sms/conversations/"
+
+    invoke-static {v6}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Landroid/net/Uri;->buildUpon()Landroid/net/Uri$Builder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, "type"
+
+    const-string/jumbo v8, "all"
+
+    invoke-virtual {v6, v7, v8}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
+
+    move-result-object v6
+
+    const/4 v7, 0x0
+
+    const/4 v8, 0x0
+
+    invoke-virtual {v5, v6, v7, v8}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
+
+    iget-object v5, p0, Lcom/android/server/pm/PersonaManagerService;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    sget-object v6, Landroid/provider/BlockedNumberContract$BlockedNumbers;->CONTENT_URI:Landroid/net/Uri;
+
+    const/4 v7, 0x0
+
+    const/4 v8, 0x0
+
+    invoke-virtual {v5, v6, v7, v8}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
+
+    const-string/jumbo v5, "PersonaManagerService"
+
+    const-string/jumbo v6, "Remove call log and SMS. Complete."
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-virtual {v1, v9, v2, v3, v4}, Landroid/app/AppOpsManager;->setMode(IILjava/lang/String;I)V
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    :try_start_1
+    const-string/jumbo v5, "PersonaManagerService"
+
+    const-string/jumbo v6, "Remove call log and SMS. Fail."
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    invoke-virtual {v1, v9, v2, v3, v4}, Landroid/app/AppOpsManager;->setMode(IILjava/lang/String;I)V
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v5
+
+    invoke-virtual {v1, v9, v2, v3, v4}, Landroid/app/AppOpsManager;->setMode(IILjava/lang/String;I)V
+
+    throw v5
 .end method
 
 .method private removeDirectoryRecursive(Ljava/io/File;)V

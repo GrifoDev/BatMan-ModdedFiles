@@ -582,7 +582,7 @@
 
     const/4 v8, 0x0
 
-    invoke-static {v4, v5, v8}, Lcom/android/server/pm/PersonaManagerService;->-wrap56(Lcom/android/server/pm/PersonaManagerService;IZ)V
+    invoke-static {v4, v5, v8}, Lcom/android/server/pm/PersonaManagerService;->-wrap57(Lcom/android/server/pm/PersonaManagerService;IZ)V
 
     goto :goto_1
 
@@ -760,7 +760,7 @@
 
     move/from16 v0, v21
 
-    invoke-static {v4, v0, v5}, Lcom/android/server/pm/PersonaManagerService;->-wrap56(Lcom/android/server/pm/PersonaManagerService;IZ)V
+    invoke-static {v4, v0, v5}, Lcom/android/server/pm/PersonaManagerService;->-wrap57(Lcom/android/server/pm/PersonaManagerService;IZ)V
 
     goto/16 :goto_0
 
@@ -2047,7 +2047,7 @@
 
     const/4 v8, 0x0
 
-    invoke-static {v4, v5, v8}, Lcom/android/server/pm/PersonaManagerService;->-wrap56(Lcom/android/server/pm/PersonaManagerService;IZ)V
+    invoke-static {v4, v5, v8}, Lcom/android/server/pm/PersonaManagerService;->-wrap57(Lcom/android/server/pm/PersonaManagerService;IZ)V
 
     goto/16 :goto_0
 
@@ -2508,7 +2508,7 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5}, Lcom/android/server/pm/PersonaManagerService;->-wrap52(Lcom/android/server/pm/PersonaManagerService;Ljava/util/ArrayList;)V
+    invoke-static {v4, v5}, Lcom/android/server/pm/PersonaManagerService;->-wrap53(Lcom/android/server/pm/PersonaManagerService;Ljava/util/ArrayList;)V
 
     goto/16 :goto_0
 
@@ -2537,7 +2537,7 @@
 
     move/from16 v0, v21
 
-    invoke-static {v4, v0}, Lcom/android/server/pm/PersonaManagerService;->-wrap65(Lcom/android/server/pm/PersonaManagerService;I)V
+    invoke-static {v4, v0}, Lcom/android/server/pm/PersonaManagerService;->-wrap66(Lcom/android/server/pm/PersonaManagerService;I)V
 
     goto/16 :goto_0
 
@@ -3142,7 +3142,7 @@
 
     const/4 v8, 0x1
 
-    invoke-static {v4, v5, v8}, Lcom/android/server/pm/PersonaManagerService;->-wrap60(Lcom/android/server/pm/PersonaManagerService;IZ)V
+    invoke-static {v4, v5, v8}, Lcom/android/server/pm/PersonaManagerService;->-wrap61(Lcom/android/server/pm/PersonaManagerService;IZ)V
 
     :cond_25
     move-object/from16 v0, v98
@@ -3482,7 +3482,7 @@
 
     move-object/from16 v0, v98
 
-    invoke-static {v4, v0}, Lcom/android/server/pm/PersonaManagerService;->-wrap68(Lcom/android/server/pm/PersonaManagerService;Lcom/samsung/android/knox/SemPersonaInfo;)V
+    invoke-static {v4, v0}, Lcom/android/server/pm/PersonaManagerService;->-wrap69(Lcom/android/server/pm/PersonaManagerService;Lcom/samsung/android/knox/SemPersonaInfo;)V
 
     goto/16 :goto_c
 
@@ -3687,13 +3687,13 @@
 
     move-object/from16 v0, v117
 
-    invoke-static {v4, v0}, Lcom/android/server/pm/PersonaManagerService;->-wrap71(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;)V
+    invoke-static {v4, v0}, Lcom/android/server/pm/PersonaManagerService;->-wrap72(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;)V
 
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/pm/PersonaManagerService$PersonaHandler;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
-    invoke-static {v4, v6}, Lcom/android/server/pm/PersonaManagerService;->-wrap71(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;)V
+    invoke-static {v4, v6}, Lcom/android/server/pm/PersonaManagerService;->-wrap72(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;)V
 
     :goto_1b
     :try_start_13
@@ -3924,13 +3924,13 @@
 
     iget-object v4, v0, Lcom/android/server/pm/PersonaManagerService$PersonaHandler;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
-    invoke-static {v4, v7}, Lcom/android/server/pm/PersonaManagerService;->-wrap71(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;)V
+    invoke-static {v4, v7}, Lcom/android/server/pm/PersonaManagerService;->-wrap72(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;)V
 
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/pm/PersonaManagerService$PersonaHandler;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
-    invoke-static {v4, v6}, Lcom/android/server/pm/PersonaManagerService;->-wrap71(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;)V
+    invoke-static {v4, v6}, Lcom/android/server/pm/PersonaManagerService;->-wrap72(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;)V
 
     goto/16 :goto_12
 
@@ -4050,7 +4050,7 @@
 
     const/4 v8, 0x0
 
-    invoke-static {v4, v5, v8}, Lcom/android/server/pm/PersonaManagerService;->-wrap60(Lcom/android/server/pm/PersonaManagerService;IZ)V
+    invoke-static {v4, v5, v8}, Lcom/android/server/pm/PersonaManagerService;->-wrap61(Lcom/android/server/pm/PersonaManagerService;IZ)V
 
     move-object/from16 v0, p0
 
@@ -4148,7 +4148,7 @@
 
     move-object/from16 v0, v41
 
-    invoke-static {v4, v0}, Lcom/android/server/pm/PersonaManagerService;->-wrap70(Lcom/android/server/pm/PersonaManagerService;[B)V
+    invoke-static {v4, v0}, Lcom/android/server/pm/PersonaManagerService;->-wrap71(Lcom/android/server/pm/PersonaManagerService;[B)V
 
     move-object/from16 v0, p0
 
@@ -4156,7 +4156,7 @@
 
     move-object/from16 v0, v37
 
-    invoke-static {v4, v0}, Lcom/android/server/pm/PersonaManagerService;->-wrap71(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;)V
+    invoke-static {v4, v0}, Lcom/android/server/pm/PersonaManagerService;->-wrap72(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;)V
 
     goto/16 :goto_13
 
@@ -5277,7 +5277,7 @@
 
     move-object/from16 v0, v98
 
-    invoke-static {v4, v0}, Lcom/android/server/pm/PersonaManagerService;->-wrap69(Lcom/android/server/pm/PersonaManagerService;Lcom/samsung/android/knox/SemPersonaInfo;)V
+    invoke-static {v4, v0}, Lcom/android/server/pm/PersonaManagerService;->-wrap70(Lcom/android/server/pm/PersonaManagerService;Lcom/samsung/android/knox/SemPersonaInfo;)V
     :try_end_1b
     .catchall {:try_start_1b .. :try_end_1b} :catchall_4
 
@@ -6006,6 +6006,12 @@
     invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :try_start_20
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/server/pm/PersonaManagerService$PersonaHandler;->this$0:Lcom/android/server/pm/PersonaManagerService;
+
+    invoke-static {v4}, Lcom/android/server/pm/PersonaManagerService;->-wrap51(Lcom/android/server/pm/PersonaManagerService;)V
+
     move-object/from16 v0, p1
 
     iget v0, v0, Landroid/os/Message;->arg1:I
@@ -6624,7 +6630,7 @@
 
     move/from16 v2, v81
 
-    invoke-static {v8, v0, v1, v2}, Lcom/android/server/pm/PersonaManagerService;->-wrap58(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;II)V
+    invoke-static {v8, v0, v1, v2}, Lcom/android/server/pm/PersonaManagerService;->-wrap59(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;II)V
 
     add-int/lit8 v4, v4, 0x1
 
@@ -6641,7 +6647,7 @@
 
     move/from16 v1, v81
 
-    invoke-static {v4, v5, v0, v1}, Lcom/android/server/pm/PersonaManagerService;->-wrap58(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;II)V
+    invoke-static {v4, v5, v0, v1}, Lcom/android/server/pm/PersonaManagerService;->-wrap59(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;II)V
 
     :cond_69
     const/4 v4, 0x0
@@ -6706,7 +6712,7 @@
 
     move/from16 v0, v21
 
-    invoke-static {v4, v5, v0, v8}, Lcom/android/server/pm/PersonaManagerService;->-wrap62(Lcom/android/server/pm/PersonaManagerService;III)V
+    invoke-static {v4, v5, v0, v8}, Lcom/android/server/pm/PersonaManagerService;->-wrap63(Lcom/android/server/pm/PersonaManagerService;III)V
 
     goto/16 :goto_0
 
@@ -6853,7 +6859,7 @@
 
     move/from16 v0, v21
 
-    invoke-static {v4, v0}, Lcom/android/server/pm/PersonaManagerService;->-wrap53(Lcom/android/server/pm/PersonaManagerService;I)V
+    invoke-static {v4, v0}, Lcom/android/server/pm/PersonaManagerService;->-wrap54(Lcom/android/server/pm/PersonaManagerService;I)V
 
     goto/16 :goto_0
 
@@ -6998,7 +7004,7 @@
 
     move/from16 v2, v81
 
-    invoke-static {v8, v0, v1, v2}, Lcom/android/server/pm/PersonaManagerService;->-wrap58(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;II)V
+    invoke-static {v8, v0, v1, v2}, Lcom/android/server/pm/PersonaManagerService;->-wrap59(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;II)V
 
     add-int/lit8 v4, v4, 0x1
 
@@ -7015,7 +7021,7 @@
 
     move/from16 v1, v81
 
-    invoke-static {v4, v5, v0, v1}, Lcom/android/server/pm/PersonaManagerService;->-wrap58(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;II)V
+    invoke-static {v4, v5, v0, v1}, Lcom/android/server/pm/PersonaManagerService;->-wrap59(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;II)V
     :try_end_25
     .catch Landroid/os/RemoteException; {:try_start_25 .. :try_end_25} :catch_12
     .catchall {:try_start_25 .. :try_end_25} :catchall_6
@@ -7106,7 +7112,7 @@
 
     move-wide/from16 v1, v128
 
-    invoke-static {v4, v0, v5, v1, v2}, Lcom/android/server/pm/PersonaManagerService;->-wrap57(Lcom/android/server/pm/PersonaManagerService;IIJ)V
+    invoke-static {v4, v0, v5, v1, v2}, Lcom/android/server/pm/PersonaManagerService;->-wrap58(Lcom/android/server/pm/PersonaManagerService;IIJ)V
 
     goto/16 :goto_0
 
@@ -7430,7 +7436,7 @@
 
     move/from16 v0, v21
 
-    invoke-static {v4, v0, v5}, Lcom/android/server/pm/PersonaManagerService;->-wrap60(Lcom/android/server/pm/PersonaManagerService;IZ)V
+    invoke-static {v4, v0, v5}, Lcom/android/server/pm/PersonaManagerService;->-wrap61(Lcom/android/server/pm/PersonaManagerService;IZ)V
 
     invoke-static {}, Landroid/os/Binder;->clearCallingIdentity()J
 
@@ -7660,7 +7666,7 @@
 
     move/from16 v0, v21
 
-    invoke-static {v4, v0, v5}, Lcom/android/server/pm/PersonaManagerService;->-wrap60(Lcom/android/server/pm/PersonaManagerService;IZ)V
+    invoke-static {v4, v0, v5}, Lcom/android/server/pm/PersonaManagerService;->-wrap61(Lcom/android/server/pm/PersonaManagerService;IZ)V
 
     const/16 v41, 0x0
 
@@ -7714,7 +7720,7 @@
 
     move-object/from16 v0, v41
 
-    invoke-static {v4, v0}, Lcom/android/server/pm/PersonaManagerService;->-wrap70(Lcom/android/server/pm/PersonaManagerService;[B)V
+    invoke-static {v4, v0}, Lcom/android/server/pm/PersonaManagerService;->-wrap71(Lcom/android/server/pm/PersonaManagerService;[B)V
 
     move-object/from16 v0, p0
 
@@ -7722,7 +7728,7 @@
 
     move-object/from16 v0, v37
 
-    invoke-static {v4, v0}, Lcom/android/server/pm/PersonaManagerService;->-wrap71(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;)V
+    invoke-static {v4, v0}, Lcom/android/server/pm/PersonaManagerService;->-wrap72(Lcom/android/server/pm/PersonaManagerService;Ljava/lang/String;)V
 
     :goto_35
     move-object/from16 v0, p0
@@ -8074,7 +8080,7 @@
 
     move/from16 v0, v21
 
-    invoke-static {v4, v0}, Lcom/android/server/pm/PersonaManagerService;->-wrap65(Lcom/android/server/pm/PersonaManagerService;I)V
+    invoke-static {v4, v0}, Lcom/android/server/pm/PersonaManagerService;->-wrap66(Lcom/android/server/pm/PersonaManagerService;I)V
 
     const/16 v4, 0x64
 
@@ -8762,7 +8768,7 @@
 
     move/from16 v0, v21
 
-    invoke-static {v4, v5, v0, v8, v9}, Lcom/android/server/pm/PersonaManagerService;->-wrap63(Lcom/android/server/pm/PersonaManagerService;IIIZ)V
+    invoke-static {v4, v5, v0, v8, v9}, Lcom/android/server/pm/PersonaManagerService;->-wrap64(Lcom/android/server/pm/PersonaManagerService;IIIZ)V
 
     :cond_85
     return-void
@@ -8839,13 +8845,13 @@
 
     move-object/from16 v0, v90
 
-    invoke-static {v4, v0}, Lcom/android/server/pm/PersonaManagerService;->-wrap69(Lcom/android/server/pm/PersonaManagerService;Lcom/samsung/android/knox/SemPersonaInfo;)V
+    invoke-static {v4, v0}, Lcom/android/server/pm/PersonaManagerService;->-wrap70(Lcom/android/server/pm/PersonaManagerService;Lcom/samsung/android/knox/SemPersonaInfo;)V
 
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/server/pm/PersonaManagerService$PersonaHandler;->this$0:Lcom/android/server/pm/PersonaManagerService;
 
-    invoke-static {v4}, Lcom/android/server/pm/PersonaManagerService;->-wrap67(Lcom/android/server/pm/PersonaManagerService;)V
+    invoke-static {v4}, Lcom/android/server/pm/PersonaManagerService;->-wrap68(Lcom/android/server/pm/PersonaManagerService;)V
     :try_end_2b
     .catchall {:try_start_2b .. :try_end_2b} :catchall_7
 
@@ -8965,7 +8971,7 @@
 
     const/4 v5, 0x0
 
-    invoke-static {v4, v5}, Lcom/android/server/pm/PersonaManagerService;->-wrap51(Lcom/android/server/pm/PersonaManagerService;Z)V
+    invoke-static {v4, v5}, Lcom/android/server/pm/PersonaManagerService;->-wrap52(Lcom/android/server/pm/PersonaManagerService;Z)V
 
     goto/16 :goto_0
 
@@ -8985,7 +8991,7 @@
 
     const/4 v5, 0x1
 
-    invoke-static {v4, v5}, Lcom/android/server/pm/PersonaManagerService;->-wrap51(Lcom/android/server/pm/PersonaManagerService;Z)V
+    invoke-static {v4, v5}, Lcom/android/server/pm/PersonaManagerService;->-wrap52(Lcom/android/server/pm/PersonaManagerService;Z)V
 
     goto/16 :goto_0
 
@@ -9041,8 +9047,6 @@
     move-object/from16 v61, v64
 
     goto/16 :goto_17
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x1

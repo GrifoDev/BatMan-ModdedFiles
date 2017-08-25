@@ -1,4 +1,4 @@
-.class final Lcom/android/server/power/PowerManagerService$ShutdownReceiver;
+.class final Lcom/android/server/power/PowerManagerService$PmsLoggingReceiver;
 .super Landroid/content/BroadcastReceiver;
 .source "PowerManagerService.java"
 
@@ -10,7 +10,7 @@
 
 .annotation system Ldalvik/annotation/InnerClass;
     accessFlags = 0x12
-    name = "ShutdownReceiver"
+    name = "PmsLoggingReceiver"
 .end annotation
 
 
@@ -22,17 +22,17 @@
 .method private constructor <init>(Lcom/android/server/power/PowerManagerService;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/server/power/PowerManagerService$ShutdownReceiver;->this$0:Lcom/android/server/power/PowerManagerService;
+    iput-object p1, p0, Lcom/android/server/power/PowerManagerService$PmsLoggingReceiver;->this$0:Lcom/android/server/power/PowerManagerService;
 
     invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/server/power/PowerManagerService;Lcom/android/server/power/PowerManagerService$ShutdownReceiver;)V
+.method synthetic constructor <init>(Lcom/android/server/power/PowerManagerService;Lcom/android/server/power/PowerManagerService$PmsLoggingReceiver;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/server/power/PowerManagerService$ShutdownReceiver;-><init>(Lcom/android/server/power/PowerManagerService;)V
+    invoke-direct {p0, p1}, Lcom/android/server/power/PowerManagerService$PmsLoggingReceiver;-><init>(Lcom/android/server/power/PowerManagerService;)V
 
     return-void
 .end method
@@ -46,9 +46,9 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "android.intent.action.ACTION_SHUTDOWN"
+    const-string/jumbo v1, "com.sec.android.app.server.power.LOGGING"
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
@@ -60,7 +60,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v3, "[api] ShutdownReceiver: onReceive: "
+    const-string/jumbo v3, "[api] PmsLoggingReceiver: onReceive: "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -76,9 +76,13 @@
 
     invoke-static {v1, v2}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v1, p0, Lcom/android/server/power/PowerManagerService$ShutdownReceiver;->this$0:Lcom/android/server/power/PowerManagerService;
+    iget-object v1, p0, Lcom/android/server/power/PowerManagerService$PmsLoggingReceiver;->this$0:Lcom/android/server/power/PowerManagerService;
 
     invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-wrap39(Lcom/android/server/power/PowerManagerService;)V
+
+    iget-object v1, p0, Lcom/android/server/power/PowerManagerService$PmsLoggingReceiver;->this$0:Lcom/android/server/power/PowerManagerService;
+
+    invoke-static {v1}, Lcom/android/server/power/PowerManagerService;->-wrap38(Lcom/android/server/power/PowerManagerService;)V
 
     :cond_0
     return-void

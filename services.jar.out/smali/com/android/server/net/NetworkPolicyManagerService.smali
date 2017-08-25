@@ -3493,7 +3493,9 @@
 .end method
 
 .method private findPolicyForNetworkLocked(Landroid/net/NetworkIdentity;)Landroid/net/NetworkPolicy;
-    .locals 3
+    .locals 4
+
+    const/4 v3, 0x0
 
     iget-object v2, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkPolicy:Landroid/util/ArrayMap;
 
@@ -3504,7 +3506,7 @@
     add-int/lit8 v0, v2, -0x1
 
     :goto_0
-    if-ltz v0, :cond_1
+    if-ltz v0, :cond_2
 
     iget-object v2, p0, Lcom/android/server/net/NetworkPolicyManagerService;->mNetworkPolicy:Landroid/util/ArrayMap;
 
@@ -3516,6 +3518,16 @@
 
     iget-object v2, v1, Landroid/net/NetworkPolicy;->template:Landroid/net/NetworkTemplate;
 
+    if-nez v2, :cond_1
+
+    :cond_0
+    add-int/lit8 v0, v0, -0x1
+
+    goto :goto_0
+
+    :cond_1
+    iget-object v2, v1, Landroid/net/NetworkPolicy;->template:Landroid/net/NetworkTemplate;
+
     invoke-virtual {v2, p1}, Landroid/net/NetworkTemplate;->matches(Landroid/net/NetworkIdentity;)Z
 
     move-result v2
@@ -3524,15 +3536,8 @@
 
     return-object v1
 
-    :cond_0
-    add-int/lit8 v0, v0, -0x1
-
-    goto :goto_0
-
-    :cond_1
-    const/4 v2, 0x0
-
-    return-object v2
+    :cond_2
+    return-object v3
 .end method
 
 .method private getBackgroundDataRestrictList()Ljava/util/List;

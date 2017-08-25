@@ -4857,13 +4857,13 @@
 
     sget-object v4, Lcom/android/server/policy/GlobalActions;->mProKioskExitAlertDialogBuilder:Landroid/app/AlertDialog$Builder;
 
-    const v5, 0x1040947
+    const v5, 0x1040948
 
     invoke-virtual {v4, v5}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     sget-object v4, Lcom/android/server/policy/GlobalActions;->mProKioskExitAlertDialogBuilder:Landroid/app/AlertDialog$Builder;
 
-    const v5, 0x1040948
+    const v5, 0x1040949
 
     invoke-virtual {v4, v5}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -4945,11 +4945,11 @@
 
     const v7, 0x10803f7
 
-    const v8, 0x1040944
+    const v8, 0x1040945
 
-    const v9, 0x1040945
+    const v9, 0x1040946
 
-    const v10, 0x1040945
+    const v10, 0x1040946
 
     move-object/from16 v5, p0
 

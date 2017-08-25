@@ -1848,6 +1848,12 @@
 
     iget-object v3, v0, Lcom/android/server/display/WifiDisplayAdapter;->mActiveDLNADevice:Landroid/hardware/display/SemDlnaDevice;
 
+    if-eqz v3, :cond_1
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/server/display/WifiDisplayAdapter;->mActiveDLNADevice:Landroid/hardware/display/SemDlnaDevice;
+
     invoke-virtual {v3}, Landroid/hardware/display/SemDlnaDevice;->isSwitchingDevice()Z
 
     move-result v3
