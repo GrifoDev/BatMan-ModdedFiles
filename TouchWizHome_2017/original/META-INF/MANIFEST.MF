@@ -203,7 +203,7 @@ Name: res/drawable-xxhdpi-v4/quick_ic_sleep_now.bmp
 SHA-256-Digest: J4uhU62GJ1mphi1bcOx2+brLzs42fMbhg+Blvl2YUFU=
 
 Name: SEC-INF/buildinfo.xml
-SHA-256-Digest: cegfCb3k/2Kq2qBB5IrFIIEHikuU6Xl8hBDlQ1DUiok=
+SHA-256-Digest: FClRAH1VbxreqIdpecsw/KgV8kpuvrFG1p4IfLUHW2A=
 
 Name: res/layout/lighting_effect.xml
 SHA-256-Digest: PTGz9/tPh4kiCKXCVZOrjVT5VeJdtG77hc2VJzojlLQ=
