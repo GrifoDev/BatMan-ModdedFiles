@@ -827,11 +827,22 @@
 .end method
 
 .method private getUserIdFromCocktailId(I)I
-    .locals 1
+    .locals 2
 
     shr-int/lit8 v0, p1, 0x10
 
+    invoke-direct {p0, v0}, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;->isValidCocktailBarManagerServiceImpl(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
     return v0
+
+    :cond_0
+    const/16 v1, -0x2710
+
+    return v1
 .end method
 
 .method private handleChangeVisibleEdgeService(Z)V
@@ -867,6 +878,47 @@
     invoke-virtual {v0, p1, v1}, Lcom/android/server/cocktailbar/policy/cocktail/CocktailPolicyManager;->changeResumePackage(Ljava/lang/String;I)V
 
     return-void
+.end method
+
+.method private isValidCocktailBarManagerServiceImpl(I)Z
+    .locals 3
+
+    iget-object v2, p0, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;->mCocktailBarServices:Landroid/util/SparseArray;
+
+    monitor-enter v2
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;->mCocktailBarServices:Landroid/util/SparseArray;
+
+    invoke-virtual {v1, p1}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/server/cocktailbar/CocktailBarManagerServiceImpl;
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-eqz v0, :cond_0
+
+    const/4 v1, 0x1
+
+    monitor-exit v2
+
+    return v1
+
+    :cond_0
+    monitor-exit v2
+
+    const/4 v1, 0x0
+
+    return v1
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+
+    throw v1
 .end method
 
 .method private onUserStarted(I)V
@@ -2332,7 +2384,7 @@
 .end method
 
 .method public notifyCocktailVisibiltyChanged(II)V
-    .locals 1
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;
@@ -2341,9 +2393,9 @@
 
     invoke-direct {p0}, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;->enforceCocktailBarService()Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
     return-void
 
@@ -2352,13 +2404,47 @@
 
     move-result v0
 
-    invoke-direct {p0, v0}, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;->getImplForUser(I)Lcom/android/server/cocktailbar/CocktailBarManagerServiceImpl;
+    const/16 v1, -0x2710
 
-    move-result-object v0
+    if-eq v0, v1, :cond_1
 
-    invoke-virtual {v0, p1, p2}, Lcom/android/server/cocktailbar/CocktailBarManagerServiceImpl;->notifyCocktailVisibiltyChanged(II)V
+    invoke-direct {p0, p1}, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;->getUserIdFromCocktailId(I)I
 
+    move-result v1
+
+    invoke-direct {p0, v1}, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;->getImplForUser(I)Lcom/android/server/cocktailbar/CocktailBarManagerServiceImpl;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1, p2}, Lcom/android/server/cocktailbar/CocktailBarManagerServiceImpl;->notifyCocktailVisibiltyChanged(II)V
+
+    :goto_0
     return-void
+
+    :cond_1
+    sget-object v1, Lcom/android/server/cocktailbar/CocktailBarManagerServiceContainer;->TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "notifyCocktailVisibiltyChanged: invalid user id "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
 .end method
 
 .method public notifyKeyguardState(Z)V

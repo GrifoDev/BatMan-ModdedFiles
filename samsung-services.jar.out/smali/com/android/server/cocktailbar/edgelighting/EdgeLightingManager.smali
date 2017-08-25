@@ -768,7 +768,7 @@
 .end method
 
 .method private showForNotificationScreenOn(Landroid/service/notification/StatusBarNotification;ZZI)Z
-    .locals 10
+    .locals 11
 
     const/4 v5, 0x1
 
@@ -784,7 +784,7 @@
 
     invoke-virtual {v0}, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingClientManager;->getEdgeLightingCondition()I
 
-    move-result v8
+    move-result v9
 
     invoke-virtual {p1}, Landroid/service/notification/StatusBarNotification;->getNotification()Landroid/app/Notification;
 
@@ -834,11 +834,30 @@
     :cond_3
     iget-object v0, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingManager;->mEdgeLightingPolicyManager:Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;
 
+    const/16 v4, 0x100
+
+    invoke-virtual {v0, v1, v4, p4}, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->isAcceptableApplication(Ljava/lang/String;II)Z
+
+    move-result v8
+
+    if-nez v8, :cond_4
+
+    iget-object v0, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingManager;->mEdgeLightingPolicyManager:Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;
+
+    invoke-virtual {v0}, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->isEnabledHeadsUp()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    :cond_4
+    iget-object v0, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingManager;->mEdgeLightingPolicyManager:Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;
+
     invoke-virtual {v0}, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->isHUNPeeked()Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
     iget-object v0, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingManager;->mEdgeLightingPolicyManager:Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;
 
@@ -846,7 +865,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_5
 
     iget-object v0, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingManager;->mEdgeLightingPolicyManager:Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;
 
@@ -854,7 +873,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_5
 
     iget-object v0, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingManager;->mEdgeLightingPolicyManager:Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;
 
@@ -862,9 +881,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_6
 
-    :cond_4
+    :cond_5
     sget-object v0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingManager;->TAG:Ljava/lang/String;
 
     const-string/jumbo v4, "showForNotificationScreenOn : return false by checking disable policy."
@@ -873,7 +892,7 @@
 
     return v3
 
-    :cond_5
+    :cond_6
     iget-object v0, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingManager;->mEdgeLightingPolicyManager:Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;
 
     invoke-virtual {v0, p1, p2, p3}, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->putNotification(Landroid/service/notification/StatusBarNotification;ZZ)Landroid/os/Bundle;
@@ -884,7 +903,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_7
 
     sget-object v0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingManager;->TAG:Ljava/lang/String;
 
@@ -894,46 +913,40 @@
 
     return v3
 
-    :cond_6
+    :cond_7
     iget-object v0, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingManager;->mEdgeLightingPolicyManager:Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;
 
     invoke-virtual {v0, v1, v5, p4}, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->isAcceptableApplication(Ljava/lang/String;II)Z
 
     move-result v0
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_a
 
     sget-boolean v0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingHistory;->IS_DEV_DEBUG:Z
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_8
 
     sget-boolean v0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingManager;->DEBUG:Z
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_9
 
-    :cond_7
+    :cond_8
     sget-object v0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingManager;->TAG:Ljava/lang/String;
 
     const-string/jumbo v4, "showForNotificationScreenOn : return false by isAcceptableApplication."
 
     invoke-static {v0, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_8
+    :cond_9
     return v3
 
-    :cond_9
-    if-nez p2, :cond_a
-
-    iget-object v0, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingManager;->mEdgeLightingPolicyManager:Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;
-
-    const/16 v4, 0x100
-
-    invoke-virtual {v0, v1, v4, p4}, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->isAcceptableApplication(Ljava/lang/String;II)Z
-
-    move-result p2
-
     :cond_a
-    if-eqz p2, :cond_c
+    if-nez p2, :cond_b
+
+    move p2, v8
+
+    :cond_b
+    if-eqz p2, :cond_d
 
     iget-object v0, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingManager;->mEdgeLightingPolicyManager:Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;
 
@@ -942,16 +955,16 @@
     move-result v6
 
     :goto_0
-    if-eqz v6, :cond_b
+    if-eqz v6, :cond_c
 
     const/4 v0, 0x4
 
-    if-ne v8, v0, :cond_d
+    if-ne v9, v0, :cond_e
 
-    move v9, v5
+    move v10, v5
 
     :goto_1
-    if-eqz v9, :cond_e
+    if-eqz v10, :cond_f
 
     const/4 v4, 0x7
 
@@ -960,30 +973,30 @@
 
     invoke-direct/range {v0 .. v5}, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingManager;->showEdgeLightingInternal(Ljava/lang/String;Landroid/os/Bundle;ZII)V
 
-    :cond_b
-    and-int/lit8 v0, v8, 0x1
+    :cond_c
+    and-int/lit8 v0, v9, 0x1
 
-    if-eqz v0, :cond_f
+    if-eqz v0, :cond_10
 
     :goto_3
     return v6
 
-    :cond_c
+    :cond_d
     move v6, v3
 
     goto :goto_0
 
-    :cond_d
-    move v9, v3
+    :cond_e
+    move v10, v3
 
     goto :goto_1
 
-    :cond_e
+    :cond_f
     move v4, v5
 
     goto :goto_2
 
-    :cond_f
+    :cond_10
     move v6, v3
 
     goto :goto_3

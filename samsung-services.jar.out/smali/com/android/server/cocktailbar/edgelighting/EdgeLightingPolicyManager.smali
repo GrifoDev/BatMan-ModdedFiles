@@ -2135,10 +2135,8 @@
     return v1
 .end method
 
-.method public isHUNPeeked()Z
-    .locals 4
-
-    const/4 v3, 0x0
+.method public isEnabledHeadsUp()Z
+    .locals 3
 
     iget-boolean v0, p0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->mUseHeadsUp:Z
 
@@ -2168,14 +2166,26 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v3
+    const/4 v0, 0x0
+
+    return v0
 
     :cond_0
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
+.method public isHUNPeeked()Z
+    .locals 3
+
+    const/4 v2, 0x0
+
     invoke-direct {p0}, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->isDeviceInVrMode()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     sget-object v0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->TAG:Ljava/lang/String;
 
@@ -2183,14 +2193,14 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v3
+    return v2
 
-    :cond_1
+    :cond_0
     invoke-direct {p0}, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->isDeviceInGearVrDocked()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     sget-object v0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->TAG:Ljava/lang/String;
 
@@ -2198,14 +2208,14 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v3
+    return v2
 
-    :cond_2
+    :cond_1
     invoke-direct {p0}, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->isMirrorLinkOn()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2
 
     sget-object v0, Lcom/android/server/cocktailbar/edgelighting/EdgeLightingPolicyManager;->TAG:Ljava/lang/String;
 
@@ -2213,9 +2223,9 @@
 
     invoke-static {v0, v1}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return v3
+    return v2
 
-    :cond_3
+    :cond_2
     const/4 v0, 0x1
 
     return v0
