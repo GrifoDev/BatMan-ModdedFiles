@@ -35,378 +35,153 @@
 
 # virtual methods
 .method public onStateReceived()V
-    .locals 5
+    .locals 6
 
-    const/4 v4, 0x1
+    iget-object v2, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess$1;->this$0:Lcom/android/settings/datausage/UnrestrictedDataAccess;
 
-    const/4 v3, 0x0
+    invoke-static {v2}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->-get2(Lcom/android/settings/datausage/UnrestrictedDataAccess;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
 
-    iget-object v1, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess$1;->this$0:Lcom/android/settings/datausage/UnrestrictedDataAccess;
+    move-result-object v2
 
-    invoke-static {v1}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->-get2(Lcom/android/settings/datausage/UnrestrictedDataAccess;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-virtual {v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getStateId()Ljava/lang/String;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->getStateId()Ljava/lang/String;
+    const-string/jumbo v2, "AllowUnrestrictedDataUsageOn"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const-string/jumbo v2, "AllowUnrestrictedDataUsageOff"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    :cond_0
+    iget-object v2, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess$1;->this$0:Lcom/android/settings/datausage/UnrestrictedDataAccess;
+
+    invoke-static {v2}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->-wrap1(Lcom/android/settings/datausage/UnrestrictedDataAccess;)V
+
+    :goto_0
+    return-void
+
+    :cond_1
+    iget-object v2, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess$1;->this$0:Lcom/android/settings/datausage/UnrestrictedDataAccess;
+
+    invoke-static {v2}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->-get3(Lcom/android/settings/datausage/UnrestrictedDataAccess;)Landroid/os/Handler;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/os/Handler;->obtainMessage()Landroid/os/Message;
 
     move-result-object v0
 
-    const-string/jumbo v1, "AllowUnrestrictedDataUsageShowSystemApps"
+    const-string/jumbo v2, "AllowUnrestrictedDataUsageShowSystemApps"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_0
+    if-eqz v2, :cond_3
 
-    const-string/jumbo v1, "AllowUnrestrictedDataUsageHideSystemApps"
+    iget-object v2, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess$1;->this$0:Lcom/android/settings/datausage/UnrestrictedDataAccess;
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {v2}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->-get3(Lcom/android/settings/datausage/UnrestrictedDataAccess;)Landroid/os/Handler;
 
-    move-result v1
+    move-result-object v2
 
-    if-eqz v1, :cond_7
+    const/4 v3, 0x0
 
-    :cond_0
-    iget-object v1, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess$1;->this$0:Lcom/android/settings/datausage/UnrestrictedDataAccess;
+    invoke-virtual {v2, v3, v1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
-    invoke-static {v1}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->-get5(Lcom/android/settings/datausage/UnrestrictedDataAccess;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_4
-
-    const-string/jumbo v1, "AllowUnrestrictedDataUsageHideSystemApps"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_3
-
-    iget-object v1, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess$1;->this$0:Lcom/android/settings/datausage/UnrestrictedDataAccess;
-
-    invoke-static {v1}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->-get2(Lcom/android/settings/datausage/UnrestrictedDataAccess;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    iget-object v1, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess$1;->this$0:Lcom/android/settings/datausage/UnrestrictedDataAccess;
-
-    invoke-static {v1}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->-get2(Lcom/android/settings/datausage/UnrestrictedDataAccess;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    :cond_1
-    :goto_0
-    iget-object v1, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess$1;->this$0:Lcom/android/settings/datausage/UnrestrictedDataAccess;
-
-    invoke-static {v1}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->-get2(Lcom/android/settings/datausage/UnrestrictedDataAccess;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v1
-
-    sget-object v2, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    move-result-object v0
 
     :cond_2
     :goto_1
-    return-void
-
-    :cond_3
-    iget-object v1, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess$1;->this$0:Lcom/android/settings/datausage/UnrestrictedDataAccess;
-
     iget-object v2, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess$1;->this$0:Lcom/android/settings/datausage/UnrestrictedDataAccess;
 
-    invoke-static {v2}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->-get3(Lcom/android/settings/datausage/UnrestrictedDataAccess;)Landroid/view/Menu;
+    invoke-static {v2}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->-get3(Lcom/android/settings/datausage/UnrestrictedDataAccess;)Landroid/os/Handler;
 
     move-result-object v2
 
-    invoke-interface {v2, v3}, Landroid/view/Menu;->getItem(I)Landroid/view/MenuItem;
+    const-wide/16 v4, 0x64
 
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
-
-    iget-object v1, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess$1;->this$0:Lcom/android/settings/datausage/UnrestrictedDataAccess;
-
-    invoke-static {v1}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->-get2(Lcom/android/settings/datausage/UnrestrictedDataAccess;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    iget-object v1, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess$1;->this$0:Lcom/android/settings/datausage/UnrestrictedDataAccess;
-
-    invoke-static {v1}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->-get2(Lcom/android/settings/datausage/UnrestrictedDataAccess;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
+    invoke-virtual {v2, v0, v4, v5}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
 
     goto :goto_0
 
-    :cond_4
-    const-string/jumbo v1, "AllowUnrestrictedDataUsageHideSystemApps"
+    :cond_3
+    const-string/jumbo v2, "AllowUnrestrictedDataUsageHideSystemApps"
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_6
-
-    iget-object v1, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess$1;->this$0:Lcom/android/settings/datausage/UnrestrictedDataAccess;
+    if-eqz v2, :cond_4
 
     iget-object v2, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess$1;->this$0:Lcom/android/settings/datausage/UnrestrictedDataAccess;
 
-    invoke-static {v2}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->-get3(Lcom/android/settings/datausage/UnrestrictedDataAccess;)Landroid/view/Menu;
+    invoke-static {v2}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->-get3(Lcom/android/settings/datausage/UnrestrictedDataAccess;)Landroid/os/Handler;
 
     move-result-object v2
 
-    invoke-interface {v2, v3}, Landroid/view/Menu;->getItem(I)Landroid/view/MenuItem;
+    const/4 v3, 0x1
 
-    move-result-object v2
+    invoke-virtual {v2, v3, v1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
-
-    iget-object v1, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess$1;->this$0:Lcom/android/settings/datausage/UnrestrictedDataAccess;
-
-    invoke-static {v1}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->-get2(Lcom/android/settings/datausage/UnrestrictedDataAccess;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_5
-
-    iget-object v1, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess$1;->this$0:Lcom/android/settings/datausage/UnrestrictedDataAccess;
-
-    invoke-static {v1}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->-get2(Lcom/android/settings/datausage/UnrestrictedDataAccess;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    :cond_5
-    :goto_2
-    iget-object v1, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess$1;->this$0:Lcom/android/settings/datausage/UnrestrictedDataAccess;
-
-    invoke-static {v1}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->-get2(Lcom/android/settings/datausage/UnrestrictedDataAccess;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v1
-
-    sget-object v2, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
+    move-result-object v0
 
     goto :goto_1
 
-    :cond_6
-    iget-object v1, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess$1;->this$0:Lcom/android/settings/datausage/UnrestrictedDataAccess;
+    :cond_4
+    const-string/jumbo v2, "AllowUnrestrictedDataUsageByAllowedAppFirst"
 
-    invoke-static {v1}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->-get2(Lcom/android/settings/datausage/UnrestrictedDataAccess;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result-object v1
+    move-result v2
 
-    invoke-virtual {v1, v0}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    goto :goto_2
-
-    :cond_7
-    const-string/jumbo v1, "AllowUnrestrictedDataUsageByAllowedAppFirst"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_8
-
-    const-string/jumbo v1, "AllowUnrestrictedDataUsageByName"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_e
-
-    :cond_8
-    iget-object v1, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess$1;->this$0:Lcom/android/settings/datausage/UnrestrictedDataAccess;
-
-    invoke-static {v1}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->-get4(Lcom/android/settings/datausage/UnrestrictedDataAccess;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_b
-
-    const-string/jumbo v1, "AllowUnrestrictedDataUsageByName"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_a
-
-    iget-object v1, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess$1;->this$0:Lcom/android/settings/datausage/UnrestrictedDataAccess;
-
-    invoke-static {v1}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->-get2(Lcom/android/settings/datausage/UnrestrictedDataAccess;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    :cond_9
-    :goto_3
-    iget-object v1, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess$1;->this$0:Lcom/android/settings/datausage/UnrestrictedDataAccess;
-
-    invoke-static {v1}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->-get2(Lcom/android/settings/datausage/UnrestrictedDataAccess;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v1
-
-    sget-object v2, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_1
-
-    :cond_a
-    iget-object v1, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess$1;->this$0:Lcom/android/settings/datausage/UnrestrictedDataAccess;
+    if-eqz v2, :cond_5
 
     iget-object v2, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess$1;->this$0:Lcom/android/settings/datausage/UnrestrictedDataAccess;
 
-    invoke-static {v2}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->-get3(Lcom/android/settings/datausage/UnrestrictedDataAccess;)Landroid/view/Menu;
+    invoke-static {v2}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->-get3(Lcom/android/settings/datausage/UnrestrictedDataAccess;)Landroid/os/Handler;
 
     move-result-object v2
 
-    invoke-interface {v2, v4}, Landroid/view/Menu;->getItem(I)Landroid/view/MenuItem;
+    const/4 v3, 0x2
 
-    move-result-object v2
+    invoke-virtual {v2, v3, v1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
+    move-result-object v0
 
-    iget-object v1, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess$1;->this$0:Lcom/android/settings/datausage/UnrestrictedDataAccess;
+    goto :goto_1
 
-    invoke-static {v1}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->-get2(Lcom/android/settings/datausage/UnrestrictedDataAccess;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
+    :cond_5
+    const-string/jumbo v2, "AllowUnrestrictedDataUsageByName"
 
-    move-result-object v1
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
+    move-result v2
 
-    move-result v1
-
-    if-eqz v1, :cond_9
-
-    iget-object v1, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess$1;->this$0:Lcom/android/settings/datausage/UnrestrictedDataAccess;
-
-    invoke-static {v1}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->-get2(Lcom/android/settings/datausage/UnrestrictedDataAccess;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    goto :goto_3
-
-    :cond_b
-    const-string/jumbo v1, "AllowUnrestrictedDataUsageByName"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_d
-
-    iget-object v1, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess$1;->this$0:Lcom/android/settings/datausage/UnrestrictedDataAccess;
+    if-eqz v2, :cond_2
 
     iget-object v2, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess$1;->this$0:Lcom/android/settings/datausage/UnrestrictedDataAccess;
 
-    invoke-static {v2}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->-get3(Lcom/android/settings/datausage/UnrestrictedDataAccess;)Landroid/view/Menu;
+    invoke-static {v2}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->-get3(Lcom/android/settings/datausage/UnrestrictedDataAccess;)Landroid/os/Handler;
 
     move-result-object v2
 
-    invoke-interface {v2, v4}, Landroid/view/Menu;->getItem(I)Landroid/view/MenuItem;
+    const/4 v3, 0x3
 
-    move-result-object v2
+    invoke-virtual {v2, v3, v1}, Landroid/os/Handler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
 
-    invoke-virtual {v1, v2}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->onOptionsItemSelected(Landroid/view/MenuItem;)Z
+    move-result-object v0
 
-    iget-object v1, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess$1;->this$0:Lcom/android/settings/datausage/UnrestrictedDataAccess;
-
-    invoke-static {v1}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->-get2(Lcom/android/settings/datausage/UnrestrictedDataAccess;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->isLastState()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_c
-
-    iget-object v1, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess$1;->this$0:Lcom/android/settings/datausage/UnrestrictedDataAccess;
-
-    invoke-static {v1}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->-get2(Lcom/android/settings/datausage/UnrestrictedDataAccess;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    :cond_c
-    :goto_4
-    iget-object v1, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess$1;->this$0:Lcom/android/settings/datausage/UnrestrictedDataAccess;
-
-    invoke-static {v1}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->-get2(Lcom/android/settings/datausage/UnrestrictedDataAccess;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v1
-
-    sget-object v2, Lcom/samsung/android/settings/bixby/EmSettingsManager;->EM_RESPONSE_RESULT_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
-
-    invoke-virtual {v1, v2}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->sendResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;)V
-
-    goto/16 :goto_1
-
-    :cond_d
-    iget-object v1, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess$1;->this$0:Lcom/android/settings/datausage/UnrestrictedDataAccess;
-
-    invoke-static {v1}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->-get2(Lcom/android/settings/datausage/UnrestrictedDataAccess;)Lcom/samsung/android/settings/bixby/EmSettingsManager;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Lcom/samsung/android/settings/bixby/EmSettingsManager;->requestNlg(Ljava/lang/String;)V
-
-    goto :goto_4
-
-    :cond_e
-    const-string/jumbo v1, "AllowUnrestrictedDataUsageOn"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_f
-
-    const-string/jumbo v1, "AllowUnrestrictedDataUsageOff"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    :cond_f
-    iget-object v1, p0, Lcom/android/settings/datausage/UnrestrictedDataAccess$1;->this$0:Lcom/android/settings/datausage/UnrestrictedDataAccess;
-
-    invoke-static {v1}, Lcom/android/settings/datausage/UnrestrictedDataAccess;->-wrap1(Lcom/android/settings/datausage/UnrestrictedDataAccess;)V
-
-    goto/16 :goto_1
+    goto :goto_1
 .end method

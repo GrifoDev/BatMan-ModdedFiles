@@ -600,7 +600,7 @@
 
     check-cast v7, Landroid/app/Activity;
 
-    const v0, 0x7f0800bc
+    const v0, 0x7f0800bd
 
     invoke-virtual {p0, v0}, Lcom/android/settings/inputmethod/PhysicalKeyboardFragment;->addPreferencesFromResource(I)V
 

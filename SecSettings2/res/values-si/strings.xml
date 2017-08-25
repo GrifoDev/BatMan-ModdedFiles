@@ -1231,6 +1231,11 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
 ඉහත සුරක්ෂිත මට්ටමට වඩා දීප්තතාවය වැඩි කිරීමට ඉඩ දීමට “හරි” තට්ටු කරන්න."</string>
     <string name="auto_adjust_brightness">ස්වයං දීප්තතාව</string>
     <string name="auto_adjust_brightness_summary">ඔබේ දීප්ති සීරුමාරු කිරීම් පිළිබඳ වාර්තාවක් තබා ගෙන ඒ හා සමාන ආලෝක තත්ත්වයන්වල ස්වයංක්‍රීයව යොදන්න.</string>
+    <string name="auto_adjust_brightness_summary_nopac">පවත්නා ආලෝක තත්ත්වයන් මත පදනම්ව තිරයේ දීප්තතාවය ස්වයංක්‍රීයව සීරුමාරු කරන්න.</string>
+    <string name="reset_usage_pattern_title">භාවිත රටා යළි සකසන්න</string>
+    <string name="reset_usage_pattern_summary">ඔබේ දීප්තතා සීරුමාරු ඉතිහාසය හිස් කරන්න. යළි සැකසීමෙන් පසුව ඔබේ දුරකථනය ඔබේ මනාප නැවත ඉගෙන ගැනීම ආරම්භ කරනු ඇත.</string>
+    <string name="reset_usage_pattern_dialog_title">ඔබේ දීප්තතා භාවිත රටා යළි සකසන්න ද?</string>
+    <string name="reset_usage_pattern_dialog_summary">ඔබේ දුරකථනය යළි සැකසීමෙන් පසුව ඔබේ දීප්තතා මනාප ඉගෙනීම නැවත ආරම්භ කරනු ඇත.</string>
     <string name="current_theme_font">පවත්නා තේමාවෙහි පෙරනිමිය</string>
     <string name="hbm_mode_on">හිරු එළියෙදී හොඳම දසුනක් සඳහා උපරිම කර ඇත</string>
     <string name="aod_detach_mobile_keyboard_toast">%s භාවිතා කිරීමට, උපාංගයෙන් යතුරු පුවරුවේ කවරය අබද්ධ කරන්න.</string>
@@ -2593,6 +2598,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 ඔබ තෝරන ශ්‍රව්‍ය උපාංගය ඔබේ දුරකථනයේ ප්‍රධාන ශ්‍රව්‍ය ප්‍රතිදාන උපාංගයෙන් වෙනස් වන විට පමණක් වෙනම යෙදුමේ හඬ වැඩ කරයි.
 
 ඔබට යුහු සැකසුම් පුවරුව තුළ ඔබේ දුරකථනයේ ප්‍රධාන ශ්‍රව්‍ය ප්‍රතිදාන උපාංගය වෙනස් කළ හැක. ශ්‍රව්‍ය ප්‍රතිදානය පෙන්වා නැති නම්, Samsung Connect > සැකසුම් > Samsung Connect පැනලය තුළ එය ක්‍රියාත්මක කරන්න."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"ඔබේ දුරකථනයේ ප්‍රධාන ශ්‍රව්‍ය ප්‍රතිදාන උපාංගයෙන් වෙන්ව ශ්‍රව්‍ය උපාංගයක් මත එක් යෙදුමකින් මාධ්‍ය හඬ වාදනය කරන්න. මෙය ක්‍රියාත්මක කිරීමට යෙදුමක් සහ ශ්‍රව්‍ය උපාංගයක් තෝරන්න.
+
+ඔබ තෝරන ශ්‍රව්‍ය උපාංගය ඔබේ දුරකථනයේ ප්‍රධාන ශ්‍රව්‍ය ප්‍රතිදාන උපාංගයෙන් වෙනස් වන විට පමණක් වෙනම යෙදුමේ හඬ වැඩ කරයි.
+
+ඔබ Samsung Connect ස්ථාපිත කර ඇති නම්, ඔබට යුහු සැකසුම් පුවරුව තුළ ඔබේ දුරකථනයේ ප්‍රධාන ශ්‍රව්‍ය ප්‍රතිදාන උපාංගය වෙනස් කළ හැක. ශ්‍රව්‍ය ප්‍රතිදාන උපාංගය පෙන්වා නැති නම්, Samsung Connect > සැකසුම් වෙත ගොස්, Samsung Connect පුවරුව ක්‍රියාත්මක කරන්න."</string>
     <string name="set_application_title">යෙදුම</string>
     <string name="set_application_summary">වෙනම ශ්‍රව්‍ය උපාංගයක් මත හඬ වාදනය කිරීමට යෙදුමක් තෝරන්න.</string>
     <string name="set_application_descryption">වෙනම ශ්‍රව්‍ය උපාංගයක් මත හඬ වාදනය කිරීමට පහතින් බහුමාධ්‍ය යෙදුමක් තෝරන්න.</string>

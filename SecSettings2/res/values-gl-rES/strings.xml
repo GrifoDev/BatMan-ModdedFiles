@@ -1360,6 +1360,11 @@ Ten en conta tamén que Samsung pode seguir recompilando información sobre o us
 Toca ACEPTAR para permitir o aumento do brillo por enriba dos niveis seguros."</string>
     <string name="auto_adjust_brightness">Brillo automático</string>
     <string name="auto_adjust_brightness_summary">Fai un seguimento dos teus axustes de brillo e aplícaos automaticamente en condicións de iluminación similares.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Axusta o brillo da pantalla automaticamente en función das condicións de iluminación actuais.</string>
+    <string name="reset_usage_pattern_title">Restablecer padróns de uso</string>
+    <string name="reset_usage_pattern_summary">Borra o teu historial de axustes de brillo. O teléfono comezará a aprender as túas preferencias de novo despois do restablecemento.</string>
+    <string name="reset_usage_pattern_dialog_title">Restablecer os padróns de uso de brillo?</string>
+    <string name="reset_usage_pattern_dialog_summary">O teléfono comezará a aprender as túas preferencias de brillo de novo despois do restablecemento.</string>
     <string name="current_theme_font">Axustes predeterminados do tema actual</string>
     <string name="hbm_mode_on">Maximizado para verse mellor baixo luz solar</string>
     <string name="aod_detach_mobile_keyboard_toast">Para usar %s, desconecta a funda do teclado do dispositivo.</string>
@@ -2722,6 +2727,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 Separar son da aplicación só funciona cando o dispositivo de audio que seleccionas é diferente do dispositivo de saída de audio principal do teléfono.
 
 Podes cambiar o dispositivo de saída de audio principal do teléfono no panel de axustes rápidos. Se non se mostra a saída de audio, actívaa en Samsung Connect > Axustes > Panel de Samsung Connect."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Reproduce son multimedia dunha aplicación nun dispositivo de audio independente do dispositivo de saída de audio principal do teléfono. Selecciona unha aplicación e un dispositivo de audio para activar isto.
+
+Separar son da aplicación só funciona cando o dispositivo de audio que seleccionas é diferente do dispositivo de saída de audio principal do teléfono.
+
+Se tes Samsung Connect instalado, podes cambiar o dispositivo de saída de audio principal do teléfono no panel de axustes rápidos. Se non se mostra o dispositivo de saída de audio, vai a Samsung Connect > Axustes e activa Panel de Samsung Connect."</string>
     <string name="set_application_title">Aplicación</string>
     <string name="set_application_summary">Selecciona unha aplicación para reproducir o seu son nun dispositivo de audio independente.</string>
     <string name="set_application_descryption">Selecciona unha aplicación multimedia a continuación para reproducir o seu son nun dispositivo de audio independente.</string>

@@ -39,21 +39,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/face/FaceFasterRecognition$FaceFasterRecognitionFragment$1;->this$1:Lcom/samsung/android/settings/face/FaceFasterRecognition$FaceFasterRecognitionFragment;
 
-    invoke-static {v0}, Lcom/samsung/android/settings/face/FaceFasterRecognition$FaceFasterRecognitionFragment;->-get0(Lcom/samsung/android/settings/face/FaceFasterRecognition$FaceFasterRecognitionFragment;)Lcom/samsung/android/settings/widget/BottomBarButton;
-
-    move-result-object v0
-
-    if-ne p1, v0, :cond_0
-
-    const-string/jumbo v0, "FcstFaceFasterRecognition"
-
-    const-string/jumbo v1, "onClick : Done"
-
-    invoke-static {v0, v1}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v0, p0, Lcom/samsung/android/settings/face/FaceFasterRecognition$FaceFasterRecognitionFragment$1;->this$1:Lcom/samsung/android/settings/face/FaceFasterRecognition$FaceFasterRecognitionFragment;
-
-    const/4 v1, -0x1
+    const/4 v1, 0x0
 
     invoke-static {v0, v1}, Lcom/samsung/android/settings/face/FaceFasterRecognition$FaceFasterRecognitionFragment;->-wrap0(Lcom/samsung/android/settings/face/FaceFasterRecognition$FaceFasterRecognitionFragment;I)V
 
@@ -61,8 +47,5 @@
 
     invoke-virtual {v0}, Lcom/samsung/android/settings/face/FaceFasterRecognition$FaceFasterRecognitionFragment;->finish()V
 
-    return-void
-
-    :cond_0
     return-void
 .end method

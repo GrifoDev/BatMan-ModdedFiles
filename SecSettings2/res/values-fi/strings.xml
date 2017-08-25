@@ -1360,6 +1360,11 @@ Huomaa myös, että Samsung voi silti kerätä tietoja laitteen käytöstä muih
 Napauta OK, jos haluat sallia kirkkauden nostamisen turvallisen tason yläpuolelle."</string>
     <string name="auto_adjust_brightness">Automaattinen kirkkaus</string>
     <string name="auto_adjust_brightness_summary">Seuraa kirkkaussäätöjäsi ja ota ne samanlaisissa valaistusolosuhteissa automaattisesti käyttöön.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Säädä näytön kirkkautta automaattisesti vallitsevien valaistusolosuhteiden mukaan.</string>
+    <string name="reset_usage_pattern_title">Nollaa käyttötavat</string>
+    <string name="reset_usage_pattern_summary">Poista kirkkauden säätöhistoria. Puhelimesi alkaa oppia mieltymyksesi uudelleen asetusten palauttamisen jälkeen.</string>
+    <string name="reset_usage_pattern_dialog_title">Nollataanko kirkkauden käyttötavat?</string>
+    <string name="reset_usage_pattern_dialog_summary">Puhelimesi alkaa oppia kirkkausmieltymyksesi uudelleen asetusten palauttamisen jälkeen.</string>
     <string name="current_theme_font">Nykyisen teeman oletus</string>
     <string name="hbm_mode_on">Lisätty näkyvyyden parantamiseksi auringossa</string>
     <string name="aod_detach_mobile_keyboard_toast">Jos haluat käyttää teemaa %s, irrota näppäimistön kansi laitteesta.</string>
@@ -2722,6 +2727,11 @@ Voit poistaa eston ja muodostaa yhteyden muihin laitteisiin USB-kaapelilla asett
 Erillinen sovelluksen ääni toimii vain silloin, kun valitsemasi äänilaite ei ole sama kuin puhelimen ensisijainen äänilähtölaite.
 
 Voit vaihtaa puhelimen ensisijaisen äänilähtölaitteen pika-asetuspaneelissa. Jos äänilähtöä ei näy, ota se käyttöön valitsemalla Samsung Connect > Asetukset > Samsung Connect -paneeli."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Toista yhden sovelluksen mediaääni puhelimen pää-äänilähtölaitteesta erillään olevalla äänilaitteella. Valitse sovellus ja äänilaite toiminnon ottamiseksi käyttöön.
+
+Erillinen sovelluksen ääni toimii vain silloin, kun valitsemasi äänilaite ei ole sama kuin puhelimen ensisijainen äänilähtölaite.
+
+Jos sinulla on Samsung Connect asennettuna, voit vaihtaa puhelimen ensisijaisen äänilähtölaitteen pika-asetuspaneelissa. Jos äänilähtölaitetta ei näy, voit ottaa sen käyttöön siirtymällä kohtaan Samsung Connect > Asetukset ja ottamalla Samsung Connect -paneelin käyttöön."</string>
     <string name="set_application_title">Sovellus</string>
     <string name="set_application_summary">Valitse sovellus, jonka äänen haluat toistaa erillisen äänilaitteen kautta.</string>
     <string name="set_application_descryption">Valitse alta multimediasovellus, jonka äänen haluat toistaa erillisen äänilaitteen kautta.</string>

@@ -579,7 +579,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/autopoweronoff/AutoPowerOnOffSettings;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f080029
+    const v0, 0x7f08002a
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/autopoweronoff/AutoPowerOnOffSettings;->addPreferencesFromResource(I)V
 

@@ -1360,6 +1360,11 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
 Թակեք OK, որպեսզի թույլատրվի պայծառության ավելացում անվտանգ աստիճանից բարձր:"</string>
     <string name="auto_adjust_brightness">Ինքնաբերական պայծառություն</string>
     <string name="auto_adjust_brightness_summary">Հետևել պայծառության կարգավորումներին և ինքնաբերաբար կիրառել նմանատիպ լուսավորության պայմաններում:</string>
+    <string name="auto_adjust_brightness_summary_nopac">Ինքնաբերաբար կարգավորել էկրանի պայծառությունը՝ ըստ ներկա պահին լուսավորության պայմանների:</string>
+    <string name="reset_usage_pattern_title">Վերադնել օգտագործման բնութագրեր</string>
+    <string name="reset_usage_pattern_summary">Մաքրեք պայծառության կարգավորման պատմությունը: Հեռախոսը հետադարձումից հետո կսկսի նորից սովորել Ձեր նախապատվությունները:</string>
+    <string name="reset_usage_pattern_dialog_title">Վերադնե՞լ պայծառ. օգտագործման բնութագրերը:</string>
+    <string name="reset_usage_pattern_dialog_summary">Հեռախոսը հետադարձումից հետո կսկսի նորից սովորել պայծառության նախապատվությունները:</string>
     <string name="current_theme_font">Ընթացիկ թեմայի կանխադրվածք</string>
     <string name="hbm_mode_on">Առավելարկված է արևի լույսի տակ լավ. դիտման հր</string>
     <string name="aod_detach_mobile_keyboard_toast">%s օգտագործելու համար ստեղնաշարի շապիկը զատեք սարքից:</string>
@@ -2722,6 +2727,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 Առանձին ծրագրի ձայնն աշխատում է միայն այն ժամանակ, երբ ընտրված ձայնասարքը տարբեր է հեռախոսի գլխավոր ձայնային ելքի սարքից:
 
 Կարող եք հեռախոսի գլխավոր ձայնային ելքի սարքը փոխել արագ դրվածքների վահանակում: Եթե ձայնային ելքը չի ցուցադրվում, միացրեք այն՝ գնալով Samsung Connect > Դրվածքներ > Samsung Connect վահանակ:"</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Մեկ ծրագրից մեդիա ֆայլերի ձայն հնչեցնել Ձեր հեռախոսի գլխավոր ձայնային ելքի սարքից առանձին ձայնասարքով: Դա միացնելու համար ընտրեք ծրագիր կամ ձայնասարք:
+
+Առանձին ծրագրի ձայնն աշխատում է միայն այն ժամանակ, երբ ընտրված ձայնասարքը տարբեր է հեռախոսի գլխավոր ձայնային ելքի սարքից:
+
+Եթե ունեք տեղադրված Samsung Connect, կարող եք հեռախոսի գլխավոր ձայնային ելքի սարքը փոխել արագ դրվածքների վահանակում: Եթե ձայնային ելքի սարքը չի ցուցադրվում, գնացեք Samsung Connect > Դրվածքներ և միացրեք Samsung Connect վահանակը:"</string>
     <string name="set_application_title">Ծրագիր</string>
     <string name="set_application_summary">Ընտրեք ծրագիր՝ ծրագրի ձայնը առանձին ձայնասարքով հնչեցնելու համար:</string>
     <string name="set_application_descryption">Ստորև ընտրեք մուլտիմեդիա ծրագիր՝ ծրագրի ձայնը առանձին ձայնասարքով հնչեցնելու համար:</string>

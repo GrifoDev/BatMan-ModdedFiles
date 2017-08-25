@@ -154,7 +154,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b086d
+    const v1, 0x7f0b0872
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog;->setTitle(I)V
 
@@ -220,7 +220,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b12ea
+    const v1, 0x7f0b12f0
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(I)V
 
@@ -288,7 +288,7 @@
 
     aput-object v5, v4, v6
 
-    const v5, 0x7f0b0872
+    const v5, 0x7f0b0877
 
     invoke-virtual {v3, v5, v4}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -355,7 +355,7 @@
 
     aput-object v5, v4, v6
 
-    const v5, 0x7f0b0873
+    const v5, 0x7f0b0878
 
     invoke-virtual {v3, v5, v4}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

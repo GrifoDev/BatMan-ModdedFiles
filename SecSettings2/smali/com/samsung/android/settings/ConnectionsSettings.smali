@@ -640,7 +640,7 @@
 
     move-result v9
 
-    const v20, 0x7f080044
+    const v20, 0x7f080045
 
     move-object/from16 v0, p0
 
@@ -1101,7 +1101,7 @@
 
     move-object/from16 v20, v0
 
-    const v21, 0x7f0b0c7b
+    const v21, 0x7f0b0c81
 
     invoke-virtual/range {v20 .. v21}, Landroid/preference/PreferenceScreen;->setTitle(I)V
 

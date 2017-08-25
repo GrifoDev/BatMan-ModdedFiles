@@ -360,7 +360,7 @@
 
     move-result-object v2
 
-    const v8, 0x7f0b150e
+    const v8, 0x7f0b1514
 
     invoke-virtual {v2, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -779,7 +779,7 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v1, 0x7f080081
+    const v1, 0x7f080082
 
     invoke-virtual {p0, v1}, Lcom/android/settings/HomeSettings;->addPreferencesFromResource(I)V
 

@@ -141,7 +141,7 @@
 
     invoke-direct {v10}, Ljava/util/ArrayList;-><init>()V
 
-    const v20, 0x7f0b178f
+    const v20, 0x7f0b1795
 
     move-object/from16 v0, p1
 
@@ -189,7 +189,7 @@
 
     iput-object v0, v9, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
 
-    const v20, 0x7f0b1791
+    const v20, 0x7f0b1797
 
     move-object/from16 v0, p1
 
@@ -238,7 +238,7 @@
 
     iput-object v0, v9, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
 
-    const v20, 0x7f0b1a29
+    const v20, 0x7f0b1a2f
 
     move-object/from16 v0, p1
 
@@ -256,7 +256,7 @@
 
     iput-object v0, v9, Lcom/android/settings/search/SearchIndexableRaw;->screenTitle:Ljava/lang/String;
 
-    const v20, 0x7f0b1b10
+    const v20, 0x7f0b1b16
 
     move-object/from16 v0, p1
 
@@ -290,7 +290,7 @@
 
     iput-object v0, v9, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
 
-    const v20, 0x7f0b17b7
+    const v20, 0x7f0b17bd
 
     move-object/from16 v0, p1
 
@@ -339,7 +339,7 @@
 
     iput-object v0, v9, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
 
-    const v20, 0x7f0b17cf
+    const v20, 0x7f0b17d5
 
     move-object/from16 v0, p1
 
@@ -495,7 +495,7 @@
     goto :goto_1
 
     :cond_4
-    const v20, 0x7f0b17b5
+    const v20, 0x7f0b17bb
 
     move-object/from16 v0, p1
 
@@ -522,7 +522,7 @@
 
     iput-object v0, v9, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
 
-    const v20, 0x7f0b17dc
+    const v20, 0x7f0b17e2
 
     move-object/from16 v0, p1
 
@@ -597,7 +597,7 @@
 
     iput-object v0, v9, Lcom/android/settings/search/SearchIndexableRaw;->screenTitle:Ljava/lang/String;
 
-    const v20, 0x7f0b1b12
+    const v20, 0x7f0b1b18
 
     move-object/from16 v0, p1
 
@@ -626,7 +626,7 @@
 
     iput-object v0, v9, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
 
-    const v20, 0x7f0b17ad
+    const v20, 0x7f0b17b3
 
     move-object/from16 v0, p1
 
@@ -658,7 +658,7 @@
 
     iput-object v0, v9, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
 
-    const v20, 0x7f0b17ae
+    const v20, 0x7f0b17b4
 
     move-object/from16 v0, p1
 
@@ -696,7 +696,7 @@
 
     iput-object v0, v9, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
 
-    const v20, 0x7f0b17b0
+    const v20, 0x7f0b17b6
 
     move-object/from16 v0, p1
 
@@ -710,7 +710,7 @@
 
     iput-object v0, v9, Lcom/android/settings/search/SearchIndexableRaw;->title:Ljava/lang/String;
 
-    const v20, 0x7f0b17b1
+    const v20, 0x7f0b17b7
 
     move-object/from16 v0, p1
 
@@ -724,7 +724,7 @@
 
     iput-object v0, v9, Lcom/android/settings/search/SearchIndexableRaw;->summaryOn:Ljava/lang/String;
 
-    const v20, 0x7f0b17b1
+    const v20, 0x7f0b17b7
 
     move-object/from16 v0, p1
 
@@ -757,7 +757,7 @@
 
     iput-object v0, v9, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
 
-    const v20, 0x7f0b17a2    # 1.848854E38f
+    const v20, 0x7f0b17a8
 
     move-object/from16 v0, p1
 
@@ -795,7 +795,7 @@
 
     iput-object v0, v9, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
 
-    const v20, 0x7f0b17a6
+    const v20, 0x7f0b17ac
 
     move-object/from16 v0, p1
 
@@ -851,7 +851,7 @@
 
     iput-object v0, v9, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
 
-    const v20, 0x7f0b0cb9
+    const v20, 0x7f0b0cbf
 
     move-object/from16 v0, p1
 

@@ -137,7 +137,7 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    const v8, 0x7f0b0a43
+    const v8, 0x7f0b0a48
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/SecSetupLockScreenIntroActivity;->getString(I)Ljava/lang/String;
 
@@ -193,7 +193,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b0e79
+    const v9, 0x7f0b0e7f
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

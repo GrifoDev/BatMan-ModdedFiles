@@ -314,7 +314,7 @@
 
     const-string/jumbo v2, ""
 
-    const v10, 0x7f0b0d5b
+    const v10, 0x7f0b0d61
 
     invoke-virtual {p0, v10}, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->getString(I)Ljava/lang/String;
 
@@ -346,7 +346,7 @@
 
     if-eqz v10, :cond_3
 
-    const v10, 0x7f0b0d5c
+    const v10, 0x7f0b0d62
 
     invoke-virtual {p0, v10}, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->getString(I)Ljava/lang/String;
 
@@ -492,13 +492,13 @@
     :cond_6
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mLockAfter:Lcom/samsung/android/settings/SettingsListPreference;
 
-    const v11, 0x7f0b0a10
+    const v11, 0x7f0b0a15
 
     invoke-virtual {v10, v11}, Lcom/samsung/android/settings/SettingsListPreference;->setTitle(I)V
 
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mLockAfter:Lcom/samsung/android/settings/SettingsListPreference;
 
-    const v11, 0x7f0b0a10
+    const v11, 0x7f0b0a15
 
     invoke-virtual {v10, v11}, Lcom/samsung/android/settings/SettingsListPreference;->setDialogTitle(I)V
 
@@ -626,13 +626,13 @@
     :cond_f
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mLockAfter:Lcom/samsung/android/settings/SettingsListPreference;
 
-    const v11, 0x7f0b131b
+    const v11, 0x7f0b1321
 
     invoke-virtual {v10, v11}, Lcom/samsung/android/settings/SettingsListPreference;->setTitle(I)V
 
     iget-object v10, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->mLockAfter:Lcom/samsung/android/settings/SettingsListPreference;
 
-    const v11, 0x7f0b131b
+    const v11, 0x7f0b1321
 
     invoke-virtual {v10, v11}, Lcom/samsung/android/settings/SettingsListPreference;->setDialogTitle(I)V
 
@@ -1311,7 +1311,7 @@
 
     aput-object v13, v12, v14
 
-    const v13, 0x7f0b0a14
+    const v13, 0x7f0b0a19
 
     invoke-virtual {p0, v13, v12}, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2147,7 +2147,7 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    const v4, 0x7f0b113d
+    const v4, 0x7f0b1143
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(I)V
 
@@ -2373,7 +2373,7 @@
 
     if-eqz v18, :cond_4
 
-    const v14, 0x7f0b0a11
+    const v14, 0x7f0b0a16
 
     :goto_3
     move-object/from16 v0, p0
@@ -2384,7 +2384,7 @@
 
     if-eqz v18, :cond_5
 
-    const v11, 0x7f0b0a12
+    const v11, 0x7f0b0a17
 
     :goto_4
     aget-object v18, v15, v4
@@ -2471,12 +2471,12 @@
     goto :goto_2
 
     :cond_4
-    const v14, 0x7f0b131c
+    const v14, 0x7f0b1322
 
     goto :goto_3
 
     :cond_5
-    const v11, 0x7f0b0a13
+    const v11, 0x7f0b0a18
 
     goto :goto_4
 
@@ -2720,7 +2720,7 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f0b09f9
+    const v0, 0x7f0b09fe
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->getString(I)Ljava/lang/String;
 
@@ -2823,7 +2823,7 @@
 
     if-ne v0, v1, :cond_1
 
-    const v0, 0x7f0800ff
+    const v0, 0x7f080100
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->addPreferencesFromResource(I)V
 
@@ -2841,7 +2841,7 @@
     return-void
 
     :cond_1
-    const v0, 0x7f0800f7
+    const v0, 0x7f0800f8
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu;->addPreferencesFromResource(I)V
 
@@ -3798,13 +3798,13 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    const v4, 0x7f0b0a16
+    const v4, 0x7f0b0a1b
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(I)V
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    const v4, 0x7f0b153c
+    const v4, 0x7f0b1542
 
     invoke-virtual {v0, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 

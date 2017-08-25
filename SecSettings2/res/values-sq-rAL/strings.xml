@@ -1359,6 +1359,11 @@ Mbaj gjithashtu parasysh se Samsung-u gjithnjë mund të mbledhë informacion p�
 Trokit mbi OK për të lejuar që ndriçimi të rritet mbi nivelet e sigurisë."</string>
     <string name="auto_adjust_brightness">Ndriçim auto</string>
     <string name="auto_adjust_brightness_summary">Gjurmoji ndryshimet që ia bën ndriçimit dhe zbatoji automatikisht në rrethana drite të ngjashme.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Përshtat ndriçimin e ekranit automatikisht, në bazë të ndriçimit aktual në mjedis.</string>
+    <string name="reset_usage_pattern_title">Reseto rregullsitë e përdorimit</string>
+    <string name="reset_usage_pattern_summary">Pastroje historinë e rregullimeve të ndriçimit. Telefoni yt do të fillojë t’i mësojë preferencat e tua sërish pas resetimit.</string>
+    <string name="reset_usage_pattern_dialog_title">T’i resetoj rregullsitë e ndriçimit?</string>
+    <string name="reset_usage_pattern_dialog_summary">Telefoni yt do të fillojë t’i mësojë preferencat e tua të ndriçimit sërish pas resetimit.</string>
     <string name="current_theme_font">Parazgjedhja e temës së tanishme</string>
     <string name="hbm_mode_on">Maksimizuar për t‘u parë më mirë në diell</string>
     <string name="aod_detach_mobile_keyboard_toast">Për të përdorur %s, shkëpute mbulesën e tastierës nga pajisja.</string>
@@ -2721,6 +2726,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 Tingulli më vete për app-in do të punojë vetëm në qoftë se pajisja audio që ke përzgjedhur është e ndryshme nga pajisja kryesore e daljes audio për telefonin.
 
 Mund ta ndryshosh pajisjen kryesore të daljes audio për telefonin që nga paneli i cilësimeve të shpejta. Në qoftë se dalja audio nuk tregohet, ndize që nga Samsung Connect > Cilësimet > Paneli Samsung Connect."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Luaj tingull mediash nga një app në një pajisje audio të ndryshme nga pajisja kryesore e daljes audio për telefonin. Përzgjidh një app dhe një pajisje audio, për ta ndezur këtë.
+
+Tingulli më vete për app-in do të punojë vetëm në qoftë se pajisja audio që ke përzgjedhur është e ndryshme nga pajisja kryesore e daljes audio për telefonin.
+
+Po ta kesh Samsung Connect të instaluar, mund ta ndryshosh pajisjen kryesore të daljes audio për telefonin që nga paneli i cilësimeve të shpejta. Në qoftë se pajisja e daljes audio nuk tregohet, shko te Samsung Connect > Cilësimet dhe atje ndiz panelin Samsung Connect."</string>
     <string name="set_application_title">App</string>
     <string name="set_application_summary">Përzgjidh një app që t’ia luash audion në një pajisje audio më vete.</string>
     <string name="set_application_descryption">Përzgjidh një app multimedia më poshtë, që t’ia luash audion në një pajisje audio më vete.</string>

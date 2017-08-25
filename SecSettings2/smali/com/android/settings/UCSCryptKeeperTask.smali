@@ -293,7 +293,7 @@
 
     iput-object v1, p0, Lcom/android/settings/UCSCryptKeeperTask;->mCryptKeeperDescription:Landroid/widget/TextView;
 
-    const v0, 0x7f0b1d5e
+    const v0, 0x7f0b1d64
 
     iput v0, p0, Lcom/android/settings/UCSCryptKeeperTask;->mStatusString:I
 
@@ -628,7 +628,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    const v1, 0x7f0b0747
+    const v1, 0x7f0b074c
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -696,7 +696,7 @@
 
     aput-object v2, v1, v4
 
-    const v2, 0x7f0b1d5f
+    const v2, 0x7f0b1d65
 
     invoke-virtual {v0, v2, v1}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -825,7 +825,7 @@
 
     if-eqz v1, :cond_3
 
-    const v1, 0x7f0b1d63
+    const v1, 0x7f0b1d69
 
     invoke-virtual {p0, v1}, Lcom/android/settings/UCSCryptKeeperTask;->setHintOrMessageText(I)V
 
@@ -867,7 +867,7 @@
     return-void
 
     :cond_3
-    const v1, 0x7f0b1d62
+    const v1, 0x7f0b1d68
 
     invoke-virtual {p0, v1}, Lcom/android/settings/UCSCryptKeeperTask;->setHintOrMessageText(I)V
 
@@ -958,14 +958,14 @@
 
     if-eqz v1, :cond_8
 
-    const v1, 0x7f0b1d63
+    const v1, 0x7f0b1d69
 
     invoke-virtual {p0, v1}, Lcom/android/settings/UCSCryptKeeperTask;->setHintOrMessageText(I)V
 
     goto :goto_3
 
     :cond_8
-    const v1, 0x7f0b1d62
+    const v1, 0x7f0b1d68
 
     invoke-virtual {p0, v1}, Lcom/android/settings/UCSCryptKeeperTask;->setHintOrMessageText(I)V
 
@@ -1855,7 +1855,7 @@
 
     aput-object v5, v4, v6
 
-    const v5, 0x7f0b1d65
+    const v5, 0x7f0b1d6b
 
     invoke-virtual {v3, v5, v4}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1891,7 +1891,7 @@
 .method public getWrongPasswordStringId()I
     .locals 1
 
-    const v0, 0x7f0b0745
+    const v0, 0x7f0b074a
 
     return v0
 .end method
@@ -1899,7 +1899,7 @@
 .method public getWrongPukStringId()I
     .locals 1
 
-    const v0, 0x7f0b1d68
+    const v0, 0x7f0b1d6e
 
     return v0
 .end method
@@ -1931,7 +1931,7 @@
 
     iget-object v4, p0, Lcom/android/settings/UCSCryptKeeperTask;->mUri:Ljava/lang/String;
 
-    const v5, 0x7f0b1d5e
+    const v5, 0x7f0b1d64
 
     iput v5, p0, Lcom/android/settings/UCSCryptKeeperTask;->mStatusString:I
 
@@ -2119,7 +2119,7 @@
 
     aget v6, v3, v8
 
-    const v7, 0x7f0b1d64
+    const v7, 0x7f0b1d6a
 
     invoke-virtual {p0, v7, v6}, Lcom/android/settings/UCSCryptKeeperTask;->getUCSFailedAttemptMessage(II)Ljava/lang/CharSequence;
 
@@ -2134,7 +2134,7 @@
 
     aget v6, v3, v8
 
-    const v7, 0x7f0b0740
+    const v7, 0x7f0b0745
 
     invoke-virtual {p0, v7, v6}, Lcom/android/settings/UCSCryptKeeperTask;->getUCSFailedAttemptMessage(II)Ljava/lang/CharSequence;
 
@@ -2171,7 +2171,7 @@
 
     const/4 v3, 0x0
 
-    const v0, 0x7f0b1d60
+    const v0, 0x7f0b1d66
 
     if-ne p1, v0, :cond_0
 
@@ -2209,7 +2209,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f0b1d5f
+    const v0, 0x7f0b1d65
 
     if-ne p1, v0, :cond_1
 

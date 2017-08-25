@@ -268,7 +268,7 @@
 
     move-result-object v1
 
-    const v6, 0x7f0b1036
+    const v6, 0x7f0b103c
 
     invoke-virtual {p0, v6}, Lcom/android/settings/wifi/WifiApDialog;->setTitle(I)V
 
@@ -382,7 +382,7 @@
 
     invoke-virtual {v0, v6}, Landroid/widget/ArrayAdapter;->setDropDownViewResource(I)V
 
-    const v6, 0x7f0b148c
+    const v6, 0x7f0b1492
 
     invoke-virtual {v1, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -394,7 +394,7 @@
 
     invoke-virtual {p0, v8, v6, v7}, Lcom/android/settings/wifi/WifiApDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
 
-    const v6, 0x7f0b148e
+    const v6, 0x7f0b1494
 
     invoke-virtual {v1, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

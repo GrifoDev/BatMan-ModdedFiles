@@ -245,7 +245,7 @@
 .method public static applyCaptionProperties(Landroid/view/accessibility/CaptioningManager;Lcom/android/internal/widget/SubtitleView;Landroid/view/View;I)V
     .locals 8
 
-    const v7, 0x7f0b1823
+    const v7, 0x7f0b1829
 
     invoke-virtual {p1, p3}, Lcom/android/internal/widget/SubtitleView;->setStyle(I)V
 
@@ -4913,7 +4913,7 @@
 
     aput v12, v1, v12
 
-    const v9, 0x7f0b1827
+    const v9, 0x7f0b182d
 
     invoke-virtual {p0, v9}, Lcom/android/settings/accessibility/CaptionPropertiesFragment;->getString(I)Ljava/lang/String;
 
@@ -5221,7 +5221,7 @@
 .method private refreshPreviewText()V
     .locals 10
 
-    const v9, 0x7f0b1822
+    const v9, 0x7f0b1828
 
     invoke-virtual {p0}, Lcom/android/settings/accessibility/CaptionPropertiesFragment;->getActivity()Landroid/app/Activity;
 
@@ -5843,7 +5843,7 @@
 
     iput-object v0, p0, Lcom/android/settings/accessibility/CaptionPropertiesFragment;->mCaptioningManager:Landroid/view/accessibility/CaptioningManager;
 
-    const v0, 0x7f080039
+    const v0, 0x7f08003a
 
     invoke-virtual {p0, v0}, Lcom/android/settings/accessibility/CaptionPropertiesFragment;->addPreferencesFromResource(I)V
 

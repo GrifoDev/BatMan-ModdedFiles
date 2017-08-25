@@ -1360,6 +1360,11 @@ Samsung Жекелик сактоо Саясатынын негизги тулк
 Жарыктыктын коопсуз деңгээлден жогорулашына уруксат берүү үчүн OK басыңыз."</string>
     <string name="auto_adjust_brightness">Авто жарыктык</string>
     <string name="auto_adjust_brightness_summary">Жарыктык жөндөөлөрүңүздү дагы деле байкаңыз жана аларды автоматтуу түрдө окшош жарык айкалышында колдонуңуз.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Жарык кылуу шарттарына жараша, экрандын жарыктыгын автоматтык түрдө жөндөңүз.</string>
+    <string name="reset_usage_pattern_title">Керектөө үлгүлөрүн кайра коюу</string>
+    <string name="reset_usage_pattern_summary">Жарыктыкты жөндөө тарыхыңызды тазалаңыз. Телефонуңуз артыкчылыктарыңызды кайра коюудан кийин үйрөнүп баштайт.</string>
+    <string name="reset_usage_pattern_dialog_title">Жарык керектөө үлгүлөрүңүз кайра коюлсунбу?</string>
+    <string name="reset_usage_pattern_dialog_summary">Телефонуңуз жарыктык каалоолоруңузду кайра күйгүзүлгөндөн кийин үйрөнөт.</string>
     <string name="current_theme_font">Учурдагы теманын баштапкысы</string>
     <string name="hbm_mode_on">Бул функц. эскерт. панел. жог. жагын. көрсөт.</string>
     <string name="aod_detach_mobile_keyboard_toast">%s колдонуу үчүн, клавиатура мукабасын түзмөктөн ажыратыңыз.</string>
@@ -2722,6 +2727,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 Өзүнчө колдонмо үнү сиз тандаган аудио түзмөк телефонуңуздун негизги аудио чыгуу түзмөгүнөн башкача болгондо гана иштейт.
 
 Сиз телефонуңуздун негизги аудио чыгуу түзмөгүн тез орнотуулар панелинде өзгөртө аласыз. Эгер аудио чыгуу көрсөтүлбөсө, аны Samsung Connect > Орнотуулар > Samsung Connect панели ичинде күйгүзүңүз."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Телефонуңуздагы бир колдонмодон медиа-үндүн чыгып жаткан башка үндөрдөн обочолоп, негизги аудио-түзмөктөн ойнотуңуз. Колдонмо жана аудио түзмөгүн муну кайра күйгүзүү үчүн тандаңыз.
+
+Башка колдонмонун үнү сиз тандаган аудио түзмөк телефонуңуздун аудио чыгуу түзмөгүнөн башкача болгондо гана иштейт.
+
+Эгер сизде Samsung Connect орнотулган болсо, сиз телефонуңуздун негизги аудио чыгуу түзмөгүн тез орнотуулар панелинен өзгөрө аласыз. Эгер аудио чыгуу түзмөгү көрсөтүлбөсө, Samsung Connect > Орнотууларга барыңыз, андан соң Samsung Connect панелин күйгүзүңүз."</string>
     <string name="set_application_title">Колдонмо</string>
     <string name="set_application_summary">Үнүн башка аудио түзмөктөн ойнотуу үчүн, колдонмо тандаңыз.</string>
     <string name="set_application_descryption">Үнүн башка аудио түзмөктөн ойнотуу үчүн, мультимедиа колдонмосун тандаңыз.</string>

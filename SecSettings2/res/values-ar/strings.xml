@@ -1360,6 +1360,11 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
 انقر فوق ”موافق“ للسماح بتخطي مستوى السطوع المستويات الآمنة."</string>
     <string name="auto_adjust_brightness">السطوع التلقائي</string>
     <string name="auto_adjust_brightness_summary">يمكنك تتبع تعديلات السطوع التي تقوم بها وتطبيقها تلقائياً في ظروف الإضاءة المشابهة.</string>
+    <string name="auto_adjust_brightness_summary_nopac">يمكنك تعديل سطوع الشاشة تلقائياً وفقاً لحالات الإضاءة الحالية.</string>
+    <string name="reset_usage_pattern_title">إعادة ضبط أنماط الاستخدام</string>
+    <string name="reset_usage_pattern_summary">امسح محفوظات تعديل السطوع. سيبدأ هاتفك بتعلّم تفضيلاتك مجدداً بعد إعادة الضبط.</string>
+    <string name="reset_usage_pattern_dialog_title">هل تريد إعادة ضبط أنماط استخدام السطوع؟</string>
+    <string name="reset_usage_pattern_dialog_summary">سيبدأ هاتفك بتعلّم تفضيلات السطوع لديك مجدداً بعد إعادة الضبط.</string>
     <string name="current_theme_font">السمة الافتراضية الحالية</string>
     <string name="hbm_mode_on">تم التكبير للحصول على أفضل عرض في أشعة الشمس</string>
     <string name="aod_detach_mobile_keyboard_toast">لاستخدام %s، قم بإزالة غلاف لوحة المفاتيح عن الجهاز.</string>
@@ -2722,6 +2727,11 @@ Mobile data will be turned off."</string>
 يعمل صوت التطبيق المنفصل فقط عندما يكون جهاز الصوت الذي حددته مختلفاً عن جهاز إخراج الصوت الرئيسي الخاص بهاتفك.
 
 يمكنك تغيير جهاز إخراج الصوت الرئيسي الخاص بهاتفك في لوحة الضبط السريع. إذا كان إخراج الصوت غير ظاهر، فقم بتشغيله في Samsung Connect > الضبط > لوحة Samsung Connect."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"يمكنك تشغيل صوت الوسائط من تطبيق واحد على جهاز صوت بشكل منفصل عن جهاز إخراج الصوت الأساسي الخاص بهاتفك. حدد تطبيقاً وجهاز صوت لتشغيله.
+
+يعمل خيار صوت تطبيق منفصل فقط عندما يكون جهاز الصوت الذي حددته مختلفاً عن جهاز إخراج الصوت الأساسي لهاتفك.
+
+إذا كان Samsung Connect مثبتاً على هاتفك، فيمكنك تغيير جهاز إخراج الصوت الأساسي لهاتفك في لوحة الضبط السريع. إذا لم يظهر جهاز إخراج الصوت، فانتقل إلى Samsung Connect > الضبط، ثم شغّل لوحة Samsung Connect."</string>
     <string name="set_application_title">التطبيق</string>
     <string name="set_application_summary">حدد تطبيقاً لتشغيل صوته على جهاز صوت منفصل.</string>
     <string name="set_application_descryption">حدد تطبيق وسائط متعددة أدناه لتشغيل صوته على جهاز صوت منفصل.</string>

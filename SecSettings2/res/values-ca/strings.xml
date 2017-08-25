@@ -1360,6 +1360,11 @@ Tingui en compte també que Samsung encara podrà recopilar informació sobre l�
 Toqui ACCEPTAR per permetre que la brillantor augmenti per sobre dels nivells segurs."</string>
     <string name="auto_adjust_brightness">Brillantor automàtica</string>
     <string name="auto_adjust_brightness_summary">"Faci el seguiment dels ajustaments de brillantor i apliqui'ls automàticament en condicions de llum similars."</string>
+    <string name="auto_adjust_brightness_summary_nopac">Ajusta la brillantor de la pantalla automàticament en funció de les condicions de llum actuals.</string>
+    <string name="reset_usage_pattern_title">"Restablir els patrons d'ús"</string>
+    <string name="reset_usage_pattern_summary">"Esborra l'historial d'ajustaments de brillantor. El telèfon començarà a aprendre, de nou, les teves preferències després del restabliment."</string>
+    <string name="reset_usage_pattern_dialog_title">"Vols restablir patrons d'ús de brillantor?"</string>
+    <string name="reset_usage_pattern_dialog_summary">El telèfon començarà, de nou, a aprendre les teves preferències de brillantor després del restabliment.</string>
     <string name="current_theme_font">Tema actual predeterminat</string>
     <string name="hbm_mode_on">Maximitzat per visualitz millor llum solar</string>
     <string name="aod_detach_mobile_keyboard_toast">Per utilitzar %s, desenganxi la funda teclat del dispositiu.</string>
@@ -2722,6 +2727,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 El so d'aplicació independent només funciona quan el dispositiu d'àudio seleccionat és diferent del dispositiu de sortida d'àudio principal del telèfon.
 
 Pot canviar el dispositiu de sortida d'àudio principal del telèfon al tauler d'Ajustaments ràpids. Si no es mostra la sortida d'àudio, activi-la a Samsung Connect > Ajustaments > Tauler de Samsung Connect."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Reprodueix el so multimèdia d'una aplicació a un dispositiu d'àudio independent del dispositiu de sortida d'àudio principal del telèfon. Selecciona una aplicació i un dispositiu d'àudio per activar-ho.
+
+El so d'aplicació independent només funciona quan el dispositiu d'àudio seleccionat és diferent del dispositiu de sortida d'àudio principal del telèfon.
+
+Si has instal·lat Samsung Connect, pots canviar el dispositiu de sortida d'àudio principal del telèfon al tauler d'ajustaments ràpids. Si no es mostra el dispositiu de sortida d'àudio, ves a Samsung Connect > Ajustaments i, a continuació, activa el tauler de Samsung Connect."</string>
     <string name="set_application_title">Aplicació</string>
     <string name="set_application_summary">"Seleccioni una aplicació per reproduir-ne el so a un dispositiu d'àudio diferent."</string>
     <string name="set_application_descryption">"Seleccioni una aplicació multimèdia a continuació per reproduir-ne el so en un dispositiu d'àudio diferent."</string>

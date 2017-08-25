@@ -611,7 +611,7 @@
 
     aput-object v1, v3, v4
 
-    const v4, 0x7f0b1bd9
+    const v4, 0x7f0b1bdf
 
     invoke-virtual {p0, v4, v3}, Lcom/android/settings/accounts/AccountSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -668,7 +668,7 @@
 
     invoke-direct {v0, v1}, Lcom/android/settings/DimmableIconPreference;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b196c
+    const v1, 0x7f0b1972
 
     invoke-virtual {v0, v1}, Lcom/android/settings/DimmableIconPreference;->setTitle(I)V
 
@@ -700,7 +700,7 @@
 
     invoke-direct {v1, v2}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b1d4e
+    const v2, 0x7f0b1d54
 
     invoke-virtual {v1, v2}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -754,7 +754,7 @@
 
     invoke-direct {v0, v1}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b1970
+    const v1, 0x7f0b1976
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -920,7 +920,7 @@
 
     iget-object v3, p0, Lcom/android/settings/accounts/AccountSettings;->mProfileNotAvailablePreference:Landroid/preference/Preference;
 
-    const v4, 0x7f0b196d
+    const v4, 0x7f0b1973
 
     invoke-virtual {v3, v4}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -998,7 +998,7 @@
 
     aput-object v2, v4, v5
 
-    const v5, 0x7f0b152e
+    const v5, 0x7f0b1534
 
     invoke-virtual {p0, v5, v4}, Lcom/android/settings/accounts/AccountSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1114,7 +1114,7 @@
 
     check-cast v3, Lcom/android/settings/AccessiblePreferenceCategory;
 
-    const v4, 0x7f0b152f
+    const v4, 0x7f0b1535
 
     invoke-virtual {p0, v4}, Lcom/android/settings/accounts/AccountSettings;->getString(I)Ljava/lang/String;
 
@@ -1402,7 +1402,7 @@
 
     const-string/jumbo v4, "com.android.settings.accounts.ChooseAccountActivity"
 
-    const v5, 0x7f0b196c
+    const v5, 0x7f0b1972
 
     const/4 v6, 0x0
 
@@ -1494,7 +1494,7 @@
 
     move-result-object v9
 
-    const v11, 0x7f0b1d4e
+    const v11, 0x7f0b1d54
 
     const/4 v12, 0x0
 
@@ -1640,7 +1640,7 @@
 
     if-eqz v4, :cond_1
 
-    const v4, 0x7f0b19d4
+    const v4, 0x7f0b19da
 
     :goto_3
     invoke-interface {v2, v4}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
@@ -1654,7 +1654,7 @@
     goto :goto_0
 
     :cond_1
-    const v4, 0x7f0b19d2
+    const v4, 0x7f0b19d8
 
     goto :goto_3
 

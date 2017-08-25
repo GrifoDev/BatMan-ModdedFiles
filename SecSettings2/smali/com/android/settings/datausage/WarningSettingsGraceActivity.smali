@@ -246,7 +246,7 @@
 
     const/4 v7, 0x0
 
-    const v11, 0x7f08014a
+    const v11, 0x7f08014b
 
     const/4 v12, 0x0
 

@@ -76,7 +76,7 @@
 .method private createDialog(I)V
     .locals 6
 
-    const v5, 0x7f0b127b
+    const v5, 0x7f0b1281
 
     const/4 v4, 0x1
 
@@ -94,7 +94,7 @@
 
     iget-object v0, p0, Lcom/android/settings/bluetooth/RequestPermissionActivity;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    const v1, 0x7f0b1272
+    const v1, 0x7f0b1278
 
     invoke-virtual {p0, v1}, Lcom/android/settings/bluetooth/RequestPermissionActivity;->getString(I)Ljava/lang/String;
 
@@ -155,7 +155,7 @@
 
     if-nez v1, :cond_2
 
-    const v1, 0x7f0b1275
+    const v1, 0x7f0b127b
 
     invoke-virtual {p0, v1}, Lcom/android/settings/bluetooth/RequestPermissionActivity;->getString(I)Ljava/lang/String;
 
@@ -164,7 +164,7 @@
     iput-object v1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mMessage:Ljava/lang/CharSequence;
 
     :goto_1
-    const v1, 0x7f0b1211
+    const v1, 0x7f0b1217
 
     invoke-virtual {p0, v1}, Lcom/android/settings/bluetooth/RequestPermissionActivity;->getString(I)Ljava/lang/String;
 
@@ -172,7 +172,7 @@
 
     iput-object v1, v0, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonText:Ljava/lang/CharSequence;
 
-    const v1, 0x7f0b1212
+    const v1, 0x7f0b1218
 
     invoke-virtual {p0, v1}, Lcom/android/settings/bluetooth/RequestPermissionActivity;->getString(I)Ljava/lang/String;
 
@@ -207,7 +207,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b1274
+    const v2, 0x7f0b127a
 
     invoke-virtual {p0, v2, v1}, Lcom/android/settings/bluetooth/RequestPermissionActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

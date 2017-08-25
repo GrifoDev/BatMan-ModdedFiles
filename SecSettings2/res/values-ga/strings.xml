@@ -1231,6 +1231,11 @@ Coinnigh i gcuimhne freisin go bhféadfaidh Samsung faisnéis faoi úsáid do gh
 Tapáil OK le méadú ar ghile thar na leibhéil shábháilte a cheadú."</string>
     <string name="auto_adjust_brightness">Uathghile</string>
     <string name="auto_adjust_brightness_summary">Coinnigh súil ar do cheartuithe gile agus cuir i bhfeidhm go huathoibríoch iad i ndálaí soilsithe comhchosúla.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Ceartaigh gile an scáileáin go huathoibríoch bunaithe ar na dálaí soilsithe atá ann faoi láthair.</string>
+    <string name="reset_usage_pattern_title">Athshocraigh patrúin úsáide</string>
+    <string name="reset_usage_pattern_summary">"Glan do stair ceartaithe gile. Tosóidh d'fhón ar do shainroghanna a fhoghlaim arís tar éis an athshocraithe."</string>
+    <string name="reset_usage_pattern_dialog_title">Athshocraigh do phatrúin úsáide gile?</string>
+    <string name="reset_usage_pattern_dialog_summary">"Tosóidh d'fhón ar do shainroghanna gile a fhoghlaim arís tar éis an athshocraithe."</string>
     <string name="current_theme_font">Réamhshocrú an téama reatha</string>
     <string name="hbm_mode_on">Optamaithe do sholas na gréine</string>
     <string name="aod_detach_mobile_keyboard_toast">Le %s a úsáid, dícheangail an clúdach eochairchláir ón ngléas.</string>
@@ -2593,6 +2598,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 Ní oibríonn fuaim feidhmchláir scartha ach amháin nuair a bhíonn an gléas fuaime a roghnaíonn tú difriúil le príomhghléas aschuir fuaime d'fhóin.
 
 Is féidir leat príomhghléas aschuir fuaime d'fhóin a athrú sa phainéal mearshocruithe. Mura dtaispeántar aschur fuaime, cas air é in Samsung Connect > Socruithe > Painéal Samsung Connect."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Seinn fuaim meán ó fheidhmchlár amháin ar ghléas fuaime atá scartha ó phríomhghléas aschuir fuaime d'fhóin. Roghnaigh feidhmchlár agus gléas fuaime leis seo a chasadh air.
+
+Ní oibríonn fuaim feidhmchláir scartha ach amháin nuair a bhíonn an gléas fuaime a roghnaíonn tú difriúil le príomhghléas aschuir fuaime d'fhóin.
+
+Má tá Samsung Connect suiteáilte agat, is féidir leat príomhghléas aschuir fuaime d'fhóin a athrú sa phainéal mearshocruithe. Mura dtaispeántar an gléas aschuir fuaime, gabh chuig Samsung Connect > Socruithe, ansin cas air an painéal Samsung Connect."</string>
     <string name="set_application_title">Feidhmchlár</string>
     <string name="set_application_summary">Roghnaigh feidhmchlár lena fhuaim a sheinm ar ghléas fuaime ar leith.</string>
     <string name="set_application_descryption">Roghnaigh feidhmchlár ilmheán thíos lena fhuaim a sheinm ar ghléas fuaime ar leith.</string>

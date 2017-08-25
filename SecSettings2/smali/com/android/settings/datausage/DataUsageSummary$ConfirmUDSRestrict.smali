@@ -84,7 +84,7 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b118c    # 1.848538E38f
+    const v2, 0x7f0b1192
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -92,7 +92,7 @@
 
     invoke-direct {v2, p0}, Lcom/android/settings/datausage/DataUsageSummary$ConfirmUDSRestrict$1;-><init>(Lcom/android/settings/datausage/DataUsageSummary$ConfirmUDSRestrict;)V
 
-    const v3, 0x7f0b118d
+    const v3, 0x7f0b1193
 
     invoke-virtual {v0, v3, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

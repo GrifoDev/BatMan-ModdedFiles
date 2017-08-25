@@ -1359,6 +1359,11 @@ Wi-Fi 與藍牙也將關閉，但您可在設定或快速設定面板中再次�
 請輕觸 [確定] 以允許將亮度增加至超出安全級別。"</string>
     <string name="auto_adjust_brightness">自動亮度</string>
     <string name="auto_adjust_brightness_summary">持續追蹤您的亮度調整並在類似光照條件下自動應用。</string>
+    <string name="auto_adjust_brightness_summary_nopac">根據目前的光照條件自動調整螢幕亮度。</string>
+    <string name="reset_usage_pattern_title">重設使用模式</string>
+    <string name="reset_usage_pattern_summary">清除您的亮度調整歷程記錄。重設後您的手機將重新開始瞭解您的偏好。</string>
+    <string name="reset_usage_pattern_dialog_title">重設您的亮度使用模式嗎？</string>
+    <string name="reset_usage_pattern_dialog_summary">重設後您的手機將重新開始瞭解您的亮度偏好。</string>
     <string name="current_theme_font">目前主題的預設</string>
     <string name="hbm_mode_on">最大化以於陽光下取得最佳檢視效果</string>
     <string name="aod_detach_mobile_keyboard_toast">若要使用%s，請將鍵盤保護套從裝置上卸除。</string>
@@ -2721,6 +2726,11 @@ Wi-Fi 與藍牙也將關閉，但您可在設定或快速設定面板中再次�
 獨立的應用程式聲音僅在您選擇的音訊裝置運作，不同於手機的主音訊輸出裝置。
 
 您可以在快速設定面板中變更手機的主音訊輸出裝置。如果音訊輸出未顯示，請在 [Samsung Connect] > [設定] > [Samsung Connect 面板]中將其開啟。"</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"在獨立於手機主音訊輸出裝置的音訊裝置上播放一個應用程式的媒體聲音。選擇應用程式與音訊裝置以開啟此功能。
+
+獨立的應用程式聲音僅在您選擇的音訊裝置運作，不同於手機的主音訊輸出裝置。
+
+若您已安裝 Samsung Connect，您可以在快速設定面板中變更手機的主音訊輸出裝置。若音訊輸出未顯示，請前往 [Samsung Connect] > [設定]，然後開啟 [Samsung Connect 面板]。"</string>
     <string name="set_application_title">應用程式</string>
     <string name="set_application_summary">選擇要在單獨的音訊裝置上播放其聲音的應用程式。</string>
     <string name="set_application_descryption">選擇下方的多媒體應用程式以在單獨的音訊裝置上播放其聲音。</string>

@@ -1213,7 +1213,7 @@
 
     iput-object v2, v1, Landroid/provider/SearchIndexableResource;->className:Ljava/lang/String;
 
-    const v2, 0x7f08013c
+    const v2, 0x7f08013d
 
     iput v2, v1, Landroid/provider/SearchIndexableResource;->xmlResId:I
 

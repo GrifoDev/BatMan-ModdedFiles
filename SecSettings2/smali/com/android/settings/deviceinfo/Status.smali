@@ -2874,7 +2874,7 @@
 
     iput-object v2, p0, Lcom/android/settings/deviceinfo/Status;->mWifiManager:Landroid/net/wifi/WifiManager;
 
-    const v2, 0x7f08005d
+    const v2, 0x7f08005e
 
     invoke-virtual {p0, v2}, Lcom/android/settings/deviceinfo/Status;->addPreferencesFromResource(I)V
 
@@ -2934,7 +2934,7 @@
 
     iget-object v2, p0, Lcom/android/settings/deviceinfo/Status;->mRes:Landroid/content/res/Resources;
 
-    const v3, 0x7f0b1218
+    const v3, 0x7f0b121e
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2944,7 +2944,7 @@
 
     iget-object v2, p0, Lcom/android/settings/deviceinfo/Status;->mRes:Landroid/content/res/Resources;
 
-    const v3, 0x7f0b159a
+    const v3, 0x7f0b15a0
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3571,7 +3571,7 @@
 
     if-eqz p1, :cond_0
 
-    const v0, 0x7f0b0ea1
+    const v0, 0x7f0b0ea7
 
     :goto_0
     const-string/jumbo v1, "ims_reg"
@@ -3587,7 +3587,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f0b0ea2
+    const v0, 0x7f0b0ea8
 
     goto :goto_0
 

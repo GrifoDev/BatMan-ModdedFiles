@@ -1360,6 +1360,11 @@ Taip pat atminkite, kad „Samsung“ vis tiek gali rinkti mobiliojo įrenginio 
 Bakstelėkite „Gerai“, kad leistumėte ryškumą padidinti virš saugaus lygio."</string>
     <string name="auto_adjust_brightness">Automatinis šviesinimas</string>
     <string name="auto_adjust_brightness_summary">Stebėti ryškumo koregavimus ir automatiškai juos pritaikyti esant panašioms apšvietimo sąlygoms.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Automatiškai sureguliuokite ekrano ryškumą pagal dabartines apšvietimo sąlygas.</string>
+    <string name="reset_usage_pattern_title">Atkurti naudojimo šablonus</string>
+    <string name="reset_usage_pattern_summary">Išvalykite ryškumo reguliavimo istoriją. Nustačius iš naujo telefonas pradės mokytis jūsų nuostatų.</string>
+    <string name="reset_usage_pattern_dialog_title">Atkurti ryškumo naudojimo šablonus?</string>
+    <string name="reset_usage_pattern_dialog_summary">Nustačius iš naujo telefonas pradės mokytis jūsų ryškumo nuostatų.</string>
     <string name="current_theme_font">Dabartinės numatytosios temos</string>
     <string name="hbm_mode_on">Pritaikytas peržiūrai saulės šviesoje</string>
     <string name="aod_detach_mobile_keyboard_toast">Jei norite pasinaudoti %s, atjunkite klaviatūros dangtelį nuo įrenginio.</string>
@@ -2723,6 +2728,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 Programų garso atskyrimas veikia, tik kai pasirinktas garso įrenginys skiriasi nuo telefono pagrindinio garso išvesties įrenginio.
 
 Telefono pagrindinio garso išvesties įrenginį galite pakeisti sparčiųjų nustatymų skydelyje. Jei garso išvestis nerodoma, įjunkite ją eidami į „Samsung Connect“ > Nustatymai > „Samsung Connect“ skydelis."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Leiskite medijos garsus iš programos per garso įrenginį atskirai nuo telefono pagrindinio garso išvesties įrenginio. Jei norite įjungti, pasirinkite programą ir garso įrenginį.
+
+Programų garso atskyrimas veikia, tik kai pasirinktas garso įrenginys skiriasi nuo telefono pagrindinio garso išvesties įrenginio.
+
+Jei esate įdiegę „Samsung Connect“, telefono pagrindinio garso išvesties įrenginį galite pakeisti sparčiųjų nustatymų skydelyje. Jei garso išvesties įrenginys nerodomas, eikite į Samsung Connect > Nustatymai ir įjunkite „Samsung Connect“ skydelį."</string>
     <string name="set_application_title">Programa</string>
     <string name="set_application_summary">Pasirinkite programą, kurios garsus norite leisti per atskirą garso įrenginį.</string>
     <string name="set_application_descryption">Toliau pasirinkite multimedijos programą, kurios garsus leisite atskirame garso įrenginyje.</string>

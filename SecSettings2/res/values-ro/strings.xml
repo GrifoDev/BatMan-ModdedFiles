@@ -1360,6 +1360,11 @@ Reţineţi, de asemenea, că Samsung poate colecta în continuare informaţii de
 Atingeți OK pentru a mări luminozitatea peste nivelurile de siguranță."</string>
     <string name="auto_adjust_brightness">Luminozitate automată</string>
     <string name="auto_adjust_brightness_summary">Păstrați evidența setărilor de luminozitate ajustate și aplicați-le automat în condiții de iluminare similare.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Ajustați automat luminozitatea ecranului în funcție de condițiile de iluminare actuale.</string>
+    <string name="reset_usage_pattern_title">Resetare modele de utilizare</string>
+    <string name="reset_usage_pattern_summary">Eliminați istoricul ajustării luminozității. După resetare, telefonul va începe din nou să vă învețe preferințele.</string>
+    <string name="reset_usage_pattern_dialog_title">Resetați modelele de util. pt. luminozitate?</string>
+    <string name="reset_usage_pattern_dialog_summary">După resetare, telefonul va începe din nou să vă învețe preferințele privind luminozitatea.</string>
     <string name="current_theme_font">Elemente implicite ale temei actuale</string>
     <string name="hbm_mode_on">Optimizat pt. c. m. bună vizualiz. la soare</string>
     <string name="aod_detach_mobile_keyboard_toast">Pentru a utiliza %s, detașați tastatura tip copertă de la dispozitiv.</string>
@@ -2722,6 +2727,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 Aplicația audio separată funcționează doar atunci când dispozitivul audio selectat diferă de dispozitivul principal de ieșire audio al telefonului.
 
 Puteți schimba dispozitivul principal de ieșire audio al telefonului din panoul de setări rapide. Dacă ieșirea audio nu este afișată, porniți-o din meniul Samsung Connect > Setări > Panou Samsung Connect."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Redați sunetul media dintr-o aplicație pe un dispozitiv audio separat de dispozitivul principal de ieșire audio al telefonului. Selectați o aplicație și un dispozitiv audio pentru a porni această funcție.
+
+Aplicația audio separată funcționează doar atunci când dispozitivul audio selectat diferă de dispozitivul principal de ieșire audio al telefonului.
+
+Dacă aveți instalată aplicația Samsung Connect, puteți schimba dispozitivul principal de ieșire audio al telefonului din panoul de setări rapide. Dacă dispozitivul audio nu este afișat, accesați meniul Samsung Connect > Setări, apoi porniți opțiunea Samsung Connect."</string>
     <string name="set_application_title">Aplicație</string>
     <string name="set_application_summary">Selectați o aplicație pentru a reda acest sunet pe un dispozitiv audio separat.</string>
     <string name="set_application_descryption">Selectați o aplicație multimedia de mai jos pentru a reda sunetul acesteia pe un dispozitiv audio separat.</string>

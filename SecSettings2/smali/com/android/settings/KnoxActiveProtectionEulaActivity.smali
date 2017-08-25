@@ -329,7 +329,7 @@
 
     if-eqz v0, :cond_0
 
-    const v2, 0x7f0b114c
+    const v2, 0x7f0b1152
 
     invoke-virtual {v0, v2}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -362,7 +362,7 @@
 
     iget-object v2, p0, Lcom/android/settings/KnoxActiveProtectionEulaActivity;->tvEula:Landroid/widget/TextView;
 
-    const v3, 0x7f0b114f
+    const v3, 0x7f0b1155
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 
@@ -396,7 +396,7 @@
 
     iget-object v2, p0, Lcom/android/settings/KnoxActiveProtectionEulaActivity;->btnRebootNow:Landroid/widget/Button;
 
-    const v3, 0x7f0b0878
+    const v3, 0x7f0b087d
 
     invoke-virtual {v2, v3}, Landroid/widget/Button;->setText(I)V
     :try_end_0

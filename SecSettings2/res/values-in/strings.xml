@@ -1360,6 +1360,11 @@ Harap perhatikan bahwa Samsung masih dapat mengumpulkan informasi tentang penggu
 Ketuk OK untuk mengizinkan peningkatan kecerahan di atas tingkat aman."</string>
     <string name="auto_adjust_brightness">Kecerahan otomatis</string>
     <string name="auto_adjust_brightness_summary">Lacak penyesuaian kecerahan dan terapkan secara otomatis dalam kondisi pencahayaan yang serupa.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Sesuaikan kecerahan layar secara otomatis berdasarkan kondisi pencahayaan saat ini.</string>
+    <string name="reset_usage_pattern_title">Reset pola penggunaan</string>
+    <string name="reset_usage_pattern_summary">Hapus riwayat penyesuaian kecerahan Anda. Ponsel Anda akan mulai mempelajari preferensi Anda lagi setelah direset.</string>
+    <string name="reset_usage_pattern_dialog_title">Reset pola penggunaan kecerahan?</string>
+    <string name="reset_usage_pattern_dialog_summary">Ponsel Anda akan mulai mempelajari preferensi kecerahan Anda lagi setelah direset.</string>
     <string name="current_theme_font">Default tema saat ini</string>
     <string name="hbm_mode_on">Maks utk tmpln tbaik di bwh sinar mthri</string>
     <string name="aod_detach_mobile_keyboard_toast">Untuk menggunakan %s, lepas cover keyboard dari perangkat.</string>
@@ -2723,6 +2728,11 @@ Untuk membuka blokir dan menyambungkannya ke perangkat lain lewat kabel USB, mas
 Suara aplikasi yang terpisah hanya bekerja saat perangkat audio yang Anda pilih berbeda dari perangkat output audio utama ponsel.
 
 Anda dapat mengubah perangkat output audio utama ponsel di panel pengaturan cepat. Jika output audio tidak ditampilkan, aktifkan di Samsung Connect > Pengaturan > Panel Samsung Connect."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Putar suara media dari satu aplikasi di perangkat audio yang terpisah dari perangkat output audio utama ponsel. Pilih aplikasi dan perangkat audio untuk mengaktifkan ini.
+
+Suara aplikasi yang terpisah hanya bekerja saat perangkat audio yang Anda pilih berbeda dari perangkat output audio utama ponsel.
+
+Jika Samsung Connect telah terinstal, Anda dapat mengubah perangkat output audio utama ponsel di panel pengaturan cepat. Jika perangkat output audio tidak ditampilkan, buka Samsung Connect > Pengaturan, lalu aktifkan panel Samsung Connect."</string>
     <string name="set_application_title">Aplikasi</string>
     <string name="set_application_summary">Pilih aplikasi yang suaranya akan diputar di perangkat audio terpisah.</string>
     <string name="set_application_descryption">Pilih aplikasi multimedia di bawah yang suaranya akan diputar di perangkat audio terpisah.</string>

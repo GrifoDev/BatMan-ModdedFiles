@@ -1360,6 +1360,11 @@ Shuni ham esda tutingki, Samsung mobil qurilmangizdan foydalanishingiz haqidagi 
 Yorqinlik xavfsiz darajadan yuqori bo‘lishiga ruxsat berish uchun OK’ga teging."</string>
     <string name="auto_adjust_brightness">Avtomatik yorqinlik</string>
     <string name="auto_adjust_brightness_summary">Yorqinlik sozlamalarini kuzatib boring va bir xil yoritish muhitida ularni avtomatik tarzda qo‘llang.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Joriy yoritish sharoitiga qarab ekran yorqinligini avtomatik tarzda sozlang.</string>
+    <string name="reset_usage_pattern_title">Ishlatish namunalarini tashlash</string>
+    <string name="reset_usage_pattern_summary">Yorqinlikni sozlash jurnalini tozalang. Birlamchi holatga tashlangandan so‘ng telefoningiz afzal ko‘rgan narsalaringizni o‘rganishni boshlaydi.</string>
+    <string name="reset_usage_pattern_dialog_title">Yorqinlik ishlat. namunalari tashlansinmi?</string>
+    <string name="reset_usage_pattern_dialog_summary">Birlamchi holatga tashlangandan so‘ng, telefoningiz yorqinlik parametrlarini o‘rganishni boshlaydi.</string>
     <string name="current_theme_font">Joriy mavzuning birlamchi qiymati</string>
     <string name="hbm_mode_on">Quyosh yorug‘ida ko‘rish u-n optimal-gan</string>
     <string name="aod_detach_mobile_keyboard_toast">%s-dan foydalanish uchun klaviatura muqovasini klaviaturadan chiqaring.</string>
@@ -2722,6 +2727,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 Alohida ilova ovozi faqat tanlangan audio qurilma telefoningizning audio chiqarish qurilmasidan farqli bo‘lganda ishlaydi.
 
 Tezkor parametrlar panelida telefoningizning audio chiqarish qurilmasini o‘zgartirishingiz mumkin. Audio chiqarish ko‘rsatilmagan bo‘lsa, Samsung Connect > Parametrlar > Samsung Connect panelida uni yoqing."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Bitta ilova media ovozini telefoningizning asosiy audio chiqarish qurilmasidan farqli bo‘lgan audio qurilmada chiqaring. Buni yoqish uchun ilova va audio qurilmani tanlang.
+
+Alohida ilova ovozi faqat tanlangan audio qurilma telefoningizning audio chiqarish qurilmasidan farqli bo‘lganda ishlaydi.
+
+Samsung Connect o‘rnatilgan bo‘lsa, tezkor parametrlar panelida telefoningizning asosiy audio chiqarish qurilmasini o‘zgartirishingiz mumkin. Audio chiqarish qurilmasi ko‘rsatilmagan bo‘lsa, Samsung Connect > Parametrlarga o‘ting, so‘ngra Samsung Connect panelini yoqing."</string>
     <string name="set_application_title">Ilova</string>
     <string name="set_application_summary">Ovozi alohida audio qurilmada eshittiriladigan ilovani tanlang.</string>
     <string name="set_application_descryption">Multimedia ilovasi ovozini alohida audio qurilmada qo‘yish uchun uni quyida tanlang.</string>

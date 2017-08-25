@@ -1231,6 +1231,11 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
 সুৰক্ষিত স্তৰৰ ওপৰত বৃদ্ধি কৰিবৰ বাবে উজ্জ্বলতাৰ অনুমতি দিবলৈ “ঠিক” টিপক।"</string>
     <string name="auto_adjust_brightness">স্বয়ং উজ্বলতা</string>
     <string name="auto_adjust_brightness_summary">আপোনাৰ উজ্জ্বলতাৰ সমাযোজনৰ ট্ৰেক ৰাখক আৰু সেইবিলাকক একে লাইটিঙৰ স্থিতিত স্বয়ংক্ৰিয়ভাৱে প্ৰয়োগ কৰক।</string>
+    <string name="auto_adjust_brightness_summary_nopac">সাম্প্ৰতিক লাইটিং স্থিতিৰ ওপৰত ভিত্তি কৰি স্ক্ৰীণৰ উজ্জ্বলতা স্বয়ংক্ৰিয়ভাৱে মিলাওক।</string>
+    <string name="reset_usage_pattern_title">ব্যৱহাৰৰ আৰ্হি পুনঃছেট কৰক</string>
+    <string name="reset_usage_pattern_summary">আপোনাৰ উজ্জ্বলতা সমাযোজনৰ ইতিহাস পৰিষ্কাৰ কৰক। পুনঃছেটৰ পিছত আপোনাৰ ফোনে আপোনাৰ অগ্ৰাধিকাৰ শিকাটো আৰম্ভ কৰিব।</string>
+    <string name="reset_usage_pattern_dialog_title">আপোনাৰ উজ্জ্বলতা ব্যৱহাৰৰ আৰ্হি পুনঃছেট কৰিবনে?</string>
+    <string name="reset_usage_pattern_dialog_summary">পুনঃছেটৰ পিছত আপোনাৰ ফোনে আপোনাৰ অগ্ৰাধিকাৰ শিকাটো আৰম্ভ কৰিব।</string>
     <string name="current_theme_font">"সাম্প্ৰতিক থীমৰ ডিফ'ল্ট"</string>
     <string name="hbm_mode_on">চানলাইটত উৎকৃষ্ট দৰ্শনৰ বাবে মেক্সিমাইজ হৈছে</string>
     <string name="aod_detach_mobile_keyboard_toast">"%s ব্যৱহাৰ কৰিবলৈ, ডিভাইচৰ পৰা কীব'ৰ্ড ক'ভাৰ পৃথক কৰক৷"</string>
@@ -2593,6 +2598,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 পৃথক এপ ধ্বনিয়ে কেৱল আপুনি চয়ন কৰা অডিঅ' ডিভাইচটো আপোনাৰ ফোনৰ মূল অডিঅ' আউটপুট ডিভাইচৰ পৰা বেলেগ হ'লে কাম কৰে।
 
 আপুনি ক্ষিপ্ৰ ছেটিংছ পেনেলত আপোনাৰ ফোনৰ মূল অডিঅ' আউটপুট ডিভাইচ পৰিৱৰ্তন কৰিব পাৰে। যদি অডিঅ' আউটপুট নেদেখুৱায়, তেন্তে ইয়াক Samsung Connect > ছেটিংছ > Samsung Connect পেনেলত অন কৰক।"</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"আপোনাৰ ফোনৰ মূল অডিঅ' আউটপুট ডিভাইচৰ পৰা পৃথক এটা অডিঅ' ডিভাইচত থকা এটা এপৰ পৰা মিডিয়া ধ্বনি বজাওক। ইয়াক অন কৰিবলৈ এটা এপ আৰু অডিঅ' ডিভাইচ চয়ন কৰক।
+
+পৃথক এপ ধ্বনিয়ে কেৱল আপুনি চয়ন কৰা অডিঅ' ডিভাইচটো আপোনাৰ ফোনৰ মূল অডিঅ' আউটপুট ডিভাইচৰ পৰা বেলেগ হ'লে কাম কৰে।
+
+যদি আপুনি Samsung Connect ইনষ্টল কৰে, তেতিয়া আপুনি ক্ষিপ্ৰ ছেটিংছ পেনেলত আপোনাৰ ফোনৰ মূল অডিঅ' আউটপুট ডিভাইচ পৰিৱৰ্তন কৰিব পাৰে। যদি অডিঅ' আউটপুট ডিভাইচ নেদেখুৱায়, তেন্তে Samsung Connect > ছেটিংছলৈ যাওক, তাৰপিছত Samsung Connect পেনেল অন কৰক।"</string>
     <string name="set_application_title">এপ</string>
     <string name="set_application_summary">"এটা এপ চয়ন কৰক আৰু এটা পৃথক অডিঅ' ডিভাইচত ইয়াৰ ধ্বনি বজাওক।"</string>
     <string name="set_application_descryption">"এটা পৃথক অডিঅ' ডিভাইচত ইয়াৰ ধ্বনি বজাবলৈ তলত দিয়া এটা মাল্টিমিডিয়া এপ চয়ন কৰক।"</string>

@@ -1359,6 +1359,11 @@ Onu da nəzərinizdə saxlayın ki, Samsung hələ də bu Məxfilik Siyasətinin
 Parlaqlığın təhlükəsizlik ssəviyyələrindən artmasına icazə vermək üçün OK vurun."</string>
     <string name="auto_adjust_brightness">Avtoparlaqlıq</string>
     <string name="auto_adjust_brightness_summary">Parlaqlıq tənzimləmələrini izləyin və onları bənzər işıqlanma şərtlərində avtomatik tətbiq edin.</string>
+    <string name="auto_adjust_brightness_summary_nopac">İşıqlanma şəraitinə əsasən ekranın parlaqlığını avtomatk tənzimləyin.</string>
+    <string name="reset_usage_pattern_title">İstifadə nümunələri sıfırla</string>
+    <string name="reset_usage_pattern_summary">Parlaqlıq tənzimləmə tarixçəsini silin. Telefon sıfırlandıqdan onra tərcehlərinizi yenidən öyrənəcək.</string>
+    <string name="reset_usage_pattern_dialog_title">Parlaqlıq istifadə nümunələri sıfırlansın?</string>
+    <string name="reset_usage_pattern_dialog_summary">Telefon sıfırlandıqdan onra tərcehlərinizi yenidən öyrənməyə başlayacaq.</string>
     <string name="current_theme_font">Cari mövzunun defoltu</string>
     <string name="hbm_mode_on">Günəş işığında ən yaxşı görünüş üçün böyütmə</string>
     <string name="aod_detach_mobile_keyboard_toast">%s-dan istifadə etmək üçün klaviaturanı cihazdan ayırın.</string>
@@ -2721,6 +2726,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 Ayrıca proqram səsi yalnız seçdiyiniz audio cihaz telefonun əsas audio çıxış cihazından fərqli olduqda işləyir.
 
 Siz telefonun əsas audio çıxış cihazını cəld parametrlər panelində dəyişə bilərsiniz. Audio çıxışı görünürsə, Samsung Connect > Parametrlər > Samsung Connect paneli seçərək onu yandırın."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Bir proqramın media səsinə telefonun əsas audio çıxış cihazınan ayrılmış audio cihazda səsləndirin. Bunu yandırmaq üçün proqram və audio cihaz seçin.
+
+Ayrı proqram səsi yalnız seçdiyiniz audio cihaz telefonun əsas audio çıxış cihazından ayrı olduqda işləyir.
+
+Samsung Connect quraşdırıldıqda, telefonun əsas audio çıxış cihazını cəld parametrlər panelində dəyişə bilərsiniz. Audio çıxış cihazı görünmədikdə Samsung Connect > Parametrlər seçin və Samsung Connect panelini yandırın."</string>
     <string name="set_application_title">Proqram</string>
     <string name="set_application_summary">Səsinə ayrı audio cihazda qulaq asmaq üçün proqram seçin.</string>
     <string name="set_application_descryption">Səsini ayrı audio cihazda səsləndirmək üçün aşağıdan multimedia proqramı seçin.</string>

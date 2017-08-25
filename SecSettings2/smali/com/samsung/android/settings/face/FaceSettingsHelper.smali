@@ -43,69 +43,120 @@
 .end method
 
 .method public static getFaceUnlockRecognitionSpeedUpValue(Landroid/content/Context;I)Z
-    .locals 5
+    .locals 6
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
-    const/4 v0, 0x0
+    const/4 v5, -0x1
+
+    const/4 v3, 0x0
+
+    const/4 v0, -0x1
 
     invoke-static {}, Lcom/android/settings/Utils;->isSupportBioFaceFasterRecognition()Z
 
-    move-result v2
+    move-result v1
 
-    if-eqz v2, :cond_0
+    if-eqz v1, :cond_5
 
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v2
+    move-result-object v1
 
-    const-string/jumbo v3, "face_recognition_speed_up"
+    const-string/jumbo v4, "face_faster_recognition"
 
-    invoke-static {v2, v3, v1, p1}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+    invoke-static {v1, v4, v5, p1}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
 
     move-result v0
 
-    const-string/jumbo v2, "FcstFaceSettingsHelper"
+    if-ne v0, v5, :cond_2
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    const-string/jumbo v1, "FcstFaceSettingsHelper"
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    const-string/jumbo v4, "getFaceUnlockRecognitionSpeedUpValue: Fota Case - NO FACE_FASTER_RECOGNITION value"
 
-    const-string/jumbo v4, "getFaceUnlockRecognitionSpeedUpValue: "
+    invoke-static {v1, v4}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string/jumbo v4, "face_recognition_speed_up"
 
-    move-result-object v3
+    invoke-static {v1, v4, v5, p1}, Landroid/provider/Settings$Secure;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result v0
 
-    move-result-object v3
+    if-eq v0, v5, :cond_0
 
-    invoke-static {v2, v3}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_0
-    if-ne v0, v1, :cond_1
-
-    :goto_1
-    return v1
+    if-nez v0, :cond_3
 
     :cond_0
-    const-string/jumbo v2, "FcstFaceSettingsHelper"
+    const/4 v0, 0x2
 
-    const-string/jumbo v3, "getFaceUnlockRecognitionSpeedUpValue: NOT support Faster Recognition"
+    :cond_1
+    :goto_0
+    if-nez v0, :cond_4
 
-    invoke-static {v2, v3}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move v1, v2
+
+    :goto_1
+    invoke-static {p0, v1, p1}, Lcom/samsung/android/settings/face/FaceSettingsHelper;->setFaceUnlockRecognitionSpeedUpValue(Landroid/content/Context;ZI)V
+
+    :cond_2
+    const-string/jumbo v1, "FcstFaceSettingsHelper"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "getFaceUnlockRecognitionSpeedUpValue: "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v1, v4}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_2
+    if-nez v0, :cond_6
+
+    :goto_3
+    return v2
+
+    :cond_3
+    if-ne v0, v2, :cond_1
+
+    const/4 v0, 0x0
 
     goto :goto_0
 
-    :cond_1
-    const/4 v1, 0x0
+    :cond_4
+    move v1, v3
 
     goto :goto_1
+
+    :cond_5
+    const-string/jumbo v1, "FcstFaceSettingsHelper"
+
+    const-string/jumbo v4, "getFaceUnlockRecognitionSpeedUpValue: NOT support Faster Recognition"
+
+    invoke-static {v1, v4}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_2
+
+    :cond_6
+    move v2, v3
+
+    goto :goto_3
 .end method
 
 .method public static getIrisLock(Landroid/content/Context;Lcom/android/internal/widget/LockPatternUtils;I)Z
@@ -534,11 +585,11 @@
 
     move-result-object v1
 
-    const-string/jumbo v2, "face_recognition_speed_up"
+    const-string/jumbo v2, "face_faster_recognition"
 
     if-eqz p1, :cond_0
 
-    const/4 v0, 0x1
+    const/4 v0, 0x0
 
     :goto_0
     invoke-static {v1, v2, v0, p2}, Landroid/provider/Settings$Secure;->putIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)Z
@@ -569,7 +620,7 @@
     return-void
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 v0, 0x2
 
     goto :goto_0
 

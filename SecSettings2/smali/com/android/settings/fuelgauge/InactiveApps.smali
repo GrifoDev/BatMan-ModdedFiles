@@ -176,7 +176,7 @@
 
     iput-object v0, p0, Lcom/android/settings/fuelgauge/InactiveApps;->mUsageStats:Landroid/app/usage/UsageStatsManager;
 
-    const v0, 0x7f080087
+    const v0, 0x7f080088
 
     invoke-virtual {p0, v0}, Lcom/android/settings/fuelgauge/InactiveApps;->addPreferencesFromResource(I)V
 

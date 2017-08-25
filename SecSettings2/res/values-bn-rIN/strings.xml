@@ -1231,6 +1231,11 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
 উজ্জ্বলতা নিরাপদ স্তরের উপরে বৃদ্ধি পেতে অনুমতি দেওয়ার জন্য “ওকে” ট্যাপ করুন।"</string>
     <string name="auto_adjust_brightness">স্বতঃ উজ্জ্বলতা</string>
     <string name="auto_adjust_brightness_summary">আপনার উজ্জ্বলতার সামঞ্জস্যগুলিতে নজর রাখুন এবং একই আলোর অবস্থায় সেগুলি স্বয়ংক্রিয়ভাবে প্রয়োগ করুন।</string>
+    <string name="auto_adjust_brightness_summary_nopac">বর্তমান আলোর অবস্থার ভিত্তিতে স্বয়ংক্রিয়ভাবে স্ক্রিনের উজ্জ্বলতা সামঞ্জস্য করুন।</string>
+    <string name="reset_usage_pattern_title">ব্যবহারের প্যাটার্ন রিসেট করুন</string>
+    <string name="reset_usage_pattern_summary">আপনার উজ্জ্বলতা সামঞ্জস্যতার ইতিহাস পরিষ্কার করুন। রিসেট করার পরে আপনার ফোনটি আবার আপনার পছন্দসমূহ জানতে শুরু করবে।</string>
+    <string name="reset_usage_pattern_dialog_title">আপনার উজ্জ্ব. ব্যব. প্যাটার্ন রিসেট করবেন?</string>
+    <string name="reset_usage_pattern_dialog_summary">রিসেট করার পরে আপনার ফোনটি আবার আপনার পছন্দসই উজ্জ্বলতা সম্বন্ধে জানতে শুরু করবে।</string>
     <string name="current_theme_font">বর্তমান থিমের ডিফল্ট</string>
     <string name="hbm_mode_on">সূর্যালোকে সর্বোত্তম দেখার জন্য বৃহদীকৃত</string>
     <string name="aod_detach_mobile_keyboard_toast">%s ব্যবহার করতে ডিভাইস থেকে কীবোর্ড কভার বিচ্ছিন্ন করুন।</string>
@@ -2593,6 +2598,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 পৃথক অ্যাপ ধ্বনি কেবলমাত্র আপনার নির্বাচন করা অডিও ডিভাইস আপনার ফোনের প্রধান অডিও আউটপুট ডিভাইস থেকে পৃথক হয় তখন কাজ করে।
 
 আপনি দ্রুত সেটিংস প্যানেলে আপনার ফোনের প্রধান অডিও আউটপুট ডিভাইসটি পরিবর্তন করতে পারবেন। অডিও আউটপুট দেখানো না হলে এটিকে Samsung Connect > সেটিংস > Samsung Connect প্যানেল-এ চালু করুন।"</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"আপনার ফোনের প্রধান অডিও আউটপুট ডিভাইস থেকে পৃথক কোনও অডিও ডিভাইসের একটি অ্যাপ থেকে মিডিয়া ধ্বনি প্লে করুন। এটি চালু করতে একটি অ্যাপ এবং একটি অডিও ডিভাইস নির্বাচন করুন।
+
+পৃথক অ্যাপ ধ্বনি কেবলমাত্র আপনার নির্বাচন করা অডিও ডিভাইস আপনার ফোনের প্রধান অডিও আউটপুট ডিভাইস থেকে পৃথক হয় তখন কাজ করে।
+
+আপনার Samsung Connect ইনস্টল করা থাকলে, আপনি দ্রুত সেটিংস প্যানেলে আপনার ফোনের প্রধান অডিও আউটপুট ডিভাইসটি পরিবর্তন করতে পারবেন। অডিও আউটপুট ডিভাইসটি না দেখানো হলে, Samsung Connect > সেটিংসে যান তারপর Samsung Connect প্যানেল চালু করুন।"</string>
     <string name="set_application_title">অ্যাপ</string>
     <string name="set_application_summary">একটি পৃথক অডিও ডিভাইসে কোনও অ্যাপের ধ্বনি বাজাতে তা নির্বাচন করুন।</string>
     <string name="set_application_descryption">একটি পৃথক অডিও ডিভাইসে কোনও মাল্টিমিডিয়া অ্যাপের ধ্বনি প্লে তা নির্বাচন করুন।</string>

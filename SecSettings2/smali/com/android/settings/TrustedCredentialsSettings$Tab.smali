@@ -230,7 +230,7 @@
 
     const/4 v2, 0x0
 
-    const v4, 0x7f0b1a1b
+    const v4, 0x7f0b1a21
 
     const v5, 0x7f1107db
 
@@ -260,7 +260,7 @@
 
     const/4 v2, 0x1
 
-    const v4, 0x7f0b1a1c
+    const v4, 0x7f0b1a22
 
     const v5, 0x7f1107e2
 

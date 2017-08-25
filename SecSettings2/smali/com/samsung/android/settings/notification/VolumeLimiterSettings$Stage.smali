@@ -45,7 +45,7 @@
 .method static constructor <clinit>()V
     .locals 16
 
-    const v5, 0x7f0b13aa
+    const v5, 0x7f0b13b0
 
     const/4 v15, 0x2
 
@@ -57,9 +57,9 @@
 
     const-string/jumbo v1, "Introduction"
 
-    const v3, 0x7f0b16ad
+    const v3, 0x7f0b16b3
 
-    const v4, 0x7f0b16af
+    const v4, 0x7f0b16b5
 
     invoke-direct/range {v0 .. v5}, Lcom/samsung/android/settings/notification/VolumeLimiterSettings$Stage;-><init>(Ljava/lang/String;IIII)V
 
@@ -69,11 +69,11 @@
 
     const-string/jumbo v7, "NeedToConfirm"
 
-    const v9, 0x7f0b16b0
+    const v9, 0x7f0b16b6
 
-    const v10, 0x7f0b16b2
+    const v10, 0x7f0b16b8
 
-    const v11, 0x7f0b13b5
+    const v11, 0x7f0b13bb
 
     invoke-direct/range {v6 .. v11}, Lcom/samsung/android/settings/notification/VolumeLimiterSettings$Stage;-><init>(Ljava/lang/String;IIII)V
 
@@ -83,9 +83,9 @@
 
     const-string/jumbo v10, "ConfirmWrong"
 
-    const v12, 0x7f0b16b3
+    const v12, 0x7f0b16b9
 
-    const v13, 0x7f0b16b4
+    const v13, 0x7f0b16ba
 
     move v11, v15
 

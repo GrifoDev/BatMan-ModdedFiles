@@ -334,11 +334,11 @@
 .method private getDescription()Ljava/lang/String;
     .locals 10
 
-    const v2, 0x7f0b07dd
+    const v2, 0x7f0b07e2
 
-    const v9, 0x7f0b07dc
+    const v9, 0x7f0b07e1
 
-    const v3, 0x7f0b07db
+    const v3, 0x7f0b07e0
 
     const/4 v7, 0x1
 
@@ -425,7 +425,7 @@
 
     if-eqz v2, :cond_1
 
-    const v2, 0x7f0b07df
+    const v2, 0x7f0b07e4
 
     :goto_1
     invoke-virtual {p0, v2}, Lcom/android/settings/fingerprint/FingerprintLockSettings;->getString(I)Ljava/lang/String;
@@ -438,7 +438,7 @@
 
     aput-object v2, v4, v8
 
-    const v2, 0x7f0b07d2
+    const v2, 0x7f0b07d7
 
     invoke-virtual {v3, v2, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -447,7 +447,7 @@
     goto :goto_0
 
     :cond_1
-    const v2, 0x7f0b07de
+    const v2, 0x7f0b07e3
 
     goto :goto_1
 
@@ -462,7 +462,7 @@
 
     if-eqz v2, :cond_2
 
-    const v2, 0x7f0b07df
+    const v2, 0x7f0b07e4
 
     :goto_2
     invoke-virtual {p0, v2}, Lcom/android/settings/fingerprint/FingerprintLockSettings;->getString(I)Ljava/lang/String;
@@ -475,7 +475,7 @@
 
     aput-object v2, v4, v8
 
-    const v2, 0x7f0b07d4
+    const v2, 0x7f0b07d9
 
     invoke-virtual {v3, v2, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -484,7 +484,7 @@
     goto :goto_0
 
     :cond_2
-    const v2, 0x7f0b07de
+    const v2, 0x7f0b07e3
 
     goto :goto_2
 
@@ -499,7 +499,7 @@
 
     if-eqz v2, :cond_3
 
-    const v2, 0x7f0b07df
+    const v2, 0x7f0b07e4
 
     :goto_3
     invoke-virtual {p0, v2}, Lcom/android/settings/fingerprint/FingerprintLockSettings;->getString(I)Ljava/lang/String;
@@ -512,7 +512,7 @@
 
     aput-object v2, v4, v8
 
-    const v2, 0x7f0b07d3
+    const v2, 0x7f0b07d8
 
     invoke-virtual {v3, v2, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -521,7 +521,7 @@
     goto :goto_0
 
     :cond_3
-    const v2, 0x7f0b07de
+    const v2, 0x7f0b07e3
 
     goto :goto_3
 
@@ -536,7 +536,7 @@
 
     if-eqz v2, :cond_4
 
-    const v2, 0x7f0b07df
+    const v2, 0x7f0b07e4
 
     :goto_4
     invoke-virtual {p0, v2}, Lcom/android/settings/fingerprint/FingerprintLockSettings;->getString(I)Ljava/lang/String;
@@ -558,7 +558,7 @@
     goto/16 :goto_0
 
     :cond_4
-    const v2, 0x7f0b07de
+    const v2, 0x7f0b07e3
 
     goto :goto_4
 
@@ -602,7 +602,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b1378
+    const v6, 0x7f0b137e
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -684,7 +684,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b137a
+    const v6, 0x7f0b1380
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -725,7 +725,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b137c
+    const v6, 0x7f0b1382
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -778,7 +778,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b1378
+    const v7, 0x7f0b137e
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -879,7 +879,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b137a
+    const v7, 0x7f0b1380
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -932,7 +932,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b137c
+    const v7, 0x7f0b1382
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -992,7 +992,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b07d7
+    const v4, 0x7f0b07dc
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1021,7 +1021,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b07d6
+    const v4, 0x7f0b07db
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1050,7 +1050,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b07d8
+    const v4, 0x7f0b07dd
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1079,7 +1079,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b07d9
+    const v4, 0x7f0b07de
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1850,7 +1850,7 @@
 
     if-eqz v0, :cond_4
 
-    const v0, 0x7f0b07d0
+    const v0, 0x7f0b07d5
 
     invoke-virtual {p0, v0}, Lcom/android/settings/fingerprint/FingerprintLockSettings;->setTitle(I)V
 
@@ -1860,7 +1860,7 @@
 
     if-eqz v0, :cond_3
 
-    const v0, 0x7f0b07df
+    const v0, 0x7f0b07e4
 
     :goto_0
     invoke-virtual {v1, v0}, Landroid/widget/Button;->setText(I)V
@@ -1957,7 +1957,7 @@
     return-void
 
     :cond_3
-    const v0, 0x7f0b07de
+    const v0, 0x7f0b07e3
 
     goto :goto_0
 
@@ -1983,19 +1983,19 @@
     if-eqz v0, :cond_0
 
     :cond_5
-    const v0, 0x7f0b07d1
+    const v0, 0x7f0b07d6
 
     invoke-virtual {p0, v0}, Lcom/android/settings/fingerprint/FingerprintLockSettings;->setTitle(I)V
 
     iget-object v0, p0, Lcom/android/settings/fingerprint/FingerprintLockSettings;->okBtn:Landroid/widget/Button;
 
-    const v1, 0x7f0b0885
+    const v1, 0x7f0b088a
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(I)V
 
     iget-object v0, p0, Lcom/android/settings/fingerprint/FingerprintLockSettings;->laterBtn:Landroid/widget/Button;
 
-    const v1, 0x7f0b0884
+    const v1, 0x7f0b0889
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(I)V
 
@@ -2569,7 +2569,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v1, 0x7f0b076c
+    const v1, 0x7f0b0771
 
     invoke-direct {p0, v1}, Lcom/android/settings/fingerprint/FingerprintLockSettings;->showSensorErrorDialog(I)V
 
@@ -2706,7 +2706,7 @@
     :cond_1
     const-string/jumbo v2, "FpstFingerprintLockSettings"
 
-    const v3, 0x7f0b090e
+    const v3, 0x7f0b0913
 
     invoke-static {p0, v3, v2}, Lcom/android/settings/Utils;->isNotAvailableBiometricsWithDexAndMultiWindow(Landroid/app/Activity;ILjava/lang/String;)Z
 
@@ -3843,13 +3843,13 @@
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b0769
+    const v2, 0x7f0b076e
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    const v2, 0x7f0b07b7
+    const v2, 0x7f0b07bc
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -3919,7 +3919,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b07d0
+    const v1, 0x7f0b07d5
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3933,7 +3933,7 @@
 
     if-eqz v0, :cond_2
 
-    const v0, 0x7f0b07df
+    const v0, 0x7f0b07e4
 
     :goto_0
     invoke-virtual {v1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
@@ -3944,7 +3944,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b07cc
+    const v1, 0x7f0b07d1
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4014,7 +4014,7 @@
     return-void
 
     :cond_2
-    const v0, 0x7f0b07de
+    const v0, 0x7f0b07e3
 
     goto :goto_0
 
@@ -4044,7 +4044,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b07d1
+    const v1, 0x7f0b07d6
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4054,7 +4054,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0885
+    const v1, 0x7f0b088a
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4064,7 +4064,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0884
+    const v1, 0x7f0b0889
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4084,7 +4084,7 @@
 
     new-array v2, v2, [Ljava/lang/Object;
 
-    const v3, 0x7f0b0764
+    const v3, 0x7f0b0769
 
     invoke-virtual {p0, v3}, Lcom/android/settings/fingerprint/FingerprintLockSettings;->getString(I)Ljava/lang/String;
 
@@ -4092,7 +4092,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x7f0b081c
+    const v3, 0x7f0b0821
 
     invoke-virtual {p0, v3, v2}, Lcom/android/settings/fingerprint/FingerprintLockSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -4110,7 +4110,7 @@
 .method private showSensorErrorDialog(I)V
     .locals 4
 
-    const v1, 0x7f0b076c
+    const v1, 0x7f0b0771
 
     if-ne p1, v1, :cond_0
 
@@ -4126,7 +4126,7 @@
 
     if-eqz v1, :cond_0
 
-    const p1, 0x7f0b076d
+    const p1, 0x7f0b0772
 
     :cond_0
     new-instance v1, Landroid/app/AlertDialog$Builder;
@@ -4135,7 +4135,7 @@
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b0769
+    const v2, 0x7f0b076e
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -4873,7 +4873,7 @@
 
     iget-object v0, p0, Lcom/android/settings/fingerprint/FingerprintLockSettings;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b0803
+    const v1, 0x7f0b0808
 
     invoke-virtual {p0, v1}, Lcom/android/settings/fingerprint/FingerprintLockSettings;->getString(I)Ljava/lang/String;
 
@@ -4922,7 +4922,7 @@
     :cond_1d
     iget-object v0, p0, Lcom/android/settings/fingerprint/FingerprintLockSettings;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b0801
+    const v1, 0x7f0b0806
 
     invoke-virtual {p0, v1}, Lcom/android/settings/fingerprint/FingerprintLockSettings;->getString(I)Ljava/lang/String;
 
@@ -4949,7 +4949,7 @@
 
     iget-object v0, p0, Lcom/android/settings/fingerprint/FingerprintLockSettings;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b07e0
+    const v1, 0x7f0b07e5
 
     invoke-virtual {p0, v1}, Lcom/android/settings/fingerprint/FingerprintLockSettings;->getString(I)Ljava/lang/String;
 
@@ -5016,7 +5016,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b07e1
+    const v1, 0x7f0b07e6
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -5029,7 +5029,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b07e3
+    const v1, 0x7f0b07e8
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -5042,7 +5042,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b07e2
+    const v1, 0x7f0b07e7
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -5055,7 +5055,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b07e4
+    const v1, 0x7f0b07e9
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -5481,7 +5481,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0b076c
+    const v0, 0x7f0b0771
 
     invoke-direct {p0, v0}, Lcom/android/settings/fingerprint/FingerprintLockSettings;->showSensorErrorDialog(I)V
 
@@ -5730,7 +5730,7 @@
 
     const-string/jumbo v1, "FpstFingerprintLockSettings"
 
-    const v2, 0x7f0b090e
+    const v2, 0x7f0b0913
 
     invoke-static {p0, v2, v1}, Lcom/android/settings/Utils;->isNotAvailableBiometricsWithDexAndMultiWindow(Landroid/app/Activity;ILjava/lang/String;)Z
 
@@ -5757,7 +5757,7 @@
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f0b076c
+    const v0, 0x7f0b0771
 
     invoke-direct {p0, v0}, Lcom/android/settings/fingerprint/FingerprintLockSettings;->showSensorErrorDialog(I)V
 

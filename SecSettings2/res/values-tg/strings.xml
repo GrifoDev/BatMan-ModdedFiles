@@ -1231,6 +1231,11 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
 Барои равшаниро аз сатҳи бехатар баландтар кардан, ОК-ро зарба занед."</string>
     <string name="auto_adjust_brightness">Равшании худкор</string>
     <string name="auto_adjust_brightness_summary">Ҷӯркунии равшанӣ аз ҷониби шумо назорат карда мешавад ва дар муҳитҳои дорои рӯшноии шабеҳ ба таври худкор ҷӯр карда мешавад.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Равшании экран вобаста аз рушноии ҷории муҳити атроф ба таври худкор ҷӯр карда мешавад.</string>
+    <string name="reset_usage_pattern_title">Барқарор кардани одатҳои истиф</string>
+    <string name="reset_usage_pattern_summary">Таърихи ҷӯркунии равшанӣ тоза карда мешавад. Баъди барқарорсозӣ, телефон танзимоти шуморо аз нав ёд мегирад.</string>
+    <string name="reset_usage_pattern_dialog_title">Одатҳои истифодаи равшаниро барқарор к?</string>
+    <string name="reset_usage_pattern_dialog_summary">Баъди барқарорсозӣ, телефон танзимоти равшании шуморо аз нав ёд мегирад.</string>
     <string name="current_theme_font">Мавзуи ҷорӣ стандартист</string>
     <string name="hbm_mode_on">Калонтарин барои намоиш зери нурҳои офтоб</string>
     <string name="aod_detach_mobile_keyboard_toast">Барои истифода бурдани %s, сарпӯши клавиатураро аз дастгоҳ ҷудо кунед.</string>
@@ -2593,6 +2598,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 Ҷудокунии садои барнома танҳо дар он ҳолате кор мекунад, ки дастгоҳи аудиоии интихоб кардаатон аз дастгоҳи асосии бароварди садои телефон фарқ кунад.
 
 Шумо метавонед дастгоҳи асосии бароварди садои телефонро дар панели танзимоти зуд иваз кунед. Агар бароварди аудио нишон дода нашавад, онро дар Samsung Connect > Танзимот > Панели Samsung Connect фурӯзон кунед."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Садои медиаро аз як барнома дар як дастгоҳи аудиои аз дастгоҳи пахши аудиои асосии телефони шумо ҷудо пахш кунед. Ягон барнома ва дастгоҳи аудиоро интихоб карда, инро фурӯзон кунед.
+
+Садои барномаи ҷудо танҳо вақте кор мекунад, ки дастгоҳи аудиои интихобкардаи шумо аз дастгоҳи пахши аудиои асосии телефони шумо фарқ мекунад.
+
+Агар шумо Samsung Connect-ро насб карда бошед, метавонед дастгоҳи пахши аудиои асосии телефони худро дар панели танзимоти зуд иваз кунед. Агар дастгоҳи пахши аудио нишон дода нашавад, ба Samsung Connect > Танзимот гузаред, пас панели Samsung Connect-ро фурӯзон кунед."</string>
     <string name="set_application_title">Барнома</string>
     <string name="set_application_summary">Барномаеро интихоб карда, садои онро дар дастгоҳҳои аудиоии алоҳида пахш кунед.</string>
     <string name="set_application_descryption">Дар поён барномаи мултимедиа интихоб карда, садои онро дар дастгоҳҳои аудиоии алоҳида пахш кунед.</string>

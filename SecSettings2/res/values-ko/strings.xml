@@ -1352,6 +1352,11 @@ Wi-Fi 및 블루투스 기능도 함께 해제되지만, 설정 또는 빠른 �
     <string name="brightness_maximum_alert_msg">화면 밝기를 높여 장시간 사용하면 눈에 피로가 쌓일 수 있으며 배터리의 사용량이 많아질 수 있습니다. 안전 기준 이상으로 화면 밝기를 설정하려면 확인 버튼을 누르세요.</string>
     <string name="auto_adjust_brightness">자동 밝기</string>
     <string name="auto_adjust_brightness_summary">이전에 화면 밝기를 조절했던 환경과 유사한 환경이 갖춰지면 사용자가 설정했던 밝기 단계를 자동으로 적용합니다.</string>
+    <string name="auto_adjust_brightness_summary_nopac">주변 밝기에 따라 화면 밝기를 자동으로 조절합니다.</string>
+    <string name="reset_usage_pattern_title">사용 패턴 초기화</string>
+    <string name="reset_usage_pattern_summary">밝기 조절 기록을 삭제합니다. 기록을 초기화하면 휴대전화에서 내 사용 패턴을 다시 학습합니다.</string>
+    <string name="reset_usage_pattern_dialog_title">밝기 사용 패턴 초기화</string>
+    <string name="reset_usage_pattern_dialog_summary">기록을 초기화하면 휴대전화에서 밝기 사용 패턴을 다시 학습합니다.</string>
     <string name="current_theme_font">현재 테마의 기본 설정</string>
     <string name="hbm_mode_on">햇빛 아래에서 잘 보이도록 최대화됨</string>
     <string name="aod_detach_mobile_keyboard_toast">%s 항목을 사용하려면 디바이스에서 키보드 커버를 분리하세요.</string>
@@ -2721,6 +2726,11 @@ PIN으로 디바이스를 다시 시작하기 전에는 전화, 메시지, 알�
 [앱 소리 분리 재생]은 선택한 오디오 디바이스가 휴대전화의 주 오디오 출력 디바이스와 다를 경우에만 작동합니다.
 
 휴대전화의 주 오디오 출력 디바이스는 빠른 설정창에서 변경할 수 있습니다. 오디오 출력 디바이스가 보이지 않는 경우 [Samsung Connect > 설정 > Samsung Connect 패널]에서 오디오 출력을 켜세요."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"앱 1개의 미디어 사운드를 휴대전화의 주 오디오 출력 디바이스와는 별개로 다른 오디오 디바이스에서 재생합니다. 이 기능을 사용하려면 앱과 오디오 디바이스를 선택하세요.
+
+[앱 소리 분리 재생]은 선택한 오디오 디바이스가 휴대전화의 주 오디오 출력 디바이스와 다를 경우에만 작동합니다.
+
+Samsung Connect 앱을 설치한 경우에는 휴대전화의 주 오디오 출력 디바이스를 빠른 설정창에서 변경할 수 있습니다. 오디오 출력 디바이스가 보이지 않는 경우 [Samsung Connect > 설정 > Samsung Connect 패널]에서 오디오 출력을 켜세요."</string>
     <string name="set_application_title">애플리케이션</string>
     <string name="set_application_summary">오디오 디바이스에서 소리를 따로 재생할 앱을 선택하세요.</string>
     <string name="set_application_descryption">오디오 디바이스에서 소리를 따로 재생할 멀티미디어 앱을 아래에서 선택하세요.</string>

@@ -121,7 +121,7 @@
 
     aput-object v0, v7, v10
 
-    const v8, 0x7f0b1c31
+    const v8, 0x7f0b1c37
 
     invoke-virtual {p0, v8, v7}, Lcom/android/settings/applications/ManageAssist;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -131,7 +131,7 @@
 
     aput-object v0, v7, v10
 
-    const v8, 0x7f0b1c32
+    const v8, 0x7f0b1c38
 
     invoke-virtual {p0, v8, v7}, Lcom/android/settings/applications/ManageAssist;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -161,13 +161,13 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b1c33
+    const v8, 0x7f0b1c39
 
     invoke-virtual {v7, v8, v4}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v7
 
-    const v8, 0x7f0b1c34
+    const v8, 0x7f0b1c3a
 
     const/4 v9, 0x0
 
@@ -1323,7 +1323,7 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v1, 0x7f08009f
+    const v1, 0x7f0800a0
 
     invoke-virtual {p0, v1}, Lcom/android/settings/applications/ManageAssist;->addPreferencesFromResource(I)V
 

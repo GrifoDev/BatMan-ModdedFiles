@@ -310,7 +310,7 @@
 
     move-result-object v0
 
-    const v4, 0x7f0b12f6
+    const v4, 0x7f0b12fc
 
     invoke-virtual {v2, v4}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -322,7 +322,7 @@
 
     move-result-object v4
 
-    const v6, 0x7f0b1afb
+    const v6, 0x7f0b1b01
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -382,7 +382,7 @@
 
     move-result-object v3
 
-    const v6, 0x7f0b12f5
+    const v6, 0x7f0b12fb
 
     invoke-virtual {v2, v6}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -432,7 +432,7 @@
     :cond_3
     if-nez v3, :cond_1
 
-    const v6, 0x7f0b1afc
+    const v6, 0x7f0b1b02
 
     invoke-virtual {v2, v6}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -516,7 +516,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f0b12f7
+    const v4, 0x7f0b12fd
 
     invoke-virtual {v0, v4}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -551,7 +551,7 @@
     :cond_2
     if-nez v1, :cond_0
 
-    const v4, 0x7f0b1afc
+    const v4, 0x7f0b1b02
 
     invoke-virtual {v0, v4}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -733,7 +733,7 @@
 
     check-cast v0, Landroid/telephony/TelephonyManager;
 
-    const v1, 0x7f080121
+    const v1, 0x7f080122
 
     invoke-virtual {p0, v1}, Lcom/android/settings/sim/SimSettings;->addPreferencesFromResource(I)V
 

@@ -109,7 +109,7 @@
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 7
 
-    const v6, 0x7f080140
+    const v6, 0x7f080141
 
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
@@ -399,7 +399,7 @@
 .method public onResume()V
     .locals 8
 
-    const v7, 0x7f0b0b59
+    const v7, 0x7f0b0b5e
 
     const/4 v3, 0x1
 
@@ -522,7 +522,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/notification/VibrationsSettings;->mVibrationOnTouch:Landroid/support/v14/preference/SwitchPreference;
 
-    const v5, 0x7f0b0b42
+    const v5, 0x7f0b0b47
 
     invoke-virtual {v2, v5}, Landroid/support/v14/preference/SwitchPreference;->setSummary(I)V
 
@@ -540,7 +540,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/notification/VibrationsSettings;->mKeyboardVibration:Landroid/support/v14/preference/SwitchPreference;
 
-    const v4, 0x7f0b0b56
+    const v4, 0x7f0b0b5b
 
     invoke-virtual {v2, v4}, Landroid/support/v14/preference/SwitchPreference;->setSummary(I)V
 

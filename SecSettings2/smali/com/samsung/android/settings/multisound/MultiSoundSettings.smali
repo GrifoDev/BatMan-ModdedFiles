@@ -107,71 +107,96 @@
 .end method
 
 .method private createHeadrView()Landroid/view/View;
-    .locals 8
+    .locals 11
 
-    const/4 v7, 0x0
+    const/4 v10, 0x0
 
-    iget-object v5, p0, Lcom/samsung/android/settings/multisound/MultiSoundSettings;->mContext:Landroid/content/Context;
+    iget-object v8, p0, Lcom/samsung/android/settings/multisound/MultiSoundSettings;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v6, "layout_inflater"
+    const-string/jumbo v9, "layout_inflater"
 
-    invoke-virtual {v5, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Landroid/view/LayoutInflater;
-
-    const v5, 0x7f040340
-
-    invoke-virtual {v1, v5, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v5
-
-    iput-object v5, p0, Lcom/samsung/android/settings/multisound/MultiSoundSettings;->mGuideView:Landroid/view/View;
-
-    iget-object v5, p0, Lcom/samsung/android/settings/multisound/MultiSoundSettings;->mGuideView:Landroid/view/View;
-
-    const v6, 0x7f1105d8
-
-    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v4
-
-    check-cast v4, Landroid/widget/TextView;
-
-    iget-object v5, p0, Lcom/samsung/android/settings/multisound/MultiSoundSettings;->mGuideView:Landroid/view/View;
-
-    const v6, 0x7f1105d9
-
-    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/widget/TextView;
-
-    iget-object v5, p0, Lcom/samsung/android/settings/multisound/MultiSoundSettings;->mGuideView:Landroid/view/View;
-
-    const v6, 0x7f1105d7
-
-    invoke-virtual {v5, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v8, v9}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v2
 
-    check-cast v2, Landroid/widget/ImageView;
+    check-cast v2, Landroid/view/LayoutInflater;
 
-    const/16 v5, 0x8
+    const v8, 0x7f040340
 
-    invoke-virtual {v4, v5}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual {v2, v8, v10}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
-    const v5, 0x7f0b0b8d
+    move-result-object v8
 
-    invoke-virtual {v3, v5}, Landroid/widget/TextView;->setText(I)V
+    iput-object v8, p0, Lcom/samsung/android/settings/multisound/MultiSoundSettings;->mGuideView:Landroid/view/View;
 
-    const v5, 0x7f020568
+    iget-object v8, p0, Lcom/samsung/android/settings/multisound/MultiSoundSettings;->mGuideView:Landroid/view/View;
 
-    invoke-virtual {v2, v5}, Landroid/widget/ImageView;->setImageResource(I)V
+    const v9, 0x7f1105d8
 
-    invoke-virtual {v2}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v8, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/widget/TextView;
+
+    iget-object v8, p0, Lcom/samsung/android/settings/multisound/MultiSoundSettings;->mGuideView:Landroid/view/View;
+
+    const v9, 0x7f1105d9
+
+    invoke-virtual {v8, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/widget/TextView;
+
+    iget-object v8, p0, Lcom/samsung/android/settings/multisound/MultiSoundSettings;->mGuideView:Landroid/view/View;
+
+    const v9, 0x7f1105d7
+
+    invoke-virtual {v8, v9}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/widget/ImageView;
+
+    const/16 v8, 0x8
+
+    invoke-virtual {v6, v8}, Landroid/widget/TextView;->setVisibility(I)V
+
+    const/4 v3, 0x0
+
+    :try_start_0
+    iget-object v8, p0, Lcom/samsung/android/settings/multisound/MultiSoundSettings;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v8}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v8
+
+    const-string/jumbo v9, "com.samsung.android.oneconnect"
+
+    const/4 v10, 0x1
+
+    invoke-virtual {v8, v9, v10}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v7
+
+    const/4 v3, 0x1
+
+    :goto_0
+    if-eqz v3, :cond_1
+
+    const v8, 0x7f0b0b92
+
+    invoke-virtual {v5, v8}, Landroid/widget/TextView;->setText(I)V
+
+    :goto_1
+    const v8, 0x7f020568
+
+    invoke-virtual {v4, v8}, Landroid/widget/ImageView;->setImageResource(I)V
+
+    invoke-virtual {v4}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
 
     move-result-object v0
 
@@ -182,9 +207,21 @@
     invoke-virtual {v0}, Landroid/graphics/drawable/AnimationDrawable;->start()V
 
     :cond_0
-    iget-object v5, p0, Lcom/samsung/android/settings/multisound/MultiSoundSettings;->mGuideView:Landroid/view/View;
+    iget-object v8, p0, Lcom/samsung/android/settings/multisound/MultiSoundSettings;->mGuideView:Landroid/view/View;
 
-    return-object v5
+    return-object v8
+
+    :cond_1
+    const v8, 0x7f0b0b93
+
+    invoke-virtual {v5, v8}, Landroid/widget/TextView;->setText(I)V
+
+    goto :goto_1
+
+    :catch_0
+    move-exception v1
+
+    goto :goto_0
 .end method
 
 
@@ -214,7 +251,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b0b8e
+    const v3, 0x7f0b0b94
 
     const/4 v6, 0x0
 
@@ -342,7 +379,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/multisound/MultiSoundSettings;->mAudioManager:Landroid/media/AudioManager;
 
-    const v0, 0x7f0800a8
+    const v0, 0x7f0800a9
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/multisound/MultiSoundSettings;->addPreferencesFromResource(I)V
 
@@ -461,7 +498,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/multisound/MultiSoundSettings;->mSetApplication:Landroid/preference/PreferenceScreen;
 
-    const v1, 0x7f0b0b8f
+    const v1, 0x7f0b0b95
 
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -511,7 +548,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/multisound/MultiSoundSettings;->mDeviceType:Landroid/preference/PreferenceScreen;
 
-    const v1, 0x7f0b0b9b
+    const v1, 0x7f0b0ba1
 
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -573,7 +610,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/multisound/MultiSoundSettings;->mDeviceType:Landroid/preference/PreferenceScreen;
 
-    const v1, 0x7f0b0b9d
+    const v1, 0x7f0b0ba3
 
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -598,7 +635,7 @@
 
     new-array v1, v3, [Ljava/lang/Object;
 
-    const v2, 0x7f0b0b8b
+    const v2, 0x7f0b0b90
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/multisound/MultiSoundSettings;->getString(I)Ljava/lang/String;
 
@@ -606,7 +643,7 @@
 
     aput-object v2, v1, v6
 
-    const v2, 0x7f0b0ba2
+    const v2, 0x7f0b0ba8
 
     invoke-virtual {p0, v2, v1}, Lcom/samsung/android/settings/multisound/MultiSoundSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -643,7 +680,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b0b91
+    const v3, 0x7f0b0b97
 
     move-object v4, v2
 
@@ -664,11 +701,11 @@
 
     invoke-direct {v8, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f0b0ba0
+    const v0, 0x7f0b0ba6
 
     invoke-virtual {v8, v0}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    const v0, 0x7f0b0ba1
+    const v0, 0x7f0b0ba7
 
     invoke-virtual {v8, v0}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -678,7 +715,7 @@
 
     invoke-direct {v0, p0}, Lcom/samsung/android/settings/multisound/MultiSoundSettings$3;-><init>(Lcom/samsung/android/settings/multisound/MultiSoundSettings;)V
 
-    const v1, 0x7f0b0878
+    const v1, 0x7f0b087d
 
     invoke-virtual {v8, v1, v0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -760,7 +797,7 @@
 
     invoke-direct {v1, v8}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v8, 0x7f0b0b93
+    const v8, 0x7f0b0b99
 
     invoke-virtual {v1, v8}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -774,7 +811,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0b8b
+    const v11, 0x7f0b0b90
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -782,7 +819,7 @@
 
     aput-object v10, v9, v7
 
-    const v10, 0x7f0b0b95
+    const v10, 0x7f0b0b9b
 
     invoke-virtual {v8, v10, v9}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -796,7 +833,7 @@
 
     invoke-direct {v8, p0}, Lcom/samsung/android/settings/multisound/MultiSoundSettings$5;-><init>(Lcom/samsung/android/settings/multisound/MultiSoundSettings;)V
 
-    const v9, 0x7f0b0b99
+    const v9, 0x7f0b0b9f
 
     invoke-virtual {v1, v9, v8}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

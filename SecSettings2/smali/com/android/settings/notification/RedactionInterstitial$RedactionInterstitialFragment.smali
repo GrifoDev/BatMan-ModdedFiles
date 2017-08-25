@@ -379,19 +379,19 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    const v5, 0x7f0b1b61
+    const v5, 0x7f0b1b67
 
     invoke-virtual {v3, v5}, Landroid/widget/TextView;->setText(I)V
 
     iget-object v3, p0, Lcom/android/settings/notification/RedactionInterstitial$RedactionInterstitialFragment;->mShowAllButton:Lcom/android/settings/RestrictedRadioButton;
 
-    const v5, 0x7f0b1b5e
+    const v5, 0x7f0b1b64
 
     invoke-virtual {v3, v5}, Lcom/android/settings/RestrictedRadioButton;->setText(I)V
 
     iget-object v3, p0, Lcom/android/settings/notification/RedactionInterstitial$RedactionInterstitialFragment;->mRedactSensitiveButton:Lcom/android/settings/RestrictedRadioButton;
 
-    const v5, 0x7f0b1b5f
+    const v5, 0x7f0b1b65
 
     invoke-virtual {v3, v5}, Lcom/android/settings/RestrictedRadioButton;->setText(I)V
 
@@ -403,7 +403,7 @@
 
     check-cast v3, Landroid/widget/RadioButton;
 
-    const v5, 0x7f0b1b60
+    const v5, 0x7f0b1b66
 
     invoke-virtual {v3, v5}, Landroid/widget/RadioButton;->setText(I)V
 

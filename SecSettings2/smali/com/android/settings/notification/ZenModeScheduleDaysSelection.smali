@@ -389,7 +389,7 @@
     goto :goto_1
 
     :cond_4
-    const v11, 0x7f0b0d06
+    const v11, 0x7f0b0d0c
 
     invoke-virtual {v2, v11}, Landroid/widget/CheckBox;->setText(I)V
 

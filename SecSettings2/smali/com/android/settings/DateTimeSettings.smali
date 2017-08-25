@@ -465,7 +465,7 @@
 
     const/4 v5, 0x2
 
-    const v3, 0x7f080134
+    const v3, 0x7f080135
 
     :try_start_0
     invoke-virtual {p1, v3}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
@@ -717,7 +717,7 @@
 .method private initUI()V
     .locals 14
 
-    const v13, 0x7f0b0a06
+    const v13, 0x7f0b0a0b
 
     const/4 v9, 0x1
 
@@ -732,7 +732,7 @@
     invoke-virtual {v6}, Landroid/support/v7/preference/PreferenceScreen;->removeAll()V
 
     :cond_0
-    const v8, 0x7f080052
+    const v8, 0x7f080053
 
     invoke-virtual {p0, v8}, Lcom/android/settings/DateTimeSettings;->addPreferencesFromResource(I)V
 
@@ -863,7 +863,7 @@
 
     iget-object v8, p0, Lcom/android/settings/DateTimeSettings;->mAutoTimePref:Lcom/android/settingslib/RestrictedSwitchPreference;
 
-    const v11, 0x7f0b130a
+    const v11, 0x7f0b1310
 
     invoke-virtual {v8, v11}, Lcom/android/settingslib/RestrictedSwitchPreference;->setSummary(I)V
 
@@ -985,7 +985,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0b0cb7
+    const v12, 0x7f0b0cbd
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2722,7 +2722,7 @@
 .method showTimeDisplaySchemeDialog()V
     .locals 3
 
-    const v1, 0x7f0b0c79
+    const v1, 0x7f0b0c7f
 
     invoke-static {v1}, Lcom/samsung/android/settings/TimeDisplaySchemeSettings;->newInstance(I)Lcom/samsung/android/settings/TimeDisplaySchemeSettings;
 

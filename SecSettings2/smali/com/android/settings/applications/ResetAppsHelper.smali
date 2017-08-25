@@ -215,7 +215,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b1144
+    const v3, 0x7f0b114a
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -237,7 +237,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b1145
+    const v3, 0x7f0b114b
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -259,7 +259,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b1146
+    const v3, 0x7f0b114c
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -281,7 +281,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b1147
+    const v3, 0x7f0b114d
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -303,7 +303,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b1148
+    const v3, 0x7f0b114e
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -325,7 +325,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b1149
+    const v3, 0x7f0b114f
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -347,7 +347,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b114a
+    const v3, 0x7f0b1150
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -371,7 +371,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1722
+    const v2, 0x7f0b1728
 
     invoke-virtual {v1, v2, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -381,7 +381,7 @@
 
     invoke-direct {v2, p0}, Lcom/android/settings/applications/ResetAppsHelper$1;-><init>(Lcom/android/settings/applications/ResetAppsHelper;)V
 
-    const v3, 0x7f0b12ea
+    const v3, 0x7f0b12f0
 
     invoke-virtual {v1, v3, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

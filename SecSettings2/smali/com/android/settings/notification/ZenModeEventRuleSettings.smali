@@ -380,7 +380,7 @@
 
     invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
 
-    const v6, 0x7f0b1b9e
+    const v6, 0x7f0b1ba4
 
     invoke-virtual {p0, v6}, Lcom/android/settings/notification/ZenModeEventRuleSettings;->getString(I)Ljava/lang/String;
 
@@ -518,7 +518,7 @@
 .method protected getEnabledToastText()I
     .locals 1
 
-    const v0, 0x7f0b1b99
+    const v0, 0x7f0b1b9f
 
     return v0
 .end method
@@ -552,7 +552,7 @@
 
     iput-boolean v4, p0, Lcom/android/settings/notification/ZenModeEventRuleSettings;->mCreate:Z
 
-    const v1, 0x7f080166
+    const v1, 0x7f080167
 
     invoke-virtual {p0, v1}, Lcom/android/settings/notification/ZenModeEventRuleSettings;->addPreferencesFromResource(I)V
 
@@ -592,7 +592,7 @@
 
     new-array v2, v7, [Ljava/lang/CharSequence;
 
-    const v3, 0x7f0b1ba0
+    const v3, 0x7f0b1ba6
 
     invoke-virtual {p0, v3}, Lcom/android/settings/notification/ZenModeEventRuleSettings;->getString(I)Ljava/lang/String;
 
@@ -600,7 +600,7 @@
 
     aput-object v3, v2, v5
 
-    const v3, 0x7f0b1ba1
+    const v3, 0x7f0b1ba7
 
     invoke-virtual {p0, v3}, Lcom/android/settings/notification/ZenModeEventRuleSettings;->getString(I)Ljava/lang/String;
 
@@ -608,7 +608,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x7f0b1ba2
+    const v3, 0x7f0b1ba8
 
     invoke-virtual {p0, v3}, Lcom/android/settings/notification/ZenModeEventRuleSettings;->getString(I)Ljava/lang/String;
 

@@ -88,13 +88,13 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f0b15fb
+    const v1, 0x7f0b1601
 
     invoke-virtual {p0, v1, v0}, Lcom/android/settings/deviceinfo/StorageWizardMigrate;->setHeaderText(I[Ljava/lang/String;)V
 
     new-array v0, v2, [Ljava/lang/String;
 
-    const v1, 0x7f0b15a2
+    const v1, 0x7f0b15a8
 
     invoke-virtual {p0, v1, v0}, Lcom/android/settings/deviceinfo/StorageWizardMigrate;->setBodyText(I[Ljava/lang/String;)V
 

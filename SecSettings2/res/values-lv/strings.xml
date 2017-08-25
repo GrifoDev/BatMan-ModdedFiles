@@ -1360,6 +1360,11 @@ Turklāt paturiet prātā, ka Samsung joprojām vāks informāciju par jūsu mob
 Pieskarieties pie Labi, lai atļautu palielināt spilgtumu virs drošā līmeņa."</string>
     <string name="auto_adjust_brightness">Automātisks spilgtums</string>
     <string name="auto_adjust_brightness_summary">Seko tam, kā pielāgojat spilgtumu, un automātiski izmanto šādus iestatījumus līdzīga apgaismojuma apstākļos.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Automātiski pielāgojiet ekrāna spilgtumu atbilstoši pašreizējiem apgaismojuma apstākļiem.</string>
+    <string name="reset_usage_pattern_title">Atiestatīt lietošanas paradumus</string>
+    <string name="reset_usage_pattern_summary">Notīriet savu spilgtuma pielāgošanas vēsturi. Pēc atiestatīšanas tālrunis vēlreiz sāks apgūt jūsu preferences.</string>
+    <string name="reset_usage_pattern_dialog_title">Vai atiestatīt spilgtuma liet. paradumus?</string>
+    <string name="reset_usage_pattern_dialog_summary">Pēc atiestatīšanas tālrunis vēlreiz sāks apgūt jūsu spilgtuma preferences.</string>
     <string name="current_theme_font">Pašreizējā motīva noklusējums</string>
     <string name="hbm_mode_on">Maksimizēts labākai apskatei saulesgaismā</string>
     <string name="aod_detach_mobile_keyboard_toast">Lai izmantotu %s, atvienojiet tastatūras pārsegu no ierīces.</string>
@@ -2722,6 +2727,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 Atsevišķa programmas skaņa darbojas tikai tad, ja izvēlētā audio ierīce atšķiras no tālruņa galvenās audio izvades ierīces.
 
 Tālruņa galveno audio izvades ierīci varat mainīt ātro iestatījumu panelī. Ja audio izvade netiek rādīta, ieslēdziet to izvēlnē Samsung Connect > Iestatījumi > Samsung Connect panelis."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Atskaņojiet vienas programmas multivides skaņu audio ierīcē atsevišķi no tālruņa galvenās audio izvades ierīces. Lai ieslēgtu šo funkciju, izvēlieties programmu un audio ierīci.
+
+Atsevišķa programmas skaņa darbojas tikai tad, ja izvēlētā audio ierīce atšķiras no tālruņa galvenās audio izvades ierīces.
+
+Ja esat instalējis programmu Samsung Connect, varat mainīt sava tālruņa galveno audio izvades ierīci ātro iestatījumu panelī. Ja audio izvades ierīce nav redzama, izvēlieties Samsung Connect > Iestatījumi, pēc tam ieslēdziet Samsung Connect paneli."</string>
     <string name="set_application_title">Programma</string>
     <string name="set_application_summary">Izvēlieties programmu, lai tās skaņu atskaņotu atsevišķā audio ierīcē.</string>
     <string name="set_application_descryption">Izvēlieties multivides programmu, lai tās skaņu atskaņotu atsevišķā audio ierīcē.</string>

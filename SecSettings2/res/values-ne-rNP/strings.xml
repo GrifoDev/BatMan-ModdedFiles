@@ -1360,6 +1360,11 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
 चम्किलोपनालाई सुरक्षित स्तरहरू माथि बढाउनको लागि “ठीक छ” ट्याप गर्नुहोस्।"</string>
     <string name="auto_adjust_brightness">स्वतः चम्किलोपना</string>
     <string name="auto_adjust_brightness_summary">आफ्नो चम्किलोपना समायोजनको ट्रयाक राख्नुहोस् र प्रकाशका उस्तैखाले अवस्थाहरूमा ती कुराहरू लागू गर्नुहोस्।</string>
+    <string name="auto_adjust_brightness_summary_nopac">हालको प्रकाशका अवस्थाहरूको आधरमा स्वचालित रूपमा स्क्रीनको चम्किलोपना समायोजन गर्नुहोस्।</string>
+    <string name="reset_usage_pattern_title">प्रयोगको शैली रिसेट गर्नुहोस्</string>
+    <string name="reset_usage_pattern_summary">आफ्नो चम्किलोपना समायोजनको इतिहास खाली गर्नुहोस्। रिसेट गरेपछि तपाईको फोनले फेरि तपाईका प्राथमिकताहरूको बारेमा जान्न सुरु गर्नेछ।</string>
+    <string name="reset_usage_pattern_dialog_title">तपाईका चम्किलोपनाको प्रयोगका शैलीहरूलाई रिसेट गर्ने हो?</string>
+    <string name="reset_usage_pattern_dialog_summary">रिसेट गरेपछि तपाईको फोनले फेरि तपाईका चम्किलोपना सम्बन्धी प्राथमिकताहरू बारे जान्न सुरु गर्नेछ।</string>
     <string name="current_theme_font">हालको विषयवस्तु पूर्वनिर्धारित हो</string>
     <string name="hbm_mode_on">सूर्यको उज्यालोमा सबभन्दा राम्रो दृश्यको लागि विस्तार गरिएको</string>
     <string name="aod_detach_mobile_keyboard_toast">%s प्रयोग गर्न, यन्त्रबाट कीबोर्ड कभर अलग गर्नुहोस्।</string>
@@ -2722,6 +2727,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 तपाईले चयन गर्नुहुने अडियो यन्त्र तपाईको फोनको मुख्य अडियो आउटपुट यन्त्रभन्दा फरक हुँदा मात्र छुटै एपको ध्वनिले काम गर्दछ।
 
 तपाई द्रुत सेटिङ प्यानलमा गई आफ्नो फोनको मुख्य अडियो आउटपुट यन्त्र परिवर्तन गर्न सक्नुहुन्छ। अडियो आउटपुट नदेखाइएको खण्डमा Samsung Connect > सेटिङहरू > Samsung Connect को प्यानलमा गई यसलाई अन गर्नुहोस्।"</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"एउटा एपको मिडिया ध्वनिलाई आफ्नो फोनको मुख्य अडियो आउटपुट यन्त्रभन्दा छुट्टै कुनै अडियो यन्त्रमा प्ले गर्नुहोस्। यसलाई अन गर्न एउटा एप र एउटा अडियो यन्त्र चयन गर्नुहोस्।
+
+तपाईले चयन गर्नुहुने अडियो यन्त्र तपाईको फोनको मुख्य अडियो आउटपुट यन्त्रभन्दा फरक हुँदा मात्र छुट्टै एप ध्वनिले काम गर्दछ।
+
+यदि तपाईले Samsung Connect स्थापना गर्नुभएको छ भने तपाई द्रुत सेटिङ प्यानलमा गई आफ्नो फोनको मुख्य अडियो आउटपुट यन्त्र परिवर्तन गर्न सक्नुहुन्छ। उक्त अडियो आउटपुट यन्त्र नदेखिएमा Samsung Connect > सेटिङहरूमा जानुहोस्, त्यसपछि Samsung Connect प्यानललाई अन गर्नुहोस्।"</string>
     <string name="set_application_title">एप</string>
     <string name="set_application_summary">कुनै एपको ध्वनि एउटा अलग अडियो यन्त्रमा प्ले गर्न एप चयन गर्नुहोस्।</string>
     <string name="set_application_descryption">कुनै एपको ध्वनि एउटा अलग अडियो यन्त्रमा प्ले गर्न तल त्यो मल्टिमिडिया एप चयन गर्नुहोस्।</string>

@@ -171,7 +171,7 @@
 
     iput-object v2, p0, Lcom/samsung/android/settings/helpdialog/TwHelpDialog;->mTouchTransparencyMode:Lcom/samsung/android/settings/helpdialog/TwHelpDialog$TouchMode;
 
-    const v2, 0x7f0b1040
+    const v2, 0x7f0b1046
 
     invoke-static {p1, v2, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

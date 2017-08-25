@@ -1360,6 +1360,11 @@ Azt is fontos tudnia, hogy a Samsung egyéb célokra így is gyűjthet adatokat 
 Az OK gombot megérintve engedélyezheti a fényerő biztonságosnál magasabb szintre állítását."</string>
     <string name="auto_adjust_brightness">Automatikus fényerő</string>
     <string name="auto_adjust_brightness_summary">A fényerő-beállítások nyomon követése, majd automatikus beállítása hasonló fényviszonyok esetén.</string>
+    <string name="auto_adjust_brightness_summary_nopac">A fényerő automatikus beállítása az aktuális fényviszonyoknak megfelelően.</string>
+    <string name="reset_usage_pattern_title">Használati minták visszaállítása</string>
+    <string name="reset_usage_pattern_summary">A fényerő-beállítási előzmények törlése. A telefon a visszaállítás után újra elkezdi megtanulni a beállításokat.</string>
+    <string name="reset_usage_pattern_dialog_title">Visszaállítja a fényerőhasználati mintákat?</string>
+    <string name="reset_usage_pattern_dialog_summary">A telefon a visszaállítás után újra elkezdi megtanulni a fényerő-beállításokat.</string>
     <string name="current_theme_font">Jelenlegi téma alapértelmezése</string>
     <string name="hbm_mode_on">Maximalizálva a napon történő megtekintéshez</string>
     <string name="aod_detach_mobile_keyboard_toast">A(z) %s használatához válassza le az eszközről a billentyűzetes tokot.</string>
@@ -2722,6 +2727,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 A Külön alkalmazáshang funkció működéséhez a telefon fő hangkimeneti eszközétől eltérő hangeszközt kell kiválasztani.
 
 A telefon fő hangkimeneti eszközét a gyorsbeállító panelen módosíthatja. Ha a hangkimenet nem látható, akkor kapcsolja be a Samsung Connect > Beállítások > Samsung Connect panelen."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"A telefon fő hangszórójától eltérő hangkimeneti eszközön játszhatja le egy alkalmazás médiahangját. A funkció bekapcsolásához válasszon ki egy alkalmazást és egy hangeszközt.
+
+A Külön alkalmazáshang funkció használatához a telefon fő hangkimeneti eszközétől eltérő hangeszközt kell kiválasztani.
+
+Ha telepítve van a Samsung Connect, a telefon fő hangkimeneti eszközét a gyorsbeállító panelen módosíthatja. Ha nem jelenik meg a hangkimeneti eszköz, akkor lépjen be a Samsung Connect > Beállítások menübe, és kapcsolja be a Samsung Connect panelt."</string>
     <string name="set_application_title">Alkalmazás</string>
     <string name="set_application_summary">Válassza ki azt az alkalmazást, amelynek a hangját külön hangeszközön szeretné lejátszani.</string>
     <string name="set_application_descryption">Válassza ki alább azt a multimédiás alkalmazást, amelynek a hangját külön hangeszközön szeretné lejátszani.</string>

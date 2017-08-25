@@ -215,7 +215,7 @@
 
     invoke-virtual {v4, v5}, Landroid/widget/Toolbar;->setNavigationOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v5, 0x7f0b0d04
+    const v5, 0x7f0b0d0a
 
     invoke-virtual {v4, v5}, Landroid/widget/Toolbar;->setTitle(I)V
 

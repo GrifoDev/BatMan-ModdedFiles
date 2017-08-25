@@ -1360,6 +1360,11 @@ Samsungは本プライバシー規約の本文に記載されているとおり�
 安全な範囲を超えて明るさレベルを上げるには、[OK]をタップしてください。"</string>
     <string name="auto_adjust_brightness">明るさ自動調整</string>
     <string name="auto_adjust_brightness_summary">画面の明るさ調整を記憶し、周囲の明るさが記録時と同様の場合に自動的に適用します。</string>
+    <string name="auto_adjust_brightness_summary_nopac">周囲の明るさに応じて、画面の明るさを自動的に調整します。</string>
+    <string name="reset_usage_pattern_title">使用パターンをリセット</string>
+    <string name="reset_usage_pattern_summary">明るさ調整の履歴を消去します。リセットした後、端末は再度設定を学習し始めます。</string>
+    <string name="reset_usage_pattern_dialog_title">明るさの使用パターンをリセットしますか？</string>
+    <string name="reset_usage_pattern_dialog_summary">リセットした後、端末は再度明るさの設定を学習し始めます。</string>
     <string name="current_theme_font">現在のテーマの初期設定</string>
     <string name="hbm_mode_on">日光の下で最適に表示するように最大化</string>
     <string name="aod_detach_mobile_keyboard_toast">%sを使用するには、端末からキーボードカバーを取り外してください。</string>
@@ -2722,6 +2727,11 @@ NFC決済およびモバイル決済サービスによっては、別の標準�
 [アプリサウンドの出力デバイスを設定]は、選択したオーディオデバイスと端末のメインオーディオ出力デバイスが異なる場合のみ機能します。
 
 端末のメインオーディオ出力デバイスは、クイック設定パネルで変更できます。オーディオ出力が表示されない場合、[Samsung Connect] > [設定] > [Samsung Connectパネル]でオーディオ出力をONにしてください。"</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"選択したアプリのメディアサウンドを、端末のメインオーディオ出力デバイスとは別のオーディオデバイスで再生します。この機能をONにするには、アプリとオーディオデバイスを選択してください。
+
+[アプリサウンドの出力デバイスを設定]は、選択したオーディオデバイスと端末のメインオーディオ出力デバイスが異なる場合のみ機能します。
+
+Samsung Connectがインストールされている場合、端末のメインオーディオ出力デバイスは、クイック設定パネルで変更できます。オーディオ出力デバイスが表示されない場合、[Samsung Connect] > [設定]に移動し、[Samsung Connectパネル]をONにしてください。"</string>
     <string name="set_application_title">アプリ</string>
     <string name="set_application_summary">個別のオーディオデバイスでサウンドを再生するアプリを選択します。</string>
     <string name="set_application_descryption">個別のオーディオデバイスでサウンドを再生するマルチメディアアプリを以下から選択してください。</string>

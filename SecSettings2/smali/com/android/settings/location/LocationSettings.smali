@@ -395,7 +395,7 @@
 
     invoke-virtual {v5, p1}, Lcom/android/settingslib/SecRestrictedSwitchPreference;->setEnabled(Z)V
 
-    const v3, 0x7f0b1bd4
+    const v3, 0x7f0b1bda
 
     if-nez p1, :cond_2
 
@@ -415,7 +415,7 @@
 
     if-eqz v2, :cond_4
 
-    const v3, 0x7f0b1bd4
+    const v3, 0x7f0b1bda
 
     :goto_2
     iget-object v4, p0, Lcom/android/settings/location/LocationSettings;->mManagedProfileSwitch:Lcom/android/settingslib/SecRestrictedSwitchPreference;
@@ -438,7 +438,7 @@
     goto :goto_1
 
     :cond_4
-    const v3, 0x7f0b1bd3
+    const v3, 0x7f0b1bd9
 
     goto :goto_2
 .end method
@@ -461,7 +461,7 @@
     invoke-virtual/range {v18 .. v18}, Landroid/preference/PreferenceScreen;->removeAll()V
 
     :cond_0
-    const v19, 0x7f080094
+    const v19, 0x7f080095
 
     move-object/from16 v0, p0
 
@@ -772,7 +772,7 @@
 
     if-eqz v19, :cond_6
 
-    const v19, 0x7f0b167d
+    const v19, 0x7f0b1683
 
     move/from16 v0, v19
 
@@ -896,7 +896,7 @@
     goto/16 :goto_1
 
     :cond_6
-    const v19, 0x7f0b167e
+    const v19, 0x7f0b1684
 
     move/from16 v0, v19
 
@@ -938,7 +938,7 @@
 
     const-string/jumbo v20, "UPSM"
 
-    const v21, 0x7f080094
+    const v21, 0x7f080095
 
     move-object/from16 v0, v19
 
@@ -992,7 +992,7 @@
 
     invoke-virtual {v5, v0}, Landroid/preference/Preference;->setLayoutResource(I)V
 
-    const v19, 0x7f0b167b
+    const v19, 0x7f0b1681
 
     move/from16 v0, v19
 
@@ -1074,22 +1074,22 @@
     return v0
 
     :pswitch_0
-    const v0, 0x7f0b1679
+    const v0, 0x7f0b167f
 
     return v0
 
     :pswitch_1
-    const v0, 0x7f0b1678
+    const v0, 0x7f0b167e
 
     return v0
 
     :pswitch_2
-    const v0, 0x7f0b1677
+    const v0, 0x7f0b167d
 
     return v0
 
     :pswitch_3
-    const v0, 0x7f0b1676
+    const v0, 0x7f0b167c
 
     return v0
 
@@ -1222,7 +1222,7 @@
 .method public getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1aa7
+    const v0, 0x7f0b1aad    # 1.849012E38f
 
     return v0
 .end method
@@ -1329,7 +1329,7 @@
 
     const/4 v0, 0x1
 
-    const v1, 0x7f0b1683
+    const v1, 0x7f0b1689
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1365,7 +1365,7 @@
 
     if-eqz v6, :cond_0
 
-    const v7, 0x7f0b1679
+    const v7, 0x7f0b167f
 
     if-ne v6, v7, :cond_5
 
@@ -1588,7 +1588,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b1684
+    const v3, 0x7f0b168a
 
     const/4 v6, 0x0
 

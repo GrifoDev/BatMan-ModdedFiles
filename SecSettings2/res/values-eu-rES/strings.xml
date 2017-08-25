@@ -1360,6 +1360,11 @@ Halaber, kontuan izan balitekeela Samsung-ek zure gailu mugikorraren erabilerari
 Argitasuna segurtasun mailatik gora ezartzeko, ukitu ADOS."</string>
     <string name="auto_adjust_brightness">Argitasun automatikoa</string>
     <string name="auto_adjust_brightness_summary">Egin argitasun doikuntzen jarraipena eta aplika itzazu automatikoki antzeko argiztapen egoeratan.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Egokitu automatikoki pantailaren argitasuna uneko argiztapen baldintzetan oinarrituta.</string>
+    <string name="reset_usage_pattern_title">Berrezarri erabilera patroiak</string>
+    <string name="reset_usage_pattern_summary">Garbitu argitasun doikuntzen historia. Berrezarri ondoren, telefonoa zure hobespenak ikasten hasiko da berriz ere.</string>
+    <string name="reset_usage_pattern_dialog_title">Argitasunaren erab. patroiak berrezarri?</string>
+    <string name="reset_usage_pattern_dialog_summary">Berrezarri ondoren, telefonoa argitasunaren hobespenak ikasten hasiko da berriz ere.</string>
     <string name="current_theme_font">Uneko gaia lehenetsia da</string>
     <string name="hbm_mode_on">Maximizatu da, egun argiz hobeto ikus dadin</string>
     <string name="aod_detach_mobile_keyboard_toast">%s erabiltzeko, askatu teklatuaren estalkia gailutik.</string>
@@ -2723,6 +2728,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 Aparteko aplikazioko soinua entzun dadin, hautatzen duzun audio gailuak ez du izan behar telefonoko audio irteeraren gailu nagusia.
 
 Telefonoko audio irteeraren gailu nagusia aldatzeko, zoaz ezarpen azkarrak panelera. Audio irteera ikusgai ez badago, aktiba ezazu Samsung Connect > Ezarpenak > Samsung Connect panelean."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Erreproduzitu multimedia soinua telefonoko audio irteeraren gailu nagusia ez den aparteko audio gailu bateko aplikazio batetik. Hautatu aplikazio eta audio gailu bat aukera hori aktibatzeko.
+
+Aparteko aplikazioko soinua entzun dadin, hautatzen duzun audio gailuak ez du izan behar telefonoko audio irteeraren gailu nagusia.
+
+Samsung Connect instalatuta baduzu, telefonoko audio irteeraren gailu nagusia aldatzeko, zoaz ezarpen azkarrak panelera. Audio irteeraren gailua ikusgai ez badago, zoaz Samsung Connect > Ezarpenak atalera, eta aktiba ezazu Samsung Connect panelean."</string>
     <string name="set_application_title">Aplikazioa</string>
     <string name="set_application_summary">Hautatu aplikazio bat aparteko audio gailu batean soinua erreproduzitzeko.</string>
     <string name="set_application_descryption">Hautatu beheko multimedia aplikazio bat aparteko audio gailu batean soinua erreproduzitzeko.</string>

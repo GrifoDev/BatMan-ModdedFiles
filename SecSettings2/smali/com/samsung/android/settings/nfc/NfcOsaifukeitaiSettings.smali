@@ -197,7 +197,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/nfc/NfcOsaifukeitaiSettings;->mNfcOsaifuSettingsData:Lcom/samsung/android/settings/nfc/NfcOsaifukeitaiSettingsData;
 
-    const v0, 0x7f0800ad
+    const v0, 0x7f0800ae
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/nfc/NfcOsaifukeitaiSettings;->addPreferencesFromResource(I)V
 
@@ -345,7 +345,7 @@
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/nfc/NfcOsaifukeitaiSettings;->onCreate(Landroid/content/Context;)V
 
-    const v0, 0x7f0b115a
+    const v0, 0x7f0b1160
 
     invoke-virtual {v9, v0}, Landroid/app/ActionBar;->setTitle(I)V
 

@@ -805,7 +805,7 @@
 
     invoke-virtual {v2, v4}, Landroid/preference/SwitchPreference;->setChecked(Z)V
 
-    const v4, 0x7f0b066a
+    const v4, 0x7f0b066f
 
     invoke-virtual {v2, v4}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -833,7 +833,7 @@
 
     :cond_2
     :goto_2
-    const v4, 0x7f0b066b
+    const v4, 0x7f0b0670
 
     invoke-virtual {v2, v4}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -1177,7 +1177,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/display/FullScreenAppsSettings;->mLauncherApps:Landroid/content/pm/LauncherApps;
 
-    const v0, 0x7f08007a
+    const v0, 0x7f08007b
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/display/FullScreenAppsSettings;->addPreferencesFromResource(I)V
 
@@ -1185,7 +1185,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0668
+    const v1, 0x7f0b066d
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->setTitle(I)V
 
@@ -1243,13 +1243,13 @@
 
     const/4 v0, 0x1
 
-    const v1, 0x7f0b066c
+    const v1, 0x7f0b0671
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     const/4 v0, 0x2
 
-    const v1, 0x7f0b066d
+    const v1, 0x7f0b0672
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 

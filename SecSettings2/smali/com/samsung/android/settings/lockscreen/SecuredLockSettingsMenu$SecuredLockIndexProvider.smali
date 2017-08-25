@@ -198,7 +198,7 @@
 
     const v5, 0x7f0b0527
 
-    const v9, 0x7f0b09f7
+    const v9, 0x7f0b09fc
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -311,7 +311,7 @@
     if-eqz v9, :cond_3
 
     :cond_1
-    const v9, 0x7f0b0a10
+    const v9, 0x7f0b0a15
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -328,7 +328,7 @@
     return-object v7
 
     :cond_3
-    const v9, 0x7f0b131b
+    const v9, 0x7f0b1321
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -377,7 +377,7 @@
 
     if-ne v2, v3, :cond_0
 
-    const v2, 0x7f0800ff
+    const v2, 0x7f080100
 
     iput v2, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu$SecuredLockIndexProvider;->mXmlResId:I
 
@@ -399,7 +399,7 @@
     return-object v0
 
     :cond_0
-    const v2, 0x7f0800f7
+    const v2, 0x7f0800f8
 
     iput v2, p0, Lcom/samsung/android/settings/lockscreen/SecuredLockSettingsMenu$SecuredLockIndexProvider;->mXmlResId:I
 

@@ -3,7 +3,7 @@
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
     <com.samsung.android.settings.display.BrightnessSeekBarPreference android:icon="@drawable/st_ic_display_brightness" android:persistent="false" android:title="@string/brightness_title" android:key="secbrightness" settings:dbMatchingName="screen_brightness;screen_brightness_mode;auto_brightness_detail" settings:dbMatchingTable="system" settings:SettingsMode="UPSM" />
-    <SwitchPreference android:title="@string/auto_adjust_brightness" android:key="auto_brightness" android:summary="@string/auto_adjust_brightness_summary" />
+    <com.android.settings.SecSettingsSwitchPreference android:title="@string/auto_adjust_brightness" android:key="auto_brightness" android:summary="@string/auto_adjust_brightness_summary" android:fragment="com.samsung.android.settings.display.AutoBrightness" />
     <SwitchPreference android:title="@string/outdoor_mode_title" android:key="outdoor_mode" android:summary="@string/outdoor_mode_summary" />
     <com.samsung.android.settings.display.DisplayDisabledAppearanceSwitchPreference android:title="@string/blue_light_filter_title" android:key="blue_light_filter" android:summary="@string/blue_light_filter_summary_off" />
     <PreferenceScreen android:title="@string/wallpaper" android:key="wallpaper">

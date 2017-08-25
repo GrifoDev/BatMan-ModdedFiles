@@ -1360,6 +1360,11 @@ Sila ambil perhatian bahawa Samsung masih boleh mengumpulkan maklumat tentang pe
 Ketik OK untuk membenarkan kecerahan untuk ditingkatkan melebihi paras selamat."</string>
     <string name="auto_adjust_brightness">Kecerahan auto</string>
     <string name="auto_adjust_brightness_summary">Jejaki pelarasan kecerahan anda dan gunakannya secara automatik dalam suasana pencahayaan yang serupa.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Laraskan kecerahan skrin secara automatik berdasarkan keadaan cahaya semasa.</string>
+    <string name="reset_usage_pattern_title">Tetap semula corak penggunaan</string>
+    <string name="reset_usage_pattern_summary">Kosongkan sejarah pelarasan kecerahan anda. Telefon anda akan mula mempelajari pilihan anda sekali lagi selepas penetapan semula.</string>
+    <string name="reset_usage_pattern_dialog_title">Tetap semula corak penggunaan kecerahan anda?</string>
+    <string name="reset_usage_pattern_dialog_summary">Telefon anda akan mula mempelajari pilihan kecerahan anda sekali lagi selepas penetapan semula.</string>
     <string name="current_theme_font">Tema lalai semasa</string>
     <string name="hbm_mode_on">Maks utk paparan terbaik pd cahaya matahari</string>
     <string name="aod_detach_mobile_keyboard_toast">Untuk menggunakan %s, tanggalkan penutup papan kekunci daripada peranti.</string>
@@ -2722,6 +2727,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 Pengasingan bunyi hanya berfungsi apabila peranti audio yang anda pilih berbeza daripada peranti output audio utama telefon anda.
 
 Anda boleh mengubah peranti output audio utama telefon anda dalam panel aturan cepat. Jika output audio tidak ditunjukkan, hidupkannya dalam Samsung Connect > Aturan > panel Samsung Connect."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Mainkan bunyi media daripada satu aplikasi pada peranti audio yang berasingan daripada peranti output audio utama telefon anda. Pilih aplikasi dan peranti audio untuk menghidupkan ini.
+
+Pengasingan bunyi hanya berfungsi apabila peranti audio yang anda pilih berbeza daripada peranti output audio utama telefon anda.
+
+Jika anda telah memasang Samsung Connect, anda boleh mengubah peranti output utama telefon anda dalam panel aturan cepat. Jika peranti output audio tidak ditunjukkan, pergi ke Samsung Connect > Aturan, kemudian hidupkan panel Samsung Connect."</string>
     <string name="set_application_title">Aplikasi</string>
     <string name="set_application_summary">Pilih aplikasi untuk memainkan bunyikan pada peranti audio yang berasingan.</string>
     <string name="set_application_descryption">Pilih aplikasi multimedia berikut untuk memainkan bunyinya pada peranti audio yang berasingan.</string>

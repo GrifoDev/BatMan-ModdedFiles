@@ -73,7 +73,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$16;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
 
-    const v3, 0x7f0b1bd3
+    const v3, 0x7f0b1bd9
 
     invoke-virtual {v2, v3}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->getString(I)Ljava/lang/String;
 

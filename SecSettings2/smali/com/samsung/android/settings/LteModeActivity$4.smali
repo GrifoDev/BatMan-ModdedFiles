@@ -39,7 +39,7 @@
         }
     .end annotation
 
-    const v4, 0x7f0b0c7c
+    const v4, 0x7f0b0c82
 
     new-instance v2, Ljava/util/ArrayList;
 

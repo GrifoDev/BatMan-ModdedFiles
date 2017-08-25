@@ -1537,7 +1537,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1a9f
+    const v0, 0x7f0b1aa5
 
     return v0
 .end method
@@ -1561,7 +1561,7 @@
 .method public handleRingtonePicked(Landroid/net/Uri;I)V
     .locals 7
 
-    const v6, 0x7f0b0bb1
+    const v6, 0x7f0b0bb7
 
     const/4 v5, 0x0
 
@@ -2033,7 +2033,7 @@
 
     iput-object v9, p0, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->mTelephonyManager:Landroid/telephony/TelephonyManager;
 
-    const v9, 0x7f0800b3
+    const v9, 0x7f0800b4
 
     invoke-virtual {p0, v9}, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->addPreferencesFromResource(I)V
 
@@ -2401,7 +2401,7 @@
 
     aput-object v1, v10, v11
 
-    const v11, 0x7f0b0b3b
+    const v11, 0x7f0b0b40
 
     invoke-virtual {p0, v11, v10}, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2484,7 +2484,7 @@
 
     aput-object v1, v10, v11
 
-    const v11, 0x7f0b0b3b
+    const v11, 0x7f0b0b40
 
     invoke-virtual {p0, v11, v10}, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2552,7 +2552,7 @@
 
     aput-object v1, v10, v11
 
-    const v11, 0x7f0b0b3b
+    const v11, 0x7f0b0b40
 
     invoke-virtual {p0, v11, v10}, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2570,7 +2570,7 @@
 
     iget-object v9, p0, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->mEmail:Landroid/preference/Preference;
 
-    const v10, 0x7f0b0b3c
+    const v10, 0x7f0b0b41
 
     invoke-virtual {v9, v10}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -2694,7 +2694,7 @@
 
     iget-object v9, p0, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->mRingtonePreference_DS:Landroid/preference/Preference;
 
-    const v10, 0x7f0b0b29
+    const v10, 0x7f0b0b2e
 
     invoke-virtual {v9, v10}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -2715,7 +2715,7 @@
 
     const-string/jumbo v10, "UPSM"
 
-    const v11, 0x7f0800b2
+    const v11, 0x7f0800b3
 
     invoke-static {v9, v11, v10}, Lcom/android/settings/Utils;->getRemovePreferenceInOtherMode(Landroid/content/Context;ILjava/lang/String;)Ljava/util/ArrayList;
 
@@ -2795,7 +2795,7 @@
 
     iget-object v9, p0, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->mRingtoneCategory:Landroid/preference/PreferenceCategory;
 
-    const v10, 0x7f0b0b4e
+    const v10, 0x7f0b0b53
 
     invoke-virtual {v9, v10}, Landroid/preference/PreferenceCategory;->setTitle(I)V
 
@@ -2996,7 +2996,7 @@
 
     const-string/jumbo v2, "extra_prefs_set_back_text"
 
-    const v3, 0x7f0b1951
+    const v3, 0x7f0b1957
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->getString(I)Ljava/lang/String;
 
@@ -3590,7 +3590,7 @@
 
     iget-object v4, v0, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0b150f
+    const v6, 0x7f0b1515
 
     invoke-virtual {v4, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -4463,7 +4463,7 @@
 
     iget-object v4, v0, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0b150f
+    const v6, 0x7f0b1515
 
     invoke-virtual {v4, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

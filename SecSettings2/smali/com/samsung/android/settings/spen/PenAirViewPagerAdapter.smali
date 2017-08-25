@@ -75,7 +75,7 @@
     iput v1, v0, Lcom/samsung/android/settings/spen/PenAirViewPagerAdapter$Description;->animation:I
 
     :goto_0
-    const v1, 0x7f0b0952
+    const v1, 0x7f0b0957
 
     iput v1, v0, Lcom/samsung/android/settings/spen/PenAirViewPagerAdapter$Description;->summary:I
 
@@ -98,7 +98,7 @@
     iput v1, v0, Lcom/samsung/android/settings/spen/PenAirViewPagerAdapter$Description;->animation:I
 
     :goto_1
-    const v1, 0x7f0b0953
+    const v1, 0x7f0b0958
 
     iput v1, v0, Lcom/samsung/android/settings/spen/PenAirViewPagerAdapter$Description;->summary:I
 
@@ -121,7 +121,7 @@
     iput v1, v0, Lcom/samsung/android/settings/spen/PenAirViewPagerAdapter$Description;->animation:I
 
     :goto_2
-    const v1, 0x7f0b0954
+    const v1, 0x7f0b0959
 
     iput v1, v0, Lcom/samsung/android/settings/spen/PenAirViewPagerAdapter$Description;->summary:I
 
@@ -144,7 +144,7 @@
     iput v1, v0, Lcom/samsung/android/settings/spen/PenAirViewPagerAdapter$Description;->animation:I
 
     :goto_3
-    const v1, 0x7f0b0955
+    const v1, 0x7f0b095a
 
     iput v1, v0, Lcom/samsung/android/settings/spen/PenAirViewPagerAdapter$Description;->summary:I
 

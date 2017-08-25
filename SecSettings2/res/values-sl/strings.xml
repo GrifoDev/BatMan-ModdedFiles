@@ -1360,6 +1360,11 @@ Upoštevajte, da Samsung lahko še vedno zbira podatke o vaši uporabi mobilne n
 Če želite dovoliti povečanje svetlosti nad varno raven, pritisnite V REDU."</string>
     <string name="auto_adjust_brightness">Samodejna svetlost</string>
     <string name="auto_adjust_brightness_summary">Spremljajte prilagoditve svetlosti in jih samodejno uporabite v podobnih svetlobnih pogojih.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Samodejna prilagoditev svetlosti zaslona glede na trenutne svetlobne pogoje.</string>
+    <string name="reset_usage_pattern_title">Ponastavite vzorce porabe</string>
+    <string name="reset_usage_pattern_summary">Počistite zgodovino prilagoditev svetlosti. Po ponastavitvi se bo telefon znova začel učiti vaših nastavitev svetlosti.</string>
+    <string name="reset_usage_pattern_dialog_title">Želite ponast. vzorce uporabe svetlosti?</string>
+    <string name="reset_usage_pattern_dialog_summary">Po ponastavitvi se bo telefon znova začel učiti vaših nastavitev svetlosti.</string>
     <string name="current_theme_font">Privzete nastavitve trenutne teme</string>
     <string name="hbm_mode_on">Povečano za najboljši prikaz na soncu</string>
     <string name="aod_detach_mobile_keyboard_toast">Če želite uporabiti %s, tipkovnico odstranite z naprave.</string>
@@ -2722,6 +2727,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 Ločen zvok aplikacije deluje samo, ko se izbrana zvočna naprava razlikuje od glavne zvočne izhodne naprave telefona.
 
 Glavno zvočno izhodno napravo telefona lahko spremenite na plošči s hitrimi nastavitvami. Če izhodni zvok ni prikazan, ga vklopite v meniju Samsung Connect > Nastavitve > Plošča aplikacije Samsung Connect."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Predvajanje predstavnostnega zvoka iz ene aplikacije prek zvočne naprave ločeno od glavne zvočne naprave telefona. Za vklop te funkcije izberite aplikacijo in zvočno napravo.
+
+Ločen zvok aplikacije deluje samo, ko se izbrana zvočna naprava razlikuje od glavne zvočne izhodne naprave telefona.
+
+Če imate nameščeno aplikacijo Samsung Connect, lahko glavno zvočno izhodno napravo telefona spremenite na plošči s hitrimi nastavitvami. Če naprava za izhodni zvok ni prikazana, jo vklopite v meniju Samsung Connect > Nastavitve, nato vklopite Plošča aplikacije Samsung Connect."</string>
     <string name="set_application_title">Aplikacija</string>
     <string name="set_application_summary">Izberite aplikacijo za predvajanje njenega zvoka v ločeni zvočni napravi.</string>
     <string name="set_application_descryption">Spodaj izberite večpredstavnostno aplikacijo za predvajanje njenega zvoka v ločeni zvočni napravi.</string>

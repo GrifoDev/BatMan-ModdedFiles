@@ -1363,6 +1363,11 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
 แตะ “ตกลง” เพื่ออนุญาตให้เพิ่มความสว่างที่สูงกว่าระดับที่ปลอดภัย"</string>
     <string name="auto_adjust_brightness">ปรับความสว่างอัตโนมัติ</string>
     <string name="auto_adjust_brightness_summary">ติดตามการปรับความสว่างของคุณ และนำไปใช้โดยอัตโนมัติในสภาพแสงที่ใกล้เคียงกัน</string>
+    <string name="auto_adjust_brightness_summary_nopac">ปรับความสว่างหน้าจอโดยอัตโนมัติโดยปรับตามสภาพแสงปัจจุบัน</string>
+    <string name="reset_usage_pattern_title">รีเซ็ทรูปแบบการใช้งาน</string>
+    <string name="reset_usage_pattern_summary">ล้างประวัติการปรับความสว่างของคุณ โทรศัพท์ของคุณจะเริ่มเรียนรู้การตั้งค่าของคุณใหม่อีกครั้งหลังการรีเซ็ท</string>
+    <string name="reset_usage_pattern_dialog_title">รีเซ็ทรูปแบบการใช้ความสว่างของคุณหรือไม่</string>
+    <string name="reset_usage_pattern_dialog_summary">โทรศัพท์ของคุณจะเริ่มเรียนรู้การตั้งค่าความสว่างของคุณอีกครั้งหลังการรีเซ็ท</string>
     <string name="current_theme_font">ค่าเริ่มต้นของธีมปัจจุบัน</string>
     <string name="hbm_mode_on">เพิ่มให้แสดงผลดีที่สุดในแสงแดด</string>
     <string name="aod_detach_mobile_keyboard_toast">ถอดฝาปิดแป้นพิมพ์ออกจากเครื่อง เพื่อใช้ %s</string>
@@ -2728,6 +2733,11 @@ Mobile data will be turned off."</string>
 แยกเสียงแอพจะทำงานเมื่ออุปกรณ์เสียงที่คุณเลือกแตกต่างจากอุปกรณ์เอาต์พุตเสียงหลักของโทรศัพท์ของคุณเท่านั้น
 
 คุณสามารถเปลี่ยนอุปกรณ์เอาต์พุตเสียงหลักของโทรศัพท์ของคุณได้ในแผงการตั้งค่าด่วน หากไม่มีการแสดงเอาต์พุดเสียง ให้เปิดใน Samsung Connect > การตั้งค่า > แผง Samsung Connect"</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"เล่นเสียงมีเดียจากแอพเดียวบนอุปกรณ์เสียงแยกจากอุปกรณ์เอาต์พุตเสียงหลักของโทรศัพท์ของคุณ โปรดเลือกแอพและอุปกรณ์เสียงเพื่อเปิด
+
+แยกเสียงแอพจะทำงานเมื่ออุปกรณ์เสียงที่คุณเลือกแตกต่างจากอุปกรณ์เอาต์พุตเสียงหลักของโทรศัพท์ของคุณเท่านั้น
+
+หากคุณติดตั้ง Samsung Connect แล้ว คุณสามารถเปลี่ยนอุปกรณ์เอาต์พุตเสียงหลักของโทรศัพท์ของคุณได้ในแผงการตั้งค่าด่วน หากอุปกรณ์เอาต์พุตเสียงไม่ปรากฏขึ้น ให้ไปที่ Samsung Connect > การตั้งค่า แล้วเปิดใช้งาน แผง Samsung Connect"</string>
     <string name="set_application_title">แอพ</string>
     <string name="set_application_summary">เลือกแอพเพื่อเล่นเสียงบนอุปกรณ์เสียงที่แยกต่างหาก</string>
     <string name="set_application_descryption">เลือกแอพมัลติมีเดียเพื่อเล่นเสียงจากแอพบนอุปกรณ์เสียงที่แยกต่างหาก</string>

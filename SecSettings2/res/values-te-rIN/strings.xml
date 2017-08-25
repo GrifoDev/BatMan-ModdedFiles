@@ -1360,6 +1360,11 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
 పై భద్రతా స్థాయిలని పెంచడానికి ప్రకాశవంతాన్ని అనుమతించేందుకు “సరే” ట్యాప్ చేయండి."</string>
     <string name="auto_adjust_brightness">స్వీయ ప్రకాశం</string>
     <string name="auto_adjust_brightness_summary">మీ ప్రకాశవంతం సర్దుబాటులను ట్రాక్ చేయండి మరియు వాటిని ఒకే రకమైన లైటింగ్ పరిస్థితులలో స్వయంచాలకంగా వర్తింపజేయండి.</string>
+    <string name="auto_adjust_brightness_summary_nopac">ప్రస్తుత కాంతి పరిస్థితుల ఆధారంగా స్క్రీన్ ప్రకాశవంతాన్ని స్వయంచాలకంగా సర్దుబాటు చేస్తుంది.</string>
+    <string name="reset_usage_pattern_title">వినియోగ నమూనాలను రీసెట్ చేయి</string>
+    <string name="reset_usage_pattern_summary">మీ ప్రకాశవంతం సర్దుబాటు చరిత్రను క్లియర్ చేయండి. మీ ఫోన్‌ను రీసెట్ చేసిన తర్వాత మళ్లీ మీ ప్రాధాన్యతలను అర్థం చేసుకోవడానికి ప్రయత్నిస్తుంది.</string>
+    <string name="reset_usage_pattern_dialog_title">మీ ప్రకాశవంతం వినియోగ నమూనాలను రీసెట్ చేయాలా?</string>
+    <string name="reset_usage_pattern_dialog_summary">మీ ఫోన్‌ను రీసెట్ చేసిన తర్వాత మళ్లీ మీ ప్రకాశవంతం ప్రాధాన్యతలను అర్థం చేసుకోవడానికి ప్రయత్నిస్తుంది.</string>
     <string name="current_theme_font">ప్రస్తుతం డిఫాల్ట్ థీమ్ ఉంది</string>
     <string name="hbm_mode_on">సూర్యకాంతిలో ఉత్తమంగా వీక్షించడం కోసం గరిష్టీకరించబడింది</string>
     <string name="aod_detach_mobile_keyboard_toast">%sను ఉపయోగించడానికి, పరికరం నుండి కీబోర్డ్ కవర్‌ను తీసివేయండి.</string>
@@ -2722,6 +2727,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 మీరు ఎంచుకున్న ఆడియో పరికరం మీ ఫోన్ స్థాన ఆడియో అవుట్‌పుట్ పరికరానికి భిన్నంగా ఉన్నప్పుడు మాత్రమే భిన్నమైన అప్లికేషన్ ధ్వని పని చేస్తుంది.
 
 మీరు మీ ఫోన్ ప్రధాన ఆడియో అవుట్‌పుట్ పరికరాన్ని త్వరిత సెట్టింగ్‌ల ప్యానెల్‌లో మార్చవచ్చు. ఆడియో అవుట్‌పుట్ చూపబడకపోతే, Samsung Connect > సెట్టింగ్‌లు > Samsung Connect ప్యానెల్‌లో దీన్ని ఆన్ చేయండి."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"మీ ఫోన్ ప్రధాన ఆడియో అవుట్‌పుట్ పరికరం నుండి వేరు చేసిన ఆడియో పరికరంలోని ఒక అప్లికేషన్‌లో మీడియా ధ్వనిని ప్లే చేయండి. దీన్ని ఆన్ చేయడానికి అప్లికేషన్‌ని మరియు ఆడియో పరికరాన్ని ఎంచుకోండి.
+
+మీరు ఎంచుకున్న ఆడియో పరికరం మీ ఫోన్ ప్రధాన ఆడియో అవుట్‌పుట్ పరికరానికి భిన్నంగా ఉన్నప్పుడు మాత్రమే భిన్నమైన అప్లికేషన్ ధ్వని పని చేస్తుంది.
+
+మీరు Samsung Connectని ఇన్‌స్టాల్ చేసి ఉంటే, మీ ఫోన్ ప్రధాన ఆడియో అవుట్‌పుట్ పరికరాన్ని త్వరిత సెట్టింగ్‌ల ప్యానెల్‌లో మార్చవచ్చు. ఆడియో అవుట్‌పుట్ పరికరం చూపబడకపోతే, Samsung Connect > సెట్టింగ్‌లుకు వెళ్లి, Samsung Connect ప్యానెల్‌లను ఆన్ చేయండి."</string>
     <string name="set_application_title">అప్లికేషన్</string>
     <string name="set_application_summary">వేరొక ఆడియో పరికరంలో దీని ధ్వనిని ప్లే చేయడానికి అప్లికేషన్‌ని ఎంచుకోండి.</string>
     <string name="set_application_descryption">వేరొక ఆడియో పరికరంలో దీని ధ్వనిని ప్లే చేయడానికి కింది మల్టీమీడియా అప్లికేషన్‌ని ఎంచుకోండి.</string>

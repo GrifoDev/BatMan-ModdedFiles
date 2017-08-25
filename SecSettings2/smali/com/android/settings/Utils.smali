@@ -3255,7 +3255,7 @@
     :goto_1
     if-eqz v2, :cond_2
 
-    const v4, 0x7f0b07eb
+    const v4, 0x7f0b07f0
 
     invoke-virtual {p1, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3705,7 +3705,7 @@
 
     aput-object v6, v5, v11
 
-    const v6, 0x7f0b17e3
+    const v6, 0x7f0b17e9
 
     invoke-virtual {p0, v6, v5}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -3743,7 +3743,7 @@
 
     aput-object v6, v5, v10
 
-    const v6, 0x7f0b17e4
+    const v6, 0x7f0b17ea
 
     invoke-virtual {p0, v6, v5}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -3770,7 +3770,7 @@
 
     aput-object v6, v5, v9
 
-    const v6, 0x7f0b17e5
+    const v6, 0x7f0b17eb
 
     invoke-virtual {p0, v6, v5}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -3789,7 +3789,7 @@
 
     aput-object v6, v5, v8
 
-    const v6, 0x7f0b17e6
+    const v6, 0x7f0b17ec
 
     invoke-virtual {p0, v6, v5}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -3822,7 +3822,7 @@
 
     aput-object v6, v5, v10
 
-    const v6, 0x7f0b17e7
+    const v6, 0x7f0b17ed
 
     invoke-virtual {p0, v6, v5}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -4671,7 +4671,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v2, 0x7f0b113a
+    const v2, 0x7f0b1140
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -5261,13 +5261,13 @@
 
     iget v4, v2, Landroid/util/TypedValue;->resourceId:I
 
-    const v5, 0x7f0b1218
+    const v5, 0x7f0b121e
 
     if-eq v4, v5, :cond_0
 
     iget v4, v2, Landroid/util/TypedValue;->resourceId:I
 
-    const v5, 0x7f0b157d
+    const v5, 0x7f0b1583
 
     if-eq v4, v5, :cond_0
 
@@ -6865,13 +6865,13 @@
 .method public static getFontName(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
     .locals 7
 
-    const v6, 0x7f0b069f
+    const v6, 0x7f0b06a4
 
-    const v5, 0x7f0b069a
+    const v5, 0x7f0b069f
 
-    const v4, 0x7f0b0699
+    const v4, 0x7f0b069e
 
-    const v3, 0x7f0b0698
+    const v3, 0x7f0b069d
 
     if-eqz p1, :cond_0
 
@@ -6915,7 +6915,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0601
+    const v3, 0x7f0b0606
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -7048,7 +7048,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b069b
+    const v3, 0x7f0b06a0
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -7075,7 +7075,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b069c
+    const v3, 0x7f0b06a1
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -7102,7 +7102,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b06a0
+    const v3, 0x7f0b06a5
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -7129,7 +7129,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b06a1
+    const v3, 0x7f0b06a6
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -7156,7 +7156,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b06a2
+    const v3, 0x7f0b06a7
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -7183,7 +7183,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b069d
+    const v3, 0x7f0b06a2
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -7210,7 +7210,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b069e
+    const v3, 0x7f0b06a3
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -7354,7 +7354,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b06a3
+    const v3, 0x7f0b06a8
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -7487,7 +7487,7 @@
 
     move-result-object v20
 
-    const v21, 0x7f0b06b2
+    const v21, 0x7f0b06b7
 
     invoke-virtual/range {v20 .. v21}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -9078,7 +9078,7 @@
 
     if-eqz v3, :cond_1
 
-    const v3, 0x7f0b0c8e
+    const v3, 0x7f0b0c94
 
     invoke-virtual {p0, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -9212,7 +9212,7 @@
     :goto_1
     if-nez v2, :cond_2
 
-    const v0, 0x7f0b1b5b
+    const v0, 0x7f0b1b61
 
     :goto_2
     return v0
@@ -9230,12 +9230,12 @@
     :cond_2
     if-eqz v1, :cond_3
 
-    const v0, 0x7f0b1b59
+    const v0, 0x7f0b1b5f
 
     goto :goto_2
 
     :cond_3
-    const v0, 0x7f0b1b5a
+    const v0, 0x7f0b1b60
 
     goto :goto_2
 .end method
@@ -9942,7 +9942,7 @@
 
     if-ne p1, v1, :cond_0
 
-    const v0, 0x7f0b1bd3
+    const v0, 0x7f0b1bd9
 
     :goto_0
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
@@ -9956,7 +9956,7 @@
     return-object v1
 
     :cond_0
-    const v0, 0x7f0b1bd4
+    const v0, 0x7f0b1bda
 
     goto :goto_0
 .end method
@@ -10621,7 +10621,7 @@
 
     if-eqz v3, :cond_0
 
-    const v2, 0x7f0b0c50
+    const v2, 0x7f0b0c56
 
     :cond_0
     invoke-static {}, Landroid/os/UserHandle;->myUserId()I
@@ -10652,7 +10652,7 @@
 
     if-eqz v3, :cond_5
 
-    const v2, 0x7f0b0c4c
+    const v2, 0x7f0b0c52
 
     :cond_2
     :goto_2
@@ -10698,17 +10698,17 @@
 
     if-nez v3, :cond_8
 
-    const v2, 0x7f0b0c4c
+    const v2, 0x7f0b0c52
 
     goto :goto_2
 
     :cond_7
-    const v2, 0x7f0b0c4c
+    const v2, 0x7f0b0c52
 
     goto :goto_2
 
     :cond_8
-    const v2, 0x7f0b0c4e
+    const v2, 0x7f0b0c54
 
     goto :goto_2
 .end method
@@ -13884,7 +13884,7 @@
 .method public static getTetheringSummary(Landroid/content/Context;Landroid/net/ConnectivityManager;)I
     .locals 14
 
-    const v13, 0x7f0b0d2c
+    const v13, 0x7f0b0d32
 
     const/4 v12, -0x1
 
@@ -14056,7 +14056,7 @@
 
     if-eqz v6, :cond_d
 
-    const v10, 0x7f0b0d2d
+    const v10, 0x7f0b0d33
 
     return v10
 
@@ -14070,7 +14070,7 @@
     :cond_e
     if-eqz v8, :cond_f
 
-    const v10, 0x7f0b0d2e
+    const v10, 0x7f0b0d34
 
     return v10
 
@@ -14079,14 +14079,14 @@
 
     if-eqz v0, :cond_10
 
-    const v10, 0x7f0b0d31
+    const v10, 0x7f0b0d37
 
     return v10
 
     :cond_10
     if-eqz v6, :cond_11
 
-    const v10, 0x7f0b0d2f
+    const v10, 0x7f0b0d35
 
     return v10
 
@@ -14099,12 +14099,12 @@
 
     if-eqz v10, :cond_12
 
-    const v10, 0x7f0b0d3e
+    const v10, 0x7f0b0d44
 
     return v10
 
     :cond_12
-    const v10, 0x7f0b0d3d
+    const v10, 0x7f0b0d43
 
     return v10
 
@@ -22291,7 +22291,7 @@
     :cond_0
     iget v0, p0, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
-    const v1, 0x7f0b0c56
+    const v1, 0x7f0b0c5c
 
     if-ne v0, v1, :cond_1
 
@@ -22328,7 +22328,7 @@
     :cond_3
     iget v0, p0, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
-    const v1, 0x7f0b132a
+    const v1, 0x7f0b1330
 
     if-ne v0, v1, :cond_4
 
@@ -22343,7 +22343,7 @@
     :cond_4
     iget v0, p0, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
-    const v1, 0x7f0b178e
+    const v1, 0x7f0b1794
 
     if-ne v0, v1, :cond_5
 
@@ -23371,7 +23371,7 @@
 
     invoke-static {p2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0b0916
+    const v0, 0x7f0b091b
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -23408,7 +23408,7 @@
 
     invoke-static {p2, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0b07fb
+    const v0, 0x7f0b0800
 
     invoke-virtual {p0, v0}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -25159,36 +25159,13 @@
 .end method
 
 .method public static isSupportBioFaceFasterRecognition()Z
-    .locals 3
-
-    const/4 v0, 0x0
+    .locals 1
 
     invoke-static {}, Lcom/android/settings/Utils;->isSupportBioFace()Z
 
-    move-result v1
+    move-result v0
 
-    if-eqz v1, :cond_0
-
-    const-string/jumbo v1, "VZW"
-
-    invoke-static {}, Lcom/android/settings/Utils;->readSalesCode()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    :cond_0
-    :goto_0
     return v0
-
-    :cond_1
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method
 
 .method public static isSupportBixby()Z
@@ -26868,19 +26845,12 @@
 
     move-result v5
 
-    if-eqz v5, :cond_0
+    if-nez v5, :cond_0
 
-    invoke-static {}, Lcom/android/settings/Utils;->isTurVodaSIM()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_1
-
-    :cond_0
     const/4 v4, 0x0
 
-    :cond_1
-    if-eqz v4, :cond_3
+    :cond_0
+    if-eqz v4, :cond_2
 
     :try_start_0
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
@@ -26905,7 +26875,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_1
 
     new-instance v0, Landroid/content/ComponentName;
 
@@ -26915,14 +26885,14 @@
 
     invoke-direct {v0, v5, v6}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_2
+    :cond_1
     invoke-virtual {v3, v0}, Landroid/content/pm/PackageManager;->getComponentEnabledSetting(Landroid/content/ComponentName;)I
 
     move-result v1
 
     const/4 v5, 0x1
 
-    if-eq v1, v5, :cond_3
+    if-eq v1, v5, :cond_2
 
     const-string/jumbo v5, "WifiCalling"
 
@@ -26954,7 +26924,7 @@
 
     const/4 v4, 0x0
 
-    :cond_3
+    :cond_2
     :goto_0
     const-string/jumbo v5, "WifiCalling"
 
@@ -27708,7 +27678,7 @@
 
     move-result-object v47
 
-    const v48, 0x7f0b0ac9
+    const v48, 0x7f0b0ace
 
     move-object/from16 v0, v32
 
@@ -28139,7 +28109,7 @@
 
     move-result-object v47
 
-    const v48, 0x7f0b0dcd
+    const v48, 0x7f0b0dd3
 
     move-object/from16 v0, v32
 
@@ -28234,7 +28204,7 @@
 
     move-result-object v47
 
-    const v48, 0x7f0b0dc8
+    const v48, 0x7f0b0dce
 
     move-object/from16 v0, v32
 
@@ -28518,7 +28488,7 @@
 
     move-result-object v47
 
-    const v48, 0x7f0b0d3f
+    const v48, 0x7f0b0d45
 
     move-object/from16 v0, v32
 
@@ -28616,7 +28586,7 @@
 
     move-result-object v47
 
-    const v48, 0x7f0b0691
+    const v48, 0x7f0b0696
 
     move-object/from16 v0, v32
 
@@ -29057,7 +29027,7 @@
 
     move-result-object v47
 
-    const v48, 0x7f0b0ca3
+    const v48, 0x7f0b0ca9
 
     move-object/from16 v0, v32
 
@@ -29238,7 +29208,7 @@
 
     move-result-object v47
 
-    const v48, 0x7f0b17f8
+    const v48, 0x7f0b17fe
 
     move-object/from16 v0, v32
 
@@ -29490,7 +29460,7 @@
 
     move-result-object v47
 
-    const v48, 0x7f0b0666
+    const v48, 0x7f0b066b
 
     move-object/from16 v0, v32
 
@@ -29745,7 +29715,7 @@
 
     move-result-object v47
 
-    const v48, 0x7f0b0dca
+    const v48, 0x7f0b0dd0
 
     move-object/from16 v0, v32
 
@@ -29891,7 +29861,7 @@
 
     move-result-object v47
 
-    const v48, 0x7f0b0aa9
+    const v48, 0x7f0b0aae
 
     move-object/from16 v0, v32
 
@@ -30046,7 +30016,7 @@
 
     move-result-object v47
 
-    const v48, 0x7f0b0ca1
+    const v48, 0x7f0b0ca7
 
     move-object/from16 v0, v32
 
@@ -30114,7 +30084,7 @@
 
     move-result-object v47
 
-    const v48, 0x7f0b0ca2
+    const v48, 0x7f0b0ca8
 
     move-object/from16 v0, v32
 
@@ -30175,7 +30145,7 @@
 
     move-result-object v47
 
-    const v48, 0x7f0b0c93
+    const v48, 0x7f0b0c99
 
     move-object/from16 v0, v32
 
@@ -30409,24 +30379,6 @@
 
     :cond_5
     return v8
-.end method
-
-.method public static isTurVodaSIM()Z
-    .locals 2
-
-    const-string/jumbo v1, "gsm.sim.operator.numeric"
-
-    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string/jumbo v1, "28602"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    return v1
 .end method
 
 .method public static isUCMKeyguardEnabled()Z
@@ -31630,7 +31582,7 @@
 
     if-eqz v2, :cond_0
 
-    const v7, 0x7f0b178f
+    const v7, 0x7f0b1795
 
     :cond_0
     invoke-static/range {p0 .. p0}, Lcom/android/settings/Utils;->isSplitViewSupported(Landroid/content/Context;)Z

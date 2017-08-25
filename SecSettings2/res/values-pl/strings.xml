@@ -1360,6 +1360,11 @@ Należy również pamiętać, że Samsung może nadal zbierać informacje dotycz
 Dotknij OK, aby zezwolić na zwiększenie jasności powyżej bezpiecznego poziomu."</string>
     <string name="auto_adjust_brightness">Automatyczna jasność</string>
     <string name="auto_adjust_brightness_summary">Śledź dostosowania jasności ekranu i stosuj je automatycznie w podobnych warunkach oświetlenia.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Automatycznie dostosuj jasność ekranu na podstawie bieżących warunków oświetlenia.</string>
+    <string name="reset_usage_pattern_title">Resetuj wzorce użycia</string>
+    <string name="reset_usage_pattern_summary">Wyczyść historię dostosowywania jasności. Telefon zacznie ponownie uczyć się Twoich preferencji po zresetowaniu.</string>
+    <string name="reset_usage_pattern_dialog_title">Zresetować wzorce użycia jasności?</string>
+    <string name="reset_usage_pattern_dialog_summary">Po zresetowaniu telefon zacznie ponownie uczyć się Twoich preferencji jasności.</string>
     <string name="current_theme_font">Domyślne ustawienia bieżącego motywu</string>
     <string name="hbm_mode_on">Zmaksymaliz. dla najlepszego widoku w słońcu</string>
     <string name="aod_detach_mobile_keyboard_toast">Aby korzystać z opcji %s, zdejmij klawiaturę zewnętrzną z urządzenia.</string>
@@ -2722,6 +2727,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 Oddzielny dźwięk aplikacji działa, o ile wybrane urządzenie audio jest inne od głównego wyjściowego urządzenia audio telefonu.
 
 Możesz zmienić główne wyjściowe urządzenie audio telefonu w panelu szybkich ustawień. Jeśli wyjście audio nie jest pokazane, włącz je w panelu Samsung Connect > Ustawienia > Samsung Connect."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Odtwarzaj dźwięk multimediów z jednej aplikacji na urządzeniu audio oddzielonym od głównego wyjściowego urządzenia audio telefonu. Wybierz aplikację i urządzenie audio, aby włączyć tę funkcję.
+
+Oddzielny dźwięk aplikacji działa, gdy wybrane urządzenie audio jest inne od głównego wyjściowego urządzenia audio telefonu.
+
+Jeśli zainstalowano Samsung Connect, możesz zmienić główne wyjściowe urządzenie audio telefonu w panelu szybkich ustawień. Jeśli wyjściowe urządzenie audio nie jest widoczne, przejdź do Samsung Connect > Ustawienia, a następnie włącz panel Samsung Connect."</string>
     <string name="set_application_title">Aplikacja</string>
     <string name="set_application_summary">Wybierz aplikację, aby odtwarzać jej dźwięk na osobnym urządzeniu audio.</string>
     <string name="set_application_descryption">Wybierz poniżej aplikację multimediów, aby odtwarzać jej dźwięk na osobnym urządzeniu audio.</string>

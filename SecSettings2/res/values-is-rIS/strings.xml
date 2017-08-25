@@ -1361,6 +1361,11 @@ Hafðu einnig í huga að Samsung kann enn að safna upplýsingum um notkun þí
 Pikkaðu á Í LAGI til að gefa leyfi fyrir því að birtustig sé hækkað umfram öruggan styrk."</string>
     <string name="auto_adjust_brightness">Sjálfvirkt birtustig</string>
     <string name="auto_adjust_brightness_summary">Fylgst er með stillingum á birtustigi og þær notaðar sjálfkrafa í svipaðri lýsingu.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Stilla birtustig skjásins sjálfkrafa út frá núverandi birtuskilyrðum.</string>
+    <string name="reset_usage_pattern_title">Endurstilla notkunarmynstur</string>
+    <string name="reset_usage_pattern_summary">Hreinsa feril fyrir stillingu birtustigs. Síminn byrjar aftur að læra kjörstillingarnar eftir að hann er endurræstur.</string>
+    <string name="reset_usage_pattern_dialog_title">Viltu endurstilla notkun birtustigs?</string>
+    <string name="reset_usage_pattern_dialog_summary">Síminn byrjar aftur að læra kjörstillingarnar fyrir birtustig eftir að hann er endurræstur.</string>
     <string name="current_theme_font">Sjálfgildi virks þema</string>
     <string name="hbm_mode_on">Stilling sem hentar best í sólarljósi</string>
     <string name="aod_detach_mobile_keyboard_toast">Til að nota %s skaltu losa lyklaborðshlífina af tækinu.</string>
@@ -2725,6 +2730,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 Aðeins er hægt að aðskilja hljóð forrits þegar hljóðtækið sem þú velur er ekki það sama og aðalhljóðtæki símans.
 
 Hægt er að skipta um aðalhljóðtæki símans á flýtistillingaskjánum. Ef ekkert hljóðúttak er birt skaltu kveikja á því í „Samsung Connect > Stillingar > Samsung Connect-svæði“."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Spilaðu hljóðefni úr einu forriti í hljóðtæki sem er ekki hluti af aðalhljóðtæki símans. Veldu forrit og hljóðtæki til að kveikja á þessu.
+
+Aðeins er hægt að aðskilja hljóð forrits þegar hljóðtækið sem þú velur er ekki það sama og aðalhljóðtæki símans.
+
+Ef þú ert með Samsung Connect uppsett geturðu skipt um aðalhljóðtæki símans á flýtistillingaskjánum. Ef ekkert hljóðtæki er birt skaltu opna „Samsung Connect > Stillingar“ og kveikja svo á „Samsung Connect-svæði“."</string>
     <string name="set_application_title">Forrit</string>
     <string name="set_application_summary">Velja forrit til að spila hljóð úr því í aðskildu hljóðtæki.</string>
     <string name="set_application_descryption">Veldu margmiðlunarforrit hér að neðan til að spila hljóð úr því í aðskildu hljóðtæki.</string>

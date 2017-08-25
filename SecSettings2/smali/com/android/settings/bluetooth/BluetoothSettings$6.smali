@@ -53,7 +53,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b0949
+    const v3, 0x7f0b094e
 
     const/4 v6, 0x0
 
@@ -65,7 +65,7 @@
 
     iget-object v1, p0, Lcom/android/settings/bluetooth/BluetoothSettings$6;->this$0:Lcom/android/settings/bluetooth/BluetoothSettings;
 
-    invoke-static {v1}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get3(Lcom/android/settings/bluetooth/BluetoothSettings;)Ljava/lang/String;
+    invoke-static {v1}, Lcom/android/settings/bluetooth/BluetoothSettings;->-get4(Lcom/android/settings/bluetooth/BluetoothSettings;)Ljava/lang/String;
 
     move-result-object v1
 

@@ -1360,6 +1360,11 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
 ਚਮਕ ਨੂੰ ਸੁਰੱਖਿਅਤ ਸਤਰ ਤੋਂ ਅੱਗੇ ਵਧਾਉਣ ਦੀ ਆਗਿਆ ਦੇਣ ਲਈ “ਓਕੇ” ਟੈਪ ਕਰੋ।"</string>
     <string name="auto_adjust_brightness">ਸਵੈ ਚਮਕ</string>
     <string name="auto_adjust_brightness_summary">ਤੁਹਾਡੀ ਚਮਕ ਦੇ ਸਮਾਯੋਜਨ ਦਾ ਟ੍ਰੈਕ ਰੱਖਦਾ ਹੈ ਅਤੇ ਰੋਸ਼ਨੀ ਦੀਆਂ ਸਮਾਨ ਸਥਿਤੀਆਂ ਵਿੱਚ ਉਨ੍ਹਾਂ ਨੂੰ ਸਵੈਚਲਿਤ ਲਾਗੂ ਕਰਦਾ ਹੈ।</string>
+    <string name="auto_adjust_brightness_summary_nopac">ਰੋਸ਼ਨੀ ਦੀਆਂ ਮੌਜੂਦਾ ਸਥਿਤੀਆਂ ਦੇ ਅਨੁਸਾਰ ਸਕ੍ਰੀਨ ਦੀ ਚਮਕ ਨੂੰ ਸਵੈਚਲਿਤ ਸਮਾਯੋਜਿਤ ਕਰੋ।</string>
+    <string name="reset_usage_pattern_title">ਉਪਯੋਗ ਸ਼ੈਲੀਆਂ ਰੀਸੈੱਟ ਕਰੋ</string>
+    <string name="reset_usage_pattern_summary">ਆਪਣਾ ਚਮਕ ਸਮਾਯੋਜਨ ਇਤਿਹਾਸ ਸਾਫ਼ ਕਰੋ। ਰੀਸੈੱਟ ਕਰਨ ਤੋਂ ਬਾਅਦ ਤੁਹਾਡਾ ਫ਼ੋਨ ਤੁਹਾਡੀਆਂ ਤਰਜੀਹਾਂ ਬਾਰੇ ਦੁਬਾਰਾ ਸਿੱਖਣਾ ਸ਼ੁਰੂ ਕਰ ਦੇਵੇਗਾ।</string>
+    <string name="reset_usage_pattern_dialog_title">ਕੀ ਤੁਹਾਡੀਆਂ ਚਮਕ ਉਪਯੋਗ ਸ਼ੈਲੀਆਂ ਨੂੰ ਰੀਸੈੱਟ ਕਰਨਾ ਹੈ?</string>
+    <string name="reset_usage_pattern_dialog_summary">ਰੀਸੈੱਟ ਕਰਨ ਤੋਂ ਬਾਅਦ ਤੁਹਾਡਾ ਫ਼ੋਨ ਤੁਹਾਡੀ ਚਮਕ ਦੀਆਂ ਤਰਜੀਹਾਂ ਬਾਰੇ ਦੁਬਾਰਾ ਸਿੱਖਣਾ ਸ਼ੁਰੂ ਕਰ ਦੇਵੇਗਾ।</string>
     <string name="current_theme_font">ਮੌਜੂਦਾ ਥੀਮ ਦੇ ਡਿਫਾੱਲਟ</string>
     <string name="hbm_mode_on">ਧੁੱਪ ਵਿੱਚ ਸਰੇਸ਼ਠ ਦੇਖਣ ਲਈ ਵਧਾਇਆ ਗਿਆ ਹੈ</string>
     <string name="aod_detach_mobile_keyboard_toast">%s ਦੀ ਵਰਤੋਂ ਕਰਨ ਲਈ, ਕੀਬੋਰਡ ਕਵਰ ਨੂੰ ਡਿਵਾਈਸ ਤੋਂ ਡੀਟੈਚ ਕਰੋ।</string>
@@ -2722,6 +2727,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 ਵੱਖਰੀ ਐਪ ਧੁਨੀ ਸਿਰਫ ਉਦੋਂ ਕੰਮ ਕਰਦੀ ਹੈ ਜਦੋਂ ਤੁਹਾਡੇ ਦੁਆਰਾ ਚੁਣਿਆ ਗਿਆ ਆਡੀਓ ਡਿਵਾਈਸ ਤੁਹਾਡੇ ਫ਼ੋਨ ਦੇ ਮੁੱਖ ਆਡੀਓ ਆਉਟਪੁਟ ਡਿਵਾਈਸ ਤੋਂ ਵੱਖ ਹੁੰਦਾ ਹੈ।
 
 ਤੁਸੀਂ ਤੁਰੰਤ ਸੈੱਟਿੰਗਸ ਪੈਨਲ ਵਿੱਚ ਜਾ ਕੇ ਆਪਣੇ ਫ਼ੋਨ ਦੇ ਮੁੱਖ ਆਡੀਓ ਆਉਟਪੁਟ ਡਿਵਾਈਸ ਨੂੰ ਬਦਲ ਸਕਦੇ ਹੋ। ਜੇਕਰ ਆਡੀਓ ਆਉਟਪੁਟ ਦਿਖਾਈ ਨਹੀਂ ਜਾ ਰਹੀ, ਤਾਂ ਉਸ ਨੂੰ Samsung Connect > ਸੈੱਟਿੰਗਸ > Samsung Connect ਪੈਨਲ ਵਿੱਚ ਚਾਲੂ ਕਰੋ।"</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"ਆਪਣੇ ਫ਼ੋਨ ਦੇ ਮੁੱਖ ਆਡੀਓ ਆਉਟਪੁਟ ਡਿਵਾਈਸ ਤੋਂ ਵੱਖ ਕਿਸੇ ਹੋਰ ਆਡੀਓ ਡਿਵਾਈਸ ਤੇ ਇੱਕ ਐਪ ਦੀ ਮੀਡਿਆ ਧੁਨੀ ਪਲੇ ਕਰੋ। ਇਸ ਨੂੰ ਚਾਲੂ ਕਰਨ ਲਈ ਇੱਕ ਐਪ ਅਤੇ ਇੱਕ ਆਡੀਓ ਡਿਵਾਈਸ ਚੁਣੋ।
+
+ਵੱਖਰੀ ਐਪ ਧੁਨੀ ਸਿਰਫ ਉਦੋਂ ਕੰਮ ਕਰਦੀ ਹੈ ਜਦੋਂ ਤੁਹਾਡੇ ਦੁਆਰਾ ਚੁਣਿਆ ਗਿਆ ਆਡੀਓ ਡਿਵਾਈਸ ਤੁਹਾਡੇ ਫ਼ੋਨ ਦੇ ਮੁੱਖ ਆਡੀਓ ਆਉਟਪੁਟ ਡਿਵਾਈਸ ਤੋਂ ਵੱਖ ਹੁੰਦਾ ਹੈ।
+
+ਜੇਕਰ ਤੁਸੀਂ Samsung Connect ਸਥਾਪਿਤ ਕੀਤਾ ਹੋਇਆ ਹੈ, ਤਾਂ ਤੁਸੀਂ ਤੁਰੰਤ ਸੈੱਟਿੰਗਸ ਪੈਨਲ ਵਿੱਚ ਜਾ ਕੇ ਆਪਣੇ ਫ਼ੋਨ ਦੇ ਮੁੱਖ ਆਡੀਓ ਆਉਟਪੁਟ ਡਿਵਾਈਸ ਨੂੰ ਬਦਲ ਸਕਦੇ ਹੋ। ਜੇਕਰ ਆਡੀਓ ਆਉਟਪੁਟ ਡਿਵਾਈਸ ਦਿਖਾਈ ਨਹੀਂ ਦਿੰਦਾ, ਤਾਂ Samsung Connect > ਸੈੱਟਿੰਗਸ ਤੇ ਜਾਉ, ਫਿਰ Samsung Connect ਪੈਨਲ ਨੂੰ ਚਾਲੂ ਕਰੋ।"</string>
     <string name="set_application_title">ਐਪ</string>
     <string name="set_application_summary">ਐਪ ਦੀ ਧੁਨੀ ਨੂੰ ਵੱਖਰੇ ਆਡੀਓ ਡਿਵਾਈਸ ਤੇ ਪਲੇ ਕਰਨ ਲਈ ਉਸ ਐਪ ਨੂੰ ਚੁਣੋ।</string>
     <string name="set_application_descryption">ਐਪ ਦੀ ਧੁਨੀ ਨੂੰ ਵੱਖਰੇ ਆਡੀਓ ਡਿਵਾਈਸ ਤੇ ਪਲੇ ਕਰਨ ਲਈ ਹੇਠਾਂ ਦਿੱਤੀ ਮਲਟੀਮੀਡਿਆ ਐਪ ਨੂੰ ਚੁਣੋ।</string>

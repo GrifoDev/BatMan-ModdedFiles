@@ -1360,6 +1360,11 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
 مذکورہ محفوظ سطح میں بڑہائے گئے چمک کی اجازت کے لیے [ٹھیک ہے] پر تھپکی دیں۔"</string>
     <string name="auto_adjust_brightness">خودکار چمک</string>
     <string name="auto_adjust_brightness_summary">اپنے اجلا پن مطابق کو ٹریک میں رکھیں اور انہیں مشابہ روشنی کے حالات میں خودکار طورپر اطلاق کریں۔</string>
+    <string name="auto_adjust_brightness_summary_nopac">حالیہ روشنی کے شرائط کی بنیاد پر اسکرین کی چمک کو خودکار طورپر مطابق کریں۔</string>
+    <string name="reset_usage_pattern_title">استعمال کا نمونہ پھر سیٹ کریں</string>
+    <string name="reset_usage_pattern_summary">اپنے چمک کے مطابق کی ہسٹری صاف کریں۔ پھر سیٹ کرنے کے بعد آپ کا فون آپ کی کارکردگی دوبارہ سیکھنا شروع کرے گا۔</string>
+    <string name="reset_usage_pattern_dialog_title">اپنے چمک کے استعمال کا نمونہ پھر سیٹ کریں؟</string>
+    <string name="reset_usage_pattern_dialog_summary">پھر سیٹ کرنے کے بعد آپ کا فون آپ کی چمک کی کارکردگی دوبارہ سیکھنا شروع کرے گا۔</string>
     <string name="current_theme_font">موجودہ خیالیہ ڈیفالٹ ہے</string>
     <string name="hbm_mode_on">دھوپ میں اچھے سے دیکھنے کے لیے اضافہ کیا گیا</string>
     <string name="aod_detach_mobile_keyboard_toast">%s استعمال کرنے کے لیے، آلہ سے کی بورڈ کے سرورق کو غیر منسلک کریں۔</string>
@@ -2722,6 +2727,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 علیحدہ ایپلیکیشن کی آواز اسی وقت کام کرتا ہے جب آپ اپنے فون کے اصل آڈیو آؤٹ پٹ آلہ سے الگ کوئی آڈیو آلہ منتخب کرتے ہیں۔
 
 آپ اپنے فون کے اصل آڈیو آؤٹ پٹ آلہ کو فوری سیٹنگز پینل میں تبدیل کرسکتے ہیں۔ اگر آڈیو آؤٹ پٹ نہیں دکھ رہا ہے، تو اسے Samsung Connect &lt; سیٹنگز > Samsung Connect پینل میں آن کریں۔"</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"اپنے فون کی اصل آؤٹ پٹ آلہ سے ایک علیحدہ آڈیو آلہ پر ایک ایپلیکیشن سے میڈیا آواز پلے کریں۔ اسے آن کرنے کے لیے کوئی ایپلیکیشن اور آڈیو آلہ منتخب کریں۔
+
+علیحدہ ایپلیکیشن کی آواز اسی وقت کام کرتا ہے جب آپ اپنے فون کے اصل آڈیو آؤٹ پٹ آلہ سے الگ کوئی آڈیو آلہ منتخب کرتے ہیں۔
+
+آپ نے Samsung Connect تنصیب کیا ہوا ہے، تو آپ فون کے اصل آڈیو آؤٹ پٹ آلہ کو فوری سیٹنگز پینل میں تبدیل کرسکتے ہیں۔ اگر آڈیو آؤٹ پٹ آلہ دکھائی نہیں دے رہا ہے، تو Samsung Connect > سیٹنگز پر جائیں، پھر Samsung Connect پینل آن کریں۔"</string>
     <string name="set_application_title">ایپلیکیشن</string>
     <string name="set_application_summary">علیحدہ آڈیو آلہ پر اس کا ساؤنڈ پلے کرنے کے لیے کوئی ایپلیکیشن منتخب کریں۔</string>
     <string name="set_application_descryption">علیحدہ آڈیو آلہ پر اس کا ساؤنڈ پلے کرنے کے لیے ذیل میں کوئی ملٹی میڈیا ایپلیکیشن منتخب کریں۔</string>

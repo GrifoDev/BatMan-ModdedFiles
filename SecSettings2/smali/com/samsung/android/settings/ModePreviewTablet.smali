@@ -391,7 +391,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b067b
+    const v5, 0x7f0b0680
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/ModePreviewTablet;->getString(I)Ljava/lang/String;
 
@@ -401,7 +401,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b067c
+    const v5, 0x7f0b0681
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/ModePreviewTablet;->getString(I)Ljava/lang/String;
 
@@ -409,7 +409,7 @@
 
     new-array v6, v6, [Ljava/lang/Object;
 
-    const v7, 0x7f0b0692
+    const v7, 0x7f0b0697
 
     invoke-virtual {p0, v7}, Lcom/samsung/android/settings/ModePreviewTablet;->getString(I)Ljava/lang/String;
 
@@ -427,7 +427,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b1735
+    const v5, 0x7f0b173b
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/ModePreviewTablet;->getString(I)Ljava/lang/String;
 
@@ -441,7 +441,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b1734
+    const v5, 0x7f0b173a
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/ModePreviewTablet;->getString(I)Ljava/lang/String;
 
@@ -734,7 +734,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b06ba
+    const v2, 0x7f0b06bf
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -748,7 +748,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b06b9
+    const v2, 0x7f0b06be
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -762,7 +762,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b06bb
+    const v2, 0x7f0b06c0
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -776,7 +776,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b06bc
+    const v2, 0x7f0b06c1
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -837,7 +837,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0692
+    const v1, 0x7f0b0697
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -859,7 +859,7 @@
 
     iput-object p0, v6, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonListener:Landroid/content/DialogInterface$OnClickListener;
 
-    const v0, 0x7f0b12ea
+    const v0, 0x7f0b12f0
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/ModePreviewTablet;->getString(I)Ljava/lang/String;
 
@@ -867,7 +867,7 @@
 
     iput-object v0, v6, Lcom/android/internal/app/AlertController$AlertParams;->mNegativeButtonText:Ljava/lang/CharSequence;
 
-    const v0, 0x7f0b1734
+    const v0, 0x7f0b173a
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/ModePreviewTablet;->getString(I)Ljava/lang/String;
 

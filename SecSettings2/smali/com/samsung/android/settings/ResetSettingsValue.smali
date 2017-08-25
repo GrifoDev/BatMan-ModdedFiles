@@ -405,6 +405,31 @@
     return-void
 .end method
 
+.method private static readSalesCode()Ljava/lang/String;
+    .locals 2
+
+    const-string/jumbo v1, "ro.csc.sales_code"
+
+    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const-string/jumbo v1, "ril.sales_code"
+
+    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    :cond_0
+    return-object v0
+.end method
+
 .method private resetAccessibilitySettings()V
     .locals 12
 
@@ -898,6 +923,179 @@
     invoke-static {v1, v7, v10}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     goto/16 :goto_0
+.end method
+
+.method private resetBrightnessSettings()V
+    .locals 8
+
+    const/4 v4, 0x1
+
+    const-string/jumbo v5, "ResetSettingsValue"
+
+    const-string/jumbo v6, "reset Brightness Settings"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "SEC_FLOATING_FEATURE_LCD_CONFIG_CONTROL_AUTO_BRIGHTNESS"
+
+    const/4 v7, 0x2
+
+    invoke-virtual {v5, v6, v7}, Lcom/samsung/android/feature/SemFloatingFeature;->getInt(Ljava/lang/String;I)I
+
+    move-result v5
+
+    const/4 v6, 0x3
+
+    if-lt v5, v6, :cond_0
+
+    const-string/jumbo v5, "ResetSettingsValue"
+
+    const-string/jumbo v6, "reset Usage pattern"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v5, p0, Lcom/samsung/android/settings/ResetSettingsValue;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "power"
+
+    invoke-virtual {v5, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/os/PowerManager;
+
+    invoke-virtual {v3}, Landroid/os/PowerManager;->resetPersonalAutoBrightnessData()V
+
+    :cond_0
+    iget-object v5, p0, Lcom/samsung/android/settings/ResetSettingsValue;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v5
+
+    const v6, 0x10e0061
+
+    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v2
+
+    iget-object v5, p0, Lcom/samsung/android/settings/ResetSettingsValue;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "screen_brightness"
+
+    invoke-static {v5, v6, v2}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    const/4 v0, 0x0
+
+    iget-object v5, p0, Lcom/samsung/android/settings/ResetSettingsValue;->mContext:Landroid/content/Context;
+
+    invoke-static {v5}, Lcom/android/settings/Utils;->isSupportLightSensor(Landroid/content/Context;)Z
+
+    move-result v0
+
+    iget-object v5, p0, Lcom/samsung/android/settings/ResetSettingsValue;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v5
+
+    const v6, 0x1120023
+
+    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result v1
+
+    const-string/jumbo v5, "ResetSettingsValue"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v7, "automaticAvailable= "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string/jumbo v7, ", config_val= "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v5, "MTR"
+
+    invoke-static {}, Lcom/samsung/android/settings/ResetSettingsValue;->readSalesCode()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    iget-object v5, p0, Lcom/samsung/android/settings/ResetSettingsValue;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "screen_brightness_mode"
+
+    invoke-static {v5, v6, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    :goto_0
+    return-void
+
+    :cond_1
+    iget-object v5, p0, Lcom/samsung/android/settings/ResetSettingsValue;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v5}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v5
+
+    const-string/jumbo v6, "screen_brightness_mode"
+
+    if-eqz v0, :cond_2
+
+    if-eqz v1, :cond_2
+
+    :goto_1
+    invoke-static {v5, v6, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    goto :goto_0
+
+    :cond_2
+    const/4 v4, 0x0
+
+    goto :goto_1
 .end method
 
 .method private resetSpenSettings()V
@@ -3039,6 +3237,8 @@
     invoke-static {v6, v7, v10}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     :cond_6
+    invoke-direct {p0}, Lcom/samsung/android/settings/ResetSettingsValue;->resetBrightnessSettings()V
+
     iget-object v6, p0, Lcom/samsung/android/settings/ResetSettingsValue;->mContext:Landroid/content/Context;
 
     invoke-virtual {v6}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;

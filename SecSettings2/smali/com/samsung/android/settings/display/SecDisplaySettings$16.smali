@@ -38,7 +38,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/display/SecDisplaySettings$16;->this$0:Lcom/samsung/android/settings/display/SecDisplaySettings;
 
-    invoke-static {v2}, Lcom/samsung/android/settings/display/SecDisplaySettings;->-get1(Lcom/samsung/android/settings/display/SecDisplaySettings;)Landroid/preference/SwitchPreference;
+    invoke-static {v2}, Lcom/samsung/android/settings/display/SecDisplaySettings;->-get1(Lcom/samsung/android/settings/display/SecDisplaySettings;)Lcom/android/settings/SecSettingsSwitchPreference;
 
     move-result-object v2
 
@@ -58,7 +58,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/display/SecDisplaySettings$16;->this$0:Lcom/samsung/android/settings/display/SecDisplaySettings;
 
-    invoke-static {v2}, Lcom/samsung/android/settings/display/SecDisplaySettings;->-get1(Lcom/samsung/android/settings/display/SecDisplaySettings;)Landroid/preference/SwitchPreference;
+    invoke-static {v2}, Lcom/samsung/android/settings/display/SecDisplaySettings;->-get1(Lcom/samsung/android/settings/display/SecDisplaySettings;)Lcom/android/settings/SecSettingsSwitchPreference;
 
     move-result-object v2
 
@@ -67,7 +67,7 @@
     const/4 v1, 0x1
 
     :cond_0
-    invoke-virtual {v2, v1}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v2, v1}, Lcom/android/settings/SecSettingsSwitchPreference;->setChecked(Z)V
 
     :cond_1
     return-void

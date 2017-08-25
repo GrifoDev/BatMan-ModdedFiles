@@ -122,7 +122,7 @@
 
     invoke-direct {v1, p0}, Lcom/samsung/android/settings/DockSettings$3;-><init>(Lcom/samsung/android/settings/DockSettings;)V
 
-    const v2, 0x7f0b06a5
+    const v2, 0x7f0b06aa
 
     invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -786,7 +786,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/DockSettings;->mCoverInfomation:Landroid/preference/PreferenceScreen;
 
-    const v2, 0x7f0b09f3
+    const v2, 0x7f0b09f8
 
     invoke-virtual {v1, v2}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -795,7 +795,7 @@
     :cond_17
     iget-object v1, p0, Lcom/samsung/android/settings/DockSettings;->mCoverInfomation:Landroid/preference/PreferenceScreen;
 
-    const v2, 0x7f0b09f2
+    const v2, 0x7f0b09f7
 
     invoke-virtual {v1, v2}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -853,7 +853,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/DockSettings;->mFastWirelessCharging:Landroid/preference/SwitchPreference;
 
-    const v2, 0x7f0b0cfb
+    const v2, 0x7f0b0d01
 
     invoke-virtual {v1, v2}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -867,7 +867,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/DockSettings;->mFastWirelessCharging:Landroid/preference/SwitchPreference;
 
-    const v2, 0x7f0b0cfe
+    const v2, 0x7f0b0d04
 
     invoke-virtual {v1, v2}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -889,7 +889,7 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f080068
+    const v0, 0x7f080069
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/DockSettings;->addPreferencesFromResource(I)V
 
@@ -1134,7 +1134,7 @@
 
     if-eqz v0, :cond_a
 
-    const v6, 0x7f0b1bd3
+    const v6, 0x7f0b1bd9
 
     :goto_1
     invoke-virtual {v7, v6}, Lcom/android/settingslib/SecRestrictedSettingsSwitchPreference;->setSummary(I)V
@@ -1159,7 +1159,7 @@
     goto/16 :goto_0
 
     :cond_a
-    const v6, 0x7f0b09f5
+    const v6, 0x7f0b09fa
 
     goto :goto_1
 .end method
@@ -1465,7 +1465,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0a06
+    const v11, 0x7f0b0a0b
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1485,7 +1485,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0cb7
+    const v11, 0x7f0b0cbd
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1557,7 +1557,7 @@
 
     if-eqz v0, :cond_c
 
-    const v7, 0x7f0b1bd3
+    const v7, 0x7f0b1bd9
 
     :goto_4
     invoke-virtual {v10, v7}, Lcom/android/settingslib/SecRestrictedSettingsSwitchPreference;->setSummary(I)V
@@ -1705,7 +1705,7 @@
     goto/16 :goto_3
 
     :cond_c
-    const v7, 0x7f0b09f5
+    const v7, 0x7f0b09fa
 
     goto/16 :goto_4
 

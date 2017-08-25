@@ -296,7 +296,7 @@
 
     invoke-virtual {v0, v11}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
 
-    const v10, 0x7f0b1bd4
+    const v10, 0x7f0b1bda
 
     :cond_3
     :goto_1
@@ -347,7 +347,7 @@
 
     if-eqz v0, :cond_6
 
-    const v10, 0x7f0b1bd3
+    const v10, 0x7f0b1bd9
 
     :goto_2
     iget-object v0, p0, Lcom/samsung/android/settings/nfc/NfcOsaifukeitaiSettingsSBM;->mNfcOsaifuSettingsData:Lcom/samsung/android/settings/nfc/NfcOsaifukeitaiSettingsData;
@@ -377,7 +377,7 @@
     goto :goto_1
 
     :cond_6
-    const v10, 0x7f0b1bd4
+    const v10, 0x7f0b1bda
 
     goto :goto_2
 
@@ -498,7 +498,7 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0b1160
+    const v0, 0x7f0b1166
 
     :goto_0
     if-eqz v0, :cond_1
@@ -527,12 +527,12 @@
 
     if-gt p1, v5, :cond_3
 
-    const v0, 0x7f0b1170
+    const v0, 0x7f0b1176
 
     goto :goto_0
 
     :cond_3
-    const v0, 0x7f0b1172
+    const v0, 0x7f0b1178
 
     goto :goto_0
 
@@ -541,7 +541,7 @@
 
     if-gt p1, v5, :cond_5
 
-    const v0, 0x7f0b1171
+    const v0, 0x7f0b1177
 
     goto :goto_0
 
@@ -550,52 +550,52 @@
 
     if-ne p2, v3, :cond_6
 
-    const v0, 0x7f0b115d
+    const v0, 0x7f0b1163
 
     goto :goto_0
 
     :cond_6
     if-ne p2, v7, :cond_7
 
-    const v0, 0x7f0b1186
+    const v0, 0x7f0b118c    # 1.848538E38f
 
     goto :goto_0
 
     :cond_7
     if-ne p2, v6, :cond_8
 
-    const v0, 0x7f0b1187
+    const v0, 0x7f0b118d
 
     goto :goto_0
 
     :cond_8
-    const v0, 0x7f0b115e
+    const v0, 0x7f0b1164
 
     goto :goto_0
 
     :cond_9
     if-ne p2, v3, :cond_a
 
-    const v0, 0x7f0b115f
+    const v0, 0x7f0b1165
 
     goto :goto_0
 
     :cond_a
     if-ne p2, v7, :cond_b
 
-    const v0, 0x7f0b1188
+    const v0, 0x7f0b118e
 
     goto :goto_0
 
     :cond_b
     if-ne p2, v6, :cond_c
 
-    const v0, 0x7f0b1189
+    const v0, 0x7f0b118f
 
     goto :goto_0
 
     :cond_c
-    const v0, 0x7f0b1160
+    const v0, 0x7f0b1166
 
     goto :goto_0
 .end method
@@ -748,7 +748,7 @@
 
     invoke-virtual {v0, v2}, Landroid/preference/PreferenceScreen;->setEnabled(Z)V
 
-    const v11, 0x7f0b1bd4
+    const v11, 0x7f0b1bda
 
     :cond_5
     :goto_2
@@ -830,7 +830,7 @@
 
     invoke-static {v0, v2}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v11, 0x7f0b1bd4
+    const v11, 0x7f0b1bda
 
     goto :goto_2
 
@@ -845,7 +845,7 @@
 
     invoke-static {v0, v2}, Landroid/util/secutil/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v11, 0x7f0b1bd3
+    const v11, 0x7f0b1bd9
 
     goto :goto_2
 
@@ -866,7 +866,7 @@
 
     if-ne v10, v0, :cond_a
 
-    const v11, 0x7f0b1bd3
+    const v11, 0x7f0b1bd9
 
     goto :goto_2
 
@@ -875,7 +875,7 @@
 
     if-ne v10, v0, :cond_b
 
-    const v11, 0x7f0b1bd4
+    const v11, 0x7f0b1bda
 
     goto :goto_2
 

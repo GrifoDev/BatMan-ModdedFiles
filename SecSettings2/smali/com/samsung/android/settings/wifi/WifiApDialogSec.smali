@@ -3284,7 +3284,7 @@
 
     iget-object v8, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mContext:Landroid/content/Context;
 
-    const v9, 0x7f0b1037
+    const v9, 0x7f0b103d
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3923,7 +3923,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f0b145d
+    const v19, 0x7f0b1463
 
     invoke-virtual/range {v18 .. v19}, Landroid/widget/EditText;->setHint(I)V
 
@@ -4039,7 +4039,7 @@
 
     move-object/from16 v19, v0
 
-    const v20, 0x7f0b0f1f
+    const v20, 0x7f0b0f25
 
     invoke-static/range {v19 .. v20}, Lcom/samsung/android/settings/WifiApUtils;->getString(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -4201,7 +4201,7 @@
 
     move-result-object v19
 
-    const v20, 0x7f0b1208
+    const v20, 0x7f0b120e
 
     invoke-virtual/range {v19 .. v20}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4591,7 +4591,7 @@
 
     :cond_0
     :goto_0
-    const v18, 0x7f0b148c
+    const v18, 0x7f0b1492
 
     move/from16 v0, v18
 
@@ -4617,7 +4617,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
 
-    const v18, 0x7f0b148e
+    const v18, 0x7f0b1494
 
     move/from16 v0, v18
 
@@ -4697,7 +4697,7 @@
 
     move-object/from16 v19, v0
 
-    const v20, 0x7f0b103b
+    const v20, 0x7f0b1041
 
     invoke-static/range {v19 .. v20}, Lcom/samsung/android/settings/WifiApUtils;->getString(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -5911,7 +5911,7 @@
 
     move-object/from16 v19, v0
 
-    const v20, 0x7f0b1036
+    const v20, 0x7f0b103c
 
     invoke-static/range {v19 .. v20}, Lcom/samsung/android/settings/WifiApUtils;->getString(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -6553,7 +6553,7 @@
 
     if-nez v4, :cond_3
 
-    const v4, 0x7f0b0ec6
+    const v4, 0x7f0b0ecc
 
     invoke-virtual {v1, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -6733,7 +6733,7 @@
 
     if-nez v4, :cond_7
 
-    const v4, 0x7f0b0ec6
+    const v4, 0x7f0b0ecc
 
     invoke-virtual {v1, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -7381,7 +7381,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b0f7c
+    const v3, 0x7f0b0f82
 
     invoke-static {v2, v3}, Lcom/samsung/android/settings/WifiApUtils;->getString(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -7391,7 +7391,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/wifi/WifiApDialogSec;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b0f7a
+    const v3, 0x7f0b0f80
 
     invoke-static {v2, v3}, Lcom/samsung/android/settings/WifiApUtils;->getString(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -7407,7 +7407,7 @@
 
     invoke-direct {v2, p0}, Lcom/samsung/android/settings/wifi/WifiApDialogSec$6;-><init>(Lcom/samsung/android/settings/wifi/WifiApDialogSec;)V
 
-    const v3, 0x7f0b1734
+    const v3, 0x7f0b173a
 
     invoke-virtual {v0, v3, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

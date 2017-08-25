@@ -70,9 +70,9 @@
 .end method
 
 .method public onRemovalSucceeded(Lcom/samsung/android/bio/face/Face;)V
-    .locals 3
+    .locals 4
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     const-string/jumbo v0, "ChooseLockGenericFragment"
 
@@ -92,7 +92,7 @@
 
     const-string/jumbo v1, "face_without_swipe_to_unlock"
 
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v0, v1, v3}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     invoke-static {}, Lcom/android/settings/Utils;->isSupportBioFaceFasterRecognition()Z
 
@@ -110,7 +110,9 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "face_recognition_speed_up"
+    const-string/jumbo v1, "face_faster_recognition"
+
+    const/4 v2, 0x2
 
     invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
@@ -127,7 +129,7 @@
 
     const-string/jumbo v1, "face_screen_lock"
 
-    invoke-static {v0, v1, v2}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+    invoke-static {v0, v1, v3}, Landroid/provider/Settings$Secure;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     return-void
 .end method

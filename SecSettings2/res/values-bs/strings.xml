@@ -1231,6 +1231,11 @@ Imajte na umu da Samsung i dalje može prikupljati informacije o korištenju mob
 Dodirnite OK da biste dozvolili povećanje osvjetljenja iznad sigurnog nivoa."</string>
     <string name="auto_adjust_brightness">Automatsko osvjetljenje</string>
     <string name="auto_adjust_brightness_summary">Vodite evidenciju o prilagođavanjima osvijetljenosti i primijenite ih automatski u sličnim uvjetima osvjetljenja.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Automatski prilagodite osvijetljenost ekrana na osnovu trenutnih uvjeta osvjetljenja.</string>
+    <string name="reset_usage_pattern_title">Pon. postavi obrasce korištenja</string>
+    <string name="reset_usage_pattern_summary">Obrišite historiju prilagođavanja osvjetljenja. Telefon će ponovno naučiti vaše preference nakon ponovnog postavljanja.</string>
+    <string name="reset_usage_pattern_dialog_title">Pon. post. obrazaca korišt. osvjetljenja?</string>
+    <string name="reset_usage_pattern_dialog_summary">Telefon će ponovno naučiti vaše preference za osvjetljenje nakon ponovnog postavljanja.</string>
     <string name="current_theme_font">Zadane postavke trenutne teme</string>
     <string name="hbm_mode_on">Maks. uvećano za najbolji prikaz na suncu</string>
     <string name="aod_detach_mobile_keyboard_toast">Da biste koristili %s, uklonite omot tastature sa uređaja.</string>
@@ -2593,6 +2598,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 Odvojeni zvuk aplikacije funkcioniše samo kada se izabrani audio uređaj razlikuje od glavnog uređaja za izlaz zvuka na vašem telefonu.
 
 Možete promijeniti glavni uređaj za izlaz zvuka na telefonu na tabli brzih postavki. Ako izlaz za zvuk nije prikazan, uključite ga u opcijama Samsung Connect > Postavke > Samsung Connect tabla."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Reprodukujte zvuk medija iz aplikacije na audio uređaj koji je odvojen od glavnog uređaja za izlaz zvuka na vašem telefonu. Izaberite aplikaciju i audio uređaj da uključite ovu funkciju.
+
+Odvojeni zvuk aplikacije funkcioniše samo kada se izabrani audio uređaj razlikuje od glavnog uređaja za izlaz zvuka na vašem telefonu.
+
+Ako vam je instaliran Samsung Connect, možete promijeniti glavni uređaj za izlaz zvuka na telefonu na tabli brzih postavki. Ako uređaj za izlaz zvuka nije prikazan, idite u opcije Samsung Connect > Postavke, zatim uključite Samsung Connect tablu."</string>
     <string name="set_application_title">Aplikacija</string>
     <string name="set_application_summary">Izaberite aplikaciju za reprodukciju njenog zvuka na odvojenom audio uređaju.</string>
     <string name="set_application_descryption">Izaberite multimedijalnu aplikaciju ispod za reprodukciju njenog zvuka na odvojenom audio uređaju.</string>

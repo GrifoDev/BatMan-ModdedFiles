@@ -75,7 +75,7 @@
 
     if-eqz v4, :cond_3
 
-    const v4, 0x7f0b1a38
+    const v4, 0x7f0b1a3e
 
     :goto_0
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
@@ -84,7 +84,7 @@
 
     iput-object v4, v0, Lcom/android/settings/search/SearchIndexableRaw;->title:Ljava/lang/String;
 
-    const v4, 0x7f0b1a36
+    const v4, 0x7f0b1a3c
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -98,7 +98,7 @@
     return-object v2
 
     :cond_3
-    const v4, 0x7f0b1a39
+    const v4, 0x7f0b1a3f
 
     goto :goto_0
 .end method

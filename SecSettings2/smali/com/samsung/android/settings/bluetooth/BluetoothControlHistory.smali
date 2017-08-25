@@ -1007,7 +1007,7 @@
 
     invoke-super {p0, p1}, Landroid/preference/PreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f080032
+    const v0, 0x7f080033
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/bluetooth/BluetoothControlHistory;->addPreferencesFromResource(I)V
 
@@ -1258,7 +1258,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b16fb
+    const v3, 0x7f0b1701
 
     move-object v5, v4
 

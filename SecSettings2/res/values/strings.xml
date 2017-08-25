@@ -1629,6 +1629,11 @@ Please also bear in mind that Samsung may still collect information about your u
 Tap OK to allow the brightness to be increased above safe levels."</string>
     <string name="auto_adjust_brightness">Auto brightness</string>
     <string name="auto_adjust_brightness_summary">Keep track of your brightness adjustments and apply them automatically in similar lighting conditions.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Adjust the screen brightness automatically based on the current lighting conditions.</string>
+    <string name="reset_usage_pattern_title">Reset usage patterns</string>
+    <string name="reset_usage_pattern_summary">Clear your brightness adjustment history. Your phone will begin learning your preferences again after the reset.</string>
+    <string name="reset_usage_pattern_dialog_title">Reset your brightness usage patterns?</string>
+    <string name="reset_usage_pattern_dialog_summary">Your phone will begin learning your brightness preferences again after the reset.</string>
     <string name="current_theme_font">"Current theme's default"</string>
     <string name="auto_brightness">Auto brightness</string>
     <string name="hbm_mode_on">Maximised for best viewing in sunlight</string>
@@ -3185,6 +3190,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 Separate app sound only works when the audio device you select is different from your phone's main audio output device.
 
 You can change your phone's main audio output device in the quick settings panel. If audio output isn't shown, turn it on in Samsung Connect > Settings > Samsung Connect panel."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Play media sound from one app on an audio device separate from your phone's main audio output device. Select an app and audio device to turn this on.
+
+Separate app sound only works when the audio device you select is different from your phone's main audio output device.
+
+If you have Samsung Connect installed, you can change your phone's main audio output device in the quick settings panel. If the audio output device isn't shown, go to Samsung Connect > Settings, then turn on Samsung Connect panel."</string>
     <string name="set_application_title">App</string>
     <string name="set_application_summary">Select an app to play its sound on a separate audio device.</string>
     <string name="set_application_descryption">Select a multimedia app below to play its sound on a separate audio device.</string>
@@ -8063,6 +8073,12 @@ To ensure the most up-to-date protection, enable automatic updates by accepting 
     <string name="msa_msg_connect_to_mobile_network">No Wi-Fi networks are available. Tap OK to connect to a mobile network instead. Connecting to mobile networks may result in additional charges depending on your payment plan.</string>
     <string name="msa_btn_accept">Accept</string>
     <string name="msa_btn_decline">Decline</string>
+    <string name="autostarts_title">Autostart</string>
+    <string name="autostarts_progress_msg">Please wait...</string>
+    <string name="autostarts_empty_msg">No autostart applications found</string>
+    <string name="autostarts_optimize_empty_msg">No disabled items found</string>
+    <string name="autostarts_optimize_btn_title">Hide disabled</string>
+    <string name="autostarts_all_btn_title">Show disabled</string>
     <string name="device_info">Device Information</string>
     <string name="rom_info">Information About ROM</string>
     <string name="rom_name">Rom Name</string>
@@ -8073,12 +8089,6 @@ To ensure the most up-to-date protection, enable automatic updates by accepting 
     <string name="rom_date_details">15.08.17</string>
     <string name="rom_developer">Rom Developer</string>
     <string name="rom_developer_name">Tkkg1994</string>
-    <string name="autostarts_title">Autostarts</string>
-    <string name="autostarts_progress_msg">Please wait...</string>
-    <string name="autostarts_empty_msg">No autostrart applications found</string>
-    <string name="autostarts_optimize_empty_msg">No disabled items found</string>
-    <string name="autostarts_optimize_btn_title">Hide disabled</string>
-    <string name="autostarts_all_btn_title">Show disabled</string>
     <string name="led_indicator_charging">Charging</string>
     <string name="led_indicator_charging_summary">Light up the red LED when the device is charging while the screen is off.</string>
     <string name="led_indicator_notifications">Notifications</string>

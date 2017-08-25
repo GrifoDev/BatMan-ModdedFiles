@@ -85,7 +85,7 @@
 
 .field private final mAlwaysOnScreenObserver:Landroid/database/ContentObserver;
 
-.field private mAutoBrightnessPreference:Landroid/preference/SwitchPreference;
+.field private mAutoBrightnessPreference:Lcom/android/settings/SecSettingsSwitchPreference;
 
 .field private mAutoLockmode:Landroid/preference/SwitchPreference;
 
@@ -237,10 +237,10 @@
     return-object v0
 .end method
 
-.method static synthetic -get1(Lcom/samsung/android/settings/display/SecDisplaySettings;)Landroid/preference/SwitchPreference;
+.method static synthetic -get1(Lcom/samsung/android/settings/display/SecDisplaySettings;)Lcom/android/settings/SecSettingsSwitchPreference;
     .locals 1
 
-    iget-object v0, p0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mAutoBrightnessPreference:Landroid/preference/SwitchPreference;
+    iget-object v0, p0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mAutoBrightnessPreference:Lcom/android/settings/SecSettingsSwitchPreference;
 
     return-object v0
 .end method
@@ -1200,7 +1200,7 @@
 
     aput-object v20, v19, v21
 
-    const v20, 0x7f0b0a14
+    const v20, 0x7f0b0a19
 
     move-object/from16 v0, p0
 
@@ -1448,7 +1448,7 @@
 
     iget-object v14, v0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mContext:Landroid/content/Context;
 
-    const v15, 0x7f0b0684
+    const v15, 0x7f0b0689
 
     invoke-virtual {v14, v15}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1643,7 +1643,7 @@
 
     iget-object v14, v0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mContext:Landroid/content/Context;
 
-    const v15, 0x7f0b0683
+    const v15, 0x7f0b0688
 
     invoke-virtual {v14, v15}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1656,7 +1656,7 @@
 
     iget-object v14, v0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mContext:Landroid/content/Context;
 
-    const v15, 0x7f0b0682
+    const v15, 0x7f0b0687
 
     invoke-virtual {v14, v15}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1787,7 +1787,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x7f0b153e
+    const v7, 0x7f0b1544
 
     invoke-virtual {p0, v7, v6}, Lcom/samsung/android/settings/display/SecDisplaySettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2810,7 +2810,7 @@
     :cond_1
     iget-object v4, p0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0b17f8
+    const v5, 0x7f0b17fe
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2826,7 +2826,7 @@
 
     invoke-direct {p0}, Lcom/samsung/android/settings/display/SecDisplaySettings;->dismissAllDialog()V
 
-    const v3, 0x7f0b0691
+    const v3, 0x7f0b0696
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/display/SecDisplaySettings;->getString(I)Ljava/lang/String;
 
@@ -2928,7 +2928,7 @@
 
     invoke-direct {p0}, Lcom/samsung/android/settings/display/SecDisplaySettings;->dismissAllDialog()V
 
-    const v2, 0x7f0b0691
+    const v2, 0x7f0b0696
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/display/SecDisplaySettings;->getString(I)Ljava/lang/String;
 
@@ -3275,7 +3275,7 @@
 
     if-eqz v4, :cond_8
 
-    const v4, 0x7f0b1bd3
+    const v4, 0x7f0b1bd9
 
     :goto_5
     invoke-virtual {v5, v4}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setSummary(I)V
@@ -3283,7 +3283,7 @@
     goto :goto_4
 
     :cond_8
-    const v4, 0x7f0b1bd4
+    const v4, 0x7f0b1bda
 
     goto :goto_5
 .end method
@@ -3494,7 +3494,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0b066f
+    const v6, 0x7f0b0674
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3531,7 +3531,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0b0675
+    const v6, 0x7f0b067a
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3546,7 +3546,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0b0676
+    const v6, 0x7f0b067b
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3561,7 +3561,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0b0670
+    const v6, 0x7f0b0675
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3605,7 +3605,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mEasyModePreference:Lcom/samsung/android/settings/display/DisplayDisabledAppearancePreference;
 
-    const v2, 0x7f0b06dd
+    const v2, 0x7f0b06e2
 
     invoke-virtual {v1, v2}, Lcom/samsung/android/settings/display/DisplayDisabledAppearancePreference;->setSummary(I)V
 
@@ -3621,7 +3621,7 @@
     :cond_2
     iget-object v1, p0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mEasyModePreference:Lcom/samsung/android/settings/display/DisplayDisabledAppearancePreference;
 
-    const v2, 0x7f0b06de
+    const v2, 0x7f0b06e3
 
     invoke-virtual {v1, v2}, Lcom/samsung/android/settings/display/DisplayDisabledAppearancePreference;->setSummary(I)V
 
@@ -3680,7 +3680,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0b0642
+    const v2, 0x7f0b0647
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3846,7 +3846,7 @@
 
     if-eqz v2, :cond_6
 
-    const v3, 0x7f0b0631
+    const v3, 0x7f0b0636
 
     :goto_2
     invoke-virtual {v4, v3}, Landroid/preference/PreferenceScreen;->setSummary(I)V
@@ -3867,7 +3867,7 @@
     goto :goto_1
 
     :cond_6
-    const v3, 0x7f0b0632
+    const v3, 0x7f0b0637
 
     goto :goto_2
 .end method
@@ -3889,7 +3889,7 @@
 
     if-eqz v1, :cond_1
 
-    const v1, 0x7f0b068e
+    const v1, 0x7f0b0693
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/display/SecDisplaySettings;->getString(I)Ljava/lang/String;
 
@@ -3928,7 +3928,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b068d
+    const v2, 0x7f0b0692
 
     invoke-virtual {p0, v2, v1}, Lcom/samsung/android/settings/display/SecDisplaySettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -3940,13 +3940,13 @@
 .method private updateScreenModeSummary()V
     .locals 8
 
-    const v7, 0x7f0b06bc
+    const v7, 0x7f0b06c1
 
-    const v6, 0x7f0b06bb
+    const v6, 0x7f0b06c0
 
-    const v5, 0x7f0b06b9
+    const v5, 0x7f0b06be
 
-    const v4, 0x7f0b06ba
+    const v4, 0x7f0b06bf
 
     const/4 v3, 0x1
 
@@ -4027,7 +4027,7 @@
     :pswitch_5
     iget-object v1, p0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mScreenMode:Landroid/preference/PreferenceScreen;
 
-    const v2, 0x7f0b06b5
+    const v2, 0x7f0b06ba
 
     invoke-virtual {v1, v2}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -4172,7 +4172,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mScreenSaverPreference:Lcom/samsung/android/settings/SettingsSwitchPreference;
 
-    const v2, 0x7f0b0c95
+    const v2, 0x7f0b0c9b
 
     invoke-virtual {v1, v2}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setSummary(I)V
 
@@ -4181,7 +4181,7 @@
     :cond_2
     iget-object v1, p0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mScreenSaverPreference:Lcom/samsung/android/settings/SettingsSwitchPreference;
 
-    const v2, 0x7f0b0c96
+    const v2, 0x7f0b0c9c
 
     invoke-virtual {v1, v2}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setSummary(I)V
 
@@ -4230,7 +4230,7 @@
 
     invoke-direct {p0}, Lcom/samsung/android/settings/display/SecDisplaySettings;->updateBlueLightFilterSummary()V
 
-    iget-object v2, p0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mAutoBrightnessPreference:Landroid/preference/SwitchPreference;
+    iget-object v2, p0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mAutoBrightnessPreference:Lcom/android/settings/SecSettingsSwitchPreference;
 
     if-eqz v2, :cond_0
 
@@ -4244,14 +4244,14 @@
 
     move-result v0
 
-    iget-object v5, p0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mAutoBrightnessPreference:Landroid/preference/SwitchPreference;
+    iget-object v5, p0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mAutoBrightnessPreference:Lcom/android/settings/SecSettingsSwitchPreference;
 
     if-eqz v0, :cond_7
 
     move v2, v3
 
     :goto_0
-    invoke-virtual {v5, v2}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+    invoke-virtual {v5, v2}, Lcom/android/settings/SecSettingsSwitchPreference;->setChecked(Z)V
 
     :cond_0
     iget-object v2, p0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mLiftToWakePreference:Landroid/preference/SwitchPreference;
@@ -4485,11 +4485,11 @@
     invoke-virtual {v3, v0}, Lcom/samsung/android/settings/display/BrightnessSeekBarPreference;->setEnabled(Z)V
 
     :cond_0
-    iget-object v0, p0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mAutoBrightnessPreference:Landroid/preference/SwitchPreference;
+    iget-object v0, p0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mAutoBrightnessPreference:Lcom/android/settings/SecSettingsSwitchPreference;
 
     if-eqz v0, :cond_1
 
-    iget-object v3, p0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mAutoBrightnessPreference:Landroid/preference/SwitchPreference;
+    iget-object v3, p0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mAutoBrightnessPreference:Lcom/android/settings/SecSettingsSwitchPreference;
 
     iget-object v0, p0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mContext:Landroid/content/Context;
 
@@ -4502,7 +4502,7 @@
     move v0, v1
 
     :goto_1
-    invoke-virtual {v3, v0}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+    invoke-virtual {v3, v0}, Lcom/android/settings/SecSettingsSwitchPreference;->setEnabled(Z)V
 
     :cond_1
     iget-object v0, p0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mScreenTimeoutPreference:Lcom/android/settings/TimeoutListPreference;
@@ -4786,7 +4786,7 @@
 
     if-eqz v10, :cond_1
 
-    const v10, 0x7f0b1cd7
+    const v10, 0x7f0b1cdd
 
     invoke-virtual {p0, v10}, Lcom/samsung/android/settings/display/SecDisplaySettings;->getString(I)Ljava/lang/String;
 
@@ -4817,7 +4817,7 @@
 
     if-lez v10, :cond_7
 
-    const v10, 0x7f0b0a16
+    const v10, 0x7f0b0a1b
 
     invoke-virtual {v5, v10}, Lcom/android/settings/TimeoutListPreference;->setSummary(I)V
 
@@ -4906,7 +4906,7 @@
 
     aput-object v11, v10, v12
 
-    const v11, 0x7f0b153e
+    const v11, 0x7f0b1544
 
     invoke-virtual {p0, v11, v10}, Lcom/samsung/android/settings/display/SecDisplaySettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -4978,7 +4978,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1a8e
+    const v0, 0x7f0b1a94
 
     return v0
 .end method
@@ -5110,7 +5110,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mLinkedData3:Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;
 
-    const v6, 0x7f0b178e
+    const v6, 0x7f0b1794
 
     iput v6, v5, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
@@ -5183,7 +5183,7 @@
 
     move-result-object v22
 
-    const v27, 0x7f0800e0
+    const v27, 0x7f0800e1
 
     move-object/from16 v0, p0
 
@@ -5318,7 +5318,7 @@
 
     if-eqz v27, :cond_16
 
-    const v27, 0x7f0b1538
+    const v27, 0x7f0b153e
 
     move/from16 v0, v27
 
@@ -6437,7 +6437,7 @@
 
     aput-object v29, v28, v30
 
-    const v29, 0x7f0b0628
+    const v29, 0x7f0b062d
 
     move-object/from16 v0, p0
 
@@ -6633,7 +6633,7 @@
 
     const-string/jumbo v28, "UPSM"
 
-    const v29, 0x7f0800e0
+    const v29, 0x7f0800e1
 
     move-object/from16 v0, v27
 
@@ -6688,7 +6688,7 @@
     goto/16 :goto_2
 
     :cond_16
-    const v27, 0x7f0b1503
+    const v27, 0x7f0b1509
 
     move/from16 v0, v27
 
@@ -7996,13 +7996,13 @@
 
     move-result-object v27
 
-    check-cast v27, Landroid/preference/SwitchPreference;
+    check-cast v27, Lcom/android/settings/SecSettingsSwitchPreference;
 
     move-object/from16 v0, v27
 
     move-object/from16 v1, p0
 
-    iput-object v0, v1, Lcom/samsung/android/settings/display/SecDisplaySettings;->mAutoBrightnessPreference:Landroid/preference/SwitchPreference;
+    iput-object v0, v1, Lcom/samsung/android/settings/display/SecDisplaySettings;->mAutoBrightnessPreference:Lcom/android/settings/SecSettingsSwitchPreference;
 
     move-object/from16 v0, p0
 
@@ -8308,7 +8308,7 @@
 
     aput-object v29, v28, v30
 
-    const v29, 0x7f0b066e
+    const v29, 0x7f0b0673
 
     move-object/from16 v0, p0
 
@@ -8328,7 +8328,7 @@
 
     aput-object v29, v28, v30
 
-    const v29, 0x7f0b066e
+    const v29, 0x7f0b0673
 
     move-object/from16 v0, p0
 
@@ -8382,7 +8382,7 @@
     :cond_56
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mAutoBrightnessPreference:Landroid/preference/SwitchPreference;
+    iget-object v0, v0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mAutoBrightnessPreference:Lcom/android/settings/SecSettingsSwitchPreference;
 
     move-object/from16 v27, v0
 
@@ -8390,7 +8390,7 @@
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mAutoBrightnessPreference:Landroid/preference/SwitchPreference;
+    iget-object v0, v0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mAutoBrightnessPreference:Lcom/android/settings/SecSettingsSwitchPreference;
 
     move-object/from16 v27, v0
 
@@ -8398,7 +8398,37 @@
 
     move-object/from16 v1, p0
 
-    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+    invoke-virtual {v0, v1}, Lcom/android/settings/SecSettingsSwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+
+    invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
+
+    move-result-object v27
+
+    const-string/jumbo v28, "SEC_FLOATING_FEATURE_LCD_CONFIG_CONTROL_AUTO_BRIGHTNESS"
+
+    const/16 v29, 0x2
+
+    invoke-virtual/range {v27 .. v29}, Lcom/samsung/android/feature/SemFloatingFeature;->getInt(Ljava/lang/String;I)I
+
+    move-result v27
+
+    const/16 v28, 0x3
+
+    move/from16 v0, v27
+
+    move/from16 v1, v28
+
+    if-ge v0, v1, :cond_45
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mAutoBrightnessPreference:Lcom/android/settings/SecSettingsSwitchPreference;
+
+    move-object/from16 v27, v0
+
+    const v28, 0x7f0b0601
+
+    invoke-virtual/range {v27 .. v28}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
 
     goto/16 :goto_24
 
@@ -8481,7 +8511,7 @@
     invoke-virtual {v0}, Lcom/samsung/android/settings/display/BrightnessSeekBarPreference;->unRregisterBrightnessObserver()V
 
     :cond_1
-    iget-object v0, p0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mAutoBrightnessPreference:Landroid/preference/SwitchPreference;
+    iget-object v0, p0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mAutoBrightnessPreference:Lcom/android/settings/SecSettingsSwitchPreference;
 
     if-eqz v0, :cond_2
 
@@ -8870,7 +8900,7 @@
     :goto_3
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mAutoBrightnessPreference:Landroid/preference/SwitchPreference;
+    iget-object v0, v0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mAutoBrightnessPreference:Lcom/android/settings/SecSettingsSwitchPreference;
 
     move-object/from16 v33, v0
 
@@ -9426,7 +9456,7 @@
 
     move-result-object v33
 
-    const v34, 0x7f0b067a
+    const v34, 0x7f0b067f
 
     move-object/from16 v0, p0
 
@@ -9959,7 +9989,7 @@
 
     move-result-object v33
 
-    const v34, 0x7f0b0604
+    const v34, 0x7f0b0609
 
     invoke-virtual/range {v33 .. v34}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -10731,7 +10761,7 @@
 
     if-eqz v33, :cond_32
 
-    const v33, 0x7f0b1bd3
+    const v33, 0x7f0b1bd9
 
     :goto_22
     move-object/from16 v0, v34
@@ -11164,7 +11194,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b07fc
+    const v2, 0x7f0b0801
 
     const/4 v3, 0x0
 
@@ -11246,7 +11276,7 @@
 
     const/4 v3, 0x0
 
-    const v4, 0x7f0b066e
+    const v4, 0x7f0b0673
 
     const/4 v5, 0x0
 
@@ -11405,7 +11435,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0604
+    const v2, 0x7f0b0609
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -12262,7 +12292,7 @@
 
     if-eqz v23, :cond_21
 
-    const v26, 0x7f0b1bd3
+    const v26, 0x7f0b1bd9
 
     :goto_2
     move-object/from16 v0, v27
@@ -12355,7 +12385,7 @@
     :cond_4
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mAutoBrightnessPreference:Landroid/preference/SwitchPreference;
+    iget-object v0, v0, Lcom/samsung/android/settings/display/SecDisplaySettings;->mAutoBrightnessPreference:Lcom/android/settings/SecSettingsSwitchPreference;
 
     move-object/from16 v26, v0
 
@@ -12495,7 +12525,7 @@
 
     if-eqz v17, :cond_24
 
-    const v26, 0x7f0b1bd3
+    const v26, 0x7f0b1bd9
 
     :goto_5
     move-object/from16 v0, v27
@@ -13070,7 +13100,7 @@
 
     move-object/from16 v27, v0
 
-    const v28, 0x7f0b0be2
+    const v28, 0x7f0b0be8
 
     move-object/from16 v0, p0
 
@@ -13084,7 +13114,7 @@
 
     aput-object v28, v27, v29
 
-    const v28, 0x7f0b068a
+    const v28, 0x7f0b068f
 
     move-object/from16 v0, p0
 
@@ -13467,7 +13497,7 @@
 
     move-object/from16 v27, v0
 
-    const v28, 0x7f0b0c30
+    const v28, 0x7f0b0c36
 
     move-object/from16 v0, p0
 
@@ -13481,7 +13511,7 @@
 
     aput-object v28, v27, v29
 
-    const v28, 0x7f0b068a
+    const v28, 0x7f0b068f
 
     move-object/from16 v0, p0
 
@@ -13559,7 +13589,7 @@
     goto/16 :goto_4
 
     :cond_24
-    const v26, 0x7f0b1bd4
+    const v26, 0x7f0b1bda
 
     goto/16 :goto_5
 
@@ -13691,7 +13721,7 @@
 
     if-eqz v26, :cond_2b
 
-    const v26, 0x7f0b1bd3
+    const v26, 0x7f0b1bd9
 
     :goto_13
     move-object/from16 v0, v27
@@ -13863,7 +13893,7 @@
 
     move-object/from16 v27, v0
 
-    const v28, 0x7f0b0c30
+    const v28, 0x7f0b0c36
 
     move-object/from16 v0, p0
 
@@ -13877,7 +13907,7 @@
 
     aput-object v28, v27, v29
 
-    const v28, 0x7f0b068a
+    const v28, 0x7f0b068f
 
     move-object/from16 v0, p0
 
@@ -13908,7 +13938,7 @@
 
     move-object/from16 v27, v0
 
-    const v28, 0x7f0b0c2e
+    const v28, 0x7f0b0c34
 
     move-object/from16 v0, p0
 
@@ -13922,7 +13952,7 @@
 
     aput-object v28, v27, v29
 
-    const v28, 0x7f0b068a
+    const v28, 0x7f0b068f
 
     move-object/from16 v0, p0
 
@@ -13953,7 +13983,7 @@
 
     move-object/from16 v27, v0
 
-    const v28, 0x7f0b0c2c
+    const v28, 0x7f0b0c32
 
     move-object/from16 v0, p0
 
@@ -13967,7 +13997,7 @@
 
     aput-object v28, v27, v29
 
-    const v28, 0x7f0b068a
+    const v28, 0x7f0b068f
 
     move-object/from16 v0, p0
 
@@ -14065,7 +14095,7 @@
 
     move-object/from16 v27, v0
 
-    const v28, 0x7f0b1136
+    const v28, 0x7f0b113c
 
     move-object/from16 v0, p0
 
@@ -14079,7 +14109,7 @@
 
     aput-object v28, v27, v29
 
-    const v28, 0x7f0b068a
+    const v28, 0x7f0b068f
 
     move-object/from16 v0, p0
 
@@ -14262,7 +14292,7 @@
 
     aput-object v10, v9, v11
 
-    const v10, 0x7f0b06b3
+    const v10, 0x7f0b06b8
 
     invoke-virtual {p0, v10, v9}, Lcom/samsung/android/settings/display/SecDisplaySettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -14272,7 +14302,7 @@
 
     invoke-virtual {v0, v5}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    const v9, 0x7f0b153c
+    const v9, 0x7f0b1542
 
     invoke-virtual {v0, v9}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 

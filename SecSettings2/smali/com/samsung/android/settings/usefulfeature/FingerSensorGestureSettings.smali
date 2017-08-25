@@ -614,7 +614,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/usefulfeature/FingerSensorGestureSettings;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f080075
+    const v0, 0x7f080076
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/usefulfeature/FingerSensorGestureSettings;->addPreferencesFromResource(I)V
 

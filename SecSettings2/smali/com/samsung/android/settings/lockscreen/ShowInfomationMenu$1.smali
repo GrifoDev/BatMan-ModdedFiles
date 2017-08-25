@@ -170,7 +170,7 @@
 
     if-eqz v4, :cond_1
 
-    const v4, 0x7f0b0a0a
+    const v4, 0x7f0b0a0f
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -181,7 +181,7 @@
     :goto_0
     if-eqz v1, :cond_0
 
-    const v4, 0x7f0b0a0c
+    const v4, 0x7f0b0a11
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -212,7 +212,7 @@
 
     if-eqz v4, :cond_2
 
-    const v4, 0x7f0b0a05
+    const v4, 0x7f0b0a0a
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -230,7 +230,7 @@
     return-object v3
 
     :cond_1
-    const v4, 0x7f0b1320
+    const v4, 0x7f0b1326
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -241,7 +241,7 @@
     goto :goto_0
 
     :cond_2
-    const v4, 0x7f0b0a04
+    const v4, 0x7f0b0a09
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -282,7 +282,7 @@
 
     iput-object v2, v1, Landroid/provider/SearchIndexableResource;->className:Ljava/lang/String;
 
-    const v2, 0x7f08009b
+    const v2, 0x7f08009c
 
     iput v2, v1, Landroid/provider/SearchIndexableResource;->xmlResId:I
 

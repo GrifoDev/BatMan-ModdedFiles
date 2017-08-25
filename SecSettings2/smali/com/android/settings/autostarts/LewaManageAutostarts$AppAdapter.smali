@@ -129,7 +129,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0403cb
+    const v6, 0x7f0403cf
 
     const/4 v7, 0x0
 
@@ -154,7 +154,7 @@
 
     invoke-virtual {v3, v2}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    const v5, 0x7f110290
+    const v5, 0x7f1109e5
 
     invoke-virtual {p2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -204,7 +204,7 @@
 
     invoke-virtual {v0, v8}, Landroid/widget/TextView;->setSingleLine(Z)V
 
-    const v5, 0x7f11055d
+    const v5, 0x7f110157
 
     invoke-virtual {p2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -1361,6 +1361,11 @@ Bitte beachten Sie auch, dass Samsung möglicherweise zu anderen Zwecken weiterh
 Tippen Sie auf „OK“, um zuzulassen, dass die Helligkeit über die sicheren Stufen hinaus angehoben werden darf."</string>
     <string name="auto_adjust_brightness">Automatische Helligkeit</string>
     <string name="auto_adjust_brightness_summary">Ihre Helligkeitsanpassungen verfolgen und automatisch bei ähnlichen Lichtverhältnissen anwenden.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Bildschirmhelligkeit automatisch entsprechend den aktuellen Lichtverhältnissen anpassen.</string>
+    <string name="reset_usage_pattern_title">Nutzungsmuster zurücksetzen</string>
+    <string name="reset_usage_pattern_summary">Den Verlauf Ihrer Helligkeitsanpassungen löschen. Ihr Telefon beginnt nach dem Reset, Ihre Einstellungen erneut zu erlernen.</string>
+    <string name="reset_usage_pattern_dialog_title">Ihre Helligkeitsnutzungsmuster zurücksetzen?</string>
+    <string name="reset_usage_pattern_dialog_summary">Ihr Telefon beginnt nach dem Reset, Ihre Helligkeitspräferenzen erneut zu erlernen.</string>
     <string name="current_theme_font">Standard des aktuellen Themes</string>
     <string name="hbm_mode_on">Zur besten Anzeige bei Sonnenlicht maximiert.</string>
     <string name="aod_detach_mobile_keyboard_toast">Entfernen Sie das Tastatur-Cover vom Gerät, um %s zu verwenden.</string>
@@ -2725,6 +2730,11 @@ Legen Sie eine USIM/SIM-Karte ein, um die Sperre aufzuheben und eine Verbindung 
 Getrennter App-Ton funktioniert nur, wenn sich das ausgewählte Audiogerät vom Hauptausgabegerät des Telefons unterscheidet.
 
 Sie können das Hauptausgabegerät Ihres Telefons in den Schnelleinstellungen ändern. Wenn das Audioausgabemenü nicht angezeigt wird, schalten Sie es unter „Samsung Connect > Einstellungen > Samsung Connect-Paneele“ ein."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Medienton von einer App auf einem Audiogerät separat vom Hauptausgabegerät Ihres Telefons wiedergeben. Wählen Sie eine App und ein Audiogerät aus, um dies einzuschalten.
+
+Getrennter App-Ton funktioniert nur, wenn sich das ausgewählte Audiogerät vom Hauptausgabegerät des Telefons unterscheidet.
+
+Wenn Samsung Connect installiert ist, können Sie das Hauptausgabegerät Ihres Telefons in den Schnelleinstellungen ändern. Wenn das Audioausgabegerät nicht angezeigt wird, wechseln Sie zu „Samsung Connect > Einstellungen“ und schalten Sie die „Samsung Connect-Paneele“ ein."</string>
     <string name="set_application_title">App</string>
     <string name="set_application_summary">Eine App für die Tonwiedergabe auf einem separaten Audiogerät auswählen.</string>
     <string name="set_application_descryption">Unten eine Multimedia-App für die Audiowiedergabe auf einem separaten Audiogerät auswählen.</string>

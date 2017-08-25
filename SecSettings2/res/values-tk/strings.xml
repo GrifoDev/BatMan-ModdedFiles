@@ -1231,6 +1231,11 @@ Emma, ýöriteleşdirilen marketingi almakdan çyksaňyz hem, ol mobil enjamlary
 Ýagtylygy howpsuz derejelerden ýokary köpeltmäge rugsat bermek üçin, OK-e basyň."</string>
     <string name="auto_adjust_brightness">Awto-ýagtylyk</string>
     <string name="auto_adjust_brightness_summary">Ýagtylyk sazlamalaryňyzy yzarlaň we meňzeş ýagtylyk şertlerinde olary awtomatik ulanyň.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Häzirki yşyklandyryş şertleri esasynda, ekran ýagtylygyny awtomatik sazlaň.</string>
+    <string name="reset_usage_pattern_title">Ulanyş galyplaryny nol et</string>
+    <string name="reset_usage_pattern_summary">Ýagtylyk sazlama taryhyňyzy arassalaň. Telefonyňyz nol edişden soň ileri tutmalaryňyzy öwrenip başlar.</string>
+    <string name="reset_usage_pattern_dialog_title">Ýagtylyk ulanyş galyplaryny nol etmelimi?</string>
+    <string name="reset_usage_pattern_dialog_summary">Telefonyňyz nol edişden soň ýagtylyk ileri tutmalaryňyzy öwrenip başlar.</string>
     <string name="current_theme_font">Häzirki temanyň standarty</string>
     <string name="hbm_mode_on">Gün ýagtysynda ajaýyp görüş üçin maksimizirlenen</string>
     <string name="aod_detach_mobile_keyboard_toast">%s ulanmak üçin, klawiatura gapagyny enjamdan aýryň.</string>
@@ -2593,6 +2598,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 Aýratyn goýma sesi diňe saýlan audio enjamyňyz telefonyň esasy audio çykyş enjamyndan tapawutly bolsa işleýär.
 
 Çalt sazlamalar paneline baryp, telefonyň esasy audio çykyş enjamyny üýtgedip bilersiňiz. Eger audio çykyş görkezilmese, Samsung Connect > Sazlamalar > Samsung Connect paneli-ne baryp, ony açyň."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Telefonyňyzyň esasy audio çykyş enjamyndan aýratyn audio enjamda bir goýmadan multimedia sesini goýberiň. Muny açmak üçin, goýma we audio enjam saýlaň.
+
+Aýratyn goýma sesi diňe saýlan audio enjamyňyz telefonyň esasy audio çykyş enjamyndan tapawutly bolsa işleýär.
+
+Eger Samsung Connect gurnan bolsaňyz, çalt sazlamalar paneline baryp, telefonyň esasy audio çykyş enjamyny üýtgedip bilersiňiz. Eger audio çykyş enjamy görkezilmese, Samsung Connect > Sazlamalar-a baryp, Samsung Connect panelini açyň."</string>
     <string name="set_application_title">Goýma</string>
     <string name="set_application_summary">Aýratyn audio enjamda öz sesini goýberer ýaly goýma saýlaň.</string>
     <string name="set_application_descryption">Aýratyn audio enjamda öz sesini goýberer ýaly, multimedia goýmasy saýlaň.</string>

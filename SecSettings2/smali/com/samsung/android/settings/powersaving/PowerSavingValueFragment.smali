@@ -856,7 +856,7 @@
 
     aput-object v4, v3, v2
 
-    const v4, 0x7f0b0c03
+    const v4, 0x7f0b0c09
 
     invoke-virtual {p0, v4, v3}, Lcom/samsung/android/settings/powersaving/PowerSavingValueFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -949,7 +949,7 @@
 
     if-eqz v0, :cond_4
 
-    const v0, 0x7f0b0c06
+    const v0, 0x7f0b0c0c
 
     :goto_3
     invoke-virtual {v3, v0}, Landroid/preference/SwitchPreference;->setSummary(I)V
@@ -1058,7 +1058,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/powersaving/PowerSavingValueFragment;->mAlwaysOnDisplay:Landroid/preference/SwitchPreference;
 
-    const v1, 0x7f0b0c0c
+    const v1, 0x7f0b0c12
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/powersaving/PowerSavingValueFragment;->getString(I)Ljava/lang/String;
 
@@ -1098,7 +1098,7 @@
     goto/16 :goto_2
 
     :cond_4
-    const v0, 0x7f0b0c05
+    const v0, 0x7f0b0c0b
 
     goto/16 :goto_3
 
@@ -1734,7 +1734,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/powersaving/PowerSavingValueFragment;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0b0bf2
+    const v4, 0x7f0b0bf8
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2034,7 +2034,7 @@
 
     move-object/from16 v24, v0
 
-    const v25, 0x7f0b09e5
+    const v25, 0x7f0b09ea
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2419,7 +2419,7 @@
 
     move-result-object v24
 
-    const v25, 0x7f0b0682
+    const v25, 0x7f0b0687
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2429,7 +2429,7 @@
 
     move-result-object v24
 
-    const v25, 0x7f0b0683
+    const v25, 0x7f0b0688
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2439,7 +2439,7 @@
 
     move-result-object v24
 
-    const v25, 0x7f0b0684
+    const v25, 0x7f0b0689
 
     invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3047,7 +3047,7 @@
 
     move-object/from16 v24, v0
 
-    const v25, 0x7f0b0bfb
+    const v25, 0x7f0b0c01
 
     invoke-virtual/range {v24 .. v25}, Lcom/android/settings/widget/SecIntervalSeekbarPreference;->setSummary(I)V
 
@@ -3365,7 +3365,7 @@
     goto/16 :goto_3
 
     :cond_a
-    const v24, 0x7f0b0685
+    const v24, 0x7f0b068a
 
     move-object/from16 v0, p0
 
@@ -3375,7 +3375,7 @@
 
     move-result-object v11
 
-    const v24, 0x7f0b0686
+    const v24, 0x7f0b068b
 
     move-object/from16 v0, p0
 
@@ -3385,7 +3385,7 @@
 
     move-result-object v8
 
-    const v24, 0x7f0b0687
+    const v24, 0x7f0b068c
 
     move-object/from16 v0, p0
 
@@ -3635,7 +3635,7 @@
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/powersaving/PowerSavingValueFragment;->setHasOptionsMenu(Z)V
 
-    const v1, 0x7f0800bf
+    const v1, 0x7f0800c0
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/powersaving/PowerSavingValueFragment;->addPreferencesFromResource(I)V
 
@@ -4086,7 +4086,7 @@
 
     if-ne v4, v9, :cond_3
 
-    const v4, 0x7f0b0c10
+    const v4, 0x7f0b0c16
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/powersaving/PowerSavingValueFragment;->getString(I)Ljava/lang/String;
 
@@ -4188,7 +4188,7 @@
     return-object v2
 
     :cond_3
-    const v4, 0x7f0b0c11
+    const v4, 0x7f0b0c17
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/powersaving/PowerSavingValueFragment;->getString(I)Ljava/lang/String;
 
@@ -4298,7 +4298,7 @@
 
     new-array v1, v5, [Ljava/lang/Object;
 
-    const v2, 0x7f0b1136
+    const v2, 0x7f0b113c
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/powersaving/PowerSavingValueFragment;->getString(I)Ljava/lang/String;
 
@@ -4308,7 +4308,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b0c26
+    const v2, 0x7f0b0c2c
 
     invoke-virtual {p0, v2, v1}, Lcom/samsung/android/settings/powersaving/PowerSavingValueFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

@@ -1362,6 +1362,11 @@ Ao usar o ID de publicidade da Samsung, você reconhece e concorda expressamente
 Toque em OK para aumentar o brilho acima dos níveis de segurança."</string>
     <string name="auto_adjust_brightness">Brilho automático</string>
     <string name="auto_adjust_brightness_summary">Controle seus ajustes de brilho e aplique-os automaticamente em condições de iluminação semelhantes.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Ajuste o brilho da tela automaticamente com base nas condições atuais de iluminação.</string>
+    <string name="reset_usage_pattern_title">Restaurar os padrões de uso</string>
+    <string name="reset_usage_pattern_summary">Apague o histórico de ajuste de brilho. Seu telefone começará a aprender novamente suas preferências após a restauração.</string>
+    <string name="reset_usage_pattern_dialog_title">Restaurar seus padrões de uso de brilho?</string>
+    <string name="reset_usage_pattern_dialog_summary">Seu telefone começará a aprender novamente suas preferências de brilho após a restauração.</string>
     <string name="current_theme_font">Padrão do tema atual</string>
     <string name="hbm_mode_on">Maximiz. p/ melhor visualização sob luz solar</string>
     <string name="aod_detach_mobile_keyboard_toast">Para usar %s, remova a capa do teclado do aparelho.</string>
@@ -2724,6 +2729,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 O som do aplicativo separado só funcionará quando o aparelho de áudio selecionado for diferente do aparelho de saída de áudio principal do seu telefone.
 
 Você poderá alterar o aparelho de saída de áudio principal do seu telefone no painel de configurações rápidas. Se a saída de áudio não for exibida, ative-a em Samsung Connect > Configurações > Painel do Samsung Connect."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Reproduza o som de mídia de um aplicativo em um aparelho de áudio separado do aparelho de saída de áudio principal do seu telefone. Selecione um aplicativo e um aparelho de áudio para ativar isso.
+
+O Som do aplicativo separado só funcionará quando o aparelho de áudio selecionado for diferente do aparelho de saída de áudio principal do seu telefone.
+
+Se o Samsung Connect estiver instalado, você poderá alterar o aparelho de saída de áudio principal do seu telefone no painel de configurações rápidas. Se o aparelho de saída de áudio não estiver exibido, vá para Samsung Connect > Configurações e ative o painel do Samsung Connect."</string>
     <string name="set_application_title">Aplicativo</string>
     <string name="set_application_summary">Selecione um aplicativo para reproduzir seu som em um aparelho de áudio separado.</string>
     <string name="set_application_descryption">Selecione um aplicativo multimídia abaixo para reproduzir seu som em um aparelho de áudio separado.</string>

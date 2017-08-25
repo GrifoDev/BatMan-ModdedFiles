@@ -574,7 +574,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f08012e
+    const v6, 0x7f08012f
 
     invoke-direct {v4, v1, v5, v6}, Lcom/android/settingslib/SuggestionParser;-><init>(Landroid/content/Context;Landroid/content/SharedPreferences;I)V
 

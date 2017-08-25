@@ -159,7 +159,7 @@
 
     iget-object v2, p0, Lcom/android/settings/deviceinfo/PrivateVolumeSettings$3;->this$0:Lcom/android/settings/deviceinfo/PrivateVolumeSettings;
 
-    const v3, 0x7f0b15ea
+    const v3, 0x7f0b15f0
 
     invoke-static {v3}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
@@ -223,7 +223,7 @@
 
     iget-object v2, p0, Lcom/android/settings/deviceinfo/PrivateVolumeSettings$3;->this$0:Lcom/android/settings/deviceinfo/PrivateVolumeSettings;
 
-    const v3, 0x7f0b15e6
+    const v3, 0x7f0b15ec
 
     invoke-static {v3}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 

@@ -763,7 +763,7 @@
 
     iput-object v5, v4, Landroid/provider/SearchIndexableResource;->className:Ljava/lang/String;
 
-    const v5, 0x7f0800e0
+    const v5, 0x7f0800e1
 
     iput v5, v4, Landroid/provider/SearchIndexableResource;->xmlResId:I
 
@@ -781,7 +781,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0692
+    const v6, 0x7f0b0697
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

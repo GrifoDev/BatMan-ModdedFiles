@@ -2781,7 +2781,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b0e72
+    const v9, 0x7f0b0e78
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2937,7 +2937,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b0e72
+    const v9, 0x7f0b0e78
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3553,7 +3553,7 @@
 
     const/4 v3, 0x0
 
-    const v5, 0x7f0b1441
+    const v5, 0x7f0b1447
 
     move-object v0, p0
 
@@ -3689,9 +3689,9 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v1, 0x7f0b1492
+    const v1, 0x7f0b1498
 
-    const v2, 0x7f0b1492
+    const v2, 0x7f0b1498
 
     invoke-static {v2}, Lcom/samsung/android/settings/wifi/WifiSecSetupActivity$WifiSkipDialog;->newInstance(I)Lcom/samsung/android/settings/wifi/WifiSecSetupActivity$WifiSkipDialog;
 
@@ -4135,9 +4135,9 @@
     goto/16 :goto_1
 
     :cond_9
-    const v2, 0x7f0b0e5e
+    const v2, 0x7f0b0e64
 
-    const v3, 0x7f0b0e5e
+    const v3, 0x7f0b0e64
 
     invoke-static {v3}, Lcom/samsung/android/settings/wifi/WifiSecSetupActivity$FrpWarningDialog;->newInstance(I)Lcom/samsung/android/settings/wifi/WifiSecSetupActivity$FrpWarningDialog;
 

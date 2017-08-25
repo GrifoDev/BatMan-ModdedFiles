@@ -498,7 +498,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v4, 0x7f0b060f
+    const v4, 0x7f0b0614
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/display/PocBalanceSettingsActivity;->getString(I)Ljava/lang/String;
 
@@ -510,7 +510,7 @@
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const v4, 0x7f0b0610
+    const v4, 0x7f0b0615
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/display/PocBalanceSettingsActivity;->getString(I)Ljava/lang/String;
 
@@ -688,13 +688,13 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b061d
+    const v4, 0x7f0b0622
 
     invoke-virtual {v3, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v3
 
-    const v4, 0x7f0b0610
+    const v4, 0x7f0b0615
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/display/PocBalanceSettingsActivity;->getString(I)Ljava/lang/String;
 
@@ -720,7 +720,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b1735
+    const v4, 0x7f0b173b
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/display/PocBalanceSettingsActivity;->getString(I)Ljava/lang/String;
 
@@ -805,7 +805,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0611
+    const v3, 0x7f0b0616
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/display/PocBalanceSettingsActivity;->getString(I)Ljava/lang/String;
 
@@ -819,7 +819,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0612
+    const v3, 0x7f0b0617
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/display/PocBalanceSettingsActivity;->getString(I)Ljava/lang/String;
 
@@ -940,13 +940,13 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b061c
+    const v4, 0x7f0b0621
 
     invoke-virtual {v3, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v3
 
-    const v4, 0x7f0b061b
+    const v4, 0x7f0b0620
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/display/PocBalanceSettingsActivity;->getString(I)Ljava/lang/String;
 
@@ -1051,7 +1051,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0618
+    const v4, 0x7f0b061d
 
     invoke-virtual {v3, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -1061,7 +1061,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v5, 0x7f0b0619
+    const v5, 0x7f0b061e
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/display/PocBalanceSettingsActivity;->getString(I)Ljava/lang/String;
 
@@ -1077,7 +1077,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b061a
+    const v5, 0x7f0b061f
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/display/PocBalanceSettingsActivity;->getString(I)Ljava/lang/String;
 

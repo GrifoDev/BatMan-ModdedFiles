@@ -93,7 +93,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x7f0b13ab
+    const v3, 0x7f0b13b1
 
     invoke-virtual {v1, v3, v2}, Lcom/samsung/android/settings/biometrics/BiometricsBackupPassword$BiometricsBackupPasswordFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

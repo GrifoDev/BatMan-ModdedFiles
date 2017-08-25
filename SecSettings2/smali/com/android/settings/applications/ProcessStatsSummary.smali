@@ -69,7 +69,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/applications/ProcessStatsBase;->onCreate(Landroid/os/Bundle;)V
 
-    const v1, 0x7f0800ca
+    const v1, 0x7f0800cb
 
     invoke-virtual {p0, v1}, Lcom/android/settings/applications/ProcessStatsSummary;->addPreferencesFromResource(I)V
 
@@ -189,7 +189,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b1c83
+    const v3, 0x7f0b1c89
 
     move-object v0, p0
 

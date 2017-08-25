@@ -178,7 +178,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f08012d
+    const v2, 0x7f08012e
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/display/StatusBar;->addPreferencesFromResource(I)V
 
@@ -232,7 +232,7 @@
 
     aput-object v6, v5, v4
 
-    const v6, 0x7f0b0640
+    const v6, 0x7f0b0645
 
     invoke-virtual {p0, v6, v5}, Lcom/samsung/android/settings/display/StatusBar;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

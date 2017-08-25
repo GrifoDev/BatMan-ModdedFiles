@@ -344,7 +344,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/display/ScreenResolutionSettings;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0800d7
+    const v1, 0x7f0800d8
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/display/ScreenResolutionSettings;->addPreferencesFromResource(I)V
 

@@ -142,7 +142,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/DeviceMaintenanceSettings;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f080062
+    const v0, 0x7f080063
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/DeviceMaintenanceSettings;->addPreferencesFromResource(I)V
 

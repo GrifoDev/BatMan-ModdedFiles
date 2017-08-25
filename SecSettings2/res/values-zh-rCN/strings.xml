@@ -1359,6 +1359,11 @@
 点击【确定】允许亮度超出安全水平。"</string>
     <string name="auto_adjust_brightness">自动调节亮度</string>
     <string name="auto_adjust_brightness_summary">追踪您的亮度调整并在类似的照明条件下自动应用它们</string>
+    <string name="auto_adjust_brightness_summary_nopac">根据当前照明条件自动调整屏幕亮度</string>
+    <string name="reset_usage_pattern_title">重置使用模式</string>
+    <string name="reset_usage_pattern_summary">清除亮度调整历史记录。重置后，您的手机将重新开始学习您的偏好。</string>
+    <string name="reset_usage_pattern_dialog_title">是否重置您的亮度使用模式？</string>
+    <string name="reset_usage_pattern_dialog_summary">重置后，您的手机将重新开始学习您的亮度偏好。</string>
     <string name="current_theme_font">当前主题的默认设置</string>
     <string name="hbm_mode_on">已调到最大亮度以在阳光下获得最佳观看效果</string>
     <string name="aod_detach_mobile_keyboard_toast">若要使用%s，请将键盘保护盖从设备上拆下。</string>
@@ -2721,6 +2726,11 @@
 单独播放应用程序声音仅在您选择的音频设备与手机主音频输出设备不同时起作用。
 
 您可以在快捷设置面板中更改手机主音频输出设备。如果音频输出未显示，请在【Samsung Connect】>【设置】>【Samsung Connect 面板】中启用它。"</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"使用不同于手机主音频输出设备的音频设备播放一个应用程序的媒体声音。请选择一个应用程序和一个音频设备来启用此功能。
+
+单独播放应用程序声音仅在您选择的音频设备与手机主音频输出设备不同时起作用。
+
+如果您安装了 Samsung Connect，则可在快捷设置面板中更改手机主音频输出设备。如果音频输出未显示，请进入【Samsung Connect】>【设置】，然后启用【Samsung Connect 面板】。"</string>
     <string name="set_application_title">应用程序</string>
     <string name="set_application_summary">选择要在单独的音频设备上播放其声音的应用程序</string>
     <string name="set_application_descryption">请选择要在单独的音频设备上播放其声音的应用程序。</string>

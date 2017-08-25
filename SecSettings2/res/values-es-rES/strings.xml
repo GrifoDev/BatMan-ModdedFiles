@@ -1231,6 +1231,11 @@ Tenga en cuenta asimismo que Samsung puede seguir recopilando información acerc
 Pulse ACEPTAR para permitir aumentar el brillo por encima de los niveles seguros."</string>
     <string name="auto_adjust_brightness">Brillo automático</string>
     <string name="auto_adjust_brightness_summary">Realiza un seguimiento de sus ajustes del brillo y los aplica automáticamente en condiciones de luz parecidas.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Ajusta el brillo de la pantalla automáticamente en función de las condiciones de luz actuales.</string>
+    <string name="reset_usage_pattern_title">Restablecer patrones de uso</string>
+    <string name="reset_usage_pattern_summary">Borra tu historial de ajuste de brillo. El teléfono empezará a aprender de nuevo tus preferencias de brillo después del restablecimiento.</string>
+    <string name="reset_usage_pattern_dialog_title">¿Restablecer patrones de uso de brillo?</string>
+    <string name="reset_usage_pattern_dialog_summary">El teléfono empezará a aprender de nuevo tus preferencias de brillo después del restablecimiento.</string>
     <string name="current_theme_font">Valores predeterminados del tema actual</string>
     <string name="hbm_mode_on">Maximizado para condiciones de mucha luz</string>
     <string name="aod_detach_mobile_keyboard_toast">Para usar %s, desconecta la funda teclado del dispositivo.</string>
@@ -2594,6 +2599,11 @@ Para desbloquearla y conectarse a otros dispositivos mediante un cable USB, inse
 Sonido de aplicación independiente solo funciona cuando el dispositivo de audio seleccionado no coincide con el dispositivo de salida de audio principal del teléfono.
 
 Puede cambiar el dispositivo de salida de audio principal del teléfono en Ajustes rápidos. Si no se muestra la salida de audio, actívela en Samsung Connect > Ajustes > Panel de Samsung Connect."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Reproduce el sonido multimedia de una aplicación en un dispositivo de audio distinto del dispositivo de salida de audio principal del teléfono. Selecciona una aplicación y un dispositivo de audio para activar esta función.
+
+La función Sonido de aplicación independiente solo funciona cuando el dispositivo de audio seleccionado es diferente del dispositivo de salida de audio principal del teléfono.
+
+Si tienes instalado Samsung Connect, puedes cambiar el dispositivo de salida de audio principal del teléfono en Ajustes rápidos. Si no se muestra el dispositivo de salida de audio, ve a Samsung Connect > Ajustes y activa Panel de Samsung Connect."</string>
     <string name="set_application_title">Aplicación</string>
     <string name="set_application_summary">Seleccione una aplicación para reproducir su sonido en un dispositivo de audio independiente.</string>
     <string name="set_application_descryption">Seleccione una aplicación multimedia a continuación para reproducir su sonido en un dispositivo de audio independiente.</string>

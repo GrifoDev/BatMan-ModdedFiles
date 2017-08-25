@@ -215,7 +215,7 @@
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 8
 
-    const v7, 0x7f0b1a66
+    const v7, 0x7f0b1a6c
 
     const/4 v4, 0x1
 
@@ -239,7 +239,7 @@
 
     iput-object v2, p0, Lcom/android/settings/users/UserDetailsSettings;->mUserManager:Landroid/os/UserManager;
 
-    const v2, 0x7f08013d
+    const v2, 0x7f08013e
 
     invoke-virtual {p0, v2}, Lcom/android/settings/users/UserDetailsSettings;->addPreferencesFromResource(I)V
 
@@ -580,7 +580,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0e0e
+    const v1, 0x7f0b0e14
 
     invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

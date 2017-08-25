@@ -257,7 +257,7 @@
     :cond_4
     if-nez v3, :cond_1
 
-    const v1, 0x7f0b0a7f
+    const v1, 0x7f0b0a84
 
     invoke-virtual {p0, v1}, Lcom/android/settings/ConfirmDeviceCredentialActivity;->getString(I)Ljava/lang/String;
 

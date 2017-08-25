@@ -1360,6 +1360,11 @@ Pange tähele, et Samsung võib koguda teie mobiiliseadme kasutusteavet muudel e
 Toksake valikut OK, et lubada heleduse tõstmine üle ohutu taseme."</string>
     <string name="auto_adjust_brightness">Automaatne heledus</string>
     <string name="auto_adjust_brightness_summary">Saate jälgida heleduse kohandamist ja rakendada neid seadistusi sarnastes valgusoludes automaatselt.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Saate muuta ekraani heledust automaatselt, võttes aluseks praegused valgustingimused.</string>
+    <string name="reset_usage_pattern_title">Kasutusmustrite lähtestamine</string>
+    <string name="reset_usage_pattern_summary">Saate tühjendada heleduse muutmise ajaloo. Teie telefon hakkab uuesti pärast lähtestamist eelistusi õppima.</string>
+    <string name="reset_usage_pattern_dialog_title">Kas lähtestada heleduse kasutusmustrid?</string>
+    <string name="reset_usage_pattern_dialog_summary">Teie telefon hakkab pärast lähtestamist heleduse eelistusi õppima.</string>
     <string name="current_theme_font">Praeguse teema vaikeseade</string>
     <string name="hbm_mode_on">Maksim.-tud par. näht. jaoks päikesevalguses</string>
     <string name="aod_detach_mobile_keyboard_toast">Eemaldage klaviatuuri kate seadmelt, et kasutada üksust %s.</string>
@@ -2722,6 +2727,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 Rakenduse heli eraldamine toimib ainult siis, kui valitud heliseade erineb telefoni peamisest heliväljundi seadmest.
 
 Telefoni peamist heliväljundi seadet saate muuta kiirseadete paneelil. Kui heliväljundit ei kuvata, lülitage see sisse menüüs Samsung Connect > Seaded > Samsung Connecti paneel."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Saate mõne rakenduse meediumiheli esitada heliseadmes, mis ei ole teie telefoni peamine heliväljundi seade. Selle sisselülitamiseks valige rakendus ja heliseade.
+
+Rakenduse heli eraldamine töötab vaid juhul, kui valitud heliseade on telefoni peamisest heliväljundi seadmest erinev.
+
+Kui teie telefoni on installitud Samsung Connect, saate telefoni peamist heliväljundi seadet muuta kiirseadete paneelil. Kui heliväljundi seadet pole näidatud, avage Samsung Connect > Seaded ja lülitage Samsung Connecti paneel sisse."</string>
     <string name="set_application_title">Rakendus</string>
     <string name="set_application_summary">Valige rakendus, et esitada selle heli eraldi heliseadmes.</string>
     <string name="set_application_descryption">Valige allpool multimeediumrakendus, et esitada selle heli eraldi heliseadmes.</string>

@@ -165,7 +165,7 @@
 .method private updatePopupGestureState(Z)V
     .locals 5
 
-    const v1, 0x7f0b1bd4
+    const v1, 0x7f0b1bda
 
     const/4 v4, 0x1
 
@@ -229,7 +229,7 @@
 
     if-eqz v0, :cond_2
 
-    const v1, 0x7f0b1bd3
+    const v1, 0x7f0b1bd9
 
     :cond_2
     invoke-virtual {v2, v1}, Landroid/preference/SwitchPreference;->setSummary(I)V
@@ -306,7 +306,7 @@
     const/4 v0, 0x1
 
     :goto_2
-    const v3, 0x7f0b0abe
+    const v3, 0x7f0b0ac3
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/usefulfeature/MultiWindowSettings;->getString(I)Ljava/lang/String;
 
@@ -314,7 +314,7 @@
 
     if-eqz v0, :cond_2
 
-    const v3, 0x7f0b0abf
+    const v3, 0x7f0b0ac4
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/usefulfeature/MultiWindowSettings;->getString(I)Ljava/lang/String;
 
@@ -357,7 +357,7 @@
 .method private updateSplitScreenState(Z)V
     .locals 5
 
-    const v1, 0x7f0b1bd4
+    const v1, 0x7f0b1bda
 
     const/4 v4, 0x0
 
@@ -421,7 +421,7 @@
 
     if-eqz v0, :cond_2
 
-    const v1, 0x7f0b1bd3
+    const v1, 0x7f0b1bd9
 
     :cond_2
     invoke-virtual {v2, v1}, Landroid/preference/SwitchPreference;->setSummary(I)V
@@ -606,7 +606,7 @@
 
     check-cast v4, Landroid/widget/ImageView;
 
-    const v6, 0x7f0b0ac8
+    const v6, 0x7f0b0acd
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/usefulfeature/MultiWindowSettings;->getString(I)Ljava/lang/String;
 
@@ -791,7 +791,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/usefulfeature/MultiWindowSettings;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0800a7
+    const v0, 0x7f0800a8
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/usefulfeature/MultiWindowSettings;->addPreferencesFromResource(I)V
 
@@ -867,7 +867,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0b0ab8
+    const v0, 0x7f0b0abd
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/usefulfeature/MultiWindowSettings;->getString(I)Ljava/lang/String;
 
@@ -877,7 +877,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/usefulfeature/MultiWindowSettings;->mRecentsKey:Lcom/android/settings/SecSettingsSwitchPreference;
 
-    const v1, 0x7f0b0ab5
+    const v1, 0x7f0b0aba
 
     invoke-virtual {v0, v1}, Lcom/android/settings/SecSettingsSwitchPreference;->setTitle(I)V
 
@@ -914,7 +914,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f0b0ab7
+    const v0, 0x7f0b0abc
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/usefulfeature/MultiWindowSettings;->getString(I)Ljava/lang/String;
 
@@ -924,7 +924,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/usefulfeature/MultiWindowSettings;->mRecentsKey:Lcom/android/settings/SecSettingsSwitchPreference;
 
-    const v1, 0x7f0b0ab6
+    const v1, 0x7f0b0abb
 
     invoke-virtual {v0, v1}, Lcom/android/settings/SecSettingsSwitchPreference;->setTitle(I)V
 
@@ -1056,9 +1056,9 @@
 .method public onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
     .locals 13
 
-    const v9, 0x7f0b1bd4
+    const v9, 0x7f0b1bda
 
-    const v8, 0x7f0b1bd3
+    const v8, 0x7f0b1bd9
 
     const/16 v10, 0x3e8
 
@@ -1274,7 +1274,7 @@
     const/4 v2, 0x1
 
     :goto_4
-    const v5, 0x7f0b0abe
+    const v5, 0x7f0b0ac3
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/usefulfeature/MultiWindowSettings;->getString(I)Ljava/lang/String;
 
@@ -1282,7 +1282,7 @@
 
     if-eqz v2, :cond_9
 
-    const v5, 0x7f0b0abf
+    const v5, 0x7f0b0ac4
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/usefulfeature/MultiWindowSettings;->getString(I)Ljava/lang/String;
 

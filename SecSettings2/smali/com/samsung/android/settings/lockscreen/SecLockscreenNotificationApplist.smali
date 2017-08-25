@@ -1094,7 +1094,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b0a2a
+    const v10, 0x7f0b0a2f
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2424,7 +2424,7 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v5, 0x7f0800e1
+    const v5, 0x7f0800e2
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/lockscreen/SecLockscreenNotificationApplist;->addPreferencesFromResource(I)V
 
@@ -2665,7 +2665,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/lockscreen/SecLockscreenNotificationApplist;->descTextView:Landroid/widget/TextView;
 
-    const v2, 0x7f0b0a27
+    const v2, 0x7f0b0a2c
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 

@@ -241,13 +241,13 @@
 
     move-result-object v13
 
-    const v14, 0x7f0b1a28
+    const v14, 0x7f0b1a2e
 
     invoke-virtual {v13, v14}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v13
 
-    const v14, 0x7f0b12ed
+    const v14, 0x7f0b12f3
 
     const/4 v15, 0x0
 
@@ -279,7 +279,7 @@
 
     invoke-direct {v6, v0, v7, v5}, Lcom/android/settings/UserCredentialsSettings$CredentialDialogFragment$1;-><init>(Lcom/android/settings/UserCredentialsSettings$CredentialDialogFragment;ILcom/android/settings/UserCredentialsSettings$Credential;)V
 
-    const v13, 0x7f0b1a1f
+    const v13, 0x7f0b1a25
 
     invoke-virtual {v1, v13, v6}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

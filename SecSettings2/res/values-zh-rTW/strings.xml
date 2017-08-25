@@ -1358,6 +1358,11 @@
 輕觸 [確定] 來允許提高到安全等級以上的亮度。"</string>
     <string name="auto_adjust_brightness">自動亮度</string>
     <string name="auto_adjust_brightness_summary">繼續追蹤您的亮度調整並自動套用至類似的亮度情況。</string>
+    <string name="auto_adjust_brightness_summary_nopac">根據目前光線條件自動調整螢幕亮度。</string>
+    <string name="reset_usage_pattern_title">重設使用模式</string>
+    <string name="reset_usage_pattern_summary">清除亮度調整記錄。手機將於重設後再次擷取您的偏好設定。</string>
+    <string name="reset_usage_pattern_dialog_title">重設亮度使用模式嗎？</string>
+    <string name="reset_usage_pattern_dialog_summary">手機將於重設後再次擷取您的亮度偏好設定。</string>
     <string name="current_theme_font">目前主題的預設</string>
     <string name="hbm_mode_on">最大化以於陽光下取得最佳檢視效果</string>
     <string name="aod_detach_mobile_keyboard_toast">若要使用%s，請自裝置卸除鍵盤保護套。</string>
@@ -2720,6 +2725,11 @@
 只有在所選音訊裝置與手機的主要音訊輸出裝置不同的情況下，才能執行隔離應用程式音訊。
 
 您可於快速設定面板中變更手機的主要音訊輸出裝置。如未顯示音訊輸出，請前往 [Samsung Connect] > [設定] > [Samsung Connect 面板] 開啟。"</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"隔離手機的主要音訊輸出裝置，在音訊裝置上單獨播放另一個應用程式的媒體音效。請選擇應用程式與音訊裝置來開啟此功能。
+
+只有在所選音訊裝置與手機的主要音訊輸出裝置不同的情況下，才能單獨播放應用程式音訊。
+
+如已安裝 Samsung Connect，則可於快速設定面板中變更手機的主要音訊輸出裝置。如未顯示音訊輸出，請前往 [Samsung Connect] > [設定]，然後開啟 [Samsung Connect 面板]。"</string>
     <string name="set_application_title">應用程式</string>
     <string name="set_application_summary">請選擇要在不同音訊裝置上播放其音效的應用程式。</string>
     <string name="set_application_descryption">請於下方選擇要在不同音訊裝置上播放其音效的多媒體應用程式。</string>

@@ -1361,6 +1361,11 @@ Du bör också vara medveten om att Samsung fortfarande kan samla in information
 Tryck på OK om du vill att ljusstyrkan ska kunna ökas till nivåer som inte är säkra."</string>
     <string name="auto_adjust_brightness">Automatisk ljusstyrka</string>
     <string name="auto_adjust_brightness_summary">Spara din justeringar av ljusstyrkan och använd dem automatiskt i liknande ljusförhållanden.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Justera skärmens ljusstyrka automatiskt efter de aktuella ljusförhållandena.</string>
+    <string name="reset_usage_pattern_title">Återställ användningsmönster</string>
+    <string name="reset_usage_pattern_summary">Radera historiken för ljusstyrkeändringar. Telefonen börjar lära sig vad du föredrar igen efter återställningen.</string>
+    <string name="reset_usage_pattern_dialog_title">Återställ användn.mönstren för ljusstyrka?</string>
+    <string name="reset_usage_pattern_dialog_summary">Telefonen börjar lära sig vad du föredrar i fråga om ljusstyrka igen efter återställningen.</string>
     <string name="current_theme_font">Aktuellt temas standardvärden</string>
     <string name="hbm_mode_on">Maximerat för bästa visning i solljus</string>
     <string name="aod_detach_mobile_keyboard_toast">Om du vill använda %s måste du koppla bort tangentbordsomslaget från enheten.</string>
@@ -2725,6 +2730,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 Separat appljud fungerar bara när ljudenheten du väljer är en annan än telefonens huvudenhet för utmatning av ljud.
 
 Du kan ändra vilken enhet som är huvudenhet för utmatning av ljud på telefonen på snabbinställningspanelen. Om ljudutmatning inte visas slår du på det i Samsung Connect > Inställningar > panelen Samsung Connect."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Spela upp medieljud från en app på en annan ljudenhet än telefonens huvudenhet för utmatning av ljud. Välj en app och en ljudenhet när du vill slå på funktionen.
+
+Separat appljud fungerar bara när ljudenheten du väljer är en annan än telefonens huvudenhet för utmatning av ljud.
+
+Du kan ändra vilken enhet som är huvudenhet för utmatning av ljud på telefonen på snabbinställningspanelen om du har Samsung Connect installerat. Om ljudutmatningsenheten inte visas öppnar du Samsung Connect > Inställningar och slår sedan på panelen Samsung Connect."</string>
     <string name="set_application_title">Program</string>
     <string name="set_application_summary">Välj ett program om du vill spela dess ljud på en separat ljudenhet.</string>
     <string name="set_application_descryption">Välj ett multimedieprogram nedan om du vill spela dess ljud på en separat ljudenhet.</string>

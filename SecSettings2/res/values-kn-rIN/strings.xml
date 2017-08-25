@@ -1360,6 +1360,11 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
 ಸುರಕ್ಷಿತ ಮಟ್ಟಕ್ಕಿಂತ ಹೆಚ್ಚು ಉಜ್ವಲತೆಯನ್ನು ಹೆಚ್ಚಿಸುವುದನ್ನು ಅನುಮತಿಸಲು “ಸರಿ” ತಟ್ಟಿ."</string>
     <string name="auto_adjust_brightness">ಸ್ವಯಂ ಉಜ್ವಲತೆ</string>
     <string name="auto_adjust_brightness_summary">ನಿಮ್ಮ ಉಜ್ವಲತೆ ಸರಿಹೊಂದಿಸುವಿಕೆಯನ್ನು ಟ್ರ್ಯಾಕ್ ಮಾಡಿ ಹಾಗೂ ಅಂತಹ ಬೆಳಕಿನ ಪರಿಸ್ಥಿತಿ ಇರುವಾಗ ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಅವುಗಳನ್ನು ಅನ್ವಯಿಸಿ.</string>
+    <string name="auto_adjust_brightness_summary_nopac">ಸ್ವಯಂಚಾಲಿತವಾಗಿ ಸದ್ಯದ ಬೆಳಕಿನ ಪರಿಸ್ಥಿತಿಗೆ ಅನುಗುಣವಾಗಿ ಸ್ಕ್ರೀನಿನ ಉಜ್ವಲತೆಯನ್ನು ಸರಿಹೊಂದಿಸಿ.</string>
+    <string name="reset_usage_pattern_title">ಬಳಕೆ ಮಾದರಿಗಳನ್ನು ಮರುಹೊಂದಿಸಿ</string>
+    <string name="reset_usage_pattern_summary">ನಿಮ್ಮ ಉಜ್ವಲತೆ ಸರಿಹೊಂದಿಕೆ ಇತಿಹಾಸವನ್ನು ತೆರವುಗೊಳಿಸಿ. ನಿಮ್ಮ ಫೋನ್ ಮರುಹೊಂದಿಕೆ ನಂತರ ಮತ್ತೊಮ್ಮೆ ನಿಮ್ಮ ಆದ್ಯತೆಗಳ ಕುರಿತು ತಿಳಿದುಕೊಳ್ಳುವುದನ್ನು ಪ್ರಾರಂಭಿಸುತ್ತದೆ.</string>
+    <string name="reset_usage_pattern_dialog_title">ನಿಮ್ಮ ಉಜ್ವಲತೆ ಬಳಕೆ ಮಾದರಿಗಳನ್ನು ಮರುಹೊಂದಿಸುವುದೇ?</string>
+    <string name="reset_usage_pattern_dialog_summary">ನಿಮ್ಮ ಫೋನ್ ಮರುಹೊಂದಿಕೆ ನಂತರ ಮತ್ತೊಮ್ಮೆ ನಿಮ್ಮ ಉಜ್ವಲತೆ ಆದ್ಯತೆಗಳ ಕುರಿತು ತಿಳಿದುಕೊಳ್ಳುವುದನ್ನು ಪ್ರಾರಂಭಿಸುತ್ತದೆ.</string>
     <string name="current_theme_font">ಪ್ರಸ್ತುತ ಥೀಮ್ ಡೀಫಾಲ್ಟ್</string>
     <string name="hbm_mode_on">ಸೂರ್ಯನ ಬೆಳಕಲ್ಲಿ ಉತ್ತಮ ವೀಕ್ಷಣೆಗೆ ಉನ್ನತೀಕರಿಸಿದೆ</string>
     <string name="aod_detach_mobile_keyboard_toast">%s ಬಳಸಲು, ಸಾಧನದಿಂದ ಕೀಬೋರ್ಡ್ ಕವರ್ ಬೇರ್ಪಡಿಸಿ.</string>
@@ -2722,6 +2727,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 ಪ್ರತ್ಯೇಕ ಅನ್ವಯಿಸುವಿಕೆ ಶಬ್ಧವು ನೀವು ಆಯ್ಕೆಮಾಡಿದ ಆಡಿಯೋ ಸಾಧನದ ನಿಮ್ಮ ಫೋನಿನ ಮುಖ್ಯ ಆಡಿಯೋ ಔಟ್‍ಪುಟ್ ಸಾಧನಕ್ಕಿಂತ ಭಿನ್ನವಾಗಿರುವಾಗ ಮಾತ್ರವೇ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ.
 
 ನೀವು ತ್ವರಿತ ಸಂಯೋಜನೆಗಳ ಪ್ಯಾನಲ್‍ನಲ್ಲಿ ನಿಮ್ಮ ಫೋನಿನ ಮುಖ್ಯ ಆಡಿಯೋ ಔಟ್‍ಪುಟ್ ಸಾಧನವನ್ನು ಬದಲಿಸಬಹುದು. ಆಡಿಯೋ ಔಟ್‍ಪುಟ್ ತೋರಿಸದಿದ್ದಲ್ಲಿ, Samsung Connect > ಸಂಯೋಜನೆಗಳು > Samsung Connect ಪ್ಯಾನಲ್ ಎಂಬಲ್ಲಿ ಅದನ್ನು ಆನ್ ಮಾಡಿ."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"ನಿಮ್ಮ ಫೋನಿನ ಮುಖ್ಯ ಆಡಿಯೊ ಔಟ್‍‍ಪುಟ್ ಸಾಧನದಿಂದ ಪ್ರತ್ಯೇಖ ಆಡಿಯೊ ಸಾಧನದಲ್ಲಿ ಒಂದು ಅನ್ವಯಿಸುವಿಕೆಯಿಂದ ಮಾಧ್ಯಮ ಶಬ್ಧವನ್ನು ಪ್ಲೇ ಮಾಡಿ. ಅದನ್ನು ಆನ್ ಮಾಡಲು ಅನ್ವಯಿಸುವಿಕೆ ಮತ್ತು ಆಡಿಯೋ ಸಾಧನವನ್ನು ಆಯ್ಕೆಮಾಡಿ.
+
+ಪ್ರತ್ಯೇಕ ಅನ್ವಯಿಸುವಿಕೆ ಶಬ್ಧವು ನೀವು ಆಯ್ಕೆಮಾಡಿದ ಆಡಿಯೋ ಸಾಧನದ ನಿಮ್ಮ ಫೋನಿನ ಮುಖ್ಯ ಆಡಿಯೋ ಔಟ್‍ಪುಟ್ ಸಾಧನಕ್ಕಿಂತ ಭಿನ್ನವಾಗಿರುವಾಗ ಮಾತ್ರವೇ ಕಾರ್ಯನಿರ್ವಹಿಸುತ್ತದೆ.
+
+ನೀವು Samsung Connect ಸ್ಥಾಪಿಸಿಕೊಂಡಿದ್ದಲ್ಲಿ, ನೀವು ತ್ವರಿತ ಸಂಯೋಜನೆಗಳ ಪ್ಯಾನಲ್‍ನಲ್ಲಿ ನಿಮ್ಮ ಫೋನಿನ ಮುಖ್ಯ ಆಡಿಯೋ ಔಟ್‍ಪುಟ್ ಸಾಧನವನ್ನು ಬದಲಿಸಬಹುದು. ಆಡಿಯೋ ಔಟ್ಔಟ್ ಸಾಧನವು ಕಾಣಿಸಿಕೊಳ್ಳದಿದ್ದರೆ, Samsung Connect > ಸಂಯೋಜನೆಗಳು ಎಂಬಲ್ಲಿಗೆ ಹೋಗಿ, ನಂತರ Samsung Connect ಪ್ಯಾನಲ್ ಆನ್ ಮಾಡಿ."</string>
     <string name="set_application_title">ಅನ್ವಯಿಸುವಿಕೆ</string>
     <string name="set_application_summary">ಪ್ರತ್ಯೇಖ ಆಡಿಯೊ ಸಾಧನದಲ್ಲಿ ಅದರ ದ್ವನಿಯನ್ನು ಪ್ಲೇ ಮಾಡಲು ಅನ್ವಯಿಸುವಿಕೆ ಆಯ್ಕೆಮಾಡಿ.</string>
     <string name="set_application_descryption">ಪ್ರತ್ಯೇಖ ಆಡಿಯೊ ಸಾಧನದಲ್ಲಿ ಅದರ ಶಬ್ಧವನ್ನು ಪ್ಲೇ ಮಾಡಲು ಕೆಳಗಿರುವ ಮಲ್ಟಿಮೀಡಿಯ ಅನ್ವಯಿಸುವಿಕೆ ಆಯ್ಕೆಮಾಡಿ.</string>

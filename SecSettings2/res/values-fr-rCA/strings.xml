@@ -1360,6 +1360,11 @@ N’oubliez pas que Samsung peut toujours recueillir des informations sur l’ut
 Touchez OK pour autoriser l'augmentation de la luminosité au-dessus des niveaux de sécurité."</string>
     <string name="auto_adjust_brightness">Luminosité automatique</string>
     <string name="auto_adjust_brightness_summary">"Surveillez vos ajustements de luminosité et appliquez-les automatiquement dans des conditions d'éclairage similaires."</string>
+    <string name="auto_adjust_brightness_summary_nopac">"Ajustez automatiquement la luminosité de l'écran en fonction des conditions d'éclairage actuelles."</string>
+    <string name="reset_usage_pattern_title">"Réinit. habitudes d'utilisation"</string>
+    <string name="reset_usage_pattern_summary">"Effacez l'historique du réglage de la luminosité. Votre téléphone commencera à apprendre vos préférences après la réinitialisation."</string>
+    <string name="reset_usage_pattern_dialog_title">"Réinit. habitudes d'utilisation luminosité ?"</string>
+    <string name="reset_usage_pattern_dialog_summary">Votre téléphone commencera à apprendre à nouveau vos préférences en matière de luminosité après la réinitialisation.</string>
     <string name="current_theme_font">Paramètres par défaut du thème actuel</string>
     <string name="hbm_mode_on">Optimisée pour meilleur affichage au soleil</string>
     <string name="aod_detach_mobile_keyboard_toast">"Pour utiliser %s, détachez le couvercle du clavier de l'appareil."</string>
@@ -2722,6 +2727,11 @@ Pour la débloquer et vous connecter à d'autres appareils via un câble USB, in
 La fonction Son d'application séparé ne fonctionne que lorsque le périphérique audio que vous sélectionnez est différent du périphérique de sortie audio principal de votre téléphone.
 
 Vous pouvez modifier le périphérique de sortie audio principal de votre téléphone dans le panneau des raccourcis. Si la sortie audio ne s'affiche pas, activez-la en sélectionnant Samsung Connect > Paramètres > Volet Samsung Connect."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Lisez le son des médias provenant d'une application sur un appareil audio distinct du périphérique de sortie audio principal de votre téléphone. Sélectionnez une application et un périphérique audio pour activer cette fonction.
+
+La fonction Son d'application séparé ne fonctionne que lorsque le périphérique audio que vous sélectionnez est différent du périphérique de sortie audio principal de votre téléphone.
+
+Si l'application Samsung Connect est installée, vous pouvez modifier le périphérique de sortie audio principal de votre téléphone dans le panneau des notifications. Si le périphérique de sortie audio ne s'affiche pas, accédez à Samsung Connect > Paramètres, puis activez le panneau Samsung Connect."</string>
     <string name="set_application_title">Application</string>
     <string name="set_application_summary">Sélectionnez une application pour lire son son sur un appareil audio distinct.</string>
     <string name="set_application_descryption">Sélectionnez une application multimédia ci-dessous pour lire le son correspondant sur un périphérique audio distinct.</string>

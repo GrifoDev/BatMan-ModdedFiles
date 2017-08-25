@@ -55,7 +55,7 @@
 
     if-eqz v0, :cond_0
 
-    const v1, 0x7f0b1234
+    const v1, 0x7f0b123a
 
     :goto_0
     invoke-virtual {v2, v1}, Landroid/preference/CheckBoxPreference;->setSummary(I)V
@@ -81,7 +81,7 @@
     return-void
 
     :cond_0
-    const v1, 0x7f0b0d58
+    const v1, 0x7f0b0d5e
 
     goto :goto_0
 .end method

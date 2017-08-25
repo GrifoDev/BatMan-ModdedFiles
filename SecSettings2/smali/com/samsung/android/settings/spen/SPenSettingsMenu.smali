@@ -389,7 +389,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b0acb
+    const v8, 0x7f0b0ad0
 
     invoke-virtual {v7, v8}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -501,7 +501,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b17f8
+    const v8, 0x7f0b17fe
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/spen/SPenSettingsMenu;->getString(I)Ljava/lang/String;
 
@@ -602,7 +602,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b0aca
+    const v8, 0x7f0b0acf
 
     invoke-virtual {v7, v8}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -632,7 +632,7 @@
 
     invoke-direct {v8, p0}, Lcom/samsung/android/settings/spen/SPenSettingsMenu$6;-><init>(Lcom/samsung/android/settings/spen/SPenSettingsMenu;)V
 
-    const v9, 0x7f0b0acc
+    const v9, 0x7f0b0ad1
 
     invoke-virtual {v7, v9, v8}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -678,7 +678,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b0ddb
+    const v8, 0x7f0b0de1
 
     invoke-virtual {v7, v8}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -790,7 +790,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b17f8
+    const v8, 0x7f0b17fe
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/spen/SPenSettingsMenu;->getString(I)Ljava/lang/String;
 
@@ -891,7 +891,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b0dd8
+    const v8, 0x7f0b0dde
 
     invoke-virtual {v7, v8}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -921,7 +921,7 @@
 
     invoke-direct {v8, p0}, Lcom/samsung/android/settings/spen/SPenSettingsMenu$9;-><init>(Lcom/samsung/android/settings/spen/SPenSettingsMenu;)V
 
-    const v9, 0x7f0b0acc
+    const v9, 0x7f0b0ad1
 
     invoke-virtual {v7, v9, v8}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1012,7 +1012,7 @@
 
     if-ne v5, v10, :cond_4
 
-    const v10, 0x7f0b0dee
+    const v10, 0x7f0b0df4
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1036,7 +1036,7 @@
 
     if-eqz v10, :cond_5
 
-    const v10, 0x7f0b0ded
+    const v10, 0x7f0b0df3
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1056,7 +1056,7 @@
 
     :cond_1
     :goto_2
-    const v10, 0x7f0b0deb
+    const v10, 0x7f0b0df1
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1287,7 +1287,7 @@
 
     if-eqz v9, :cond_4
 
-    const v9, 0x7f0b0df6
+    const v9, 0x7f0b0dfc
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1358,7 +1358,7 @@
 
     aput-object v10, v9, v11
 
-    const v10, 0x7f0b0de3
+    const v10, 0x7f0b0de9
 
     invoke-virtual {v6, v10, v9}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1520,7 +1520,7 @@
     goto/16 :goto_2
 
     :cond_4
-    const v9, 0x7f0b0df5
+    const v9, 0x7f0b0dfb
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1726,7 +1726,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0800b9
+    const v5, 0x7f0800ba
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/spen/SPenSettingsMenu;->addPreferencesFromResource(I)V
 
@@ -1864,7 +1864,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/spen/SPenSettingsMenu;->mScreenoffNoteSwitchPref:Landroid/preference/SwitchPreference;
 
-    const v6, 0x7f0b0dd0
+    const v6, 0x7f0b0dd6
 
     invoke-virtual {v5, v6}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -2100,13 +2100,13 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/spen/SPenSettingsMenu;->mPenFeedbackSoundSwitchPref:Landroid/preference/SwitchPreference;
 
-    const v6, 0x7f0b0df2
+    const v6, 0x7f0b0df8
 
     invoke-virtual {v5, v6}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
     iget-object v5, p0, Lcom/samsung/android/settings/spen/SPenSettingsMenu;->mScreenoffNoteSwitchPref:Landroid/preference/SwitchPreference;
 
-    const v6, 0x7f0b0dd1
+    const v6, 0x7f0b0dd7
 
     invoke-virtual {v5, v6}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -2178,9 +2178,9 @@
 .method public onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
     .locals 12
 
-    const v9, 0x7f0b1bd4
+    const v9, 0x7f0b1bda
 
-    const v8, 0x7f0b1bd3
+    const v8, 0x7f0b1bd9
 
     const/4 v6, 0x1
 
@@ -2366,7 +2366,7 @@
     goto :goto_1
 
     :cond_6
-    const v5, 0x7f0b0dd6
+    const v5, 0x7f0b0ddc
 
     goto :goto_2
 
@@ -2583,7 +2583,7 @@
     return v6
 
     :cond_11
-    const v8, 0x7f0b0951
+    const v8, 0x7f0b0956
 
     goto :goto_8
 
@@ -3621,9 +3621,9 @@
 .method public onResume()V
     .locals 9
 
-    const v6, 0x7f0b1bd4
+    const v6, 0x7f0b1bda
 
-    const v5, 0x7f0b1bd3
+    const v5, 0x7f0b1bd9
 
     const/4 v3, 0x1
 
@@ -3991,7 +3991,7 @@
     goto/16 :goto_3
 
     :cond_5
-    const v2, 0x7f0b0951
+    const v2, 0x7f0b0956
 
     goto/16 :goto_4
 
@@ -4055,7 +4055,7 @@
     goto :goto_b
 
     :cond_b
-    const v5, 0x7f0b0dd6
+    const v5, 0x7f0b0ddc
 
     goto/16 :goto_8
 

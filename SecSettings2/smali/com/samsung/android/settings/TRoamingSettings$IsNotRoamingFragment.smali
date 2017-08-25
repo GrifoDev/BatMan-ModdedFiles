@@ -67,11 +67,11 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b10a6
+    const v1, 0x7f0b10ac
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    const v1, 0x7f0b0cb7
+    const v1, 0x7f0b0cbd
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -79,7 +79,7 @@
 
     invoke-direct {v1, p0}, Lcom/samsung/android/settings/TRoamingSettings$IsNotRoamingFragment$1;-><init>(Lcom/samsung/android/settings/TRoamingSettings$IsNotRoamingFragment;)V
 
-    const v2, 0x7f0b1734
+    const v2, 0x7f0b173a
 
     invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

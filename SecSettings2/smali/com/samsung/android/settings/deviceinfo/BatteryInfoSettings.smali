@@ -316,7 +316,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/deviceinfo/BatteryInfoSettings;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f08002c
+    const v1, 0x7f08002d
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/deviceinfo/BatteryInfoSettings;->addPreferencesFromResource(I)V
 

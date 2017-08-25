@@ -1361,6 +1361,11 @@ Wees u er ook van bewust dat Samsung nog steeds informatie over uw gebruik van u
 Tik op OK om toe te staan dat de helderheid boven veilige niveaus wordt verhoogd."</string>
     <string name="auto_adjust_brightness">Automatische helderheid</string>
     <string name="auto_adjust_brightness_summary">Houd de helderheidinstelling bij en pas automatisch aan in vergelijkbare verlichtingsomstandigheden.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Pas de schermhelderheid automatisch aan op basis van huidige verlichtingsomstandigheden.</string>
+    <string name="reset_usage_pattern_title">Gebruikspatronen resetten</string>
+    <string name="reset_usage_pattern_summary">Wis uw historie van aanpassingen van de helderheid. Uw telefoon begint opnieuw met het leren van uw voorkeuren na het resetten.</string>
+    <string name="reset_usage_pattern_dialog_title">Gebruikspatronen voor helderheid resetten?</string>
+    <string name="reset_usage_pattern_dialog_summary">Uw telefoon begint opnieuw met het leren van uw voorkeuren voor helderheid na het resetten.</string>
     <string name="current_theme_font">Standaardinstelling huidig thema</string>
     <string name="hbm_mode_on">Gemaximalis. voor beste weergave in zonlicht</string>
     <string name="aod_detach_mobile_keyboard_toast">Als u %s wilt gebruiken, maakt u de toetsenbordhoes los van het apparaat.</string>
@@ -2723,6 +2728,11 @@ U kunt de blokkering ongedaan maken en verbinding maken met andere apparaten via
 Afzonderlijk app-geluid werkt alleen als het audioapparaat dat u hebt geselecteerd, verschilt van het primaire audio-uitvoerapparaat van uw telefoon.
 
 U kunt het primaire audio-uitvoerapparaat van uw telefoon wijzigen in het venster Snelle instellingen. Als audio-uitvoer niet wordt weergegeven, schakelt u dit in via Samsung Connect > Instellingen > Samsung Connect-venster."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Speel mediageluid van één app af op een audioapparaat, los van het primaire audio-uitvoerapparaat van uw telefoon. Selecteer een app en een audioapparaat om dit in te schakelen.
+
+Afzonderlijk app-geluid werkt alleen als het audioapparaat dat u hebt geselecteerd, verschilt van het primaire audio-uitvoerapparaat van uw telefoon.
+
+Als u Samsung Connect hebt geïnstalleerd, kunt u het primaire audio-uitvoerapparaat van uw telefoon wijzigen in het venster Snelle instellingen. Als het audio-uitvoerapparaat niet wordt weergegeven, gaat u naar Samsung Connect > Instellingen en schakelt u Samsung Connect-venster in."</string>
     <string name="set_application_title">App</string>
     <string name="set_application_summary">Selecteer een app om het geluid op een afzonderlijk audioapparaat af te spelen.</string>
     <string name="set_application_descryption">Selecteer hieronder een multimedia-app om het geluid op een afzonderlijk audioapparaat af te spelen.</string>

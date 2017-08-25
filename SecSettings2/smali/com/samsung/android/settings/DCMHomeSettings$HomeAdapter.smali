@@ -120,7 +120,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f080082
+    const v7, 0x7f080083
 
     const/4 v8, 0x0
 
@@ -419,7 +419,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f080083
+    const v7, 0x7f080084
 
     const/4 v8, 0x0
 

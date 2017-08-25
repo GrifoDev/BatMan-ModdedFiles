@@ -1231,6 +1231,11 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
 ଔଜଲ୍ୟତା ସୁରକ୍ଷିତ ସ୍ତରଗୁଡିକ ବୃଦ୍ଧି କରିବାକୁ ଅନୁମତି ଦେବାକୁ “ଓକେ” ଟ୍ୟାପ୍ କରନ୍ତୁ।"</string>
     <string name="auto_adjust_brightness">ସ୍ଵତଃ ଔଜଲ୍ୟତା</string>
     <string name="auto_adjust_brightness_summary">ଆପଣଙ୍କ ଔଜଲ୍ୟତା ସମାଯୋଜନ ଟ୍ରାକ୍ ରଖି ସମାନ ଲାଇଟିଂ ସ୍ଥିତିଗୁଡିକରେ ସେଗୁଡିକ ସ୍ୱତଃସ୍ପୃତ ଭାବେ ପ୍ରୟୋଗ କରନ୍ତୁ।</string>
+    <string name="auto_adjust_brightness_summary_nopac">ସମ୍ପ୍ରତି ଲାଇଟିଂ ସ୍ଥିତିଗୁଡିକ ଉପରେ ଆଧାର କରି ସ୍ୱତଃସ୍ପୃତ ଭାବେ ସ୍କ୍ରିନ୍ ଔଜଲ୍ୟତା ନିୟନ୍ତ୍ରଣ କରନ୍ତୁ।</string>
+    <string name="reset_usage_pattern_title">ବ୍ୟବହାର ଶୈଳୀ ପୂର୍ବସେଟ୍ କରନ୍ତୁ</string>
+    <string name="reset_usage_pattern_summary">ଆପଣଙ୍କ ଔଜଲ୍ୟତା ସମାଯୋଜନ ଇତିହାସ ଖାଲି କରନ୍ତୁ। ପୂର୍ବସେଟ୍ ହେବା ପରେ ଆପଣଙ୍କ ଫୋନ୍ ପୁନଃ ଆପଣଙ୍କ ଅଗ୍ରାଧିକାର ଶିଖିବାକୁ ଆରମ୍ଭ କରିବ।</string>
+    <string name="reset_usage_pattern_dialog_title">ଆପଣଙ୍କ ଔଜଲ୍ୟ. ବ୍ୟବ. ଶୈଳୀ ପୂର୍ବସେଟ୍ କରିବେ?</string>
+    <string name="reset_usage_pattern_dialog_summary">ପୂର୍ବସେଟ୍ ପରେ ଆପଣଙ୍କ ଫୋନ୍ ଆପଣଙ୍କ ଔଜଲ୍ୟତା ଅଗ୍ରାଧିକାର ପୁନଃ ଶିଖିବାକୁ ଆରମ୍ଭ କରିବ।</string>
     <string name="current_theme_font">ସମ୍ପ୍ରତି ଥିମର ଡିଫଲ୍ଟ</string>
     <string name="hbm_mode_on">ସୂର୍ଯ୍ୟାଲୋକ ସର୍ବୋତ୍ତମ ଦେଖିବାକୁ ଅଧିକତ୍ତମ</string>
     <string name="aod_detach_mobile_keyboard_toast">%s ବ୍ୟବହାର କରିବାକୁ, ଡିଭାଇସରୁ କୀବୋର୍ଡ କଭର୍ ବିଚ୍ଛିନ୍ନ କରନ୍ତୁ।</string>
@@ -2593,6 +2598,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 ପୃଥକ ଆପ୍ଲିକେସନ୍‌ ଧ୍ଵନି କେବଳ ଆପଣଙ୍କ ଚୟନ କରିଥିବା ଅଡିଓ ଡିଭାଇସ୍ ଆପଣଙ୍କ ଫୋନର ମୂଖ୍ୟ ଅଡିଓ ଆଉଟପୁଟ୍ ଡିଭାଇସରୁ ଭିନ୍ନ ଥିବା ସମୟରେ କାର୍ଯ୍ୟ କରିବ।
 
 ଆପଣ ଦ୍ରୁତ ସେଟିଂସ୍ ପ୍ୟାନେଲରେ ଆପଣଙ୍କ ଫୋନର ମୂଖ୍ୟ ଅଡିଓ ଆଉଟପୁଟ୍ ଡିଭାଇସ୍ ପରିବର୍ତ୍ତନ କରିପାରିବେ। ଯଦି ଅଡିଓ ଆଉଟପୁଟ୍ ଦେଖାନଯାଇଛି, Samsung Connect > ସେଟିଂସ୍ Samsung Connect ପ୍ୟାନେଲରେ ଏହାକୁ ର୍ଟନ୍ ଅନ୍ କରନ୍ତୁ।"</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"ଆପଣଙ୍କ ଫୋନର ମୂଖ୍ୟ ଅଡିଓ ଆଉଟ୍ ପୁଟ୍ ଡିଭାଇସରୁ ପୃଥକ ଏକ ଅଡିଓ ଡିଭାଇସରେ ଗୋଟିଏ ଆପ୍ଲିକେସନରୁ ମିଡିଆ ଧ୍ଵନି ଚାଳନ କରନ୍ତୁ। ଏହାକୁ ଟର୍ନ୍ ଅନ୍ କରିବାକୁ ଏକ ଆପ୍ଲିକେସନ୍ ଏବଂ ଅଡିଓ ଡିଭାଇସ୍ ଚୟନ କରନ୍ତୁ।
+
+ପୃଥକ ଆପ୍ଲିକେସନ୍‌ ଧ୍ଵନି କେବଳ ଆପଣଙ୍କ ଚୟନ କରିଥିବା ଅଡିଓ ଡିଭାଇସ୍ ଆପଣଙ୍କ ଫୋନର ମୂଖ୍ୟ ଅଡିଓ ଆଉଟପୁଟ୍ ଡିଭାଇସରୁ ଭିନ୍ନ ଥିବା ସମୟରେ କାର୍ଯ୍ୟ କରିବ।
+
+ଯଦି ଆପଣ Samsung Connect ସଂସ୍ଥାପନ କରିବେ, ଆପଣ ଦ୍ରୁତ ସେଟିଂସ୍ ପ୍ୟାନେଲରେ ଆପଣଙ୍କ ଫୋନର ମୂଖ୍ୟ ଅଡିଓ ଆଉଟପୁଟ୍ ଡିଭାଇସ୍ ପରିବର୍ତ୍ତନ କରିପାରିବେ। ଯଦି ଅଡିଓ ଆଉଟପୁଟ୍ ଦେଖାନଯାଇଛି, Samsung Connect > ସେଟିଂସକୁ ଯାଇ, Samsung Connect ପ୍ୟାନେଲ୍ ଟର୍ନ୍ ଅନ୍ କରନ୍ତୁ।"</string>
     <string name="set_application_title">ଆପ୍</string>
     <string name="set_application_summary">ଆପ୍ଲିକେସନର ଧ୍ଵନି ପୃଥକ ଅଡିଓ ଡିଭାଇସରେ ଚାଳନ କରିବାକୁ ଆପ୍ଲିକେସନ୍‌ ଚୟନ କରନ୍ତୁ।</string>
     <string name="set_application_descryption">ଏକ ମଲ୍ଟିମିଡିଆ ଆପ୍ଲିକେସନର ଧ୍ଵନି ଏକ ପୃଥକ ଅଡିଓ ଡିଭାଇସରେ ଚାଳନ କରିବାକୁ ଏହା ଚୟନ କରନ୍ତୁ।</string>

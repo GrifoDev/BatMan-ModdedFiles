@@ -500,7 +500,7 @@
     return v0
 
     :pswitch_1
-    const v0, 0x7f0b1c6a
+    const v0, 0x7f0b1c70
 
     return v0
 
@@ -546,7 +546,7 @@
     return v0
 
     :pswitch_2
-    const v0, 0x7f0b1c62
+    const v0, 0x7f0b1c68
 
     return v0
 
@@ -556,7 +556,7 @@
     return v0
 
     :pswitch_4
-    const v0, 0x7f0b1c69
+    const v0, 0x7f0b1c6f
 
     return v0
 
@@ -597,27 +597,27 @@
     return v0
 
     :pswitch_1
-    const v0, 0x7f0b1c5f    # 1.8491E38f
+    const v0, 0x7f0b1c65
 
     return v0
 
     :pswitch_2
-    const v0, 0x7f0b1c61
-
-    return v0
-
-    :pswitch_3
-    const v0, 0x7f0b1c64
-
-    return v0
-
-    :pswitch_4
     const v0, 0x7f0b1c67
 
     return v0
 
+    :pswitch_3
+    const v0, 0x7f0b1c6a
+
+    return v0
+
+    :pswitch_4
+    const v0, 0x7f0b1c6d
+
+    return v0
+
     :pswitch_5
-    const v0, 0x7f0b1c6c
+    const v0, 0x7f0b1c72
 
     return v0
 
@@ -659,32 +659,32 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0b1c2f
+    const v0, 0x7f0b1c35
 
     return v0
 
     :cond_0
-    const v0, 0x7f0b1c5f    # 1.8491E38f
+    const v0, 0x7f0b1c65
 
     return v0
 
     :pswitch_2
-    const v0, 0x7f0b1c61
+    const v0, 0x7f0b1c67
 
     return v0
 
     :pswitch_3
-    const v0, 0x7f0b1c63
+    const v0, 0x7f0b1c69
 
     return v0
 
     :pswitch_4
-    const v0, 0x7f0b1c66
+    const v0, 0x7f0b1c6c
 
     return v0
 
     :pswitch_5
-    const v0, 0x7f0b1c6b
+    const v0, 0x7f0b1c71
 
     return v0
 
@@ -983,7 +983,7 @@
 
     invoke-direct {v1, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v4, 0x7f0b1c6e
+    const v4, 0x7f0b1c74
 
     invoke-virtual {v1, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -1007,7 +1007,7 @@
 
     invoke-direct {v4, p0}, Lcom/android/settings/deviceinfo/UsbModeChooserActivity$6;-><init>(Lcom/android/settings/deviceinfo/UsbModeChooserActivity;)V
 
-    const v5, 0x7f0b12ea
+    const v5, 0x7f0b12f0
 
     invoke-virtual {v1, v5, v4}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

@@ -147,7 +147,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1a8f
+    const v0, 0x7f0b1a95
 
     return v0
 .end method
@@ -165,7 +165,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/SettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f080148
+    const v0, 0x7f080149
 
     invoke-virtual {p0, v0}, Lcom/android/settings/WallpaperTypeSettings;->addPreferencesFromResource(I)V
 

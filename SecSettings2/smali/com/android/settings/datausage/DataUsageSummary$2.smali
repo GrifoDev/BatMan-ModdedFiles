@@ -90,7 +90,7 @@
 
     iget-object v1, p0, Lcom/android/settings/datausage/DataUsageSummary$2;->this$0:Lcom/android/settings/datausage/DataUsageSummary;
 
-    const v3, 0x7f0b1bd3
+    const v3, 0x7f0b1bd9
 
     invoke-virtual {v1, v3}, Lcom/android/settings/datausage/DataUsageSummary;->getString(I)Ljava/lang/String;
 
@@ -105,7 +105,7 @@
     :cond_1
     iget-object v1, p0, Lcom/android/settings/datausage/DataUsageSummary$2;->this$0:Lcom/android/settings/datausage/DataUsageSummary;
 
-    const v3, 0x7f0b1bd4
+    const v3, 0x7f0b1bda
 
     invoke-virtual {v1, v3}, Lcom/android/settings/datausage/DataUsageSummary;->getString(I)Ljava/lang/String;
 

@@ -857,7 +857,7 @@
 
     iput-boolean v1, p0, Lcom/samsung/android/settings/AssistantMenuPreferenceFragment;->bSupportHoverZoom:Z
 
-    const v1, 0x7f0800c0
+    const v1, 0x7f0800c1
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/AssistantMenuPreferenceFragment;->addPreferencesFromResource(I)V
 

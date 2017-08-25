@@ -38,7 +38,7 @@
 .method public onRemovalError(Landroid/hardware/fingerprint/Fingerprint;ILjava/lang/CharSequence;)V
     .locals 5
 
-    const v1, 0x7f0b076c
+    const v1, 0x7f0b0771
 
     const-string/jumbo v2, "VZW"
 
@@ -52,7 +52,7 @@
 
     if-eqz v2, :cond_0
 
-    const v1, 0x7f0b076d
+    const v1, 0x7f0b0772
 
     :cond_0
     new-instance v2, Landroid/app/AlertDialog$Builder;
@@ -65,7 +65,7 @@
 
     invoke-direct {v2, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0b0769
+    const v3, 0x7f0b076e
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 

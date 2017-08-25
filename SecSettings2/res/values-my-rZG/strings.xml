@@ -1231,6 +1231,11 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
 ေတာက္ပႏႈန္းကို အႏၱရာယ္ကင္းအဆင့္မ်ားအထက္သို႔ တိုးျမႇင့္ခြင့္ေပးရန္အတြက္ “အိုေက” ကို ႏွိပ္ပါ။"</string>
     <string name="auto_adjust_brightness">ေအာ္တို ေတာက္ပႏႈန္း</string>
     <string name="auto_adjust_brightness_summary">အလင္းစူးရွမႈ ခ်ိန္ညႇိခ်က္မ်ားကုိ မွတ္ထားၿပီး တူညီသည့္ အလင္းအေျခအေနမ်ားတြင္ ၎တုိ႔ကုိ အလုိအေလ်ာက္ သံုးပါ။</string>
+    <string name="auto_adjust_brightness_summary_nopac">လက္ရွိ အလင္းေပးမႈ အေျခအေနေပၚ မူတည္၍ ဖန္သားျပင္အလင္းေတာက္ပမႈကုိ အလိုအေလ်ာက္ ခ်ိန္ညႇိပါ။</string>
+    <string name="reset_usage_pattern_title">သံုးစြဲမႈ ပံုစံမ်ားကုိ ျပန္သတ္မွတ္ပါ</string>
+    <string name="reset_usage_pattern_summary">သင္၏ အလင္းေတာက္ပမႈ ခ်ိန္ညႇိ မွတ္တမ္းကုိ ရွင္းပစ္ပါ။ ျပန္လည္သတ္မွတ္ၿပီးေနာက္ သင့္ဖုန္းက သင္၏ ဦးစားေပးအခ်က္မ်ားကုိ ထပ္မံ စတင္ေလ့လာပါမည္။</string>
+    <string name="reset_usage_pattern_dialog_title">အလင္းေတာက္ပႏႈန္း သံုးစြဲမႈ ပံုစံမ်ားကုိ ျပန္သတ္မွတ္မလား?</string>
+    <string name="reset_usage_pattern_dialog_summary">ျပန္သတ္မွတ္ၿပီးေနာက္ သင့္ဖုန္းက သင္၏ အလင္းေတာက္ပမႈ ဦးစားေပးအခ်က္မ်ားကုိ ထပ္မံ စတင္ေလ့လာပါမည္။</string>
     <string name="current_theme_font">လက္ရွိ အေၾကာင္းအရာသည္ မူရင္းပါပုံစံ ျဖစ္သည္</string>
     <string name="hbm_mode_on">ေနေရာင္ျခည္ေအာက္တြင္ အေကာင္းဆုံးျမင္ကြင္းအတြက္ အႀကီးခ်ဲ႕ထားသည္</string>
     <string name="aod_detach_mobile_keyboard_toast">%s ကိုအသုံးျပဳရန္၊ ကိရိယာမွ ကီးဘုတ္အဖုံးကို ျဖဳတ္ထုတ္ပါ။</string>
@@ -2593,6 +2598,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 သင္ေရြးခ်ယ္ထားသည့္ ေအာ္ဒီယိုကိရိယာက သင့္ဖုန္း၏ အဓိက ေအာ္ဒီယုိအထြက္ကိရိယာႏွင့္ မတူညီသည့္အခါ သီးျခား အက္ပ္အသံကသာ အလုပ္လုပ္ပါသည္။
 
 အျမန္ သတ္မွတ္ခ်က္မ်ား ပန္နယ္ထဲတြင္ သင္ဖုန္း၏ ပင္မ ေအာ္ဒီယုိအထြက္ကိရိယာကုိ ေျပာင္းႏုိင္သည္။ ေအာ္ဒီယိုအထြက္ကုိ မျပသလွ်င္ ၎ကုိ Samsung Connect > သတ္မွတ္ခ်က္မ်ား > Samsung Connect ပန္နယ္ထဲတြင္ ဖြင့္ပါ။"</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"သင့္ဖုန္း၏ ပင္မ ေအာ္ဒီယုိထြက္သံကိရိယာထံမွ ခြဲထြက္ေသာ ေအာ္ဒီယုိကိရိယာေပၚရွိ အက္ပ္တစ္ခုမွ မီဒီယာအသံကုိ ဖြင့္ပါ။ ၎ကို ဖြင့္ရန္ အက္ပ္ႏွင့္ေအာ္ဒီယုိကိရိယာတစ္ခု ေရြးခ်ယ္ပါ။
+
+သင္ေ႐ြးထားသည့္ ေအာ္ဒီယိုကိရိယာသည္ သင့္ဖုန္း၏ အဓိက ေအာ္ဒီယုိထြက္သံကိရိယာႏွင့္ မတူေသာအခါ သီးျခား အက္ပ္အသံသာလ်ွင္ အလုပ္လုပ္သည္။
+
+Samsung Connect တပ္ဆင္ထားလ်ွင္၊ သင္ဖုန္း၏ ပင္မ ေအာ္ဒီယုိထြက္သံကိရိယာကုိ အျမန္သတ္မွတ္ခ်က္မ်ား အကန္႔တြင္ ေျပာင္းႏိုင္သည္။ ေအာ္ဒီယိုထြက္သံကိရိယာကို မျပလ်ွင္၊ Samsung Connect > သတ္မွတ္ခ်က္မ်ားသို႔ သြားပါ၊ ၿပီးလွ်င္ Samsung Connect ဖြင့္ပါ။"</string>
     <string name="set_application_title">အက္ပ္</string>
     <string name="set_application_summary">အက္ပ္၏အသံကုိ သီျခား ေအာ္ဒီယို ကိရိယာတြင္ ဖြင့္ရန္ ေရြးပါ။</string>
     <string name="set_application_descryption">မာတီမီဒီယာတစ္ခု၏ အသံကို သီးျခားေအာ္ဒီယိုကိရိယာတစ္ခုတြင္ ဖြင့္ရန္အတြက္ ေ႐ြးခ်ယ္ပါ။</string>

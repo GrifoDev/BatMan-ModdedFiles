@@ -248,7 +248,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/settings/PrivacySettings;->mConfigure:Landroid/support/v7/preference/PreferenceScreen;
 
-    const v1, 0x7f0b192b
+    const v1, 0x7f0b1931
 
     invoke-virtual {v0, v1}, Landroid/support/v7/preference/PreferenceScreen;->setSummary(I)V
 
@@ -329,7 +329,7 @@
 
     if-eqz v0, :cond_1
 
-    const v12, 0x7f0b1811
+    const v12, 0x7f0b1817
 
     :goto_0
     invoke-virtual {v13, v12}, Landroid/support/v7/preference/PreferenceScreen;->setSummary(I)V
@@ -391,7 +391,7 @@
     return-void
 
     :cond_1
-    const v12, 0x7f0b1812
+    const v12, 0x7f0b1818
 
     goto :goto_0
 
@@ -504,7 +504,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1aa3
+    const v0, 0x7f0b1aa9
 
     return v0
 .end method
@@ -543,7 +543,7 @@
     return-void
 
     :cond_0
-    const v5, 0x7f0800c9
+    const v5, 0x7f0800ca
 
     invoke-virtual {p0, v5}, Lcom/android/settings/PrivacySettings;->addPreferencesFromResource(I)V
 

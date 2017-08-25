@@ -1360,6 +1360,11 @@ Ayrıca Samsung’un bu Gizlilik İlkesi ana metninde açıklandığı biçimde 
 Parlaklığın güvenli seviyelerin üzerine çıkmasına izin vermek için Tamam öğesine dokunun."</string>
     <string name="auto_adjust_brightness">Otomatik parlaklık</string>
     <string name="auto_adjust_brightness_summary">Parlaklık ayarlarınızı takip edin ve benzer aydınlatma koşullarında bunları otomatik olarak uygulayın.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Mevcut aydınlatma koşullarına göre ekran parlaklığını otomatik olarak ayarlayın.</string>
+    <string name="reset_usage_pattern_title">Kullanım özelliklerini sıfırla</string>
+    <string name="reset_usage_pattern_summary">Parlaklık ayarı geçmişinizi temizleyin. Telefonunuz sıfırlama işleminden sonra tekrar tercihlerinizi öğrenmeye başlar.</string>
+    <string name="reset_usage_pattern_dialog_title">Parlaklık kullanım özelliklrnz sfrlnsn mı?</string>
+    <string name="reset_usage_pattern_dialog_summary">Telefonunuz sıfırlama sonrasında parlaklık tercihlerinizi tekrar öğrenmeye başlayacak.</string>
     <string name="current_theme_font">Geçerli tema varsayılan temadır</string>
     <string name="hbm_mode_on">Gnş ışğnda en iyi grntlme içn en üst dzye çkrldı</string>
     <string name="aod_detach_mobile_keyboard_toast">%s öğesini kullanmak için klavye kapağını cihazdan çıkarın.</string>
@@ -2722,6 +2727,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 Ayrı uygulama sesi sadece, seçtiğiniz ses cihazı telefonunuzun ana ses çıkış cihazından farklıysa çalışır.
 
 Telefonunuzun ana ses çıkış cihazını hızlı ayarlar panelinden değiştirebilirsiniz. Ses çıkışı gösterilmiyorsa Samsung Connect > Ayarlar > Samsung Connect paneli bölümünden açın."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Medya sesini, telefonunuzun ana ses çıkış cihazından farklı bir ses cihazındaki bir uygulamadan oynatın. Bunu açmak için bir uygulama ve ses cihazı seçin.
+
+Ayrı uygulama sesi sadece seçtiğiniz ses cihazı telefonunuzun ana ses çıkış cihazından farklıysa çalışır.
+
+Samsung Connect yüklüyse telefonunuzun ana ses çıkış cihazını hızlı ayarlar panelinden değiştirebilirsiniz. Ses çıkış cihazı gösterilmezse Samsung Connect > Ayarlar bölümüne gidip Samsung Connect panelini açın."</string>
     <string name="set_application_title">Uygulama</string>
     <string name="set_application_summary">Sesi ayrı bir ses cihazında oynatılacak uygulama seçin.</string>
     <string name="set_application_descryption">Sesini ayrı bir ses cihazında oynatmak üzere aşağıdan bir multimedya uygulaması seçin.</string>

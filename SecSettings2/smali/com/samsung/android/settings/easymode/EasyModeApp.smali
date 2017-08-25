@@ -1029,7 +1029,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b06d7
+    const v5, 0x7f0b06dc
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1037,7 +1037,7 @@
 
     aput-object v4, v3, v7
 
-    const v4, 0x7f0b068b
+    const v4, 0x7f0b0690
 
     invoke-virtual {v2, v4, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1913,7 +1913,7 @@
 
     iput-boolean v2, p0, Lcom/samsung/android/settings/easymode/EasyModeApp;->mIsSharedDevice:Z
 
-    const v2, 0x7f08006e
+    const v2, 0x7f08006f
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/easymode/EasyModeApp;->addPreferencesFromResource(I)V
 
@@ -2332,7 +2332,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0cad
+    const v3, 0x7f0b0cb3
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2354,7 +2354,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0cae
+    const v3, 0x7f0b0cb4
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

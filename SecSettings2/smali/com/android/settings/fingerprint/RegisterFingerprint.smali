@@ -1079,7 +1079,7 @@
 .method private checkMobileKeyboard()V
     .locals 6
 
-    const v5, 0x7f0b0764
+    const v5, 0x7f0b0769
 
     const/4 v2, 0x3
 
@@ -1136,7 +1136,7 @@
 
     aput-object v2, v1, v4
 
-    const v2, 0x7f0b081d
+    const v2, 0x7f0b0822
 
     invoke-virtual {p0, v2, v1}, Lcom/android/settings/fingerprint/RegisterFingerprint;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1346,7 +1346,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0816
+    const v2, 0x7f0b081b
 
     invoke-static {v1, v2, v4}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -2048,7 +2048,7 @@
     move-result-object v0
 
     :goto_0
-    const v2, 0x7f0b1331
+    const v2, 0x7f0b1337
 
     invoke-virtual {p0, v2}, Lcom/android/settings/fingerprint/RegisterFingerprint;->getString(I)Ljava/lang/String;
 
@@ -2671,9 +2671,9 @@
 .method private setFingerGuideText(I)V
     .locals 3
 
-    const v1, 0x7f0b0811
+    const v1, 0x7f0b0816
 
-    const v2, 0x7f0b0785
+    const v2, 0x7f0b078a
 
     iget-object v0, p0, Lcom/android/settings/fingerprint/RegisterFingerprint;->mDetailGuideText:Landroid/widget/TextView;
 
@@ -2696,7 +2696,7 @@
     :pswitch_0
     iget-object v0, p0, Lcom/android/settings/fingerprint/RegisterFingerprint;->mDetailGuideText:Landroid/widget/TextView;
 
-    const v1, 0x7f0b0826
+    const v1, 0x7f0b082b
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -2750,7 +2750,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/settings/fingerprint/RegisterFingerprint;->mDetailGuideText:Landroid/widget/TextView;
 
-    const v1, 0x7f0b0812
+    const v1, 0x7f0b0817
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -2768,7 +2768,7 @@
 .method private setFingerGuideTitle(I)V
     .locals 3
 
-    const v2, 0x7f0b0784
+    const v2, 0x7f0b0789
 
     iget-object v0, p0, Lcom/android/settings/fingerprint/RegisterFingerprint;->mGuideTitle:Landroid/widget/TextView;
 
@@ -2799,7 +2799,7 @@
     :pswitch_1
     iget-object v0, p0, Lcom/android/settings/fingerprint/RegisterFingerprint;->mGuideTitle:Landroid/widget/TextView;
 
-    const v1, 0x7f0b0781
+    const v1, 0x7f0b0786
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -2808,7 +2808,7 @@
     :pswitch_2
     iget-object v0, p0, Lcom/android/settings/fingerprint/RegisterFingerprint;->mGuideTitle:Landroid/widget/TextView;
 
-    const v1, 0x7f0b0782
+    const v1, 0x7f0b0787
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -3031,7 +3031,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b0774
+    const v7, 0x7f0b0779
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3065,7 +3065,7 @@
 
     invoke-virtual {v2, v6}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
 
-    const v6, 0x7f0b0776
+    const v6, 0x7f0b077b
 
     invoke-virtual {v2, v6}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -3280,7 +3280,7 @@
 
     invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b081e
+    const v1, 0x7f0b0823
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -3417,7 +3417,7 @@
 
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->append(Ljava/lang/CharSequence;)V
 
-    const v3, 0x7f0b0775
+    const v3, 0x7f0b077a
 
     invoke-virtual {p0, v3}, Lcom/android/settings/fingerprint/RegisterFingerprint;->getString(I)Ljava/lang/String;
 
@@ -3544,7 +3544,7 @@
 
     invoke-direct {v1, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b076e
+    const v2, 0x7f0b0773
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -3554,7 +3554,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b076f
+    const v3, 0x7f0b0774
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3594,7 +3594,7 @@
 .method private showLDUDialog()V
     .locals 5
 
-    const v2, 0x7f0b0792
+    const v2, 0x7f0b0797
 
     invoke-virtual {p0, v2}, Lcom/android/settings/fingerprint/RegisterFingerprint;->getString(I)Ljava/lang/String;
 
@@ -3604,7 +3604,7 @@
 
     invoke-direct {v2, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0b0825
+    const v3, 0x7f0b082a
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -3663,7 +3663,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0769
+    const v4, 0x7f0b076e
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3705,7 +3705,7 @@
 
     aput-object v5, v4, v6
 
-    const v5, 0x7f0b0772
+    const v5, 0x7f0b0777
 
     invoke-virtual {v3, v5, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -3810,7 +3810,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b076b
+    const v4, 0x7f0b0770
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3823,7 +3823,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b076f
+    const v4, 0x7f0b0774
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3836,7 +3836,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0770
+    const v4, 0x7f0b0775
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3846,7 +3846,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0771
+    const v4, 0x7f0b0776
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3871,7 +3871,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b076d
+    const v4, 0x7f0b0772
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3884,7 +3884,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b076c
+    const v4, 0x7f0b0771
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4989,7 +4989,7 @@
 
     aput-object v10, v9, v11
 
-    const v10, 0x7f0b07b5
+    const v10, 0x7f0b07ba
 
     invoke-virtual {p0, v10, v9}, Lcom/android/settings/fingerprint/RegisterFingerprint;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -5656,7 +5656,7 @@
 
     if-eqz v2, :cond_7
 
-    const v2, 0x7f0b0803
+    const v2, 0x7f0b0808
 
     invoke-virtual {p0, v2}, Lcom/android/settings/fingerprint/RegisterFingerprint;->getString(I)Ljava/lang/String;
 
@@ -5771,7 +5771,7 @@
     goto/16 :goto_0
 
     :cond_7
-    const v2, 0x7f0b0801
+    const v2, 0x7f0b0806
 
     invoke-virtual {p0, v2}, Lcom/android/settings/fingerprint/RegisterFingerprint;->getString(I)Ljava/lang/String;
 
@@ -5845,7 +5845,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b07e1
+    const v3, 0x7f0b07e6
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -5858,7 +5858,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b07e3
+    const v3, 0x7f0b07e8
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -5871,7 +5871,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b07e2
+    const v3, 0x7f0b07e7
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -5884,7 +5884,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b07e4
+    const v3, 0x7f0b07e9
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -6312,7 +6312,7 @@
 
     if-eqz v3, :cond_2
 
-    const v3, 0x7f0b0788
+    const v3, 0x7f0b078d
 
     invoke-virtual {p0, v3}, Lcom/android/settings/fingerprint/RegisterFingerprint;->getString(I)Ljava/lang/String;
 
@@ -6335,7 +6335,7 @@
 
     if-eqz v3, :cond_1
 
-    const v3, 0x7f0b07fb
+    const v3, 0x7f0b0800
 
     invoke-virtual {p0, v3}, Lcom/android/settings/fingerprint/RegisterFingerprint;->getString(I)Ljava/lang/String;
 
@@ -7279,7 +7279,7 @@
 
     if-ne p1, v4, :cond_1
 
-    const v4, 0x7f0b0815
+    const v4, 0x7f0b081a
 
     invoke-static {p0, v4, v8}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

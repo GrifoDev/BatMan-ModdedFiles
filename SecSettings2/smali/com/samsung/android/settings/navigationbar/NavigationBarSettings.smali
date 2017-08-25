@@ -179,7 +179,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->mContext:Landroid/content/Context;
 
-    const v0, 0x7f0800a9
+    const v0, 0x7f0800aa
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->addPreferencesFromResource(I)V
 
@@ -251,7 +251,7 @@
 
     new-array v1, v5, [Ljava/lang/CharSequence;
 
-    const v2, 0x7f0b064c
+    const v2, 0x7f0b0651
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->getString(I)Ljava/lang/String;
 
@@ -259,7 +259,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b064d
+    const v2, 0x7f0b0652
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/navigationbar/NavigationBarSettings;->getString(I)Ljava/lang/String;
 

@@ -139,7 +139,7 @@
 
     iget-object v3, p0, Lcom/android/settings/ActiveNetworkScorerDialog;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    const v4, 0x7f0b166c
+    const v4, 0x7f0b1672
 
     invoke-virtual {p0, v4}, Lcom/android/settings/ActiveNetworkScorerDialog;->getString(I)Ljava/lang/String;
 
@@ -159,7 +159,7 @@
 
     aput-object v5, v4, v6
 
-    const v5, 0x7f0b166d
+    const v5, 0x7f0b1673
 
     invoke-virtual {p0, v5, v4}, Lcom/android/settings/ActiveNetworkScorerDialog;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -168,7 +168,7 @@
     iput-object v4, v3, Lcom/android/internal/app/AlertController$AlertParams;->mMessage:Ljava/lang/CharSequence;
 
     :goto_0
-    const v4, 0x7f0b1211
+    const v4, 0x7f0b1217
 
     invoke-virtual {p0, v4}, Lcom/android/settings/ActiveNetworkScorerDialog;->getString(I)Ljava/lang/String;
 
@@ -176,7 +176,7 @@
 
     iput-object v4, v3, Lcom/android/internal/app/AlertController$AlertParams;->mPositiveButtonText:Ljava/lang/CharSequence;
 
-    const v4, 0x7f0b1212
+    const v4, 0x7f0b1218
 
     invoke-virtual {p0, v4}, Lcom/android/settings/ActiveNetworkScorerDialog;->getString(I)Ljava/lang/String;
 
@@ -197,7 +197,7 @@
 
     aput-object v0, v4, v7
 
-    const v5, 0x7f0b166e
+    const v5, 0x7f0b1674
 
     invoke-virtual {p0, v5, v4}, Lcom/android/settings/ActiveNetworkScorerDialog;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

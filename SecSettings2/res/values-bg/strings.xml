@@ -1360,6 +1360,11 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
 Докоснете OK, за да разрешите увеличаване на яркостта над безопасните нива."</string>
     <string name="auto_adjust_brightness">Автоматична яркост</string>
     <string name="auto_adjust_brightness_summary">Следете регулирането на яркостта и го прилагайте автоматично в подобни условия на осветеност.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Регулирайте яркостта на екрана автоматично според съответните условия на осветеност.</string>
+    <string name="reset_usage_pattern_title">Нулиране начини на използване</string>
+    <string name="reset_usage_pattern_summary">Изчистете хронологията на регулиране на яркостта. Телефонът ще започне да научава вашите предпочитания отново след нулирането.</string>
+    <string name="reset_usage_pattern_dialog_title">Нулиране начини на използване на яркостта?</string>
+    <string name="reset_usage_pattern_dialog_summary">Телефонът ще започне да научава вашите предпочитания за яркост отново след нулирането.</string>
     <string name="current_theme_font">Настройки по подразбиране на текущата тема</string>
     <string name="hbm_mode_on">Максимизирано за най-добро виждане на слънце</string>
     <string name="aod_detach_mobile_keyboard_toast">За да използвате %s, откачете капака с клавиатура от устройството.</string>
@@ -2722,6 +2727,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 Отделният звук на приложение работи само когато избраното аудио устройство е различно от главното изходно аудио устройство на телефона.
 
 Може да промените главното изходно аудио устройство на телефона в панела за бързи настройки. Ако аудио изходът не се показва, включете го в Samsung Connect > Настройки > Панел на Samsung Connect."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Възпроизвеждайте звук от едно приложение на аудио устройство, отделно от главното изходно аудио устройство на телефона. Изберете приложение и аудио устройство, за да включите тази функция.
+
+Отделният звук на приложение работи само когато избраното аудио устройство е различно от главното изходно аудио устройство на телефона.
+
+Ако имате инсталирано Samsung Connect, може да промените главното изходно аудио устройство на телефона в панела за бързи настройки. Ако изходното аудио устройство не се показва, отидете в Samsung Connect > Настройки, след което включете панела на Samsung Connect."</string>
     <string name="set_application_title">Приложение</string>
     <string name="set_application_summary">Изберете приложение, чийто звук да се възпроизведе на отделно аудио устройство.</string>
     <string name="set_application_descryption">Изберете приложение за мултимедия по-долу, чийто звук да се възпроизведе на отделно аудио устройство.</string>

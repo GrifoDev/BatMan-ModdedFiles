@@ -457,7 +457,7 @@
 
     aput-object v3, v6, v9
 
-    const v3, 0x7f0b1d00
+    const v3, 0x7f0b1d06
 
     invoke-virtual {p0, v3, v6}, Lcom/android/settings/datausage/BillingCycleSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -654,7 +654,7 @@
 
     iput-object v2, p0, Lcom/android/settings/datausage/BillingCycleSettings;->mNetworkTemplate:Landroid/net/NetworkTemplate;
 
-    const v2, 0x7f08002e
+    const v2, 0x7f08002f
 
     invoke-virtual {p0, v2}, Lcom/android/settings/datausage/BillingCycleSettings;->addPreferencesFromResource(I)V
 

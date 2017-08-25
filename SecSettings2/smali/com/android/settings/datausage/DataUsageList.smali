@@ -1114,7 +1114,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b1c01
+    const v3, 0x7f0b1c07
 
     const/4 v4, 0x0
 
@@ -1366,7 +1366,7 @@
 
     aput-object v16, v10, v17
 
-    const v17, 0x7f0b1d04
+    const v17, 0x7f0b1d0a
 
     move-object/from16 v0, p0
 
@@ -2200,7 +2200,7 @@
 
     iput-object v4, p0, Lcom/android/settings/datausage/DataUsageList;->mUidDetailProvider:Lcom/android/settingslib/net/UidDetailProvider;
 
-    const v4, 0x7f08004d
+    const v4, 0x7f08004e
 
     invoke-virtual {p0, v4}, Lcom/android/settings/datausage/DataUsageList;->addPreferencesFromResource(I)V
 

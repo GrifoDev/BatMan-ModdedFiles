@@ -588,7 +588,7 @@
 
     iput-object v9, v3, Lcom/android/settings/search/SearchIndexableRaw;->className:Ljava/lang/String;
 
-    const v9, 0x7f0b1370
+    const v9, 0x7f0b1376
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -706,7 +706,7 @@
 
     if-eqz v9, :cond_9
 
-    const v9, 0x7f0b09c5
+    const v9, 0x7f0b09ca
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -714,7 +714,7 @@
 
     iput-object v9, v3, Lcom/android/settings/search/SearchIndexableRaw;->title:Ljava/lang/String;
 
-    const v9, 0x7f0b09c6
+    const v9, 0x7f0b09cb
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -739,7 +739,7 @@
 
     iput-object v9, v3, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
 
-    const v9, 0x7f0b16f3
+    const v9, 0x7f0b16f9
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -753,7 +753,7 @@
 
     if-eqz v9, :cond_d
 
-    const v9, 0x7f0b09a9
+    const v9, 0x7f0b09ae
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -827,7 +827,7 @@
 
     iput-object v9, v3, Lcom/android/settings/search/SearchIndexableRaw;->className:Ljava/lang/String;
 
-    const v9, 0x7f0b09f7
+    const v9, 0x7f0b09fc
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -925,7 +925,7 @@
 
     iput-object v9, v3, Lcom/android/settings/search/SearchIndexableRaw;->className:Ljava/lang/String;
 
-    const v9, 0x7f0b09c7
+    const v9, 0x7f0b09cc
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -933,7 +933,7 @@
 
     iput-object v9, v3, Lcom/android/settings/search/SearchIndexableRaw;->title:Ljava/lang/String;
 
-    const v9, 0x7f0b09c8
+    const v9, 0x7f0b09cd
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -995,7 +995,7 @@
     return-object v8
 
     :cond_9
-    const v9, 0x7f0b09bc
+    const v9, 0x7f0b09c1
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1023,7 +1023,7 @@
 
     if-ne v2, v9, :cond_a
 
-    const v9, 0x7f0b09f6
+    const v9, 0x7f0b09fb
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1034,7 +1034,7 @@
     goto/16 :goto_1
 
     :cond_a
-    const v9, 0x7f0b09f2
+    const v9, 0x7f0b09f7
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1051,7 +1051,7 @@
 
     if-eqz v9, :cond_c
 
-    const v9, 0x7f0b09f1
+    const v9, 0x7f0b09f6
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1062,7 +1062,7 @@
     goto/16 :goto_1
 
     :cond_c
-    const v9, 0x7f0b09bd
+    const v9, 0x7f0b09c2
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1092,7 +1092,7 @@
 
     iput-object v9, v3, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
 
-    const v9, 0x7f0b0894
+    const v9, 0x7f0b0899
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1139,7 +1139,7 @@
 
     iput-object v9, v3, Lcom/android/settings/search/SearchIndexableRaw;->intentTargetClass:Ljava/lang/String;
 
-    const v9, 0x7f0b090f
+    const v9, 0x7f0b0914
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1186,7 +1186,7 @@
 
     iput-object v9, v3, Lcom/android/settings/search/SearchIndexableRaw;->intentTargetClass:Ljava/lang/String;
 
-    const v9, 0x7f0b090e
+    const v9, 0x7f0b0913
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1239,7 +1239,7 @@
 
     iput-object v9, v3, Lcom/android/settings/search/SearchIndexableRaw;->intentTargetClass:Ljava/lang/String;
 
-    const v9, 0x7f0b090d
+    const v9, 0x7f0b0912
 
     invoke-virtual {v7, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1296,7 +1296,7 @@
 
     iput-object v10, v7, Landroid/provider/SearchIndexableResource;->className:Ljava/lang/String;
 
-    const v10, 0x7f080099
+    const v10, 0x7f08009a
 
     iput v10, v7, Landroid/provider/SearchIndexableResource;->xmlResId:I
 
@@ -1354,7 +1354,7 @@
 
     if-nez v10, :cond_3
 
-    const v5, 0x7f080101
+    const v5, 0x7f080102
 
     :cond_3
     :goto_1
@@ -1415,7 +1415,7 @@
 
     if-nez v8, :cond_7
 
-    const v5, 0x7f080107
+    const v5, 0x7f080108
 
     :goto_2
     new-instance v7, Landroid/provider/SearchIndexableResource;
@@ -1436,7 +1436,7 @@
     goto :goto_0
 
     :cond_6
-    const v5, 0x7f080117
+    const v5, 0x7f080118
 
     goto :goto_1
 
@@ -1461,7 +1461,7 @@
 
     if-eqz v10, :cond_a
 
-    const v5, 0x7f080115
+    const v5, 0x7f080116
 
     goto :goto_2
 
@@ -1472,22 +1472,22 @@
 
     if-eqz v10, :cond_9
 
-    const v5, 0x7f080114
+    const v5, 0x7f080115
 
     goto :goto_2
 
     :cond_9
-    const v5, 0x7f080113
+    const v5, 0x7f080114
 
     goto :goto_2
 
     :cond_a
-    const v5, 0x7f080113
+    const v5, 0x7f080114
 
     goto :goto_2
 
     :cond_b
-    const v5, 0x7f080114
+    const v5, 0x7f080115
 
     goto :goto_2
 .end method

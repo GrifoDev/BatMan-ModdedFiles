@@ -83,7 +83,7 @@
 
     if-eqz v1, :cond_1
 
-    const v1, 0x7f080161
+    const v1, 0x7f080162
 
     iput v1, v0, Landroid/provider/SearchIndexableResource;->xmlResId:I
 
@@ -96,7 +96,7 @@
 
     if-eqz v1, :cond_2
 
-    const v1, 0x7f080162
+    const v1, 0x7f080163
 
     iput v1, v0, Landroid/provider/SearchIndexableResource;->xmlResId:I
 

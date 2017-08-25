@@ -1360,6 +1360,11 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
 הקש על 'אישור' כדי לאפשר הגברה של הבהירות מעל לרמות הבטוחות."</string>
     <string name="auto_adjust_brightness">בהירות אוטומטית</string>
     <string name="auto_adjust_brightness_summary">נהל מעקב אחר התאמות הבהירות שלך והחל אותן באופן אוטומטי בתנאי תאורה דומים.</string>
+    <string name="auto_adjust_brightness_summary_nopac">התאם את בהירות המסך באופן אוטומטי, על פי תנאי התאורה הנוכחיים.</string>
+    <string name="reset_usage_pattern_title">איפוס דפוסי שימוש</string>
+    <string name="reset_usage_pattern_summary">"נקה היסטוריית התאמת בהירות. לאחר האיפוס, הטלפון יתחיל 'ללמוד' מחדש את ההעדפות שלך."</string>
+    <string name="reset_usage_pattern_dialog_title">האם לאפס את דפוסי השימוש בבהירות?</string>
+    <string name="reset_usage_pattern_dialog_summary">"לאחר האיפוס, הטלפון יתחיל 'ללמוד' מחדש את העדפות הבהירות שלך."</string>
     <string name="current_theme_font">ברירת המחדל בערכת הנושא הנוכחית</string>
     <string name="hbm_mode_on">התאמה מיטבית לצפייה באור שמש</string>
     <string name="aod_detach_mobile_keyboard_toast">כדי להשתמש ב-%s, נתק את מכסה המקלדת מהמכשיר.</string>
@@ -2722,6 +2727,11 @@ Mobile data will be turned off."</string>
 התכונה 'צלילי יישומים נפרדים' תפעל רק אם ההתקן שבחרת אינו התקן פלט השמע הראשי של הטלפון שלך.
 
 תוכל לשנות את התקן פלט השמע הראשי של הטלפון דרך חלונית ההגדרות המהירות. אם לא מוצג פלט שמע, הפעל פריט זה דרך Samsung Connect > 'הגדרות' > חלונית Samsung Connect."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"השמע צלילי מדיה מיישום מסוים בהתקן שמע נוסף, מעבר להתקן פלט השמע הראשי של הטלפון. כדי להפעיל פריט זה, בחר יישום והתקן שמע.
+
+התכונה 'צלילי יישומים נפרדים' תפעל רק אם ההתקן שבחרת אינו התקן פלט השמע הראשי של הטלפון שלך.
+
+אם התקנת את Samsung Connect, תוכל לשנות את התקן פלט השמע הראשי של הטלפון דרך חלונית ההגדרות המהירות. אם התקן פלט השמע לא מוצג, עבור אל Samsung Connect > 'הגדרות' והפעל את חלונית Samsung Connect."</string>
     <string name="set_application_title">יישום</string>
     <string name="set_application_summary">בחר יישום כדי להשמיע את הצלילים ממנו באמצעות התקן שמע נפרד.</string>
     <string name="set_application_descryption">בחר יישום מולטימדיה להלן כדי להשמיע את הצלילים ממנו באמצעות התקן שמע נפרד.</string>

@@ -41,7 +41,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f0800ee
+    const v0, 0x7f0800ef
 
     invoke-virtual {p0, v0}, Lcom/android/settings/SetupChooseLockGeneric$SetupChooseLockGenericFragment;->addPreferencesFromResource(I)V
 

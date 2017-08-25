@@ -818,7 +818,7 @@
 
     iget-object v3, v0, Lcom/android/settings/bluetooth/BluetoothEnabler;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0b1424
+    const v4, 0x7f0b142a
 
     const/4 v5, 0x0
 

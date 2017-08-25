@@ -38,7 +38,7 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f08011b
+    const v0, 0x7f08011c
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/ServiceInfoSettings;->addPreferencesFromResource(I)V
 

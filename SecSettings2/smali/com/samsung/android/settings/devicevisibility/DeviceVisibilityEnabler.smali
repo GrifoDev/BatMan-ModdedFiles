@@ -62,7 +62,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/devicevisibility/DeviceVisibilityEnabler;->mSwitchPref:Landroid/preference/SwitchPreference;
 
-    const v1, 0x7f0b06d4
+    const v1, 0x7f0b06d9
 
     invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setTitle(I)V
 
@@ -110,7 +110,7 @@
 
     if-ne v0, v2, :cond_2
 
-    const v1, 0x7f0b1bd3
+    const v1, 0x7f0b1bd9
 
     :goto_1
     invoke-virtual {v4, v1}, Landroid/preference/SwitchPreference;->setSummary(I)V
@@ -131,7 +131,7 @@
     goto :goto_0
 
     :cond_2
-    const v1, 0x7f0b06d5
+    const v1, 0x7f0b06da
 
     goto :goto_1
 

@@ -1360,6 +1360,11 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
 შეეხეთ OK-ს, თუ გსურთ განათებულობა გაიზარდოს უსაფრთხო დონეებზე მეტად."</string>
     <string name="auto_adjust_brightness">ავტომატური განათებულობა</string>
     <string name="auto_adjust_brightness_summary">აღრიცხეთ თქვენ მიერ მორგებული სიკაშკაშე და ავტომატურად გამოიყენეთ ისინი მსგავსი განათების პირობებში.</string>
+    <string name="auto_adjust_brightness_summary_nopac">ავტომატურად შეარჩიეთ ეკრანის განათებულობა, განათების მიმდინარე პირობებზე დაყრდნობით.</string>
+    <string name="reset_usage_pattern_title">გამოყენების ნიმუშების შეცვლა</string>
+    <string name="reset_usage_pattern_summary">წაშალეთ სიკაშკაშის მორგების ისტორია. გადატვირთვის შემდეგ ტელეფონი თავიდან დაიწყებს თქვენთვის სასურველი პარამეტრების შესწავლას.</string>
+    <string name="reset_usage_pattern_dialog_title">შეცვლით სიკაშკაშის გამოყენების ნიმუშებს?</string>
+    <string name="reset_usage_pattern_dialog_summary">გადატვირთვის შემდეგ ტელეფონი თავიდან დაიწყებს სიკაშკაშის თქვენთვის სასურველი პარამეტრების შესწავლას.</string>
     <string name="current_theme_font">მიმდინარე თემის ნაგულისხმევი</string>
     <string name="hbm_mode_on">მაქსიმალურად გაიშალა, მზეზე კარგად სანახავად</string>
     <string name="aod_detach_mobile_keyboard_toast">%s რომ გამოიყენოთ, მოწყობილობას მოხსენით კლავიატურის ყდა.</string>
@@ -2722,6 +2727,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 აპლიკაციის ცალკე ხმა მხოლოდ მაშინ მუშაობს, როცა თქვენ მიერ შერჩეული აუდიო მოწყობილობა განსხვავდება თქვენი ტელეფონის ძირითადი გამომავალი აუდიო მოწყობილობისგან.
 
 შეგიძლიათ სწრაფი პარამეტრების დაფაზე შეცვალოთ თქვენი ტელეფონის ძირითადი გამომავალი აუდიო მოწყობილობა. თუ აუდიო გამოსავალი არ ჩანს, მის ჩასართავად გახსენით Samsung Connect > „პარამეტრები“ > Samsung Connect-ის დაფა."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"ჩართეთ მედიის ხმა აუდიომოწყობილობის ერთი აპლიკაციიდან, ტელეფონის ხმის გამომცემი ძირითადი მოწყობილობისგან განცალკევებით. აირჩიეთ აპლიკაცია და აუდიო მოწყობილობა, რომ ჩართოთ ეს.
+
+აპლიკაციის ცალკე ხმა მხოლოდ მაშინ მუშაობს, როცა თქვენ მიერ შერჩეული აუდიო მოწყობილობა განსხვავდება ტელეფონის ძირითადი გამომავალი აუდიო მოწყობილობისგან.
+
+თუ დაინსტალირებული გაქვთ Samsung Connect, შეგიძლიათ სწრაფი პარამეტრების დაფაზე შეცვალოთ ტელეფონის ძირითადი გამომავალი აუდიო მოწყობილობა. თუ გამომავალი აუდიო მოწყობილობა არ ჩანს, გახსენით „Samsung Connect“ > „პარამეტრები“ და ჩართეთ Samsung Connect-ის დაფა."</string>
     <string name="set_application_title">აპლიკაცია</string>
     <string name="set_application_summary">აირჩიეთ აპლიკაცია, რომლის ხმის მოსმენა გსურთ ცალკე აუდიო მოწყობილობით.</string>
     <string name="set_application_descryption">ქვემოთ აირჩიეთ მულტიმედიური აპლიკაცია, რომლის ხმის მოსმენა გსურთ ცალკე აუდიო მოწყობილობით.</string>

@@ -1360,6 +1360,11 @@ Upozorňujeme tiež, že spoločnosť Samsung môže aj naďalej zhromažďovať
 Ťuknutím na tlačidlo OK povolíte zvýšenie jasu nad bezpečné úrovne."</string>
     <string name="auto_adjust_brightness">Automatický jas</string>
     <string name="auto_adjust_brightness_summary">Sleduje nastavenia jasu a automaticky ich použije v podobných svetelných podmienkach.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Automaticky upravuje jas obrazovky podľa aktuálnych svetelných podmienok.</string>
+    <string name="reset_usage_pattern_title">Resetovať spôsoby používania</string>
+    <string name="reset_usage_pattern_summary">Vymaže históriu úprav nastavení jasu. Po resetovaní sa telefón začne znova učiť vaše preferencie.</string>
+    <string name="reset_usage_pattern_dialog_title">Resetovať vaše spôsoby používania jasu?</string>
+    <string name="reset_usage_pattern_dialog_summary">Po resetovaní sa telefón začne znova učiť vaše preferencie jasu.</string>
     <string name="current_theme_font">Predvolené nastavenie aktuálneho motívu</string>
     <string name="hbm_mode_on">Maxim. pre najlepšie zobr. na slnečnom svetle</string>
     <string name="aod_detach_mobile_keyboard_toast">Ak chcete použiť funkciu %s, snímte kryt klávesnice zo zariadenia.</string>
@@ -2722,6 +2727,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 Oddelený zvuk aplikácie funguje iba v prípade, keď sa vybraté zvukové zariadenie líši od hlavného výstupného zvukového zariadenia telefónu.
 
 Hlavné výstupné zvukové zariadenie telefónu môžete zmeniť na paneli rýchlych nastavení. Ak sa zvukový výstup neobjaví, zapnite ho v menu Samsung Connect > Nastavenia > Panel Samsung Connect."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Prehráva zvuk médií z jednej aplikácie pomocou samostatného zvukového zariadenia iného než hlavné výstupné zvukové zariadenie telefónu. Pred zapnutím tejto funkcie vyberte aplikáciu a zvukové zariadenie.
+
+Oddelený zvuk aplikácie funguje iba v prípade, keď sa vybraté zvukové zariadenie líši od hlavného výstupného zvukového zariadenia telefónu.
+
+Ak máte nainštalovanú aplikáciu Samsung Connect, hlavné výstupné zvukové zariadenie telefónu môžete zmeniť na paneli rýchlych nastavení. Ak sa zvukové výstupné zariadenie nezobrazí, prejdite do menu Samsung Connect > Nastavenia a potom zapnite možnosť Panel Samsung Connect."</string>
     <string name="set_application_title">Aplikácia</string>
     <string name="set_application_summary">Vyberte aplikáciu, ktorej zvuk chcete prehrávať cez samostatné zvukové zariadenie.</string>
     <string name="set_application_descryption">Nižšie vyberte multimediálnu aplikáciu, ktorej zvuk chcete prehrávať cez samostatné zvukové zariadenie.</string>

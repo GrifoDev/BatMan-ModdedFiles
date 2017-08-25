@@ -480,7 +480,7 @@
 
     check-cast v2, Landroid/view/LayoutInflater;
 
-    const v3, 0x7f080065
+    const v3, 0x7f080066
 
     invoke-virtual {v2, v3, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -609,7 +609,7 @@
     :goto_0
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/spen/DirectPenInputSettings;->setHasOptionsMenu(Z)V
 
-    const v5, 0x7f080064
+    const v5, 0x7f080065
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/spen/DirectPenInputSettings;->addPreferencesFromResource(I)V
 
@@ -969,13 +969,13 @@
 .method public showEnableDialog(Ljava/lang/String;Ljava/lang/String;Z)V
     .locals 11
 
-    const v10, 0x7f0b0acc
+    const v10, 0x7f0b0ad1
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/spen/DirectPenInputSettings;->getActivity()Landroid/app/Activity;
 
     move-result-object v7
 
-    const v8, 0x7f0b0ddb
+    const v8, 0x7f0b0de1
 
     invoke-virtual {v7, v8}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -1058,7 +1058,7 @@
 
     invoke-direct {v8, p0}, Lcom/samsung/android/settings/spen/DirectPenInputSettings$9;-><init>(Lcom/samsung/android/settings/spen/DirectPenInputSettings;)V
 
-    const v9, 0x7f0b0dda
+    const v9, 0x7f0b0de0
 
     invoke-virtual {v7, v9, v8}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

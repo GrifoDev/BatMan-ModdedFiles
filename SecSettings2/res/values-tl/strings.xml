@@ -1360,6 +1360,11 @@ Pakitandaan din na maaari pa ring mangolekta ang Samsung ng impormasyon tungkol 
 I-tap ang OK para payagan na mataasan ang liwanag nang lagpas sa ligtas na level."</string>
     <string name="auto_adjust_brightness">Awto brightness</string>
     <string name="auto_adjust_brightness_summary">Subaybayan ang mga pag-adjust mo sa liwanag at awtomatikong ilapat ang mga ito sa mga kaparehong sitwasyon ng ilaw.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Awtomatikong i-adjust ang liwanag ng screen batay sa kasalukuyang kondisyon ng ilaw.</string>
+    <string name="reset_usage_pattern_title">I-reset ang mga pattern ng paggamit</string>
+    <string name="reset_usage_pattern_summary">Burahin ang history ng pag-adjust mo sa liwanag. Magsisimulang matutunan muli ng telepono mo ang mga gusto mo pagkatapos ng pag-reset.</string>
+    <string name="reset_usage_pattern_dialog_title">I-reset ang mga pattern sa paggamit mo ng liwanag?</string>
+    <string name="reset_usage_pattern_dialog_summary">Magsisimulang matutunan muli ng telepono mo ang mga gusto mo sa liwanag pagkatapos ng pag-reset.</string>
     <string name="current_theme_font">Kasalukuyang default na tema</string>
     <string name="hbm_mode_on">Naka-maximize para sa pinakamagandang patingin sa liwanag ng araw</string>
     <string name="aod_detach_mobile_keyboard_toast">Para gamitin ang %s, tanggalin ang takip ng keyboard mula sa device.</string>
@@ -2722,6 +2727,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 Gumagana lang ang hiwalay na tunog ng app kapag naiiba ang pinili mong audio device sa main audio output device ng telepono mo.
 
 Mababago mo ang main audio output device ng telepono mo sa quick settings panel. Kung hindi pinapakita ang audio output, i-on ito sa Samsung Connect > Settings > Samsung Connect panel."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Mag-play ng tunog ng media mula sa isang app sa isang audio device na bukod sa main audio output device ng telepono mo. Pumili ng isang app at audio device para i-on ito.
+
+Gumagana lang ang hiwalay na tunog ng app kapag naiiba ang pinili mong audio device sa main audio output device ng telepono mo.
+
+Mababago mo ang main audio output device ng telepono mo sa quick settings panel kung may naka-install kang Samsung Connect. Kung hindi ipinakikita ang audio output device, pumunta sa Samsung Connect > Settings, pagkatapos ay i-on ang Samsung Connect panel."</string>
     <string name="set_application_title">App</string>
     <string name="set_application_summary">Pumili ng app kung saan ipi-play ang tunog nito sa isang hiwalay na audio device.</string>
     <string name="set_application_descryption">Pumili ng multimedia app sa ibaba para i-play ang tunog nito sa isang hiwalay na audio device.</string>

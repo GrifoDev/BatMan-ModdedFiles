@@ -1460,7 +1460,7 @@
 
     iput-object v6, p0, Lcom/samsung/android/settings/accessibility/notificationreminder/NotificationReminderPreferenceFragment;->mPreferenceFragmentActivity:Landroid/app/Activity;
 
-    const v6, 0x7f0800b1
+    const v6, 0x7f0800b2
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/accessibility/notificationreminder/NotificationReminderPreferenceFragment;->addPreferencesFromResource(I)V
 

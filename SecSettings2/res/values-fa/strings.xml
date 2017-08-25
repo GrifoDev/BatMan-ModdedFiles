@@ -1360,6 +1360,11 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
 روی &lt;تأیید> ضربه بزنید تا روشنایی، فراتر از سطح ایمنی افزایش داده شود."</string>
     <string name="auto_adjust_brightness">روشنایی خودکار</string>
     <string name="auto_adjust_brightness_summary">تنظیمات روشنایی را دنبال می‌کند و آنها را به طور خودکار در شرایط نور مشابه اعمال می‌کند.</string>
+    <string name="auto_adjust_brightness_summary_nopac">روشنایی صفحه به طور خودکار بر اساس شرایط فعلی نور محیط تنظیم می‌شود.</string>
+    <string name="reset_usage_pattern_title">بازنشانی الگوهای استفاده</string>
+    <string name="reset_usage_pattern_summary">تاریخچه تنظیم روشنایی شما پاک می‌شود. پس از بازنشانی، تلفن شما دوباره شروع به یادگیری تنظیمات برگزیده شما می‌کند.</string>
+    <string name="reset_usage_pattern_dialog_title">الگوهای مصرف روشنایی‌تان را بازنشانی می‌کنید؟</string>
+    <string name="reset_usage_pattern_dialog_summary">پس از بازنشانی، تلفن شما دوباره شروع به یادگیری تنظیمات برگزیده روشنایی شما می‌کند.</string>
     <string name="current_theme_font">پیش‌فرض تم فعلی</string>
     <string name="hbm_mode_on">افزایش روشنایی برای دید بهتر در نور خورشید</string>
     <string name="aod_detach_mobile_keyboard_toast">برای استفاده از ‎%s، روکش صفحه کلید را از دستگاه جدا کنید.</string>
@@ -2722,6 +2727,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 صدای جداگانه برنامه فقط زمانی کار می‌کند که دستگاه صوتی انتخابی شما با دستگاه خروجی صوتی اصلی تلفن شما متفاوت باشد.
 
 می‌توانید خروجی صوتی اصلی تلفن خود را در پنل تنظیمات سریع تغییر دهید. اگر خروجی صوتی نمایش داده نمی‌شود، آن‌را در Samsung Connect > تنظیمات > پنل Samsung Connect روشن کنید."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"صدای رسانه یک برنامه را در یک دستگاه صوتی جدا از دستگاه خروجی صوتی اصلی تلفن شما پخش می‌کند. یک برنامه و یک دستگاه صوتی را انتخاب کنید تا آن را روشن کنید.
+
+صدای جداگانه برنامه فقط زمانی کار می‌کند که دستگاه صوتی انتخابی شما با دستگاه خروجی صوتی اصلی تلفن شما متفاوت باشد.
+
+اگر Samsung Connect را نصب کرده باشید، می‌توانید خروجی صوتی اصلی تلفن خود را در پنل تنظیمات سریع تغییر دهید. اگر دستگاه خروجی صوتی نشان داده نمی‌شود، به Samsung Connect > تنظیمات بروید، سپس پنل Samsung Connect را روشن کنید."</string>
     <string name="set_application_title">برنامه</string>
     <string name="set_application_summary">یک برنامه انتخاب کنید تا صدای آن در یک دستگاه صوتی جدا پخش شود.</string>
     <string name="set_application_descryption">یک برنامه چندرسانه‌ای در زیر انتخاب کنید تا صدای آن در یک دستگاه صوتی جدا پخش شود.</string>

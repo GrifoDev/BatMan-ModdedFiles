@@ -93,7 +93,7 @@
 .method private updateUi()V
     .locals 12
 
-    const v5, 0x7f0b1854
+    const v5, 0x7f0b185a
 
     const/4 v4, 0x3
 
@@ -170,7 +170,7 @@
 
     aput-object v0, v10, v11
 
-    const v0, 0x7f0b1852
+    const v0, 0x7f0b1858
 
     invoke-virtual {p0, v0, v10}, Lcom/android/settings/print/PrintJobSettingsFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -255,7 +255,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b1853
+    const v2, 0x7f0b1859
 
     invoke-virtual {p0, v2, v1}, Lcom/android/settings/print/PrintJobSettingsFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -295,7 +295,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b1855
+    const v2, 0x7f0b185b
 
     invoke-virtual {p0, v2, v1}, Lcom/android/settings/print/PrintJobSettingsFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -326,7 +326,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b1856
+    const v2, 0x7f0b185c
 
     invoke-virtual {p0, v2, v1}, Lcom/android/settings/print/PrintJobSettingsFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -420,7 +420,7 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f0800c5
+    const v0, 0x7f0800c6
 
     invoke-virtual {p0, v0}, Lcom/android/settings/print/PrintJobSettingsFragment;->addPreferencesFromResource(I)V
 
@@ -474,7 +474,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b184f
+    const v1, 0x7f0b1855
 
     invoke-virtual {v0, v1}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -515,7 +515,7 @@
 
     if-nez v3, :cond_1
 
-    const v3, 0x7f0b1851
+    const v3, 0x7f0b1857
 
     invoke-virtual {p0, v3}, Lcom/android/settings/print/PrintJobSettingsFragment;->getString(I)Ljava/lang/String;
 
@@ -534,7 +534,7 @@
 
     if-eqz v3, :cond_2
 
-    const v3, 0x7f0b1850
+    const v3, 0x7f0b1856
 
     invoke-virtual {p0, v3}, Lcom/android/settings/print/PrintJobSettingsFragment;->getString(I)Ljava/lang/String;
 

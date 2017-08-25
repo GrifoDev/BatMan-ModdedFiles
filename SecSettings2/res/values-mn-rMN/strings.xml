@@ -1360,6 +1360,11 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
 ОК товшоод цайралтыг аюулгүй түвшнээс илүү нэмэхийг зөвшөөрнө үү."</string>
     <string name="auto_adjust_brightness">Автомат цайралт</string>
     <string name="auto_adjust_brightness_summary">Цайралтын тохируулгыг бүртгэж, тэдгээрийг ойролцоо гэрэлтүүлэгтэй орчинд төстэй автоматаар хэрэглэ.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Орчны гэрэлтүүлгээс хамаараад дэлгэцийн цайралтыг автоматаар тааруул.</string>
+    <string name="reset_usage_pattern_title">Хэрэг. хэв маяг шинээр тохируул</string>
+    <string name="reset_usage_pattern_summary">Цайралт ба тохируулгын түүхийг цэвэрлэ. Утсыг дахин тохируулсны дараа таны сонголтуудыг дахин судална.</string>
+    <string name="reset_usage_pattern_dialog_title">Цайралтын хэв маяг шинээр тохируулах уу?</string>
+    <string name="reset_usage_pattern_dialog_summary">Утсыг дахин тохируулсны дараа таны цайралтын сонголтуудыг дахин судална.</string>
     <string name="current_theme_font">Одоогийн загварын өгөгдмөл</string>
     <string name="hbm_mode_on">Нарны гэрэлд хамгийн сайн харагдана</string>
     <string name="aod_detach_mobile_keyboard_toast">%s-г ашиглахын тулд төхөөрөмжөөс гартай хавтсыг салга.</string>
@@ -2722,6 +2727,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 Хэрэглүүрийн салангид дуу зөвхөн таны сонгосон аудио төхөөрөмж нь таны утасны үндсэн аудио гаралтын төхөөрөмжөөс өөр байх үед ажиллана.
 
 Та утасныхаа үндсэн аудио төхөөрөмжийг шуурхай тохиргооны самбараас өөрчилж болно. Хэрэв аудио төхөөрөмж харагдахгүй бол Samsung Connect > Тохиргоо > Samsung Connect самбараас асаа."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Нэг хэрэглүүрийн медиа дууг таны утасны үндсэн аудио гаралтын төхөөрөмжөөс өөр аудио төхөөрөмж дээр тоглуулна. Үүнийг асаах хэрэглүүр ба аудио төхөөрөмжийг сонго.
+
+Хэрэглүүрийн салангид дуу зөвхөн таны сонгосон аудио төхөөрөмж нь таны утасны үндсэн аудио гаралтын төхөөрөмжөөс өөр байх үед ажиллана.
+
+Хэрэв танд суурилуулсан Samsung Connect байгаа бол та утасныхаа үндсэн аудио гаралтын төхөөрөмжийг шуурхай тохиргооны самбараас өөрчлөх боломжтой. Хэрэв аудио гаралтын төхөөрөмжийг харуулахгүй бол Samsung Connect руу > Тохиргоо, Samsung Connect самбарыг асаах."</string>
     <string name="set_application_title">Хэрэглүүр</string>
     <string name="set_application_summary">Тусдаа аудио төхөөрөмж дээр дууг нь гаргах хэрэглүүрээ сонго.</string>
     <string name="set_application_descryption">Дараах мультимедиа хэрэглүүрийг сонгоод дууг нь тусдаа аудио төхөөрөмжин дээр тоглуул.</string>

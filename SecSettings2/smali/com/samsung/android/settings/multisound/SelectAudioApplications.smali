@@ -141,7 +141,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    const v1, 0x7f0b0b98
+    const v1, 0x7f0b0b9e
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -567,7 +567,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/multisound/SelectAudioApplications;->mDescryptionPreference:Lcom/samsung/android/settings/UnclickablePreference;
 
-    const v1, 0x7f0b0b90
+    const v1, 0x7f0b0b96
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/UnclickablePreference;->setTitle(I)V
 
@@ -634,9 +634,11 @@
 .method public onOptionsItemSelected(Landroid/view/MenuItem;)Z
     .locals 8
 
-    const/4 v7, 0x1
+    const/4 v7, 0x0
 
-    const/4 v6, 0x0
+    const/4 v6, 0x1
+
+    const/4 v5, 0x0
 
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
@@ -644,12 +646,12 @@
 
     packed-switch v3, :pswitch_data_0
 
-    return v6
+    return v5
 
     :pswitch_0
     iget v3, p0, Lcom/samsung/android/settings/multisound/SelectAudioApplications;->mMode:I
 
-    if-ne v3, v7, :cond_2
+    if-ne v3, v6, :cond_2
 
     iget-object v3, p0, Lcom/samsung/android/settings/multisound/SelectAudioApplications;->mContext:Landroid/content/Context;
 
@@ -687,6 +689,8 @@
 
     invoke-virtual {v3, v1}, Landroid/media/AudioManager;->removePackageForName(Ljava/lang/String;)V
 
+    if-eqz v0, :cond_0
+
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v3
@@ -703,13 +707,11 @@
 
     const-string/jumbo v4, "multisound_app"
 
-    const/4 v5, 0x0
-
-    invoke-static {v3, v4, v5}, Landroid/provider/Settings$System;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
+    invoke-static {v3, v4, v7}, Landroid/provider/Settings$System;->putString(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;)Z
 
     iget-object v3, p0, Lcom/samsung/android/settings/multisound/SelectAudioApplications;->mAudioManager:Landroid/media/AudioManager;
 
-    invoke-virtual {v3, v6}, Landroid/media/AudioManager;->setMultiSoundOn(Z)V
+    invoke-virtual {v3, v5}, Landroid/media/AudioManager;->setMultiSoundOn(Z)V
 
     goto :goto_0
 
@@ -717,7 +719,7 @@
     invoke-virtual {p0}, Lcom/samsung/android/settings/multisound/SelectAudioApplications;->showSelectedList()V
 
     :cond_2
-    return v7
+    return v6
 
     :pswitch_data_0
     .packed-switch 0x7f110815
@@ -759,7 +761,7 @@
 .end method
 
 .method public showDeleteList(Ljava/lang/String;)V
-    .locals 1
+    .locals 2
 
     const/4 v0, 0x1
 
@@ -769,11 +771,23 @@
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/multisound/SelectAudioApplications;->createCheckList()V
 
+    invoke-virtual {p0}, Lcom/samsung/android/settings/multisound/SelectAudioApplications;->getActivity()Landroid/app/Activity;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/app/ActionBar;->setDisplayHomeAsUpEnabled(Z)V
+
     return-void
 .end method
 
 .method public showSelectedList()V
-    .locals 1
+    .locals 2
 
     const-string/jumbo v0, "NONE"
 
@@ -784,6 +798,18 @@
     iput v0, p0, Lcom/samsung/android/settings/multisound/SelectAudioApplications;->mMode:I
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/multisound/SelectAudioApplications;->createRadioList()V
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/multisound/SelectAudioApplications;->getActivity()Landroid/app/Activity;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/app/Activity;->getActionBar()Landroid/app/ActionBar;
+
+    move-result-object v0
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Landroid/app/ActionBar;->setDisplayHomeAsUpEnabled(Z)V
 
     return-void
 .end method

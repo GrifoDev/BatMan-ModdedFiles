@@ -571,7 +571,7 @@
 
     iput-object v5, p0, Lcom/samsung/android/settings/accessibility/ToggleMagnifierPreferenceFragment;->ctx:Landroid/content/Context;
 
-    const v5, 0x7f0800c2
+    const v5, 0x7f0800c3
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/accessibility/ToggleMagnifierPreferenceFragment;->addPreferencesFromResource(I)V
 

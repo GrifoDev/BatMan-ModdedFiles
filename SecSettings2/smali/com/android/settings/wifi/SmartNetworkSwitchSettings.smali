@@ -487,7 +487,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b14c3
+    const v7, 0x7f0b14c9
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -742,7 +742,7 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v3, 0x7f080122
+    const v3, 0x7f080123
 
     invoke-virtual {p0, v3}, Lcom/android/settings/wifi/SmartNetworkSwitchSettings;->addPreferencesFromResource(I)V
 
@@ -764,7 +764,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f0b0e85
+    const v3, 0x7f0b0e8b
 
     invoke-virtual {v0, v3}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -910,7 +910,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0e75
+    const v5, 0x7f0b0e7b
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

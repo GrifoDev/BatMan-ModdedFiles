@@ -520,7 +520,7 @@
     invoke-virtual {v2}, Landroid/preference/PreferenceScreen;->removeAll()V
 
     :cond_0
-    const v3, 0x7f080125
+    const v3, 0x7f080126
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/SoftwareUpdateSettings;->addPreferencesFromResource(I)V
 
@@ -635,7 +635,7 @@
 
     move-result-object v6
 
-    const v8, 0x7f0b1573
+    const v8, 0x7f0b1579
 
     invoke-virtual {v6, v8}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 

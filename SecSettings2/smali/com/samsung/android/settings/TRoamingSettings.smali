@@ -940,7 +940,7 @@
 
     iput-object v1, p0, Lcom/samsung/android/settings/TRoamingSettings;->mPolicyManager:Landroid/net/NetworkPolicyManager;
 
-    const v1, 0x7f080130
+    const v1, 0x7f080131
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/TRoamingSettings;->addPreferencesFromResource(I)V
 
@@ -1065,7 +1065,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0c64
+    const v2, 0x7f0b0c6a
 
     invoke-virtual {v1, v2}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -1210,7 +1210,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0c83
+    const v2, 0x7f0b0c89
 
     invoke-virtual {v1, v2}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -1859,11 +1859,11 @@
 
     invoke-direct {v0, v6}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v6, 0x7f0b0c84
+    const v6, 0x7f0b0c8a
 
     invoke-virtual {v0, v6}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    const v6, 0x7f0b0c85
+    const v6, 0x7f0b0c8b
 
     invoke-virtual {v0, v6}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -2086,13 +2086,13 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/TRoamingSettings;->mMobileTRoaming:Landroid/preference/Preference;
 
-    const v3, 0x7f0b1caf
+    const v3, 0x7f0b1cb5
 
     invoke-virtual {v2, v3}, Landroid/preference/Preference;->setSummary(I)V
 
     iget-object v2, p0, Lcom/samsung/android/settings/TRoamingSettings;->mUseDataRoaming:Lcom/android/settingslib/SecRestrictedSwitchPreference;
 
-    const v3, 0x7f0b109b
+    const v3, 0x7f0b10a1
 
     invoke-virtual {v2, v3}, Lcom/android/settingslib/SecRestrictedSwitchPreference;->setTitle(I)V
 

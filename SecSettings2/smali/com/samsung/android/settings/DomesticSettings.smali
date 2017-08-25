@@ -68,7 +68,7 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f080069
+    const v0, 0x7f08006a
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/DomesticSettings;->addPreferencesFromResource(I)V
 
@@ -134,7 +134,7 @@
 
     if-eqz v2, :cond_2
 
-    const v2, 0x7f0b1bd3
+    const v2, 0x7f0b1bd9
 
     :goto_0
     invoke-virtual {v1, v2}, Landroid/preference/PreferenceScreen;->setSummary(I)V
@@ -172,7 +172,7 @@
     return-void
 
     :cond_2
-    const v2, 0x7f0b1bd4
+    const v2, 0x7f0b1bda
 
     goto :goto_0
 

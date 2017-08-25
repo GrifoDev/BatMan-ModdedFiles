@@ -255,7 +255,7 @@
 
     invoke-direct {v1, v2}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b1849
+    const v2, 0x7f0b184f
 
     invoke-virtual {v1, v2}, Landroid/preference/Preference;->setTitle(I)V
 
@@ -368,7 +368,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1a96
+    const v0, 0x7f0b1a9c
 
     return v0
 .end method
@@ -430,7 +430,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/utils/ProfileSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f0800c6
+    const v0, 0x7f0800c7
 
     invoke-virtual {p0, v0}, Lcom/android/settings/print/PrintSettingsFragment;->addPreferencesFromResource(I)V
 
@@ -662,7 +662,7 @@
 
     check-cast v2, Landroid/widget/TextView;
 
-    const v3, 0x7f0b1843
+    const v3, 0x7f0b1849
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 

@@ -1359,6 +1359,11 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
 ແຕະ [ຕົກລົງ] ເພື່ອອະນຸຍາດຄວາມແຈ້ງທີ່ຈະເພີ່ມຂຶ້ນໃຫ້ຢູ່ເທິງລະດັບທີ່ປອດໄພ."</string>
     <string name="auto_adjust_brightness">ຄວາມແຈ້ງອັດຕະໂນມັດ</string>
     <string name="auto_adjust_brightness_summary">ຕິດຕາມການປັບປ່ຽນຄວາມແຈ້ງຂອງທ່ານ ແລະນຳໃຊ້ພວກມັນໂດຍອັດຕະໂນມັດໃນສະພາບແສງທີ່ຄ້າຍກັນ.</string>
+    <string name="auto_adjust_brightness_summary_nopac">ປັບປ່ຽນຄວາມແຈ້ງໜ້າຈໍໂດຍອັດຕະໂນມັດຕາມສະພາບຄວາມແຈ້ງໃນປະຈຸບັນ.</string>
+    <string name="reset_usage_pattern_title">ຕັ້ງຮູບແບບການນຳໃຊ້ຄືນໃໝ່</string>
+    <string name="reset_usage_pattern_summary">ລຶບປະຫວັດການປັບປ່ຽນຄວາມແຈ້ງຂອງທ່ານ. ໂທລະສັບຂອງທ່ານຈະເລີ່ມຕົ້ນຮຽນຮູ້ຄວາມຕ້ອງການຂອງທ່ານອີກຄັ້ງຫຼັງຈາກຕັ້ງຄືນໃໝ່.</string>
+    <string name="reset_usage_pattern_dialog_title">ຕັ້ງຮູບແບບການນຳໃຊ້ຄວາມແຈ້ງຂອງທ່ານຄືນໃໝ່ບໍ?</string>
+    <string name="reset_usage_pattern_dialog_summary">ໂທລະສັບຂອງທ່ານຈະເລີ່ມຕົ້ນຮຽນຮູ້ຄວາມຕ້ອງການໃນຄວາມແຈ້ງຂອງທ່ານອີກຄັ້ງຫຼັງຈາກຕັ້ງຄືນໃໝ່.</string>
     <string name="current_theme_font">ຄ່າ​ມາດ​ຕະ​ຖານ​ຂອງ​ຕີມ​ປະ​ຈຸ​ບັນ</string>
     <string name="hbm_mode_on">ຂະຫຍາຍສຳລັບການເບິ່ງທີ່ດີທີ່ສຸດໃນແສງແດດແລ້ວ</string>
     <string name="aod_detach_mobile_keyboard_toast">ເພື່ອນຳໃຊ້ %s, ແຍກໜ້າປົກ ຄີບອດ ອອກຈາກ ອຸປະກອນ.</string>
@@ -2720,6 +2725,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 ແຍກສຽງແອັບຈະໃຊ້ໄດ້ເມື່ອອຸປະກອນສຽງທີ່ທ່ານເລືອກແຕກຕ່າງຈາກອຸປະກອນສຽງອອກຫຼັກໃນໂທລະສັບຂອງທ່ານເທົ່ານັ້ນ.
 
 ທ່ານສາມາດປ່ຽນອຸປະກອນສຽງອອກຫຼັກໃນໂທລະສັບຂອງທ່ານໃນແຜງການຕັ້ງຄ່າດ່ວນ. ຖ້າສຽງອອກບໍ່ຖືກສະແດງ, ເປີດມັນໃນ Samsung Connect > ການຕັ້ງຄ່າ > ແຜງ Samsung Connect."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"ຫຼິ້ນສຽງມີເດຍຈາກໜຶ່ງແອັບໃນອຸປະກອນສຽງທີ່ແຍກຈາກອຸປະກອນສຽງອອກຫຼັກຂອງໂທລະສັບຂອງທ່ານ. ເລືອກແອັບແລະອຸປະກອນສຽງເພື່ອເປີດສິ່ງນີ້.
+
+ແຍກສຽງແອັບຈະໃຊ້ໄດ້ເມື່ອອຸປະກອນສຽງທີ່ທ່ານເລືອກແຕກຕ່າງຈາກອຸປະກອນສຽງອອກຫຼັກໃນໂທ​ລະ​ສັບຂອງທ່ານເທົ່ານັ້ນ.​
+
+ຖ້າ​ທ່ານໄດ້​ຕິດ​ຕັ້ງ Samsung Connect ແລ້ວ, ທ່ານສາມາດປ່ຽນອຸປະກອນສຽງອອກຫຼັກ​ຂອງ​​ໂທ​ລະ​ສັບຂອງທ່ານໃນແຜງການຕັ້ງຄ່າດ່ວນ. ຖ້າ​ອຸ​ປະ​ກອນ​ສຽງ​ອອກ​ບໍ່​ສະ​ແດງ​ຂຶ້ນ, ​ໄປ​ທີ່ Samsung Connect > ​ການ​ຕັ້ງ​ຄ່າ, ​ຈາກ​ນັ້ນ ເປີດ​ແຜງ Samsung Connect."</string>
     <string name="set_application_title">ແອັບ</string>
     <string name="set_application_summary">ເລືອກແອັບເພື່ອຫຼິ້ນສຽງມັນໃນອຸປະກອນສຽງທີ່ແຍກຕ່າງຫາກ.</string>
     <string name="set_application_descryption">ເລືອກແອັບມັ​ລ​ຕິ​ມີ​ເດຍ​ລຸ່ມນີ້ ເພື່ອຫຼິ້ນສຽງຂອງມັນໃນອຸປະກອນສຽງທີ່ແຍກຕ່າງຫາກ.</string>

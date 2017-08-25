@@ -903,7 +903,7 @@
 .method public handleRingtonePicked(Landroid/net/Uri;I)V
     .locals 8
 
-    const v7, 0x7f0b0bb1
+    const v7, 0x7f0b0bb7
 
     const/4 v6, 0x0
 
@@ -1370,7 +1370,7 @@
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/DualSoundRingtoneSettings;->setTitle(Ljava/lang/CharSequence;)V
 
     :cond_0
-    const v5, 0x7f08006b
+    const v5, 0x7f08006c
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/DualSoundRingtoneSettings;->addPreferencesFromResource(I)V
 

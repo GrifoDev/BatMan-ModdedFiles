@@ -1363,6 +1363,11 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
 Торкніться OK, щоб дозволити перевищення безпечного рівня яскравості."</string>
     <string name="auto_adjust_brightness">Автоматична яскравість</string>
     <string name="auto_adjust_brightness_summary">Відстеження налаштувань яскравості та їх автоматичне застосування в аналогічних умовах освітленості.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Автоматичне регулювання яскравості екрана залежно від освітлення.</string>
+    <string name="reset_usage_pattern_title">Скидання даних про використання</string>
+    <string name="reset_usage_pattern_summary">Очищення історії налаштування яскравості. Вивчення ваших уподобань щодо яскравості на телефоні знову розпочнеться після скидання.</string>
+    <string name="reset_usage_pattern_dialog_title">Скинути дані про налаштування яскравості?</string>
+    <string name="reset_usage_pattern_dialog_summary">Після скидання телефон знову розпочне вивчення ваших уподобань щодо налаштувань яскравості.</string>
     <string name="current_theme_font">Стандартні налаштування поточної теми</string>
     <string name="hbm_mode_on">Максимальна – для роботи на сонячному світлі</string>
     <string name="aod_detach_mobile_keyboard_toast">Від’єднайте зовнішню клавіатуру від пристрою, щоб використовувати %s.</string>
@@ -2722,6 +2727,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 Окреме відтворення працює лише в тому випадку, якщо вибраний звуковий пристрій відрізняється від основного пристрою виведення звуку на телефоні.
 
 Змінити основний пристрій виведення звуку можна на панелі швидких налаштувань. Якщо пристрій не відображається, увімкніть його в меню Samsung Connect > «Налаштування» > «Панель Samsung Connect»."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Відтворення звуку мультимедіа з однієї програми на звуковому пристрої, відмінному від основного пристрою виведення звуку на телефоні. Щоб увімкнути цю функцію, необхідно вибрати програму та звуковий пристрій.
+
+Окреме відтворення працює лише в тому разі, якщо вибраний звуковий пристрій відрізняється від основного пристрою виведення звуку на телефоні.
+
+За наявності програми Samsung Connect основний пристрій виведення звуку на телефоні можна змінити на панелі швидких налаштувань. Якщо пристрій виведення не відображається, перейдіть до меню Samsung Connect > «Налаштування» та ввімкніть параметр «Панель Samsung Connect»."</string>
     <string name="set_application_title">Програма</string>
     <string name="set_application_summary">Виберіть програму, звук з якої необхідно відтворювати на окремому аудіопристрої.</string>
     <string name="set_application_descryption">Виберіть мультимедійну програму, звук з якої необхідно відтворювати на окремому аудіопристрої.</string>

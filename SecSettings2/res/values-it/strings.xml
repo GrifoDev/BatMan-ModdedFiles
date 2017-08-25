@@ -1360,6 +1360,11 @@ L’utente dovrà inoltre tenere presente che Samsung potrà tuttavia raccoglier
 Toccate OK per consentire l'aumento della luminosità oltre i livelli di sicurezza."</string>
     <string name="auto_adjust_brightness">Luminosità automatica</string>
     <string name="auto_adjust_brightness_summary">Tiene traccia delle modifiche alla luminosità e le applica automaticamente in condizioni di luce simili.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Regola automaticamente la luminosità dello schermo in base alle condizioni di luce correnti.</string>
+    <string name="reset_usage_pattern_title">"Ripristina modelli d'uso"</string>
+    <string name="reset_usage_pattern_summary">Cancella la cronologia delle regolazioni della luminosità. Il telefono ricomincerà ad apprendere le vostre preferenze in seguito al ripristino.</string>
+    <string name="reset_usage_pattern_dialog_title">"Ripristinare modelli d'uso della luminosità?"</string>
+    <string name="reset_usage_pattern_dialog_summary">Il telefono ricomincerà ad apprendere le vostre preferenze sulla luminosità in seguito al ripristino.</string>
     <string name="current_theme_font">Impostazione predefinita del tema corrente</string>
     <string name="hbm_mode_on">Massimizzata per visibilità ottimale alla luce</string>
     <string name="aod_detach_mobile_keyboard_toast">Per utilizzare %s, scollegate la cover della tastiera dal dispositivo.</string>
@@ -2722,6 +2727,11 @@ Per sbloccarla e connettervi ad altri dispositivi con un cavo USB, inserite una 
 La funzione Separa audio applicazione sarà disponibile soltanto se il dispositivo audio selezionato è diverso dal dispositivo di uscita audio principale del telefono.
 
 Potete modificare il dispositivo di uscita audio principale del telefono nel pannello Impostazioni rapide. Se l'uscita audio non viene mostrata, attivatela in Samsung Connect > Impostazioni > Pannello di Samsung Connect."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Riproduce l'audio multimediale di un'applicazione su un dispositivo audio separatamente dal dispositivo di uscita audio principale del telefono. Selezionate un'applicazione e un dispositivo audio per attivare questa funzione.
+
+La funzione Separa audio applicazione sarà disponibile soltanto se il dispositivo audio selezionato è diverso dal dispositivo di uscita audio principale del telefono.
+
+Se avete installato Samsung Connect, potete modificare il dispositivo di uscita audio principale del telefono nel pannello Impostazioni rapide. Se il dispositivo di uscita audio non viene mostrato, andate a Samsung Connect > Impostazioni e attivate il pannello di Samsung Connect."</string>
     <string name="set_application_title">Applicazione</string>
     <string name="set_application_summary">"Selezionate un'applicazione per riprodurne l'audio su un dispositivo audio separato."</string>
     <string name="set_application_descryption">"Selezionate un'applicazione multimediale tra quelle riportate di seguito per riprodurne l'audio su un dispositivo audio separato."</string>

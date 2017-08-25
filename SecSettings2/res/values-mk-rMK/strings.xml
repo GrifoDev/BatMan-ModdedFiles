@@ -1358,6 +1358,11 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
 Допрете OK за да дозволите осветленоста да се зголеми над безбедните нивоа."</string>
     <string name="auto_adjust_brightness">Автоматска осветленост</string>
     <string name="auto_adjust_brightness_summary">Следете ги Вашите прилагодувања за осветленоста и применете ги автоматски во слични состојби на осветленоста.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Прилагодете ја осветленоста на екранот автоматски врз основа на моменталните услови на осветлување.</string>
+    <string name="reset_usage_pattern_title">Ресет. ги навиките за користење</string>
+    <string name="reset_usage_pattern_summary">Избришете ја историјата на прилагодување на осветленоста. Вашиот телефон ќе почне да ги учи Вашите преференци повторно по ресетирањето.</string>
+    <string name="reset_usage_pattern_dialog_title">Да се ресет. навик. за корист. на осветл.?</string>
+    <string name="reset_usage_pattern_dialog_summary">Вашиот телефон ќе почне да ги учи Вашите преференци за осветленост повторно по ресетирањето.</string>
     <string name="current_theme_font">Основно за моменталната тема</string>
     <string name="hbm_mode_on">Максимиз. за најдобро глед. на сонч. светлина</string>
     <string name="aod_detach_mobile_keyboard_toast">За да користите %s, откачете ја футролата за тастатурата од уредот.</string>
@@ -2720,6 +2725,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 Одделниот звук на апликацијата функционира само кога аудио уредот што сте го избрале е различен од главниот уред за аудио излез на Вашиот телефон.
 
 Можете да го смените главниот уред за аудио излез на Вашиот телефон во плочата за брзи поставувања. Ако аудио излезот не е прикажан, вклучете го во Samsung Connect > Поставувања > Плоча Samsung Connect."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Пуштајте звук на медиуми од една апликација на аудио уред одделно од главниот уред за аудио излез на Вашиот телефон. Изберете апликација и аудио уред за да го вклучите ова.
+
+Одделниот звук на апликацијата функционира само кога аудио уредот што сте го избрале е различен од главниот уред за аудио излез на Вашиот телефон.
+
+Ако Ви е инсталиран Samsung Connect, можете да го смените главниот уред за аудио излез на Вашиот телефон во плочата за брзи поставувања. Ако уредот за аудио излез не е прикажан, одете во Samsung Connect > Поставувања, а потоа вклучете ја плочата Samsung Connect."</string>
     <string name="set_application_title">Апликација</string>
     <string name="set_application_summary">Изберете апликација за пуштање на нејзиниот звук на посебен аудио уред.</string>
     <string name="set_application_descryption">Изберете мултимедијална апликација подолу за пуштање на нејзиниот звук на посебен аудио уред.</string>

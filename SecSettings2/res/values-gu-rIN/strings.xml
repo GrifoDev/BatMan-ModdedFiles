@@ -1360,6 +1360,11 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
 ચળકાટને સુરક્ષા સ્તરોથી ઉપર વધારવાની મંજૂરી આપવા માટે “ઓકે” ટેપ કરો."</string>
     <string name="auto_adjust_brightness">સ્વત: ચળકાટ</string>
     <string name="auto_adjust_brightness_summary">તમારી ચળકાટ ગોઠવણીઓનો ટ્રેક રાખવા માટે અને તેમને સમાન પ્રકાશ વાળી પરિસ્થિતિઓમાં સ્વચાલિત રીતે લાગુ કરો.</string>
+    <string name="auto_adjust_brightness_summary_nopac">વર્તમાન પ્રકાશ વ્યવસ્થા પરિસ્થિતિઓ પર આધારિત સ્ક્રીનના ચળકાટને સ્વતઃસંતુલિત કરો.</string>
+    <string name="reset_usage_pattern_title">વપરાશ પેટર્ન્સ ફરીથી સેટ કરો</string>
+    <string name="reset_usage_pattern_summary">તમારો ચળકાટ ગોઠવણ ઇતિહાસ સાફ કરો. રીસેટ કર્યા પછી તમારો ફોન તમારી પસંદગીઓ શીખવાનું શરૂ કરશે.</string>
+    <string name="reset_usage_pattern_dialog_title">તમારી ચળકાટ વપરાશ પેટર્ન્સ ફરીથી સેટ કરીએ?</string>
+    <string name="reset_usage_pattern_dialog_summary">રીસેટ કર્યા પછી ફરીથી તમારો ફોન તમારી ચળકાટ પસંદગીઓને જાણવાનું શરૂ કરશે.</string>
     <string name="current_theme_font">વર્તમાન થીમનું મૂળભૂત</string>
     <string name="hbm_mode_on">સૂર્યપ્રકાશમાં શ્રેષ્ઠ દેખાય તે માટે મોટું કરવામાં આવેલ</string>
     <string name="aod_detach_mobile_keyboard_toast">%s નો ઉપયોગ કરવા માટે, ઉપકરણમાંથી કીબોર્ડ કવરને અલગ કરો.</string>
@@ -2722,6 +2727,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 જ્યારે તમે પસંદ કરો તે ઓડિયો ઉપકરણ તમારા ફોનના મુખ્ય ઓડિયો આઉટપુટ ઉપકરણ કરતા ભિન્ન હોય માત્ર ત્યારે અલગ એપ ધ્વનિ કાર્ય કરે છે.
 
 તમે ઝડપી સેટિંગ્સ પેનલમાં તમારા ફોનનું મુખ્ય ઓડિયો આઉટપુટ ઉપકરણ બદલી શકો છો. અગર ઓડિયો આઉટપુટ નહીં બતાવાય, તો તેને Samsung Connect > સેટિંગ્સ > Samsung Connect પેનલમાં ચાલુ કરો."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"તમારા ફોનનાં મુખ્ય ઓડિયો આઉટપુટ ઉપકરણથી ભિન્ન ઓડિયો ઉપકરણ પરની એક એપ પરથી મીડિયા ધ્વનિ ચલાવો. આ ચાલુ કરવા માટે એપ અને એક ઓડિયો ઉપકરણ પસંદ કરો.
+
+જ્યારે તમે પસંદ કરો તે ઓડિયો ઉપકરણ તમારા ફોનના મુખ્ય ઓડિયો આઉટપુટ ઉપકરણ કરતા ભિન્ન હોય ફકત ત્યારે અલગ એપ ધ્વનિ કાર્ય કરે છે.
+
+જો તમે Samsung Connect ને ઇન્સ્ટોલ કર્યું છે, તો તમે ઝડપી સેટિંગ્સ પેનલમાં તમારા ફોનનું મુખ્ય ઓડિયો આઉટપુટ ઉપકરણ બદલી શકો છો. જો ઓડિયો આઉટપુટ ઉપકરણ બતાવવામાં આવેલ નથી, Samsung Connect > સેટિંગ્સ પર જાઓ, પછી Samsung Connect પેનલને ચાલુ કરો."</string>
     <string name="set_application_title">એપ</string>
     <string name="set_application_summary">એપના ધ્વનિને અલગ ઓડિયો ઉપકરણ પર ચલાવવા માટે તેને પસંદ કરો.</string>
     <string name="set_application_descryption">એપના ધ્વનિને અલગ ઓડિયો ઉપકરણ પર ચલાવવા માટે નીચે આપેલ મલ્ટિમીડિયા એપને પસંદ કરો.</string>

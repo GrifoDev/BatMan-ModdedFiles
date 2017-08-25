@@ -518,7 +518,7 @@
     :cond_4
     if-nez v25, :cond_11
 
-    const v2, 0x7f0b09e5
+    const v2, 0x7f0b09ea
 
     move-object/from16 v0, p0
 
@@ -637,7 +637,7 @@
 
     packed-switch v31, :pswitch_data_0
 
-    const v2, 0x7f0b0684
+    const v2, 0x7f0b0689
 
     move-object/from16 v0, p0
 
@@ -712,7 +712,7 @@
     :cond_8
     new-instance v3, Lcom/samsung/android/settings/powersaving/PowerModeChangeDialogActivity$DetailedItem;
 
-    const v2, 0x7f0b067f
+    const v2, 0x7f0b0684
 
     move-object/from16 v0, p0
 
@@ -722,7 +722,7 @@
 
     if-eqz v18, :cond_12
 
-    const v2, 0x7f0b0c3f
+    const v2, 0x7f0b0c45
 
     move-object/from16 v0, p0
 
@@ -797,7 +797,7 @@
 
     new-instance v3, Lcom/samsung/android/settings/powersaving/PowerModeChangeDialogActivity$DetailedItem;
 
-    const v2, 0x7f0b0bfc
+    const v2, 0x7f0b0c02
 
     move-object/from16 v0, p0
 
@@ -805,7 +805,7 @@
 
     move-result-object v4
 
-    const v2, 0x7f0b0c04
+    const v2, 0x7f0b0c0a
 
     move-object/from16 v0, p0
 
@@ -819,7 +819,7 @@
 
     if-ne v0, v2, :cond_13
 
-    const v2, 0x7f0b0bf3
+    const v2, 0x7f0b0bf9
 
     move-object/from16 v0, p0
 
@@ -863,7 +863,7 @@
 
     if-ne v13, v2, :cond_15
 
-    const v2, 0x7f0b0c08
+    const v2, 0x7f0b0c0e
 
     move-object/from16 v0, p0
 
@@ -874,7 +874,7 @@
     :goto_7
     new-instance v3, Lcom/samsung/android/settings/powersaving/PowerModeChangeDialogActivity$DetailedItem;
 
-    const v2, 0x7f0b0bfd
+    const v2, 0x7f0b0c03
 
     move-object/from16 v0, p0
 
@@ -886,7 +886,7 @@
 
     if-ne v13, v2, :cond_17
 
-    const v2, 0x7f0b0bf4
+    const v2, 0x7f0b0bfa
 
     move-object/from16 v0, p0
 
@@ -1006,7 +1006,7 @@
 
     if-ne v2, v5, :cond_1c
 
-    const v2, 0x7f0b0bf4
+    const v2, 0x7f0b0bfa
 
     move-object/from16 v0, p0
 
@@ -1110,7 +1110,7 @@
 
     iget-object v2, v0, Lcom/samsung/android/settings/powersaving/PowerModeChangeDialogActivity;->mApply:Lcom/samsung/android/settings/widget/RoundButtonView;
 
-    const v3, 0x7f0b170f
+    const v3, 0x7f0b1715
 
     move-object/from16 v0, p0
 
@@ -1206,7 +1206,7 @@
 
     iget-object v2, v0, Lcom/samsung/android/settings/powersaving/PowerModeChangeDialogActivity;->mCancel:Lcom/samsung/android/settings/widget/RoundButtonView;
 
-    const v3, 0x7f0b12ea
+    const v3, 0x7f0b12f0
 
     move-object/from16 v0, p0
 
@@ -1258,7 +1258,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v3, 0x7f0b0c0d
+    const v3, 0x7f0b0c13
 
     move-object/from16 v0, p0
 
@@ -1270,7 +1270,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0c0e
+    const v3, 0x7f0b0c14
 
     move-object/from16 v0, p0
 
@@ -1359,7 +1359,7 @@
     goto/16 :goto_2
 
     :pswitch_0
-    const v2, 0x7f0b0682
+    const v2, 0x7f0b0687
 
     move-object/from16 v0, p0
 
@@ -1370,7 +1370,7 @@
     goto/16 :goto_3
 
     :pswitch_1
-    const v2, 0x7f0b0683
+    const v2, 0x7f0b0688
 
     move-object/from16 v0, p0
 
@@ -1386,7 +1386,7 @@
     goto/16 :goto_4
 
     :cond_13
-    const v2, 0x7f0b0bf4
+    const v2, 0x7f0b0bfa
 
     move-object/from16 v0, p0
 
@@ -1422,7 +1422,7 @@
 
     if-eqz v2, :cond_16
 
-    const v2, 0x7f0b0c09
+    const v2, 0x7f0b0c0f
 
     :goto_d
     move-object/from16 v0, p0
@@ -1434,12 +1434,12 @@
     goto/16 :goto_7
 
     :cond_16
-    const v2, 0x7f0b0c07
+    const v2, 0x7f0b0c0d
 
     goto :goto_d
 
     :cond_17
-    const v2, 0x7f0b0bf3
+    const v2, 0x7f0b0bf9
 
     move-object/from16 v0, p0
 
@@ -1501,7 +1501,7 @@
 
     new-instance v3, Lcom/samsung/android/settings/powersaving/PowerModeChangeDialogActivity$DetailedItem;
 
-    const v2, 0x7f0b0c0a
+    const v2, 0x7f0b0c10
 
     move-object/from16 v0, p0
 
@@ -1519,7 +1519,7 @@
 
     if-eqz v2, :cond_1a
 
-    const v2, 0x7f0b0c09
+    const v2, 0x7f0b0c0f
 
     :goto_e
     move-object/from16 v0, p0
@@ -1532,7 +1532,7 @@
 
     if-ne v13, v2, :cond_1b
 
-    const v2, 0x7f0b0bf3
+    const v2, 0x7f0b0bf9
 
     move-object/from16 v0, p0
 
@@ -1548,12 +1548,12 @@
     goto/16 :goto_9
 
     :cond_1a
-    const v2, 0x7f0b0c07
+    const v2, 0x7f0b0c0d
 
     goto :goto_e
 
     :cond_1b
-    const v2, 0x7f0b0bf4
+    const v2, 0x7f0b0bfa
 
     move-object/from16 v0, p0
 
@@ -1564,7 +1564,7 @@
     goto :goto_f
 
     :cond_1c
-    const v2, 0x7f0b0bf3
+    const v2, 0x7f0b0bf9
 
     move-object/from16 v0, p0
 
@@ -1581,7 +1581,7 @@
 
     iget-object v2, v0, Lcom/samsung/android/settings/powersaving/PowerModeChangeDialogActivity;->mApply:Lcom/samsung/android/settings/widget/RoundButtonView;
 
-    const v3, 0x7f0b0c02
+    const v3, 0x7f0b0c08
 
     move-object/from16 v0, p0
 
@@ -1625,7 +1625,7 @@
 
     aput-object v34, v2, v3
 
-    const v3, 0x7f0b0c14
+    const v3, 0x7f0b0c1a
 
     move-object/from16 v0, p0
 
@@ -1641,7 +1641,7 @@
 
     aput-object v3, v2, v4
 
-    const v3, 0x7f0b0c12
+    const v3, 0x7f0b0c18
 
     move-object/from16 v0, p0
 
@@ -1656,7 +1656,7 @@
     goto/16 :goto_c
 
     :cond_20
-    const v2, 0x7f0b0c13
+    const v2, 0x7f0b0c19
 
     move-object/from16 v0, p0
 
@@ -1739,7 +1739,7 @@
 
     if-ne v2, v3, :cond_5
 
-    const v2, 0x7f0b0c10
+    const v2, 0x7f0b0c16
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/powersaving/PowerModeChangeDialogActivity;->getString(I)Ljava/lang/String;
 
@@ -1849,7 +1849,7 @@
 
     new-array v5, v3, [Ljava/lang/Object;
 
-    const v6, 0x7f0b1136
+    const v6, 0x7f0b113c
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/powersaving/PowerModeChangeDialogActivity;->getString(I)Ljava/lang/String;
 
@@ -1857,7 +1857,7 @@
 
     aput-object v6, v5, v2
 
-    const v2, 0x7f0b0c26
+    const v2, 0x7f0b0c2c
 
     invoke-virtual {p0, v2, v5}, Lcom/samsung/android/settings/powersaving/PowerModeChangeDialogActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1895,7 +1895,7 @@
     goto/16 :goto_0
 
     :cond_5
-    const v2, 0x7f0b0c11
+    const v2, 0x7f0b0c17
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/powersaving/PowerModeChangeDialogActivity;->getString(I)Ljava/lang/String;
 
@@ -2154,7 +2154,7 @@
 
     new-array v1, v4, [Ljava/lang/Object;
 
-    const v2, 0x7f0b1136
+    const v2, 0x7f0b113c
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/powersaving/PowerModeChangeDialogActivity;->getString(I)Ljava/lang/String;
 
@@ -2164,7 +2164,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b0c26
+    const v2, 0x7f0b0c2c
 
     invoke-virtual {p0, v2, v1}, Lcom/samsung/android/settings/powersaving/PowerModeChangeDialogActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

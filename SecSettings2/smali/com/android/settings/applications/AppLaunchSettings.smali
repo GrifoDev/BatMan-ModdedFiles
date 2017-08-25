@@ -156,7 +156,7 @@
 
     new-array v3, v8, [Ljava/lang/CharSequence;
 
-    const v4, 0x7f0b1c27
+    const v4, 0x7f0b1c2d
 
     invoke-virtual {p0, v4}, Lcom/android/settings/applications/AppLaunchSettings;->getString(I)Ljava/lang/String;
 
@@ -164,7 +164,7 @@
 
     aput-object v4, v3, v5
 
-    const v4, 0x7f0b1c28
+    const v4, 0x7f0b1c2e
 
     invoke-virtual {p0, v4}, Lcom/android/settings/applications/AppLaunchSettings;->getString(I)Ljava/lang/String;
 
@@ -172,7 +172,7 @@
 
     aput-object v4, v3, v6
 
-    const v4, 0x7f0b1c29
+    const v4, 0x7f0b1c2f
 
     invoke-virtual {p0, v4}, Lcom/android/settings/applications/AppLaunchSettings;->getString(I)Ljava/lang/String;
 
@@ -474,7 +474,7 @@
 
     if-nez p1, :cond_0
 
-    const v2, 0x7f0b1c24
+    const v2, 0x7f0b1c2a
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -485,7 +485,7 @@
     :cond_0
     if-ne p1, v2, :cond_1
 
-    const v1, 0x7f0b1c25
+    const v1, 0x7f0b1c2b
 
     :goto_0
     new-array v2, v2, [Ljava/lang/Object;
@@ -503,7 +503,7 @@
     return-object v2
 
     :cond_1
-    const v1, 0x7f0b1c26
+    const v1, 0x7f0b1c2c
 
     goto :goto_0
 .end method
@@ -523,7 +523,7 @@
 
     invoke-super {p0, p1}, Lcom/android/settings/applications/AppInfoWithHeader;->onCreate(Landroid/os/Bundle;)V
 
-    const v3, 0x7f08008a
+    const v3, 0x7f08008b
 
     invoke-virtual {p0, v3}, Lcom/android/settings/applications/AppLaunchSettings;->addPreferencesFromResource(I)V
 
@@ -736,7 +736,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b1bfb
+    const v3, 0x7f0b1c01
 
     const/4 v6, 0x0
 

@@ -1360,6 +1360,11 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
 चमक को सुरक्षित स्तर से अधिक पर बढ़ाने की अनुमति देने के लिए “ओके” पर टैप करें।"</string>
     <string name="auto_adjust_brightness">स्वतः चमक</string>
     <string name="auto_adjust_brightness_summary">अपने चमक समायोजनों का ट्रैक रखें और समान प्रकाश वाली स्थितियों में उन्हें स्वचालित रूप से लागू करें।</string>
+    <string name="auto_adjust_brightness_summary_nopac">वर्तमान प्रकाश स्थितियों के आधार पर स्वचालित रूप से स्क्रीन की चमक समायोजित करें।</string>
+    <string name="reset_usage_pattern_title">उपयोग पैटर्न्स रीसेट करें</string>
+    <string name="reset_usage_pattern_summary">अपना चमक समायोजन इतिहास साफ करें। रीसेट करने के बाद आपका फोन फिर से आपकी प्राथमिकताएँ सीखना प्रारंभ करेगा।</string>
+    <string name="reset_usage_pattern_dialog_title">अपने चमक उपयोग पैटर्न्स रीसेट करें?</string>
+    <string name="reset_usage_pattern_dialog_summary">रीसेट करने के बाद आपका फोन फिर से आपकी चमक प्राथमिकताएँ सीखना प्रारंभ करेगा।</string>
     <string name="current_theme_font">वर्तमान थीम का डिफॉल्ट</string>
     <string name="hbm_mode_on">धूप में अच्छे से देखने के लिए बढ़ाया गया है</string>
     <string name="aod_detach_mobile_keyboard_toast">%s का उपयोग करने के लिए, कीबोर्ड कवर को डिवाइस से अलग करें।</string>
@@ -2722,6 +2727,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 अलग एप ध्वनि केवल तभी कार्य करती है, जब आपके द्वारा चयनित ऑडियो डिवाइस आपके फोन के मुख्य ऑडियो आउटपुट डिवाइस से भिन्न हो।
 
 आप शीघ्र सेटिंग्स पैनल में अपने फोन के मुख्य ऑडियो आउटपुट डिवाइस को बदल सकते हैं। यदि ऑडियो आउटपुट दिखाई नहीं देता है, तो Samsung Connect > सेटिंग्स > Samsung Connect पैनल में इसे चालू करें।"</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"अपने फोन के मुख्य ऑडियो आउटपुट डिवाइस से अलग किसी ऑडियो डिवाइस पर एक एप की मीडिया ध्वनि चलाएँ। इसे चालू करने के लिए कोई एप और किसी ऑडियो डिवाइस का चयन करें।
+
+अलग एप ध्वनि केवल तभी कार्य करती है, जब आपके द्वारा चयनित ऑडियो डिवाइस आपके फोन के मुख्य ऑडियो आउटपुट डिवाइस से भिन्न हो।
+
+यदि आपके पास Samsung Connect स्थापित है, तो आप शीघ्र सेटिंग्स पैनल में अपने फोन के मुख्य ऑडियो आउटपुट डिवाइस को बदल सकते हैं। यदि ऑडियो आउटपुट डिवाइस दिखाई नहीं देता है, तो Samsung Connect > सेटिंग्स पर जाएँ, फिर Samsung Connect पैनल चालू करें।"</string>
     <string name="set_application_title">एप</string>
     <string name="set_application_summary">एप की ध्वनि को एक अलग ऑडियो डिवाइस पर चलाने के लिए उसका चयन करें।</string>
     <string name="set_application_descryption">मल्टीमीडिया एप की ध्वनि को एक अलग ऑडियो डिवाइस पर चलाने के लिए उसका चयन करें।</string>

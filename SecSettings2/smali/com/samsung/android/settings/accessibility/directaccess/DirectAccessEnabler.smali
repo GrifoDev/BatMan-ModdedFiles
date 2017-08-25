@@ -103,7 +103,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0b0d3f
+    const v4, 0x7f0b0d45
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -143,7 +143,7 @@
 
     invoke-direct {v4, p0}, Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler$1;-><init>(Lcom/samsung/android/settings/accessibility/directaccess/DirectAccessEnabler;)V
 
-    const v5, 0x7f0b1710
+    const v5, 0x7f0b1716
 
     invoke-virtual {v3, v5, v4}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

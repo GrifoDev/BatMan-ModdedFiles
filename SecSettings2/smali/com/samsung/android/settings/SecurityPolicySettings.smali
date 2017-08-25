@@ -125,7 +125,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0ea3
+    const v1, 0x7f0b0ea9
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -138,7 +138,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0c88
+    const v1, 0x7f0b0c8e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -429,7 +429,7 @@
 
     invoke-static {v1, v2}, Landroid/util/secutil/Log;->secI(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v1, 0x7f0800f8
+    const v1, 0x7f0800f9
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/SecurityPolicySettings;->addPreferencesFromResource(I)V
 

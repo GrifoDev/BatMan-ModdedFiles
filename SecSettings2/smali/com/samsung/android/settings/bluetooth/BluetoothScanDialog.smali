@@ -85,7 +85,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;->mParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    const v1, 0x7f0b13c2
+    const v1, 0x7f0b13c8
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;->getString(I)Ljava/lang/String;
 
@@ -113,7 +113,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;->mParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    const v1, 0x7f0b1783
+    const v1, 0x7f0b1789
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;->getString(I)Ljava/lang/String;
 
@@ -492,7 +492,7 @@
 
     sget-object v0, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;->mScanBtn:Landroid/widget/Button;
 
-    const v1, 0x7f0b125c
+    const v1, 0x7f0b1262
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(I)V
 
@@ -513,7 +513,7 @@
 
     sget-object v0, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;->mScanBtn:Landroid/widget/Button;
 
-    const v1, 0x7f0b1783
+    const v1, 0x7f0b1789
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(I)V
 
@@ -523,7 +523,7 @@
     :cond_0
     sget-object v0, Lcom/samsung/android/settings/bluetooth/BluetoothScanDialog;->mScanBtn:Landroid/widget/Button;
 
-    const v1, 0x7f0b125c
+    const v1, 0x7f0b1262
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setText(I)V
 

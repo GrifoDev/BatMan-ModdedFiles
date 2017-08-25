@@ -1361,6 +1361,11 @@ Bemærk, at Samsung kan stadig indsamle oplysninger om din brug af din mobile en
 Tryk på OK for at tillade, at lysstyrken øges til over sikkerhedsniveauet."</string>
     <string name="auto_adjust_brightness">Automatisk lysstyrke</string>
     <string name="auto_adjust_brightness_summary">Hold styr på dine lysstyrkejusteringer, og anvend dem automatisk ved lignende lysforhold.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Juster skærmens lysstyrke automatisk efter de aktuelle lysforhold.</string>
+    <string name="reset_usage_pattern_title">Nulstil brugsmønstre</string>
+    <string name="reset_usage_pattern_summary">Ryd din oversigt over justering af lysstyrke. Din telefon vil begynde at lære dine præferencer igen efter nulstillingen.</string>
+    <string name="reset_usage_pattern_dialog_title">Nulstil brugsmønstre for lysstyrke?</string>
+    <string name="reset_usage_pattern_dialog_summary">Din telefon vil begynde at lære dine præferencer for lysstyrke igen efter nulstillingen.</string>
     <string name="current_theme_font">Standard for det aktuelle tema</string>
     <string name="hbm_mode_on">Maksimer for at opnå bedste visning i sollys</string>
     <string name="aod_detach_mobile_keyboard_toast">For at bruge %s skal du fjerne tastaturcoveret fra enheden.</string>
@@ -2725,6 +2730,11 @@ Du kan fjerne blokeringen og tilslutte andre enheder via et USB-kabel, isæt et 
 Separat applyd fungerer kun, når den lydenhed, du vælger, er en anden end telefonens primære enhed til lydoutput.
 
 Du kan ændre din telefons primære enhed til lydoutput i hurtigindstillingspanelet. Hvis lydoutput ikke vises, kan du aktivere det under Samsung Connect > Indstillinger > Samsung Connect-panel."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Afspil medielyd fra en app på en lydenhed, der ikke er den samme som din telefons primære enhed til lydoutput. Vælg en app og en lydenhed for at aktivere dette.
+
+Separat applyd fungerer kun, når den lydenhed, du vælger, er en anden end telefonens primære enhed til lydoutput.
+
+Hvis du har Samsung Connect installeret, kan du ændre din telefons primære enhed til lydoutput i hurtigindstillingspanelet. Hvis enheden til lydoutput ikke vises, skal du gå til Samsung Connect > Indstillinger og aktivere Samsung Connect-panel."</string>
     <string name="set_application_title">App</string>
     <string name="set_application_summary">Vælg en app for at afspille dens lyd på en separat lydenhed.</string>
     <string name="set_application_descryption">Vælg en multimedieapp herunder for at afspille dens lyd på en separat lydenhed.</string>

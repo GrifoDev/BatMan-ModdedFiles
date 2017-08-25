@@ -1231,6 +1231,11 @@ Please also bear in mind that Samsung may still collect information about your u
 Tap OK to allow the brightness to be increased above safe levels."</string>
     <string name="auto_adjust_brightness">Auto brightness</string>
     <string name="auto_adjust_brightness_summary">Keep track of your brightness adjustments and apply them automatically in similar lighting conditions.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Adjust the screen brightness automatically based on the current lighting conditions.</string>
+    <string name="reset_usage_pattern_title">Reset usage patterns</string>
+    <string name="reset_usage_pattern_summary">Clear your brightness adjustment history. Your phone will begin learning your preferences again after the reset.</string>
+    <string name="reset_usage_pattern_dialog_title">Reset your brightness usage patterns?</string>
+    <string name="reset_usage_pattern_dialog_summary">Your phone will begin learning your brightness preferences again after the reset.</string>
     <string name="current_theme_font">"Current theme's default"</string>
     <string name="hbm_mode_on">Maximised for best viewing in sunlight</string>
     <string name="aod_detach_mobile_keyboard_toast">To use %s, detach keyboard cover from device.</string>
@@ -2593,6 +2598,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 Separate app sound only works when the audio device you select is different from your phone's main audio output device.
 
 You can change your phone's main audio output device in the quick settings panel. If audio output isn't shown, turn it on in Samsung Connect > Settings > Samsung Connect panel."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Play media sound from one app on an audio device separate from your phone's main audio output device. Select an app and audio device to turn this on.
+
+Separate app sound only works when the audio device you select is different from your phone's main audio output device.
+
+If you have Samsung Connect installed, you can change your phone's main audio output device in the quick settings panel. If the audio output device isn't shown, go to Samsung Connect > Settings, then turn on Samsung Connect panel."</string>
     <string name="set_application_title">App</string>
     <string name="set_application_summary">Select an app to play its sound on a separate audio device.</string>
     <string name="set_application_descryption">Select a multimedia app below to play its sound on a separate audio device.</string>

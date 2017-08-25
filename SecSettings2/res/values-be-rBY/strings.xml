@@ -1360,6 +1360,11 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
 Націсніце «ОК», каб дазволіць павелічэнне яркасці вышэй за бяспечныя ўзроўні."</string>
     <string name="auto_adjust_brightness">Аўтаматычная яркасць</string>
     <string name="auto_adjust_brightness_summary">Сачыце за сваімі наладамі яркасці і аўтаматычна прымяняйце іх у падобных умовах асвятлення.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Аўтаматычна адрэгуляваць яркасць экрана ў залежнасці ад бягучых умоў асвятлення.</string>
+    <string name="reset_usage_pattern_title">Скінуць стылі выкарыстання</string>
+    <string name="reset_usage_pattern_summary">Ачысціце гісторыю рэгуліроўкі яркасці. Пасля перазагрузкі ваш тэлефон зноў пачне вывучаць вашы перавагі.</string>
+    <string name="reset_usage_pattern_dialog_title">Скінуць стылі выкарыстання яркасці?</string>
+    <string name="reset_usage_pattern_dialog_summary">Пасля перазагрузкі ваш тэлефон зноў пачне вывучаць вашы перавагі яркасці.</string>
     <string name="current_theme_font">Налады бягучай тэмы па змаўчанні</string>
     <string name="hbm_mode_on">Максіміз. для лепш. прагл. пад сонеч. промн.</string>
     <string name="aod_detach_mobile_keyboard_toast">Каб выкарыстаць %s, адмацуйце накрыўку для клавіятуры ад прылады.</string>
@@ -2723,6 +2728,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 Асобны гук праграмы працуе толькі тады, калі выбраная вамі аўдыяпрылада адрозніваецца ад асноўнай прылады аўдыявыхаду вашага тэлефона.
 
 Вы можаце змяніць асноўную прыладу аўдыявываду вашага тэлефона на панэлі хуткіх налад. Калі аўдыявыхад не паказваецца, уключыце яго ў Samsung Connect > Налады > панэль Samsung Connect."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Прайграваць гук мультымедыя з адной праграмы на аўдыяпрыладзе, адрознай ад асноўнай прылады аўдыявываду вашага тэлефона. Каб уключыць гэта, выберыце праграму і аўдыяпрыладу.
+
+Асобны гук праграмы працуе толькі тады, калі выбраная вамі аўдыяпрылада адрозніваецца ад асноўнай прылады аўдыявываду вашага тэлефона.
+
+Калі ў вас усталявана Samsung Connect, вы можаце змяніць асноўную прыладу аўдыявываду вашага тэлефона на панэлі хуткіх налад. Калі прылада аўдыявываду не паказваецца, перайдзіце ў меню «Samsung Connect > Налады» і ўключыце панэль Samsung Connect."</string>
     <string name="set_application_title">Праграма</string>
     <string name="set_application_summary">Выберыце праграму, гук якой будзе прайгравацца на асобнай аўдыяпрыладзе.</string>
     <string name="set_application_descryption">Выберыце ніжэй праграму мультымедыя, каб прайграць яе гук на асобнай аўдыяпрыладзе.</string>

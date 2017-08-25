@@ -87,7 +87,7 @@
     iput v2, v0, Lcom/samsung/android/settings/OneHandViewPagerAdapter$Description;->animation:I
 
     :goto_0
-    const v2, 0x7f0b0d40
+    const v2, 0x7f0b0d46
 
     iput v2, v0, Lcom/samsung/android/settings/OneHandViewPagerAdapter$Description;->summary:I
 
@@ -105,7 +105,7 @@
 
     if-eqz v1, :cond_1
 
-    const v2, 0x7f0b0d41
+    const v2, 0x7f0b0d47
 
     iput v2, v0, Lcom/samsung/android/settings/OneHandViewPagerAdapter$Description;->summary:I
 
@@ -128,7 +128,7 @@
     goto :goto_0
 
     :cond_1
-    const v2, 0x7f0b0d42
+    const v2, 0x7f0b0d48
 
     iput v2, v0, Lcom/samsung/android/settings/OneHandViewPagerAdapter$Description;->summary:I
 

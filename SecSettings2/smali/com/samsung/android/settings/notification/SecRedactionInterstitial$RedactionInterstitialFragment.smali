@@ -109,7 +109,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/notification/SecRedactionInterstitial$RedactionInterstitialFragment;->headerTextView:Landroid/widget/TextView;
 
-    const v2, 0x7f0b1b5c
+    const v2, 0x7f0b1b62
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
@@ -408,7 +408,7 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f0800d1
+    const v0, 0x7f0800d2
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/notification/SecRedactionInterstitial$RedactionInterstitialFragment;->addPreferencesFromResource(I)V
 
@@ -932,7 +932,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/notification/SecRedactionInterstitial$RedactionInterstitialFragment;->mSUWNextText:Landroid/widget/TextView;
 
-    const v5, 0x7f0b1b89
+    const v5, 0x7f0b1b8f
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(I)V
 

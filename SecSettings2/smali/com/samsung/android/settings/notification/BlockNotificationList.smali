@@ -706,7 +706,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b1b63
+    const v3, 0x7f0b1b69
 
     move-object v5, v4
 
@@ -722,7 +722,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b0b3a
+    const v3, 0x7f0b0b3f
 
     move-object v5, v4
 
@@ -1341,7 +1341,7 @@
 
     invoke-direct {v3}, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;-><init>()V
 
-    const v8, 0x7f0b1b39
+    const v8, 0x7f0b1b3f
 
     iput v8, v3, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
@@ -1393,7 +1393,7 @@
 
     invoke-direct {v4}, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;-><init>()V
 
-    const v8, 0x7f0b061e
+    const v8, 0x7f0b0623
 
     iput v8, v4, Lcom/samsung/android/settings/SettingsPreferenceFragmentLinkData;->titleRes:I
 
@@ -1523,7 +1523,7 @@
 
     iput-object v0, p0, Lcom/samsung/android/settings/notification/BlockNotificationList;->mLauncherApps:Landroid/content/pm/LauncherApps;
 
-    const v0, 0x7f08002f
+    const v0, 0x7f080030
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/notification/BlockNotificationList;->addPreferencesFromResource(I)V
 
@@ -1531,7 +1531,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b150a
+    const v1, 0x7f0b1510
 
     invoke-virtual {v0, v1}, Landroid/app/Activity;->setTitle(I)V
 
@@ -1703,7 +1703,7 @@
 
     const/4 v1, 0x2
 
-    const v2, 0x7f0b190c
+    const v2, 0x7f0b1912
 
     invoke-interface {p1, v3, v1, v3, v2}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 

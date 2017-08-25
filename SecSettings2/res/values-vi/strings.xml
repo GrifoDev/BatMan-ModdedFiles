@@ -1360,6 +1360,11 @@ Xin lưu ý thêm rằng Samsung vẫn có thể thu thập thông tin về vi�
 Chạm OK để cho phép tăng độ sáng trên mức an toàn."</string>
     <string name="auto_adjust_brightness">Độ sáng tự động</string>
     <string name="auto_adjust_brightness_summary">Theo dõi cách điều chỉnh độ sáng của bạn và tự động áp dụng trong các điều kiện ánh sáng tương tự.</string>
+    <string name="auto_adjust_brightness_summary_nopac">Tự động điều chỉnh độ sáng màn hình dựa vào điều kiện ánh sáng hiện tại.</string>
+    <string name="reset_usage_pattern_title">Đặt lại cách sử dụng</string>
+    <string name="reset_usage_pattern_summary">Xóa nhật ký điều chỉnh độ sáng của bạn. Điện thoại sẽ bắt đầu học lại các tùy chỉnh riêng của bạn sau khi đặt lại.</string>
+    <string name="reset_usage_pattern_dialog_title">Đặt lại cách sử dụng độ sáng của bạn?</string>
+    <string name="reset_usage_pattern_dialog_summary">Điện thoại sẽ bắt đầu học lại các tùy chỉnh độ sáng của bạn sau khi đặt lại.</string>
     <string name="current_theme_font">Mặc định theme hiện tại</string>
     <string name="hbm_mode_on">Tăng tối đa để xem tốt nhất dưới ánh nắng</string>
     <string name="aod_detach_mobile_keyboard_toast">Để sử dụng %s, hãy tháo vỏ bàn phím khỏi thiết bị.</string>
@@ -2722,6 +2727,11 @@ Một số giao dịch NFC và dịch vụ thanh toán di động có thể cầ
 Âm thanh ứng dụng riêng biệt chỉ hoạt động khi thiết bị âm thanh bạn chọn khác với thiết bị xuất âm thanh chính của điện thoại.
 
 Bạn có thể thay đổi thiết bị xuất âm thanh chính của điện thoại trong bảng cài đặt nhanh. Nếu thiết bị xuất âm thanh không hiển thị, hãy bật nó trong Samsung Connect > Cài đặt > Bảng Samsung Connect."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"Phát âm thanh media từ một ứng dụng ra thiết bị âm thanh riêng biệt với thiết bị xuất âm thanh chính của điện thoại. Chọn ứng dụng và thiết bị âm thanh để bật chức năng này.
+
+Âm thanh ứng dụng riêng biệt chỉ hoạt động khi thiết bị âm thanh bạn chọn khác với thiết bị xuất âm thanh chính của điện thoại.
+
+Nếu đã cài đặt Samsung Connect, bạn có thể thay đổi thiết bị xuất âm thanh chính của điện thoại trong bảng cài đặt nhanh. Nếu thiết bị xuất âm thanh không hiển thị, hãy đi đến Samsung Connect > Cài đặt, rồi bật bảng Samsung Connect."</string>
     <string name="set_application_title">Ứng dụng</string>
     <string name="set_application_summary">Chọn một ứng dụng để phát âm thanh của ứng dụng đó trên một thiết bị âm thanh riêng biệt.</string>
     <string name="set_application_descryption">Chọn một ứng dụng đa phương tiện bên dưới để phát âm thanh của ứng dụng đó trên một thiết bị âm thanh riêng biệt.</string>

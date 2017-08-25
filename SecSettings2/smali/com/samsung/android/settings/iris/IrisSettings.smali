@@ -260,7 +260,7 @@
     invoke-virtual {v0}, Landroid/preference/PreferenceScreen;->removeAll()V
 
     :cond_0
-    const v1, 0x7f08008c
+    const v1, 0x7f08008d
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/iris/IrisSettings;->addPreferencesFromResource(I)V
 
@@ -1493,7 +1493,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b08c8
+    const v8, 0x7f0b08cd
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1505,7 +1505,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b08c9
+    const v9, 0x7f0b08ce
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1669,7 +1669,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b08fd
+    const v4, 0x7f0b0902
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1719,13 +1719,13 @@
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b0911
+    const v2, 0x7f0b0916
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    const v2, 0x7f0b0912
+    const v2, 0x7f0b0917
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -1773,7 +1773,7 @@
 
     invoke-direct {v0, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0b08dd
+    const v3, 0x7f0b08e2
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/iris/IrisSettings;->getString(I)Ljava/lang/String;
 
@@ -1800,14 +1800,14 @@
     if-eqz v3, :cond_1
 
     :cond_0
-    const v3, 0x7f0b08de
+    const v3, 0x7f0b08e3
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/iris/IrisSettings;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
     :cond_1
-    const v3, 0x7f0b08dc
+    const v3, 0x7f0b08e1
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -2338,7 +2338,7 @@
     :cond_1
     const/4 v0, 0x2
 
-    const v1, 0x7f0b08fd
+    const v1, 0x7f0b0902
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -3093,7 +3093,7 @@
 
     const/4 v4, 0x0
 
-    const v5, 0x7f0b08be
+    const v5, 0x7f0b08c3
 
     move-object v6, v3
 
@@ -3370,15 +3370,15 @@
 
     invoke-direct {v0, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b0906
+    const v2, 0x7f0b090b
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    const v2, 0x7f0b0907
+    const v2, 0x7f0b090c
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
-    const v2, 0x7f0b0caa
+    const v2, 0x7f0b0cb0
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/iris/IrisSettings;->getString(I)Ljava/lang/String;
 

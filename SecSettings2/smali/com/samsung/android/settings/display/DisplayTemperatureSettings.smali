@@ -202,7 +202,7 @@
 
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f080067
+    const v0, 0x7f080068
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/display/DisplayTemperatureSettings;->addPreferencesFromResource(I)V
 
@@ -292,7 +292,7 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x7f0b0c57
+    const v0, 0x7f0b0c5d
 
     invoke-interface {p1, v1, v2, v1, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 

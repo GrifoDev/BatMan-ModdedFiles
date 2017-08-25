@@ -669,6 +669,18 @@
             <meta-data android:name="com.android.settings.TOP_LEVEL_TILE_ID" android:value="connections_settings"/>
             <meta-data android:name="com.android.settings.TOP_LEVEL_TILE_ID_VZW" android:value="bluetooth_settings"/>
         </activity>
+        <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:exported="true" android:label="@string/bluetooth_avc_title" android:name="com.android.settings.Settings$BluetoothAVCSettingsActivity" android:taskAffinity="" android:theme="@style/Theme.Settings">
+            <intent-filter android:priority="1">
+                <action android:name="com.samsung.settings.BLUETOOTH_AVC_SETTINGS"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.samsung.android.settings.bluetooth.BluetoothAVCSettings"/>
+            <meta-data android:name="com.android.settings.PRIMARY_PROFILE_CONTROLLED" android:value="true"/>
+        </activity>
         <activity android:configChanges="keyboard|keyboardHidden|orientation|screenSize" android:exported="true" android:label="@string/bluetooth_dual_play_title" android:name="com.android.settings.Settings$BluetoothDualPlaySettingsActivity" android:taskAffinity="" android:theme="@style/Theme.Settings">
             <intent-filter android:priority="1">
                 <action android:name="com.samsung.settings.BLUETOOTH_DUAL_PLAY_SETTINGS"/>
@@ -868,7 +880,7 @@
             <meta-data android:name="com.android.settings.TOP_LEVEL_TILE_ID" android:value="connections_settings"/>
             <meta-data android:name="com.android.settings.TOP_LEVEL_TILE_ID_VZW" android:value="wifi_settings"/>
         </activity-alias>
-        <activity android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:label="@string/wifi_p2p_select_device" android:name="com.samsung.android.settings.wifi.p2p.WifiP2pDummyPickerActivity" android:permission="android.permission.CHANGE_WIFI_STATE">
+        <activity android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:excludeFromRecents="true" android:label="@string/wifi_p2p_select_device" android:name="com.samsung.android.settings.wifi.p2p.WifiP2pDummyPickerActivity" android:permission="android.permission.CHANGE_WIFI_STATE">
             <intent-filter>
                 <action android:name="com.samsung.settings.WIFI_DIRECT_DEVICE_PICKER"/>
                 <category android:name="android.intent.category.DEFAULT"/>
@@ -3890,6 +3902,14 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
             <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.samsung.android.settings.display.StatusBar"/>
+        </activity>
+        <activity android:clearTaskOnLaunch="true" android:configChanges="keyboardHidden|orientation|screenSize" android:label="@string/auto_brightness" android:name="com.android.settings.Settings$AutoBrightnessActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS" android:value="com.samsung.android.settings.display.AutoBrightness"/>
+            <meta-data android:name="com.android.settings.TOP_LEVEL_TILE_ID" android:value="display_settings"/>
         </activity>
     </application>
 </manifest>

@@ -340,7 +340,7 @@
     :cond_0
     iput-boolean v2, p0, Lcom/android/settings/fuelgauge/BatterySaverSettings;->mCreated:Z
 
-    const v0, 0x7f08002d
+    const v0, 0x7f08002e
 
     invoke-virtual {p0, v0}, Lcom/android/settings/fuelgauge/BatterySaverSettings;->addPreferencesFromResource(I)V
 

@@ -45,13 +45,13 @@
 
     if-eqz p1, :cond_0
 
-    const v0, 0x7f080109
+    const v0, 0x7f08010a
 
     :goto_0
     return v0
 
     :cond_0
-    const v0, 0x7f080108
+    const v0, 0x7f080109
 
     goto :goto_0
 .end method
@@ -59,7 +59,7 @@
 .method getResIdForLockUnlockSubScreen()I
     .locals 1
 
-    const v0, 0x7f08010a
+    const v0, 0x7f08010b
 
     return v0
 .end method

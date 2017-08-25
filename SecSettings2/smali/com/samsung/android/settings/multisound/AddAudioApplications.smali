@@ -101,6 +101,8 @@
 .method public onActivityCreated(Landroid/os/Bundle;)V
     .locals 2
 
+    const/4 v1, 0x1
+
     invoke-super {p0, p1}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onActivityCreated(Landroid/os/Bundle;)V
 
     invoke-direct {p0}, Lcom/samsung/android/settings/multisound/AddAudioApplications;->loadAppsList()V
@@ -109,10 +111,21 @@
 
     move-result-object v0
 
-    const/4 v1, 0x1
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/multisound/AddAudioApplications;->getListView()Landroid/widget/ListView;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v1}, Landroid/widget/ListView;->semSetGoToTopEnabled(Z)V
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/multisound/AddAudioApplications;->getListView()Landroid/widget/ListView;
+
+    move-result-object v0
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->setItemsCanFocus(Z)V
 
+    :cond_0
     return-void
 .end method
 
@@ -165,7 +178,7 @@
 
     invoke-direct {v0, v1, v2}, Lcom/samsung/android/settings/UnclickablePreference;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
-    const v1, 0x7f0b0b90
+    const v1, 0x7f0b0b96
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/UnclickablePreference;->setTitle(I)V
 

@@ -57,7 +57,7 @@
 
     const-string/jumbo v2, "extra_prefs_set_next_text"
 
-    const v3, 0x7f0b1b89
+    const v3, 0x7f0b1b8f
 
     invoke-virtual {p0, v3}, Lcom/android/settings/notification/RedactionSettingsStandalone;->getString(I)Ljava/lang/String;
 

@@ -1323,7 +1323,7 @@
     :goto_0
     iget-object v9, p0, Lcom/samsung/android/settings/boostmode/BoostModeCustomFragment;->mSecBrightness:Lcom/android/settings/widget/SecIntervalSeekbarPreference;
 
-    const v10, 0x7f0b09e5
+    const v10, 0x7f0b09ea
 
     invoke-virtual {p0, v10}, Lcom/samsung/android/settings/boostmode/BoostModeCustomFragment;->getString(I)Ljava/lang/String;
 
@@ -1441,7 +1441,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b0682
+    const v10, 0x7f0b0687
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1451,7 +1451,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b0683
+    const v10, 0x7f0b0688
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1461,7 +1461,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0b0684
+    const v10, 0x7f0b0689
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1794,7 +1794,7 @@
 
     iget-object v9, p0, Lcom/samsung/android/settings/boostmode/BoostModeCustomFragment;->mScreenSeekBar:Lcom/android/settings/widget/SecIntervalSeekbarPreference;
 
-    const v10, 0x7f0b0bfb
+    const v10, 0x7f0b0c01
 
     invoke-virtual {v9, v10}, Lcom/android/settings/widget/SecIntervalSeekbarPreference;->setSummary(I)V
 
@@ -1977,19 +1977,19 @@
     goto/16 :goto_1
 
     :cond_6
-    const v9, 0x7f0b0685
+    const v9, 0x7f0b068a
 
     invoke-virtual {p0, v9}, Lcom/samsung/android/settings/boostmode/BoostModeCustomFragment;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
-    const v9, 0x7f0b0686
+    const v9, 0x7f0b068b
 
     invoke-virtual {p0, v9}, Lcom/samsung/android/settings/boostmode/BoostModeCustomFragment;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    const v9, 0x7f0b0687
+    const v9, 0x7f0b068c
 
     invoke-virtual {p0, v9}, Lcom/samsung/android/settings/boostmode/BoostModeCustomFragment;->getString(I)Ljava/lang/String;
 
@@ -2318,7 +2318,7 @@
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/boostmode/BoostModeCustomFragment;->setHasOptionsMenu(Z)V
 
-    const v1, 0x7f080036
+    const v1, 0x7f080037
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/boostmode/BoostModeCustomFragment;->addPreferencesFromResource(I)V
 
@@ -2961,7 +2961,7 @@
 
     new-array v1, v4, [Ljava/lang/Object;
 
-    const v2, 0x7f0b1136
+    const v2, 0x7f0b113c
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/boostmode/BoostModeCustomFragment;->getString(I)Ljava/lang/String;
 
@@ -2971,7 +2971,7 @@
 
     aput-object v2, v1, v3
 
-    const v2, 0x7f0b0c26
+    const v2, 0x7f0b0c2c
 
     invoke-virtual {p0, v2, v1}, Lcom/samsung/android/settings/boostmode/BoostModeCustomFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

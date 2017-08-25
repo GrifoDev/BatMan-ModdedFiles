@@ -276,7 +276,7 @@
 
     iget v3, p0, Lcom/android/settings/bluetooth/DevicePickerFragment;->mFilterType:I
 
-    const v4, 0x7f0b13e2
+    const v4, 0x7f0b13e8
 
     invoke-direct {p0, v2, v4, v3}, Lcom/android/settings/bluetooth/DevicePickerFragment;->addDeviceCategory(Lcom/samsung/android/settings/bluetooth/BluetoothDevicePreferenceGroup;II)V
 
@@ -474,7 +474,7 @@
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 6
 
-    const v5, 0x7f0b1271
+    const v5, 0x7f0b1277
 
     const/16 v4, 0xc
 
@@ -525,7 +525,7 @@
 
     if-eqz v2, :cond_2
 
-    const v2, 0x7f0b13c2
+    const v2, 0x7f0b13c8
 
     invoke-virtual {v0, v2}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -590,7 +590,7 @@
 
     if-eqz v0, :cond_1
 
-    const v1, 0x7f0b1783
+    const v1, 0x7f0b1789
 
     :goto_0
     invoke-interface {p1, v3, v4, v3, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
@@ -621,7 +621,7 @@
     return-void
 
     :cond_1
-    const v1, 0x7f0b125c
+    const v1, 0x7f0b1262
 
     goto :goto_0
 
@@ -1215,7 +1215,7 @@
 
     if-eqz p1, :cond_1
 
-    const v4, 0x7f0b1783
+    const v4, 0x7f0b1789
 
     :goto_0
     invoke-interface {v5, v4}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
@@ -1236,7 +1236,7 @@
     return-void
 
     :cond_1
-    const v4, 0x7f0b125c
+    const v4, 0x7f0b1262
 
     goto :goto_0
 
@@ -1499,7 +1499,7 @@
 
     iget-object v1, p0, Lcom/android/settings/bluetooth/DevicePickerFragment;->mScan:Landroid/view/MenuItem;
 
-    const v2, 0x7f0b125c
+    const v2, 0x7f0b1262
 
     invoke-interface {v1, v2}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
 
@@ -1531,6 +1531,12 @@
 
     move-result-object v1
 
+    if-eqz v1, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/settings/bluetooth/DevicePickerFragment;->getActivity()Landroid/app/Activity;
+
+    move-result-object v1
+
     invoke-virtual {v1}, Landroid/app/Activity;->getApplicationContext()Landroid/content/Context;
 
     move-result-object v1
@@ -1549,13 +1555,14 @@
 
     invoke-static {v1, v2, v3, v4}, Lcom/samsung/android/settingslib/bluetooth/GSIMBluetoothLogger;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;I)V
 
+    :cond_1
     iget-object v1, p0, Lcom/android/settings/bluetooth/DevicePickerFragment;->mAvailableDevicesCategory:Lcom/samsung/android/settings/bluetooth/BluetoothDevicePreferenceGroup;
 
     invoke-virtual {v1}, Lcom/samsung/android/settings/bluetooth/BluetoothDevicePreferenceGroup;->getPreferenceCount()I
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2
 
     const/4 v0, 0x1
 
@@ -1568,7 +1575,7 @@
 
     return-void
 
-    :cond_1
+    :cond_2
     const/4 v0, 0x0
 
     goto :goto_0

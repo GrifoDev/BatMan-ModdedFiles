@@ -402,7 +402,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f080048
+    const v6, 0x7f080049
 
     const/4 v7, 0x0
 
@@ -482,7 +482,7 @@
 .method private addEthernetSection()V
     .locals 4
 
-    const v1, 0x7f08004c
+    const v1, 0x7f08004d
 
     invoke-direct {p0, v1}, Lcom/android/settings/datausage/DataUsageSummary;->inflatePreferences(I)Landroid/preference/Preference;
 
@@ -512,7 +512,7 @@
 
     const/4 v7, 0x0
 
-    const v5, 0x7f080049
+    const v5, 0x7f08004a
 
     invoke-direct {p0, v5}, Lcom/android/settings/datausage/DataUsageSummary;->inflatePreferences(I)Landroid/preference/Preference;
 
@@ -840,7 +840,7 @@
 
     if-ne v4, v8, :cond_14
 
-    const v5, 0x7f0b1bd3
+    const v5, 0x7f0b1bd9
 
     invoke-virtual {p0, v5}, Lcom/android/settings/datausage/DataUsageSummary;->getString(I)Ljava/lang/String;
 
@@ -978,7 +978,7 @@
     goto/16 :goto_6
 
     :cond_14
-    const v5, 0x7f0b1bd4
+    const v5, 0x7f0b1bda
 
     invoke-virtual {p0, v5}, Lcom/android/settings/datausage/DataUsageSummary;->getString(I)Ljava/lang/String;
 
@@ -997,7 +997,7 @@
 .method private addWifiSection()V
     .locals 4
 
-    const v1, 0x7f080050
+    const v1, 0x7f080051
 
     invoke-direct {p0, v1}, Lcom/android/settings/datausage/DataUsageSummary;->inflatePreferences(I)Landroid/preference/Preference;
 
@@ -1571,7 +1571,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f08004f
+    const v8, 0x7f080050
 
     invoke-virtual {v6, v7, v8, v9}, Landroid/preference/PreferenceManager;->inflateFromResource(Landroid/content/Context;ILandroid/preference/PreferenceScreen;)Landroid/preference/PreferenceScreen;
 
@@ -1610,7 +1610,7 @@
 
     aput-object v7, v6, v5
 
-    const v7, 0x7f0b1133
+    const v7, 0x7f0b1139
 
     invoke-virtual {p0, v7, v6}, Lcom/android/settings/datausage/DataUsageSummary;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2051,7 +2051,7 @@
 
     if-gtz v14, :cond_a
 
-    const v14, 0x7f0b1cfd
+    const v14, 0x7f0b1d03
 
     :goto_3
     const/16 v16, 0x2
@@ -2254,7 +2254,7 @@
     goto/16 :goto_2
 
     :cond_a
-    const v14, 0x7f0b1cfe
+    const v14, 0x7f0b1d04
 
     goto/16 :goto_3
 
@@ -2664,7 +2664,7 @@
     if-eqz v0, :cond_1
 
     :cond_0
-    const v1, 0x7f08004b
+    const v1, 0x7f08004c
 
     invoke-direct {p0, v1}, Lcom/android/settings/datausage/DataUsageSummary;->inflatePreferences(I)Landroid/preference/Preference;
 
@@ -3126,7 +3126,7 @@
 
     if-eqz v17, :cond_17
 
-    const v17, 0x7f08004a
+    const v17, 0x7f08004b
 
     move-object/from16 v0, p0
 
@@ -3471,7 +3471,7 @@
     :cond_f
     if-eqz v6, :cond_25
 
-    const v17, 0x7f0b1cfa
+    const v17, 0x7f0b1d00
 
     :goto_8
     move/from16 v0, v17
@@ -3686,7 +3686,7 @@
     goto/16 :goto_1
 
     :cond_17
-    const v17, 0x7f080047
+    const v17, 0x7f080048
 
     move-object/from16 v0, p0
 
@@ -3939,12 +3939,12 @@
     :cond_25
     if-eqz v7, :cond_26
 
-    const v17, 0x7f0b1cfb
+    const v17, 0x7f0b1d01
 
     goto/16 :goto_8
 
     :cond_26
-    const v17, 0x7f0b1cfc
+    const v17, 0x7f0b1d02
 
     goto/16 :goto_8
 .end method
@@ -4225,7 +4225,7 @@
     :pswitch_1
     const-string/jumbo v2, "com.android.settings.datausage.DataUsageHelp"
 
-    const v3, 0x7f0b1a8a
+    const v3, 0x7f0b1a90
 
     const/4 v5, 0x0
 
@@ -4484,7 +4484,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1129
+    const v2, 0x7f0b112f
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -4553,7 +4553,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b1126
+    const v3, 0x7f0b112c
 
     move-object v4, v2
 

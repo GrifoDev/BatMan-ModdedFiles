@@ -998,7 +998,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1a9e
+    const v0, 0x7f0b1aa4
 
     return v0
 .end method
@@ -1123,7 +1123,7 @@
     :goto_0
     invoke-virtual {p0, v0}, Lcom/android/settings/vpn2/VpnSettings;->setHasOptionsMenu(Z)V
 
-    const v0, 0x7f080146
+    const v0, 0x7f080147
 
     invoke-virtual {p0, v0}, Lcom/android/settings/vpn2/VpnSettings;->addPreferencesFromResource(I)V
 
@@ -1705,7 +1705,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b1a14
+    const v3, 0x7f0b1a1a
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(I)V
 

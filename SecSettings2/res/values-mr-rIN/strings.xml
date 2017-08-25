@@ -1360,6 +1360,11 @@ Where Can I Find More Information About the 3rd Party's Policies? Separately, if
 सुरक्षा स्तरापेक्षा जास्त चमक वाढवण्याची अनुमती देण्या साठी “ठीक आहे” टॅप करा."</string>
     <string name="auto_adjust_brightness">स्वयं चमक</string>
     <string name="auto_adjust_brightness_summary">आपल्या चमक समायोजनांचा मागोवा ठेवा आणि समान प्रकाश परिस्थितीं मध्ये ती स्वयंचलित पणे लागू करा.</string>
+    <string name="auto_adjust_brightness_summary_nopac">वर्तमान प्रकाशाच्या स्थितींवर आधारित स्क्रीन चमक स्वयंचलित पणे समायोजित करा.</string>
+    <string name="reset_usage_pattern_title">वापर पॅटर्न्सची पुन्हा मांडणी करा</string>
+    <string name="reset_usage_pattern_summary">आपला चमक समायोजन इतिहास साफ करा. आपल्या फोनचा पुनरारंभ केल्या नंतर तो आपले संदर्भ शिकण्यास सुरवात करेल.</string>
+    <string name="reset_usage_pattern_dialog_title">आपले चमक वापर पॅटर्न्सची पुन्हा मांडणी करायची?</string>
+    <string name="reset_usage_pattern_dialog_summary">आपल्या फोनचा पुनरारंभ झाल्यावर तो आपला चमक संदर्भ शिकणे सुरू करेल.</string>
     <string name="current_theme_font">वर्तमान थीमचे डिफॉल्‍ट</string>
     <string name="hbm_mode_on">सूर्यप्रकाशामध्ये सर्वोत्तम पाहण्यासाठी वाढवले</string>
     <string name="aod_detach_mobile_keyboard_toast">%s वापरण्‍यासाठी, उपकरणापासून कीबोर्ड कव्‍हर वेगळे करा.</string>
@@ -2722,6 +2727,11 @@ To unblock it and connect to other devices via a USB cable, insert a USIM/SIM ca
 आपल्या फोनच्या मुख्य ऑडिओ आउटपुट उपकरणा वरून निवडलेले ऑडिओ उपकरण भिन्न असताना वेगळा अनुप्रयोग ध्वनी केवळ कार्य करतो.
 
 आपण त्‍वरित सेटिंग्‍स पॅनेल मधील आपल्या फोनच्या मुख्य ऑडिओ आउटपुट उपकरण बदलू शकतो. ऑडिओ आउटपुट दर्शवले नसल्यास, Samsung Connect > सेटिंग्स > Samsung Connect पॅनेल मध्ये ते चालू करा."</string>
+    <string name="multi_sound_descryption_for_uninstalledsc">"आपल्या फोनच्या मुख्य ऑडिओ आउटपुट उपकरणा वरून वेगळ्या ऑडिओ उपकरणा वरील एका अनुप्रयोगा मधून मिडिया ध्वनी प्ले करा. हे चालू करण्या साठी अनुप्रयोग आणि ऑडिओ उपकरण निवडा.
+
+आपल्या फोनच्या मुख्य ऑडिओ आउटपुट उपकरणा वरून आपण निवडलेले ऑडिओ उपकरण भिन्न असताना वेगळा अनुप्रयोग ध्वनी केवळ कार्य करतो.
+
+आपल्या जवळ Samsung Connect इन्‍स्‍टॉल असल्यास, आपण त्‍वरित सेटिंग्‍स पॅनेल मधील आपल्या फोनचे मुख्य ऑडिओ आउटपुट उपकरण बदलू शकता. ऑडिओ आउटपुट उपकरण दर्शवले नसल्यास, Samsung Connect > सेटिंग्स यावर जा, नंतर Samsung Connect पॅनेल चालू करा."</string>
     <string name="set_application_title">अनुप्रयोग</string>
     <string name="set_application_summary">वेगळ्या ऑडिओ उपकरणा वर त्याचा ध्वनी प्ले करण्या साठी अनुप्रयोग निवडा.</string>
     <string name="set_application_descryption">वेगळ्या ऑडिओ उपकरणा वर त्याचा ध्वनी प्ले करण्या साठी मल्टिमिडिया अनुप्रयोग निवडा.</string>
