@@ -1017,7 +1017,7 @@
 
     iget-object v3, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040a06
+    const v4, 0x1040a07
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1404,7 +1404,7 @@
 
     iget-object v4, p0, Lcom/android/keyguard/KeyguardTextBuilder;->mContext:Landroid/content/Context;
 
-    const v5, 0x1040a06
+    const v5, 0x1040a07
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

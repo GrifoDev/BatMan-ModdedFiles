@@ -1805,13 +1805,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">我接受</string>
     <string name="force_immersive_guide_text">点击此按钮可隐藏导航栏。您仍可以通过从屏幕底部向上滑动来使用导航按钮。显示导航栏后，您可以再次点击此按钮将其锁定在固定位置。导航栏在某些屏幕上将始终显示，例如主屏幕。如果应用程序在导航栏隐藏时不正常工作，请将导航栏锁定在固定位置，然后重启应用程序。</string>
     <string name="force_immersive_guide_dialog_title">隐藏导航栏：</string>
-    <string name="force_immersive_guide_dialog_message1">点击此按钮将隐藏导航条。</string>
+    <string name="force_immersive_guide_dialog_message1">双击此按钮以隐藏导航栏。</string>
     <string name="force_immersive_guide_dialog_message2">从屏幕底部向上滑动来显示导航条。</string>
-    <string name="force_immersive_guide_dialog_message3">再次点击此按钮将其锁定在固定位置。</string>
+    <string name="force_immersive_guide_dialog_message3">再次双击此按钮可将导航栏锁定在固定位置。</string>
     <string name="force_immersive_guide_dialog_message4">部分屏幕 (例如主屏幕) 上始终显示导航条。</string>
     <string name="force_immersive_guide_dialog_guide_path">若要隐藏此按钮，请进入【设置】>【显示】>【导航条】。</string>
     <string name="force_immersive_guide_dialog_setting">设置</string>
     <string name="force_immersive_guide_dialog_ok">确定</string>
+    <string name="force_immersive_guide_toast_hide">双击来隐藏导航栏</string>
+    <string name="force_immersive_guide_toast_show">双击来锁定导航栏</string>
     <string name="car_lockscreen_disclaimer_title">安全驾驶</string>
     <string name="car_lockscreen_disclaimer_text">请充分了解驾驶条件并务必遵守适用的法律。路线指示可能不准确，不完整，也可能包含危险、不适合通行、禁止通行或跨越行政区域的路段。商家信息也可能不准确或不完整。数据并非实时提供，因此无法保证位置信息的精确度。请勿在驾驶过程中操作您的移动设备或使用不支持 Android Auto 的应用。</string>
     <string name="pip_close">关闭画中画</string>

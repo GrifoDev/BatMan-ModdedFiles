@@ -1815,13 +1815,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Qəbul edirəm</string>
     <string name="force_immersive_guide_text">Bu düyməyə vurmaq naviqasiya panelini gizlədir. Yenə də ekranın aşağısından yuxarı sürüşdürməklə naviqasiya düymələrindən istifadə edə bilərsiniz. Naviqasiya paneli görünən zaman yerində kilidləmək üçün bu düyməyə yenidən vura bilərsiniz. Əsas ekran kimi bəzi ekranlarda naviqasiya paneli həmişə görünəcək. Naviqasiya paneli gizli olan zaman proqram normal işləmədikdə naviqasiya panelini yerində kilidləyin və proqramı yenidən açın.</string>
     <string name="force_immersive_guide_dialog_title">Naviqasiya panelini gizlət:</string>
-    <string name="force_immersive_guide_dialog_message1">Bu düyməyə vurmaq naviqasiya panelini gizlədir.</string>
+    <string name="force_immersive_guide_dialog_message1">Naviqasiya panelini gizlətmək üçün bu düyməyə iki dəfə vurun.</string>
     <string name="force_immersive_guide_dialog_message2">Naviqasiya panelini göstərmək üçün ekranın aşağısından yuxarı sürüşdürün.</string>
-    <string name="force_immersive_guide_dialog_message3">Yerində kilidləmək üçün bu düyməyə yenidən vurun.</string>
+    <string name="force_immersive_guide_dialog_message3">Naviqasiya panelini yerində bərkitmək üçün bu düyməyə bir daha vurun.</string>
     <string name="force_immersive_guide_dialog_message4">Əsas ekran kimi bəzi ekranlarda naviqasiya paneli həmişə görünəcək.</string>
     <string name="force_immersive_guide_dialog_guide_path">Bu düyməni gizlətmək üçün Parametrlər > Ekran > Naviqasiya paneli seçin.</string>
     <string name="force_immersive_guide_dialog_setting">Parametrlər</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">Naviqasiya panelini gizlətmək üçün iki dəfə vurun.</string>
+    <string name="force_immersive_guide_toast_show">Naviqasiya panelini kilidləmək üçün iki dəfə vurun.</string>
     <string name="car_lockscreen_disclaimer_title">Təhlükəsiz sürün</string>
     <string name="car_lockscreen_disclaimer_text">Yol şəraitindən tam xəbərdar olun və hər zaman tətbiq olunan qaydalara riayət edin. İstiqamətlər qeyri-dəqiq, natamam, təhlükəli, uyğun olmayan, qadağan edilmiş və ya inzibati sahələrə keçid ilə nəticələnə bilər. Biznes məlumatı da qeyri-dəqiq və ya natamam ola bilər. Data real vaxtda deyil və məkan dəqiqliyinə zəmanət verilmir. Avtomobil idarə edərkən mobil cihazınızı elinizə almayın və ya Android Avto üçün nəzərdə tutulmamış tətbiqlərdən istifadə etməyin.</string>
     <string name="pip_close">PIP bağlayın</string>

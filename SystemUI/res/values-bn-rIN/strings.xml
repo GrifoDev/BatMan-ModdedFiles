@@ -902,13 +902,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">আমি স্বীকার করছি</string>
     <string name="force_immersive_guide_text">এই বোতামটি ট্যাপ করলে তা নেভিগেশন বারটি লুকায়। আপনি স্ক্রিনের নীচ থেকে উপরে সোয়াইপ করেও নেভিগেশন বোতামগুলি ব্যবহার করতে পারেন। নেভিগেশন বারটি দেখানো হলে, এটিকে ঠিক জায়গায় আবার লক করতে আপনি এই বোতামটি ট্যাপ করতে পারেন। হোম স্ক্রিনের মতো কিছু স্ক্রিনে, নেভিগেশন বারটি সর্বদা দেখানো হবে। নেভিগেশন বারটি লুকানো থাকার সময় কোনও অ্যাপ স্বাভাবিকভাবে কাজ না করলে, নেভিগেশন বারটিকে ঠিক জায়গায় লক করুন ও অ্যাপটি পুনঃশুরু করুন।</string>
     <string name="force_immersive_guide_dialog_title">নেভিগেশন বার লুকান:</string>
-    <string name="force_immersive_guide_dialog_message1">এই বোতামটি ট্যাপ করলে তা নেভিগেশন বারটি লুকায়।</string>
+    <string name="force_immersive_guide_dialog_message1">নেভিগেশন বারটি লুকাতে এই বোতামটি দুবার ট্যাপ করুন।</string>
     <string name="force_immersive_guide_dialog_message2">নেভিগেশন বারটি দেখাতে স্ক্রিনের নীচ থেকে উপরে সোয়াইপ করুন।</string>
-    <string name="force_immersive_guide_dialog_message3">এটি ঠিক জায়গায় লক করতে এই বোতামটি আবার ট্যাপ করুন।</string>
+    <string name="force_immersive_guide_dialog_message3">ঠিক জায়গায় নেভিগেশন বারটি লক করতে এই বোতামটি দুবার ট্যাপ করুন।</string>
     <string name="force_immersive_guide_dialog_message4">হোম স্ক্রিনের মতো কিছু স্ক্রিনে, নেভিগেশন বারটি সর্বদা দেখানো হবে।</string>
     <string name="force_immersive_guide_dialog_guide_path">এই বোতামটি লুকাতে, সেটিংস > প্রদর্শনী > নেভিগেশন বারে যান।</string>
     <string name="force_immersive_guide_dialog_setting">সেটিংস</string>
     <string name="force_immersive_guide_dialog_ok">ওকে</string>
+    <string name="force_immersive_guide_toast_hide">নেভিগেশন বারটি লুকাতে দুবার ট্যাপ করুন।</string>
+    <string name="force_immersive_guide_toast_show">নেভিগেশন বারটি লক করতে দুবার ট্যাপ করুন।</string>
     <string name="keyguard_password_enter_pin_code">PIN কোডটি টাইপ করুন।</string>
     <string name="keyguard_password_wrong_pin_code">ভুল PIN কোড।</string>
     <string name="keyguard_charged">সম্পূর্ণ চার্জ হয়েছে</string>

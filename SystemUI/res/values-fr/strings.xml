@@ -1815,13 +1815,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">"J'accepte"</string>
     <string name="force_immersive_guide_text">"Le fait d'appuyer sur cette touche masque la barre de navigation. Vous pouvez toujours utiliser les touches de navigation en faisant glisser votre doigt vers le haut depuis le bas de l'écran. Lorsque la barre de navigation est affichée, vous pouvez appuyer à nouveau sur cette touche pour qu'elle le reste. Sur certains écrans tels que l'écran d'accueil, la barre de navigation est toujours affichée. Si une application n'a pas un comportement normal lorsque la barre de navigation est masquée, verrouillez l'affichage de la barre de navigation et redémarrez l'application."</string>
     <string name="force_immersive_guide_dialog_title">Masquez la barre de navigation :</string>
-    <string name="force_immersive_guide_dialog_message1">"Le fait d'appuyer sur cette touche masque la barre de navigation."</string>
+    <string name="force_immersive_guide_dialog_message1">Appuyez deux fois sur cette touche pour masquer la barre de navigation.</string>
     <string name="force_immersive_guide_dialog_message2">"Faites glisser votre doigt vers le haut depuis le bas de l'écran pour afficher la barre de navigation."</string>
-    <string name="force_immersive_guide_dialog_message3">"Appuyez à nouveau sur cette touche pour qu'elle reste affichée."</string>
+    <string name="force_immersive_guide_dialog_message3">Appuyez deux fois sur cette touche pour que la barre de navigation reste affichée.</string>
     <string name="force_immersive_guide_dialog_message4">"Sur certains écrans, tels que l'écran d'accueil, la barre de navigation sera toujours affichée."</string>
     <string name="force_immersive_guide_dialog_guide_path">Pour masquer cette touche, accédez à Paramètres > Affichage > Barre de navigation.</string>
     <string name="force_immersive_guide_dialog_setting">Paramètres</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">Appuyez deux fois pour masquer la barre de navigation.</string>
+    <string name="force_immersive_guide_toast_show">Appuyez deux fois pour verrouiller la barre de navigation.</string>
     <string name="car_lockscreen_disclaimer_title">Soyez prudent sur la route</string>
     <string name="car_lockscreen_disclaimer_text">"Tenez compte des conditions de conduite et respectez toujours les lois en vigueur. Les itinéraires peuvent être incorrects, incomplets, dangereux, inappropriés ou interdits, et traverser des frontières administratives. Les informations sur les établissements peuvent également être incorrectes ou incomplètes. Les données ne sont pas fournies en temps réel, et la précision de la localisation n'est pas garantie. Ne manipulez pas votre appareil mobile et n'utilisez pas d'applications non conçues pour Android Auto lorsque vous conduisez."</string>
     <string name="pip_close">Fermer mode PIP</string>

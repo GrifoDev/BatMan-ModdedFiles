@@ -1816,13 +1816,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Приемам</string>
     <string name="force_immersive_guide_text">При докосване на този бутон се скрива лентата за навигация. Може да използвате бутоните за навигация, като плъзнете нагоре от долната част на екрана. Докато лентата за навигация се показва, може да докоснете този бутон отново, за да я заключите на място. На някои екрани, като например началния екран, лентата за навигация винаги ще се показва. Ако дадено приложение не работи нормално, докато лентата за навигация е скрита, заключете лентата за навигация на място и рестартирайте приложението.</string>
     <string name="force_immersive_guide_dialog_title">Скриване лентата за навигация:</string>
-    <string name="force_immersive_guide_dialog_message1">Докосването на този бутон скрива лентата за навигация.</string>
+    <string name="force_immersive_guide_dialog_message1">Докоснете двукратно този бутон за скриване на лентата за навигация.</string>
     <string name="force_immersive_guide_dialog_message2">Плъзнете нагоре от долната част на екрана, за да покажете лентата за навигация.</string>
-    <string name="force_immersive_guide_dialog_message3">Докоснете този бутон отново, за да го заключите на място.</string>
+    <string name="force_immersive_guide_dialog_message3">Докоснете двукратно този бутон отново, за да заключите на място лентата за навигация.</string>
     <string name="force_immersive_guide_dialog_message4">На някои екрани, като например началния екран, лентата за навигация винаги ще се показва.</string>
     <string name="force_immersive_guide_dialog_guide_path">За да скриете този бутон, отидете в Настройки > Дисплей > Лента за навигация.</string>
     <string name="force_immersive_guide_dialog_setting">Настройки</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">Докоснете двукратно, за да скриете лентата за навигация.</string>
+    <string name="force_immersive_guide_toast_show">Докоснете двукратно, за да заключите лентата за навигация.</string>
     <string name="car_lockscreen_disclaimer_title">Карайте внимателно</string>
     <string name="car_lockscreen_disclaimer_text">Бъдете осведомени за условията при шофиране и винаги спазвайте приложимите закони. Упътванията може да са неточни, непълни, опасни, неподходящи, забранени или да включват преминаване през административни райони. Бизнес информацията може също да е неточна или непълна. Данните не са в реално време и точността на местоположението не може да се гарантира. Не работете с мобилното си устройство, нито използвайте приложения, които не са предназначени за Android Auto, докато шофирате.</string>
     <string name="pip_close">Затваряне на PIP</string>

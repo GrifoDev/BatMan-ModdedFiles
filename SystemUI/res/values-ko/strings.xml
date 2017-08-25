@@ -1821,13 +1821,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">동의합니다</string>
     <string name="force_immersive_guide_text">이 버튼을 누르면 내비게이션 바가 숨겨집니다. 화면 하단을 위로 밀면 내비게이션 바가 다시 나타납니다. 내비게이션 바가 다시 나타난 상태에서 이 아이콘을 누르면 내비게이션 바가 화면에 고정됩니다. 홈 화면 등 일부 화면에서는 내비게이션 바가 항상 표시됩니다. 내비게이션 바가 숨겨져 있는 동안 앱이 정상적으로 작동하지 않으면 내비게이션 바를 화면에 고정하거나 앱을 다시 시작하세요.</string>
     <string name="force_immersive_guide_dialog_title">내비게이션 바 숨기기:</string>
-    <string name="force_immersive_guide_dialog_message1">이 버튼을 누르면 내비게이션 바가 숨겨집니다.</string>
+    <string name="force_immersive_guide_dialog_message1">내비게이션 바를 숨기려면 이 버튼을 두 번 누르세요.</string>
     <string name="force_immersive_guide_dialog_message2">화면 하단을 위로 밀면 내비게이션 바가 나타납니다.</string>
-    <string name="force_immersive_guide_dialog_message3">내비게이션 바가 나타난 상태에서 이 버튼을 누르면 화면에 다시 고정됩니다.</string>
+    <string name="force_immersive_guide_dialog_message3">내비게이션 바를 고정하려면 이 버튼을 두 번 누르세요.</string>
     <string name="force_immersive_guide_dialog_message4">홈 화면 등 일부 화면에서는 내비게이션 바가 항상 표시됩니다.</string>
     <string name="force_immersive_guide_dialog_guide_path">이 버튼을 숨기려면 [설정 > 디스플레이 > 내비게이션 바]로 이동하세요.</string>
     <string name="force_immersive_guide_dialog_setting">설정</string>
     <string name="force_immersive_guide_dialog_ok">확인</string>
+    <string name="force_immersive_guide_toast_hide">내비게이션 바를 숨기려면 두 번 누르세요.</string>
+    <string name="force_immersive_guide_toast_show">내비게이션 바를 고정하려면 두 번 누르세요.</string>
     <string name="all_noti_readout" formatted="false">%s %s개 있습니다</string>
     <string name="all_noti_readout2" formatted="false">%s %s개 있습니다</string>
     <string name="car_lockscreen_disclaimer_title">안전 운전</string>

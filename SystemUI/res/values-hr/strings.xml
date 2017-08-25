@@ -1816,13 +1816,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Prihvaćam</string>
     <string name="force_immersive_guide_text">Dodirivanjem ovog gumba skriva se navigacijska traka. I dalje možete upotrebljavati navigacijske gumbe prelaskom prsta prema gore s dna zaslona. Dok se navigacijska traka prikazuje, možete ponovno dodirnuti ovaj gumb da biste ga postavili na mjesto. Na nekim zaslonima, poput početnog zaslona, navigacijska će se traka uvijek prikazivati. Ako se aplikacija ne ponaša normalno dok je navigacijska traka skrivena, postavite navigacijsku traku na mjesto i ponovno pokrenite aplikaciju.</string>
     <string name="force_immersive_guide_dialog_title">Sakrij navigacijsku traku:</string>
-    <string name="force_immersive_guide_dialog_message1">Dodirivanjem ovog gumba skriva se navigacijska traka.</string>
+    <string name="force_immersive_guide_dialog_message1">Dvaput dodirnite ovaj gumb da biste sakrili navigacijsku traku.</string>
     <string name="force_immersive_guide_dialog_message2">Prijeđite prstom s dna zaslona prema gore da bi se prikazala navigacijska traka.</string>
-    <string name="force_immersive_guide_dialog_message3">Ponovno dodirnite ovaj gumb da biste ga postavili na mjesto.</string>
+    <string name="force_immersive_guide_dialog_message3">Ponovno dvaput dodirnite ovaj gumb da biste postavili navigacijsku traku na mjesto.</string>
     <string name="force_immersive_guide_dialog_message4">Na nekim zaslonima, poput početnog zaslona, navigacijska će traka uvijek biti prikazana.</string>
     <string name="force_immersive_guide_dialog_guide_path">Da biste sakrili ovaj gumb, idite u Postavke > Prikaz > Navigacijska traka.</string>
     <string name="force_immersive_guide_dialog_setting">Postavke</string>
     <string name="force_immersive_guide_dialog_ok">U REDU</string>
+    <string name="force_immersive_guide_toast_hide">Dvaput dodirnite za skrivanje navigacijske trake.</string>
+    <string name="force_immersive_guide_toast_show">Dvaput dodirnite za zaključavanje navigacijske trake.</string>
     <string name="car_lockscreen_disclaimer_title">Vozite sigurno</string>
     <string name="car_lockscreen_disclaimer_text">Pažljivo pratite promet i uvijek se pridržavajte primjenjivih zakona. Upute mogu biti neprecizne, nepotpune, opasne, neprikladne, zabranjene ili mogu uključivati prelazak administrativnih granica. Podaci o tvrtkama također mogu biti neprecizni i nepotpuni. Podaci nisu u stvarnom vremenu i preciznost lokacije nije zajamčena. Tijekom vožnje ne rukujte mobilnim uređajem i ne upotrebljavajte aplikacije koje nisu namijenjene za Android Auto.</string>
     <string name="pip_close">Zatvori PIP</string>

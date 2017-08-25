@@ -1816,13 +1816,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Мен қабылдаймын</string>
     <string name="force_immersive_guide_text">Осы түймені түрткен кезде шарлау жолағы жасырылады. Экранның төменгі жағынан жоғарыға қарай жүргізіп өту арқылы шарлау түймелерін бұрынғысынша пайдалана аласыз. Шарлау жолағы көрсетулі кезде оны орнында құлыптау үшін осы түймені қайтадан түртуге болады. Бастапқы экран сияқты кейбір экрандарда шарлау жолағы үнемі көрсетіліп тұрады. Егер қолданба шарлау жолағы жасырулы кезде қалыпты жағдайда жұмыс істемесе, онда шарлау жолағын сол жерде құлыптап, қолданба қайта іске қосыңыз.</string>
     <string name="force_immersive_guide_dialog_title">Шарлау жолағын жасыру:</string>
-    <string name="force_immersive_guide_dialog_message1">Осы түймені түрткен кезде шарлау жолағы жасырылады.</string>
+    <string name="force_immersive_guide_dialog_message1">Шарлау жолағын жасыру үшін осы түймені екі рет түртіңіз.</string>
     <string name="force_immersive_guide_dialog_message2">Шарлау жолағын көрсету үшін экранның төменгі жағынан жоғарыға қарай жүргізіп өтіңіз.</string>
-    <string name="force_immersive_guide_dialog_message3">Оны орнында құлыптау үшін осы түймені қайта түртіңіз.</string>
+    <string name="force_immersive_guide_dialog_message3">Шарлау жолағын орнында құлыптау үшін осы түймені қайтадан екі рет түртіңіз.</string>
     <string name="force_immersive_guide_dialog_message4">“Бастапқы экран” сияқты кейбір экрандарда шарлау жолағы үнемі көрсетіліп тұрады.</string>
     <string name="force_immersive_guide_dialog_guide_path">Осы түймені жасыру үшін Параметрлер > Дисплей > Шарлау жолағы бөліміне өтіңіз.</string>
     <string name="force_immersive_guide_dialog_setting">Параметрлер</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">Шарлау жолағын жасыру үшін екі рет түртіңіз.</string>
+    <string name="force_immersive_guide_toast_show">Шарлау жолағын құлыптау үшін екі рет түртіңіз.</string>
     <string name="car_lockscreen_disclaimer_title">Қауіпсіз жүргізу</string>
     <string name="car_lockscreen_disclaimer_text">Жүргізу жағдайларын толығымен ұғыныңыз және тиісті заңдарды әрқашан сақтаңыз. Бағыттар дәл емес, толық емес, қауіпті, жарамсыз, тыйым салынған болуы немесе әкімшілік аумақтарды қиып өтуі мүмкін. Іскери ақпарат та дәл емес немесе толық емес болуы мүмкін. Деректер нақты уақыттағы деректер емес және орын дәлдігіне кепілдік берілмейді. Жүргізу кезінде мобильді құрылғыңызды ұстамаңыз немесе Android Auto қолданбасына арналмаған қолданбаларды пайдаланбаңыз.</string>
     <string name="pip_close">PIP жабу</string>

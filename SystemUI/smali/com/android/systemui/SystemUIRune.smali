@@ -134,6 +134,8 @@
 
 .field public static final MAX_SIGNAL_LEVEL:I
 
+.field public static final NAVIGATIONBAR_CSC_POLICY:Ljava/lang/String;
+
 .field public static final PLMN_INFO_BRANDING:Ljava/lang/String;
 
 .field public static final PLMN_INFO_BRANDING_TMOWFC:Ljava/lang/String;
@@ -426,6 +428,20 @@
     sget-boolean v0, Lcom/samsung/android/framework/feature/NavigationBarFeatures;->SUPPORT_NAVIGATION_BAR_REMOTEVIEW:Z
 
     sput-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_NAVIBAR_REMOTEVIEW:Z
+
+    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+
+    move-result-object v0
+
+    const-string/jumbo v3, "CscFeature_SystemUI_ConfigNavigationBarPolicy"
+
+    const-string/jumbo v4, ""
+
+    invoke-virtual {v0, v3, v4}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/android/systemui/SystemUIRune;->NAVIGATIONBAR_CSC_POLICY:Ljava/lang/String;
 
     sget-boolean v0, Lcom/android/keyguard/KeyguardRune;->SUPPORT_MOBILE_KEYBOARD:Z
 

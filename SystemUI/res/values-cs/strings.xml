@@ -1814,13 +1814,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Souhlasím</string>
     <string name="force_immersive_guide_text">Klepnutím na toto tlačítko skryjete navigační panel. Navigační tlačítka můžete dále používat, když potáhnete nahoru od dolního okraje obrazovky. Když je navigační panel zobrazený, dalším klepnutím na toto tlačítko ho zajistíte na místě. Na některých obrazovkách, například na Domovské obrazovce, bude navigační panel zobrazen vždy. Pokud se aplikace při skrytém navigačním panelu nechová normálně, zajistěte navigační panel na místě a restartujte aplikaci.</string>
     <string name="force_immersive_guide_dialog_title">Skrýt navigační panel:</string>
-    <string name="force_immersive_guide_dialog_message1">Klepnutím na toto tlačítko skryjete navigační panel.</string>
+    <string name="force_immersive_guide_dialog_message1">Poklepáním na toto tlačítko skryjete navigační panel.</string>
     <string name="force_immersive_guide_dialog_message2">Potažením směrem nahoru od dolního okraje obrazovky zobrazíte navigační panel.</string>
-    <string name="force_immersive_guide_dialog_message3">Dalším klepnutím na tlačítko ho zajistíte na místě.</string>
+    <string name="force_immersive_guide_dialog_message3">Dalším poklepáním na tlačítko zajistíte navigační panel na místě.</string>
     <string name="force_immersive_guide_dialog_message4">Na některých obrazovkách, například na Domovské obrazovce, bude navigační panel zobrazen vždy.</string>
     <string name="force_immersive_guide_dialog_guide_path">Chcete-li tlačítko skrýt, přejděte na Nastavení > Displej > Navigační panel.</string>
     <string name="force_immersive_guide_dialog_setting">Nastavení</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">Poklepáním skryjete navigační panel.</string>
+    <string name="force_immersive_guide_toast_show">Poklepáním zamknete navigační panel.</string>
     <string name="car_lockscreen_disclaimer_title">Řiďte bezpečně</string>
     <string name="car_lockscreen_disclaimer_text">Věnujte plnou pozornost řízení a dodržujte platné předpisy. Trasy mohou být nepřesné, neúplné, nebezpečné, nevhodné, zakázané nebo mohou zahrnovat překročení hranic. Informace o firmách mohou být také nepřesné nebo neúplné. Data se neaktualizují v reálném čase a přesnost polohy nelze zaručit. Mobilní zařízení ani aplikace určené pro Android Auto nepoužívejte za jízdy.</string>
     <string name="pip_close">Ukončit PIP</string>

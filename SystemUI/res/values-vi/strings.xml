@@ -1815,13 +1815,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Tôi chấp nhận</string>
     <string name="force_immersive_guide_text">Chạm phím này sẽ ẩn thanh điều hướng. Bạn vẫn có thể sử dụng các phím điều hướng bằng cách vuốt lên từ dưới cùng màn hình. Khi thanh điều hướng đang hiển thị, bạn có thể chạm phím này lần nữa để khóa cố định nó. Trên một số màn hình, ví dụ như Màn hình chờ, thanh điều hướng sẽ luôn hiển thị. Nếu một ứng dụng không hoạt động bình thường khi ẩn thanh điều hướng, hãy khóa cố định thanh điều hướng và khởi động lại ứng dụng.</string>
     <string name="force_immersive_guide_dialog_title">Ẩn thanh điều hướng:</string>
-    <string name="force_immersive_guide_dialog_message1">Chạm phím này sẽ ẩn thanh điều hướng.</string>
+    <string name="force_immersive_guide_dialog_message1">Chạm hai lần phím này để ẩn thanh điều hướng.</string>
     <string name="force_immersive_guide_dialog_message2">Vuốt lên từ dưới cùng màn hình để hiển thị thanh điều hướng.</string>
-    <string name="force_immersive_guide_dialog_message3">Chạm phím này lần nữa để khóa cố định thanh này.</string>
+    <string name="force_immersive_guide_dialog_message3">Chạm hai lần vào phím này lần nữa để khóa cố định thanh điều hướng.</string>
     <string name="force_immersive_guide_dialog_message4">Trên một số màn hình như màn hình Chờ, thanh điều hướng sẽ luôn hiển thị.</string>
     <string name="force_immersive_guide_dialog_guide_path">Để ẩn phím này, hãy đi đến Cài đặt > Hiển thị > Thanh điều hướng.</string>
     <string name="force_immersive_guide_dialog_setting">Cài đặt</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">Chạm hai lần để ẩn thanh điều hướng.</string>
+    <string name="force_immersive_guide_toast_show">Chạm hai lần để khóa thanh điều hướng.</string>
     <string name="car_lockscreen_disclaimer_title">Lái xe an toàn</string>
     <string name="car_lockscreen_disclaimer_text">Luôn biết rõ điều kiện lái xe và luôn tuân thủ luật pháp hiện hành. Chỉ đường có thể không chính xác, không hoàn chỉnh, nguy hiểm, không thích hợp, bị cấm hoặc bao gồm tuyến đường giao các khu vực hành chính. Thông tin doanh nghiệp cũng có thể không chính xác hoặc không hoàn chỉnh. Dữ liệu không ở thời gian thực và không thể đảm bảo độ chính xác của vị trí. Không sử dụng thiết bị di động của bạn hoặc sử dụng ứng dụng không dành cho Android Auto trong khi lái xe.</string>
     <string name="pip_close">Đóng PIP</string>

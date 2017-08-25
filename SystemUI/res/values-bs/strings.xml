@@ -884,13 +884,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Prihvatam</string>
     <string name="force_immersive_guide_text">Dodirivanjem ovog dugmeta se sakriva navigaciona traka. I dalje možete koristiti navigacionu dugmad prevlačenjem nagore s dna ekrana. Dok je prikazana navigaciona traka, ponovno dodirnite ovo dugme da zaključate navigacionu traku u mjestu. Navigaciona traka će se uvijek prikazivati na nekim ekranima kao što je Početni ekran. Ako se aplikacija ne ponaša normalno dok je navigaciona traka sakrivena, zaključajte navigacionu traku u mjestu i ponovno pokrenite aplikaciju.</string>
     <string name="force_immersive_guide_dialog_title">Sakrij navigacionu traku:</string>
-    <string name="force_immersive_guide_dialog_message1">Dodirivanje ovog dugmeta sakriva navigacionu traku.</string>
+    <string name="force_immersive_guide_dialog_message1">Dvaput dodirnite ovo dugme da sakrijete navigacionu traku.</string>
     <string name="force_immersive_guide_dialog_message2">Prevucite nagore s dna ekrana za prikaz navigacione trake.</string>
-    <string name="force_immersive_guide_dialog_message3">Ponovno dodirnite ovo dugme da zaključate stavku u mjestu.</string>
+    <string name="force_immersive_guide_dialog_message3">Dvaput dodirnite ovo dugme da zaključate navigacionu traku u mjestu.</string>
     <string name="force_immersive_guide_dialog_message4">Na nekim ekranima, kao što je Početni ekran, navigaciona traka će uvijek biti prikazana.</string>
     <string name="force_immersive_guide_dialog_guide_path">Za skrivanje ovog dugmeta, idite na Postavke > Ekran > Navigaciona traka.</string>
     <string name="force_immersive_guide_dialog_setting">Postavke</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">Dvaput dodirnite za sakrivanje navigacione trake.</string>
+    <string name="force_immersive_guide_toast_show">Dvaput dodirnite za zaključavanje navigacione trake.</string>
     <string name="keyguard_password_enter_pin_code">Unesite PIN kod.</string>
     <string name="keyguard_password_wrong_pin_code">Neispravan PIN kod.</string>
     <string name="keyguard_charged">Potpuno napunjeno</string>

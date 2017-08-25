@@ -1816,13 +1816,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Sutinku</string>
     <string name="force_immersive_guide_text">Bakstelėjus šį mygtuką paslepiama naršymo juosta. Naršymo mygtukais vis tiek galite pasinaudoti braukdami aukštyn nuo ekrano apačios. Kol naršymo juosta rodoma, galite bakstelėti šį mygtuką dar kartą ir ją užfiksuoti. Kai kuriuose ekranuose, pvz., Pradžios ekrane, naršymo juosta rodoma visada. Jei paslėpus naršymo juostą programa veikia netinkamai, užfiksuokite naršymo juostą ir paleiskite programą iš naujo.</string>
     <string name="force_immersive_guide_dialog_title">Slėpti naršymo juostą:</string>
-    <string name="force_immersive_guide_dialog_message1">Bakstelėjus šį mygtuką paslepiama naršymo juosta.</string>
+    <string name="force_immersive_guide_dialog_message1">Dukart bakstelėkite šį mygtuką ir paslėpkite naršymo juostą.</string>
     <string name="force_immersive_guide_dialog_message2">Braukite aukštyn nuo ekrano apačios, kad būtų parodyta naršymo juosta.</string>
-    <string name="force_immersive_guide_dialog_message3">Bakstelėkite šį mygtuką dar kartą ir užfiksuokite jį vietoje.</string>
+    <string name="force_immersive_guide_dialog_message3">Dar kartą dukart bakstelėkite šį mygtuką, kad užfiksuotumėte naršymo juostą vietoje.</string>
     <string name="force_immersive_guide_dialog_message4">Kai kuriuose ekranuose, pvz., Pradžios ekrane, naršymo juosta rodoma visada.</string>
     <string name="force_immersive_guide_dialog_guide_path">Jei norite paslėpti šį mygtuką, eikite į Nustatymai > Ekranas > Naršymo juosta.</string>
     <string name="force_immersive_guide_dialog_setting">Nustatymai</string>
     <string name="force_immersive_guide_dialog_ok">Gerai</string>
+    <string name="force_immersive_guide_toast_hide">Bakstelėkite dukart ir paslėpkite naršymo juostą.</string>
+    <string name="force_immersive_guide_toast_show">Bakstelėkite dukart ir užrakinkite naršymo juostą.</string>
     <string name="car_lockscreen_disclaimer_title">Vairuokite saugiai</string>
     <string name="car_lockscreen_disclaimer_text">Visada atsižvelkite į vairavimo sąlygas ir laikykitės galiojančių įstatymų. Nuorodos gali būti netikslios, neužbaigtos, pavojingos, netinkamos, draudžiamos ar nukreipiančios per administracines sritis. Įmonių informacija taip pat gali būti netiksli ar neužbaigta. Duomenys nėra teikiami realiuoju laiku ir vietovių tikslumo negalima garantuoti. Vairuodami nenaudokite mobiliojo įrenginio ar programų, kurios nėra skirtos „Android Auto“.</string>
     <string name="pip_close">Uždaryti PIP</string>

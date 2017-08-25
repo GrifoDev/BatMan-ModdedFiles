@@ -1818,13 +1818,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Hyväksyn</string>
     <string name="force_immersive_guide_text">Voit piilottaa siirtymispalkin napauttamalla tätä painiketta. Voit edelleen käyttää siirtymispainikkeita pyyhkäisemällä näytön alareunasta ylöspäin. Kun siirtymispalkki on näkyvissä, voit lukita sen paikalleen napauttamalla tätä painiketta uudelleen. Joissakin näytöissä, kuten alkunäytössä, siirtymispalkki on aina näkyvissä. Jos sovellus ei toimi normaalisti, kun siirtymispalkki on piilotettu, lukitse siirtymispalkki paikalleen ja käynnistä sovellus uudelleen.</string>
     <string name="force_immersive_guide_dialog_title">Piilota siirtymispalkki:</string>
-    <string name="force_immersive_guide_dialog_message1">Kun napautat tätä painiketta, siirtymispalkki piilotetaan.</string>
+    <string name="force_immersive_guide_dialog_message1">Piilota siirtymispalkki kaksoisnapauttamalla tätä painiketta.</string>
     <string name="force_immersive_guide_dialog_message2">Voit näyttää siirtymispalkin pyyhkäisemällä näytön alareunasta ylöspäin.</string>
-    <string name="force_immersive_guide_dialog_message3">Lukitse se paikalleen napauttamalla tätä painiketta uudelleen.</string>
+    <string name="force_immersive_guide_dialog_message3">Lukitse siirtymispalkki paikalleen kaksoisnapauttamalla tätä painiketta.</string>
     <string name="force_immersive_guide_dialog_message4">Joissakin näytöissä, kuten alkunäytössä, siirtymispalkki näkyy aina.</string>
     <string name="force_immersive_guide_dialog_guide_path">Voit piilottaa tämän painikkeen valitsemalla Asetukset > Näyttö > Siirtymispalkki.</string>
     <string name="force_immersive_guide_dialog_setting">Asetukset</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">Piilota siirtymispalkki kaksoisnapauttamalla.</string>
+    <string name="force_immersive_guide_toast_show">Lukitse siirtymispalkki kaksoisnapauttamalla.</string>
     <string name="car_lockscreen_disclaimer_title">Aja varovasti</string>
     <string name="car_lockscreen_disclaimer_text">Tarkkaile huolellisesti ajo-olosuhteita ja noudata aina voimassa olevia lakeja. Reittiohjeet saattavat olla epätarkkoja, epätäydellisiä, vaarallisia, epäsopivia, kiellettyjä tai kulkea hallintoalueiden läpi. Myös yritystiedot voivat olla epätarkkoja tai epätäydellisiä. Tietoja ei päivitetä reaaliajassa eikä sijaintien tarkkuutta taata. Älä käytä ajon aikana mobiililaitettasi tai sovelluksia, joita ei ole suunniteltu Android Autolle.</string>
     <string name="pip_close">Sulje PIP</string>

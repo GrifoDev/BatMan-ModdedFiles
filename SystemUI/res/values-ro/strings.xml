@@ -1815,13 +1815,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Accept</string>
     <string name="force_immersive_guide_text">Dacă atingeți acest buton, bara de navigare va fi ascunsă. Puteți utiliza în continuare butoanele de navigare glisând în sus din partea de jos a ecranului. Atunci când este afișată bara de navigare, puteți atinge din nou acest buton pentru a o fixa. Pe unele ecrane, cum ar fi ecranul Acasă, bara de navigare va fi afișată întotdeauna. Dacă o aplicație nu se comportă normal atunci când bara de navigare este ascunsă, fixați bara de navigare și reporniți aplicația.</string>
     <string name="force_immersive_guide_dialog_title">Ascundere bară de navigare:</string>
-    <string name="force_immersive_guide_dialog_message1">Atingerea acestui buton duce la ascunderea barei de navigare.</string>
+    <string name="force_immersive_guide_dialog_message1">Atingeți de două ori acest buton pentru a ascunde bara de navigare.</string>
     <string name="force_immersive_guide_dialog_message2">Pentru a afișa bara de navigare, glisați în sus din marginea de jos a ecranului.</string>
-    <string name="force_immersive_guide_dialog_message3">Atingeți din nou acest buton pentru a-l bloca.</string>
+    <string name="force_immersive_guide_dialog_message3">Atingeți din nou de două ori acest buton pentru a fixa bara de navigare.</string>
     <string name="force_immersive_guide_dialog_message4">Pe unele ecrane, cum ar fi ecranul Acasă, bara de navigare va fi afișată întotdeauna.</string>
     <string name="force_immersive_guide_dialog_guide_path">Pentru a ascunde acest buton, accesați meniul Setări > Afișaj > Bară de navigare.</string>
     <string name="force_immersive_guide_dialog_setting">Setări</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">Atingeți de două ori pentru a ascunde bara de navigare.</string>
+    <string name="force_immersive_guide_toast_show">Atingeți de două ori pentru a bloca bara de navigare.</string>
     <string name="car_lockscreen_disclaimer_title">Conduceți atent</string>
     <string name="car_lockscreen_disclaimer_text">Aflați mereu condițiile de trafic și respectați întotdeauna legislația aplicabilă. Indicațiile de orientare pot fi inexacte, incomplete, periculoase, neadecvate, interzise sau pot implica trecerea prin zone administrative. Informațiile despre companii pot fi, de asemenea, inexacte sau incomplete. Datele nu sunt în timp real și nu se poate garanta exactitatea locației. Nu manipulați dispozitivul mobil și nu folosiți aplicații neconcepute pentru Android Auto când sunteți la volan.</string>
     <string name="pip_close">Închideți PIP</string>

@@ -11,7 +11,8 @@
         Lcom/android/systemui/statusbar/phone/SecNavigationBarView$3;,
         Lcom/android/systemui/statusbar/phone/SecNavigationBarView$4;,
         Lcom/android/systemui/statusbar/phone/SecNavigationBarView$5;,
-        Lcom/android/systemui/statusbar/phone/SecNavigationBarView$6;
+        Lcom/android/systemui/statusbar/phone/SecNavigationBarView$6;,
+        Lcom/android/systemui/statusbar/phone/SecNavigationBarView$7;
     }
 .end annotation
 
@@ -20,6 +21,10 @@
 .field private static CONFIRMED:Ljava/lang/String;
 
 .field private static final IS_FACTORY_BINARY:Z
+
+.field private static mPinBtnHelpDoubleTapPolicyCount:I
+
+.field private static mPinBtnHelpSingleTapPolicyCount:I
 
 
 # instance fields
@@ -57,9 +62,13 @@
 
 .field private final mImmersivePinClickListener:Landroid/view/View$OnClickListener;
 
+.field private mImmersiveToastShowing:Z
+
 .field private mIsDarkNavigation:Z
 
 .field private mIsNaviBarDefaultKeyOrder:Z
+
+.field private mLastPinButtonClickTime:J
 
 .field private mLastVertical:Z
 
@@ -73,11 +82,15 @@
 
 .field private mNavigationBarSettingsHelper:Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;
 
+.field private mPinButtonToastShownCount:I
+
 .field private mRequestedIconcolor:I
 
 .field private mRightRemoteViewContainer:Landroid/widget/LinearLayout;
 
 .field private mShowBackAlt:Z
+
+.field mShowPinButtonToastRunnable:Ljava/lang/Runnable;
 
 .field private mVerticalMoved:I
 
@@ -101,6 +114,46 @@
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mBarController:Lcom/android/systemui/statusbar/phone/NavigationBarController;
 
     return-object v0
+.end method
+
+.method static synthetic -get10(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mNavigationBarSettingsHelper:Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;
+
+    return-object v0
+.end method
+
+.method static synthetic -get11()I
+    .locals 1
+
+    sget v0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mPinBtnHelpDoubleTapPolicyCount:I
+
+    return v0
+.end method
+
+.method static synthetic -get12()I
+    .locals 1
+
+    sget v0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mPinBtnHelpSingleTapPolicyCount:I
+
+    return v0
+.end method
+
+.method static synthetic -get13(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mPinButtonToastShownCount:I
+
+    return v0
+.end method
+
+.method static synthetic -get14(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mShowBackAlt:Z
+
+    return v0
 .end method
 
 .method static synthetic -get2(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Ljava/lang/Runnable;
@@ -151,20 +204,20 @@
     return v0
 .end method
 
-.method static synthetic -get8(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;
+.method static synthetic -get8(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Z
     .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mNavigationBarSettingsHelper:Lcom/android/systemui/statusbar/NavigationBarSettingsHelper;
-
-    return-object v0
-.end method
-
-.method static synthetic -get9(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mShowBackAlt:Z
+    iget-boolean v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mImmersiveToastShowing:Z
 
     return v0
+.end method
+
+.method static synthetic -get9(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)J
+    .locals 2
+
+    iget-wide v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mLastPinButtonClickTime:J
+
+    return-wide v0
 .end method
 
 .method static synthetic -set0(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
@@ -179,6 +232,30 @@
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mHelpConfirmed:Z
+
+    return p1
+.end method
+
+.method static synthetic -set2(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mImmersiveToastShowing:Z
+
+    return p1
+.end method
+
+.method static synthetic -set3(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;J)J
+    .locals 1
+
+    iput-wide p1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mLastPinButtonClickTime:J
+
+    return-wide p1
+.end method
+
+.method static synthetic -set4(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;I)I
+    .locals 0
+
+    iput p1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mPinButtonToastShownCount:I
 
     return p1
 .end method
@@ -217,6 +294,14 @@
     move-result v0
 
     sput-boolean v0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->IS_FACTORY_BINARY:Z
+
+    const/16 v0, 0xa
+
+    sput v0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mPinBtnHelpDoubleTapPolicyCount:I
+
+    const/4 v0, 0x0
+
+    sput v0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mPinBtnHelpSingleTapPolicyCount:I
 
     const-string/jumbo v0, "Confirmed"
 
@@ -324,11 +409,17 @@
 
     invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$5;-><init>(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)V
 
-    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mImmersivePinClickListener:Landroid/view/View$OnClickListener;
+    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mShowPinButtonToastRunnable:Ljava/lang/Runnable;
 
     new-instance v1, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$6;
 
     invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$6;-><init>(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)V
+
+    iput-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mImmersivePinClickListener:Landroid/view/View$OnClickListener;
+
+    new-instance v1, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$7;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$7;-><init>(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)V
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mConfirm:Ljava/lang/Runnable;
 
@@ -671,6 +762,12 @@
 
     invoke-virtual {v4, v11}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
+    mul-float v11, v1, v2
+
+    const/4 v12, 0x0
+
+    invoke-virtual {v4, v12, v11}, Landroid/widget/TextView;->setTextSize(IF)V
+
     return-object v0
 .end method
 
@@ -712,31 +809,31 @@
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setCancelable(Z)Landroid/app/AlertDialog$Builder;
 
-    new-instance v1, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$7;
+    new-instance v1, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$8;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$7;-><init>(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)V
+    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$8;-><init>(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)V
 
     const v2, 0x7f0f07be
 
     invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    new-instance v1, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$8;
+    new-instance v1, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$9;
 
-    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$8;-><init>(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)V
+    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$9;-><init>(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)V
 
     const v2, 0x7f0f07bd
 
     invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    new-instance v1, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$9;
-
-    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$9;-><init>(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)V
-
-    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setOnKeyListener(Landroid/content/DialogInterface$OnKeyListener;)Landroid/app/AlertDialog$Builder;
-
     new-instance v1, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$10;
 
     invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$10;-><init>(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)V
+
+    invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setOnKeyListener(Landroid/content/DialogInterface$OnKeyListener;)Landroid/app/AlertDialog$Builder;
+
+    new-instance v1, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$11;
+
+    invoke-direct {v1, p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$11;-><init>(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)V
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1117,6 +1214,106 @@
     invoke-virtual {v1, v2}, Landroid/graphics/drawable/AnimationDrawable;->setOneShot(Z)V
 
     return-object v1
+.end method
+
+.method private readHelpToastCSCPolicy()V
+    .locals 6
+
+    const/4 v5, 0x1
+
+    sget-object v2, Lcom/android/systemui/SystemUIRune;->NAVIGATIONBAR_CSC_POLICY:Ljava/lang/String;
+
+    const-string/jumbo v3, ";"
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    array-length v3, v1
+
+    :goto_0
+    if-ge v2, v3, :cond_2
+
+    aget-object v0, v1, v2
+
+    const-string/jumbo v4, "DoubleTap"
+
+    invoke-virtual {v0, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    const-string/jumbo v2, "DoubleTap"
+
+    const-string/jumbo v3, ""
+
+    invoke-virtual {v0, v2, v3}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    add-int/lit8 v2, v2, -0x1
+
+    invoke-virtual {v0, v5, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v2
+
+    sput v2, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mPinBtnHelpDoubleTapPolicyCount:I
+
+    return-void
+
+    :cond_0
+    const-string/jumbo v4, "SingleTap"
+
+    invoke-virtual {v0, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    const-string/jumbo v2, "SingleTap"
+
+    const-string/jumbo v3, ""
+
+    invoke-virtual {v0, v2, v3}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
+
+    move-result v2
+
+    add-int/lit8 v2, v2, -0x1
+
+    invoke-virtual {v0, v5, v2}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v2
+
+    sput v2, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mPinBtnHelpSingleTapPolicyCount:I
+
+    return-void
+
+    :cond_1
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    return-void
 .end method
 
 .method private setMenuImeSidePadding()V
@@ -2205,7 +2402,9 @@
 .end method
 
 .method public onFinishInflate()V
-    .locals 4
+    .locals 5
+
+    const/4 v2, 0x0
 
     const/4 v1, 0x1
 
@@ -2215,9 +2414,9 @@
 
     move-result-object v0
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mImmersivePinClickListener:Landroid/view/View$OnClickListener;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mImmersivePinClickListener:Landroid/view/View$OnClickListener;
 
-    invoke-virtual {v0, v2}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v0, v3}, Lcom/android/systemui/statusbar/phone/ButtonDispatcher;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_NAVIBAR_REMOTEVIEW:Z
 
@@ -2229,9 +2428,9 @@
 
     move-result-object v0
 
-    iget-object v2, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mNaviBarRemoteViewCallback:Lcom/android/systemui/statusbar/phone/NaviBarRemoteViewManager$NaviBarRemoteViewCallback;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mNaviBarRemoteViewCallback:Lcom/android/systemui/statusbar/phone/NaviBarRemoteViewManager$NaviBarRemoteViewCallback;
 
-    invoke-virtual {v0, v2}, Lcom/android/systemui/statusbar/phone/NaviBarRemoteViewManager;->setRemoteViewCallback(Lcom/android/systemui/statusbar/phone/NaviBarRemoteViewManager$NaviBarRemoteViewCallback;)V
+    invoke-virtual {v0, v3}, Lcom/android/systemui/statusbar/phone/NaviBarRemoteViewManager;->setRemoteViewCallback(Lcom/android/systemui/statusbar/phone/NaviBarRemoteViewManager$NaviBarRemoteViewCallback;)V
 
     :cond_0
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_NAVIGATIONBAR:Z
@@ -2264,11 +2463,11 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mContext:Landroid/content/Context;
 
-    sget-object v2, Landroid/content/res/Configuration;->EMPTY:Landroid/content/res/Configuration;
+    sget-object v3, Landroid/content/res/Configuration;->EMPTY:Landroid/content/res/Configuration;
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mConfiguration:Landroid/content/res/Configuration;
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mConfiguration:Landroid/content/res/Configuration;
 
-    invoke-virtual {p0, v0, v2, v3}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->updateIcons(Landroid/content/Context;Landroid/content/res/Configuration;Landroid/content/res/Configuration;)V
+    invoke-virtual {p0, v0, v3, v4}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->updateIcons(Landroid/content/Context;Landroid/content/res/Configuration;Landroid/content/res/Configuration;)V
 
     iget v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mNavigationIconHints:I
 
@@ -2283,10 +2482,22 @@
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/NaviBarHideController;->setNavigationBarImmersiveMode(Landroid/content/Context;)Z
 
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v1, "NavigationBarForceImmersiveToastCount"
+
+    invoke-static {v0, v1, v2}, Lcom/android/systemui/Prefs;->getInt(Landroid/content/Context;Ljava/lang/String;I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mPinButtonToastShownCount:I
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->readHelpToastCSCPolicy()V
+
     return-void
 
     :cond_3
-    const/4 v0, 0x0
+    move v0, v2
 
     goto :goto_0
 .end method

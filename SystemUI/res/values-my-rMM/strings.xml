@@ -1816,13 +1816,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">ကျွန်ုပ်လက်ခံသည်</string>
     <string name="force_immersive_guide_text">ဤခလုတ်ကို နှိပ်ထားလျှင် လမ်းညွှန်ဘားကို ဝှက်လိုက်ပါမည်။ ဖန်သားပြင်အောက်ခြေမှ အထက်သို့ ပွတ်ဆွဲခြင်းဖြင့် လမ်းညွှန်ခလုတ်များကို အသုံးပြုနိုင်ဆဲဖြစ်သည်။ လမ်းညွှန်ဘားကို ပြသနေစဉ် ၎င်းအား သူ့နေရာနှင့်သူ သော့ခတ်ရန် ဤအိုင်ကွန်ကို ထပ်နှိပ်နိုင်သည်။ ပင်မ ဖန်သားပြင်ကဲ့သို့ ဖန်သားပြင်အချို့တွင်၊ လမ်းညွှန်ဘားကို အမြဲတမ်း ပြသထားသည်။ လမ်းညွှန်ဘားကို ဖျောက်ထားစဉ် အက်ပ်က ပုံမှန်အတိုင်း အလုပ်မလုပ်ပါက လမ်းညွှန်ဘားကို နေရာတွင် သော့ခတ်ထားပြီး အက်ပ်ကို ပိတ်ပြီး ပြန်ဖွင့်ပါ။</string>
     <string name="force_immersive_guide_dialog_title">လမ်းညွှန်ဘားကို ဝှက်ထားရန် :</string>
-    <string name="force_immersive_guide_dialog_message1">ဤခလုတ်ကို နှိပ်ထားလျှင် လမ်းညွှန်ဘားကို ဝှက်လိုက်ပါမည်။</string>
+    <string name="force_immersive_guide_dialog_message1">လမ်းညွှန်ဘားကို ဖျောက်ရန် ဤခလုတ်ကို နှစ်ချက်နှိပ်ပါ။</string>
     <string name="force_immersive_guide_dialog_message2">လမ်းညွှန်ဘားကို ပြရန် ဖန်သားပြင် အောက်ခြေမှ အထက်သို့ ပွတ်ဆွဲပါ။</string>
-    <string name="force_immersive_guide_dialog_message3">ဤခလုတ်ကို နေရာတွင် သော့ခတ်ထားရန် နှိပ်ပါ။</string>
+    <string name="force_immersive_guide_dialog_message3">လမ်းညွှန်ဘားကို နေရာတကျ သော့ခတ်ရန် ဤခလုတ်ကို နှစ်ချက်ထပ်နှိပ်ပါ။</string>
     <string name="force_immersive_guide_dialog_message4">ပင်မ ဖန်သားပြင်ကဲ့သို့ ဖန်သားပြင်အချို့တွင် လမ်းညွှန်ဘားကို အမြဲတမ်း ပြသထားသည်။</string>
     <string name="force_immersive_guide_dialog_guide_path">ဤခလုတ်ကို ဖျောက်ရန် သတ်မှတ်ချက်များ > ပြသချက် > လမ်းညွှန်ဘားသို့ သွားပါ။</string>
     <string name="force_immersive_guide_dialog_setting">သတ်မှတ်ချက်များ</string>
     <string name="force_immersive_guide_dialog_ok">အိုကေ</string>
+    <string name="force_immersive_guide_toast_hide">လမ်းညွှန်ဘားကို ဖျောက်ရန် နှစ်ချက်နှိပ်ပါ။</string>
+    <string name="force_immersive_guide_toast_show">လမ်းညွှန်ဘားကို သော့ခတ်ရန် နှစ်ချက်နှိပ်ပါ။</string>
     <string name="car_lockscreen_disclaimer_title">ဘေးကင်းလုံခြုံစွာ မောင်းနှင်ပါ</string>
     <string name="car_lockscreen_disclaimer_text">ယာဉ်မောင်းမှုအခြေအနေများကို အပြည့်အဝအာရုံစိုက်ပြီး သက်ဆိုင်ရာဥပဒေများကို အမြဲတမ်းလိုက်နာပါ။ လမ်းညွှန်ချက်များသည် မှန်ကန်မှုမရှိခြင်း၊ မပြည့်စုံခြင်း၊ အန္တရာယ်ရှိခြင်း၊ ကိုက်ညီမှုမရှိခြင်း၊ တားမြစ်ထားခြင်း၊ သို့မဟုတ် လမ်းဖြတ်ကူးခြင်း ကြီးကြပ်ထားသည့်နေရာများ ဖြစ်နေနိုင်ပါသည်။ စီးပွားရေးအချက်အလက်များသည်လည်း မမှန်ကန်ခြင်း သို့မဟုတ် မပြည့်စုံခြင်းများ ရှိနိုင်ပါသည်။ ဒေတာသည် အချိန်နှင့်တစ်ပြေးညီ မဟုတ်ပါ၊ တည်နေရာမှန်ကန်မှုကိုလည်း အာမ မခံနိုင်ပါ။ ယာဉ်မောင်းနှင်နေစဉ် Android Auto အတွက်ရည်ရွယ်ထားခြင်းမဟုတ်သည့် မိုဘိုင်းစက်ပစ္စည်း ကိုမကိုင်တွယ်ပါနှင့် သို့မဟုတ် အက်ပ်များကို အသုံးမပြုပါနှင့်။ိ</string>
     <string name="pip_close">PIP ကိုပိတ်ပါ</string>

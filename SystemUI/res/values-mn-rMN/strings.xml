@@ -1815,13 +1815,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Би зөвшөөрч байна</string>
     <string name="force_immersive_guide_text">Энэ товчийг товшсоноор чиглүүлэх мөрийг нууна. Та дэлгэцийн доод талаас дээш шудраад чиглүүлэх товчийг ашиглаж болно. Чиглүүлэх мөр харагдаж байвал та энэ товчийг дахин дараад байранд нь түгжиж болно. Эх дэлгэц зэрэг зарим дэлгэцэнд чиглүүлэх мөрийг байнга харуулна. Хэрвээ чиглүүлэх мөрийг нуусан үед хэрэглүүр хэвийн ажиллахгүй байвал чиглүүлэх мөрийг түгжээд хэрэглүүрийг дахин эхлүүлнэ үү.</string>
     <string name="force_immersive_guide_dialog_title">Чиглүүлэх мөрийг нуух:</string>
-    <string name="force_immersive_guide_dialog_message1">Энэ товчийг товшсоноор чиглүүлэх мөрийг нууна.</string>
+    <string name="force_immersive_guide_dialog_message1">Энэ товчлуурыг давхар товшиж чиглүүлэх мөрийг нуу.</string>
     <string name="force_immersive_guide_dialog_message2">Дэлгэцийн доод хэсгээс дээшээгээ шударч чиглүүлэх мөрийг харна уу.</string>
-    <string name="force_immersive_guide_dialog_message3">Энэ товчыг дахин товшиж үүнийг байранд нь түгж.</string>
+    <string name="force_immersive_guide_dialog_message3">Энэ товчлуурыг давхар товшиж газарын чиглүүлэх мөрийг түгж.</string>
     <string name="force_immersive_guide_dialog_message4">Эх дэлгэц зэрэг зарим дэлгэцэд чиглүүлэх мөрийг байнга харуулна.</string>
     <string name="force_immersive_guide_dialog_guide_path">Энэ товчлуурыг нуухын тулд Тохиргоо руу > Дэлгэц > Чиглүүлэх мөр.</string>
     <string name="force_immersive_guide_dialog_setting">Тохиргоо</string>
     <string name="force_immersive_guide_dialog_ok">ОК</string>
+    <string name="force_immersive_guide_toast_hide">Давхар товшоод чиглүүлэх мөрийг нуу.</string>
+    <string name="force_immersive_guide_toast_show">Давхар товшоод чиглүүлэх мөрийг түгж.</string>
     <string name="car_lockscreen_disclaimer_title">Жолооны аюулгүй байдал</string>
     <string name="car_lockscreen_disclaimer_text">Жолоодох нөхцөлийн талаар бүрэн ойлгож, холбогдох дүрэм журмыг мөрдөөрэй. Чиглэл нь тодорхой бус, гүйцэт бус, аюултай, тохиромжгүй, хориглосон эсвэл тусгай хамгаалалттай газар нутагт нэвтэрсэн байж болзошгүй. Бизнесийн мэдээлэл мөн адил тохиромжгүй эсвэл гүйцэт бус байна. Өгөгдөл нь тухайн цаг хугацааных биш учир байршлыг зөв тодорхойлсон эсэхийг батлах боломжгүй. Жолоодож байхдаа гар утсаа болон Android Автод зориулаагүй апп-г бүү ашиглаарай.</string>
     <string name="pip_close">PIP-г хаах</string>

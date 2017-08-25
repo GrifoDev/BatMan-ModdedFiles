@@ -1816,13 +1816,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Piekrītu</string>
     <string name="force_immersive_guide_text">Pieskaroties šai pogai, navigācijas josla tiek paslēpta. Jūs joprojām varat izmantot navigācijas pogas, pavelkot uz augšu no ekrāna apakšdaļas. Kad navigācijas josla ir redzama, varat pieskarties šai pogai vēlreiz, lai fiksētu to vietā. Dažos ekrānos, piemēram, sākuma ekrānā, navigācijas josla ir redzama vienmēr. Ja kāda no programmām nedarbojas pareizi, kad navigācijas josla ir paslēpta, fiksējiet navigācijas joslu vietā un restartējiet programmu.</string>
     <string name="force_immersive_guide_dialog_title">Slēpt navigācijas joslu:</string>
-    <string name="force_immersive_guide_dialog_message1">Pieskaroties šai pogai, navigācijas josla tiek paslēpta.</string>
+    <string name="force_immersive_guide_dialog_message1">Veiciet dubultskārienu pie šīs pogas, lai paslēptu navigācijas joslu.</string>
     <string name="force_immersive_guide_dialog_message2">Lai parādītu navigācijas joslu, pavelciet augšup no ekrāna apakšdaļas.</string>
-    <string name="force_immersive_guide_dialog_message3">Vēlreiz pieskarieties šai pogai, lai to fiksētu vietā.</string>
+    <string name="force_immersive_guide_dialog_message3">Vēlreiz veiciet dubultskārienu pie šīs pogas, lai navigācijas joslu fiksētu vietā.</string>
     <string name="force_immersive_guide_dialog_message4">Dažos ekrānos, piemēram, sākuma ekrānā, navigācijas josla ir redzama vienmēr.</string>
     <string name="force_immersive_guide_dialog_guide_path">Lai paslēptu šo pogu, izvēlieties Iestatījumi > Displejs > Navigācijas josla.</string>
     <string name="force_immersive_guide_dialog_setting">Iestatījumi</string>
     <string name="force_immersive_guide_dialog_ok">Labi</string>
+    <string name="force_immersive_guide_toast_hide">Veiciet dubultskārienu, lai paslēptu navigācijas joslu.</string>
+    <string name="force_immersive_guide_toast_show">Veiciet dubultskārienu, lai fiksētu navigācijas joslu.</string>
     <string name="car_lockscreen_disclaimer_title">Droša braukšana</string>
     <string name="car_lockscreen_disclaimer_text">Pievērsiet visu uzmanību braukšanas apstākļiem un vienmēr ievērojiet piemērojamos tiesību aktus. Norādes var būt neprecīzas, nepilnīgas, bīstamas, nepiemērotas, aizliegtas vai var ietvert administratīvo teritoriju šķērsošanu. Arī uzņēmumu informācija var būt neprecīza vai nepilnīga. Dati netiek nodrošināti reāllaikā, un netiek garantēta atrašanās vietu precizitāte. Vadot transportlīdzekli, nelietojiet mobilo ierīci rokās un neizmantojiet lietotnes, kas nav paredzētas pakalpojumam Android Auto.</string>
     <string name="pip_close">Aizvērt PIP</string>

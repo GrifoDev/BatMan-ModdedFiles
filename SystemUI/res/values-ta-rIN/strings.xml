@@ -1816,13 +1816,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">நான் ஏற்கிறேன்</string>
     <string name="force_immersive_guide_text">இந்த பொத்தானை டேப் செய்தால் நகர்தல் பட்டை மறைக்கப்படும். திரையின் அடிப்பகுதியில் இருந்து மேல் நோக்கி ஸ்வைப் செய்வதன் மூலம் நகர்தல் பொத்தான்களைப் பயன்படுத்தலாம். நகர்தல் பட்டை காண்பிக்கப்படும் போது, இந்த பொத்தானை மீண்டும் டேப் செய்வதன் மூலம் இடத்தில் அதைப் பூட்டலாம். முகப்புத் திரை போன்ற சில திரைகளில், நகர்தல் பட்டை எப்போதும் காண்பிக்கப்படும். நகர்தல் பட்டை மறைக்கப்பட்டிருக்கும் போது பயன்பாடு சரியாக செயல்படவில்லையெனில், நகர்தல் பட்டையை இடத்தில் பூட்டி, பயன்பாட்டை மீண்டும் துவங்கவும்.</string>
     <string name="force_immersive_guide_dialog_title">நகர்தல் பட்டையை மறைக்கவும்:</string>
-    <string name="force_immersive_guide_dialog_message1">நீங்கள் இந்த பொத்தானை டேப் செய்தால், நகர்தல் பட்டை மறைக்கப்படும்.</string>
+    <string name="force_immersive_guide_dialog_message1">நகர்தல் பட்டையை மறைக்க, இந்த பொத்தானை இருமுறை டேப் செய்யவும்.</string>
     <string name="force_immersive_guide_dialog_message2">நகர்தல் பட்டையை காட்ட, திரையின் கீழ்ப் பகுதியில் இருந்து மேல்நோக்கி ஃப்ளிக் செய்யவும்.</string>
-    <string name="force_immersive_guide_dialog_message3">இந்தப் பொத்தானை அதன் இடத்தில் பூட்ட மீண்டும் டேப் செய்யவும்.</string>
+    <string name="force_immersive_guide_dialog_message3">நகர்தல் பட்டையை அதன் இடத்தில் பூட்டுவதற்கு, இந்த பொத்தானை மீண்டும் இருமுறை டேப் செய்யவும்.</string>
     <string name="force_immersive_guide_dialog_message4">முகப்புத் திரை போன்ற சில திரைகளில், நகர்தல் பட்டை எப்போதும் காட்டப்படும்.</string>
     <string name="force_immersive_guide_dialog_guide_path">இந்த பொத்தானை மறைக்க, அமைவுகள்>காட்சி>நகர்தல் பட்டை என்பதற்குச் செல்லவும்.</string>
     <string name="force_immersive_guide_dialog_setting">அமைவுகள்</string>
     <string name="force_immersive_guide_dialog_ok">சரி</string>
+    <string name="force_immersive_guide_toast_hide">நகர்தல் பட்டையை மறைக்க இருமுறை டேப் செய்யவும்.</string>
+    <string name="force_immersive_guide_toast_show">நகர்தல் பட்டையைப் பூட்ட இருமுறை டேப் செய்யவும்.</string>
     <string name="car_lockscreen_disclaimer_title">பாதுகாப்பாக வண்டியோட்டவும்</string>
     <string name="car_lockscreen_disclaimer_text">வாகனம் ஓட்டுவதற்கான சூழ்நிலைகளை முழுவதுமாகத் தெரிந்து வைத்திருக்கவும் மற்றும் பொருந்தும் விதிகளை எப்போதும் பின்பற்றவும். வழிகள் துல்லியமற்றதாக, முழுமையற்றதாக, ஆபத்துக்குரியதாக, பொருத்தமில்லாததாக, தடைசெய்யப்பட்டதாக அல்லது அரசின் கட்டுப்பாட்டில் உள்ள எல்லைகளைக் கடப்பதாக இருக்கலாம். வணிகத் தகவலும் துல்லியமற்றதாக அல்லது முழுமையற்றதாக இருக்கலாம். தரவு நிகழ்நேர அடிப்படையிலானது அல்ல மற்றும் இருப்பிடத் துல்லியத்திற்கு உத்தரவாதம் வழங்க முடியாது. வாகனம் ஓட்டும் போது மொபைல் சாதனத்தையோ அல்லது Android Auto மூலம் கட்டுப்படுத்த முடியாத பயன்பாடுகளையோ பயன்படுத்த வேண்டாம்.</string>
     <string name="pip_close">PIPஐ மூடு</string>

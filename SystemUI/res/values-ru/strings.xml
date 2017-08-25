@@ -1817,13 +1817,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Я принимаю</string>
     <string name="force_immersive_guide_text">Коснитесь этой кнопки, чтобы скрыть навигационную панель. Вы по-прежнему сможете использовать кнопки навигации, проведя пальцем вверх от нижнего края экрана. Повторно коснитесь этой кнопки во время отображения навигационной панели, чтобы ее закрепить. На некоторых экранах, например на главном, навигационная панель отображается всегда. Если при скрытой навигационной панели определенное приложение работает неправильно, закрепите панель и перезапустите это приложение.</string>
     <string name="force_immersive_guide_dialog_title">Скрытие навигационной панели:</string>
-    <string name="force_immersive_guide_dialog_message1">Коснитесь этой кнопки, чтобы скрыть навигационную панель.</string>
+    <string name="force_immersive_guide_dialog_message1">Чтобы скрыть навигационную панель, дважды коснитесь этой кнопки.</string>
     <string name="force_immersive_guide_dialog_message2">Проведите пальцами вверх от нижнего края экрана для отображения навигационной панели.</string>
-    <string name="force_immersive_guide_dialog_message3">Чтобы закрепить кнопку, коснитесь этой ее повторно.</string>
+    <string name="force_immersive_guide_dialog_message3">Чтобы закрепить навигационную панель, снова дважды коснитесь этой кнопки.</string>
     <string name="force_immersive_guide_dialog_message4">На некоторых экранах, например, на главном, навигационная панель отображается всегда.</string>
     <string name="force_immersive_guide_dialog_guide_path">Чтобы скрыть эту кнопку, перейдите в “Параметры” > “Отображение” > “Навигационная панель”.</string>
     <string name="force_immersive_guide_dialog_setting">Настройки</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">Дважды коснитесь, чтобы скрыть навигационную панель.</string>
+    <string name="force_immersive_guide_toast_show">Дважды коснитесь, чтобы закрепить навигационную панель.</string>
     <string name="car_lockscreen_disclaimer_title">Безопасность движения</string>
     <string name="car_lockscreen_disclaimer_text">Всегда учитывайте дорожную обстановку и соблюдайте правила. Маршруты могут быть неточными, неполными, проходить по опасным, неподходящим или запрещенным для движения участкам или пересекать границы. Сведения об организациях также могут быть неточными и неполными. Данные не обновляются в режиме реального времени, и точность определения местоположения не гарантируется. Не пользуйтесь мобильным устройством и не используйте приложения, не предназначенные для Android Auto, управляя автомобилем.</string>
     <string name="pip_close">\"Кадр в кадре\" – выйти</string>

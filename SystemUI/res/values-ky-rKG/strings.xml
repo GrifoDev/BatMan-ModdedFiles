@@ -1816,13 +1816,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Кабыл алам</string>
     <string name="force_immersive_guide_text">Бул баскычты басуу навигация тилкесин жашырат. Сиз Навигация баскычтарын экрандын астынан өйдө сүрүп, колдоно аласыз. Навигация тилкеси көрсөтүлгөндө, сиз бул баскычты кайра басып, аны ошол жерден кулпулай аласыз. Башкы экран сыяктуу айрым экрандарда, навигацияя тилкеси ар дайым көрсөтүлөт. Навигация тилкеси жашырылган убакта эгер колдонмодо ката чыкса, навигация тилкесин кулпулап, колдонмону кайра баштаңыз.</string>
     <string name="force_immersive_guide_dialog_title">Навигация тилкесин жашыруу:</string>
-    <string name="force_immersive_guide_dialog_message1">Бул баскычты басуу навигация тилкесин жашырат.</string>
+    <string name="force_immersive_guide_dialog_message1">Бул баскычты эки жолу басып, навигация тилкесин жашырыңыз.</string>
     <string name="force_immersive_guide_dialog_message2">Навигация тилкесин ачуу үчүн, экрандын төмөн жагынан жогору көздөй сүрүңүз.</string>
-    <string name="force_immersive_guide_dialog_message3">Бул баскычты кайра басып, аны ошол жерден кулпулаңыз.</string>
+    <string name="force_immersive_guide_dialog_message3">Бул баскычты кайра эки жолу басып, жайгашкан жердеги навигация тилкесин кулпулаңыз.</string>
     <string name="force_immersive_guide_dialog_message4">Башкы экран сыяктуу айрым экрандарда навигация тилкеси дайыма көрүнүп турат.</string>
     <string name="force_immersive_guide_dialog_guide_path">Бул баскычты жашыруу үчүн, Орнотууларга барыңыз > Дисплей > Навигация тилкеси.</string>
     <string name="force_immersive_guide_dialog_setting">Орнотуулар</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">Навигация тилкесин жашыруу үчүн эки эселенте басыңыз.</string>
+    <string name="force_immersive_guide_toast_show">Навигация тилкесин кулпулоо үчүн эки эселенте басыңыз.</string>
     <string name="car_lockscreen_disclaimer_title">Коопсуздук эрежелерин сактаңыз</string>
     <string name="car_lockscreen_disclaimer_text">"Унаа айдап бара жатканда жолдогу шарттар менен эрежелерге ар дайым көңүл буруңуз. Багыттар так же толук эмес берилип, кесип өтүү үчүн опурталдуу же ылайыксыз болгон административдик аймактар аркылуу өтүшү мүмкүн. Ишканалар тууралуу маалымат да так же толук эмес болушу мүмкүн. Дайындар тез-тез жаңыртылып турбагандыктан, жайгашкан жердин так аныкталгандыгына кепилдик жок. Андыктан унаа айдап бара жатканда, мобилдик түзмөгүңүздү же Android Auto'го арналбаган колдонмолорду пайдаланбаңыз."</string>
     <string name="pip_close">"PIP'ти жабуу"</string>

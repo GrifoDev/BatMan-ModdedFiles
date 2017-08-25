@@ -1816,13 +1816,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">می‌پذیرم</string>
     <string name="force_immersive_guide_text">با ضربه زدن روی این نماد، نوار پیمایش مخفی می‌شود. هنوز هم می‌توانید با کشیدن انگشت از پایین صفحه به بالا از دکمه‌های پیمایش استفاده کنید. وقتی نوار پیمایش نشان داده می‌شود، می‌توانید دوباره روی این نماد ضربه بزنید تا در جای خود ثابت شود. در بعضی از صفحه‌ها، مانند صفحه اصلی، نوار پیمایش همیشه نشان داده می‌شود. اگر برنامه‌ای با مخفی شدن نوار پیمایش درست کار نکرد، نوار پیمایش را در جای خود ثابت کنید و برنامه را دوباره راه‌اندازی کنید.</string>
     <string name="force_immersive_guide_dialog_title">مخفی کردن نوار پیمایش:</string>
-    <string name="force_immersive_guide_dialog_message1">با ضربه زدن روی این دکمه نوار پیمایش مخفی می‌شود.</string>
+    <string name="force_immersive_guide_dialog_message1">برای مخفی کردن نوار پیمایش، دو بار روی این دکمه ضربه بزنید.</string>
     <string name="force_immersive_guide_dialog_message2">برای نمایش نوار پیمایش، انگشت خود را از پایین به بالای صفحه بکشید.</string>
-    <string name="force_immersive_guide_dialog_message3">دوباره روی این دکمه ضربه بزنید تا در جایش قفل شود.</string>
+    <string name="force_immersive_guide_dialog_message3">برای قفل کردن نوار پیمایش در جای خود،‌ دوباره روی این دکمه ضربه بزنید.</string>
     <string name="force_immersive_guide_dialog_message4">در بعضی از صفحه‌ها، مانند صفحه اصلی، نوار پیمایش همیشه نشان داده می‌شود.</string>
     <string name="force_immersive_guide_dialog_guide_path">برای مخفی کردن این دکمه، به تنظیمات > نمایش > نوار پیمایش بروید.</string>
     <string name="force_immersive_guide_dialog_setting">تنظيمات</string>
     <string name="force_immersive_guide_dialog_ok">تأیید</string>
+    <string name="force_immersive_guide_toast_hide">برای مخفی کردن نوار پیمایش دوبار ضربه بزنید.</string>
+    <string name="force_immersive_guide_toast_show">برای قفل کردن نوار پیمایش دوبار ضربه بزنید.</string>
     <string name="car_lockscreen_disclaimer_title">با ایمنی برانید</string>
     <string name="car_lockscreen_disclaimer_text">‏کاملاً از شرایط رانندگی آگاه باشید و همیشه قوانین مربوطه را رعایت کنید. مسیرها ممکن است غیردقیق، ناقص، ناکامل، خطرناک، نامناسب، ممنوع یا مستلزم عبور از تقسیمات کشوری باشند. اطلاعات کسب و کار نیز ممکن است غیردقیق یا ناکامل باشند. داده‌ها بی‌درنگ نیستند و دقت مکان نمی‌تواند تضمین شود. هنگام رانندگی دستگاه همراه را در دست نگیرید یا از برنامه‌هایی که ویژه Android Auto نیستند استفاده نکنید.</string>
     <string name="pip_close">‏بستن PIP</string>

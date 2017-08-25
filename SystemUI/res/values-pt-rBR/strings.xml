@@ -1815,13 +1815,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Aceito</string>
     <string name="force_immersive_guide_text">Tocar neste botão ocultará a barra de navegação. Você ainda poderá usar os botões de navegação, deslizando da parte inferior da tela para cima. Enquanto a barra de navegação for exibida, você poderá tocar neste botão novamente para fixá-la. Em algumas telas, como a Tela inicial, a barra de navegação será sempre exibida. Se um aplicativo não se comportar normalmente enquanto a barra de navegação estiver oculta, fixe a barra de navegação e reinicie o aplicativo.</string>
     <string name="force_immersive_guide_dialog_title">Ocultar a barra de navegação:</string>
-    <string name="force_immersive_guide_dialog_message1">Tocar neste botão oculta a barra de navegação.</string>
+    <string name="force_immersive_guide_dialog_message1">Toque duas vezes neste botão para ocultar a barra de navegação.</string>
     <string name="force_immersive_guide_dialog_message2">Deslize da parte inferior da tela para cima para exibir a barra de navegação.</string>
-    <string name="force_immersive_guide_dialog_message3">Toque neste botão novamente para fixá-lo no lugar.</string>
+    <string name="force_immersive_guide_dialog_message3">Toque duas vezes neste botão novamente para bloquear a barra de navegação no local.</string>
     <string name="force_immersive_guide_dialog_message4">Em algumas telas, como a Tela inicial, a barra de navegação será sempre exibida.</string>
     <string name="force_immersive_guide_dialog_guide_path">Para ocultar este botão, vá para Configurações > Visor > Barra de navegação.</string>
     <string name="force_immersive_guide_dialog_setting">Configurações</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">Toque duas vezes para ocultar a barra de navegação.</string>
+    <string name="force_immersive_guide_toast_show">Toque duas vezes para fixar a barra de navegação.</string>
     <string name="car_lockscreen_disclaimer_title">Dirija com segurança</string>
     <string name="car_lockscreen_disclaimer_text">"Mantenha-se atento às condições da estrada  e sempre obedeça às leis aplicáveis. As instruções podem ser imprecisas, incompletas, perigosas, inadequadas, proibidas ou envolver o cruzamento de áreas administrativas. As informações comerciais também podem ser imprecisas ou incompletas. Os dados não são exibidos em tempo real, e a precisão da localização não pode ser garantida. Enquanto dirige, não manuseie seu dispositivo móvel nem use apps que não tenham sido criados para o Android Auto."</string>
     <string name="pip_close">Fechar PIP</string>

@@ -903,13 +903,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Ман қабул мекунам</string>
     <string name="force_immersive_guide_text">Агар ин тугмаро зарба занед, навори паймоиш пинҳон карда мешавад. Шумо ба ҳар ҳол метавонед аз поёни экран ба боло молида, тугмаҳои паймоишро истифода баред. Ҳангоми нишон дода шудани навори паймоиш, метавонед ин тугмаро зарба зада, онро дар ҷояш баста монед. Дар баъзе экранҳо, ба мисли экрани Асосӣ, навори ҳаракат доимо нишон дода мешавад. Агар ҳангоми пинҳон будани навори ҳаракат ягон барнома нодуруст кор кунад, навори ҳаракатро дар ҷояш баста, барномаро аз нав ба кор дароред.</string>
     <string name="force_immersive_guide_dialog_title">Пинҳон кардани навори паймоиш:</string>
-    <string name="force_immersive_guide_dialog_message1">Агар ин тугмаро зарба занед, навори паймоиш пинҳон карда мешавад.</string>
+    <string name="force_immersive_guide_dialog_message1">Барои навори паймоишро пинҳон кардан, ин тугмаро ду бор зарба занед.</string>
     <string name="force_immersive_guide_dialog_message2">Барои навори паймоишро нишон додан, аз поёни экран ба боло бимолед.</string>
-    <string name="force_immersive_guide_dialog_message3">Барои онро дар ҷояш бастан, ин тугмаро бори дигар зарба занед.</string>
+    <string name="force_immersive_guide_dialog_message3">Барои навори паймоишро дар ҷояш бастан, ин тугмаро аз нав ду бор зарба занед.</string>
     <string name="force_immersive_guide_dialog_message4">Дар баъзе экранҳо, ба мисли экрани Асосӣ, навори ҳаракат доимо нишон дода мешавад.</string>
     <string name="force_immersive_guide_dialog_guide_path">Барои ин тугмаро пинҳон кардан, ба Танзимот > Дисплей > Навори паймоиш гузаред.</string>
     <string name="force_immersive_guide_dialog_setting">Танзимот</string>
     <string name="force_immersive_guide_dialog_ok">ОК</string>
+    <string name="force_immersive_guide_toast_hide">Барои навори паймоишро пинҳон кардан, ду бор зарба занед.</string>
+    <string name="force_immersive_guide_toast_show">Барои навори паймоишро бастан, ду бор зарба занед.</string>
     <string name="keyguard_password_enter_pin_code">Рамзи PIN­ро дохил кунед.</string>
     <string name="keyguard_password_wrong_pin_code">Рамзи PIN нодуруст аст.</string>
     <string name="keyguard_charged">Қувва пур шуд</string>

@@ -1816,13 +1816,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Prihvatam</string>
     <string name="force_immersive_guide_text">Ukoliko kucnete na ovo dugme, sakrićete traku za navigaciju. I dalje možete da koristite dugmad za navigaciju tako što ćete prevući prstom nagore od dna ekrana. Dok se traka za navigaciju prikazuje, možete ponovo da kucnete na ovo dugme da biste je fiksirali. Na nekim ekranima, kao što je Početni ekran, traka za navigaciju će se uvek prikazivati. Ukoliko se aplikacija ne ponaša normalno dok je traka za navigaciju skrivena, fiksirajte traku za navigaciju i restartujte aplikaciju.</string>
     <string name="force_immersive_guide_dialog_title">Sakrijte traku za navigaciju:</string>
-    <string name="force_immersive_guide_dialog_message1">Ako kucnete na ovo dugme, sakrićete traku za navigaciju.</string>
+    <string name="force_immersive_guide_dialog_message1">Dvaput kucnite na ovo dugme da biste sakrili traku za navigaciju.</string>
     <string name="force_immersive_guide_dialog_message2">Prevucite prstom nagore od donje ivice ekrana da biste prikazali traku za navigaciju.</string>
-    <string name="force_immersive_guide_dialog_message3">Ponovo kucnite na ovo dugme da biste ga fiksirali.</string>
+    <string name="force_immersive_guide_dialog_message3">Ponovo dvaput kucnite na ovo dugme da biste fiksirali traku za navigaciju.</string>
     <string name="force_immersive_guide_dialog_message4">Na nekim ekranima, kao što je Početni ekran, traka za navigaciju će se uvek prikazivati.</string>
     <string name="force_immersive_guide_dialog_guide_path">Da biste sakrili ovo dugme, idite na Podešavanja > Prikaz > Traka za navigaciju.</string>
     <string name="force_immersive_guide_dialog_setting">Podešavanja</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">Dvaput kucnite da biste sakrili traku za navigaciju.</string>
+    <string name="force_immersive_guide_toast_show">Dvaput kucnite da biste zaključali traku za navigaciju.</string>
     <string name="car_lockscreen_disclaimer_title">Возите безбедно</string>
     <string name="car_lockscreen_disclaimer_text">Увек водите рачуна о условима вожње и увек поштујте примењиве законе. Упутства могу да буду нетачна, непотпуна, опасна, неприкладна или забрањена, односно да подразумевају прелазак између административних области. И подаци о предузећу могу да буду нетачни или непотпуни. Подаци не настају у реалном времену и не можемо да гарантујемо прецизност локације. Немојте да употребљавате мобилни уређај нити да користите апликације које нису намењене за Android Auto током вожње.</string>
     <string name="pip_close">Затвори PIP</string>

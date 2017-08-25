@@ -901,13 +901,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">ကၽြႏု္ပ္လက္ခံသည္</string>
     <string name="force_immersive_guide_text">ဤခလုတ္ကုိ ႏွိပ္ထားလွ်င္ လမ္းညႊန္ဘားကို ဝွက္လိုက္ပါမည္။ ဖန္သားျပင္ေအာက္ေျခမွ အထက္သို႔ ပြတ္ဆြဲျခင္းျဖင့္ လမ္းညႊန္ခလုတ္မ်ားကို အသုံးျပဳႏိုင္ဆဲျဖစ္သည္။ လမ္းညႊန္ဘားကုိ ျပသေနစဥ္ ၎အား သူ႔ေနရာႏွင့္သူ ေသာ့ခတ္ရန္ ဤအိုင္ကြန္ကုိ ထပ္ႏွိပ္ႏိုင္သည္။ ပင္မ ဖန္သားျပင္ကဲ့သို႔ ဖန္သားျပင္အခ်ိဳ႕တြင္၊ လမ္းညႊန္ဘားကို အၿမဲတမ္း ျပသထားသည္။ လမ္းညႊန္ဘားကုိ ေဖ်ာက္ထားစဥ္ အက္ပ္က ပံုမွန္အတုိင္း အလုပ္မလုပ္ပါက လမ္းညႊန္ဘားကုိ ေနရာတြင္ ေသာ့ခတ္ထားၿပီး အက္ပ္ကုိ ပိတ္ၿပီး ျပန္ဖြင့္ပါ။</string>
     <string name="force_immersive_guide_dialog_title">လမ္းညႊန္ဘားကို ဝွက္ထားရန္ :</string>
-    <string name="force_immersive_guide_dialog_message1">ဤခလုတ္ကုိ ႏွိပ္ထားလွ်င္ လမ္းညႊန္ဘားကို ဝွက္လိုက္ပါမည္။</string>
+    <string name="force_immersive_guide_dialog_message1">လမ္းညႊန္ဘားကို ေဖ်ာက္ရန္ ဤခလုတ္ကို ႏွစ္ခ်က္ႏွိပ္ပါ။</string>
     <string name="force_immersive_guide_dialog_message2">လမ္းညႊန္ဘားကုိ ျပရန္ ဖန္သားျပင္ ေအာက္ေျခမွ အထက္သို႔ ပြတ္ဆြဲပါ။</string>
-    <string name="force_immersive_guide_dialog_message3">ဤခလုတ္ကုိ ေနရာတြင္ ေသာ့ခတ္ထားရန္ ႏွိပ္ပါ။</string>
+    <string name="force_immersive_guide_dialog_message3">လမ္းညႊန္ဘားကို ေနရာတက် ေသာ့ခတ္ရန္ ဤခလုတ္ကို ႏွစ္ခ်က္ထပ္ႏွိပ္ပါ။</string>
     <string name="force_immersive_guide_dialog_message4">ပင္မ ဖန္သားျပင္ကဲ့သို႔ ဖန္သားျပင္အခ်ိဳ႕တြင္ လမ္းညႊန္ဘားကို အၿမဲတမ္း ျပသထားသည္။</string>
     <string name="force_immersive_guide_dialog_guide_path">ဤခလုတ္ကုိ ေဖ်ာက္ရန္ သတ္မွတ္ခ်က္မ်ား > ျပသခ်က္ > လမ္းညႊန္ဘားသုိ႔ သြားပါ။</string>
     <string name="force_immersive_guide_dialog_setting">သတ္မွတ္ခ်က္မ်ား</string>
     <string name="force_immersive_guide_dialog_ok">အိုေက</string>
+    <string name="force_immersive_guide_toast_hide">လမ္းညႊန္ဘားကုိ ေဖ်ာက္ရန္ ႏွစ္ခ်က္ႏွိပ္ပါ။</string>
+    <string name="force_immersive_guide_toast_show">လမ္းညႊန္ဘားကုိ ေသာ့ခတ္ရန္ ႏွစ္ခ်က္ႏွိပ္ပါ။</string>
     <string name="keyguard_password_enter_pin_code">PIN ကုဒ္ကို ႐ိုက္ပါ</string>
     <string name="keyguard_password_wrong_pin_code">PIN ကုဒ္ မွားေနသည္။</string>
     <string name="keyguard_charged">အျပည့္ အားသြင္းၿပီးပါၿပီ</string>

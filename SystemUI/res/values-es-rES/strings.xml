@@ -901,13 +901,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Acepto</string>
     <string name="force_immersive_guide_text">Al pulsar este botón se oculta la barra de navegación. Puedes seguir utilizando los botones de navegación deslizando hacia arriba desde la parte inferior de la pantalla. Cuando la barra de navegación está visible, puedes pulsar este botón de nuevo para bloquearla en su sitio. En algunas pantallas, como en la pantalla Inicio, la barra de navegación está siempre visible. Si una aplicación no funciona correctamente mientras la barra de navegación está oculta, bloquea la barra de navegación en su sitio y reinicia la aplicación.</string>
     <string name="force_immersive_guide_dialog_title">Ocultar barra de navegación:</string>
-    <string name="force_immersive_guide_dialog_message1">La barra de navegación se oculta al pulsar este botón.</string>
+    <string name="force_immersive_guide_dialog_message1">Pulsa dos veces este botón para ocultar la barra de navegación.</string>
     <string name="force_immersive_guide_dialog_message2">Desliza hacia arriba desde la parte inferior de la pantalla para mostrar la barra de navegación.</string>
-    <string name="force_immersive_guide_dialog_message3">Pulsa este botón de nuevo para fijarla en su lugar.</string>
+    <string name="force_immersive_guide_dialog_message3">Pulsa dos veces este botón de nuevo para que la barra de navegación se mantenga visible.</string>
     <string name="force_immersive_guide_dialog_message4">La barra de navegación se mostrará siempre en algunas pantallas, tales como la pantalla Inicio.</string>
     <string name="force_immersive_guide_dialog_guide_path">Para ocultar este botón, ve a Ajustes > Pantalla > Barra de navegación.</string>
     <string name="force_immersive_guide_dialog_setting">Ajustes</string>
     <string name="force_immersive_guide_dialog_ok">ACEPTAR</string>
+    <string name="force_immersive_guide_toast_hide">Pulsa dos veces para ocultar la barra de navegación.</string>
+    <string name="force_immersive_guide_toast_show">Pulsa dos veces para bloquear la barra de navegación.</string>
     <string name="keyguard_password_enter_pin_code">Escribir código PIN</string>
     <string name="keyguard_password_wrong_pin_code">Código PIN incorrecto</string>
     <string name="keyguard_charged">Carga completa</string>

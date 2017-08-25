@@ -1816,13 +1816,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Nõustun</string>
     <string name="force_immersive_guide_text">Selle nupu toksamine peidab navigatsiooniriba. Saate jätkuvalt kasutada navigatsiooninuppe, libistades üles ekraani alaosast. Navigatsiooniriba kuvamise ajal saate seda nuppu uuesti toksata, et lukustada see oma kohale. Mõnel ekraanil, nt avaekraan, kuvatakse navigatsiooniriba alati. Kui rakendus ei tööta tavapäraselt, kui navigatsiooniriba on peidetud, siis lukustage navigatsiooniriba oma kohale ja taaskäivitage rakendus.</string>
     <string name="force_immersive_guide_dialog_title">Navigatsiooniriba peitmine:</string>
-    <string name="force_immersive_guide_dialog_message1">Selle nupu toksamine peidab navigatsiooniriba.</string>
+    <string name="force_immersive_guide_dialog_message1">Topelttoksake seda nuppu, et peita navigatsiooniriba.</string>
     <string name="force_immersive_guide_dialog_message2">Libistage ekraani allosast üles, et kuvada navigatsiooniriba.</string>
-    <string name="force_immersive_guide_dialog_message3">Toksake seda nuppu uuesti, et lukustada see oma kohale.</string>
+    <string name="force_immersive_guide_dialog_message3">Topelttoksake seda nuppu uuesti, et lukustada navigatsiooniriba oma kohale.</string>
     <string name="force_immersive_guide_dialog_message4">Mõnel ekraanil, nt avaekraan, kuvatakse navigatsiooniriba alati.</string>
     <string name="force_immersive_guide_dialog_guide_path">Selle nupu peitmiseks avage menüü Seaded > Ekraan > Navigatsiooniriba.</string>
     <string name="force_immersive_guide_dialog_setting">Seaded</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">Topelttoksake, et peita navigatsiooniriba.</string>
+    <string name="force_immersive_guide_toast_show">Topelttoksake, et lukustada navigatsiooniriba.</string>
     <string name="car_lockscreen_disclaimer_title">Sõitke turvaliselt</string>
     <string name="car_lockscreen_disclaimer_text">Olge teadlik sõidutingimustest ja järgige alati kohaldatavaid seadusi. Juhised võivad olla ebatäpsed, mittetäielikud, ohtlikud, sobimatud, keelatud või hõlmata kattuvaid administratiivpiirkondi. Ka ettevõtteteave võib olla ebatäpne või mittetäielik. Andmed pole reaalajas ja asukoha täpsust ei saa garanteerida. Ärge kasutage auto juhtimisel mobiilseadet ega rakendusi, mis pole mõeldud teenuse Android Auto jaoks.</string>
     <string name="pip_close">Sule PIP</string>

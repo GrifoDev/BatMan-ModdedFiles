@@ -459,7 +459,7 @@
     <string name="abc_capital_on">เปิด</string>
     <string name="abc_capital_off">ปิด</string>
     <string name="app_label">UI ​ของ​ระบบ</string>
-    <string name="status_bar_clear_all_button">ล้างทั้งหมด</string>
+    <string name="status_bar_clear_all_button">ลบทั้งหมด</string>
     <string name="status_bar_recent_remove_item_title">ลบจากรายการ</string>
     <string name="status_bar_recent_inspect_item_title">ข้อมูลแอปพลิเคชัน</string>
     <string name="status_bar_no_recent_apps">หน้าจอล่าสุดของคุณแสดงที่นี่</string>
@@ -1817,13 +1817,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">ฉันยอมรับ</string>
     <string name="force_immersive_guide_text">การแตะปุ่มนี้จะซ่อนแถบการนำทาง คุณยังสามารถใช้ปุ่มการนำทางได้โดยปัดขึ้นจากด้านล่างของหน้าจอ ขณะที่แถบการนำทางแสดงอยู่ คุณสามารถแตะปุ่มนี้อีกครั้งเพื่อล็อกไว้กับที่ แถบการนำทางจะแสดงตลอดเวลาบนบางหน้าจอ เช่น หน้าจอหลัก หากแอพทำงานไม่เป็นปกติขณะที่ซ่อนแถบการนำทาง ให้ล็อกแถบนำทางไว้กับที่แล้วเริ่มแอพใหม่</string>
     <string name="force_immersive_guide_dialog_title">ซ่อนแถบการนำทาง:</string>
-    <string name="force_immersive_guide_dialog_message1">การแตะปุ่มนี้จะซ่อนแถบการนำทาง</string>
+    <string name="force_immersive_guide_dialog_message1">แตะสองครั้งที่ปุ่มนี้อีกครั้งเพื่อซ่อนแถบการนำทาง</string>
     <string name="force_immersive_guide_dialog_message2">ปัดขึ้นจากด้านล่างของหน้าจอเพื่อแสดงแถบการนำทาง</string>
-    <string name="force_immersive_guide_dialog_message3">แตะปุ่มนี้อีกครั้งเพื่อล็อกไว้อยู่กับที่</string>
+    <string name="force_immersive_guide_dialog_message3">แตะสองครั้งที่ปุ่มนี้อีกครั้งเพื่อล็อกแถบการนำทางไว้กับที่</string>
     <string name="force_immersive_guide_dialog_message4">แถบการนำทางจะแสดงตลอดเวลาบนบางหน้าจอ เช่น หน้าจอหลัก</string>
     <string name="force_immersive_guide_dialog_guide_path">หากต้องการซ่อนปุ่มนี้ ให้ไปที่ การตั้งค่า > การแสดงผล > แถบการนำทาง</string>
     <string name="force_immersive_guide_dialog_setting">การตั้งค่า</string>
     <string name="force_immersive_guide_dialog_ok">ตกลง</string>
+    <string name="force_immersive_guide_toast_hide">แตะสองครั้งเพื่อซ่อนแถบการนำทาง</string>
+    <string name="force_immersive_guide_toast_show">แตะสองครั้งเพื่อล็อกแถบการนำทาง</string>
     <string name="car_lockscreen_disclaimer_title">ขับขี่อย่างปลอดภัย</string>
     <string name="car_lockscreen_disclaimer_text">มีสติรู้ตัวเต็มที่ในสภาพการขับขี่ต่างๆ เและปฏิบัติตามกฎหมายที่บังคับใช้เสมอ ทั้งนี้เส้นทางอาจไม่ถูกต้อง ไม่ครบถ้วน เป็นอันตราย ไม่เหมาะสม ห้ามใช้ หรือมีการข้ามเขตปกครอง นอกจากนี้ข้อมูลทางธุรกิจอาจไม่ถูกต้องหรือไม่สมบูรณ์ ข้อมูลไม่ใช่แบบเรียลไทม์ และไม่สามารถรับประกันความถูกต้องของตำแหน่ง อย่าใช้งานอุปกรณ์เคลื่อนที่หรือใช้แอปที่ไม่ได้ออกแบบมาสำหรับ Android Auto ขณะขับรถ</string>
     <string name="pip_close">ปิด PIP</string>

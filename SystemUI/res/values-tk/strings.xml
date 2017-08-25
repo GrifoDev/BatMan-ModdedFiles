@@ -902,13 +902,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Kabul edýärin</string>
     <string name="force_immersive_guide_text">Bu düwmäni basmak nawigasiýa panelini gizleýär. Ekranyň aşagyndan ýokaryk syryp hem, nawigasiýa düwmelerini ulanyp bilersiňiz. Nawigasiýa paneli görkezilýärkä, ony ýerinde gulplamak üçin, şu düwmäni gaýtadan basyp bilersiňiz. Öý ekran ýaly käbir ekranlarda nawigasiýa paneli hemişe görkezilýär. Nawigasiýa paneli gizlenen wagty, goýma kadasyz işläp başlasa, nawigasiýa panelini ýerine gulplap, goýmany açyp ýapyň.</string>
     <string name="force_immersive_guide_dialog_title">Nawigasiýa panelini gizle:</string>
-    <string name="force_immersive_guide_dialog_message1">Bu düwmäni basmak nawigasiýa panelini gizleýär.</string>
+    <string name="force_immersive_guide_dialog_message1">Nawigasiýa panelini gizlemek üçin, bu düwmäni iki gezek basyň.</string>
     <string name="force_immersive_guide_dialog_message2">Nawigasiýa panelini görkezmek üçin, ekranyň aşagynda ýokaryk syryň.</string>
-    <string name="force_immersive_guide_dialog_message3">Ony ýerinde gulplamak üçin, şu düwmä ýene basyň.</string>
+    <string name="force_immersive_guide_dialog_message3">Nawigasiýa panelini ýerine gulplamak üçin, bu düwmäni ýene basyň.</string>
     <string name="force_immersive_guide_dialog_message4">Öý ekran ýaly käbir ekranlarda nawigasiýa paneli hemişe görkezilýär.</string>
     <string name="force_immersive_guide_dialog_guide_path">Bu düwmäni gizlemek üçin, Sazlamalar > Displeý > Nawigasiýa peneli-ne baryň.</string>
     <string name="force_immersive_guide_dialog_setting">Sazlamalar</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">Nawigasiýa panelini gizlemek üçin, iki gezek basyň.</string>
+    <string name="force_immersive_guide_toast_show">Nawigasiýa panelini gulplamak üçin, iki gezek basyň.</string>
     <string name="keyguard_password_enter_pin_code">PIN kody ýaz</string>
     <string name="keyguard_password_wrong_pin_code">Nädogry PIN kod.</string>
     <string name="keyguard_charged">Doly zarýadlandy</string>

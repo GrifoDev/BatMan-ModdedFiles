@@ -1814,13 +1814,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Sprejmem</string>
     <string name="force_immersive_guide_text">Če pritisnete ta gumb, boste skrili navigacijsko vrstico. Navigacijske gumbe lahko še vedno uporabljate, če od spodnjega dela zaslona podrsate navzgor. Ko je prikazana navigacijska vrstica, lahko znova pritisnete ta gumb, da vrstico zaklenete. Na nekaterih zaslonih, denimo domačem, bo navigacijska vrstica prikazana ves čas. Če se aplikacija obnaša neobičajno, ko je navigacijska vrstica skrita, zaklenite navigacijsko vrstico in znova zaženite aplikacijo.</string>
     <string name="force_immersive_guide_dialog_title">Skrijte navigacijsko vrstico:</string>
-    <string name="force_immersive_guide_dialog_message1">S pritiskom tega gumba skrijete navigacijsko vrstico.</string>
+    <string name="force_immersive_guide_dialog_message1">Dvakrat pritisnite ta gumb, da skrijete navigacijsko vrstico.</string>
     <string name="force_immersive_guide_dialog_message2">Za prikaz navigacijske vrstice podrsajte od spodnjega dela zaslona navzgor.</string>
-    <string name="force_immersive_guide_dialog_message3">Znova pritisnite ta gumb, da ga zaklenete na mesto.</string>
+    <string name="force_immersive_guide_dialog_message3">Še enkrat dvakrat pritisnite ta gumb, da zaklenete navigacijsko vrstico.</string>
     <string name="force_immersive_guide_dialog_message4">Na nekaterih zaslonih, denimo na domačem zaslonu, bo navigacijska vrstica vedno prikazana.</string>
     <string name="force_immersive_guide_dialog_guide_path">Če želite skriti ta gumb, pojdite v meni Nastavitve > Prikaz > Navigacijska vrstica.</string>
     <string name="force_immersive_guide_dialog_setting">Nastavitve</string>
     <string name="force_immersive_guide_dialog_ok">V REDU</string>
+    <string name="force_immersive_guide_toast_hide">Dvakrat pritisnite, da skrijete navigacijsko vrstico.</string>
+    <string name="force_immersive_guide_toast_show">Dvakrat pritisnite, da zaklenete navigacijsko vrstico.</string>
     <string name="car_lockscreen_disclaimer_title">Varna vožnja</string>
     <string name="car_lockscreen_disclaimer_text">Bodite pozorni na vozne razmere in vselej upoštevajte veljavno zakonodajo. Navodila za pot so morda nenatančna, nepopolna, nevarna, neprimerna ali prepovedana oziroma vključujejo prečkanje upravnih območij. Prav tako nenatančni ali nepopolni so lahko podatki o podjetjih. Podatki niso sprotni in natančnosti lociranja ni mogoče zagotoviti. Med vožnjo ne uporabljajte mobilne naprave ali aplikacij, ki niso namenjene za Android Auto.</string>
     <string name="pip_close">Zapri način PIP</string>

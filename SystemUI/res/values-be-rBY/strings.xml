@@ -1785,13 +1785,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Я прымаю</string>
     <string name="force_immersive_guide_text">Пры націсканні гэтай кнопкі хаваецца панэль навігацыі. Вы па-ранейшаму можаце карыстацца кнопкамі навігацыі, праводзячы пальцам уверх з нізу экрана. Калі панэль навігацыі паказана, вы можаце зноў націснуць гэту кнопку, каб заблакіраваць яе на месцы. На некаторых экранах, напрыклад, на галоўным, панэль навігацыі будзе паказана заўсёды. Калі праграма паводзіць сябе незвычайным чынам пры схаванай панэлі навігацыі, заблакіруйце панэль навігацыі на месцы і перазапусціце праграму.</string>
     <string name="force_immersive_guide_dialog_title">Схаваць панэль навігацыі:</string>
-    <string name="force_immersive_guide_dialog_message1">Пры націсканні гэтай кнопкі хаваецца панэль навігацыі.</string>
+    <string name="force_immersive_guide_dialog_message1">Націсніце гэту кнопку двойчы, каб схаваць панэль навігацыі.</string>
     <string name="force_immersive_guide_dialog_message2">Правядзіце ўверх з ніжняй часткі экрана, каб паказаць панэль навігацыі.</string>
-    <string name="force_immersive_guide_dialog_message3">Націсніце гэту кнопку яшчэ раз, каб заблакіраваць яе на месцы.</string>
+    <string name="force_immersive_guide_dialog_message3">Яшчэ раз двойчы націсніце гэту кнопку, каб заблакіраваць панэль навігацыі на месцы.</string>
     <string name="force_immersive_guide_dialog_message4">На некаторых экранах, такіх як Галоўны экран, панэль навігацыі будзе паказвацца заўсёды.</string>
     <string name="force_immersive_guide_dialog_guide_path">Каб схаваць гэту кнопку, перайдзіце ў «Налады > Дысплэй > Панэль навігацыі».</string>
     <string name="force_immersive_guide_dialog_setting">Налады</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">Націсніце двойчы, каб схаваць панэль навігацыі.</string>
+    <string name="force_immersive_guide_toast_show">Націсніце двойчы, каб заблакіраваць панэль навігацыі.</string>
     <string name="car_lockscreen_disclaimer_title">Кіруйце аўтамабілем бяспечна</string>
     <string name="car_lockscreen_disclaimer_text">Будзьце заўсёды ў курсе дарожных умоў і заўсёды прытрымлівайцеся дзеючага заканадаўства. Указанні могуць быць недакладнымі, няпоўнымі, небяспечнымі, непадыходзячымі, забароненымі ці прадугледжваць уезд на адміністрацыйныя тэрыторыі. Інфармацыя пра кампаніі таксама можа быць недакладнай ці няпоўнай. Даныя не прадстаўляюцца ў рэжыме рэальнага часу, і дакладнасць вызначэння месцазнаходжання не можа быць гарантавана. Не выкарыстоўвайце сваю мабільную прыладу або праграмы, не прызначаныя для Android Auto, падчас кіравання.</string>
     <string name="pip_close">Закрыць PIP</string>

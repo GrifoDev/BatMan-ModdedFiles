@@ -885,13 +885,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">I accept</string>
     <string name="force_immersive_guide_text">"Tapping this button hides the navigation bar. You can still use the navigation buttons by swiping up from the bottom of the screen. While the navigation bar is shown, you can tap this button again to lock it in place. On some screens, such as the Home screen, the navigation bar will always be shown. If an app doesn't behave normally while the navigation bar is hidden, lock the navigation bar in place and restart the app."</string>
     <string name="force_immersive_guide_dialog_title">Hide navigation bar:</string>
-    <string name="force_immersive_guide_dialog_message1">Tapping this button hides the navigation bar.</string>
+    <string name="force_immersive_guide_dialog_message1">Double tap this button to hide the navigation bar.</string>
     <string name="force_immersive_guide_dialog_message2">Swipe up from the bottom of the screen to show the navigation bar.</string>
-    <string name="force_immersive_guide_dialog_message3">Tap this button again to lock it in place.</string>
+    <string name="force_immersive_guide_dialog_message3">Double tap this button again to lock the navigation bar in place.</string>
     <string name="force_immersive_guide_dialog_message4">On some screens, such as the Home screen, the navigation bar will always be shown.</string>
     <string name="force_immersive_guide_dialog_guide_path">To hide this button, go to Settings > Display > Navigation bar.</string>
     <string name="force_immersive_guide_dialog_setting">Settings</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">Double tap to hide navigation bar.</string>
+    <string name="force_immersive_guide_toast_show">Double tap to lock navigation bar.</string>
     <string name="keyguard_password_enter_pin_code">Type PIN code.</string>
     <string name="keyguard_password_wrong_pin_code">Incorrect PIN code.</string>
     <string name="keyguard_charged">Fully charged</string>

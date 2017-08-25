@@ -1815,13 +1815,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Accetto</string>
     <string name="force_immersive_guide_text">"Toccate questo pulsante per nascondere la barra di navigazione. Potrete comunque utilizzare i pulsanti di navigazione trascinando lo schermo dal basso verso l'alto. Quando la barra di navigazione è visualizzata, potete toccare nuovamente questo pulsante per bloccarla in posizione. Su alcune schermate, come la schermata Home, la barra di navigazione è sempre visualizzata. Se un'applicazione non si comporta normalmente mentre la barra di navigazione è nascosta, bloccate la barra di navigazione in posizione e riavviate l'applicazione."</string>
     <string name="force_immersive_guide_dialog_title">Nascondi barra di navigazione:</string>
-    <string name="force_immersive_guide_dialog_message1">Toccando questo pulsante viene nascosta la barra di navigazione.</string>
+    <string name="force_immersive_guide_dialog_message1">Toccate due volte questo pulsante per nascondere la barra di navigazione.</string>
     <string name="force_immersive_guide_dialog_message2">"Trascinate il dito verso l'alto dalla parte inferiore dello schermo per mostrare la barra di navigazione."</string>
-    <string name="force_immersive_guide_dialog_message3">Toccate nuovamente questo pulsante per bloccarla in posizione.</string>
+    <string name="force_immersive_guide_dialog_message3">Toccate ancora due volte questo pulsante per bloccare la barra di navigazione in posizione.</string>
     <string name="force_immersive_guide_dialog_message4">Su alcune schermate, come la schermata Home, la barra di navigazione verrà sempre visualizzata.</string>
     <string name="force_immersive_guide_dialog_guide_path">Per nascondere questo pulsante, andate a Impostazioni > Schermo > Barra di navigazione.</string>
     <string name="force_immersive_guide_dialog_setting">Impostazioni</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">Toccate due volte per nascondere la barra di navigazione.</string>
+    <string name="force_immersive_guide_toast_show">Toccate due volte per bloccare la barra di navigazione.</string>
     <string name="car_lockscreen_disclaimer_title">Guida in modo sicuro</string>
     <string name="car_lockscreen_disclaimer_text">"È necessario essere sempre pienamente coscienti delle condizioni di guida e rispettare le leggi vigenti. Le indicazioni stradali potrebbero essere imprecise, incomplete, pericolose, non adatte, vietate o implicare l'attraversamento di confini. Anche le informazioni sulle attività commerciali potrebbero essere imprecise o incomplete. I dati non vengono forniti in tempo reale e non è possibile garantire la precisione della geolocalizzazione. Non maneggiare il dispositivo mobile e non utilizzare app non progettate per Android Auto durante la guida."</string>
     <string name="pip_close">Chiudi PIP</string>

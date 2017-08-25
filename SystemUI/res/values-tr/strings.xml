@@ -1817,13 +1817,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Kabul ediyorum</string>
     <string name="force_immersive_guide_text">Bu tuşa dokunulduğunda navigasyon çubuğu gizlenir. Ekranın altından yukarı sürükleyerek navigasyon tuşlarını hala kullanabilirsiniz. Navigasyon çubuğu gösterilirken bu tuşa tekrar dokunarak yerine sabitleyebilirsiniz. Ana ekran gibi bazı ekranlarda navigasyon çubuğu her zaman gösterilir. Bir uygulama navigasyon çubuğu gizliyken normal davranmıyorsa navigasyon çubuğunu yerine sabitleyip uygulamayı yeniden başlatın.</string>
     <string name="force_immersive_guide_dialog_title">Navigasyon çubuğunu gizle:</string>
-    <string name="force_immersive_guide_dialog_message1">Bu tuşa dokunulduğunda navigasyon çubuğu gizlenir.</string>
+    <string name="force_immersive_guide_dialog_message1">Navigasyon çubuğunu gizlemek için bu tuşa çift dokunun.</string>
     <string name="force_immersive_guide_dialog_message2">Navigasyon çubuğunu göstermek için ekranın alt tarafından yukarı doğru kaydırın.</string>
-    <string name="force_immersive_guide_dialog_message3">Sabitlemek için bu tuşa tekrar dokunun.</string>
+    <string name="force_immersive_guide_dialog_message3">Navigasyon çubuğunu yerine kilitlemek için bu tuşa tekrar çift dokunun.</string>
     <string name="force_immersive_guide_dialog_message4">Ana ekran gibi bazı ekranlarda navigasyon çubuğu her zaman gösterilir.</string>
     <string name="force_immersive_guide_dialog_guide_path">Bu tuşu gizlemek için Ayarlar > Ekran > Navigasyon çubuğu bölümüne gidin.</string>
     <string name="force_immersive_guide_dialog_setting">Ayarlar</string>
     <string name="force_immersive_guide_dialog_ok">Tamam</string>
+    <string name="force_immersive_guide_toast_hide">Navigasyon çubuğunu gizlemek için çift dokunun.</string>
+    <string name="force_immersive_guide_toast_show">Navigasyon çubuğunu kilitlemek için çift dokunun.</string>
     <string name="car_lockscreen_disclaimer_title">Güvenli bir şekilde sürün</string>
     <string name="car_lockscreen_disclaimer_text">Sürüş koşullarına karşı dikkatli olun ve geçerli yasalara her zaman uyun. Yol tarifi yanlış, eksik, tehlikeli, uygunsuz, yasak olabilir veya idari bölgelerden geçişleri içerebilir. İşletme bilgileri de yanlış veya eksik olabilir. Veriler gerçek zamanlı değildir ve konum doğruluğu garanti edilemez. Sürüş sırasında mobil cihazınızı veya Android Auto için geliştirilmemiş uygulamaları kullanmayın.</string>
     <string name="pip_close">"PIP'yi kapat"</string>

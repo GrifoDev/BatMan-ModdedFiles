@@ -1786,13 +1786,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">මම පිළිගනිමි</string>
     <string name="force_immersive_guide_text">මෙම බොත්තම තට්ටු කිරීමෙන් සංචාලන තීරුව සඟවයි. ඔබට තවමත් තිරයේ පහළ සිට උඩට ස්වයිප් කිරීමෙන් සංචාලන බොත්තම් භාවිතා කළ හැකිය. සංචාලන තීරුව පෙන්වන අතරේ, ඔබට එතැන අගුළු දැමීමට මෙම බොත්තම නැවත තට්ටු හැක. මුල් තිරය වැනි, ඇතැම් තිරවල, සංචාලන තීරුව සෑම විටම පෙන්වනු ඇත. සංචාලන තීරුව සැඟවී ඇති අතරේ යෙදුමක් සාමාන්‍ය පරිදි හැසිරෙන්නේ නැති නම්, සංචාලන තීරුව එතැන අගුළු දමා යෙදුම යළි අරඹන්න.</string>
     <string name="force_immersive_guide_dialog_title">සංචාලන තීරුව සඟවන්න:</string>
-    <string name="force_immersive_guide_dialog_message1">මෙම බොත්තම තට්ටු කිරීමෙන් සංචාලන තීරුව සඟවයි.</string>
+    <string name="force_immersive_guide_dialog_message1">සංචාලන තීරුව සැඟවීමට මෙම බොත්තම දෙවරක් තට්ටු කරන්න.</string>
     <string name="force_immersive_guide_dialog_message2">සංචාලන තීරුව පෙන්වීමට තිරයේ පහළ සිට ඉහළට ස්වයිප් කරන්න.</string>
-    <string name="force_immersive_guide_dialog_message3">අගුළු දැමීම සඳහා මෙම බොත්තම නැවත තට්ටු කරන්න.</string>
+    <string name="force_immersive_guide_dialog_message3">සංචාලන තීරුව එතැන අගුළු දැමීමට මෙම බොත්තම නැවත දෙවරක් තට්ටු කරන්න.</string>
     <string name="force_immersive_guide_dialog_message4">මුල් තිරය වැනි, ඇතැම් තිරවල, සංචාලන තීරුව සෑම විටම පෙන්වනු ඇත.</string>
     <string name="force_immersive_guide_dialog_guide_path">මෙම බොත්තම සැඟවීමට, සැකසුම් > සංදර්ශකය > සංචාලන තීරුව වෙත යන්න.</string>
     <string name="force_immersive_guide_dialog_setting">සැකසුම්</string>
     <string name="force_immersive_guide_dialog_ok">හරි</string>
+    <string name="force_immersive_guide_toast_hide">සංචාලන තීරුව සැඟවීමට දෙවරක් තට්ටු කරන්න.</string>
+    <string name="force_immersive_guide_toast_show">සංචාලන තීරුව අගුළු දැමීමට දෙවරක් තට්ටු කරන්න.</string>
     <string name="car_lockscreen_disclaimer_title">ආරක්ෂිතව රිය පදවන්න</string>
     <string name="car_lockscreen_disclaimer_text">රිය පැදවීම් තත්ත්වයන් ගැන පූර්ණ අවධානයෙන් සිටින්න, සැම විටම අදාළ සියලු නීතිවලට ගරු කරන්න. මග පෙන්වීම් නිවැරදි නොවීමට, අසම්පූර්ණ වීමට, භයානක වීමට, නුසුදුසු වීමට, තහනම් ඒවා වීමට, හෝ පරිපාලන ප්‍රදේශ තරණයට අදාළ ඒවා වීමට හැකිය. දත්ත තථ්‍ය කාල නොවීමට හැකි අතර, ස්ථාන නිරවද්‍යතාව සහතික කළ නොහැකිය. රිය පදවන අතරතුර ඔබේ ජංගම උපාංගය භාවිත කිරීම හෝ Android Auto සඳහා නිපදවා නැති යෙදුම් භාවිත කිරීම නොකරන්න.</string>
     <string name="pip_close">PIP වසන්න</string>

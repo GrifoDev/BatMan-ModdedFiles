@@ -634,41 +634,80 @@
 .end method
 
 .method public getAutomaticRule()Landroid/service/notification/ZenModeConfig$ZenRule;
-    .locals 2
+    .locals 5
 
-    const/4 v1, 0x0
+    const/4 v4, 0x0
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/ZenModeControllerImpl;->mConfig:Landroid/service/notification/ZenModeConfig;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/ZenModeControllerImpl;->mConfig:Landroid/service/notification/ZenModeConfig;
 
-    if-eqz v0, :cond_0
+    if-eqz v3, :cond_0
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/ZenModeControllerImpl;->mConfig:Landroid/service/notification/ZenModeConfig;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/ZenModeControllerImpl;->mConfig:Landroid/service/notification/ZenModeConfig;
 
-    iget-object v0, v0, Landroid/service/notification/ZenModeConfig;->automaticRules:Landroid/util/ArrayMap;
+    iget-object v3, v3, Landroid/service/notification/ZenModeConfig;->automaticRules:Landroid/util/ArrayMap;
 
-    invoke-virtual {v0}, Landroid/util/ArrayMap;->isEmpty()Z
+    invoke-virtual {v3}, Landroid/util/ArrayMap;->isEmpty()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    :cond_0
+    return-object v4
+
+    :cond_1
+    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/ZenModeControllerImpl;->mConfig:Landroid/service/notification/ZenModeConfig;
+
+    iget-object v3, v3, Landroid/service/notification/ZenModeConfig;->automaticRules:Landroid/util/ArrayMap;
+
+    invoke-virtual {v3}, Landroid/util/ArrayMap;->size()I
 
     move-result v0
 
-    if-eqz v0, :cond_1
-
-    :cond_0
-    return-object v1
-
-    :cond_1
-    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/ZenModeControllerImpl;->mConfig:Landroid/service/notification/ZenModeConfig;
-
-    iget-object v0, v0, Landroid/service/notification/ZenModeConfig;->automaticRules:Landroid/util/ArrayMap;
+    const/4 v2, 0x0
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+    :goto_0
+    if-ge v1, v0, :cond_2
 
-    move-result-object v0
+    const-string/jumbo v4, "twschedule"
 
-    check-cast v0, Landroid/service/notification/ZenModeConfig$ZenRule;
+    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/ZenModeControllerImpl;->mConfig:Landroid/service/notification/ZenModeConfig;
 
-    return-object v0
+    iget-object v3, v3, Landroid/service/notification/ZenModeConfig;->automaticRules:Landroid/util/ArrayMap;
+
+    invoke-virtual {v3, v1}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/service/notification/ZenModeConfig$ZenRule;
+
+    iget-object v3, v3, Landroid/service/notification/ZenModeConfig$ZenRule;->name:Ljava/lang/String;
+
+    invoke-virtual {v4, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/ZenModeControllerImpl;->mConfig:Landroid/service/notification/ZenModeConfig;
+
+    iget-object v3, v3, Landroid/service/notification/ZenModeConfig;->automaticRules:Landroid/util/ArrayMap;
+
+    invoke-virtual {v3, v1}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/service/notification/ZenModeConfig$ZenRule;
+
+    :cond_2
+    return-object v2
+
+    :cond_3
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_0
 .end method
 
 .method public getCurrentUser()I

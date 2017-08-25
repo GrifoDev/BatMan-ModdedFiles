@@ -1816,13 +1816,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Tinatanggap ko</string>
     <string name="force_immersive_guide_text">Itatago ng pag-tap sa button na ito ang navigation bar. Magagamit mo pa rin ang mga navigation button sa pamamagitan ng pag-swipe pataas mula sa ibaba ng screen. Habang ipinapakita ang navigation bar, maaari kang mag-tap muli sa button na ito para i-lock ito sa puwesto. Sa ilang screen, gaya ng Home screen, laging ipapakita ang navigation bar. Kung hindi kumikilos nang maayos ang isang app habang nakatago ang navigation bar, i-lock ang navigation bar sa puwesto at i-restart ang app.</string>
     <string name="force_immersive_guide_dialog_title">Itago ang navigation bar:</string>
-    <string name="force_immersive_guide_dialog_message1">Itatago ng pag-tap sa button na ito ang navigation bar.</string>
+    <string name="force_immersive_guide_dialog_message1">I-double tap ang button na ito para itago ang navigation bar.</string>
     <string name="force_immersive_guide_dialog_message2">Mag-swipe pataas mula sa ibaba ng screen para ipakita ang navigation bar.</string>
-    <string name="force_immersive_guide_dialog_message3">I-tap muli ang button na ito para i-lock ito sa puwesto.</string>
+    <string name="force_immersive_guide_dialog_message3">I-double tap muli ang button na ito para i-lock ang navigation bar sa puwesto nito.</string>
     <string name="force_immersive_guide_dialog_message4">Sa ilang screen, gaya ng Home screen, laging ipapakita ang navigation bar.</string>
     <string name="force_immersive_guide_dialog_guide_path">Para itago ang button na ito, pumunta sa Settings > Display > Navigation bar.</string>
     <string name="force_immersive_guide_dialog_setting">Mga setting</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">I-double tap para itago ang navigation bar.</string>
+    <string name="force_immersive_guide_toast_show">I-double tap para i-lock ang navigation bar.</string>
     <string name="car_lockscreen_disclaimer_title">Magmaneho nang ligtas</string>
     <string name="car_lockscreen_disclaimer_text">Manatiling lubos na nakakaalam sa mga kondisyon sa pagmamaneho at palaging sumunod sa mga naaangkop na batas. Ang mga direksyon ay maaaring hindi tumpak, hindi kumpleto, mapanganib, hindi naaangkop, ipinagbabawal o kinasasangkutan ng pagtawid sa mga administratibong lugar. Maaari ding hindi tumpak o hindi kumpleto ang impormasyon ng negosyo. Hindi real-time ang data at hindi magagarantiya ang katumpakan ng lokasyon. Huwag gamitin ang iyong mobile device o gumamit ng mga app na hindi ginawa para sa Android Auto habang nagmamaneho.</string>
     <string name="pip_close">Isara ang PIP</string>

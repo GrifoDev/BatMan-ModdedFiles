@@ -1816,13 +1816,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Saya terima</string>
     <string name="force_immersive_guide_text">Mengetik butang ini menyembunyikan bar pemanduan arah. Anda masih boleh menggunakan butang pemanduan arah dengan menyapu ke atas dari bawah skrin. Semasa bar pemanduan arah ditunjukkan, anda boleh mengetik butang ini untuk mengunci butang pada tempatnya. Pada sesetengah skrin seperti Skrin utama, bar pemanduan arah akan sentiasa ditunjukkan. Jika aplikasi tidak berfungsi seperti biasa semasa bar pemanduan arah disembunyikan, kunci bar pemanduan arah di tempatnya dan mulakan semula aplikasi.</string>
     <string name="force_immersive_guide_dialog_title">Sembunyikan bar pemanduan arah:</string>
-    <string name="force_immersive_guide_dialog_message1">Mengetik butang ini menyembunyikan bar pemanduan arah.</string>
+    <string name="force_immersive_guide_dialog_message1">Dwiketik butang ini untuk menyembunyikan bar pemanduan arah.</string>
     <string name="force_immersive_guide_dialog_message2">Sapu ke atas dari bahagian bawah skrin untuk menunjukkan bar pemanduan arah.</string>
-    <string name="force_immersive_guide_dialog_message3">Ketik butang ini sekali lagi untuk menguncinya pada tempat.</string>
+    <string name="force_immersive_guide_dialog_message3">Dwiketik butang ini sekali lagi untuk mengunci bar pemanduan arah di tempatnya.</string>
     <string name="force_immersive_guide_dialog_message4">Pada sesetengah skrin seperti Skrin utama, bar pemanduan arah akan sentiasa ditunjukkan.</string>
     <string name="force_immersive_guide_dialog_guide_path">Untuk menyembunyikan butang ini, pergi ke Aturan > Paparan > Bar pemanduan arah.</string>
     <string name="force_immersive_guide_dialog_setting">Aturan</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">Dwiketik untuk menyembunyikan bar pemanduan arah.</string>
+    <string name="force_immersive_guide_toast_show">Dwiketik untuk mengunci bar pemanduan arah.</string>
     <string name="car_lockscreen_disclaimer_title">Pandu dengan selamat</string>
     <string name="car_lockscreen_disclaimer_text">Pastikan anda sentiasa sedar sepenuhnya akan keadaan pemanduan dan mematuhi undang-undang yang dikenakan pada sepanjang masa. Arah mungkin tidak tepat, tidak lengkap, berbahaya, tidak sesuai, dilarang atau melibatkan lintasan kawasan pentadbiran. Maklumat perniagaan juga mungkin tidak tepat atau tidak lengkap. Data bukan masa sebenar dan ketepatan lokasi tidak dapat dijamin. Jangan kendalikan peranti mudah alih anda atau gunakan apl yang bukan untuk Android Auto semasa memandu.</string>
     <string name="pip_close">Tutup PIP</string>

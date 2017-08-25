@@ -1815,13 +1815,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">ਮੈਂ ਸਵੀਕਾਰ ਕਰਦਾ/ਕਰਦੀ ਹਾਂ</string>
     <string name="force_immersive_guide_text">ਇਸ ਬਟਨ ਉੱਤੇ ਟੈਪ ਕਰਨ ਤੇ ਨੈਵੀਗੇਸ਼ਨ ਬਾਰ ਨੂੰ ਲੁਕਾ ਦਿੱਤਾ ਜਾਂਦਾ ਹੈ। ਤੁਸੀਂ ਅਜੇ ਵੀ ਸਕ੍ਰੀਨ ਦੇ ਹੇਠਾਂ ਤੋਂ ਉੱਪਰ ਵੱਲ ਸਵਾਈਪ ਕਰਕੇ ਨੈਵੀਗੇਸ਼ਨ ਬਟਨਸ ਦੀ ਵਰਤੋਂ ਕਰ ਸਕਦੇ ਹੋ। ਨੈਵੀਗੇਸ਼ਨ ਬਾਰ ਦੇ ਦਿਖਾਈ ਦੇਣ ਦੌਰਾਨ, ਉਸ ਨੂੰ ਉਸ ਦੇ ਸਥਾਨ ਤੇ ਲੌਕ ਕਰਨ ਲਈ ਤੁਸੀਂ ਇਸ ਬਟਨ ਤੇ ਦੁਬਾਰਾ ਟੈਪ ਕਰ ਸਕਦੇ ਹੋ। ਕੁਝ ਸਕ੍ਰੀਨਸ ਤੇ, ਜਿਵੇਂ ਕਿ ਹੋਮ ਸਕ੍ਰੀਨ, ਨੈਵੀਗੇਸ਼ਨ ਬਾਰ ਨੂੰ ਹਮੇਸ਼ਾ ਦਿਖਾਇਆ ਜਾਵੇਗਾ। ਨੈਵੀਗੇਸ਼ਨ ਬਾਰ ਦੇ ਲੁਕੇ ਹੋਣ ਦੌਰਾਨ ਜੇਕਰ ਕੋਈ ਐਪ ਚੰਗੀ ਤਰਾਂ ਕੰਮ ਨਹੀਂ ਕਰਦੀ, ਤਾਂ ਨੈਵੀਗੇਸ਼ਨ ਬਾਰ ਨੂੰ ਉਸ ਦੇ ਸਥਾਨ ਤੇ ਲੌਕ ਕਰੋ ਅਤੇ ਐਪ ਨੂੰ ਦੁਬਾਰਾ ਸ਼ੁਰੂ ਕਰੋ।</string>
     <string name="force_immersive_guide_dialog_title">ਨੈਵੀਗੇਸ਼ਨ ਬਾਰ ਨੂੰ ਲੁਕਾਉ:</string>
-    <string name="force_immersive_guide_dialog_message1">ਇਸ ਬਟਨ ਉੱਤੇ ਟੈਪ ਕਰਨ ਤੇ ਨੈਵੀਗੇਸ਼ਨ ਬਾਰ ਨੂੰ ਲੁਕਾ ਦਿੱਤਾ ਜਾਂਦਾ ਹੈ।</string>
+    <string name="force_immersive_guide_dialog_message1">ਨੈਵੀਗੇਸ਼ਨ ਬਾਰ ਨੂੰ ਲੁਕਾਉਣ ਲਈ ਇਸ ਬਟਨ ਤੇ ਦੋ ਵਾਰ ਟੈਪ ਕਰੋ।</string>
     <string name="force_immersive_guide_dialog_message2">ਨੈਵੀਗੇਸ਼ਨ ਬਾਰ ਦਿਖਾਉਣ ਲਈ ਸਕ੍ਰੀਨ ਦੇ ਹੇਠਾਂ ਤੋਂ ਉੱਪਰ ਵੱਲ ਸਵਾਈਪ ਕਰੋ।</string>
-    <string name="force_immersive_guide_dialog_message3">ਇਸ ਬਟਨ ਨੂੰ ਇਸ ਸਥਾਨ ਤੇ ਲੌਕ ਕਰਨ ਲਈ ਇਸ ਬਟਨ ਤੇ ਦੁਬਾਰਾ ਟੈਪ ਕਰੋ।</string>
+    <string name="force_immersive_guide_dialog_message3">ਨੈਵੀਗੇਸ਼ਨ ਬਾਰ ਨੂੰ ਇੱਕ ਸਥਾਨ ਤੇ ਲੌਕ ਕਰਨ ਲਈ ਇਸ ਬਟਨ ਤੇ ਦੁਬਾਰਾ ਦੋ ਵਾਰ ਟੈਪ ਕਰੋ।</string>
     <string name="force_immersive_guide_dialog_message4">ਕੁਝ ਸਕ੍ਰੀਨਸ ਤੇ, ਜਿਵੇਂ ਕਿ ਹੋਮ ਸਕ੍ਰੀਨ, ਨੈਵੀਗੇਸ਼ਨ ਬਾਰ ਨੂੰ ਹਮੇਸ਼ਾ ਦਿਖਾਇਆ ਜਾਵੇਗਾ।</string>
     <string name="force_immersive_guide_dialog_guide_path">ਇਸ ਬਟਨ ਨੂੰ ਲੁਕਾਉਣ ਲਈ, ਸੈੱਟਿੰਗਸ > ਡਿਸਪਲੇ > ਨੈਵੀਗੇਸ਼ਨ ਬਾਰ ਤੇ ਜਾਉ।</string>
     <string name="force_immersive_guide_dialog_setting">ਸੈੱਟਿੰਗਸ</string>
     <string name="force_immersive_guide_dialog_ok">ਓਕੇ</string>
+    <string name="force_immersive_guide_toast_hide">ਨੈਵੀਗੇਸ਼ਨ ਬਾਰ ਨੂੰ ਲੁਕਾਉਣ ਲਈ ਦੋ ਵਾਰ ਟੈਪ ਕਰੋ।</string>
+    <string name="force_immersive_guide_toast_show">ਨੈਵੀਗੇਸ਼ਨ ਬਾਰ ਨੂੰ ਲੌਕ ਕਰਨ ਲਈ ਦੋ ਵਾਰ ਟੈਪ ਕਰੋ।</string>
     <string name="car_lockscreen_disclaimer_title">ਸੁਰੱਖਿਅਤ ਢੰਗ ਨਾਲ ਗੱਡੀ ਚਲਾਓ</string>
     <string name="car_lockscreen_disclaimer_text">ਗੱਡੀ ਚਲਾਉਣ ਦੇ ਹਾਲਾਤਾਂ ਤੋਂ ਪੂਰੀ ਤਰ੍ਹਾਂ ਜਾਣੂ ਰਹੋ ਅਤੇ ਸਦਾ ਲਾਗੂ ਕਾਨੂੰਨਾਂ ਦੀ ਪਾਲਣਾ ਕਰੋ। ਦਿਸ਼ਾਵਾਂ ਗਲਤ, ਅਧੂਰੀਆਂ, ਖ਼ਤਰਨਾਕ, ਢੁੱਕਵੀਆਂ ਨਹੀਂ, ਪ੍ਰਤਿਬੰਧਿਤ ਹੋ ਸਕਦੀਆਂ ਹਨ ਜਾਂ ਪ੍ਰਸ਼ਾਸਕੀ ਖੇਤਰਾਂ ਵਿੱਚੋਂ ਲੰਘਣਾ ਸ਼ਾਮਲ ਹੋ ਸਕਦਾ ਹੈ। ਵਪਾਰਕ ਜਾਣਕਾਰੀ ਵੀ ਗਲਤ ਜਾਂ ਅਧੂਰੀ ਹੋ ਸਕਦੀ ਹੈ। ਡੈਟਾ ਰੀਅਲ-ਟਾਈਮ ਨਹੀਂ ਹੈ ਅਤੇ ਟਿਕਾਣਾ ਸਟੀਕਤਾ ਗਾਰੰਟੀਸ਼ੁਦਾ ਨਹੀਂ ਹੋ ਸਕਦੀ ਹੈ। ਗੱਡੀ ਚਲਾਉਣ ਦੌਰਾਨ ਆਪਣੀ ਮੋਬਾਈਲ ਡੀਵਾਈਸ ਜਾਂ ਉਹਨਾਂ ਐਪਾਂ ਦੀ ਵਰਤੋਂ ਨਾ ਕਰੋ ਜੋ ਕਿ Android Auto ਲਈ ਨਹੀਂ ਬਣੀਆਂ ਹਨ।</string>
     <string name="pip_close">PIP ਬੰਦ ਕਰੋ</string>

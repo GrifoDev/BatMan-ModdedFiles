@@ -1816,13 +1816,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Ich stimme zu</string>
     <string name="force_immersive_guide_text">Die Navigationsleiste wird ausgeblendet, wenn Sie auf diese Schaltfläche tippen. Sie können die Navigationsschaltflächen weiterhin verwenden, indem Sie vom unteren Bildschirmrand nach oben streichen. Wird die Navigationsleiste angezeigt, können Sie erneut auf diese Schaltfläche tippen, um sie zu fixieren. Auf einigen Bildschirmen, wie dem Startbildschirm, wird die Navigationsleiste immer angezeigt. Wenn eine App sich nicht normal verhält, während die Navigationsleiste ausgeblendet ist, fixieren Sie die Navigationsleiste und starten Sie die App neu.</string>
     <string name="force_immersive_guide_dialog_title">Navigationsleiste ausblenden:</string>
-    <string name="force_immersive_guide_dialog_message1">Durch Tippen auf diese Schaltfläche wird die Navigationsleiste ausgeblendet.</string>
+    <string name="force_immersive_guide_dialog_message1">Tippen Sie zweimal auf diese Schaltfläche, um die Navigationsleiste auszublenden.</string>
     <string name="force_immersive_guide_dialog_message2">Streichen Sie von der Unterkante des Bildschirms nach oben, um die Navigationsleiste anzuzeigen.</string>
-    <string name="force_immersive_guide_dialog_message3">Tippen Sie erneut auf diese Schaltfläche, um sie zu fixieren.</string>
+    <string name="force_immersive_guide_dialog_message3">Tippen Sie erneut zweimal auf diese Schaltfläche, um die Navigationsleiste zu fixieren.</string>
     <string name="force_immersive_guide_dialog_message4">Auf manchen Bildschirmen, wie z. B auf dem Startbildschirm, wird die Navigationsleiste immer angezeigt.</string>
     <string name="force_immersive_guide_dialog_guide_path">Wechseln Sie zum Ausblenden dieser Schaltfläche zu „Einstellungen > Anzeige > Navigationsleiste“.</string>
     <string name="force_immersive_guide_dialog_setting">Einstellungen</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">Zweimal tippen, um die Navigationsleiste auszublenden.</string>
+    <string name="force_immersive_guide_toast_show">Zweimal tippen, um die Navigationsleiste zu fixieren.</string>
     <string name="car_lockscreen_disclaimer_title">Sicher fahren</string>
     <string name="car_lockscreen_disclaimer_text">Achte stets auf die Straßenverhältnisse und halte dich an die geltenden Gesetze. Routen können unter Umständen fehlerhaft, unvollständig, gefährlich, ungeeignet oder verboten sein oder das Überqueren von Verwaltungsgrenzen erfordern. Informationen zum Unternehmen können ebenfalls fehlerhaft oder unvollständig sein. Die Datenübertragung erfolgt nicht in Echtzeit und die Genauigkeit der Standortangaben kann nicht gewährleistet werden. Bediene während der Fahrt nicht dein Mobilgerät und verwende keine Apps, die du nicht über Android Auto steuern kannst.</string>
     <string name="pip_close">PIP schließen</string>

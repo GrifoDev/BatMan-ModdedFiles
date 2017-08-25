@@ -1816,13 +1816,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Elfogadom</string>
     <string name="force_immersive_guide_text">Ezt a gombot megérintve elrejtheti a navigációs sávot. A navigációs gombokat továbbra is használhatja úgy, hogy felhúzza a képernyő alját. Amikor a navigációs sáv látható, ezt a gombot újból megérintve rögzítheti a sáv megjelenítését. Egyes képernyőkön – például a kezdőképernyőn – a navigációs sáv mindig látható. Ha egy alkalmazás nem működik megfelelően a navigációs sáv elrejtésekor, akkor rögzítse a navigációs sáv megjelenítését, és indítsa újra az alkalmazást.</string>
     <string name="force_immersive_guide_dialog_title">Navigációs sáv elrejtése:</string>
-    <string name="force_immersive_guide_dialog_message1">Ezt a gombot megérintve elrejtheti a navigációs sávot.</string>
+    <string name="force_immersive_guide_dialog_message1">A navigációs sáv elrejtéséhez érintse meg kétszer a gombot.</string>
     <string name="force_immersive_guide_dialog_message2">A navigációs sáv megjelenítéséhez húzza felfelé az ujját a képernyő aljáról.</string>
-    <string name="force_immersive_guide_dialog_message3">A rögzítéséhez érintse meg ezt a gombot ismét.</string>
+    <string name="force_immersive_guide_dialog_message3">A navigációs sáv rögzítéséhez ismét érintse meg kétszer a gombot.</string>
     <string name="force_immersive_guide_dialog_message4">Egyes képernyőkön – például a kezdőképernyőn – a navigációs sáv mindig látható.</string>
     <string name="force_immersive_guide_dialog_guide_path">A gomb elrejtéséhez nyissa meg a Beállítások > Kijelző > Navigációs sáv menüpontot.</string>
     <string name="force_immersive_guide_dialog_setting">Beállítások</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">Érintse meg kétszer a navigációs sáv elrejtéséhez.</string>
+    <string name="force_immersive_guide_toast_show">Érintse meg kétszer a navigációs sáv rögzítéséhez.</string>
     <string name="car_lockscreen_disclaimer_title">Vezessen óvatosan</string>
     <string name="car_lockscreen_disclaimer_text">Mindig legyen teljes mértékben tisztában a vezetési körülményekkel, és a vonatkozó törvényeket tartsa be! Az útvonaltervek pontatlanok, hiányosak, veszélyesek, nem megfelelők vagy tiltottak lehetnek, illetve a közforgalom számára nem használható utakat érinthetnek. Az üzleti információk is pontatlanok vagy hiányosak lehetnek. Az adatok nem valós idejűek, ezért nem garantálhatjuk a helyadatok pontosságát. Vezetés közben ne kezelje mobileszközét, illetve ne használjon olyan alkalmazásokat az Android Auto rendszerrel, amelyeket nem ahhoz terveztek.</string>
     <string name="pip_close">PIP bezárása</string>

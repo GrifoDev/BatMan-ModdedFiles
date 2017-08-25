@@ -1758,7 +1758,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0f0a0a
+    const v2, 0x7f0f0a0c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1786,7 +1786,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0f0a0b
+    const v2, 0x7f0f0a0d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1806,7 +1806,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0f0a0d
+    const v2, 0x7f0f0a0f
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1835,7 +1835,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0f0a0c
+    const v2, 0x7f0f0a0e
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2109,7 +2109,7 @@
 
     aput-object v5, v4, v8
 
-    const v5, 0x7f0f0a21
+    const v5, 0x7f0f0a23
 
     invoke-virtual {v3, v5, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2117,7 +2117,7 @@
 
     invoke-virtual {v0, v3}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setMessage(Ljava/lang/CharSequence;)V
 
-    const v3, 0x7f0f0a23
+    const v3, 0x7f0f0a25
 
     invoke-virtual {v0, v3, v7}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)V
 
@@ -2125,7 +2125,7 @@
 
     invoke-direct {v3, p0, v1, v2}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$13;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;Ljava/lang/String;I)V
 
-    const v4, 0x7f0f0a22
+    const v4, 0x7f0f0a24
 
     invoke-virtual {v0, v4, v3}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)V
 
@@ -2193,7 +2193,7 @@
 
     aput-object v1, v3, v6
 
-    const v4, 0x7f0f0a21
+    const v4, 0x7f0f0a23
 
     invoke-virtual {v2, v4, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2201,7 +2201,7 @@
 
     invoke-virtual {v0, v2}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setMessage(Ljava/lang/CharSequence;)V
 
-    const v2, 0x7f0f0a23
+    const v2, 0x7f0f0a25
 
     invoke-virtual {v0, v2, v5}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)V
 
@@ -2209,7 +2209,7 @@
 
     invoke-direct {v2, p0, p1}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$9;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;Ljava/util/ArrayList;)V
 
-    const v3, 0x7f0f0a22
+    const v3, 0x7f0f0a24
 
     invoke-virtual {v0, v3, v2}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)V
 
@@ -2446,7 +2446,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0f0a1d
+    const v4, 0x7f0f0a1f
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2454,7 +2454,7 @@
 
     invoke-virtual {v0, v3}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setMessage(Ljava/lang/CharSequence;)V
 
-    const v3, 0x7f0f0a20
+    const v3, 0x7f0f0a22
 
     invoke-virtual {v0, v3, v5}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)V
 
@@ -2462,7 +2462,7 @@
 
     invoke-direct {v3, p0, v1, v2}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$11;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;Ljava/lang/String;I)V
 
-    const v4, 0x7f0f0a1f
+    const v4, 0x7f0f0a21
 
     invoke-virtual {v0, v4, v3}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)V
 
@@ -2518,7 +2518,7 @@
 
     invoke-direct {v0, v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0f0a1c
+    const v1, 0x7f0f0a1e
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setTitle(I)V
 
@@ -2530,7 +2530,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0f0a1e
+    const v3, 0x7f0f0a20
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2556,7 +2556,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setMessage(Ljava/lang/CharSequence;)V
 
-    const v1, 0x7f0f0a20
+    const v1, 0x7f0f0a22
 
     invoke-virtual {v0, v1, v4}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)V
 
@@ -2564,7 +2564,7 @@
 
     invoke-direct {v1, p0, p2}, Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout$7;-><init>(Lcom/android/systemui/statusbar/phone/taskbar/views/AllAppsLayout;Ljava/util/ArrayList;)V
 
-    const v2, 0x7f0f0a1f
+    const v2, 0x7f0f0a21
 
     invoke-virtual {v0, v2, v1}, Lcom/android/systemui/statusbar/phone/SystemUIDialog;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)V
 
@@ -2665,7 +2665,7 @@
 
     move-result-object v14
 
-    const v15, 0x7f0f0a19
+    const v15, 0x7f0f0a1b
 
     invoke-virtual {v14, v15}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4364,7 +4364,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0f0a14
+    const v8, 0x7f0f0a16
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4544,7 +4544,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0f0a1a
+    const v8, 0x7f0f0a1c
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4578,7 +4578,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0f0a1b
+    const v8, 0x7f0f0a1d
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

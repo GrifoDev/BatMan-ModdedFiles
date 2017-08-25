@@ -168,7 +168,7 @@
     <string name="bluetooth_tethering_cannot_connect_while_connected_to_wifi">Niy idzie korzystać z routera Bluetooth przi połōnczyniu z necym Wi-Fi.</string>
     <string name="video_call_title">Połōnczynie wideo</string>
     <string name="app_label">Interf. sys.</string>
-    <string name="status_bar_clear_all_button">Wycz. wszys.</string>
+    <string name="status_bar_clear_all_button">Wyp. wszyjs.</string>
     <string name="brightness_controller_label_text">Auto</string>
     <string name="quick_settings_brightness_controller_hbm">Zmaksymaliz. dlo nojlepszego widoku w słōńcu</string>
     <string name="tw_recents_lock_to_app_button_label">Przipniyńcie aplikacyji</string>
@@ -901,13 +901,15 @@ Zwracamy uwagę, że aby umożliwić skierowanie Twoich połączeń na numery al
     <string name="wfc_enable_dialog_opv_btn">Akceptuję</string>
     <string name="force_immersive_guide_text">Dotknięcie tego przycisku powoduje ukrycie paska nawigacji. Możesz nadal używać przycisków nawigacji po przeciągnięciu w górę od dołu ekranu. Kiedy pasek nawigacji jest widoczny, możesz dotknąć tego przycisku ponownie, aby zablokować pasek na miejscu. Na niektórych ekranach, takich jak Ekran startowy, pasek nawigacji będzie zawsze widoczny. Jeśli aplikacja nie działa normalnie przy ukrytym pasku nawigacji, zablokuj pasek nawigacji na miejscu i uruchom ponownie aplikację.</string>
     <string name="force_immersive_guide_dialog_title">Ukryj pasek nawigacji:</string>
-    <string name="force_immersive_guide_dialog_message1">Dotknięcie tego przycisku powoduje ukrycie paska nawigacji.</string>
+    <string name="force_immersive_guide_dialog_message1">Dotknij dwukrotnie tego przycisku, aby ukryć pasek nawigacji.</string>
     <string name="force_immersive_guide_dialog_message2">Przeciągnij palcem w górę z dołu ekranu, aby pokazać pasek nawigacji.</string>
-    <string name="force_immersive_guide_dialog_message3">Dotknij ponownie tego przycisku, aby zablokować pasek nawigacji na miejscu.</string>
+    <string name="force_immersive_guide_dialog_message3">Ponownie dotknij dwukrotnie tego przycisku, aby zablokować pasek nawigacji na miejscu.</string>
     <string name="force_immersive_guide_dialog_message4">Na niektórych ekranach, takich jak ekran startowy, pasek nawigacji będzie zawsze widoczny.</string>
     <string name="force_immersive_guide_dialog_guide_path">Aby ukryć ten przycisk, przejdź do menu Ustawienia > Wyświetlanie > Pasek nawigacji.</string>
     <string name="force_immersive_guide_dialog_setting">Sztalowanie</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">Tyknij dwa razy, coby skryć pŏsek ôd kerowanio.</string>
+    <string name="force_immersive_guide_toast_show">Tyknij dwa razy, coby bloknōńć pŏsek ôd kerowanio.</string>
     <string name="keyguard_password_enter_pin_code">Wpisz kod PIN.</string>
     <string name="keyguard_password_wrong_pin_code">Niyprawy kod PIN.</string>
     <string name="keyguard_charged">W pełni naładowana</string>

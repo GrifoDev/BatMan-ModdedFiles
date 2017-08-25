@@ -1816,13 +1816,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Saya menerima</string>
     <string name="force_immersive_guide_text">Mengetuk tombol ini menyembunyikan bilah navigasi. Anda masih dapat menggunakan tombol navigasi dengan mengusap ke atas dari bagian bawah layar. Saat bilah navigasi ditampilkan, Anda dapat mengetuk tombol ini lagi untuk menguncinya di tempat. Pada beberapa layar seperti Layar depan, bilah navigasi akan selalu ditampilkan. Jika aplikasi tidak berjalan dengan normal saat bilah navigasi tersembunyi, kunci bilah navigasi di tempat dan mulai ulang aplikasi.</string>
     <string name="force_immersive_guide_dialog_title">Sembunyikan bilah navigasi:</string>
-    <string name="force_immersive_guide_dialog_message1">Mengetuk tombol ini akan menyembunyikan bilah navigasi.</string>
+    <string name="force_immersive_guide_dialog_message1">Ketuk dua kali tombol ini untuk menyembunyikan bilah navigasi.</string>
     <string name="force_immersive_guide_dialog_message2">Geser ke atas dari bagian bawah layar untuk menampilkan bilah navigasi.</string>
-    <string name="force_immersive_guide_dialog_message3">Ketuk lagi tombol ini untuk mengunci di tempatnya.</string>
+    <string name="force_immersive_guide_dialog_message3">Ketuk dua kali tombol ini lagi untuk mengunci bilah navigasi di tempat.</string>
     <string name="force_immersive_guide_dialog_message4">Pada beberapa layar seperti Layar depan, bilah navigasi akan selalu ditampilkan.</string>
     <string name="force_immersive_guide_dialog_guide_path">Untuk menyembunyikan tombol ini, buka Pengaturan > Tampilan > Bilah navigasi.</string>
     <string name="force_immersive_guide_dialog_setting">Pengaturan</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">Ketuk dua kali untuk menyembunyikan bilah navigasi.</string>
+    <string name="force_immersive_guide_toast_show">Ketuk dua kali untuk mengunci bilah navigasi.</string>
     <string name="car_lockscreen_disclaimer_title">Hati-hati saat berkendara</string>
     <string name="car_lockscreen_disclaimer_text">Tetap perhatikan keadaan saat mengemudi dan selalu patuhi peraturan yang berlaku. Petunjuk arah mungkin tidak akurat, tidak lengkap, berbahaya, tidak cocok, terlarang, atau dapat melewati wilayah administratif. Informasi bisnis juga mungkin tidak akurat atau tidak lengkap. Data tidak dalam waktu nyata dan keakuratan lokasi tidak dijamin. Jangan menggunakan perangkat seluler atau aplikasi yang tidak berkaitan dengan Android Auto saat mengemudi.</string>
     <string name="pip_close">Tutup PIP</string>

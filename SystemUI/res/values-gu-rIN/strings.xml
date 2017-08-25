@@ -1815,13 +1815,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">હું સ્વીકારું છું</string>
     <string name="force_immersive_guide_text">આ બટન ટેપ કરવાથી નેવિગેશન બાર છુપાઈ જાય છે. તમે સ્ક્રીનના તળિયેથી સ્વાઇપ કરીને તમે હજી પણ નેવિગેશન બટનનોનો ઉપયોગ કરી શકો છો. જ્યારે નેવિગેશન બાર બતાવવામાં આવે, ત્યારે તમે તેને એક સ્થાને લોક કરવા માટે આ બટનને ટેપ કરી શકો છો. હોમ સ્ક્રીન જેવી, કેટલીક સ્ક્રીન્સ પર નેવિગેશન બાર હંમેશા બતાવવામાં આવશે. નેવિગેશન બાર છુપાયેલ હોય ત્યારે જો કોઈ એપ સામાન્ય રીતે વર્તન ન કરતી હોય, તો નેવિગેશન બારને એક સ્થાને લોક કરો અને એપને પુનઃપ્રારંભ કરો.</string>
     <string name="force_immersive_guide_dialog_title">નેવિગેશન બાર છુપાવો:</string>
-    <string name="force_immersive_guide_dialog_message1">આ બટન ટેપ કરવાથી નેવિગેશન બાર છુપાઈ જાય છે.</string>
+    <string name="force_immersive_guide_dialog_message1">નેવિગેશન બારને છુપાવવા માટે આ બટનને બે વાર ટેપ કરો.</string>
     <string name="force_immersive_guide_dialog_message2">નેવીગેશન બારને બતાવવા માટે સ્ક્રીનના તળિયાથી ઉપરની તરફ સ્વાઇપ કરો.</string>
-    <string name="force_immersive_guide_dialog_message3">આ બટનને સ્થળની અંદર ત્યાંજ લોક કરવા માટે એને ફરીથી ટેપ કરો.</string>
+    <string name="force_immersive_guide_dialog_message3">સ્થાનમાં નેવિગેશન બાર લોક કરવા માટે લોકના ચિહ્નને ટેપ કરો.</string>
     <string name="force_immersive_guide_dialog_message4">હોમ સ્ક્રીન જેવી કેટલીક સ્ક્રીનો પર, નેવિગેશન બાર પર હંમેશા બતાવવામાં આવશે.</string>
     <string name="force_immersive_guide_dialog_guide_path">આ બટનને છુપાવવા માટે, સેટિંગ્સ > પ્રદર્શન > નેવિગેશન બાર પર જાઓ.</string>
     <string name="force_immersive_guide_dialog_setting">સેટિંગ્સ</string>
     <string name="force_immersive_guide_dialog_ok">ઓકે</string>
+    <string name="force_immersive_guide_toast_hide">નેવિગેશન બારને છુપાવવા માટે બેવાર ટેપ કરો.</string>
+    <string name="force_immersive_guide_toast_show">નેવિગેશન બારને લોક કરવા માટે બેવાર ટેપ કરો.</string>
     <string name="car_lockscreen_disclaimer_title">સુરક્ષિત રીતે વાહન ચલાવો</string>
     <string name="car_lockscreen_disclaimer_text">ડ્રાઇવિંગ સ્થિતિઓથી સંપૂર્ણપણે વાકેફ રહો અને હંમેશા લાગુ કાયદાઓનું પાલન કરો. દિશા નિર્દેશો અચોક્કસ, અપૂર્ણ, જોખમમકારક, બિન અનુકૂળ, પ્રતિબંધિત અથવા વહીવટી વિસ્તારોને ઓળંગવાનું સમાવતા હોઇ શકે છે. વ્યવસાય માહિતી પણ અચોક્કસ અથવા અપૂર્ણ હોઇ શકે છે. ડેટા રિઅલ-ટાઇમ નથી અને સ્થાન ચોકસાઈની ગેરંટી આપી શકતાં નથી. ડ્રાઇવિંગ કરતી વખતે Android Auto માટે તમારું મોબાઇલ સાધન હેન્ડલ કરવું અથવા ઍપ્લિકેશનનો ઉપયોગ કરવાનું કોઇ પ્રયોજન નથી.</string>
     <string name="pip_close">PIP બંધ કરો</string>

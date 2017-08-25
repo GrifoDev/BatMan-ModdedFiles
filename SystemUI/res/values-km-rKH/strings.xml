@@ -1816,13 +1816,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">ខ្ញុំ​ព្រមទទួល</string>
     <string name="force_immersive_guide_text">ការប៉ះ​ប៊ូតុង​នេះ​លាក់​របារ​រុករក។ អ្នក​នៅតែ​អាច​ប្រើ​ប៊ូតុង​រុករក​ដដែល ដោយ​អូស​ឡើងលើ​ពី​ផ្នែក​ខាងក្រោម​នៃ​អេក្រង់។ ខណៈពេល​បង្ហាញ​របារ​រុករក អ្នក​អាច​ប៉ះ​ប៊ូតុង​នេះ​ម្ដងទៀត ដើម្បី​ចាក់សោ​វា​នៅ​នឹង​កន្លែង។ លើ​អេក្រង់​ខ្លះ ដូចជា​គេហអេក្រង់ របារ​រុករក​នឹង​តែងតែ​បង្ហាញ​ជានិច្ច។ បើ​កម្មវិធី​មួយ​ធ្វើ​អំពើ​ខុស​ប្រក្រតី ខណៈពេល​បាន​លាក់​របារ​រុករក សូម​ចាក់សោ​របារ​រុករក​នៅ​នឹង​កន្លែង ហើយ​ចាប់ផ្ដើម​កម្មវិធី​នោះ​ឡើងវិញ។</string>
     <string name="force_immersive_guide_dialog_title">លាក់​របារ​រុករក៖</string>
-    <string name="force_immersive_guide_dialog_message1">ការប៉ះ​ប៊ូតុង​នេះ​លាក់​របារ​រុករក។</string>
+    <string name="force_immersive_guide_dialog_message1">ប៉ះ​ពីរដង​លើ​ប៊ូតុង​នេះ ដើម្បី​លាក់​របារ​រុករក។</string>
     <string name="force_immersive_guide_dialog_message2">អូស​អេក្រង់​ពី​ក្រោម​ឡើងលើ ដើម្បី​បង្ហាញ​របារ​រុករក។</string>
-    <string name="force_immersive_guide_dialog_message3">ប៉ះ​ប៊ូតុង​នេះ​ម្ដងទៀត ដើម្បី​ចាក់សោ​វា​ជាប់នឹង​កន្លែង។</string>
+    <string name="force_immersive_guide_dialog_message3">ប៉ះ​ពីរដង​លើ​ប៊ូតុង​នេះ​ម្ដងទៀត ដើម្បី​ចាក់សោ​របារ​រុករក​ជាប់​នឹង​កន្លែង។</string>
     <string name="force_immersive_guide_dialog_message4">លើ​អេក្រង់​ខ្លះ ដូចជា​គេហអេក្រង់ របារ​រុករក​នឹង​តែងតែ​បង្ហាញ​ជានិច្ច។</string>
     <string name="force_immersive_guide_dialog_guide_path">ដើម្បី​លាក់​ប៊ូតុង​នេះ សូម​ចូលទៅ ការកំណត់ > អេក្រង់ > របារ​រុករក។</string>
     <string name="force_immersive_guide_dialog_setting">ការកំណត់</string>
     <string name="force_immersive_guide_dialog_ok">ព្រម</string>
+    <string name="force_immersive_guide_toast_hide">ប៉ះ​ពីរដង ដើម្បី​លាក់​របារ​រុករក។</string>
+    <string name="force_immersive_guide_toast_show">ប៉ះ​ពីរដង ដើម្បី​ចាក់សោ​របារ​រុករក។</string>
     <string name="car_lockscreen_disclaimer_title">បើកបរដោយសុវត្ថិភាព</string>
     <string name="car_lockscreen_disclaimer_text">ត្រូវមានការគ្រប់គ្រងពេញលេញលើស្ថានភាពបើកបរ និងគោរពច្បាប់ដែលត្រូវអនុវត្តជានិច្ច។ ទិសដៅអាចនឹងមិនមានភាពសុក្រិត មិនពេញលេញ គ្រោះថ្នាក់ មិនសមស្រប ឬពាក់ព័ន្ធនឹងការឆ្លងកាត់តំបន់រដ្ឋបាល។ ព័ត៌មានផ្នែកអាជីវកម្មក៏អាចនឹងមិនមានភាពសុក្រិត ឬមិនពេញលេញផងដែរ។ ទិន្នន័យគឺមិនមែនបញ្ជូនបន្តផ្ទាល់នោះទេ ហើយភាពសុក្រិតនៃទីតាំងក៏មិនអាចធានាបានផងដែរ។ កុំកាន់ឧបករណ៍ចល័តរបស់អ្នក ឬប្រើកម្មវិធីដែលមិនមែនសម្រាប់ Android Auto ខណៈពេលកំពុងបើកបរ។</string>
     <string name="pip_close">បិទ PIP</string>

@@ -1814,13 +1814,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Pranoj</string>
     <string name="force_immersive_guide_text">Po të trokasësh mbi këtë buton, do ta fshehësh shiritin e navigimit. Gjithnjë mund t’i përdorësh butonat e navigimit duke rrëshqitur lart që nga fundi i ekranit. Kur të tregohet shiriti i navigimit, mund të trokasësh mbi këtë buton sërish, për ta bllokuar në pozicion. Në disa ekrane, si në Ekranin bazë, shiriti i navigimit do të tregohet gjithnjë. Në qoftë se një app nuk sillet normalisht, kur shiriti i navigimit është fshehur, bllokoje shiritin e navigimit në pozicion dhe rinise app-in.</string>
     <string name="force_immersive_guide_dialog_title">Fshihe shiritin e navigimit:</string>
-    <string name="force_immersive_guide_dialog_message1">Duke trokitur mbi këtë buton, do ta fshehësh shiritin e navigimit.</string>
+    <string name="force_immersive_guide_dialog_message1">Dy-trokit mbi këtë buton, për ta fshehur shiritin e navigimit.</string>
     <string name="force_immersive_guide_dialog_message2">Rrëshqit lart nga pjesa e poshtme e ekranit, për të treguar shiritin e navigimit.</string>
-    <string name="force_immersive_guide_dialog_message3">Trokit sërish mbi këtë buton për ta kyçur në pozicion.</string>
+    <string name="force_immersive_guide_dialog_message3">Dy-trokit sërish mbi këtë buton për ta kyçur në pozicion shiritin e navigimit.</string>
     <string name="force_immersive_guide_dialog_message4">Në disa ekrane, si në Ekranin bazë, shiriti i navigimit gjithnjë do të tregohet.</string>
     <string name="force_immersive_guide_dialog_guide_path">Për ta fshehur këtë buton, shko te Cilësimet > Afishimi > Shiriti i navigimit.</string>
     <string name="force_immersive_guide_dialog_setting">Cilësimet</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">Dy-trokit për ta fshehur shiritin e navigimit.</string>
+    <string name="force_immersive_guide_toast_show">Dy-trokit për ta bllokuar shiritin e navigimit.</string>
     <string name="car_lockscreen_disclaimer_title">Drejtoje makinën në mënyrë të sigurt</string>
     <string name="car_lockscreen_disclaimer_text">Ji plotësisht i vetëdijshëm për kushtet e lëvizjes me makinë dhe respekto gjithmonë ligjet përkatëse. Udhëzimet mund të jenë të pasakta, jo të plota, të rrezikshme, të papërshtatshme, të ndaluara ose mund të përfshijnë kalimin në zona administrative. Informacionet e biznesit mund të jenë po ashtu të pasakta ose jo të plota. Të dhënat nuk janë në kohë reale dhe saktësia e vendndodhjes nuk mund të garantohet. Gjatë drejtimit të makinës mos e përdor pajisjen celulare ose mos përdor aplikacionet që nuk janë të planifikuara për Android Auto.</string>
     <string name="pip_close">Mbyll PIP</string>

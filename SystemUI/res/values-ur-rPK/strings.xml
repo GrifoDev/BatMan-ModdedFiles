@@ -1816,13 +1816,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">میں قبول کرتا ہوں</string>
     <string name="force_immersive_guide_text">یہ بٹن تھپکی دینے سے نیویگیشن بار چھپ جاتا ہے۔ اسکرین کے نیچلے حصہ سے اوپر کی طرف سوائپ کرکے آپ ابھی بھی نیویگیشن بٹنز کا استعمال کرسکتے ہیں۔ نیویگیشن بار دکھائی دینے کے وقت، آپ اسے اسی جگہ میں لاک کرنے کے لیے اس بٹن کو دوبارہ تھپکی دے سکتے ہیں۔ ہوم اسکرین جیسے کچھ اسکرین پر، نیویگیشن بار ہمیشہ دکھایا جائے گا۔ نیویگیشن بار پوشیدہ ہونے کے وقت اگر کوئی ایپلیکیشن عموما اچھا سے برتاؤ نہیں کرتا ہے، تو نیویگیشن بار کو اسی جگہ لاک کریں اور ایپلیکیشن کو پھر سے چالو کریں۔</string>
     <string name="force_immersive_guide_dialog_title">نیویگیشن بار چھپائیں:</string>
-    <string name="force_immersive_guide_dialog_message1">یہ بٹن تھپکی دینے سے نیویگیشن بار چھپ جاتا ہے۔</string>
+    <string name="force_immersive_guide_dialog_message1">نیویگیشن بار چھپانے کے لیے اس بٹن پر دوہری تھپکی دیں۔</string>
     <string name="force_immersive_guide_dialog_message2">نیویگیشن بار دکھانے کے لیے اسکرین کے نیچلے حصہ سے اوپر سوائپ کریں۔</string>
-    <string name="force_immersive_guide_dialog_message3">اسی جگہ لاک کرنے کے لیے اس بٹن کو دوبارہ تھپکی دیں۔</string>
+    <string name="force_immersive_guide_dialog_message3">نیویگیشن بار اسی جگہ لاک کرنے کے لیے پھرسے اس بٹن کو دوہری تھپکی دیں۔</string>
     <string name="force_immersive_guide_dialog_message4">اسی اسکرینز پر، ہوم اسکرین جیسے اسکرین پر، نیویگیشن بار ہمیشہ دکھایا جائے گا۔</string>
     <string name="force_immersive_guide_dialog_guide_path">اس بٹن کو چھپانے کے لیے، سیٹنگز > ڈسپلے > نیویگیشن بار پر جائیں۔</string>
     <string name="force_immersive_guide_dialog_setting">سیٹنگز</string>
     <string name="force_immersive_guide_dialog_ok">ٹھیک ہے</string>
+    <string name="force_immersive_guide_toast_hide">نیویگیشن بار کو چھپانے کے لیے دوہری تھپکی دیں۔</string>
+    <string name="force_immersive_guide_toast_show">نیویگیشن بار کو لاک کرنے کے لیے دوہری تھپکی دیں۔</string>
     <string name="car_lockscreen_disclaimer_title">احتیاط سے گاڑی چلائیں</string>
     <string name="car_lockscreen_disclaimer_text">‏گاڑی چلاتے وقت اپنے گردونواح سے مکمل طور پر باخبر رہیں اور ہمیشہ قابل اطلاق قوانین کی پابندی کریں۔ ہدایات غلط، نامکمل، خطرناک، موزوں نہیں، ممنوع یا انتظامی علاقوں میں سے گزرنے کے متعلق ہو سکتی ہیں۔ کاروباری معلومات بھی غلط یا نامکمل ہو سکتی ہے۔ گاڑی چلاتے وقت اپنا موبائل آلہ یا وہ ایپس استعمال نہ کریں جو Android Auto کیلئے نہیں ہیں۔</string>
     <string name="pip_close">‏PIP بند کریں</string>

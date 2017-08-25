@@ -1824,13 +1824,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">同意</string>
     <string name="force_immersive_guide_text">このボタンをタップすると、ナビゲーションバーが非表示になります。画面下部から上にスワイプすると、ナビゲーションボタンを使用できます。ナビゲーションバーが表示されているときに、再度このボタンをタップすると、ナビゲーションバーを固定することができます。ホーム画面などの一部の画面では、ナビゲーションバーは常に表示されます。ナビゲーションバーが非表示のときにアプリが正しく動作しない場合は、ナビゲーションバーを固定してアプリを再起動してください。</string>
     <string name="force_immersive_guide_dialog_title">ナビゲーションバーを非表示</string>
-    <string name="force_immersive_guide_dialog_message1">このボタンをタップすると、ナビゲーションバーが非表示になります。</string>
+    <string name="force_immersive_guide_dialog_message1">ナビゲーションバーを非表示にするには、このボタンをダブルタップしてください。</string>
     <string name="force_immersive_guide_dialog_message2">ナビゲーションバーを表示するには、画面を下から上にスワイプします。</string>
-    <string name="force_immersive_guide_dialog_message3">このボタンを再度タップすると、ナビゲーションバーが固定されます。</string>
+    <string name="force_immersive_guide_dialog_message3">ナビゲーションバーを固定するには、このボタンを再度ダブルタップしてください。</string>
     <string name="force_immersive_guide_dialog_message4">ホーム画面などの一部の画面では、ナビゲーションバーは常に表示されます。</string>
     <string name="force_immersive_guide_dialog_guide_path">このボタンを非表示にするには、[設定] > [ディスプレイ] > [ナビゲーションバー]に移動してください。</string>
     <string name="force_immersive_guide_dialog_setting">設定</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">ナビゲーションバーを非表示にするには、ダブルタップしてください。</string>
+    <string name="force_immersive_guide_toast_show">ナビゲーションバーを固定するには、ダブルタップしてください。</string>
     <string name="car_lockscreen_disclaimer_title">安全運転を心がけましょう</string>
     <string name="car_lockscreen_disclaimer_text">道路状況に十分気を配り、適用される法律を遵守してください。経路は、不正確、不完全、危険、不適切である場合や、通行が禁止されている、管理区域を通行する必要があるなどの場合があります。ビジネス情報も不正確または不完全である可能性があります。データはリアルタイムではなく、場所の正確性は保証されません。運転中はモバイル端末を手に持って操作したり、Android Auto とは無関係のアプリを使用したりしないでください。</string>
     <string name="pip_close">PIP を閉じる</string>

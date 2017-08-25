@@ -1816,13 +1816,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Αποδέχομαι</string>
     <string name="force_immersive_guide_text">Πατώντας αυτό το κουμπί, γίνεται απόκρυψη της γραμμής πλοήγησης. Μπορείτε ακόμη να χρησιμοποιείτε τα κουμπιά πλοήγησης, σαρώνοντας προς τα επάνω από το κάτω μέρος της οθόνης. Όσο η γραμμή πλοήγησης είναι ορατή, μπορείτε να πατήσετε αυτό το κουμπί ξανά για να την κλειδώσετε στο σημείο αυτό. Σε ορισμένες οθόνες, όπως στην Αρχική οθόνη, η γραμμή πλοήγησης θα είναι πάντα ορατή. Αν μια εφαρμογή δεν συμπεριφέρεται κανονικά όταν δεν είναι ορατή η γραμμή πλοήγησης, κλειδώστε τη γραμμή στη θέση της και επανεκκινήστε την εφαρμογή.</string>
     <string name="force_immersive_guide_dialog_title">Απόκρυψη γραμμής πλοήγησης:</string>
-    <string name="force_immersive_guide_dialog_message1">Αν πατήσετε αυτό το κουμπί, θα αποκρύψετε τη γραμμή πλοήγησης.</string>
+    <string name="force_immersive_guide_dialog_message1">Πατήστε δύο φορές αυτό το κουμπί για να αποκρύψετε τη γραμμή πλοήγησης.</string>
     <string name="force_immersive_guide_dialog_message2">Σαρώστε προς τα επάνω από το κάτω μέρος της οθόνης για την εμφάνιση της γραμμής πλοήγησης.</string>
-    <string name="force_immersive_guide_dialog_message3">Πατήστε ξανά αυτό το κουμπί για να κλειδώσετε τη θέση του.</string>
+    <string name="force_immersive_guide_dialog_message3">Πατήστε δύο φορές αυτό το κουμπί για να κλειδώσετε τη γραμμή πλοήγησης.</string>
     <string name="force_immersive_guide_dialog_message4">Σε ορισμένες οθόνες, όπως την Αρχική οθόνη, η γραμμή πλοήγησης εμφανίζεται πάντα.</string>
     <string name="force_immersive_guide_dialog_guide_path">Για την απόκρυψη αυτού του κουμπιού, μεταβείτε στο μενού Ρυθμίσεις > Οθόνη > Γραμμή πλοήγησης.</string>
     <string name="force_immersive_guide_dialog_setting">Ρυθμίσεις</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">Πατήστε δύο φορές για να αποκρύψετε τη γραμμή πλοήγησης.</string>
+    <string name="force_immersive_guide_toast_show">Πατήστε δύο φορές για να κλειδώσετε τη γραμμή πλοήγησης.</string>
     <string name="car_lockscreen_disclaimer_title">Οδηγείτε προσεκτικά</string>
     <string name="car_lockscreen_disclaimer_text">Μείνετε πλήρως ενημερωμένοι για τις προϋποθέσεις οδήγησης και υπακούτε πάντα τους ισχύοντες νόμους. Οι οδηγίες μπορεί να είναι ανακριβείς, ελλιπείς, επικίνδυνες, ακατάλληλες, απαγορευμένες ή να ανήκουν σε άλλες διοικητικές περιοχές. Οι πληροφορίες επιχειρήσεων μπορεί επίσης να είναι ανακριβείς ή ελλιπείς. Τα δεδομένα δεν είναι σε πραγματικό χρόνο και η ακρίβεια των τοποθεσιών δεν είναι εγγυημένη. Μη χειρίζεστε την κινητή συσκευή σας και μη χρησιμοποιείτε εφαρμογές που δεν προορίζονται για το Android Auto ενώ οδηγείτε.</string>
     <string name="pip_close">Κλείσιμο PIP</string>

@@ -902,13 +902,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Glacaim leis</string>
     <string name="force_immersive_guide_text">Folaítear an barra nascleanúna ar thapáil an chnaipe seo. Is féidir leat na cnaipí nascleanúna a úsáid go fóill trí svaidhpeáil aníos ó bhun an scáileáin. Agus an barra nascleanúna ar taispeáint, is féidir leat an cnaipe seo a thapáil arís lena ghlasáil ina áit. Ar roinnt scáileán, amhail an Scáileán baile, taispeánfar an barra nascleanúna i gcónaí. Mura n-oibríonn feidhmchlár i gceart agus an barra nascleanúna folaithe, glasáil an barra nascleanúna ina áit agus atosaigh an feidhmchlár.</string>
     <string name="force_immersive_guide_dialog_title">Folaigh an barra nascleanúna:</string>
-    <string name="force_immersive_guide_dialog_message1">Folaítear an barra nascleanúna tríd an gcnaipe seo a thapáil.</string>
+    <string name="force_immersive_guide_dialog_message1">Déthapáil an cnaipe seo leis an mbarra nascleanúna a fholú.</string>
     <string name="force_immersive_guide_dialog_message2">Svaidhpeáil aníos ó bhun an scáileáin leis an mbarra nascleanúna a thaispeáint.</string>
-    <string name="force_immersive_guide_dialog_message3">Tapáil an cnaipe seo arís lena ghlasáil ina áit.</string>
+    <string name="force_immersive_guide_dialog_message3">Déthapáil an cnaipe seo arís leis an mbarra nascleanúna a ghlasáil ina áit.</string>
     <string name="force_immersive_guide_dialog_message4">Ar roinnt scáileán, amhail an Scáileán baile, taispeánfar an barra nascleanúna i gcónaí.</string>
     <string name="force_immersive_guide_dialog_guide_path">Leis an gcnaipe seo a fholú, gabh chuig Socruithe > Taispeáint > Barra nascleanúna.</string>
     <string name="force_immersive_guide_dialog_setting">Socruithe</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">Déthapáil leis an mbarra nascleanúna a fholú.</string>
+    <string name="force_immersive_guide_toast_show">Déthapáil leis an mbarra nascleanúna a ghlasáil.</string>
     <string name="keyguard_password_enter_pin_code">Scríobh cód PIN</string>
     <string name="keyguard_password_wrong_pin_code">Cód PIN mícheart.</string>
     <string name="keyguard_charged">Lánluchtaithe</string>

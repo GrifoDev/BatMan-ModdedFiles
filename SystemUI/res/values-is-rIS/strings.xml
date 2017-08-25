@@ -1828,13 +1828,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Ég samþykki</string>
     <string name="force_immersive_guide_text">Ef pikkað er á þennan hnapp er yfirlitsstikan falin. Enn er hægt að nota flettihnappana með því að strjúka upp frá neðri hluta skjásins. Hægt er að festa yfirlitsstikuna með því að pikka aftur á þennan hnapp þegar hún er sýnileg. Yfirlitsstikan er alltaf sýnd á sumum skjáum, t.d. heimaskjánum. Ef forrit hegðar sér ekki eðlilega á meðan yfirlitsstikan er falin skal festa yfirlitsstikuna og endurræsa forritið.</string>
     <string name="force_immersive_guide_dialog_title">Fela yfirlitsstiku:</string>
-    <string name="force_immersive_guide_dialog_message1">Hægt er að fela yfirlitsstikuna með því að pikka á þennan hnapp.</string>
+    <string name="force_immersive_guide_dialog_message1">Pikkaðu tvisvar á þennan hnapp til að fela yfirlitsstikuna.</string>
     <string name="force_immersive_guide_dialog_message2">Strjúktu upp frá neðsta hluta skjásins til að birta leiðsagnarstikuna.</string>
-    <string name="force_immersive_guide_dialog_message3">Pikkaðu aftur á þennan hnapp til að festa hana.</string>
+    <string name="force_immersive_guide_dialog_message3">Pikkaðu aftur tvisvar á þennan hnapp til að festa yfirlitsstikuna.</string>
     <string name="force_immersive_guide_dialog_message4">Á sumum skjáum, t.d. heimaskjánum, er yfirlitsstikan alltaf sýnd.</string>
     <string name="force_immersive_guide_dialog_guide_path">Opnaðu „Stillingar > Skjár > Yfirlitsstika“ til að fela þennan hnapp.</string>
     <string name="force_immersive_guide_dialog_setting">Stillingar</string>
     <string name="force_immersive_guide_dialog_ok">Í LAGI</string>
+    <string name="force_immersive_guide_toast_hide">Pikkaðu tvisvar til að fela yfirlitsstikuna.</string>
+    <string name="force_immersive_guide_toast_show">Pikkaðu tvisvar til að festa yfirlitsstikuna.</string>
     <string name="car_lockscreen_disclaimer_title">Aktu varlega</string>
     <string name="car_lockscreen_disclaimer_text">Vertu vakandi fyrir akstursskilyrðum hverju sinni og farðu ævinlega eftir gildandi lögum. Leiðarlýsing kann að vera ónákvæm, ófullkomin, ekki við hæfi, bönnuð eða fela í sér ferðir um opinber svæði. Upplýsingar um fyrirtæki kunna einnig að vera ónákvæmar eða ófullkomnar. Gögn eru ekki í rauntíma og ekki er hægt að tryggja nákvæmni staðsetningarupplýsinga. Ekki handleika fartækið þitt meðan á akstri stendur eða nota forrit sem ekki eru hugsuð fyrir Android Auto.</string>
     <string name="pip_close">Loka mynd í mynd</string>

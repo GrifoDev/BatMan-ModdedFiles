@@ -3,7 +3,7 @@
 .source "SecNavigationBarView.java"
 
 # interfaces
-.implements Landroid/content/DialogInterface$OnDismissListener;
+.implements Landroid/content/DialogInterface$OnKeyListener;
 
 
 # annotations
@@ -34,14 +34,17 @@
 
 
 # virtual methods
-.method public onDismiss(Landroid/content/DialogInterface;)V
-    .locals 2
+.method public onKey(Landroid/content/DialogInterface;ILandroid/view/KeyEvent;)Z
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$10;->this$0:Lcom/android/systemui/statusbar/phone/SecNavigationBarView;
+    const/4 v0, 0x4
 
-    const/4 v1, 0x0
+    if-ne p2, v0, :cond_0
 
-    invoke-static {v0, v1}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->-set0(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
+    invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
 
-    return-void
+    :cond_0
+    const/4 v0, 0x0
+
+    return v0
 .end method

@@ -1816,13 +1816,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Jag accepterar</string>
     <string name="force_immersive_guide_text">Om du trycker på den här knappen döljs navigeringsfältet. Du kan fortfarande använda navigeringsknapparna genom att svepa uppåt från skärmens nedre kant. När navigeringsfältet visas kan du låsa fast det på plats genom att trycka på knappen igen. Navigeringsfältet visas alltid på vissa skärmar, exempelvis hemskärmen. Om en app inte fungerar normalt när navigeringsfältet är dolt låser du fast navigeringsfältet på plats och startar om appen.</string>
     <string name="force_immersive_guide_dialog_title">Dölj navigationsfält:</string>
-    <string name="force_immersive_guide_dialog_message1">Om du trycker på den här knappen döljs navigeringsfältet.</string>
+    <string name="force_immersive_guide_dialog_message1">Dubbeltryck på den här knappen om du vill dölja navigeringsfältet.</string>
     <string name="force_immersive_guide_dialog_message2">Svep uppåt från skärmens nederkant för att visa navigeringsfältet.</string>
-    <string name="force_immersive_guide_dialog_message3">Tryck på den här knappen igen när du vill låsa det på plats.</string>
+    <string name="force_immersive_guide_dialog_message3">Dubbeltryck på den här knappen igen när du vill låsa fast navigeringsfältet på plats.</string>
     <string name="force_immersive_guide_dialog_message4">På vissa skärmar, som hemskärmen, visas navigeringsfältet alltid.</string>
     <string name="force_immersive_guide_dialog_guide_path">Om du vill dölja knappen öppnar du Inställningar > Visning > Navigeringsfält.</string>
     <string name="force_immersive_guide_dialog_setting">Inställningar</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">Dubbeltryck när du vill dölja navigeringsfältet.</string>
+    <string name="force_immersive_guide_toast_show">Dubbeltryck när du vill låsa navigeringsfältet.</string>
     <string name="car_lockscreen_disclaimer_title">Kör försiktigt</string>
     <string name="car_lockscreen_disclaimer_text">Håll koll på trafik- och körförhållanden och följ gällande lagar. Det kan hända att vägbeskrivningen inte stämmer, att den är ofullständig, farlig, olämplig, förbjuden eller att den innebär att du måste korsa en administrativ enhet. Det kan även hända att företagsuppgifter är felaktiga eller ofullständiga. Uppgifter visas inte i realtid och det går inte att garantera att platsen är korrekt. Hantera inte din mobila enhet och använd inte appar som inte är ämnade för Android Auto medan du kör.</string>
     <string name="pip_close">Stäng PIP</string>

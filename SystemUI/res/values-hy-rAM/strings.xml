@@ -1816,13 +1816,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Ես ընդունում եմ</string>
     <string name="force_immersive_guide_text">Այս կոճակը թակելիս նավարկման գոտին թաքցվում է: Դուք դեռ կարող եք օգտագործել նավարկման կոճակները՝ մատն էկրանի ներքևից վերև սահեցնելով: Նավարկման գոտու ցուցադրման ընթացքում կարող եք նորից թակել այս կոճակը՝ այն իր տեղում գամելու համար: Որոշ էկրաններում, օրինակ՝ Հիմնական էկրանում, նավարկման գոտին միշտ կցուցադրվի: Եթե որևէ ծրագիր նորմալ վարք չի դրսևորում նավարկման գոտին թաքցված լինելու ժամանակ, նավարկման գոտին գամեք իր տեղում և վերագործարկեք ծրագիրը:</string>
     <string name="force_immersive_guide_dialog_title">Թաքցրեք նավարկման գոտին՝</string>
-    <string name="force_immersive_guide_dialog_message1">Այս կոճակը թակելիս նավարկման գոտին թաքցվում է:</string>
+    <string name="force_immersive_guide_dialog_message1">Նորից կրկնակի թակեք այս կոճակը՝ նավարկման գոտին թաքցնելու համար:</string>
     <string name="force_immersive_guide_dialog_message2">Մատն էկրանի ներքևից վերև սահեցրեք՝ նավարկման գոտին ցույց տալու համար:</string>
-    <string name="force_immersive_guide_dialog_message3">Նորից թակեք այս կոճակը՝ այն իր տեղում գամելու համար:</string>
+    <string name="force_immersive_guide_dialog_message3">Նորից կրկնակի թակեք այս կոճակը՝ նավարկման գոտին իր տեղում գամելու համար:</string>
     <string name="force_immersive_guide_dialog_message4">Որոշ էկրաններում, օրինակ՝ Հիմնական էկրանում, նավարկման գոտին միշտ կցուցադրվի:</string>
     <string name="force_immersive_guide_dialog_guide_path">Այս կոճակը թաքցնելու համար գնացեք Դրվածքներ > Ցուցադրել > Նավարկման գոտի:</string>
     <string name="force_immersive_guide_dialog_setting">Դրվածքներ</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">Կրկնակի թակեք՝ նավարկման գոտին թաքցնելու համար:</string>
+    <string name="force_immersive_guide_toast_show">Կրկնակի թակեք՝ նավարկման գոտին կողպելու համար:</string>
     <string name="car_lockscreen_disclaimer_title">Վարեք ապահով</string>
     <string name="car_lockscreen_disclaimer_text">Երթևեկության պայմաններին միշտ լավատեղյակ եղեք և կատարեք համապատասխան օրենքների պահանջները: Երթուղիները կարող են լինել սխալ, կիսատ, վտանգավոր, ոչ պատշաճ, արգելված կամ կարող են անցնել վարչական միավորների միջով: Բիզնես տվյալները նույնպես կարող են լինել սխալ կամ կիսատ: Տվյալներն իրական ժամանակում չեն թարմացվում, իսկ տեղադրության ճշգրտությունը չի կարող երաշխավորվել: Մեքենա վարելիս մի օգտագործեք ձեր շարժական սարքը, ինչպես նաև Android Auto-ի համար չնախատեսված հավելվածները:</string>
     <string name="pip_close">Փակել PIP-ն</string>

@@ -1805,13 +1805,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">我接受</string>
     <string name="force_immersive_guide_text">輕觸此按鈕將隱藏導覽列。您仍可透過從螢幕底部向上滑動來使用導覽按鈕。導覽列顯示時，您可再次輕觸此圖示以將其鎖定到位。在部分螢幕上，比如主螢幕，將一律顯示導覽列。若導覽列隱藏時，應用程式無法正常運作，則請將導覽列鎖定到位並重新啟動該應用程式。</string>
     <string name="force_immersive_guide_dialog_title">隱藏導覽列：</string>
-    <string name="force_immersive_guide_dialog_message1">輕觸此按鍵將隱藏導覽列。</string>
+    <string name="force_immersive_guide_dialog_message1">輕觸兩下此按鍵以隱藏導覽列。</string>
     <string name="force_immersive_guide_dialog_message2">從螢幕底部向上滑動以顯示導覽列。</string>
-    <string name="force_immersive_guide_dialog_message3">再次輕觸此按鍵以將其鎖定到位。</string>
+    <string name="force_immersive_guide_dialog_message3">再次輕觸兩下此按鍵以將導覽列鎖定到位。</string>
     <string name="force_immersive_guide_dialog_message4">在部分螢幕上，例如主螢幕，導覽列將總是顯示。</string>
     <string name="force_immersive_guide_dialog_guide_path">若要隱藏此按鍵，請前往 [設定] > [顯示] > [導覽列]。</string>
     <string name="force_immersive_guide_dialog_setting">設定</string>
     <string name="force_immersive_guide_dialog_ok">確定</string>
+    <string name="force_immersive_guide_toast_hide">輕觸兩下以隱藏導覽列。</string>
+    <string name="force_immersive_guide_toast_show">輕觸兩下以鎖定導覽列。</string>
     <string name="car_lockscreen_disclaimer_title">請安全駕駛</string>
     <string name="car_lockscreen_disclaimer_text">請隨時留意路面情況，並遵守適用的交通規則。系統提供的路線可能不準確、不完整、存在危險、不適合、禁止通行，或涉及跨越行政區域的路段。此外，商家資訊也可能不準確或不完整。路況資料並非即時更新，也無法保證定位資訊的準確性。駕駛時請勿操作流動裝置，或使用不適用於 Android Auto 的應用程式。</string>
     <string name="pip_close">關閉 PIP</string>

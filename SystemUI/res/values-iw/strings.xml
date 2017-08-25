@@ -1814,13 +1814,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">אני מקבל</string>
     <string name="force_immersive_guide_text">הקשה על סמל זה תסתיר את פס הניווט. תוכל להמשיך להשתמש בלחצני הניווט על ידי החלקה מעלה מתחתית המסך. כאשר פס הניווט מוצג, ניתן להקיש שוב על הסמל כדי לנעול את הפס במקומו. במסכים מסוימים, כמו למשל מסך הבית, פס הניווט יוצג תמיד. אם התפקוד של יישום, השתבש כאשר פס הניווט מוסתר, נעל את פס הניווט במקומו והפעל את היישום מחדש.</string>
     <string name="force_immersive_guide_dialog_title">הסתר את פס הניווט:</string>
-    <string name="force_immersive_guide_dialog_message1">הקשה על לחצן זה תסתיר את פס הניווט.</string>
+    <string name="force_immersive_guide_dialog_message1">הקש הקשה כפולה על לחצן זה כדי להסתיר את פס הניווט.</string>
     <string name="force_immersive_guide_dialog_message2">החלק מעלה מתחתית המסך כדי להציג את פס הניווט.</string>
-    <string name="force_immersive_guide_dialog_message3">הקש על לחצן זה שוב כדי לנעול אותו במקומו.</string>
+    <string name="force_immersive_guide_dialog_message3">הקש הקשה כפולה נוספת על לחצן זה כדי לנעול את פס הניווט במקומו.</string>
     <string name="force_immersive_guide_dialog_message4">במסכים מסוימים, כמו מסך הבית, פס הניווט מוצג תמיד.</string>
     <string name="force_immersive_guide_dialog_guide_path">"כדי להסתיר לחצן זה, עבור אל 'הגדרות' > 'תצוגה' > 'פס הניווט'."</string>
     <string name="force_immersive_guide_dialog_setting">הגדרות</string>
     <string name="force_immersive_guide_dialog_ok">אישור</string>
+    <string name="force_immersive_guide_toast_hide">הקש הקשה כפולה כדי להסתיר את סרגל הניווט.</string>
+    <string name="force_immersive_guide_toast_show">הקש הקשה כפולה כדי לנעול את סרגל הניווט.</string>
     <string name="car_lockscreen_disclaimer_title">נסיעה בטוחה</string>
     <string name="car_lockscreen_disclaimer_text">‏שמור על עירנות לתנאי הנסיעה וציית תמיד לכללים והחוקים. ייתכן שהמסלול לא מדויק, לא שלם, מסוכן, לא מתאים, אסור למעבר או כרוך בחציית אזורים מנהליים. ייתכן גם שחלק מהמידע העסקי לא מדויק או לא שלם. הנתונים אינם מדווחים בזמן אמת ולא ניתן להבטיח דיוק במיקום. אל תתעסק במכשיר הנייד ואל תשתמש באפליקציות שאינן מיועדות ל-Android Auto בזמן הנהיגה.</string>
     <string name="pip_close">‏סגור PIP</string>

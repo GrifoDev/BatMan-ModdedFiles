@@ -1814,13 +1814,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Súhlasím</string>
     <string name="force_immersive_guide_text">Ťuknutím na toto tlačidlo sa skryje navigačný panel. Navigačné tlačidlá môžete naďalej používať potiahnutím nahor z dolnej časti obrazovky. Keď sa zobrazuje navigačný panel, môžete ho opätovným ťuknutím na toto tlačidlo zamknúť na mieste. Na niektorých obrazovkách, napríklad na domovskej obrazovke, sa bude navigačný panel zobrazovať vždy. Ak sa aplikácia nespráva normálne, keď je navigačný panel skrytý, uzamknite navigačný panel na mieste a reštartujte aplikáciu.</string>
     <string name="force_immersive_guide_dialog_title">Skryť navigačný panel:</string>
-    <string name="force_immersive_guide_dialog_message1">Ťuknutím na toto tlačidlo skryjete navigačný panel.</string>
+    <string name="force_immersive_guide_dialog_message1">Dvojitým ťuknutím na toto tlačidlo skryjete navigačný panel.</string>
     <string name="force_immersive_guide_dialog_message2">Potiahnutím nahor z dolnej časti obrazovky môžete zobraziť navigačný panel.</string>
-    <string name="force_immersive_guide_dialog_message3">Opätovným ťuknutím na toto tlačidlo ho zamknete na mieste.</string>
+    <string name="force_immersive_guide_dialog_message3">Opätovným dvojitým ťuknutím na toto tlačidlo zamknete navigačný panel na mieste.</string>
     <string name="force_immersive_guide_dialog_message4">Na niektorých obrazovkách, napríklad na domovskej obrazovke, sa bude navigačný panel zobrazovať vždy.</string>
     <string name="force_immersive_guide_dialog_guide_path">Ak chcete skryť toto tlačidlo, prejdite do menu Nastavenia > Zobrazenie > Navigačný panel.</string>
     <string name="force_immersive_guide_dialog_setting">Nastavenia</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">Dvojitým ťuknutím môžete skryť navigačný panel.</string>
+    <string name="force_immersive_guide_toast_show">Dvojitým ťuknutím môžete zamknúť navigačný panel.</string>
     <string name="car_lockscreen_disclaimer_title">Jazdite bezpečne</string>
     <string name="car_lockscreen_disclaimer_text">Zachovajte si úplný prehľad o jazdných podmienkach a vždy dodržiavajte príslušné zákony. Trasy môžu byť nepresné, neúplné, nebezpečné, nevhodné, zakázané alebo môžu zahŕňať cestu cez rôzne správne oblasti. Obchodné informácie môžu byť tiež nepresné alebo neúplné. Údaje nie sú aktualizované v reálnom čase a presnosť polohy nemôžeme zaručiť. Počas jazdy nemanipulujte s mobilným zariadením ani nepoužívajte aplikácie, ktoré nie sú určené pre funkciu Android Auto.</string>
     <string name="pip_close">Zavrieť režim PIP</string>

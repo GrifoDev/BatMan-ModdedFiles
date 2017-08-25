@@ -1814,13 +1814,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">أنا أوافق</string>
     <string name="force_immersive_guide_text">يؤدي النقر فوق هذا الزر إلى إخفاء شريط التنقل. لا يزال بإمكانك استخدام أزرار التنقل عبر سحب الشاشة نحو الأعلى من أسفلها. عندما يكون شريط التنقل ظاهراً، يمكنك النقر فوق هذا الزر مجدداً لتثبيته في مكانه. على بعض الشاشات، مثل الشاشة الرئيسية، سيكون شريط التنقل ظاهراً دائماً. إذا لم يتم تشغيل تطبيق بشكلٍ صحيح عندما يكون شريط التنقل مخفياً، فثبت شريط التنقل في مكانه وأعد تشغيل التطبيق.</string>
     <string name="force_immersive_guide_dialog_title">إخفاء شريط التنقل:</string>
-    <string name="force_immersive_guide_dialog_message1">يؤدي النقر فوق هذا الزر إلى إخفاء شريط التنقل.</string>
+    <string name="force_immersive_guide_dialog_message1">انقر نقراً مزدوجاً فوق هذا الزر لإخفاء شريط التنقل.</string>
     <string name="force_immersive_guide_dialog_message2">اسحب الشاشة لأعلى من الأسفل لإظهار شريط التنقل.</string>
-    <string name="force_immersive_guide_dialog_message3">انقر فوق هذا الزر مرة أخرى لتثبيته في مكانه.</string>
+    <string name="force_immersive_guide_dialog_message3">انقر نقراً مزدوجاً فوق هذا الزر لقفل شريط التنقل في مكانه.</string>
     <string name="force_immersive_guide_dialog_message4">على بعض الشاشات، مثل الشاشة الرئيسية، سيكون شريط التنقل ظاهراً دائماً.</string>
     <string name="force_immersive_guide_dialog_guide_path">لإخفاء هذا الزر، انتقل إلى الضبط > شاشة العرض > شريط التنقل.</string>
     <string name="force_immersive_guide_dialog_setting">الضبط</string>
     <string name="force_immersive_guide_dialog_ok">موافق</string>
+    <string name="force_immersive_guide_toast_hide">انقر نقراً مزدوجاً لإخفاء شريط التنقل.</string>
+    <string name="force_immersive_guide_toast_show">انقر نقراً مزدوجاً لتثبيت شريط التنقل.</string>
     <string name="car_lockscreen_disclaimer_title">القيادة بأمان</string>
     <string name="car_lockscreen_disclaimer_text">‏عليك التعرف بشكل تام على ظروف القيادة والالتزام بالقوانين السارية. ويمكن أن تكون الاتجاهات غير دقيقة أو غير مكتملة أو خطيرة أو غير مناسبة أو محظورة أو تتضمن عبور مناطق إدارية. ويمكن أن تكون معلومات الأنشطة التجارية أيضًا غير دقيقة أو غير مكتملة. ولا يتم نشر البيانات في الوقت الفعلي، كما لا يمكن ضمان دقة المواقع. ولا تتعامل مع جهازك الجوّال أو تستخدم تطبيقات ليست متوافقة مع Android Auto أثناء القيادة.</string>
     <string name="pip_close">‏إغلاق PIP</string>

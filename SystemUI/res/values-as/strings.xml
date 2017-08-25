@@ -902,13 +902,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">মই গ্ৰহণ কৰিছো</string>
     <string name="force_immersive_guide_text">এই বুটাম টিপিলে নেভিগেশ্বন দণ্ডিকা লুকাই যায়। আপুনি এতিয়াও স্ক্ৰীণৰ তলৰ পৰা ওপৰলৈ ঘহাঁই নেভিগেশ্বন বুটামসমূহ ব্যৱহাৰ কৰিব পাৰে। যেতিয়া নেভিগেশ্বন দণ্ডিকা দেখুৱায়, তেতিয়া আপুনি ইয়াক স্থানত লক কৰিবলৈ এই বুটামটো পুনঃ টিপিব পাৰে। গৃহ স্ক্ৰীণৰ দৰে কিছুমান স্ক্ৰীণত নেভিগেশ্বন দণ্ডিকা সদায় দেখুৱাব। যদি নেভিগেশ্বন দণ্ডিকা লুকাই থাকোতে এটা এপ সাধাৰণভাৱে ব্যৱহাৰ নহয়, তেন্তে নেভিগেশ্বন দণ্ডিকা স্থানত লক কৰক আৰু এপটো পুনৰাৰম্ভ কৰক।</string>
     <string name="force_immersive_guide_dialog_title">নেভিগেশ্বন দণ্ডিকা লুকুৱাওক:</string>
-    <string name="force_immersive_guide_dialog_message1">এই বুটাম টিপিলে নেভিগেশ্বন দণ্ডিকা লুকাই যায়।</string>
+    <string name="force_immersive_guide_dialog_message1">নেভিগেশ্বন দণ্ডিকা লুকুৱাবলৈ এই বুটামটো দুবাৰ টিপক।</string>
     <string name="force_immersive_guide_dialog_message2">নেভিগেশ্বন দণ্ডিকা দেখুৱাবলৈ স্ক্ৰীণৰ তলৰ পৰা ওপৰলৈ ঘহাঁওক।</string>
-    <string name="force_immersive_guide_dialog_message3">ইয়াক স্থানত লক কৰিবলৈ এই বুটামটো পুনঃ টিপক।</string>
+    <string name="force_immersive_guide_dialog_message3">স্থানত নেভিগেশ্বন দণ্ডিকা লক কৰিবলৈ এই বুটামটো পুনঃ দুবাৰ টিপক।</string>
     <string name="force_immersive_guide_dialog_message4">কিছু স্ক্ৰীণত, গৃহ স্ক্ৰীণৰ দৰে, নেভিগেশ্বন দণ্ডিকা সদায় দেখুৱাব।</string>
     <string name="force_immersive_guide_dialog_guide_path">এই বুটাম লুকুৱাবলৈ, ছেটিংছ > প্ৰদৰ্শন > নেভিগেশ্বন দণ্ডিকালৈ যাওক।</string>
     <string name="force_immersive_guide_dialog_setting">ছেটিংছ</string>
     <string name="force_immersive_guide_dialog_ok">ঠিক</string>
+    <string name="force_immersive_guide_toast_hide">নেভিগেশ্বন দণ্ডিকা লুকুৱাবলৈ দুবাৰ টিপক।</string>
+    <string name="force_immersive_guide_toast_show">নেভিগেশ্বন দণ্ডিকা লক কৰিবলৈ দুবাৰ টিপক।</string>
     <string name="keyguard_password_enter_pin_code">"PIN ক'ড টাইপ কৰক৷"</string>
     <string name="keyguard_password_wrong_pin_code">"অশুদ্ধ PIN ক'ড৷"</string>
     <string name="keyguard_charged">সম্পূৰ্ণ চাৰ্জ হৈছে</string>

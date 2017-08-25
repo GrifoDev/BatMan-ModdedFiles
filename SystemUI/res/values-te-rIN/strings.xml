@@ -1816,13 +1816,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">నేను అంగీకరిస్తున్నాను</string>
     <string name="force_immersive_guide_text">ఈ బటన్‌ని నొక్కడం ద్వారా నావిగేషన్ బార్‌ని దాస్తుంది. స్క్రీన్ దిగువ నుండి పైకి స్వైప్ చేయడం ద్వారా మీరు ఇప్పటికీ నావిగేషన్ బటన్‌లను ఉపయోగించవచ్చు. నావిగేషన్ బార్ చూపబడినప్పుడు, మీరు స్థలంలో దీన్ని లాక్ చేయడానికి మళ్లీ ఈ బటన్‌ని నొక్కవచ్చు. కొన్ని స్క్రీన్‌లలో, హోమ్ స్క్రీన్, నావిగేషన్ బార్ వంటివి ఎల్లప్పుడూ చూపబడతూ ఉంటాయి. నావిగేషన్ బార్ దాచబడి ఉన్నప్పుడు అప్లికేషన్ సాధారణంగా పని చేయదు, స్థలంలో నావిగేషన్ బార్‌ని లాక్ చేసి, అప్లికేషన్‌ని పునఃప్రారంభించండి.</string>
     <string name="force_immersive_guide_dialog_title">నావిగేషన్ బార్‌ను దాచండి:</string>
-    <string name="force_immersive_guide_dialog_message1">ఈ బటన్‌ని నొక్కడం ద్వారా నావిగేషన్ బార్‌ని దాస్తుంది.</string>
+    <string name="force_immersive_guide_dialog_message1">నావిగేషన్ బార్‌ని దాచడానికి ఈ బటన్‌ని రెండుసార్లు ట్యాప్ చేయండి.</string>
     <string name="force_immersive_guide_dialog_message2">నావిగేషన్ బార్‌ని చూపడానికి స్క్రీన్ కింది నుండి పైకి స్వైప్ చేయండి.</string>
-    <string name="force_immersive_guide_dialog_message3">స్థలంలో దీన్ని లాక్ చేయడానికి మళ్లీ ఈ బటన్‌ను నొక్కండి.</string>
+    <string name="force_immersive_guide_dialog_message3">ప్రదేశంలో నావిగేషన్ బార్‌ని లాక్ చేయడానికి ఈ బటన్‌ని రెండుసార్లు ట్యాప్ చేయండి.</string>
     <string name="force_immersive_guide_dialog_message4">కొన్ని స్క్రీన్‌లలో, హోమ్ స్క్రీన్, నావిగేషన్ బార్ వంటివి ఎల్లప్పుడూ చూపబడతూ ఉంటాయి.</string>
     <string name="force_immersive_guide_dialog_guide_path">ఈ బటన్‌ను దాచడానికి, సెట్టింగ్‌లు > ప్రదర్శన > నావిగేషన్ బార్‌కు వెళ్లండి.</string>
     <string name="force_immersive_guide_dialog_setting">సెట్టింగులు</string>
     <string name="force_immersive_guide_dialog_ok">సరే</string>
+    <string name="force_immersive_guide_toast_hide">నావిగేషన్ బార్‌ని దాచడానికి రెండు సార్లు నొక్కండి.</string>
+    <string name="force_immersive_guide_toast_show">నావిగేషన్ బార్‌ని లాక్ చేయడానికి రెండు సార్లు నొక్కండి.</string>
     <string name="car_lockscreen_disclaimer_title">సురక్షితంగా డ్రైవ్ చేయండి</string>
     <string name="car_lockscreen_disclaimer_text">డ్రైవింగ్ షరతులపై పూర్తి అవగాహనను కలిగి ఉండండి మరియు ఎల్లప్పుడూ వర్తించే చట్టాలకు అనుగుణంగా నడుచుకోండి. దిశలు నిర్దిష్టంగా ఉండకపోవచ్చు, అసంపూర్ణంగా ఉండవచ్చు, ప్రమాదకరంగా ఉండవచ్చు, అనుకూలంగా ఉండకపోవచ్చు, నిషేధించబడి ఉండవచ్చు లేదా పాలనా ప్రాంతాల మీదుగా వెళ్లే విధంగా ఉండవచ్చు. వ్యాపార సమాచారం కూడా నిర్దిష్టంగా లేదా సంపూర్ణంగా ఉండకపోవచ్చు. డేటా నిజ-సమయానికి సంబంధించినది కాదు మరియు స్థాన ఖచ్చితత్వానికి ఎలాంటి హామీ ఉండకపోవచ్చు. డ్రైవింగ్ చేస్తున్నప్పుడు మీ మొబైల్ పరికరాన్ని ఉపయోగించవద్దు లేదా Android Auto కోసం ఉద్దేశించబడని అనువర్తనాలను ఉపయోగించవద్దు.</string>
     <string name="pip_close">PIPని మూసివేయి</string>

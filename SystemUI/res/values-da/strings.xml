@@ -1817,13 +1817,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Jeg accepterer</string>
     <string name="force_immersive_guide_text">Hvis du trykker på denne knap, vil navigationslinjen blive skjult. Du kan stadig bruge navigationsknapperne ved at stryge op fra bunden af skærmen. Når navigationslinjen vises, kan du trykke på denne knap igen for at låse den fast. På nogle skærmbilleder, som f.eks. startskærmen, vises navigationslinjen altid. Hvis en app ikke fungerer normalt, når navigationslinjen er skjult, kan du prøve at låse navigationslinjen fast og genstarte appen.</string>
     <string name="force_immersive_guide_dialog_title">Skjul navigationslinje:</string>
-    <string name="force_immersive_guide_dialog_message1">Hvis du trykker på denne knap, skjules navigationslinjen.</string>
+    <string name="force_immersive_guide_dialog_message1">Dobbelttryk på denne knap for at skjule navigationslinjen.</string>
     <string name="force_immersive_guide_dialog_message2">Stryg op fra bunden af skærmen for at vise navigationslinjen.</string>
-    <string name="force_immersive_guide_dialog_message3">Tryk på denne knap igen for at låse den på plads.</string>
+    <string name="force_immersive_guide_dialog_message3">Dobbelttryk på denne knap igen for at låse navigationslinjen på plads.</string>
     <string name="force_immersive_guide_dialog_message4">På nogle skærme, som f.eks. startskærmen, vises navigationslinjen altid.</string>
     <string name="force_immersive_guide_dialog_guide_path">Gå til Indstillinger > Skærm > Navigationslinje for at skjule denne knap.</string>
     <string name="force_immersive_guide_dialog_setting">Indstillinger</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">Dobbelttryk for at skjule navigationslinje.</string>
+    <string name="force_immersive_guide_toast_show">Dobbelttryk for at låse navigationslinje.</string>
     <string name="car_lockscreen_disclaimer_title">Kør forsigtigt</string>
     <string name="car_lockscreen_disclaimer_text">Vær opmærksom på køreforholdene, og overhold altid færdselsloven. Rutevejledningen kan være unøjagtig, ufuldstændig, farlig, upassende, forbudt eller involvere krydsning af forbudte områder. Virksomhedsoplysninger kan også være unøjagtige eller ufuldstændige. Data er ikke i realtid, og placeringers nøjagtighed kan ikke garanteres. Håndter ikke din mobilenhed, og brug ikke apps, der ikke er beregnet til Android Auto, mens du kører.</string>
     <string name="pip_close">Luk PIP</string>

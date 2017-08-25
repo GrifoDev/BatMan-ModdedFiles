@@ -1818,13 +1818,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Ik ga akkoord</string>
     <string name="force_immersive_guide_text">Als u op deze knop tikt, wordt de navigatiebalk verborgen. U kunt de navigatieknoppen nog wel gebruiken door omhoog te vegen vanaf de onderkant van het scherm. Als de navigatiebalk wordt weergegeven, tikt u nogmaals op deze knop om de balk vast te zetten. Op sommige schermen, zoals het Startscherm, wordt de navigatiebalk altijd weergegeven. Als een app niet normaal werkt terwijl de navigatiebalk is verborgen, zet u de navigatiebalk vast en start u de app opnieuw.</string>
     <string name="force_immersive_guide_dialog_title">Navigatiebalk verbergen:</string>
-    <string name="force_immersive_guide_dialog_message1">Als u op deze knop tikt, wordt de navigatiebalk verborgen.</string>
+    <string name="force_immersive_guide_dialog_message1">Dubbeltik op deze knop om de navigatiebalk te verbergen.</string>
     <string name="force_immersive_guide_dialog_message2">Veeg naar boven vanaf de onderkant van het scherm om de navigatiebalk weer te geven.</string>
-    <string name="force_immersive_guide_dialog_message3">Tik nogmaals op deze knop om deze op zijn plaats te vergrendelen.</string>
+    <string name="force_immersive_guide_dialog_message3">Dubbeltik nogmaals op deze knop om de navigatiebalk op zijn plaats te vergrendelen.</string>
     <string name="force_immersive_guide_dialog_message4">Op bepaalde schermen, zoals het Startscherm, wordt de navigatiebalk altijd weergegeven.</string>
     <string name="force_immersive_guide_dialog_guide_path">Ga naar Instellingen > Display > Navigatiebalk om deze knop te verbergen.</string>
     <string name="force_immersive_guide_dialog_setting">Instellingen</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">Tik twee keer om de navigatiebalk te verbergen.</string>
+    <string name="force_immersive_guide_toast_show">Tik twee keer om de navigatiebalk vast te zetten.</string>
     <string name="car_lockscreen_disclaimer_title">Rijd veilig</string>
     <string name="car_lockscreen_disclaimer_text">Blijf je volledig bewust van de rijomstandigheden en houd je altijd aan de wet. Aanwijzingen kunnen onnauwkeurig, onvolledig, gevaarlijk, ongeschikt of verboden zijn of het doorkruisen van overheidszones vereisen. Bedrijfsinformatie kan ook onnauwkeurg of onvolledig zijn. De gegevens worden niet in realtime verstrekt en de nauwkeurigheid van een locatie kan niet worden gegarandeerd. Bedien tijdens het rijden je mobiele apparaat niet en gebruik geen apps die niet bedoeld zijn voor Android Auto.</string>
     <string name="pip_close">PIP sluiten</string>

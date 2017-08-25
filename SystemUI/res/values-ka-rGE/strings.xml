@@ -1814,13 +1814,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">ვეთანხმები</string>
     <string name="force_immersive_guide_text">ამ ღილაკზე შეხებით დაიხურება ნავიგაციის ზოლი. ნავიგაციის ღილაკების გამოყენება ისევ რომ შეძლოთ, ქვემოდან ზემოთ აუსვით თითი ეკრანს. სანამ ნავიგაციის ზოლი ჩანს, ადგილზე მის ჩაკეტვას შეძლებთ ისევ იმავე ღილაკზე შეხებით. ნავიგაციის ზოლი ყოველთვის ჩანს ზოგიერთ ეკრანზე, მაგალითად, „საწყის ეკრანზე“. თუ აპლიკაცია არ იქცევა ნორმალურად, როდესაც ნავიგაციის ზოლი დამალულია, ჩაამაგრეთ ნავიგაციის ზოლი ადგილზე და თავიდან ჩართეთ აპლიკაცია.</string>
     <string name="force_immersive_guide_dialog_title">დამალეთ ნავიგაციის ზოლი:</string>
-    <string name="force_immersive_guide_dialog_message1">ამ ღილაკზე შეხებით დაიხურება ნავიგაციის ზოლი.</string>
+    <string name="force_immersive_guide_dialog_message1">ორჯერ შეეხეთ ამ ღილაკს, რომ დამალოთ ნავიგაციის ზოლი.</string>
     <string name="force_immersive_guide_dialog_message2">თითი აისვით ეკრანს ქვემოდან ზემოთ, რომ გამოჩნდეს ნავიგაციის ზოლი.</string>
-    <string name="force_immersive_guide_dialog_message3">ისევ შეეხეთ ღილაკს, რომ ადგილზე ჩაკეტოთ იგი.</string>
+    <string name="force_immersive_guide_dialog_message3">ისევ ორჯერ შეეხეთ ამ ღილაკს, რომ ადგილზე ჩაკეტოთ ნავიგაციის ზოლი.</string>
     <string name="force_immersive_guide_dialog_message4">ნავიგაციის ზოლი ყოველთვის ჩანს ზოგიერთ ეკრანზე, მაგალითად, „საწყის ეკრანზე“.</string>
     <string name="force_immersive_guide_dialog_guide_path">ეს ღილაკი რომ დამალოთ, გახსენით „პარამეტრები“ > „ჩვენება“ > „ნავიგაციის ზოლი“.</string>
     <string name="force_immersive_guide_dialog_setting">პარამეტრები</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">ორჯერ შეეხეთ და ნავიგაციის ზოლი დაიმალება.</string>
+    <string name="force_immersive_guide_toast_show">ორჯერ შეეხეთ და ნავიგაციის ზოლი დაიბლოკება.</string>
     <string name="car_lockscreen_disclaimer_title">უსაფრთხოდ მართვის წესები</string>
     <string name="car_lockscreen_disclaimer_text">ყოველთვის გულდასმით გაეცანით მდგომარეობას გზებზე და დაიცავით მოქმედი კანონები. შეთავაზებული მიმართულებები შეიძლება იყოს უზუსტო, არასრული, სახიფათო, შეუფერებელი, აკრძალული, ან ადმინისტრაციული ერთეულების გადაკვეთას გულისხმობდეს. ბიზნეს-ინფორმაცია შეიძლება ასევე იყოს უზუსტო ან არასრული. მონაცემების განახლება რეალური დროის რეჟიმში არ ხდება და შესაბამისად, მდებარეობის სიზუსტე გარანტირებული ვერ იქნება. ავტომობილის მართვისას ნუ შეეცდებით თქვენი მობილური მოწყობილობით მანიპულირებას, ან ისეთი აპების გამოყენებას, რომლებიც Android Auto-სთვის შექმნილი არ არის.</string>
     <string name="pip_close">PIP-ის დახურვა</string>

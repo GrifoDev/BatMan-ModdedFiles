@@ -1816,13 +1816,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Accepto</string>
     <string name="force_immersive_guide_text">"Si toques aquest botó, s'ocultarà la barra de navegació. Igualment, pots utilitzar els botons de navegació desplaçant amunt amb els dits des de la part inferior de la pantalla. Mentre es mostra la barra de navegació, pots tornar a tocar aquest botó per bloquejar-lo al seu lloc. En algunes pantalles, com ara la Pantalla d'inici, la barra de navegació es mostrarà sempre. Si una aplicació no es comporta de manera habitual mentre està oculta la barra de navegació, bloqueja la barra de navegació al seu lloc i reinicia l'aplicació."</string>
     <string name="force_immersive_guide_dialog_title">Ocultar la barra de navegació:</string>
-    <string name="force_immersive_guide_dialog_message1">"Si toques aquest botó, s'oculta la barra de navegació."</string>
+    <string name="force_immersive_guide_dialog_message1">Toca dos cops aquest botó per ocultar la barra de navegació.</string>
     <string name="force_immersive_guide_dialog_message2">Llisca amunt des de la part inferior de la pantalla per visualitzar la barra de navegació.</string>
-    <string name="force_immersive_guide_dialog_message3">Torna a tocar aquest botó per bloquejar-lo al lloc.</string>
+    <string name="force_immersive_guide_dialog_message3">Toca dos cops aquest botó per bloquejar la barra de navegació al lloc.</string>
     <string name="force_immersive_guide_dialog_message4">"En algunes pantalles, com ara la Pantalla d'inici, la barra de navegació es mostrarà sempre."</string>
     <string name="force_immersive_guide_dialog_guide_path">Per ocultar aquest botó, ves a Ajustaments > Pantalla > Barra de navegació.</string>
     <string name="force_immersive_guide_dialog_setting">Ajustaments</string>
     <string name="force_immersive_guide_dialog_ok">ACCEPTAR</string>
+    <string name="force_immersive_guide_toast_hide">Toca dos cops per ocultar la barra de navegació.</string>
+    <string name="force_immersive_guide_toast_show">Toca dos cops per bloquejar la barra de navegació.</string>
     <string name="car_lockscreen_disclaimer_title">Condueix amb precaució</string>
     <string name="car_lockscreen_disclaimer_text">"Estigues al cas de la conducció i respecta sempre les lleis aplicables. Les indicacions poden ser inexactes, perilloses, inadequades o incompletes, o bé poden comportar maniobres prohibides o que creuis circumscripcions territorials. La informació de les empreses també pot ser inexacta o incompleta. No s'ofereixen dades en temps real i no es pot garantir la precisió de les ubicacions. Mentre condueixes, no utilitzis el dispositiu mòbil ni cap aplicació que no estigui destinada a Android Auto."</string>
     <string name="pip_close">Tanca PIP</string>

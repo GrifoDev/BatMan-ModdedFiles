@@ -1816,13 +1816,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Onartzen dut</string>
     <string name="force_immersive_guide_text">Botoi hau ukituz gero, nabigazio barra ezkutatuko da. Dena dela, nabigazio botoiak erabiltzen jarraitu ahal izango duzu, pantailaren behealdetik gora pasatuta. Nabigazio barra ikusgai dagoenean, ukitu botoi hau berriz toki batean ezartzeko. Pantaila batzuetan, hala nola Pantaila nagusian, nabigazio barra beti izango da ikusgai. Aplikazioak ez badu behar bezala funtzionatzen nabigazio barra ezkutatuta dagoenean, blokeatu nabigazio barra toki batean eta berrabiarazi aplikazioa.</string>
     <string name="force_immersive_guide_dialog_title">Ezkutatu nabigazio barra:</string>
-    <string name="force_immersive_guide_dialog_message1">Botoi hau ukituz gero, nabigazio barra ezkutatuko da.</string>
+    <string name="force_immersive_guide_dialog_message1">Ukitu botoi hau bi aldiz nabigazio barra ezkutatzeko.</string>
     <string name="force_immersive_guide_dialog_message2">Nabigazio barra erakusteko, irristatu pantailaren beheko aldetik gorantz.</string>
-    <string name="force_immersive_guide_dialog_message3">Ukitu botoi hau berriz toki batean finkatzeko.</string>
+    <string name="force_immersive_guide_dialog_message3">Ukitu botoi hau berriz bi aldiz nabigazio barra blokeatzeko.</string>
     <string name="force_immersive_guide_dialog_message4">Pantaila batzuetan, hala nola Pantaila nagusian, nabigazio barra beti egongo da ikusgai.</string>
     <string name="force_immersive_guide_dialog_guide_path">Botoi hau ezkutatzeko, joan Ezarpenak > Bistaratzea > Nabigazio barra aukerara.</string>
     <string name="force_immersive_guide_dialog_setting">Ezarpenak</string>
     <string name="force_immersive_guide_dialog_ok">ADOS</string>
+    <string name="force_immersive_guide_toast_hide">Ukitu bi aldiz nabigazio barra ezkutatzeko.</string>
+    <string name="force_immersive_guide_toast_show">Ukitu bi aldiz nabigazio barra blokeatzeko.</string>
     <string name="car_lockscreen_disclaimer_title">Gidatu zentzuz</string>
     <string name="car_lockscreen_disclaimer_text">Egon erne errepidera begira eta gorde lege aplikagarri oro. Agian jarraibideak ez dira guztiz zehatzak, osatuak edo egokiak izango; arriskutsuak izan daitezke edo debekatuta dagoen zerbait egitea edo mugak zeharkatzea proposa diezazukete. Baliteke enpresei buruzko informazioa ere guztiz zehatza edo osatua ez izatea. Datuak ez dira une-unekoak eta ezin da bermatu kokapenaren zehaztasuna. Gidatu bitartean, ez erabili gailu mugikorrik edo Android Auto zerbitzuarekin erabiltzeko egina ez dagoen aplikaziorik.</string>
     <string name="pip_close">Itxi PIPa</string>

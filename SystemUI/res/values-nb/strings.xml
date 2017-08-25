@@ -1816,13 +1816,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Jeg godtar</string>
     <string name="force_immersive_guide_text">Hvis du trykker på denne knappen, skjules navigeringslinjen. Du kan fortsatt bruke navigeringsknappene ved å stryke opp fra bunnen av skjermen. Når navigeringslinjen vises, kan du trykke på denne knappen igjen for å låse den på plass. På enkelte skjermbilder, for eksempel startskjermbildet, vises alltid navigeringslinjen. Hvis en app ikke fungerer normalt mens navigeringslinjen er skjult, låser du navigeringslinjen på plass og starter appen på nytt.</string>
     <string name="force_immersive_guide_dialog_title">Skjul navigeringslinje:</string>
-    <string name="force_immersive_guide_dialog_message1">Hvis du trykker på denne knappen, skjules navigeringslinjen.</string>
+    <string name="force_immersive_guide_dialog_message1">Trykk raskt to ganger på denne knappen for å skjule navigeringslinjen.</string>
     <string name="force_immersive_guide_dialog_message2">Stryk opp fra nederst på skjermen for å vise navigeringslinjen.</string>
-    <string name="force_immersive_guide_dialog_message3">Trykk på denne knappen igjen for å låse den på plass.</string>
+    <string name="force_immersive_guide_dialog_message3">Trykk raskt to ganger på denne knappen igjen for å låse navigeringslinjen på plass.</string>
     <string name="force_immersive_guide_dialog_message4">På enkelte skjermbilder, som startskjermbildet, blir navigeringslinjen alltid vist.</string>
     <string name="force_immersive_guide_dialog_guide_path">For å skjule denne knappen går du til Innstillinger > Skjerm > Navigeringslinje.</string>
     <string name="force_immersive_guide_dialog_setting">Innstillinger</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">Trykk raskt to ganger for å skjule navigeringslinjen.</string>
+    <string name="force_immersive_guide_toast_show">Trykk raskt to ganger for å låse navigeringslinjen.</string>
     <string name="car_lockscreen_disclaimer_title">Kjør forsiktig</string>
     <string name="car_lockscreen_disclaimer_text">Ha full oversikt over kjøreforhold, og følg alltid gjeldende lov og rett. Veibeskrivelser kan være unøyaktige, ufullstendige, farlige, upassende, forbudte eller de kan involvere kjøring på administrative områder. Bedriftsinformasjon kan også være unøyaktig eller ufullstendig. Data er ikke i sanntid, og posisjonsnøyaktighet kan ikke garanteres. Ikke bruk mobilenheten din eller apper som ikke er ment for Android Auto, mens du kjører.</string>
     <string name="pip_close">Lukk PIP</string>

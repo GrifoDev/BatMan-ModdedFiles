@@ -1816,13 +1816,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">ຂ້ອຍຍອມຮັບ</string>
     <string name="force_immersive_guide_text">ການ​ແຕະ​ປຸ່ມ​ນີ້​ຈະ​ເຊື່ອງ​ແຖ​ບ​ການ​ກຳ​ນົດ​ທິດ​ທາງ. ທ່ານ​ຍັງ​ສາ​ມາດ​ໃຊ້​ປຸ່ມ​ການ​ກຳ​ນົດ​ທິດ​ທາງ​ໄດ້​ໂດຍ​ການ​ຮູດ​ຂຶ້ນ​ເທິງ​ຈາກ​ເບື້ອງ​ລຸ່ມ​ສຸດ​ຂອງ​ໜ້າ​ຈໍ. ໃນ​ຂະ​ນະ​ທີ່​ແຖບການ​ກຳ​ນົດ​ທິດ​ທາງ​ສະ​ແດງ​ຂຶ້ນ, ທ່ານ​ສາ​ມາດ​ແຕະ​ປຸ່ມ​ນີ້​ອີກ​ຄັ້ງ​ເພື່ອ​ລັອກ​ມັນ​ໄວ້ໃນ​ຕຳ​ແໜ່ງ. ໃນ​ບາງ​ໜ້າ​ຈໍ, ເຊັ່ນ ໜ້າ​ຈໍຫຼັກ, ແຖບ​ການ​ກຳ​ນົດ​ທິດ​ທາງ​ຈະ​ສະ​ແດງ​ຂຶ້ນ​ຢູ່​ສະ​ເໝີ. ຖ້າແອັບບໍ່ເຮັດວຽກຕາມປົກກະຕິໃນຂະນະທີ່ແຖບກຳນົດທິດທາງຖືກເຊື່ອງ, ລັອກແຖບການກຳນົດທິດທາງໄວ້ໃນຕຳແໜ່ງ ແລະປິດເປີດແອັບຄືນໃໝ່.</string>
     <string name="force_immersive_guide_dialog_title">ເຊື່ອງແຖບການ​ກຳ​ນົດ​ທິດ​ທາງ:</string>
-    <string name="force_immersive_guide_dialog_message1">ການ​ແຕະ​ປຸ່ມ​ນີ້​ຈະ​ເຊື່ອງ​ແຖ​ບ​ການ​ກຳ​ນົດ​ທິດ​ທາງ.</string>
+    <string name="force_immersive_guide_dialog_message1">ແຕະປຸ່ມນີ້ສອງຄັ້ງເພື່ອເຊື່ອງແຖບການກຳນົດທິດທາງ.</string>
     <string name="force_immersive_guide_dialog_message2">ຮູດຂຶ້ນເທິງຈາກດ້ານລຸ່ມສຸດຂອງໜ້າຈໍ ເພື່ອສະແດງແຖບການກໍານົດທິດທາງ.</string>
-    <string name="force_immersive_guide_dialog_message3">ແຕະປຸ່ມນີ້ອີກຄັ້ງເພື່ອລັອກມັນໄວ້ໃນສະຖານທີ່ນັ້ນ.</string>
+    <string name="force_immersive_guide_dialog_message3">ແຕະປຸ່ມນີ້ອີກສອງຄັ້ງເພື່ອລັອກແຖບການກຳນົດທິດທາງໃນສະຖານທີ່ນັ້ນ.</string>
     <string name="force_immersive_guide_dialog_message4">ໃນ​ບາງ​ໜ້າ​ຈໍ, ເຊັ່ນ ໜ້າ​ຈໍຫຼັກ, ແຖບ​ການ​ກຳ​ນົດ​ທິດ​ທາງ​ຈະ​ສະ​ແດງ​ຂຶ້ນ​ຢູ່​ສະ​ເໝີ.</string>
     <string name="force_immersive_guide_dialog_guide_path">ເພື່ອເຊື່ອງປຸ່ມນີ້, ໄປທີ່ການຕັ້ງຄ່າ > ສະແດງ > ແຖບການກຳນົດທິດທາງ.</string>
     <string name="force_immersive_guide_dialog_setting">ການຕັ້ງຄ່າ</string>
     <string name="force_immersive_guide_dialog_ok">ຕົກລົງ</string>
+    <string name="force_immersive_guide_toast_hide">ແຕະສອງຄັ້ງເພື່ອເຊື່ອງແຖບການກຳນົດທິດທາງ.</string>
+    <string name="force_immersive_guide_toast_show">ແຕະສອງຄັ້ງເພື່ອລັອກແຖບການກຳນົດທິດທາງ.</string>
     <string name="car_lockscreen_disclaimer_title">ຂັບຂີ່ຢ່າງປອດໄພ</string>
     <string name="car_lockscreen_disclaimer_text">ຮູ້ຈັກສະພາບການຂັບຂີ່ຢ່າງຄົບຖ້ວນ ແລະ ປະຕິບັດຕາມກົດໝາຍທີ່ນຳໃຊ້ສະເໝີ. ຄຳແນະນຳເສັ້ນທາງອາດຈະບໍ່ຖືກຕ້ອງ, ບໍ່ຄົບຖ້ວນ, ອັນຕະລາຍ, ບໍ່ເໝາະສົມ, ຖືກຫ້າມ ຫຼື ກ່ຽວຂ້ອງກັບການຂ້າມເຂດປົກຄອງ. ຂໍ້ມູນທຸລະກິດອາດຈະບໍ່ຖືກຕ້ອງ ຫຼື ບໍ່ຄົບຖ້ວນ. ຂໍ້ມູນບໍ່ແມ່ນຂໍ້ມູນສົດ ແລະ ບໍ່ສາມາດຮັບປະກັນຄວາມຖືກຕ້ອງຂອງສະຖານທີ່ໄດ້. ຢ່າໃຊ້ອຸປະກອນມືຖືຂອງທ່ານ ຫຼື ໃຊ້ແອັບທີ່ບໍ່ມີໄວ້ສຳລັບ Android Auto ໃນຂະນະທີ່ຂັບຂີ່.</string>
     <string name="pip_close">ປິດ PIP</string>

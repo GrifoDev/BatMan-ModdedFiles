@@ -39,7 +39,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView$3;->this$0:Lcom/android/systemui/statusbar/phone/SecNavigationBarView;
 
-    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->-get9(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Z
+    invoke-static {v1}, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->-get14(Lcom/android/systemui/statusbar/phone/SecNavigationBarView;)Z
 
     move-result v1
 

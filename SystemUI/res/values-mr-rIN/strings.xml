@@ -1816,13 +1816,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">मी स्वीकारले</string>
     <string name="force_immersive_guide_text">हे बटण टॅप केल्याने नेव्हिगेशन बार लपला जातो. आपण अजूनही स्क्रीनच्या तळा पासून वर स्वाइप करून नेव्हिगेशन बटणे वापरू शकता. नेव्हिगेशन बार दर्शवलेला असताना, आपण त्याला त्याच्या जागी लॉक करण्या साठी हे बटण पुन्हा टॅप करू शकता. काही स्‍क्रीन्स वर, जसे की मुख्‍य स्‍क्रीन, नेव्हिगेशन बार नेहमी दर्शवला जाईल. नेव्हिगेशन बार लपवलेला असताना अनुप्रयोग साधारण पणे कार्य करत नसल्यास, त्या जागी नेव्हिगेशन बार लॉक करा आणि अनुप्रयोगाचा पुनरारंभ करा.</string>
     <string name="force_immersive_guide_dialog_title">नेव्हिगेशन बार लपवा:</string>
-    <string name="force_immersive_guide_dialog_message1">हे बटण टॅप केल्याने नेव्हिगेशन बार लपला जातो.</string>
+    <string name="force_immersive_guide_dialog_message1">नेव्हिगेशन बार लपवण्या साठी हे बटण दोनदा टॅप करा.</string>
     <string name="force_immersive_guide_dialog_message2">नेव्हिगेशन बार दर्शवण्‍या साठी स्‍क्रीनच्‍या तळा पासून वर स्‍वाइप करा.</string>
-    <string name="force_immersive_guide_dialog_message3">हे बटण पुन्हा एकदा लॉक करण्या साठी ते टॅप करा.</string>
+    <string name="force_immersive_guide_dialog_message3">नेव्हिगेशन बारला त्याच ठिकाणी लॉक करण्या साठी ते बटण पुन्हा दोनदा टॅप करा.</string>
     <string name="force_immersive_guide_dialog_message4">काही स्‍क्रीन्स वर, जसे की मुख्‍य स्‍क्रीन, नेव्हिगेशन बार नेहमी दर्शवला जाईल.</string>
     <string name="force_immersive_guide_dialog_guide_path">हे बटण लपवण्या साठी, सेटिंग्स > प्रदर्शन > नेव्हिगेशन बार वर जा.</string>
     <string name="force_immersive_guide_dialog_setting">सेटिंग्‍स</string>
     <string name="force_immersive_guide_dialog_ok">ठीक</string>
+    <string name="force_immersive_guide_toast_hide">नेव्हिगेशन बार लपवण्या साठी दोनदा टॅप करा.</string>
+    <string name="force_immersive_guide_toast_show">नेव्हिगेशन बार लॉक करण्या साठी दोनदा टॅप करा.</string>
     <string name="car_lockscreen_disclaimer_title">सुरक्षितपणे वाहन चालवा</string>
     <string name="car_lockscreen_disclaimer_text">वाहन चालविण्‍याच्या शर्तींची पूर्णपणे माहिती असू द्या आणि नेहमी लागू असलेल्या कायद्यांचे पालन करा. दिशानिर्देश कदाचित चुकीचे, अपूर्ण, धोकादायक, अनुकूल नसलेले, प्रतिबंधित किंवा प्रशासकीय क्षेत्रांना ओलांडणारे असू शकतात. व्यवसाय माहिती देखील चुकीची किंवा अपूर्ण असू शकते. डेटा हा रिअल-टाइम नसतो आणि स्थान अचूकतेची हमी दिली जाऊ शकत नाही. वाहन चालविताना Android Auto च्या उद्देशासाठी नसलेले आपले मोबाईल डिव्हाइस हाताळू नका किंवा अॅप्स वापरू नका.</string>
     <string name="pip_close">PIP बंद करा</string>

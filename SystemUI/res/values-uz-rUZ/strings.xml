@@ -1815,13 +1815,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">Roziman</string>
     <string name="force_immersive_guide_text">Bu tugmaga tegish navigatsiya panelini yashiradi. Ekranning pastki qismidan yuqoriga surish orqali navigatsiya tugmalaridan foydalanishda davom etishingiz mumkin. Navigatsiya paneli ko‘rsatilgan vaqtda uni joyiga qulflash uchun bu tugmaga yana tegishingiz mumkin. Asosiy ekran kabi ayrim ekranlarda navigatsiya paneli har doim ko‘rsatiladi. Navigatsiya paneli yashirilgan vaqtda ilova ko‘ngildagidek ishlamasa, navigatsiya panelini joyiga qulflang va ilovani qayta ishga tushiring.</string>
     <string name="force_immersive_guide_dialog_title">Navigatsiya panelini yashirish:</string>
-    <string name="force_immersive_guide_dialog_message1">Bu tugmaga tegish navigatsiya panelini yashiradi.</string>
+    <string name="force_immersive_guide_dialog_message1">Navigatsiya panelini yashirish uchun bu tugmaga ikki marta teging.</string>
     <string name="force_immersive_guide_dialog_message2">Navigatsiya paneli ko‘rsatilishi uchun ekranni pastdan yuqoriga suring.</string>
-    <string name="force_immersive_guide_dialog_message3">Uni o‘sha joyga qulflash uchun bu tugmaga teging.</string>
+    <string name="force_immersive_guide_dialog_message3">Navigatsiya panelini joyiga qulflash uchun bu tugmaga ikki marta teging.</string>
     <string name="force_immersive_guide_dialog_message4">Asosiy ekran kabi ayrim ekranlarda navigatsiya paneli har doim ko‘rsatiladi.</string>
     <string name="force_immersive_guide_dialog_guide_path">Bu tugmani yashirish uchun Parametrlar > Displey > Navigatsiya paneliga o‘ting.</string>
     <string name="force_immersive_guide_dialog_setting">Parametrlar</string>
     <string name="force_immersive_guide_dialog_ok">OK</string>
+    <string name="force_immersive_guide_toast_hide">Navigatsiya panelini yashirish uchun ikki marta teging.</string>
+    <string name="force_immersive_guide_toast_show">Navigatsiya panelini qulflash uchun ikki marta teging.</string>
     <string name="car_lockscreen_disclaimer_title">Xavfsiz haydash</string>
     <string name="car_lockscreen_disclaimer_text">Harakat xavfsizligi va amaldagi qonunchilikka doim rioya qiling. Yo‘l ko‘rsatmalari noaniq, chala, xavfli, mos emas, taqiqlangan yoki ma’muriy hududlarni kesib o‘tadigan bo‘lishi mumkin. Biznes ma’lumotlari ham noaniq yoki chala bo‘lishi mumkin. Ma’lumotlar real vaqt rejimida bo‘lmasligi hamda joylashuv ma’lumotining aniqligi kafolatlanmaydi. Avtomobilni haydash mobaynida Android Auto xizmati bilan bog‘liq bo‘lmagan hollarda mobil qurilma yoki ilovalardan foydalanmang.</string>
     <string name="pip_close">Kadr ichida kadr – chiqish</string>

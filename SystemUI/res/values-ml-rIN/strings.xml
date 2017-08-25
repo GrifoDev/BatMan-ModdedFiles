@@ -1816,13 +1816,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">ഞാന്‍ അംഗീകരിക്കുന്നു</string>
     <string name="force_immersive_guide_text">ഈ ബട്ടണിൽ സ്പർശിക്കുന്നത് നാവിഗേഷൻ ബാറിനെ മറയ്ക്കും. സ്ക്രീനിന് താഴ്ഭാഗത്ത് നിന്ന് മുകളിലേയ്ക്ക് സ്വൈപ് ചെയ്ത് നാവിഗേഷൻ ബട്ടണുകൾ ഇപ്പോഴും നിങ്ങൾക്ക് ഉപയോഗിക്കാവുന്നതാണ്. നാവിഗേഷൻ ബാർ കാണിക്കപ്പെടുന്ന സമയത്ത് അതിനെ യഥാസ്ഥാനത്ത് ലോക്ക് ചെയ്യുന്നതിന് ഈ ബട്ടണിൽ വീണ്ടും നിങ്ങൾക്ക് സ്പർശിക്കാവുന്നതാണ്. ഹോം സ്ക്രീൻ പോലുള്ള ചില സ്ക്രീനുകളിൽ, നാവിഗേഷൻ ബാർ എപ്പോഴും കാണിക്കപ്പെടും. നാവിഗേഷൻ ബാർ മറയ്ക്കപ്പെട്ടിരിക്കുന്ന സമയത്ത് ഒരു ആപ്ലിക്കേഷൻ സാധാരണ നിലയിൽ പ്രവർത്തിക്കുന്നില്ലെങ്കിൽ, നാവിഗേഷൻ ബാറിനെ യഥാസ്ഥാനത്ത് ലോക്ക് ചെയ്ത് ആപ്ലിക്കേഷൻ പുനരാരംഭിക്കുക.</string>
     <string name="force_immersive_guide_dialog_title">നാവിഗേഷൻ ബാർ മറയ്ക്കുക:</string>
-    <string name="force_immersive_guide_dialog_message1">ഈ ബട്ടണിൽ സ്പർശിക്കുന്നത് നാവിഗേഷൻ ബാറിനെ മറയ്ക്കും.</string>
+    <string name="force_immersive_guide_dialog_message1">നാവിഗേഷൻ ബാർ മറയ്ക്കുന്നതിന് ഈ ബട്ടണിൽ രണ്ടുതവണ സ്പർശിക്കുക.</string>
     <string name="force_immersive_guide_dialog_message2">നാവിഗേഷൻ ബാർ കാണിക്കുന്നതിന് സ്ക്രീനിന്‍റെ താഴ്ഭാഗത്ത് നിന്ന് മുകളിലേയ്ക്ക് സ്വൈപ് ചെയ്യുക.</string>
-    <string name="force_immersive_guide_dialog_message3">ഈ ബട്ടൺ യഥാസ്ഥാനത്ത് ലോക്ക് ചെയ്യുന്നതിന് അതിൽ വീണ്ടും സ്പർശിക്കുക.</string>
+    <string name="force_immersive_guide_dialog_message3">നാവിഗേഷൻ ബാർ യഥാസ്ഥാനത്ത് ലോക്ക് ചെയ്യുന്നതിന് ഈ ബട്ടണിൽ രണ്ടുതവണ സ്പർശിക്കുക.</string>
     <string name="force_immersive_guide_dialog_message4">ഹോം സ്ക്രീൻ പോലുള്ള ചില സ്ക്രീനുകളിൽ, നാവിഗേഷൻ ബാർ എപ്പോഴും കാണിക്കപ്പെടും.</string>
     <string name="force_immersive_guide_dialog_guide_path">ഈ ബട്ടൺ മറയ്ക്കുന്നതിന്, ക്രമീകരണങ്ങൾ > ഡിസ്പ്ലേ > നാവിഗേഷൻ ബാർ എന്നിവയിലേക്ക് പോവുക.</string>
     <string name="force_immersive_guide_dialog_setting">ക്രമീകരണങ്ങള്‍</string>
     <string name="force_immersive_guide_dialog_ok">ശരി</string>
+    <string name="force_immersive_guide_toast_hide">നാവിഗേഷൻ ബാർ മറയ്ക്കുന്നതിന് രണ്ടുതവണ സ്പർശിക്കുക.</string>
+    <string name="force_immersive_guide_toast_show">നാവിഗേഷൻ ബാർ ലോക്ക് ചെയ്യുന്നതിന് രണ്ടുതവണ സ്പർശിക്കുക.</string>
     <string name="car_lockscreen_disclaimer_title">സുരക്ഷിതമായി ഡ്രൈവ് ചെയ്യുക</string>
     <string name="car_lockscreen_disclaimer_text">ഡ്രൈവിംഗ് സാഹചര്യങ്ങളെ കുറിച്ച് നല്ലവണ്ണം അറിഞ്ഞുവയ്ക്കുക, എല്ലായ്പ്പോഴും ബാധകമായ നിയമങ്ങൾ അനുസരിക്കുക. ദിശാസൂചനകൾ കൃത്യമല്ലാത്തതും അപൂർണ്ണവും അപകടകരവും അനുയോജ്യമല്ലാത്തതും നിരോധിക്കപ്പെട്ടതും അഡ്‌മിനിസ്ട്രേറ്റീവ് ഏരിയകൾ അതിലംഘിച്ച് പോകേണ്ടതുമായിരിക്കാം. വിവരങ്ങൾ തത്സമയം എടുത്തിട്ടുള്ളതല്ല, അതിനാൽ ലൊക്കേഷൻ കൃത്യത ഉറപ്പാക്കാൻ കഴിയില്ല. ഡ്രൈവ് ചെയ്യുന്ന സമയത്ത് മൊബൈൽ ഉപകരണങ്ങളോ Android Auto-യ്ക്കായി ഉദ്ദേശിക്കപ്പെട്ടിട്ടില്ലാത്ത ആപ്‌സോ കൈകാര്യം ചെയ്യരുത്</string>
     <string name="pip_close">PIP അടയ്ക്കുക</string>

@@ -902,13 +902,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">ମୁଁ ଗ୍ରହଣ କରେ</string>
     <string name="force_immersive_guide_text">ଏହି ବଟନ୍ ଟ୍ୟାପ୍ କରିବାରୁ ନେଭିଗେସନ୍ ବାର୍ ଲୁଚିଥାଏ। ଆପଣ ସ୍କ୍ରିନର ନିମ୍ନରୁ ଉପରକୁ ସ୍ୱାଇପ୍ କରି ଏପର୍ଯ୍ୟନ୍ତ ନେଭିଗେସନ୍ ବଟନଗୁଡିକ ବ୍ୟବହାର କରିପାରିବେ। ନେଭିଗେସନ୍ ବାର୍ ଦେଖାଯାଉଥିବା ସମୟରେ, ଏହାକୁ ସେହି ସ୍ଥାନରେ ଲକ୍ କରିବାକୁ ଆପଣ ଏହି ବଟନ୍ ଟ୍ୟାପ୍ କରିପାରିବେ। କିଛି ସ୍କ୍ରିନରେ, ଯେପରିକି ହୋମ୍ ସ୍କ୍ରିନ୍, ନେଭିଗେସନ୍ ବାର୍ ସର୍ବଦା ଦେଖାଯିବ। ନେଭିଗେସନ୍ ବାର୍ ଲୁକ୍କାୟିତ ଥିବା ସମୟରେ ଯଦି ଏକ ଆପ୍ଲିକେସନ୍ ସାମାନ୍ୟ ଭାବେ ବ୍ୟବହାର କରେନାହିଁ, ନେଭିଗେସନ୍ ବାର୍ ସେହି ସ୍ଥାନରେ ଲକ୍ କରି ଆପ୍ଲିକେସନ୍ ପୁନଃଆରମ୍ଭ କରନ୍ତୁ।</string>
     <string name="force_immersive_guide_dialog_title">ନେଭିଗେସନ୍ ବାର୍ ଲୁଚାନ୍ତୁ:</string>
-    <string name="force_immersive_guide_dialog_message1">ଏହି ବଟନ୍ ଟ୍ୟାପ୍ କରିବାରୁ ନେଭିଗେସନ୍ ବାର୍ ଲୁଚିଥାଏ।</string>
+    <string name="force_immersive_guide_dialog_message1">ନେଭିଗେସନ୍ ବାର୍ ଲୁଚାଇବାକୁ ଏହି ବଟନ୍ ଦୁଇଥର ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
     <string name="force_immersive_guide_dialog_message2">ନେଭିଗେସନ୍ ବାର୍ ଦେଖାଇବାକୁ ସ୍କ୍ରିନର ନିମ୍ନରୁ ଉପରକୁ ସ୍ଵାଇପ୍ କରନ୍ତୁ।</string>
-    <string name="force_immersive_guide_dialog_message3">ଏହାକୁ ସେହି ସ୍ଥାନରେ ଲକ୍ କରିବାକୁ ପୁନଃ ଏହି ବଟନ୍ ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
+    <string name="force_immersive_guide_dialog_message3">ନେଭିଗେସନ୍ ବାରକୁ ସେହି ସ୍ଥାନରେ ଲକ୍ କରିବାକୁ ଏହି ବଟନ୍ ଦୁଇଥର ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
     <string name="force_immersive_guide_dialog_message4">କିଛି ସ୍କ୍ରିନରେ, ଯେପରିକି ହୋମ୍ ସ୍କ୍ରିନ୍, ନେଭିଗେସନ୍ ବାର୍ ସର୍ବଦା ଦେଖାଯିବ।</string>
     <string name="force_immersive_guide_dialog_guide_path">ଏହି ବଟନ୍ ଲୁଚାଇବାକୁ, ସେଟିଂସ୍ > ପ୍ରଦର୍ଶନ > ନେଭିଗେସନ୍ ବାରକୁ ଯାଆନ୍ତୁ।</string>
     <string name="force_immersive_guide_dialog_setting">ସେଟିଂସ୍‌</string>
     <string name="force_immersive_guide_dialog_ok">ଓକେ</string>
+    <string name="force_immersive_guide_toast_hide">ନେଭିଗେସନ୍ ବାର୍ ଲୁଚାଇବାକୁ ଦୁଇଥର ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
+    <string name="force_immersive_guide_toast_show">ନେଭିଗେସନ୍ ବାର୍ ଲକ୍ କରିବାକୁ ଦୁଇଥର ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
     <string name="keyguard_password_enter_pin_code">PIN କୋଡ୍ ଟାଇପ୍ କରନ୍ତୁ।</string>
     <string name="keyguard_password_wrong_pin_code">ଭୁଲ୍ PIN କୋଡ୍।</string>
     <string name="keyguard_charged">ଚାର୍ଜ୍‌ ପୂର୍ଣ୍ଣ ହେଲା</string>

@@ -1816,13 +1816,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">আমি সম্মতি দিচ্ছি</string>
     <string name="force_immersive_guide_text">এই বাটনে ট্যাপ করলে নেভিগেশন বার লুকাবে৷ আপনি তখনও স্ক্রিনের নিচ থেকে উপরের দিকে সোয়াইপ করার মাধ্যমে নেভিগেশন বাটনগুলো ব্যবহার করতে পারবেন। নেভিগেশন বার দেখানো অবস্থায়, আপনি সেটিকে সেখানে লক করতে এই বাটনটি আবার ট্যাপ করতে পারেন৷ কিছু স্ক্রিনে, যেমন হোম স্ক্রিনে, নেভিগেশন বার সবসময় দেখানো হবে৷ নেভিগেশন বার লুকানো অবস্থায় কোনো অ্যাপ স্বাভাবিকভাবে কাজ না করলে, নেভিগেশন বারকে এর জায়গায় লক করে অ্যাপটি আবার চালু করুন৷</string>
     <string name="force_immersive_guide_dialog_title">নেভিগেশন বার লুকান:</string>
-    <string name="force_immersive_guide_dialog_message1">এই বাটনে ট্যাপ করলে নেভিগেশন বার লুকাবে৷</string>
+    <string name="force_immersive_guide_dialog_message1">নেভিগেশন বার লুকাতে এই বাটনটি দু’বার ট্যাপ করুন৷</string>
     <string name="force_immersive_guide_dialog_message2">নেভিগেশন বার দেখাতে স্ক্রিনের নিচ থেকে উপরের দিকে সোয়াইপ করুন।</string>
-    <string name="force_immersive_guide_dialog_message3">এটিকে জায়গামত লক করতে এই বাটনটি ট্যাপ করুন৷</string>
+    <string name="force_immersive_guide_dialog_message3">নেভিগেশন বারটি জায়গামত লক করতে এই বাটনটি আবার দু’বার ট্যাপ করুন৷</string>
     <string name="force_immersive_guide_dialog_message4">কিছু স্ক্রিনে, যেমন হোম স্ক্রিনে, নেভিগেশন বার সবসময় দেখানো হবে৷</string>
     <string name="force_immersive_guide_dialog_guide_path">এই বাটনটি লুকাতে, ‘সেটিংস > ডিসপ্লে > নেভিগেশন বার’ অপশনে যান।</string>
     <string name="force_immersive_guide_dialog_setting">সেটিংস</string>
     <string name="force_immersive_guide_dialog_ok">ঠিক আছে</string>
+    <string name="force_immersive_guide_toast_hide">নেভিগেশন বার লুকাতে দু’বার ট্যাপ করুন।</string>
+    <string name="force_immersive_guide_toast_show">নেভিগেশন বার লক করতে দু’বার ট্যাপ করুন।</string>
     <string name="car_lockscreen_disclaimer_title">সাবধানে চালান</string>
     <string name="car_lockscreen_disclaimer_text">গাড়ি চালানোর সময় সর্বদা সতর্ক থাকুন এবং প্রযোজ্য আইন মেনে চলুন৷ দিকনির্দেশ ভুল, অসম্পূর্ণ, বিপজ্জনক, অনুপযুক্ত, নিষিদ্ধ হতে পারে বা প্রশাসনিক এলাকাগুলি অতিক্রম করতে হতে পারে৷ বাণিজ্যিক তথ্য ভুল বা অসম্পূর্ণ হতে পারে৷ ডেটা প্রকৃত সময়ের নয় এবং অবস্থানের নির্ভুলতা নিশ্চিত করাও সম্ভব নয়৷ গাড়ি চালানোর সময় আপনার মোবাইল ডিভাইসটিকে বা Android Auto এর জন্য উপযুক্ত নয় এমন অ্যাপগুলিকে ব্যবহার করবেন না৷</string>
     <string name="pip_close">PIP বন্ধ করুন</string>

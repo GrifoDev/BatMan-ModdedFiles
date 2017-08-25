@@ -1785,13 +1785,15 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="wfc_enable_dialog_opv_btn">म स्वीकार गर्छु</string>
     <string name="force_immersive_guide_text">यस बटनमा ट्याप गर्नुले नेभिगेशनको पट्टी लुकाउँदछ। तपाई अझै पनि स्क्रीनको तल्लो भागबाट माथितिर स्वाइप गरेर नेभिगेशनका बटनहरू प्रयोग गर्न सक्नुहुन्छ। नेभिगेशनको पट्टी देखाइएको बेला तपाई त्यसलाई सोही ठाउँमा लक गर्न यस बटनमा फेरि ट्याप गर्न सक्नुहुन्छ। होम स्क्रीन जस्ता केही स्क्रीनहरूमा नेभिगेशनको पट्टी सधैं देखाइनेछ। नेभिगेशनको पट्टी लुकाइँदा कुनै एपले राम्ररी काम नगरेमा नेभिगेशन पट्टीलाई यथास्थान लक गरी उक्त एपलाई पुनः सुरु गर्नुहोस्।</string>
     <string name="force_immersive_guide_dialog_title">नेभिगेशन पट्टी लुकाउनुहोस्:</string>
-    <string name="force_immersive_guide_dialog_message1">यस बटनमा ट्याप गर्नुले नेभिगेशनको पट्टी लुकाउँछ।</string>
+    <string name="force_immersive_guide_dialog_message1">नेभिगेशन पट्टी लुकाउन यस बटनमा दुई पटक ट्याप गर्नुहोस्।</string>
     <string name="force_immersive_guide_dialog_message2">नेभिगेशन पट्टी देखाउन स्क्रीनको तल्लो भागबाट माथितिर फ्लिक गर्नुहोस्।</string>
-    <string name="force_immersive_guide_dialog_message3">यस बटनलाई यथास्थान लक गर्न यसमा ट्याप गर्नुहोस्।</string>
+    <string name="force_immersive_guide_dialog_message3">नेभिगेशन पट्टीलाई यथास्थान लक गर्न यस बटनमा फेरि दुई पटक ट्याप गर्नुहोस्।</string>
     <string name="force_immersive_guide_dialog_message4">होम स्क्रीन जस्ता केही स्क्रीनहरूमा नेभिगेशनको पट्टी सधैं देखाइनेछ।</string>
     <string name="force_immersive_guide_dialog_guide_path">यो बटन लुकाउन सेटिङहरू > प्रदर्शन > नेभिगेशन पट्टीमा जानुहोस्।</string>
     <string name="force_immersive_guide_dialog_setting">सेटिङहरू</string>
     <string name="force_immersive_guide_dialog_ok">ठीक छ</string>
+    <string name="force_immersive_guide_toast_hide">नेभिगेशनको पट्टी लुकाउन दुई पटक ट्याप गर्नुहोस्।</string>
+    <string name="force_immersive_guide_toast_show">नेभिगेशनको पट्टीलाई लक गर्न दुई पटक ट्याप गर्नुहोस्।</string>
     <string name="car_lockscreen_disclaimer_title">सुरक्षित तरिकाले सवारी चलाउनुहोस्</string>
     <string name="car_lockscreen_disclaimer_text">ड्राइभिङ सर्तहरूका बारे पूर्ण सजग रहनुहोस् र जहिले पनि लागू हुने नियमहरूको पालना गर्नुहोस्। दिशा निर्देशनहरू अशुद्ध, अपूर्ण, खतरनाक, अनुपयुक्त, निषेधित वा प्रशासनिक क्षेत्र पार गर्ने हुन सक्छ। व्यवसायिक जानकारी अशुद्ध वा अपूर्ण पनि हुन सक्छ। डेटा वास्तविक समयको हुँदैन र स्थान सटीकताको ग्यारेन्टी गर्न सकिँदैन। आफ्नो मोबाइल यन्त्र ह्याण्डल गर्ने वा सवारी चलाएको बेलामा Android स्वतःको लागि लक्षित नगरिएका अनुप्रयोगहरूको प्रयोग गर्ने नगर्नुहोस्।</string>
     <string name="pip_close">PIP लाई बन्द गर्नुहोस्</string>
