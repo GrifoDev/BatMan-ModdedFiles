@@ -25050,6 +25050,25 @@
     return-void
 .end method
 
+.method public reloadTiles()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mQSPanel:Lcom/android/systemui/qs/QSPanel;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/systemui/qs/QSPanel;->getHost()Lcom/android/systemui/statusbar/phone/QSTileHost;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/QSTileHost;->reloadTiles()V
+
+    :cond_0
+    return-void
+.end method
+
 .method public remQsTile(Landroid/content/ComponentName;)V
     .locals 1
 

@@ -1,11 +1,11 @@
-.class Lcom/android/launcher2/Workspace$SwipeListener;
+.class Lcom/android/launcher3/home/Workspace$SwipeListener;
 .super Landroid/view/GestureDetector$SimpleOnGestureListener;
 .source "Workspace.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/launcher2/Workspace;
+    value = Lcom/android/launcher3/home/Workspace;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -15,24 +15,24 @@
 
 
 # instance fields
-.field final synthetic this$0:Lcom/android/launcher2/Workspace;
+.field final synthetic this$0:Lcom/android/launcher3/home/Workspace;
 
 
 # direct methods
-.method private constructor <init>(Lcom/android/launcher2/Workspace;)V
+.method private constructor <init>(Lcom/android/launcher3/home/Workspace;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/launcher2/Workspace$SwipeListener;->this$0:Lcom/android/launcher2/Workspace;
+    iput-object p1, p0, Lcom/android/launcher3/home/Workspace$SwipeListener;->this$0:Lcom/android/launcher3/home/Workspace;
 
     invoke-direct {p0}, Landroid/view/GestureDetector$SimpleOnGestureListener;-><init>()V
 
     return-void
 .end method
 
-.method synthetic constructor <init>(Lcom/android/launcher2/Workspace;Lcom/android/launcher2/Workspace$SwipeListener;)V
+.method synthetic constructor <init>(Lcom/android/launcher3/home/Workspace;Lcom/android/launcher3/home/Workspace$SwipeListener;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/launcher2/Workspace$SwipeListener;-><init>(Lcom/android/launcher2/Workspace;)V
+    invoke-direct {p0, p1}, Lcom/android/launcher3/home/Workspace$SwipeListener;-><init>(Lcom/android/launcher3/home/Workspace;)V
 
     return-void
 .end method
@@ -52,9 +52,9 @@
 
     const-string v1, "action"
 
-    iget-object v2, p0, Lcom/android/launcher2/Workspace$SwipeListener;->this$0:Lcom/android/launcher2/Workspace;
+    iget-object v2, p0, Lcom/android/launcher3/home/Workspace$SwipeListener;->this$0:Lcom/android/launcher3/home/Workspace;
 
-    iget-object v2, v2, Lcom/android/launcher2/Workspace;->swipeAction:[I
+    iget-object v2, v2, Lcom/android/launcher3/home/Workspace;->swipeAction:[I
 
     const/4 v3, 0x2
 
@@ -62,9 +62,9 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    iget-object v1, p0, Lcom/android/launcher2/Workspace$SwipeListener;->this$0:Lcom/android/launcher2/Workspace;
+    iget-object v1, p0, Lcom/android/launcher3/home/Workspace$SwipeListener;->this$0:Lcom/android/launcher3/home/Workspace;
 
-    invoke-virtual {v1}, Lcom/android/launcher2/Workspace;->getContext()Landroid/content/Context;
+    invoke-virtual {v1}, Lcom/android/launcher3/home/Workspace;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
@@ -144,9 +144,9 @@
 
     if-ltz v2, :cond_1
 
-    iget-object v2, p0, Lcom/android/launcher2/Workspace$SwipeListener;->this$0:Lcom/android/launcher2/Workspace;
+    iget-object v2, p0, Lcom/android/launcher3/home/Workspace$SwipeListener;->this$0:Lcom/android/launcher3/home/Workspace;
 
-    iget-object v2, v2, Lcom/android/launcher2/Workspace;->swipeAction:[I
+    iget-object v2, v2, Lcom/android/launcher3/home/Workspace;->swipeAction:[I
 
     aget v2, v2, v5
 
@@ -162,17 +162,17 @@
 
     const-string v2, "action"
 
-    iget-object v3, p0, Lcom/android/launcher2/Workspace$SwipeListener;->this$0:Lcom/android/launcher2/Workspace;
+    iget-object v3, p0, Lcom/android/launcher3/home/Workspace$SwipeListener;->this$0:Lcom/android/launcher3/home/Workspace;
 
-    iget-object v3, v3, Lcom/android/launcher2/Workspace;->swipeAction:[I
+    iget-object v3, v3, Lcom/android/launcher3/home/Workspace;->swipeAction:[I
 
     aget v3, v3, v5
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    iget-object v2, p0, Lcom/android/launcher2/Workspace$SwipeListener;->this$0:Lcom/android/launcher2/Workspace;
+    iget-object v2, p0, Lcom/android/launcher3/home/Workspace$SwipeListener;->this$0:Lcom/android/launcher3/home/Workspace;
 
-    invoke-virtual {v2}, Lcom/android/launcher2/Workspace;->getContext()Landroid/content/Context;
+    invoke-virtual {v2}, Lcom/android/launcher3/home/Workspace;->getContext()Landroid/content/Context;
 
     move-result-object v2
 
@@ -199,9 +199,9 @@
 
     if-ltz v2, :cond_0
 
-    iget-object v2, p0, Lcom/android/launcher2/Workspace$SwipeListener;->this$0:Lcom/android/launcher2/Workspace;
+    iget-object v2, p0, Lcom/android/launcher3/home/Workspace$SwipeListener;->this$0:Lcom/android/launcher3/home/Workspace;
 
-    iget-object v2, v2, Lcom/android/launcher2/Workspace;->swipeAction:[I
+    iget-object v2, v2, Lcom/android/launcher3/home/Workspace;->swipeAction:[I
 
     aget v2, v2, v6
 
@@ -217,17 +217,17 @@
 
     const-string v2, "action"
 
-    iget-object v3, p0, Lcom/android/launcher2/Workspace$SwipeListener;->this$0:Lcom/android/launcher2/Workspace;
+    iget-object v3, p0, Lcom/android/launcher3/home/Workspace$SwipeListener;->this$0:Lcom/android/launcher3/home/Workspace;
 
-    iget-object v3, v3, Lcom/android/launcher2/Workspace;->swipeAction:[I
+    iget-object v3, v3, Lcom/android/launcher3/home/Workspace;->swipeAction:[I
 
     aget v3, v3, v6
 
     invoke-virtual {v1, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
-    iget-object v2, p0, Lcom/android/launcher2/Workspace$SwipeListener;->this$0:Lcom/android/launcher2/Workspace;
+    iget-object v2, p0, Lcom/android/launcher3/home/Workspace$SwipeListener;->this$0:Lcom/android/launcher3/home/Workspace;
 
-    invoke-virtual {v2}, Lcom/android/launcher2/Workspace;->getContext()Landroid/content/Context;
+    invoke-virtual {v2}, Lcom/android/launcher3/home/Workspace;->getContext()Landroid/content/Context;
 
     move-result-object v2
 
