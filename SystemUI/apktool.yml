@@ -5,8 +5,8 @@ doNotCompress:
 - arsc
 - qmg
 - webp
-- pio
 - png_opti
+- pio
 - svg
 - glsl
 isFrameworkApk: false

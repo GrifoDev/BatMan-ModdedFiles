@@ -2065,6 +2065,11 @@
     <public type="drawable" name="stat_sys_signal_4_9_auto_rotate" id="0x7f020917" />
     <public type="drawable" name="weather_icon" id="0x7f020955" />
     <public type="drawable" name="weather_level_analog" id="0x7f020995" />
+    <public type="drawable" name="stat_sys_signal_0_17_auto_rotate" id="0x7f02099c" />
+    <public type="drawable" name="stat_sys_signal_1_17_auto_rotate" id="0x7f02099e" />
+    <public type="drawable" name="stat_sys_signal_2_17_auto_rotate" id="0x7f0209a0" />
+    <public type="drawable" name="stat_sys_signal_3_17_auto_rotate" id="0x7f0209a2" />
+    <public type="drawable" name="stat_sys_signal_4_17_auto_rotate" id="0x7f0209a4" />
     <public type="drawable" name="search_panel_scrim" id="0x7f0205c4" />
     <public type="drawable" name="recents_help_longpress" id="0x7f020493" />
     <public type="drawable" name="recents_help_split" id="0x7f020496" />
@@ -2991,6 +2996,11 @@
     <public type="drawable" name="stat_sys_wifi_signal_4_7" id="0x7f02094c" />
     <public type="drawable" name="stat_sys_wifi_signal_4_8" id="0x7f02094d" />
     <public type="drawable" name="stat_sys_wifi_signal_4_9" id="0x7f02094e" />
+    <public type="drawable" name="stat_sys_signal_0_17" id="0x7f02099b" />
+    <public type="drawable" name="stat_sys_signal_1_17" id="0x7f02099d" />
+    <public type="drawable" name="stat_sys_signal_2_17" id="0x7f02099f" />
+    <public type="drawable" name="stat_sys_signal_3_17" id="0x7f0209a1" />
+    <public type="drawable" name="stat_sys_signal_4_17" id="0x7f0209a3" />
     <public type="mipmap" name="ic_daydreams" id="0x7f030000" />
     <public type="mipmap" name="ic_launcher_dreams" id="0x7f030001" />
     <public type="layout" name="abc_action_bar_title_item" id="0x7f040000" />
@@ -8097,6 +8107,8 @@
     <public type="string" name="force_immersive_guide_toast_show" id="0x7f0f07c0" />
     <public type="string" name="all_noti_readout" id="0x7f0f07c1" />
     <public type="string" name="all_noti_readout2" id="0x7f0f07c2" />
+    <public type="string" name="APKTOOL_DUMMY_7ca" id="0x7f0f07ca" />
+    <public type="string" name="APKTOOL_DUMMY_7cb" id="0x7f0f07cb" />
     <public type="string" name="car_lockscreen_disclaimer_title" id="0x7f0f07cf" />
     <public type="string" name="car_lockscreen_disclaimer_text" id="0x7f0f07d0" />
     <public type="string" name="pip_close" id="0x7f0f07d1" />
@@ -8735,8 +8747,8 @@
     <public type="string" name="service_background_processes" id="0x7f0f0a4c" />
     <public type="string" name="service_foreground_processes" id="0x7f0f0a4d" />
     <public type="string" name="status_view_12_hours_format" id="0x7f0f0a4e" />
-    <public type="string" name="APKTOOL_DUMMY_7ca" id="0x7f0f07ca" />
-    <public type="string" name="APKTOOL_DUMMY_7cb" id="0x7f0f07cb" />
+    <public type="string" name="APKTOOL_DUMMY_7c8" id="0x7f0f0a4f" />
+    <public type="string" name="APKTOOL_DUMMY_7c9" id="0x7f0f0a50" />
     <public type="string" name="status_bar_date_formatter" id="0x7f0f02ae" />
     <public type="string" name="toast_rotation_locked" id="0x7f0f07c3" />
     <public type="string" name="clear_cover_wday_day" id="0x7f0f0017" />

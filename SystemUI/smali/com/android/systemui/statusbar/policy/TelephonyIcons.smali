@@ -147,11 +147,11 @@
 
     move-result v8
 
-    if-eqz v8, :cond_f
+    if-eqz v8, :cond_10
 
     const v9, 0x1
 
-    if-eq v8, v9, :cond_f
+    if-eq v8, v9, :cond_10
 
     const v9, 0x2
 
@@ -212,6 +212,10 @@
     const v9, 0x10
 
     if-eq v8, v9, :cond_e
+
+    const v9, 0x11
+
+    if-eq v8, v9, :cond_f
 
     :cond_0
     const v1, 0x7f020891
@@ -614,7 +618,7 @@
 
     const v5, 0x7f020903
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_d
     const v1, 0x7f02088d
@@ -679,6 +683,37 @@
     goto :goto_0
 
     :cond_f
+    const v1, 0x7f02099c
+
+    const v2, 0x7f02099e
+
+    const v3, 0x7f0209a0
+
+    const v4, 0x7f0209a2
+
+    const v5, 0x7f0209a4
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f02099c
+
+    const v2, 0x7f02099e
+
+    const v3, 0x7f0209a0
+
+    const v4, 0x7f0209a2
+
+    const v5, 0x7f0209a4
+
+    goto :goto_0
+
+    :cond_10
     const v1, 0x7f02068e
 
     const v2, 0x7f020691
@@ -756,113 +791,86 @@
 
     move-result v8
 
-    if-eqz v8, :cond_1f
+    if-eqz v8, :cond_21
 
     const v9, 0x1
 
-    if-eq v8, v9, :cond_1f
+    if-eq v8, v9, :cond_21
 
     const v9, 0x2
 
-    if-eq v8, v9, :cond_10
+    if-eq v8, v9, :cond_11
 
     const v9, 0x3
 
-    if-eq v8, v9, :cond_11
+    if-eq v8, v9, :cond_12
 
     const v9, 0x4
 
-    if-eq v8, v9, :cond_12
+    if-eq v8, v9, :cond_13
 
     const v9, 0x5
 
-    if-eq v8, v9, :cond_13
+    if-eq v8, v9, :cond_14
 
     const v9, 0x6
 
-    if-eq v8, v9, :cond_14
+    if-eq v8, v9, :cond_15
 
     const v9, 0x7
 
-    if-eq v8, v9, :cond_15
+    if-eq v8, v9, :cond_16
 
     const v9, 0x8
 
-    if-eq v8, v9, :cond_16
+    if-eq v8, v9, :cond_17
 
     const v9, 0x9
 
-    if-eq v8, v9, :cond_17
+    if-eq v8, v9, :cond_18
 
     const v9, 0xa
 
-    if-eq v8, v9, :cond_18
+    if-eq v8, v9, :cond_19
 
     const v9, 0xb
 
-    if-eq v8, v9, :cond_19
+    if-eq v8, v9, :cond_1a
 
     const v9, 0xc
 
-    if-eq v8, v9, :cond_1a
+    if-eq v8, v9, :cond_1b
 
     const v9, 0xd
 
-    if-eq v8, v9, :cond_1b
+    if-eq v8, v9, :cond_1c
 
     const v9, 0xe
 
-    if-eq v8, v9, :cond_1c
+    if-eq v8, v9, :cond_1d
 
     const v9, 0xf
 
-    if-eq v8, v9, :cond_1d
+    if-eq v8, v9, :cond_1e
 
     const v9, 0x10
 
-    if-eq v8, v9, :cond_1e
+    if-eq v8, v9, :cond_1f
 
-    :cond_10
-    const v1, 0x7f020891
+    const v9, 0x11
 
-    const v2, 0x7f0208af
-
-    const v3, 0x7f0208cd
-
-    const v4, 0x7f0208eb
-
-    const v5, 0x7f020909
-
-    filled-new-array {v1, v2, v3, v4, v5}, [I
-
-    move-result-object v1
-
-    const/4 v2, 0x0
-
-    aput-object v1, v0, v2
-
-    const v1, 0x7f020891
-
-    const v2, 0x7f0208af
-
-    const v3, 0x7f0208cd
-
-    const v4, 0x7f0208eb
-
-    const v5, 0x7f020909
-
-    goto/16 :goto_1
+    if-eq v8, v9, :cond_20
 
     :cond_11
-    const v1, 0x7f020893
+    const v1, 0x7f020891
 
-    const v2, 0x7f0208b1
+    const v2, 0x7f0208af
 
-    const v3, 0x7f0208cf
+    const v3, 0x7f0208cd
 
-    const v4, 0x7f0208ed
+    const v4, 0x7f0208eb
 
-    const v5, 0x7f02090b
+    const v5, 0x7f020909
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -872,28 +880,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f020893
+    const v1, 0x7f020891
 
-    const v2, 0x7f0208b1
+    const v2, 0x7f0208af
 
-    const v3, 0x7f0208cf
+    const v3, 0x7f0208cd
 
-    const v4, 0x7f0208ed
+    const v4, 0x7f0208eb
 
-    const v5, 0x7f02090b
+    const v5, 0x7f020909
 
     goto/16 :goto_1
 
     :cond_12
-    const v1, 0x7f020895
+    const v1, 0x7f020893
 
-    const v2, 0x7f0208b3
+    const v2, 0x7f0208b1
 
-    const v3, 0x7f0208d1
+    const v3, 0x7f0208cf
 
-    const v4, 0x7f0208ef
+    const v4, 0x7f0208ed
 
-    const v5, 0x7f02090d
+    const v5, 0x7f02090b
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -903,28 +911,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f020895
+    const v1, 0x7f020893
 
-    const v2, 0x7f0208b3
+    const v2, 0x7f0208b1
 
-    const v3, 0x7f0208d1
+    const v3, 0x7f0208cf
 
-    const v4, 0x7f0208ef
+    const v4, 0x7f0208ed
 
-    const v5, 0x7f02090d
+    const v5, 0x7f02090b
 
     goto/16 :goto_1
 
     :cond_13
-    const v1, 0x7f020897
+    const v1, 0x7f020895
 
-    const v2, 0x7f0208b5
+    const v2, 0x7f0208b3
 
-    const v3, 0x7f0208d3
+    const v3, 0x7f0208d1
 
-    const v4, 0x7f0208f1
+    const v4, 0x7f0208ef
 
-    const v5, 0x7f02090f
+    const v5, 0x7f02090d
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -934,28 +942,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f020897
+    const v1, 0x7f020895
 
-    const v2, 0x7f0208b5
+    const v2, 0x7f0208b3
 
-    const v3, 0x7f0208d3
+    const v3, 0x7f0208d1
 
-    const v4, 0x7f0208f1
+    const v4, 0x7f0208ef
 
-    const v5, 0x7f02090f
+    const v5, 0x7f02090d
 
     goto/16 :goto_1
 
     :cond_14
-    const v1, 0x7f020899
+    const v1, 0x7f020897
 
-    const v2, 0x7f0208b7
+    const v2, 0x7f0208b5
 
-    const v3, 0x7f0208d5
+    const v3, 0x7f0208d3
 
-    const v4, 0x7f0208f3
+    const v4, 0x7f0208f1
 
-    const v5, 0x7f020911
+    const v5, 0x7f02090f
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -965,28 +973,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f020899
+    const v1, 0x7f020897
 
-    const v2, 0x7f0208b7
+    const v2, 0x7f0208b5
 
-    const v3, 0x7f0208d5
+    const v3, 0x7f0208d3
 
-    const v4, 0x7f0208f3
+    const v4, 0x7f0208f1
 
-    const v5, 0x7f020911
+    const v5, 0x7f02090f
 
     goto/16 :goto_1
 
     :cond_15
-    const v1, 0x7f02089b
+    const v1, 0x7f020899
 
-    const v2, 0x7f0208b9
+    const v2, 0x7f0208b7
 
-    const v3, 0x7f0208d7
+    const v3, 0x7f0208d5
 
-    const v4, 0x7f0208f5
+    const v4, 0x7f0208f3
 
-    const v5, 0x7f020913
+    const v5, 0x7f020911
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -996,28 +1004,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f02089b
+    const v1, 0x7f020899
 
-    const v2, 0x7f0208b9
+    const v2, 0x7f0208b7
 
-    const v3, 0x7f0208d7
+    const v3, 0x7f0208d5
 
-    const v4, 0x7f0208f5
+    const v4, 0x7f0208f3
 
-    const v5, 0x7f020913
+    const v5, 0x7f020911
 
     goto/16 :goto_1
 
     :cond_16
-    const v1, 0x7f02089d
+    const v1, 0x7f02089b
 
-    const v2, 0x7f0208bb
+    const v2, 0x7f0208b9
 
-    const v3, 0x7f0208d9
+    const v3, 0x7f0208d7
 
-    const v4, 0x7f0208f7
+    const v4, 0x7f0208f5
 
-    const v5, 0x7f020915
+    const v5, 0x7f020913
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -1027,28 +1035,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f02089d
+    const v1, 0x7f02089b
 
-    const v2, 0x7f0208bb
+    const v2, 0x7f0208b9
 
-    const v3, 0x7f0208d9
+    const v3, 0x7f0208d7
 
-    const v4, 0x7f0208f7
+    const v4, 0x7f0208f5
 
-    const v5, 0x7f020915
+    const v5, 0x7f020913
 
     goto/16 :goto_1
 
     :cond_17
-    const v1, 0x7f02089f
+    const v1, 0x7f02089d
 
-    const v2, 0x7f0208bd
+    const v2, 0x7f0208bb
 
-    const v3, 0x7f0208db
+    const v3, 0x7f0208d9
 
-    const v4, 0x7f0208f9
+    const v4, 0x7f0208f7
 
-    const v5, 0x7f020917
+    const v5, 0x7f020915
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -1058,28 +1066,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f02089f
+    const v1, 0x7f02089d
 
-    const v2, 0x7f0208bd
+    const v2, 0x7f0208bb
 
-    const v3, 0x7f0208db
+    const v3, 0x7f0208d9
 
-    const v4, 0x7f0208f9
+    const v4, 0x7f0208f7
 
-    const v5, 0x7f020917
+    const v5, 0x7f020915
 
     goto/16 :goto_1
 
     :cond_18
-    const v1, 0x7f020883
+    const v1, 0x7f02089f
 
-    const v2, 0x7f0208a1
+    const v2, 0x7f0208bd
 
-    const v3, 0x7f0208bf
+    const v3, 0x7f0208db
 
-    const v4, 0x7f0208dd
+    const v4, 0x7f0208f9
 
-    const v5, 0x7f0208fb
+    const v5, 0x7f020917
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -1089,28 +1097,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f020883
+    const v1, 0x7f02089f
 
-    const v2, 0x7f0208a1
+    const v2, 0x7f0208bd
 
-    const v3, 0x7f0208bf
+    const v3, 0x7f0208db
 
-    const v4, 0x7f0208dd
+    const v4, 0x7f0208f9
 
-    const v5, 0x7f0208fb
+    const v5, 0x7f020917
 
     goto/16 :goto_1
 
     :cond_19
-    const v1, 0x7f020885
+    const v1, 0x7f020883
 
-    const v2, 0x7f0208a3
+    const v2, 0x7f0208a1
 
-    const v3, 0x7f0208c1
+    const v3, 0x7f0208bf
 
-    const v4, 0x7f0208df
+    const v4, 0x7f0208dd
 
-    const v5, 0x7f0208fd
+    const v5, 0x7f0208fb
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -1120,28 +1128,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f020885
+    const v1, 0x7f020883
 
-    const v2, 0x7f0208a3
+    const v2, 0x7f0208a1
 
-    const v3, 0x7f0208c1
+    const v3, 0x7f0208bf
 
-    const v4, 0x7f0208df
+    const v4, 0x7f0208dd
 
-    const v5, 0x7f0208fd
+    const v5, 0x7f0208fb
 
     goto/16 :goto_1
 
     :cond_1a
-    const v1, 0x7f020887
+    const v1, 0x7f020885
 
-    const v2, 0x7f0208a5
+    const v2, 0x7f0208a3
 
-    const v3, 0x7f0208c3
+    const v3, 0x7f0208c1
 
-    const v4, 0x7f0208e1
+    const v4, 0x7f0208df
 
-    const v5, 0x7f0208ff
+    const v5, 0x7f0208fd
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -1151,19 +1159,50 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f020887
+    const v1, 0x7f020885
 
-    const v2, 0x7f0208a5
+    const v2, 0x7f0208a3
 
-    const v3, 0x7f0208c3
+    const v3, 0x7f0208c1
 
-    const v4, 0x7f0208e1
+    const v4, 0x7f0208df
 
-    const v5, 0x7f0208ff
+    const v5, 0x7f0208fd
 
     goto/16 :goto_1
 
     :cond_1b
+    const v1, 0x7f020887
+
+    const v2, 0x7f0208a5
+
+    const v3, 0x7f0208c3
+
+    const v4, 0x7f0208e1
+
+    const v5, 0x7f0208ff
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f020887
+
+    const v2, 0x7f0208a5
+
+    const v3, 0x7f0208c3
+
+    const v4, 0x7f0208e1
+
+    const v5, 0x7f0208ff
+
+    goto/16 :goto_1
+
+    :cond_1c
     const v1, 0x7f020889
 
     const v2, 0x7f0208a7
@@ -1194,47 +1233,16 @@
 
     goto/16 :goto_1
 
-    :cond_1c
-    const v1, 0x7f02088b
-
-    const v2, 0x7f0208a9
-
-    const v3, 0x7f0208c7
-
-    const v4, 0x7f0208e5
-
-    const v5, 0x7f020903
-
-    filled-new-array {v1, v2, v3, v4, v5}, [I
-
-    move-result-object v1
-
-    const/4 v2, 0x0
-
-    aput-object v1, v0, v2
-
-    const v1, 0x7f02088b
-
-    const v2, 0x7f0208a9
-
-    const v3, 0x7f0208c7
-
-    const v4, 0x7f0208e5
-
-    const v5, 0x7f020903
-
-    goto :goto_1
-
     :cond_1d
-    const v1, 0x7f02088d
+    const v1, 0x7f02088b
 
-    const v2, 0x7f0208ab
+    const v2, 0x7f0208a9
 
-    const v3, 0x7f0208c9
+    const v3, 0x7f0208c7
 
-    const v4, 0x7f0208e7
+    const v4, 0x7f0208e5
 
-    const v5, 0x7f020905
+    const v5, 0x7f020903
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -1244,28 +1252,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f02088d
+    const v1, 0x7f02088b
 
-    const v2, 0x7f0208ab
+    const v2, 0x7f0208a9
 
-    const v3, 0x7f0208c9
+    const v3, 0x7f0208c7
 
-    const v4, 0x7f0208e7
+    const v4, 0x7f0208e5
 
-    const v5, 0x7f020905
+    const v5, 0x7f020903
 
-    goto :goto_1
+    goto/16 :goto_1
 
     :cond_1e
-    const v1, 0x7f02088f
+    const v1, 0x7f02088d
 
-    const v2, 0x7f0208ad
+    const v2, 0x7f0208ab
 
-    const v3, 0x7f0208cb
+    const v3, 0x7f0208c9
 
-    const v4, 0x7f0208e9
+    const v4, 0x7f0208e7
 
-    const v5, 0x7f020907
+    const v5, 0x7f020905
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -1275,28 +1283,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f02088f
+    const v1, 0x7f02088d
 
-    const v2, 0x7f0208ad
+    const v2, 0x7f0208ab
 
-    const v3, 0x7f0208cb
+    const v3, 0x7f0208c9
 
-    const v4, 0x7f0208e9
+    const v4, 0x7f0208e7
 
-    const v5, 0x7f020907
+    const v5, 0x7f020905
 
     goto :goto_1
 
     :cond_1f
-    const v1, 0x7f0206f3
+    const v1, 0x7f02088f
 
-    const v2, 0x7f0206f5
+    const v2, 0x7f0208ad
 
-    const v3, 0x7f0206f7
+    const v3, 0x7f0208cb
 
-    const v4, 0x7f0206f9
+    const v4, 0x7f0208e9
 
-    const v5, 0x7f0206fb
+    const v5, 0x7f020907
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -1306,15 +1314,77 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f0206f3
+    const v1, 0x7f02088f
 
-    const v2, 0x7f0206f5
+    const v2, 0x7f0208ad
 
-    const v3, 0x7f0206f7
+    const v3, 0x7f0208cb
 
-    const v4, 0x7f0206f9
+    const v4, 0x7f0208e9
 
-    const v5, 0x7f0206fb
+    const v5, 0x7f020907
+
+    goto :goto_1
+
+    :cond_20
+    const v1, 0x7f02099c
+
+    const v2, 0x7f02099e
+
+    const v3, 0x7f0209a0
+
+    const v4, 0x7f0209a2
+
+    const v5, 0x7f0209a4
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f02099c
+
+    const v2, 0x7f02099e
+
+    const v3, 0x7f0209a0
+
+    const v4, 0x7f0209a2
+
+    const v5, 0x7f0209a4
+
+    goto :goto_1
+
+    :cond_21
+    const v1, 0x7f02068e
+
+    const v2, 0x7f020691
+
+    const v3, 0x7f020694
+
+    const v4, 0x7f020697
+
+    const v5, 0x7f02069a
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f02068e
+
+    const v2, 0x7f020691
+
+    const v3, 0x7f020694
+
+    const v4, 0x7f020697
+
+    const v5, 0x7f02069a
 
     :goto_1
     filled-new-array {v1, v2, v3, v4, v5}, [I

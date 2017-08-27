@@ -2121,8 +2121,8 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="force_immersive_guide_toast_show">Double tap to lock navigation bar.</string>
     <string name="all_noti_readout" formatted="false">%s %s notification</string>
     <string name="all_noti_readout2" formatted="false">%s %s notifications</string>
-    <item type="string" name="APKTOOL_DUMMY_7c8">false</item>
-    <item type="string" name="APKTOOL_DUMMY_7c9">false</item>
+    <item type="string" name="APKTOOL_DUMMY_7ca">false</item>
+    <item type="string" name="APKTOOL_DUMMY_7cb">false</item>
     <string name="car_lockscreen_disclaimer_title">Drive safely</string>
     <string name="car_lockscreen_disclaimer_text">Stay fully aware of driving conditions and always obey applicable laws. Directions may be inaccurate, incomplete, dangerous, not suitable, prohibited, or involve crossing administrative areas. Business information may also be inaccurate or incomplete. Data is not real-time, and location accuracy cannot be guaranteed. Do not handle your mobile device or use apps not intended for Android Auto while driving.</string>
     <string name="pip_close">Close PIP</string>
@@ -2834,6 +2834,6 @@ Try again in 1 second"</string>
     <string name="service_background_processes">%1$s free</string>
     <string name="service_foreground_processes">%1$s used</string>
     <string name="status_view_12_hours_format">h:mm</string>
-    <item type="string" name="APKTOOL_DUMMY_7ca">false</item>
-    <item type="string" name="APKTOOL_DUMMY_7cb">false</item>
+    <item type="string" name="APKTOOL_DUMMY_7c8">false</item>
+    <item type="string" name="APKTOOL_DUMMY_7c9">false</item>
 </resources>
