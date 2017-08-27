@@ -1,7 +1,8 @@
 !!brut.androlib.meta.MetaInfo
 apkFileName: samsung-services.jar
 compressionType: false
-doNotCompress: null
+doNotCompress:
+- MF
 isFrameworkApk: false
 packageInfo: null
 sdkInfo: null

@@ -12001,28 +12001,7 @@
 
     move-result v0
 
-    sget-boolean v1, Landroid/os/Build;->renovateHeroDevice:Z
-
-    if-nez v1, :cond_4
-
-    goto :goto_0
-
-    :cond_4
-    invoke-virtual {p0}, Lcom/android/server/policy/SamsungPhoneWindowManager;->showNavBar()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_5
-
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_5
-    const/4 v0, 0x0
-
-    :goto_0
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_4
 
     new-instance v0, Lcom/android/server/policy/SamsungPhoneWindowManager$ForceImmersiveModeObserver;
 
@@ -12036,7 +12015,7 @@
 
     invoke-virtual {v0}, Lcom/android/server/policy/SamsungPhoneWindowManager$ForceImmersiveModeObserver;->observe()V
 
-    :cond_6
+    :cond_4
     iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mContext:Landroid/content/Context;
 
     invoke-static {v0}, Lcom/samsung/android/emergencymode/SemEmergencyManager;->getInstance(Landroid/content/Context;)Lcom/samsung/android/emergencymode/SemEmergencyManager;
@@ -12079,13 +12058,13 @@
 
     iget-boolean v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mIsSupportFlipCover:Z
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_5
 
     iget-boolean v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mIsSupportSViewCover:Z
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_6
 
-    :cond_7
+    :cond_5
     invoke-virtual {p0}, Lcom/android/server/policy/SamsungPhoneWindowManager;->getCoverManager()Lcom/samsung/android/cover/ICoverManager;
 
     move-result-object v0
@@ -12098,7 +12077,7 @@
 
     iput-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mCoverState:Lcom/samsung/android/cover/CoverState;
 
-    :cond_8
+    :cond_6
     iget-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mContext:Landroid/content/Context;
 
     invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -12125,7 +12104,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_9
+    if-nez v0, :cond_7
 
     const-string/jumbo v0, "com.samsung.android.bixby.agent/com.samsung.android.bixby.WinkService"
 
@@ -12135,7 +12114,7 @@
 
     iput-object v0, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mBixbyComponent:Landroid/content/ComponentName;
 
-    :cond_9
+    :cond_7
     return-void
 .end method
 
@@ -25724,27 +25703,6 @@
 
     move-result v8
 
-    sget-boolean v4, Landroid/os/Build;->renovateHeroDevice:Z
-
-    if-nez v4, :cond_1
-
-    goto :goto_1
-
-    :cond_1
-    invoke-virtual {p0}, Lcom/android/server/policy/SamsungPhoneWindowManager;->showNavBar()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    const/4 v8, 0x1
-
-    goto :goto_1
-
-    :cond_2
-    const/4 v8, 0x0
-
-    :goto_1
     iput-boolean v8, v7, Lcom/android/server/policy/PhoneWindowManager;->mHasNavigationBar:Z
 
     iget-object v7, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mContext:Landroid/content/Context;
@@ -25761,11 +25719,11 @@
 
     iget v1, v0, Landroid/util/DisplayMetrics;->heightPixels:I
 
-    if-ge v4, v1, :cond_3
+    if-ge v4, v1, :cond_1
 
     move v2, v4
 
-    :goto_2
+    :goto_1
     mul-int/lit16 v7, v2, 0xa0
 
     iget v8, v0, Landroid/util/DisplayMetrics;->densityDpi:I
@@ -25774,26 +25732,26 @@
 
     iget-object v7, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
 
-    if-eq v4, v1, :cond_4
+    if-eq v4, v1, :cond_2
 
     const/16 v8, 0x258
 
-    if-ge v3, v8, :cond_4
+    if-ge v3, v8, :cond_2
 
-    :goto_3
+    :goto_2
     iput-boolean v5, v7, Lcom/android/server/policy/PhoneWindowManager;->mNavigationBarCanMove:Z
 
     goto :goto_0
 
-    :cond_3
+    :cond_1
     move v2, v1
 
-    goto :goto_2
+    goto :goto_1
 
-    :cond_4
+    :cond_2
     move v5, v6
 
-    goto :goto_3
+    goto :goto_2
 .end method
 
 .method public prepareSViewCoverLayout(IIIIIIIIIIIIIIIIIIIIIIIII)V
