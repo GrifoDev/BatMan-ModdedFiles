@@ -7278,6 +7278,36 @@
     return v0
 .end method
 
+.method public isLockPulldown()Z
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "qs_lock"
+
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget-boolean v2, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mKeyguardShowing:Z
+
+    :goto_0
+    return v2
+
+    :cond_0
+    const/4 v2, 0x0
+
+    goto :goto_0
+.end method
+
 .method public isOnHeightAnimating()Z
     .locals 1
 
@@ -12190,7 +12220,7 @@
 .end method
 
 .method public setQsExpansionEnabled(Z)V
-    .locals 2
+    .locals 3
 
     const/4 v1, 0x0
 
@@ -12219,6 +12249,15 @@
     :cond_1
     const/4 v0, 0x1
 
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->isLockPulldown()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    const/4 v0, 0x0
+
+    :cond_2
     goto :goto_0
 .end method
 

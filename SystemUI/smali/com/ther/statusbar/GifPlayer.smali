@@ -346,6 +346,10 @@
 
     if-eq v0, v1, :cond_22
 
+    const v1, 0x24
+
+    if-eq v0, v1, :cond_23
+
     :cond_0
     const-string v4, "abstract2"
 
@@ -711,7 +715,7 @@
     goto/16 :goto_0
 
     :cond_21
-    const-string v4, "SMLogoRed"
+    const-string v4, "BMLogoYellow"
 
     const-string v5, "drawable"
 
@@ -722,7 +726,17 @@
     goto/16 :goto_0
 
     :cond_22
-    const-string v4, "SMLogoBlue"
+    const-string v4, "BMLogoBlue"
+
+    const-string v5, "drawable"
+
+    invoke-virtual {p0, v4, v5}, Lcom/ther/statusbar/GifPlayer;->find(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v6
+
+    goto/16 :goto_0
+    :cond_23
+    const-string v4, "BMLogoBlack"
 
     const-string v5, "drawable"
 

@@ -1967,8 +1967,6 @@
     <public type="drawable" name="PifWithBacon" id="0x7f02082b" />
     <public type="drawable" name="PleaseNo" id="0x7f02082c" />
     <public type="drawable" name="RotatingSkeletonOnChair" id="0x7f02082d" />
-    <public type="drawable" name="SMLogoBlue" id="0x7f02082e" />
-    <public type="drawable" name="SMLogoRed" id="0x7f02082f" />
     <public type="drawable" name="SkeletonCuttingFood" id="0x7f020830" />
     <public type="drawable" name="SkeletonNoIceCream" id="0x7f020831" />
     <public type="drawable" name="SkeletonWave" id="0x7f020832" />

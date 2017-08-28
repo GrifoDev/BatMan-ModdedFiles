@@ -1853,7 +1853,7 @@
 .end method
 
 .method protected onFinishInflate()V
-    .locals 3
+    .locals 5
 
     sget-boolean v0, Lcom/android/systemui/SystemUIRune;->mAllowNotificationColorChange:Z
 
@@ -1905,7 +1905,13 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundNormal:Lcom/android/systemui/statusbar/NotificationBackgroundView;
 
-    const v1, 0x7f020878
+    const-string v3, "notification_material_bg_tweak"
+
+    const-string v4, "drawable"
+
+    invoke-static {v3, v4}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setCustomBackground(I)V
 
@@ -1917,7 +1923,13 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/ActivatableNotificationView;->mBackgroundDimmed:Lcom/android/systemui/statusbar/NotificationBackgroundView;
 
-    const v1, 0x7f020876
+    const-string v3, "notification_material_bg_dim_tweak"
+
+    const-string v4, "drawable"
+
+    invoke-static {v3, v4}, Lcom/android/wubydax/GearUtils;->getIdentifier(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v1
 
     invoke-virtual {v0, v1}, Lcom/android/systemui/statusbar/NotificationBackgroundView;->setCustomBackground(I)V
 

@@ -3406,11 +3406,37 @@
 .end method
 
 .method public isUserExpanded()Z
-    .locals 1
+    .locals 5
+
+    const/4 v4, 0x1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "force_expand_notifications"
+
+    const/4 v2, 0x0
+
+    const/4 v3, -0x2
+
+    invoke-static {v0, v1, v2, v3}, Landroid/provider/Settings$System;->getIntForUser(Landroid/content/ContentResolver;Ljava/lang/String;II)I
+
+    move-result v0
+
+    if-eq v0, v4, :cond_0
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/ExpandableNotificationRow;->mUserExpanded:Z
 
+    :goto_0
     return v0
+
+    :cond_0
+    move v0, v4
+
+    goto :goto_0
 .end method
 
 .method public isUserLocked()Z
