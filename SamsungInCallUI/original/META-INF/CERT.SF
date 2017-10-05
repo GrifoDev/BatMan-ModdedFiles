@@ -1,5 +1,6 @@
 Signature-Version: 1.0
-SHA-256-Digest-Manifest: gPLaYpYxgpXpbvCPK1CYcEXVOJG6pJ3ot7Z+7mc6zkw=
+X-Android-APK-Signed: 2
+SHA-256-Digest-Manifest: up9KsvyHg3MY/JsbFjn6yHgO2J/GuvommK10lvMso/E=
 Created-By: 1.0 (Android SignApk)
 
 Name: res/drawable-xxhdpi-v4/ic_call_24dp.qmg
@@ -7088,7 +7089,7 @@ Name: res/layout/sec_video_modify_button_cdma_viewstub.xml
 SHA-256-Digest: RZAmth8qo2z6oe0SGzebMUu6Ru1Xsn4U482kMcOr5yQ=
 
 Name: SEC-INF/buildinfo.xml
-SHA-256-Digest: PfdNv5oxLCpWjU10l16OIskBbJ3NrTv36So423cxFJI=
+SHA-256-Digest: VkAEREuzdb8l/zf9rxFApNmzlGG66K8Cw/uzTgCOiGA=
 
 Name: com/google/i18n/phonenumbers/geocoding/data/1936_en
 SHA-256-Digest: JUv9Y0BAZQ46KgU6C8OZvLTSdl9+rHZ15GAU+zmPl6U=
