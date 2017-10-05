@@ -317,7 +317,7 @@
 .end method
 
 .method private loadDataList(Ljava/util/ArrayList;)Ljava/util/ArrayList;
-    .locals 4
+    .locals 5
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -336,11 +336,18 @@
 
     move-result-object v2
 
+    iget-object v3, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->this$0:Landroid/sec/clipboard/data/file/FileManager;
+
+    new-instance v4, Ljava/util/ArrayList;
+
+    invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
+
+    invoke-static {v3, v4}, Landroid/sec/clipboard/data/file/FileManager;->-set0(Landroid/sec/clipboard/data/file/FileManager;Ljava/util/ArrayList;)Ljava/util/ArrayList;
+
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
-    :cond_0
     :goto_0
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
@@ -358,8 +365,25 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-nez v3, :cond_0
 
+    iget-object v3, p0, Landroid/sec/clipboard/data/file/FileManager$ConnectFileSystem;->this$0:Landroid/sec/clipboard/data/file/FileManager;
+
+    invoke-static {v3}, Landroid/sec/clipboard/data/file/FileManager;->-get1(Landroid/sec/clipboard/data/file/FileManager;)Ljava/util/ArrayList;
+
+    move-result-object v3
+
+    invoke-virtual {v0}, Landroid/sec/clipboard/data/file/WrapFileClipData;->getClipData()Lcom/samsung/android/content/clipboard/data/SemClipData;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/samsung/android/content/clipboard/data/SemClipData;->getClipId()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_0
     invoke-virtual {v2, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_0

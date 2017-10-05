@@ -31,6 +31,9 @@
 .method public abstract clearLastInputMethodWindowForTransition()V
 .end method
 
+.method public abstract disableHideSViewCoverOnce()V
+.end method
+
 .method public abstract getCompatibleMagnificationSpecForWindow(Landroid/os/IBinder;)Landroid/view/MagnificationSpec;
 .end method
 

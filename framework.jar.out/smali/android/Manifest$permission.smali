@@ -394,6 +394,8 @@
 
 .field public static final HDMI_CEC:Ljava/lang/String; = "android.permission.HDMI_CEC"
 
+.field public static final HIDE_NON_SYSTEM_OVERLAY_WINDOWS:Ljava/lang/String; = "android.permission.HIDE_NON_SYSTEM_OVERLAY_WINDOWS"
+
 .field public static final HOME_TRIPLE_CLICK:Ljava/lang/String; = "com.samsung.permission.HOME_TRIPLE_CLICK"
 
 .field public static final HQM_NOTIFICATION_PERMISSION:Ljava/lang/String; = "com.samsung.permission.HQM_NOTIFICATION_PERMISSION"

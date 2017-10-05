@@ -127,9 +127,15 @@
 
     if-nez v1, :cond_0
 
-    const/4 v1, 0x0
+    invoke-static {}, Landroid/os/UserHandle;->getCallingUserId()I
 
-    return-object v1
+    move-result v1
+
+    invoke-static {v1}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
 
     :cond_0
     new-instance v0, Landroid/content/Intent;
@@ -151,6 +157,11 @@
     invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
 
     return-object v0
+
+    :cond_1
+    const/4 v1, 0x0
+
+    return-object v1
 .end method
 
 .method public createConfirmDeviceCredentialIntent(Ljava/lang/CharSequence;Ljava/lang/CharSequence;I)Landroid/content/Intent;
