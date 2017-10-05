@@ -51,29 +51,43 @@
 
 
 # virtual methods
-.method public adjustImmersiveFlags(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/WindowManagerPolicy$WindowState;)I
-    .locals 1
+.method public adjustImmersiveFlags(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/WindowManagerPolicy$WindowState;I)I
+    .locals 4
 
-    sget-boolean v0, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
+    const/4 v1, 0x0
 
-    if-eqz v0, :cond_0
+    invoke-static {}, Lcom/android/server/policy/PolicyControl;->isForceImmersiveMode()Z
+
+    move-result v2
+
+    if-nez v2, :cond_2
 
     invoke-virtual {p0, p1}, Lcom/android/server/policy/MultiPhoneWindowManager;->isFreeformWindow(Landroid/view/WindowManagerPolicy$WindowState;)Z
 
-    move-result v0
+    move-result v3
 
-    if-eqz v0, :cond_0
+    if-eqz v3, :cond_2
 
-    if-eq p2, p1, :cond_0
+    if-eq p2, p1, :cond_2
 
-    const/16 v0, 0x1802
+    move v0, p3
 
-    return v0
+    and-int/lit16 v3, p3, 0x1802
+
+    if-eqz v3, :cond_0
+
+    const/4 v1, 0x1
 
     :cond_0
-    const/4 v0, 0x0
+    if-eqz v1, :cond_1
 
+    and-int/lit16 v0, p3, -0x1803
+
+    :cond_1
     return v0
+
+    :cond_2
+    return p3
 .end method
 
 .method public hasDockedStack()Z

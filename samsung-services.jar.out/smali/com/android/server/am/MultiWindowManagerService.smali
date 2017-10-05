@@ -13388,7 +13388,7 @@
 
     and-int/lit16 v1, v0, 0x1000
 
-    if-eqz v1, :cond_13
+    if-eqz v1, :cond_14
 
     invoke-direct/range {p0 .. p0}, Lcom/android/server/am/MultiWindowManagerService;->loadResources()V
 
@@ -13423,7 +13423,7 @@
 
     iget-boolean v1, v0, Lcom/android/server/am/MultiWindowManagerService;->mIsDesktopModeEnabled:Z
 
-    if-eqz v1, :cond_11
+    if-eqz v1, :cond_12
 
     const/16 v22, 0x0
 
@@ -13439,7 +13439,7 @@
 
     move-result-object v10
 
-    if-eqz v10, :cond_10
+    if-eqz v10, :cond_11
 
     invoke-virtual {v10}, Lcom/android/server/am/ActivityStack;->getAllTasks()Ljava/util/ArrayList;
 
@@ -13454,7 +13454,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_10
+    if-eqz v1, :cond_11
 
     invoke-interface/range {v20 .. v20}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -13721,6 +13721,39 @@
 
     iget-object v1, v0, Lcom/android/server/am/TaskRecord;->mLastNonFullscreenBounds:Landroid/graphics/Rect;
 
+    if-nez v1, :cond_f
+
+    const-string/jumbo v1, "MultiWindowManagerService"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "Last non fullscreenBounds is null, skip scale bounds by density change, "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_7
+
+    :cond_f
+    move-object/from16 v0, v19
+
+    iget-object v1, v0, Lcom/android/server/am/TaskRecord;->mLastNonFullscreenBounds:Landroid/graphics/Rect;
+
     invoke-virtual {v7, v1}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
 
     move/from16 v0, v18
@@ -13765,7 +13798,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_f
+    if-eqz v1, :cond_10
 
     const-string/jumbo v1, "MultiWindowManagerService"
 
@@ -13793,7 +13826,7 @@
 
     goto :goto_7
 
-    :cond_f
+    :cond_10
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/am/MultiWindowManagerService;->mWindowManager:Lcom/android/server/wm/WindowManagerService;
@@ -13816,9 +13849,9 @@
 
     invoke-virtual/range {v1 .. v6}, Lcom/android/server/wm/WindowManagerService;->resizeTask(ILandroid/graphics/Rect;Landroid/content/res/Configuration;ZZ)V
 
-    goto :goto_7
+    goto/16 :goto_7
 
-    :cond_10
+    :cond_11
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/am/MultiWindowManagerService;->mActivityManager:Lcom/android/server/am/ActivityManagerService;
@@ -13831,7 +13864,7 @@
 
     move-result-object v13
 
-    if-eqz v13, :cond_12
+    if-eqz v13, :cond_13
 
     invoke-virtual {v13}, Lcom/android/server/am/ActivityStack;->getAllTasks()Ljava/util/ArrayList;
 
@@ -13846,7 +13879,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_12
+    if-eqz v1, :cond_13
 
     invoke-interface/range {v20 .. v20}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -13864,7 +13897,7 @@
 
     goto :goto_8
 
-    :cond_11
+    :cond_12
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/am/MultiWindowManagerService;->mActivityManager:Lcom/android/server/am/ActivityManagerService;
@@ -13877,7 +13910,7 @@
 
     move-result-object v9
 
-    if-eqz v9, :cond_12
+    if-eqz v9, :cond_13
 
     invoke-virtual {v9}, Lcom/android/server/am/ActivityStack;->topActivity()Lcom/android/server/am/ActivityRecord;
 
@@ -13899,7 +13932,7 @@
 
     move-result-object v12
 
-    if-eqz v12, :cond_12
+    if-eqz v12, :cond_13
 
     invoke-virtual {v12}, Lcom/android/server/am/ActivityStack;->topActivity()Lcom/android/server/am/ActivityRecord;
 
@@ -13909,7 +13942,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/am/MultiWindowManagerService;->setTaskDimensions(Lcom/android/server/am/ActivityRecord;)V
 
-    :cond_12
+    :cond_13
     move-object/from16 v0, p0
 
     iget-object v1, v0, Lcom/android/server/am/MultiWindowManagerService;->mActivityManager:Lcom/android/server/am/ActivityManagerService;
@@ -13922,18 +13955,18 @@
 
     iput v1, v0, Lcom/android/server/am/MultiWindowManagerService;->mLastGlobalDensity:I
 
-    :cond_13
+    :cond_14
     move/from16 v0, p1
 
     and-int/lit16 v1, v0, 0x1880
 
-    if-eqz v1, :cond_15
+    if-eqz v1, :cond_16
 
     move/from16 v0, p1
 
     and-int/lit16 v1, v0, 0x80
 
-    if-eqz v1, :cond_14
+    if-eqz v1, :cond_15
 
     move-object/from16 v0, p0
 
@@ -13947,14 +13980,14 @@
 
     iput v1, v0, Lcom/android/server/am/MultiWindowManagerService;->mCurrentOrientation:I
 
-    :cond_14
+    :cond_15
     sget-boolean v1, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->FREEFORM_SUPPORT:Z
 
-    if-eqz v1, :cond_15
+    if-eqz v1, :cond_16
 
     sget-boolean v1, Lcom/samsung/android/framework/feature/MultiWindowFeatures;->SAMSUNG_MULTIWINDOW_DYNAMIC_ENABLED:Z
 
-    if-eqz v1, :cond_15
+    if-eqz v1, :cond_16
 
     const/4 v1, 0x2
 
@@ -13972,9 +14005,9 @@
 
     move-result-object v21
 
-    if-eqz v21, :cond_15
+    if-eqz v21, :cond_16
 
-    if-eqz v8, :cond_15
+    if-eqz v8, :cond_16
 
     move-object/from16 v0, v21
 
@@ -13986,7 +14019,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/am/LaunchingTaskPositioner;->configure(Landroid/graphics/Rect;)V
 
-    :cond_15
+    :cond_16
     return-void
 .end method
 
