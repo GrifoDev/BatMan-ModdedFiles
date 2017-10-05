@@ -22,8 +22,6 @@
 
 
 # static fields
-.field private static final AUTO_BRIGHTNESS_LOW_LUX_STEP_FOR_PAC_V3:I = 0xe
-
 .field private static final AUTO_BRIGHTNESS_STEP_FOR_PAC_V3:I = 0x4
 
 .field private static final FORCE_1STEP_DELTA_TIME:F = 0.016f

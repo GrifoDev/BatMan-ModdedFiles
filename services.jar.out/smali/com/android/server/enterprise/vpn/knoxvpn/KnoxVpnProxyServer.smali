@@ -2445,7 +2445,7 @@
     invoke-virtual {v0, v1, v9, v2, v8}, Lcom/android/server/enterprise/vpn/knoxvpn/KnoxVpnPacProcessor;->bindSocketToInterfaceWrapper(IIILjava/lang/String;)V
 
     :cond_2
-    const/16 v19, 0x2710
+    const v19, 0x11170
 
     move/from16 v0, v19
 

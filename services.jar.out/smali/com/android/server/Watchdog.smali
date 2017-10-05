@@ -55,6 +55,8 @@
 
 .field mEmfileChecker:Z
 
+.field mGMSPid:I
+
 .field final mHandlerCheckers:Ljava/util/ArrayList;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -749,10 +751,21 @@
     if-eqz v0, :cond_0
 
     iput p2, p0, Lcom/android/server/Watchdog;->mPhonePid:I
+
+    :cond_0
+    const-string/jumbo v0, "com.google.android.gms.persistent"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iput p2, p0, Lcom/android/server/Watchdog;->mGMSPid:I
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :cond_0
+    :cond_1
     monitor-exit p0
 
     return-void
@@ -1701,7 +1714,7 @@
 
     move/from16 v1, v54
 
-    if-ne v0, v1, :cond_10
+    if-ne v0, v1, :cond_11
 
     if-nez v53, :cond_e
 
@@ -1724,6 +1737,31 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/Watchdog;->mGMSPid:I
+
+    move/from16 v54, v0
+
+    if-lez v54, :cond_10
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/Watchdog;->mGMSPid:I
+
+    move/from16 v54, v0
+
+    invoke-static/range {v54 .. v54}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v54
+
+    move-object/from16 v0, v40
+
+    move-object/from16 v1, v54
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_10
     sget-object v54, Lcom/android/server/Watchdog;->NATIVE_STACKS_OF_INTEREST:[Ljava/lang/String;
 
     const/16 v55, 0x1
@@ -1754,7 +1792,7 @@
 
     goto :goto_11
 
-    :cond_10
+    :cond_11
     invoke-direct/range {p0 .. p0}, Lcom/android/server/Watchdog;->getBlockedCheckersLocked()Ljava/util/ArrayList;
 
     move-result-object v11
@@ -1805,7 +1843,7 @@
 
     move/from16 v54, v0
 
-    if-lez v54, :cond_11
+    if-lez v54, :cond_12
 
     move-object/from16 v0, p0
 
@@ -1823,8 +1861,33 @@
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_11
-    if-eqz v53, :cond_13
+    :cond_12
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/Watchdog;->mGMSPid:I
+
+    move/from16 v54, v0
+
+    if-lez v54, :cond_13
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/server/Watchdog;->mGMSPid:I
+
+    move/from16 v54, v0
+
+    invoke-static/range {v54 .. v54}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v54
+
+    move-object/from16 v0, v40
+
+    move-object/from16 v1, v54
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_13
+    if-eqz v53, :cond_15
 
     const/16 v54, 0x0
 
@@ -1915,7 +1978,7 @@
 
     move-result v19
 
-    if-eqz v19, :cond_12
+    if-eqz v19, :cond_14
 
     const-string/jumbo v54, "Watchdog"
 
@@ -1966,7 +2029,7 @@
     :try_end_1a
     .catch Ljava/io/IOException; {:try_start_1a .. :try_end_1a} :catch_9
 
-    :cond_12
+    :cond_14
     :goto_14
     monitor-enter p0
 
@@ -1981,7 +2044,7 @@
 
     monitor-exit p0
 
-    if-eqz v18, :cond_14
+    if-eqz v18, :cond_16
 
     const-string/jumbo v54, "Watchdog"
 
@@ -2002,7 +2065,7 @@
 
     move-result v41
 
-    if-ltz v41, :cond_14
+    if-ltz v41, :cond_16
 
     const-string/jumbo v54, "Watchdog"
 
@@ -2016,7 +2079,7 @@
 
     goto/16 :goto_0
 
-    :cond_13
+    :cond_15
     const/16 v54, 0x1
 
     goto/16 :goto_12
@@ -2055,23 +2118,23 @@
     :catch_a
     move-exception v22
 
-    :cond_14
+    :cond_16
     invoke-static {}, Landroid/os/Debug;->isDebuggerConnected()Z
 
     move-result v54
 
-    if-eqz v54, :cond_15
+    if-eqz v54, :cond_17
 
     const/16 v20, 0x2
 
-    :cond_15
+    :cond_17
     const/16 v54, 0x2
 
     move/from16 v0, v20
 
     move/from16 v1, v54
 
-    if-lt v0, v1, :cond_16
+    if-lt v0, v1, :cond_18
 
     const-string/jumbo v54, "Watchdog"
 
@@ -2084,8 +2147,8 @@
 
     goto/16 :goto_0
 
-    :cond_16
-    if-lez v20, :cond_17
+    :cond_18
+    if-lez v20, :cond_19
 
     const-string/jumbo v54, "Watchdog"
 
@@ -2095,8 +2158,8 @@
 
     goto :goto_15
 
-    :cond_17
-    if-nez v6, :cond_18
+    :cond_19
+    if-nez v6, :cond_1a
 
     const-string/jumbo v54, "Watchdog"
 
@@ -2106,7 +2169,7 @@
 
     goto :goto_15
 
-    :cond_18
+    :cond_1a
     new-instance v42, Ljava/lang/StringBuilder;
 
     invoke-direct/range {v42 .. v42}, Ljava/lang/StringBuilder;-><init>()V
@@ -2184,7 +2247,7 @@
 
     move/from16 v1, v54
 
-    if-ge v0, v1, :cond_1b
+    if-ge v0, v1, :cond_1d
 
     const-string/jumbo v55, "Watchdog"
 
@@ -2303,7 +2366,7 @@
 
     move/from16 v1, v55
 
-    if-ge v0, v1, :cond_1a
+    if-ge v0, v1, :cond_1c
 
     aget-object v26, v45, v54
 
@@ -2349,7 +2412,7 @@
 
     move/from16 v1, v57
 
-    if-gt v0, v1, :cond_19
+    if-gt v0, v1, :cond_1b
 
     const-string/jumbo v56, "    at "
 
@@ -2377,17 +2440,17 @@
 
     add-int v43, v43, v56
 
-    :cond_19
+    :cond_1b
     add-int/lit8 v54, v54, 0x1
 
     goto :goto_17
 
-    :cond_1a
+    :cond_1c
     add-int/lit8 v37, v37, 0x1
 
     goto/16 :goto_16
 
-    :cond_1b
+    :cond_1d
     const-string/jumbo v54, "\""
 
     move-object/from16 v0, v42
@@ -2422,7 +2485,7 @@
     .catch Ljava/lang/Exception; {:try_start_1d .. :try_end_1d} :catch_c
     .catchall {:try_start_1d .. :try_end_1d} :catchall_4
 
-    if-eqz v33, :cond_1c
+    if-eqz v33, :cond_1e
 
     :try_start_1e
     invoke-virtual/range {v42 .. v42}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -2438,19 +2501,19 @@
     .catch Ljava/lang/Exception; {:try_start_1e .. :try_end_1e} :catch_f
     .catchall {:try_start_1e .. :try_end_1e} :catchall_5
 
-    :cond_1c
-    if-eqz v33, :cond_1d
+    :cond_1e
+    if-eqz v33, :cond_1f
 
     :try_start_1f
     invoke-virtual/range {v33 .. v33}, Ljava/io/FileWriter;->close()V
     :try_end_1f
     .catch Ljava/lang/Exception; {:try_start_1f .. :try_end_1f} :catch_b
 
-    :cond_1d
+    :cond_1f
     :goto_18
     move-object/from16 v32, v33
 
-    :cond_1e
+    :cond_20
     :goto_19
     const-string/jumbo v54, "bugreportswd"
 
@@ -2534,7 +2597,7 @@
     :try_end_20
     .catchall {:try_start_20 .. :try_end_20} :catchall_4
 
-    if-eqz v32, :cond_1e
+    if-eqz v32, :cond_20
 
     :try_start_21
     invoke-virtual/range {v32 .. v32}, Ljava/io/FileWriter;->close()V
@@ -2578,14 +2641,14 @@
     move-exception v54
 
     :goto_1b
-    if-eqz v32, :cond_1f
+    if-eqz v32, :cond_21
 
     :try_start_22
     invoke-virtual/range {v32 .. v32}, Ljava/io/FileWriter;->close()V
     :try_end_22
     .catch Ljava/lang/Exception; {:try_start_22 .. :try_end_22} :catch_e
 
-    :cond_1f
+    :cond_21
     :goto_1c
     throw v54
 

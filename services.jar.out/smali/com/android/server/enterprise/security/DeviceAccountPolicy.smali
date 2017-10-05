@@ -18,6 +18,12 @@
 
 .field public static final ACCOUNT_TYPE_GOOGLE:Ljava/lang/String; = "com.google"
 
+.field public static final ACCOUNT_TYPE_GOOGLE_EXCHANGE:Ljava/lang/String; = "com.google.android.gm.exchange"
+
+.field public static final ACCOUNT_TYPE_GOOGLE_IMAP:Ljava/lang/String; = "com.google.android.gm.legacyimap"
+
+.field public static final ACCOUNT_TYPE_GOOGLE_POP3:Ljava/lang/String; = "com.google.android.gm.pop3"
+
 .field public static final ACCOUNT_TYPE_LDAP:Ljava/lang/String; = "com.samsung.android.ldap"
 
 .field public static final ACCOUNT_TYPE_LDAP_OLD:Ljava/lang/String; = "com.android.ldap"
@@ -103,7 +109,7 @@
     return-void
 
     :cond_0
-    const/4 v0, 0x5
+    const/16 v0, 0x8
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -126,6 +132,24 @@
     const-string/jumbo v1, "com.google"
 
     aput-object v1, v0, v6
+
+    const-string/jumbo v1, "com.google.android.gm.legacyimap"
+
+    const/4 v2, 0x5
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "com.google.android.gm.pop3"
+
+    const/4 v2, 0x6
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "com.google.android.gm.exchange"
+
+    const/4 v2, 0x7
+
+    aput-object v1, v0, v2
 
     sput-object v0, Lcom/android/server/enterprise/security/DeviceAccountPolicy;->mSupportedAccountTypes:[Ljava/lang/String;
 

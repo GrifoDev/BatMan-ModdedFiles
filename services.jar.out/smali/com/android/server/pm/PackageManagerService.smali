@@ -421,6 +421,8 @@
 
 .field static final WRITE_SETTINGS_DELAY:I = 0x2710
 
+.field private static mASKS_version:Ljava/lang/String;
+
 .field private static mHM:Landroid/content/IHarmonyEAS;
 
 .field private static mIam:Landroid/app/IActivityManager;
@@ -1937,6 +1939,10 @@
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
     sput-object v4, Lcom/android/server/pm/PackageManagerService;->mIam:Landroid/app/IActivityManager;
+
+    const-string/jumbo v0, "1.4"
+
+    sput-object v0, Lcom/android/server/pm/PackageManagerService;->mASKS_version:Ljava/lang/String;
 
     sput v3, Lcom/android/server/pm/PackageManagerService;->SKA_MODE:I
 
@@ -5685,6 +5691,12 @@
     move-object/from16 v0, v70
 
     invoke-static {v2, v0}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string/jumbo v2, "security.ASKS.version"
+
+    sget-object v4, Lcom/android/server/pm/PackageManagerService;->mASKS_version:Ljava/lang/String;
+
+    invoke-static {v2, v4}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-direct/range {p0 .. p0}, Lcom/android/server/pm/PackageManagerService;->AASA_init()V
 
@@ -17893,6 +17905,12 @@
     const v5, 0x3050f0e
 
     const v4, 0x107090e
+
+    const-string/jumbo v2, "security.ASKS.version"
+
+    sget-object v3, Lcom/android/server/pm/PackageManagerService;->mASKS_version:Ljava/lang/String;
+
+    invoke-static {v2, v3}, Landroid/os/SystemProperties;->set(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-direct {p0}, Lcom/android/server/pm/PackageManagerService;->ASKS_copyXMLFromSystemIfneed()V
 

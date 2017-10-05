@@ -439,6 +439,23 @@
     return v2
 
     :cond_3
+    invoke-interface {p0}, Landroid/view/WindowManagerPolicy$WindowState;->isInMultiWindowMode()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    invoke-interface {p0}, Landroid/view/WindowManagerPolicy$WindowState;->getStackId()I
+
+    move-result v0
+
+    const/4 v1, 0x2
+
+    if-eq v0, v1, :cond_4
+
+    return v2
+
+    :cond_4
     invoke-interface {p0}, Landroid/view/WindowManagerPolicy$WindowState;->getBridge()Lcom/samsung/android/view/IWindowStateBridge;
 
     move-result-object v0
@@ -447,11 +464,11 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
     return v2
 
-    :cond_4
+    :cond_5
     invoke-interface {p0}, Landroid/view/WindowManagerPolicy$WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
 
     move-result-object v0
@@ -460,7 +477,7 @@
 
     const/16 v1, 0x97e
 
-    if-eq v0, v1, :cond_5
+    if-eq v0, v1, :cond_6
 
     invoke-interface {p0}, Landroid/view/WindowManagerPolicy$WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
 
@@ -470,12 +487,12 @@
 
     const/16 v1, 0x97f
 
-    if-ne v0, v1, :cond_6
-
-    :cond_5
-    return v2
+    if-ne v0, v1, :cond_7
 
     :cond_6
+    return v2
+
+    :cond_7
     invoke-interface {p0}, Landroid/view/WindowManagerPolicy$WindowState;->getAttrs()Landroid/view/WindowManager$LayoutParams;
 
     move-result-object v0
@@ -484,7 +501,7 @@
 
     const/16 v1, 0x96f
 
-    if-eq v0, v1, :cond_5
+    if-eq v0, v1, :cond_6
 
     invoke-interface {p0}, Landroid/view/WindowManagerPolicy$WindowState;->getBridge()Lcom/samsung/android/view/IWindowStateBridge;
 

@@ -3856,9 +3856,9 @@
     :cond_2
     iget v3, p0, Lcom/android/server/display/AutomaticBrightnessController;->mScreenBrightnessModeSetting:I
 
-    if-nez v3, :cond_3
+    if-nez v3, :cond_4
 
-    if-ne v0, v6, :cond_3
+    if-ne v0, v6, :cond_4
 
     iget-boolean v3, p0, Lcom/android/server/display/AutomaticBrightnessController;->mUseAutoBrightnessController:Z
 
@@ -3866,15 +3866,26 @@
 
     iget-boolean v3, p0, Lcom/android/server/display/AutomaticBrightnessController;->mIsSupportedSensorHubAutoBrightness:Z
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_5
 
     invoke-direct {p0}, Lcom/android/server/display/AutomaticBrightnessController;->getAmbientLuxAndCandelaFromSensorHub()V
 
     :cond_3
     :goto_1
-    return-void
+    iget-object v3, p0, Lcom/android/server/display/AutomaticBrightnessController;->mPersonalAutoBrightness:Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;
+
+    invoke-virtual {v3}, Lcom/android/server/display/AutomaticBrightnessController$PersonalAutoBrightness;->resetPersonalAutoBrightness()V
+
+    const-string/jumbo v3, "AutomaticBrightnessController"
+
+    const-string/jumbo v4, "[PAB] Setting : It\'s manual. So Reset Personal Auto Brightness."
+
+    invoke-static {v3, v4}, Lcom/android/server/power/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_4
+    return-void
+
+    :cond_5
     iget-object v3, p0, Lcom/android/server/display/AutomaticBrightnessController;->mSensorManager:Landroid/hardware/SensorManager;
 
     iget-object v4, p0, Lcom/android/server/display/AutomaticBrightnessController;->mLightSensorListener:Landroid/hardware/SensorEventListener;

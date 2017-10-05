@@ -9118,13 +9118,9 @@
 
     iget-object v1, p0, Lcom/android/server/policy/PhoneWindowManager;->mFocusedWindow:Landroid/view/WindowManagerPolicy$WindowState;
 
-    invoke-interface {v0, v1, v7}, Lcom/android/server/policy/IMultiPhoneWindowManagerPolicy;->adjustImmersiveFlags(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/WindowManagerPolicy$WindowState;)I
+    invoke-interface {v0, v1, v7, v12}, Lcom/android/server/policy/IMultiPhoneWindowManagerPolicy;->adjustImmersiveFlags(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/WindowManagerPolicy$WindowState;I)I
 
-    move-result v0
-
-    not-int v0, v0
-
-    and-int/2addr v12, v0
+    move-result v12
 
     :cond_7
     iget-object v0, p0, Lcom/android/server/policy/PhoneWindowManager;->mSPWM:Lcom/android/server/policy/SamsungWindowManagerPolicy;
@@ -17848,32 +17844,15 @@
     invoke-virtual {v2, p1}, Lcom/android/server/pm/PersonaManagerService;->onFinishedGoingToSleep(I)V
 
     :cond_3
-    iget-object v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mSPWM:Lcom/android/server/policy/SamsungWindowManagerPolicy;
+    iget-object v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mWindowManagerInternal:Landroid/view/WindowManagerInternal;
 
-    invoke-interface {v2}, Lcom/android/server/policy/SamsungWindowManagerPolicy;->getHideSViewCoverWindowState()Landroid/view/WindowManagerPolicy$WindowState;
+    invoke-virtual {v2}, Landroid/view/WindowManagerInternal;->disableHideSViewCoverOnce()V
 
-    move-result-object v2
-
-    if-eqz v2, :cond_4
-
-    iget-object v2, p0, Lcom/android/server/policy/PhoneWindowManager;->mSPWM:Lcom/android/server/policy/SamsungWindowManagerPolicy;
-
-    invoke-interface {v2}, Lcom/android/server/policy/SamsungWindowManagerPolicy;->getHideSViewCoverWindowState()Landroid/view/WindowManagerPolicy$WindowState;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Landroid/view/WindowManagerPolicy$WindowState;->getBridge()Lcom/samsung/android/view/IWindowStateBridge;
-
-    move-result-object v2
-
-    invoke-interface {v2, v6}, Lcom/samsung/android/view/IWindowStateBridge;->disableHideSViewCoverOnce(Z)V
-
-    :cond_4
     invoke-direct {p0}, Lcom/android/server/policy/PhoneWindowManager;->isSharedDeviceEnabled()Z
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_4
 
     new-instance v1, Landroid/content/Intent;
 
@@ -17909,7 +17888,7 @@
 
     invoke-virtual {v2, v1}, Landroid/content/Context;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
 
-    :cond_5
+    :cond_4
     invoke-static {}, Lcom/android/server/SamsungCoreServices;->getEdgeWindowPolicy()Lcom/android/server/policy/EdgeWindowPolicy;
 
     move-result-object v2

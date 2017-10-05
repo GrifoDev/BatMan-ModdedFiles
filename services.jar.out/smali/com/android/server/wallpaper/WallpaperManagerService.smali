@@ -6130,7 +6130,7 @@
     goto :goto_0
 
     :cond_5
-    const-string/jumbo v1, "za"
+    const-string/jumbo v1, "di"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -6138,11 +6138,37 @@
 
     if-eqz v1, :cond_6
 
-    const-string/jumbo v0, "orchid"
+    const-string/jumbo v0, "pink"
 
     goto :goto_0
 
     :cond_6
+    const-string/jumbo v1, "za"
+
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_7
+
+    const-string/jumbo v0, "orchid"
+
+    goto :goto_0
+
+    :cond_7
+    const-string/jumbo v1, "zr"
+
+    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_8
+
+    const-string/jumbo v0, "orchid"
+
+    goto :goto_0
+
+    :cond_8
     const-string/jumbo v0, "black"
 
     goto :goto_0

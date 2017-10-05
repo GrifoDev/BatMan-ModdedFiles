@@ -496,8 +496,6 @@
 
 .field private final mShowSilentToggle:Z
 
-.field private mSilentMode:Lcom/android/server/policy/GlobalActions$SinglePressAction;
-
 .field private mSilentModeAction:Lcom/android/server/policy/GlobalActions$SilentModeAction;
 
 .field mStateListener:Lcom/samsung/android/cover/CoverManager$StateListener;
@@ -1903,8 +1901,6 @@
     invoke-virtual {v1, v4}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
 
     move-result v1
-
-    const/4 v1, 0x1
 
     iput-boolean v1, p0, Lcom/android/server/policy/GlobalActions;->isDataToggleSupport:Z
 

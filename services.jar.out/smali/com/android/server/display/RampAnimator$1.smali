@@ -35,15 +35,13 @@
 
 # virtual methods
 .method public run()V
-    .locals 14
+    .locals 13
 
-    const/4 v13, 0x2
+    const/4 v12, 0x1
 
-    const/high16 v12, 0x41200000    # 10.0f
+    const/high16 v11, 0x41200000    # 10.0f
 
-    const/4 v11, 0x0
-
-    const/4 v10, 0x1
+    const/4 v10, 0x0
 
     iget-object v7, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
 
@@ -75,22 +73,13 @@
 
     move-result v7
 
-    if-eq v7, v10, :cond_0
+    if-ne v7, v12, :cond_1
 
-    iget-object v7, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
-
-    invoke-static {v7}, Lcom/android/server/display/RampAnimator;->-get9(Lcom/android/server/display/RampAnimator;)I
-
-    move-result v7
-
-    if-ne v7, v13, :cond_2
-
-    :cond_0
     const v7, 0x3c83126f    # 0.016f
 
     cmpg-float v7, v6, v7
 
-    if-ltz v7, :cond_1
+    if-ltz v7, :cond_0
 
     iget-object v7, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
 
@@ -120,23 +109,23 @@
 
     move-result v8
 
-    if-eq v7, v8, :cond_2
+    if-eq v7, v8, :cond_1
 
-    :cond_1
+    :cond_0
     iget-object v7, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
 
     invoke-static {v7}, Lcom/android/server/display/RampAnimator;->-wrap0(Lcom/android/server/display/RampAnimator;)V
 
     return-void
 
-    :cond_2
+    :cond_1
     iget-object v7, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
 
     invoke-static {v7, v2, v3}, Lcom/android/server/display/RampAnimator;->-set3(Lcom/android/server/display/RampAnimator;J)J
 
-    cmpg-float v7, v6, v11
+    cmpg-float v7, v6, v10
 
-    if-gez v7, :cond_3
+    if-gez v7, :cond_2
 
     const-string/jumbo v7, "RampAnimator"
 
@@ -166,14 +155,14 @@
 
     return-void
 
-    :cond_3
+    :cond_2
     invoke-static {}, Landroid/animation/ValueAnimator;->getDurationScale()F
 
     move-result v5
 
-    cmpl-float v7, v5, v11
+    cmpl-float v7, v5, v10
 
-    if-nez v7, :cond_6
+    if-nez v7, :cond_5
 
     iget-object v7, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
 
@@ -214,7 +203,7 @@
 
     move-result v7
 
-    if-eq v4, v7, :cond_4
+    if-eq v4, v7, :cond_3
 
     iget-object v7, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
 
@@ -236,7 +225,7 @@
 
     invoke-virtual {v7, v8, v9}, Landroid/util/IntProperty;->setValue(Ljava/lang/Object;I)V
 
-    :cond_4
+    :cond_3
     iget-object v7, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
 
     invoke-static {v7}, Lcom/android/server/display/RampAnimator;->-get10(Lcom/android/server/display/RampAnimator;)I
@@ -249,17 +238,17 @@
 
     move-result v8
 
-    if-eq v7, v8, :cond_d
+    if-eq v7, v8, :cond_a
 
     iget-object v7, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
 
     invoke-static {v7}, Lcom/android/server/display/RampAnimator;->-wrap0(Lcom/android/server/display/RampAnimator;)V
 
-    :cond_5
+    :cond_4
     :goto_1
     return-void
 
-    :cond_6
+    :cond_5
     iget-object v7, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
 
     invoke-static {v7}, Lcom/android/server/display/RampAnimator;->-get9(Lcom/android/server/display/RampAnimator;)I
@@ -278,22 +267,13 @@
 
     move-result v7
 
-    if-eq v7, v10, :cond_7
+    if-ne v7, v12, :cond_8
 
-    iget-object v7, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
-
-    invoke-static {v7}, Lcom/android/server/display/RampAnimator;->-get9(Lcom/android/server/display/RampAnimator;)I
-
-    move-result v7
-
-    if-ne v7, v13, :cond_b
-
-    :cond_7
     const/high16 v0, 0x3f800000    # 1.0f
 
     sget-boolean v7, Lcom/android/server/power/PowerManagerUtil;->USE_PERSONAL_AUTO_BRIGHTNESS_V3:Z
 
-    if-eqz v7, :cond_8
+    if-eqz v7, :cond_6
 
     iget-object v7, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
 
@@ -301,22 +281,13 @@
 
     move-result v7
 
-    if-eqz v7, :cond_a
+    if-eqz v7, :cond_7
 
-    const-string/jumbo v8, "sys.display.autosteps"
+    const-string/jumbo v7, "sys.display.autosteps"
 
-    iget-object v7, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
+    const/4 v8, 0x4
 
-    invoke-static {v7}, Lcom/android/server/display/RampAnimator;->-get9(Lcom/android/server/display/RampAnimator;)I
-
-    move-result v7
-
-    if-ne v7, v10, :cond_9
-
-    const/4 v7, 0x4
-
-    :goto_2
-    invoke-static {v8, v7}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
+    invoke-static {v7, v8}, Landroid/os/SystemProperties;->getInt(Ljava/lang/String;I)I
 
     move-result v1
 
@@ -326,7 +297,7 @@
 
     int-to-float v7, v7
 
-    mul-float/2addr v7, v12
+    mul-float/2addr v7, v11
 
     invoke-static {v7}, Ljava/lang/Math;->round(F)I
 
@@ -334,10 +305,10 @@
 
     int-to-float v7, v7
 
-    div-float v0, v7, v12
+    div-float v0, v7, v11
 
-    :cond_8
-    :goto_3
+    :cond_6
+    :goto_2
     iget-object v7, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
 
     invoke-static {v7}, Lcom/android/server/display/RampAnimator;->-get10(Lcom/android/server/display/RampAnimator;)I
@@ -350,7 +321,7 @@
 
     move-result v8
 
-    if-le v7, v8, :cond_c
+    if-le v7, v8, :cond_9
 
     iget-object v7, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
 
@@ -378,20 +349,15 @@
 
     goto/16 :goto_0
 
-    :cond_9
-    const/16 v7, 0xe
+    :cond_7
+    const/high16 v0, 0x42c80000    # 100.0f
 
     goto :goto_2
 
-    :cond_a
-    const/high16 v0, 0x42c80000    # 100.0f
-
-    goto :goto_3
-
-    :cond_b
+    :cond_8
     sget-boolean v7, Lcom/android/server/power/PowerManagerUtil;->USE_PERSONAL_AUTO_BRIGHTNESS_V3:Z
 
-    if-eqz v7, :cond_8
+    if-eqz v7, :cond_6
 
     iget-object v7, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
 
@@ -399,9 +365,9 @@
 
     move-result v0
 
-    goto :goto_3
+    goto :goto_2
 
-    :cond_c
+    :cond_9
     iget-object v7, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
 
     iget-object v8, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
@@ -428,7 +394,7 @@
 
     goto/16 :goto_0
 
-    :cond_d
+    :cond_a
     iget-object v7, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
 
     const/4 v8, 0x0
@@ -441,7 +407,7 @@
 
     move-result-object v7
 
-    if-eqz v7, :cond_5
+    if-eqz v7, :cond_4
 
     iget-object v7, p0, Lcom/android/server/display/RampAnimator$1;->this$0:Lcom/android/server/display/RampAnimator;
 

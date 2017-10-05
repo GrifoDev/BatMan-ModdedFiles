@@ -2578,6 +2578,10 @@
 
     if-eq v0, v1, :cond_2
 
+    iget v0, p0, Lcom/android/server/desktopmode/DesktopModeService;->mCoverType:I
+
+    if-eq v0, v4, :cond_2
+
     sget-object v0, Lcom/android/server/desktopmode/DesktopModeService;->TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;

@@ -29703,7 +29703,7 @@
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
-    if-eqz v4, :cond_26
+    if-eqz v4, :cond_27
 
     :cond_4
     :goto_0
@@ -29844,7 +29844,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_28
+    if-eqz v4, :cond_29
 
     const/4 v4, 0x2
 
@@ -30086,7 +30086,7 @@
     iput-object v4, v0, Lcom/android/server/am/ActivityManagerService;->mNativeDebuggingApp:Ljava/lang/String;
 
     :cond_f
-    if-eqz p4, :cond_29
+    if-eqz p4, :cond_2a
 
     move-object/from16 v15, p4
 
@@ -30292,7 +30292,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2b
+    if-eqz v4, :cond_2c
 
     invoke-static {v6}, Landroid/os/UserHandle;->getAppId(I)I
 
@@ -30300,7 +30300,7 @@
 
     const/16 v5, 0x2710
 
-    if-lt v4, v5, :cond_2a
+    if-lt v4, v5, :cond_2b
 
     move-object/from16 v0, p0
 
@@ -30318,9 +30318,9 @@
 
     move-result v4
 
-    if-eqz v4, :cond_2a
+    if-eqz v4, :cond_2b
 
-    if-eqz v8, :cond_2a
+    if-eqz v8, :cond_2b
 
     sget-object v4, Lcom/android/server/am/ActivityManagerService;->TAG:Ljava/lang/String;
 
@@ -30454,7 +30454,7 @@
     move-result v18
 
     :cond_15
-    if-nez p5, :cond_2c
+    if-nez p5, :cond_2d
 
     const/16 v42, 0x1
 
@@ -30632,15 +30632,15 @@
 
     const/16 v52, 0x0
 
-    if-lez v56, :cond_2d
+    if-lez v56, :cond_2e
 
-    if-lez v32, :cond_2d
+    if-lez v32, :cond_2e
 
     move/from16 v0, v56
 
     move/from16 v1, v32
 
-    if-ne v0, v1, :cond_2d
+    if-ne v0, v1, :cond_2e
 
     move-object/from16 v0, p1
 
@@ -30648,7 +30648,7 @@
 
     iget-object v4, v4, Landroid/content/pm/ApplicationInfo;->bbcseinfo:Ljava/lang/String;
 
-    if-eqz v4, :cond_2d
+    if-eqz v4, :cond_2e
 
     move-object/from16 v0, p1
 
@@ -30804,7 +30804,7 @@
 
     aput-object p2, v5, v4
 
-    if-eqz p3, :cond_2f
+    if-eqz p3, :cond_30
 
     move-object/from16 v4, p3
 
@@ -30915,6 +30915,39 @@
     invoke-virtual {v4, v5, v7}, Lcom/android/server/Watchdog;->processStarted(Ljava/lang/String;I)V
 
     :cond_1d
+    move-object/from16 v0, p1
+
+    iget-object v4, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    const-string/jumbo v5, "com.google.android.gms.persistent"
+
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1e
+
+    move-object/from16 v0, p1
+
+    iget v4, v0, Lcom/android/server/am/ProcessRecord;->userId:I
+
+    if-nez v4, :cond_1e
+
+    invoke-static {}, Lcom/android/server/Watchdog;->getInstance()Lcom/android/server/Watchdog;
+
+    move-result-object v4
+
+    move-object/from16 v0, p1
+
+    iget-object v5, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
+
+    move-object/from16 v0, v52
+
+    iget v7, v0, Landroid/os/Process$ProcessStartResult;->pid:I
+
+    invoke-virtual {v4, v5, v7}, Lcom/android/server/Watchdog;->processStarted(Ljava/lang/String;I)V
+
+    :cond_1e
     const-string/jumbo v4, "startProcess: building log message"
 
     move-object/from16 v0, p0
@@ -30973,7 +31006,7 @@
 
     invoke-static {v0, v6}, Landroid/os/UserHandle;->formatUid(Ljava/lang/StringBuilder;I)V
 
-    if-nez v42, :cond_1e
+    if-nez v42, :cond_1f
 
     const-string/jumbo v4, " ["
 
@@ -30993,7 +31026,7 @@
 
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_1e
+    :cond_1f
     const-string/jumbo v4, " for "
 
     move-object/from16 v0, v33
@@ -31006,7 +31039,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-eqz p3, :cond_1f
+    if-eqz p3, :cond_20
 
     const-string/jumbo v4, " "
 
@@ -31020,7 +31053,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_1f
+    :cond_20
     sget-object v4, Lcom/android/server/am/ActivityManagerService;->TAG:Ljava/lang/String;
 
     invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -31037,9 +31070,9 @@
 
     move-result v4
 
-    if-eqz v4, :cond_20
+    if-eqz v4, :cond_21
 
-    :cond_20
+    :cond_21
     move-object/from16 v0, v52
 
     iget v4, v0, Landroid/os/Process$ProcessStartResult;->pid:I
@@ -31088,19 +31121,19 @@
 
     move/from16 v0, v34
 
-    if-eq v0, v4, :cond_31
+    if-eq v0, v4, :cond_32
 
     sget v4, Lcom/android/server/am/DynamicHiddenApp;->mDhaKeepEmptyEnable:I
 
     const/4 v5, 0x1
 
-    if-ne v4, v5, :cond_30
+    if-ne v4, v5, :cond_31
 
     const/4 v4, 0x1
 
     move/from16 v0, v34
 
-    if-ne v0, v4, :cond_30
+    if-ne v0, v4, :cond_31
 
     const/4 v4, 0x1
 
@@ -31108,7 +31141,7 @@
 
     iput v4, v0, Lcom/android/server/am/ProcessRecord;->dhaKeepEmptyFlag:I
 
-    :cond_21
+    :cond_22
     :goto_a
     const-string/jumbo v4, "startProcess: starting to update pids map"
 
@@ -31146,15 +31179,15 @@
     :try_start_10
     monitor-exit v5
 
-    if-eqz v20, :cond_22
+    if-eqz v20, :cond_23
 
     move-object/from16 v0, p1
 
     iget-boolean v4, v0, Lcom/android/server/am/ProcessRecord;->isolated:Z
 
-    if-eqz v4, :cond_32
+    if-eqz v4, :cond_33
 
-    :cond_22
+    :cond_23
     :goto_b
     move-object/from16 v0, p0
 
@@ -31177,7 +31210,7 @@
 
     invoke-virtual {v4, v7, v0}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 
-    if-eqz v42, :cond_23
+    if-eqz v42, :cond_24
 
     move-object/from16 v0, p0
 
@@ -31203,7 +31236,7 @@
 
     iget-boolean v4, v0, Landroid/os/Process$ProcessStartResult;->usingWrapper:Z
 
-    if-eqz v4, :cond_33
+    if-eqz v4, :cond_34
 
     const v4, 0x124f80
 
@@ -31216,7 +31249,7 @@
     :try_end_11
     .catchall {:try_start_11 .. :try_end_11} :catchall_3
 
-    :cond_23
+    :cond_24
     :try_start_12
     monitor-exit v5
 
@@ -31236,7 +31269,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_24
+    if-nez v4, :cond_25
 
     const-string/jumbo v4, "service"
 
@@ -31246,9 +31279,9 @@
 
     move-result v4
 
-    if-eqz v4, :cond_25
+    if-eqz v4, :cond_26
 
-    :cond_24
+    :cond_25
     sget-object v4, Lcom/android/server/am/ActivityManagerService;->mActivityTrigger:Lcom/android/internal/app/ActivityTrigger;
 
     move-object/from16 v0, p1
@@ -31267,11 +31300,11 @@
     :try_end_12
     .catch Ljava/lang/RuntimeException; {:try_start_12 .. :try_end_12} :catch_2
 
-    :cond_25
+    :cond_26
     :goto_d
     return-void
 
-    :cond_26
+    :cond_27
     :try_start_13
     sget-object v4, Lcom/android/server/am/ActivityManagerService;->TAG:Ljava/lang/String;
 
@@ -31485,7 +31518,7 @@
 
     sget-boolean v4, Lcom/android/server/am/ActivityManagerService;->mIsDebugLevelMid:Z
 
-    if-eqz v4, :cond_27
+    if-eqz v4, :cond_28
 
     const-string/jumbo v4, "com.android.systemui"
 
@@ -31497,13 +31530,13 @@
 
     move-result v4
 
-    if-eqz v4, :cond_27
+    if-eqz v4, :cond_28
 
     move-object/from16 v0, p1
 
     iget v4, v0, Lcom/android/server/am/ProcessRecord;->userId:I
 
-    if-nez v4, :cond_27
+    if-nez v4, :cond_28
 
     move-object/from16 v0, p0
 
@@ -31517,7 +31550,7 @@
 
     invoke-interface {v4, v0, v5}, Lcom/android/server/am/IActivityManagerServiceBridge;->saveDumpLocked(Lcom/android/server/am/ProcessRecord;Ljava/lang/Exception;)V
 
-    :cond_27
+    :cond_28
     const/4 v4, 0x0
 
     move-object/from16 v0, p1
@@ -31652,7 +31685,7 @@
 
     throw v4
 
-    :cond_28
+    :cond_29
     move-object/from16 v0, v45
 
     array-length v4, v0
@@ -31675,7 +31708,7 @@
 
     goto/16 :goto_1
 
-    :cond_29
+    :cond_2a
     move-object/from16 v0, p1
 
     iget-object v4, v0, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
@@ -31704,7 +31737,7 @@
 
     goto/16 :goto_4
 
-    :cond_2a
+    :cond_2b
     :try_start_16
     const-string/jumbo v4, "sys.kea_override_path"
 
@@ -31740,7 +31773,7 @@
     :try_end_17
     .catch Ljava/lang/RuntimeException; {:try_start_17 .. :try_end_17} :catch_2
 
-    :cond_2b
+    :cond_2c
     :try_start_18
     invoke-static/range {v53 .. v53}, Lcom/samsung/android/app/SemDualAppManager;->isDualAppId(I)Z
 
@@ -31788,12 +31821,12 @@
 
     goto/16 :goto_5
 
-    :cond_2c
+    :cond_2d
     const/16 v42, 0x0
 
     goto/16 :goto_6
 
-    :cond_2d
+    :cond_2e
     :try_start_19
     move-object/from16 v0, p1
 
@@ -31805,7 +31838,7 @@
 
     iget v11, v4, Landroid/content/pm/ApplicationInfo;->targetSdkVersion:I
 
-    if-eqz v31, :cond_2e
+    if-eqz v31, :cond_2f
 
     new-instance v12, Ljava/lang/String;
 
@@ -31846,7 +31879,7 @@
 
     goto/16 :goto_7
 
-    :cond_2e
+    :cond_2f
     move-object/from16 v0, p1
 
     iget-object v4, v0, Lcom/android/server/am/ProcessRecord;->info:Landroid/content/pm/ApplicationInfo;
@@ -31855,23 +31888,23 @@
 
     goto :goto_e
 
-    :cond_2f
+    :cond_30
     const-string/jumbo v4, ""
 
     goto/16 :goto_8
 
-    :cond_30
+    :cond_31
     sget v4, Lcom/android/server/am/DynamicHiddenApp;->mDhaKeepEmptyEnableKnox:I
 
     const/4 v5, 0x1
 
-    if-ne v4, v5, :cond_21
+    if-ne v4, v5, :cond_22
 
     const/4 v4, 0x2
 
     move/from16 v0, v34
 
-    if-ne v0, v4, :cond_21
+    if-ne v0, v4, :cond_22
 
     move-object/from16 v0, p1
 
@@ -31883,7 +31916,7 @@
 
     const/16 v5, 0x64
 
-    if-lt v4, v5, :cond_21
+    if-lt v4, v5, :cond_22
 
     const/4 v4, 0x2
 
@@ -31893,7 +31926,7 @@
 
     goto/16 :goto_a
 
-    :cond_31
+    :cond_32
     move-object/from16 v0, p1
 
     iget-object v4, v0, Lcom/android/server/am/ProcessRecord;->processName:Ljava/lang/String;
@@ -31906,7 +31939,7 @@
 
     move/from16 v0, v34
 
-    if-eq v0, v4, :cond_21
+    if-eq v0, v4, :cond_22
 
     const/4 v4, 0x1
 
@@ -31929,7 +31962,7 @@
 
     throw v4
 
-    :cond_32
+    :cond_33
     sget-object v4, Lcom/android/server/am/ActivityManagerService;->TAG:Ljava/lang/String;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -31976,7 +32009,7 @@
 
     goto/16 :goto_b
 
-    :cond_33
+    :cond_34
     const/16 v4, 0x2710
 
     goto/16 :goto_c

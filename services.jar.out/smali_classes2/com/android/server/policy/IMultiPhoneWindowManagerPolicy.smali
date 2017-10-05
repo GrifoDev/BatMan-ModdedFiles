@@ -4,7 +4,7 @@
 
 
 # virtual methods
-.method public abstract adjustImmersiveFlags(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/WindowManagerPolicy$WindowState;)I
+.method public abstract adjustImmersiveFlags(Landroid/view/WindowManagerPolicy$WindowState;Landroid/view/WindowManagerPolicy$WindowState;I)I
 .end method
 
 .method public abstract hasDockedStack()Z

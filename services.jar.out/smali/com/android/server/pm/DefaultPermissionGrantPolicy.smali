@@ -2682,6 +2682,37 @@
     return-void
 .end method
 
+.method private grantDefaultPermissionsToGlobeApp(I)V
+    .locals 3
+
+    const-string/jumbo v2, "com.dti.globe"
+
+    invoke-direct {p0, v2}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->getSystemPackageLPr(Ljava/lang/String;)Landroid/content/pm/PackageParser$Package;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    invoke-static {v1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->doesPackageSupportRuntimePermissions(Landroid/content/pm/PackageParser$Package;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    new-instance v0, Landroid/util/ArraySet;
+
+    invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
+
+    const-string/jumbo v2, "android.permission.READ_PHONE_STATE"
+
+    invoke-interface {v0, v2}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+
+    invoke-direct {p0, v1, v0, p1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantRuntimePermissionsLPw(Landroid/content/pm/PackageParser$Package;Ljava/util/Set;I)V
+
+    :cond_0
+    return-void
+.end method
+
 .method private grantDefaultPermissionsToKddiApp(I)V
     .locals 42
 
@@ -11919,9 +11950,26 @@
 
     move-result v183
 
-    if-eqz v183, :cond_69
+    if-eqz v183, :cond_7d
 
     invoke-direct/range {p0 .. p1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantDefaultPermissionsToSingtelApp(I)V
+
+    goto/16 :goto_13
+
+    :cond_7d
+    const-string/jumbo v183, "GLB"
+
+    move-object/from16 v0, v183
+
+    move-object/from16 v1, v133
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v183
+
+    if-eqz v183, :cond_69
+
+    invoke-direct/range {p0 .. p1}, Lcom/android/server/pm/DefaultPermissionGrantPolicy;->grantDefaultPermissionsToGlobeApp(I)V
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
