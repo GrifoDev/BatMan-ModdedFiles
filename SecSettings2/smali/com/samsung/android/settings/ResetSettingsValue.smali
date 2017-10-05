@@ -2920,6 +2920,16 @@
 
     invoke-static {v6, v7, v10}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
+    iget-object v6, p0, Lcom/samsung/android/settings/ResetSettingsValue;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v6}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v6
+
+    const-string/jumbo v7, "db_snap_window_shortcut"
+
+    invoke-static {v6, v7, v10}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
     move-result-object v6

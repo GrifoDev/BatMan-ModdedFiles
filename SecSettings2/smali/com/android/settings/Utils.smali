@@ -14,6 +14,8 @@
 
 
 # static fields
+.field private static final ASKS_VERSION:Ljava/lang/String;
+
 .field public static AUTO_AIR_VIEW_MODE:I
 
 .field public static final BADNESS_COLORS:[I
@@ -711,6 +713,40 @@
 
     sput-object v0, Lcom/android/settings/Utils;->mConfigNetworkTypeCapability:Ljava/lang/String;
 
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v3, "ASKS v"
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v3, "security.ASKS.version"
+
+    const-string/jumbo v4, "0"
+
+    invoke-static {v3, v4}, Landroid/os/SystemProperties;->get(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string/jumbo v3, " Release "
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/android/settings/Utils;->ASKS_VERSION:Ljava/lang/String;
+
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/settings/Utils;->mImsManager:Lcom/sec/ims/ImsManager;
@@ -925,8 +961,6 @@
     move v0, v2
 
     goto/16 :goto_2
-
-    nop
 
     :array_0
     .array-data 4
@@ -4041,7 +4075,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v5, "ASKS v1.3_"
+    sget-object v5, Lcom/android/settings/Utils;->ASKS_VERSION:Ljava/lang/String;
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -11400,6 +11434,22 @@
     const v0, 0x7f0b053f
 
     :cond_0
+    return v0
+.end method
+
+.method public static getSPenUSPLevel(Landroid/content/Context;)I
+    .locals 3
+
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "com.sec.feature.spen_usp"
+
+    invoke-virtual {v1, v2}, Landroid/content/pm/PackageManager;->semGetSystemFeatureLevel(Ljava/lang/String;)I
+
+    move-result v0
+
     return v0
 .end method
 
@@ -26407,70 +26457,6 @@
     return v0
 .end method
 
-.method public static isSupportPenUsp10(Landroid/content/Context;)Z
-    .locals 4
-
-    const/4 v0, 0x0
-
-    const-string/jumbo v1, "Utils"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "isSupportPenUsp10() uspLevel "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v1, 0x0
-
-    return v1
-.end method
-
-.method public static isSupportPenUsp20(Landroid/content/Context;)Z
-    .locals 4
-
-    const/4 v0, 0x0
-
-    const-string/jumbo v1, "Utils"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v3, "isSupportPenUsp20() uspLevel "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->secD(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v1, 0x0
-
-    return v1
-.end method
-
 .method public static isSupportPersonalAutoBrightness()Z
     .locals 2
 
@@ -28133,11 +28119,17 @@
 
     move-result-object v11
 
-    invoke-static/range {p0 .. p0}, Lcom/android/settings/Utils;->isSupportPenUsp10(Landroid/content/Context;)Z
+    invoke-static/range {p0 .. p0}, Lcom/android/settings/Utils;->getSPenUSPLevel(Landroid/content/Context;)I
 
     move-result v47
 
-    if-nez v47, :cond_8
+    const/16 v48, 0xa
+
+    move/from16 v0, v47
+
+    move/from16 v1, v48
+
+    if-ge v0, v1, :cond_8
 
     const-string/jumbo v47, "air_button_onoff"
 

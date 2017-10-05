@@ -1,5 +1,6 @@
 Signature-Version: 1.0
-SHA-256-Digest-Manifest: n9G6jZSrORb+rOfVuHmWhL8hqZIS/y/n7yT1/6ZAMBo=
+X-Android-APK-Signed: 2
+SHA-256-Digest-Manifest: L/q95Ofc1XBE9P2bAHEgX6PIFu65SoMg0/HTAFjGkno=
 Created-By: 1.0 (Android SignApk)
 
 Name: res/layout/display.xml
@@ -724,7 +725,7 @@ Name: res/layout/suw_no_scroll_template_header.xml
 SHA-256-Digest: 3WGWMG9k3PLyeI2SitFfxfeKy/MWm5dALtYY0odUXFo=
 
 Name: AndroidManifest.xml
-SHA-256-Digest: 0v7Y0E/OZGA6fJVAsl4gbEdJW2HRrpFipZSeGRX7HLU=
+SHA-256-Digest: INsLQnAlsu6m+Z/bMRQJRXPbOMuo3nEk9nQ0/djhTD4=
 
 Name: res/drawable/applock_list_divider.xml
 SHA-256-Digest: 2qmXEivMIctO9xIWfEQGdcQuv54vbTfz3PitqufDq6Y=
@@ -859,7 +860,7 @@ Name: res/layout/round_more_icon.xml
 SHA-256-Digest: zwsBn0ZcLD38XawWfcL0stfelz+zOMBIwniI4Qavazc=
 
 Name: res/xml/sem_face_settings_remove.xml
-SHA-256-Digest: iL6paSTAy9Rb0aIDH8AjSu31M6lTNRXih0vwPm5CFx0=
+SHA-256-Digest: WIU4N/3jDqMK32xYK1nUGYhamorey2W5CyUeEEa/loc=
 
 Name: res/drawable/suw_navbar_ic_more.xml
 SHA-256-Digest: NqxkPLc+utPRwsLbOyorW6ImdCJEX+/XrThTDTqpRNE=
@@ -4358,7 +4359,7 @@ Name: res/drawable-xxhdpi-v4/motion_pick_up_soft_03.qmg
 SHA-256-Digest: 6Ww45QNUOyVwmlqLRXJZPfCRJcyXB0rX/5taW36dt20=
 
 Name: SEC-INF/buildinfo.xml
-SHA-256-Digest: JUkyLVCriZot/mZer3h5ALjRlQc1zWhoBjGjOAknFCk=
+SHA-256-Digest: 9OCjOZABddDKlzyqc+3BQMnuY19qEosWE2XvYcNgiOU=
 
 Name: res/drawable/motion_multi_window_anim.xml
 SHA-256-Digest: biABMSm1U2Uap4nNBkIqWEfei/v+Gpp1mzf4yX2dNsE=

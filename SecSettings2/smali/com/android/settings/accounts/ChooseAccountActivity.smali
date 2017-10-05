@@ -1022,6 +1022,16 @@
 
     move-object/from16 v0, p0
 
+    iget-object v2, v0, Lcom/android/settings/accounts/ChooseAccountActivity;->mUserHandle:Landroid/os/UserHandle;
+
+    invoke-virtual {v2}, Landroid/os/UserHandle;->getIdentifier()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Lcom/android/settings/accounts/ProviderPreference;->checkAccountManagementAndSetDisabled(I)V
+
+    move-object/from16 v0, p0
+
     iget-object v2, v0, Lcom/android/settings/accounts/ChooseAccountActivity;->mAddAccountGroup:Landroid/preference/PreferenceGroup;
 
     invoke-virtual {v2, v1}, Landroid/preference/PreferenceGroup;->addPreference(Landroid/preference/Preference;)Z

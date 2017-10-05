@@ -660,7 +660,7 @@
 
     move-result v17
 
-    if-eqz v17, :cond_a
+    if-eqz v17, :cond_b
 
     new-instance v17, Ljava/lang/StringBuilder;
 
@@ -706,7 +706,7 @@
 
     move-result v17
 
-    if-eqz v17, :cond_8
+    if-eqz v17, :cond_9
 
     invoke-virtual/range {p0 .. p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -720,7 +720,7 @@
 
     move-result v17
 
-    if-eqz v17, :cond_7
+    if-eqz v17, :cond_8
 
     const/4 v7, 0x1
 
@@ -736,7 +736,7 @@
 
     move-result v17
 
-    if-eqz v17, :cond_1
+    if-eqz v17, :cond_2
 
     add-int/lit8 v12, v12, 0x4
 
@@ -816,18 +816,35 @@
 
     move-result-object v5
 
-    invoke-static/range {p0 .. p0}, Lcom/android/settings/Utils;->isSupportPenUsp10(Landroid/content/Context;)Z
+    invoke-static/range {p0 .. p0}, Lcom/android/settings/Utils;->getSPenUSPLevel(Landroid/content/Context;)I
 
     move-result v17
 
-    if-eqz v17, :cond_c
+    const/16 v18, 0xa
 
-    invoke-static/range {p0 .. p0}, Lcom/android/settings/Utils;->isSupportPenUsp20(Landroid/content/Context;)Z
+    move/from16 v0, v17
+
+    move/from16 v1, v18
+
+    if-ge v0, v1, :cond_1
+
+    invoke-virtual/range {p0 .. p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v17
+
+    const-string/jumbo v18, "air_button_onoff"
+
+    const/16 v19, 0x0
+
+    invoke-static/range {v17 .. v19}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
     move-result v17
 
-    if-eqz v17, :cond_c
+    if-eqz v17, :cond_d
 
+    const/4 v2, 0x1
+
+    :cond_1
     :goto_1
     invoke-virtual/range {p0 .. p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -845,7 +862,7 @@
 
     const/16 v16, 0x1
 
-    :cond_1
+    :cond_2
     :goto_2
     invoke-virtual/range {p0 .. p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -912,13 +929,13 @@
 
     move-result v17
 
-    if-eqz v17, :cond_2
+    if-eqz v17, :cond_3
 
     invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
 
     move-result v17
 
-    if-nez v17, :cond_2
+    if-nez v17, :cond_3
 
     add-int/lit8 v12, v12, 0x8
 
@@ -976,7 +993,7 @@
 
     const/4 v10, 0x1
 
-    :cond_2
+    :cond_3
     :goto_4
     const-string/jumbo v17, "com.samsung.android.universalswitch"
 
@@ -988,13 +1005,13 @@
 
     move-result v17
 
-    if-eqz v17, :cond_3
+    if-eqz v17, :cond_4
 
     invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
 
     move-result v17
 
-    if-nez v17, :cond_3
+    if-nez v17, :cond_4
 
     new-instance v17, Ljava/lang/StringBuilder;
 
@@ -1050,7 +1067,7 @@
 
     const/4 v15, 0x1
 
-    :cond_3
+    :cond_4
     :goto_5
     const-string/jumbo v17, "com.samsung.android.app.accesscontrol"
 
@@ -1062,7 +1079,7 @@
 
     move-result v17
 
-    if-eqz v17, :cond_4
+    if-eqz v17, :cond_5
 
     new-instance v17, Ljava/lang/StringBuilder;
 
@@ -1118,7 +1135,7 @@
 
     const/4 v8, 0x1
 
-    :cond_4
+    :cond_5
     :goto_6
     const-string/jumbo v17, "com.samsung.android.app.aodservice"
 
@@ -1130,7 +1147,7 @@
 
     move-result v17
 
-    if-eqz v17, :cond_5
+    if-eqz v17, :cond_6
 
     invoke-virtual/range {p0 .. p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -1187,12 +1204,12 @@
 
     move-result-object v5
 
-    :cond_5
+    :cond_6
     invoke-static {}, Lcom/samsung/android/settings/accessibility/AccessibilityUtils;->isEnableEdgeLighting()Z
 
     move-result v17
 
-    if-eqz v17, :cond_6
+    if-eqz v17, :cond_7
 
     invoke-virtual/range {p0 .. p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -1249,7 +1266,7 @@
 
     move-result-object v5
 
-    :cond_6
+    :cond_7
     if-nez v7, :cond_15
 
     if-nez v13, :cond_15
@@ -1291,12 +1308,12 @@
 
     return-object v4
 
-    :cond_7
+    :cond_8
     const/4 v7, 0x0
 
     goto/16 :goto_0
 
-    :cond_8
+    :cond_9
     invoke-virtual/range {p0 .. p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v17
@@ -1309,18 +1326,18 @@
 
     move-result v17
 
-    if-eqz v17, :cond_9
+    if-eqz v17, :cond_a
 
     const/4 v7, 0x1
 
     goto/16 :goto_0
 
-    :cond_9
+    :cond_a
     const/4 v7, 0x0
 
     goto/16 :goto_0
 
-    :cond_a
+    :cond_b
     invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
 
     move-result-object v17
@@ -1397,35 +1414,16 @@
 
     move-result v17
 
-    if-eqz v17, :cond_b
+    if-eqz v17, :cond_c
 
     const/4 v13, 0x1
 
     goto/16 :goto_0
 
-    :cond_b
+    :cond_c
     const/4 v13, 0x0
 
     goto/16 :goto_0
-
-    :cond_c
-    invoke-virtual/range {p0 .. p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v17
-
-    const-string/jumbo v18, "air_button_onoff"
-
-    const/16 v19, 0x0
-
-    invoke-static/range {v17 .. v19}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
-
-    move-result v17
-
-    if-eqz v17, :cond_d
-
-    const/4 v2, 0x1
-
-    goto/16 :goto_1
 
     :cond_d
     const/4 v2, 0x0
@@ -1971,18 +1969,17 @@
 
     if-eqz v21, :cond_9
 
-    invoke-static/range {p0 .. p0}, Lcom/android/settings/Utils;->isSupportPenUsp10(Landroid/content/Context;)Z
+    invoke-static/range {p0 .. p0}, Lcom/android/settings/Utils;->getSPenUSPLevel(Landroid/content/Context;)I
 
     move-result v21
 
-    if-nez v21, :cond_15
+    const/16 v22, 0xa
 
-    invoke-static/range {p0 .. p0}, Lcom/android/settings/Utils;->isSupportPenUsp20(Landroid/content/Context;)Z
+    move/from16 v0, v21
 
-    move-result v21
+    move/from16 v1, v22
 
-    :goto_7
-    if-nez v21, :cond_8
+    if-ge v0, v1, :cond_8
 
     invoke-virtual/range {p0 .. p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -1996,12 +1993,12 @@
 
     move-result v21
 
-    if-eqz v21, :cond_16
+    if-eqz v21, :cond_15
 
     const/4 v2, 0x1
 
     :cond_8
-    :goto_8
+    :goto_7
     invoke-virtual/range {p0 .. p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v21
@@ -2014,11 +2011,11 @@
 
     move-result v21
 
-    if-eqz v21, :cond_17
+    if-eqz v21, :cond_16
 
     const/16 v20, 0x1
 
-    :goto_9
+    :goto_8
     const-string/jumbo v21, "\u2022 "
 
     move-object/from16 v0, v21
@@ -2092,11 +2089,11 @@
 
     move-result v21
 
-    if-eqz v21, :cond_18
+    if-eqz v21, :cond_17
 
     const/16 v16, 0x1
 
-    :goto_a
+    :goto_9
     const-string/jumbo v21, "\u2022 "
 
     move-object/from16 v0, v21
@@ -2253,7 +2250,7 @@
 
     const/4 v13, 0x1
 
-    :goto_b
+    :goto_a
     const-string/jumbo v21, "\u2022 "
 
     move-object/from16 v0, v21
@@ -2283,27 +2280,22 @@
     :cond_14
     const/4 v13, 0x0
 
-    goto :goto_b
+    goto :goto_a
 
     :cond_15
-    const/16 v21, 0x1
+    const/4 v2, 0x0
 
     goto/16 :goto_7
 
     :cond_16
-    const/4 v2, 0x0
+    const/16 v20, 0x0
 
     goto/16 :goto_8
 
     :cond_17
-    const/16 v20, 0x0
-
-    goto/16 :goto_9
-
-    :cond_18
     const/16 v16, 0x0
 
-    goto/16 :goto_a
+    goto/16 :goto_9
 .end method
 
 .method private static isOneHandMasterValue()Z
@@ -2819,19 +2811,14 @@
     goto/16 :goto_0
 
     :cond_9
-    invoke-static {p0}, Lcom/android/settings/Utils;->isSupportPenUsp10(Landroid/content/Context;)Z
+    invoke-static {p0}, Lcom/android/settings/Utils;->getSPenUSPLevel(Landroid/content/Context;)I
 
     move-result v2
 
-    if-nez v2, :cond_a
+    const/16 v3, 0xa
 
-    invoke-static {p0}, Lcom/android/settings/Utils;->isSupportPenUsp20(Landroid/content/Context;)Z
+    if-lt v2, v3, :cond_a
 
-    move-result v2
-
-    if-eqz v2, :cond_b
-
-    :cond_a
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2
@@ -2842,7 +2829,7 @@
 
     invoke-static {v2, v3, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
-    :cond_b
+    :cond_a
     invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v2

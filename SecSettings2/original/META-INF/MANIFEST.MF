@@ -723,7 +723,7 @@ Name: res/layout/suw_no_scroll_template_header.xml
 SHA-256-Digest: U/oHAHAEx3zr3hIxNsx0CsfW/P++JDOKFjBk3cpFmO4=
 
 Name: AndroidManifest.xml
-SHA-256-Digest: BcNKg/SWvsCKVBHvOccpsJudgZnNZYW2nlkGA1+36kQ=
+SHA-256-Digest: wvRCilsQFe4hyvG3n0leurHU43XHII6VESqsSzEpCTs=
 
 Name: res/drawable/applock_list_divider.xml
 SHA-256-Digest: TeqbfKOptd06S4zlFFIOy9T4FW0rbqLP12oCJoAaIFY=
@@ -858,7 +858,7 @@ Name: res/layout/round_more_icon.xml
 SHA-256-Digest: KwCHt/dyV84Rt9UDF3hPEG0EzjlUaf3IvNqpZZchmhI=
 
 Name: res/xml/sem_face_settings_remove.xml
-SHA-256-Digest: vTIXtVKfFAF+gD2LSpB23eyEOFJtMQGmVeUzwoUeZyg=
+SHA-256-Digest: uMrEe3EJUd0ndcXF0yf4m/kMz97GSi8Fvd3rLzeMMzE=
 
 Name: res/drawable/suw_navbar_ic_more.xml
 SHA-256-Digest: f71Cye+mudG8WDYKl8nDni/nY2CLQekpYjRPw7fap6c=
@@ -4357,7 +4357,7 @@ Name: res/drawable-xxhdpi-v4/motion_pick_up_soft_03.qmg
 SHA-256-Digest: xq/RrxDJ+X1lqHCSTZIhxMTP3gM1zaNRorb9smyb30c=
 
 Name: SEC-INF/buildinfo.xml
-SHA-256-Digest: kISZciR8TFH/ZRhUYbahyGiQ+61T0XhS+O/G8LJLBmA=
+SHA-256-Digest: IdMODotTmpeZOyFihELKE43XcVrZAtvmh1aNoMqDWrk=
 
 Name: res/drawable/motion_multi_window_anim.xml
 SHA-256-Digest: JGLjosMQWq6K6uoAWyT2ELDRS9aemFXIt81EaC0U3G4=
