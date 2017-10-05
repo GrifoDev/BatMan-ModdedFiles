@@ -47,7 +47,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController$2;->this$0:Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;
 
-    invoke-static {v0}, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->access$300(Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;)V
+    invoke-virtual {v0}, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->showPopupMenu()Z
 
     return-void
 .end method

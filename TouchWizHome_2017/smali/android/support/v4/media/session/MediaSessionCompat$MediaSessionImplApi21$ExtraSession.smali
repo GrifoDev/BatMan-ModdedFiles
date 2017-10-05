@@ -435,6 +435,21 @@
     throw v0
 .end method
 
+.method public rateWithExtras(Landroid/support/v4/media/RatingCompat;Landroid/os/Bundle;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+
+    new-instance v0, Ljava/lang/AssertionError;
+
+    invoke-direct {v0}, Ljava/lang/AssertionError;-><init>()V
+
+    throw v0
+.end method
+
 .method public registerCallbackListener(Landroid/support/v4/media/session/IMediaControllerCallback;)V
     .locals 1
 

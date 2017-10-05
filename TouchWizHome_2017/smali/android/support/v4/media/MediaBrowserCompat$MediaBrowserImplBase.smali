@@ -1173,7 +1173,9 @@
     goto :goto_0
 
     :cond_3
-    invoke-virtual {v0, p4}, Landroid/support/v4/media/MediaBrowserCompat$Subscription;->getCallback(Landroid/os/Bundle;)Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;
+    iget-object v2, p0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0, v2, p4}, Landroid/support/v4/media/MediaBrowserCompat$Subscription;->getCallback(Landroid/content/Context;Landroid/os/Bundle;)Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;
 
     move-result-object v1
 
@@ -1581,6 +1583,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    :cond_1
     :goto_0
     return-void
 
@@ -1618,6 +1621,8 @@
     move-result-object v3
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    if-eqz p3, :cond_1
 
     iget-object v2, p0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase;->mHandler:Landroid/support/v4/media/MediaBrowserCompat$CallbackHandler;
 
@@ -1665,7 +1670,9 @@
     const/4 v0, 0x0
 
     :goto_0
-    invoke-virtual {v2, v0, p3}, Landroid/support/v4/media/MediaBrowserCompat$Subscription;->putCallback(Landroid/os/Bundle;Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;)V
+    iget-object v3, p0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2, v3, v0, p3}, Landroid/support/v4/media/MediaBrowserCompat$Subscription;->putCallback(Landroid/content/Context;Landroid/os/Bundle;Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;)V
 
     invoke-virtual {p0}, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplBase;->isConnected()Z
 

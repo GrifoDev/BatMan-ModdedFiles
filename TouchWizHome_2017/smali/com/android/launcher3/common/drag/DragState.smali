@@ -19,6 +19,9 @@
 .method public abstract addFolder(Lcom/android/launcher3/common/base/view/CellLayout;Lcom/android/launcher3/common/base/item/IconInfo;)Lcom/android/launcher3/folder/view/FolderIconView;
 .end method
 
+.method public abstract canOpenFolder()Z
+.end method
+
 .method public abstract commit(Lcom/android/launcher3/common/base/view/CellLayout;)V
 .end method
 

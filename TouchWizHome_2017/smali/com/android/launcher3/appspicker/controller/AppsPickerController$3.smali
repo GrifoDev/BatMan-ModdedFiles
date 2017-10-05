@@ -47,6 +47,20 @@
     return-void
 .end method
 
+.method public onAnimationEnd(Landroid/animation/Animator;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/appspicker/controller/AppsPickerController$3;->this$0:Lcom/android/launcher3/appspicker/controller/AppsPickerController;
+
+    invoke-static {v0}, Lcom/android/launcher3/appspicker/controller/AppsPickerController;->access$000(Lcom/android/launcher3/appspicker/controller/AppsPickerController;)Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->startBounceAnimation()V
+
+    return-void
+.end method
+
 .method public onAnimationStart(Landroid/animation/Animator;)V
     .locals 2
 

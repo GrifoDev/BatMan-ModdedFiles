@@ -19,7 +19,7 @@
 
 
 # static fields
-.field private static final APPLOCK_ENABLE_CHANGED:Ljava/lang/String; = "com.samsung.applock.intent.action.APPLOCK_ENABLE_CHANGED"
+.field public static final APPLOCK_ENABLE_CHANGED:Ljava/lang/String; = "com.samsung.applock.intent.action.APPLOCK_ENABLE_CHANGED"
 
 .field private static final APPLOCK_PACKAGENAME:Ljava/lang/String; = "com.samsung.android.applock"
 
@@ -51,7 +51,7 @@
 
 .field private static final NOTIFY_APPLOCK_UPDATE_ACTION:Ljava/lang/String; = "com.samsung.applock.intent.action.NOTIFYUPDATE"
 
-.field private static final PERMISSION_APPLOCK_STATE_CHANGED:Ljava/lang/String; = "com.samsung.applock.permission.STATUSCHANGED"
+.field public static final PERMISSION_APPLOCK_STATE_CHANGED:Ljava/lang/String; = "com.samsung.applock.permission.STATUSCHANGED"
 
 .field public static final REQUEST_CODE_FOLDER_LOCK:I = 0x7a
 
@@ -1227,7 +1227,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0a0006
+    const v5, 0x7f0c0006
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -1285,7 +1285,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0006
+    const v2, 0x7f0c0006
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -1370,120 +1370,153 @@
 .end method
 
 .method private isShouldHideQuickOptions(Lcom/android/launcher3/common/base/item/ItemInfo;)Z
-    .locals 5
+    .locals 6
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
     if-eqz p1, :cond_0
 
     :try_start_0
     invoke-virtual {p1}, Lcom/android/launcher3/common/base/item/ItemInfo;->getIntent()Landroid/content/Intent;
 
-    move-result-object v3
+    move-result-object v4
 
-    if-nez v3, :cond_1
+    if-nez v4, :cond_1
 
     :cond_0
-    const-string v3, "Launcher.FolderLock"
+    const-string v4, "Launcher.FolderLock"
 
-    const-string v4, "A null item or An item without intent we should hide the quick option"
+    const-string v5, "A null item or An item without intent we should hide the quick option"
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_0
-    return v1
+    return v2
 
     :cond_1
     invoke-virtual {p1}, Lcom/android/launcher3/common/base/item/ItemInfo;->getIntent()Landroid/content/Intent;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+    invoke-virtual {v4}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
-    move-result-object v3
+    move-result-object v4
 
-    if-eqz v3, :cond_2
+    if-eqz v4, :cond_2
 
     invoke-virtual {p1}, Lcom/android/launcher3/common/base/item/ItemInfo;->getIntent()Landroid/content/Intent;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+    invoke-virtual {v4}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+    invoke-virtual {v4}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    if-nez v3, :cond_3
+    if-nez v4, :cond_3
 
     :cond_2
-    const-string v3, "Launcher.FolderLock"
+    const-string v4, "Launcher.FolderLock"
 
-    const-string v4, "An item without componentName or packageName we should hide the quick option"
+    const-string v5, "An item without componentName or packageName we should hide the quick option"
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
     :catch_0
     move-exception v0
 
-    move v1, v2
+    move v2, v3
 
     goto :goto_0
 
     :cond_3
     invoke-virtual {p1}, Lcom/android/launcher3/common/base/item/ItemInfo;->getIntent()Landroid/content/Intent;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+    invoke-virtual {v4}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+    invoke-virtual {v4}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    const-string v4, "com.samsung.knox.rcp.components"
+    const-string v5, "com.samsung.knox.rcp.components"
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_4
+    if-eqz v4, :cond_4
 
-    const-string v3, "Launcher.FolderLock"
+    const-string v4, "Launcher.FolderLock"
 
-    const-string v4, "Knox shortcut we should hide the quick option"
+    const-string v5, "Knox shortcut we should hide the quick option"
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
     :cond_4
     invoke-direct {p0, p1}, Lcom/android/launcher3/folder/folderlock/FolderLock;->isInWhiteList(Lcom/android/launcher3/common/base/item/ItemInfo;)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_5
+    if-eqz v4, :cond_5
 
-    const-string v3, "Launcher.FolderLock"
+    const-string v4, "Launcher.FolderLock"
 
-    const-string v4, "An item in whitelist we should hide the quick option;"
+    const-string v5, "An item in whitelist we should hide the quick option;"
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :cond_5
+    if-eqz p1, :cond_6
+
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->isSSecureSupported()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_6
+
+    invoke-virtual {p1}, Lcom/android/launcher3/common/base/item/ItemInfo;->getUserHandle()Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_6
+
+    invoke-static {}, Lcom/android/launcher3/common/compat/UserHandleCompat;->myUserHandle()Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    move-result-object v4
+
+    invoke-virtual {v1, v4}, Lcom/android/launcher3/common/compat/UserHandleCompat;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_6
+
+    const-string v4, "Launcher.FolderLock"
+
+    const-string v5, "AFW user app. we should hide the quick option"
+
+    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
     goto :goto_0
 
-    :cond_5
-    move v1, v2
+    :cond_6
+    move v2, v3
 
     goto :goto_0
 .end method
@@ -1568,15 +1601,29 @@
     move-result-object v0
 
     :goto_0
-    invoke-direct {p0, v0}, Lcom/android/launcher3/folder/folderlock/FolderLock;->updateLockedPackagesToDB(Ljava/lang/String;)V
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->isSSecureSupported()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    const/4 v2, 0x1
+
+    invoke-direct {p0, v0, p1, v2}, Lcom/android/launcher3/folder/folderlock/FolderLock;->sendAppLockChangedBroadcast(Ljava/lang/String;Lcom/android/launcher3/common/base/item/IconInfo;Z)V
 
     :cond_0
+    :goto_1
     return-void
 
     :cond_1
     move-object v0, v1
 
     goto :goto_0
+
+    :cond_2
+    invoke-direct {p0, v0}, Lcom/android/launcher3/folder/folderlock/FolderLock;->updateLockedPackagesToDB(Ljava/lang/String;)V
+
+    goto :goto_1
 .end method
 
 .method private lockAppsInFolder(Lcom/android/launcher3/folder/FolderInfo;)V
@@ -2386,6 +2433,124 @@
     return-void
 .end method
 
+.method private sendAppLockChangedBroadcast(Ljava/lang/String;Lcom/android/launcher3/common/base/item/IconInfo;Z)V
+    .locals 8
+
+    const/4 v4, 0x1
+
+    const/4 v6, 0x0
+
+    invoke-virtual {p2}, Lcom/android/launcher3/common/base/item/IconInfo;->getIntent()Landroid/content/Intent;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v3
+
+    new-instance v0, Landroid/content/Intent;
+
+    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
+
+    const-string v1, "com.samsung.applock.intent.action.NOTIFYUPDATE"
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string v1, "com.samsung.android.applock"
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setPackage(Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string v1, "last_locked_package"
+
+    invoke-virtual {v0, v1, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string v1, "package_name"
+
+    invoke-virtual {v0, v1, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    const-string v1, "is_locked"
+
+    invoke-virtual {v0, v1, p3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+
+    iget-object v1, p0, Lcom/android/launcher3/folder/folderlock/FolderLock;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v1, v0}, Lcom/android/launcher3/Launcher;->sendBroadcast(Landroid/content/Intent;)V
+
+    if-eqz p3, :cond_0
+
+    iget-object v1, p0, Lcom/android/launcher3/folder/folderlock/FolderLock;->mAppContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f090015
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    iget-object v5, p2, Lcom/android/launcher3/common/base/item/IconInfo;->title:Ljava/lang/CharSequence;
+
+    invoke-interface {v5}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    aput-object v5, v4, v6
+
+    invoke-virtual {v1, v2, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {}, Lcom/android/launcher3/util/logging/GSIMLogging;->getInstance()Lcom/android/launcher3/util/logging/GSIMLogging;
+
+    move-result-object v1
+
+    const-string v2, "APLK"
+
+    const-wide/16 v4, -0x1
+
+    invoke-virtual/range {v1 .. v6}, Lcom/android/launcher3/util/logging/GSIMLogging;->insertLogging(Ljava/lang/String;Ljava/lang/String;JZ)V
+
+    :goto_0
+    iget-object v1, p0, Lcom/android/launcher3/folder/folderlock/FolderLock;->mAppContext:Landroid/content/Context;
+
+    invoke-static {v1, v7, v6}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/widget/Toast;->show()V
+
+    return-void
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/launcher3/folder/folderlock/FolderLock;->mAppContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f09001a
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    iget-object v5, p2, Lcom/android/launcher3/common/base/item/IconInfo;->title:Ljava/lang/CharSequence;
+
+    invoke-interface {v5}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    aput-object v5, v4, v6
+
+    invoke-virtual {v1, v2, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v7
+
+    goto :goto_0
+.end method
+
 .method private startVerifyActivity(ILcom/android/launcher3/common/base/item/IconInfo;Ljava/lang/String;)V
     .locals 3
 
@@ -2709,9 +2874,23 @@
 
     invoke-direct {p0, v7}, Lcom/android/launcher3/folder/folderlock/FolderLock;->putOutUnlockedItemFromLockedFolder(Ljava/lang/String;)V
 
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->isSSecureSupported()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_4
+
+    const/4 v7, 0x0
+
+    invoke-direct {p0, v6, p1, v7}, Lcom/android/launcher3/folder/folderlock/FolderLock;->sendAppLockChangedBroadcast(Ljava/lang/String;Lcom/android/launcher3/common/base/item/IconInfo;Z)V
+
+    :goto_2
+    return-void
+
+    :cond_4
     invoke-direct {p0, v6}, Lcom/android/launcher3/folder/folderlock/FolderLock;->updateLockedPackagesToDB(Ljava/lang/String;)V
 
-    return-void
+    goto :goto_2
 .end method
 
 .method private unlockAppsInFolder(Lcom/android/launcher3/folder/FolderInfo;)V
@@ -3626,8 +3805,19 @@
     :cond_2
     instance-of v1, p1, Lcom/android/launcher3/folder/FolderInfo;
 
+    if-eqz v1, :cond_4
+
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->isSSecureSupported()Z
+
+    move-result v1
+
     if-eqz v1, :cond_3
 
+    move v1, v2
+
+    goto :goto_0
+
+    :cond_3
     move-object v0, p1
 
     check-cast v0, Lcom/android/launcher3/folder/FolderInfo;
@@ -3642,13 +3832,13 @@
 
     move-result v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_4
 
     move v1, v3
 
     goto :goto_0
 
-    :cond_3
+    :cond_4
     move v1, v2
 
     goto :goto_0
@@ -3739,8 +3929,19 @@
     :cond_2
     instance-of v1, p1, Lcom/android/launcher3/folder/FolderInfo;
 
+    if-eqz v1, :cond_4
+
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->isSSecureSupported()Z
+
+    move-result v1
+
     if-eqz v1, :cond_3
 
+    move v1, v2
+
+    goto :goto_0
+
+    :cond_3
     move-object v0, p1
 
     check-cast v0, Lcom/android/launcher3/folder/FolderInfo;
@@ -3755,13 +3956,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4
 
     move v1, v3
 
     goto :goto_0
 
-    :cond_3
+    :cond_4
     move v1, v2
 
     goto :goto_0

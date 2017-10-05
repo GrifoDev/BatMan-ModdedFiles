@@ -63,6 +63,10 @@
 # virtual methods
 .method public draw(Landroid/graphics/Canvas;)V
     .locals 6
+    .param p1    # Landroid/graphics/Canvas;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
 
     const/4 v5, 0x0
 

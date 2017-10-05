@@ -51,7 +51,7 @@
 
     aput v2, v0, v1
     :try_end_0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_1d
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_1e
 
     :goto_0
     :try_start_1
@@ -67,7 +67,7 @@
 
     aput v2, v0, v1
     :try_end_1
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_1c
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_1d
 
     :goto_1
     :try_start_2
@@ -83,7 +83,7 @@
 
     aput v2, v0, v1
     :try_end_2
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_1b
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_1c
 
     :goto_2
     :try_start_3
@@ -99,7 +99,7 @@
 
     aput v2, v0, v1
     :try_end_3
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_1a
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_1b
 
     :goto_3
     :try_start_4
@@ -115,7 +115,7 @@
 
     aput v2, v0, v1
     :try_end_4
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_19
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_1a
 
     :goto_4
     :try_start_5
@@ -131,7 +131,7 @@
 
     aput v2, v0, v1
     :try_end_5
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_5 .. :try_end_5} :catch_18
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_5 .. :try_end_5} :catch_19
 
     :goto_5
     :try_start_6
@@ -147,7 +147,7 @@
 
     aput v2, v0, v1
     :try_end_6
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_6 .. :try_end_6} :catch_17
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_6 .. :try_end_6} :catch_18
 
     :goto_6
     :try_start_7
@@ -163,7 +163,7 @@
 
     aput v2, v0, v1
     :try_end_7
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_7 .. :try_end_7} :catch_16
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_7 .. :try_end_7} :catch_17
 
     :goto_7
     :try_start_8
@@ -179,7 +179,7 @@
 
     aput v2, v0, v1
     :try_end_8
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_8 .. :try_end_8} :catch_15
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_8 .. :try_end_8} :catch_16
 
     :goto_8
     :try_start_9
@@ -195,9 +195,25 @@
 
     aput v2, v0, v1
     :try_end_9
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_9} :catch_14
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_9 .. :try_end_9} :catch_15
 
     :goto_9
+    :try_start_a
+    sget-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$2;->$SwitchMap$com$samsung$android$sdk$bixby$BixbyApi$ResponseResults:[I
+
+    sget-object v1, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->RULE_COMPLETE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    invoke-virtual {v1}, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->ordinal()I
+
+    move-result v1
+
+    const/16 v2, 0xb
+
+    aput v2, v0, v1
+    :try_end_a
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_a .. :try_end_a} :catch_14
+
+    :goto_a
     invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyApi$TtsMode;->values()[Lcom/samsung/android/sdk/bixby/BixbyApi$TtsMode;
 
     move-result-object v0
@@ -208,7 +224,7 @@
 
     sput-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$2;->$SwitchMap$com$samsung$android$sdk$bixby$BixbyApi$TtsMode:[I
 
-    :try_start_a
+    :try_start_b
     sget-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$2;->$SwitchMap$com$samsung$android$sdk$bixby$BixbyApi$TtsMode:[I
 
     sget-object v1, Lcom/samsung/android/sdk/bixby/BixbyApi$TtsMode;->CUT:Lcom/samsung/android/sdk/bixby/BixbyApi$TtsMode;
@@ -220,11 +236,11 @@
     const/4 v2, 0x1
 
     aput v2, v0, v1
-    :try_end_a
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_a .. :try_end_a} :catch_13
+    :try_end_b
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_b .. :try_end_b} :catch_13
 
-    :goto_a
-    :try_start_b
+    :goto_b
+    :try_start_c
     sget-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$2;->$SwitchMap$com$samsung$android$sdk$bixby$BixbyApi$TtsMode:[I
 
     sget-object v1, Lcom/samsung/android/sdk/bixby/BixbyApi$TtsMode;->WAIT:Lcom/samsung/android/sdk/bixby/BixbyApi$TtsMode;
@@ -236,10 +252,10 @@
     const/4 v2, 0x2
 
     aput v2, v0, v1
-    :try_end_b
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_b .. :try_end_b} :catch_12
+    :try_end_c
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_c .. :try_end_c} :catch_12
 
-    :goto_b
+    :goto_c
     invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmMode;->values()[Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmMode;
 
     move-result-object v0
@@ -250,7 +266,7 @@
 
     sput-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$2;->$SwitchMap$com$samsung$android$sdk$bixby$BixbyApi$ConfirmMode:[I
 
-    :try_start_c
+    :try_start_d
     sget-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$2;->$SwitchMap$com$samsung$android$sdk$bixby$BixbyApi$ConfirmMode:[I
 
     sget-object v1, Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmMode;->SEND:Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmMode;
@@ -262,11 +278,11 @@
     const/4 v2, 0x1
 
     aput v2, v0, v1
-    :try_end_c
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_c .. :try_end_c} :catch_11
+    :try_end_d
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_d .. :try_end_d} :catch_11
 
-    :goto_c
-    :try_start_d
+    :goto_d
+    :try_start_e
     sget-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$2;->$SwitchMap$com$samsung$android$sdk$bixby$BixbyApi$ConfirmMode:[I
 
     sget-object v1, Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmMode;->DELETE:Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmMode;
@@ -278,11 +294,11 @@
     const/4 v2, 0x2
 
     aput v2, v0, v1
-    :try_end_d
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_d .. :try_end_d} :catch_10
+    :try_end_e
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_e .. :try_end_e} :catch_10
 
-    :goto_d
-    :try_start_e
+    :goto_e
+    :try_start_f
     sget-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$2;->$SwitchMap$com$samsung$android$sdk$bixby$BixbyApi$ConfirmMode:[I
 
     sget-object v1, Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmMode;->TURN_ON:Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmMode;
@@ -294,11 +310,11 @@
     const/4 v2, 0x3
 
     aput v2, v0, v1
-    :try_end_e
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_e .. :try_end_e} :catch_f
+    :try_end_f
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_f .. :try_end_f} :catch_f
 
-    :goto_e
-    :try_start_f
+    :goto_f
+    :try_start_10
     sget-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$2;->$SwitchMap$com$samsung$android$sdk$bixby$BixbyApi$ConfirmMode:[I
 
     sget-object v1, Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmMode;->APPLY:Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmMode;
@@ -310,11 +326,11 @@
     const/4 v2, 0x4
 
     aput v2, v0, v1
-    :try_end_f
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_f .. :try_end_f} :catch_e
+    :try_end_10
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_10 .. :try_end_10} :catch_e
 
-    :goto_f
-    :try_start_10
+    :goto_10
+    :try_start_11
     sget-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$2;->$SwitchMap$com$samsung$android$sdk$bixby$BixbyApi$ConfirmMode:[I
 
     sget-object v1, Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmMode;->FORWARD:Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmMode;
@@ -326,11 +342,11 @@
     const/4 v2, 0x5
 
     aput v2, v0, v1
-    :try_end_10
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_10 .. :try_end_10} :catch_d
+    :try_end_11
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_11 .. :try_end_11} :catch_d
 
-    :goto_10
-    :try_start_11
+    :goto_11
+    :try_start_12
     sget-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$2;->$SwitchMap$com$samsung$android$sdk$bixby$BixbyApi$ConfirmMode:[I
 
     sget-object v1, Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmMode;->MERGE:Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmMode;
@@ -342,11 +358,11 @@
     const/4 v2, 0x6
 
     aput v2, v0, v1
-    :try_end_11
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_11 .. :try_end_11} :catch_c
+    :try_end_12
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_12 .. :try_end_12} :catch_c
 
-    :goto_11
-    :try_start_12
+    :goto_12
+    :try_start_13
     sget-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$2;->$SwitchMap$com$samsung$android$sdk$bixby$BixbyApi$ConfirmMode:[I
 
     sget-object v1, Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmMode;->DISCARD:Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmMode;
@@ -358,11 +374,11 @@
     const/4 v2, 0x7
 
     aput v2, v0, v1
-    :try_end_12
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_12 .. :try_end_12} :catch_b
+    :try_end_13
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_13 .. :try_end_13} :catch_b
 
-    :goto_12
-    :try_start_13
+    :goto_13
+    :try_start_14
     sget-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$2;->$SwitchMap$com$samsung$android$sdk$bixby$BixbyApi$ConfirmMode:[I
 
     sget-object v1, Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmMode;->RESET:Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmMode;
@@ -374,11 +390,11 @@
     const/16 v2, 0x8
 
     aput v2, v0, v1
-    :try_end_13
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_13 .. :try_end_13} :catch_a
+    :try_end_14
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_14 .. :try_end_14} :catch_a
 
-    :goto_13
-    :try_start_14
+    :goto_14
+    :try_start_15
     sget-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$2;->$SwitchMap$com$samsung$android$sdk$bixby$BixbyApi$ConfirmMode:[I
 
     sget-object v1, Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmMode;->UPDATE:Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmMode;
@@ -390,11 +406,11 @@
     const/16 v2, 0x9
 
     aput v2, v0, v1
-    :try_end_14
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_14 .. :try_end_14} :catch_9
+    :try_end_15
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_15 .. :try_end_15} :catch_9
 
-    :goto_14
-    :try_start_15
+    :goto_15
+    :try_start_16
     sget-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$2;->$SwitchMap$com$samsung$android$sdk$bixby$BixbyApi$ConfirmMode:[I
 
     sget-object v1, Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmMode;->EXECUTE:Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmMode;
@@ -406,11 +422,11 @@
     const/16 v2, 0xa
 
     aput v2, v0, v1
-    :try_end_15
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_15 .. :try_end_15} :catch_8
+    :try_end_16
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_16 .. :try_end_16} :catch_8
 
-    :goto_15
-    :try_start_16
+    :goto_16
+    :try_start_17
     sget-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$2;->$SwitchMap$com$samsung$android$sdk$bixby$BixbyApi$ConfirmMode:[I
 
     sget-object v1, Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmMode;->INQUIRE:Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmMode;
@@ -422,11 +438,11 @@
     const/16 v2, 0xb
 
     aput v2, v0, v1
-    :try_end_16
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_16 .. :try_end_16} :catch_7
+    :try_end_17
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_17 .. :try_end_17} :catch_7
 
-    :goto_16
-    :try_start_17
+    :goto_17
+    :try_start_18
     sget-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$2;->$SwitchMap$com$samsung$android$sdk$bixby$BixbyApi$ConfirmMode:[I
 
     sget-object v1, Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmMode;->SAVE:Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmMode;
@@ -438,11 +454,11 @@
     const/16 v2, 0xc
 
     aput v2, v0, v1
-    :try_end_17
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_17 .. :try_end_17} :catch_6
+    :try_end_18
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_18 .. :try_end_18} :catch_6
 
-    :goto_17
-    :try_start_18
+    :goto_18
+    :try_start_19
     sget-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$2;->$SwitchMap$com$samsung$android$sdk$bixby$BixbyApi$ConfirmMode:[I
 
     sget-object v1, Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmMode;->REPLY:Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmMode;
@@ -454,11 +470,11 @@
     const/16 v2, 0xd
 
     aput v2, v0, v1
-    :try_end_18
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_18 .. :try_end_18} :catch_5
+    :try_end_19
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_19 .. :try_end_19} :catch_5
 
-    :goto_18
-    :try_start_19
+    :goto_19
+    :try_start_1a
     sget-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$2;->$SwitchMap$com$samsung$android$sdk$bixby$BixbyApi$ConfirmMode:[I
 
     sget-object v1, Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmMode;->COMMON:Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmMode;
@@ -470,10 +486,10 @@
     const/16 v2, 0xe
 
     aput v2, v0, v1
-    :try_end_19
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_19 .. :try_end_19} :catch_4
+    :try_end_1a
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1a .. :try_end_1a} :catch_4
 
-    :goto_19
+    :goto_1a
     invoke-static {}, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->values()[Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
 
     move-result-object v0
@@ -484,7 +500,7 @@
 
     sput-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$2;->$SwitchMap$com$samsung$android$sdk$bixby$BixbyApi$NlgParamMode:[I
 
-    :try_start_1a
+    :try_start_1b
     sget-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$2;->$SwitchMap$com$samsung$android$sdk$bixby$BixbyApi$NlgParamMode:[I
 
     sget-object v1, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->NONE:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
@@ -496,11 +512,11 @@
     const/4 v2, 0x1
 
     aput v2, v0, v1
-    :try_end_1a
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1a .. :try_end_1a} :catch_3
+    :try_end_1b
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1b .. :try_end_1b} :catch_3
 
-    :goto_1a
-    :try_start_1b
+    :goto_1b
+    :try_start_1c
     sget-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$2;->$SwitchMap$com$samsung$android$sdk$bixby$BixbyApi$NlgParamMode:[I
 
     sget-object v1, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->TARGETED:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
@@ -512,11 +528,11 @@
     const/4 v2, 0x2
 
     aput v2, v0, v1
-    :try_end_1b
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1b .. :try_end_1b} :catch_2
+    :try_end_1c
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1c .. :try_end_1c} :catch_2
 
-    :goto_1b
-    :try_start_1c
+    :goto_1c
+    :try_start_1d
     sget-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$2;->$SwitchMap$com$samsung$android$sdk$bixby$BixbyApi$NlgParamMode:[I
 
     sget-object v1, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->MULTIPLE:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
@@ -528,11 +544,11 @@
     const/4 v2, 0x3
 
     aput v2, v0, v1
-    :try_end_1c
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1c .. :try_end_1c} :catch_1
+    :try_end_1d
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1d .. :try_end_1d} :catch_1
 
-    :goto_1c
-    :try_start_1d
+    :goto_1d
+    :try_start_1e
     sget-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$2;->$SwitchMap$com$samsung$android$sdk$bixby$BixbyApi$NlgParamMode:[I
 
     sget-object v1, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->CONFIRM:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
@@ -544,158 +560,163 @@
     const/4 v2, 0x4
 
     aput v2, v0, v1
-    :try_end_1d
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1d .. :try_end_1d} :catch_0
+    :try_end_1e
+    .catch Ljava/lang/NoSuchFieldError; {:try_start_1e .. :try_end_1e} :catch_0
 
-    :goto_1d
+    :goto_1e
     return-void
 
     :catch_0
     move-exception v0
 
-    goto :goto_1d
+    goto :goto_1e
 
     :catch_1
     move-exception v0
 
-    goto :goto_1c
+    goto :goto_1d
 
     :catch_2
     move-exception v0
 
-    goto :goto_1b
+    goto :goto_1c
 
     :catch_3
     move-exception v0
 
-    goto :goto_1a
+    goto :goto_1b
 
     :catch_4
     move-exception v0
 
-    goto :goto_19
+    goto :goto_1a
 
     :catch_5
     move-exception v0
 
-    goto :goto_18
+    goto :goto_19
 
     :catch_6
     move-exception v0
 
-    goto :goto_17
+    goto :goto_18
 
     :catch_7
     move-exception v0
 
-    goto :goto_16
+    goto :goto_17
 
     :catch_8
     move-exception v0
 
-    goto :goto_15
+    goto :goto_16
 
     :catch_9
     move-exception v0
 
-    goto/16 :goto_14
+    goto/16 :goto_15
 
     :catch_a
     move-exception v0
 
-    goto/16 :goto_13
+    goto/16 :goto_14
 
     :catch_b
     move-exception v0
 
-    goto/16 :goto_12
+    goto/16 :goto_13
 
     :catch_c
     move-exception v0
 
-    goto/16 :goto_11
+    goto/16 :goto_12
 
     :catch_d
     move-exception v0
 
-    goto/16 :goto_10
+    goto/16 :goto_11
 
     :catch_e
     move-exception v0
 
-    goto/16 :goto_f
+    goto/16 :goto_10
 
     :catch_f
     move-exception v0
 
-    goto/16 :goto_e
+    goto/16 :goto_f
 
     :catch_10
     move-exception v0
 
-    goto/16 :goto_d
+    goto/16 :goto_e
 
     :catch_11
     move-exception v0
 
-    goto/16 :goto_c
+    goto/16 :goto_d
 
     :catch_12
     move-exception v0
 
-    goto/16 :goto_b
+    goto/16 :goto_c
 
     :catch_13
     move-exception v0
 
-    goto/16 :goto_a
+    goto/16 :goto_b
 
     :catch_14
     move-exception v0
 
-    goto/16 :goto_9
+    goto/16 :goto_a
 
     :catch_15
     move-exception v0
 
-    goto/16 :goto_8
+    goto/16 :goto_9
 
     :catch_16
     move-exception v0
 
-    goto/16 :goto_7
+    goto/16 :goto_8
 
     :catch_17
     move-exception v0
 
-    goto/16 :goto_6
+    goto/16 :goto_7
 
     :catch_18
     move-exception v0
 
-    goto/16 :goto_5
+    goto/16 :goto_6
 
     :catch_19
     move-exception v0
 
-    goto/16 :goto_4
+    goto/16 :goto_5
 
     :catch_1a
     move-exception v0
 
-    goto/16 :goto_3
+    goto/16 :goto_4
 
     :catch_1b
     move-exception v0
 
-    goto/16 :goto_2
+    goto/16 :goto_3
 
     :catch_1c
     move-exception v0
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
     :catch_1d
+    move-exception v0
+
+    goto/16 :goto_1
+
+    :catch_1e
     move-exception v0
 
     goto/16 :goto_0

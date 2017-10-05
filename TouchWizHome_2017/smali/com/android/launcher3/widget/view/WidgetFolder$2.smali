@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/widget/view/WidgetFolder;->animateClose(Landroid/animation/AnimatorSet;Lcom/android/launcher3/widget/view/WidgetFolder$AnimationInfo;Ljava/util/HashMap;)V
+    value = Lcom/android/launcher3/widget/view/WidgetFolder;->open(Landroid/view/View;ZLjava/util/HashMap;)Landroid/animation/AnimatorSet;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -29,8 +29,10 @@
     return-void
 .end method
 
-.method private animationComplete()V
-    .locals 2
+
+# virtual methods
+.method public onAnimationEnd(Landroid/animation/Animator;)V
+    .locals 4
 
     iget-object v1, p0, Lcom/android/launcher3/widget/view/WidgetFolder$2;->this$0:Lcom/android/launcher3/widget/view/WidgetFolder;
 
@@ -38,31 +40,51 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/android/launcher3/Launcher;->getDragLayer()Lcom/android/launcher3/common/view/DragLayer;
+    invoke-virtual {v1}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f090044
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/launcher3/widget/view/WidgetFolder$2;->this$0:Lcom/android/launcher3/widget/view/WidgetFolder;
+    sget-object v1, Lcom/android/launcher3/util/Talk;->INSTANCE:Lcom/android/launcher3/util/Talk;
 
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/view/DragLayer;->removeView(Landroid/view/View;)V
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    return-void
-.end method
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-# virtual methods
-.method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 0
+    move-result-object v2
 
-    invoke-direct {p0}, Lcom/android/launcher3/widget/view/WidgetFolder$2;->animationComplete()V
+    const-string v3, " "
 
-    return-void
-.end method
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-.method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 0
+    move-result-object v2
 
-    invoke-direct {p0}, Lcom/android/launcher3/widget/view/WidgetFolder$2;->animationComplete()V
+    iget-object v3, p0, Lcom/android/launcher3/widget/view/WidgetFolder$2;->this$0:Lcom/android/launcher3/widget/view/WidgetFolder;
+
+    invoke-static {v3}, Lcom/android/launcher3/widget/view/WidgetFolder;->access$100(Lcom/android/launcher3/widget/view/WidgetFolder;)Lcom/android/launcher3/widget/view/WidgetFolderPagedView;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/android/launcher3/widget/view/WidgetFolderPagedView;->getCurrentPageDescription()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Lcom/android/launcher3/util/Talk;->say(Ljava/lang/String;)V
 
     return-void
 .end method

@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/WorkspaceDragController;->onDropExternalFromOther(Lcom/android/launcher3/common/drag/DropTarget$DragObject;)V
+    value = Lcom/android/launcher3/home/WorkspaceDragController;->onDropCompleted(Landroid/view/View;Lcom/android/launcher3/common/drag/DropTarget$DragObject;Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,12 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/home/WorkspaceDragController;
 
-.field final synthetic val$finalAddItems:Ljava/util/ArrayList;
-
-.field final synthetic val$isFromHomeFolder:Z
-
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/home/WorkspaceDragController;Ljava/util/ArrayList;Z)V
+.method constructor <init>(Lcom/android/launcher3/home/WorkspaceDragController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/home/WorkspaceDragController$9;->this$0:Lcom/android/launcher3/home/WorkspaceDragController;
-
-    iput-object p2, p0, Lcom/android/launcher3/home/WorkspaceDragController$9;->val$finalAddItems:Ljava/util/ArrayList;
-
-    iput-boolean p3, p0, Lcom/android/launcher3/home/WorkspaceDragController$9;->val$isFromHomeFolder:Z
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,17 +35,15 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
-
-    const/4 v3, 0x0
+    .locals 1
 
     iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceDragController$9;->this$0:Lcom/android/launcher3/home/WorkspaceDragController;
 
-    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceDragController$9;->val$finalAddItems:Ljava/util/ArrayList;
+    invoke-static {v0}, Lcom/android/launcher3/home/WorkspaceDragController;->access$000(Lcom/android/launcher3/home/WorkspaceDragController;)Lcom/android/launcher3/home/HomeController;
 
-    iget-boolean v2, p0, Lcom/android/launcher3/home/WorkspaceDragController$9;->val$isFromHomeFolder:Z
+    move-result-object v0
 
-    invoke-static {v0, v1, v3, v3, v2}, Lcom/android/launcher3/home/WorkspaceDragController;->access$100(Lcom/android/launcher3/home/WorkspaceDragController;Ljava/util/ArrayList;Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/view/View;Z)V
+    invoke-virtual {v0}, Lcom/android/launcher3/home/HomeController;->exitDragStateDelayed()V
 
     return-void
 .end method

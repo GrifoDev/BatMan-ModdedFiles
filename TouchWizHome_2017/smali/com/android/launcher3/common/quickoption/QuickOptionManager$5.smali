@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/common/quickoption/QuickOptionManager;->getOptionPutToSleep(Ljava/lang/String;)Lcom/android/launcher3/common/quickoption/QuickOptionListItem;
+    value = Lcom/android/launcher3/common/quickoption/QuickOptionManager;->getOptionPutToSleep(Lcom/android/launcher3/common/compat/UserHandleCompat;Ljava/lang/String;)Lcom/android/launcher3/common/quickoption/QuickOptionListItem;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -22,14 +22,18 @@
 
 .field final synthetic val$packageName:Ljava/lang/String;
 
+.field final synthetic val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/common/quickoption/QuickOptionManager;Ljava/lang/String;)V
+.method constructor <init>(Lcom/android/launcher3/common/quickoption/QuickOptionManager;Lcom/android/launcher3/common/compat/UserHandleCompat;Ljava/lang/String;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/common/quickoption/QuickOptionManager$5;->this$0:Lcom/android/launcher3/common/quickoption/QuickOptionManager;
 
-    iput-object p2, p0, Lcom/android/launcher3/common/quickoption/QuickOptionManager$5;->val$packageName:Ljava/lang/String;
+    iput-object p2, p0, Lcom/android/launcher3/common/quickoption/QuickOptionManager$5;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    iput-object p3, p0, Lcom/android/launcher3/common/quickoption/QuickOptionManager$5;->val$packageName:Ljava/lang/String;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -47,9 +51,11 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/launcher3/common/quickoption/QuickOptionManager$5;->val$packageName:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/launcher3/common/quickoption/QuickOptionManager$5;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
-    invoke-static {v0, v1}, Lcom/android/launcher3/common/dialog/SleepAppConfirmationDialog;->createAndShow(Lcom/android/launcher3/Launcher;Ljava/lang/String;)V
+    iget-object v2, p0, Lcom/android/launcher3/common/quickoption/QuickOptionManager$5;->val$packageName:Ljava/lang/String;
+
+    invoke-static {v0, v1, v2}, Lcom/android/launcher3/common/dialog/SleepAppConfirmationDialog;->createAndShow(Lcom/android/launcher3/Launcher;Lcom/android/launcher3/common/compat/UserHandleCompat;Ljava/lang/String;)V
 
     invoke-static {}, Lcom/android/launcher3/util/logging/GSIMLogging;->getInstance()Lcom/android/launcher3/util/logging/GSIMLogging;
 

@@ -123,15 +123,15 @@
 .end method
 
 .method public static checkArgumentInRange(FFFLjava/lang/String;)F
-    .locals 6
+    .locals 7
 
-    const/4 v2, 0x3
+    const/4 v3, 0x3
 
-    const/4 v5, 0x2
+    const/4 v6, 0x2
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     invoke-static {p0}, Ljava/lang/Float;->isNaN(F)Z
 
@@ -170,25 +170,27 @@
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "%s is out of range of [%f, %f] (too low)"
+    sget-object v1, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string v2, "%s is out of range of [%f, %f] (too low)"
 
-    aput-object p3, v2, v3
+    new-array v3, v3, [Ljava/lang/Object;
+
+    aput-object p3, v3, v4
 
     invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    move-result-object v3
+    move-result-object v4
 
-    aput-object v3, v2, v4
+    aput-object v4, v3, v5
 
     invoke-static {p2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    move-result-object v3
+    move-result-object v4
 
-    aput-object v3, v2, v5
+    aput-object v4, v3, v6
 
-    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -203,25 +205,27 @@
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "%s is out of range of [%f, %f] (too high)"
+    sget-object v1, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string v2, "%s is out of range of [%f, %f] (too high)"
 
-    aput-object p3, v2, v3
+    new-array v3, v3, [Ljava/lang/Object;
+
+    aput-object p3, v3, v4
 
     invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    move-result-object v3
+    move-result-object v4
 
-    aput-object v3, v2, v4
+    aput-object v4, v3, v5
 
     invoke-static {p2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    move-result-object v3
+    move-result-object v4
 
-    aput-object v3, v2, v5
+    aput-object v4, v3, v6
 
-    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -234,39 +238,41 @@
 .end method
 
 .method public static checkArgumentInRange(IIILjava/lang/String;)I
-    .locals 6
+    .locals 7
 
-    const/4 v2, 0x3
+    const/4 v3, 0x3
 
-    const/4 v5, 0x2
+    const/4 v6, 0x2
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     if-ge p0, p1, :cond_0
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "%s is out of range of [%d, %d] (too low)"
+    sget-object v1, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string v2, "%s is out of range of [%d, %d] (too low)"
 
-    aput-object p3, v2, v3
+    new-array v3, v3, [Ljava/lang/Object;
+
+    aput-object p3, v3, v4
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v4
 
-    aput-object v3, v2, v4
+    aput-object v4, v3, v5
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v4
 
-    aput-object v3, v2, v5
+    aput-object v4, v3, v6
 
-    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -279,25 +285,27 @@
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "%s is out of range of [%d, %d] (too high)"
+    sget-object v1, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string v2, "%s is out of range of [%d, %d] (too high)"
 
-    aput-object p3, v2, v3
+    new-array v3, v3, [Ljava/lang/Object;
+
+    aput-object p3, v3, v4
 
     invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v4
 
-    aput-object v3, v2, v4
+    aput-object v4, v3, v5
 
     invoke-static {p2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v4
 
-    aput-object v3, v2, v5
+    aput-object v4, v3, v6
 
-    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -310,15 +318,15 @@
 .end method
 
 .method public static checkArgumentInRange(JJJLjava/lang/String;)J
-    .locals 6
+    .locals 8
 
-    const/4 v2, 0x3
+    const/4 v3, 0x3
 
-    const/4 v5, 0x2
+    const/4 v6, 0x2
 
-    const/4 v4, 0x1
+    const/4 v5, 0x1
 
-    const/4 v3, 0x0
+    const/4 v4, 0x0
 
     cmp-long v0, p0, p2
 
@@ -326,25 +334,27 @@
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "%s is out of range of [%d, %d] (too low)"
+    sget-object v1, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string v2, "%s is out of range of [%d, %d] (too low)"
 
-    aput-object p6, v2, v3
+    new-array v3, v3, [Ljava/lang/Object;
+
+    aput-object p6, v3, v4
 
     invoke-static {p2, p3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v3
+    move-result-object v4
 
-    aput-object v3, v2, v4
+    aput-object v4, v3, v5
 
     invoke-static {p4, p5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v3
+    move-result-object v4
 
-    aput-object v3, v2, v5
+    aput-object v4, v3, v6
 
-    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -359,25 +369,27 @@
 
     new-instance v0, Ljava/lang/IllegalArgumentException;
 
-    const-string v1, "%s is out of range of [%d, %d] (too high)"
+    sget-object v1, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    new-array v2, v2, [Ljava/lang/Object;
+    const-string v2, "%s is out of range of [%d, %d] (too high)"
 
-    aput-object p6, v2, v3
+    new-array v3, v3, [Ljava/lang/Object;
+
+    aput-object p6, v3, v4
 
     invoke-static {p2, p3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v3
+    move-result-object v4
 
-    aput-object v3, v2, v4
+    aput-object v4, v3, v5
 
     invoke-static {p4, p5}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v3
+    move-result-object v4
 
-    aput-object v3, v2, v5
+    aput-object v4, v3, v6
 
-    invoke-static {v1, v2}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v1, v2, v3}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -479,17 +491,17 @@
 .end method
 
 .method public static checkArrayElementsInRange([FFFLjava/lang/String;)[F
-    .locals 9
+    .locals 10
 
-    const/4 v4, 0x4
+    const/4 v5, 0x4
 
-    const/4 v8, 0x3
+    const/4 v9, 0x3
 
-    const/4 v7, 0x2
+    const/4 v8, 0x2
 
-    const/4 v6, 0x1
+    const/4 v7, 0x1
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
     new-instance v2, Ljava/lang/StringBuilder;
 
@@ -567,31 +579,33 @@
 
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
-    const-string v3, "%s[%d] is out of range of [%f, %f] (too low)"
+    sget-object v3, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    new-array v4, v4, [Ljava/lang/Object;
+    const-string v4, "%s[%d] is out of range of [%f, %f] (too low)"
 
-    aput-object p3, v4, v5
+    new-array v5, v5, [Ljava/lang/Object;
+
+    aput-object p3, v5, v6
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v5
+    move-result-object v6
 
-    aput-object v5, v4, v6
+    aput-object v6, v5, v7
 
     invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    move-result-object v5
+    move-result-object v6
 
-    aput-object v5, v4, v7
+    aput-object v6, v5, v8
 
     invoke-static {p2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    move-result-object v5
+    move-result-object v6
 
-    aput-object v5, v4, v8
+    aput-object v6, v5, v9
 
-    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v3, v4, v5}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v3
 
@@ -606,31 +620,33 @@
 
     new-instance v2, Ljava/lang/IllegalArgumentException;
 
-    const-string v3, "%s[%d] is out of range of [%f, %f] (too high)"
+    sget-object v3, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    new-array v4, v4, [Ljava/lang/Object;
+    const-string v4, "%s[%d] is out of range of [%f, %f] (too high)"
 
-    aput-object p3, v4, v5
+    new-array v5, v5, [Ljava/lang/Object;
+
+    aput-object p3, v5, v6
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v5
+    move-result-object v6
 
-    aput-object v5, v4, v6
+    aput-object v6, v5, v7
 
     invoke-static {p1}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    move-result-object v5
+    move-result-object v6
 
-    aput-object v5, v4, v7
+    aput-object v6, v5, v8
 
     invoke-static {p2}, Ljava/lang/Float;->valueOf(F)Ljava/lang/Float;
 
-    move-result-object v5
+    move-result-object v6
 
-    aput-object v5, v4, v8
+    aput-object v6, v5, v9
 
-    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v3, v4, v5}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v3
 
@@ -648,7 +664,7 @@
 .end method
 
 .method public static checkArrayElementsNotNull([Ljava/lang/Object;Ljava/lang/String;)[Ljava/lang/Object;
-    .locals 6
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "<T:",
@@ -699,25 +715,27 @@
 
     new-instance v1, Ljava/lang/NullPointerException;
 
-    const-string v2, "%s[%d] must not be null"
+    sget-object v2, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    const/4 v3, 0x2
+    const-string v3, "%s[%d] must not be null"
 
-    new-array v3, v3, [Ljava/lang/Object;
+    const/4 v4, 0x2
 
-    const/4 v4, 0x0
+    new-array v4, v4, [Ljava/lang/Object;
 
-    aput-object p1, v3, v4
+    const/4 v5, 0x0
 
-    const/4 v4, 0x1
+    aput-object p1, v4, v5
+
+    const/4 v5, 0x1
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v5
+    move-result-object v6
 
-    aput-object v5, v3, v4
+    aput-object v6, v4, v5
 
-    invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v2, v3, v4}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v2
 
@@ -735,7 +753,7 @@
 .end method
 
 .method public static checkCollectionElementsNotNull(Ljava/util/Collection;Ljava/lang/String;)Ljava/util/Collection;
-    .locals 8
+    .locals 9
     .annotation build Landroid/support/annotation/NonNull;
     .end annotation
 
@@ -799,25 +817,27 @@
 
     new-instance v3, Ljava/lang/NullPointerException;
 
-    const-string v4, "%s[%d] must not be null"
+    sget-object v4, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    const/4 v5, 0x2
+    const-string v5, "%s[%d] must not be null"
 
-    new-array v5, v5, [Ljava/lang/Object;
+    const/4 v6, 0x2
 
-    const/4 v6, 0x0
+    new-array v6, v6, [Ljava/lang/Object;
 
-    aput-object p1, v5, v6
+    const/4 v7, 0x0
 
-    const/4 v6, 0x1
+    aput-object p1, v6, v7
+
+    const/4 v7, 0x1
 
     invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v7
+    move-result-object v8
 
-    aput-object v7, v5, v6
+    aput-object v8, v6, v7
 
-    invoke-static {v4, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v4, v5, v6}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v4
 

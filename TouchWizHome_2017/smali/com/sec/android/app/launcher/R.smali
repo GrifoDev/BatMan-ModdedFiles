@@ -10,6 +10,7 @@
         Lcom/sec/android/app/launcher/R$xml;,
         Lcom/sec/android/app/launcher/R$style;,
         Lcom/sec/android/app/launcher/R$string;,
+        Lcom/sec/android/app/launcher/R$mipmap;,
         Lcom/sec/android/app/launcher/R$menu;,
         Lcom/sec/android/app/launcher/R$layout;,
         Lcom/sec/android/app/launcher/R$interpolator;,

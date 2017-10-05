@@ -222,7 +222,7 @@
 
     move-result-object v6
 
-    invoke-static {v6}, Lcom/android/launcher3/util/locale/LocaleUtils;->access$700(Ljava/lang/Character$UnicodeBlock;)Z
+    invoke-static {v6}, Lcom/android/launcher3/util/locale/LocaleUtils;->access$800(Ljava/lang/Character$UnicodeBlock;)Z
 
     move-result v7
 

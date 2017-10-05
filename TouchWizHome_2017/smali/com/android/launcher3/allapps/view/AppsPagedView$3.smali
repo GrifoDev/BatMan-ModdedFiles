@@ -49,6 +49,14 @@
 
     if-eqz v0, :cond_0
 
+    iget-object v0, p0, Lcom/android/launcher3/allapps/view/AppsPagedView$3;->val$cl:Lcom/android/launcher3/common/base/view/CellLayout;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/common/base/view/CellLayout;->getPageChildCount()I
+
+    move-result v0
+
+    if-gtz v0, :cond_0
+
     iget-object v0, p0, Lcom/android/launcher3/allapps/view/AppsPagedView$3;->this$0:Lcom/android/launcher3/allapps/view/AppsPagedView;
 
     invoke-static {v0}, Lcom/android/launcher3/allapps/view/AppsPagedView;->access$000(Lcom/android/launcher3/allapps/view/AppsPagedView;)Ljava/util/ArrayList;
@@ -73,6 +81,13 @@
 
     invoke-virtual {v0}, Lcom/android/launcher3/allapps/view/AppsPagedView;->removeEmptyScreen()Z
 
-    :cond_0
+    :goto_0
     return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/launcher3/allapps/view/AppsPagedView$3;->this$0:Lcom/android/launcher3/allapps/view/AppsPagedView;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/allapps/view/AppsPagedView;->commitExtraEmptyScreen()I
+
+    goto :goto_0
 .end method

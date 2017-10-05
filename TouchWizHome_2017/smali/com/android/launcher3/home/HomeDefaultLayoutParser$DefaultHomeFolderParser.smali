@@ -44,7 +44,7 @@
 
     iget-object v5, p0, Lcom/android/launcher3/home/HomeDefaultLayoutParser$DefaultHomeFolderParser;->this$0:Lcom/android/launcher3/home/HomeDefaultLayoutParser;
 
-    invoke-static {v5}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$1600(Lcom/android/launcher3/home/HomeDefaultLayoutParser;)Z
+    invoke-static {v5}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$1700(Lcom/android/launcher3/home/HomeDefaultLayoutParser;)Z
 
     move-result v5
 
@@ -52,7 +52,7 @@
 
     iget-object v5, p0, Lcom/android/launcher3/home/HomeDefaultLayoutParser$DefaultHomeFolderParser;->this$0:Lcom/android/launcher3/home/HomeDefaultLayoutParser;
 
-    invoke-static {v5}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$2800(Lcom/android/launcher3/home/HomeDefaultLayoutParser;)Landroid/content/ContentValues;
+    invoke-static {v5}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$2900(Lcom/android/launcher3/home/HomeDefaultLayoutParser;)Landroid/content/ContentValues;
 
     move-result-object v5
 
@@ -60,7 +60,7 @@
 
     iget-object v7, p0, Lcom/android/launcher3/home/HomeDefaultLayoutParser$DefaultHomeFolderParser;->this$0:Lcom/android/launcher3/home/HomeDefaultLayoutParser;
 
-    invoke-static {v7}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$000(Lcom/android/launcher3/home/HomeDefaultLayoutParser;)I
+    invoke-static {v7}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$100(Lcom/android/launcher3/home/HomeDefaultLayoutParser;)I
 
     move-result v7
 
@@ -90,7 +90,7 @@
 
     iget-object v5, p0, Lcom/android/launcher3/home/HomeDefaultLayoutParser$DefaultHomeFolderParser;->this$0:Lcom/android/launcher3/home/HomeDefaultLayoutParser;
 
-    invoke-static {v5}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$2900(Lcom/android/launcher3/home/HomeDefaultLayoutParser;)Landroid/content/ContentValues;
+    invoke-static {v5}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$3000(Lcom/android/launcher3/home/HomeDefaultLayoutParser;)Landroid/content/ContentValues;
 
     move-result-object v5
 
@@ -100,7 +100,7 @@
 
     iget-object v5, p0, Lcom/android/launcher3/home/HomeDefaultLayoutParser$DefaultHomeFolderParser;->this$0:Lcom/android/launcher3/home/HomeDefaultLayoutParser;
 
-    invoke-static {v5}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$3000(Lcom/android/launcher3/home/HomeDefaultLayoutParser;)Landroid/content/ContentValues;
+    invoke-static {v5}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$3100(Lcom/android/launcher3/home/HomeDefaultLayoutParser;)Landroid/content/ContentValues;
 
     move-result-object v5
 
@@ -110,7 +110,7 @@
 
     iget-object v5, p0, Lcom/android/launcher3/home/HomeDefaultLayoutParser$DefaultHomeFolderParser;->this$0:Lcom/android/launcher3/home/HomeDefaultLayoutParser;
 
-    invoke-static {v5}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$3100(Lcom/android/launcher3/home/HomeDefaultLayoutParser;)Landroid/content/ContentValues;
+    invoke-static {v5}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$3200(Lcom/android/launcher3/home/HomeDefaultLayoutParser;)Landroid/content/ContentValues;
 
     move-result-object v5
 
@@ -145,7 +145,7 @@
 
     iget-object v5, p0, Lcom/android/launcher3/home/HomeDefaultLayoutParser$DefaultHomeFolderParser;->this$0:Lcom/android/launcher3/home/HomeDefaultLayoutParser;
 
-    invoke-static {v5}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$000(Lcom/android/launcher3/home/HomeDefaultLayoutParser;)I
+    invoke-static {v5}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$100(Lcom/android/launcher3/home/HomeDefaultLayoutParser;)I
 
     move-result v5
 
@@ -155,7 +155,7 @@
 
     iget-object v5, p0, Lcom/android/launcher3/home/HomeDefaultLayoutParser$DefaultHomeFolderParser;->this$0:Lcom/android/launcher3/home/HomeDefaultLayoutParser;
 
-    invoke-static {v5, v0, v1, v8, v8}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$500(Lcom/android/launcher3/home/HomeDefaultLayoutParser;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v5, v0, v1, v8, v8}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$600(Lcom/android/launcher3/home/HomeDefaultLayoutParser;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_1
     return-wide v2

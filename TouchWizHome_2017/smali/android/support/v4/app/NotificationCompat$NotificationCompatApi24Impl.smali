@@ -210,8 +210,15 @@
 
     iget-object v3, v0, Landroid/support/v4/app/NotificationCompat$Builder;->mStyle:Landroid/support/v4/app/NotificationCompat$Style;
 
-    invoke-static {v2, v3}, Landroid/support/v4/app/NotificationCompat;->addStyleToBuilderApi24(Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;Landroid/support/v4/app/NotificationCompat$Style;)V
+    if-eqz v3, :cond_0
 
+    move-object/from16 v0, p1
+
+    iget-object v3, v0, Landroid/support/v4/app/NotificationCompat$Builder;->mStyle:Landroid/support/v4/app/NotificationCompat$Style;
+
+    invoke-virtual {v3, v2}, Landroid/support/v4/app/NotificationCompat$Style;->apply(Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;)V
+
+    :cond_0
     move-object/from16 v0, p2
 
     move-object/from16 v1, p1
@@ -224,7 +231,7 @@
 
     iget-object v3, v0, Landroid/support/v4/app/NotificationCompat$Builder;->mStyle:Landroid/support/v4/app/NotificationCompat$Style;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
     move-object/from16 v0, p1
 
@@ -236,6 +243,71 @@
 
     invoke-virtual {v3, v4}, Landroid/support/v4/app/NotificationCompat$Style;->addCompatExtras(Landroid/os/Bundle;)V
 
-    :cond_0
+    :cond_1
     return-object v35
+.end method
+
+.method public getAction(Landroid/app/Notification;I)Landroid/support/v4/app/NotificationCompat$Action;
+    .locals 2
+
+    sget-object v0, Landroid/support/v4/app/NotificationCompat$Action;->FACTORY:Landroid/support/v4/app/NotificationCompatBase$Action$Factory;
+
+    sget-object v1, Landroid/support/v4/app/RemoteInput;->FACTORY:Landroid/support/v4/app/RemoteInputCompatBase$RemoteInput$Factory;
+
+    invoke-static {p1, p2, v0, v1}, Landroid/support/v4/app/NotificationCompatApi24;->getAction(Landroid/app/Notification;ILandroid/support/v4/app/NotificationCompatBase$Action$Factory;Landroid/support/v4/app/RemoteInputCompatBase$RemoteInput$Factory;)Landroid/support/v4/app/NotificationCompatBase$Action;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/support/v4/app/NotificationCompat$Action;
+
+    return-object v0
+.end method
+
+.method public getActionsFromParcelableArrayList(Ljava/util/ArrayList;)[Landroid/support/v4/app/NotificationCompat$Action;
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/ArrayList",
+            "<",
+            "Landroid/os/Parcelable;",
+            ">;)[",
+            "Landroid/support/v4/app/NotificationCompat$Action;"
+        }
+    .end annotation
+
+    sget-object v0, Landroid/support/v4/app/NotificationCompat$Action;->FACTORY:Landroid/support/v4/app/NotificationCompatBase$Action$Factory;
+
+    sget-object v1, Landroid/support/v4/app/RemoteInput;->FACTORY:Landroid/support/v4/app/RemoteInputCompatBase$RemoteInput$Factory;
+
+    invoke-static {p1, v0, v1}, Landroid/support/v4/app/NotificationCompatApi24;->getActionsFromParcelableArrayList(Ljava/util/ArrayList;Landroid/support/v4/app/NotificationCompatBase$Action$Factory;Landroid/support/v4/app/RemoteInputCompatBase$RemoteInput$Factory;)[Landroid/support/v4/app/NotificationCompatBase$Action;
+
+    move-result-object v0
+
+    check-cast v0, [Landroid/support/v4/app/NotificationCompat$Action;
+
+    check-cast v0, [Landroid/support/v4/app/NotificationCompat$Action;
+
+    return-object v0
+.end method
+
+.method public getParcelableArrayListForActions([Landroid/support/v4/app/NotificationCompat$Action;)Ljava/util/ArrayList;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "([",
+            "Landroid/support/v4/app/NotificationCompat$Action;",
+            ")",
+            "Ljava/util/ArrayList",
+            "<",
+            "Landroid/os/Parcelable;",
+            ">;"
+        }
+    .end annotation
+
+    invoke-static {p1}, Landroid/support/v4/app/NotificationCompatApi24;->getParcelableArrayListForActions([Landroid/support/v4/app/NotificationCompatBase$Action;)Ljava/util/ArrayList;
+
+    move-result-object v0
+
+    return-object v0
 .end method

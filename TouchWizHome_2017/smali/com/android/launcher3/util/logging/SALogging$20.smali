@@ -73,7 +73,7 @@
 
     move-result-object v3
 
-    const v6, 0x7f08019c
+    const v6, 0x7f0901b9
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -89,7 +89,7 @@
 
     iget-object v8, p0, Lcom/android/launcher3/util/logging/SALogging$20;->val$btnText:Ljava/lang/String;
 
-    invoke-static {v3, v6, v7, v8}, Lcom/android/launcher3/util/logging/SALogging;->access$1300(Lcom/android/launcher3/util/logging/SALogging;ILcom/android/launcher3/Launcher;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v3, v6, v7, v8}, Lcom/android/launcher3/util/logging/SALogging;->access$1400(Lcom/android/launcher3/util/logging/SALogging;ILcom/android/launcher3/Launcher;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -127,7 +127,7 @@
 
     move-result-object v3
 
-    const v6, 0x7f08018f
+    const v6, 0x7f0901ac
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -160,7 +160,7 @@
 
     move-result-object v3
 
-    const v6, 0x7f080188
+    const v6, 0x7f0901a5
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -175,7 +175,7 @@
 
     move-result-object v3
 
-    const v6, 0x7f080194
+    const v6, 0x7f0901b1
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

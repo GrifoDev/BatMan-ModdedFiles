@@ -20,20 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/home/WorkspaceDragController;
 
-.field final synthetic val$cell:Landroid/view/View;
-
-.field final synthetic val$finalAddItems:Ljava/util/ArrayList;
+.field final synthetic val$widgetHostView:Lcom/android/launcher3/home/LauncherAppWidgetHostView;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/home/WorkspaceDragController;Ljava/util/ArrayList;Landroid/view/View;)V
+.method constructor <init>(Lcom/android/launcher3/home/WorkspaceDragController;Lcom/android/launcher3/home/LauncherAppWidgetHostView;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/home/WorkspaceDragController$2;->this$0:Lcom/android/launcher3/home/WorkspaceDragController;
 
-    iput-object p2, p0, Lcom/android/launcher3/home/WorkspaceDragController$2;->val$finalAddItems:Ljava/util/ArrayList;
-
-    iput-object p3, p0, Lcom/android/launcher3/home/WorkspaceDragController$2;->val$cell:Landroid/view/View;
+    iput-object p2, p0, Lcom/android/launcher3/home/WorkspaceDragController$2;->val$widgetHostView:Lcom/android/launcher3/home/LauncherAppWidgetHostView;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,19 +39,25 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .locals 4
 
     iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceDragController$2;->this$0:Lcom/android/launcher3/home/WorkspaceDragController;
 
-    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceDragController$2;->val$finalAddItems:Ljava/util/ArrayList;
+    invoke-static {v0}, Lcom/android/launcher3/home/WorkspaceDragController;->access$000(Lcom/android/launcher3/home/WorkspaceDragController;)Lcom/android/launcher3/home/HomeController;
 
-    const/4 v2, 0x0
+    move-result-object v0
 
-    iget-object v3, p0, Lcom/android/launcher3/home/WorkspaceDragController$2;->val$cell:Landroid/view/View;
+    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceDragController$2;->val$widgetHostView:Lcom/android/launcher3/home/LauncherAppWidgetHostView;
 
-    const/4 v4, 0x1
+    iget-object v2, p0, Lcom/android/launcher3/home/WorkspaceDragController$2;->this$0:Lcom/android/launcher3/home/WorkspaceDragController;
 
-    invoke-static {v0, v1, v2, v3, v4}, Lcom/android/launcher3/home/WorkspaceDragController;->access$100(Lcom/android/launcher3/home/WorkspaceDragController;Ljava/util/ArrayList;Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/view/View;Z)V
+    invoke-static {v2}, Lcom/android/launcher3/home/WorkspaceDragController;->access$100(Lcom/android/launcher3/home/WorkspaceDragController;)Lcom/android/launcher3/common/base/view/CellLayout;
+
+    move-result-object v2
+
+    const/16 v3, 0x32
+
+    invoke-virtual {v0, v1, v2, v3}, Lcom/android/launcher3/home/HomeController;->enterResizeStateDelay(Landroid/appwidget/AppWidgetHostView;Lcom/android/launcher3/common/base/view/CellLayout;I)V
 
     return-void
 .end method

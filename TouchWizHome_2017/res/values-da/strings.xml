@@ -1,23 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="status_bar_notification_info_overflow">999+</string>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Søgeoversigt</string>
     <string name="about">Om %s</string>
     <string name="about_already_installed">Den nyeste version er allerede installeret.</string>
+    <string name="about_app_info">Appoplysninger</string>
     <string name="about_home_screen">Startskærm</string>
     <string name="about_licence">Open source-licenser</string>
-    <string name="about_network_err">Det er ikke muligt at søge efter opdateringer. Din telefon har ikke forbindelse til et netværk.</string>
+    <string name="about_network_err_phone">Det er ikke muligt at søge efter opdateringer. Din telefon har ikke forbindelse til et netværk.</string>
+    <string name="about_network_err_tablet">Kan ikke søge efter opdateringer. Din tablets netværksforbindelse er ikke stabil.</string>
     <string name="about_new_version_exist">En ny version er tilgængelig.</string>
     <string name="about_retry">Prøv igen</string>
     <string name="about_update">Opdater</string>
     <string name="about_version">Version %s</string>
+    <string name="accessibility_add_home_screen">Tilføj side</string>
+    <string name="accessibility_button">Knap</string>
+    <string name="accessibility_dimmed">Nedtonet</string>
     <string name="activity_not_available">Denne app er ikke tilgængelig til din enhed.</string>
-    <string name="activity_not_found">Program ikke installeret.</string>
+    <string name="activity_not_found">Applikation ikke installeret.</string>
+    <string name="add_to_last_page">Du har valgt %1$d elementer, men der er ikke plads nok på denne side. De resterende %2$d elementer vil blive føjet til den sidste side.</string>
     <string name="align_to_bottom">Juster nederst</string>
     <string name="align_to_top">Juster øverst</string>
+    <string name="app_locked_toast">%s låst.</string>
     <string name="app_search">Søg på telefon</string>
     <string name="app_search_no_apps">Du kan føje genveje til startskærmen fra søgeresultaterne.</string>
     <string name="app_search_no_results_found">Ingen resultater fundet</string>
     <string name="app_search_tablet">Søg på tablet</string>
+    <string name="app_unlocked_toast">%s låst op.</string>
     <string name="application_name">TouchWiz-start</string>
     <string name="apply">Anvend</string>
     <string name="appsPicker_add_button">TILFØJ</string>
@@ -41,7 +50,8 @@
     <string name="cancel">Annuller</string>
     <string name="default_page">Standardside</string>
     <string name="default_scroll_format">Side %1$d af %2$d.</string>
-    <string name="disable_message">%1$s og alle funktioner knyttet hertil vil blive deaktiveret. For at aktivere appen igen skal du gå til Indstillinger > Applikationer og derefter vælge %2$s.</string>
+    <string name="disable_message">%1$s og alle funktioner knyttet hertil vil blive deaktiveret. For at aktivere appen igen skal du gå til Indstillinger > Apps og derefter vælge %2$s.</string>
+    <string name="disable_message_knox_mode">%1$s og alle funktioner knyttet hertil vil blive deaktiveret. For at aktivere appen igen skal du gå til %2$s-indstillinger > Apps.</string>
     <string name="disable_message_vzw">%s og alle funktioner knyttet hertil vil blive deaktiveret. For at aktivere det igen skal du gå til Indstillinger > Applikationer > Applikationsmanager.</string>
     <string name="discard">Kasser</string>
     <string name="do_not_show_again">Vis ikke igen</string>
@@ -52,11 +62,8 @@
     <string name="folder_add_button">Tilføj apps</string>
     <string name="folder_closed">Mappen er lukket.</string>
     <string name="folder_color">Mappefarve</string>
-    <string name="folder_color_blue">Blå</string>
     <string name="folder_color_default">Standardmappefarve</string>
-    <string name="folder_color_green">Grøn</string>
-    <string name="folder_color_orange">Orange</string>
-    <string name="folder_color_yellow">Gul</string>
+    <string name="folder_color_pd">Farve %d</string>
     <string name="folder_hint_text">Angiv mappenavn</string>
     <string name="folder_microsoft_apps">"Microsoft-
 apps"</string>
@@ -88,6 +95,7 @@ apps"</string>
     <string name="long_press_widget_to_add">Tryk og hold på en widget for at flytte den.</string>
     <string name="max_characters_available">Op til %d tegn til rådighed.</string>
     <string name="menu_edit_cancel">Annuller</string>
+    <string name="menu_navigate_up">Naviger op</string>
     <string name="menu_uninstall">Afinstaller app</string>
     <string name="move_to_home">Træk her for at føje genvej til startskærm.</string>
     <string name="multi_select_add_to_personal">Føj til Personlig</string>
@@ -114,7 +122,11 @@ apps"</string>
     <string name="new_items">%d nye elementer</string>
     <string name="new_page_created">Side tilføjet.</string>
     <string name="no_changes">Ingen ændringer.</string>
+    <string name="no_space_page">Der er ikke plads på siden. Prøv at tilføje en genvej på en anden side.</string>
+    <string name="no_space_page_for_widget">Ingen plads på denne side.</string>
     <string name="not_selected">Ikke valgt</string>
+    <string name="notification_panel_setting_summary">Stryg nedad for at åbne informationspanelet fra startskærmen.</string>
+    <string name="notification_panel_setting_title">Åbn informationspanelet hurtigt</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">"Widget'en %s er allerede blevet føjet til startskærmen."</string>
     <string name="option_menu_contact_up">Kontakt os</string>
@@ -129,7 +141,7 @@ apps"</string>
     <string name="out_of_space">Ikke mere plads på denne side</string>
     <string name="out_of_space_dialog">Der er ikke mere plads på denne side. Elementet vil blive tilføjet på en ny side.</string>
     <string name="permdesc_install_widget">Denne app kan føje widgets til startskærmen.</string>
-    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_settings">Denne app kan læse din startskærms indstillinger og genveje.</string>
     <string name="permdesc_read_zeropage_settings">Denne app kan læse indstillingerne for siden med tilpasset indhold, som findes til venstre for startskærmen.</string>
     <string name="permdesc_write_zeropage_settings">Denne app kan ændre indstillingerne for siden med tilpasset indhold, som findes til venstre for startskærmen.</string>
     <string name="permlab_install_widget">Tilføj widgets</string>
@@ -160,27 +172,41 @@ apps"</string>
     <string name="quick_option_unlock">Lås op</string>
     <string name="remove_popup_msg">Vil du slette siden?</string>
     <string name="remove_popup_positive">Slet</string>
+    <string name="safemode_shortcut_error">Downloadede apps er deaktiverede, når Sikker tilstand er aktiveret.</string>
+    <string name="safemode_widget_error">Widgets er deaktiveret, når Sikker tilstand er aktiveret.</string>
     <string name="screen_grid_explain_text">"Layoutet af appskærmen ændres til %1$d x %2$d
 for at passe til startskærmens layout."</string>
     <string name="search_for_widgets">Søg efter widgets</string>
     <string name="selected">Valgt</string>
     <string name="setting_apps_screen_grid">Appskærmgitter</string>
     <string name="shortcut_duplicate">Genvej %s findes allerede.</string>
-    <string name="shortcut_installed">Genvej til %s er tilføjet på startskærm.</string>
+    <string name="shortcut_installed">Genvejen til %s er blevet føjet til startskærmen.</string>
     <string name="shortcut_moved_to_game_launcher">Spilikon er flyttet til Game Launcher.</string>
     <string name="shortcut_uninstalled">Genvej %s fjernet.</string>
+    <string name="sound_mode_to_sound">Lydtilstand indstillet til Lyd.</string>
+    <string name="sound_mode_to_vibrate">Lydtilstand indstillet til Vibration.</string>
     <string name="speak_now">Tal nu</string>
     <string name="swipe_up_for_more_apps">Stryg opad eller nedad for alle apps</string>
     <string name="swipe_up_for_more_apps_att">Stryg opad eller nedad på skærmen for alle apps</string>
+    <string name="swipe_up_for_more_apps_quick_noti_pannel_on">Stryg opad for at se alle apps</string>
+    <string name="swipe_up_for_more_apps_quick_noti_pannel_on_att">Stryg opad på skærmen for alle apps</string>
+    <string name="swipe_up_for_more_apps_quick_noti_pannel_on_tts">Stryg opad med to fingre for alle apps.</string>
     <string name="swipe_up_for_more_apps_with_two_fingers">Stryg opad eller nedad med to fingre for alle apps.</string>
-    <string name="talkback_checked">Valgt</string>
+    <string name="talkback_changed_to_ps">Ændret til %s.</string>
     <string name="talkback_folder">Mappe</string>
     <string name="talkback_n_items">%d elementer</string>
     <string name="talkback_press_back_key_to_close_folder">Tryk på tilbagetasten igen for at lukke mappen.</string>
+    <string name="talkback_tab_back_button_to_close_folder">Tryk på tilbageknappen for at lukke mappen.</string>
+    <string name="talkback_widget_dims_format">%1$d gange %2$d</string>
     <string name="title_settings">Indstillinger for %s</string>
     <string name="tts_add_shortcut_on_home_screen_notice">Træk ikonet til toppen af skærmen for at tilføje på startskærmen.</string>
     <string name="tts_bottom_handle">Nederste håndtag</string>
+    <string name="tts_changed_to_apps_edit_mode">Ændret til appredigeringstilstand.</string>
+    <string name="tts_changed_to_folder_edit_mode">Ændret til Mapperedigeringstilstand</string>
+    <string name="tts_changed_to_home_screen_edit_mode">Ændret til redigeringstilstand for startskærm.</string>
     <string name="tts_folder_created">Mappe oprettet.</string>
+    <string name="tts_holding_items">Holder %1$s og %2$d andre</string>
+    <string name="tts_hotseat_item_moved_from_external">Element flyttet til menulinjen på startskærmen.</string>
     <string name="tts_hotseat_move_to">Position %d på menulinjen.</string>
     <string name="tts_hover_item_over_other_item">%1$s oven på %2$s</string>
     <string name="tts_item_added">Element tilføjet.</string>
@@ -201,6 +227,7 @@ for at passe til startskærmens layout."</string>
     <string name="viewmore_playstore">Se flere i Play Butik</string>
     <string name="viewtype_alphabetic_grid">Alfabetisk rækkefølge</string>
     <string name="viewtype_custom_grid">Tilpasset rækkefølge</string>
+    <string name="voice_search">Stemmesøgning</string>
     <string name="wallpaper_button_text">Baggrunde</string>
     <string name="wallpapers_and_themes_button_text">Baggrunde og temaer</string>
     <string name="widget_button_text">Widgets</string>
@@ -210,4 +237,5 @@ for at passe til startskærmens layout."</string>
     <string name="zeropage_download_msg">For at bruge denne funktion skal du installere %1$s. Tryk på DOWNLOAD for at downloade og installere %2$s.</string>
     <string name="zeropage_hellobixby_title">Hello Bixby</string>
     <string name="zeropage_sohu_title">Sohu Nyheder</string>
+    <string name="zeropage_toutiao_title">Information express</string>
 </resources>

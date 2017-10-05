@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/HomeLoader;->bindFestivalPageIfNecessary(Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)V
+    value = Lcom/android/launcher3/home/HomeLoader;->initFestivalPageIfNecessary(Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -51,13 +51,13 @@
 
     iget-object v3, p0, Lcom/android/launcher3/home/HomeLoader$10;->val$task:Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;
 
-    invoke-static {v1, v2, v3}, Lcom/android/launcher3/home/HomeLoader;->access$4200(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
+    invoke-static {v1, v2, v3}, Lcom/android/launcher3/home/HomeLoader;->access$5200(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    invoke-interface {v0}, Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;->bindFestivalPageIfNecessary()V
+    invoke-interface {v0}, Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;->initFestivalPageIfNecessary()V
 
     :cond_0
     return-void

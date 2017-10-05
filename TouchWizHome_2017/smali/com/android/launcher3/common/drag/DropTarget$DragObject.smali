@@ -111,8 +111,122 @@
     return-void
 .end method
 
+.method public constructor <init>(Lcom/android/launcher3/common/drag/DropTarget$DragObject;)V
+    .locals 3
+
+    const/4 v2, 0x0
+
+    const/4 v0, -0x1
+
+    const/4 v1, 0x0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput v0, p0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->x:I
+
+    iput v0, p0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->y:I
+
+    iput v0, p0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->xOffset:I
+
+    iput v0, p0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->yOffset:I
+
+    iput-boolean v2, p0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->dragComplete:Z
+
+    iput-object v1, p0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->dragView:Lcom/android/launcher3/common/drag/DragView;
+
+    iput-object v1, p0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->dragInfo:Ljava/lang/Object;
+
+    iput-object v1, p0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->dragSource:Lcom/android/launcher3/common/drag/DragSource;
+
+    iput-object v1, p0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->postAnimationRunnable:Ljava/lang/Runnable;
+
+    iput-boolean v2, p0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->cancelled:Z
+
+    iput-boolean v2, p0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->cancelDropFolder:Z
+
+    iput-boolean v2, p0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->restored:Z
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->deferDragViewCleanupPostAnimation:Z
+
+    iput-object v1, p0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->extraDragInfoList:Ljava/util/ArrayList;
+
+    iput-object v1, p0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->extraDragSourceList:Ljava/util/ArrayList;
+
+    invoke-virtual {p0, p1}, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->copyFrom(Lcom/android/launcher3/common/drag/DropTarget$DragObject;)V
+
+    return-void
+.end method
+
 
 # virtual methods
+.method public copyFrom(Lcom/android/launcher3/common/drag/DropTarget$DragObject;)V
+    .locals 1
+
+    iget v0, p1, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->x:I
+
+    iput v0, p0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->x:I
+
+    iget v0, p1, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->y:I
+
+    iput v0, p0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->y:I
+
+    iget v0, p1, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->xOffset:I
+
+    iput v0, p0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->xOffset:I
+
+    iget v0, p1, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->yOffset:I
+
+    iput v0, p0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->yOffset:I
+
+    iget-boolean v0, p1, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->dragComplete:Z
+
+    iput-boolean v0, p0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->dragComplete:Z
+
+    iget-object v0, p1, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->dragView:Lcom/android/launcher3/common/drag/DragView;
+
+    iput-object v0, p0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->dragView:Lcom/android/launcher3/common/drag/DragView;
+
+    iget-object v0, p1, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->dragInfo:Ljava/lang/Object;
+
+    iput-object v0, p0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->dragInfo:Ljava/lang/Object;
+
+    iget-object v0, p1, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->dragSource:Lcom/android/launcher3/common/drag/DragSource;
+
+    iput-object v0, p0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->dragSource:Lcom/android/launcher3/common/drag/DragSource;
+
+    iget-object v0, p1, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->postAnimationRunnable:Ljava/lang/Runnable;
+
+    iput-object v0, p0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->postAnimationRunnable:Ljava/lang/Runnable;
+
+    iget-boolean v0, p1, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->cancelled:Z
+
+    iput-boolean v0, p0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->cancelled:Z
+
+    iget-boolean v0, p1, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->cancelDropFolder:Z
+
+    iput-boolean v0, p0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->cancelDropFolder:Z
+
+    iget-boolean v0, p1, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->restored:Z
+
+    iput-boolean v0, p0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->restored:Z
+
+    iget-boolean v0, p1, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->deferDragViewCleanupPostAnimation:Z
+
+    iput-boolean v0, p0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->deferDragViewCleanupPostAnimation:Z
+
+    iget-object v0, p1, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->extraDragInfoList:Ljava/util/ArrayList;
+
+    iput-object v0, p0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->extraDragInfoList:Ljava/util/ArrayList;
+
+    iget-object v0, p1, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->extraDragSourceList:Ljava/util/ArrayList;
+
+    iput-object v0, p0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->extraDragSourceList:Ljava/util/ArrayList;
+
+    return-void
+.end method
+
 .method public final getVisualCenter([F)[F
     .locals 5
 

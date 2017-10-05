@@ -11,6 +11,10 @@
 .end annotation
 
 
+# static fields
+.field private static TAG:Ljava/lang/String;
+
+
 # instance fields
 .field private mCache:Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
@@ -30,6 +34,16 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    const-string v0, "BitmapCacheContainer"
+
+    sput-object v0, Lcom/android/launcher3/common/view/BitmapCacheContainer;->TAG:Ljava/lang/String;
+
+    return-void
+.end method
+
 .method constructor <init>()V
     .locals 1
 
@@ -47,17 +61,19 @@
 
 # virtual methods
 .method public getBitmapCache(Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;)Landroid/graphics/Bitmap;
-    .locals 3
+    .locals 5
     .annotation build Landroid/support/annotation/Nullable;
     .end annotation
 
-    iget-object v1, p0, Lcom/android/launcher3/common/view/BitmapCacheContainer;->mCache:Ljava/util/HashMap;
+    const/4 v1, 0x0
+
+    iget-object v2, p0, Lcom/android/launcher3/common/view/BitmapCacheContainer;->mCache:Ljava/util/HashMap;
 
     invoke-static {p1, p2}, Landroid/util/Pair;->create(Ljava/lang/Object;Ljava/lang/Object;)Landroid/util/Pair;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v1, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -65,12 +81,51 @@
 
     if-nez v0, :cond_0
 
-    const/4 v1, 0x0
-
     :goto_0
     return-object v1
 
     :cond_0
+    invoke-virtual {v0}, Lcom/android/launcher3/common/view/BitmapCacheContainer$BitmapInfo;->isExpired()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    sget-object v2, Lcom/android/launcher3/common/view/BitmapCacheContainer;->TAG:Ljava/lang/String;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "getBitmapCache: BitmapCache expired "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string v4, "/"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :cond_1
     iget-object v1, v0, Lcom/android/launcher3/common/view/BitmapCacheContainer$BitmapInfo;->bitmap:Landroid/graphics/Bitmap;
 
     goto :goto_0
@@ -126,6 +181,8 @@
     move-result-object v1
 
     check-cast v1, Landroid/util/Pair;
+
+    if-eqz v1, :cond_0
 
     iget-object v2, v1, Landroid/util/Pair;->first:Ljava/lang/Object;
 

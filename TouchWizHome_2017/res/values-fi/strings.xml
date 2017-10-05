@@ -1,23 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="status_bar_notification_info_overflow">999+</string>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">Hakuhistoria</string>
     <string name="about">Tietoja: %s</string>
     <string name="about_already_installed">Uusin versio on jo asennettu.</string>
+    <string name="about_app_info">Sovelluksen tiedot</string>
     <string name="about_home_screen">Alkunäyttö</string>
     <string name="about_licence">Avoimen lähdekoodin käyttöoikeudet</string>
-    <string name="about_network_err">Päivityksiä ei voi hakea. Puhelin ei ole yhteydessä verkkoon.</string>
+    <string name="about_network_err_phone">Päivityksiä ei voi hakea. Puhelin ei ole yhteydessä verkkoon.</string>
+    <string name="about_network_err_tablet">Päivityksiä ei voi hakea. Tablet-laitteen verkkoyhteys ei ole vakaa.</string>
     <string name="about_new_version_exist">Uusi versio saatavilla</string>
     <string name="about_retry">Yritä uud.</string>
     <string name="about_update">Päivitä</string>
     <string name="about_version">Versio %s</string>
+    <string name="accessibility_add_home_screen">Lisää sivu</string>
+    <string name="accessibility_button">Painike</string>
+    <string name="accessibility_dimmed">Himmennetty</string>
     <string name="activity_not_available">Tätä sovellusta ei ole saatavilla omaan laitteeseesi.</string>
     <string name="activity_not_found">Sovellusta ei ole asennettu.</string>
+    <string name="add_to_last_page">Valitsit %1$d kohdetta, mutta tällä sivulla ei ole tarpeeksi tilaa. Jäljellä olevat %2$d kohdetta lisätään viimeiselle sivulle.</string>
     <string name="align_to_bottom">Tasaa alas</string>
     <string name="align_to_top">Tasaa ylös</string>
+    <string name="app_locked_toast">%s lukittu.</string>
     <string name="app_search">Hae puhelimesta</string>
     <string name="app_search_no_apps">Voit lisätä hakutuloksista pikavalintoja alkunäyttöön.</string>
     <string name="app_search_no_results_found">Tuloksia ei löytynyt</string>
     <string name="app_search_tablet">Hae tablet-laitteesta</string>
+    <string name="app_unlocked_toast">Luokan %s lukitus poistettu.</string>
     <string name="application_name">TouchWizin koti</string>
     <string name="apply">Käytä</string>
     <string name="appsPicker_add_button">LISÄÄ</string>
@@ -42,6 +51,7 @@
     <string name="default_page">Oletussivu</string>
     <string name="default_scroll_format">Sivu %1$d / %2$d</string>
     <string name="disable_message">%1$s ja kaikki siihen liittyvät toiminnot poistetaan käytöstä. Voit ottaa sovelluksen uudelleen käyttöön valitsemalla Asetukset > Sovellukset ja sitten %2$s.</string>
+    <string name="disable_message_knox_mode">%1$s ja kaikki siihen liittyvät toiminnot poistetaan käytöstä. Voit ottaa sovelluksen uudelleen käyttöön valitsemalla Säilön %2$s asetukset > Sovellukset.</string>
     <string name="disable_message_vzw">%s ja kaikki siihen liittyvät toiminnot poistetaan käytöstä. Voit ottaa sen uudelleen käyttöön valitsemalla Asetukset > Sovellukset > Sovellusten hallinta.</string>
     <string name="discard">Hylkää</string>
     <string name="do_not_show_again">Älä näytä uudelleen</string>
@@ -52,11 +62,8 @@
     <string name="folder_add_button">Lisää sovelluksia</string>
     <string name="folder_closed">Kansio suljettu.</string>
     <string name="folder_color">Kansion väri</string>
-    <string name="folder_color_blue">Sininen</string>
-    <string name="folder_color_default">Oletuskansion väri</string>
-    <string name="folder_color_green">Vihreä</string>
-    <string name="folder_color_orange">Oranssi</string>
-    <string name="folder_color_yellow">Keltainen</string>
+    <string name="folder_color_default">Kansion oletusväri</string>
+    <string name="folder_color_pd">Väri %d</string>
     <string name="folder_hint_text">Anna kansion nimi</string>
     <string name="folder_microsoft_apps">"Microsoft-
 sovellukset"</string>
@@ -88,6 +95,7 @@ sovellukset"</string>
     <string name="long_press_widget_to_add">Siirrä pienoisohjelmaa painamalla jonkin aikaa.</string>
     <string name="max_characters_available">Käytettävissä enintään %d merkkiä.</string>
     <string name="menu_edit_cancel">Peruuta</string>
+    <string name="menu_navigate_up">Siirry ylös kohteeseen</string>
     <string name="menu_uninstall">Poista sovelluksen asennus</string>
     <string name="move_to_home">Lisää pikavalinta alkunäyttöön vetämällä tätä.</string>
     <string name="multi_select_add_to_personal">Lisää omiin</string>
@@ -114,7 +122,11 @@ sovellukset"</string>
     <string name="new_items">%d uutta kohdetta</string>
     <string name="new_page_created">Sivu lisätty.</string>
     <string name="no_changes">Ei muutoksia.</string>
+    <string name="no_space_page">Sivulla ei ole tilaa. Yritä lisätä pikavalinta toiselle sivulle.</string>
+    <string name="no_space_page_for_widget">Tällä sivulla ei ole tilaa.</string>
     <string name="not_selected">Ei ole valittu</string>
+    <string name="notification_panel_setting_summary">Avaa ilmoituspaneeli alkunäytössä pyyhkäisemällä alaspäin.</string>
+    <string name="notification_panel_setting_title">Avaa ilmoituspaneeli nopeasti</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s-pienoisohjelma on jo lisätty alkunäyttöön.</string>
     <string name="option_menu_contact_up">Ota yhteyttä</string>
@@ -129,7 +141,7 @@ sovellukset"</string>
     <string name="out_of_space">Tällä sivulla ei ole enää tilaa</string>
     <string name="out_of_space_dialog">Tällä sivulla ei ole enää tilaa. Kohde lisätään uudelle sivulle.</string>
     <string name="permdesc_install_widget">Tämä sovellus pystyy lisäämään pienoisohjelmia alkunäyttöön.</string>
-    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_settings">Tämä sovellus pystyy lukemaan alkunäytön asetuksia ja pikavalintoja.</string>
     <string name="permdesc_read_zeropage_settings">Tämä sovellus pystyy lukemaan alkunäytön vasemmalla puolella olevan mukautetun sisältösivun asetuksia.</string>
     <string name="permdesc_write_zeropage_settings">Tämä sovellus pystyy muuttamaan alkunäytön vasemmalla puolella olevan mukautetun sisältösivun asetuksia.</string>
     <string name="permlab_install_widget">Lisää pienoisohjelmia</string>
@@ -160,27 +172,41 @@ sovellukset"</string>
     <string name="quick_option_unlock">Poista lukitus</string>
     <string name="remove_popup_msg">Poistetaanko sivu?</string>
     <string name="remove_popup_positive">Poista</string>
+    <string name="safemode_shortcut_error">Ladatut sovellukset poistetaan käytöstä, kun vikasietotila on käytössä.</string>
+    <string name="safemode_widget_error">Pienoisohjelmat poistetaan käytöstä, kun vikasietotila on käytössä.</string>
     <string name="screen_grid_explain_text">"Sovellusnäytön ulkoasu muutetaan %1$d x %2$d
 -muotoon, jotta se vastaa alkunäytön ulkoasua."</string>
     <string name="search_for_widgets">Hae pienoisohjelmia</string>
     <string name="selected">Valittu</string>
     <string name="setting_apps_screen_grid">Sovellukset-näytön ruudukko</string>
     <string name="shortcut_duplicate">Pikanäppäin %s on jo olemassa.</string>
-    <string name="shortcut_installed">Kohteen %s pikavalinta on lisätty alkunäyttöön.</string>
+    <string name="shortcut_installed">Kohteen %s pikavalinta lisätty alkunäyttöön.</string>
     <string name="shortcut_moved_to_game_launcher">Pelikuvakkeet siirretty Game Launcheriin.</string>
     <string name="shortcut_uninstalled">Pikanäppäin %s poistettu.</string>
+    <string name="sound_mode_to_sound">Äänitilaksi on asetettu Ääni.</string>
+    <string name="sound_mode_to_vibrate">Äänitilaksi asetettu Värinä.</string>
     <string name="speak_now">Puhu nyt</string>
     <string name="swipe_up_for_more_apps">Valitse kaikki sovellukset pyyhkäisemällä ylös- tai alaspäin</string>
     <string name="swipe_up_for_more_apps_att">Näytä kaikki sovellukset pyyhkäisemällä näytössä ylös- tai alaspäin</string>
+    <string name="swipe_up_for_more_apps_quick_noti_pannel_on">Näytä kaikki sovellukset pyyhkäisemällä ylöspäin</string>
+    <string name="swipe_up_for_more_apps_quick_noti_pannel_on_att">Näytä kaikki sovellukset pyyhkäisemällä näytössä ylöspäin</string>
+    <string name="swipe_up_for_more_apps_quick_noti_pannel_on_tts">Näytä kaikki sovellukset pyyhkäisemällä kahdella sormella ylöspäin.</string>
     <string name="swipe_up_for_more_apps_with_two_fingers">Näytä kaikki sovellukset pyyhkäisemällä kahdella sormella ylös- tai alaspäin.</string>
-    <string name="talkback_checked">Valittu</string>
+    <string name="talkback_changed_to_ps">Kieleksi on valittu %s.</string>
     <string name="talkback_folder">Kansio</string>
     <string name="talkback_n_items">%d kohdetta</string>
     <string name="talkback_press_back_key_to_close_folder">Sulje kansio painamalla paluunäppäintä.</string>
+    <string name="talkback_tab_back_button_to_close_folder">Sulje kansio napauttamalla Takaisin-painiketta.</string>
+    <string name="talkback_widget_dims_format">%1$d x %2$d</string>
     <string name="title_settings">%s: asetukset</string>
     <string name="tts_add_shortcut_on_home_screen_notice">Vedä kuvake näytön yläosaan, jos haluat lisätä sen alkunäyttöön.</string>
     <string name="tts_bottom_handle">Alakahva</string>
+    <string name="tts_changed_to_apps_edit_mode">Siirrytty sovellusten muokkaustilaan.</string>
+    <string name="tts_changed_to_folder_edit_mode">Siirrytty kansion muokkaustilaan</string>
+    <string name="tts_changed_to_home_screen_edit_mode">Siirrytty alkunäytön muokkaustilaan.</string>
     <string name="tts_folder_created">Kansio luotu.</string>
+    <string name="tts_holding_items">Pidossa %1$s ja %2$d muuta</string>
+    <string name="tts_hotseat_item_moved_from_external">Kohde siirretty alkunäytön valikkoriville.</string>
     <string name="tts_hotseat_move_to">Paikka %d valikkopalkissa.</string>
     <string name="tts_hover_item_over_other_item">%1$s kohteen %2$s päällä</string>
     <string name="tts_item_added">Kohde lisätty.</string>
@@ -201,6 +227,7 @@ sovellukset"</string>
     <string name="viewmore_playstore">Näytä lisää Play-kaupassa</string>
     <string name="viewtype_alphabetic_grid">Aakkosjärjestys</string>
     <string name="viewtype_custom_grid">Mukautettu järjestys</string>
+    <string name="voice_search">Puhehaku</string>
     <string name="wallpaper_button_text">Taustakuvat</string>
     <string name="wallpapers_and_themes_button_text">Taustakuvat ja teemat</string>
     <string name="widget_button_text">Pienoisohjelmat</string>
@@ -210,4 +237,5 @@ sovellukset"</string>
     <string name="zeropage_download_msg">Sinun on asennettava %1$s tämän toiminnon käyttöä varten. Lataa ja asenna %2$s napauttamalla LATAA.</string>
     <string name="zeropage_hellobixby_title">Hello Bixby</string>
     <string name="zeropage_sohu_title">Sohu News</string>
+    <string name="zeropage_toutiao_title">Pikatiedot</string>
 </resources>

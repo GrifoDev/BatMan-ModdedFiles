@@ -3,12 +3,12 @@
 .source "AppsController.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Lcom/android/launcher3/common/base/item/ItemOperator;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/allapps/controller/AppsController;->createFolder()V
+    value = Lcom/android/launcher3/allapps/controller/AppsController;->getAppsIconByItemId(J)Landroid/view/View;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,16 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/allapps/controller/AppsController;
 
-.field final synthetic val$folder:Lcom/android/launcher3/folder/view/FolderIconView;
+.field final synthetic val$id:J
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/allapps/controller/AppsController;Lcom/android/launcher3/folder/view/FolderIconView;)V
+.method constructor <init>(Lcom/android/launcher3/allapps/controller/AppsController;J)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/allapps/controller/AppsController$18;->this$0:Lcom/android/launcher3/allapps/controller/AppsController;
 
-    iput-object p2, p0, Lcom/android/launcher3/allapps/controller/AppsController$18;->val$folder:Lcom/android/launcher3/folder/view/FolderIconView;
+    iput-wide p2, p0, Lcom/android/launcher3/allapps/controller/AppsController$18;->val$id:J
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,28 +38,26 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 3
+.method public evaluate(Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/view/View;Landroid/view/View;)Z
+    .locals 4
 
-    new-instance v0, Lcom/android/launcher3/common/stage/StageEntry;
+    if-eqz p1, :cond_0
 
-    invoke-direct {v0}, Lcom/android/launcher3/common/stage/StageEntry;-><init>()V
+    iget-wide v0, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->id:J
 
-    const-string v1, "KEY_FOLDER_ICON_VIEW"
+    iget-wide v2, p0, Lcom/android/launcher3/allapps/controller/AppsController$18;->val$id:J
 
-    iget-object v2, p0, Lcom/android/launcher3/allapps/controller/AppsController$18;->val$folder:Lcom/android/launcher3/folder/view/FolderIconView;
+    cmp-long v0, v0, v2
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/launcher3/common/stage/StageEntry;->putExtras(Ljava/lang/String;Ljava/lang/Object;)V
+    if-nez v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController$18;->this$0:Lcom/android/launcher3/allapps/controller/AppsController;
+    const/4 v0, 0x1
 
-    invoke-static {v1}, Lcom/android/launcher3/allapps/controller/AppsController;->access$400(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/common/stage/StageManager;
+    :goto_0
+    return v0
 
-    move-result-object v1
+    :cond_0
+    const/4 v0, 0x0
 
-    const/4 v2, 0x5
-
-    invoke-virtual {v1, v2, v0}, Lcom/android/launcher3/common/stage/StageManager;->startStage(ILcom/android/launcher3/common/stage/StageEntry;)V
-
-    return-void
+    goto :goto_0
 .end method

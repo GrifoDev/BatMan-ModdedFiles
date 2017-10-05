@@ -10,7 +10,7 @@
 
 .field private static final DEFAULT_PACKAGE_NAME_ANDROID_CALENDAR:Ljava/lang/String; = "com.android.calendar"
 
-.field private static final DEFAULT_PACKAGE_NAME_CLOCK:Ljava/lang/String; = "com.sec.android.app.clockpackage"
+.field public static final DEFAULT_PACKAGE_NAME_CLOCK:Ljava/lang/String; = "com.sec.android.app.clockpackage"
 
 .field private static final DEFAULT_PACKAGE_NAME_SAMSUNG_CALENDAR:Ljava/lang/String; = "com.samsung.android.calendar"
 
@@ -196,64 +196,6 @@
     return-object v0
 .end method
 
-.method private static final getCscClockPackageName()Ljava/lang/String;
-    .locals 3
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
-
-    invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
-
-    move-result-object v0
-
-    if-nez v0, :cond_0
-
-    const-string v1, "com.sec.android.app.clockpackage"
-
-    :goto_0
-    return-object v1
-
-    :cond_0
-    const-string v1, "CscFeature_Clock_ConfigReplacePackage"
-
-    const-string v2, "com.sec.android.app.clockpackage"
-
-    invoke-virtual {v0, v1, v2}, Lcom/samsung/android/feature/SemFloatingFeature;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    goto :goto_0
-.end method
-
-.method private static final getFloatingClockPackageName()Ljava/lang/String;
-    .locals 4
-    .annotation build Landroid/support/annotation/NonNull;
-    .end annotation
-
-    invoke-static {}, Lcom/samsung/android/feature/SemFloatingFeature;->getInstance()Lcom/samsung/android/feature/SemFloatingFeature;
-
-    move-result-object v1
-
-    if-nez v1, :cond_0
-
-    const-string v2, "com.sec.android.app.clockpackage"
-
-    :goto_0
-    return-object v2
-
-    :cond_0
-    const-string v0, "SEC_FLOATING_FEATURE_CLOCK_CONFIG_PACKAGE_NAME"
-
-    const-string v2, "SEC_FLOATING_FEATURE_CLOCK_CONFIG_PACKAGE_NAME"
-
-    const-string v3, "com.sec.android.app.clockpackage"
-
-    invoke-virtual {v1, v2, v3}, Lcom/samsung/android/feature/SemFloatingFeature;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    goto :goto_0
-.end method
-
 .method public static getLiveIcon(Landroid/content/Context;Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;)Landroid/graphics/Bitmap;
     .locals 4
     .annotation build Landroid/support/annotation/NonNull;
@@ -268,12 +210,6 @@
     move-result-object v0
 
     if-eqz v0, :cond_0
-
-    sget-object v2, Lcom/android/launcher3/common/view/LiveIconManager;->TAG:Ljava/lang/String;
-
-    const-string v3, "getLiveIcon: complete(cached)"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     move-object v1, v0
 
@@ -333,7 +269,7 @@
 
     const/4 v1, 0x2
 
-    invoke-static {}, Lcom/android/launcher3/common/view/LiveIconManager;->getFloatingClockPackageName()Ljava/lang/String;
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->getFloatingClockPackageName()Ljava/lang/String;
 
     move-result-object v2
 
@@ -341,7 +277,7 @@
 
     const/4 v1, 0x3
 
-    invoke-static {}, Lcom/android/launcher3/common/view/LiveIconManager;->getCscClockPackageName()Ljava/lang/String;
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->getCscClockPackageName()Ljava/lang/String;
 
     move-result-object v2
 

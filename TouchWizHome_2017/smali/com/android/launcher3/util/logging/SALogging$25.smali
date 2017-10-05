@@ -49,13 +49,13 @@
 
     iget-object v3, p0, Lcom/android/launcher3/util/logging/SALogging$25;->val$statusID:Ljava/lang/String;
 
-    invoke-static {v2, v3}, Lcom/android/launcher3/util/logging/SALogging;->access$1400(Lcom/android/launcher3/util/logging/SALogging;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, v3}, Lcom/android/launcher3/util/logging/SALogging;->access$1500(Lcom/android/launcher3/util/logging/SALogging;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     sget-object v2, Lcom/android/launcher3/util/logging/Logging;->sContext:Landroid/content/Context;
 
-    const-string v3, "SASettingPref"
+    const-string v3, "com.sec.android.app.launcher.prefs.sa"
 
     const/4 v4, 0x0
 

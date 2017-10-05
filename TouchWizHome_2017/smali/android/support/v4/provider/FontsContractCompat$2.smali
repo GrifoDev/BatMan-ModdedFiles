@@ -32,14 +32,18 @@
 
 .field final synthetic val$targetView:Landroid/widget/TextView;
 
+.field final synthetic val$textViewWeak:Ljava/lang/ref/WeakReference;
+
 
 # direct methods
-.method constructor <init>(Landroid/widget/TextView;I)V
+.method constructor <init>(Ljava/lang/ref/WeakReference;Landroid/widget/TextView;I)V
     .locals 0
 
-    iput-object p1, p0, Landroid/support/v4/provider/FontsContractCompat$2;->val$targetView:Landroid/widget/TextView;
+    iput-object p1, p0, Landroid/support/v4/provider/FontsContractCompat$2;->val$textViewWeak:Ljava/lang/ref/WeakReference;
 
-    iput p2, p0, Landroid/support/v4/provider/FontsContractCompat$2;->val$style:I
+    iput-object p2, p0, Landroid/support/v4/provider/FontsContractCompat$2;->val$targetView:Landroid/widget/TextView;
+
+    iput p3, p0, Landroid/support/v4/provider/FontsContractCompat$2;->val$style:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -49,14 +53,25 @@
 
 # virtual methods
 .method public onReply(Landroid/graphics/Typeface;)V
-    .locals 2
+    .locals 3
 
-    iget-object v0, p0, Landroid/support/v4/provider/FontsContractCompat$2;->val$targetView:Landroid/widget/TextView;
+    iget-object v1, p0, Landroid/support/v4/provider/FontsContractCompat$2;->val$textViewWeak:Ljava/lang/ref/WeakReference;
 
-    iget v1, p0, Landroid/support/v4/provider/FontsContractCompat$2;->val$style:I
+    invoke-virtual {v1}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
 
-    invoke-virtual {v0, p1, v1}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;I)V
+    move-result-object v0
 
+    check-cast v0, Landroid/widget/TextView;
+
+    if-eqz v0, :cond_0
+
+    iget-object v1, p0, Landroid/support/v4/provider/FontsContractCompat$2;->val$targetView:Landroid/widget/TextView;
+
+    iget v2, p0, Landroid/support/v4/provider/FontsContractCompat$2;->val$style:I
+
+    invoke-virtual {v1, p1, v2}, Landroid/widget/TextView;->setTypeface(Landroid/graphics/Typeface;I)V
+
+    :cond_0
     return-void
 .end method
 

@@ -55,7 +55,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/util/logging/SALogging$16;->this$0:Lcom/android/launcher3/util/logging/SALogging;
 
-    invoke-static {v2}, Lcom/android/launcher3/util/logging/SALogging;->access$800(Lcom/android/launcher3/util/logging/SALogging;)Z
+    invoke-static {v2}, Lcom/android/launcher3/util/logging/SALogging;->access$900(Lcom/android/launcher3/util/logging/SALogging;)Z
 
     move-result v2
 
@@ -65,7 +65,7 @@
 
     iget-object v3, p0, Lcom/android/launcher3/util/logging/SALogging$16;->val$activity:Lcom/android/launcher3/Launcher;
 
-    invoke-static {v2, v3}, Lcom/android/launcher3/util/logging/SALogging;->access$900(Lcom/android/launcher3/util/logging/SALogging;Lcom/android/launcher3/Launcher;)Ljava/lang/String;
+    invoke-static {v2, v3}, Lcom/android/launcher3/util/logging/SALogging;->access$1000(Lcom/android/launcher3/util/logging/SALogging;Lcom/android/launcher3/Launcher;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -75,7 +75,7 @@
 
     iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging$16;->val$activity:Lcom/android/launcher3/Launcher;
 
-    invoke-static {v2, v3, v4}, Lcom/android/launcher3/util/logging/SALogging;->access$1000(Lcom/android/launcher3/util/logging/SALogging;ILcom/android/launcher3/Launcher;)Ljava/lang/String;
+    invoke-static {v2, v3, v4}, Lcom/android/launcher3/util/logging/SALogging;->access$1100(Lcom/android/launcher3/util/logging/SALogging;ILcom/android/launcher3/Launcher;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -93,7 +93,7 @@
 
     iget-object v3, p0, Lcom/android/launcher3/util/logging/SALogging$16;->val$activity:Lcom/android/launcher3/Launcher;
 
-    invoke-static {v2, v3}, Lcom/android/launcher3/util/logging/SALogging;->access$1100(Lcom/android/launcher3/util/logging/SALogging;Lcom/android/launcher3/Launcher;)Ljava/lang/String;
+    invoke-static {v2, v3}, Lcom/android/launcher3/util/logging/SALogging;->access$1200(Lcom/android/launcher3/util/logging/SALogging;Lcom/android/launcher3/Launcher;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -103,7 +103,7 @@
 
     iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging$16;->val$activity:Lcom/android/launcher3/Launcher;
 
-    invoke-static {v2, v3, v4}, Lcom/android/launcher3/util/logging/SALogging;->access$1200(Lcom/android/launcher3/util/logging/SALogging;ILcom/android/launcher3/Launcher;)Ljava/lang/String;
+    invoke-static {v2, v3, v4}, Lcom/android/launcher3/util/logging/SALogging;->access$1300(Lcom/android/launcher3/util/logging/SALogging;ILcom/android/launcher3/Launcher;)Ljava/lang/String;
 
     move-result-object v0
 

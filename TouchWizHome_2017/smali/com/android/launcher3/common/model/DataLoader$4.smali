@@ -3,12 +3,12 @@
 .source "DataLoader.java"
 
 # interfaces
-.implements Lcom/android/launcher3/common/model/DataLoader$ItemInfoFilter;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/common/model/DataLoader;->getItemInfoByComponentName(Landroid/content/ComponentName;Ljava/util/ArrayList;Lcom/android/launcher3/common/compat/UserHandleCompat;Z)Ljava/util/ArrayList;
+    value = Lcom/android/launcher3/common/model/DataLoader;->bindDeepShortcuts()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/common/model/DataLoader;
 
-.field final synthetic val$cName:Landroid/content/ComponentName;
-
-.field final synthetic val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+.field final synthetic val$shortcutMapCopy:Lcom/android/launcher3/util/MultiHashMap;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/common/model/DataLoader;Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
+.method constructor <init>(Lcom/android/launcher3/common/model/DataLoader;Lcom/android/launcher3/util/MultiHashMap;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/common/model/DataLoader$4;->this$0:Lcom/android/launcher3/common/model/DataLoader;
 
-    iput-object p2, p0, Lcom/android/launcher3/common/model/DataLoader$4;->val$cName:Landroid/content/ComponentName;
-
-    iput-object p3, p0, Lcom/android/launcher3/common/model/DataLoader$4;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+    iput-object p2, p0, Lcom/android/launcher3/common/model/DataLoader$4;->val$shortcutMapCopy:Lcom/android/launcher3/util/MultiHashMap;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -42,47 +38,21 @@
 
 
 # virtual methods
-.method public filterItem(Lcom/android/launcher3/common/base/item/ItemInfo;Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/content/ComponentName;)Z
+.method public run()V
     .locals 2
 
-    iget-object v0, p2, Lcom/android/launcher3/common/base/item/ItemInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+    sget-object v1, Lcom/android/launcher3/common/model/DataLoader;->sLauncherModel:Lcom/android/launcher3/LauncherModel;
 
-    if-nez v0, :cond_0
+    invoke-virtual {v1}, Lcom/android/launcher3/LauncherModel;->getCallback()Lcom/android/launcher3/LauncherModel$Callbacks;
 
-    iget-object v0, p0, Lcom/android/launcher3/common/model/DataLoader$4;->val$cName:Landroid/content/ComponentName;
+    move-result-object v0
 
-    invoke-virtual {p3, v0}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
+    if-eqz v0, :cond_0
 
-    move-result v0
+    iget-object v1, p0, Lcom/android/launcher3/common/model/DataLoader$4;->val$shortcutMapCopy:Lcom/android/launcher3/util/MultiHashMap;
 
-    :goto_0
-    return v0
+    invoke-interface {v0, v1}, Lcom/android/launcher3/LauncherModel$Callbacks;->bindDeepShortcutMap(Lcom/android/launcher3/util/MultiHashMap;)V
 
     :cond_0
-    iget-object v0, p0, Lcom/android/launcher3/common/model/DataLoader$4;->val$cName:Landroid/content/ComponentName;
-
-    invoke-virtual {p3, v0}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p2, Lcom/android/launcher3/common/base/item/ItemInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
-
-    iget-object v1, p0, Lcom/android/launcher3/common/model/DataLoader$4;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
-
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/compat/UserHandleCompat;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    const/4 v0, 0x0
-
-    goto :goto_0
+    return-void
 .end method

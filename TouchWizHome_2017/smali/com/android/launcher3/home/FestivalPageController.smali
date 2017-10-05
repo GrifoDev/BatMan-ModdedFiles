@@ -1624,7 +1624,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f030052
+    const v2, 0x7f040065
 
     iget-object v3, p0, Lcom/android/launcher3/home/FestivalPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
 

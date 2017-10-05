@@ -9,6 +9,7 @@
         Lcom/android/launcher3/util/locale/LocaleUtils$TraditionalChineseTWUtils;,
         Lcom/android/launcher3/util/locale/LocaleUtils$TraditionalChineseHKUtils;,
         Lcom/android/launcher3/util/locale/LocaleUtils$SimplifiedChineseUtils;,
+        Lcom/android/launcher3/util/locale/LocaleUtils$JapaneseContactUtils;,
         Lcom/android/launcher3/util/locale/LocaleUtils$LocaleUtilsBase;
     }
 .end annotation
@@ -300,6 +301,31 @@
     goto :goto_0
 
     :cond_4
+    sget-object v0, Lcom/android/launcher3/util/locale/LocaleUtils;->JAPANESE_LANGUAGE:Ljava/lang/String;
+
+    sget-object v1, Lcom/android/launcher3/util/locale/LocaleUtils;->sLocale:Ljava/util/Locale;
+
+    invoke-virtual {v1}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    new-instance v0, Lcom/android/launcher3/util/locale/LocaleUtils$JapaneseContactUtils;
+
+    const/4 v1, 0x0
+
+    invoke-direct {v0, v1}, Lcom/android/launcher3/util/locale/LocaleUtils$JapaneseContactUtils;-><init>(Lcom/android/launcher3/util/locale/LocaleUtils$1;)V
+
+    iput-object v0, p0, Lcom/android/launcher3/util/locale/LocaleUtils;->mUtils:Lcom/android/launcher3/util/locale/LocaleUtils$LocaleUtilsBase;
+
+    goto :goto_0
+
+    :cond_5
     new-instance v0, Lcom/android/launcher3/util/locale/LocaleUtils$LocaleUtilsBase;
 
     invoke-direct {v0}, Lcom/android/launcher3/util/locale/LocaleUtils$LocaleUtilsBase;-><init>()V
@@ -309,7 +335,7 @@
     goto :goto_0
 .end method
 
-.method static synthetic access$000()Ljava/util/Locale;
+.method static synthetic access$100()Ljava/util/Locale;
     .locals 1
 
     sget-object v0, Lcom/android/launcher3/util/locale/LocaleUtils;->LOCALE_SERBIAN:Ljava/util/Locale;
@@ -317,7 +343,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$100()Ljava/util/Locale;
+.method static synthetic access$200()Ljava/util/Locale;
     .locals 1
 
     sget-object v0, Lcom/android/launcher3/util/locale/LocaleUtils;->LOCALE_HINDI:Ljava/util/Locale;
@@ -325,15 +351,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$1000()Ljava/lang/String;
-    .locals 1
-
-    sget-object v0, Lcom/android/launcher3/util/locale/LocaleUtils;->JAPANESE_LANGUAGE:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic access$200()Ljava/util/Locale;
+.method static synthetic access$300()Ljava/util/Locale;
     .locals 1
 
     sget-object v0, Lcom/android/launcher3/util/locale/LocaleUtils;->LOCALE_UKRAINIAN:Ljava/util/Locale;
@@ -341,7 +359,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$300()Ljava/util/Locale;
+.method static synthetic access$400()Ljava/util/Locale;
     .locals 1
 
     sget-object v0, Lcom/android/launcher3/util/locale/LocaleUtils;->LOCALE_GREEK:Ljava/util/Locale;
@@ -349,7 +367,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$400()Ljava/util/Locale;
+.method static synthetic access$500()Ljava/util/Locale;
     .locals 1
 
     sget-object v0, Lcom/android/launcher3/util/locale/LocaleUtils;->LOCALE_HEBREW:Ljava/util/Locale;
@@ -357,7 +375,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$500()Ljava/util/Locale;
+.method static synthetic access$600()Ljava/util/Locale;
     .locals 1
 
     sget-object v0, Lcom/android/launcher3/util/locale/LocaleUtils;->LOCALE_ARABIC:Ljava/util/Locale;
@@ -365,7 +383,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$600()Ljava/util/Locale;
+.method static synthetic access$700()Ljava/util/Locale;
     .locals 1
 
     sget-object v0, Lcom/android/launcher3/util/locale/LocaleUtils;->LOCALE_THAI:Ljava/util/Locale;
@@ -373,7 +391,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$700(Ljava/lang/Character$UnicodeBlock;)Z
+.method static synthetic access$800(Ljava/lang/Character$UnicodeBlock;)Z
     .locals 1
 
     invoke-static {p0}, Lcom/android/launcher3/util/locale/LocaleUtils;->isCJKUnicodeBlock(Ljava/lang/Character$UnicodeBlock;)Z
@@ -381,24 +399,6 @@
     move-result v0
 
     return v0
-.end method
-
-.method static synthetic access$800(Ljava/lang/Character$UnicodeBlock;)Z
-    .locals 1
-
-    invoke-static {p0}, Lcom/android/launcher3/util/locale/LocaleUtils;->isJapanesePhoneticUnicodeBlock(Ljava/lang/Character$UnicodeBlock;)Z
-
-    move-result v0
-
-    return v0
-.end method
-
-.method static synthetic access$900()Ljava/lang/String;
-    .locals 1
-
-    sget-object v0, Lcom/android/launcher3/util/locale/LocaleUtils;->KOREAN_LANGUAGE:Ljava/lang/String;
-
-    return-object v0
 .end method
 
 .method public static declared-synchronized getInstance()Lcom/android/launcher3/util/locale/LocaleUtils;
@@ -660,37 +660,6 @@
     move-result v0
 
     return v0
-.end method
-
-.method private static isJapanesePhoneticUnicodeBlock(Ljava/lang/Character$UnicodeBlock;)Z
-    .locals 1
-
-    sget-object v0, Ljava/lang/Character$UnicodeBlock;->KATAKANA:Ljava/lang/Character$UnicodeBlock;
-
-    if-eq p0, v0, :cond_0
-
-    sget-object v0, Ljava/lang/Character$UnicodeBlock;->KATAKANA_PHONETIC_EXTENSIONS:Ljava/lang/Character$UnicodeBlock;
-
-    if-eq p0, v0, :cond_0
-
-    sget-object v0, Ljava/lang/Character$UnicodeBlock;->HALFWIDTH_AND_FULLWIDTH_FORMS:Ljava/lang/Character$UnicodeBlock;
-
-    if-eq p0, v0, :cond_0
-
-    sget-object v0, Ljava/lang/Character$UnicodeBlock;->HIRAGANA:Ljava/lang/Character$UnicodeBlock;
-
-    if-ne p0, v0, :cond_1
-
-    :cond_0
-    const/4 v0, 0x1
-
-    :goto_0
-    return v0
-
-    :cond_1
-    const/4 v0, 0x0
-
-    goto :goto_0
 .end method
 
 

@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/HomeLoader;->bindWorkspaceScreens(Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;Ljava/util/ArrayList;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)V
+    value = Lcom/android/launcher3/home/HomeLoader;->unbindItemsOnMainThread()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,24 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/home/HomeLoader;
 
-.field final synthetic val$oldCallbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
-
-.field final synthetic val$orderedScreens:Ljava/util/ArrayList;
-
-.field final synthetic val$task:Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;
+.field final synthetic val$tmpItems:Ljava/util/ArrayList;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;Ljava/util/ArrayList;)V
+.method constructor <init>(Lcom/android/launcher3/home/HomeLoader;Ljava/util/ArrayList;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/home/HomeLoader$8;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    iput-object p2, p0, Lcom/android/launcher3/home/HomeLoader$8;->val$oldCallbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
-
-    iput-object p3, p0, Lcom/android/launcher3/home/HomeLoader$8;->val$task:Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;
-
-    iput-object p4, p0, Lcom/android/launcher3/home/HomeLoader$8;->val$orderedScreens:Ljava/util/ArrayList;
+    iput-object p2, p0, Lcom/android/launcher3/home/HomeLoader$8;->val$tmpItems:Ljava/util/ArrayList;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -47,23 +39,30 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 3
 
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeLoader$8;->this$0:Lcom/android/launcher3/home/HomeLoader;
+    iget-object v1, p0, Lcom/android/launcher3/home/HomeLoader$8;->val$tmpItems:Ljava/util/ArrayList;
 
-    iget-object v2, p0, Lcom/android/launcher3/home/HomeLoader$8;->val$oldCallbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
+    invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    iget-object v3, p0, Lcom/android/launcher3/home/HomeLoader$8;->val$task:Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;
+    move-result-object v1
 
-    invoke-static {v1, v2, v3}, Lcom/android/launcher3/home/HomeLoader;->access$4200(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    check-cast v0, Lcom/android/launcher3/common/base/item/ItemInfo;
 
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeLoader$8;->val$orderedScreens:Ljava/util/ArrayList;
+    invoke-virtual {v0}, Lcom/android/launcher3/common/base/item/ItemInfo;->unbind()V
 
-    invoke-interface {v0, v1}, Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;->bindScreens(Ljava/util/ArrayList;)V
+    goto :goto_0
 
     :cond_0
     return-void

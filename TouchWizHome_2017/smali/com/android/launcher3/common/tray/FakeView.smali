@@ -20,13 +20,15 @@
 
 .field private static final TAG:Ljava/lang/String; = "Tray.FakeView"
 
-.field private static final UNSET_SUPPRESS_CHANGE_STAGE_DELAY:I = 0x190
-
 
 # instance fields
+.field private mAnimationDuration:I
+
 .field private final mChangeStageAlarm:Lcom/android/launcher3/util/alarm/Alarm;
 
 .field private final mChangeStageAlarmListener:Lcom/android/launcher3/util/alarm/OnAlarmListener;
+
+.field private mDescAnim:Landroid/view/ViewPropertyAnimator;
 
 .field private mDescText:Landroid/widget/TextView;
 
@@ -38,6 +40,8 @@
 
 .field private mDropView:Landroid/view/View;
 
+.field private mIsDragEntered:Z
+
 .field private mIsDropEnabled:Z
 
 .field private final mLauncher:Lcom/android/launcher3/Launcher;
@@ -47,10 +51,6 @@
 .field private mTranslationCallback:Lcom/android/launcher3/common/tray/FakeView$TranslationCallback;
 
 .field private mTrayLevel:Lcom/android/launcher3/common/tray/TrayManager$TrayLevel;
-
-.field private final mUnsetSuppressChangeStageAlarm:Lcom/android/launcher3/util/alarm/Alarm;
-
-.field private final mUnsetSuppressChangeStageAlarmListener:Lcom/android/launcher3/util/alarm/OnAlarmListener;
 
 
 # direct methods
@@ -83,23 +83,11 @@
 
     invoke-direct {v0}, Lcom/android/launcher3/util/alarm/Alarm;-><init>()V
 
-    iput-object v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mUnsetSuppressChangeStageAlarm:Lcom/android/launcher3/util/alarm/Alarm;
+    iput-object v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mChangeStageAlarm:Lcom/android/launcher3/util/alarm/Alarm;
 
     new-instance v0, Lcom/android/launcher3/common/tray/FakeView$1;
 
     invoke-direct {v0, p0}, Lcom/android/launcher3/common/tray/FakeView$1;-><init>(Lcom/android/launcher3/common/tray/FakeView;)V
-
-    iput-object v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mUnsetSuppressChangeStageAlarmListener:Lcom/android/launcher3/util/alarm/OnAlarmListener;
-
-    new-instance v0, Lcom/android/launcher3/util/alarm/Alarm;
-
-    invoke-direct {v0}, Lcom/android/launcher3/util/alarm/Alarm;-><init>()V
-
-    iput-object v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mChangeStageAlarm:Lcom/android/launcher3/util/alarm/Alarm;
-
-    new-instance v0, Lcom/android/launcher3/common/tray/FakeView$2;
-
-    invoke-direct {v0, p0}, Lcom/android/launcher3/common/tray/FakeView$2;-><init>(Lcom/android/launcher3/common/tray/FakeView;)V
 
     iput-object v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mChangeStageAlarmListener:Lcom/android/launcher3/util/alarm/OnAlarmListener;
 
@@ -110,18 +98,18 @@
     return-void
 .end method
 
-.method static synthetic access$002(Lcom/android/launcher3/common/tray/FakeView;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/launcher3/common/tray/FakeView;->mSuppressChangeStage:Z
-
-    return p1
-.end method
-
-.method static synthetic access$100(Lcom/android/launcher3/common/tray/FakeView;)Lcom/android/launcher3/common/tray/FakeView$DragEventCallback;
+.method static synthetic access$000(Lcom/android/launcher3/common/tray/FakeView;)Lcom/android/launcher3/common/tray/FakeView$DragEventCallback;
     .locals 1
 
     iget-object v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mDragEventCallback:Lcom/android/launcher3/common/tray/FakeView$DragEventCallback;
+
+    return-object v0
+.end method
+
+.method static synthetic access$100(Lcom/android/launcher3/common/tray/FakeView;)Lcom/android/launcher3/common/tray/TrayManager$TrayLevel;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mTrayLevel:Lcom/android/launcher3/common/tray/TrayManager$TrayLevel;
 
     return-object v0
 .end method
@@ -134,15 +122,7 @@
     return v0
 .end method
 
-.method static synthetic access$300(Lcom/android/launcher3/common/tray/FakeView;)Lcom/android/launcher3/common/tray/TrayManager$TrayLevel;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mTrayLevel:Lcom/android/launcher3/common/tray/TrayManager$TrayLevel;
-
-    return-object v0
-.end method
-
-.method static synthetic access$400(Lcom/android/launcher3/common/tray/FakeView;)Lcom/android/launcher3/util/alarm/OnAlarmListener;
+.method static synthetic access$300(Lcom/android/launcher3/common/tray/FakeView;)Lcom/android/launcher3/util/alarm/OnAlarmListener;
     .locals 1
 
     iget-object v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mChangeStageAlarmListener:Lcom/android/launcher3/util/alarm/OnAlarmListener;
@@ -175,6 +155,78 @@
     iget-object v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mDropTarget:Lcom/android/launcher3/common/drag/DropTarget;
 
     return-object v0
+.end method
+
+.method private showDescription(ZI)V
+    .locals 4
+
+    if-eqz p1, :cond_2
+
+    const/high16 v0, 0x3f800000    # 1.0f
+
+    :goto_0
+    iget-object v1, p0, Lcom/android/launcher3/common/tray/FakeView;->mDescText:Landroid/widget/TextView;
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/launcher3/common/tray/FakeView;->mDescText:Landroid/widget/TextView;
+
+    invoke-virtual {v1}, Landroid/widget/TextView;->getAlpha()F
+
+    move-result v1
+
+    cmpl-float v1, v1, v0
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/launcher3/common/tray/FakeView;->mDescAnim:Landroid/view/ViewPropertyAnimator;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/launcher3/common/tray/FakeView;->mDescAnim:Landroid/view/ViewPropertyAnimator;
+
+    invoke-virtual {v1}, Landroid/view/ViewPropertyAnimator;->cancel()V
+
+    :cond_0
+    if-lez p2, :cond_3
+
+    iget-object v1, p0, Lcom/android/launcher3/common/tray/FakeView;->mDescText:Landroid/widget/TextView;
+
+    invoke-virtual {v1}, Landroid/widget/TextView;->animate()Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/launcher3/common/tray/FakeView;->mDescAnim:Landroid/view/ViewPropertyAnimator;
+
+    iget-object v1, p0, Lcom/android/launcher3/common/tray/FakeView;->mDescAnim:Landroid/view/ViewPropertyAnimator;
+
+    invoke-virtual {v1, v0}, Landroid/view/ViewPropertyAnimator;->alpha(F)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v1
+
+    int-to-long v2, p2
+
+    invoke-virtual {v1, v2, v3}, Landroid/view/ViewPropertyAnimator;->setDuration(J)Landroid/view/ViewPropertyAnimator;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/view/ViewPropertyAnimator;->start()V
+
+    :cond_1
+    :goto_1
+    return-void
+
+    :cond_2
+    const/4 v0, 0x0
+
+    goto :goto_0
+
+    :cond_3
+    iget-object v1, p0, Lcom/android/launcher3/common/tray/FakeView;->mDescText:Landroid/widget/TextView;
+
+    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setAlpha(F)V
+
+    goto :goto_1
 .end method
 
 
@@ -225,6 +277,14 @@
     return-object p0
 .end method
 
+.method public isDragEntered()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mIsDragEntered:Z
+
+    return v0
+.end method
+
 .method public isDropEnabled(Z)Z
     .locals 1
 
@@ -269,11 +329,15 @@
 .method public onDragEnter(Lcom/android/launcher3/common/drag/DropTarget$DragObject;Z)V
     .locals 4
 
+    const/4 v2, 0x1
+
     const-string v0, "Tray.FakeView"
 
     const-string v1, "onDragEnter"
 
     invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    iput-boolean v2, p0, Lcom/android/launcher3/common/tray/FakeView;->mIsDragEntered:Z
 
     iget-boolean v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mSuppressChangeStage:Z
 
@@ -288,9 +352,7 @@
     return-void
 
     :cond_1
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mIsDropEnabled:Z
+    iput-boolean v2, p0, Lcom/android/launcher3/common/tray/FakeView;->mIsDropEnabled:Z
 
     iget-object v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mChangeStageAlarm:Lcom/android/launcher3/util/alarm/Alarm;
 
@@ -336,9 +398,11 @@
 
     invoke-virtual {v0}, Lcom/android/launcher3/util/alarm/Alarm;->cancelAlarm()V
 
-    iput-boolean v2, p0, Lcom/android/launcher3/common/tray/FakeView;->mSuppressChangeStage:Z
+    iput-boolean v2, p0, Lcom/android/launcher3/common/tray/FakeView;->mIsDragEntered:Z
 
     iput-boolean v2, p0, Lcom/android/launcher3/common/tray/FakeView;->mIsDropEnabled:Z
+
+    iput-boolean v2, p0, Lcom/android/launcher3/common/tray/FakeView;->mSuppressChangeStage:Z
 
     iget-object v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mDragEventCallback:Lcom/android/launcher3/common/tray/FakeView$DragEventCallback;
 
@@ -517,11 +581,11 @@
 
     const v7, 0x3e99999a    # 0.3f
 
-    new-instance v9, Lcom/android/launcher3/common/tray/FakeView$3;
+    new-instance v9, Lcom/android/launcher3/common/tray/FakeView$2;
 
     move-object/from16 v0, p0
 
-    invoke-direct {v9, v0}, Lcom/android/launcher3/common/tray/FakeView$3;-><init>(Lcom/android/launcher3/common/tray/FakeView;)V
+    invoke-direct {v9, v0}, Lcom/android/launcher3/common/tray/FakeView$2;-><init>(Lcom/android/launcher3/common/tray/FakeView;)V
 
     move-object/from16 v0, p0
 
@@ -635,11 +699,11 @@
 .end method
 
 .method protected onFinishInflate()V
-    .locals 1
+    .locals 2
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    const v0, 0x7f0f00d8
+    const v0, 0x7f1100f5
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/tray/FakeView;->findViewById(I)Landroid/view/View;
 
@@ -647,7 +711,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mDropView:Landroid/view/View;
 
-    const v0, 0x7f0f00d9
+    const v0, 0x7f1100f6
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/tray/FakeView;->findViewById(I)Landroid/view/View;
 
@@ -656,6 +720,18 @@
     check-cast v0, Landroid/widget/TextView;
 
     iput-object v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mDescText:Landroid/widget/TextView;
+
+    invoke-virtual {p0}, Lcom/android/launcher3/common/tray/FakeView;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f0d0036
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mAnimationDuration:I
 
     return-void
 .end method
@@ -676,9 +752,21 @@
     if-ne p2, v0, :cond_1
 
     :cond_0
-    iput-boolean v1, p0, Lcom/android/launcher3/common/tray/FakeView;->mSuppressChangeStage:Z
+    iput-boolean v1, p0, Lcom/android/launcher3/common/tray/FakeView;->mIsDragEntered:Z
 
     iput-boolean v1, p0, Lcom/android/launcher3/common/tray/FakeView;->mIsDropEnabled:Z
+
+    iput-boolean v1, p0, Lcom/android/launcher3/common/tray/FakeView;->mSuppressChangeStage:Z
+
+    iget-object v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mDescText:Landroid/widget/TextView;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mDescText:Landroid/widget/TextView;
+
+    const/high16 v1, 0x3f800000    # 1.0f
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setAlpha(F)V
 
     :cond_1
     return-void
@@ -694,6 +782,27 @@
     iget-object v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mDescText:Landroid/widget/TextView;
 
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public setDescriptionHeight(I)V
+    .locals 2
+
+    iget-object v1, p0, Lcom/android/launcher3/common/tray/FakeView;->mDescText:Landroid/widget/TextView;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/launcher3/common/tray/FakeView;->mDescText:Landroid/widget/TextView;
+
+    invoke-virtual {v1}, Landroid/widget/TextView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iput p1, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
 
     :cond_0
     return-void
@@ -715,59 +824,34 @@
     return-void
 .end method
 
-.method public setSuppressChangeStageOnce()V
-    .locals 4
+.method public setSuppressChangeStage(Z)V
+    .locals 3
 
-    iget-object v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mDragEventCallback:Lcom/android/launcher3/common/tray/FakeView$DragEventCallback;
+    const/4 v2, 0x1
 
-    if-eqz v0, :cond_0
+    const/4 v1, 0x0
 
-    iget-object v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mDragEventCallback:Lcom/android/launcher3/common/tray/FakeView$DragEventCallback;
-
-    iget v1, p0, Lcom/android/launcher3/common/tray/FakeView;->mDirection:I
-
-    invoke-interface {v0, v1}, Lcom/android/launcher3/common/tray/FakeView$DragEventCallback;->onDragExit(I)V
-
-    :cond_0
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mIsDropEnabled:Z
-
-    iget-object v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mChangeStageAlarm:Lcom/android/launcher3/util/alarm/Alarm;
-
-    invoke-virtual {v0}, Lcom/android/launcher3/util/alarm/Alarm;->alarmPending()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
+    if-eqz p1, :cond_0
 
     iget-object v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mChangeStageAlarm:Lcom/android/launcher3/util/alarm/Alarm;
 
     invoke-virtual {v0}, Lcom/android/launcher3/util/alarm/Alarm;->cancelAlarm()V
+
+    iput-boolean v1, p0, Lcom/android/launcher3/common/tray/FakeView;->mIsDropEnabled:Z
+
+    iput-boolean v2, p0, Lcom/android/launcher3/common/tray/FakeView;->mSuppressChangeStage:Z
+
+    invoke-direct {p0, v1, v1}, Lcom/android/launcher3/common/tray/FakeView;->showDescription(ZI)V
 
     :goto_0
     return-void
 
-    :cond_1
-    iget-object v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mUnsetSuppressChangeStageAlarm:Lcom/android/launcher3/util/alarm/Alarm;
+    :cond_0
+    iput-boolean v1, p0, Lcom/android/launcher3/common/tray/FakeView;->mSuppressChangeStage:Z
 
-    invoke-virtual {v0}, Lcom/android/launcher3/util/alarm/Alarm;->cancelAlarm()V
+    iget v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mAnimationDuration:I
 
-    iget-object v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mUnsetSuppressChangeStageAlarm:Lcom/android/launcher3/util/alarm/Alarm;
-
-    iget-object v1, p0, Lcom/android/launcher3/common/tray/FakeView;->mUnsetSuppressChangeStageAlarmListener:Lcom/android/launcher3/util/alarm/OnAlarmListener;
-
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/util/alarm/Alarm;->setOnAlarmListener(Lcom/android/launcher3/util/alarm/OnAlarmListener;)V
-
-    iget-object v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mUnsetSuppressChangeStageAlarm:Lcom/android/launcher3/util/alarm/Alarm;
-
-    const-wide/16 v2, 0x190
-
-    invoke-virtual {v0, v2, v3}, Lcom/android/launcher3/util/alarm/Alarm;->setAlarm(J)V
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mSuppressChangeStage:Z
+    invoke-direct {p0, v2, v0}, Lcom/android/launcher3/common/tray/FakeView;->showDescription(ZI)V
 
     goto :goto_0
 .end method

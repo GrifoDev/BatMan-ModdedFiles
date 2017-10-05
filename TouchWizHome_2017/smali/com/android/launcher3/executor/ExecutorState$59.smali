@@ -31,11 +31,11 @@
 .method public create()Lcom/android/launcher3/executor/StateHandler;
     .locals 2
 
-    new-instance v0, Lcom/android/launcher3/executor/HomeSettingsChangeToSamsungGalaxyHomeStateHandler;
+    new-instance v0, Lcom/android/launcher3/executor/HomeSettingsStyleSettingViewStateHandler;
 
-    sget-object v1, Lcom/android/launcher3/executor/ExecutorState;->HOME_SETTINGS_CHANGE_TO_HOME_APPS:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v1, Lcom/android/launcher3/executor/ExecutorState;->HOME_SETTINGS_STYLE_VIEW:Lcom/android/launcher3/executor/ExecutorState;
 
-    invoke-direct {v0, v1}, Lcom/android/launcher3/executor/HomeSettingsChangeToSamsungGalaxyHomeStateHandler;-><init>(Lcom/android/launcher3/executor/ExecutorState;)V
+    invoke-direct {v0, v1}, Lcom/android/launcher3/executor/HomeSettingsStyleSettingViewStateHandler;-><init>(Lcom/android/launcher3/executor/ExecutorState;)V
 
     return-object v0
 .end method

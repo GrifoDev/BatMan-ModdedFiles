@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/LauncherModel;->updateAppsForCloneItemEnabled(Z)V
+    value = Lcom/android/launcher3/LauncherModel;->updateShortcutInfo(Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutInfoCompat;Lcom/android/launcher3/common/base/item/IconInfo;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,16 +20,20 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/LauncherModel;
 
-.field final synthetic val$enabled:Z
+.field final synthetic val$fullDetail:Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutInfoCompat;
+
+.field final synthetic val$info:Lcom/android/launcher3/common/base/item/IconInfo;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/LauncherModel;Z)V
+.method constructor <init>(Lcom/android/launcher3/LauncherModel;Lcom/android/launcher3/common/base/item/IconInfo;Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutInfoCompat;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/LauncherModel$4;->this$0:Lcom/android/launcher3/LauncherModel;
 
-    iput-boolean p2, p0, Lcom/android/launcher3/LauncherModel$4;->val$enabled:Z
+    iput-object p2, p0, Lcom/android/launcher3/LauncherModel$4;->val$info:Lcom/android/launcher3/common/base/item/IconInfo;
+
+    iput-object p3, p0, Lcom/android/launcher3/LauncherModel$4;->val$fullDetail:Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutInfoCompat;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -39,49 +43,41 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 4
+
+    iget-object v1, p0, Lcom/android/launcher3/LauncherModel$4;->val$info:Lcom/android/launcher3/common/base/item/IconInfo;
+
+    iget-object v2, p0, Lcom/android/launcher3/LauncherModel$4;->val$fullDetail:Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutInfoCompat;
 
     invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
-    move-result-object v0
+    move-result-object v3
 
-    iget-boolean v1, p0, Lcom/android/launcher3/LauncherModel$4;->val$enabled:Z
+    invoke-virtual {v3}, Lcom/android/launcher3/LauncherAppState;->getContext()Landroid/content/Context;
 
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/LauncherAppState;->setCloneItemEnabled(Z)V
+    move-result-object v3
 
-    iget-boolean v0, p0, Lcom/android/launcher3/LauncherModel$4;->val$enabled:Z
+    invoke-virtual {v1, v2, v3}, Lcom/android/launcher3/common/base/item/IconInfo;->updateFromDeepShortcutInfo(Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutInfoCompat;Landroid/content/Context;)V
 
-    if-eqz v0, :cond_0
+    new-instance v0, Ljava/util/ArrayList;
 
-    iget-object v0, p0, Lcom/android/launcher3/LauncherModel$4;->this$0:Lcom/android/launcher3/LauncherModel;
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    iget-object v0, v0, Lcom/android/launcher3/LauncherModel;->mAppsLoader:Lcom/android/launcher3/allapps/model/AppsLoader;
+    iget-object v1, p0, Lcom/android/launcher3/LauncherModel$4;->val$info:Lcom/android/launcher3/common/base/item/IconInfo;
 
-    const/4 v1, 0x0
-
-    iget-object v2, p0, Lcom/android/launcher3/LauncherModel$4;->this$0:Lcom/android/launcher3/LauncherModel;
-
-    invoke-static {v2}, Lcom/android/launcher3/LauncherModel;->access$1300(Lcom/android/launcher3/LauncherModel;)Lcom/android/launcher3/LauncherModel$LoaderTask;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/launcher3/allapps/model/AppsLoader;->bindRemainedItems(Ljava/util/ArrayList;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)V
-
-    :goto_0
-    return-void
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/launcher3/LauncherModel$4;->this$0:Lcom/android/launcher3/LauncherModel;
-
-    iget-object v0, v0, Lcom/android/launcher3/LauncherModel;->mAppsLoader:Lcom/android/launcher3/allapps/model/AppsLoader;
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     iget-object v1, p0, Lcom/android/launcher3/LauncherModel$4;->this$0:Lcom/android/launcher3/LauncherModel;
 
-    invoke-static {v1}, Lcom/android/launcher3/LauncherModel;->access$1300(Lcom/android/launcher3/LauncherModel;)Lcom/android/launcher3/LauncherModel$LoaderTask;
+    iget-object v1, v1, Lcom/android/launcher3/LauncherModel;->mHomeLoader:Lcom/android/launcher3/home/HomeLoader;
 
-    move-result-object v1
+    iget-object v2, p0, Lcom/android/launcher3/LauncherModel$4;->val$fullDetail:Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutInfoCompat;
 
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/allapps/model/AppsLoader;->removeCloneItem(Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)V
+    invoke-virtual {v2}, Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutInfoCompat;->getUserHandle()Lcom/android/launcher3/common/compat/UserHandleCompat;
 
-    goto :goto_0
+    move-result-object v2
+
+    invoke-virtual {v1, v0, v2}, Lcom/android/launcher3/home/HomeLoader;->bindUpdatedDeepShortcuts(Ljava/util/ArrayList;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
+
+    return-void
 .end method

@@ -31,6 +31,9 @@
 .method public abstract hasPageEmptySpace(I)Z
 .end method
 
+.method public abstract hideViewTypePopup()V
+.end method
+
 .method public abstract moveItem(Lcom/android/launcher3/common/view/IconView;I)V
 .end method
 
@@ -43,9 +46,6 @@
 .method public abstract removeItem(Lcom/android/launcher3/common/base/item/ItemInfo;)V
 .end method
 
-.method public abstract searchApp(Ljava/lang/String;)V
-.end method
-
 .method public abstract setViewType(Lcom/android/launcher3/allapps/controller/AppsController$ViewType;)V
 .end method
 
@@ -53,6 +53,9 @@
 .end method
 
 .method public abstract showTidyUpPreview()V
+.end method
+
+.method public abstract showViewTypePopup()V
 .end method
 
 .method public abstract startSecureFolder()V

@@ -49,7 +49,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f08008b
+    const v3, 0x7f090097
 
     invoke-virtual {v2, v3}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 

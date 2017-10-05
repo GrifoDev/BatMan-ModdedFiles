@@ -55,7 +55,7 @@
 
     const/4 v2, 0x1
 
-    invoke-static {v0, v1, v2}, Lcom/android/launcher3/home/ZeroPageController;->access$1600(Lcom/android/launcher3/home/ZeroPageController;Landroid/widget/Switch;Z)V
+    invoke-static {v0, v1, v2}, Lcom/android/launcher3/home/ZeroPageController;->access$1800(Lcom/android/launcher3/home/ZeroPageController;Landroid/widget/Switch;Z)V
 
     :cond_0
     :goto_0

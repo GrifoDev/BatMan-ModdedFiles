@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/folder/view/FolderView;->onWindowFocusChanged(Z)V
+    value = Lcom/android/launcher3/folder/view/FolderView;->doneEditingFolderName(Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -35,54 +35,24 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 1
 
+    :try_start_0
     iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderView$11;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-    invoke-virtual {v0}, Lcom/android/launcher3/folder/view/FolderView;->isEditingName()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderView$11;->this$0:Lcom/android/launcher3/folder/view/FolderView;
-
-    invoke-virtual {v0}, Lcom/android/launcher3/folder/view/FolderView;->isInTouchMode()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderView$11;->this$0:Lcom/android/launcher3/folder/view/FolderView;
-
-    invoke-static {v0}, Lcom/android/launcher3/folder/view/FolderView;->access$300(Lcom/android/launcher3/folder/view/FolderView;)Landroid/view/inputmethod/InputMethodManager;
+    invoke-static {v0}, Lcom/android/launcher3/folder/view/FolderView;->access$900(Lcom/android/launcher3/folder/view/FolderView;)Lcom/android/launcher3/folder/view/FolderIconView;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    invoke-virtual {v0}, Lcom/android/launcher3/folder/view/FolderIconView;->applyStyle()V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderView$11;->this$0:Lcom/android/launcher3/folder/view/FolderView;
-
-    invoke-static {v0}, Lcom/android/launcher3/folder/view/FolderView;->access$300(Lcom/android/launcher3/folder/view/FolderView;)Landroid/view/inputmethod/InputMethodManager;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/launcher3/folder/view/FolderView$11;->this$0:Lcom/android/launcher3/folder/view/FolderView;
-
-    invoke-static {v1}, Lcom/android/launcher3/folder/view/FolderView;->access$000(Lcom/android/launcher3/folder/view/FolderView;)Lcom/android/launcher3/folder/view/FolderNameEditText;
-
-    move-result-object v1
-
-    const/4 v2, 0x1
-
-    invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->showSoftInput(Landroid/view/View;I)Z
-
-    const-string v0, "Launcher.Folder"
-
-    const-string v1, "onWindowFocusChanged : call showSoftInput"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
+    :goto_0
     return-void
+
+    :catch_0
+    move-exception v0
+
+    goto :goto_0
 .end method

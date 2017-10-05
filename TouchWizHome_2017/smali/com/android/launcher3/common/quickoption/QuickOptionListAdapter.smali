@@ -4,6 +4,7 @@
 
 # interfaces
 .implements Landroid/widget/AdapterView$OnItemClickListener;
+.implements Landroid/widget/AdapterView$OnItemLongClickListener;
 
 
 # instance fields
@@ -73,161 +74,236 @@
 .end method
 
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 9
+    .locals 10
 
-    const/4 v8, 0x1
+    const/4 v9, 0x1
+
+    const/4 v8, 0x0
 
     const/4 v7, 0x0
 
-    const/4 v6, 0x0
+    iget-object v5, p0, Lcom/android/launcher3/common/quickoption/QuickOptionListAdapter;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    if-nez p2, :cond_0
-
-    iget-object v4, p0, Lcom/android/launcher3/common/quickoption/QuickOptionListAdapter;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    invoke-static {v4}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
-
-    move-result-object v0
-
-    const v4, 0x7f03003b
-
-    invoke-virtual {v0, v4, p3, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    invoke-static {v5}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
     move-result-object v1
 
-    check-cast v1, Landroid/widget/LinearLayout;
+    iget-object v5, p0, Lcom/android/launcher3/common/quickoption/QuickOptionListAdapter;->mItemList:Ljava/util/ArrayList;
 
-    const v4, 0x7f0f00cf
-
-    invoke-virtual {v1, v4}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/widget/TextView;
-
-    iget-object v4, p0, Lcom/android/launcher3/common/quickoption/QuickOptionListAdapter;->mItemList:Ljava/util/ArrayList;
-
-    invoke-virtual {v4, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;
-
-    invoke-virtual {v4}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->getIconRsrId()I
-
-    move-result v4
-
-    const v5, 0x7f0200de
-
-    if-ne v4, v5, :cond_1
-
-    iget-object v4, p0, Lcom/android/launcher3/common/quickoption/QuickOptionListAdapter;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    invoke-static {v4}, Lcom/android/launcher3/util/SecureFolderHelper;->getSecureFolderTitle(Landroid/content/Context;)Ljava/lang/String;
-
-    move-result-object v2
-
-    iget-object v4, p0, Lcom/android/launcher3/common/quickoption/QuickOptionListAdapter;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    const v5, 0x7f080097
-
-    invoke-virtual {v4, v5}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    new-array v5, v8, [Ljava/lang/Object;
-
-    aput-object v2, v5, v7
-
-    invoke-static {v4, v5}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    :goto_0
-    iget-object v4, p0, Lcom/android/launcher3/common/quickoption/QuickOptionListAdapter;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    invoke-virtual {v4}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v5, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
     move-result-object v5
 
-    iget-object v4, p0, Lcom/android/launcher3/common/quickoption/QuickOptionListAdapter;->mItemList:Ljava/util/ArrayList;
+    check-cast v5, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;
 
-    invoke-virtual {v4, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v5}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->getType()I
 
-    move-result-object v4
+    move-result v5
 
-    check-cast v4, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;
+    const/4 v6, 0x2
 
-    invoke-virtual {v4}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->getIconRsrId()I
+    if-ne v5, v6, :cond_0
 
-    move-result v4
+    const v5, 0x7f04004e
 
-    invoke-virtual {v5, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v1, v5, p3, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    move-result-object v4
+    move-result-object p2
 
-    invoke-virtual {v3, v4, v6, v6, v6}, Landroid/widget/TextView;->setCompoundDrawablesRelativeWithIntrinsicBounds(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
-
-    iget-object v4, p0, Lcom/android/launcher3/common/quickoption/QuickOptionListAdapter;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    invoke-virtual {v4}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v4
-
-    const v5, 0x7f090139
-
-    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v4
-
-    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setCompoundDrawablePadding(I)V
-
-    invoke-virtual {v3, v8}, Landroid/widget/TextView;->setSelected(Z)V
-
-    move-object p2, v1
-
-    :cond_0
+    :goto_0
     return-object p2
 
-    :cond_1
-    iget-object v4, p0, Lcom/android/launcher3/common/quickoption/QuickOptionListAdapter;->mItemList:Ljava/util/ArrayList;
+    :cond_0
+    const v5, 0x7f04004d
 
-    invoke-virtual {v4, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v1, v5, p3, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    move-result-object v4
+    move-result-object v2
 
-    check-cast v4, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;
+    check-cast v2, Landroid/widget/LinearLayout;
 
-    invoke-virtual {v4}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->getTitleRsrId()I
+    const v5, 0x7f1100ec
 
-    move-result v4
-
-    const v5, 0x7f080090
-
-    if-ne v4, v5, :cond_2
-
-    const v4, 0x3ecccccd    # 0.4f
-
-    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setAlpha(F)V
-
-    :cond_2
-    iget-object v4, p0, Lcom/android/launcher3/common/quickoption/QuickOptionListAdapter;->mItemList:Ljava/util/ArrayList;
-
-    invoke-virtual {v4, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v2, v5}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
     move-result-object v4
 
-    check-cast v4, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;
+    check-cast v4, Landroid/widget/TextView;
 
-    invoke-virtual {v4}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->getTitleRsrId()I
+    iget-object v5, p0, Lcom/android/launcher3/common/quickoption/QuickOptionListAdapter;->mItemList:Ljava/util/ArrayList;
 
-    move-result v4
+    invoke-virtual {v5, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(I)V
+    move-result-object v5
+
+    check-cast v5, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;
+
+    invoke-virtual {v5}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->getType()I
+
+    move-result v5
+
+    if-nez v5, :cond_3
+
+    iget-object v5, p0, Lcom/android/launcher3/common/quickoption/QuickOptionListAdapter;->mItemList:Ljava/util/ArrayList;
+
+    invoke-virtual {v5, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;
+
+    invoke-virtual {v5}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->getIconRsrId()I
+
+    move-result v5
+
+    const v6, 0x7f0200e1
+
+    if-ne v5, v6, :cond_1
+
+    iget-object v5, p0, Lcom/android/launcher3/common/quickoption/QuickOptionListAdapter;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-static {v5}, Lcom/android/launcher3/util/SecureFolderHelper;->getSecureFolderTitle(Landroid/content/Context;)Ljava/lang/String;
+
+    move-result-object v3
+
+    iget-object v5, p0, Lcom/android/launcher3/common/quickoption/QuickOptionListAdapter;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    const v6, 0x7f0900a3
+
+    invoke-virtual {v5, v6}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    new-array v6, v9, [Ljava/lang/Object;
+
+    aput-object v3, v6, v8
+
+    invoke-static {v5, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    :goto_1
+    iget-object v5, p0, Lcom/android/launcher3/common/quickoption/QuickOptionListAdapter;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v5}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v6
+
+    iget-object v5, p0, Lcom/android/launcher3/common/quickoption/QuickOptionListAdapter;->mItemList:Ljava/util/ArrayList;
+
+    invoke-virtual {v5, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;
+
+    invoke-virtual {v5}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->getIconRsrId()I
+
+    move-result v5
+
+    invoke-virtual {v6, v5}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    invoke-virtual {v4, v0, v7, v7, v7}, Landroid/widget/TextView;->setCompoundDrawablesRelativeWithIntrinsicBounds(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
+
+    :goto_2
+    iget-object v5, p0, Lcom/android/launcher3/common/quickoption/QuickOptionListAdapter;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v5}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v5
+
+    const v6, 0x7f0a0091
+
+    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v5
+
+    invoke-virtual {v4, v5}, Landroid/widget/TextView;->setCompoundDrawablePadding(I)V
+
+    invoke-virtual {v4, v9}, Landroid/widget/TextView;->setSelected(Z)V
+
+    move-object p2, v2
 
     goto :goto_0
+
+    :cond_1
+    iget-object v5, p0, Lcom/android/launcher3/common/quickoption/QuickOptionListAdapter;->mItemList:Ljava/util/ArrayList;
+
+    invoke-virtual {v5, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;
+
+    invoke-virtual {v5}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->getTitleRsrId()I
+
+    move-result v5
+
+    const v6, 0x7f09009c
+
+    if-ne v5, v6, :cond_2
+
+    const v5, 0x3ecccccd    # 0.4f
+
+    invoke-virtual {v4, v5}, Landroid/widget/TextView;->setAlpha(F)V
+
+    :cond_2
+    iget-object v5, p0, Lcom/android/launcher3/common/quickoption/QuickOptionListAdapter;->mItemList:Ljava/util/ArrayList;
+
+    invoke-virtual {v5, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;
+
+    invoke-virtual {v5}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->getTitleRsrId()I
+
+    move-result v5
+
+    invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(I)V
+
+    goto :goto_1
+
+    :cond_3
+    iget-object v5, p0, Lcom/android/launcher3/common/quickoption/QuickOptionListAdapter;->mItemList:Ljava/util/ArrayList;
+
+    invoke-virtual {v5, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;
+
+    invoke-virtual {v5}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->getTitle()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    iget-object v5, p0, Lcom/android/launcher3/common/quickoption/QuickOptionListAdapter;->mItemList:Ljava/util/ArrayList;
+
+    invoke-virtual {v5, p1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;
+
+    invoke-virtual {v5}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->getIcon()Landroid/graphics/Bitmap;
+
+    move-result-object v5
+
+    const/16 v6, 0x3f
+
+    invoke-static {v5, v6}, Lcom/android/launcher3/util/BitmapUtils;->createIconDrawable(Landroid/graphics/Bitmap;I)Lcom/android/launcher3/common/drawable/FastBitmapDrawable;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5, v7, v7, v7}, Landroid/widget/TextView;->setCompoundDrawablesRelativeWithIntrinsicBounds(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
+
+    goto :goto_2
 .end method
 
 .method public onItemClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)V
@@ -248,13 +324,23 @@
 
     check-cast v0, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;
 
-    if-eqz v0, :cond_1
+    if-nez v0, :cond_0
+
+    :goto_0
+    return-void
+
+    :cond_0
+    invoke-virtual {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->getType()I
+
+    move-result v2
+
+    if-nez v2, :cond_3
 
     invoke-virtual {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->getCallback()Ljava/lang/Runnable;
 
     move-result-object v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2
 
     invoke-static {}, Lcom/android/launcher3/util/logging/SALogging;->getInstance()Lcom/android/launcher3/util/logging/SALogging;
 
@@ -272,7 +358,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_1
 
     iget-object v2, p0, Lcom/android/launcher3/common/quickoption/QuickOptionListAdapter;->mLauncher:Lcom/android/launcher3/Launcher;
 
@@ -284,7 +370,7 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     invoke-virtual {v1}, Lcom/android/launcher3/common/quickoption/ItemRemoveAnimation;->getAnimatorSet()Landroid/animation/AnimatorSet;
 
@@ -306,17 +392,17 @@
 
     invoke-virtual {v2, v3}, Lcom/android/launcher3/common/drag/DragManager;->removeQuickOptionView(Ljava/lang/String;)V
 
-    :goto_0
-    return-void
+    goto :goto_0
 
-    :cond_0
+    :cond_1
     invoke-virtual {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->getCallback()Ljava/lang/Runnable;
 
     move-result-object v2
 
     invoke-interface {v2}, Ljava/lang/Runnable;->run()V
 
-    :cond_1
+    :cond_2
+    :goto_1
     iget-object v2, p0, Lcom/android/launcher3/common/quickoption/QuickOptionListAdapter;->mLauncher:Lcom/android/launcher3/Launcher;
 
     invoke-virtual {v2}, Lcom/android/launcher3/Launcher;->getDragMgr()Lcom/android/launcher3/common/drag/DragManager;
@@ -326,9 +412,89 @@
     invoke-virtual {v2}, Lcom/android/launcher3/common/drag/DragManager;->removeQuickOptionView()V
 
     goto :goto_0
+
+    :cond_3
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/launcher3/LauncherAppState;->getShortcutManager()Lcom/android/launcher3/common/quickoption/shortcuts/DeepShortcutManager;
+
+    move-result-object v2
+
+    invoke-virtual {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->getShortcutKey()Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutKey;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Lcom/android/launcher3/common/quickoption/shortcuts/DeepShortcutManager;->startShortcut(Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutKey;)V
+
+    goto :goto_1
 .end method
 
-.method public setItems(Ljava/util/List;)V
+.method public onItemLongClick(Landroid/widget/AdapterView;Landroid/view/View;IJ)Z
+    .locals 5
+    .annotation build Landroid/annotation/TargetApi;
+        value = 0x19
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Landroid/widget/AdapterView",
+            "<*>;",
+            "Landroid/view/View;",
+            "IJ)Z"
+        }
+    .end annotation
+
+    invoke-virtual {p1, p3}, Landroid/widget/AdapterView;->getItemAtPosition(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->getType()I
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    const/4 v4, 0x0
+
+    :goto_0
+    return v4
+
+    :cond_0
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/launcher3/LauncherAppState;->getShortcutManager()Lcom/android/launcher3/common/quickoption/shortcuts/DeepShortcutManager;
+
+    move-result-object v1
+
+    invoke-virtual {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->getShortcutKey()Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutKey;
+
+    move-result-object v4
+
+    invoke-virtual {v1, v4}, Lcom/android/launcher3/common/quickoption/shortcuts/DeepShortcutManager;->queryForShortcutKey(Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutKey;)Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutInfoCompat;
+
+    move-result-object v3
+
+    invoke-virtual {p1}, Landroid/widget/AdapterView;->getParent()Landroid/view/ViewParent;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/launcher3/common/quickoption/QuickOptionView;
+
+    invoke-virtual {v2, v3}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->onItemLongClick(Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutInfoCompat;)Z
+
+    move-result v4
+
+    goto :goto_0
+.end method
+
+.method setItems(Ljava/util/List;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {

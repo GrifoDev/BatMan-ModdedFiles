@@ -43,7 +43,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v2, v2, v1}, Lcom/android/launcher3/home/ZeroPageController;->access$1400(Lcom/android/launcher3/home/ZeroPageController;IIZ)Z
+    invoke-static {v0, v2, v2, v1}, Lcom/android/launcher3/home/ZeroPageController;->access$1600(Lcom/android/launcher3/home/ZeroPageController;IIZ)Z
 
     return-void
 .end method

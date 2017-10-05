@@ -6,8 +6,8 @@
         <item>5|6|3|41|11|-1|2|7|66|28|7</item>
     </string-array>
     <string-array name="folder_grid_info">
-        <item>3|3|6|52|12|7|2|39|161|140</item>
-        <item>4|4|3|40|11|5|2|39|162|140</item>
+        <item>3|3|3|59|13|4|2|39|132|127</item>
+        <item>4|4|3|49|12.5|2|2|39|132|126</item>
     </string-array>
     <string-array name="home_grid_info">
         <item>3|4|4|59|13|2|1|7|46|146|122|122|21</item>

@@ -23,16 +23,12 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Ljava/lang/Class;)V
-    .locals 1
+.method constructor <init>(Landroid/content/Context;Landroid/content/ComponentName;)V
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Landroid/content/ComponentName;
-
-    invoke-direct {v0, p1, p2}, Landroid/content/ComponentName;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
-
-    iput-object v0, p0, Landroid/support/v4/app/JobIntentService$WorkEnqueuer;->mComponentName:Landroid/content/ComponentName;
+    iput-object p2, p0, Landroid/support/v4/app/JobIntentService$WorkEnqueuer;->mComponentName:Landroid/content/ComponentName;
 
     return-void
 .end method

@@ -217,6 +217,14 @@
 
     const/4 v1, 0x1
 
+    if-eq v0, v1, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/executor/StateAppInfo;->mItemInfo:Lcom/android/launcher3/common/base/item/ItemInfo;
+
+    iget v0, v0, Lcom/android/launcher3/common/base/item/ItemInfo;->itemType:I
+
+    const/4 v1, 0x6
+
     if-ne v0, v1, :cond_2
 
     :cond_0

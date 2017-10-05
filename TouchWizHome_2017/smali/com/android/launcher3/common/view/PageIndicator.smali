@@ -30,6 +30,8 @@
 
 .field private mExistZeroPage:Z
 
+.field private mIndicatorMargin:I
+
 .field private mLayoutInflater:Landroid/view/LayoutInflater;
 
 .field private mMarkerGap:I
@@ -122,7 +124,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090048
+    const v2, 0x7f0a004a
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -130,7 +132,7 @@
 
     iput v2, p0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkerGap:I
 
-    const v2, 0x7f09012e
+    const v2, 0x7f0a00bf
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -138,13 +140,21 @@
 
     iput v2, p0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkerMargin:I
 
-    const v2, 0x7f090047
+    const v2, 0x7f0a004b
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v2
 
     iput v2, p0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkerWidth:I
+
+    const v2, 0x7f0a0177
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v2
+
+    iput v2, p0, Lcom/android/launcher3/common/view/PageIndicator;->mIndicatorMargin:I
 
     iget-object v2, p0, Lcom/android/launcher3/common/view/PageIndicator;->mWindowRange:[I
 
@@ -289,7 +299,7 @@
     :cond_4
     iget-object v2, p0, Lcom/android/launcher3/common/view/PageIndicator;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v3, 0x7f030038
+    const v3, 0x7f04004a
 
     invoke-virtual {v2, v3, p0, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -349,7 +359,7 @@
     if-ne p1, p4, :cond_0
 
     :cond_6
-    invoke-direct {p0, p3}, Lcom/android/launcher3/common/view/PageIndicator;->offsetWindowCenterTo(Z)V
+    invoke-virtual {p0, p3}, Lcom/android/launcher3/common/view/PageIndicator;->offsetWindowCenterTo(Z)V
 
     goto :goto_1
 .end method
@@ -684,19 +694,19 @@
 
     move-result-object v3
 
-    const v5, 0x7f090130
+    const v5, 0x7f0a0179
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v0
 
-    const v5, 0x7f090131
+    const v5, 0x7f0a017a
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    const v5, 0x7f09014b
+    const v5, 0x7f0a00c0
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -758,278 +768,6 @@
     return v3
 .end method
 
-.method private offsetWindowCenterTo(Z)V
-    .locals 15
-
-    iget v12, p0, Lcom/android/launcher3/common/view/PageIndicator;->mActiveMarkerIndex:I
-
-    if-gez v12, :cond_0
-
-    const-string v12, "PageIndicator"
-
-    const-string v13, "ActiveMarkerIndex is invalid"
-
-    invoke-static {v12, v13}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    const/4 v11, 0x0
-
-    iget-object v12, p0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkers:Ljava/util/ArrayList;
-
-    invoke-virtual {v12}, Ljava/util/ArrayList;->size()I
-
-    move-result v12
-
-    iget v13, p0, Lcom/android/launcher3/common/view/PageIndicator;->mMaxVisibleSize:I
-
-    invoke-static {v12, v13}, Ljava/lang/Math;->min(II)I
-
-    move-result v9
-
-    iget-object v12, p0, Lcom/android/launcher3/common/view/PageIndicator;->mWindowRange:[I
-
-    const/4 v13, 0x0
-
-    aget v12, v12, v13
-
-    if-ne v12, v11, :cond_1
-
-    iget-object v12, p0, Lcom/android/launcher3/common/view/PageIndicator;->mWindowRange:[I
-
-    const/4 v13, 0x1
-
-    aget v12, v12, v13
-
-    if-eq v12, v9, :cond_4
-
-    :cond_1
-    const/4 v10, 0x1
-
-    :goto_0
-    if-nez p1, :cond_2
-
-    invoke-direct {p0}, Lcom/android/launcher3/common/view/PageIndicator;->disableLayoutTransitions()V
-
-    :cond_2
-    invoke-virtual {p0}, Lcom/android/launcher3/common/view/PageIndicator;->getChildCount()I
-
-    move-result v12
-
-    add-int/lit8 v1, v12, -0x1
-
-    :goto_1
-    if-ltz v1, :cond_5
-
-    invoke-virtual {p0, v1}, Lcom/android/launcher3/common/view/PageIndicator;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/android/launcher3/common/view/PageIndicatorMarker;
-
-    iget-object v12, p0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkers:Ljava/util/ArrayList;
-
-    invoke-virtual {v12, v3}, Ljava/util/ArrayList;->indexOf(Ljava/lang/Object;)I
-
-    move-result v5
-
-    if-ge v5, v11, :cond_3
-
-    invoke-virtual {p0, v3}, Lcom/android/launcher3/common/view/PageIndicator;->removeView(Landroid/view/View;)V
-
-    :cond_3
-    add-int/lit8 v1, v1, -0x1
-
-    goto :goto_1
-
-    :cond_4
-    const/4 v10, 0x0
-
-    goto :goto_0
-
-    :cond_5
-    iget v4, p0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkerGap:I
-
-    iget v6, p0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkerMargin:I
-
-    new-instance v0, Landroid/graphics/Point;
-
-    invoke-direct {v0}, Landroid/graphics/Point;-><init>()V
-
-    invoke-virtual {p0}, Lcom/android/launcher3/common/view/PageIndicator;->getContext()Landroid/content/Context;
-
-    move-result-object v12
-
-    invoke-static {v12, v0}, Lcom/android/launcher3/Utilities;->getScreenSize(Landroid/content/Context;Landroid/graphics/Point;)V
-
-    iget v12, p0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkerWidth:I
-
-    iget v13, p0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkerGap:I
-
-    add-int/2addr v12, v13
-
-    iget-object v13, p0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkers:Ljava/util/ArrayList;
-
-    invoke-virtual {v13}, Ljava/util/ArrayList;->size()I
-
-    move-result v13
-
-    mul-int/2addr v12, v13
-
-    iget v13, p0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkerMargin:I
-
-    iget-object v14, p0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkers:Ljava/util/ArrayList;
-
-    invoke-virtual {v14}, Ljava/util/ArrayList;->size()I
-
-    move-result v14
-
-    add-int/lit8 v14, v14, -0x1
-
-    mul-int/2addr v13, v14
-
-    add-int v7, v12, v13
-
-    iget v12, v0, Landroid/graphics/Point;->x:I
-
-    if-le v7, v12, :cond_6
-
-    iget-object v12, p0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkers:Ljava/util/ArrayList;
-
-    invoke-virtual {v12}, Ljava/util/ArrayList;->size()I
-
-    move-result v12
-
-    if-eqz v12, :cond_6
-
-    iget v12, v0, Landroid/graphics/Point;->x:I
-
-    iget-object v13, p0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkers:Ljava/util/ArrayList;
-
-    invoke-virtual {v13}, Ljava/util/ArrayList;->size()I
-
-    move-result v13
-
-    div-int v8, v12, v13
-
-    iget v12, p0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkerWidth:I
-
-    sub-int v4, v8, v12
-
-    const/4 v6, 0x0
-
-    :cond_6
-    const/4 v1, 0x0
-
-    :goto_2
-    iget-object v12, p0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkers:Ljava/util/ArrayList;
-
-    invoke-virtual {v12}, Ljava/util/ArrayList;->size()I
-
-    move-result v12
-
-    if-ge v1, v12, :cond_b
-
-    iget-object v12, p0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkers:Ljava/util/ArrayList;
-
-    invoke-virtual {v12, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/android/launcher3/common/view/PageIndicatorMarker;
-
-    invoke-virtual {v3}, Lcom/android/launcher3/common/view/PageIndicatorMarker;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/widget/LinearLayout$LayoutParams;
-
-    iget v12, p0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkerWidth:I
-
-    add-int/2addr v12, v4
-
-    iput v12, v2, Landroid/widget/LinearLayout$LayoutParams;->width:I
-
-    iget-object v12, p0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkers:Ljava/util/ArrayList;
-
-    invoke-virtual {v12}, Ljava/util/ArrayList;->size()I
-
-    move-result v12
-
-    add-int/lit8 v12, v12, -0x1
-
-    if-ne v1, v12, :cond_9
-
-    const/4 v12, 0x0
-
-    iput v12, v2, Landroid/widget/LinearLayout$LayoutParams;->rightMargin:I
-
-    :goto_3
-    invoke-virtual {v3, v2}, Lcom/android/launcher3/common/view/PageIndicatorMarker;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    if-gt v11, v1, :cond_8
-
-    if-ge v1, v9, :cond_8
-
-    invoke-virtual {p0, v3}, Lcom/android/launcher3/common/view/PageIndicator;->indexOfChild(Landroid/view/View;)I
-
-    move-result v12
-
-    if-gez v12, :cond_7
-
-    invoke-virtual {p0, v3, v1}, Lcom/android/launcher3/common/view/PageIndicator;->addView(Landroid/view/View;I)V
-
-    :cond_7
-    iget v12, p0, Lcom/android/launcher3/common/view/PageIndicator;->mActiveMarkerIndex:I
-
-    if-ne v1, v12, :cond_a
-
-    invoke-virtual {v3}, Lcom/android/launcher3/common/view/PageIndicatorMarker;->getMarkerType()Lcom/android/launcher3/common/view/PageIndicator$PageMarkerResources$IndicatorType;
-
-    move-result-object v12
-
-    sget-object v13, Lcom/android/launcher3/common/view/PageIndicator$PageMarkerResources$IndicatorType;->PLUS:Lcom/android/launcher3/common/view/PageIndicator$PageMarkerResources$IndicatorType;
-
-    if-eq v12, v13, :cond_a
-
-    invoke-virtual {v3, v10}, Lcom/android/launcher3/common/view/PageIndicatorMarker;->activate(Z)V
-
-    :cond_8
-    :goto_4
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_2
-
-    :cond_9
-    iput v6, v2, Landroid/widget/LinearLayout$LayoutParams;->rightMargin:I
-
-    goto :goto_3
-
-    :cond_a
-    invoke-virtual {v3, v10}, Lcom/android/launcher3/common/view/PageIndicatorMarker;->inactivate(Z)V
-
-    goto :goto_4
-
-    :cond_b
-    if-nez p1, :cond_c
-
-    invoke-direct {p0}, Lcom/android/launcher3/common/view/PageIndicator;->enableLayoutTransitions()V
-
-    :cond_c
-    iget-object v12, p0, Lcom/android/launcher3/common/view/PageIndicator;->mWindowRange:[I
-
-    const/4 v13, 0x0
-
-    aput v11, v12, v13
-
-    iget-object v12, p0, Lcom/android/launcher3/common/view/PageIndicator;->mWindowRange:[I
-
-    const/4 v13, 0x1
-
-    aput v9, v12, v13
-
-    return-void
-.end method
-
 .method private setPagedView(Lcom/android/launcher3/common/base/view/PagedView;)V
     .locals 2
 
@@ -1077,7 +815,7 @@
     :cond_2
     iget-object v6, p0, Lcom/android/launcher3/common/view/PageIndicator;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v7, 0x7f030039
+    const v7, 0x7f04004b
 
     invoke-virtual {v6, v7, p0, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -1085,7 +823,7 @@
 
     check-cast v1, Landroid/widget/LinearLayout;
 
-    const v6, 0x7f0f00cb
+    const v6, 0x7f1100ea
 
     invoke-virtual {v1, v6}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 
@@ -1823,6 +1561,385 @@
     return v1
 .end method
 
+.method public offsetWindowCenterTo(Z)V
+    .locals 18
+
+    move-object/from16 v0, p0
+
+    iget v15, v0, Lcom/android/launcher3/common/view/PageIndicator;->mActiveMarkerIndex:I
+
+    if-gez v15, :cond_0
+
+    const-string v15, "PageIndicator"
+
+    const-string v16, "ActiveMarkerIndex is invalid"
+
+    invoke-static/range {v15 .. v16}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    const/4 v14, 0x0
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkers:Ljava/util/ArrayList;
+
+    invoke-virtual {v15}, Ljava/util/ArrayList;->size()I
+
+    move-result v15
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/launcher3/common/view/PageIndicator;->mMaxVisibleSize:I
+
+    move/from16 v16, v0
+
+    invoke-static/range {v15 .. v16}, Ljava/lang/Math;->min(II)I
+
+    move-result v12
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/launcher3/common/view/PageIndicator;->mWindowRange:[I
+
+    const/16 v16, 0x0
+
+    aget v15, v15, v16
+
+    if-ne v15, v14, :cond_1
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/launcher3/common/view/PageIndicator;->mWindowRange:[I
+
+    const/16 v16, 0x1
+
+    aget v15, v15, v16
+
+    if-eq v15, v12, :cond_4
+
+    :cond_1
+    const/4 v13, 0x1
+
+    :goto_0
+    if-nez p1, :cond_2
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/launcher3/common/view/PageIndicator;->disableLayoutTransitions()V
+
+    :cond_2
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/common/view/PageIndicator;->getChildCount()I
+
+    move-result v15
+
+    add-int/lit8 v2, v15, -0x1
+
+    :goto_1
+    if-ltz v2, :cond_5
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v2}, Lcom/android/launcher3/common/view/PageIndicator;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/android/launcher3/common/view/PageIndicatorMarker;
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkers:Ljava/util/ArrayList;
+
+    invoke-virtual {v15, v5}, Ljava/util/ArrayList;->indexOf(Ljava/lang/Object;)I
+
+    move-result v7
+
+    if-ge v7, v14, :cond_3
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v5}, Lcom/android/launcher3/common/view/PageIndicator;->removeView(Landroid/view/View;)V
+
+    :cond_3
+    add-int/lit8 v2, v2, -0x1
+
+    goto :goto_1
+
+    :cond_4
+    const/4 v13, 0x0
+
+    goto :goto_0
+
+    :cond_5
+    move-object/from16 v0, p0
+
+    iget v6, v0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkerGap:I
+
+    move-object/from16 v0, p0
+
+    iget v8, v0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkerMargin:I
+
+    move-object/from16 v0, p0
+
+    iget v15, v0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkerWidth:I
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkerGap:I
+
+    move/from16 v16, v0
+
+    add-int v15, v15, v16
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkers:Ljava/util/ArrayList;
+
+    move-object/from16 v16, v0
+
+    invoke-virtual/range {v16 .. v16}, Ljava/util/ArrayList;->size()I
+
+    move-result v16
+
+    mul-int v15, v15, v16
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkerMargin:I
+
+    move/from16 v16, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkers:Ljava/util/ArrayList;
+
+    move-object/from16 v17, v0
+
+    invoke-virtual/range {v17 .. v17}, Ljava/util/ArrayList;->size()I
+
+    move-result v17
+
+    add-int/lit8 v17, v17, -0x1
+
+    mul-int v16, v16, v17
+
+    add-int v3, v15, v16
+
+    new-instance v1, Landroid/graphics/Point;
+
+    invoke-direct {v1}, Landroid/graphics/Point;-><init>()V
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/common/view/PageIndicator;->getContext()Landroid/content/Context;
+
+    move-result-object v15
+
+    invoke-static {v15, v1}, Lcom/android/launcher3/Utilities;->getScreenSize(Landroid/content/Context;Landroid/graphics/Point;)V
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/common/view/PageIndicator;->getParent()Landroid/view/ViewParent;
+
+    move-result-object v15
+
+    if-eqz v15, :cond_a
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/common/view/PageIndicator;->getParent()Landroid/view/ViewParent;
+
+    move-result-object v15
+
+    check-cast v15, Landroid/view/View;
+
+    invoke-virtual {v15}, Landroid/view/View;->getWidth()I
+
+    move-result v10
+
+    :goto_2
+    if-gtz v10, :cond_6
+
+    iget v10, v1, Landroid/graphics/Point;->x:I
+
+    :cond_6
+    iget v15, v1, Landroid/graphics/Point;->x:I
+
+    if-ge v10, v15, :cond_b
+
+    move v9, v10
+
+    :goto_3
+    if-le v3, v9, :cond_7
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkers:Ljava/util/ArrayList;
+
+    invoke-virtual {v15}, Ljava/util/ArrayList;->size()I
+
+    move-result v15
+
+    if-eqz v15, :cond_7
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkers:Ljava/util/ArrayList;
+
+    invoke-virtual {v15}, Ljava/util/ArrayList;->size()I
+
+    move-result v15
+
+    div-int v11, v9, v15
+
+    move-object/from16 v0, p0
+
+    iget v15, v0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkerWidth:I
+
+    sub-int v6, v11, v15
+
+    const/4 v8, 0x0
+
+    :cond_7
+    const/4 v2, 0x0
+
+    :goto_4
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkers:Ljava/util/ArrayList;
+
+    invoke-virtual {v15}, Ljava/util/ArrayList;->size()I
+
+    move-result v15
+
+    if-ge v2, v15, :cond_e
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkers:Ljava/util/ArrayList;
+
+    invoke-virtual {v15, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/android/launcher3/common/view/PageIndicatorMarker;
+
+    invoke-virtual {v5}, Lcom/android/launcher3/common/view/PageIndicatorMarker;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v4
+
+    check-cast v4, Landroid/widget/LinearLayout$LayoutParams;
+
+    move-object/from16 v0, p0
+
+    iget v15, v0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkerWidth:I
+
+    add-int/2addr v15, v6
+
+    iput v15, v4, Landroid/widget/LinearLayout$LayoutParams;->width:I
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/launcher3/common/view/PageIndicator;->mMarkers:Ljava/util/ArrayList;
+
+    invoke-virtual {v15}, Ljava/util/ArrayList;->size()I
+
+    move-result v15
+
+    add-int/lit8 v15, v15, -0x1
+
+    if-ne v2, v15, :cond_c
+
+    const/4 v15, 0x0
+
+    iput v15, v4, Landroid/widget/LinearLayout$LayoutParams;->rightMargin:I
+
+    :goto_5
+    invoke-virtual {v5, v4}, Lcom/android/launcher3/common/view/PageIndicatorMarker;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    if-gt v14, v2, :cond_9
+
+    if-ge v2, v12, :cond_9
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v5}, Lcom/android/launcher3/common/view/PageIndicator;->indexOfChild(Landroid/view/View;)I
+
+    move-result v15
+
+    if-gez v15, :cond_8
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v5, v2}, Lcom/android/launcher3/common/view/PageIndicator;->addView(Landroid/view/View;I)V
+
+    :cond_8
+    move-object/from16 v0, p0
+
+    iget v15, v0, Lcom/android/launcher3/common/view/PageIndicator;->mActiveMarkerIndex:I
+
+    if-ne v2, v15, :cond_d
+
+    invoke-virtual {v5}, Lcom/android/launcher3/common/view/PageIndicatorMarker;->getMarkerType()Lcom/android/launcher3/common/view/PageIndicator$PageMarkerResources$IndicatorType;
+
+    move-result-object v15
+
+    sget-object v16, Lcom/android/launcher3/common/view/PageIndicator$PageMarkerResources$IndicatorType;->PLUS:Lcom/android/launcher3/common/view/PageIndicator$PageMarkerResources$IndicatorType;
+
+    move-object/from16 v0, v16
+
+    if-eq v15, v0, :cond_d
+
+    invoke-virtual {v5, v13}, Lcom/android/launcher3/common/view/PageIndicatorMarker;->activate(Z)V
+
+    :cond_9
+    :goto_6
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_4
+
+    :cond_a
+    const/4 v10, -0x1
+
+    goto/16 :goto_2
+
+    :cond_b
+    move-object/from16 v0, p0
+
+    iget v15, v0, Lcom/android/launcher3/common/view/PageIndicator;->mIndicatorMargin:I
+
+    mul-int/lit8 v15, v15, 0x2
+
+    sub-int v9, v10, v15
+
+    goto/16 :goto_3
+
+    :cond_c
+    iput v8, v4, Landroid/widget/LinearLayout$LayoutParams;->rightMargin:I
+
+    goto :goto_5
+
+    :cond_d
+    invoke-virtual {v5, v13}, Lcom/android/launcher3/common/view/PageIndicatorMarker;->inactivate(Z)V
+
+    goto :goto_6
+
+    :cond_e
+    if-nez p1, :cond_f
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/launcher3/common/view/PageIndicator;->enableLayoutTransitions()V
+
+    :cond_f
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/launcher3/common/view/PageIndicator;->mWindowRange:[I
+
+    const/16 v16, 0x0
+
+    aput v14, v15, v16
+
+    move-object/from16 v0, p0
+
+    iget-object v15, v0, Lcom/android/launcher3/common/view/PageIndicator;->mWindowRange:[I
+
+    const/16 v16, 0x1
+
+    aput v12, v15, v16
+
+    return-void
+.end method
+
 .method public removeAllMarkers()V
     .locals 1
 
@@ -1913,7 +2030,7 @@
 
     invoke-virtual {v0, p1}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
-    invoke-direct {p0, p2}, Lcom/android/launcher3/common/view/PageIndicator;->offsetWindowCenterTo(Z)V
+    invoke-virtual {p0, p2}, Lcom/android/launcher3/common/view/PageIndicator;->offsetWindowCenterTo(Z)V
 
     goto :goto_1
 .end method

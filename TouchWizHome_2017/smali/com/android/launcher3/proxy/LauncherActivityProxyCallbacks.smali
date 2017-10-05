@@ -25,6 +25,9 @@
 .method public abstract enterBadgeManagementView()V
 .end method
 
+.method public abstract enterHomeAboutPageView()V
+.end method
+
 .method public abstract enterHomeSettingChangeModeView()V
 .end method
 
@@ -46,10 +49,10 @@
 .method public abstract hideAppsButton()V
 .end method
 
-.method public abstract isAlreadySleepMode(Ljava/lang/String;)Z
+.method public abstract isAlreadySleepMode(Lcom/android/launcher3/common/base/item/ItemInfo;)Z
 .end method
 
-.method public abstract isAvailableSleepMode(Ljava/lang/String;)Z
+.method public abstract isAvailableSleepMode(Lcom/android/launcher3/common/base/item/ItemInfo;)Z
 .end method
 
 .method public abstract isEnableAppsButton()Z
@@ -59,6 +62,9 @@
 .end method
 
 .method public abstract isSecureFolderSetup()Z
+.end method
+
+.method public abstract isSingleAppBadgeChecked(Ljava/lang/String;)Z
 .end method
 
 .method public abstract putToSleepMode(Lcom/android/launcher3/common/base/item/ItemInfo;)V

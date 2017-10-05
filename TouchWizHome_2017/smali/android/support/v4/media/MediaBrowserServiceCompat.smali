@@ -17,7 +17,8 @@
         Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi23;,
         Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi21;,
         Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplBase;,
-        Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImpl;
+        Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImpl;,
+        Landroid/support/v4/media/MediaBrowserServiceCompat$ResultFlags;
     }
 .end annotation
 
@@ -432,11 +433,11 @@
 
     invoke-super {p0}, Landroid/app/Service;->onCreate()V
 
-    invoke-static {}, Landroid/support/v4/os/BuildCompat;->isAtLeastO()Z
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    move-result v0
+    const/16 v1, 0x1a
 
-    if-eqz v0, :cond_0
+    if-lt v0, v1, :cond_0
 
     new-instance v0, Landroid/support/v4/media/MediaBrowserServiceCompat$MediaBrowserServiceImplApi24;
 

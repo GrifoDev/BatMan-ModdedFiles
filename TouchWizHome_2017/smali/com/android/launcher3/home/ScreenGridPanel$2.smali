@@ -45,13 +45,30 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    invoke-static {}, Lcom/android/launcher3/util/GlobalSettingUtils;->getStartSetting()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-static {}, Lcom/android/launcher3/util/GlobalSettingUtils;->resetSettingsValue()V
+
+    iget-object v1, p0, Lcom/android/launcher3/home/ScreenGridPanel$2;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
+
+    invoke-static {v1}, Lcom/android/launcher3/home/ScreenGridPanel;->access$200(Lcom/android/launcher3/home/ScreenGridPanel;)Lcom/android/launcher3/Launcher;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/launcher3/Launcher;->finishSettingsActivity()V
+
+    :cond_0
     iget-object v1, p0, Lcom/android/launcher3/home/ScreenGridPanel$2;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
     invoke-static {v1}, Lcom/android/launcher3/home/ScreenGridPanel;->access$300(Lcom/android/launcher3/home/ScreenGridPanel;)Lcom/android/launcher3/home/HomeController;
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     iget-object v1, p0, Lcom/android/launcher3/home/ScreenGridPanel$2;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
@@ -77,7 +94,7 @@
 
     invoke-virtual {v1, v5}, Lcom/android/launcher3/home/HomeController;->enterNormalState(Z)V
 
-    :cond_0
+    :cond_1
     iget-object v1, p0, Lcom/android/launcher3/home/ScreenGridPanel$2;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
     invoke-static {v1}, Lcom/android/launcher3/home/ScreenGridPanel;->access$200(Lcom/android/launcher3/home/ScreenGridPanel;)Lcom/android/launcher3/Launcher;
@@ -160,7 +177,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/ScreenGridPanel$2;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    invoke-static {v1}, Lcom/android/launcher3/home/ScreenGridPanel;->access$400(Lcom/android/launcher3/home/ScreenGridPanel;)Landroid/view/View;
+    invoke-static {v1}, Lcom/android/launcher3/home/ScreenGridPanel;->access$400(Lcom/android/launcher3/home/ScreenGridPanel;)Landroid/widget/TextView;
 
     move-result-object v1
 
@@ -168,7 +185,7 @@
 
     const/4 v3, 0x0
 
-    invoke-virtual {v1, v2, v3}, Landroid/view/View;->performAccessibilityAction(ILandroid/os/Bundle;)Z
+    invoke-virtual {v1, v2, v3}, Landroid/widget/TextView;->performAccessibilityAction(ILandroid/os/Bundle;)Z
 
     return-void
 .end method

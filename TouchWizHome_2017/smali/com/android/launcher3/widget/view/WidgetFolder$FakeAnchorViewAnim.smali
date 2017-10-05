@@ -301,7 +301,7 @@
 .end method
 
 .method public animateOpen(Landroid/view/View;Landroid/animation/AnimatorSet;Lcom/android/launcher3/widget/view/WidgetFolder$AnimationInfo;Ljava/util/HashMap;)V
-    .locals 11
+    .locals 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -315,8 +315,6 @@
             ">;)V"
         }
     .end annotation
-
-    const/4 v10, 0x4
 
     const/high16 v6, 0x3f800000    # 1.0f
 
@@ -372,7 +370,9 @@
 
     move-result-object v1
 
-    new-array v2, v10, [Landroid/animation/Animator;
+    const/4 v2, 0x4
+
+    new-array v2, v2, [Landroid/animation/Animator;
 
     iget-object v3, p0, Lcom/android/launcher3/widget/view/WidgetFolder$FakeAnchorViewAnim;->mAnimView:Landroid/widget/ImageView;
 
@@ -454,7 +454,7 @@
 
     invoke-virtual {p2, v1}, Landroid/animation/AnimatorSet;->play(Landroid/animation/Animator;)Landroid/animation/AnimatorSet$Builder;
 
-    invoke-virtual {p1, v10}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {p1, v9}, Landroid/view/View;->setAlpha(F)V
 
     new-instance v2, Lcom/android/launcher3/widget/view/WidgetFolder$FakeAnchorViewAnim$1;
 

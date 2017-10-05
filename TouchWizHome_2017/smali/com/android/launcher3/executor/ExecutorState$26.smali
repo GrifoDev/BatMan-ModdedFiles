@@ -31,11 +31,11 @@
 .method public create()Lcom/android/launcher3/executor/StateHandler;
     .locals 2
 
-    new-instance v0, Lcom/android/launcher3/executor/HomeFolderSelectedViewStateHandler;
+    new-instance v0, Lcom/android/launcher3/executor/HomeFolderChangeBackgroundColorSelectViewStateHandler;
 
-    sget-object v1, Lcom/android/launcher3/executor/ExecutorState;->HOME_FOLDER_SELECTED_VIEW:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v1, Lcom/android/launcher3/executor/ExecutorState;->HOME_FOLDER_CHANGE_COLOR_VIEW:Lcom/android/launcher3/executor/ExecutorState;
 
-    invoke-direct {v0, v1}, Lcom/android/launcher3/executor/HomeFolderSelectedViewStateHandler;-><init>(Lcom/android/launcher3/executor/ExecutorState;)V
+    invoke-direct {v0, v1}, Lcom/android/launcher3/executor/HomeFolderChangeBackgroundColorSelectViewStateHandler;-><init>(Lcom/android/launcher3/executor/ExecutorState;)V
 
     return-object v0
 .end method

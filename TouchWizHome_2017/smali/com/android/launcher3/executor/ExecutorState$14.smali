@@ -31,11 +31,11 @@
 .method public create()Lcom/android/launcher3/executor/StateHandler;
     .locals 2
 
-    new-instance v0, Lcom/android/launcher3/executor/AppsTidyUpPagesPreviewViewStateHandler;
+    new-instance v0, Lcom/android/launcher3/executor/AppsAlphabeticalOrderSortedStateHandler;
 
-    sget-object v1, Lcom/android/launcher3/executor/ExecutorState;->APPS_TIDY_UP_PREVIEW_VIEW:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v1, Lcom/android/launcher3/executor/ExecutorState;->APPS_ALPHABETICAL_ORDER_SORTED:Lcom/android/launcher3/executor/ExecutorState;
 
-    invoke-direct {v0, v1}, Lcom/android/launcher3/executor/AppsTidyUpPagesPreviewViewStateHandler;-><init>(Lcom/android/launcher3/executor/ExecutorState;)V
+    invoke-direct {v0, v1}, Lcom/android/launcher3/executor/AppsAlphabeticalOrderSortedStateHandler;-><init>(Lcom/android/launcher3/executor/ExecutorState;)V
 
     return-object v0
 .end method

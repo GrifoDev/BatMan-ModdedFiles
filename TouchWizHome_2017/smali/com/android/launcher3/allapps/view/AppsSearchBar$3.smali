@@ -37,13 +37,13 @@
 .method public onMenuItemClick(Landroid/view/MenuItem;)Z
     .locals 4
 
-    const v2, 0x7f08018c
+    const v2, 0x7f0901a9
 
     invoke-interface {p1}, Landroid/view/MenuItem;->getItemId()I
 
     move-result v0
 
-    const v1, 0x7f0f0103
+    const v1, 0x7f110120
 
     if-ne v0, v1, :cond_0
 
@@ -67,7 +67,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0800fe
+    const v3, 0x7f090119
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -94,7 +94,7 @@
 
     move-result v0
 
-    const v1, 0x7f0f0107
+    const v1, 0x7f110124
 
     if-ne v0, v1, :cond_1
 
@@ -118,7 +118,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0800f7
+    const v3, 0x7f090112
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -141,7 +141,7 @@
 
     move-result v0
 
-    const v1, 0x7f0f0104
+    const v1, 0x7f110121
 
     if-ne v0, v1, :cond_2
 
@@ -165,7 +165,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0800f3
+    const v3, 0x7f09010e
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -188,7 +188,7 @@
 
     move-result v0
 
-    const v1, 0x7f0f0105
+    const v1, 0x7f110122
 
     if-ne v0, v1, :cond_3
 
@@ -212,7 +212,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0800fd
+    const v3, 0x7f090118
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -235,7 +235,7 @@
 
     move-result v0
 
-    const v1, 0x7f0f0106
+    const v1, 0x7f110123
 
     if-ne v0, v1, :cond_4
 
@@ -267,7 +267,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f080125
+    const v3, 0x7f090140
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

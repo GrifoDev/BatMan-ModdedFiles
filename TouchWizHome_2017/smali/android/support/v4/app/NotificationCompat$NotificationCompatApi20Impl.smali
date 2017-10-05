@@ -42,13 +42,13 @@
 
     iget-object v4, v0, Landroid/support/v4/app/NotificationCompat$Builder;->mNotification:Landroid/app/Notification;
 
-    invoke-virtual/range {p1 .. p1}, Landroid/support/v4/app/NotificationCompat$Builder;->resolveTitle()Ljava/lang/CharSequence;
+    move-object/from16 v0, p1
 
-    move-result-object v5
+    iget-object v5, v0, Landroid/support/v4/app/NotificationCompat$Builder;->mContentTitle:Ljava/lang/CharSequence;
 
-    invoke-virtual/range {p1 .. p1}, Landroid/support/v4/app/NotificationCompat$Builder;->resolveText()Ljava/lang/CharSequence;
+    move-object/from16 v0, p1
 
-    move-result-object v6
+    iget-object v6, v0, Landroid/support/v4/app/NotificationCompat$Builder;->mContentText:Ljava/lang/CharSequence;
 
     move-object/from16 v0, p1
 
@@ -174,8 +174,15 @@
 
     iget-object v3, v0, Landroid/support/v4/app/NotificationCompat$Builder;->mStyle:Landroid/support/v4/app/NotificationCompat$Style;
 
-    invoke-static {v2, v3}, Landroid/support/v4/app/NotificationCompat;->addStyleToBuilderJellybean(Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;Landroid/support/v4/app/NotificationCompat$Style;)V
+    if-eqz v3, :cond_0
 
+    move-object/from16 v0, p1
+
+    iget-object v3, v0, Landroid/support/v4/app/NotificationCompat$Builder;->mStyle:Landroid/support/v4/app/NotificationCompat$Style;
+
+    invoke-virtual {v3, v2}, Landroid/support/v4/app/NotificationCompat$Style;->apply(Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;)V
+
+    :cond_0
     move-object/from16 v0, p2
 
     move-object/from16 v1, p1
@@ -188,7 +195,7 @@
 
     iget-object v3, v0, Landroid/support/v4/app/NotificationCompat$Builder;->mStyle:Landroid/support/v4/app/NotificationCompat$Style;
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
     move-object/from16 v0, p1
 
@@ -200,7 +207,7 @@
 
     invoke-virtual {v3, v4}, Landroid/support/v4/app/NotificationCompat$Style;->addCompatExtras(Landroid/os/Bundle;)V
 
-    :cond_0
+    :cond_1
     return-object v29
 .end method
 

@@ -19,7 +19,7 @@
 
 .field public iconInfo:Lcom/android/launcher3/common/base/item/IconInfo;
 
-.field public itemDetails:Lcom/android/launcher3/appssearch/ItemDetails;
+.field public itemDetails:Lcom/android/launcher3/allapps/ItemDetails;
 
 .field public position:I
 
@@ -54,7 +54,7 @@
 
     iput v1, p0, Lcom/android/launcher3/allapps/AlphabeticalAppsList$AdapterItem;->appIndex:I
 
-    iput-object v0, p0, Lcom/android/launcher3/allapps/AlphabeticalAppsList$AdapterItem;->itemDetails:Lcom/android/launcher3/appssearch/ItemDetails;
+    iput-object v0, p0, Lcom/android/launcher3/allapps/AlphabeticalAppsList$AdapterItem;->itemDetails:Lcom/android/launcher3/allapps/ItemDetails;
 
     return-void
 .end method
@@ -117,7 +117,7 @@
     return-object v0
 .end method
 
-.method public static asGalaxyApp(ILcom/android/launcher3/appssearch/ItemDetails;I)Lcom/android/launcher3/allapps/AlphabeticalAppsList$AdapterItem;
+.method public static asGalaxyApp(ILcom/android/launcher3/allapps/ItemDetails;I)Lcom/android/launcher3/allapps/AlphabeticalAppsList$AdapterItem;
     .locals 2
 
     new-instance v0, Lcom/android/launcher3/allapps/AlphabeticalAppsList$AdapterItem;
@@ -130,7 +130,7 @@
 
     iput p0, v0, Lcom/android/launcher3/allapps/AlphabeticalAppsList$AdapterItem;->position:I
 
-    iput-object p1, v0, Lcom/android/launcher3/allapps/AlphabeticalAppsList$AdapterItem;->itemDetails:Lcom/android/launcher3/appssearch/ItemDetails;
+    iput-object p1, v0, Lcom/android/launcher3/allapps/AlphabeticalAppsList$AdapterItem;->itemDetails:Lcom/android/launcher3/allapps/ItemDetails;
 
     iput p2, v0, Lcom/android/launcher3/allapps/AlphabeticalAppsList$AdapterItem;->appIndex:I
 

@@ -17,7 +17,7 @@
 .method constructor <init>(Lcom/android/launcher3/executor/ExecutorState;)V
     .locals 2
 
-    const/4 v1, -0x1
+    const/16 v1, -0x3e7
 
     invoke-direct {p0, p1}, Lcom/android/launcher3/executor/AbstractStateHandler;-><init>(Lcom/android/launcher3/executor/ExecutorState;)V
 
@@ -28,6 +28,8 @@
     iput-object v0, p0, Lcom/android/launcher3/executor/HomeWidgetMoveStateHandler;->mAppInfo:Lcom/android/launcher3/executor/StateAppInfo;
 
     iput v1, p0, Lcom/android/launcher3/executor/HomeWidgetMoveStateHandler;->mPage:I
+
+    iput v1, p0, Lcom/android/launcher3/executor/HomeWidgetMoveStateHandler;->mPageDirection:I
 
     iput v1, p0, Lcom/android/launcher3/executor/HomeWidgetMoveStateHandler;->mDetailDirection:I
 
@@ -178,21 +180,19 @@
 
     move-result-object v5
 
-    iget v6, p0, Lcom/android/launcher3/executor/HomeWidgetMoveStateHandler;->mPageDirection:I
+    iget v6, p0, Lcom/android/launcher3/executor/HomeWidgetMoveStateHandler;->mPage:I
 
-    const/4 v7, 0x1
+    iget v7, p0, Lcom/android/launcher3/executor/HomeWidgetMoveStateHandler;->mPageDirection:I
 
-    invoke-virtual {v5, v3, v6, v7}, Lcom/android/launcher3/proxy/LauncherProxy;->mapDirectionToPage(IIZ)I
+    const/4 v8, 0x1
+
+    invoke-virtual {v5, v6, v7, v8}, Lcom/android/launcher3/proxy/LauncherProxy;->mapDirectionToPage(IIZ)I
 
     move-result v5
 
     iput v5, p0, Lcom/android/launcher3/executor/HomeWidgetMoveStateHandler;->mPage:I
 
     :cond_4
-    iget v5, p0, Lcom/android/launcher3/executor/HomeWidgetMoveStateHandler;->mPage:I
-
-    if-ltz v5, :cond_7
-
     invoke-virtual {p0}, Lcom/android/launcher3/executor/HomeWidgetMoveStateHandler;->getLauncherProxy()Lcom/android/launcher3/proxy/LauncherProxy;
 
     move-result-object v5
@@ -444,6 +444,8 @@
 .method public parseParameters(Lcom/samsung/android/sdk/bixby/data/State;)Ljava/lang/String;
     .locals 5
 
+    const/16 v3, -0x3e7
+
     invoke-virtual {p1}, Lcom/samsung/android/sdk/bixby/data/State;->getParamMap()Ljava/util/Map;
 
     move-result-object v1
@@ -523,29 +525,10 @@
 
     if-nez v1, :cond_2
 
-    new-instance v1, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+    iput v3, p0, Lcom/android/launcher3/executor/HomeWidgetMoveStateHandler;->mPage:I
 
-    sget-object v2, Lcom/android/launcher3/executor/ExecutorState;->HOME:Lcom/android/launcher3/executor/ExecutorState;
-
-    invoke-virtual {v2}, Lcom/android/launcher3/executor/ExecutorState;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-direct {v1, v2}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;-><init>(Ljava/lang/String;)V
-
-    const-string v2, "Page"
-
-    const-string v3, "Exist"
-
-    const-string v4, "no"
-
-    invoke-virtual {v1, v2, v3, v4}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/android/launcher3/executor/HomeWidgetMoveStateHandler;->mNlgRequestInfo:Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
-
-    const-string v1, "PARAM_CHECK_ERROR"
+    :goto_1
+    const-string v1, "PARAM_CHECK_OK"
 
     goto :goto_0
 
@@ -566,14 +549,9 @@
 
     iput v1, p0, Lcom/android/launcher3/executor/HomeWidgetMoveStateHandler;->mPageDirection:I
 
-    const/16 v1, -0x3e7
+    iput v3, p0, Lcom/android/launcher3/executor/HomeWidgetMoveStateHandler;->mPage:I
 
-    iput v1, p0, Lcom/android/launcher3/executor/HomeWidgetMoveStateHandler;->mPage:I
-
-    :goto_1
-    const-string v1, "PARAM_CHECK_OK"
-
-    goto :goto_0
+    goto :goto_1
 
     :cond_3
     iget v1, p0, Lcom/android/launcher3/executor/HomeWidgetMoveStateHandler;->mPage:I

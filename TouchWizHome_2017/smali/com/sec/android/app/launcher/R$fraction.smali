@@ -15,33 +15,39 @@
 
 
 # static fields
-.field public static final config_appsAlphaRatio:I = 0x7f0e0000
+.field public static final config_appsAlphaRatio:I = 0x7f100000
 
-.field public static final config_appsPageIndicatorScaleRatio:I = 0x7f0e0001
+.field public static final config_appsPageIndicatorScaleRatio:I = 0x7f100001
 
-.field public static final config_appsPageIndicatorShrinkFactor:I = 0x7f0e0002
+.field public static final config_appsPageIndicatorShrinkFactor:I = 0x7f100002
 
-.field public static final config_appsShrinkFactor:I = 0x7f0e0003
+.field public static final config_appsShrinkFactor:I = 0x7f100003
 
-.field public static final config_folderBgGrowFactor:I = 0x7f0e0004
+.field public static final config_folderBgGrowFactor:I = 0x7f100004
 
-.field public static final config_homeAlphaRatio:I = 0x7f0e0005
+.field public static final config_folderIconPreviewPaddingRatio:I = 0x7f100005
 
-.field public static final config_homePageIndicatorScaleRatio:I = 0x7f0e0006
+.field public static final config_homeAlphaRatio:I = 0x7f100006
 
-.field public static final config_homePageIndicatorShrinkFactor:I = 0x7f0e0007
+.field public static final config_homePageIndicatorScaleRatio:I = 0x7f100007
 
-.field public static final config_homeShrinkFactor:I = 0x7f0e0008
+.field public static final config_homePageIndicatorShrinkFactor:I = 0x7f100008
 
-.field public static final config_pageSnapMovingRatio:I = 0x7f0e0009
+.field public static final config_homeShrinkFactor:I = 0x7f100009
 
-.field public static final config_swipeDistanceRatio:I = 0x7f0e000a
+.field public static final config_pageSnapMovingRatio:I = 0x7f10000a
 
-.field public static final config_workspaceDragScrollInwardFactor:I = 0x7f0e000b
+.field public static final config_start_sfinder_from_home:I = 0x7f10000b
 
-.field public static final config_workspaceNormalScrollInwardFactor:I = 0x7f0e000c
+.field public static final config_swipeDistanceRatio:I = 0x7f10000c
 
-.field public static final widget_resize_handle_size_factor:I = 0x7f0e000d
+.field public static final config_workspaceDragScrollInwardFactor:I = 0x7f10000d
+
+.field public static final config_workspaceNormalScrollInwardFactor:I = 0x7f10000e
+
+.field public static final config_zeroPage_preview_reduction:I = 0x7f10000f
+
+.field public static final widget_resize_handle_size_factor:I = 0x7f100010
 
 
 # direct methods

@@ -88,9 +88,7 @@
 
     if-eqz p0, :cond_0
 
-    const-string v4, ""
-
-    invoke-virtual {p0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p0}, Ljava/lang/String;->isEmpty()Z
 
     move-result v4
 

@@ -35,3 +35,18 @@
 
 .method public abstract onPackagesUnsuspended([Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
 .end method
+
+.method public abstract onShortcutsChanged(Ljava/lang/String;Ljava/util/List;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutInfoCompat;",
+            ">;",
+            "Lcom/android/launcher3/common/compat/UserHandleCompat;",
+            ")V"
+        }
+    .end annotation
+.end method

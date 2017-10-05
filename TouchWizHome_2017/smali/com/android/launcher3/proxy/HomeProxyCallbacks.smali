@@ -121,6 +121,9 @@
 .method public abstract moveItem(Landroid/view/View;I)I
 .end method
 
+.method public abstract moveItemFromFolder(Lcom/android/launcher3/common/base/item/IconInfo;)V
+.end method
+
 .method public abstract neededToAdjustZeroPage()Z
 .end method
 

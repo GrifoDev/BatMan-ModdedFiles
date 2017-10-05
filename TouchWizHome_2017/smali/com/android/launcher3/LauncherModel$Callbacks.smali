@@ -15,10 +15,26 @@
 
 
 # virtual methods
+.method public abstract bindDeepShortcutMap(Lcom/android/launcher3/util/MultiHashMap;)V
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/android/launcher3/util/MultiHashMap",
+            "<",
+            "Lcom/android/launcher3/util/ComponentKey;",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
+.end method
+
 .method public abstract dumpLogsToLocalData()V
 .end method
 
 .method public abstract isHomeNormal()Z
+.end method
+
+.method public abstract isTrayAnimating()Z
 .end method
 
 .method public abstract recreateLauncher()V

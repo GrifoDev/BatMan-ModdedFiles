@@ -55,7 +55,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/common/quickoption/QuickOptionManager$16;->val$itemInfo:Lcom/android/launcher3/common/base/item/ItemInfo;
 
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/home/HomeController;->addItemOnNextPageOfDefaultHome(Lcom/android/launcher3/common/base/item/ItemInfo;)V
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/home/HomeController;->addShortcutToHome(Lcom/android/launcher3/common/base/item/ItemInfo;)V
 
     iget-object v0, p0, Lcom/android/launcher3/common/quickoption/QuickOptionManager$16;->this$0:Lcom/android/launcher3/common/quickoption/QuickOptionManager;
 

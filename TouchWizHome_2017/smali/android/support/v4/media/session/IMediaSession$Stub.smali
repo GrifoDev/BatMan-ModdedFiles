@@ -90,6 +90,8 @@
 
 .field static final TRANSACTION_rate:I = 0x19
 
+.field static final TRANSACTION_rateWithExtras:I = 0x33
+
 .field static final TRANSACTION_registerCallbackListener:I = 0x3
 
 .field static final TRANSACTION_removeQueueItem:I = 0x2b
@@ -1199,6 +1201,57 @@
     goto :goto_f
 
     :sswitch_2c
+    const-string v7, "android.support.v4.media.session.IMediaSession"
+
+    invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v7
+
+    if-eqz v7, :cond_19
+
+    sget-object v7, Landroid/support/v4/media/RatingCompat;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v7, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/support/v4/media/RatingCompat;
+
+    :goto_10
+    invoke-virtual {p2}, Landroid/os/Parcel;->readInt()I
+
+    move-result v7
+
+    if-eqz v7, :cond_1a
+
+    sget-object v7, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
+
+    invoke-interface {v7, p2}, Landroid/os/Parcelable$Creator;->createFromParcel(Landroid/os/Parcel;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/os/Bundle;
+
+    :goto_11
+    invoke-virtual {p0, v0, v2}, Landroid/support/v4/media/session/IMediaSession$Stub;->rateWithExtras(Landroid/support/v4/media/RatingCompat;Landroid/os/Bundle;)V
+
+    invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
+
+    goto/16 :goto_0
+
+    :cond_19
+    const/4 v0, 0x0
+
+    goto :goto_10
+
+    :cond_1a
+    const/4 v2, 0x0
+
+    goto :goto_11
+
+    :sswitch_2d
     const-string v9, "android.support.v4.media.session.IMediaSession"
 
     invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1207,23 +1260,23 @@
 
     move-result v9
 
-    if-eqz v9, :cond_19
+    if-eqz v9, :cond_1b
 
     move v0, v8
 
-    :goto_10
+    :goto_12
     invoke-virtual {p0, v0}, Landroid/support/v4/media/session/IMediaSession$Stub;->setCaptioningEnabled(Z)V
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     goto/16 :goto_0
 
-    :cond_19
+    :cond_1b
     move v0, v7
 
-    goto :goto_10
+    goto :goto_12
 
-    :sswitch_2d
+    :sswitch_2e
     const-string v7, "android.support.v4.media.session.IMediaSession"
 
     invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1238,7 +1291,7 @@
 
     goto/16 :goto_0
 
-    :sswitch_2e
+    :sswitch_2f
     const-string v9, "android.support.v4.media.session.IMediaSession"
 
     invoke-virtual {p2, v9}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1247,23 +1300,23 @@
 
     move-result v9
 
-    if-eqz v9, :cond_1a
+    if-eqz v9, :cond_1c
 
     move v0, v8
 
-    :goto_11
+    :goto_13
     invoke-virtual {p0, v0}, Landroid/support/v4/media/session/IMediaSession$Stub;->setShuffleModeEnabledDeprecated(Z)V
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     goto/16 :goto_0
 
-    :cond_1a
+    :cond_1c
     move v0, v7
 
-    goto :goto_11
+    goto :goto_13
 
-    :sswitch_2f
+    :sswitch_30
     const-string v7, "android.support.v4.media.session.IMediaSession"
 
     invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1278,7 +1331,7 @@
 
     goto/16 :goto_0
 
-    :sswitch_30
+    :sswitch_31
     const-string v7, "android.support.v4.media.session.IMediaSession"
 
     invoke-virtual {p2, v7}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
@@ -1291,7 +1344,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_1b
+    if-eqz v7, :cond_1d
 
     sget-object v7, Landroid/os/Bundle;->CREATOR:Landroid/os/Parcelable$Creator;
 
@@ -1301,19 +1354,17 @@
 
     check-cast v2, Landroid/os/Bundle;
 
-    :goto_12
+    :goto_14
     invoke-virtual {p0, v0, v2}, Landroid/support/v4/media/session/IMediaSession$Stub;->sendCustomAction(Ljava/lang/String;Landroid/os/Bundle;)V
 
     invoke-virtual {p3}, Landroid/os/Parcel;->writeNoException()V
 
     goto/16 :goto_0
 
-    :cond_1b
+    :cond_1d
     const/4 v2, 0x0
 
-    goto :goto_12
-
-    nop
+    goto :goto_14
 
     :sswitch_data_0
     .sparse-switch
@@ -1342,7 +1393,7 @@
         0x17 -> :sswitch_29
         0x18 -> :sswitch_2a
         0x19 -> :sswitch_2b
-        0x1a -> :sswitch_30
+        0x1a -> :sswitch_31
         0x1b -> :sswitch_d
         0x1c -> :sswitch_e
         0x1d -> :sswitch_f
@@ -1355,16 +1406,17 @@
         0x24 -> :sswitch_1e
         0x25 -> :sswitch_14
         0x26 -> :sswitch_15
-        0x27 -> :sswitch_2d
-        0x28 -> :sswitch_2e
+        0x27 -> :sswitch_2e
+        0x28 -> :sswitch_2f
         0x29 -> :sswitch_17
         0x2a -> :sswitch_18
         0x2b -> :sswitch_19
         0x2c -> :sswitch_1a
         0x2d -> :sswitch_13
-        0x2e -> :sswitch_2c
+        0x2e -> :sswitch_2d
         0x2f -> :sswitch_16
-        0x30 -> :sswitch_2f
+        0x30 -> :sswitch_30
+        0x33 -> :sswitch_2c
         0x5f4e5446 -> :sswitch_0
     .end sparse-switch
 .end method

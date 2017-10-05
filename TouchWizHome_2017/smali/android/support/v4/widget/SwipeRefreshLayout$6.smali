@@ -93,13 +93,13 @@
 
     iget-object v3, p0, Landroid/support/v4/widget/SwipeRefreshLayout$6;->this$0:Landroid/support/v4/widget/SwipeRefreshLayout;
 
-    iget-object v3, v3, Landroid/support/v4/widget/SwipeRefreshLayout;->mProgress:Landroid/support/v4/widget/MaterialProgressDrawable;
+    iget-object v3, v3, Landroid/support/v4/widget/SwipeRefreshLayout;->mProgress:Landroid/support/v4/widget/CircularProgressDrawable;
 
     const/high16 v4, 0x3f800000    # 1.0f
 
     sub-float/2addr v4, p1
 
-    invoke-virtual {v3, v4}, Landroid/support/v4/widget/MaterialProgressDrawable;->setArrowScale(F)V
+    invoke-virtual {v3, v4}, Landroid/support/v4/widget/CircularProgressDrawable;->setArrowScale(F)V
 
     return-void
 

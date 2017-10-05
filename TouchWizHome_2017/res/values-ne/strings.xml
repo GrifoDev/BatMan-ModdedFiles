@@ -1,23 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="status_bar_notification_info_overflow">९९९+</string>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">खोजी इतिहास</string>
     <string name="about">%s को बारेमा</string>
     <string name="about_already_installed">सबैभन्दा नयाँ संस्करण पहिले नै स्थापित छ।</string>
+    <string name="about_app_info">एप बारे जानकारी</string>
     <string name="about_home_screen">होम स्क्रीन</string>
     <string name="about_licence">ओपन सोर्स लाइसेन्स</string>
-    <string name="about_network_err">अपडेटहरू जाँच्न सकिँदैन। तपाईको फोन नेटवर्कमा जडान गरिएको छैन।</string>
+    <string name="about_network_err_phone">अपडेटहरू जाँच्न सकिँदैन। तपाईको फोन नेटवर्कमा जडान गरिएको छैन।</string>
+    <string name="about_network_err_tablet">अपडेटहरूको जाँच गर्न सकिँदैन। तपाईको ट्याबलेटको नेटवर्क जडान स्थिर छैन।</string>
     <string name="about_new_version_exist">नयाँ संस्करण उपलब्ध छ।</string>
     <string name="about_retry">पुनः प्रयास</string>
     <string name="about_update">अपडेट गर्नुहोस्</string>
     <string name="about_version">संस्करण %s</string>
+    <string name="accessibility_add_home_screen">पृष्ठ थप्नुहोस्</string>
+    <string name="accessibility_button">बटन</string>
+    <string name="accessibility_dimmed">मधुरो बनाइयो</string>
     <string name="activity_not_available">यो एप तपाईको यन्त्रको लागि उपलब्ध छैन।</string>
     <string name="activity_not_found">अनुप्रयोग स्थापना गरिएन।</string>
+    <string name="add_to_last_page">तपाईले %1$d वस्तुहरू चयन गर्नुभएको छ, तर यस पृष्ठमा पर्याप्त खाली ठाउँ छैन। बाँकी रहेका %2$d वस्तुहरू पछिल्लो पृष्ठमा थपिने छन्।</string>
     <string name="align_to_bottom">तलतिर पङ्क्तिबद्ध गर्नुहोस्</string>
     <string name="align_to_top">माथितिर पङ्क्तिबद्ध गर्नुहोस्</string>
+    <string name="app_locked_toast">%s लक गरिएको छ।</string>
     <string name="app_search">फोनमा खोज्नुहोस्</string>
     <string name="app_search_no_apps">तपाई खोज परिणामहरूबाट होम स्क्रीनमा शर्टकटहरू थप्न सक्नुहुन्छ।</string>
     <string name="app_search_no_results_found">कुनै परिणामहरू फेला परेनन्</string>
     <string name="app_search_tablet">ट्याबलेटमा खोज्नुहोस्</string>
+    <string name="app_unlocked_toast">%s अनलक गरियो।</string>
     <string name="application_name">टचविज गृह</string>
     <string name="apply">लागू</string>
     <string name="appsPicker_add_button">थप्नुहोस्</string>
@@ -41,7 +50,8 @@
     <string name="cancel">रद्द</string>
     <string name="default_page">पूर्वनिर्धारित पृष्‍ठ</string>
     <string name="default_scroll_format">%1$d को %2$d पृष्ठ।</string>
-    <string name="disable_message">%1$s र यससँग सम्बन्धित सबै फंक्शनहरूलाई असक्षम गरिनेछ। एपलाई फेरि सक्षम गर्न, सेटिङहरू > अनुप्रयोगहरूमा जानुहोस्, त्यसपछि %2$s लाई चयन गर्नुहोस्।</string>
+    <string name="disable_message">%1$s र यससँग सम्बन्धित सबै फंक्शनहरूलाई असक्षम गरिनेछ। एपलाई फेरि सक्षम गर्न सेटिङहरू > एप्समा जानुहोस्, त्यसपछि “%2$s” लाई चयन गर्नुहोस्।</string>
+    <string name="disable_message_knox_mode">%1$s र यससँग सम्बन्धित सबै फंक्शनहरूलाई असक्षम गरिनेछ। यस एपलाई सक्षम गर्न %2$s सेटिङहरू > एप्समा जानुहोस्।</string>
     <string name="disable_message_vzw">%s र यससँग सम्बन्धी सबै सुविधाहरूलाई असक्षम गरिनेछ। यसलाई फेरि सक्षम गर्नलाई, सेटिङहरू > अनुप्रयोगहरू > अनुप्रयोग प्रबन्धकमा जानुहोस्।</string>
     <string name="discard">त्याग्नुहोस्</string>
     <string name="do_not_show_again">फेरि नदेखाउनुहोस्</string>
@@ -51,12 +61,9 @@
     <string name="folder_add_app">एप्सलाई फोल्डरमा थप्नुहोस्</string>
     <string name="folder_add_button">एप्स थप्नु</string>
     <string name="folder_closed">फोल्डर बन्द गरियो।</string>
-    <string name="folder_color">फोल्डर रङ</string>
-    <string name="folder_color_blue">नीलो</string>
-    <string name="folder_color_default">पूर्वनिर्धारित फोल्डर रंग</string>
-    <string name="folder_color_green">हरियो</string>
-    <string name="folder_color_orange">सुन्तला</string>
-    <string name="folder_color_yellow">पहेंलो</string>
+    <string name="folder_color">फोल्डरको रङ</string>
+    <string name="folder_color_default">फोल्डरको पूर्वनिर्धारित रङ</string>
+    <string name="folder_color_pd">रङ %d</string>
     <string name="folder_hint_text">फोल्डर नाम प्रविष्‍ट गर्नुहोस्</string>
     <string name="folder_microsoft_apps">Microsoft एप्स</string>
     <string name="folder_multi_search_bar_hint">एप्स खोज्नुहोस्</string>
@@ -87,6 +94,7 @@
     <string name="long_press_widget_to_add">विजिटलाई सार्नको लागि त्यसलाई ट्याप गरेर होल्ड गर्नुहोस्।</string>
     <string name="max_characters_available">%d सम्म वस्तुहरु उपलब्ध छ।</string>
     <string name="menu_edit_cancel">रद्द</string>
+    <string name="menu_navigate_up">माथि न्याभिगेट गर्नुहोस्</string>
     <string name="menu_uninstall">एप स्थापना रद्द गर्नुहोस्</string>
     <string name="move_to_home">होम स्क्रीनमा शर्टकट थप्न यहाँ तान्नुहोस्।</string>
     <string name="multi_select_add_to_personal">व्यक्तिगतमा थप्नुहोस्</string>
@@ -113,11 +121,15 @@
     <string name="new_items">%d नयाँ वस्तुहरू</string>
     <string name="new_page_created">पृष्ठ थपियो।</string>
     <string name="no_changes">कुनै परिवर्तन छैन।</string>
+    <string name="no_space_page">पृष्ठमा कुनै खाली ठाउँ छैन। कुनै फरक अर्को पृष्ठमा शर्टकट थपी हेर्नुहोस्।</string>
+    <string name="no_space_page_for_widget">यस पृष्ठमा खाली ठाउँ छैन।</string>
     <string name="not_selected">चयन गरिएको छैन</string>
+    <string name="notification_panel_setting_summary">होम स्क्रीनबाट सूचना प्यानल खोल्न तलतिर स्वाइप गर्नुहोस्।</string>
+    <string name="notification_panel_setting_title">द्रुत रूपमा सूचना प्यानल खोल्ने</string>
     <string name="ok">ठीक छ</string>
     <string name="only_one_widget_instance_allowed">%s विजेटलाई पहिले नै होम स्क्रीनमा थपिएको छ।</string>
     <string name="option_menu_contact_up">हामीलाई सम्पर्क गर्नुहोस्</string>
-    <string name="option_menu_galaxy_essentials">GALAXY Essentials</string>
+    <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">सेटिङहरू</string>
     <string name="options_menu">थप विकल्पहरू</string>
     <string name="options_menu_search_recommend">खोजीका विकल्पहरू</string>
@@ -128,7 +140,7 @@
     <string name="out_of_space">यो पेजमा थप कोठा छैनन्</string>
     <string name="out_of_space_dialog">यस पृष्ठमा कुनै थप स्थान छैन। यस वस्तुलाई एउटा नयाँ पृष्ठमा थपिनेछ।</string>
     <string name="permdesc_install_widget">यो एपले होम स्क्रीनमा विजेटहरू थप्न सक्छ।</string>
-    <string name="permdesc_read_settings">This app can read the Home screen settings and shortcuts.</string>
+    <string name="permdesc_read_settings">यो एपले तपाईको होम स्क्रीनका सेटिङ र शर्टकटहरू पढ्न सक्छ।</string>
     <string name="permdesc_read_zeropage_settings">यस एपले होम स्क्रीनको बायाँतर्फ रहेको अनुकूल बनाउन मिल्ने पृष्ठका सेटिङहरू पढ्न सक्छ।</string>
     <string name="permdesc_write_zeropage_settings">यस एपले होम स्क्रीनको बायाँतर्फ रहेको अनुकूल बनाउन मिल्ने पृष्ठका सेटिङहरूलाई परिवर्तन गर्न सक्छ।</string>
     <string name="permlab_install_widget">विजेटहरू थप्नुहोस्</string>
@@ -141,7 +153,7 @@
     <string name="quick_option_app_info">एप जानकारी</string>
     <string name="quick_option_cant_disable">%s लाई असक्षम गर्न सकिँदैन।</string>
     <string name="quick_option_clear_badge">ब्याज खाली गर्नुहोस्</string>
-    <string name="quick_option_delete_folder">फोल्डर मेटाउनुहोस्</string>
+    <string name="quick_option_delete_folder">फोल्डर मेटाउनु</string>
     <string name="quick_option_delete_folder_alert">%s फोल्डरलाई मेटिनेछ। यो फोल्डर भित्र रहेका एप्स भने अझै पनि एप्स स्क्रीनमा उपलब्ध हुनेछन्।</string>
     <string name="quick_option_delete_folder_alert_no_title">यस फोल्डरलाई मेटिनेछ। यो फोल्डर भित्र रहेका एप्स भने अझै पनि एप्स स्क्रीनमा उपलब्ध हुनेछन्।</string>
     <string name="quick_option_dimmed_disable">असक्षम गर्नु</string>
@@ -159,6 +171,8 @@
     <string name="quick_option_unlock">अनलक</string>
     <string name="remove_popup_msg">पृष्‍ठ मेटाउने हो?</string>
     <string name="remove_popup_positive">मेटाउनुहोस्</string>
+    <string name="safemode_shortcut_error">सुरक्षित मोड सक्षम गरिएको बेला डाउनलोड गरिएका एप्स असक्षम गरियो।</string>
+    <string name="safemode_widget_error">सुरक्षित मोडलाई सक्षम गरिएको बेला विजेटहरूलाई असक्षम पारिन्छ।</string>
     <string name="screen_grid_explain_text">"होम स्क्रीन लेआउटसँग मिलान गर्न एप्स स्क्रीन लेआउटलाई
 %1$d x %2$d मा परिवर्तन गरिनेछ।"</string>
     <string name="search_for_widgets">विजेटहरू खोज्नुहोस्</string>
@@ -168,18 +182,30 @@
     <string name="shortcut_installed">%s को शर्टकटलाई होम स्क्रीनमा थपियो।</string>
     <string name="shortcut_moved_to_game_launcher">गेमको प्रतिमालाई Game Launcher मा सारियो।</string>
     <string name="shortcut_uninstalled">शर्टकट %s हटाइयो।</string>
+    <string name="sound_mode_to_sound">ध्वनि मोडलाई ध्वनिमा तय गरिएको छ।</string>
+    <string name="sound_mode_to_vibrate">ध्वनि मोडलाई भाइब्रेटमा तय गरिएको छ।</string>
     <string name="speak_now">अहिले बोल्नुहोस</string>
     <string name="swipe_up_for_more_apps">सबै एप्स हेर्न माथि वा तल स्वाइप गर्नुहोस्</string>
     <string name="swipe_up_for_more_apps_att">सबै एप्सका लागि स्क्रीनमा माथि वा तल स्वाइप गर्नुहोस्</string>
+    <string name="swipe_up_for_more_apps_quick_noti_pannel_on">सबै एप्सका लागि माथितिर स्वाइप गर्नुहोस्</string>
+    <string name="swipe_up_for_more_apps_quick_noti_pannel_on_att">सबै एप्सका लागि स्क्रीनमा माथितिर स्वाइप गर्नुहोस्</string>
+    <string name="swipe_up_for_more_apps_quick_noti_pannel_on_tts">सबै एप्सका लागि दुई औंलाले माथि वा तलतिर स्वाइप गर्नुहोस्।</string>
     <string name="swipe_up_for_more_apps_with_two_fingers">सबै एप्सका हेर्न दुई औंलाले माथि वा तल स्वाइप गर्नुहोस्।</string>
-    <string name="talkback_checked">चयन गरियो</string>
+    <string name="talkback_changed_to_ps">%s मा परिवर्तन गरियो।</string>
     <string name="talkback_folder">फोल्डर</string>
     <string name="talkback_n_items">%d वस्तुहरू</string>
     <string name="talkback_press_back_key_to_close_folder">फोल्डर बन्द गर्न पछाडि कुञ्जी थिच्नुहोस्।</string>
+    <string name="talkback_tab_back_button_to_close_folder">फोल्डर बन्द गर्न पछाडि बटनलाई थिच्नुहोस्।</string>
+    <string name="talkback_widget_dims_format">%1$d बाई %2$d</string>
     <string name="title_settings">%s सेटिङहरू</string>
     <string name="tts_add_shortcut_on_home_screen_notice">होम स्क्रीनमा थप्न प्रतिमालाई स्क्रीनको माथिल्लो भागमा तान्नुहोस्।</string>
     <string name="tts_bottom_handle">तल्लो ह्यान्डल</string>
+    <string name="tts_changed_to_apps_edit_mode">एप्स सम्पादन गर्ने मोडमा परिवर्तन गरियो।</string>
+    <string name="tts_changed_to_folder_edit_mode">फोल्डर सम्पादन मोडमा परिवर्तन गरियो</string>
+    <string name="tts_changed_to_home_screen_edit_mode">होम स्क्रीन सम्पादन गर्ने मोडमा परिवर्तन गरियो।</string>
     <string name="tts_folder_created">फोल्डर बनाइयो।</string>
+    <string name="tts_holding_items">%1$s र %2$d अन्यलाई होल्ड गर्दै</string>
+    <string name="tts_hotseat_item_moved_from_external">होम स्क्रीनको मेनु बारमा वस्तु सारियो।</string>
     <string name="tts_hotseat_move_to">मेनु पट्टीमा %d स्थिति।</string>
     <string name="tts_hover_item_over_other_item">%2$s को शीर्ष भागमा रहेको %1$s</string>
     <string name="tts_item_added">वस्तु थपियो।</string>
@@ -200,6 +226,7 @@
     <string name="viewmore_playstore">Play Store मा थप कुराहरू हेर्नु</string>
     <string name="viewtype_alphabetic_grid">वर्णानुक्रमानुसार</string>
     <string name="viewtype_custom_grid">कस्टम अर्डर</string>
+    <string name="voice_search">भ्वाइस खोज</string>
     <string name="wallpaper_button_text">वालपेपरहरू</string>
     <string name="wallpapers_and_themes_button_text">वालपेपर र थीमहरू</string>
     <string name="widget_button_text">विजेटहरू</string>
@@ -209,4 +236,5 @@
     <string name="zeropage_download_msg">यो फंक्शन प्रयोग गर्न तपाईले %1$s स्थापना गर्न आवश्यक छ। %2$s लाई डाउनलोड गरी स्थापना गर्न “डाउनलोड गर्नुहोस्” मा ट्याप गर्नुहोस्।</string>
     <string name="zeropage_hellobixby_title">Hello Bixby</string>
     <string name="zeropage_sohu_title">सोहु समाचार</string>
+    <string name="zeropage_toutiao_title">जानकारीको एक्सप्रेस</string>
 </resources>

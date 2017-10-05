@@ -12,8 +12,6 @@
 # static fields
 .field private static final EXTRA_DATA_TYPE_RESULTS_DATA:Ljava/lang/String; = "android.remoteinput.dataTypeResultsData"
 
-.field public static final EXTRA_RESULTS_DATA:Ljava/lang/String; = "android.remoteinput.resultsData"
-
 .field private static final KEY_ALLOWED_DATA_TYPES:Ljava/lang/String; = "allowedDataTypes"
 
 .field private static final KEY_ALLOW_FREE_FORM_INPUT:Ljava/lang/String; = "allowFreeFormInput"
@@ -25,8 +23,6 @@
 .field private static final KEY_LABEL:Ljava/lang/String; = "label"
 
 .field private static final KEY_RESULT_KEY:Ljava/lang/String; = "resultKey"
-
-.field public static final RESULTS_CLIP_LABEL:Ljava/lang/String; = "android.remoteinput.results"
 
 
 # direct methods

@@ -3,12 +3,12 @@
 .source "AppsController.java"
 
 # interfaces
-.implements Lcom/android/launcher3/allapps/AppsViewTypeDialog$OnViewTypeChagnedListener;
+.implements Landroid/view/View$OnClickListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/allapps/controller/AppsController;->chooseViewType()V
+    value = Lcom/android/launcher3/allapps/controller/AppsController;->initStageView()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,12 +34,16 @@
 
 
 # virtual methods
-.method public onResult(Lcom/android/launcher3/allapps/controller/AppsController$ViewType;)V
-    .locals 1
+.method public onClick(Landroid/view/View;)V
+    .locals 3
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController$4;->this$0:Lcom/android/launcher3/allapps/controller/AppsController;
 
-    invoke-virtual {v0, p1}, Lcom/android/launcher3/allapps/controller/AppsController;->setViewType(Lcom/android/launcher3/allapps/controller/AppsController$ViewType;)V
+    const/4 v1, 0x0
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/launcher3/allapps/controller/AppsController;->changeState(IZ)Z
 
     return-void
 .end method

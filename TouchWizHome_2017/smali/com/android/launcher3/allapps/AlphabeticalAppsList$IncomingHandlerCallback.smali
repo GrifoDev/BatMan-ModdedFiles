@@ -137,21 +137,21 @@
 
     move-result-object v4
 
-    new-instance v2, Lcom/android/launcher3/appssearch/ItemDetails;
+    new-instance v2, Lcom/android/launcher3/allapps/ItemDetails;
 
-    invoke-direct {v2}, Lcom/android/launcher3/appssearch/ItemDetails;-><init>()V
+    invoke-direct {v2}, Lcom/android/launcher3/allapps/ItemDetails;-><init>()V
 
-    invoke-virtual {v2, v7}, Lcom/android/launcher3/appssearch/ItemDetails;->setName(Ljava/lang/String;)V
+    invoke-virtual {v2, v7}, Lcom/android/launcher3/allapps/ItemDetails;->setName(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v0}, Lcom/android/launcher3/appssearch/ItemDetails;->setPkgName(Ljava/lang/String;)V
+    invoke-virtual {v2, v0}, Lcom/android/launcher3/allapps/ItemDetails;->setPkgName(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v1}, Lcom/android/launcher3/appssearch/ItemDetails;->setIconImage(Landroid/graphics/Bitmap;)V
+    invoke-virtual {v2, v1}, Lcom/android/launcher3/allapps/ItemDetails;->setIconImage(Landroid/graphics/Bitmap;)V
 
-    invoke-virtual {v2, v5}, Lcom/android/launcher3/appssearch/ItemDetails;->setItemSeller(Ljava/lang/String;)V
+    invoke-virtual {v2, v5}, Lcom/android/launcher3/allapps/ItemDetails;->setItemSeller(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v3}, Lcom/android/launcher3/appssearch/ItemDetails;->setPrice(Ljava/lang/String;)V
+    invoke-virtual {v2, v3}, Lcom/android/launcher3/allapps/ItemDetails;->setPrice(Ljava/lang/String;)V
 
-    invoke-virtual {v2, v4}, Lcom/android/launcher3/appssearch/ItemDetails;->setRating(Ljava/lang/String;)V
+    invoke-virtual {v2, v4}, Lcom/android/launcher3/allapps/ItemDetails;->setRating(Ljava/lang/String;)V
 
     iget-object v8, p0, Lcom/android/launcher3/allapps/AlphabeticalAppsList$IncomingHandlerCallback;->this$0:Lcom/android/launcher3/allapps/AlphabeticalAppsList;
 

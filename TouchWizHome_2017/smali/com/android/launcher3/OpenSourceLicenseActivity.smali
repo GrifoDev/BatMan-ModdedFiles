@@ -35,7 +35,7 @@
 
     const/4 v2, 0x0
 
-    const/high16 v1, 0x7f030000
+    const/high16 v1, 0x7f040000
 
     invoke-virtual {p0, v1}, Lcom/android/launcher3/OpenSourceLicenseActivity;->setContentView(I)V
 
@@ -47,7 +47,7 @@
 
     invoke-virtual {v0, v1}, Landroid/app/ActionBar;->setDisplayOptions(I)V
 
-    const v1, 0x7f0f000a
+    const v1, 0x7f11000f
 
     invoke-virtual {p0, v1}, Lcom/android/launcher3/OpenSourceLicenseActivity;->findViewById(I)Landroid/view/View;
 
@@ -112,7 +112,7 @@
 .method protected onResume()V
     .locals 2
 
-    const v0, 0x7f080004
+    const v0, 0x7f090006
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/OpenSourceLicenseActivity;->setTitle(I)V
 

@@ -13,6 +13,8 @@
 
 
 # static fields
+.field private static final ALLOWED_CALLING_APP:Ljava/lang/String; = "allowedCallingApp"
+
 .field private static final CALL_GRID_SIZE:Ljava/lang/String; = "gridSize"
 
 .field public static final COL_APPS_ADD:Ljava/lang/String; = "isAppsAdd"
@@ -420,32 +422,43 @@
 
 # virtual methods
 .method public call(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
-    .locals 8
+    .locals 7
 
-    const/4 v7, 0x1
+    const/4 v4, 0x0
 
-    const/4 v5, 0x0
+    const/4 v5, 0x1
 
     const/4 v1, 0x0
 
-    const/4 v4, -0x1
+    const/4 v3, -0x1
 
     invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
 
     move-result v6
 
-    packed-switch v6, :pswitch_data_0
+    sparse-switch v6, :sswitch_data_0
 
     :cond_0
     :goto_0
-    packed-switch v4, :pswitch_data_1
-
-    move-object v2, v1
+    packed-switch v3, :pswitch_data_0
 
     :goto_1
-    return-object v2
+    return-object v1
 
-    :pswitch_0
+    :sswitch_0
+    const-string v6, "allowedCallingApp"
+
+    invoke-virtual {p1, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_0
+
+    move v3, v4
+
+    goto :goto_0
+
+    :sswitch_1
     const-string v6, "gridSize"
 
     invoke-virtual {p1, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
@@ -454,60 +467,73 @@
 
     if-eqz v6, :cond_0
 
-    move v4, v5
+    move v3, v5
 
     goto :goto_0
 
-    :pswitch_1
-    const/4 v4, 0x2
-
-    new-array v3, v4, [I
-
-    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Lcom/android/launcher3/LauncherAppState;->getDeviceProfile()Lcom/android/launcher3/common/deviceprofile/DeviceProfile;
-
-    move-result-object v0
-
-    iget-object v4, v0, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->homeGrid:Lcom/android/launcher3/common/deviceprofile/GridInfo;
-
-    invoke-virtual {v4}, Lcom/android/launcher3/common/deviceprofile/GridInfo;->getCellCountX()I
-
-    move-result v4
-
-    aput v4, v3, v5
-
-    iget-object v4, v0, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->homeGrid:Lcom/android/launcher3/common/deviceprofile/GridInfo;
-
-    invoke-virtual {v4}, Lcom/android/launcher3/common/deviceprofile/GridInfo;->getCellCountY()I
-
-    move-result v4
-
-    aput v4, v3, v7
-
+    :pswitch_0
     new-instance v1, Landroid/os/Bundle;
 
-    invoke-direct {v1, v7}, Landroid/os/Bundle;-><init>(I)V
+    invoke-direct {v1, v5}, Landroid/os/Bundle;-><init>(I)V
 
-    const-string v4, "gridSize"
+    const-string v3, "allowedCallingApp"
 
-    invoke-virtual {v1, v4, v3}, Landroid/os/Bundle;->putIntArray(Ljava/lang/String;[I)V
+    invoke-virtual {p0}, Lcom/android/launcher3/common/customer/PostPositionProvider;->isAllowedCallingApp()Z
 
-    move-object v2, v1
+    move-result v4
+
+    invoke-virtual {v1, v3, v4}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
     goto :goto_1
 
-    nop
+    :pswitch_1
+    const/4 v3, 0x2
+
+    new-array v2, v3, [I
+
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/android/launcher3/LauncherAppState;->getDeviceProfile()Lcom/android/launcher3/common/deviceprofile/DeviceProfile;
+
+    move-result-object v0
+
+    iget-object v3, v0, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->homeGrid:Lcom/android/launcher3/common/deviceprofile/GridInfo;
+
+    invoke-virtual {v3}, Lcom/android/launcher3/common/deviceprofile/GridInfo;->getCellCountX()I
+
+    move-result v3
+
+    aput v3, v2, v4
+
+    iget-object v3, v0, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->homeGrid:Lcom/android/launcher3/common/deviceprofile/GridInfo;
+
+    invoke-virtual {v3}, Lcom/android/launcher3/common/deviceprofile/GridInfo;->getCellCountY()I
+
+    move-result v3
+
+    aput v3, v2, v5
+
+    new-instance v1, Landroid/os/Bundle;
+
+    invoke-direct {v1, v5}, Landroid/os/Bundle;-><init>(I)V
+
+    const-string v3, "gridSize"
+
+    invoke-virtual {v1, v3, v2}, Landroid/os/Bundle;->putIntArray(Ljava/lang/String;[I)V
+
+    goto :goto_1
+
+    :sswitch_data_0
+    .sparse-switch
+        -0x6258917b -> :sswitch_0
+        0x12f4cc67 -> :sswitch_1
+    .end sparse-switch
 
     :pswitch_data_0
-    .packed-switch 0x12f4cc67
-        :pswitch_0
-    .end packed-switch
-
-    :pswitch_data_1
     .packed-switch 0x0
+        :pswitch_0
         :pswitch_1
     .end packed-switch
 .end method
@@ -1872,59 +1898,61 @@
 .method isAllowedCallingApp()Z
     .locals 7
 
+    const/4 v4, 0x1
+
     const/4 v3, 0x0
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v4
+    move-result v5
 
     invoke-static {}, Landroid/os/Process;->myUid()I
 
-    move-result v5
+    move-result v6
 
-    if-eq v4, v5, :cond_5
+    if-eq v5, v6, :cond_6
 
-    iget-object v4, p0, Lcom/android/launcher3/common/customer/PostPositionProvider;->mWhiteListApps:[Ljava/lang/String;
+    iget-object v5, p0, Lcom/android/launcher3/common/customer/PostPositionProvider;->mWhiteListApps:[Ljava/lang/String;
 
-    if-eqz v4, :cond_0
+    if-eqz v5, :cond_0
 
-    iget-object v4, p0, Lcom/android/launcher3/common/customer/PostPositionProvider;->mWhiteListApps:[Ljava/lang/String;
+    iget-object v5, p0, Lcom/android/launcher3/common/customer/PostPositionProvider;->mWhiteListApps:[Ljava/lang/String;
 
-    array-length v4, v4
+    array-length v5, v5
 
-    if-nez v4, :cond_1
+    if-nez v5, :cond_1
 
     :cond_0
     invoke-virtual {p0}, Lcom/android/launcher3/common/customer/PostPositionProvider;->getContext()Landroid/content/Context;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v4}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v5}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v4
+    move-result-object v5
 
-    const v5, 0x7f0a000b
+    const v6, 0x7f0c000b
 
-    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
+    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v5
 
-    iput-object v4, p0, Lcom/android/launcher3/common/customer/PostPositionProvider;->mWhiteListApps:[Ljava/lang/String;
+    iput-object v5, p0, Lcom/android/launcher3/common/customer/PostPositionProvider;->mWhiteListApps:[Ljava/lang/String;
 
     :cond_1
     invoke-virtual {p0}, Lcom/android/launcher3/common/customer/PostPositionProvider;->getContext()Landroid/content/Context;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-virtual {v4}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v5}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v4
+    move-result-object v5
 
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v5
+    move-result v6
 
-    invoke-virtual {v4, v5}, Landroid/content/pm/PackageManager;->getNameForUid(I)Ljava/lang/String;
+    invoke-virtual {v5, v6}, Landroid/content/pm/PackageManager;->getNameForUid(I)Ljava/lang/String;
 
     move-result-object v0
 
@@ -1939,27 +1967,51 @@
     const/4 v1, 0x0
 
     :goto_1
-    iget-object v4, p0, Lcom/android/launcher3/common/customer/PostPositionProvider;->mWhiteListApps:[Ljava/lang/String;
+    iget-object v5, p0, Lcom/android/launcher3/common/customer/PostPositionProvider;->mWhiteListApps:[Ljava/lang/String;
 
-    array-length v4, v4
+    array-length v5, v5
 
-    if-ge v1, v4, :cond_3
+    if-ge v1, v5, :cond_3
 
-    iget-object v4, p0, Lcom/android/launcher3/common/customer/PostPositionProvider;->mWhiteListApps:[Ljava/lang/String;
+    iget-object v5, p0, Lcom/android/launcher3/common/customer/PostPositionProvider;->mWhiteListApps:[Ljava/lang/String;
 
-    aget-object v4, v4, v1
+    aget-object v5, v5, v1
 
-    invoke-virtual {v4, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {v5, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
-    move-result v4
+    move-result v5
 
-    if-eqz v4, :cond_4
+    if-eqz v5, :cond_4
 
     const/4 v2, 0x1
 
     :cond_3
-    if-nez v2, :cond_5
+    if-nez v2, :cond_6
 
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->isDreamProject()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_5
+
+    const-string v5, "com.verizon.mips.services"
+
+    invoke-virtual {v5, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_5
+
+    move v3, v4
+
+    goto :goto_0
+
+    :cond_4
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_1
+
+    :cond_5
     const-string v4, "PostPositionProvider"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -1984,13 +2036,8 @@
 
     goto :goto_0
 
-    :cond_4
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_1
-
-    :cond_5
-    const/4 v3, 0x1
+    :cond_6
+    move v3, v4
 
     goto :goto_0
 .end method

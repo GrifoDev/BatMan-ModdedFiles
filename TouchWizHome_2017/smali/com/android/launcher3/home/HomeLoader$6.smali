@@ -20,15 +20,15 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/home/HomeLoader;
 
+.field final synthetic val$folders:Lcom/android/launcher3/util/LongArrayMap;
+
 .field final synthetic val$oldCallbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
 
 .field final synthetic val$task:Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;
 
-.field final synthetic val$widget:Lcom/android/launcher3/home/LauncherAppWidgetInfo;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;Lcom/android/launcher3/home/LauncherAppWidgetInfo;)V
+.method constructor <init>(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;Lcom/android/launcher3/util/LongArrayMap;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/home/HomeLoader$6;->this$0:Lcom/android/launcher3/home/HomeLoader;
@@ -37,7 +37,7 @@
 
     iput-object p3, p0, Lcom/android/launcher3/home/HomeLoader$6;->val$task:Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;
 
-    iput-object p4, p0, Lcom/android/launcher3/home/HomeLoader$6;->val$widget:Lcom/android/launcher3/home/LauncherAppWidgetInfo;
+    iput-object p4, p0, Lcom/android/launcher3/home/HomeLoader$6;->val$folders:Lcom/android/launcher3/util/LongArrayMap;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -55,15 +55,15 @@
 
     iget-object v3, p0, Lcom/android/launcher3/home/HomeLoader$6;->val$task:Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;
 
-    invoke-static {v1, v2, v3}, Lcom/android/launcher3/home/HomeLoader;->access$4200(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
+    invoke-static {v1, v2, v3}, Lcom/android/launcher3/home/HomeLoader;->access$5200(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeLoader$6;->val$widget:Lcom/android/launcher3/home/LauncherAppWidgetInfo;
+    iget-object v1, p0, Lcom/android/launcher3/home/HomeLoader$6;->val$folders:Lcom/android/launcher3/util/LongArrayMap;
 
-    invoke-interface {v0, v1}, Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;->bindAppWidget(Lcom/android/launcher3/home/LauncherAppWidgetInfo;)V
+    invoke-interface {v0, v1}, Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;->bindFolders(Lcom/android/launcher3/util/LongArrayMap;)V
 
     :cond_0
     return-void

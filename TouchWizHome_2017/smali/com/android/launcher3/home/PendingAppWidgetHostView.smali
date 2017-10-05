@@ -122,7 +122,7 @@
 
     invoke-virtual {v0, v1}, Landroid/text/TextPaint;->setTextSize(F)V
 
-    const v0, 0x7f0200d8
+    const v0, 0x7f0200db
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/PendingAppWidgetHostView;->setBackgroundResource(I)V
 
@@ -132,7 +132,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090132
+    const v1, 0x7f0a017b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -174,7 +174,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090133
+    const v3, 0x7f0a017c
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -336,7 +336,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f080179
+    const v4, 0x7f090198
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -659,7 +659,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/PendingAppWidgetHostView;->mInflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x7f03001a
+    const v1, 0x7f04001b
 
     const/4 v2, 0x0
 
@@ -934,7 +934,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0200c8
+    const v5, 0x7f0200c0
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

@@ -19,11 +19,11 @@
 
 .field public height:I
 
-.field scaleToResize:F
+.field public scaleToResize:F
 
-.field visibleHeight:I
+.field public visibleHeight:I
 
-.field visibleWidth:I
+.field public visibleWidth:I
 
 .field public width:I
 

@@ -15,6 +15,8 @@
 
 .field private static sPackageName:Ljava/lang/String;
 
+.field private static sUserId:Ljava/lang/String;
+
 
 # direct methods
 .method static constructor <clinit>()V
@@ -39,10 +41,20 @@
     return-void
 .end method
 
-.method public static createAndShow(Lcom/android/launcher3/Launcher;Ljava/lang/String;)V
+.method public static createAndShow(Lcom/android/launcher3/Launcher;Lcom/android/launcher3/common/compat/UserHandleCompat;Ljava/lang/String;)V
     .locals 3
 
-    sput-object p1, Lcom/android/launcher3/common/dialog/SleepAppConfirmationDialog;->sPackageName:Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/android/launcher3/common/compat/UserHandleCompat;->hashCode()I
+
+    move-result v1
+
+    invoke-static {v1}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    sput-object v1, Lcom/android/launcher3/common/dialog/SleepAppConfirmationDialog;->sUserId:Ljava/lang/String;
+
+    sput-object p2, Lcom/android/launcher3/common/dialog/SleepAppConfirmationDialog;->sPackageName:Ljava/lang/String;
 
     new-instance v0, Lcom/android/launcher3/common/dialog/SleepAppConfirmationDialog;
 
@@ -109,11 +121,15 @@
 
     const/4 v12, 0x1
 
-    const/4 v5, 0x0
+    const/4 v11, 0x0
 
     const/4 v0, -0x1
 
     if-ne p2, v0, :cond_0
+
+    sget-object v0, Lcom/android/launcher3/common/dialog/SleepAppConfirmationDialog;->sUserId:Ljava/lang/String;
+
+    if-eqz v0, :cond_0
 
     sget-object v0, Lcom/android/launcher3/common/dialog/SleepAppConfirmationDialog;->sPackageName:Ljava/lang/String;
 
@@ -125,15 +141,15 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "Requesting sleep app... : "
+    const-string v5, "Requesting sleep app... : "
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    sget-object v3, Lcom/android/launcher3/common/dialog/SleepAppConfirmationDialog;->sPackageName:Ljava/lang/String;
+    sget-object v5, Lcom/android/launcher3/common/dialog/SleepAppConfirmationDialog;->sPackageName:Ljava/lang/String;
 
-    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
@@ -147,16 +163,33 @@
 
     const-string v0, "extras"
 
-    aput-object v0, v2, v5
+    aput-object v0, v2, v11
 
-    const-string v11, "package_name = ?"
+    invoke-virtual {p0}, Lcom/android/launcher3/common/dialog/SleepAppConfirmationDialog;->getActivity()Landroid/app/Activity;
 
-    new-array v4, v12, [Ljava/lang/String;
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/launcher3/util/AppFreezerUtils;->isSupportUID(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const-string v3, "uid = ? AND package_name = ?"
+
+    const/4 v0, 0x2
+
+    new-array v4, v0, [Ljava/lang/String;
+
+    sget-object v0, Lcom/android/launcher3/common/dialog/SleepAppConfirmationDialog;->sUserId:Ljava/lang/String;
+
+    aput-object v0, v4, v11
 
     sget-object v0, Lcom/android/launcher3/common/dialog/SleepAppConfirmationDialog;->sPackageName:Ljava/lang/String;
 
-    aput-object v0, v4, v5
+    aput-object v0, v4, v12
 
+    :goto_0
     const/4 v6, 0x0
 
     :try_start_0
@@ -170,22 +203,20 @@
 
     sget-object v1, Lcom/android/launcher3/common/dialog/SleepAppConfirmationDialog;->SLEEP_APP_URI:Landroid/net/Uri;
 
-    const-string v3, "package_name = ?"
-
     const/4 v5, 0x0
 
     invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
     move-result-object v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_2
 
-    :goto_0
+    :goto_1
     invoke-interface {v6}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     new-instance v10, Landroid/content/ContentValues;
 
@@ -206,8 +237,6 @@
     move-result-object v0
 
     sget-object v1, Lcom/android/launcher3/common/dialog/SleepAppConfirmationDialog;->SLEEP_APP_URI:Landroid/net/Uri;
-
-    const-string v3, "package_name = ?"
 
     invoke-virtual {v0, v1, v10, v3, v4}, Landroid/content/ContentResolver;->update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
 
@@ -244,7 +273,7 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    goto :goto_0
+    goto :goto_1
 
     :catch_0
     move-exception v7
@@ -259,24 +288,35 @@
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
     :cond_0
-    :goto_1
+    :goto_2
     return-void
 
     :cond_1
+    const-string v3, "package_name = ?"
+
+    new-array v4, v12, [Ljava/lang/String;
+
+    sget-object v0, Lcom/android/launcher3/common/dialog/SleepAppConfirmationDialog;->sPackageName:Ljava/lang/String;
+
+    aput-object v0, v4, v11
+
+    goto :goto_0
+
+    :cond_2
     if-eqz v6, :cond_0
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    goto :goto_1
+    goto :goto_2
 
     :catchall_0
     move-exception v0
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_3
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    :cond_2
+    :cond_3
     throw v0
 .end method
 
@@ -291,19 +331,19 @@
 
     invoke-direct {v2, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f08009a
+    const v3, 0x7f0900a6
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v2
 
-    const v3, 0x7f080072
+    const v3, 0x7f09007e
 
     invoke-virtual {v2, v3, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v2
 
-    const v3, 0x7f080026
+    const v3, 0x7f09002f
 
     invoke-virtual {v2, v3, p0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

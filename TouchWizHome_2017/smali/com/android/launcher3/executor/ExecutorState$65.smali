@@ -31,11 +31,11 @@
 .method public create()Lcom/android/launcher3/executor/StateHandler;
     .locals 2
 
-    new-instance v0, Lcom/android/launcher3/executor/HomeSettingChangeToHomeAppsScreenPopupStateHandler;
+    new-instance v0, Lcom/android/launcher3/executor/HomeSettingsChangeGridStateHandler;
 
-    sget-object v1, Lcom/android/launcher3/executor/ExecutorState;->HOME_SETTINGS_CHANGE_TO_HOME_APPS_POPUP:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v1, Lcom/android/launcher3/executor/ExecutorState;->HOME_SETTINGS_CHANGE_GRID:Lcom/android/launcher3/executor/ExecutorState;
 
-    invoke-direct {v0, v1}, Lcom/android/launcher3/executor/HomeSettingChangeToHomeAppsScreenPopupStateHandler;-><init>(Lcom/android/launcher3/executor/ExecutorState;)V
+    invoke-direct {v0, v1}, Lcom/android/launcher3/executor/HomeSettingsChangeGridStateHandler;-><init>(Lcom/android/launcher3/executor/ExecutorState;)V
 
     return-object v0
 .end method

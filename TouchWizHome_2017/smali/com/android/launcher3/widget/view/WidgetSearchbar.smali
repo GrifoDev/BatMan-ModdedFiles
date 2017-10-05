@@ -68,9 +68,9 @@
 
     const/4 v6, 0x0
 
-    const v5, 0x7f0d0035
+    const v5, 0x7f0e003f
 
-    const v4, 0x7f0d0027
+    const v4, 0x7f0e002f
 
     const/4 v3, 0x1
 
@@ -94,7 +94,7 @@
 
     aget-object v0, v0, v2
 
-    const v1, 0x7f0d0034
+    const v1, 0x7f0e003e
 
     iput v1, v0, Lcom/android/launcher3/widget/view/WidgetSearchbar$Style;->textColorId:I
 
@@ -114,7 +114,7 @@
 
     aget-object v0, v0, v2
 
-    const v1, 0x7f0d0029
+    const v1, 0x7f0e0031
 
     iput v1, v0, Lcom/android/launcher3/widget/view/WidgetSearchbar$Style;->dividerColorId:I
 
@@ -142,7 +142,7 @@
 
     aget-object v0, v0, v3
 
-    const v1, 0x7f0d0028
+    const v1, 0x7f0e0030
 
     iput v1, v0, Lcom/android/launcher3/widget/view/WidgetSearchbar$Style;->backgroundColorId:I
 
@@ -150,7 +150,7 @@
 
     aget-object v0, v0, v3
 
-    const v1, 0x7f0d002a
+    const v1, 0x7f0e0032
 
     iput v1, v0, Lcom/android/launcher3/widget/view/WidgetSearchbar$Style;->dividerColorId:I
 
@@ -194,9 +194,9 @@
 
     iput-object v0, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mState:Lcom/android/launcher3/widget/controller/WidgetState$State;
 
-    new-instance v0, Lcom/android/launcher3/widget/view/WidgetSearchbar$4;
+    new-instance v0, Lcom/android/launcher3/widget/view/WidgetSearchbar$5;
 
-    invoke-direct {v0, p0}, Lcom/android/launcher3/widget/view/WidgetSearchbar$4;-><init>(Lcom/android/launcher3/widget/view/WidgetSearchbar;)V
+    invoke-direct {v0, p0}, Lcom/android/launcher3/widget/view/WidgetSearchbar$5;-><init>(Lcom/android/launcher3/widget/view/WidgetSearchbar;)V
 
     iput-object v0, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mMenuItemClickListener:Landroid/widget/PopupMenu$OnMenuItemClickListener;
 
@@ -614,15 +614,17 @@
 .end method
 
 .method public enter(Lcom/android/launcher3/widget/controller/WidgetState$State;Landroid/animation/AnimatorSet;)V
-    .locals 7
+    .locals 8
 
     const/4 v3, 0x0
+
+    const/4 v7, 0x1
 
     const/4 v6, 0x0
 
     sget-object v0, Lcom/android/launcher3/widget/controller/WidgetState$State;->NORMAL:Lcom/android/launcher3/widget/controller/WidgetState$State;
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_3
 
     iget-object v0, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mSearchView:Landroid/widget/SearchView;
 
@@ -640,13 +642,27 @@
 
     :cond_0
     :goto_0
+    sget-object v0, Lcom/android/launcher3/widget/controller/WidgetState$State;->NORMAL:Lcom/android/launcher3/widget/controller/WidgetState$State;
+
+    if-eq p1, v0, :cond_1
+
+    sget-object v0, Lcom/android/launcher3/widget/controller/WidgetState$State;->SEARCH:Lcom/android/launcher3/widget/controller/WidgetState$State;
+
+    if-ne p1, v0, :cond_2
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mSearchEditText:Landroid/widget/TextView;
+
+    invoke-virtual {v0, v7}, Landroid/widget/TextView;->setEnabled(Z)V
+
+    :cond_2
     iput-object p1, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mState:Lcom/android/launcher3/widget/controller/WidgetState$State;
 
     invoke-direct {p0}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->updateMoreIconVisibity()V
 
     return-void
 
-    :cond_1
+    :cond_3
     sget-object v0, Lcom/android/launcher3/widget/controller/WidgetState$State;->SEARCH:Lcom/android/launcher3/widget/controller/WidgetState$State;
 
     if-ne p1, v0, :cond_0
@@ -655,7 +671,11 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_4
+
+    iget-object v0, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mSearchEditText:Landroid/widget/TextView;
+
+    invoke-virtual {v0, v7}, Landroid/widget/TextView;->semSetDirectPenInputEnabled(Z)V
 
     iget-object v0, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mSearchView:Landroid/widget/SearchView;
 
@@ -675,7 +695,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/AutoCompleteTextView;->setFilters([Landroid/text/InputFilter;)V
 
-    :cond_2
+    :cond_4
     invoke-static {}, Lcom/android/launcher3/util/logging/SALogging;->getInstance()Lcom/android/launcher3/util/logging/SALogging;
 
     move-result-object v0
@@ -684,7 +704,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f08019f
+    const v2, 0x7f0901bc
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -694,7 +714,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f08016c
+    const v4, 0x7f09018b
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -750,7 +770,7 @@
 
     sget-object v0, Lcom/android/launcher3/widget/controller/WidgetState$State;->SEARCH:Lcom/android/launcher3/widget/controller/WidgetState$State;
 
-    if-ne p1, v0, :cond_1
+    if-ne p1, v0, :cond_2
 
     iget-object v0, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mSearchView:Landroid/widget/SearchView;
 
@@ -804,6 +824,19 @@
     invoke-interface {v0, v3}, Lcom/android/launcher3/widget/view/WidgetSearchbar$SearchListener;->setSearchFilter(Lcom/android/launcher3/widget/view/WidgetPagedView$Filter;)V
 
     :cond_1
+    invoke-static {}, Lcom/android/launcher3/util/TestHelper;->isRoboUnitTest()Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mSearchEditText:Landroid/widget/TextView;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->semSetDirectPenInputEnabled(Z)V
+
+    :cond_2
     return-void
 .end method
 
@@ -850,7 +883,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090073
+    const v2, 0x7f0a0076
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -880,7 +913,7 @@
 
     iput-boolean v4, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mSamsungMembersEnabled:Z
 
-    const v4, 0x7f0f00f5
+    const v4, 0x7f110112
 
     invoke-virtual {p0, v4}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->findViewById(I)Landroid/view/View;
 
@@ -890,7 +923,7 @@
 
     iput-object v4, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mSearchbarWrapper:Landroid/widget/LinearLayout;
 
-    const v4, 0x7f0f00f6
+    const v4, 0x7f110113
 
     invoke-virtual {p0, v4}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->findViewById(I)Landroid/view/View;
 
@@ -1027,7 +1060,7 @@
 
     iput-object v4, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mSearchCloseButton:Landroid/widget/ImageView;
 
-    const v4, 0x7f0f00f7
+    const v4, 0x7f110114
 
     invoke-virtual {p0, v4}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->findViewById(I)Landroid/view/View;
 
@@ -1035,7 +1068,7 @@
 
     iput-object v4, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mDivider:Landroid/view/View;
 
-    const v4, 0x7f0f00f8
+    const v4, 0x7f110115
 
     invoke-virtual {p0, v4}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->findViewById(I)Landroid/view/View;
 
@@ -1043,7 +1076,7 @@
 
     iput-object v4, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mMoreButtonContainer:Landroid/view/View;
 
-    const v4, 0x7f0f00f3
+    const v4, 0x7f110110
 
     invoke-virtual {p0, v4}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->findViewById(I)Landroid/view/View;
 
@@ -1071,6 +1104,17 @@
 
     iput-object v4, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mSearchEditText:Landroid/widget/TextView;
 
+    invoke-static {}, Lcom/android/launcher3/util/TestHelper;->isRoboUnitTest()Z
+
+    move-result v4
+
+    if-nez v4, :cond_1
+
+    iget-object v4, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mSearchEditText:Landroid/widget/TextView;
+
+    invoke-virtual {v4, v7}, Landroid/widget/TextView;->semSetDirectPenInputEnabled(Z)V
+
+    :cond_1
     invoke-virtual {p0, v7}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->changeColorAndBackground(Z)V
 
     return-void
@@ -1155,8 +1199,20 @@
     return v0
 .end method
 
+.method public onStageEnter()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mSearchEditText:Landroid/widget/TextView;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setEnabled(Z)V
+
+    return-void
+.end method
+
 .method public onStageExit()V
-    .locals 1
+    .locals 2
 
     iget-object v0, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mPopupMenu:Landroid/widget/PopupMenu;
 
@@ -1167,6 +1223,12 @@
     invoke-virtual {v0}, Landroid/widget/PopupMenu;->dismiss()V
 
     :cond_0
+    iget-object v0, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mSearchEditText:Landroid/widget/TextView;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setEnabled(Z)V
+
     return-void
 .end method
 
@@ -1196,9 +1258,9 @@
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
-    new-instance v1, Lcom/android/launcher3/widget/view/WidgetSearchbar$3;
+    new-instance v1, Lcom/android/launcher3/widget/view/WidgetSearchbar$4;
 
-    invoke-direct {v1, p0}, Lcom/android/launcher3/widget/view/WidgetSearchbar$3;-><init>(Lcom/android/launcher3/widget/view/WidgetSearchbar;)V
+    invoke-direct {v1, p0}, Lcom/android/launcher3/widget/view/WidgetSearchbar$4;-><init>(Lcom/android/launcher3/widget/view/WidgetSearchbar;)V
 
     const-wide/16 v2, 0x12c
 
@@ -1208,8 +1270,82 @@
     return-void
 .end method
 
+.method public onWindowFocusChanged(Z)V
+    .locals 4
+
+    invoke-super {p0, p1}, Landroid/widget/LinearLayout;->onWindowFocusChanged(Z)V
+
+    if-eqz p1, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/Launcher;->getStageManager()Lcom/android/launcher3/common/stage/StageManager;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/launcher3/common/stage/StageManager;->getTopStage()Lcom/android/launcher3/common/stage/Stage;
+
+    move-result-object v0
+
+    instance-of v1, v0, Lcom/android/launcher3/widget/controller/WidgetController;
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mState:Lcom/android/launcher3/widget/controller/WidgetState$State;
+
+    sget-object v2, Lcom/android/launcher3/widget/controller/WidgetState$State;->NORMAL:Lcom/android/launcher3/widget/controller/WidgetState$State;
+
+    if-ne v1, v2, :cond_0
+
+    iget-object v1, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mSearchView:Landroid/widget/SearchView;
+
+    invoke-virtual {v1}, Landroid/widget/SearchView;->getQuery()Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mSearchView:Landroid/widget/SearchView;
+
+    const-string v2, ""
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v1, v2, v3}, Landroid/widget/SearchView;->setQuery(Ljava/lang/CharSequence;Z)V
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mSearchView:Landroid/widget/SearchView;
+
+    new-instance v2, Lcom/android/launcher3/widget/view/WidgetSearchbar$3;
+
+    invoke-direct {v2, p0}, Lcom/android/launcher3/widget/view/WidgetSearchbar$3;-><init>(Lcom/android/launcher3/widget/view/WidgetSearchbar;)V
+
+    invoke-virtual {v1, v2}, Landroid/widget/SearchView;->post(Ljava/lang/Runnable;)Z
+
+    :cond_1
+    return-void
+.end method
+
 .method public openKeyboard()V
     .locals 3
+
+    iget-object v1, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mState:Lcom/android/launcher3/widget/controller/WidgetState$State;
+
+    sget-object v2, Lcom/android/launcher3/widget/controller/WidgetState$State;->SEARCH:Lcom/android/launcher3/widget/controller/WidgetState$State;
+
+    if-ne v1, v2, :cond_0
 
     iget-object v1, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mSearchEditText:Landroid/widget/TextView;
 
@@ -1280,6 +1416,16 @@
     iget-object v0, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mMoreButton:Landroid/widget/ImageButton;
 
     invoke-virtual {v0}, Landroid/widget/ImageButton;->requestFocus()Z
+
+    return-void
+.end method
+
+.method public setFocusToSearchEditText()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mSearchEditText:Landroid/widget/TextView;
+
+    invoke-virtual {v0}, Landroid/widget/TextView;->requestFocus()Z
 
     return-void
 .end method
@@ -1377,7 +1523,7 @@
 
     check-cast v2, Landroid/view/ViewGroup;
 
-    const v3, 0x7f0f00de
+    const v3, 0x7f1100fb
 
     invoke-virtual {v2, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -1401,7 +1547,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f110001
+    const v3, 0x7f120001
 
     iget-object v4, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mPopupMenu:Landroid/widget/PopupMenu;
 
@@ -1419,9 +1565,9 @@
 
     iget-object v2, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mPopupMenu:Landroid/widget/PopupMenu;
 
-    new-instance v3, Lcom/android/launcher3/widget/view/WidgetSearchbar$5;
+    new-instance v3, Lcom/android/launcher3/widget/view/WidgetSearchbar$6;
 
-    invoke-direct {v3, p0}, Lcom/android/launcher3/widget/view/WidgetSearchbar$5;-><init>(Lcom/android/launcher3/widget/view/WidgetSearchbar;)V
+    invoke-direct {v3, p0}, Lcom/android/launcher3/widget/view/WidgetSearchbar$6;-><init>(Lcom/android/launcher3/widget/view/WidgetSearchbar;)V
 
     invoke-virtual {v2, v3}, Landroid/widget/PopupMenu;->setOnDismissListener(Landroid/widget/PopupMenu$OnDismissListener;)V
 
@@ -1431,13 +1577,13 @@
 
     move-result-object v1
 
-    const v2, 0x7f0f010a
+    const v2, 0x7f110127
 
     iget-boolean v3, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mHasUninstallableApps:Z
 
     invoke-direct {p0, v1, v2, v3}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->updateMenuItemVisibility(Landroid/view/Menu;IZ)V
 
-    const v2, 0x7f0f010b
+    const v2, 0x7f110128
 
     iget-boolean v3, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mSamsungMembersEnabled:Z
 

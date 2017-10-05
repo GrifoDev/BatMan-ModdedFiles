@@ -16,34 +16,6 @@
 
 
 # static fields
-.field public static final CATEGORY_ALARM:Ljava/lang/String; = "alarm"
-
-.field public static final CATEGORY_CALL:Ljava/lang/String; = "call"
-
-.field public static final CATEGORY_EMAIL:Ljava/lang/String; = "email"
-
-.field public static final CATEGORY_ERROR:Ljava/lang/String; = "err"
-
-.field public static final CATEGORY_EVENT:Ljava/lang/String; = "event"
-
-.field public static final CATEGORY_MESSAGE:Ljava/lang/String; = "msg"
-
-.field public static final CATEGORY_PROGRESS:Ljava/lang/String; = "progress"
-
-.field public static final CATEGORY_PROMO:Ljava/lang/String; = "promo"
-
-.field public static final CATEGORY_RECOMMENDATION:Ljava/lang/String; = "recommendation"
-
-.field public static final CATEGORY_SERVICE:Ljava/lang/String; = "service"
-
-.field public static final CATEGORY_SOCIAL:Ljava/lang/String; = "social"
-
-.field public static final CATEGORY_STATUS:Ljava/lang/String; = "status"
-
-.field public static final CATEGORY_SYSTEM:Ljava/lang/String; = "sys"
-
-.field public static final CATEGORY_TRANSPORT:Ljava/lang/String; = "transport"
-
 .field private static final KEY_AUTHOR:Ljava/lang/String; = "author"
 
 .field private static final KEY_MESSAGES:Ljava/lang/String; = "messages"

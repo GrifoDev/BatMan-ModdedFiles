@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/folder/controller/FolderController;->onStageEnter(Lcom/android/launcher3/common/stage/StageEntry;)Landroid/animation/Animator;
+    value = Lcom/android/launcher3/folder/controller/FolderController;->onStageExit(Lcom/android/launcher3/common/stage/StageEntry;)Landroid/animation/Animator;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,12 +17,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/folder/controller/FolderController;
 
+.field final synthetic val$closedFolder:Lcom/android/launcher3/folder/view/FolderView;
+
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/folder/controller/FolderController;)V
+.method constructor <init>(Lcom/android/launcher3/folder/controller/FolderController;Lcom/android/launcher3/folder/view/FolderView;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/folder/controller/FolderController$2;->this$0:Lcom/android/launcher3/folder/controller/FolderController;
+
+    iput-object p2, p0, Lcom/android/launcher3/folder/controller/FolderController$2;->val$closedFolder:Lcom/android/launcher3/folder/view/FolderView;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
 
@@ -32,27 +36,19 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 3
+    .locals 2
 
-    const/4 v2, 0x1
+    sget-object v0, Lcom/android/launcher3/util/Talk;->INSTANCE:Lcom/android/launcher3/util/Talk;
+
+    const v1, 0x7f09003c
+
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/util/Talk;->say(I)V
 
     iget-object v0, p0, Lcom/android/launcher3/folder/controller/FolderController$2;->this$0:Lcom/android/launcher3/folder/controller/FolderController;
 
-    invoke-static {v0}, Lcom/android/launcher3/folder/controller/FolderController;->access$100(Lcom/android/launcher3/folder/controller/FolderController;)Z
+    iget-object v1, p0, Lcom/android/launcher3/folder/controller/FolderController$2;->val$closedFolder:Lcom/android/launcher3/folder/view/FolderView;
 
-    iget-object v0, p0, Lcom/android/launcher3/folder/controller/FolderController$2;->this$0:Lcom/android/launcher3/folder/controller/FolderController;
-
-    invoke-static {v0}, Lcom/android/launcher3/folder/controller/FolderController;->access$300(Lcom/android/launcher3/folder/controller/FolderController;)Lcom/android/launcher3/folder/view/FolderBgView;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/launcher3/folder/controller/FolderController$2;->this$0:Lcom/android/launcher3/folder/controller/FolderController;
-
-    invoke-static {v1}, Lcom/android/launcher3/folder/controller/FolderController;->access$200(Lcom/android/launcher3/folder/controller/FolderController;)I
-
-    move-result v1
-
-    invoke-virtual {v0, v2, v1, v2}, Lcom/android/launcher3/folder/view/FolderBgView;->showHelpForEdit(ZIZ)V
+    invoke-static {v0, v1}, Lcom/android/launcher3/folder/controller/FolderController;->access$200(Lcom/android/launcher3/folder/controller/FolderController;Lcom/android/launcher3/folder/view/FolderView;)V
 
     return-void
 .end method

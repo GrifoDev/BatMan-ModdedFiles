@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/HomeBindController;->bindAppsAdded(Ljava/util/ArrayList;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
+    value = Lcom/android/launcher3/home/HomeBindController;->bindShortcutsChanged(Ljava/util/ArrayList;Ljava/util/ArrayList;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,24 +20,24 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/home/HomeBindController;
 
-.field final synthetic val$addAnimated:Ljava/util/ArrayList;
+.field final synthetic val$removed:Ljava/util/ArrayList;
 
-.field final synthetic val$addNotAnimated:Ljava/util/ArrayList;
+.field final synthetic val$updated:Ljava/util/ArrayList;
 
-.field final synthetic val$newScreens:Ljava/util/ArrayList;
+.field final synthetic val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/home/HomeBindController;Ljava/util/ArrayList;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
+.method constructor <init>(Lcom/android/launcher3/home/HomeBindController;Ljava/util/ArrayList;Ljava/util/ArrayList;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/home/HomeBindController$16;->this$0:Lcom/android/launcher3/home/HomeBindController;
 
-    iput-object p2, p0, Lcom/android/launcher3/home/HomeBindController$16;->val$newScreens:Ljava/util/ArrayList;
+    iput-object p2, p0, Lcom/android/launcher3/home/HomeBindController$16;->val$updated:Ljava/util/ArrayList;
 
-    iput-object p3, p0, Lcom/android/launcher3/home/HomeBindController$16;->val$addNotAnimated:Ljava/util/ArrayList;
+    iput-object p3, p0, Lcom/android/launcher3/home/HomeBindController$16;->val$removed:Ljava/util/ArrayList;
 
-    iput-object p4, p0, Lcom/android/launcher3/home/HomeBindController$16;->val$addAnimated:Ljava/util/ArrayList;
+    iput-object p4, p0, Lcom/android/launcher3/home/HomeBindController$16;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -51,13 +51,13 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeBindController$16;->this$0:Lcom/android/launcher3/home/HomeBindController;
 
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeBindController$16;->val$newScreens:Ljava/util/ArrayList;
+    iget-object v1, p0, Lcom/android/launcher3/home/HomeBindController$16;->val$updated:Ljava/util/ArrayList;
 
-    iget-object v2, p0, Lcom/android/launcher3/home/HomeBindController$16;->val$addNotAnimated:Ljava/util/ArrayList;
+    iget-object v2, p0, Lcom/android/launcher3/home/HomeBindController$16;->val$removed:Ljava/util/ArrayList;
 
-    iget-object v3, p0, Lcom/android/launcher3/home/HomeBindController$16;->val$addAnimated:Ljava/util/ArrayList;
+    iget-object v3, p0, Lcom/android/launcher3/home/HomeBindController$16;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/launcher3/home/HomeBindController;->bindAppsAdded(Ljava/util/ArrayList;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
+    invoke-virtual {v0, v1, v2, v3}, Lcom/android/launcher3/home/HomeBindController;->bindShortcutsChanged(Ljava/util/ArrayList;Ljava/util/ArrayList;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
 
     return-void
 .end method

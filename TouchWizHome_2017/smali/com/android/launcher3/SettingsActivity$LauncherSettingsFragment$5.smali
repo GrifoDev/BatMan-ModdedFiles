@@ -35,13 +35,43 @@
 
 # virtual methods
 .method public onPreferenceClick(Landroid/preference/Preference;)Z
-    .locals 6
+    .locals 7
 
     iget-object v3, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment$5;->this$0:Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;
 
     invoke-virtual {v3}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v2
+
+    invoke-static {}, Lcom/android/launcher3/util/logging/SALogging;->getInstance()Lcom/android/launcher3/util/logging/SALogging;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment$5;->this$0:Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;
+
+    invoke-virtual {v4}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v4
+
+    const v5, 0x7f0901b6
+
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    iget-object v5, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment$5;->this$0:Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;
+
+    invoke-virtual {v5}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v5
+
+    const v6, 0x7f0900f0
+
+    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v3, v4, v5}, Lcom/android/launcher3/util/logging/SALogging;->insertEventLog(Ljava/lang/String;Ljava/lang/String;)V
 
     if-eqz v2, :cond_0
 
@@ -83,7 +113,7 @@
     :catch_0
     move-exception v0
 
-    sget-object v3, Lcom/android/launcher3/SettingsActivity;->TAG:Ljava/lang/String;
+    const-string v3, "SettingsActivity"
 
     new-instance v4, Ljava/lang/StringBuilder;
 

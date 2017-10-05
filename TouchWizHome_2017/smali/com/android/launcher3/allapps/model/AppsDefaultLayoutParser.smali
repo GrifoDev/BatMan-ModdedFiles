@@ -393,7 +393,6 @@
     if-ne v11, v12, :cond_3
 
     :cond_2
-    :goto_1
     return-void
 
     :cond_3
@@ -496,7 +495,7 @@
 
     invoke-static {v12, v13}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_1
+    goto :goto_0
 
     :cond_5
     const-wide/16 v12, -0x66
@@ -631,6 +630,369 @@
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     return-object v0
+.end method
+
+.method protected getHiddenApps()Ljava/util/ArrayList;
+    .locals 18
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/ArrayList",
+            "<",
+            "Landroid/content/ComponentName;",
+            ">;"
+        }
+    .end annotation
+
+    new-instance v8, Ljava/util/ArrayList;
+
+    invoke-direct {v8}, Ljava/util/ArrayList;-><init>()V
+
+    const/4 v6, 0x0
+
+    :try_start_0
+    invoke-static {}, Lorg/xmlpull/v1/XmlPullParserFactory;->newInstance()Lorg/xmlpull/v1/XmlPullParserFactory;
+
+    move-result-object v4
+
+    const/4 v13, 0x1
+
+    invoke-virtual {v4, v13}, Lorg/xmlpull/v1/XmlPullParserFactory;->setNamespaceAware(Z)V
+
+    new-instance v5, Ljava/io/File;
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;->mAppOrderPath:Ljava/lang/String;
+
+    invoke-direct {v5, v13}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v5}, Ljava/io/File;->isFile()Z
+
+    move-result v13
+
+    if-eqz v13, :cond_4
+
+    invoke-virtual {v5}, Ljava/io/File;->length()J
+
+    move-result-wide v14
+
+    const-wide/16 v16, 0x0
+
+    cmp-long v13, v14, v16
+
+    if-lez v13, :cond_4
+
+    new-instance v7, Ljava/io/FileReader;
+
+    invoke-direct {v7, v5}, Ljava/io/FileReader;-><init>(Ljava/io/File;)V
+    :try_end_0
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_3
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_5
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    :try_start_1
+    invoke-virtual {v4}, Lorg/xmlpull/v1/XmlPullParserFactory;->newPullParser()Lorg/xmlpull/v1/XmlPullParser;
+
+    move-result-object v10
+
+    invoke-interface {v10, v7}, Lorg/xmlpull/v1/XmlPullParser;->setInput(Ljava/io/Reader;)V
+
+    const/4 v13, 0x1
+
+    move-object/from16 v0, p0
+
+    iput-boolean v13, v0, Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;->mIsCSC:Z
+    :try_end_1
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_a
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_9
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_1 .. :try_end_1} :catch_8
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    move-object v6, v7
+
+    :goto_0
+    :try_start_2
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;->mRootTag:Ljava/lang/String;
+
+    invoke-static {v10, v13}, Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;->beginDocument(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)V
+
+    invoke-interface {v10}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
+
+    move-result v11
+
+    :cond_0
+    :goto_1
+    invoke-interface {v10}, Lorg/xmlpull/v1/XmlPullParser;->next()I
+
+    move-result v12
+
+    const/4 v13, 0x3
+
+    if-ne v12, v13, :cond_1
+
+    invoke-interface {v10}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
+    :try_end_2
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_2 .. :try_end_2} :catch_0
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_3
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_2 .. :try_end_2} :catch_5
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    move-result v13
+
+    if-le v13, v11, :cond_2
+
+    :cond_1
+    const/4 v13, 0x1
+
+    if-ne v12, v13, :cond_5
+
+    :cond_2
+    if-eqz v6, :cond_3
+
+    :try_start_3
+    invoke-virtual {v6}, Ljava/io/FileReader;->close()V
+    :try_end_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_2
+
+    :cond_3
+    :goto_2
+    return-object v8
+
+    :cond_4
+    :try_start_4
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;->mSourceRes:Landroid/content/res/Resources;
+
+    const v14, 0x7f080002
+
+    invoke-virtual {v13, v14}, Landroid/content/res/Resources;->getXml(I)Landroid/content/res/XmlResourceParser;
+
+    move-result-object v10
+
+    goto :goto_0
+
+    :cond_5
+    const/4 v13, 0x2
+
+    if-ne v12, v13, :cond_0
+
+    const-string v13, "favorite"
+
+    invoke-interface {v10}, Lorg/xmlpull/v1/XmlPullParser;->getName()Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-virtual {v13, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v13
+
+    if-eqz v13, :cond_0
+
+    const-string v13, "hidden"
+
+    invoke-static {v10, v13}, Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;->getAttributeValue(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-static {v13}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+
+    move-result v13
+
+    if-eqz v13, :cond_0
+
+    const-string v13, "packageName"
+
+    invoke-static {v10, v13}, Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;->getAttributeValue(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v9
+
+    const-string v13, "className"
+
+    invoke-static {v10, v13}, Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;->getAttributeValue(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    new-instance v13, Landroid/content/ComponentName;
+
+    invoke-direct {v13, v9, v2}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v8, v13}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    :try_end_4
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_4 .. :try_end_4} :catch_0
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_3
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_4 .. :try_end_4} :catch_5
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+
+    goto :goto_1
+
+    :catch_0
+    move-exception v3
+
+    :goto_3
+    :try_start_5
+    const-string v13, "AppsDefaultLayoutParser"
+
+    const-string v14, "Got exception parsing appOrder."
+
+    invoke-static {v13, v14, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_5
+    .catchall {:try_start_5 .. :try_end_5} :catchall_0
+
+    if-eqz v6, :cond_3
+
+    :try_start_6
+    invoke-virtual {v6}, Ljava/io/FileReader;->close()V
+    :try_end_6
+    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_1
+
+    goto :goto_2
+
+    :catch_1
+    move-exception v3
+
+    const-string v13, "AppsDefaultLayoutParser"
+
+    const-string v14, "Got exception parsing appOrder."
+
+    invoke-static {v13, v14, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_2
+
+    :catch_2
+    move-exception v3
+
+    const-string v13, "AppsDefaultLayoutParser"
+
+    const-string v14, "Got exception parsing appOrder."
+
+    invoke-static {v13, v14, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_2
+
+    :catch_3
+    move-exception v3
+
+    :goto_4
+    :try_start_7
+    const-string v13, "AppsDefaultLayoutParser"
+
+    const-string v14, "Got exception parsing appOrder."
+
+    invoke-static {v13, v14, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_7
+    .catchall {:try_start_7 .. :try_end_7} :catchall_0
+
+    if-eqz v6, :cond_3
+
+    :try_start_8
+    invoke-virtual {v6}, Ljava/io/FileReader;->close()V
+    :try_end_8
+    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_4
+
+    goto :goto_2
+
+    :catch_4
+    move-exception v3
+
+    const-string v13, "AppsDefaultLayoutParser"
+
+    const-string v14, "Got exception parsing appOrder."
+
+    invoke-static {v13, v14, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_2
+
+    :catch_5
+    move-exception v3
+
+    :goto_5
+    :try_start_9
+    const-string v13, "AppsDefaultLayoutParser"
+
+    const-string v14, "Got exception parsing appOrder."
+
+    invoke-static {v13, v14, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    :try_end_9
+    .catchall {:try_start_9 .. :try_end_9} :catchall_0
+
+    if-eqz v6, :cond_3
+
+    :try_start_a
+    invoke-virtual {v6}, Ljava/io/FileReader;->close()V
+    :try_end_a
+    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_a} :catch_6
+
+    goto/16 :goto_2
+
+    :catch_6
+    move-exception v3
+
+    const-string v13, "AppsDefaultLayoutParser"
+
+    const-string v14, "Got exception parsing appOrder."
+
+    invoke-static {v13, v14, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto/16 :goto_2
+
+    :catchall_0
+    move-exception v13
+
+    :goto_6
+    if-eqz v6, :cond_6
+
+    :try_start_b
+    invoke-virtual {v6}, Ljava/io/FileReader;->close()V
+    :try_end_b
+    .catch Ljava/lang/Exception; {:try_start_b .. :try_end_b} :catch_7
+
+    :cond_6
+    :goto_7
+    throw v13
+
+    :catch_7
+    move-exception v3
+
+    const-string v14, "AppsDefaultLayoutParser"
+
+    const-string v15, "Got exception parsing appOrder."
+
+    invoke-static {v14, v15, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_7
+
+    :catchall_1
+    move-exception v13
+
+    move-object v6, v7
+
+    goto :goto_6
+
+    :catch_8
+    move-exception v3
+
+    move-object v6, v7
+
+    goto :goto_5
+
+    :catch_9
+    move-exception v3
+
+    move-object v6, v7
+
+    goto :goto_4
+
+    :catch_a
+    move-exception v3
+
+    move-object v6, v7
+
+    goto :goto_3
 .end method
 
 .method protected getLayoutElementsMap()Ljava/util/HashMap;
@@ -918,7 +1280,7 @@
 
     if-eqz v2, :cond_6
 
-    const v14, 0x7f070004
+    const v14, 0x7f080004
 
     :goto_3
     move-object/from16 v0, p0
@@ -956,12 +1318,12 @@
 
     if-eqz v2, :cond_8
 
-    const v14, 0x7f070003
+    const v14, 0x7f080003
 
     goto :goto_3
 
     :cond_8
-    const v14, 0x7f070002
+    const v14, 0x7f080002
 
     goto :goto_3
 

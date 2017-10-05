@@ -59,26 +59,43 @@
 
     const/4 v2, 0x4
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v2, :cond_1
 
     invoke-interface {p1}, Lorg/xmlpull/v1/XmlPullParser;->getText()Ljava/lang/String;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
-
-    const-string v1, "appOrder"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_1
-
-    :cond_0
     const-string v1, "Launcher.AppsRestore"
 
-    const-string v2, "there is no appOrder in category"
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "restore category : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v1, p0, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser$CategoryParser;->this$0:Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;
+
+    invoke-static {v1, v0}, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;->access$302(Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;Ljava/lang/String;)Ljava/lang/String;
+
+    if-nez v0, :cond_0
+
+    const-string v1, "Launcher.AppsRestore"
+
+    const-string v2, "category is null!!"
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -87,10 +104,31 @@
     :goto_0
     return-wide v2
 
+    :cond_0
+    const-string v1, "appOrder"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    const-string v1, "Launcher.AppsRestore"
+
+    const-string v2, "there is no appOrder in category"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
     :cond_1
+    :goto_1
+    const-wide/16 v2, 0x0
+
+    goto :goto_0
+
+    :cond_2
     iget-object v1, p0, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser$CategoryParser;->this$0:Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;
 
-    invoke-static {v1}, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;->access$400(Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;)Ljava/util/HashMap;
+    invoke-static {v1}, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;->access$500(Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;)Ljava/util/HashMap;
 
     move-result-object v1
 
@@ -106,7 +144,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser$CategoryParser;->this$0:Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;
 
-    invoke-static {v1}, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;->access$400(Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;)Ljava/util/HashMap;
+    invoke-static {v1}, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;->access$500(Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;)Ljava/util/HashMap;
 
     move-result-object v1
 
@@ -122,7 +160,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser$CategoryParser;->this$0:Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;
 
-    invoke-static {v1}, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;->access$400(Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;)Ljava/util/HashMap;
+    invoke-static {v1}, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;->access$500(Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;)Ljava/util/HashMap;
 
     move-result-object v1
 
@@ -138,7 +176,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser$CategoryParser;->this$0:Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;
 
-    invoke-static {v1}, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;->access$400(Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;)Ljava/util/HashMap;
+    invoke-static {v1}, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;->access$500(Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;)Ljava/util/HashMap;
 
     move-result-object v1
 
@@ -150,11 +188,11 @@
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_1
 
     iget-object v1, p0, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser$CategoryParser;->this$0:Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;
 
-    invoke-static {v1}, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;->access$400(Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;)Ljava/util/HashMap;
+    invoke-static {v1}, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;->access$500(Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;)Ljava/util/HashMap;
 
     move-result-object v1
 
@@ -162,8 +200,5 @@
 
     invoke-virtual {v1, v2, v5}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_2
-    const-wide/16 v2, 0x0
-
-    goto :goto_0
+    goto :goto_1
 .end method

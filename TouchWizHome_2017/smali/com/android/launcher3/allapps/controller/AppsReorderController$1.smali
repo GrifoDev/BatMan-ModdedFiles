@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/allapps/controller/AppsReorderController;->removeEmptyCellsAndViews(Ljava/util/ArrayList;Lcom/android/launcher3/allapps/controller/DragAppIcon;Z)V
+    value = Lcom/android/launcher3/allapps/controller/AppsReorderController;->removeEmptyCellsAndViews(Ljava/util/ArrayList;Lcom/android/launcher3/allapps/DragAppIcon;Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -21,7 +21,7 @@
         "Ljava/lang/Object;",
         "Ljava/util/Comparator",
         "<",
-        "Lcom/android/launcher3/allapps/controller/DragAppIcon;",
+        "Lcom/android/launcher3/allapps/DragAppIcon;",
         ">;"
     }
 .end annotation
@@ -44,26 +44,26 @@
 
 
 # virtual methods
-.method public compare(Lcom/android/launcher3/allapps/controller/DragAppIcon;Lcom/android/launcher3/allapps/controller/DragAppIcon;)I
+.method public compare(Lcom/android/launcher3/allapps/DragAppIcon;Lcom/android/launcher3/allapps/DragAppIcon;)I
     .locals 4
 
-    iget-wide v0, p2, Lcom/android/launcher3/allapps/controller/DragAppIcon;->screenId:J
+    iget-wide v0, p2, Lcom/android/launcher3/allapps/DragAppIcon;->screenId:J
 
     long-to-int v0, v0
 
     mul-int/lit8 v0, v0, 0x64
 
-    iget v1, p2, Lcom/android/launcher3/allapps/controller/DragAppIcon;->rank:I
+    iget v1, p2, Lcom/android/launcher3/allapps/DragAppIcon;->rank:I
 
     add-int/2addr v0, v1
 
-    iget-wide v2, p1, Lcom/android/launcher3/allapps/controller/DragAppIcon;->screenId:J
+    iget-wide v2, p1, Lcom/android/launcher3/allapps/DragAppIcon;->screenId:J
 
     long-to-int v1, v2
 
     mul-int/lit8 v1, v1, 0x64
 
-    iget v2, p1, Lcom/android/launcher3/allapps/controller/DragAppIcon;->rank:I
+    iget v2, p1, Lcom/android/launcher3/allapps/DragAppIcon;->rank:I
 
     add-int/2addr v1, v2
 
@@ -75,11 +75,11 @@
 .method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
     .locals 1
 
-    check-cast p1, Lcom/android/launcher3/allapps/controller/DragAppIcon;
+    check-cast p1, Lcom/android/launcher3/allapps/DragAppIcon;
 
-    check-cast p2, Lcom/android/launcher3/allapps/controller/DragAppIcon;
+    check-cast p2, Lcom/android/launcher3/allapps/DragAppIcon;
 
-    invoke-virtual {p0, p1, p2}, Lcom/android/launcher3/allapps/controller/AppsReorderController$1;->compare(Lcom/android/launcher3/allapps/controller/DragAppIcon;Lcom/android/launcher3/allapps/controller/DragAppIcon;)I
+    invoke-virtual {p0, p1, p2}, Lcom/android/launcher3/allapps/controller/AppsReorderController$1;->compare(Lcom/android/launcher3/allapps/DragAppIcon;Lcom/android/launcher3/allapps/DragAppIcon;)I
 
     move-result v0
 

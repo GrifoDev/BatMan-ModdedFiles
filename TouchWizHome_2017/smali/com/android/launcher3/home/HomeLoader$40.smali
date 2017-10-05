@@ -45,14 +45,14 @@
 .method public run()V
     .locals 10
 
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$9500()Ljava/lang/Object;
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$9800()Ljava/lang/Object;
 
     move-result-object v5
 
     monitor-enter v5
 
     :try_start_0
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$9600()Lcom/android/launcher3/util/LongArrayMap;
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$9900()Lcom/android/launcher3/util/LongArrayMap;
 
     move-result-object v4
 

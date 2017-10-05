@@ -141,7 +141,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090025
+    const v1, 0x7f0a0027
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -149,7 +149,7 @@
 
     iput v1, p0, Lcom/android/launcher3/home/SwipeAffordance;->mTextSize:F
 
-    const v1, 0x7f0900f5
+    const v1, 0x7f0a0149
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -157,7 +157,7 @@
 
     iput v1, p0, Lcom/android/launcher3/home/SwipeAffordance;->mTextTranslateY:F
 
-    const v1, 0x7f0900fb
+    const v1, 0x7f0a014e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -175,7 +175,7 @@
 
     iget v1, v1, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->availableWidthPx:I
 
-    const v2, 0x7f090024
+    const v2, 0x7f0a0026
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -183,7 +183,7 @@
 
     sub-int/2addr v1, v2
 
-    const/high16 v2, 0x7f090000
+    const/high16 v2, 0x7f0a0000
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -193,35 +193,7 @@
 
     iput v1, p0, Lcom/android/launcher3/home/SwipeAffordance;->mTextViewMaxWidth:I
 
-    const v1, 0x7f0800aa
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/android/launcher3/home/SwipeAffordance;->mDescriptionString:Ljava/lang/String;
-
-    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->isATTModel()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    const v1, 0x7f0800a9
-
-    :goto_0
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    iput-object v1, p0, Lcom/android/launcher3/home/SwipeAffordance;->mString:Ljava/lang/String;
-
     return-void
-
-    :cond_0
-    const v1, 0x7f0800a8
-
-    goto :goto_0
 .end method
 
 .method static synthetic access$000(Lcom/android/launcher3/home/SwipeAffordance;)Landroid/widget/TextView;
@@ -307,7 +279,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f050012
+    const v5, 0x7f060013
 
     invoke-static {v4, v5}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -317,7 +289,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f050010
+    const v5, 0x7f060011
 
     invoke-static {v4, v5}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -327,7 +299,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f050011
+    const v5, 0x7f060012
 
     invoke-static {v4, v5}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -679,49 +651,125 @@
 .end method
 
 .method private setAnimatingString()V
-    .locals 2
+    .locals 3
 
-    invoke-virtual {p0}, Lcom/android/launcher3/home/SwipeAffordance;->getContext()Landroid/content/Context;
+    iget-object v2, p0, Lcom/android/launcher3/home/SwipeAffordance;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v2}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    invoke-static {v1}, Lcom/android/launcher3/Utilities;->isTalkBackEnabled(Landroid/content/Context;)Z
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
-    move-result v1
+    move-result-object v2
 
-    if-eqz v1, :cond_0
+    invoke-virtual {v2}, Lcom/android/launcher3/LauncherAppState;->getNotificationPanelExpansionEnabled()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    const v2, 0x7f0900bc
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/android/launcher3/home/SwipeAffordance;->mDescriptionString:Ljava/lang/String;
+
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->isATTModel()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    const v2, 0x7f0900bb
+
+    :goto_0
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/android/launcher3/home/SwipeAffordance;->mString:Ljava/lang/String;
+
+    :goto_1
+    invoke-virtual {p0}, Lcom/android/launcher3/home/SwipeAffordance;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/launcher3/Utilities;->isTalkBackEnabled(Landroid/content/Context;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_3
 
     iget-object v0, p0, Lcom/android/launcher3/home/SwipeAffordance;->mDescriptionString:Ljava/lang/String;
 
-    :goto_0
-    iget-object v1, p0, Lcom/android/launcher3/home/SwipeAffordance;->mTextView:Landroid/widget/TextView;
+    :goto_2
+    iget-object v2, p0, Lcom/android/launcher3/home/SwipeAffordance;->mTextView:Landroid/widget/TextView;
 
-    invoke-virtual {v1}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+    invoke-virtual {v2}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_1
+    if-eqz v2, :cond_4
 
-    :goto_1
+    :goto_3
     return-void
 
     :cond_0
-    iget-object v0, p0, Lcom/android/launcher3/home/SwipeAffordance;->mString:Ljava/lang/String;
+    const v2, 0x7f0900ba
 
     goto :goto_0
 
     :cond_1
-    iget-object v1, p0, Lcom/android/launcher3/home/SwipeAffordance;->mTextView:Landroid/widget/TextView;
+    const v2, 0x7f0900bd
 
-    invoke-virtual {v1, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/android/launcher3/home/SwipeAffordance;->mDescriptionString:Ljava/lang/String;
+
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->isATTModel()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    const v2, 0x7f0900b9
+
+    :goto_4
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/android/launcher3/home/SwipeAffordance;->mString:Ljava/lang/String;
+
+    goto :goto_1
+
+    :cond_2
+    const v2, 0x7f0900b8
+
+    goto :goto_4
+
+    :cond_3
+    iget-object v0, p0, Lcom/android/launcher3/home/SwipeAffordance;->mString:Ljava/lang/String;
+
+    goto :goto_2
+
+    :cond_4
+    iget-object v2, p0, Lcom/android/launcher3/home/SwipeAffordance;->mTextView:Landroid/widget/TextView;
+
+    invoke-virtual {v2, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     invoke-direct {p0}, Lcom/android/launcher3/home/SwipeAffordance;->setSuitableTextSize()V
 
-    goto :goto_1
+    goto :goto_3
 .end method
 
 .method private setCountForSwipe()V
@@ -1032,7 +1080,7 @@
 .end method
 
 .method changeColorForBg(Z)V
-    .locals 3
+    .locals 2
 
     invoke-virtual {p0}, Lcom/android/launcher3/home/SwipeAffordance;->getContext()Landroid/content/Context;
 
@@ -1040,9 +1088,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/SwipeAffordance;->mTextView:Landroid/widget/TextView;
 
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1, p1, v2}, Lcom/android/launcher3/util/WhiteBgManager;->changeTextColorForBg(Landroid/content/Context;Landroid/widget/TextView;ZZ)V
+    invoke-static {v0, v1, p1}, Lcom/android/launcher3/util/WhiteBgManager;->changeTextColorForBg(Landroid/content/Context;Landroid/widget/TextView;Z)V
 
     return-void
 .end method
@@ -1060,7 +1106,7 @@
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    const v0, 0x7f0f00d7
+    const v0, 0x7f1100f4
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/SwipeAffordance;->findViewById(I)Landroid/view/View;
 
@@ -1076,7 +1122,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    const v0, 0x7f0f00d4
+    const v0, 0x7f1100f1
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/SwipeAffordance;->findViewById(I)Landroid/view/View;
 
@@ -1084,7 +1130,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/home/SwipeAffordance;->mArrowFrameView:Landroid/view/View;
 
-    const v0, 0x7f0f00d6
+    const v0, 0x7f1100f3
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/SwipeAffordance;->findViewById(I)Landroid/view/View;
 
@@ -1094,7 +1140,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/home/SwipeAffordance;->mArrowView1:Landroid/widget/ImageView;
 
-    const v0, 0x7f0f00d5
+    const v0, 0x7f1100f2
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/SwipeAffordance;->findViewById(I)Landroid/view/View;
 

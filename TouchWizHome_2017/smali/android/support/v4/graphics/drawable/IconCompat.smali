@@ -439,9 +439,6 @@
         }
     .end annotation
 
-    .annotation build Landroid/support/annotation/VisibleForTesting;
-    .end annotation
-
     iget v0, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mType:I
 
     packed-switch v0, :pswitch_data_0
@@ -467,11 +464,11 @@
     return-object v0
 
     :pswitch_1
-    invoke-static {}, Landroid/support/v4/os/BuildCompat;->isAtLeastO()Z
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    move-result v0
+    const/16 v1, 0x1a
 
-    if-eqz v0, :cond_0
+    if-lt v0, v1, :cond_0
 
     iget-object v0, p0, Landroid/support/v4/graphics/drawable/IconCompat;->mObj1:Ljava/lang/Object;
 

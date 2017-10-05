@@ -51,7 +51,7 @@
 
     sput-object v0, Lcom/android/launcher3/appspicker/view/AppsPickerMsgHelper;->TOKEN1:[C
 
-    const/16 v0, 0x16b
+    const/16 v0, 0x178
 
     new-array v0, v0, [C
 
@@ -484,6 +484,19 @@
         0x6bs
         0xas
         0x59s
+        0x6fs
+        0x75s
+        0x6es
+        0x67s
+        0x6as
+        0x6fs
+        0x6fs
+        0x6es
+        0x20s
+        0x4bs
+        0x6fs
+        0xas
+        0x59s
         0x75s
         0x6es
         0x6bs
@@ -500,8 +513,6 @@
         0x67s
         0xas
     .end array-data
-
-    nop
 
     :array_4
     .array-data 2

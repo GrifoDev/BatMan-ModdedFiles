@@ -41,7 +41,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/AboutPageActivity$UpdateCheckTask;->this$0:Lcom/android/launcher3/AboutPageActivity;
 
-    const v1, 0x7f0f0011
+    const v1, 0x7f110017
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/AboutPageActivity;->findViewById(I)Landroid/view/View;
 
@@ -107,6 +107,14 @@
 
     invoke-virtual {v0, v3}, Landroid/widget/ProgressBar;->setVisibility(I)V
 
+    iget-object v0, p0, Lcom/android/launcher3/AboutPageActivity$UpdateCheckTask;->this$0:Lcom/android/launcher3/AboutPageActivity;
+
+    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
+
+    move-result v1
+
+    invoke-static {v0, v1}, Lcom/android/launcher3/AboutPageActivity;->access$602(Lcom/android/launcher3/AboutPageActivity;I)I
+
     invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
@@ -124,13 +132,13 @@
     :cond_0
     iget-object v0, p0, Lcom/android/launcher3/AboutPageActivity$UpdateCheckTask;->this$0:Lcom/android/launcher3/AboutPageActivity;
 
-    invoke-static {v0}, Lcom/android/launcher3/AboutPageActivity;->access$600(Lcom/android/launcher3/AboutPageActivity;)Landroid/widget/TextView;
+    invoke-static {v0}, Lcom/android/launcher3/AboutPageActivity;->access$700(Lcom/android/launcher3/AboutPageActivity;)Landroid/widget/TextView;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/launcher3/AboutPageActivity$UpdateCheckTask;->this$0:Lcom/android/launcher3/AboutPageActivity;
 
-    const v2, 0x7f080002
+    const v2, 0x7f090003
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/AboutPageActivity;->getString(I)Ljava/lang/String;
 
@@ -168,13 +176,13 @@
 
     iget-object v0, p0, Lcom/android/launcher3/AboutPageActivity$UpdateCheckTask;->this$0:Lcom/android/launcher3/AboutPageActivity;
 
-    invoke-static {v0}, Lcom/android/launcher3/AboutPageActivity;->access$600(Lcom/android/launcher3/AboutPageActivity;)Landroid/widget/TextView;
+    invoke-static {v0}, Lcom/android/launcher3/AboutPageActivity;->access$700(Lcom/android/launcher3/AboutPageActivity;)Landroid/widget/TextView;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/launcher3/AboutPageActivity$UpdateCheckTask;->this$0:Lcom/android/launcher3/AboutPageActivity;
 
-    const v2, 0x7f080006
+    const v2, 0x7f090009
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/AboutPageActivity;->getString(I)Ljava/lang/String;
 
@@ -190,7 +198,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/AboutPageActivity$UpdateCheckTask;->this$0:Lcom/android/launcher3/AboutPageActivity;
 
-    const v2, 0x7f080008
+    const v2, 0x7f09000b
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/AboutPageActivity;->getString(I)Ljava/lang/String;
 
@@ -217,15 +225,21 @@
     goto :goto_0
 
     :cond_2
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->isTablet()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
     iget-object v0, p0, Lcom/android/launcher3/AboutPageActivity$UpdateCheckTask;->this$0:Lcom/android/launcher3/AboutPageActivity;
 
-    invoke-static {v0}, Lcom/android/launcher3/AboutPageActivity;->access$600(Lcom/android/launcher3/AboutPageActivity;)Landroid/widget/TextView;
+    invoke-static {v0}, Lcom/android/launcher3/AboutPageActivity;->access$700(Lcom/android/launcher3/AboutPageActivity;)Landroid/widget/TextView;
 
     move-result-object v0
 
     iget-object v1, p0, Lcom/android/launcher3/AboutPageActivity$UpdateCheckTask;->this$0:Lcom/android/launcher3/AboutPageActivity;
 
-    const v2, 0x7f080005
+    const v2, 0x7f090008
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/AboutPageActivity;->getString(I)Ljava/lang/String;
 
@@ -233,6 +247,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
+    :goto_1
     iget-object v0, p0, Lcom/android/launcher3/AboutPageActivity$UpdateCheckTask;->this$0:Lcom/android/launcher3/AboutPageActivity;
 
     invoke-static {v0}, Lcom/android/launcher3/AboutPageActivity;->access$400(Lcom/android/launcher3/AboutPageActivity;)Landroid/widget/Button;
@@ -241,7 +256,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/AboutPageActivity$UpdateCheckTask;->this$0:Lcom/android/launcher3/AboutPageActivity;
 
-    const v2, 0x7f080007
+    const v2, 0x7f09000a
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/AboutPageActivity;->getString(I)Ljava/lang/String;
 
@@ -266,6 +281,25 @@
     invoke-virtual {v0, v3}, Landroid/widget/Button;->setVisibility(I)V
 
     goto :goto_0
+
+    :cond_3
+    iget-object v0, p0, Lcom/android/launcher3/AboutPageActivity$UpdateCheckTask;->this$0:Lcom/android/launcher3/AboutPageActivity;
+
+    invoke-static {v0}, Lcom/android/launcher3/AboutPageActivity;->access$700(Lcom/android/launcher3/AboutPageActivity;)Landroid/widget/TextView;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/launcher3/AboutPageActivity$UpdateCheckTask;->this$0:Lcom/android/launcher3/AboutPageActivity;
+
+    const v2, 0x7f090007
+
+    invoke-virtual {v1, v2}, Lcom/android/launcher3/AboutPageActivity;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    goto :goto_1
 .end method
 
 .method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V

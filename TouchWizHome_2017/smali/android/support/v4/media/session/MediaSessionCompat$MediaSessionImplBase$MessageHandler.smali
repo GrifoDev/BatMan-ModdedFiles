@@ -57,6 +57,8 @@
 
 .field private static final MSG_RATE:I = 0x13
 
+.field private static final MSG_RATE_EXTRA:I = 0x1f
+
 .field private static final MSG_REMOVE_QUEUE_ITEM:I = 0x1b
 
 .field private static final MSG_REMOVE_QUEUE_ITEM_AT:I = 0x1c
@@ -475,6 +477,19 @@
     :pswitch_13
     iget-object v5, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
+    check-cast v5, Landroid/support/v4/media/RatingCompat;
+
+    invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
+
+    move-result-object v6
+
+    invoke-virtual {v0, v5, v6}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->onSetRating(Landroid/support/v4/media/RatingCompat;Landroid/os/Bundle;)V
+
+    goto/16 :goto_0
+
+    :pswitch_14
+    iget-object v5, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
+
     check-cast v5, Ljava/lang/String;
 
     invoke-virtual {p1}, Landroid/os/Message;->getData()Landroid/os/Bundle;
@@ -485,7 +500,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_14
+    :pswitch_15
     iget-object v5, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v5, Landroid/support/v4/media/MediaDescriptionCompat;
@@ -494,7 +509,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_15
+    :pswitch_16
     iget-object v5, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v5, Landroid/support/v4/media/MediaDescriptionCompat;
@@ -505,7 +520,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_16
+    :pswitch_17
     iget-object v5, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v5, Landroid/support/v4/media/MediaDescriptionCompat;
@@ -514,7 +529,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_17
+    :pswitch_18
     iget-object v5, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MessageHandler;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;
 
     iget-object v5, v5, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;->mQueue:Ljava/util/List;
@@ -567,7 +582,7 @@
 
     goto :goto_1
 
-    :pswitch_18
+    :pswitch_19
     iget-object v5, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MessageHandler;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;
 
     iget v6, p1, Landroid/os/Message;->arg1:I
@@ -576,7 +591,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_19
+    :pswitch_1a
     iget-object v5, p0, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase$MessageHandler;->this$0:Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImplBase;
 
     iget v6, p1, Landroid/os/Message;->arg1:I
@@ -585,7 +600,7 @@
 
     goto/16 :goto_0
 
-    :pswitch_1a
+    :pswitch_1b
     iget-object v5, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v5, Ljava/lang/Boolean;
@@ -598,14 +613,14 @@
 
     goto/16 :goto_0
 
-    :pswitch_1b
+    :pswitch_1c
     iget v5, p1, Landroid/os/Message;->arg1:I
 
     invoke-virtual {v0, v5}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->onSetRepeatMode(I)V
 
     goto/16 :goto_0
 
-    :pswitch_1c
+    :pswitch_1d
     iget-object v5, p1, Landroid/os/Message;->obj:Ljava/lang/Object;
 
     check-cast v5, Ljava/lang/Boolean;
@@ -618,19 +633,17 @@
 
     goto/16 :goto_0
 
-    :pswitch_1d
+    :pswitch_1e
     iget v5, p1, Landroid/os/Message;->arg1:I
 
     invoke-virtual {v0, v5}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->onSetShuffleMode(I)V
 
     goto/16 :goto_0
 
-    nop
-
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
-        :pswitch_18
+        :pswitch_19
         :pswitch_2
         :pswitch_3
         :pswitch_4
@@ -648,17 +661,18 @@
         :pswitch_10
         :pswitch_11
         :pswitch_12
-        :pswitch_13
-        :pswitch_1
-        :pswitch_19
-        :pswitch_1b
-        :pswitch_1c
         :pswitch_14
+        :pswitch_1
+        :pswitch_1a
+        :pswitch_1c
+        :pswitch_1d
         :pswitch_15
         :pswitch_16
         :pswitch_17
-        :pswitch_1a
-        :pswitch_1d
+        :pswitch_18
+        :pswitch_1b
+        :pswitch_1e
+        :pswitch_13
     .end packed-switch
 .end method
 

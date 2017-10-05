@@ -19,6 +19,12 @@
         Landroid/support/v4/view/ViewCompat$ScrollIndicators;,
         Landroid/support/v4/view/ViewCompat$NestedScrollType;,
         Landroid/support/v4/view/ViewCompat$ScrollAxis;,
+        Landroid/support/v4/view/ViewCompat$ResolvedLayoutDirectionMode;,
+        Landroid/support/v4/view/ViewCompat$LayoutDirectionMode;,
+        Landroid/support/v4/view/ViewCompat$LayerType;,
+        Landroid/support/v4/view/ViewCompat$AccessibilityLiveRegion;,
+        Landroid/support/v4/view/ViewCompat$ImportantForAccessibility;,
+        Landroid/support/v4/view/ViewCompat$OverScroll;,
         Landroid/support/v4/view/ViewCompat$FocusRelativeDirection;,
         Landroid/support/v4/view/ViewCompat$FocusRealDirection;,
         Landroid/support/v4/view/ViewCompat$FocusDirection;
@@ -130,11 +136,11 @@
 .method static constructor <clinit>()V
     .locals 2
 
-    invoke-static {}, Landroid/support/v4/os/BuildCompat;->isAtLeastO()Z
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    move-result v0
+    const/16 v1, 0x1a
 
-    if-eqz v0, :cond_0
+    if-lt v0, v1, :cond_0
 
     new-instance v0, Landroid/support/v4/view/ViewCompat$ViewCompatApi26Impl;
 
@@ -1134,6 +1140,22 @@
     sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
 
     invoke-virtual {v0, p0}, Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;->hasAccessibilityDelegate(Landroid/view/View;)Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public static hasExplicitFocusable(Landroid/view/View;)Z
+    .locals 1
+    .param p0    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    sget-object v0, Landroid/support/v4/view/ViewCompat;->IMPL:Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;
+
+    invoke-virtual {v0, p0}, Landroid/support/v4/view/ViewCompat$ViewCompatBaseImpl;->hasExplicitFocusable(Landroid/view/View;)Z
 
     move-result v0
 

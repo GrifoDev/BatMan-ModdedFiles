@@ -15,7 +15,11 @@
 
 
 # static fields
-.field public static final sine_in_out_33:I = 0x7f060000
+.field public static final sine_in_out_33:I = 0x7f070000
+
+.field public static final sine_in_out_60:I = 0x7f070001
+
+.field public static final sine_in_out_90:I = 0x7f070002
 
 
 # direct methods

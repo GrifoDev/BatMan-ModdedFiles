@@ -3,12 +3,12 @@
 .source "QuickOptionView.java"
 
 # interfaces
-.implements Landroid/animation/Animator$AnimatorListener;
+.implements Landroid/view/View$OnKeyListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/common/quickoption/QuickOptionView;->showAnimation()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/launcher3/common/quickoption/QuickOptionView;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,105 +34,59 @@
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/animation/Animator;)V
+.method public onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
     .locals 2
 
-    const/high16 v1, 0x3f800000    # 1.0f
+    const/4 v0, 0x1
 
-    iget-object v0, p0, Lcom/android/launcher3/common/quickoption/QuickOptionView$1;->this$0:Lcom/android/launcher3/common/quickoption/QuickOptionView;
+    const/4 v1, -0x1
 
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->setScaleX(F)V
+    sparse-switch p2, :sswitch_data_0
 
-    iget-object v0, p0, Lcom/android/launcher3/common/quickoption/QuickOptionView$1;->this$0:Lcom/android/launcher3/common/quickoption/QuickOptionView;
+    iget-object v1, p0, Lcom/android/launcher3/common/quickoption/QuickOptionView$1;->this$0:Lcom/android/launcher3/common/quickoption/QuickOptionView;
 
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->setScaleY(F)V
+    invoke-virtual {v1, v0}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->remove(Z)V
 
-    iget-object v0, p0, Lcom/android/launcher3/common/quickoption/QuickOptionView$1;->this$0:Lcom/android/launcher3/common/quickoption/QuickOptionView;
+    :goto_0
+    return v0
 
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->setAlpha(F)V
-
-    iget-object v0, p0, Lcom/android/launcher3/common/quickoption/QuickOptionView$1;->this$0:Lcom/android/launcher3/common/quickoption/QuickOptionView;
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->access$002(Lcom/android/launcher3/common/quickoption/QuickOptionView;Landroid/animation/AnimatorSet;)Landroid/animation/AnimatorSet;
-
-    return-void
-.end method
-
-.method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 3
-
-    const/4 v2, 0x0
-
-    iget-object v0, p0, Lcom/android/launcher3/common/quickoption/QuickOptionView$1;->this$0:Lcom/android/launcher3/common/quickoption/QuickOptionView;
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->access$002(Lcom/android/launcher3/common/quickoption/QuickOptionView;Landroid/animation/AnimatorSet;)Landroid/animation/AnimatorSet;
-
-    sget-object v0, Lcom/android/launcher3/util/Talk;->INSTANCE:Lcom/android/launcher3/util/Talk;
-
-    invoke-virtual {v0}, Lcom/android/launcher3/util/Talk;->isAccessibilityEnabled()Z
+    :sswitch_0
+    invoke-virtual {p1}, Landroid/view/View;->getNextFocusUpId()I
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-ne v0, v1, :cond_0
 
-    iget-object v0, p0, Lcom/android/launcher3/common/quickoption/QuickOptionView$1;->this$0:Lcom/android/launcher3/common/quickoption/QuickOptionView;
+    invoke-virtual {p1}, Landroid/view/View;->getId()I
 
-    invoke-static {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->access$100(Lcom/android/launcher3/common/quickoption/QuickOptionView;)Landroid/widget/ListView;
+    move-result v0
 
-    move-result-object v0
-
-    invoke-virtual {v0, v2}, Landroid/widget/ListView;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/launcher3/common/quickoption/QuickOptionView$1;->this$0:Lcom/android/launcher3/common/quickoption/QuickOptionView;
-
-    invoke-static {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->access$100(Lcom/android/launcher3/common/quickoption/QuickOptionView;)Landroid/widget/ListView;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v2}, Landroid/widget/ListView;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/view/View;->semClearAccessibilityFocus()V
-
-    iget-object v0, p0, Lcom/android/launcher3/common/quickoption/QuickOptionView$1;->this$0:Lcom/android/launcher3/common/quickoption/QuickOptionView;
-
-    invoke-static {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->access$100(Lcom/android/launcher3/common/quickoption/QuickOptionView;)Landroid/widget/ListView;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v2}, Landroid/widget/ListView;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/view/View;->semRequestAccessibilityFocus()Z
+    invoke-virtual {p1, v0}, Landroid/view/View;->setNextFocusUpId(I)V
 
     :cond_0
-    iget-object v0, p0, Lcom/android/launcher3/common/quickoption/QuickOptionView$1;->this$0:Lcom/android/launcher3/common/quickoption/QuickOptionView;
+    invoke-virtual {p1}, Landroid/view/View;->getNextFocusDownId()I
 
-    const/4 v1, 0x1
+    move-result v0
 
-    invoke-static {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->access$202(Lcom/android/launcher3/common/quickoption/QuickOptionView;Z)Z
+    if-ne v0, v1, :cond_1
 
-    return-void
-.end method
+    invoke-virtual {p1}, Landroid/view/View;->getId()I
 
-.method public onAnimationRepeat(Landroid/animation/Animator;)V
-    .locals 0
+    move-result v0
 
-    return-void
-.end method
+    invoke-virtual {p1, v0}, Landroid/view/View;->setNextFocusDownId(I)V
 
-.method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 0
+    :cond_1
+    const/4 v0, 0x0
 
-    return-void
+    goto :goto_0
+
+    nop
+
+    :sswitch_data_0
+    .sparse-switch
+        0x13 -> :sswitch_0
+        0x14 -> :sswitch_0
+        0x42 -> :sswitch_0
+    .end sparse-switch
 .end method

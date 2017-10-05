@@ -106,7 +106,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$ScreenIndexParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    invoke-static {v1}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$2000(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$2300(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -171,7 +171,7 @@
     :pswitch_0
     iget-object v1, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$ScreenIndexParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    invoke-static {v1}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$1800(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$2100(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/Context;
 
     move-result-object v1
 
@@ -184,7 +184,7 @@
     :pswitch_1
     iget-object v1, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$ScreenIndexParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    invoke-static {v1}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$1900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/Context;
+    invoke-static {v1}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$2200(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/Context;
 
     move-result-object v1
 

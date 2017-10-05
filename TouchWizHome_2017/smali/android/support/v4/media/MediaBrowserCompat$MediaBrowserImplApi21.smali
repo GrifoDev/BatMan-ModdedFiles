@@ -28,6 +28,8 @@
 
 .field protected mCallbacksMessenger:Landroid/os/Messenger;
 
+.field final mContext:Landroid/content/Context;
+
 .field protected final mHandler:Landroid/support/v4/media/MediaBrowserCompat$CallbackHandler;
 
 .field private mMediaSessionToken:Landroid/support/v4/media/session/MediaSessionCompat$Token;
@@ -66,6 +68,8 @@
     invoke-direct {v0}, Landroid/support/v4/util/ArrayMap;-><init>()V
 
     iput-object v0, p0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplApi21;->mSubscriptions:Landroid/support/v4/util/ArrayMap;
+
+    iput-object p1, p0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplApi21;->mContext:Landroid/content/Context;
 
     if-nez p4, :cond_0
 
@@ -539,7 +543,9 @@
     goto :goto_0
 
     :cond_2
-    invoke-virtual {v0, p4}, Landroid/support/v4/media/MediaBrowserCompat$Subscription;->getCallback(Landroid/os/Bundle;)Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;
+    iget-object v2, p0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplApi21;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0, v2, p4}, Landroid/support/v4/media/MediaBrowserCompat$Subscription;->getCallback(Landroid/content/Context;Landroid/os/Bundle;)Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;
 
     move-result-object v1
 
@@ -680,6 +686,14 @@
 
 .method public sendCustomAction(Ljava/lang/String;Landroid/os/Bundle;Landroid/support/v4/media/MediaBrowserCompat$CustomActionCallback;)V
     .locals 5
+    .param p1    # Ljava/lang/String;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+    .param p3    # Landroid/support/v4/media/MediaBrowserCompat$CustomActionCallback;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
 
     invoke-virtual {p0}, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplApi21;->isConnected()Z
 
@@ -750,6 +764,8 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
+    if-eqz p3, :cond_1
+
     iget-object v2, p0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplApi21;->mHandler:Landroid/support/v4/media/MediaBrowserCompat$CallbackHandler;
 
     new-instance v3, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplApi21$6;
@@ -774,6 +790,7 @@
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    :cond_2
     :goto_0
     return-void
 
@@ -811,6 +828,8 @@
     move-result-object v3
 
     invoke-static {v2, v3, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    if-eqz p3, :cond_2
 
     iget-object v2, p0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplApi21;->mHandler:Landroid/support/v4/media/MediaBrowserCompat$CallbackHandler;
 
@@ -860,7 +879,9 @@
     const/4 v0, 0x0
 
     :goto_0
-    invoke-virtual {v2, v0, p3}, Landroid/support/v4/media/MediaBrowserCompat$Subscription;->putCallback(Landroid/os/Bundle;Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;)V
+    iget-object v3, p0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplApi21;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2, v3, v0, p3}, Landroid/support/v4/media/MediaBrowserCompat$Subscription;->putCallback(Landroid/content/Context;Landroid/os/Bundle;Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;)V
 
     iget-object v3, p0, Landroid/support/v4/media/MediaBrowserCompat$MediaBrowserImplApi21;->mServiceBinderWrapper:Landroid/support/v4/media/MediaBrowserCompat$ServiceBinderWrapper;
 

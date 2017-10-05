@@ -53,11 +53,11 @@
 
     move-result-object v4
 
-    invoke-virtual {v4}, Lcom/android/launcher3/LauncherModel;->getAppsLoader()Lcom/android/launcher3/allapps/model/AppsLoader;
+    invoke-virtual {v4}, Lcom/android/launcher3/LauncherModel;->getAppsModel()Lcom/android/launcher3/allapps/model/AppsModel;
 
     move-result-object v4
 
-    invoke-virtual {v4}, Lcom/android/launcher3/allapps/model/AppsLoader;->getAllAppItemInApps()Ljava/util/ArrayList;
+    invoke-virtual {v4}, Lcom/android/launcher3/allapps/model/AppsModel;->getAllAppItemInApps()Ljava/util/ArrayList;
 
     move-result-object v2
 
@@ -79,11 +79,11 @@
 
     move-result-object v4
 
-    invoke-virtual {v4}, Lcom/android/launcher3/LauncherModel;->getAppsLoader()Lcom/android/launcher3/allapps/model/AppsLoader;
+    invoke-virtual {v4}, Lcom/android/launcher3/LauncherModel;->getHomeLoader()Lcom/android/launcher3/home/HomeLoader;
 
     move-result-object v4
 
-    invoke-virtual {v4}, Lcom/android/launcher3/allapps/model/AppsLoader;->getAllAppItemListInHome()Ljava/util/ArrayList;
+    invoke-virtual {v4}, Lcom/android/launcher3/home/HomeLoader;->getAllAppItemInHome()Ljava/util/ArrayList;
 
     move-result-object v3
 
@@ -125,11 +125,11 @@
     :cond_2
     iget-object v4, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController$4;->this$0:Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;
 
-    invoke-static {v4}, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->access$500(Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;)Lcom/android/launcher3/allapps/controller/AppsController;
+    invoke-static {v4}, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->access$400(Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;)Lcom/android/launcher3/allapps/view/AppsSearchContainerView;
 
     move-result-object v4
 
-    invoke-virtual {v4, v0}, Lcom/android/launcher3/allapps/controller/AppsController;->setApps(Ljava/util/ArrayList;)V
+    invoke-virtual {v4, v0}, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->setApps(Ljava/util/List;)V
 
     iget-object v4, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController$4;->this$0:Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;
 

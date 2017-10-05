@@ -92,7 +92,7 @@
 
     instance-of v0, v0, Lcom/android/launcher3/home/LauncherAppWidgetInfo;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     :cond_0
     iget-object v0, p0, Lcom/android/launcher3/common/model/FavoritesUpdater$1;->val$item:Lcom/android/launcher3/common/base/item/ItemInfo;
@@ -138,11 +138,32 @@
 
     :cond_2
     :goto_0
+    iget-object v0, p0, Lcom/android/launcher3/common/model/FavoritesUpdater$1;->val$item:Lcom/android/launcher3/common/base/item/ItemInfo;
+
+    iget v0, v0, Lcom/android/launcher3/common/base/item/ItemInfo;->itemType:I
+
+    const/4 v2, 0x6
+
+    if-ne v0, v2, :cond_3
+
+    iget-object v0, p0, Lcom/android/launcher3/common/model/FavoritesUpdater$1;->val$item:Lcom/android/launcher3/common/base/item/ItemInfo;
+
+    check-cast v0, Lcom/android/launcher3/common/base/item/IconInfo;
+
+    invoke-static {v0}, Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutKey;->fromShortcutInfo(Lcom/android/launcher3/common/base/item/IconInfo;)Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutKey;
+
+    move-result-object v0
+
+    const/4 v2, 0x1
+
+    invoke-static {v0, v2}, Lcom/android/launcher3/common/model/DataLoader;->incrementPinnedShortcutCount(Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutKey;Z)V
+
+    :cond_3
     monitor-exit v1
 
     return-void
 
-    :cond_3
+    :cond_4
     iget-object v0, p0, Lcom/android/launcher3/common/model/FavoritesUpdater$1;->val$item:Lcom/android/launcher3/common/base/item/ItemInfo;
 
     instance-of v0, v0, Lcom/android/launcher3/folder/FolderInfo;

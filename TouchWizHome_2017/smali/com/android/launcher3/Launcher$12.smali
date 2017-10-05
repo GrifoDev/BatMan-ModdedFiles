@@ -36,7 +36,7 @@
 
     const/4 v0, 0x1
 
-    invoke-static {v0}, Lcom/android/launcher3/Launcher;->access$902(Z)Z
+    invoke-static {v0}, Lcom/android/launcher3/Launcher;->access$802(Z)Z
 
     return-void
 .end method

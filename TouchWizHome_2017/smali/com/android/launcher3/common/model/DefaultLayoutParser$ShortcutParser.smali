@@ -700,6 +700,51 @@
     goto :goto_2
 
     :cond_f
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportDeepShortcut()Z
+
+    move-result v19
+
+    if-eqz v19, :cond_10
+
+    invoke-static {v12}, Lcom/android/launcher3/Utilities;->isDeepShortcut(Landroid/content/Intent;)Z
+
+    move-result v19
+
+    if-eqz v19, :cond_10
+
+    const/16 v18, 0x6
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$ShortcutParser;->this$0:Lcom/android/launcher3/common/model/DefaultLayoutParser;
+
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
+
+    iget-object v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mValues:Landroid/content/ContentValues;
+
+    move-object/from16 v19, v0
+
+    const-string v20, "iconType"
+
+    const/16 v21, 0x1
+
+    invoke-static/range {v21 .. v21}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v21
+
+    invoke-virtual/range {v19 .. v21}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    const-string v19, "DefaultLayoutParser"
+
+    const-string v20, "Deep shortcut, type change to deep shortcut"
+
+    invoke-static/range {v19 .. v20}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_1
+
+    :cond_10
     const-string v19, "icon"
 
     move-object/from16 v0, p1

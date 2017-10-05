@@ -6,6 +6,7 @@
 .implements Landroid/view/View$OnTouchListener;
 .implements Lcom/android/launcher3/common/base/view/LauncherTransitionable;
 .implements Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController$Callbacks;
+.implements Lcom/android/launcher3/allapps/view/AppsSearchWrapper;
 
 
 # static fields
@@ -70,7 +71,7 @@
 
 .field mergeAlgorithm:Lcom/android/launcher3/allapps/AlphabeticalAppsList$MergeAlgorithm;
 
-.field thread:Lcom/android/launcher3/appssearch/UpdateCheckThread;
+.field thread:Lcom/android/launcher3/allapps/UpdateCheckThread;
 
 
 # direct methods
@@ -105,7 +106,7 @@
 
     iput-object v1, p0, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->mSearchQueryBuilder:Landroid/text/SpannableStringBuilder;
 
-    iput-object v1, p0, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->thread:Lcom/android/launcher3/appssearch/UpdateCheckThread;
+    iput-object v1, p0, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->thread:Lcom/android/launcher3/allapps/UpdateCheckThread;
 
     new-instance v1, Landroid/graphics/Point;
 
@@ -169,7 +170,7 @@
 
     iput-object v1, p0, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->mItemDecoration:Landroid/support/v7/widget/RecyclerView$ItemDecoration;
 
-    const v1, 0x7f0900b7
+    const v1, 0x7f0a00fb
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -633,7 +634,7 @@
 
     if-nez v0, :cond_0
 
-    new-instance v0, Lcom/android/launcher3/appssearch/UpdateCheckThread;
+    new-instance v0, Lcom/android/launcher3/allapps/UpdateCheckThread;
 
     invoke-virtual {p0}, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->getContext()Landroid/content/Context;
 
@@ -643,13 +644,13 @@
 
     iget-object v3, p0, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->mApps:Lcom/android/launcher3/allapps/AlphabeticalAppsList;
 
-    invoke-direct {v0, v1, v2, p1, v3}, Lcom/android/launcher3/appssearch/UpdateCheckThread;-><init>(Landroid/content/Context;ZLjava/lang/String;Lcom/android/launcher3/allapps/AlphabeticalAppsList;)V
+    invoke-direct {v0, v1, v2, p1, v3}, Lcom/android/launcher3/allapps/UpdateCheckThread;-><init>(Landroid/content/Context;ZLjava/lang/String;Lcom/android/launcher3/allapps/AlphabeticalAppsList;)V
 
-    iput-object v0, p0, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->thread:Lcom/android/launcher3/appssearch/UpdateCheckThread;
+    iput-object v0, p0, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->thread:Lcom/android/launcher3/allapps/UpdateCheckThread;
 
-    iget-object v0, p0, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->thread:Lcom/android/launcher3/appssearch/UpdateCheckThread;
+    iget-object v0, p0, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->thread:Lcom/android/launcher3/allapps/UpdateCheckThread;
 
-    invoke-virtual {v0}, Lcom/android/launcher3/appssearch/UpdateCheckThread;->start()V
+    invoke-virtual {v0}, Lcom/android/launcher3/allapps/UpdateCheckThread;->start()V
 
     :cond_0
     return-void
@@ -672,6 +673,12 @@
     iget-object v0, p0, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->mApps:Lcom/android/launcher3/allapps/AlphabeticalAppsList;
 
     invoke-virtual {v0, p1}, Lcom/android/launcher3/allapps/AlphabeticalAppsList;->addApps(Ljava/util/List;)V
+
+    return-void
+.end method
+
+.method public changeColorAndBackground(Z)V
+    .locals 0
 
     return-void
 .end method
@@ -837,6 +844,20 @@
     goto :goto_0
 .end method
 
+.method public getAppsSearchBarView()Landroid/view/View;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->mSearchBarContainerView:Landroid/view/ViewGroup;
+
+    return-object v0
+.end method
+
+.method public getContainerView()Landroid/view/View;
+    .locals 0
+
+    return-object p0
+.end method
+
 .method public getContentView()Landroid/view/View;
     .locals 1
 
@@ -867,14 +888,6 @@
     goto :goto_0
 .end method
 
-.method public getSearchBarContainerView()Landroid/view/View;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->mSearchBarContainerView:Landroid/view/ViewGroup;
-
-    return-object v0
-.end method
-
 .method public getSearchBarController()Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;
     .locals 1
 
@@ -883,12 +896,31 @@
     return-object v0
 .end method
 
-.method public getSearchBarView()Landroid/view/View;
+.method public hidePopupMenu()V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->mSearchBarView:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->mSearchBarController:Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;
 
-    return-object v0
+    instance-of v0, v0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->mSearchBarController:Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;
+
+    check-cast v0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->hidePopupMenu()V
+
+    :cond_0
+    return-void
+.end method
+
+.method public launchSfinder()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
 .end method
 
 .method public newDefaultAppSearchController(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;
@@ -902,7 +934,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->mAppsRecyclerView:Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;
 
-    invoke-direct {v0, v1, p0, v2, p1}, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;-><init>(Landroid/content/Context;Landroid/view/ViewGroup;Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;Lcom/android/launcher3/allapps/controller/AppsController;)V
+    invoke-direct {v0, v1, p0, v2, p1}, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;-><init>(Landroid/content/Context;Lcom/android/launcher3/allapps/view/AppsSearchContainerView;Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;Lcom/android/launcher3/allapps/controller/AppsController;)V
 
     return-object v0
 .end method
@@ -915,6 +947,12 @@
     return-void
 .end method
 
+.method public onConfigurationChangedIfNeeded()V
+    .locals 0
+
+    return-void
+.end method
+
 .method protected onFinishInflate()V
     .locals 5
 
@@ -922,7 +960,7 @@
 
     invoke-super {p0}, Lcom/android/launcher3/common/base/view/BaseContainerView;->onFinishInflate()V
 
-    const v3, 0x7f0f004b
+    const v3, 0x7f110051
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->findViewById(I)Landroid/view/View;
 
@@ -934,7 +972,7 @@
 
     invoke-direct {v0, p0}, Lcom/android/launcher3/allapps/view/AppsSearchContainerView$1;-><init>(Lcom/android/launcher3/allapps/view/AppsSearchContainerView;)V
 
-    const v3, 0x7f0f0047
+    const v3, 0x7f11004d
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->findViewById(I)Landroid/view/View;
 
@@ -948,7 +986,7 @@
 
     invoke-virtual {v3, v0}, Landroid/view/ViewGroup;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
-    const v3, 0x7f0f004c
+    const v3, 0x7f110052
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->findViewById(I)Landroid/view/View;
 
@@ -960,7 +998,7 @@
 
     invoke-virtual {v3, v0}, Landroid/view/View;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
-    const v3, 0x7f0f0048
+    const v3, 0x7f11004e
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->findViewById(I)Landroid/view/View;
 
@@ -970,7 +1008,7 @@
 
     iput-object v3, p0, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->mSearchSubTitleBar:Landroid/widget/LinearLayout;
 
-    const v3, 0x7f0f004a
+    const v3, 0x7f110050
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->findViewById(I)Landroid/view/View;
 
@@ -980,7 +1018,7 @@
 
     iput-object v3, p0, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->mSearchSubTitleText:Landroid/widget/TextView;
 
-    const v3, 0x7f0f0049
+    const v3, 0x7f11004f
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->findViewById(I)Landroid/view/View;
 
@@ -990,7 +1028,7 @@
 
     iput-object v3, p0, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->mSearchSubTitle:Landroid/widget/TextView;
 
-    const v3, 0x7f0f0054
+    const v3, 0x7f11005a
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->findViewById(I)Landroid/view/View;
 
@@ -1252,7 +1290,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f080016
+    const v2, 0x7f09001f
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1448,6 +1486,30 @@
     return-void
 .end method
 
+.method public resume()V
+    .locals 4
+
+    invoke-virtual {p0}, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-static {v2}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
+
+    move-result-object v1
+
+    const-string v2, "search_recommend"
+
+    const/4 v3, 0x1
+
+    invoke-interface {v1, v2, v3}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    invoke-static {v0}, Lcom/android/launcher3/LauncherFeature;->setSupportGalaxyAppsSearch(Z)V
+
+    return-void
+.end method
+
 .method public scrollToTop()V
     .locals 1
 
@@ -1507,7 +1569,7 @@
 
     move-result-object v1
 
-    const/high16 v2, 0x7f080000
+    const v2, 0x7f090001
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1529,6 +1591,14 @@
     invoke-virtual {v0}, Lcom/android/launcher3/allapps/AllAppsGridAdapter;->notifyDataSetChanged()V
 
     :cond_1
+    return-void
+.end method
+
+.method public setController(Lcom/android/launcher3/allapps/controller/AppsController;)V
+    .locals 0
+
+    invoke-virtual {p0, p1}, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->setSearchBarController(Lcom/android/launcher3/allapps/controller/AppsController;)V
+
     return-void
 .end method
 
@@ -1563,18 +1633,10 @@
     return-void
 .end method
 
-.method public setSearchBarController(Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;)V
+.method public setSearchBarController(Lcom/android/launcher3/allapps/controller/AppsController;)V
     .locals 3
 
     iget-object v1, p0, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->mSearchBarController:Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->mSearchBarController:Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;
-
-    invoke-virtual {v1, p1}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
 
     if-eqz v1, :cond_0
 
@@ -1582,7 +1644,11 @@
     return-void
 
     :cond_0
-    iput-object p1, p0, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->mSearchBarController:Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;
+    invoke-virtual {p0, p1}, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->newDefaultAppSearchController(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->mSearchBarController:Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;
 
     iget-object v1, p0, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->mSearchBarController:Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;
 
@@ -1590,9 +1656,11 @@
 
     invoke-virtual {v1, v2, p0}, Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;->initialize(Lcom/android/launcher3/allapps/AlphabeticalAppsList;Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController$Callbacks;)V
 
-    iget-object v1, p0, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->mSearchBarContainerView:Landroid/view/ViewGroup;
+    iget-object v1, p0, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->mSearchBarController:Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;
 
-    invoke-virtual {p1, v1}, Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;->getView(Landroid/view/ViewGroup;)Landroid/view/View;
+    iget-object v2, p0, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->mSearchBarContainerView:Landroid/view/ViewGroup;
+
+    invoke-virtual {v1, v2}, Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;->getView(Landroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v0
 
@@ -1626,7 +1694,7 @@
 
     move-result-object v1
 
-    const/high16 v2, 0x7f080000
+    const v2, 0x7f090001
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1655,6 +1723,25 @@
     goto :goto_0
 .end method
 
+.method public showPopupMenu()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->mSearchBarController:Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;
+
+    instance-of v0, v0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->mSearchBarController:Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;
+
+    check-cast v0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->showPopupMenu()Z
+
+    :cond_0
+    return-void
+.end method
+
 .method public showSearchTitle(Z)V
     .locals 4
 
@@ -1668,7 +1755,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f080015
+    const v2, 0x7f09001e
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1697,6 +1784,31 @@
     goto :goto_0
 .end method
 
+.method public stageExit(Lcom/android/launcher3/common/stage/StageEntry;)V
+    .locals 2
+
+    invoke-virtual {p0}, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->hidePopupMenu()V
+
+    if-eqz p1, :cond_0
+
+    iget v0, p1, Lcom/android/launcher3/common/stage/StageEntry;->toStage:I
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->getContentView()Landroid/view/View;
+
+    move-result-object v0
+
+    const/16 v1, 0x8
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+
+    :cond_0
+    return-void
+.end method
+
 .method public startAppsSearch()V
     .locals 1
 
@@ -1710,6 +1822,125 @@
 
     :cond_0
     return-void
+.end method
+
+.method public switchInternalState(Lcom/android/launcher3/allapps/AppsTransitionAnimation;Lcom/android/launcher3/common/stage/StageEntry;)Landroid/animation/Animator;
+    .locals 8
+
+    const/4 v4, 0x3
+
+    const/4 v7, 0x1
+
+    const/4 v6, 0x0
+
+    invoke-virtual {p2}, Lcom/android/launcher3/common/stage/StageEntry;->getInternalStateFrom()I
+
+    move-result v1
+
+    invoke-virtual {p2}, Lcom/android/launcher3/common/stage/StageEntry;->getInternalStateTo()I
+
+    move-result v3
+
+    iget-boolean v0, p2, Lcom/android/launcher3/common/stage/StageEntry;->enableAnimation:Z
+
+    const/4 v2, 0x0
+
+    if-nez v1, :cond_2
+
+    if-ne v3, v4, :cond_2
+
+    invoke-virtual {p0}, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->bringToFront()V
+
+    invoke-virtual {p0}, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->getContentView()Landroid/view/View;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v6}, Landroid/view/View;->setVisibility(I)V
+
+    invoke-virtual {p0}, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->getRecentAppListSize()I
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    invoke-virtual {p0, v7}, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->showHistoryTitle(Z)V
+
+    :cond_0
+    invoke-virtual {p2}, Lcom/android/launcher3/common/stage/StageEntry;->getLayerViews()Ljava/util/HashMap;
+
+    move-result-object v4
+
+    invoke-virtual {p1, v0, v4, v7}, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->getSearchAnimation(ZLjava/util/HashMap;Z)Landroid/animation/AnimatorSet;
+
+    move-result-object v2
+
+    :cond_1
+    :goto_0
+    return-object v2
+
+    :cond_2
+    if-ne v1, v4, :cond_1
+
+    if-nez v3, :cond_1
+
+    iget-object v4, p0, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->mSearchBarController:Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;
+
+    invoke-virtual {v4}, Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;->getSearchBarEditView()Landroid/widget/SearchView;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/widget/SearchView;->getQuery()Ljava/lang/CharSequence;
+
+    move-result-object v4
+
+    invoke-interface {v4}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v4
+
+    if-nez v4, :cond_3
+
+    iget-object v4, p0, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->mSearchBarController:Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;
+
+    invoke-virtual {v4}, Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;->getSearchBarEditView()Landroid/widget/SearchView;
+
+    move-result-object v4
+
+    const-string v5, ""
+
+    invoke-virtual {v4, v5, v7}, Landroid/widget/SearchView;->setQuery(Ljava/lang/CharSequence;Z)V
+
+    :cond_3
+    iget-object v4, p0, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->mSearchBarController:Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;
+
+    invoke-virtual {v4}, Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;->getSearchBarEditView()Landroid/widget/SearchView;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/widget/SearchView;->clearFocus()V
+
+    invoke-virtual {p0, v6}, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->showHistoryTitle(Z)V
+
+    invoke-virtual {p0}, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->getContentView()Landroid/view/View;
+
+    move-result-object v4
+
+    const/16 v5, 0x8
+
+    invoke-virtual {v4, v5}, Landroid/view/View;->setVisibility(I)V
+
+    invoke-virtual {p2}, Lcom/android/launcher3/common/stage/StageEntry;->getLayerViews()Ljava/util/HashMap;
+
+    move-result-object v4
+
+    invoke-virtual {p1, v0, v4, v6}, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->getSearchAnimation(ZLjava/util/HashMap;Z)Landroid/animation/AnimatorSet;
+
+    move-result-object v2
+
+    goto :goto_0
 .end method
 
 .method public updateAndSaveRecentApps(Lcom/android/launcher3/common/base/item/IconInfo;)V
@@ -1889,6 +2120,16 @@
     iget-object v0, p0, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->mApps:Lcom/android/launcher3/allapps/AlphabeticalAppsList;
 
     invoke-virtual {v0, p1}, Lcom/android/launcher3/allapps/AlphabeticalAppsList;->updateApps(Ljava/util/List;)V
+
+    return-void
+.end method
+
+.method public updateRecentApp(Lcom/android/launcher3/common/base/item/IconInfo;)V
+    .locals 0
+
+    invoke-virtual {p0}, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->setRecentAppMap()V
+
+    invoke-virtual {p0, p1}, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->updateAndSaveRecentApps(Lcom/android/launcher3/common/base/item/IconInfo;)V
 
     return-void
 .end method

@@ -3,7 +3,7 @@
 .source "TrayManager.java"
 
 # interfaces
-.implements Lcom/android/launcher3/common/tray/FakeView$DragEventCallback;
+.implements Lcom/android/launcher3/common/tray/FakeView$TranslationCallback;
 
 
 # annotations
@@ -34,50 +34,58 @@
 
 
 # virtual methods
-.method public getDropTarget(Lcom/android/launcher3/common/tray/TrayManager$TrayLevel;)Lcom/android/launcher3/common/drag/DropTarget;
-    .locals 1
+.method public onTranslateX(Lcom/android/launcher3/common/tray/TrayManager$TrayLevel;F)V
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/launcher3/common/tray/TrayManager$2;->this$0:Lcom/android/launcher3/common/tray/TrayManager;
+    return-void
+.end method
 
-    invoke-static {v0, p1}, Lcom/android/launcher3/common/tray/TrayManager;->access$400(Lcom/android/launcher3/common/tray/TrayManager;Lcom/android/launcher3/common/tray/TrayManager$TrayLevel;)Lcom/android/launcher3/common/drag/DropTarget;
+.method public onTranslateY(Lcom/android/launcher3/common/tray/TrayManager$TrayLevel;F)V
+    .locals 5
+
+    iget-object v1, p0, Lcom/android/launcher3/common/tray/TrayManager$2;->this$0:Lcom/android/launcher3/common/tray/TrayManager;
+
+    invoke-static {v1}, Lcom/android/launcher3/common/tray/TrayManager;->access$500(Lcom/android/launcher3/common/tray/TrayManager;)Lcom/android/launcher3/common/tray/FakeView;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/launcher3/common/tray/TrayManager$2;->this$0:Lcom/android/launcher3/common/tray/TrayManager;
+
+    invoke-static {v1}, Lcom/android/launcher3/common/tray/TrayManager;->access$500(Lcom/android/launcher3/common/tray/TrayManager;)Lcom/android/launcher3/common/tray/FakeView;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/launcher3/common/tray/FakeView;->getTag()Ljava/lang/Object;
 
     move-result-object v0
 
-    return-object v0
-.end method
+    check-cast v0, Lcom/android/launcher3/common/tray/TrayManager$TrayLevel;
 
-.method public onChangeStage(Lcom/android/launcher3/common/tray/TrayManager$TrayLevel;I)V
-    .locals 2
+    if-ne p1, v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/launcher3/common/tray/TrayManager$2;->this$0:Lcom/android/launcher3/common/tray/TrayManager;
-
-    const/4 v1, -0x1
-
-    invoke-static {v0, p1, p2, v1}, Lcom/android/launcher3/common/tray/TrayManager;->access$300(Lcom/android/launcher3/common/tray/TrayManager;Lcom/android/launcher3/common/tray/TrayManager$TrayLevel;II)V
-
+    :goto_0
     return-void
-.end method
 
-.method public onDragEnter(I)V
-    .locals 2
+    :cond_0
+    iget-object v1, p0, Lcom/android/launcher3/common/tray/TrayManager$2;->this$0:Lcom/android/launcher3/common/tray/TrayManager;
 
-    sget-object v0, Lcom/android/launcher3/util/LightingEffectManager;->INSTANCE:Lcom/android/launcher3/util/LightingEffectManager;
+    const/4 v2, 0x0
 
-    const/4 v1, 0x1
+    iget-object v3, p0, Lcom/android/launcher3/common/tray/TrayManager$2;->this$0:Lcom/android/launcher3/common/tray/TrayManager;
 
-    invoke-virtual {v0, p1, v1}, Lcom/android/launcher3/util/LightingEffectManager;->turnOnEachLight(IZ)V
+    invoke-static {v3}, Lcom/android/launcher3/common/tray/TrayManager;->access$600(Lcom/android/launcher3/common/tray/TrayManager;)F
 
-    return-void
-.end method
+    move-result v3
 
-.method public onDragExit(I)V
-    .locals 2
+    iget-object v4, p0, Lcom/android/launcher3/common/tray/TrayManager$2;->this$0:Lcom/android/launcher3/common/tray/TrayManager;
 
-    sget-object v0, Lcom/android/launcher3/util/LightingEffectManager;->INSTANCE:Lcom/android/launcher3/util/LightingEffectManager;
+    invoke-static {v4}, Lcom/android/launcher3/common/tray/TrayManager;->access$700(Lcom/android/launcher3/common/tray/TrayManager;)I
 
-    const/4 v1, 0x0
+    move-result v4
 
-    invoke-virtual {v0, p1, v1}, Lcom/android/launcher3/util/LightingEffectManager;->turnOnEachLight(IZ)V
+    invoke-virtual {v1, v2, v3, v4}, Lcom/android/launcher3/common/tray/TrayManager;->onChangeTrayTranslationY(Lcom/android/launcher3/common/tray/TrayManager$TrayInteractionListener;FI)V
 
-    return-void
+    goto :goto_0
 .end method

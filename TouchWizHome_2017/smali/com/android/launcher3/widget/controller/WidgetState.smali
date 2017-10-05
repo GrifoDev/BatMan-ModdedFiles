@@ -115,7 +115,7 @@
 .method protected clickNotAllowed(Landroid/view/View;)V
     .locals 8
 
-    const v4, 0x7f080054
+    const v4, 0x7f09005b
 
     const/4 v6, 0x1
 
@@ -144,7 +144,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f090052
+    const v4, 0x7f0a0055
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -152,7 +152,7 @@
 
     int-to-float v1, v3
 
-    const v3, 0x7f0f00e5
+    const v3, 0x7f110102
 
     invoke-virtual {p1, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -244,7 +244,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f09007d
+    const v1, 0x7f0a0080
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -265,6 +265,12 @@
 .end method
 
 .method public onPagedViewTouchIntercepted()V
+    .locals 0
+
+    return-void
+.end method
+
+.method protected onStageEnter()V
     .locals 0
 
     return-void
@@ -335,6 +341,12 @@
 .end method
 
 .method public abstract setFocus()V
+.end method
+
+.method public setFocusToSearchEditText()V
+    .locals 0
+
+    return-void
 .end method
 
 .method protected setHasInstallableApp(Z)V

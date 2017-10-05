@@ -709,12 +709,6 @@
     check-cast v1, Landroid/support/v4/media/session/IMediaControllerCallback;
 
     invoke-interface {v2, v1}, Landroid/support/v4/media/session/IMediaSession;->registerCallbackListener(Landroid/support/v4/media/session/IMediaControllerCallback;)V
-
-    invoke-static {p1, p2}, Landroid/support/v4/media/session/MediaControllerCompat$Callback;->access$100(Landroid/support/v4/media/session/MediaControllerCompat$Callback;Landroid/os/Handler;)V
-
-    const/4 v1, 0x1
-
-    iput-boolean v1, p1, Landroid/support/v4/media/session/MediaControllerCompat$Callback;->mRegistered:Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -878,10 +872,6 @@
     const/4 v2, 0x0
 
     invoke-interface {v1, p1, v2}, Landroid/os/IBinder;->unlinkToDeath(Landroid/os/IBinder$DeathRecipient;I)Z
-
-    const/4 v1, 0x0
-
-    iput-boolean v1, p1, Landroid/support/v4/media/session/MediaControllerCompat$Callback;->mRegistered:Z
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 

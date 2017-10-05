@@ -109,7 +109,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v2, v3, v4}, Landroid/media/RemoteControlClient$MetadataEditor;->putObject(ILjava/lang/Object;)Landroid/media/RemoteControlClient$MetadataEditor;
+    invoke-virtual {v2, v3, v4}, Landroid/media/MediaMetadataEditor;->putObject(ILjava/lang/Object;)Landroid/media/MediaMetadataEditor;
 
     :cond_5
     const-string v3, "android.media.metadata.USER_RATING"
@@ -126,7 +126,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v2, v8, v3}, Landroid/media/RemoteControlClient$MetadataEditor;->putObject(ILjava/lang/Object;)Landroid/media/RemoteControlClient$MetadataEditor;
+    invoke-virtual {v2, v8, v3}, Landroid/media/MediaMetadataEditor;->putObject(ILjava/lang/Object;)Landroid/media/MediaMetadataEditor;
 
     goto :goto_1
 .end method

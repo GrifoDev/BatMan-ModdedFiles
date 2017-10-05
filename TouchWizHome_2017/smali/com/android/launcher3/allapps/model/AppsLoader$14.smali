@@ -3,12 +3,12 @@
 .source "AppsLoader.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Ljava/util/Comparator;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/allapps/model/AppsLoader;->bindRemainedItems(Ljava/util/ArrayList;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)V
+    value = Lcom/android/launcher3/allapps/model/AppsLoader;->filterCurrentPageItems(JLjava/util/ArrayList;Ljava/util/ArrayList;Ljava/util/ArrayList;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -16,28 +16,26 @@
     name = null
 .end annotation
 
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Ljava/util/Comparator",
+        "<",
+        "Lcom/android/launcher3/common/base/item/ItemInfo;",
+        ">;"
+    }
+.end annotation
+
 
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
 
-.field final synthetic val$oldCallbacks:Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
-
-.field final synthetic val$remainedItemsInFolder:Ljava/util/ArrayList;
-
-.field final synthetic val$task:Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/allapps/model/AppsLoader;Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;Ljava/util/ArrayList;)V
+.method constructor <init>(Lcom/android/launcher3/allapps/model/AppsLoader;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/allapps/model/AppsLoader$14;->this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
-
-    iput-object p2, p0, Lcom/android/launcher3/allapps/model/AppsLoader$14;->val$oldCallbacks:Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
-
-    iput-object p3, p0, Lcom/android/launcher3/allapps/model/AppsLoader$14;->val$task:Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;
-
-    iput-object p4, p0, Lcom/android/launcher3/allapps/model/AppsLoader$14;->val$remainedItemsInFolder:Ljava/util/ArrayList;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -46,25 +44,30 @@
 
 
 # virtual methods
-.method public run()V
+.method public compare(Lcom/android/launcher3/common/base/item/ItemInfo;Lcom/android/launcher3/common/base/item/ItemInfo;)I
     .locals 4
 
-    iget-object v1, p0, Lcom/android/launcher3/allapps/model/AppsLoader$14;->this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
+    iget-wide v0, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
 
-    iget-object v2, p0, Lcom/android/launcher3/allapps/model/AppsLoader$14;->val$oldCallbacks:Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
+    iget-wide v2, p2, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
 
-    iget-object v3, p0, Lcom/android/launcher3/allapps/model/AppsLoader$14;->val$task:Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;
+    sub-long/2addr v0, v2
 
-    invoke-static {v1, v2, v3}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$1400(Lcom/android/launcher3/allapps/model/AppsLoader;Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
+    long-to-int v0, v0
 
-    move-result-object v0
+    return v0
+.end method
 
-    if-eqz v0, :cond_0
+.method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
+    .locals 1
 
-    iget-object v1, p0, Lcom/android/launcher3/allapps/model/AppsLoader$14;->val$remainedItemsInFolder:Ljava/util/ArrayList;
+    check-cast p1, Lcom/android/launcher3/common/base/item/ItemInfo;
 
-    invoke-interface {v0, v1}, Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;->bindItemsInFolder(Ljava/util/ArrayList;)V
+    check-cast p2, Lcom/android/launcher3/common/base/item/ItemInfo;
 
-    :cond_0
-    return-void
+    invoke-virtual {p0, p1, p2}, Lcom/android/launcher3/allapps/model/AppsLoader$14;->compare(Lcom/android/launcher3/common/base/item/ItemInfo;Lcom/android/launcher3/common/base/item/ItemInfo;)I
+
+    move-result v0
+
+    return v0
 .end method

@@ -45,14 +45,6 @@
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsViewBinder$1;->this$0:Lcom/android/launcher3/allapps/controller/AppsViewBinder;
-
-    invoke-static {v0}, Lcom/android/launcher3/allapps/controller/AppsViewBinder;->access$000(Lcom/android/launcher3/allapps/controller/AppsViewBinder;)Lcom/android/launcher3/allapps/controller/AppsController;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/launcher3/allapps/controller/AppsController;->setAlphabeticList()V
-
     :cond_0
     return-void
 .end method

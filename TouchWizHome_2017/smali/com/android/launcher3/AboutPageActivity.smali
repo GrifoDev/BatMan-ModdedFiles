@@ -54,9 +54,7 @@
 # instance fields
 .field private mActionBar:Landroid/app/ActionBar;
 
-.field private mAppName:Landroid/widget/TextView;
-
-.field private mAppsInfo:Landroid/widget/Button;
+.field private mAppsInfo:Landroid/widget/TextView;
 
 .field private mCheckUpdateTask:Lcom/android/launcher3/AboutPageActivity$UpdateCheckTask;
 
@@ -67,6 +65,8 @@
 .field private mHelpTextTitle:Landroid/widget/TextView;
 
 .field private mImageView:Landroid/widget/ImageView;
+
+.field private mNeedUpdate:I
 
 .field private mRetryButton:Landroid/widget/Button;
 
@@ -172,7 +172,15 @@
     return v0
 .end method
 
-.method static synthetic access$600(Lcom/android/launcher3/AboutPageActivity;)Landroid/widget/TextView;
+.method static synthetic access$602(Lcom/android/launcher3/AboutPageActivity;I)I
+    .locals 0
+
+    iput p1, p0, Lcom/android/launcher3/AboutPageActivity;->mNeedUpdate:I
+
+    return p1
+.end method
+
+.method static synthetic access$700(Lcom/android/launcher3/AboutPageActivity;)Landroid/widget/TextView;
     .locals 1
 
     iget-object v0, p0, Lcom/android/launcher3/AboutPageActivity;->mHelpText:Landroid/widget/TextView;
@@ -1062,7 +1070,7 @@
 
     const/4 v5, 0x1
 
-    const v2, 0x7f0f000f
+    const v2, 0x7f110015
 
     invoke-virtual {p0, v2}, Lcom/android/launcher3/AboutPageActivity;->findViewById(I)Landroid/view/View;
 
@@ -1072,7 +1080,7 @@
 
     iput-object v2, p0, Lcom/android/launcher3/AboutPageActivity;->mHelpTextTitle:Landroid/widget/TextView;
 
-    const v2, 0x7f0f0010
+    const v2, 0x7f110016
 
     invoke-virtual {p0, v2}, Lcom/android/launcher3/AboutPageActivity;->findViewById(I)Landroid/view/View;
 
@@ -1082,17 +1090,7 @@
 
     iput-object v2, p0, Lcom/android/launcher3/AboutPageActivity;->mHelpText:Landroid/widget/TextView;
 
-    const v2, 0x7f0f000d
-
-    invoke-virtual {p0, v2}, Lcom/android/launcher3/AboutPageActivity;->findViewById(I)Landroid/view/View;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/widget/TextView;
-
-    iput-object v2, p0, Lcom/android/launcher3/AboutPageActivity;->mAppName:Landroid/widget/TextView;
-
-    const v2, 0x7f0f000c
+    const v2, 0x7f110012
 
     invoke-virtual {p0, v2}, Lcom/android/launcher3/AboutPageActivity;->findViewById(I)Landroid/view/View;
 
@@ -1108,19 +1106,19 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    const v2, 0x7f0f000e
+    const v2, 0x7f110014
 
     invoke-virtual {p0, v2}, Lcom/android/launcher3/AboutPageActivity;->findViewById(I)Landroid/view/View;
 
     move-result-object v2
 
-    check-cast v2, Landroid/widget/Button;
+    check-cast v2, Landroid/widget/TextView;
 
-    iput-object v2, p0, Lcom/android/launcher3/AboutPageActivity;->mAppsInfo:Landroid/widget/Button;
+    iput-object v2, p0, Lcom/android/launcher3/AboutPageActivity;->mAppsInfo:Landroid/widget/TextView;
 
-    iget-object v2, p0, Lcom/android/launcher3/AboutPageActivity;->mAppName:Landroid/widget/TextView;
+    iget-object v2, p0, Lcom/android/launcher3/AboutPageActivity;->mAppsInfo:Landroid/widget/TextView;
 
-    const v3, 0x7f080012
+    const v3, 0x7f090004
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/AboutPageActivity;->getText(I)Ljava/lang/CharSequence;
 
@@ -1136,31 +1134,13 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    iget-object v2, p0, Lcom/android/launcher3/AboutPageActivity;->mAppsInfo:Landroid/widget/Button;
-
-    const v3, 0x7f08008a
-
-    invoke-virtual {p0, v3}, Lcom/android/launcher3/AboutPageActivity;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v3
-
-    invoke-interface {v3}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Landroid/widget/Button;->setText(Ljava/lang/CharSequence;)V
-
-    iget-object v2, p0, Lcom/android/launcher3/AboutPageActivity;->mAppsInfo:Landroid/widget/Button;
+    iget-object v2, p0, Lcom/android/launcher3/AboutPageActivity;->mAppsInfo:Landroid/widget/TextView;
 
     new-instance v3, Lcom/android/launcher3/AboutPageActivity$1;
 
     invoke-direct {v3, p0}, Lcom/android/launcher3/AboutPageActivity$1;-><init>(Lcom/android/launcher3/AboutPageActivity;)V
 
-    invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     iget-object v2, p0, Lcom/android/launcher3/AboutPageActivity;->mActionBar:Landroid/app/ActionBar;
 
@@ -1181,7 +1161,7 @@
     invoke-virtual {v2, v5}, Landroid/app/ActionBar;->setDisplayHomeAsUpEnabled(Z)V
 
     :cond_0
-    const v2, 0x7f080001
+    const v2, 0x7f090002
 
     invoke-virtual {p0, v2}, Lcom/android/launcher3/AboutPageActivity;->getString(I)Ljava/lang/String;
 
@@ -1189,7 +1169,7 @@
 
     new-array v3, v5, [Ljava/lang/Object;
 
-    const v4, 0x7f080003
+    const v4, 0x7f090005
 
     invoke-virtual {p0, v4}, Lcom/android/launcher3/AboutPageActivity;->getString(I)Ljava/lang/String;
 
@@ -1209,7 +1189,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/AboutPageActivity;->mHelpTextTitle:Landroid/widget/TextView;
 
-    const v3, 0x7f080009
+    const v3, 0x7f09000c
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/AboutPageActivity;->getString(I)Ljava/lang/String;
 
@@ -1229,13 +1209,13 @@
 
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v2, 0x7f080004
+    const v2, 0x7f090006
 
     invoke-virtual {p0, v2}, Lcom/android/launcher3/AboutPageActivity;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v2, 0x7f0f0014
+    const v2, 0x7f11001a
 
     invoke-virtual {p0, v2}, Lcom/android/launcher3/AboutPageActivity;->findViewById(I)Landroid/view/View;
 
@@ -1279,7 +1259,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v2, 0x7f0f0012
+    const v2, 0x7f110018
 
     invoke-virtual {p0, v2}, Lcom/android/launcher3/AboutPageActivity;->findViewById(I)Landroid/view/View;
 
@@ -1289,7 +1269,7 @@
 
     iput-object v2, p0, Lcom/android/launcher3/AboutPageActivity;->mUpdateButton:Landroid/widget/Button;
 
-    const v2, 0x7f0f0013
+    const v2, 0x7f110019
 
     invoke-virtual {p0, v2}, Lcom/android/launcher3/AboutPageActivity;->findViewById(I)Landroid/view/View;
 
@@ -1314,6 +1294,10 @@
     invoke-direct {v3, p0}, Lcom/android/launcher3/AboutPageActivity$4;-><init>(Lcom/android/launcher3/AboutPageActivity;)V
 
     invoke-virtual {v2, v3}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    iget-object v2, p0, Lcom/android/launcher3/AboutPageActivity;->mAppsInfo:Landroid/widget/TextView;
+
+    invoke-virtual {v2}, Landroid/widget/TextView;->requestFocus()Z
 
     return-void
 .end method
@@ -1453,8 +1437,72 @@
 
 
 # virtual methods
+.method public onConfigurationChanged(Landroid/content/res/Configuration;)V
+    .locals 2
+
+    invoke-super {p0, p1}, Landroid/app/Activity;->onConfigurationChanged(Landroid/content/res/Configuration;)V
+
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportRotate()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x4
+
+    invoke-virtual {p0, v0}, Lcom/android/launcher3/AboutPageActivity;->setRequestedOrientation(I)V
+
+    iget v0, p1, Landroid/content/res/Configuration;->orientation:I
+
+    packed-switch v0, :pswitch_data_0
+
+    :goto_0
+    iget-object v0, p0, Lcom/android/launcher3/AboutPageActivity;->mCheckUpdateTask:Lcom/android/launcher3/AboutPageActivity$UpdateCheckTask;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/AboutPageActivity;->mCheckUpdateTask:Lcom/android/launcher3/AboutPageActivity$UpdateCheckTask;
+
+    iget v1, p0, Lcom/android/launcher3/AboutPageActivity;->mNeedUpdate:I
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/AboutPageActivity$UpdateCheckTask;->onPostExecute(Ljava/lang/Integer;)V
+
+    :cond_0
+    return-void
+
+    :pswitch_0
+    const v0, 0x7f040001
+
+    invoke-virtual {p0, v0}, Lcom/android/launcher3/AboutPageActivity;->setContentView(I)V
+
+    invoke-direct {p0}, Lcom/android/launcher3/AboutPageActivity;->init()V
+
+    goto :goto_0
+
+    :pswitch_1
+    const v0, 0x7f040002
+
+    invoke-virtual {p0, v0}, Lcom/android/launcher3/AboutPageActivity;->setContentView(I)V
+
+    invoke-direct {p0}, Lcom/android/launcher3/AboutPageActivity;->init()V
+
+    goto :goto_0
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_0
+        :pswitch_1
+    .end packed-switch
+.end method
+
 .method protected onCreate(Landroid/os/Bundle;)V
     .locals 2
+
+    const v1, 0x7f040001
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
@@ -1470,16 +1518,29 @@
 
     iput-object v0, p0, Lcom/android/launcher3/AboutPageActivity;->mActionBar:Landroid/app/ActionBar;
 
-    const/4 v0, 0x1
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportRotate()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, -0x1
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/AboutPageActivity;->setRequestedOrientation(I)V
 
-    const v0, 0x7f030001
+    invoke-virtual {p0}, Lcom/android/launcher3/AboutPageActivity;->getResources()Landroid/content/res/Resources;
 
-    invoke-virtual {p0, v0}, Lcom/android/launcher3/AboutPageActivity;->setContentView(I)V
+    move-result-object v0
 
-    invoke-direct {p0}, Lcom/android/launcher3/AboutPageActivity;->init()V
+    invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
 
+    move-result-object v0
+
+    iget v0, v0, Landroid/content/res/Configuration;->orientation:I
+
+    packed-switch v0, :pswitch_data_0
+
+    :goto_0
     new-instance v0, Lcom/android/launcher3/AboutPageActivity$UpdateCheckTask;
 
     const/4 v1, 0x0
@@ -1497,6 +1558,35 @@
     invoke-virtual {v0, v1}, Lcom/android/launcher3/AboutPageActivity$UpdateCheckTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
 
     return-void
+
+    :pswitch_0
+    invoke-virtual {p0, v1}, Lcom/android/launcher3/AboutPageActivity;->setContentView(I)V
+
+    invoke-direct {p0}, Lcom/android/launcher3/AboutPageActivity;->init()V
+
+    goto :goto_0
+
+    :pswitch_1
+    const v0, 0x7f040002
+
+    invoke-virtual {p0, v0}, Lcom/android/launcher3/AboutPageActivity;->setContentView(I)V
+
+    invoke-direct {p0}, Lcom/android/launcher3/AboutPageActivity;->init()V
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p0, v1}, Lcom/android/launcher3/AboutPageActivity;->setContentView(I)V
+
+    invoke-direct {p0}, Lcom/android/launcher3/AboutPageActivity;->init()V
+
+    goto :goto_0
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_0
+        :pswitch_1
+    .end packed-switch
 .end method
 
 .method public onOptionsItemSelected(Landroid/view/MenuItem;)Z

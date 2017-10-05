@@ -71,7 +71,7 @@
 .end method
 
 .method private doMove()V
-    .locals 5
+    .locals 2
 
     invoke-virtual {p0}, Lcom/android/launcher3/executor/HomeFolderRemoveIconStateHandler;->getLauncherProxy()Lcom/android/launcher3/proxy/LauncherProxy;
 
@@ -79,21 +79,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/executor/HomeFolderRemoveIconStateHandler;->mAppInfo:Lcom/android/launcher3/executor/StateAppInfo;
 
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/proxy/LauncherProxy;->removeFolderItem(Lcom/android/launcher3/proxy/LauncherProxy$AppInfo;)I
-
-    invoke-virtual {p0}, Lcom/android/launcher3/executor/HomeFolderRemoveIconStateHandler;->getLauncherProxy()Lcom/android/launcher3/proxy/LauncherProxy;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/launcher3/executor/HomeFolderRemoveIconStateHandler;->mAppInfo:Lcom/android/launcher3/executor/StateAppInfo;
-
-    iget v2, p0, Lcom/android/launcher3/executor/HomeFolderRemoveIconStateHandler;->mPage:I
-
-    iget v3, p0, Lcom/android/launcher3/executor/HomeFolderRemoveIconStateHandler;->mPageDirection:I
-
-    iget v4, p0, Lcom/android/launcher3/executor/HomeFolderRemoveIconStateHandler;->mDetailedDirection:I
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/launcher3/proxy/LauncherProxy;->addHomeItemToPage(Lcom/android/launcher3/proxy/LauncherProxy$AppInfo;III)I
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/proxy/LauncherProxy;->moveFolderItemToHome(Lcom/android/launcher3/proxy/LauncherProxy$AppInfo;)I
 
     invoke-virtual {p0}, Lcom/android/launcher3/executor/HomeFolderRemoveIconStateHandler;->getLauncherProxy()Lcom/android/launcher3/proxy/LauncherProxy;
 

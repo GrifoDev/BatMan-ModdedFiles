@@ -18,6 +18,6 @@
             <ImageView android:layout_gravity="center_horizontal" android:background="@drawable/settings_app_tray_button_bg" android:layout_width="@dimen/apps_button_setting_icons_background_width" android:layout_height="@dimen/apps_button_setting_icons_background_height" />
             <LinearLayout android:gravity="center" android:layout_gravity="center" android:orientation="horizontal" android:id="@id/icons_layout" android:layout_width="@dimen/apps_button_setting_icons_layout_width" android:layout_height="wrap_content" />
         </FrameLayout>
-        <TextView android:id="@id/help_instruction" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/body_text_top_padding" android:text="@string/apps_button_setting_guide_text" android:layout_marginStart="@dimen/body_text_side_padding" android:layout_marginEnd="@dimen/body_text_side_padding" style="@style/body_text_style" />
+        <TextView android:textColor="@color/home_mode_description_text_color" android:id="@id/help_instruction" android:visibility="gone" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginBottom="@dimen/body_text_top_padding" android:text="@string/apps_button_setting_guide_text" android:layout_marginStart="@dimen/body_text_side_padding" android:layout_marginEnd="@dimen/body_text_side_padding" style="@style/body_text_style" />
     </LinearLayout>
 </ScrollView>

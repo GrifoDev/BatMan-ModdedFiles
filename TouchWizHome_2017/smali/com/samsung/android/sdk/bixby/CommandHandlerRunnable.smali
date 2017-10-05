@@ -15,6 +15,8 @@
 
 .field static final CMD_FILLING:Ljava/lang/String; = "emes_request_param_filling"
 
+.field static final CMD_NLG_RESULT:Ljava/lang/String; = "emes_nlg_end_result"
+
 .field static final CMD_PARTIAL_LANDING_STATE:Ljava/lang/String; = "emes_partial_landing_state"
 
 .field static final CMD_PATH_RULE_INFO:Ljava/lang/String; = "emes_pathrule_info"
@@ -54,7 +56,7 @@
 
     move-result-object v0
 
-    const-string v1, "_0.2.4"
+    const-string v1, "_0.2.5"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -250,10 +252,6 @@
 
     move-result-object v8
 
-    iget-object v12, p0, Lcom/samsung/android/sdk/bixby/CommandHandlerRunnable;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
-
-    invoke-virtual {v12, v8}, Lcom/samsung/android/sdk/bixby/BixbyApi;->handleLandingKeyboardOffMode(Ljava/lang/String;)V
-
     invoke-static {v8}, Lcom/samsung/android/sdk/bixby/PathRuleInfoReader;->read(Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/PathRuleInfo;
 
     move-result-object v10
@@ -293,7 +291,7 @@
 
     invoke-virtual {v12, v1, v3}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendChatText(Ljava/lang/String;Z)V
 
-    goto/16 :goto_0
+    goto :goto_0
 
     :cond_4
     const-string v12, "emes_split_state"
@@ -419,6 +417,21 @@
     goto/16 :goto_0
 
     :cond_9
+    const-string v12, "emes_nlg_end_result"
+
+    invoke-virtual {v2, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_a
+
+    iget-object v12, p0, Lcom/samsung/android/sdk/bixby/CommandHandlerRunnable;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
+
+    invoke-virtual {v12}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendNlgEnd()V
+
+    goto/16 :goto_0
+
+    :cond_a
     sget-object v12, Lcom/samsung/android/sdk/bixby/CommandHandlerRunnable;->TAG:Ljava/lang/String;
 
     new-instance v13, Ljava/lang/StringBuilder;

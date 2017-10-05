@@ -217,6 +217,315 @@
     return-void
 .end method
 
+.method private checkAllAppsForWorkFolder(Ljava/util/List;)V
+    .locals 14
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<",
+            "Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;",
+            ">;)V"
+        }
+    .end annotation
+
+    new-instance v10, Ljava/util/HashSet;
+
+    invoke-direct {v10}, Ljava/util/HashSet;-><init>()V
+
+    invoke-direct {p0, v10}, Lcom/android/launcher3/home/ManagedProfileHeuristic;->getUserApps(Ljava/util/HashSet;)Z
+
+    const/4 v8, 0x0
+
+    const-string v0, "ManagedProfileHeuristic"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "checkAllAppsForWorkFolder : "
+
+    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-interface {p1}, Ljava/util/List;->size()I
+
+    move-result v5
+
+    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v11
+
+    :cond_0
+    :goto_0
+    invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;
+
+    invoke-virtual {v7}, Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;->getComponentName()Landroid/content/ComponentName;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v10, v9}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-virtual {v10, v9}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+
+    const/4 v8, 0x1
+
+    const/4 v0, 0x1
+
+    new-array v2, v0, [Ljava/lang/String;
+
+    const/4 v0, 0x0
+
+    const-string v1, "_id"
+
+    aput-object v1, v2, v0
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "intent LIKE ? AND itemType=0 AND hidden="
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const/4 v1, 0x2
+
+    invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v1, " AND "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v1, "profileId"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const/16 v1, 0x3d
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-wide v12, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mUserSerial:J
+
+    invoke-static {v12, v13}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    const/4 v0, 0x1
+
+    new-array v4, v0, [Ljava/lang/String;
+
+    const/4 v0, 0x0
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const/16 v5, 0x25
+
+    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v7}, Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;->getComponentName()Landroid/content/ComponentName;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const/16 v5, 0x25
+
+    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    aput-object v1, v4, v0
+
+    iget-object v0, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/android/launcher3/common/model/LauncherSettings$Favorites;->CONTENT_URI:Landroid/net/Uri;
+
+    const/4 v5, 0x0
+
+    invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+
+    move-result-object v6
+
+    if-eqz v6, :cond_2
+
+    :try_start_0
+    invoke-interface {v6}, Landroid/database/Cursor;->getCount()I
+
+    move-result v0
+
+    if-lez v0, :cond_1
+
+    const-string v0, "ManagedProfileHeuristic"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "work app was hided - "
+
+    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v7}, Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;->getLabel()Ljava/lang/CharSequence;
+
+    move-result-object v5
+
+    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+
+    goto/16 :goto_0
+
+    :cond_1
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+
+    :cond_2
+    const-string v0, "ManagedProfileHeuristic"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "add work folder app : "
+
+    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v7}, Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;->getLabel()Ljava/lang/CharSequence;
+
+    move-result-object v5
+
+    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mWorkFolderApps:Ljava/util/ArrayList;
+
+    iget-object v1, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mContext:Landroid/content/Context;
+
+    invoke-static {v7, v1}, Lcom/android/launcher3/common/base/item/IconInfo;->fromActivityInfo(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Landroid/content/Context;)Lcom/android/launcher3/common/base/item/IconInfo;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_0
+
+    :catchall_0
+    move-exception v0
+
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+
+    throw v0
+
+    :cond_3
+    if-eqz v8, :cond_4
+
+    iget-object v0, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mPrefs:Landroid/content/SharedPreferences;
+
+    invoke-interface {v0}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mPackageSetKey:Ljava/lang/String;
+
+    invoke-interface {v0, v1, v10}, Landroid/content/SharedPreferences$Editor;->putStringSet(Ljava/lang/String;Ljava/util/Set;)Landroid/content/SharedPreferences$Editor;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Landroid/content/SharedPreferences$Editor;->apply()V
+
+    :cond_4
+    return-void
+.end method
+
 .method private finalizeAdditions(Z)V
     .locals 4
 
@@ -251,224 +560,293 @@
 .end method
 
 .method private finalizeWorkFolder()V
-    .locals 13
+    .locals 14
 
-    const/4 v11, 0x2
+    iget-object v9, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mWorkFolderApps:Ljava/util/ArrayList;
 
-    const/4 v10, 0x1
+    invoke-virtual {v9}, Ljava/util/ArrayList;->isEmpty()Z
 
-    const/4 v12, 0x0
+    move-result v9
 
-    iget-object v7, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mWorkFolderApps:Ljava/util/ArrayList;
-
-    invoke-virtual {v7}, Ljava/util/ArrayList;->isEmpty()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_0
+    if-eqz v9, :cond_0
 
     :goto_0
     return-void
 
     :cond_0
-    iget-object v7, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mWorkFolderApps:Ljava/util/ArrayList;
+    iget-object v9, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mWorkFolderApps:Ljava/util/ArrayList;
 
-    new-instance v8, Lcom/android/launcher3/home/ManagedProfileHeuristic$1;
+    new-instance v10, Lcom/android/launcher3/home/ManagedProfileHeuristic$1;
 
-    invoke-direct {v8, p0}, Lcom/android/launcher3/home/ManagedProfileHeuristic$1;-><init>(Lcom/android/launcher3/home/ManagedProfileHeuristic;)V
+    invoke-direct {v10, p0}, Lcom/android/launcher3/home/ManagedProfileHeuristic$1;-><init>(Lcom/android/launcher3/home/ManagedProfileHeuristic;)V
 
-    invoke-static {v7, v8}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
+    invoke-static {v9, v10}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v9, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-static {}, Lcom/android/launcher3/home/ManagedProfileHeuristic;->getUserFolderIdPrefix()Ljava/lang/String;
 
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    iget-wide v10, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mUserSerial:J
+
+    invoke-virtual {v9, v10, v11}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    iget-object v9, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mPrefs:Landroid/content/SharedPreferences;
+
+    invoke-interface {v9, v1}, Landroid/content/SharedPreferences;->contains(Ljava/lang/String;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_3
+
+    iget-object v9, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mPrefs:Landroid/content/SharedPreferences;
+
+    const-wide/16 v10, 0x0
+
+    invoke-interface {v9, v1, v10, v11}, Landroid/content/SharedPreferences;->getLong(Ljava/lang/String;J)J
+
+    move-result-wide v2
+
+    iget-object v9, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mModel:Lcom/android/launcher3/LauncherModel;
+
+    invoke-virtual {v9}, Lcom/android/launcher3/LauncherModel;->getHomeLoader()Lcom/android/launcher3/home/HomeLoader;
+
+    move-result-object v9
+
+    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Lcom/android/launcher3/home/HomeLoader;->findFolderById(Ljava/lang/Long;)Lcom/android/launcher3/folder/FolderInfo;
+
     move-result-object v8
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-eqz v8, :cond_1
 
-    move-result-object v7
+    const/4 v9, 0x2
 
-    iget-wide v8, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mUserSerial:J
+    invoke-virtual {v8, v9}, Lcom/android/launcher3/folder/FolderInfo;->hasOption(I)Z
 
-    invoke-virtual {v7, v8, v9}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    move-result v9
 
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    iget-object v7, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mPrefs:Landroid/content/SharedPreferences;
-
-    invoke-interface {v7, v2}, Landroid/content/SharedPreferences;->contains(Ljava/lang/String;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_3
-
-    iget-object v7, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mPrefs:Landroid/content/SharedPreferences;
-
-    const-wide/16 v8, 0x0
-
-    invoke-interface {v7, v2, v8, v9}, Landroid/content/SharedPreferences;->getLong(Ljava/lang/String;J)J
-
-    move-result-wide v0
-
-    iget-object v7, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mModel:Lcom/android/launcher3/LauncherModel;
-
-    invoke-virtual {v7}, Lcom/android/launcher3/LauncherModel;->getHomeLoader()Lcom/android/launcher3/home/HomeLoader;
-
-    move-result-object v7
-
-    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Lcom/android/launcher3/home/HomeLoader;->findFolderById(Ljava/lang/Long;)Lcom/android/launcher3/folder/FolderInfo;
-
-    move-result-object v6
-
-    if-eqz v6, :cond_1
-
-    invoke-virtual {v6, v11}, Lcom/android/launcher3/folder/FolderInfo;->hasOption(I)Z
-
-    move-result v7
-
-    if-nez v7, :cond_2
+    if-nez v9, :cond_2
 
     :cond_1
-    iget-object v7, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mHomescreenApps:Ljava/util/ArrayList;
+    const-string v9, "ManagedProfileHeuristic"
 
-    iget-object v8, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mWorkFolderApps:Ljava/util/ArrayList;
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v7, v8}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v11, "work folder does not exist : "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v9, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mHomescreenApps:Ljava/util/ArrayList;
+
+    iget-object v10, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mWorkFolderApps:Ljava/util/ArrayList;
+
+    invoke-virtual {v9, v10}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
     goto :goto_0
 
     :cond_2
-    iget-object v7, v6, Lcom/android/launcher3/folder/FolderInfo;->contents:Ljava/util/ArrayList;
+    iget-object v9, v8, Lcom/android/launcher3/folder/FolderInfo;->contents:Ljava/util/ArrayList;
 
-    invoke-virtual {v7}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v9}, Ljava/util/ArrayList;->size()I
 
-    move-result v7
+    move-result v9
 
-    invoke-direct {p0, v0, v1, v7}, Lcom/android/launcher3/home/ManagedProfileHeuristic;->saveWorkFolderShortcuts(JI)V
-
-    iget-object v5, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mWorkFolderApps:Ljava/util/ArrayList;
-
-    new-instance v7, Lcom/android/launcher3/util/MainThreadExecutor;
-
-    invoke-direct {v7}, Lcom/android/launcher3/util/MainThreadExecutor;-><init>()V
-
-    new-instance v8, Lcom/android/launcher3/home/ManagedProfileHeuristic$2;
-
-    invoke-direct {v8, p0, v5, v6}, Lcom/android/launcher3/home/ManagedProfileHeuristic$2;-><init>(Lcom/android/launcher3/home/ManagedProfileHeuristic;Ljava/util/ArrayList;Lcom/android/launcher3/folder/FolderInfo;)V
-
-    invoke-virtual {v7, v8}, Lcom/android/launcher3/util/MainThreadExecutor;->execute(Ljava/lang/Runnable;)V
-
-    goto :goto_0
-
-    :cond_3
-    new-instance v6, Lcom/android/launcher3/folder/FolderInfo;
-
-    invoke-direct {v6}, Lcom/android/launcher3/folder/FolderInfo;-><init>()V
-
-    iget-object v7, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mContext:Landroid/content/Context;
-
-    const v8, 0x7f0800ca
-
-    invoke-virtual {v7, v8}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v7
-
-    iput-object v7, v6, Lcom/android/launcher3/folder/FolderInfo;->title:Ljava/lang/CharSequence;
-
-    const/4 v7, 0x0
-
-    invoke-virtual {v6, v11, v10, v7}, Lcom/android/launcher3/folder/FolderInfo;->setOption(IZLandroid/content/Context;)V
+    invoke-direct {p0, v2, v3, v9}, Lcom/android/launcher3/home/ManagedProfileHeuristic;->saveWorkFolderShortcuts(JI)V
 
     iget-object v7, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mWorkFolderApps:Ljava/util/ArrayList;
 
-    invoke-virtual {v7}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+    new-instance v9, Lcom/android/launcher3/util/MainThreadExecutor;
 
-    move-result-object v7
+    invoke-direct {v9}, Lcom/android/launcher3/util/MainThreadExecutor;-><init>()V
 
-    :goto_1
-    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
+    new-instance v10, Lcom/android/launcher3/home/ManagedProfileHeuristic$2;
 
-    move-result v8
+    invoke-direct {v10, p0, v7, v8}, Lcom/android/launcher3/home/ManagedProfileHeuristic$2;-><init>(Lcom/android/launcher3/home/ManagedProfileHeuristic;Ljava/util/ArrayList;Lcom/android/launcher3/folder/FolderInfo;)V
 
-    if-eqz v8, :cond_4
+    invoke-virtual {v9, v10}, Lcom/android/launcher3/util/MainThreadExecutor;->execute(Ljava/lang/Runnable;)V
 
-    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    goto/16 :goto_0
 
-    move-result-object v3
+    :cond_3
+    const-string v9, "ManagedProfileHeuristic"
 
-    check-cast v3, Lcom/android/launcher3/common/base/item/IconInfo;
+    const-string v10, "create work folder"
 
-    invoke-virtual {v6, v3}, Lcom/android/launcher3/folder/FolderInfo;->add(Lcom/android/launcher3/common/base/item/IconInfo;)V
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_1
+    new-instance v8, Lcom/android/launcher3/folder/FolderInfo;
 
-    :cond_4
-    new-instance v4, Ljava/util/ArrayList;
+    invoke-direct {v8}, Lcom/android/launcher3/folder/FolderInfo;-><init>()V
 
-    invoke-direct {v4, v10}, Ljava/util/ArrayList;-><init>(I)V
+    iget-object v9, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v4, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    const v10, 0x7f0900e5
 
-    iget-object v7, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mModel:Lcom/android/launcher3/LauncherModel;
-
-    invoke-virtual {v7}, Lcom/android/launcher3/LauncherModel;->getHomeLoader()Lcom/android/launcher3/home/HomeLoader;
-
-    move-result-object v7
-
-    iget-object v8, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v7, v8, v4, v12}, Lcom/android/launcher3/home/HomeLoader;->addAndBindAddedWorkspaceItems(Landroid/content/Context;Ljava/util/ArrayList;Z)V
-
-    iget-object v7, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mPrefs:Landroid/content/SharedPreferences;
-
-    invoke-interface {v7}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
-
-    move-result-object v7
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-static {}, Lcom/android/launcher3/home/ManagedProfileHeuristic;->getUserFolderIdPrefix()Ljava/lang/String;
+    invoke-virtual {v9, v10}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
     move-result-object v9
 
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iput-object v9, v8, Lcom/android/launcher3/folder/FolderInfo;->title:Ljava/lang/CharSequence;
 
-    move-result-object v8
+    const/4 v9, 0x2
 
-    iget-wide v10, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mUserSerial:J
+    const/4 v10, 0x1
 
-    invoke-virtual {v8, v10, v11}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    const/4 v11, 0x0
 
-    move-result-object v8
+    invoke-virtual {v8, v9, v10, v11}, Lcom/android/launcher3/folder/FolderInfo;->setOption(IZLandroid/content/Context;)V
 
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    iget-object v9, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mWorkFolderApps:Ljava/util/ArrayList;
 
-    move-result-object v8
+    invoke-virtual {v9}, Ljava/util/ArrayList;->size()I
 
-    iget-wide v10, v6, Lcom/android/launcher3/folder/FolderInfo;->id:J
+    move-result v9
 
-    invoke-interface {v7, v8, v10, v11}, Landroid/content/SharedPreferences$Editor;->putLong(Ljava/lang/String;J)Landroid/content/SharedPreferences$Editor;
+    const/4 v10, 0x1
 
-    move-result-object v7
+    if-ne v9, v10, :cond_4
 
-    invoke-interface {v7}, Landroid/content/SharedPreferences$Editor;->apply()V
+    const-string v9, "ManagedProfileHeuristic"
 
-    iget-wide v8, v6, Lcom/android/launcher3/folder/FolderInfo;->id:J
+    const-string v10, "only 1 work folder app. need check other app"
 
-    invoke-direct {p0, v8, v9, v12}, Lcom/android/launcher3/home/ManagedProfileHeuristic;->saveWorkFolderShortcuts(JI)V
+    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v9, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mContext:Landroid/content/Context;
+
+    invoke-static {v9}, Lcom/android/launcher3/common/compat/LauncherAppsCompat;->getInstance(Landroid/content/Context;)Lcom/android/launcher3/common/compat/LauncherAppsCompat;
+
+    move-result-object v6
+
+    if-eqz v6, :cond_4
+
+    const/4 v9, 0x0
+
+    iget-object v10, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mUser:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    invoke-virtual {v6, v9, v10}, Lcom/android/launcher3/common/compat/LauncherAppsCompat;->getActivityList(Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;)Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Lcom/android/launcher3/home/ManagedProfileHeuristic;->checkAllAppsForWorkFolder(Ljava/util/List;)V
+
+    :cond_4
+    iget-object v9, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mWorkFolderApps:Ljava/util/ArrayList;
+
+    invoke-virtual {v9}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v9
+
+    :goto_1
+    invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v10
+
+    if-eqz v10, :cond_5
+
+    invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Lcom/android/launcher3/common/base/item/IconInfo;
+
+    invoke-virtual {v8, v4}, Lcom/android/launcher3/folder/FolderInfo;->add(Lcom/android/launcher3/common/base/item/IconInfo;)V
+
+    goto :goto_1
+
+    :cond_5
+    new-instance v5, Ljava/util/ArrayList;
+
+    const/4 v9, 0x1
+
+    invoke-direct {v5, v9}, Ljava/util/ArrayList;-><init>(I)V
+
+    invoke-virtual {v5, v8}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    iget-object v9, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mModel:Lcom/android/launcher3/LauncherModel;
+
+    invoke-virtual {v9}, Lcom/android/launcher3/LauncherModel;->getHomeLoader()Lcom/android/launcher3/home/HomeLoader;
+
+    move-result-object v9
+
+    iget-object v10, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mContext:Landroid/content/Context;
+
+    const/4 v11, 0x0
+
+    invoke-virtual {v9, v10, v5, v11}, Lcom/android/launcher3/home/HomeLoader;->addAndBindAddedWorkspaceItems(Landroid/content/Context;Ljava/util/ArrayList;Z)V
+
+    iget-object v9, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mPrefs:Landroid/content/SharedPreferences;
+
+    invoke-interface {v9}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+
+    move-result-object v9
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-static {}, Lcom/android/launcher3/home/ManagedProfileHeuristic;->getUserFolderIdPrefix()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    iget-wide v12, p0, Lcom/android/launcher3/home/ManagedProfileHeuristic;->mUserSerial:J
+
+    invoke-virtual {v10, v12, v13}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    iget-wide v12, v8, Lcom/android/launcher3/folder/FolderInfo;->id:J
+
+    invoke-interface {v9, v10, v12, v13}, Landroid/content/SharedPreferences$Editor;->putLong(Ljava/lang/String;J)Landroid/content/SharedPreferences$Editor;
+
+    move-result-object v9
+
+    invoke-interface {v9}, Landroid/content/SharedPreferences$Editor;->apply()V
+
+    iget-wide v10, v8, Lcom/android/launcher3/folder/FolderInfo;->id:J
+
+    const/4 v9, 0x0
+
+    invoke-direct {p0, v10, v11, v9}, Lcom/android/launcher3/home/ManagedProfileHeuristic;->saveWorkFolderShortcuts(JI)V
 
     goto/16 :goto_0
 .end method

@@ -15,6 +15,9 @@
 
 
 # virtual methods
+.method public abstract isTopStage()Z
+.end method
+
 .method public abstract onAllAppItemListLoadCompleted(Ljava/util/ArrayList;)V
     .annotation system Ldalvik/annotation/Signature;
         value = {

@@ -9,33 +9,33 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1a
+    accessFlags = 0x18
     name = "IconDB"
 .end annotation
 
 
 # static fields
-.field private static final COLUMN_COMPONENT:Ljava/lang/String; = "componentName"
+.field static final COLUMN_COMPONENT:Ljava/lang/String; = "componentName"
 
-.field private static final COLUMN_ICON:Ljava/lang/String; = "icon"
+.field static final COLUMN_ICON:Ljava/lang/String; = "icon"
 
-.field private static final COLUMN_ICON_LOW_RES:Ljava/lang/String; = "icon_low_res"
+.field static final COLUMN_ICON_LOW_RES:Ljava/lang/String; = "icon_low_res"
 
-.field private static final COLUMN_LABEL:Ljava/lang/String; = "label"
+.field static final COLUMN_LABEL:Ljava/lang/String; = "label"
 
-.field private static final COLUMN_LAST_UPDATED:Ljava/lang/String; = "lastUpdated"
+.field static final COLUMN_LAST_UPDATED:Ljava/lang/String; = "lastUpdated"
 
-.field private static final COLUMN_ROWID:Ljava/lang/String; = "rowid"
+.field static final COLUMN_ROWID:Ljava/lang/String; = "rowid"
 
-.field private static final COLUMN_SYSTEM_STATE:Ljava/lang/String; = "system_state"
+.field static final COLUMN_SYSTEM_STATE:Ljava/lang/String; = "system_state"
 
-.field private static final COLUMN_USER:Ljava/lang/String; = "profileId"
+.field static final COLUMN_USER:Ljava/lang/String; = "profileId"
 
-.field private static final COLUMN_VERSION:Ljava/lang/String; = "version"
+.field static final COLUMN_VERSION:Ljava/lang/String; = "version"
 
 .field private static final DB_VERSION:I = 0x7
 
-.field private static final TABLE_NAME:Ljava/lang/String; = "icons"
+.field static final TABLE_NAME:Ljava/lang/String; = "icons"
 
 
 # direct methods
@@ -53,7 +53,7 @@
     return-void
 .end method
 
-.method static synthetic access$900(Lcom/android/launcher3/common/model/IconCache$IconDB;Landroid/database/sqlite/SQLiteDatabase;)V
+.method static synthetic access$1100(Lcom/android/launcher3/common/model/IconCache$IconDB;Landroid/database/sqlite/SQLiteDatabase;)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/launcher3/common/model/IconCache$IconDB;->clearDB(Landroid/database/sqlite/SQLiteDatabase;)V

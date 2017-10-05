@@ -1,9 +1,6 @@
 .class Lcom/android/launcher3/common/stage/Stage$2;
-.super Ljava/lang/Object;
+.super Landroid/animation/AnimatorListenerAdapter;
 .source "Stage.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
@@ -20,102 +17,54 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/common/stage/Stage;
 
-.field final synthetic val$animatorSet:Landroid/animation/AnimatorSet;
-
 .field final synthetic val$entry:Lcom/android/launcher3/common/stage/StageEntry;
-
-.field final synthetic val$time:J
 
 .field final synthetic val$toWorkSpace:Z
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/common/stage/Stage;JLandroid/animation/AnimatorSet;ZLcom/android/launcher3/common/stage/StageEntry;)V
+.method constructor <init>(Lcom/android/launcher3/common/stage/Stage;ZLcom/android/launcher3/common/stage/StageEntry;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/common/stage/Stage$2;->this$0:Lcom/android/launcher3/common/stage/Stage;
 
-    iput-wide p2, p0, Lcom/android/launcher3/common/stage/Stage$2;->val$time:J
+    iput-boolean p2, p0, Lcom/android/launcher3/common/stage/Stage$2;->val$toWorkSpace:Z
 
-    iput-object p4, p0, Lcom/android/launcher3/common/stage/Stage$2;->val$animatorSet:Landroid/animation/AnimatorSet;
+    iput-object p3, p0, Lcom/android/launcher3/common/stage/Stage$2;->val$entry:Lcom/android/launcher3/common/stage/StageEntry;
 
-    iput-boolean p5, p0, Lcom/android/launcher3/common/stage/Stage$2;->val$toWorkSpace:Z
-
-    iput-object p6, p0, Lcom/android/launcher3/common/stage/Stage$2;->val$entry:Lcom/android/launcher3/common/stage/StageEntry;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 9
+.method public onAnimationEnd(Landroid/animation/Animator;)V
+    .locals 5
 
-    const/4 v8, 0x1
+    const/4 v4, 0x1
 
     const-string v1, "Stage"
 
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "stateTransitionAnim start runnable time gap : "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v4
-
-    iget-wide v6, p0, Lcom/android/launcher3/common/stage/Stage$2;->val$time:J
-
-    sub-long/2addr v4, v6
-
-    invoke-virtual {v2, v4, v5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
+    const-string v2, "stateTransitionAnim onAnimationEnd"
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v1, p0, Lcom/android/launcher3/common/stage/Stage$2;->this$0:Lcom/android/launcher3/common/stage/Stage;
 
-    invoke-static {v1}, Lcom/android/launcher3/common/stage/Stage;->access$200(Lcom/android/launcher3/common/stage/Stage;)Landroid/animation/AnimatorSet;
+    invoke-static {v1}, Lcom/android/launcher3/common/stage/Stage;->access$200(Lcom/android/launcher3/common/stage/Stage;)V
 
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/launcher3/common/stage/Stage$2;->val$animatorSet:Landroid/animation/AnimatorSet;
-
-    if-eq v1, v2, :cond_0
-
-    iget-object v1, p0, Lcom/android/launcher3/common/stage/Stage$2;->val$animatorSet:Landroid/animation/AnimatorSet;
-
-    invoke-virtual {v1}, Landroid/animation/AnimatorSet;->cancel()V
-
-    const-string v1, "Stage"
-
-    const-string v2, "fail to switch "
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_0
-    return-void
-
-    :cond_0
     iget-object v1, p0, Lcom/android/launcher3/common/stage/Stage$2;->this$0:Lcom/android/launcher3/common/stage/Stage;
 
     iget-boolean v2, p0, Lcom/android/launcher3/common/stage/Stage$2;->val$toWorkSpace:Z
 
     iget-object v3, p0, Lcom/android/launcher3/common/stage/Stage$2;->val$entry:Lcom/android/launcher3/common/stage/StageEntry;
 
-    invoke-static {v1, v8, v2, v3}, Lcom/android/launcher3/common/stage/Stage;->access$300(Lcom/android/launcher3/common/stage/Stage;ZZLcom/android/launcher3/common/stage/StageEntry;)V
+    invoke-static {v1, v4, v2, v3}, Lcom/android/launcher3/common/stage/Stage;->access$300(Lcom/android/launcher3/common/stage/Stage;ZZLcom/android/launcher3/common/stage/StageEntry;)V
+
+    iget-object v1, p0, Lcom/android/launcher3/common/stage/Stage$2;->val$entry:Lcom/android/launcher3/common/stage/StageEntry;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/common/stage/StageEntry;->notifyOnCompleteRunnables()V
 
     iget-object v1, p0, Lcom/android/launcher3/common/stage/Stage$2;->val$entry:Lcom/android/launcher3/common/stage/StageEntry;
 
@@ -131,13 +80,13 @@
 
     move-result-object v2
 
-    :cond_1
-    :goto_1
+    :cond_0
+    :goto_0
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_1
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -161,29 +110,16 @@
 
     move-result v1
 
-    if-ne v1, v8, :cond_2
+    if-ne v1, v4, :cond_0
 
-    const/4 v1, 0x2
+    const/4 v1, 0x0
 
     const/4 v3, 0x0
 
     invoke-virtual {v0, v1, v3}, Landroid/view/View;->setLayerType(ILandroid/graphics/Paint;)V
 
-    :cond_2
-    invoke-virtual {v0}, Landroid/view/View;->isAttachedToWindow()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    invoke-virtual {v0}, Landroid/view/View;->buildLayer()V
-
-    goto :goto_1
-
-    :cond_3
-    iget-object v1, p0, Lcom/android/launcher3/common/stage/Stage$2;->val$animatorSet:Landroid/animation/AnimatorSet;
-
-    invoke-virtual {v1}, Landroid/animation/AnimatorSet;->start()V
-
     goto :goto_0
+
+    :cond_1
+    return-void
 .end method

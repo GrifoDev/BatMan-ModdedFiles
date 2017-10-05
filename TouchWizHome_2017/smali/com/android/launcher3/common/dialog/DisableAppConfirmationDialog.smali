@@ -11,28 +11,32 @@
 
 .field private static final sFragmentTag:Ljava/lang/String; = "DisableAppConfirm"
 
+.field private static sIcon:Landroid/graphics/Bitmap;
 
-# instance fields
-.field private mIcon:Landroid/graphics/Bitmap;
+.field private static sPackage:Ljava/lang/String;
 
-.field private mPackage:Ljava/lang/String;
+.field private static sPackageLabel:Ljava/lang/String;
 
-.field private mPackageLabel:Ljava/lang/String;
+.field private static sPostRunnable:Ljava/lang/Runnable;
 
-.field private mPostRunnable:Ljava/lang/Runnable;
-
-.field private mUserID:I
+.field private static sUserID:I
 
 
 # direct methods
-.method public constructor <init>()V
+.method static constructor <clinit>()V
     .locals 1
-
-    invoke-direct {p0}, Landroid/app/DialogFragment;-><init>()V
 
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->mPostRunnable:Ljava/lang/Runnable;
+    sput-object v0, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->sPostRunnable:Ljava/lang/Runnable;
+
+    return-void
+.end method
+
+.method public constructor <init>()V
+    .locals 0
+
+    invoke-direct {p0}, Landroid/app/DialogFragment;-><init>()V
 
     return-void
 .end method
@@ -107,7 +111,7 @@
 
     invoke-virtual {v3, p5, v4}, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->show(Landroid/app/FragmentManager;Ljava/lang/String;)V
 
-    iput-object p6, v3, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->mPostRunnable:Ljava/lang/Runnable;
+    sput-object p6, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->sPostRunnable:Ljava/lang/Runnable;
 
     goto :goto_0
 .end method
@@ -133,8 +137,41 @@
     return-void
 .end method
 
+.method public static dismissIfNeeded(Landroid/content/Context;Landroid/app/FragmentManager;)V
+    .locals 3
+
+    sget v2, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->sUserID:I
+
+    invoke-static {v2}, Landroid/os/UserHandle;->getUserHandleForUid(I)Landroid/os/UserHandle;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/launcher3/common/compat/UserHandleCompat;->fromUser(Landroid/os/UserHandle;)Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    move-result-object v1
+
+    sget-object v2, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->sPackage:Ljava/lang/String;
+
+    invoke-static {p0, v2, v1}, Lcom/android/launcher3/LauncherModel;->isValidPackage(Landroid/content/Context;Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    invoke-virtual {p1}, Landroid/app/FragmentManager;->beginTransaction()Landroid/app/FragmentTransaction;
+
+    move-result-object v0
+
+    invoke-static {v0, p1}, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->dismiss(Landroid/app/FragmentTransaction;Landroid/app/FragmentManager;)V
+
+    :cond_0
+    return-void
+.end method
+
 .method public static isActive(Landroid/app/FragmentManager;)Z
     .locals 1
+
+    if-eqz p0, :cond_0
 
     const-string v0, "DisableAppConfirm"
 
@@ -194,9 +231,7 @@
 
     if-nez v3, :cond_1
 
-    move-object/from16 v0, p0
-
-    iget v3, v0, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->mUserID:I
+    sget v3, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->sUserID:I
 
     invoke-static {}, Lcom/android/launcher3/common/compat/UserHandleCompat;->myUserHandle()Lcom/android/launcher3/common/compat/UserHandleCompat;
 
@@ -354,9 +389,7 @@
 
     const/4 v4, 0x0
 
-    move-object/from16 v0, p0
-
-    iget-object v5, v0, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->mPackage:Ljava/lang/String;
+    sget-object v5, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->sPackage:Ljava/lang/String;
 
     aput-object v5, v3, v4
 
@@ -382,9 +415,7 @@
 
     const/4 v4, 0x3
 
-    move-object/from16 v0, p0
-
-    iget v5, v0, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->mUserID:I
+    sget v5, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->sUserID:I
 
     invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -406,9 +437,7 @@
 
     const-string v4, "HSDS"
 
-    move-object/from16 v0, p0
-
-    iget-object v5, v0, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->mPackage:Ljava/lang/String;
+    sget-object v5, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->sPackage:Ljava/lang/String;
 
     const-wide/16 v6, -0x1
 
@@ -431,9 +460,7 @@
 
     if-eqz v14, :cond_2
 
-    move-object/from16 v0, p0
-
-    iget-object v3, v0, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->mPackage:Ljava/lang/String;
+    sget-object v3, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->sPackage:Ljava/lang/String;
 
     const/4 v4, 0x3
 
@@ -447,9 +474,7 @@
 
     const-string v4, "HSDS"
 
-    move-object/from16 v0, p0
-
-    iget-object v5, v0, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->mPackage:Ljava/lang/String;
+    sget-object v5, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->sPackage:Ljava/lang/String;
 
     const-wide/16 v6, -0x1
 
@@ -520,7 +545,7 @@
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->mPackage:Ljava/lang/String;
+    sput-object v1, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->sPackage:Ljava/lang/String;
 
     invoke-virtual {p0}, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->getArguments()Landroid/os/Bundle;
 
@@ -532,7 +557,7 @@
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->mPackageLabel:Ljava/lang/String;
+    sput-object v1, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->sPackageLabel:Ljava/lang/String;
 
     invoke-virtual {p0}, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->getArguments()Landroid/os/Bundle;
 
@@ -544,7 +569,7 @@
 
     move-result v1
 
-    iput v1, p0, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->mUserID:I
+    sput v1, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->sUserID:I
 
     invoke-virtual {p0}, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->getArguments()Landroid/os/Bundle;
 
@@ -564,17 +589,19 @@
 
     move-result-object v1
 
-    iput-object v1, p0, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->mIcon:Landroid/graphics/Bitmap;
+    sput-object v1, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->sIcon:Landroid/graphics/Bitmap;
 
     return-void
 .end method
 
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
-    .locals 10
+    .locals 11
 
-    const/4 v9, 0x1
+    const/4 v8, 0x2
 
-    const/4 v8, 0x0
+    const/4 v10, 0x1
+
+    const/4 v9, 0x0
 
     invoke-virtual {p0}, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->getActivity()Landroid/app/Activity;
 
@@ -588,66 +615,72 @@
 
     invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v5
+    move-result-object v6
 
-    iget-object v6, p0, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->mIcon:Landroid/graphics/Bitmap;
+    sget-object v7, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->sIcon:Landroid/graphics/Bitmap;
 
-    invoke-direct {v4, v5, v6}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
+    invoke-direct {v4, v6, v7}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
 
     invoke-virtual {v0, v4}, Landroid/app/AlertDialog$Builder;->setIcon(Landroid/graphics/drawable/Drawable;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v5
+    move-result-object v6
 
-    iget-object v6, p0, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->mPackageLabel:Ljava/lang/String;
+    sget-object v7, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->sPackageLabel:Ljava/lang/String;
 
-    invoke-virtual {v5, v6}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v6, v7}, Landroid/app/AlertDialog$Builder;->setTitle(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    const v5, 0x7f080091
+    const v6, 0x7f09009d
 
-    invoke-virtual {v0, v5, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v6, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    const v5, 0x7f080026
+    const v6, 0x7f09002f
 
-    invoke-virtual {v0, v5, p0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v0, v6, p0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     invoke-static {}, Lcom/android/launcher3/Utilities;->isKnoxMode()Z
 
-    move-result v5
+    move-result v6
 
-    if-eqz v5, :cond_1
+    if-eqz v6, :cond_1
 
-    const v5, 0x7f0800d5
+    invoke-static {v1}, Lcom/android/launcher3/Utilities;->getKnoxContainerName(Landroid/content/Context;)Ljava/lang/String;
 
-    new-array v6, v9, [Ljava/lang/Object;
+    move-result-object v5
 
-    iget-object v7, p0, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->mPackageLabel:Ljava/lang/String;
+    const v6, 0x7f090033
 
-    aput-object v7, v6, v8
+    new-array v7, v8, [Ljava/lang/Object;
 
-    invoke-virtual {p0, v5, v6}, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    sget-object v8, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->sPackageLabel:Ljava/lang/String;
+
+    aput-object v8, v7, v9
+
+    aput-object v5, v7, v10
+
+    invoke-virtual {p0, v6, v7}, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v3
 
     :goto_0
-    sget-boolean v5, Lcom/android/launcher3/Utilities;->sIsRtl:Z
+    sget-boolean v6, Lcom/android/launcher3/Utilities;->sIsRtl:Z
 
-    if-eqz v5, :cond_0
+    if-eqz v6, :cond_0
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "\u200f"
+    const-string v7, "\u200f"
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v3
 
@@ -663,40 +696,38 @@
     :cond_1
     invoke-static {}, Lcom/android/launcher3/LauncherFeature;->isVZWModel()Z
 
-    move-result v5
+    move-result v6
 
-    if-eqz v5, :cond_2
+    if-eqz v6, :cond_2
 
-    const v5, 0x7f08002a
+    const v6, 0x7f090034
 
-    new-array v6, v9, [Ljava/lang/Object;
+    new-array v7, v10, [Ljava/lang/Object;
 
-    iget-object v7, p0, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->mPackageLabel:Ljava/lang/String;
+    sget-object v8, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->sPackageLabel:Ljava/lang/String;
 
-    aput-object v7, v6, v8
+    aput-object v8, v7, v9
 
-    invoke-virtual {p0, v5, v6}, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p0, v6, v7}, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v3
 
     goto :goto_0
 
     :cond_2
-    const v5, 0x7f080029
+    const v6, 0x7f090032
 
-    const/4 v6, 0x2
+    new-array v7, v8, [Ljava/lang/Object;
 
-    new-array v6, v6, [Ljava/lang/Object;
+    sget-object v8, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->sPackageLabel:Ljava/lang/String;
 
-    iget-object v7, p0, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->mPackageLabel:Ljava/lang/String;
+    aput-object v8, v7, v9
 
-    aput-object v7, v6, v8
+    sget-object v8, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->sPackageLabel:Ljava/lang/String;
 
-    iget-object v7, p0, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->mPackageLabel:Ljava/lang/String;
+    aput-object v8, v7, v10
 
-    aput-object v7, v6, v9
-
-    invoke-virtual {p0, v5, v6}, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {p0, v6, v7}, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v3
 
@@ -708,7 +739,7 @@
 
     invoke-super {p0, p1}, Landroid/app/DialogFragment;->onDismiss(Landroid/content/DialogInterface;)V
 
-    iget-object v0, p0, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->mPostRunnable:Ljava/lang/Runnable;
+    sget-object v0, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->sPostRunnable:Ljava/lang/Runnable;
 
     if-eqz v0, :cond_0
 
@@ -716,13 +747,13 @@
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
-    iget-object v1, p0, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->mPostRunnable:Ljava/lang/Runnable;
+    sget-object v1, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->sPostRunnable:Ljava/lang/Runnable;
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
     const/4 v0, 0x0
 
-    iput-object v0, p0, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->mPostRunnable:Ljava/lang/Runnable;
+    sput-object v0, Lcom/android/launcher3/common/dialog/DisableAppConfirmationDialog;->sPostRunnable:Ljava/lang/Runnable;
 
     :cond_0
     return-void

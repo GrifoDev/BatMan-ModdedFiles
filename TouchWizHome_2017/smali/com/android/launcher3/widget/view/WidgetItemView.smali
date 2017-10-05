@@ -92,7 +92,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040009
+    const v1, 0x7f05000d
 
     invoke-static {p1, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
@@ -100,7 +100,7 @@
 
     iput-object v1, p0, Lcom/android/launcher3/widget/view/WidgetItemView;->mUninstallEnterIconAnimation:Landroid/view/animation/Animation;
 
-    const v1, 0x7f040008
+    const v1, 0x7f05000c
 
     invoke-static {p1, v1}, Landroid/view/animation/AnimationUtils;->loadAnimation(Landroid/content/Context;I)Landroid/view/animation/Animation;
 
@@ -116,7 +116,7 @@
 
     invoke-virtual {v1, v2}, Landroid/view/animation/Animation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
 
-    const v1, 0x7f0801c7
+    const v1, 0x7f0901e3
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -124,7 +124,7 @@
 
     iput-object v1, p0, Lcom/android/launcher3/widget/view/WidgetItemView;->mDimensionsFormatString:Ljava/lang/String;
 
-    const v1, 0x7f0801c5
+    const v1, 0x7f0900c3
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -138,7 +138,7 @@
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/widget/view/WidgetItemView;->setClipToPadding(Z)V
 
-    const v1, 0x7f0d0036
+    const v1, 0x7f0e0040
 
     const/4 v2, 0x0
 
@@ -218,15 +218,11 @@
 
     invoke-direct {v5, v2}, Ljava/lang/String;-><init>([C)V
 
-    sget-object v6, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
-
-    invoke-virtual {p1, v6}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
     move-result-object v6
 
-    sget-object v7, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
-
-    invoke-virtual {v5, v7}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
     move-result-object v7
 
@@ -261,15 +257,11 @@
     return-void
 
     :cond_1
-    sget-object v6, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
-
-    invoke-virtual {p1, v6}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+    invoke-virtual {p1}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
     move-result-object v6
 
-    sget-object v7, Ljava/util/Locale;->ENGLISH:Ljava/util/Locale;
-
-    invoke-virtual {p2, v7}, Ljava/lang/String;->toLowerCase(Ljava/util/Locale;)Ljava/lang/String;
+    invoke-virtual {p2}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
     move-result-object v7
 
@@ -707,7 +699,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f08006b
+    const v4, 0x7f090073
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

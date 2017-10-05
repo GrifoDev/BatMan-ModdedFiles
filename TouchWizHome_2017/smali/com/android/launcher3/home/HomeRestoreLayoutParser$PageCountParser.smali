@@ -41,7 +41,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$PageCountParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    invoke-static {v2}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$1600(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Lcom/android/launcher3/common/model/FavoritesProvider;
+    invoke-static {v2}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$1900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Lcom/android/launcher3/common/model/FavoritesProvider;
 
     move-result-object v2
 
@@ -49,7 +49,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$PageCountParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    invoke-static {v2}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$1600(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Lcom/android/launcher3/common/model/FavoritesProvider;
+    invoke-static {v2}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$1900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Lcom/android/launcher3/common/model/FavoritesProvider;
 
     move-result-object v2
 
@@ -57,7 +57,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$PageCountParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    invoke-static {v2}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$1600(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Lcom/android/launcher3/common/model/FavoritesProvider;
+    invoke-static {v2}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$1900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Lcom/android/launcher3/common/model/FavoritesProvider;
 
     move-result-object v2
 
@@ -65,7 +65,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$PageCountParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    invoke-static {v2}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$1700(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Ljava/util/ArrayList;
+    invoke-static {v2}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$2000(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Ljava/util/ArrayList;
 
     move-result-object v2
 
@@ -77,7 +77,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$PageCountParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    invoke-static {v2}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$1600(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Lcom/android/launcher3/common/model/FavoritesProvider;
+    invoke-static {v2}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$1900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Lcom/android/launcher3/common/model/FavoritesProvider;
 
     move-result-object v2
 
@@ -87,7 +87,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$PageCountParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    invoke-static {v2}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$1600(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Lcom/android/launcher3/common/model/FavoritesProvider;
+    invoke-static {v2}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$1900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Lcom/android/launcher3/common/model/FavoritesProvider;
 
     move-result-object v2
 
@@ -96,7 +96,7 @@
     :cond_0
     iget-object v2, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$PageCountParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    invoke-static {v2}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$1600(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Lcom/android/launcher3/common/model/FavoritesProvider;
+    invoke-static {v2}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$1900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Lcom/android/launcher3/common/model/FavoritesProvider;
 
     move-result-object v2
 
@@ -106,7 +106,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$PageCountParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    invoke-static {v2}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$1600(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Lcom/android/launcher3/common/model/FavoritesProvider;
+    invoke-static {v2}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$1900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Lcom/android/launcher3/common/model/FavoritesProvider;
 
     move-result-object v2
 
@@ -114,7 +114,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$PageCountParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    invoke-static {v2}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$1700(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Ljava/util/ArrayList;
+    invoke-static {v2}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$2000(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Ljava/util/ArrayList;
 
     move-result-object v2
 
@@ -160,7 +160,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$PageCountParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    invoke-static {v2}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$1600(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Lcom/android/launcher3/common/model/FavoritesProvider;
+    invoke-static {v2}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$1900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Lcom/android/launcher3/common/model/FavoritesProvider;
 
     move-result-object v2
 

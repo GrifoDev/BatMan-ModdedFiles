@@ -7,6 +7,14 @@
 .implements Landroid/content/DialogInterface$OnDismissListener;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/support/v4/app/DialogFragment$DialogStyle;
+    }
+.end annotation
+
+
 # static fields
 .field private static final SAVED_BACK_STACK_ID:Ljava/lang/String; = "android:backStackId"
 

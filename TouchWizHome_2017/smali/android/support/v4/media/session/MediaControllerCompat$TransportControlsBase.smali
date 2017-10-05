@@ -346,7 +346,7 @@
 .method public sendCustomAction(Ljava/lang/String;Landroid/os/Bundle;)V
     .locals 3
 
-    invoke-static {p1, p2}, Landroid/support/v4/media/session/MediaControllerCompat;->access$200(Ljava/lang/String;Landroid/os/Bundle;)V
+    invoke-static {p1, p2}, Landroid/support/v4/media/session/MediaControllerCompat;->access$100(Ljava/lang/String;Landroid/os/Bundle;)V
 
     :try_start_0
     iget-object v1, p0, Landroid/support/v4/media/session/MediaControllerCompat$TransportControlsBase;->mBinder:Landroid/support/v4/media/session/IMediaSession;
@@ -402,6 +402,31 @@
     iget-object v1, p0, Landroid/support/v4/media/session/MediaControllerCompat$TransportControlsBase;->mBinder:Landroid/support/v4/media/session/IMediaSession;
 
     invoke-interface {v1, p1}, Landroid/support/v4/media/session/IMediaSession;->rate(Landroid/support/v4/media/RatingCompat;)V
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string v1, "MediaControllerCompat"
+
+    const-string v2, "Dead object in setRating."
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+.end method
+
+.method public setRating(Landroid/support/v4/media/RatingCompat;Landroid/os/Bundle;)V
+    .locals 3
+
+    :try_start_0
+    iget-object v1, p0, Landroid/support/v4/media/session/MediaControllerCompat$TransportControlsBase;->mBinder:Landroid/support/v4/media/session/IMediaSession;
+
+    invoke-interface {v1, p1, p2}, Landroid/support/v4/media/session/IMediaSession;->rateWithExtras(Landroid/support/v4/media/RatingCompat;Landroid/os/Bundle;)V
     :try_end_0
     .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 

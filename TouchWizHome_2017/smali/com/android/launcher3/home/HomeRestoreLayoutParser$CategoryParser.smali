@@ -475,6 +475,22 @@
 
     invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    iget-object v4, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$CategoryParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
+
+    invoke-static {v4}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Ljava/util/HashMap;
+
+    move-result-object v4
+
+    const-string v5, "zeroPageContents"
+
+    new-instance v6, Lcom/android/launcher3/home/HomeRestoreLayoutParser$ZeroPageContentsParser;
+
+    iget-object v7, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$CategoryParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
+
+    invoke-direct {v6, v7, v8}, Lcom/android/launcher3/home/HomeRestoreLayoutParser$ZeroPageContentsParser;-><init>(Lcom/android/launcher3/home/HomeRestoreLayoutParser;Lcom/android/launcher3/home/HomeRestoreLayoutParser$1;)V
+
+    invoke-virtual {v4, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
     :cond_2
     invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportHomeModeChange()Z
 

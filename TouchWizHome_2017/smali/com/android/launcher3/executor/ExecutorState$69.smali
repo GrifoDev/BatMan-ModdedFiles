@@ -31,11 +31,11 @@
 .method public create()Lcom/android/launcher3/executor/StateHandler;
     .locals 2
 
-    new-instance v0, Lcom/android/launcher3/executor/HomeSingleAppAddToSecureFolderStateHandler;
+    new-instance v0, Lcom/android/launcher3/executor/HomeSingleAppUninstallDisableStateHandler;
 
-    sget-object v1, Lcom/android/launcher3/executor/ExecutorState;->HOME_SINGLE_APP_TO_SECUREFOLDER:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v1, Lcom/android/launcher3/executor/ExecutorState;->HOME_SINGLE_APP_UNINSTALL_DISABLE:Lcom/android/launcher3/executor/ExecutorState;
 
-    invoke-direct {v0, v1}, Lcom/android/launcher3/executor/HomeSingleAppAddToSecureFolderStateHandler;-><init>(Lcom/android/launcher3/executor/ExecutorState;)V
+    invoke-direct {v0, v1}, Lcom/android/launcher3/executor/HomeSingleAppUninstallDisableStateHandler;-><init>(Lcom/android/launcher3/executor/ExecutorState;)V
 
     return-object v0
 .end method

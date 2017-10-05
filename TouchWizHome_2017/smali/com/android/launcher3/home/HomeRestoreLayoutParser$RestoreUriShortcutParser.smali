@@ -60,7 +60,7 @@
 
     iget-object v3, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$RestoreUriShortcutParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    invoke-static {v3}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$2900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/ContentValues;
+    invoke-static {v3}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$3700(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/ContentValues;
 
     move-result-object v3
 
@@ -79,7 +79,7 @@
     :cond_0
     iget-object v3, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$RestoreUriShortcutParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    invoke-static {v3}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$3000(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/ContentValues;
+    invoke-static {v3}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$3800(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/ContentValues;
 
     move-result-object v3
 
@@ -107,8 +107,23 @@
 
     move-result-object v4
 
-    invoke-static {v3, v4, v0, v1}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$3100(Lcom/android/launcher3/home/HomeRestoreLayoutParser;Ljava/lang/String;J)V
+    invoke-static {v3, v4, v0, v1}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$3900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;Ljava/lang/String;J)V
 
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportDeepShortcut()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    iget-object v3, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$RestoreUriShortcutParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
+
+    invoke-virtual {p0, p1}, Lcom/android/launcher3/home/HomeRestoreLayoutParser$RestoreUriShortcutParser;->parseIntent(Lorg/xmlpull/v1/XmlPullParser;)Landroid/content/Intent;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$4000(Lcom/android/launcher3/home/HomeRestoreLayoutParser;Landroid/content/Intent;)V
+
+    :cond_1
     return-wide v0
 .end method
 

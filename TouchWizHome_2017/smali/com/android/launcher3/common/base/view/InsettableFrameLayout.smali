@@ -132,6 +132,14 @@
     return-object v0
 .end method
 
+.method public getInsets()Landroid/graphics/Rect;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/common/base/view/InsettableFrameLayout;->mInsets:Landroid/graphics/Rect;
+
+    return-object v0
+.end method
+
 .method public onChildViewAdded(Landroid/view/View;Landroid/view/View;)V
     .locals 2
 

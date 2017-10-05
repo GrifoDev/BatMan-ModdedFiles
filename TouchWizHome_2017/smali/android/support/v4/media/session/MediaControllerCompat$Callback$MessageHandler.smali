@@ -41,16 +41,22 @@
 
 
 # instance fields
+.field mRegistered:Z
+
 .field final synthetic this$0:Landroid/support/v4/media/session/MediaControllerCompat$Callback;
 
 
 # direct methods
-.method public constructor <init>(Landroid/support/v4/media/session/MediaControllerCompat$Callback;Landroid/os/Looper;)V
-    .locals 0
+.method constructor <init>(Landroid/support/v4/media/session/MediaControllerCompat$Callback;Landroid/os/Looper;)V
+    .locals 1
 
     iput-object p1, p0, Landroid/support/v4/media/session/MediaControllerCompat$Callback$MessageHandler;->this$0:Landroid/support/v4/media/session/MediaControllerCompat$Callback;
 
     invoke-direct {p0, p2}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Landroid/support/v4/media/session/MediaControllerCompat$Callback$MessageHandler;->mRegistered:Z
 
     return-void
 .end method
@@ -60,9 +66,7 @@
 .method public handleMessage(Landroid/os/Message;)V
     .locals 3
 
-    iget-object v0, p0, Landroid/support/v4/media/session/MediaControllerCompat$Callback$MessageHandler;->this$0:Landroid/support/v4/media/session/MediaControllerCompat$Callback;
-
-    iget-boolean v0, v0, Landroid/support/v4/media/session/MediaControllerCompat$Callback;->mRegistered:Z
+    iget-boolean v0, p0, Landroid/support/v4/media/session/MediaControllerCompat$Callback$MessageHandler;->mRegistered:Z
 
     if-nez v0, :cond_0
 
@@ -241,18 +245,4 @@
         :pswitch_5
         :pswitch_8
     .end packed-switch
-.end method
-
-.method public post(ILjava/lang/Object;Landroid/os/Bundle;)V
-    .locals 1
-
-    invoke-virtual {p0, p1, p2}, Landroid/support/v4/media/session/MediaControllerCompat$Callback$MessageHandler;->obtainMessage(ILjava/lang/Object;)Landroid/os/Message;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p3}, Landroid/os/Message;->setData(Landroid/os/Bundle;)V
-
-    invoke-virtual {v0}, Landroid/os/Message;->sendToTarget()V
-
-    return-void
 .end method

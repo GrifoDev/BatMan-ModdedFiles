@@ -53,7 +53,7 @@
 
     iget-object v3, p0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask$3;->val$task:Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;
 
-    invoke-static {v1, v2, v3}, Lcom/android/launcher3/home/HomeLoader;->access$4200(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
+    invoke-static {v1, v2, v3}, Lcom/android/launcher3/home/HomeLoader;->access$5200(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
 
     move-result-object v0
 
@@ -63,13 +63,13 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v1}, Lcom/android/launcher3/home/HomeLoader;->access$4302(Z)Z
+    invoke-static {v1}, Lcom/android/launcher3/home/HomeLoader;->access$5302(Z)Z
 
     iget-object v1, p0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask$3;->this$1:Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;
 
     iget-object v1, v1, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    invoke-static {v1}, Lcom/android/launcher3/home/HomeLoader;->access$4400(Lcom/android/launcher3/home/HomeLoader;)V
+    invoke-static {v1}, Lcom/android/launcher3/home/HomeLoader;->access$5400(Lcom/android/launcher3/home/HomeLoader;)V
 
     iget-object v1, p0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask$3;->this$1:Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;
 
@@ -77,7 +77,7 @@
 
     const/4 v2, 0x0
 
-    invoke-static {v1, v2}, Lcom/android/launcher3/home/HomeLoader;->access$4502(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/common/model/DataLoader$PageLoaderTask;)Lcom/android/launcher3/common/model/DataLoader$PageLoaderTask;
+    invoke-static {v1, v2}, Lcom/android/launcher3/home/HomeLoader;->access$5502(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/common/model/DataLoader$PageLoaderTask;)Lcom/android/launcher3/common/model/DataLoader$PageLoaderTask;
 
     :cond_0
     return-void

@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/allapps/controller/AppsReorderController;->removeEmptyCellsAndViews(Ljava/util/ArrayList;Lcom/android/launcher3/allapps/controller/DragAppIcon;Z)V
+    value = Lcom/android/launcher3/allapps/controller/AppsReorderController;->removeEmptyCellsAndViews(Ljava/util/ArrayList;Lcom/android/launcher3/allapps/DragAppIcon;Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,7 +17,7 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/allapps/controller/AppsReorderController;
 
-.field final synthetic val$currentEmpty:Lcom/android/launcher3/allapps/controller/DragAppIcon;
+.field final synthetic val$currentEmpty:Lcom/android/launcher3/allapps/DragAppIcon;
 
 .field final synthetic val$endPos:I
 
@@ -31,7 +31,7 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/allapps/controller/AppsReorderController;Lcom/android/launcher3/common/base/view/CellLayout;Landroid/view/View;Lcom/android/launcher3/allapps/controller/DragAppIcon;III)V
+.method constructor <init>(Lcom/android/launcher3/allapps/controller/AppsReorderController;Lcom/android/launcher3/common/base/view/CellLayout;Landroid/view/View;Lcom/android/launcher3/allapps/DragAppIcon;III)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/allapps/controller/AppsReorderController$2;->this$0:Lcom/android/launcher3/allapps/controller/AppsReorderController;
@@ -40,7 +40,7 @@
 
     iput-object p3, p0, Lcom/android/launcher3/allapps/controller/AppsReorderController$2;->val$v:Landroid/view/View;
 
-    iput-object p4, p0, Lcom/android/launcher3/allapps/controller/AppsReorderController$2;->val$currentEmpty:Lcom/android/launcher3/allapps/controller/DragAppIcon;
+    iput-object p4, p0, Lcom/android/launcher3/allapps/controller/AppsReorderController$2;->val$currentEmpty:Lcom/android/launcher3/allapps/DragAppIcon;
 
     iput p5, p0, Lcom/android/launcher3/allapps/controller/AppsReorderController$2;->val$startPos:I
 
@@ -55,14 +55,6 @@
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 0
-
-    invoke-virtual {p0, p1}, Lcom/android/launcher3/allapps/controller/AppsReorderController$2;->onAnimationEnd(Landroid/animation/Animator;)V
-
-    return-void
-.end method
-
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 5
 
@@ -74,7 +66,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsReorderController$2;->this$0:Lcom/android/launcher3/allapps/controller/AppsReorderController;
 
-    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsReorderController$2;->val$currentEmpty:Lcom/android/launcher3/allapps/controller/DragAppIcon;
+    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsReorderController$2;->val$currentEmpty:Lcom/android/launcher3/allapps/DragAppIcon;
 
     iget v2, p0, Lcom/android/launcher3/allapps/controller/AppsReorderController$2;->val$startPos:I
 
@@ -82,7 +74,7 @@
 
     iget v4, p0, Lcom/android/launcher3/allapps/controller/AppsReorderController$2;->val$pageE:I
 
-    invoke-static {v0, v1, v2, v3, v4}, Lcom/android/launcher3/allapps/controller/AppsReorderController;->access$000(Lcom/android/launcher3/allapps/controller/AppsReorderController;Lcom/android/launcher3/allapps/controller/DragAppIcon;III)V
+    invoke-static {v0, v1, v2, v3, v4}, Lcom/android/launcher3/allapps/controller/AppsReorderController;->access$000(Lcom/android/launcher3/allapps/controller/AppsReorderController;Lcom/android/launcher3/allapps/DragAppIcon;III)V
 
     return-void
 .end method

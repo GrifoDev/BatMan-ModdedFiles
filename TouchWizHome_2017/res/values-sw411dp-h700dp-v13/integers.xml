@@ -5,4 +5,5 @@
     <integer name="config_workspaceOverviewShrinkPercentage">65</integer>
     <integer name="home_cellCountX">5</integer>
     <integer name="home_cellCountY">5</integer>
+    <integer name="config_workspaceScreenGridShrinkPercentage">68</integer>
 </resources>

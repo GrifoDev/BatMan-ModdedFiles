@@ -31,11 +31,11 @@
 .method public create()Lcom/android/launcher3/executor/StateHandler;
     .locals 2
 
-    new-instance v0, Lcom/android/launcher3/executor/AppsCustomOrderSortedStateHandler;
+    new-instance v0, Lcom/android/launcher3/executor/AppsSortOptionViewStateHandler;
 
-    sget-object v1, Lcom/android/launcher3/executor/ExecutorState;->APPS_CUSTOM_ORDER_SORTED:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v1, Lcom/android/launcher3/executor/ExecutorState;->APPS_SORT_OPTION_VIEW:Lcom/android/launcher3/executor/ExecutorState;
 
-    invoke-direct {v0, v1}, Lcom/android/launcher3/executor/AppsCustomOrderSortedStateHandler;-><init>(Lcom/android/launcher3/executor/ExecutorState;)V
+    invoke-direct {v0, v1}, Lcom/android/launcher3/executor/AppsSortOptionViewStateHandler;-><init>(Lcom/android/launcher3/executor/ExecutorState;)V
 
     return-object v0
 .end method

@@ -43,11 +43,24 @@
 
     iget-object v0, p0, Lcom/android/launcher3/folder/controller/FolderIconDropController$2;->this$0:Lcom/android/launcher3/folder/controller/FolderIconDropController;
 
+    invoke-static {v0}, Lcom/android/launcher3/folder/controller/FolderIconDropController;->access$100(Lcom/android/launcher3/folder/controller/FolderIconDropController;)Lcom/android/launcher3/common/drag/DragState;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Lcom/android/launcher3/common/drag/DragState;->canOpenFolder()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/folder/controller/FolderIconDropController$2;->this$0:Lcom/android/launcher3/folder/controller/FolderIconDropController;
+
     iget-object v1, p0, Lcom/android/launcher3/folder/controller/FolderIconDropController$2;->val$fi:Lcom/android/launcher3/folder/view/FolderIconView;
 
     const/4 v2, 0x1
 
-    invoke-static {v0, v1, v2}, Lcom/android/launcher3/folder/controller/FolderIconDropController;->access$100(Lcom/android/launcher3/folder/controller/FolderIconDropController;Lcom/android/launcher3/folder/view/FolderIconView;I)V
+    invoke-static {v0, v1, v2}, Lcom/android/launcher3/folder/controller/FolderIconDropController;->access$200(Lcom/android/launcher3/folder/controller/FolderIconDropController;Lcom/android/launcher3/folder/view/FolderIconView;I)V
 
+    :cond_0
     return-void
 .end method

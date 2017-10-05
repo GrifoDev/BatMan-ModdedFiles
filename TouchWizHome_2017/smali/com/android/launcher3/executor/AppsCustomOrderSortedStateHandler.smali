@@ -67,6 +67,12 @@
     :cond_0
     const/4 v0, 0x1
 
+    invoke-virtual {p0}, Lcom/android/launcher3/executor/AppsCustomOrderSortedStateHandler;->getLauncherProxy()Lcom/android/launcher3/proxy/LauncherProxy;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/launcher3/proxy/LauncherProxy;->hideAppsViewTypePopup()I
+
     new-instance v1, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
 
     iget-object v2, p0, Lcom/android/launcher3/executor/AppsCustomOrderSortedStateHandler;->mNlgTargetState:Ljava/lang/String;

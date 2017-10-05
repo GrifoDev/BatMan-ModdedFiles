@@ -15,11 +15,19 @@
 .end annotation
 
 
+# static fields
+.field private static final TAG:Ljava/lang/String; = "DrawableWrapperApi21"
+
+.field private static sIsProjectedDrawableMethod:Ljava/lang/reflect/Method;
+
+
 # direct methods
 .method constructor <init>(Landroid/graphics/drawable/Drawable;)V
     .locals 0
 
     invoke-direct {p0, p1}, Landroid/support/v4/graphics/drawable/DrawableWrapperApi19;-><init>(Landroid/graphics/drawable/Drawable;)V
+
+    invoke-direct {p0}, Landroid/support/v4/graphics/drawable/DrawableWrapperApi21;->findAndCacheIsProjectedDrawableMethod()V
 
     return-void
 .end method
@@ -29,7 +37,49 @@
 
     invoke-direct {p0, p1, p2}, Landroid/support/v4/graphics/drawable/DrawableWrapperApi19;-><init>(Landroid/support/v4/graphics/drawable/DrawableWrapperApi14$DrawableWrapperState;Landroid/content/res/Resources;)V
 
+    invoke-direct {p0}, Landroid/support/v4/graphics/drawable/DrawableWrapperApi21;->findAndCacheIsProjectedDrawableMethod()V
+
     return-void
+.end method
+
+.method private findAndCacheIsProjectedDrawableMethod()V
+    .locals 4
+
+    sget-object v1, Landroid/support/v4/graphics/drawable/DrawableWrapperApi21;->sIsProjectedDrawableMethod:Ljava/lang/reflect/Method;
+
+    if-nez v1, :cond_0
+
+    :try_start_0
+    const-class v1, Landroid/graphics/drawable/Drawable;
+
+    const-string v2, "isProjected"
+
+    const/4 v3, 0x0
+
+    new-array v3, v3, [Ljava/lang/Class;
+
+    invoke-virtual {v1, v2, v3}, Ljava/lang/Class;->getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
+
+    move-result-object v1
+
+    sput-object v1, Landroid/support/v4/graphics/drawable/DrawableWrapperApi21;->sIsProjectedDrawableMethod:Ljava/lang/reflect/Method;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :catch_0
+    move-exception v0
+
+    const-string v1, "DrawableWrapperApi21"
+
+    const-string v2, "Failed to retrieve Drawable#isProjected() method"
+
+    invoke-static {v1, v2, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
 .end method
 
 
@@ -79,6 +129,10 @@
 
     instance-of v2, v0, Landroid/graphics/drawable/InsetDrawable;
 
+    if-nez v2, :cond_0
+
+    instance-of v2, v0, Landroid/graphics/drawable/RippleDrawable;
+
     if-eqz v2, :cond_1
 
     :cond_0
@@ -86,6 +140,63 @@
 
     :cond_1
     return v1
+.end method
+
+.method public isProjected()Z
+    .locals 5
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
+
+    const/4 v2, 0x0
+
+    iget-object v1, p0, Landroid/support/v4/graphics/drawable/DrawableWrapperApi21;->mDrawable:Landroid/graphics/drawable/Drawable;
+
+    if-eqz v1, :cond_0
+
+    sget-object v1, Landroid/support/v4/graphics/drawable/DrawableWrapperApi21;->sIsProjectedDrawableMethod:Ljava/lang/reflect/Method;
+
+    if-eqz v1, :cond_0
+
+    :try_start_0
+    sget-object v1, Landroid/support/v4/graphics/drawable/DrawableWrapperApi21;->sIsProjectedDrawableMethod:Ljava/lang/reflect/Method;
+
+    iget-object v3, p0, Landroid/support/v4/graphics/drawable/DrawableWrapperApi21;->mDrawable:Landroid/graphics/drawable/Drawable;
+
+    const/4 v4, 0x0
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    invoke-virtual {v1, v3, v4}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/lang/Boolean;
+
+    invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    :goto_0
+    return v1
+
+    :catch_0
+    move-exception v0
+
+    const-string v1, "DrawableWrapperApi21"
+
+    const-string v3, "Error calling Drawable#isProjected() method"
+
+    invoke-static {v1, v3, v0}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :cond_0
+    move v1, v2
+
+    goto :goto_0
 .end method
 
 .method mutateConstantState()Landroid/support/v4/graphics/drawable/DrawableWrapperApi14$DrawableWrapperState;

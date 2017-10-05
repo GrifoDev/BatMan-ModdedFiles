@@ -50,18 +50,6 @@
     .end annotation
 .end method
 
-.method public abstract bindAppsButton(Ljava/util/ArrayList;)V
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/ArrayList",
-            "<",
-            "Lcom/android/launcher3/common/base/item/ItemInfo;",
-            ">;)V"
-        }
-    .end annotation
-.end method
-
 .method public abstract bindAppsInFolderRemoved(Ljava/util/ArrayList;Ljava/util/ArrayList;)V
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -114,6 +102,18 @@
     .end annotation
 .end method
 
+.method public abstract bindHotseatItems(Ljava/util/ArrayList;)V
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/ArrayList",
+            "<",
+            "Lcom/android/launcher3/common/base/item/ItemInfo;",
+            ">;)V"
+        }
+    .end annotation
+.end method
+
 .method public abstract bindInsertScreens(JI)V
 .end method
 
@@ -142,6 +142,9 @@
             ">;)V"
         }
     .end annotation
+.end method
+
+.method public abstract bindRemoveScreen(I)V
 .end method
 
 .method public abstract bindRestoreItemsChange(Ljava/util/HashSet;)V
@@ -187,6 +190,18 @@
 .end method
 
 .method public abstract bindUpdateContainer(ZLcom/android/launcher3/folder/FolderInfo;Lcom/android/launcher3/common/base/item/IconInfo;)V
+.end method
+
+.method public abstract bindUpdatePosition(Ljava/util/ArrayList;)V
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/ArrayList",
+            "<",
+            "Lcom/android/launcher3/common/base/item/ItemInfo;",
+            ">;)V"
+        }
+    .end annotation
 .end method
 
 .method public abstract bindWidgetsRestored(Ljava/util/ArrayList;)V

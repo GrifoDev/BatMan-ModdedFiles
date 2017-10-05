@@ -1232,7 +1232,7 @@
 .end method
 
 .method private backupFolderItemById(JLjava/lang/String;Landroid/content/ContentResolver;Lorg/xmlpull/v1/XmlSerializer;Landroid/net/Uri;Lcom/android/launcher3/common/bnr/LauncherBnrListener$Result;Z)V
-    .locals 29
+    .locals 31
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/io/IOException;
@@ -1351,7 +1351,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_12
+    if-eqz v4, :cond_13
 
     iget v4, v14, Lcom/android/launcher3/common/model/CursorInfo;->itemTypeIndex:I
 
@@ -1369,7 +1369,7 @@
 
     invoke-interface {v13, v4}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
-    move-result-object v28
+    move-result-object v29
 
     iget v4, v14, Lcom/android/launcher3/common/model/CursorInfo;->intentIndex:I
 
@@ -1436,11 +1436,11 @@
     move-result-object v11
 
     :cond_3
-    packed-switch v23, :pswitch_data_0
+    sparse-switch v23, :sswitch_data_0
 
     goto :goto_2
 
-    :pswitch_0
+    :sswitch_0
     if-eqz v12, :cond_1
 
     const-string v4, "\n"
@@ -1695,7 +1695,7 @@
 
     goto/16 :goto_2
 
-    :pswitch_1
+    :sswitch_1
     :try_start_3
     const-string v4, "com.samsung.knox.rcp.components"
 
@@ -1707,6 +1707,15 @@
 
     if-nez v4, :cond_1
 
+    const/4 v4, 0x1
+
+    move/from16 v0, v23
+
+    if-ne v0, v4, :cond_12
+
+    const-string v28, "shortcut"
+
+    :goto_3
     if-eqz p8, :cond_a
 
     const/4 v4, 0x3
@@ -1725,13 +1734,25 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, " shortcut : "
+    const/16 v5, 0x20
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    move-object/from16 v0, v28
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string v5, " : "
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v29
 
     invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1790,11 +1811,11 @@
 
     const/4 v4, 0x0
 
-    const-string v5, "shortcut"
-
     move-object/from16 v0, p5
 
-    invoke-interface {v0, v4, v5}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    move-object/from16 v1, v28
+
+    invoke-interface {v0, v4, v1}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     const/4 v4, 0x0
 
@@ -1878,7 +1899,7 @@
     invoke-interface {v0, v4, v5, v1}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     :cond_c
-    invoke-static/range {v28 .. v28}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static/range {v29 .. v29}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v4
 
@@ -1906,7 +1927,7 @@
 
     move-object/from16 v0, p5
 
-    move-object/from16 v1, v28
+    move-object/from16 v1, v29
 
     invoke-interface {v0, v4, v5, v1}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
@@ -2023,26 +2044,31 @@
     :cond_11
     const/4 v4, 0x0
 
-    const-string v5, "shortcut"
-
     move-object/from16 v0, p5
 
-    invoke-interface {v0, v4, v5}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+    move-object/from16 v1, v28
+
+    invoke-interface {v0, v4, v1}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     goto/16 :goto_2
 
     :cond_12
+    const-string v28, "deepshortcut"
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    goto/16 :goto_3
+
+    :cond_13
     invoke-interface {v13}, Landroid/database/Cursor;->isClosed()Z
 
     move-result v4
 
-    if-nez v4, :cond_13
+    if-nez v4, :cond_14
 
     invoke-interface {v13}, Landroid/database/Cursor;->close()V
 
-    :cond_13
+    :cond_14
     const-string v4, "\n"
 
     move-object/from16 v0, p5
@@ -2051,13 +2077,12 @@
 
     goto/16 :goto_0
 
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x0
-        :pswitch_0
-        :pswitch_1
-    .end packed-switch
+    :sswitch_data_0
+    .sparse-switch
+        0x0 -> :sswitch_0
+        0x1 -> :sswitch_1
+        0x6 -> :sswitch_1
+    .end sparse-switch
 .end method
 
 .method private backupHomeScreenContent(Lorg/xmlpull/v1/XmlSerializer;Lcom/android/launcher3/common/bnr/LauncherBnrListener$Result;)V
@@ -2351,7 +2376,7 @@
 .end method
 
 .method private backupItem(Ljava/lang/String;Ljava/lang/String;Landroid/database/Cursor;Landroid/content/ContentResolver;Lorg/xmlpull/v1/XmlSerializer;Landroid/net/Uri;Lcom/android/launcher3/common/bnr/LauncherBnrListener$Result;)V
-    .locals 25
+    .locals 28
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;,
@@ -2366,7 +2391,7 @@
 
     invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v21
+    move-result v24
 
     const-string v4, "\n"
 
@@ -2374,7 +2399,7 @@
 
     invoke-interface {v0, v4}, Lorg/xmlpull/v1/XmlSerializer;->text(Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    if-eqz v21, :cond_0
+    if-eqz v24, :cond_0
 
     const/4 v4, 0x1
 
@@ -2410,7 +2435,7 @@
 
     invoke-interface {v0, v4}, Landroid/database/Cursor;->getInt(I)I
 
-    move-result v22
+    move-result v25
 
     iget v4, v7, Lcom/android/launcher3/common/model/CursorInfo;->intentIndex:I
 
@@ -2426,7 +2451,7 @@
 
     invoke-interface {v0, v4}, Landroid/database/Cursor;->getInt(I)I
 
-    move-result v20
+    move-result v23
 
     iget v4, v7, Lcom/android/launcher3/common/model/CursorInfo;->restoredIndex:I
 
@@ -2434,11 +2459,11 @@
 
     invoke-interface {v0, v4}, Landroid/database/Cursor;->getInt(I)I
 
-    move-result v24
+    move-result v27
 
-    if-nez v20, :cond_2
+    if-nez v23, :cond_2
 
-    if-eqz v24, :cond_5
+    if-eqz v27, :cond_5
 
     :cond_2
     :goto_0
@@ -2454,7 +2479,7 @@
 
     invoke-interface {v0, v4}, Lorg/xmlpull/v1/XmlSerializer;->text(Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    if-eqz v21, :cond_3
+    if-eqz v24, :cond_3
 
     const/4 v4, 0x1
 
@@ -2487,7 +2512,7 @@
 
     if-eqz v4, :cond_4
 
-    if-eqz v21, :cond_4
+    if-eqz v24, :cond_4
 
     const-string v4, "\n\n"
 
@@ -2523,12 +2548,12 @@
     move-result-object v5
 
     :cond_6
-    packed-switch v22, :pswitch_data_0
+    packed-switch v25, :pswitch_data_0
 
     :cond_7
     :goto_1
     :pswitch_0
-    if-eqz v21, :cond_2
+    if-eqz v24, :cond_2
 
     const-string v4, "\n"
 
@@ -2539,7 +2564,7 @@
     goto :goto_0
 
     :catch_0
-    move-exception v19
+    move-exception v22
 
     goto :goto_0
 
@@ -2559,16 +2584,25 @@
     goto :goto_1
 
     :pswitch_2
-    if-eqz v5, :cond_8
+    const/4 v4, 0x1
+
+    move/from16 v0, v25
+
+    if-ne v0, v4, :cond_8
+
+    const-string v13, "shortcut"
+
+    :goto_2
+    if-eqz v5, :cond_9
 
     invoke-virtual {v5}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
-    move-result-object v23
+    move-result-object v26
 
-    :goto_2
+    :goto_3
     const-string v4, "com.samsung.knox.rcp.components"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v26
 
     invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -2582,20 +2616,25 @@
 
     move-object v12, v7
 
-    move-object/from16 v13, p2
+    move-object/from16 v14, p2
 
-    move-object/from16 v14, p5
+    move-object/from16 v15, p5
 
-    move-object/from16 v15, p7
+    move-object/from16 v16, p7
 
-    invoke-direct/range {v8 .. v15}, Lcom/android/launcher3/home/HomeBnrHelper;->backupShortcutItem(Ljava/lang/String;Landroid/content/Intent;Landroid/database/Cursor;Lcom/android/launcher3/common/model/CursorInfo;Ljava/lang/String;Lorg/xmlpull/v1/XmlSerializer;Lcom/android/launcher3/common/bnr/LauncherBnrListener$Result;)V
+    invoke-direct/range {v8 .. v16}, Lcom/android/launcher3/home/HomeBnrHelper;->backupShortcutItem(Ljava/lang/String;Landroid/content/Intent;Landroid/database/Cursor;Lcom/android/launcher3/common/model/CursorInfo;Ljava/lang/String;Ljava/lang/String;Lorg/xmlpull/v1/XmlSerializer;Lcom/android/launcher3/common/bnr/LauncherBnrListener$Result;)V
 
     goto :goto_1
 
     :cond_8
-    const/16 v23, 0x0
+    const-string v13, "deepshortcut"
 
     goto :goto_2
+
+    :cond_9
+    const/16 v26, 0x0
+
+    goto :goto_3
 
     :pswitch_3
     move-object/from16 v0, p0
@@ -2611,25 +2650,27 @@
     goto :goto_1
 
     :pswitch_4
-    move-object/from16 v11, p0
+    move-object/from16 v14, p0
 
-    move-object/from16 v12, p3
+    move-object/from16 v15, p3
 
-    move-object v13, v7
+    move-object/from16 v16, v7
 
-    move-object/from16 v14, p4
+    move-object/from16 v17, p4
 
-    move-object/from16 v15, p2
+    move-object/from16 v18, p2
 
-    move-object/from16 v16, p5
+    move-object/from16 v19, p5
 
-    move-object/from16 v17, p6
+    move-object/from16 v20, p6
 
-    move-object/from16 v18, p7
+    move-object/from16 v21, p7
 
-    invoke-direct/range {v11 .. v18}, Lcom/android/launcher3/home/HomeBnrHelper;->backupFolderItem(Landroid/database/Cursor;Lcom/android/launcher3/common/model/CursorInfo;Landroid/content/ContentResolver;Ljava/lang/String;Lorg/xmlpull/v1/XmlSerializer;Landroid/net/Uri;Lcom/android/launcher3/common/bnr/LauncherBnrListener$Result;)V
+    invoke-direct/range {v14 .. v21}, Lcom/android/launcher3/home/HomeBnrHelper;->backupFolderItem(Landroid/database/Cursor;Lcom/android/launcher3/common/model/CursorInfo;Landroid/content/ContentResolver;Ljava/lang/String;Lorg/xmlpull/v1/XmlSerializer;Landroid/net/Uri;Lcom/android/launcher3/common/bnr/LauncherBnrListener$Result;)V
 
     goto :goto_1
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -2638,6 +2679,8 @@
         :pswitch_4
         :pswitch_0
         :pswitch_3
+        :pswitch_0
+        :pswitch_2
     .end packed-switch
 .end method
 
@@ -2805,7 +2848,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b0009
+    const v9, 0x7f0d0008
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2817,7 +2860,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b000a
+    const v9, 0x7f0d0009
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -3119,7 +3162,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_8
+    if-eqz v8, :cond_7
 
     new-instance v8, Ljava/lang/StringBuilder;
 
@@ -3145,19 +3188,12 @@
 
     move-result-object v7
 
-    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportFlexibleGrid()Z
-
-    move-result v8
-
-    if-eqz v8, :cond_7
-
     iget-object v8, p0, Lcom/android/launcher3/home/HomeBnrHelper;->mContext:Landroid/content/Context;
 
     const/4 v9, 0x1
 
     invoke-static {v8, v0, v9}, Lcom/android/launcher3/util/ScreenGridUtilities;->loadCurrentGridSize(Landroid/content/Context;[IZ)V
 
-    :cond_7
     iget-object v8, p0, Lcom/android/launcher3/home/HomeBnrHelper;->mContext:Landroid/content/Context;
 
     const-string v9, "com.sec.android.app.launcher.homeonly.defaultpage.prefs"
@@ -3168,7 +3204,7 @@
 
     goto/16 :goto_1
 
-    :cond_8
+    :cond_7
     const-string v6, ""
 
     const-string v8, "home"
@@ -3177,19 +3213,12 @@
 
     move-result-object v7
 
-    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportFlexibleGrid()Z
-
-    move-result v8
-
-    if-eqz v8, :cond_9
-
     iget-object v8, p0, Lcom/android/launcher3/home/HomeBnrHelper;->mContext:Landroid/content/Context;
 
     const/4 v9, 0x0
 
     invoke-static {v8, v0, v9}, Lcom/android/launcher3/util/ScreenGridUtilities;->loadCurrentGridSize(Landroid/content/Context;[IZ)V
 
-    :cond_9
     iget-object v8, p0, Lcom/android/launcher3/home/HomeBnrHelper;->mContext:Landroid/content/Context;
 
     const-string v9, "com.sec.android.app.launcher.home.defaultpage.prefs"
@@ -3201,7 +3230,7 @@
     goto/16 :goto_1
 .end method
 
-.method private backupShortcutItem(Ljava/lang/String;Landroid/content/Intent;Landroid/database/Cursor;Lcom/android/launcher3/common/model/CursorInfo;Ljava/lang/String;Lorg/xmlpull/v1/XmlSerializer;Lcom/android/launcher3/common/bnr/LauncherBnrListener$Result;)V
+.method private backupShortcutItem(Ljava/lang/String;Landroid/content/Intent;Landroid/database/Cursor;Lcom/android/launcher3/common/model/CursorInfo;Ljava/lang/String;Ljava/lang/String;Lorg/xmlpull/v1/XmlSerializer;Lcom/android/launcher3/common/bnr/LauncherBnrListener$Result;)V
     .locals 20
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -3215,7 +3244,7 @@
 
     move-object/from16 v0, v17
 
-    move-object/from16 v1, p5
+    move-object/from16 v1, p6
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -3381,7 +3410,7 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, p6
+    move-object/from16 v1, p7
 
     invoke-direct {v0, v15, v1}, Lcom/android/launcher3/home/HomeBnrHelper;->backupAppsButton(ILorg/xmlpull/v1/XmlSerializer;)V
 
@@ -3397,7 +3426,7 @@
     :cond_3
     const-string v17, "\n"
 
-    move-object/from16 v0, p6
+    move-object/from16 v0, p7
 
     move-object/from16 v1, v17
 
@@ -3413,7 +3442,7 @@
 
     move-result-object v17
 
-    move-object/from16 v0, p6
+    move-object/from16 v0, p7
 
     move-object/from16 v1, v17
 
@@ -3423,7 +3452,21 @@
 
     invoke-direct/range {v17 .. v17}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v18, " shortcut : "
+    const/16 v18, 0x20
+
+    invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v17
+
+    move-object/from16 v0, v17
+
+    move-object/from16 v1, p5
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v17
+
+    const-string v18, " : "
 
     invoke-virtual/range {v17 .. v18}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -3447,7 +3490,7 @@
 
     move-result-object v17
 
-    move-object/from16 v0, p6
+    move-object/from16 v0, p7
 
     move-object/from16 v1, v17
 
@@ -3479,7 +3522,7 @@
 
     move-result-object v17
 
-    move-object/from16 v0, p6
+    move-object/from16 v0, p7
 
     move-object/from16 v1, v17
 
@@ -3488,13 +3531,11 @@
     :cond_4
     const/16 v17, 0x0
 
-    const-string v18, "shortcut"
-
-    move-object/from16 v0, p6
+    move-object/from16 v0, p7
 
     move-object/from16 v1, v17
 
-    move-object/from16 v2, v18
+    move-object/from16 v2, p5
 
     invoke-interface {v0, v1, v2}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
@@ -3524,7 +3565,7 @@
 
     move-result-object v19
 
-    move-object/from16 v0, p6
+    move-object/from16 v0, p7
 
     move-object/from16 v1, v17
 
@@ -3590,7 +3631,7 @@
 
     const-string v18, "iconPackage"
 
-    move-object/from16 v0, p6
+    move-object/from16 v0, p7
 
     move-object/from16 v1, v17
 
@@ -3611,7 +3652,7 @@
 
     const-string v18, "iconResource"
 
-    move-object/from16 v0, p6
+    move-object/from16 v0, p7
 
     move-object/from16 v1, v17
 
@@ -3648,7 +3689,7 @@
 
     move-result-object v18
 
-    move-object/from16 v0, p6
+    move-object/from16 v0, p7
 
     move-object/from16 v1, v17
 
@@ -3693,7 +3734,7 @@
 
     move-result-object v18
 
-    move-object/from16 v0, p6
+    move-object/from16 v0, p7
 
     move-object/from16 v1, v17
 
@@ -3730,7 +3771,7 @@
 
     move-result-object v18
 
-    move-object/from16 v0, p6
+    move-object/from16 v0, p7
 
     move-object/from16 v1, v17
 
@@ -3743,7 +3784,7 @@
 
     move-object/from16 v0, v17
 
-    move-object/from16 v1, p5
+    move-object/from16 v1, p6
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -3761,7 +3802,7 @@
 
     const-string v18, "restored"
 
-    move-object/from16 v0, p6
+    move-object/from16 v0, p7
 
     move-object/from16 v1, v17
 
@@ -3798,7 +3839,7 @@
 
     move-result-object v18
 
-    move-object/from16 v0, p6
+    move-object/from16 v0, p7
 
     move-object/from16 v1, v17
 
@@ -3845,7 +3886,7 @@
 
     move-result-object v19
 
-    move-object/from16 v0, p6
+    move-object/from16 v0, p7
 
     move-object/from16 v1, v17
 
@@ -3860,7 +3901,7 @@
 
     move-object/from16 v0, v17
 
-    move-object/from16 v1, p5
+    move-object/from16 v1, p6
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -3872,22 +3913,20 @@
 
     move-object/from16 v1, p1
 
-    move-object/from16 v2, p6
+    move-object/from16 v2, p7
 
-    move-object/from16 v3, p7
+    move-object/from16 v3, p8
 
     invoke-direct {v0, v1, v2, v3}, Lcom/android/launcher3/home/HomeBnrHelper;->backupContactShortcut(Ljava/lang/String;Lorg/xmlpull/v1/XmlSerializer;Lcom/android/launcher3/common/bnr/LauncherBnrListener$Result;)V
 
     :cond_d
     const/16 v17, 0x0
 
-    const-string v18, "shortcut"
-
-    move-object/from16 v0, p6
+    move-object/from16 v0, p7
 
     move-object/from16 v1, v17
 
-    move-object/from16 v2, v18
+    move-object/from16 v2, p5
 
     invoke-interface {v0, v1, v2}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
@@ -4737,64 +4776,95 @@
 .end method
 
 .method private backupZeroPage(Lorg/xmlpull/v1/XmlSerializer;Lcom/android/launcher3/common/bnr/LauncherBnrListener$Result;)V
-    .locals 6
+    .locals 7
 
-    const/4 v5, 0x1
+    const/4 v6, 0x1
 
-    iget-object v2, p0, Lcom/android/launcher3/home/HomeBnrHelper;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Lcom/android/launcher3/home/HomeBnrHelper;->mContext:Landroid/content/Context;
 
-    invoke-static {v2, v5}, Lcom/android/launcher3/home/ZeroPageController;->isActiveZeroPage(Landroid/content/Context;Z)Z
+    invoke-static {v3, v6}, Lcom/android/launcher3/home/ZeroPageController;->isActiveZeroPage(Landroid/content/Context;Z)Z
 
-    move-result v1
+    move-result v2
 
-    const-string v2, "Launcher.HomeBnr"
+    iget-object v3, p0, Lcom/android/launcher3/home/HomeBnrHelper;->mContext:Landroid/content/Context;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    invoke-static {v3}, Lcom/android/launcher3/home/ZeroPageController;->getZeroPageContents(Landroid/content/Context;)Landroid/content/ComponentName;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v1
 
-    const-string v4, "zeroPageEnable : "
+    const-string v3, "Launcher.HomeBnr"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    const-string v5, "zeroPageEnable : "
 
-    move-result-object v3
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v4
 
-    move-result-object v3
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :try_start_0
-    const-string v2, "\n"
+    const-string v3, "\n"
 
-    invoke-interface {p1, v2}, Lorg/xmlpull/v1/XmlSerializer;->text(Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p1, v3}, Lorg/xmlpull/v1/XmlSerializer;->text(Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    const-string v2, "\n"
+    const-string v3, "\n"
 
-    invoke-interface {p1, v2}, Lorg/xmlpull/v1/XmlSerializer;->text(Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    invoke-interface {p1, v3}, Lorg/xmlpull/v1/XmlSerializer;->text(Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    const/4 v2, 0x0
+    if-eqz v1, :cond_0
 
-    const-string v3, "zeroPage"
+    const/4 v3, 0x0
 
-    invoke-interface {p1, v2, v3}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    const-string v4, "zeroPageContents"
 
-    invoke-static {v1}, Ljava/lang/Boolean;->toString(Z)Ljava/lang/String;
+    invoke-interface {p1, v3, v4}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    move-result-object v2
+    invoke-virtual {v1}, Landroid/content/ComponentName;->flattenToString()Ljava/lang/String;
 
-    invoke-interface {p1, v2}, Lorg/xmlpull/v1/XmlSerializer;->text(Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    move-result-object v3
 
-    const/4 v2, 0x0
+    invoke-interface {p1, v3}, Lorg/xmlpull/v1/XmlSerializer;->text(Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    const-string v3, "zeroPage"
+    const/4 v3, 0x0
 
-    invoke-interface {p1, v2, v3}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+    const-string v4, "zeroPageContents"
+
+    invoke-interface {p1, v3, v4}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    const-string v3, "\n"
+
+    invoke-interface {p1, v3}, Lorg/xmlpull/v1/XmlSerializer;->text(Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    :cond_0
+    const/4 v3, 0x0
+
+    const-string v4, "zeroPage"
+
+    invoke-interface {p1, v3, v4}, Lorg/xmlpull/v1/XmlSerializer;->startTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    invoke-static {v2}, Ljava/lang/Boolean;->toString(Z)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-interface {p1, v3}, Lorg/xmlpull/v1/XmlSerializer;->text(Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    const/4 v3, 0x0
+
+    const-string v4, "zeroPage"
+
+    invoke-interface {p1, v3, v4}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -4804,33 +4874,33 @@
     :catch_0
     move-exception v0
 
-    iput v5, p2, Lcom/android/launcher3/common/bnr/LauncherBnrListener$Result;->result:I
+    iput v6, p2, Lcom/android/launcher3/common/bnr/LauncherBnrListener$Result;->result:I
 
-    const-string v2, "Launcher.HomeBnr"
+    const-string v3, "Launcher.HomeBnr"
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "backupZeroPage Exception : "
+    const-string v5, "backupZeroPage Exception : "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v0}, Ljava/lang/Exception;->toString()Ljava/lang/String;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/Exception;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method

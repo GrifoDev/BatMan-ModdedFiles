@@ -34,11 +34,11 @@
 .method public onChange(Z)V
     .locals 2
 
-    invoke-static {}, Lcom/android/launcher3/gamehome/GameHomeManager;->access$200()Ljava/lang/String;
+    invoke-static {}, Lcom/android/launcher3/gamehome/GameHomeManager;->access$300()Ljava/lang/String;
 
     move-result-object v0
 
-    const-string v1, "game home setting provider changed : "
+    const-string v1, "game home provider changed"
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 

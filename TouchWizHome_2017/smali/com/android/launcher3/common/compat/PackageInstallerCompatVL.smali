@@ -175,11 +175,11 @@
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/android/launcher3/LauncherModel;->getAppsLoader()Lcom/android/launcher3/allapps/model/AppsLoader;
+    invoke-virtual {v1}, Lcom/android/launcher3/LauncherModel;->getAppsModel()Lcom/android/launcher3/allapps/model/AppsModel;
 
     move-result-object v1
 
-    invoke-virtual {v1, p1}, Lcom/android/launcher3/allapps/model/AppsLoader;->setPackageState(Lcom/android/launcher3/common/compat/PackageInstallerCompat$PackageInstallInfo;)V
+    invoke-virtual {v1, p1}, Lcom/android/launcher3/allapps/model/AppsModel;->setPackageState(Lcom/android/launcher3/common/compat/PackageInstallerCompat$PackageInstallInfo;)V
 
     :cond_0
     return-void

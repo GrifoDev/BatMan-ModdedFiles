@@ -26,11 +26,9 @@
 
 .field final synthetic val$data:Landroid/content/Intent;
 
-.field final synthetic val$desktopModeManager:Lcom/samsung/android/desktopmode/SemDesktopModeManager;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/home/InstallShortcutReceiver;Landroid/content/Intent;Landroid/content/Context;Lcom/android/launcher3/LauncherAppState;Lcom/samsung/android/desktopmode/SemDesktopModeManager;)V
+.method constructor <init>(Lcom/android/launcher3/home/InstallShortcutReceiver;Landroid/content/Intent;Landroid/content/Context;Lcom/android/launcher3/LauncherAppState;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/home/InstallShortcutReceiver$1;->this$0:Lcom/android/launcher3/home/InstallShortcutReceiver;
@@ -40,8 +38,6 @@
     iput-object p3, p0, Lcom/android/launcher3/home/InstallShortcutReceiver$1;->val$context:Landroid/content/Context;
 
     iput-object p4, p0, Lcom/android/launcher3/home/InstallShortcutReceiver$1;->val$app:Lcom/android/launcher3/LauncherAppState;
-
-    iput-object p5, p0, Lcom/android/launcher3/home/InstallShortcutReceiver$1;->val$desktopModeManager:Lcom/samsung/android/desktopmode/SemDesktopModeManager;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -544,7 +540,7 @@
 
     move-result v18
 
-    if-eqz v18, :cond_13
+    if-eqz v18, :cond_14
 
     move-object/from16 v0, p0
 
@@ -563,6 +559,16 @@
     move-object/from16 v20, v0
 
     invoke-static/range {v18 .. v20}, Lcom/android/launcher3/home/InstallShortcutReceiver;->access$600(Lcom/android/launcher3/home/InstallShortcutReceiver;Landroid/content/Context;Landroid/content/Intent;)Z
+
+    move-result v18
+
+    if-eqz v18, :cond_13
+
+    iget-object v0, v8, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->launchIntent:Landroid/content/Intent;
+
+    move-object/from16 v18, v0
+
+    invoke-static/range {v18 .. v18}, Lcom/android/launcher3/common/view/IconView;->isKnoxShortcut(Landroid/content/Intent;)Z
 
     move-result v18
 
@@ -588,7 +594,7 @@
 
     move-result-object v19
 
-    const-string v20, ") is exist in DB & Uninstallshort queue."
+    const-string v20, ") is exist in DB & Uninstallshort queue & knox."
 
     invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -600,15 +606,13 @@
 
     invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v4, 0x0
-
     :cond_c
     :goto_1
     invoke-static {}, Lcom/android/launcher3/Utilities;->isKnoxMode()Z
 
     move-result v18
 
-    if-nez v18, :cond_15
+    if-nez v18, :cond_16
 
     move-object/from16 v0, p0
 
@@ -649,7 +653,7 @@
 
     move-result v18
 
-    if-gtz v18, :cond_15
+    if-gtz v18, :cond_16
 
     new-instance v10, Landroid/content/Intent;
 
@@ -675,7 +679,7 @@
 
     const/4 v6, 0x0
 
-    if-eqz v7, :cond_14
+    if-eqz v7, :cond_15
 
     invoke-interface {v7}, Ljava/util/List;->size()I
 
@@ -691,7 +695,7 @@
 
     move-result v19
 
-    if-eqz v19, :cond_14
+    if-eqz v19, :cond_15
 
     invoke-interface/range {v18 .. v18}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -859,6 +863,43 @@
 
     move-result-object v19
 
+    const-string v20, ") is exist in DB & Uninstallshort queue."
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v19
+
+    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v4, 0x0
+
+    goto/16 :goto_1
+
+    :cond_13
+    const-string v18, "InstallShortcutReceiver"
+
+    new-instance v19, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v19 .. v19}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v20, "This shortcut ("
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
+    iget-object v0, v8, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->launchIntent:Landroid/content/Intent;
+
+    move-object/from16 v20, v0
+
+    invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v19
+
     const-string v20, ") is exist in DB."
 
     invoke-virtual/range {v19 .. v20}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -875,7 +916,7 @@
 
     goto/16 :goto_1
 
-    :cond_13
+    :cond_14
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher3/home/InstallShortcutReceiver$1;->this$0:Lcom/android/launcher3/home/InstallShortcutReceiver;
@@ -934,7 +975,7 @@
 
     goto/16 :goto_1
 
-    :cond_14
+    :cond_15
     const-string v18, "InstallShortcutReceiver"
 
     new-instance v19, Ljava/lang/StringBuilder;
@@ -963,11 +1004,11 @@
 
     move/from16 v0, v18
 
-    if-le v6, v0, :cond_15
+    if-le v6, v0, :cond_16
 
     const/16 v17, 0x1
 
-    :cond_15
+    :cond_16
     if-eqz v16, :cond_17
 
     move-object/from16 v0, p0
@@ -984,25 +1025,16 @@
 
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/launcher3/home/InstallShortcutReceiver$1;->val$desktopModeManager:Lcom/samsung/android/desktopmode/SemDesktopModeManager;
+    iget-object v0, v0, Lcom/android/launcher3/home/InstallShortcutReceiver$1;->val$context:Landroid/content/Context;
 
     move-object/from16 v18, v0
 
-    if-eqz v18, :cond_16
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/launcher3/home/InstallShortcutReceiver$1;->val$desktopModeManager:Lcom/samsung/android/desktopmode/SemDesktopModeManager;
-
-    move-object/from16 v18, v0
-
-    invoke-static {}, Lcom/samsung/android/desktopmode/SemDesktopModeManager;->isDesktopMode()Z
+    invoke-static/range {v18 .. v18}, Lcom/android/launcher3/Utilities;->isDeskTopMode(Landroid/content/Context;)Z
 
     move-result v18
 
     if-nez v18, :cond_1
 
-    :cond_16
     if-nez v17, :cond_1
 
     move-object/from16 v0, p0
@@ -1011,7 +1043,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f0800a3
+    const v19, 0x7f0900b1
 
     const/16 v20, 0x1
 
@@ -1083,25 +1115,16 @@
     :cond_18
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/launcher3/home/InstallShortcutReceiver$1;->val$desktopModeManager:Lcom/samsung/android/desktopmode/SemDesktopModeManager;
+    iget-object v0, v0, Lcom/android/launcher3/home/InstallShortcutReceiver$1;->val$context:Landroid/content/Context;
 
     move-object/from16 v18, v0
 
-    if-eqz v18, :cond_19
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/launcher3/home/InstallShortcutReceiver$1;->val$desktopModeManager:Lcom/samsung/android/desktopmode/SemDesktopModeManager;
-
-    move-object/from16 v18, v0
-
-    invoke-static {}, Lcom/samsung/android/desktopmode/SemDesktopModeManager;->isDesktopMode()Z
+    invoke-static/range {v18 .. v18}, Lcom/android/launcher3/Utilities;->isDeskTopMode(Landroid/content/Context;)Z
 
     move-result v18
 
     if-nez v18, :cond_1
 
-    :cond_19
     if-nez v17, :cond_1
 
     move-object/from16 v0, p0
@@ -1110,7 +1133,7 @@
 
     move-object/from16 v18, v0
 
-    const v19, 0x7f0800a4
+    const v19, 0x7f0900b2
 
     const/16 v20, 0x1
 
@@ -1132,6 +1155,31 @@
 
     move-result-object v13
 
+    sget-boolean v18, Lcom/android/launcher3/Utilities;->sIsRtl:Z
+
+    if-eqz v18, :cond_19
+
+    new-instance v18, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
+
+    const/16 v19, 0x200f
+
+    invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v13
+
+    :cond_19
     new-instance v18, Landroid/view/ContextThemeWrapper;
 
     move-object/from16 v0, p0

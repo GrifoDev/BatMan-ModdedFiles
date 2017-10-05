@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/allapps/model/AppsLoader;->updateUnavailablePackage(Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;I)V
+    value = Lcom/android/launcher3/allapps/model/AppsLoader;->updateIconsAndLabels(Ljava/util/HashSet;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,28 +20,24 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
 
-.field final synthetic val$disabledPackages:Ljava/lang/String;
-
 .field final synthetic val$oldCallbacks:Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
 
-.field final synthetic val$reason:I
+.field final synthetic val$outUpdates:Ljava/util/ArrayList;
 
 .field final synthetic val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/allapps/model/AppsLoader;Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;I)V
+.method constructor <init>(Lcom/android/launcher3/allapps/model/AppsLoader;Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;Ljava/util/ArrayList;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/allapps/model/AppsLoader$19;->this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
 
     iput-object p2, p0, Lcom/android/launcher3/allapps/model/AppsLoader$19;->val$oldCallbacks:Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
 
-    iput-object p3, p0, Lcom/android/launcher3/allapps/model/AppsLoader$19;->val$disabledPackages:Ljava/lang/String;
+    iput-object p3, p0, Lcom/android/launcher3/allapps/model/AppsLoader$19;->val$outUpdates:Ljava/util/ArrayList;
 
     iput-object p4, p0, Lcom/android/launcher3/allapps/model/AppsLoader$19;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
-
-    iput p5, p0, Lcom/android/launcher3/allapps/model/AppsLoader$19;->val$reason:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -65,19 +61,21 @@
 
     move-result-object v3
 
-    invoke-static {v1, v2, v3}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$1400(Lcom/android/launcher3/allapps/model/AppsLoader;Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
+    invoke-static {v1, v2, v3}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$1200(Lcom/android/launcher3/allapps/model/AppsLoader;Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/launcher3/allapps/model/AppsLoader$19;->val$disabledPackages:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/launcher3/allapps/model/AppsLoader$19;->val$outUpdates:Ljava/util/ArrayList;
 
-    iget-object v2, p0, Lcom/android/launcher3/allapps/model/AppsLoader$19;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+    new-instance v2, Ljava/util/ArrayList;
 
-    iget v3, p0, Lcom/android/launcher3/allapps/model/AppsLoader$19;->val$reason:I
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    invoke-interface {v0, v1, v2, v3}, Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;->updateUnavailableComponent(Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;I)V
+    iget-object v3, p0, Lcom/android/launcher3/allapps/model/AppsLoader$19;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    invoke-interface {v0, v1, v2, v3}, Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;->bindAppsChanged(Ljava/util/ArrayList;Ljava/util/ArrayList;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
 
     :cond_0
     return-void

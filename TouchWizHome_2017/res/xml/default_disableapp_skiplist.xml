@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<nondisableapps
-  xmlns:launcher="http://schemas.android.com/apk/res/com.sec.android.app.launcher">
+<nondisableapps>
     <item>com.sprint.zone</item>
     <item>com.coremobility.app.vnotes</item>
     <item>com.sequent.controlpanel</item>

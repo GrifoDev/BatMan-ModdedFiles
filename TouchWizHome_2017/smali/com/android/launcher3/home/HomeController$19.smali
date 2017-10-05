@@ -1,14 +1,11 @@
 .class Lcom/android/launcher3/home/HomeController$19;
-.super Ljava/lang/Object;
+.super Landroid/os/AsyncTask;
 .source "HomeController.java"
-
-# interfaces
-.implements Lcom/android/launcher3/common/base/item/ItemOperator;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/HomeController;->disableShortcutsByPackageName(Ljava/util/ArrayList;Lcom/android/launcher3/common/compat/UserHandleCompat;ILcom/android/launcher3/common/model/IconCache;)V
+    value = Lcom/android/launcher3/home/HomeController;->removeHomeItem(Lcom/android/launcher3/common/base/item/ItemInfo;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -16,123 +13,67 @@
     name = null
 .end annotation
 
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Landroid/os/AsyncTask",
+        "<",
+        "Ljava/lang/Void;",
+        "Ljava/lang/Void;",
+        "Ljava/lang/Void;",
+        ">;"
+    }
+.end annotation
+
 
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/home/HomeController;
 
-.field final synthetic val$folderIconsToRefresh:Ljava/util/ArrayList;
-
-.field final synthetic val$iconCache:Lcom/android/launcher3/common/model/IconCache;
-
-.field final synthetic val$packageNames:Ljava/util/HashSet;
-
-.field final synthetic val$reason:I
-
-.field final synthetic val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+.field final synthetic val$widget:Lcom/android/launcher3/home/LauncherAppWidgetInfo;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/home/HomeController;Lcom/android/launcher3/common/compat/UserHandleCompat;Ljava/util/HashSet;ILcom/android/launcher3/common/model/IconCache;Ljava/util/ArrayList;)V
+.method constructor <init>(Lcom/android/launcher3/home/HomeController;Lcom/android/launcher3/home/LauncherAppWidgetInfo;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/home/HomeController$19;->this$0:Lcom/android/launcher3/home/HomeController;
 
-    iput-object p2, p0, Lcom/android/launcher3/home/HomeController$19;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+    iput-object p2, p0, Lcom/android/launcher3/home/HomeController$19;->val$widget:Lcom/android/launcher3/home/LauncherAppWidgetInfo;
 
-    iput-object p3, p0, Lcom/android/launcher3/home/HomeController$19;->val$packageNames:Ljava/util/HashSet;
-
-    iput p4, p0, Lcom/android/launcher3/home/HomeController$19;->val$reason:I
-
-    iput-object p5, p0, Lcom/android/launcher3/home/HomeController$19;->val$iconCache:Lcom/android/launcher3/common/model/IconCache;
-
-    iput-object p6, p0, Lcom/android/launcher3/home/HomeController$19;->val$folderIconsToRefresh:Ljava/util/ArrayList;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public evaluate(Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/view/View;Landroid/view/View;)Z
-    .locals 5
+.method public bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 1
 
-    instance-of v3, p1, Lcom/android/launcher3/common/base/item/IconInfo;
+    check-cast p1, [Ljava/lang/Void;
 
-    if-eqz v3, :cond_0
-
-    instance-of v3, p2, Lcom/android/launcher3/common/view/IconView;
-
-    if-eqz v3, :cond_0
-
-    move-object v1, p1
-
-    check-cast v1, Lcom/android/launcher3/common/base/item/IconInfo;
-
-    invoke-virtual {v1}, Lcom/android/launcher3/common/base/item/IconInfo;->getTargetComponent()Landroid/content/ComponentName;
+    invoke-virtual {p0, p1}, Lcom/android/launcher3/home/HomeController$19;->doInBackground([Ljava/lang/Void;)Ljava/lang/Void;
 
     move-result-object v0
 
-    iget-object v3, p0, Lcom/android/launcher3/home/HomeController$19;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+    return-object v0
+.end method
 
-    iget-object v4, v1, Lcom/android/launcher3/common/base/item/IconInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+.method public varargs doInBackground([Ljava/lang/Void;)Ljava/lang/Void;
+    .locals 2
 
-    invoke-virtual {v3, v4}, Lcom/android/launcher3/common/compat/UserHandleCompat;->equals(Ljava/lang/Object;)Z
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeController$19;->this$0:Lcom/android/launcher3/home/HomeController;
 
-    move-result v3
+    invoke-static {v0}, Lcom/android/launcher3/home/HomeController;->access$1800(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/home/LauncherAppWidgetHost;
 
-    if-eqz v3, :cond_0
+    move-result-object v0
 
-    if-eqz v0, :cond_0
+    iget-object v1, p0, Lcom/android/launcher3/home/HomeController$19;->val$widget:Lcom/android/launcher3/home/LauncherAppWidgetInfo;
 
-    iget-object v3, p0, Lcom/android/launcher3/home/HomeController$19;->val$packageNames:Ljava/util/HashSet;
+    iget v1, v1, Lcom/android/launcher3/home/LauncherAppWidgetInfo;->appWidgetId:I
 
-    invoke-virtual {v0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/home/LauncherAppWidgetHost;->deleteAppWidgetId(I)V
 
-    move-result-object v4
+    const/4 v0, 0x0
 
-    invoke-virtual {v3, v4}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    iget v3, v1, Lcom/android/launcher3/common/base/item/IconInfo;->isDisabled:I
-
-    iget v4, p0, Lcom/android/launcher3/home/HomeController$19;->val$reason:I
-
-    or-int/2addr v3, v4
-
-    iput v3, v1, Lcom/android/launcher3/common/base/item/IconInfo;->isDisabled:I
-
-    move-object v2, p2
-
-    check-cast v2, Lcom/android/launcher3/common/view/IconView;
-
-    iget-object v3, p0, Lcom/android/launcher3/home/HomeController$19;->val$iconCache:Lcom/android/launcher3/common/model/IconCache;
-
-    invoke-virtual {v2, v1, v3}, Lcom/android/launcher3/common/view/IconView;->applyFromShortcutInfo(Lcom/android/launcher3/common/base/item/IconInfo;Lcom/android/launcher3/common/model/IconCache;)V
-
-    instance-of v3, p3, Lcom/android/launcher3/folder/view/FolderIconView;
-
-    if-eqz v3, :cond_0
-
-    iget-object v3, p0, Lcom/android/launcher3/home/HomeController$19;->val$folderIconsToRefresh:Ljava/util/ArrayList;
-
-    invoke-virtual {v3, p3}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_0
-
-    iget-object v3, p0, Lcom/android/launcher3/home/HomeController$19;->val$folderIconsToRefresh:Ljava/util/ArrayList;
-
-    check-cast p3, Lcom/android/launcher3/folder/view/FolderIconView;
-
-    invoke-virtual {v3, p3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    :cond_0
-    const/4 v3, 0x0
-
-    return v3
+    return-object v0
 .end method

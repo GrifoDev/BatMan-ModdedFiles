@@ -40,6 +40,8 @@
 
 .field private mPreDayLiteSetting:Landroid/preference/Preference;
 
+.field private mPreNotificationPanelSetting:Landroid/preference/SwitchPreference;
+
 .field private mPreScreenGrid:Landroid/preference/Preference;
 
 .field private mPreWidget:Landroid/preference/Preference;
@@ -308,7 +310,7 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x7f0800af
+    const v1, 0x7f0900c4
 
     const/4 v2, 0x1
 
@@ -338,9 +340,9 @@
 
     iget-object v1, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPreDayLiteSetting:Landroid/preference/Preference;
 
-    new-instance v2, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment$8;
+    new-instance v2, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment$9;
 
-    invoke-direct {v2, p0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment$8;-><init>(Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;)V
+    invoke-direct {v2, p0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment$9;-><init>(Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;)V
 
     invoke-virtual {v1, v2}, Landroid/preference/Preference;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
 
@@ -357,9 +359,9 @@
 
     iget-object v0, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mEasyModeDeleteButton:Landroid/widget/ImageView;
 
-    new-instance v1, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment$9;
+    new-instance v1, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment$10;
 
-    invoke-direct {v1, p0, p1, p2}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment$9;-><init>(Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;Landroid/view/ViewGroup;Landroid/view/View;)V
+    invoke-direct {v1, p0, p1, p2}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment$10;-><init>(Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;Landroid/view/ViewGroup;Landroid/view/View;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -370,9 +372,9 @@
 
     iget-object v0, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mEasyModeSettingButton:Landroid/widget/TextView;
 
-    new-instance v1, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment$10;
+    new-instance v1, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment$11;
 
-    invoke-direct {v1, p0, p1, p2}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment$10;-><init>(Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;Landroid/view/ViewGroup;Landroid/view/View;)V
+    invoke-direct {v1, p0, p1, p2}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment$11;-><init>(Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;Landroid/view/ViewGroup;Landroid/view/View;)V
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -469,9 +471,9 @@
 
     iget-object v5, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPreScreenGrid:Landroid/preference/Preference;
 
-    new-instance v6, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment$11;
+    new-instance v6, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment$12;
 
-    invoke-direct {v6, p0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment$11;-><init>(Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;)V
+    invoke-direct {v6, p0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment$12;-><init>(Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;)V
 
     invoke-virtual {v5, v6}, Landroid/preference/Preference;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
 
@@ -595,7 +597,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPrefHomeScreenMode:Landroid/preference/Preference;
 
-    const v1, 0x7f08004b
+    const v1, 0x7f090052
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -614,11 +616,42 @@
     :cond_1
     iget-object v0, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPrefHomeScreenMode:Landroid/preference/Preference;
 
-    const v1, 0x7f080045
+    const v1, 0x7f09004c
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setSummary(I)V
 
     goto :goto_0
+.end method
+
+.method private setNotificationPanelSetting()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPreNotificationPanelSetting:Landroid/preference/SwitchPreference;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPreNotificationPanelSetting:Landroid/preference/SwitchPreference;
+
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/launcher3/LauncherAppState;->getNotificationPanelExpansionEnabled()Z
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+
+    iget-object v0, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPreNotificationPanelSetting:Landroid/preference/SwitchPreference;
+
+    new-instance v1, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment$7;
+
+    invoke-direct {v1, p0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment$7;-><init>(Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;)V
+
+    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setOnPreferenceChangeListener(Landroid/preference/Preference$OnPreferenceChangeListener;)V
+
+    :cond_0
+    return-void
 .end method
 
 .method private setWidgetsButtonSetting()V
@@ -630,9 +663,9 @@
 
     iget-object v0, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPreWidget:Landroid/preference/Preference;
 
-    new-instance v1, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment$7;
+    new-instance v1, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment$8;
 
-    invoke-direct {v1, p0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment$7;-><init>(Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;)V
+    invoke-direct {v1, p0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment$8;-><init>(Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;)V
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setOnPreferenceClickListener(Landroid/preference/Preference$OnPreferenceClickListener;)V
 
@@ -643,113 +676,111 @@
 
 # virtual methods
 .method public onCreate(Landroid/os/Bundle;)V
-    .locals 6
+    .locals 5
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
     invoke-super {p0, p1}, Landroid/preference/PreferenceFragment;->onCreate(Landroid/os/Bundle;)V
 
-    const v2, 0x7f07000d
+    const v0, 0x7f08000d
 
-    invoke-virtual {p0, v2}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->addPreferencesFromResource(I)V
+    invoke-virtual {p0, v0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->addPreferencesFromResource(I)V
 
-    const-string v2, "pref_screen_grid"
+    invoke-virtual {p0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->getPreferenceManager()Landroid/preference/PreferenceManager;
 
-    invoke-virtual {p0, v2}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+    move-result-object v0
 
-    move-result-object v2
-
-    iput-object v2, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPreScreenGrid:Landroid/preference/Preference;
-
-    const-string v2, "pref_apps_button_setting"
-
-    invoke-virtual {p0, v2}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v2
-
-    iput-object v2, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPreAppsButtonSetting:Landroid/preference/Preference;
-
-    const-string v2, "pref_home_screen_mode"
-
-    invoke-virtual {p0, v2}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v2
-
-    iput-object v2, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPrefHomeScreenMode:Landroid/preference/Preference;
-
-    const-string v2, "pref_hide_widgets"
-
-    invoke-virtual {p0, v2}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v2
-
-    iput-object v2, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPreWidget:Landroid/preference/Preference;
-
-    const-string v2, "pref_daylite_setting"
-
-    invoke-virtual {p0, v2}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v2
-
-    iput-object v2, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPreDayLiteSetting:Landroid/preference/Preference;
-
-    const-string v2, "pref_apps_screen_grid"
-
-    invoke-virtual {p0, v2}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v2
-
-    iput-object v2, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPreAppsScreenGrid:Landroid/preference/Preference;
-
-    const-string v2, "pref_about_page"
-
-    invoke-virtual {p0, v2}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
-
-    move-result-object v2
-
-    iput-object v2, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPreAboutPage:Landroid/preference/Preference;
-
-    iget-object v2, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPreAboutPage:Landroid/preference/Preference;
-
-    const v3, 0x7f080001
-
-    invoke-virtual {p0, v3}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->getString(I)Ljava/lang/String;
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getSharedPreferencesKey()Ljava/lang/String;
 
     move-result-object v3
 
-    new-array v4, v0, [Ljava/lang/Object;
+    invoke-virtual {v0, v3}, Landroid/preference/PreferenceManager;->setSharedPreferencesName(Ljava/lang/String;)V
 
-    const v5, 0x7f080003
+    const-string v0, "pref_screen_grid"
 
-    invoke-virtual {p0, v5}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->getString(I)Ljava/lang/String;
+    invoke-virtual {p0, v0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    move-result-object v5
+    move-result-object v0
 
-    aput-object v5, v4, v1
+    iput-object v0, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPreScreenGrid:Landroid/preference/Preference;
 
-    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    const-string v0, "pref_apps_button_setting"
 
-    move-result-object v3
+    invoke-virtual {p0, v0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
 
-    invoke-virtual {v2, v3}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPreAppsButtonSetting:Landroid/preference/Preference;
+
+    const-string v0, "pref_notification_panel_setting"
+
+    invoke-virtual {p0, v0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/preference/SwitchPreference;
+
+    iput-object v0, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPreNotificationPanelSetting:Landroid/preference/SwitchPreference;
+
+    const-string v0, "pref_home_screen_mode"
+
+    invoke-virtual {p0, v0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPrefHomeScreenMode:Landroid/preference/Preference;
+
+    const-string v0, "pref_hide_widgets"
+
+    invoke-virtual {p0, v0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPreWidget:Landroid/preference/Preference;
+
+    const-string v0, "pref_daylite_setting"
+
+    invoke-virtual {p0, v0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPreDayLiteSetting:Landroid/preference/Preference;
+
+    const-string v0, "pref_apps_screen_grid"
+
+    invoke-virtual {p0, v0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPreAppsScreenGrid:Landroid/preference/Preference;
+
+    const-string v0, "pref_about_page"
+
+    invoke-virtual {p0, v0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->findPreference(Ljava/lang/CharSequence;)Landroid/preference/Preference;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPreAboutPage:Landroid/preference/Preference;
 
     invoke-virtual {p0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->getActivity()Landroid/app/Activity;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v2}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual {v0}, Landroid/app/Activity;->getContentResolver()Landroid/content/ContentResolver;
 
-    move-result-object v2
+    move-result-object v0
 
     const-string v3, "easy_mode_switch"
 
-    invoke-static {v2, v3, v0}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+    invoke-static {v0, v3, v1}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
 
-    move-result v2
+    move-result v0
 
-    if-nez v2, :cond_0
+    if-nez v0, :cond_0
+
+    move v0, v1
 
     :goto_0
     iput-boolean v0, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mIsEasyMode:Z
@@ -758,13 +789,13 @@
 
     invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
-    move-result-object v1
+    move-result-object v3
 
-    invoke-virtual {v1}, Lcom/android/launcher3/LauncherAppState;->isEasyModeEnabled()Z
+    invoke-virtual {v3}, Lcom/android/launcher3/LauncherAppState;->isEasyModeEnabled()Z
 
-    move-result v1
+    move-result v3
 
-    if-eq v0, v1, :cond_1
+    if-eq v0, v3, :cond_1
 
     invoke-virtual {p0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->getActivity()Landroid/app/Activity;
 
@@ -776,7 +807,7 @@
     return-void
 
     :cond_0
-    move v0, v1
+    move v0, v2
 
     goto :goto_0
 
@@ -796,8 +827,6 @@
 
     invoke-direct {p0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->setHideApps()V
 
-    invoke-direct {p0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->setAboutPage()V
-
     invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
     move-result-object v0
@@ -812,9 +841,9 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPreAppsButtonSetting:Landroid/preference/Preference;
+    iget-object v3, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPreAppsButtonSetting:Landroid/preference/Preference;
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v0, v3}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     :goto_3
     invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportEasyModeChange()Z
@@ -831,35 +860,77 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPreScreenGrid:Landroid/preference/Preference;
+    iget-object v3, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPreScreenGrid:Landroid/preference/Preference;
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v0, v3}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     invoke-virtual {p0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPrefHomeScreenMode:Landroid/preference/Preference;
+    iget-object v3, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPrefHomeScreenMode:Landroid/preference/Preference;
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v0, v3}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     invoke-direct {p0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->setAppsButtonSetting()V
 
     :cond_2
-    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportWidgetSetting()Z
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportNotificationPanelExpansion()Z
 
     move-result v0
 
     if-eqz v0, :cond_5
 
-    invoke-direct {p0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->setWidgetsButtonSetting()V
+    invoke-direct {p0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->setNotificationPanelSetting()V
 
     :goto_4
-    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportZeroPageSetting()Z
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportAboutPage()Z
 
     move-result v0
 
     if-eqz v0, :cond_6
+
+    iget-object v0, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPreAboutPage:Landroid/preference/Preference;
+
+    const v3, 0x7f090002
+
+    invoke-virtual {p0, v3}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    const v4, 0x7f090005
+
+    invoke-virtual {p0, v4}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->getString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    aput-object v4, v1, v2
+
+    invoke-static {v3, v1}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/preference/Preference;->setTitle(Ljava/lang/CharSequence;)V
+
+    invoke-direct {p0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->setAboutPage()V
+
+    :goto_5
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportWidgetSetting()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_7
+
+    invoke-direct {p0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->setWidgetsButtonSetting()V
+
+    :goto_6
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportZeroPageSetting()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_8
 
     invoke-virtual {p0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->getContext()Landroid/content/Context;
 
@@ -871,16 +942,16 @@
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_8
 
     invoke-direct {p0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->setDayLiteSetting()V
 
-    :goto_5
+    :goto_7
     invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportFlexibleGrid()Z
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_9
 
     invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
@@ -890,17 +961,17 @@
 
     move-result v0
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_9
 
     invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportEasyModeChange()Z
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_9
 
     iget-boolean v0, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mIsEasyMode:Z
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_9
 
     invoke-direct {p0, p1}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->setAppsScreenMode(Landroid/os/Bundle;)V
 
@@ -911,25 +982,25 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPreScreenGrid:Landroid/preference/Preference;
+    iget-object v3, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPreScreenGrid:Landroid/preference/Preference;
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v0, v3}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     goto/16 :goto_2
 
     :cond_4
     invoke-direct {p0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->setAppsButtonSetting()V
 
-    goto :goto_3
+    goto/16 :goto_3
 
     :cond_5
     invoke-virtual {p0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPreWidget:Landroid/preference/Preference;
+    iget-object v3, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPreNotificationPanelSetting:Landroid/preference/SwitchPreference;
 
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+    invoke-virtual {v0, v3}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     goto :goto_4
 
@@ -938,13 +1009,35 @@
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPreDayLiteSetting:Landroid/preference/Preference;
+    iget-object v1, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPreAboutPage:Landroid/preference/Preference;
 
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
 
     goto :goto_5
 
     :cond_7
+    invoke-virtual {p0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPreWidget:Landroid/preference/Preference;
+
+    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+
+    goto :goto_6
+
+    :cond_8
+    invoke-virtual {p0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPreDayLiteSetting:Landroid/preference/Preference;
+
+    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->removePreference(Landroid/preference/Preference;)Z
+
+    goto :goto_7
+
+    :cond_9
     invoke-virtual {p0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->getPreferenceScreen()Landroid/preference/PreferenceScreen;
 
     move-result-object v0
@@ -971,11 +1064,11 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
     iget-boolean v3, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mIsEasyMode:Z
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
     invoke-virtual {p0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->getContext()Landroid/content/Context;
 
@@ -997,9 +1090,9 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
-    const v3, 0x7f03002a
+    const v3, 0x7f04002d
 
     invoke-virtual {p1, v3, p2, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -1009,7 +1102,7 @@
 
     invoke-virtual {v2, v0, v5}, Landroid/view/ViewGroup;->addView(Landroid/view/View;I)V
 
-    const v3, 0x7f0f0098
+    const v3, 0x7f1100a4
 
     invoke-virtual {v2, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -1019,7 +1112,7 @@
 
     iput-object v3, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mEasyModeDeleteButton:Landroid/widget/ImageView;
 
-    const v3, 0x7f0f0099
+    const v3, 0x7f1100a5
 
     invoke-virtual {v2, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -1029,9 +1122,26 @@
 
     iput-object v3, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mEasyModeSettingButton:Landroid/widget/TextView;
 
-    invoke-direct {p0, v2, v0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->setEasyModeSetting(Landroid/view/ViewGroup;Landroid/view/View;)V
+    invoke-virtual {p0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->getContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    invoke-static {v3}, Lcom/android/launcher3/Utilities;->isEnableBtnBg(Landroid/content/Context;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    iget-object v3, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mEasyModeSettingButton:Landroid/widget/TextView;
+
+    const v4, 0x7f020108
+
+    invoke-virtual {v3, v4}, Landroid/widget/TextView;->setBackgroundResource(I)V
 
     :cond_0
+    invoke-direct {p0, v2, v0}, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->setEasyModeSetting(Landroid/view/ViewGroup;Landroid/view/View;)V
+
+    :cond_1
     return-object v2
 .end method
 

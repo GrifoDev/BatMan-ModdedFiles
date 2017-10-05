@@ -763,11 +763,12 @@
     packed-switch v2, :pswitch_data_0
 
     :goto_0
+    :pswitch_0
     monitor-exit v3
 
     return-void
 
-    :pswitch_0
+    :pswitch_1
     iget-object v2, p0, Lcom/android/launcher3/common/model/FavoritesUpdater;->mLoader:Lcom/android/launcher3/common/model/DataLoader;
 
     invoke-virtual {v2, v0}, Lcom/android/launcher3/common/model/DataLoader;->containPagesItem(Lcom/android/launcher3/common/base/item/ItemInfo;)Z
@@ -810,9 +811,13 @@
 
     :pswitch_data_0
     .packed-switch 0x0
+        :pswitch_1
+        :pswitch_1
+        :pswitch_1
         :pswitch_0
         :pswitch_0
         :pswitch_0
+        :pswitch_1
     .end packed-switch
 .end method
 
@@ -997,6 +1002,138 @@
     invoke-direct {v5, p0, v4, p1, v2}, Lcom/android/launcher3/common/model/FavoritesUpdater$9;-><init>(Lcom/android/launcher3/common/model/FavoritesUpdater;Ljava/util/List;Ljava/util/ArrayList;[Ljava/lang/StackTraceElement;)V
 
     invoke-static {v5}, Lcom/android/launcher3/common/model/FavoritesUpdater;->runOnWorkerThread(Ljava/lang/Runnable;)V
+
+    return-void
+.end method
+
+.method public addItems(Ljava/util/ArrayList;Z)V
+    .locals 14
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/ArrayList",
+            "<",
+            "Lcom/android/launcher3/common/base/item/ItemInfo;",
+            ">;Z)V"
+        }
+    .end annotation
+
+    new-instance v2, Ljava/util/ArrayList;
+
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+
+    invoke-virtual {p1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v0
+
+    :goto_0
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Lcom/android/launcher3/common/base/item/ItemInfo;
+
+    move-object v7, v6
+
+    check-cast v7, Lcom/android/launcher3/common/base/item/IconInfo;
+
+    iget-wide v10, v7, Lcom/android/launcher3/common/base/item/IconInfo;->id:J
+
+    const-wide/16 v12, -0x1
+
+    cmp-long v1, v10, v12
+
+    if-nez v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/launcher3/common/model/FavoritesUpdater;->mFavoritesProvider:Lcom/android/launcher3/common/model/FavoritesProvider;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/common/model/FavoritesProvider;->generateNewItemId()J
+
+    move-result-wide v10
+
+    iput-wide v10, v7, Lcom/android/launcher3/common/base/item/IconInfo;->id:J
+
+    :cond_0
+    new-instance v8, Lcom/android/launcher3/common/model/FavoritesProvider$AppOrderModify;
+
+    invoke-direct {v8}, Lcom/android/launcher3/common/model/FavoritesProvider$AppOrderModify;-><init>()V
+
+    const/4 v1, 0x3
+
+    iput v1, v8, Lcom/android/launcher3/common/model/FavoritesProvider$AppOrderModify;->action:I
+
+    iget-object v1, v7, Lcom/android/launcher3/common/base/item/IconInfo;->componentName:Landroid/content/ComponentName;
+
+    iput-object v1, v8, Lcom/android/launcher3/common/model/FavoritesProvider$AppOrderModify;->component:Landroid/content/ComponentName;
+
+    iget-wide v10, v7, Lcom/android/launcher3/common/base/item/IconInfo;->id:J
+
+    iput-wide v10, v8, Lcom/android/launcher3/common/model/FavoritesProvider$AppOrderModify;->id:J
+
+    iget-wide v10, v7, Lcom/android/launcher3/common/base/item/IconInfo;->container:J
+
+    iput-wide v10, v8, Lcom/android/launcher3/common/model/FavoritesProvider$AppOrderModify;->container:J
+
+    iget-wide v10, v7, Lcom/android/launcher3/common/base/item/IconInfo;->screenId:J
+
+    iput-wide v10, v8, Lcom/android/launcher3/common/model/FavoritesProvider$AppOrderModify;->screen:J
+
+    iget v1, v7, Lcom/android/launcher3/common/base/item/IconInfo;->rank:I
+
+    iput v1, v8, Lcom/android/launcher3/common/model/FavoritesProvider$AppOrderModify;->rank:I
+
+    iget-object v1, v7, Lcom/android/launcher3/common/base/item/IconInfo;->title:Ljava/lang/CharSequence;
+
+    iput-object v1, v8, Lcom/android/launcher3/common/model/FavoritesProvider$AppOrderModify;->title:Ljava/lang/CharSequence;
+
+    iget-object v1, v7, Lcom/android/launcher3/common/base/item/IconInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    iput-object v1, v8, Lcom/android/launcher3/common/model/FavoritesProvider$AppOrderModify;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    const/4 v1, 0x0
+
+    iput v1, v8, Lcom/android/launcher3/common/model/FavoritesProvider$AppOrderModify;->itemtype:I
+
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v10
+
+    iput-wide v10, v8, Lcom/android/launcher3/common/model/FavoritesProvider$AppOrderModify;->modified:J
+
+    iget v1, v7, Lcom/android/launcher3/common/base/item/IconInfo;->status:I
+
+    iput v1, v8, Lcom/android/launcher3/common/model/FavoritesProvider$AppOrderModify;->status:I
+
+    invoke-interface {v2, v8}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
+
+    :cond_1
+    new-instance v0, Ljava/lang/Throwable;
+
+    invoke-direct {v0}, Ljava/lang/Throwable;-><init>()V
+
+    invoke-virtual {v0}, Ljava/lang/Throwable;->getStackTrace()[Ljava/lang/StackTraceElement;
+
+    move-result-object v5
+
+    new-instance v0, Lcom/android/launcher3/common/model/FavoritesUpdater$10;
+
+    move-object v1, p0
+
+    move/from16 v3, p2
+
+    move-object v4, p1
+
+    invoke-direct/range {v0 .. v5}, Lcom/android/launcher3/common/model/FavoritesUpdater$10;-><init>(Lcom/android/launcher3/common/model/FavoritesUpdater;Ljava/util/List;ZLjava/util/ArrayList;[Ljava/lang/StackTraceElement;)V
+
+    invoke-static {v0}, Lcom/android/launcher3/common/model/FavoritesUpdater;->runOnWorkerThread(Ljava/lang/Runnable;)V
 
     return-void
 .end method

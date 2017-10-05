@@ -142,10 +142,10 @@
     return-void
 .end method
 
-.method static synthetic access$000(Landroid/content/Context;Landroid/support/v4/provider/FontRequest;)Landroid/graphics/Typeface;
+.method static synthetic access$000(Landroid/content/Context;Landroid/support/v4/provider/FontRequest;I)Landroid/graphics/Typeface;
     .locals 1
 
-    invoke-static {p0, p1}, Landroid/support/v4/provider/FontsContractCompat;->getFontInternal(Landroid/content/Context;Landroid/support/v4/provider/FontRequest;)Landroid/graphics/Typeface;
+    invoke-static {p0, p1, p2}, Landroid/support/v4/provider/FontsContractCompat;->getFontInternal(Landroid/content/Context;Landroid/support/v4/provider/FontRequest;I)Landroid/graphics/Typeface;
 
     move-result-object v0
 
@@ -177,7 +177,7 @@
 .end method
 
 .method public static buildTypeface(Landroid/content/Context;Landroid/os/CancellationSignal;[Landroid/support/v4/provider/FontsContractCompat$FontInfo;)Landroid/graphics/Typeface;
-    .locals 2
+    .locals 1
     .param p0    # Landroid/content/Context;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -191,15 +191,13 @@
         .end annotation
     .end param
 
-    invoke-static {p0, p2, p1}, Landroid/support/v4/provider/FontsContractCompat;->prepareFontData(Landroid/content/Context;[Landroid/support/v4/provider/FontsContractCompat$FontInfo;Landroid/os/CancellationSignal;)Ljava/util/Map;
+    const/4 v0, 0x0
+
+    invoke-static {p0, p1, p2, v0}, Landroid/support/v4/graphics/TypefaceCompat;->createFromFontInfo(Landroid/content/Context;Landroid/os/CancellationSignal;[Landroid/support/v4/provider/FontsContractCompat$FontInfo;I)Landroid/graphics/Typeface;
 
     move-result-object v0
 
-    invoke-static {p0, p2, v0}, Landroid/support/v4/graphics/TypefaceCompat;->createTypeface(Landroid/content/Context;[Landroid/support/v4/provider/FontsContractCompat$FontInfo;Ljava/util/Map;)Landroid/graphics/Typeface;
-
-    move-result-object v1
-
-    return-object v1
+    return-object v0
 .end method
 
 .method private static convertToByteArrayList([Landroid/content/pm/Signature;)Ljava/util/List;
@@ -854,7 +852,7 @@
     goto :goto_7
 .end method
 
-.method private static getFontInternal(Landroid/content/Context;Landroid/support/v4/provider/FontRequest;)Landroid/graphics/Typeface;
+.method private static getFontInternal(Landroid/content/Context;Landroid/support/v4/provider/FontRequest;I)Landroid/graphics/Typeface;
     .locals 4
 
     const/4 v2, 0x0
@@ -878,7 +876,7 @@
 
     move-result-object v3
 
-    invoke-static {p0, v2, v3}, Landroid/support/v4/provider/FontsContractCompat;->buildTypeface(Landroid/content/Context;Landroid/os/CancellationSignal;[Landroid/support/v4/provider/FontsContractCompat$FontInfo;)Landroid/graphics/Typeface;
+    invoke-static {p0, v2, v3, p2}, Landroid/support/v4/graphics/TypefaceCompat;->createFromFontInfo(Landroid/content/Context;Landroid/os/CancellationSignal;[Landroid/support/v4/provider/FontsContractCompat$FontInfo;I)Landroid/graphics/Typeface;
 
     move-result-object v2
 
@@ -894,21 +892,45 @@
 
 .method public static getFontSync(Landroid/content/Context;Landroid/support/v4/provider/FontRequest;Landroid/widget/TextView;III)Landroid/graphics/Typeface;
     .locals 10
+    .param p2    # Landroid/widget/TextView;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
     .annotation build Landroid/support/annotation/RestrictTo;
         value = {
             .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
         }
     .end annotation
 
-    const/4 v8, 0x0
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-virtual {p1}, Landroid/support/v4/provider/FontRequest;->getIdentifier()Ljava/lang/String;
 
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    const-string v9, "-"
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, p5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
     move-result-object v3
 
-    sget-object v7, Landroid/support/v4/provider/FontsContractCompat;->sTypefaceCache:Landroid/support/v4/util/LruCache;
+    sget-object v8, Landroid/support/v4/provider/FontsContractCompat;->sTypefaceCache:Landroid/support/v4/util/LruCache;
 
-    invoke-virtual {v7, v3}, Landroid/support/v4/util/LruCache;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v8, v3}, Landroid/support/v4/util/LruCache;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -927,11 +949,11 @@
     :goto_1
     if-eqz v4, :cond_2
 
-    const/4 v7, -0x1
+    const/4 v8, -0x1
 
-    if-ne p4, v7, :cond_2
+    if-ne p4, v8, :cond_2
 
-    invoke-static {p0, p1}, Landroid/support/v4/provider/FontsContractCompat;->getFontInternal(Landroid/content/Context;Landroid/support/v4/provider/FontRequest;)Landroid/graphics/Typeface;
+    invoke-static {p0, p1, p5}, Landroid/support/v4/provider/FontsContractCompat;->getFontInternal(Landroid/content/Context;Landroid/support/v4/provider/FontRequest;I)Landroid/graphics/Typeface;
 
     move-result-object v0
 
@@ -945,102 +967,106 @@
     :cond_2
     new-instance v2, Landroid/support/v4/provider/FontsContractCompat$1;
 
-    invoke-direct {v2, p0, p1, v3}, Landroid/support/v4/provider/FontsContractCompat$1;-><init>(Landroid/content/Context;Landroid/support/v4/provider/FontRequest;Ljava/lang/String;)V
+    invoke-direct {v2, p0, p1, p5, v3}, Landroid/support/v4/provider/FontsContractCompat$1;-><init>(Landroid/content/Context;Landroid/support/v4/provider/FontRequest;ILjava/lang/String;)V
 
     if-eqz v4, :cond_3
 
     :try_start_0
-    sget-object v7, Landroid/support/v4/provider/FontsContractCompat;->sBackgroundThread:Landroid/support/v4/provider/SelfDestructiveThread;
+    sget-object v8, Landroid/support/v4/provider/FontsContractCompat;->sBackgroundThread:Landroid/support/v4/provider/SelfDestructiveThread;
 
-    invoke-virtual {v7, v2, p4}, Landroid/support/v4/provider/SelfDestructiveThread;->postAndWait(Ljava/util/concurrent/Callable;I)Ljava/lang/Object;
+    invoke-virtual {v8, v2, p4}, Landroid/support/v4/provider/SelfDestructiveThread;->postAndWait(Ljava/util/concurrent/Callable;I)Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v8
 
-    check-cast v7, Landroid/graphics/Typeface;
+    check-cast v8, Landroid/graphics/Typeface;
     :try_end_0
     .catch Ljava/lang/InterruptedException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-object v0, v7
+    move-object v0, v8
 
     goto :goto_0
 
     :catch_0
     move-exception v1
 
-    move-object v0, v8
+    const/4 v0, 0x0
 
     goto :goto_0
 
     :cond_3
+    new-instance v7, Ljava/lang/ref/WeakReference;
+
+    invoke-direct {v7, p2}, Ljava/lang/ref/WeakReference;-><init>(Ljava/lang/Object;)V
+
     new-instance v6, Landroid/support/v4/provider/FontsContractCompat$2;
 
-    invoke-direct {v6, p2, p5}, Landroid/support/v4/provider/FontsContractCompat$2;-><init>(Landroid/widget/TextView;I)V
+    invoke-direct {v6, v7, p2, p5}, Landroid/support/v4/provider/FontsContractCompat$2;-><init>(Ljava/lang/ref/WeakReference;Landroid/widget/TextView;I)V
 
     sget-object v9, Landroid/support/v4/provider/FontsContractCompat;->sLock:Ljava/lang/Object;
 
     monitor-enter v9
 
     :try_start_1
-    sget-object v7, Landroid/support/v4/provider/FontsContractCompat;->sPendingReplies:Landroid/support/v4/util/SimpleArrayMap;
+    sget-object v8, Landroid/support/v4/provider/FontsContractCompat;->sPendingReplies:Landroid/support/v4/util/SimpleArrayMap;
 
-    invoke-virtual {v7, v3}, Landroid/support/v4/util/SimpleArrayMap;->containsKey(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v3}, Landroid/support/v4/util/SimpleArrayMap;->containsKey(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v8
 
-    if-eqz v7, :cond_4
+    if-eqz v8, :cond_4
 
-    sget-object v7, Landroid/support/v4/provider/FontsContractCompat;->sPendingReplies:Landroid/support/v4/util/SimpleArrayMap;
+    sget-object v8, Landroid/support/v4/provider/FontsContractCompat;->sPendingReplies:Landroid/support/v4/util/SimpleArrayMap;
 
-    invoke-virtual {v7, v3}, Landroid/support/v4/util/SimpleArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v8, v3}, Landroid/support/v4/util/SimpleArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v8
 
-    check-cast v7, Ljava/util/ArrayList;
+    check-cast v8, Ljava/util/ArrayList;
 
-    invoke-virtual {v7, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const/4 v0, 0x0
 
     monitor-exit v9
 
-    move-object v0, v8
-
     goto :goto_0
 
+    :catchall_0
+    move-exception v8
+
+    monitor-exit v9
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    throw v8
+
     :cond_4
+    :try_start_2
     new-instance v5, Ljava/util/ArrayList;
 
     invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
 
     invoke-virtual {v5, v6}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    sget-object v7, Landroid/support/v4/provider/FontsContractCompat;->sPendingReplies:Landroid/support/v4/util/SimpleArrayMap;
+    sget-object v8, Landroid/support/v4/provider/FontsContractCompat;->sPendingReplies:Landroid/support/v4/util/SimpleArrayMap;
 
-    invoke-virtual {v7, v3, v5}, Landroid/support/v4/util/SimpleArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v8, v3, v5}, Landroid/support/v4/util/SimpleArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     monitor-exit v9
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    sget-object v7, Landroid/support/v4/provider/FontsContractCompat;->sBackgroundThread:Landroid/support/v4/provider/SelfDestructiveThread;
+    sget-object v8, Landroid/support/v4/provider/FontsContractCompat;->sBackgroundThread:Landroid/support/v4/provider/SelfDestructiveThread;
 
     new-instance v9, Landroid/support/v4/provider/FontsContractCompat$3;
 
     invoke-direct {v9, v3}, Landroid/support/v4/provider/FontsContractCompat$3;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v7, v2, v9}, Landroid/support/v4/provider/SelfDestructiveThread;->postAndReply(Ljava/util/concurrent/Callable;Landroid/support/v4/provider/SelfDestructiveThread$ReplyCallback;)V
+    invoke-virtual {v8, v2, v9}, Landroid/support/v4/provider/SelfDestructiveThread;->postAndReply(Ljava/util/concurrent/Callable;Landroid/support/v4/provider/SelfDestructiveThread$ReplyCallback;)V
 
-    move-object v0, v8
+    const/4 v0, 0x0
 
     goto :goto_0
-
-    :catchall_0
-    move-exception v7
-
-    :try_start_2
-    monitor-exit v9
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    throw v7
 .end method
 
 .method public static getProvider(Landroid/content/pm/PackageManager;Landroid/support/v4/provider/FontRequest;Landroid/content/res/Resources;)Landroid/content/pm/ProviderInfo;
@@ -1228,8 +1254,18 @@
     goto :goto_1
 .end method
 
-.method private static prepareFontData(Landroid/content/Context;[Landroid/support/v4/provider/FontsContractCompat$FontInfo;Landroid/os/CancellationSignal;)Ljava/util/Map;
-    .locals 18
+.method public static prepareFontData(Landroid/content/Context;[Landroid/support/v4/provider/FontsContractCompat$FontInfo;Landroid/os/CancellationSignal;)Ljava/util/Map;
+    .locals 7
+    .annotation build Landroid/support/annotation/RequiresApi;
+        value = 0x13
+    .end annotation
+
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
+
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1246,146 +1282,56 @@
         }
     .end annotation
 
-    new-instance v12, Ljava/util/HashMap;
+    new-instance v2, Ljava/util/HashMap;
 
-    invoke-direct {v12}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {v2}, Ljava/util/HashMap;-><init>()V
 
-    invoke-virtual/range {p0 .. p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    array-length v5, p1
 
-    move-result-object v14
-
-    move-object/from16 v0, p1
-
-    array-length v0, v0
-
-    move/from16 v17, v0
-
-    const/4 v3, 0x0
-
-    move/from16 v16, v3
+    const/4 v4, 0x0
 
     :goto_0
-    move/from16 v0, v16
+    if-ge v4, v5, :cond_2
 
-    move/from16 v1, v17
+    aget-object v1, p1, v4
 
-    if-ge v0, v1, :cond_3
+    invoke-virtual {v1}, Landroid/support/v4/provider/FontsContractCompat$FontInfo;->getResultCode()I
 
-    aget-object v11, p1, v16
+    move-result v6
 
-    invoke-virtual {v11}, Landroid/support/v4/provider/FontsContractCompat$FontInfo;->getResultCode()I
-
-    move-result v3
-
-    if-eqz v3, :cond_1
+    if-eqz v6, :cond_1
 
     :cond_0
     :goto_1
-    add-int/lit8 v3, v16, 0x1
-
-    move/from16 v16, v3
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
     :cond_1
-    invoke-virtual {v11}, Landroid/support/v4/provider/FontsContractCompat$FontInfo;->getUri()Landroid/net/Uri;
-
-    move-result-object v15
-
-    invoke-virtual {v12, v15}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_0
-
-    const/4 v8, 0x0
-
-    const/4 v13, 0x0
-
-    const/4 v9, 0x0
-
-    :try_start_0
-    sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v4, 0x13
-
-    if-le v3, v4, :cond_2
-
-    const-string v3, "r"
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v14, v15, v3, v0}, Landroid/content/ContentResolver;->openFileDescriptor(Landroid/net/Uri;Ljava/lang/String;Landroid/os/CancellationSignal;)Landroid/os/ParcelFileDescriptor;
-
-    move-result-object v13
-
-    :goto_2
-    new-instance v10, Ljava/io/FileInputStream;
-
-    invoke-virtual {v13}, Landroid/os/ParcelFileDescriptor;->getFileDescriptor()Ljava/io/FileDescriptor;
+    invoke-virtual {v1}, Landroid/support/v4/provider/FontsContractCompat$FontInfo;->getUri()Landroid/net/Uri;
 
     move-result-object v3
 
-    invoke-direct {v10, v3}, Ljava/io/FileInputStream;-><init>(Ljava/io/FileDescriptor;)V
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    invoke-virtual {v2, v3}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
-    :try_start_1
-    invoke-virtual {v10}, Ljava/io/FileInputStream;->getChannel()Ljava/nio/channels/FileChannel;
+    move-result v6
 
-    move-result-object v2
+    if-nez v6, :cond_0
 
-    invoke-virtual {v2}, Ljava/nio/channels/FileChannel;->size()J
+    invoke-static {p0, p2, v3}, Landroid/support/v4/graphics/TypefaceCompatUtil;->mmap(Landroid/content/Context;Landroid/os/CancellationSignal;Landroid/net/Uri;)Ljava/nio/ByteBuffer;
 
-    move-result-wide v6
+    move-result-object v0
 
-    sget-object v3, Ljava/nio/channels/FileChannel$MapMode;->READ_ONLY:Ljava/nio/channels/FileChannel$MapMode;
-
-    const-wide/16 v4, 0x0
-
-    invoke-virtual/range {v2 .. v7}, Ljava/nio/channels/FileChannel;->map(Ljava/nio/channels/FileChannel$MapMode;JJ)Ljava/nio/MappedByteBuffer;
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
-
-    move-result-object v8
-
-    move-object v9, v10
-
-    :goto_3
-    invoke-virtual {v12, v15, v8}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v2, v3, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     goto :goto_1
 
     :cond_2
-    :try_start_2
-    const-string v3, "r"
+    invoke-static {v2}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
 
-    invoke-virtual {v14, v15, v3}, Landroid/content/ContentResolver;->openFileDescriptor(Landroid/net/Uri;Ljava/lang/String;)Landroid/os/ParcelFileDescriptor;
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+    move-result-object v4
 
-    move-result-object v13
-
-    goto :goto_2
-
-    :cond_3
-    invoke-static {v12}, Ljava/util/Collections;->unmodifiableMap(Ljava/util/Map;)Ljava/util/Map;
-
-    move-result-object v3
-
-    return-object v3
-
-    :catch_0
-    move-exception v3
-
-    goto :goto_3
-
-    :catch_1
-    move-exception v3
-
-    move-object v9, v10
-
-    goto :goto_3
+    return-object v4
 .end method
 
 .method public static requestFont(Landroid/content/Context;Landroid/support/v4/provider/FontRequest;Landroid/support/v4/provider/FontsContractCompat$FontRequestCallback;Landroid/os/Handler;)V

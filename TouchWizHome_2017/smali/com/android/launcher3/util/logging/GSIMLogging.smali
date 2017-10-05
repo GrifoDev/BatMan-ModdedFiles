@@ -25,6 +25,8 @@
 
 .field public static final FEATURE_NAME_APPS_QUICK_OPTION:Ljava/lang/String; = "APQO"
 
+.field public static final FEATURE_NAME_APP_LOCK:Ljava/lang/String; = "APLK"
+
 .field public static final FEATURE_NAME_APP_SEARCH:Ljava/lang/String; = "APSC"
 
 .field public static final FEATURE_NAME_ATOZ_APPS_REORDER:Ljava/lang/String; = "AZBT"
@@ -341,7 +343,7 @@
 .end method
 
 .method private homeWidgetListLogging()V
-    .locals 22
+    .locals 21
 
     const-string v5, "itemType=4"
 
@@ -366,7 +368,9 @@
     if-eqz v8, :cond_2
 
     :try_start_0
-    const-string v11, ""
+    new-instance v18, Ljava/util/ArrayList;
+
+    invoke-direct/range {v18 .. v18}, Ljava/util/ArrayList;-><init>()V
 
     :cond_0
     :goto_0
@@ -384,59 +388,45 @@
 
     invoke-interface {v8, v2}, Landroid/database/Cursor;->getColumnIndexOrThrow(Ljava/lang/String;)I
 
-    move-result v20
+    move-result v16
 
-    move/from16 v0, v20
+    move/from16 v0, v16
 
     invoke-interface {v8, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v20
 
-    if-eqz v21, :cond_0
+    if-eqz v20, :cond_0
 
-    new-instance v2, Ljava/lang/StringBuilder;
+    const-string v2, "/"
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    move-object/from16 v0, v20
 
-    invoke-virtual {v2, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, "/"
-
-    move-object/from16 v0, v21
-
-    invoke-virtual {v0, v3}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v3
-
-    const/4 v4, 0x0
-
-    aget-object v3, v3, v4
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v2}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v2
 
-    const-string v3, ", "
+    const/4 v3, 0x0
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    aget-object v19, v2, v3
 
-    move-result-object v2
+    new-instance v17, Lcom/android/launcher3/util/logging/GSIMLoggingInfo;
 
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string v2, "LIST"
 
-    move-result-object v11
+    const-wide/16 v10, -0x1
 
-    const-string v10, "LIST"
+    move-object/from16 v0, v17
 
-    const-wide/16 v12, -0x1
+    move-object/from16 v1, v19
 
-    const/4 v14, 0x1
+    invoke-direct {v0, v2, v1, v10, v11}, Lcom/android/launcher3/util/logging/GSIMLoggingInfo;-><init>(Ljava/lang/String;Ljava/lang/String;J)V
 
-    move-object/from16 v9, p0
+    move-object/from16 v0, v18
 
-    invoke-virtual/range {v9 .. v14}, Lcom/android/launcher3/util/logging/GSIMLogging;->insertLogging(Ljava/lang/String;Ljava/lang/String;JZ)V
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -444,27 +434,31 @@
     goto :goto_0
 
     :catch_0
-    move-exception v19
+    move-exception v15
 
     :cond_1
     :try_start_2
-    const-string v14, "WGCT"
+    const-string v10, "WGCT"
 
-    const/4 v15, 0x0
+    const/4 v11, 0x0
 
     invoke-interface {v8}, Landroid/database/Cursor;->getCount()I
 
     move-result v2
 
-    int-to-long v0, v2
+    int-to-long v12, v2
 
-    move-wide/from16 v16, v0
+    const/4 v14, 0x1
 
-    const/16 v18, 0x1
+    move-object/from16 v9, p0
 
-    move-object/from16 v13, p0
+    invoke-virtual/range {v9 .. v14}, Lcom/android/launcher3/util/logging/GSIMLogging;->insertLogging(Ljava/lang/String;Ljava/lang/String;JZ)V
 
-    invoke-virtual/range {v13 .. v18}, Lcom/android/launcher3/util/logging/GSIMLogging;->insertLogging(Ljava/lang/String;Ljava/lang/String;JZ)V
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v18
+
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/util/logging/GSIMLogging;->insertMultiLogging(Ljava/util/ArrayList;)V
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_1
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
@@ -476,7 +470,7 @@
     return-void
 
     :catch_1
-    move-exception v19
+    move-exception v15
 
     :try_start_3
     const-string v2, "Launcher.GSIMLogging"
@@ -491,7 +485,7 @@
 
     move-result-object v3
 
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/Exception;->toString()Ljava/lang/String;
+    invoke-virtual {v15}, Ljava/lang/Exception;->toString()Ljava/lang/String;
 
     move-result-object v4
 

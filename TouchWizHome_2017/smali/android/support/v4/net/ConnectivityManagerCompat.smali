@@ -121,6 +121,9 @@
 
 .method public static isActiveNetworkMetered(Landroid/net/ConnectivityManager;)Z
     .locals 1
+    .annotation build Landroid/support/annotation/RequiresPermission;
+        value = "android.permission.ACCESS_NETWORK_STATE"
+    .end annotation
 
     sget-object v0, Landroid/support/v4/net/ConnectivityManagerCompat;->IMPL:Landroid/support/v4/net/ConnectivityManagerCompat$ConnectivityManagerCompatImpl;
 

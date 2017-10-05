@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/HomeLoader;->removeAppsButton(Lcom/android/launcher3/common/base/item/IconInfo;)V
+    value = Lcom/android/launcher3/home/HomeLoader;->updateShortcut(Ljava/util/HashSet;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,24 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/home/HomeLoader;
 
-.field final synthetic val$appsButton:Lcom/android/launcher3/common/base/item/IconInfo;
+.field final synthetic val$oldCallbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
 
-.field final synthetic val$callbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
+.field final synthetic val$updatedShortcuts:Ljava/util/ArrayList;
+
+.field final synthetic val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/common/base/item/IconInfo;Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;)V
+.method constructor <init>(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;Ljava/util/ArrayList;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/home/HomeLoader$14;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    iput-object p2, p0, Lcom/android/launcher3/home/HomeLoader$14;->val$appsButton:Lcom/android/launcher3/common/base/item/IconInfo;
+    iput-object p2, p0, Lcom/android/launcher3/home/HomeLoader$14;->val$oldCallbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
 
-    iput-object p3, p0, Lcom/android/launcher3/home/HomeLoader$14;->val$callbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
+    iput-object p3, p0, Lcom/android/launcher3/home/HomeLoader$14;->val$updatedShortcuts:Ljava/util/ArrayList;
+
+    iput-object p4, p0, Lcom/android/launcher3/home/HomeLoader$14;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,25 +47,30 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 4
 
-    iget-object v0, p0, Lcom/android/launcher3/home/HomeLoader$14;->this$0:Lcom/android/launcher3/home/HomeLoader;
+    iget-object v1, p0, Lcom/android/launcher3/home/HomeLoader$14;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    invoke-static {v0}, Lcom/android/launcher3/home/HomeLoader;->access$6400(Lcom/android/launcher3/home/HomeLoader;)Lcom/android/launcher3/common/model/FavoritesUpdater;
+    invoke-static {v1}, Lcom/android/launcher3/home/HomeLoader;->access$1100(Lcom/android/launcher3/home/HomeLoader;)Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeLoader$14;->val$appsButton:Lcom/android/launcher3/common/base/item/IconInfo;
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/model/FavoritesUpdater;->deleteItem(Lcom/android/launcher3/common/base/item/ItemInfo;)V
+    iget-object v1, p0, Lcom/android/launcher3/home/HomeLoader$14;->val$oldCallbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
 
-    iget-object v0, p0, Lcom/android/launcher3/home/HomeLoader$14;->this$0:Lcom/android/launcher3/home/HomeLoader;
+    if-ne v1, v0, :cond_0
 
-    new-instance v1, Lcom/android/launcher3/home/HomeLoader$14$1;
+    iget-object v1, p0, Lcom/android/launcher3/home/HomeLoader$14;->val$updatedShortcuts:Ljava/util/ArrayList;
 
-    invoke-direct {v1, p0}, Lcom/android/launcher3/home/HomeLoader$14$1;-><init>(Lcom/android/launcher3/home/HomeLoader$14;)V
+    new-instance v2, Ljava/util/ArrayList;
 
-    invoke-static {v0, v1}, Lcom/android/launcher3/home/HomeLoader;->access$6600(Lcom/android/launcher3/home/HomeLoader;Ljava/lang/Runnable;)V
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
+    iget-object v3, p0, Lcom/android/launcher3/home/HomeLoader$14;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    invoke-interface {v0, v1, v2, v3}, Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;->bindShortcutsChanged(Ljava/util/ArrayList;Ljava/util/ArrayList;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
+
+    :cond_0
     return-void
 .end method

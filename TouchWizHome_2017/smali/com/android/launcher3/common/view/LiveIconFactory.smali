@@ -105,15 +105,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$302(Lcom/android/launcher3/common/view/LiveIconFactory;J)J
-    .locals 1
-
-    iput-wide p1, p0, Lcom/android/launcher3/common/view/LiveIconFactory;->mRequestedTime:J
-
-    return-wide p1
-.end method
-
-.method static synthetic access$400(Lcom/android/launcher3/common/view/LiveIconFactory;)Lcom/android/launcher3/common/compat/UserHandleCompat;
+.method static synthetic access$300(Lcom/android/launcher3/common/view/LiveIconFactory;)Lcom/android/launcher3/common/compat/UserHandleCompat;
     .locals 1
 
     iget-object v0, p0, Lcom/android/launcher3/common/view/LiveIconFactory;->mUserHandleCompat:Lcom/android/launcher3/common/compat/UserHandleCompat;
@@ -121,7 +113,15 @@
     return-object v0
 .end method
 
-.method private isColdDown()Z
+.method static synthetic access$402(Lcom/android/launcher3/common/view/LiveIconFactory;J)J
+    .locals 1
+
+    iput-wide p1, p0, Lcom/android/launcher3/common/view/LiveIconFactory;->mRequestedTime:J
+
+    return-wide p1
+.end method
+
+.method private isInInterval()Z
     .locals 6
 
     invoke-static {}, Landroid/os/SystemClock;->elapsedRealtime()J
@@ -230,35 +230,21 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {p0}, Lcom/android/launcher3/common/view/LiveIconFactory;->isColdDown()Z
+    invoke-direct {p0}, Lcom/android/launcher3/common/view/LiveIconFactory;->isInInterval()Z
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_1
 
-    sget-object v2, Lcom/android/launcher3/common/view/LiveIconFactory;->TAG:Ljava/lang/String;
-
-    const-string v3, "requestCreate: Factory is COLDDOWN"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
+    :cond_0
     :goto_0
     return v1
 
-    :cond_0
+    :cond_1
     iget v3, p0, Lcom/android/launcher3/common/view/LiveIconFactory;->mState:I
 
-    if-eqz v3, :cond_1
+    if-nez v3, :cond_0
 
-    sget-object v2, Lcom/android/launcher3/common/view/LiveIconFactory;->TAG:Ljava/lang/String;
-
-    const-string v3, "requestCreate: Factory is BUSY"
-
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    :cond_1
     iput v2, p0, Lcom/android/launcher3/common/view/LiveIconFactory;->mState:I
 
     invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;

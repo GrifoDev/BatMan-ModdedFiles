@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/allapps/controller/AppsController;->removeApps(Ljava/util/ArrayList;)V
+    value = Lcom/android/launcher3/allapps/controller/AppsController;->switchInternalState(Lcom/android/launcher3/common/stage/StageEntry;)Landroid/animation/Animator;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -35,17 +35,15 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 1
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController$9;->this$0:Lcom/android/launcher3/allapps/controller/AppsController;
 
-    invoke-virtual {v0}, Lcom/android/launcher3/allapps/controller/AppsController;->setAlphabeticList()V
+    invoke-static {v0}, Lcom/android/launcher3/allapps/controller/AppsController;->access$100(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/allapps/AppsScreenGridPanel;
 
-    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController$9;->this$0:Lcom/android/launcher3/allapps/controller/AppsController;
+    move-result-object v0
 
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/android/launcher3/allapps/controller/AppsController;->access$202(Lcom/android/launcher3/allapps/controller/AppsController;Z)Z
+    invoke-virtual {v0}, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->updateApplyCancelButton()V
 
     return-void
 .end method

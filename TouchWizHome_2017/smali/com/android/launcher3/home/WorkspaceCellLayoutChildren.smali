@@ -603,6 +603,49 @@
     goto/16 :goto_3
 .end method
 
+.method public callRefreshLiveIcon()V
+    .locals 5
+
+    invoke-virtual {p0}, Lcom/android/launcher3/home/WorkspaceCellLayoutChildren;->getChildrenAllItems()Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
+
+    :cond_0
+    :goto_0
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/launcher3/common/base/item/ItemInfo;
+
+    invoke-virtual {p0, v1}, Lcom/android/launcher3/home/WorkspaceCellLayoutChildren;->getChildAt(Lcom/android/launcher3/common/base/item/ItemInfo;)Landroid/view/View;
+
+    move-result-object v0
+
+    instance-of v4, v0, Lcom/android/launcher3/common/view/IconView;
+
+    if-eqz v4, :cond_0
+
+    check-cast v0, Lcom/android/launcher3/common/view/IconView;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/common/view/IconView;->onLiveIconRefresh()V
+
+    goto :goto_0
+
+    :cond_1
+    return-void
+.end method
+
 .method public getDescendantFocusability()I
     .locals 2
 
@@ -860,6 +903,14 @@
 
 .method protected onLayout(ZIIII)V
     .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayoutChildren;->mGridChangeAnimationSet:Landroid/view/animation/AnimationSet;
+
+    invoke-virtual {v0}, Landroid/view/animation/AnimationSet;->getAnimations()Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/List;->clear()V
 
     invoke-super/range {p0 .. p5}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->onLayout(ZIIII)V
 

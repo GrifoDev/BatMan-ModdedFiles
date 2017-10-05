@@ -1,436 +1,176 @@
-.class final Lcom/android/launcher3/allapps/model/AppsLoader$27;
-.super Lcom/android/launcher3/allapps/model/AppsLoader$Normalizer;
+.class Lcom/android/launcher3/allapps/model/AppsLoader$27;
+.super Ljava/lang/Object;
 .source "AppsLoader.java"
+
+# interfaces
+.implements Ljava/lang/Runnable;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/launcher3/allapps/model/AppsLoader;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/launcher3/allapps/model/AppsLoader;->updateSessionDisplayInfo(Ljava/lang/String;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x8
+    accessFlags = 0x0
     name = null
 .end annotation
 
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Lcom/android/launcher3/allapps/model/AppsLoader$Normalizer",
-        "<",
-        "Ljava/lang/Object;",
-        ">;"
-    }
-.end annotation
+
+# instance fields
+.field final synthetic this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
+
+.field final synthetic val$packageName:Ljava/lang/String;
 
 
 # direct methods
-.method constructor <init>()V
+.method constructor <init>(Lcom/android/launcher3/allapps/model/AppsLoader;Ljava/lang/String;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/launcher3/allapps/model/AppsLoader$Normalizer;-><init>()V
+    iput-object p1, p0, Lcom/android/launcher3/allapps/model/AppsLoader$27;->this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
+
+    iput-object p2, p0, Lcom/android/launcher3/allapps/model/AppsLoader$27;->val$packageName:Ljava/lang/String;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public final compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 12
+.method public run()V
+    .locals 11
 
-    const-wide/16 v10, -0x1
+    new-instance v5, Ljava/util/ArrayList;
 
-    const/4 v3, 0x1
+    invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
 
-    const/4 v4, -0x1
-
-    instance-of v5, p1, Lcom/android/launcher3/common/base/item/ItemInfo;
-
-    if-eqz v5, :cond_4
-
-    move-object v0, p1
-
-    check-cast v0, Lcom/android/launcher3/common/base/item/ItemInfo;
-
-    move-object v1, p2
-
-    check-cast v1, Lcom/android/launcher3/common/base/item/ItemInfo;
-
-    :goto_0
-    const/4 v2, 0x0
-
-    iget-wide v6, v0, Lcom/android/launcher3/common/base/item/ItemInfo;->screenId:J
-
-    cmp-long v5, v6, v10
-
-    if-eqz v5, :cond_5
-
-    iget-wide v6, v1, Lcom/android/launcher3/common/base/item/ItemInfo;->screenId:J
-
-    cmp-long v5, v6, v10
-
-    if-eqz v5, :cond_5
-
-    iget-wide v6, v0, Lcom/android/launcher3/common/base/item/ItemInfo;->screenId:J
-
-    iget-wide v8, v1, Lcom/android/launcher3/common/base/item/ItemInfo;->screenId:J
-
-    invoke-static {v6, v7, v8, v9}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$3800(JJ)I
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    iget v5, v0, Lcom/android/launcher3/common/base/item/ItemInfo;->rank:I
-
-    iget v6, v1, Lcom/android/launcher3/common/base/item/ItemInfo;->rank:I
-
-    invoke-static {v5, v6}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$3900(II)I
-
-    move-result v2
-
-    :cond_0
-    :goto_1
-    if-nez v2, :cond_3
-
-    iget-object v5, v0, Lcom/android/launcher3/common/base/item/ItemInfo;->title:Ljava/lang/CharSequence;
-
-    if-eqz v5, :cond_7
-
-    iget-object v5, v1, Lcom/android/launcher3/common/base/item/ItemInfo;->title:Ljava/lang/CharSequence;
-
-    if-eqz v5, :cond_7
-
-    invoke-static {}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$800()Ljava/text/Collator;
-
-    move-result-object v5
-
-    iget-object v6, v0, Lcom/android/launcher3/common/base/item/ItemInfo;->title:Ljava/lang/CharSequence;
-
-    invoke-interface {v6}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    invoke-static {}, Lcom/android/launcher3/common/compat/UserHandleCompat;->myUserHandle()Lcom/android/launcher3/common/compat/UserHandleCompat;
 
     move-result-object v6
 
-    iget-object v7, v1, Lcom/android/launcher3/common/base/item/ItemInfo;->title:Ljava/lang/CharSequence;
+    iget-object v7, p0, Lcom/android/launcher3/allapps/model/AppsLoader$27;->this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
 
-    invoke-interface {v7}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Lcom/android/launcher3/allapps/model/AppsLoader;->getAllAppItemInApps()Ljava/util/ArrayList;
 
     move-result-object v7
 
-    invoke-virtual {v5, v6, v7}, Ljava/text/Collator;->compare(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v7}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    move-result v2
-
-    :cond_1
-    :goto_2
-    if-nez v2, :cond_3
-
-    iget-object v5, v0, Lcom/android/launcher3/common/base/item/ItemInfo;->componentName:Landroid/content/ComponentName;
-
-    if-eqz v5, :cond_9
-
-    iget-object v5, v1, Lcom/android/launcher3/common/base/item/ItemInfo;->componentName:Landroid/content/ComponentName;
-
-    if-eqz v5, :cond_9
-
-    iget-wide v4, v0, Lcom/android/launcher3/common/base/item/ItemInfo;->id:J
-
-    iget-wide v6, v1, Lcom/android/launcher3/common/base/item/ItemInfo;->id:J
-
-    invoke-static {v4, v5, v6, v7}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$3800(JJ)I
-
-    move-result v2
-
-    if-nez v2, :cond_2
-
-    iget-object v3, v0, Lcom/android/launcher3/common/base/item/ItemInfo;->componentName:Landroid/content/ComponentName;
-
-    iget-object v4, v1, Lcom/android/launcher3/common/base/item/ItemInfo;->componentName:Landroid/content/ComponentName;
-
-    invoke-virtual {v3, v4}, Landroid/content/ComponentName;->compareTo(Landroid/content/ComponentName;)I
-
-    move-result v2
-
-    :cond_2
-    :goto_3
-    if-nez v2, :cond_3
-
-    iget-wide v4, v0, Lcom/android/launcher3/common/base/item/ItemInfo;->id:J
-
-    iget-wide v6, v1, Lcom/android/launcher3/common/base/item/ItemInfo;->id:J
-
-    invoke-static {v4, v5, v6, v7}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$3800(JJ)I
-
-    move-result v2
-
-    :cond_3
-    return v2
-
-    :cond_4
-    check-cast p1, Landroid/view/View;
-
-    invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/launcher3/common/base/item/ItemInfo;
-
-    check-cast p2, Landroid/view/View;
-
-    invoke-virtual {p2}, Landroid/view/View;->getTag()Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/android/launcher3/common/base/item/ItemInfo;
-
-    goto :goto_0
-
-    :cond_5
-    iget-wide v6, v0, Lcom/android/launcher3/common/base/item/ItemInfo;->screenId:J
-
-    iget-wide v8, v1, Lcom/android/launcher3/common/base/item/ItemInfo;->screenId:J
-
-    cmp-long v5, v6, v8
-
-    if-eqz v5, :cond_0
-
-    iget-wide v6, v0, Lcom/android/launcher3/common/base/item/ItemInfo;->screenId:J
-
-    cmp-long v5, v6, v10
-
-    if-nez v5, :cond_6
-
-    move v2, v3
-
-    :goto_4
-    goto :goto_1
-
-    :cond_6
-    move v2, v4
-
-    goto :goto_4
-
-    :cond_7
-    iget-object v5, v0, Lcom/android/launcher3/common/base/item/ItemInfo;->title:Ljava/lang/CharSequence;
-
-    iget-object v6, v1, Lcom/android/launcher3/common/base/item/ItemInfo;->title:Ljava/lang/CharSequence;
-
-    if-eq v5, v6, :cond_1
-
-    iget-object v5, v0, Lcom/android/launcher3/common/base/item/ItemInfo;->title:Ljava/lang/CharSequence;
-
-    if-nez v5, :cond_8
-
-    move v2, v4
-
-    :goto_5
-    goto :goto_2
-
-    :cond_8
-    move v2, v3
-
-    goto :goto_5
-
-    :cond_9
-    iget-object v5, v0, Lcom/android/launcher3/common/base/item/ItemInfo;->componentName:Landroid/content/ComponentName;
-
-    iget-object v6, v1, Lcom/android/launcher3/common/base/item/ItemInfo;->componentName:Landroid/content/ComponentName;
-
-    if-eq v5, v6, :cond_2
-
-    iget-object v5, v0, Lcom/android/launcher3/common/base/item/ItemInfo;->componentName:Landroid/content/ComponentName;
-
-    if-nez v5, :cond_a
-
-    move v2, v4
-
-    :goto_6
-    goto :goto_3
-
-    :cond_a
-    move v2, v3
-
-    goto :goto_6
-.end method
-
-.method protected normalize(Ljava/util/ArrayList;IZLjava/util/ArrayList;I)I
-    .locals 14
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/ArrayList",
-            "<*>;IZ",
-            "Ljava/util/ArrayList",
-            "<",
-            "Landroid/view/View;",
-            ">;I)I"
-        }
-    .end annotation
-
-    invoke-static {p1, p0}, Ljava/util/Collections;->sort(Ljava/util/List;Ljava/util/Comparator;)V
-
-    const/4 v9, 0x0
-
-    const/4 v8, 0x0
-
-    const-wide/16 v4, 0x0
-
-    invoke-virtual {p1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v11
-
-    :goto_0
-    invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v10
-
-    if-eqz v10, :cond_8
-
-    invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
-    instance-of v10, v3, Lcom/android/launcher3/common/base/item/ItemInfo;
-
-    if-eqz v10, :cond_5
-
-    move-object v2, v3
-
-    check-cast v2, Lcom/android/launcher3/common/base/item/ItemInfo;
-
-    :goto_1
-    iget-wide v6, v2, Lcom/android/launcher3/common/base/item/ItemInfo;->screenId:J
-
-    move/from16 v0, p2
-
-    if-ne v8, v0, :cond_0
-
-    add-int/lit8 v9, v9, 0x1
-
-    const/4 v8, 0x0
+    move-result-object v7
 
     :cond_0
-    cmp-long v10, v6, v4
+    :goto_0
+    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
-    if-eqz v10, :cond_2
+    move-result v8
 
-    const-wide/16 v12, -0x1
+    if-eqz v8, :cond_3
 
-    cmp-long v10, v6, v12
-
-    if-eqz v10, :cond_2
-
-    int-to-long v12, v9
-
-    cmp-long v10, v6, v12
-
-    if-lez v10, :cond_1
-
-    if-eqz v8, :cond_1
-
-    add-int/lit8 v9, v9, 0x1
-
-    const/4 v8, 0x0
-
-    :cond_1
-    move-wide v4, v6
-
-    :cond_2
-    int-to-long v12, v9
-
-    cmp-long v10, v6, v12
-
-    if-nez v10, :cond_3
-
-    iget v10, v2, Lcom/android/launcher3/common/base/item/ItemInfo;->rank:I
-
-    if-eq v10, v8, :cond_4
-
-    :cond_3
-    if-eqz p4, :cond_6
-
-    instance-of v10, v3, Landroid/view/View;
-
-    if-eqz v10, :cond_6
-
-    move/from16 v0, p5
-
-    if-ne v0, v9, :cond_4
-
-    move-object v10, v3
-
-    check-cast v10, Landroid/view/View;
-
-    move-object/from16 v0, p4
-
-    invoke-virtual {v0, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    :cond_4
-    :goto_2
-    if-eqz p4, :cond_7
-
-    instance-of v10, v3, Landroid/view/View;
-
-    if-eqz v10, :cond_7
-
-    add-int/lit8 v8, v8, 0x1
-
-    goto :goto_0
-
-    :cond_5
-    move-object v10, v3
-
-    check-cast v10, Landroid/view/View;
-
-    invoke-virtual {v10}, Landroid/view/View;->getTag()Ljava/lang/Object;
+    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
     check-cast v2, Lcom/android/launcher3/common/base/item/ItemInfo;
 
-    goto :goto_1
+    instance-of v8, v2, Lcom/android/launcher3/common/base/item/IconInfo;
 
-    :cond_6
-    const/4 v10, 0x1
+    if-eqz v8, :cond_0
 
-    iput-boolean v10, v2, Lcom/android/launcher3/common/base/item/ItemInfo;->mDirty:Z
+    move-object v1, v2
 
-    int-to-long v12, v9
+    check-cast v1, Lcom/android/launcher3/common/base/item/IconInfo;
 
-    iput-wide v12, v2, Lcom/android/launcher3/common/base/item/ItemInfo;->screenId:J
+    invoke-virtual {v1}, Lcom/android/launcher3/common/base/item/IconInfo;->getTargetComponent()Landroid/content/ComponentName;
 
-    iput v8, v2, Lcom/android/launcher3/common/base/item/ItemInfo;->rank:I
+    move-result-object v0
 
-    goto :goto_2
+    invoke-virtual {v1}, Lcom/android/launcher3/common/base/item/IconInfo;->isPromise()Z
 
-    :cond_7
-    invoke-static {}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$900()I
+    move-result v8
+
+    if-eqz v8, :cond_0
+
+    if-eqz v0, :cond_0
+
+    iget-object v8, p0, Lcom/android/launcher3/allapps/model/AppsLoader$27;->val$packageName:Ljava/lang/String;
+
+    invoke-virtual {v0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_0
+
+    const/4 v8, 0x2
+
+    invoke-virtual {v1, v8}, Lcom/android/launcher3/common/base/item/IconInfo;->hasStatusFlag(I)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_2
+
+    invoke-static {}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$3900()Lcom/android/launcher3/common/model/IconCache;
+
+    move-result-object v8
+
+    iget-object v9, v1, Lcom/android/launcher3/common/base/item/IconInfo;->promisedIntent:Landroid/content/Intent;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/common/base/item/IconInfo;->shouldUseLowResIcon()Z
 
     move-result v10
 
-    rem-int v10, v8, v10
+    invoke-virtual {v8, v1, v9, v6, v10}, Lcom/android/launcher3/common/model/IconCache;->getTitleAndIcon(Lcom/android/launcher3/common/base/item/IconInfo;Landroid/content/Intent;Lcom/android/launcher3/common/compat/UserHandleCompat;Z)V
 
-    iput v10, v2, Lcom/android/launcher3/common/base/item/ItemInfo;->cellX:I
-
-    invoke-static {}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$900()I
-
-    move-result v10
-
-    div-int v10, v8, v10
-
-    iput v10, v2, Lcom/android/launcher3/common/base/item/ItemInfo;->cellY:I
-
-    add-int/lit8 v8, v8, 0x1
+    :cond_1
+    :goto_1
+    invoke-virtual {v5, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_0
 
-    :cond_8
-    return v9
-.end method
+    :cond_2
+    const/16 v8, 0x24
 
-.method public toString()Ljava/lang/String;
-    .locals 1
+    invoke-virtual {v1, v8}, Lcom/android/launcher3/common/base/item/IconInfo;->hasStatusFlag(I)Z
 
-    const-string v0, "MenuAppModel.MENU_CUSTOM_NORMALIZER"
+    move-result v8
 
-    return-object v0
+    if-nez v8, :cond_1
+
+    invoke-static {}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$4000()Lcom/android/launcher3/common/model/IconCache;
+
+    move-result-object v8
+
+    invoke-virtual {v1, v8}, Lcom/android/launcher3/common/base/item/IconInfo;->updateIcon(Lcom/android/launcher3/common/model/IconCache;)V
+
+    goto :goto_1
+
+    :cond_3
+    invoke-virtual {v5}, Ljava/util/ArrayList;->isEmpty()Z
+
+    move-result v7
+
+    if-nez v7, :cond_4
+
+    iget-object v7, p0, Lcom/android/launcher3/allapps/model/AppsLoader$27;->this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
+
+    invoke-static {v7}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$2000(Lcom/android/launcher3/allapps/model/AppsLoader;)Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_4
+
+    new-instance v4, Lcom/android/launcher3/allapps/model/AppsLoader$27$1;
+
+    invoke-direct {v4, p0, v3, v5, v6}, Lcom/android/launcher3/allapps/model/AppsLoader$27$1;-><init>(Lcom/android/launcher3/allapps/model/AppsLoader$27;Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;Ljava/util/ArrayList;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
+
+    iget-object v7, p0, Lcom/android/launcher3/allapps/model/AppsLoader$27;->this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
+
+    invoke-static {v7, v4}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$2500(Lcom/android/launcher3/allapps/model/AppsLoader;Ljava/lang/Runnable;)V
+
+    :cond_4
+    return-void
 .end method

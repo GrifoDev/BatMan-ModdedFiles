@@ -3,6 +3,14 @@
 .source "FragmentTransaction.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/support/v4/app/FragmentTransaction$Transit;
+    }
+.end annotation
+
+
 # static fields
 .field public static final TRANSIT_ENTER_MASK:I = 0x1000
 

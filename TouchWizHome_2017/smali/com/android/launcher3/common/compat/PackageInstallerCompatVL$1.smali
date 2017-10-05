@@ -76,7 +76,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2}, Lcom/android/launcher3/LauncherModel;->getAppsLoader()Lcom/android/launcher3/allapps/model/AppsLoader;
+    invoke-virtual {v2}, Lcom/android/launcher3/LauncherModel;->getAppsModel()Lcom/android/launcher3/allapps/model/AppsModel;
 
     move-result-object v2
 
@@ -84,7 +84,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v2, v3}, Lcom/android/launcher3/allapps/model/AppsLoader;->updateSessionDisplayInfo(Ljava/lang/String;)V
+    invoke-virtual {v2, v3}, Lcom/android/launcher3/allapps/model/AppsModel;->updateSessionDisplayInfo(Ljava/lang/String;)V
 
     :cond_0
     return-void

@@ -15,5 +15,8 @@
 
 
 # virtual methods
+.method public abstract onDismiss()V
+.end method
+
 .method public abstract onResult(Lcom/android/launcher3/allapps/controller/AppsController$ViewType;)V
 .end method

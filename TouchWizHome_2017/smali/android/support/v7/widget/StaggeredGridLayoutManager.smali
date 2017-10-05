@@ -36,7 +36,7 @@
 
 .field private static final MAX_SCROLL_FACTOR:F = 0.33333334f
 
-.field private static final TAG:Ljava/lang/String; = "StaggeredGridLayoutManager"
+.field private static final TAG:Ljava/lang/String; = "StaggeredGridLManager"
 
 .field public static final VERTICAL:I = 0x1
 

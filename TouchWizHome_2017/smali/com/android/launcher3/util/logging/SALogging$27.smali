@@ -49,7 +49,7 @@
 
     iget-object v3, p0, Lcom/android/launcher3/util/logging/SALogging$27;->val$eventID:Ljava/lang/String;
 
-    invoke-static {v2, v3}, Lcom/android/launcher3/util/logging/SALogging;->access$1400(Lcom/android/launcher3/util/logging/SALogging;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, v3}, Lcom/android/launcher3/util/logging/SALogging;->access$1500(Lcom/android/launcher3/util/logging/SALogging;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 

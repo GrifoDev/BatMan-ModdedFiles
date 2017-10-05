@@ -3,12 +3,12 @@
 .source "AppsController.java"
 
 # interfaces
-.implements Lcom/android/launcher3/common/base/item/ItemOperator;
+.implements Lcom/android/launcher3/allapps/AppsViewTypeDialog$OnViewTypeChagnedListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/allapps/controller/AppsController;->updateRestoreItems(Ljava/util/HashSet;)V
+    value = Lcom/android/launcher3/allapps/controller/AppsController;->chooseViewType()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,16 +20,12 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/allapps/controller/AppsController;
 
-.field final synthetic val$updates:Ljava/util/HashSet;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/allapps/controller/AppsController;Ljava/util/HashSet;)V
+.method constructor <init>(Lcom/android/launcher3/allapps/controller/AppsController;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/allapps/controller/AppsController$7;->this$0:Lcom/android/launcher3/allapps/controller/AppsController;
-
-    iput-object p2, p0, Lcom/android/launcher3/allapps/controller/AppsController$7;->val$updates:Ljava/util/HashSet;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,31 +34,42 @@
 
 
 # virtual methods
-.method public evaluate(Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/view/View;Landroid/view/View;)Z
+.method public onDismiss()V
     .locals 2
 
-    const/4 v1, 0x0
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
-    instance-of v0, p1, Lcom/android/launcher3/common/base/item/IconInfo;
+    move-result-object v0
 
-    if-eqz v0, :cond_0
+    invoke-virtual {v0}, Lcom/android/launcher3/LauncherAppState;->getTopViewChangedMessageHandler()Lcom/android/launcher3/proxy/LauncherTopViewChangedMessageHandler;
 
-    instance-of v0, p2, Lcom/android/launcher3/common/view/IconView;
+    move-result-object v0
 
-    if-eqz v0, :cond_0
+    const/4 v1, 0x2
 
-    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController$7;->val$updates:Ljava/util/HashSet;
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/proxy/LauncherTopViewChangedMessageHandler;->sendMessage(I)V
 
-    invoke-virtual {v0, p1}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
+    return-void
+.end method
 
-    move-result v0
+.method public onResult(Lcom/android/launcher3/allapps/controller/AppsController$ViewType;)V
+    .locals 2
 
-    if-eqz v0, :cond_0
+    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController$7;->this$0:Lcom/android/launcher3/allapps/controller/AppsController;
 
-    check-cast p2, Lcom/android/launcher3/common/view/IconView;
+    invoke-virtual {v0, p1}, Lcom/android/launcher3/allapps/controller/AppsController;->setViewType(Lcom/android/launcher3/allapps/controller/AppsController$ViewType;)V
 
-    invoke-virtual {p2, v1}, Lcom/android/launcher3/common/view/IconView;->applyState(Z)V
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
-    :cond_0
-    return v1
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/launcher3/LauncherAppState;->getTopViewChangedMessageHandler()Lcom/android/launcher3/proxy/LauncherTopViewChangedMessageHandler;
+
+    move-result-object v0
+
+    const/4 v1, 0x2
+
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/proxy/LauncherTopViewChangedMessageHandler;->sendMessage(I)V
+
+    return-void
 .end method

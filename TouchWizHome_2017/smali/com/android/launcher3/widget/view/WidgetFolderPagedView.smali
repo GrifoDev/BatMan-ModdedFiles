@@ -41,7 +41,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0004
+    const v1, 0x7f0d0003
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -149,7 +149,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0005
+    const v1, 0x7f0d0004
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -161,7 +161,7 @@
 .method public getWidgetItemFolderViewId()I
     .locals 1
 
-    const v0, 0x7f03004a
+    const v0, 0x7f04005d
 
     return v0
 .end method
@@ -169,7 +169,7 @@
 .method public getWidgetItemSingleViewId()I
     .locals 1
 
-    const v0, 0x7f03004b
+    const v0, 0x7f04005e
 
     return v0
 .end method
@@ -177,7 +177,7 @@
 .method public getWidgetPageLayoutId()I
     .locals 1
 
-    const v0, 0x7f030049
+    const v0, 0x7f04005c
 
     return v0
 .end method

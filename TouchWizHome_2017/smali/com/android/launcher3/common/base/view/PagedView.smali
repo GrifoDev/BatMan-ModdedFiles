@@ -29,7 +29,7 @@
 
 .field private static final FLING_THRESHOLD_VELOCITY:I = 0x1f4
 
-.field private static HINT_PAGE_ANIMATION_DURATION:I = 0x0
+.field public static final HINT_PAGE_ANIMATION_DURATION:I = 0xc8
 
 .field protected static final INVALID_PAGE:I = -0x1
 
@@ -229,6 +229,8 @@
 
 .field protected mRestorePage:I
 
+.field private mScrollDeterminator:Lcom/android/launcher3/util/event/ScrollDeterminator;
+
 .field private mScrollState:I
 
 .field protected mScroller:Lcom/android/launcher3/common/base/PageScroller;
@@ -296,10 +298,6 @@
     invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
 
     sput-object v0, Lcom/android/launcher3/common/base/view/PagedView;->sTmpRect:Landroid/graphics/Rect;
-
-    const/16 v0, 0xc8
-
-    sput v0, Lcom/android/launcher3/common/base/view/PagedView;->HINT_PAGE_ANIMATION_DURATION:I
 
     return-void
 
@@ -409,6 +407,10 @@
     iput v2, p0, Lcom/android/launcher3/common/base/view/PagedView;->mHintPageRightZone:I
 
     iput v2, p0, Lcom/android/launcher3/common/base/view/PagedView;->mHintPageWidth:I
+
+    const/4 v1, 0x0
+
+    iput-object v1, p0, Lcom/android/launcher3/common/base/view/PagedView;->mScrollDeterminator:Lcom/android/launcher3/util/event/ScrollDeterminator;
 
     iput-boolean v2, p0, Lcom/android/launcher3/common/base/view/PagedView;->mUpdateOnlyCurrentPage:Z
 
@@ -527,10 +529,10 @@
     return-object v0
 .end method
 
-.method static synthetic access$400(Lcom/android/launcher3/common/base/view/PagedView;)V
+.method static synthetic access$400(Lcom/android/launcher3/common/base/view/PagedView;Z)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/android/launcher3/common/base/view/PagedView;->onPostReorderingAnimationCompleted()V
+    invoke-direct {p0, p1}, Lcom/android/launcher3/common/base/view/PagedView;->onPostReorderingAnimationCompleted(Z)V
 
     return-void
 .end method
@@ -750,9 +752,7 @@
     :goto_0
     iget-object v0, p0, Lcom/android/launcher3/common/base/view/PagedView;->mPullingPagesAnim:Landroid/animation/ObjectAnimator;
 
-    sget v1, Lcom/android/launcher3/common/base/view/PagedView;->HINT_PAGE_ANIMATION_DURATION:I
-
-    int-to-long v2, v1
+    const-wide/16 v2, 0xc8
 
     invoke-virtual {v0, v2, v3}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
 
@@ -825,9 +825,7 @@
 
     move-result-object v0
 
-    sget v1, Lcom/android/launcher3/common/base/view/PagedView;->HINT_PAGE_ANIMATION_DURATION:I
-
-    int-to-long v2, v1
+    const-wide/16 v2, 0xc8
 
     invoke-virtual {v0, v2, v3}, Landroid/animation/ObjectAnimator;->setDuration(J)Landroid/animation/ObjectAnimator;
 
@@ -1096,7 +1094,7 @@
 
     sget-boolean v3, Lcom/android/launcher3/Utilities;->sIsRtl:Z
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_4
 
     iget v3, p0, Lcom/android/launcher3/common/base/view/PagedView;->mHintPageWidth:I
 
@@ -1146,21 +1144,12 @@
     invoke-virtual {v0, v5}, Landroid/view/View;->setTranslationX(F)V
 
     :cond_2
-    iget v3, p0, Lcom/android/launcher3/common/base/view/PagedView;->mTranslateAllPages:F
-
-    cmpl-float v3, v3, v5
-
-    if-nez v3, :cond_3
-
-    invoke-virtual {p0}, Lcom/android/launcher3/common/base/view/PagedView;->getTranslationX()F
+    invoke-direct {p0}, Lcom/android/launcher3/common/base/view/PagedView;->isTranslatedPages()Z
 
     move-result v3
 
-    cmpl-float v3, v3, v5
+    if-eqz v3, :cond_3
 
-    if-eqz v3, :cond_4
-
-    :cond_3
     const-string v3, "PagedView"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -1201,10 +1190,10 @@
 
     invoke-virtual {p0}, Lcom/android/launcher3/common/base/view/PagedView;->resetPulledPages()V
 
-    :cond_4
+    :cond_3
     return-void
 
-    :cond_5
+    :cond_4
     iget v3, p0, Lcom/android/launcher3/common/base/view/PagedView;->mHintPageWidth:I
 
     int-to-float v1, v3
@@ -1324,6 +1313,28 @@
     return v0
 .end method
 
+.method private isHorizontalScroll()Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/common/base/view/PagedView;->mScrollDeterminator:Lcom/android/launcher3/util/event/ScrollDeterminator;
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/launcher3/common/base/view/PagedView;->mScrollDeterminator:Lcom/android/launcher3/util/event/ScrollDeterminator;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/util/event/ScrollDeterminator;->isHorizontalScroll()Z
+
+    move-result v0
+
+    goto :goto_0
+.end method
+
 .method private isPullingPageTouchArea(F)Z
     .locals 1
 
@@ -1405,6 +1416,37 @@
     move-result v0
 
     return v0
+.end method
+
+.method private isTranslatedPages()Z
+    .locals 2
+
+    const/4 v1, 0x0
+
+    iget v0, p0, Lcom/android/launcher3/common/base/view/PagedView;->mTranslateAllPages:F
+
+    cmpl-float v0, v0, v1
+
+    if-nez v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/launcher3/common/base/view/PagedView;->getTranslationX()F
+
+    move-result v0
+
+    cmpl-float v0, v0, v1
+
+    if-eqz v0, :cond_1
+
+    :cond_0
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method private loadAssociatedPages(IZ)V
@@ -1652,7 +1694,7 @@
     return v1
 .end method
 
-.method private onPostReorderingAnimationCompleted()V
+.method private onPostReorderingAnimationCompleted(Z)V
     .locals 1
 
     iget v0, p0, Lcom/android/launcher3/common/base/view/PagedView;->mPostReorderingPreZoomInRemainingAnimationCount:I
@@ -1663,12 +1705,15 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/base/view/PagedView;->mPostReorderingPreZoomInRunnable:Ljava/lang/Runnable;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     iget v0, p0, Lcom/android/launcher3/common/base/view/PagedView;->mPostReorderingPreZoomInRemainingAnimationCount:I
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_0
 
+    if-eqz p1, :cond_1
+
+    :cond_0
     iget-object v0, p0, Lcom/android/launcher3/common/base/view/PagedView;->mPostReorderingPreZoomInRunnable:Ljava/lang/Runnable;
 
     invoke-interface {v0}, Ljava/lang/Runnable;->run()V
@@ -1677,7 +1722,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/common/base/view/PagedView;->mPostReorderingPreZoomInRunnable:Ljava/lang/Runnable;
 
-    :cond_0
+    :cond_1
     return-void
 .end method
 
@@ -1944,37 +1989,47 @@
 .end method
 
 .method private scrollPageOnMoveEvent(Landroid/view/MotionEvent;)Z
-    .locals 6
+    .locals 7
 
-    const/4 v5, 0x1
+    const/4 v6, 0x1
 
-    iget v3, p0, Lcom/android/launcher3/common/base/view/PagedView;->mActivePointerId:I
+    iget v4, p0, Lcom/android/launcher3/common/base/view/PagedView;->mActivePointerId:I
 
-    invoke-virtual {p1, v3}, Landroid/view/MotionEvent;->findPointerIndex(I)I
+    invoke-virtual {p1, v4}, Landroid/view/MotionEvent;->findPointerIndex(I)I
 
-    move-result v1
+    move-result v2
 
-    const/4 v3, -0x1
+    const/4 v4, -0x1
 
-    if-ne v1, v3, :cond_0
+    if-ne v2, v4, :cond_0
 
     :goto_0
-    return v5
+    return v6
 
     :cond_0
-    invoke-virtual {p1, v1}, Landroid/view/MotionEvent;->getX(I)F
+    invoke-virtual {p1, v2}, Landroid/view/MotionEvent;->getX(I)F
 
-    move-result v3
+    move-result v4
 
-    float-to-int v2, v3
+    float-to-int v3, v4
 
-    iget v3, p0, Lcom/android/launcher3/common/base/view/PagedView;->mLastMotionX:F
+    iget v4, p0, Lcom/android/launcher3/common/base/view/PagedView;->mLastMotionX:F
 
-    float-to-int v3, v3
+    float-to-int v4, v4
 
-    sub-int v0, v3, v2
+    sub-int v0, v3, v4
 
-    iget v3, p0, Lcom/android/launcher3/common/base/view/PagedView;->mTotalMotionX:F
+    iget v4, p0, Lcom/android/launcher3/common/base/view/PagedView;->mTotalMotionX:F
+
+    invoke-static {v0}, Ljava/lang/Math;->abs(I)I
+
+    move-result v5
+
+    int-to-float v5, v5
+
+    add-float/2addr v4, v5
+
+    iput v4, p0, Lcom/android/launcher3/common/base/view/PagedView;->mTotalMotionX:F
 
     invoke-static {v0}, Ljava/lang/Math;->abs(I)I
 
@@ -1982,91 +2037,41 @@
 
     int-to-float v4, v4
 
-    add-float/2addr v3, v4
+    const/high16 v5, 0x3f800000    # 1.0f
 
-    iput v3, p0, Lcom/android/launcher3/common/base/view/PagedView;->mTotalMotionX:F
+    cmpl-float v4, v4, v5
 
-    invoke-static {v0}, Ljava/lang/Math;->abs(I)I
+    if-ltz v4, :cond_2
 
-    move-result v3
+    move v1, v0
 
-    int-to-float v3, v3
+    iget-object v4, p0, Lcom/android/launcher3/common/base/view/PagedView;->mScrollDeterminator:Lcom/android/launcher3/util/event/ScrollDeterminator;
 
-    const/high16 v4, 0x3f800000    # 1.0f
+    if-eqz v4, :cond_1
 
-    cmpl-float v3, v3, v4
+    iget-object v4, p0, Lcom/android/launcher3/common/base/view/PagedView;->mScrollDeterminator:Lcom/android/launcher3/util/event/ScrollDeterminator;
 
-    if-ltz v3, :cond_1
+    invoke-virtual {v4, v0}, Lcom/android/launcher3/util/event/ScrollDeterminator;->getDeltaXwithCompensation(I)I
 
-    const/4 v3, 0x0
+    move-result v1
 
-    invoke-virtual {p0, v0, v3}, Lcom/android/launcher3/common/base/view/PagedView;->scrollBy(II)V
+    :cond_1
+    neg-int v4, v1
 
-    int-to-float v3, v2
+    const/4 v5, 0x0
 
-    iput v3, p0, Lcom/android/launcher3/common/base/view/PagedView;->mLastMotionX:F
+    invoke-virtual {p0, v4, v5}, Lcom/android/launcher3/common/base/view/PagedView;->scrollBy(II)V
+
+    int-to-float v4, v3
+
+    iput v4, p0, Lcom/android/launcher3/common/base/view/PagedView;->mLastMotionX:F
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     invoke-virtual {p0}, Lcom/android/launcher3/common/base/view/PagedView;->awakenScrollBars()Z
 
     goto :goto_0
-.end method
-
-.method private sendScrollAccessibilityEvent()V
-    .locals 3
-
-    sget-object v1, Lcom/android/launcher3/util/Talk;->INSTANCE:Lcom/android/launcher3/util/Talk;
-
-    invoke-virtual {v1}, Lcom/android/launcher3/util/Talk;->isAccessibilityEnabled()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    iget v1, p0, Lcom/android/launcher3/common/base/view/PagedView;->mCurrentPage:I
-
-    invoke-virtual {p0}, Lcom/android/launcher3/common/base/view/PagedView;->getNextPage()I
-
-    move-result v2
-
-    if-eq v1, v2, :cond_0
-
-    const/16 v1, 0x1000
-
-    invoke-static {v1}, Landroid/view/accessibility/AccessibilityEvent;->obtain(I)Landroid/view/accessibility/AccessibilityEvent;
-
-    move-result-object v0
-
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Landroid/view/accessibility/AccessibilityEvent;->setScrollable(Z)V
-
-    invoke-virtual {p0}, Lcom/android/launcher3/common/base/view/PagedView;->getScrollX()I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Landroid/view/accessibility/AccessibilityEvent;->setScrollX(I)V
-
-    invoke-virtual {p0}, Lcom/android/launcher3/common/base/view/PagedView;->getScrollY()I
-
-    move-result v1
-
-    invoke-virtual {v0, v1}, Landroid/view/accessibility/AccessibilityEvent;->setScrollY(I)V
-
-    iget v1, p0, Lcom/android/launcher3/common/base/view/PagedView;->mMaxScrollX:I
-
-    invoke-virtual {v0, v1}, Landroid/view/accessibility/AccessibilityEvent;->setMaxScrollX(I)V
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/view/accessibility/AccessibilityEvent;->setMaxScrollY(I)V
-
-    invoke-virtual {p0, v0}, Lcom/android/launcher3/common/base/view/PagedView;->sendAccessibilityEventUnchecked(Landroid/view/accessibility/AccessibilityEvent;)V
-
-    :cond_0
-    return-void
 .end method
 
 .method private setHintPageTranslation()V
@@ -2539,6 +2544,16 @@
     return-void
 .end method
 
+.method public cancelDeferLoadAssociatedPagesUntilScrollCompletes()V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/launcher3/common/base/view/PagedView;->mDeferLoadAssociatedPagesUntilScrollCompletes:Z
+
+    return-void
+.end method
+
 .method protected cancelScroll()V
     .locals 3
 
@@ -2595,9 +2610,9 @@
 
     const/4 v4, 0x1
 
-    const/4 v5, 0x0
-
     const/4 v7, -0x1
+
+    const/4 v5, 0x0
 
     iget-object v6, p0, Lcom/android/launcher3/common/base/view/PagedView;->mScroller:Lcom/android/launcher3/common/base/PageScroller;
 
@@ -2670,8 +2685,6 @@
 
     if-eq v6, v7, :cond_6
 
-    invoke-direct {p0}, Lcom/android/launcher3/common/base/view/PagedView;->sendScrollAccessibilityEvent()V
-
     iget v0, p0, Lcom/android/launcher3/common/base/view/PagedView;->mCurrentPage:I
 
     iget v6, p0, Lcom/android/launcher3/common/base/view/PagedView;->mNextPage:I
@@ -2715,23 +2728,23 @@
     iput-boolean v5, p0, Lcom/android/launcher3/common/base/view/PagedView;->mDeferLoadAssociatedPagesUntilScrollCompletes:Z
 
     :cond_4
-    iget v5, p0, Lcom/android/launcher3/common/base/view/PagedView;->mTouchState:I
+    iget v6, p0, Lcom/android/launcher3/common/base/view/PagedView;->mTouchState:I
 
-    if-nez v5, :cond_5
+    if-nez v6, :cond_5
 
     invoke-virtual {p0}, Lcom/android/launcher3/common/base/view/PagedView;->pageEndMoving()V
 
     invoke-virtual {p0}, Lcom/android/launcher3/common/base/view/PagedView;->getScrollX()I
 
-    move-result v5
-
-    iget v6, p0, Lcom/android/launcher3/common/base/view/PagedView;->mCurrentPage:I
-
-    invoke-virtual {p0, v6}, Lcom/android/launcher3/common/base/view/PagedView;->getScrollForPage(I)I
-
     move-result v6
 
-    if-eq v5, v6, :cond_5
+    iget v7, p0, Lcom/android/launcher3/common/base/view/PagedView;->mCurrentPage:I
+
+    invoke-virtual {p0, v7}, Lcom/android/launcher3/common/base/view/PagedView;->getScrollForPage(I)I
+
+    move-result v7
+
+    if-eq v6, v7, :cond_5
 
     new-instance v1, Lcom/android/launcher3/common/base/view/PagedView$1;
 
@@ -2740,7 +2753,7 @@
     invoke-virtual {p0, v1}, Lcom/android/launcher3/common/base/view/PagedView;->post(Ljava/lang/Runnable;)Z
 
     :cond_5
-    invoke-direct {p0}, Lcom/android/launcher3/common/base/view/PagedView;->onPostReorderingAnimationCompleted()V
+    invoke-direct {p0, v5}, Lcom/android/launcher3/common/base/view/PagedView;->onPostReorderingAnimationCompleted(Z)V
 
     sget-object v5, Lcom/android/launcher3/util/Talk;->INSTANCE:Lcom/android/launcher3/util/Talk;
 
@@ -2847,13 +2860,13 @@
     :goto_1
     iput-boolean v7, p0, Lcom/android/launcher3/common/base/view/PagedView;->mUpdateOnlyCurrentPage:Z
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_3
 
-    invoke-static {}, Lcom/android/launcher3/util/event/ScrollDetector;->isHorizontalScroll()Z
+    invoke-direct {p0}, Lcom/android/launcher3/common/base/view/PagedView;->isHorizontalScroll()Z
 
     move-result v8
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_3
 
     iput v6, p0, Lcom/android/launcher3/common/base/view/PagedView;->mTouchState:I
 
@@ -2871,11 +2884,13 @@
 
     iput v7, p0, Lcom/android/launcher3/common/base/view/PagedView;->mTotalMotionX:F
 
-    iput v2, p0, Lcom/android/launcher3/common/base/view/PagedView;->mLastMotionX:F
-
     invoke-virtual {p0}, Lcom/android/launcher3/common/base/view/PagedView;->onScrollInteractionBegin()V
 
     invoke-virtual {p0}, Lcom/android/launcher3/common/base/view/PagedView;->pageBeginMoving()V
+
+    invoke-direct {p0, p1}, Lcom/android/launcher3/common/base/view/PagedView;->scrollPageOnMoveEvent(Landroid/view/MotionEvent;)Z
+
+    iput v2, p0, Lcom/android/launcher3/common/base/view/PagedView;->mLastMotionX:F
 
     move v7, v6
 
@@ -2885,6 +2900,17 @@
     move v4, v7
 
     goto :goto_1
+
+    :cond_3
+    iget-object v6, p0, Lcom/android/launcher3/common/base/view/PagedView;->mScrollDeterminator:Lcom/android/launcher3/util/event/ScrollDeterminator;
+
+    if-eqz v6, :cond_0
+
+    iget-object v6, p0, Lcom/android/launcher3/common/base/view/PagedView;->mScrollDeterminator:Lcom/android/launcher3/util/event/ScrollDeterminator;
+
+    invoke-virtual {v6}, Lcom/android/launcher3/util/event/ScrollDeterminator;->setSlopCompensation()V
+
+    goto :goto_0
 .end method
 
 .method protected dispatchDraw(Landroid/graphics/Canvas;)V
@@ -2894,7 +2920,7 @@
 
     move-result v8
 
-    if-lez v8, :cond_f
+    if-lez v8, :cond_10
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/common/base/view/PagedView;->getViewportWidth()I
 
@@ -2936,7 +2962,7 @@
 
     iget-boolean v12, v0, Lcom/android/launcher3/common/base/view/PagedView;->mIsShowingHintPages:Z
 
-    if-eqz v12, :cond_5
+    if-eqz v12, :cond_6
 
     invoke-direct/range {p0 .. p0}, Lcom/android/launcher3/common/base/view/PagedView;->getHintCenterPage()I
 
@@ -2997,13 +3023,34 @@
     iput v10, v0, Lcom/android/launcher3/common/base/view/PagedView;->mLastScreenCenter:I
 
     :cond_3
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/launcher3/common/base/view/PagedView;->mScroller:Lcom/android/launcher3/common/base/PageScroller;
+
+    invoke-virtual {v12, v7, v9}, Lcom/android/launcher3/common/base/PageScroller;->isUpdatedScreenIndex(II)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_4
+
+    new-instance v12, Lcom/android/launcher3/util/DvfsUtil;
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/common/base/view/PagedView;->getContext()Landroid/content/Context;
+
+    move-result-object v13
+
+    invoke-direct {v12, v13}, Lcom/android/launcher3/util/DvfsUtil;-><init>(Landroid/content/Context;)V
+
+    invoke-virtual {v12}, Lcom/android/launcher3/util/DvfsUtil;->boostOneFrame()V
+
+    :cond_4
     const/4 v12, -0x1
 
-    if-eq v7, v12, :cond_f
+    if-eq v7, v12, :cond_10
 
     const/4 v12, -0x1
 
-    if-eq v9, v12, :cond_f
+    if-eq v9, v12, :cond_10
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/common/base/view/PagedView;->getDrawingTime()J
 
@@ -3058,7 +3105,7 @@
     add-int/lit8 v6, v8, -0x1
 
     :goto_1
-    if-ltz v6, :cond_d
+    if-ltz v6, :cond_e
 
     move-object/from16 v0, p0
 
@@ -3070,40 +3117,40 @@
 
     iget-object v12, v0, Lcom/android/launcher3/common/base/view/PagedView;->mDragView:Landroid/view/View;
 
-    if-ne v11, v12, :cond_7
+    if-ne v11, v12, :cond_8
 
-    :cond_4
+    :cond_5
     :goto_2
     add-int/lit8 v6, v6, -0x1
 
     goto :goto_1
 
-    :cond_5
+    :cond_6
     if-ne v7, v9, :cond_0
 
     add-int/lit8 v12, v8, -0x1
 
-    if-ge v9, v12, :cond_6
+    if-ge v9, v12, :cond_7
 
     add-int/lit8 v9, v9, 0x1
 
-    :cond_6
+    :cond_7
     if-lez v7, :cond_0
 
     add-int/lit8 v7, v7, -0x1
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    :cond_7
+    :cond_8
     move-object/from16 v0, p0
 
     iget-boolean v12, v0, Lcom/android/launcher3/common/base/view/PagedView;->mForceDrawAllChildrenNextFrame:Z
 
-    if-nez v12, :cond_8
+    if-nez v12, :cond_9
 
-    if-gt v7, v6, :cond_c
+    if-gt v7, v6, :cond_d
 
-    if-gt v6, v9, :cond_c
+    if-gt v6, v9, :cond_d
 
     move-object/from16 v0, p0
 
@@ -3111,44 +3158,44 @@
 
     move-result v12
 
-    if-eqz v12, :cond_c
+    if-eqz v12, :cond_d
 
-    :cond_8
+    :cond_9
     invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportTransitionEffects()Z
 
     move-result v12
-
-    if-eqz v12, :cond_9
-
-    move-object/from16 v0, p0
-
-    iget-boolean v12, v0, Lcom/android/launcher3/common/base/view/PagedView;->mIsPageMoving:Z
 
     if-eqz v12, :cond_a
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v11, v6, v10}, Lcom/android/launcher3/common/base/view/PagedView;->updatePageTransform(Landroid/view/View;II)V
-
-    :cond_9
-    :goto_3
-    move-object/from16 v0, p0
-
-    iget-boolean v12, v0, Lcom/android/launcher3/common/base/view/PagedView;->mUpdateOnlyCurrentPage:Z
+    iget-boolean v12, v0, Lcom/android/launcher3/common/base/view/PagedView;->mIsPageMoving:Z
 
     if-eqz v12, :cond_b
 
     move-object/from16 v0, p0
 
+    invoke-virtual {v0, v11, v6, v10}, Lcom/android/launcher3/common/base/view/PagedView;->updatePageTransform(Landroid/view/View;II)V
+
+    :cond_a
+    :goto_3
+    move-object/from16 v0, p0
+
+    iget-boolean v12, v0, Lcom/android/launcher3/common/base/view/PagedView;->mUpdateOnlyCurrentPage:Z
+
+    if-eqz v12, :cond_c
+
+    move-object/from16 v0, p0
+
     iget-boolean v12, v0, Lcom/android/launcher3/common/base/view/PagedView;->mIsPageMoving:Z
 
-    if-nez v12, :cond_b
+    if-nez v12, :cond_c
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/common/base/view/PagedView;->getCurrentPage()I
 
     move-result v12
 
-    if-ne v6, v12, :cond_4
+    if-ne v6, v12, :cond_5
 
     new-instance v12, Lcom/android/launcher3/util/DvfsUtil;
 
@@ -3168,14 +3215,14 @@
 
     goto :goto_2
 
-    :cond_a
+    :cond_b
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v11}, Lcom/android/launcher3/common/base/view/PagedView;->resetTransitionEffect(Landroid/view/View;)V
 
     goto :goto_3
 
-    :cond_b
+    :cond_c
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
@@ -3184,12 +3231,12 @@
 
     goto :goto_2
 
-    :cond_c
+    :cond_d
     invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportTransitionEffects()Z
 
     move-result v12
 
-    if-eqz v12, :cond_4
+    if-eqz v12, :cond_5
 
     move-object/from16 v0, p0
 
@@ -3197,12 +3244,12 @@
 
     goto :goto_2
 
-    :cond_d
+    :cond_e
     move-object/from16 v0, p0
 
     iget-object v12, v0, Lcom/android/launcher3/common/base/view/PagedView;->mDragView:Landroid/view/View;
 
-    if-eqz v12, :cond_e
+    if-eqz v12, :cond_f
 
     move-object/from16 v0, p0
 
@@ -3214,7 +3261,7 @@
 
     invoke-virtual {v0, v1, v12, v4, v5}, Lcom/android/launcher3/common/base/view/PagedView;->drawChild(Landroid/graphics/Canvas;Landroid/view/View;J)Z
 
-    :cond_e
+    :cond_f
     const/4 v12, 0x0
 
     move-object/from16 v0, p0
@@ -3223,7 +3270,7 @@
 
     invoke-virtual/range {p1 .. p1}, Landroid/graphics/Canvas;->restore()V
 
-    :cond_f
+    :cond_10
     return-void
 .end method
 
@@ -3328,6 +3375,10 @@
     const/4 v4, 0x1
 
     const/4 v3, 0x0
+
+    iget-boolean v1, p0, Lcom/android/launcher3/common/base/view/PagedView;->mIsShowingHintPages:Z
+
+    if-eqz v1, :cond_a
 
     iget v1, p0, Lcom/android/launcher3/common/base/view/PagedView;->mScrollState:I
 
@@ -3529,6 +3580,15 @@
     iput v1, p0, Lcom/android/launcher3/common/base/view/PagedView;->mScrollState:I
 
     invoke-direct {p0}, Lcom/android/launcher3/common/base/view/PagedView;->animatePullingPages()V
+
+    goto :goto_2
+
+    :cond_a
+    const-string v1, "PagedView"
+
+    const-string v2, "Cannot drag to next page. It\'s abnormal state during dragging item."
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_2
 .end method
@@ -4039,7 +4099,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f080028
+    const v1, 0x7f090031
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -4855,10 +4915,6 @@
 
     iput v2, p0, Lcom/android/launcher3/common/base/view/PagedView;->mTouchSlop:I
 
-    iget v2, p0, Lcom/android/launcher3/common/base/view/PagedView;->mTouchSlop:I
-
-    invoke-static {v2}, Lcom/android/launcher3/util/event/ScrollDetector;->setPagedViewTouchSlop(I)V
-
     invoke-virtual {v0}, Landroid/view/ViewConfiguration;->getScaledMaximumFlingVelocity()I
 
     move-result v2
@@ -4989,6 +5045,14 @@
     const/4 v1, 0x0
 
     goto :goto_0
+.end method
+
+.method protected isScrollableToZeroPage()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
 .end method
 
 .method public isScrolling()Z
@@ -5234,6 +5298,23 @@
 
     invoke-virtual {p0}, Lcom/android/launcher3/common/base/view/PagedView;->invalidate()V
 
+    return-void
+.end method
+
+.method protected onConfigurationChangedIfNeeded()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/launcher3/common/base/view/PagedView;->mPageIndicator:Lcom/android/launcher3/common/view/PageIndicator;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/common/base/view/PagedView;->mPageIndicator:Lcom/android/launcher3/common/view/PageIndicator;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/view/PageIndicator;->offsetWindowCenterTo(Z)V
+
+    :cond_0
     return-void
 .end method
 
@@ -5573,14 +5654,6 @@
 
     invoke-virtual {p0, p1}, Lcom/android/launcher3/common/base/view/PagedView;->determineScrollingStart(Landroid/view/MotionEvent;)Z
 
-    move-result v8
-
-    if-eqz v8, :cond_3
-
-    invoke-direct {p0, p1}, Lcom/android/launcher3/common/base/view/PagedView;->scrollPageOnMoveEvent(Landroid/view/MotionEvent;)Z
-
-    invoke-virtual {p0}, Lcom/android/launcher3/common/base/view/PagedView;->invalidate()V
-
     goto :goto_1
 
     :pswitch_2
@@ -5729,6 +5802,8 @@
 
     goto/16 :goto_1
 
+    nop
+
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_2
@@ -5742,13 +5817,13 @@
 .end method
 
 .method protected onLayout(ZIIII)V
-    .locals 20
+    .locals 22
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/common/base/view/PagedView;->getChildCount()I
 
-    move-result v18
+    move-result v20
 
-    if-nez v18, :cond_1
+    if-nez v20, :cond_1
 
     :cond_0
     :goto_0
@@ -5761,183 +5836,185 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/common/base/view/PagedView;->getViewportOffsetX()I
 
-    move-result v11
+    move-result v13
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/common/base/view/PagedView;->getViewportOffsetY()I
 
-    move-result v12
+    move-result v14
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher3/common/base/view/PagedView;->mViewport:Landroid/graphics/Rect;
 
-    move-object/from16 v18, v0
+    move-object/from16 v20, v0
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v20
 
-    invoke-virtual {v0, v11, v12}, Landroid/graphics/Rect;->offset(II)V
+    invoke-virtual {v0, v13, v14}, Landroid/graphics/Rect;->offset(II)V
 
-    sget-boolean v18, Lcom/android/launcher3/Utilities;->sIsRtl:Z
+    sget-boolean v20, Lcom/android/launcher3/Utilities;->sIsRtl:Z
 
-    if-eqz v18, :cond_6
+    if-eqz v20, :cond_6
 
-    add-int/lit8 v15, v3, -0x1
+    add-int/lit8 v17, v3, -0x1
 
     :goto_1
-    sget-boolean v18, Lcom/android/launcher3/Utilities;->sIsRtl:Z
+    sget-boolean v20, Lcom/android/launcher3/Utilities;->sIsRtl:Z
 
-    if-eqz v18, :cond_7
+    if-eqz v20, :cond_7
 
-    const/4 v9, -0x1
+    const/4 v10, -0x1
 
     :goto_2
-    sget-boolean v18, Lcom/android/launcher3/Utilities;->sIsRtl:Z
+    sget-boolean v20, Lcom/android/launcher3/Utilities;->sIsRtl:Z
 
-    if-eqz v18, :cond_8
+    if-eqz v20, :cond_8
 
-    const/4 v8, -0x1
+    const/4 v9, -0x1
 
     :goto_3
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/common/base/view/PagedView;->getPaddingTop()I
 
-    move-result v18
+    move-result v20
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/common/base/view/PagedView;->getPaddingBottom()I
 
-    move-result v19
+    move-result v21
 
-    add-int v17, v18, v19
+    add-int v19, v20, v21
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/common/base/view/PagedView;->getPaddingLeft()I
 
-    move-result v18
+    move-result v20
 
-    add-int v5, v11, v18
+    add-int v5, v13, v20
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher3/common/base/view/PagedView;->mPageScrolls:[I
 
-    move-object/from16 v18, v0
+    move-object/from16 v20, v0
 
-    if-eqz v18, :cond_2
+    if-eqz v20, :cond_2
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/launcher3/common/base/view/PagedView;->mChildCountOnLastLayout:I
 
-    move/from16 v18, v0
+    move/from16 v20, v0
 
-    move/from16 v0, v18
+    move/from16 v0, v20
 
     if-eq v3, v0, :cond_3
 
     :cond_2
     new-array v0, v3, [I
 
-    move-object/from16 v18, v0
+    move-object/from16 v20, v0
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v20
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/launcher3/common/base/view/PagedView;->mPageScrolls:[I
 
     :cond_3
-    move v10, v15
+    const/4 v12, 0x0
+
+    move/from16 v11, v17
 
     :goto_4
-    if-eq v10, v9, :cond_9
+    if-eq v11, v10, :cond_a
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v10}, Lcom/android/launcher3/common/base/view/PagedView;->getPageAt(I)Landroid/view/View;
+    invoke-virtual {v0, v11}, Lcom/android/launcher3/common/base/view/PagedView;->getPageAt(I)Landroid/view/View;
 
     move-result-object v2
 
     invoke-virtual {v2}, Landroid/view/View;->getVisibility()I
 
-    move-result v18
+    move-result v20
 
-    const/16 v19, 0x8
+    const/16 v21, 0x8
 
-    move/from16 v0, v18
+    move/from16 v0, v20
 
-    move/from16 v1, v19
+    move/from16 v1, v21
 
     if-eq v0, v1, :cond_5
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/common/base/view/PagedView;->getPaddingTop()I
 
-    move-result v18
+    move-result v20
 
-    add-int v18, v18, v12
+    add-int v20, v20, v14
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher3/common/base/view/PagedView;->mInsets:Landroid/graphics/Rect;
 
-    move-object/from16 v19, v0
+    move-object/from16 v21, v0
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v21
 
     iget v0, v0, Landroid/graphics/Rect;->top:I
 
-    move/from16 v19, v0
+    move/from16 v21, v0
 
-    add-int v6, v18, v19
+    add-int v6, v20, v21
 
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/launcher3/common/base/view/PagedView;->mCenterPagesVertically:Z
 
-    move/from16 v18, v0
+    move/from16 v20, v0
 
-    if-eqz v18, :cond_4
+    if-eqz v20, :cond_4
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/common/base/view/PagedView;->getViewportHeight()I
 
-    move-result v18
+    move-result v20
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher3/common/base/view/PagedView;->mInsets:Landroid/graphics/Rect;
 
-    move-object/from16 v19, v0
+    move-object/from16 v21, v0
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v21
 
     iget v0, v0, Landroid/graphics/Rect;->top:I
 
-    move/from16 v19, v0
+    move/from16 v21, v0
 
-    sub-int v18, v18, v19
+    sub-int v20, v20, v21
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher3/common/base/view/PagedView;->mInsets:Landroid/graphics/Rect;
 
-    move-object/from16 v19, v0
+    move-object/from16 v21, v0
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v21
 
     iget v0, v0, Landroid/graphics/Rect;->bottom:I
 
-    move/from16 v19, v0
+    move/from16 v21, v0
 
-    sub-int v18, v18, v19
+    sub-int v20, v20, v21
 
-    sub-int v18, v18, v17
+    sub-int v20, v20, v19
 
     invoke-virtual {v2}, Landroid/view/View;->getMeasuredHeight()I
 
-    move-result v19
+    move-result v21
 
-    sub-int v18, v18, v19
+    sub-int v20, v20, v21
 
-    div-int/lit8 v18, v18, 0x2
+    div-int/lit8 v20, v20, 0x2
 
-    add-int v6, v6, v18
+    add-int v6, v6, v20
 
     :cond_4
     invoke-virtual {v2}, Landroid/view/View;->getMeasuredWidth()I
@@ -5948,228 +6025,261 @@
 
     move-result v4
 
+    if-le v7, v4, :cond_9
+
+    const/4 v12, 0x2
+
+    :goto_5
     invoke-virtual {v2}, Landroid/view/View;->getMeasuredWidth()I
 
-    move-result v18
+    move-result v20
 
-    add-int v18, v18, v5
+    add-int v20, v20, v5
 
-    add-int v19, v6, v4
+    add-int v21, v6, v4
 
-    move/from16 v0, v18
+    move/from16 v0, v20
 
-    move/from16 v1, v19
+    move/from16 v1, v21
 
     invoke-virtual {v2, v5, v6, v0, v1}, Landroid/view/View;->layout(IIII)V
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/common/base/view/PagedView;->getPaddingLeft()I
 
-    move-result v14
+    move-result v16
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher3/common/base/view/PagedView;->mPageScrolls:[I
 
-    move-object/from16 v18, v0
+    move-object/from16 v20, v0
 
-    sub-int v19, v5, v14
+    sub-int v21, v5, v16
 
-    sub-int v19, v19, v11
+    sub-int v21, v21, v13
 
-    aput v19, v18, v10
+    aput v21, v20, v11
 
     move-object/from16 v0, p0
 
-    iget v13, v0, Lcom/android/launcher3/common/base/view/PagedView;->mPageSpacing:I
+    iget v15, v0, Lcom/android/launcher3/common/base/view/PagedView;->mPageSpacing:I
 
-    add-int v18, v7, v13
+    add-int v20, v7, v15
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/common/base/view/PagedView;->getChildGap()I
 
-    move-result v19
+    move-result v21
 
-    add-int v18, v18, v19
+    add-int v20, v20, v21
 
-    add-int v5, v5, v18
+    add-int v5, v5, v20
 
     :cond_5
-    add-int/2addr v10, v8
+    add-int/2addr v11, v9
 
     goto/16 :goto_4
 
     :cond_6
-    const/4 v15, 0x0
+    const/16 v17, 0x0
 
     goto/16 :goto_1
 
     :cond_7
-    move v9, v3
+    move v10, v3
 
     goto/16 :goto_2
 
     :cond_8
-    const/4 v8, 0x1
+    const/4 v9, 0x1
 
     goto/16 :goto_3
 
     :cond_9
+    const/4 v12, 0x1
+
+    goto :goto_5
+
+    :cond_a
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/common/base/view/PagedView;->getLayoutTransition()Landroid/animation/LayoutTransition;
 
-    move-result-object v16
+    move-result-object v18
 
-    if-eqz v16, :cond_c
+    if-eqz v18, :cond_e
 
-    invoke-virtual/range {v16 .. v16}, Landroid/animation/LayoutTransition;->isRunning()Z
+    invoke-virtual/range {v18 .. v18}, Landroid/animation/LayoutTransition;->isRunning()Z
 
-    move-result v18
+    move-result v20
 
-    if-eqz v18, :cond_c
+    if-eqz v20, :cond_e
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher3/common/base/view/PagedView;->mTransitionListener:Landroid/animation/LayoutTransition$TransitionListener;
 
-    move-object/from16 v18, v0
+    move-object/from16 v20, v0
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v18
 
-    move-object/from16 v1, v18
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v1}, Landroid/animation/LayoutTransition;->addTransitionListener(Landroid/animation/LayoutTransition$TransitionListener;)V
 
-    :goto_5
+    :goto_6
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/common/base/view/PagedView;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v20
+
+    invoke-virtual/range {v20 .. v20}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v20
+
+    move-object/from16 v0, v20
+
+    iget v8, v0, Landroid/content/res/Configuration;->orientation:I
+
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/launcher3/common/base/view/PagedView;->mFirstLayout:Z
 
-    move/from16 v18, v0
+    move/from16 v20, v0
 
-    if-eqz v18, :cond_a
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/launcher3/common/base/view/PagedView;->mCurrentPage:I
-
-    move/from16 v18, v0
-
-    if-ltz v18, :cond_a
+    if-eqz v20, :cond_b
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/launcher3/common/base/view/PagedView;->mCurrentPage:I
 
-    move/from16 v18, v0
+    move/from16 v20, v0
 
-    move/from16 v0, v18
+    if-ltz v20, :cond_b
 
-    if-ge v0, v3, :cond_a
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/launcher3/common/base/view/PagedView;->mCurrentPage:I
+
+    move/from16 v20, v0
+
+    move/from16 v0, v20
+
+    if-ge v0, v3, :cond_b
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/common/base/view/PagedView;->updateCurrentPageScroll()V
 
-    const/16 v18, 0x0
+    const/16 v20, 0x0
 
-    move/from16 v0, v18
+    move/from16 v0, v20
 
     move-object/from16 v1, p0
 
     iput-boolean v0, v1, Lcom/android/launcher3/common/base/view/PagedView;->mFirstLayout:Z
 
-    :cond_a
+    :cond_b
+    if-eq v8, v12, :cond_c
+
+    const/16 v20, 0x1
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/base/view/PagedView;->setFirstLayout(Z)V
+
+    :cond_c
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher3/common/base/view/PagedView;->mScroller:Lcom/android/launcher3/common/base/PageScroller;
 
-    move-object/from16 v18, v0
+    move-object/from16 v20, v0
 
-    invoke-virtual/range {v18 .. v18}, Lcom/android/launcher3/common/base/PageScroller;->isFinished()Z
+    invoke-virtual/range {v20 .. v20}, Lcom/android/launcher3/common/base/PageScroller;->isFinished()Z
 
-    move-result v18
+    move-result v20
 
-    if-eqz v18, :cond_b
+    if-eqz v20, :cond_d
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/launcher3/common/base/view/PagedView;->mChildCountOnLastLayout:I
 
-    move/from16 v18, v0
+    move/from16 v20, v0
 
-    move/from16 v0, v18
+    move/from16 v0, v20
 
-    if-eq v0, v3, :cond_b
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/launcher3/common/base/view/PagedView;->mRestorePage:I
-
-    move/from16 v18, v0
-
-    const/16 v19, -0x3e9
-
-    move/from16 v0, v18
-
-    move/from16 v1, v19
-
-    if-eq v0, v1, :cond_d
+    if-eq v0, v3, :cond_d
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/launcher3/common/base/view/PagedView;->mRestorePage:I
 
-    move/from16 v18, v0
+    move/from16 v20, v0
+
+    const/16 v21, -0x3e9
+
+    move/from16 v0, v20
+
+    move/from16 v1, v21
+
+    if-eq v0, v1, :cond_f
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v18
+    iget v0, v0, Lcom/android/launcher3/common/base/view/PagedView;->mRestorePage:I
+
+    move/from16 v20, v0
+
+    move-object/from16 v0, p0
+
+    move/from16 v1, v20
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/common/base/view/PagedView;->setCurrentPage(I)V
 
-    const/16 v18, -0x3e9
+    const/16 v20, -0x3e9
 
-    move/from16 v0, v18
+    move/from16 v0, v20
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/launcher3/common/base/view/PagedView;->mRestorePage:I
 
-    :cond_b
-    :goto_6
+    :cond_d
+    :goto_7
     move-object/from16 v0, p0
 
     iput v3, v0, Lcom/android/launcher3/common/base/view/PagedView;->mChildCountOnLastLayout:I
 
-    const/16 v18, 0x1
+    const/16 v20, 0x1
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v18
+    move/from16 v1, v20
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/common/base/view/PagedView;->isReordering(Z)Z
 
-    move-result v18
+    move-result v20
 
-    if-eqz v18, :cond_0
+    if-eqz v20, :cond_0
 
     invoke-direct/range {p0 .. p0}, Lcom/android/launcher3/common/base/view/PagedView;->updateDragViewTranslationDuringDrag()V
 
     goto/16 :goto_0
 
-    :cond_c
+    :cond_e
     invoke-direct/range {p0 .. p0}, Lcom/android/launcher3/common/base/view/PagedView;->updateMaxScrollX()V
 
-    goto :goto_5
+    goto/16 :goto_6
 
-    :cond_d
+    :cond_f
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/common/base/view/PagedView;->getNextPage()I
 
-    move-result v18
+    move-result v20
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v18
+    move/from16 v1, v20
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/common/base/view/PagedView;->setCurrentPage(I)V
 
-    goto :goto_6
+    goto :goto_7
 .end method
 
 .method protected onMeasure(II)V
@@ -6910,7 +7020,7 @@
 
     if-ne v0, v1, :cond_3
 
-    invoke-static {}, Lcom/android/launcher3/util/event/ScrollDetector;->isHorizontalScroll()Z
+    invoke-direct/range {p0 .. p0}, Lcom/android/launcher3/common/base/view/PagedView;->isHorizontalScroll()Z
 
     move-result v22
 
@@ -8235,23 +8345,43 @@
 .end method
 
 .method public scrollLeft()V
-    .locals 1
+    .locals 2
 
     invoke-virtual {p0}, Lcom/android/launcher3/common/base/view/PagedView;->getNextPage()I
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-gtz v0, :cond_0
 
-    invoke-virtual {p0}, Lcom/android/launcher3/common/base/view/PagedView;->getNextPage()I
+    if-nez v0, :cond_2
 
-    move-result v0
+    invoke-virtual {p0}, Lcom/android/launcher3/common/base/view/PagedView;->isScrollableToZeroPage()Z
 
-    add-int/lit8 v0, v0, -0x1
+    move-result v1
 
-    invoke-virtual {p0, v0}, Lcom/android/launcher3/common/base/view/PagedView;->snapToPage(I)V
+    if-eqz v1, :cond_2
 
     :cond_0
+    invoke-virtual {p0}, Lcom/android/launcher3/common/base/view/PagedView;->isScrolling()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/launcher3/common/base/view/PagedView;->cancelDeferLoadAssociatedPagesUntilScrollCompletes()V
+
+    invoke-virtual {p0, v0}, Lcom/android/launcher3/common/base/view/PagedView;->setCurrentPage(I)V
+
+    :cond_1
+    add-int/lit8 v1, v0, -0x1
+
+    invoke-virtual {p0, v1}, Lcom/android/launcher3/common/base/view/PagedView;->loadAssociatedPages(I)V
+
+    add-int/lit8 v1, v0, -0x1
+
+    invoke-virtual {p0, v1}, Lcom/android/launcher3/common/base/view/PagedView;->snapToPage(I)V
+
+    :cond_2
     return-void
 .end method
 
@@ -8268,17 +8398,28 @@
 
     add-int/lit8 v1, v1, -0x1
 
-    if-ge v0, v1, :cond_0
+    if-ge v0, v1, :cond_1
 
-    invoke-virtual {p0}, Lcom/android/launcher3/common/base/view/PagedView;->getNextPage()I
+    invoke-virtual {p0}, Lcom/android/launcher3/common/base/view/PagedView;->isScrolling()Z
 
-    move-result v0
+    move-result v1
 
-    add-int/lit8 v0, v0, 0x1
+    if-eqz v1, :cond_0
 
-    invoke-virtual {p0, v0}, Lcom/android/launcher3/common/base/view/PagedView;->snapToPage(I)V
+    invoke-virtual {p0}, Lcom/android/launcher3/common/base/view/PagedView;->cancelDeferLoadAssociatedPagesUntilScrollCompletes()V
+
+    invoke-virtual {p0, v0}, Lcom/android/launcher3/common/base/view/PagedView;->setCurrentPage(I)V
 
     :cond_0
+    add-int/lit8 v1, v0, 0x1
+
+    invoke-virtual {p0, v1}, Lcom/android/launcher3/common/base/view/PagedView;->loadAssociatedPages(I)V
+
+    add-int/lit8 v1, v0, 0x1
+
+    invoke-virtual {p0, v1}, Lcom/android/launcher3/common/base/view/PagedView;->snapToPage(I)V
+
+    :cond_1
     return-void
 .end method
 
@@ -8644,7 +8785,19 @@
 .end method
 
 .method public setCrosshairsVisibilityChilds(I)V
-    .locals 6
+    .locals 1
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, p1, v0}, Lcom/android/launcher3/common/base/view/PagedView;->setCrosshairsVisibilityChilds(IZ)V
+
+    return-void
+.end method
+
+.method public setCrosshairsVisibilityChilds(IZ)V
+    .locals 7
+
+    const/4 v4, 0x0
 
     invoke-virtual {p0}, Lcom/android/launcher3/common/base/view/PagedView;->getChildCount()I
 
@@ -8653,7 +8806,7 @@
     const/4 v3, 0x0
 
     :goto_0
-    if-ge v3, v2, :cond_2
+    if-ge v3, v2, :cond_3
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/common/base/view/PagedView;->getPageAt(I)Landroid/view/View;
 
@@ -8663,15 +8816,17 @@
 
     if-eqz v1, :cond_0
 
+    if-eqz p2, :cond_2
+
     invoke-virtual {p0}, Lcom/android/launcher3/common/base/view/PagedView;->getCurrentPage()I
-
-    move-result v4
-
-    invoke-virtual {p0, v1}, Lcom/android/launcher3/common/base/view/PagedView;->indexOfChild(Landroid/view/View;)I
 
     move-result v5
 
-    if-ne v4, v5, :cond_1
+    invoke-virtual {p0, v1}, Lcom/android/launcher3/common/base/view/PagedView;->indexOfChild(Landroid/view/View;)I
+
+    move-result v6
+
+    if-ne v5, v6, :cond_1
 
     const/4 v0, 0x1
 
@@ -8684,11 +8839,16 @@
     goto :goto_0
 
     :cond_1
-    const/4 v0, 0x0
+    move v0, v4
 
     goto :goto_1
 
     :cond_2
+    move v0, v4
+
+    goto :goto_1
+
+    :cond_3
     return-void
 .end method
 
@@ -8769,6 +8929,12 @@
     iget-object v1, p0, Lcom/android/launcher3/common/base/view/PagedView;->mDefaultInterpolator:Landroid/view/animation/Interpolator;
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/common/base/PageScroller;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+
+    return-void
+.end method
+
+.method protected setFirstLayout(Z)V
+    .locals 0
 
     return-void
 .end method
@@ -8935,6 +9101,14 @@
     invoke-direct {p0}, Lcom/android/launcher3/common/base/view/PagedView;->updateDragViewTranslationDuringDrag()V
 
     :cond_0
+    return-void
+.end method
+
+.method public setScrollDeterminator(Lcom/android/launcher3/util/event/ScrollDeterminator;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/launcher3/common/base/view/PagedView;->mScrollDeterminator:Lcom/android/launcher3/util/event/ScrollDeterminator;
+
     return-void
 .end method
 
@@ -9646,6 +9820,16 @@
     if-lez v4, :cond_2
 
     :cond_1
+    new-instance v4, Lcom/android/launcher3/util/DvfsUtil;
+
+    invoke-virtual {p0}, Lcom/android/launcher3/common/base/view/PagedView;->getContext()Landroid/content/Context;
+
+    move-result-object v5
+
+    invoke-direct {v4, v5}, Lcom/android/launcher3/util/DvfsUtil;-><init>(Landroid/content/Context;)V
+
+    invoke-virtual {v4}, Lcom/android/launcher3/util/DvfsUtil;->boostOneFrame()V
+
     invoke-direct {p0, p1, v3, v2}, Lcom/android/launcher3/common/base/view/PagedView;->overscrollEffect(Landroid/view/View;FI)V
 
     :cond_2

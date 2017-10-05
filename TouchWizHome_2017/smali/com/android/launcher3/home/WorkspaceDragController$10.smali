@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/WorkspaceDragController;->onDropExternalFromOther(Lcom/android/launcher3/common/drag/DropTarget$DragObject;)V
+    value = Lcom/android/launcher3/home/WorkspaceDragController;->animateWidgetDrop(Lcom/android/launcher3/common/base/item/ItemInfo;Lcom/android/launcher3/common/base/view/CellLayout;Lcom/android/launcher3/common/drag/DragView;Ljava/lang/Runnable;ILandroid/view/View;Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,20 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/home/WorkspaceDragController;
 
-.field final synthetic val$cancelDrop:Z
+.field final synthetic val$finalView:Landroid/view/View;
 
-.field final synthetic val$secondObjects:Ljava/util/ArrayList;
+.field final synthetic val$onCompleteRunnable:Ljava/lang/Runnable;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/home/WorkspaceDragController;Ljava/util/ArrayList;Z)V
+.method constructor <init>(Lcom/android/launcher3/home/WorkspaceDragController;Landroid/view/View;Ljava/lang/Runnable;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/home/WorkspaceDragController$10;->this$0:Lcom/android/launcher3/home/WorkspaceDragController;
 
-    iput-object p2, p0, Lcom/android/launcher3/home/WorkspaceDragController$10;->val$secondObjects:Ljava/util/ArrayList;
+    iput-object p2, p0, Lcom/android/launcher3/home/WorkspaceDragController$10;->val$finalView:Landroid/view/View;
 
-    iput-boolean p3, p0, Lcom/android/launcher3/home/WorkspaceDragController$10;->val$cancelDrop:Z
+    iput-object p3, p0, Lcom/android/launcher3/home/WorkspaceDragController$10;->val$onCompleteRunnable:Ljava/lang/Runnable;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,23 +43,27 @@
 
 # virtual methods
 .method public run()V
-    .locals 7
+    .locals 2
 
-    const/4 v3, 0x0
+    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceDragController$10;->val$finalView:Landroid/view/View;
 
-    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceDragController$10;->this$0:Lcom/android/launcher3/home/WorkspaceDragController;
+    if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceDragController$10;->val$secondObjects:Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceDragController$10;->val$finalView:Landroid/view/View;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    iget-boolean v5, p0, Lcom/android/launcher3/home/WorkspaceDragController$10;->val$cancelDrop:Z
+    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    const/4 v6, 0x1
+    :cond_0
+    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceDragController$10;->val$onCompleteRunnable:Ljava/lang/Runnable;
 
-    move v4, v3
+    if-eqz v0, :cond_1
 
-    invoke-static/range {v0 .. v6}, Lcom/android/launcher3/home/WorkspaceDragController;->access$500(Lcom/android/launcher3/home/WorkspaceDragController;Ljava/util/ArrayList;Ljava/lang/Runnable;ZZZZ)V
+    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceDragController$10;->val$onCompleteRunnable:Ljava/lang/Runnable;
 
+    invoke-interface {v0}, Ljava/lang/Runnable;->run()V
+
+    :cond_1
     return-void
 .end method

@@ -15,10 +15,10 @@
                 <bitmap android:src="@drawable/btn_check_to_on_mtrl_000" />
             </item>
             <item android:duration="10">
-                <bitmap android:src="@drawable/btn_check_to_on_mtrl_001" />
+                <bitmap android:src="@drawable/btn_check_to_on_mtrl_000" />
             </item>
             <item android:duration="10">
-                <bitmap android:src="@drawable/btn_check_to_on_mtrl_002" />
+                <bitmap android:src="@drawable/btn_check_to_on_mtrl_000" />
             </item>
             <item android:duration="10">
                 <bitmap android:src="@drawable/btn_check_to_on_mtrl_003" />
@@ -60,7 +60,7 @@
                 <bitmap android:src="@drawable/btn_check_to_on_mtrl_015" />
             </item>
             <item android:duration="10">
-                <bitmap android:src="@drawable/btn_check_to_on_mtrl_016" />
+                <bitmap android:src="@drawable/btn_check_to_on_mtrl_015" />
             </item>
             <item android:duration="10">
                 <bitmap android:src="@drawable/btn_check_to_on_mtrl_017" />

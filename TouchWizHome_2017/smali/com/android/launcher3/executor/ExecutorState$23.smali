@@ -31,11 +31,11 @@
 .method public create()Lcom/android/launcher3/executor/StateHandler;
     .locals 2
 
-    new-instance v0, Lcom/android/launcher3/executor/HomeFolderPageMoveStateHandler;
+    new-instance v0, Lcom/android/launcher3/executor/HomeFolderCloseStateHandler;
 
-    sget-object v1, Lcom/android/launcher3/executor/ExecutorState;->HOME_FOLDER_PAGE_MOVE:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v1, Lcom/android/launcher3/executor/ExecutorState;->HOME_FOLDER_CLOSE:Lcom/android/launcher3/executor/ExecutorState;
 
-    invoke-direct {v0, v1}, Lcom/android/launcher3/executor/HomeFolderPageMoveStateHandler;-><init>(Lcom/android/launcher3/executor/ExecutorState;)V
+    invoke-direct {v0, v1}, Lcom/android/launcher3/executor/HomeFolderCloseStateHandler;-><init>(Lcom/android/launcher3/executor/ExecutorState;)V
 
     return-object v0
 .end method

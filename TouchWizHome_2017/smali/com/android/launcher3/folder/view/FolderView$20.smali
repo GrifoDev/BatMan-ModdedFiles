@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/folder/view/FolderView;->getItemsInReadingOrder()Ljava/util/ArrayList;
+    value = Lcom/android/launcher3/folder/view/FolderView;->getViewForInfo(Lcom/android/launcher3/common/base/item/IconInfo;)Landroid/view/View;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,12 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/folder/view/FolderView;
 
+.field final synthetic val$item:Lcom/android/launcher3/common/base/item/IconInfo;
+
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/folder/view/FolderView;)V
+.method constructor <init>(Lcom/android/launcher3/folder/view/FolderView;Lcom/android/launcher3/common/base/item/IconInfo;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/folder/view/FolderView$20;->this$0:Lcom/android/launcher3/folder/view/FolderView;
+
+    iput-object p2, p0, Lcom/android/launcher3/folder/view/FolderView$20;->val$item:Lcom/android/launcher3/common/base/item/IconInfo;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -37,15 +41,17 @@
 .method public evaluate(Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/view/View;Landroid/view/View;)Z
     .locals 1
 
-    iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderView$20;->this$0:Lcom/android/launcher3/folder/view/FolderView;
+    iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderView$20;->val$item:Lcom/android/launcher3/common/base/item/IconInfo;
 
-    invoke-static {v0}, Lcom/android/launcher3/folder/view/FolderView;->access$1700(Lcom/android/launcher3/folder/view/FolderView;)Ljava/util/ArrayList;
+    if-ne p1, v0, :cond_0
 
-    move-result-object v0
+    const/4 v0, 0x1
 
-    invoke-virtual {v0, p2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    :goto_0
+    return v0
 
+    :cond_0
     const/4 v0, 0x0
 
-    return v0
+    goto :goto_0
 .end method

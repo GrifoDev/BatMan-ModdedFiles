@@ -103,7 +103,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0042
+    const v1, 0x7f0d004e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -117,7 +117,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0028
+    const v1, 0x7f0d0033
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -131,7 +131,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0026
+    const v1, 0x7f0d0031
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -145,7 +145,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0027
+    const v1, 0x7f0d0032
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -223,7 +223,7 @@
 .end method
 
 .method private animateAddItemStart(Landroid/animation/AnimatorSet;Lcom/android/launcher3/folder/view/FolderView;Ljava/util/ArrayList;)V
-    .locals 6
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -247,17 +247,17 @@
     :cond_1
     invoke-virtual {p3}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    move-result-object v3
+    move-result-object v5
 
     :cond_2
     :goto_1
-    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v4
+    move-result v6
 
-    if-eqz v4, :cond_3
+    if-eqz v6, :cond_3
 
-    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v2
 
@@ -265,15 +265,15 @@
 
     invoke-virtual {p2}, Lcom/android/launcher3/folder/view/FolderView;->getInfo()Lcom/android/launcher3/folder/FolderInfo;
 
-    move-result-object v4
+    move-result-object v6
 
-    iget-object v4, v4, Lcom/android/launcher3/folder/FolderInfo;->contents:Ljava/util/ArrayList;
+    iget-object v6, v6, Lcom/android/launcher3/folder/FolderInfo;->contents:Ljava/util/ArrayList;
 
-    invoke-virtual {v4, v2}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v2}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v6
 
-    if-eqz v4, :cond_2
+    if-eqz v6, :cond_2
 
     invoke-virtual {p2, v2}, Lcom/android/launcher3/folder/view/FolderView;->getViewForInfo(Lcom/android/launcher3/common/base/item/IconInfo;)Landroid/view/View;
 
@@ -281,40 +281,54 @@
 
     if-eqz v1, :cond_2
 
-    const/4 v4, 0x0
+    invoke-virtual {v1}, Landroid/view/View;->getScaleX()F
 
-    invoke-virtual {v1, v4}, Landroid/view/View;->setAlpha(F)V
+    move-result v3
 
-    iget-object v4, p0, Lcom/android/launcher3/folder/FolderTransitionAnimation;->mLauncher:Lcom/android/launcher3/Launcher;
+    invoke-virtual {v1}, Landroid/view/View;->getScaleY()F
 
-    const v5, 0x7f05000f
+    move-result v4
 
-    invoke-static {v4, v5}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
+    const/4 v6, 0x0
+
+    invoke-virtual {v1, v6}, Landroid/view/View;->setAlpha(F)V
+
+    iget-object v6, p0, Lcom/android/launcher3/folder/FolderTransitionAnimation;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    const v7, 0x7f060010
+
+    invoke-static {v6, v7}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
     move-result-object v0
 
     invoke-virtual {v0, v1}, Landroid/animation/Animator;->setTarget(Ljava/lang/Object;)V
 
-    iget v4, p0, Lcom/android/launcher3/folder/FolderTransitionAnimation;->mAddItemsStartDelay:I
+    iget v6, p0, Lcom/android/launcher3/folder/FolderTransitionAnimation;->mAddItemsStartDelay:I
 
-    int-to-long v4, v4
+    int-to-long v6, v6
 
-    invoke-virtual {v0, v4, v5}, Landroid/animation/Animator;->setStartDelay(J)V
+    invoke-virtual {v0, v6, v7}, Landroid/animation/Animator;->setStartDelay(J)V
 
-    iget-object v4, p0, Lcom/android/launcher3/folder/FolderTransitionAnimation;->mSineInOut33:Landroid/view/animation/Interpolator;
+    iget-object v6, p0, Lcom/android/launcher3/folder/FolderTransitionAnimation;->mSineInOut33:Landroid/view/animation/Interpolator;
 
-    invoke-virtual {v0, v4}, Landroid/animation/Animator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+    invoke-virtual {v0, v6}, Landroid/animation/Animator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+
+    new-instance v6, Lcom/android/launcher3/folder/FolderTransitionAnimation$4;
+
+    invoke-direct {v6, p0, v1, v3, v4}, Lcom/android/launcher3/folder/FolderTransitionAnimation$4;-><init>(Lcom/android/launcher3/folder/FolderTransitionAnimation;Landroid/view/View;FF)V
+
+    invoke-virtual {v0, v6}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
     invoke-virtual {p1, v0}, Landroid/animation/AnimatorSet;->play(Landroid/animation/Animator;)Landroid/animation/AnimatorSet$Builder;
 
     goto :goto_1
 
     :cond_3
-    new-instance v3, Lcom/android/launcher3/folder/FolderTransitionAnimation$4;
+    new-instance v5, Lcom/android/launcher3/folder/FolderTransitionAnimation$5;
 
-    invoke-direct {v3, p0, p2}, Lcom/android/launcher3/folder/FolderTransitionAnimation$4;-><init>(Lcom/android/launcher3/folder/FolderTransitionAnimation;Lcom/android/launcher3/folder/view/FolderView;)V
+    invoke-direct {v5, p0, p2}, Lcom/android/launcher3/folder/FolderTransitionAnimation$5;-><init>(Lcom/android/launcher3/folder/FolderTransitionAnimation;Lcom/android/launcher3/folder/view/FolderView;)V
 
-    invoke-virtual {p1, v3}, Landroid/animation/AnimatorSet;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+    invoke-virtual {p1, v5}, Landroid/animation/AnimatorSet;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
     goto :goto_0
 .end method
@@ -494,7 +508,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/folder/FolderTransitionAnimation;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v2, 0x7f050005
+    const v2, 0x7f060005
 
     invoke-static {v1, v2}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -524,7 +538,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/folder/FolderTransitionAnimation;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v2, 0x7f05000b
+    const v2, 0x7f06000b
 
     invoke-static {v1, v2}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -1055,7 +1069,7 @@
 
     const/4 v4, 0x0
 
-    if-eqz p2, :cond_3
+    if-eqz p2, :cond_4
 
     invoke-virtual {p2}, Lcom/android/launcher3/folder/view/FolderView;->getBorder()Landroid/view/View;
 
@@ -1067,7 +1081,7 @@
 
     invoke-direct {p0}, Lcom/android/launcher3/folder/FolderTransitionAnimation;->cancelStateAnimation()V
 
-    if-eqz p1, :cond_7
+    if-eqz p1, :cond_8
 
     invoke-static {}, Lcom/android/launcher3/util/animation/LauncherAnimUtils;->createAnimatorSet()Landroid/animation/AnimatorSet;
 
@@ -1077,14 +1091,14 @@
 
     if-eqz v0, :cond_0
 
-    if-eqz p3, :cond_4
+    if-eqz p3, :cond_5
 
     move v3, v4
 
     :goto_0
     invoke-virtual {v0, v3}, Landroid/view/View;->setAlpha(F)V
 
-    if-eqz p3, :cond_5
+    if-eqz p3, :cond_6
 
     move v3, v6
 
@@ -1104,7 +1118,7 @@
 
     new-array v6, v6, [F
 
-    if-eqz p3, :cond_6
+    if-eqz p3, :cond_7
 
     :goto_2
     aput v4, v6, v7
@@ -1124,6 +1138,21 @@
     invoke-virtual {v3, v2}, Landroid/animation/AnimatorSet;->play(Landroid/animation/Animator;)Landroid/animation/AnimatorSet$Builder;
 
     :cond_1
+    if-nez p3, :cond_2
+
+    iget v3, p0, Lcom/android/launcher3/folder/FolderTransitionAnimation;->mStateTransitionDuration:I
+
+    int-to-float v3, v3
+
+    const/high16 v4, 0x3fc00000    # 1.5f
+
+    mul-float/2addr v3, v4
+
+    float-to-long v4, v3
+
+    invoke-virtual {p2, v4, v5}, Lcom/android/launcher3/folder/view/FolderView;->setSuppressFolderNameFocus(J)V
+
+    :cond_2
     iget-object v3, p0, Lcom/android/launcher3/folder/FolderTransitionAnimation;->mStateAnimator:Landroid/animation/AnimatorSet;
 
     new-instance v4, Lcom/android/launcher3/folder/FolderTransitionAnimation$2;
@@ -1132,85 +1161,85 @@
 
     invoke-virtual {v3, v4}, Landroid/animation/AnimatorSet;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
-    :cond_2
+    :cond_3
     :goto_3
     invoke-direct {p0, p2, p3}, Lcom/android/launcher3/folder/FolderTransitionAnimation;->changeDragBackground(Lcom/android/launcher3/folder/view/FolderView;Z)V
 
-    :cond_3
+    :cond_4
     iget-object v3, p0, Lcom/android/launcher3/folder/FolderTransitionAnimation;->mStateAnimator:Landroid/animation/AnimatorSet;
 
     return-object v3
 
-    :cond_4
+    :cond_5
     move v3, v5
 
     goto :goto_0
 
-    :cond_5
+    :cond_6
     move v3, v7
 
     goto :goto_1
 
-    :cond_6
+    :cond_7
     move v4, v5
 
     goto :goto_2
 
-    :cond_7
-    if-eqz v0, :cond_8
+    :cond_8
+    if-eqz v0, :cond_9
 
-    if-eqz p3, :cond_9
+    if-eqz p3, :cond_a
 
     move v3, v4
 
     :goto_4
     invoke-virtual {v0, v3}, Landroid/view/View;->setAlpha(F)V
 
-    if-eqz p3, :cond_a
+    if-eqz p3, :cond_b
 
     move v3, v6
 
     :goto_5
     invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
 
-    :cond_8
-    if-eqz v1, :cond_2
+    :cond_9
+    if-eqz v1, :cond_3
 
-    if-eqz p3, :cond_b
+    if-eqz p3, :cond_c
 
     :goto_6
     invoke-virtual {v1, v4}, Landroid/view/View;->setAlpha(F)V
 
-    if-eqz p3, :cond_c
+    if-eqz p3, :cond_d
 
     :goto_7
     invoke-virtual {v1, v6}, Landroid/view/View;->setVisibility(I)V
 
     goto :goto_3
 
-    :cond_9
+    :cond_a
     move v3, v5
 
     goto :goto_4
 
-    :cond_a
+    :cond_b
     move v3, v7
 
     goto :goto_5
 
-    :cond_b
+    :cond_c
     move v4, v5
 
     goto :goto_6
 
-    :cond_c
+    :cond_d
     move v6, v7
 
     goto :goto_7
 .end method
 
 .method public getEnterFromFolderAddAppsAnimation(Lcom/android/launcher3/folder/view/FolderView;Ljava/util/ArrayList;)Landroid/animation/Animator;
-    .locals 1
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1240,6 +1269,18 @@
     iget-object v0, p0, Lcom/android/launcher3/folder/FolderTransitionAnimation;->mStageAnimator:Landroid/animation/AnimatorSet;
 
     invoke-direct {p0, v0, p1, p2}, Lcom/android/launcher3/folder/FolderTransitionAnimation;->animateAddItemStart(Landroid/animation/AnimatorSet;Lcom/android/launcher3/folder/view/FolderView;Ljava/util/ArrayList;)V
+
+    iget v0, p0, Lcom/android/launcher3/folder/FolderTransitionAnimation;->mFolderExpandDuration:I
+
+    int-to-float v0, v0
+
+    const/high16 v1, 0x3fc00000    # 1.5f
+
+    mul-float/2addr v0, v1
+
+    float-to-long v0, v0
+
+    invoke-virtual {p1, v0, v1}, Lcom/android/launcher3/folder/view/FolderView;->setSuppressFolderNameFocus(J)V
 
     :cond_0
     iget-object v0, p0, Lcom/android/launcher3/folder/FolderTransitionAnimation;->mStageAnimator:Landroid/animation/AnimatorSet;
@@ -1298,8 +1339,20 @@
 
     invoke-virtual {v2, v3, p2, v4, v5}, Lcom/android/launcher3/folder/FolderTransitionAnimation$FakeFolderIconAnimation;->animateOpen(Landroid/animation/AnimatorSet;Landroid/view/View;J)V
 
-    :cond_0
     :goto_0
+    iget v2, p0, Lcom/android/launcher3/folder/FolderTransitionAnimation;->mFolderExpandDuration:I
+
+    int-to-float v2, v2
+
+    const/high16 v3, 0x3fc00000    # 1.5f
+
+    mul-float/2addr v2, v3
+
+    float-to-long v2, v2
+
+    invoke-virtual {p1, v2, v3}, Lcom/android/launcher3/folder/view/FolderView;->setSuppressFolderNameFocus(J)V
+
+    :cond_0
     iget-object v2, p0, Lcom/android/launcher3/folder/FolderTransitionAnimation;->mStageAnimator:Landroid/animation/AnimatorSet;
 
     return-object v2

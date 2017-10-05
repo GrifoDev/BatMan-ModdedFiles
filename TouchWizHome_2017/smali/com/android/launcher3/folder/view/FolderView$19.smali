@@ -3,12 +3,12 @@
 .source "FolderView.java"
 
 # interfaces
-.implements Lcom/android/launcher3/common/base/item/ItemOperator;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/folder/view/FolderView;->getViewForInfo(Lcom/android/launcher3/common/base/item/IconInfo;)Landroid/view/View;
+    value = Lcom/android/launcher3/folder/view/FolderView;->replaceFolderWithFinalItem()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,16 +20,12 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-.field final synthetic val$item:Lcom/android/launcher3/common/base/item/IconInfo;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/folder/view/FolderView;Lcom/android/launcher3/common/base/item/IconInfo;)V
+.method constructor <init>(Lcom/android/launcher3/folder/view/FolderView;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/folder/view/FolderView$19;->this$0:Lcom/android/launcher3/folder/view/FolderView;
-
-    iput-object p2, p0, Lcom/android/launcher3/folder/view/FolderView$19;->val$item:Lcom/android/launcher3/common/base/item/IconInfo;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,20 +34,34 @@
 
 
 # virtual methods
-.method public evaluate(Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/view/View;Landroid/view/View;)Z
-    .locals 1
+.method public run()V
+    .locals 4
 
-    iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderView$19;->val$item:Lcom/android/launcher3/common/base/item/IconInfo;
+    iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderView$19;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-    if-ne p1, v0, :cond_0
+    invoke-static {v0}, Lcom/android/launcher3/folder/view/FolderView;->access$1700(Lcom/android/launcher3/folder/view/FolderView;)Lcom/android/launcher3/common/base/controller/ControllerBase;
 
-    const/4 v0, 0x1
+    move-result-object v0
 
-    :goto_0
-    return v0
+    iget-object v1, p0, Lcom/android/launcher3/folder/view/FolderView$19;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-    :cond_0
-    const/4 v0, 0x0
+    invoke-static {v1}, Lcom/android/launcher3/folder/view/FolderView;->access$500(Lcom/android/launcher3/folder/view/FolderView;)Lcom/android/launcher3/folder/FolderInfo;
 
-    goto :goto_0
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/launcher3/folder/view/FolderView$19;->this$0:Lcom/android/launcher3/folder/view/FolderView;
+
+    invoke-virtual {v2}, Lcom/android/launcher3/folder/view/FolderView;->getItemCount()I
+
+    move-result v2
+
+    iget-object v3, p0, Lcom/android/launcher3/folder/view/FolderView$19;->this$0:Lcom/android/launcher3/folder/view/FolderView;
+
+    invoke-static {v3}, Lcom/android/launcher3/folder/view/FolderView;->access$900(Lcom/android/launcher3/folder/view/FolderView;)Lcom/android/launcher3/folder/view/FolderIconView;
+
+    move-result-object v3
+
+    invoke-interface {v0, v1, v2, v3}, Lcom/android/launcher3/common/base/controller/ControllerBase;->replaceFolderWithFinalItem(Lcom/android/launcher3/common/base/item/ItemInfo;ILandroid/view/View;)V
+
+    return-void
 .end method

@@ -6,7 +6,7 @@
 # static fields
 .field private static final DEBUG:Z = false
 
-.field private static final TAG:Ljava/lang/String; = "FragmentStatePagerAdapter"
+.field private static final TAG:Ljava/lang/String; = "FragmentStatePagerAdapt"
 
 
 # instance fields
@@ -413,7 +413,7 @@
     goto :goto_1
 
     :cond_3
-    const-string v8, "FragmentStatePagerAdapter"
+    const-string v8, "FragmentStatePagerAdapt"
 
     new-instance v9, Ljava/lang/StringBuilder;
 

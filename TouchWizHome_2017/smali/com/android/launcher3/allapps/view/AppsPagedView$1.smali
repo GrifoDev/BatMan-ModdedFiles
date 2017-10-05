@@ -35,21 +35,11 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 1
 
     invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
     move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/launcher3/LauncherAppState;->getModel()Lcom/android/launcher3/LauncherModel;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/launcher3/LauncherModel;->getAppsLoader()Lcom/android/launcher3/allapps/model/AppsLoader;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/launcher3/allapps/model/AppsLoader;->bindRemainingSynchronousPages()V
 
     return-void
 .end method

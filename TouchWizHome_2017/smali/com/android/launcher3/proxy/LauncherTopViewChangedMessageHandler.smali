@@ -16,6 +16,8 @@
 
 .field public static final LAUNCHER_VIEW_APPS_GRID_CHANGE:I = 0x18
 
+.field public static final LAUNCHER_VIEW_APPS_SORT_OPTION_POPUP:I = 0x19
+
 .field public static final LAUNCHER_VIEW_APPS_TIDY_UP_PREVIEW_VIEW:I = 0xa
 
 .field public static final LAUNCHER_VIEW_HIDE_APPS:I = 0x8

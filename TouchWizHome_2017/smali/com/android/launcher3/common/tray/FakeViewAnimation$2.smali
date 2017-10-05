@@ -50,8 +50,6 @@
 .method public onAnimationCancel(Landroid/animation/Animator;)V
     .locals 2
 
-    invoke-virtual {p0, p1}, Lcom/android/launcher3/common/tray/FakeViewAnimation$2;->onAnimationEnd(Landroid/animation/Animator;)V
-
     iget-object v0, p0, Lcom/android/launcher3/common/tray/FakeViewAnimation$2;->val$targetView:Landroid/view/View;
 
     if-eqz v0, :cond_0

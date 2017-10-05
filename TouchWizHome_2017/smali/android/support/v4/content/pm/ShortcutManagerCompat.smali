@@ -39,11 +39,11 @@
 
     const/4 v0, 0x0
 
-    invoke-static {}, Landroid/support/v4/os/BuildCompat;->isAtLeastO()Z
+    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    move-result v1
+    const/16 v2, 0x1a
 
-    if-eqz v1, :cond_0
+    if-lt v1, v2, :cond_0
 
     const-class v1, Landroid/content/pm/ShortcutManager;
 
@@ -85,11 +85,11 @@
 
     const/4 v2, 0x0
 
-    invoke-static {}, Landroid/support/v4/os/BuildCompat;->isAtLeastO()Z
+    sget v3, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    move-result v3
+    const/16 v4, 0x1a
 
-    if-eqz v3, :cond_1
+    if-lt v3, v4, :cond_1
 
     const-class v2, Landroid/content/pm/ShortcutManager;
 
@@ -190,11 +190,11 @@
 
     const/4 v2, 0x0
 
-    invoke-static {}, Landroid/support/v4/os/BuildCompat;->isAtLeastO()Z
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    move-result v0
+    const/16 v3, 0x1a
 
-    if-eqz v0, :cond_0
+    if-lt v0, v3, :cond_0
 
     const-class v0, Landroid/content/pm/ShortcutManager;
 

@@ -12,11 +12,17 @@
 
 .field static final PARAM_ALIGN_TO_TOP:Ljava/lang/String; = "AlignToTop"
 
+.field static final PARAM_ALREADY_OFF:Ljava/lang/String; = "AlreadyOFF"
+
 .field static final PARAM_ALREADY_ON:Ljava/lang/String; = "AlreadyOn"
 
 .field static final PARAM_ALREADY_SET:Ljava/lang/String; = "AlreadySet"
 
 .field static final PARAM_APPEARED:Ljava/lang/String; = "Appeared"
+
+.field static final PARAM_ATTR_ALREADY_LOCKED:Ljava/lang/String; = "Already locked"
+
+.field static final PARAM_ATTR_ALREADY_UNLOCKED:Ljava/lang/String; = "Already unlocked"
 
 .field static final PARAM_ATTR_APPLY:Ljava/lang/String; = "Apply"
 
@@ -60,6 +66,8 @@
 
 .field static final PARAM_NLG_AVAILABLE:Ljava/lang/String; = "Available"
 
+.field static final PARAM_NLG_All_APPS:Ljava/lang/String; = "AllappsBadge"
+
 .field static final PARAM_NLG_CUSTOM_ORDER:Ljava/lang/String; = "CustomOrder"
 
 .field static final PARAM_NLG_EASY_MODE:Ljava/lang/String; = "EasyMode"
@@ -100,9 +108,13 @@
 
 .field static final PARAM_NLG_SELECTED_ALL:Ljava/lang/String; = "SelectedAll"
 
+.field static final PARAM_NLG_SELECTED_APP_ANAPHO:Ljava/lang/String; = "SelectedAppAnapho"
+
 .field static final PARAM_NLG_SHORTCUTS:Ljava/lang/String; = "Shortcuts"
 
 .field static final PARAM_NLG_SINGLE_APP:Ljava/lang/String; = "SingleApp"
+
+.field static final PARAM_NLG_SINGLE_APP_BADGE:Ljava/lang/String; = "SingleAppBadge"
 
 .field static final PARAM_NLG_SINGLE_APP_ORDINAL:Ljava/lang/String; = "SingleAppOrdinal"
 
@@ -342,6 +354,11 @@
 .end field
 
 .field static final STATE_HOME_SETTINGS_ENABLE_APPS_BADGE:Ljava/lang/String; = "HomeSettingsBadgeAllAppsEnable"
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+.end field
+
+.field static final STATE_HOME_SETTINGS_ENABLE_SINGLE_APP_BADGE:Ljava/lang/String; = "HomeSettingsBadgeSingleAppEnable"
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end field

@@ -126,11 +126,8 @@
         <item>Z</item>
     </string-array>
     <string-array name="sapp_white_list_pkg">
-        <item>com.example.postpositionclient</item>
         <item>com.sprint.w.installer</item>
-        <item>com.verizon.mips.services</item>
-        <item>com.tmobile.pr.adapt</item>
         <item>com.sec.android.easyMover.Agent</item>
-        <item>com.samsung.android.app.omcagent</item>
+        <item>com.samsung.android.mateagent</item>
     </string-array>
 </resources>

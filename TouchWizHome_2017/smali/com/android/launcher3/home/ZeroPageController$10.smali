@@ -41,7 +41,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/launcher3/home/ZeroPageController;->access$2102(Lcom/android/launcher3/home/ZeroPageController;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
+    invoke-static {v0, v1}, Lcom/android/launcher3/home/ZeroPageController;->access$2202(Lcom/android/launcher3/home/ZeroPageController;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
 
     return-void
 .end method

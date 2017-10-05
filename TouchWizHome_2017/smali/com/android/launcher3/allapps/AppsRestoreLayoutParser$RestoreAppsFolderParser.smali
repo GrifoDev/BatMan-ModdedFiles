@@ -50,7 +50,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser$RestoreAppsFolderParser;->this$0:Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;
 
-    invoke-static {v0}, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;->access$1500(Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;)Landroid/content/ContentValues;
+    invoke-static {v0}, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;->access$1800(Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;)Landroid/content/ContentValues;
 
     move-result-object v0
 

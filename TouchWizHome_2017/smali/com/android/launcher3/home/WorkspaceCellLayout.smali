@@ -8,6 +8,8 @@
 
 .field private static final ENABLE_BUTTON_ALPHA:F = 1.0f
 
+.field private static final PAGE_FULL_VI_DURATION:J = 0xc8L
+
 .field static final TAG:Ljava/lang/String; = "WorkspaceCellLayout"
 
 
@@ -50,6 +52,8 @@
 
 .field private mDividerTop:Landroid/view/View;
 
+.field private mDragBackground:Landroid/graphics/drawable/Drawable;
+
 .field public mGridChanged:Z
 
 .field private mLongPressHelper:Lcom/android/launcher3/util/event/CheckLongPressHelper;
@@ -75,6 +79,10 @@
 .field private mOverviewShrinkFactorReverse:F
 
 .field private mPageDeleteBtn:Landroid/widget/ImageView;
+
+.field private mPageFullVI:Landroid/animation/ValueAnimator;
+
+.field private mPageFullVI_Started:Z
 
 .field public mRestoredItems:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
@@ -188,6 +196,22 @@
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/WorkspaceCellLayout;->changeColorForBg(Z)V
 
     return-void
+.end method
+
+.method static synthetic access$000(Lcom/android/launcher3/home/WorkspaceCellLayout;)Landroid/graphics/drawable/Drawable;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mDragBackground:Landroid/graphics/drawable/Drawable;
+
+    return-object v0
+.end method
+
+.method static synthetic access$100(Lcom/android/launcher3/home/WorkspaceCellLayout;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mDefaultPadding:I
+
+    return v0
 .end method
 
 .method private clearOccupied()V
@@ -603,7 +627,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090124
+    const v2, 0x7f0a00b7
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -643,6 +667,8 @@
 
     invoke-virtual {p2, p5}, Landroid/widget/ImageView;->setContentDescription(Ljava/lang/CharSequence;)V
 
+    invoke-static {p2, p5}, Lcom/android/launcher3/Utilities;->setHoverPopupContentDescription(Landroid/view/View;Ljava/lang/CharSequence;)V
+
     invoke-virtual {p2, p6}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     sget-object v1, Lcom/android/launcher3/home/HomeFocusHelper;->ALIGN_BUTTON_KEY_LISTENER:Landroid/view/View$OnKeyListener;
@@ -655,7 +681,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v2, 0x7f0d0023
+    const v2, 0x7f0e0027
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/Launcher;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -702,7 +728,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0900fc
+    const v2, 0x7f0a014f
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -716,7 +742,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0003
+    const v3, 0x7f0d0002
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -732,7 +758,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090126
+    const v2, 0x7f0a00b9
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -752,7 +778,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f09012a
+    const v2, 0x7f0a00bb
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -782,7 +808,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090124
+    const v2, 0x7f0a00b7
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -825,7 +851,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b000b
+    const v2, 0x7f0d000a
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -841,7 +867,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090147
+    const v1, 0x7f0a018c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -860,149 +886,352 @@
     return-void
 .end method
 
-.method private updateIconViews()V
-    .locals 13
-
-    const/4 v12, 0x2
+.method private setupZeroPageSwitchLayout()V
+    .locals 10
 
     const/4 v9, 0x0
 
-    invoke-virtual {p0}, Lcom/android/launcher3/home/WorkspaceCellLayout;->getPageChildCount()I
+    iget-object v6, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    move-result v8
-
-    add-int/lit8 v2, v8, -0x1
-
-    :goto_0
-    if-ltz v2, :cond_5
-
-    invoke-virtual {p0, v2}, Lcom/android/launcher3/home/WorkspaceCellLayout;->getChildOnPageAt(I)Landroid/view/View;
+    invoke-virtual {v6}, Lcom/android/launcher3/Launcher;->getDeviceProfile()Lcom/android/launcher3/common/deviceprofile/DeviceProfile;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Landroid/view/View;->clearAnimation()V
+    iget-object v6, v0, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->homeGrid:Lcom/android/launcher3/common/deviceprofile/GridInfo;
 
-    instance-of v8, v0, Lcom/android/launcher3/folder/view/FolderIconView;
+    invoke-virtual {v6}, Lcom/android/launcher3/common/deviceprofile/GridInfo;->getPagePadding()I
+
+    move-result v6
+
+    iget v7, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mDefaultPadding:I
+
+    sub-int v2, v6, v7
+
+    iget-object v6, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
+
+    invoke-virtual {v6}, Landroid/widget/Switch;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Lcom/android/launcher3/home/WorkspaceCellLayout;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+
+    move-result-object v6
+
+    iget v6, v6, Landroid/util/DisplayMetrics;->widthPixels:I
+
+    mul-int/lit8 v7, v2, 0x2
+
+    sub-int/2addr v6, v7
+
+    iput v6, v1, Landroid/view/ViewGroup$LayoutParams;->width:I
+
+    iget-object v6, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
+
+    invoke-virtual {v6, v1}, Landroid/widget/Switch;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    iget v6, v1, Landroid/view/ViewGroup$LayoutParams;->width:I
+
+    int-to-float v6, v6
+
+    iget v7, v1, Landroid/view/ViewGroup$LayoutParams;->width:I
+
+    int-to-float v7, v7
+
+    iget v8, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mOverviewShrinkFactorReverse:F
+
+    div-float/2addr v7, v8
+
+    sub-float/2addr v6, v7
+
+    const/high16 v7, 0x40000000    # 2.0f
+
+    div-float/2addr v6, v7
+
+    float-to-int v4, v6
+
+    invoke-virtual {p0}, Lcom/android/launcher3/home/WorkspaceCellLayout;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v6
+
+    const v7, 0x7f0a00bc
+
+    invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
+
+    move-result v5
+
+    invoke-virtual {p0}, Lcom/android/launcher3/home/WorkspaceCellLayout;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v6
+
+    const v7, 0x7f0a00bd
+
+    invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
+
+    move-result v3
+
+    iget-object v7, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
+
+    sget-boolean v6, Lcom/android/launcher3/Utilities;->sIsRtl:Z
+
+    if-eqz v6, :cond_0
+
+    move v6, v3
+
+    :goto_0
+    add-int/2addr v6, v4
+
+    sget-boolean v8, Lcom/android/launcher3/Utilities;->sIsRtl:Z
 
     if-eqz v8, :cond_1
 
-    move-object v1, v0
+    :goto_1
+    add-int v8, v5, v4
 
-    check-cast v1, Lcom/android/launcher3/folder/view/FolderIconView;
+    invoke-virtual {v7, v6, v9, v8, v9}, Landroid/widget/Switch;->setPadding(IIII)V
 
-    invoke-virtual {v1}, Lcom/android/launcher3/folder/view/FolderIconView;->applyStyle()V
+    iget-object v6, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
+
+    const v7, 0x7f0f0023
+
+    invoke-virtual {v6, v7}, Landroid/widget/Switch;->setTextAppearance(I)V
+
+    iget-object v6, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
+
+    iget v7, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitchHeight:I
+
+    invoke-virtual {v6, v7}, Landroid/widget/Switch;->setMinHeight(I)V
+
+    iget-object v6, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
+
+    iget v7, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mOverviewShrinkFactorReverse:F
+
+    invoke-virtual {v6, v7}, Landroid/widget/Switch;->setScaleX(F)V
+
+    iget-object v6, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
+
+    iget v7, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mOverviewShrinkFactorReverse:F
+
+    invoke-virtual {v6, v7}, Landroid/widget/Switch;->setScaleY(F)V
+
+    return-void
 
     :cond_0
-    :goto_1
-    add-int/lit8 v2, v2, -0x1
+    move v6, v5
 
     goto :goto_0
 
     :cond_1
-    instance-of v8, v0, Lcom/android/launcher3/common/view/IconView;
+    move v5, v3
 
-    if-eqz v8, :cond_2
+    goto :goto_1
+.end method
 
-    move-object v3, v0
+.method private updateIconViews()V
+    .locals 18
 
-    check-cast v3, Lcom/android/launcher3/common/view/IconView;
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/home/WorkspaceCellLayout;->getPageChildCount()I
 
-    invoke-virtual {v3}, Lcom/android/launcher3/common/view/IconView;->applyStyle()V
+    move-result v13
 
-    invoke-virtual {v0}, Landroid/view/View;->getTag()Ljava/lang/Object;
+    add-int/lit8 v6, v13, -0x1
 
-    move-result-object v8
+    :goto_0
+    if-ltz v6, :cond_6
 
-    check-cast v8, Lcom/android/launcher3/common/base/item/ItemInfo;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v3, v8}, Lcom/android/launcher3/common/view/IconView;->reapplyItemInfo(Lcom/android/launcher3/common/base/item/ItemInfo;)V
+    invoke-virtual {v0, v6}, Lcom/android/launcher3/home/WorkspaceCellLayout;->getChildOnPageAt(I)Landroid/view/View;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/view/View;->clearAnimation()V
+
+    instance-of v13, v2, Lcom/android/launcher3/folder/view/FolderIconView;
+
+    if-eqz v13, :cond_1
+
+    move-object v3, v2
+
+    check-cast v3, Lcom/android/launcher3/folder/view/FolderIconView;
+
+    invoke-virtual {v3}, Lcom/android/launcher3/folder/view/FolderIconView;->applyStyle()V
+
+    :cond_0
+    :goto_1
+    add-int/lit8 v6, v6, -0x1
+
+    goto :goto_0
+
+    :cond_1
+    instance-of v13, v2, Lcom/android/launcher3/common/view/IconView;
+
+    if-eqz v13, :cond_2
+
+    move-object v7, v2
+
+    check-cast v7, Lcom/android/launcher3/common/view/IconView;
+
+    invoke-virtual {v7}, Lcom/android/launcher3/common/view/IconView;->applyStyle()V
+
+    invoke-virtual {v2}, Landroid/view/View;->getTag()Ljava/lang/Object;
+
+    move-result-object v13
+
+    check-cast v13, Lcom/android/launcher3/common/base/item/ItemInfo;
+
+    invoke-virtual {v7, v13}, Lcom/android/launcher3/common/view/IconView;->reapplyItemInfo(Lcom/android/launcher3/common/base/item/ItemInfo;)V
 
     goto :goto_1
 
     :cond_2
-    instance-of v8, v0, Lcom/android/launcher3/home/LauncherAppWidgetHostView;
+    instance-of v13, v2, Lcom/android/launcher3/home/LauncherAppWidgetHostView;
+
+    if-eqz v13, :cond_0
+
+    invoke-virtual {v2}, Landroid/view/View;->getTag()Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, Lcom/android/launcher3/home/LauncherAppWidgetInfo;
 
     if-eqz v8, :cond_0
 
-    invoke-virtual {v0}, Landroid/view/View;->getTag()Ljava/lang/Object;
+    iget v13, v8, Lcom/android/launcher3/home/LauncherAppWidgetInfo;->spanX:I
 
-    move-result-object v4
+    move-object/from16 v0, p0
 
-    check-cast v4, Lcom/android/launcher3/home/LauncherAppWidgetInfo;
+    iget v14, v0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mCellWidth:I
 
-    if-eqz v4, :cond_0
+    mul-int/2addr v14, v13
 
-    iget v8, v4, Lcom/android/launcher3/home/LauncherAppWidgetInfo;->spanX:I
+    iget v13, v8, Lcom/android/launcher3/home/LauncherAppWidgetInfo;->spanX:I
 
-    iget v10, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mCellWidth:I
+    const/4 v15, 0x2
 
-    mul-int/2addr v10, v8
+    if-lt v13, v15, :cond_3
 
-    iget v8, v4, Lcom/android/launcher3/home/LauncherAppWidgetInfo;->spanX:I
+    move-object/from16 v0, p0
 
-    if-lt v8, v12, :cond_3
+    iget v13, v0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mWidthGap:I
 
-    iget v8, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mWidthGap:I
+    iget v15, v8, Lcom/android/launcher3/home/LauncherAppWidgetInfo;->spanX:I
 
-    iget v11, v4, Lcom/android/launcher3/home/LauncherAppWidgetInfo;->spanX:I
+    add-int/lit8 v15, v15, -0x1
 
-    add-int/lit8 v11, v11, -0x1
-
-    mul-int/2addr v8, v11
+    mul-int/2addr v13, v15
 
     :goto_2
-    add-int v7, v10, v8
+    add-int v11, v14, v13
 
-    iget v8, v4, Lcom/android/launcher3/home/LauncherAppWidgetInfo;->spanY:I
+    iget v13, v8, Lcom/android/launcher3/home/LauncherAppWidgetInfo;->spanY:I
 
-    iget v10, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mCellHeight:I
+    move-object/from16 v0, p0
 
-    mul-int/2addr v10, v8
+    iget v14, v0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mCellHeight:I
 
-    iget v8, v4, Lcom/android/launcher3/home/LauncherAppWidgetInfo;->spanY:I
+    mul-int/2addr v14, v13
 
-    if-lt v8, v12, :cond_4
+    iget v13, v8, Lcom/android/launcher3/home/LauncherAppWidgetInfo;->spanY:I
 
-    iget v8, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mHeightGap:I
+    const/4 v15, 0x2
 
-    iget v11, v4, Lcom/android/launcher3/home/LauncherAppWidgetInfo;->spanY:I
+    if-lt v13, v15, :cond_4
 
-    add-int/lit8 v11, v11, -0x1
+    move-object/from16 v0, p0
 
-    mul-int/2addr v8, v11
+    iget v13, v0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mHeightGap:I
+
+    iget v15, v8, Lcom/android/launcher3/home/LauncherAppWidgetInfo;->spanY:I
+
+    add-int/lit8 v15, v15, -0x1
+
+    mul-int/2addr v13, v15
 
     :goto_3
-    add-int v6, v10, v8
+    add-int v10, v14, v13
 
-    iget v8, v4, Lcom/android/launcher3/home/LauncherAppWidgetInfo;->spanX:I
+    iget v13, v8, Lcom/android/launcher3/home/LauncherAppWidgetInfo;->spanX:I
 
-    iget v10, v4, Lcom/android/launcher3/home/LauncherAppWidgetInfo;->spanY:I
+    iget v14, v8, Lcom/android/launcher3/home/LauncherAppWidgetInfo;->spanY:I
 
-    invoke-static {v8, v10, v7, v6}, Lcom/android/launcher3/home/LauncherAppWidgetHostView;->calculateWidgetSize(IIII)Lcom/android/launcher3/home/LauncherAppWidgetHostView$ResizeResult;
+    invoke-static {v13, v14, v11, v10}, Lcom/android/launcher3/home/LauncherAppWidgetHostView;->calculateWidgetSize(IIII)Lcom/android/launcher3/home/LauncherAppWidgetHostView$ResizeResult;
 
-    move-result-object v5
+    move-result-object v9
 
-    check-cast v0, Lcom/android/launcher3/home/LauncherAppWidgetHostView;
+    move-object v13, v2
 
-    invoke-virtual {v0, v5}, Lcom/android/launcher3/home/LauncherAppWidgetHostView;->setResizeScaleResult(Lcom/android/launcher3/home/LauncherAppWidgetHostView$ResizeResult;)V
+    check-cast v13, Lcom/android/launcher3/home/LauncherAppWidgetHostView;
 
-    iget-object v8, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mLauncher:Lcom/android/launcher3/Launcher;
+    invoke-virtual {v13, v9}, Lcom/android/launcher3/home/LauncherAppWidgetHostView;->setResizeScaleResult(Lcom/android/launcher3/home/LauncherAppWidgetHostView$ResizeResult;)V
 
-    invoke-virtual {v4, v8}, Lcom/android/launcher3/home/LauncherAppWidgetInfo;->notifyWidgetSizeChanged(Lcom/android/launcher3/Launcher;)V
+    move-object/from16 v0, p0
 
-    goto :goto_1
+    iget-object v13, v0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v8, v13}, Lcom/android/launcher3/home/LauncherAppWidgetInfo;->notifyWidgetSizeChanged(Lcom/android/launcher3/Launcher;)V
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v2}, Lcom/android/launcher3/home/WorkspaceCellLayout;->removeViewInLayout(Landroid/view/View;)V
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v8}, Lcom/android/launcher3/home/WorkspaceCellLayout;->removeItem(Lcom/android/launcher3/common/base/item/ItemInfo;)V
+
+    invoke-virtual {v8}, Lcom/android/launcher3/home/LauncherAppWidgetInfo;->unbind()V
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/home/WorkspaceCellLayout;->getParent()Landroid/view/ViewParent;
+
+    move-result-object v12
+
+    check-cast v12, Lcom/android/launcher3/home/Workspace;
+
+    invoke-virtual {v12}, Lcom/android/launcher3/home/Workspace;->getCurrentPage()I
+
+    move-result v13
+
+    invoke-virtual {v12, v13}, Lcom/android/launcher3/home/Workspace;->getScreenIdForPageIndex(I)J
+
+    move-result-wide v4
+
+    iget-wide v14, v8, Lcom/android/launcher3/home/LauncherAppWidgetInfo;->screenId:J
+
+    const-wide/16 v16, -0x1
+
+    cmp-long v13, v14, v16
+
+    if-eqz v13, :cond_5
+
+    iget-wide v14, v8, Lcom/android/launcher3/home/LauncherAppWidgetInfo;->screenId:J
+
+    cmp-long v13, v14, v4
+
+    if-nez v13, :cond_5
+
+    invoke-virtual {v12, v8}, Lcom/android/launcher3/home/Workspace;->createAndBindWidget(Lcom/android/launcher3/home/LauncherAppWidgetInfo;)V
+
+    goto/16 :goto_1
 
     :cond_3
-    move v8, v9
+    const/4 v13, 0x0
 
     goto :goto_2
 
     :cond_4
-    move v8, v9
+    const/4 v13, 0x0
 
     goto :goto_3
 
     :cond_5
+    invoke-virtual {v12, v8}, Lcom/android/launcher3/home/Workspace;->addWidgetsToBind(Lcom/android/launcher3/home/LauncherAppWidgetInfo;)V
+
+    goto/16 :goto_1
+
+    :cond_6
     return-void
 .end method
 
@@ -1043,7 +1272,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v4, 0x7f02009d
+    const v4, 0x7f02009c
 
     invoke-virtual {v0, v4}, Lcom/android/launcher3/Launcher;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1053,7 +1282,7 @@
 
     move-result-object v0
 
-    const v5, 0x7f08000c
+    const v5, 0x7f090013
 
     invoke-virtual {v0, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1103,7 +1332,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v4, 0x7f02009e
+    const v4, 0x7f02009d
 
     invoke-virtual {v0, v4}, Lcom/android/launcher3/Launcher;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1113,7 +1342,7 @@
 
     move-result-object v0
 
-    const v5, 0x7f08000d
+    const v5, 0x7f090014
 
     invoke-virtual {v0, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1128,340 +1357,258 @@
     return-void
 .end method
 
+.method protected addCrossHairView()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mCrossHairView:Lcom/android/launcher3/common/base/view/CellLayout$CrossHairView;
+
+    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mChildren:Lcom/android/launcher3/common/base/view/CellLayoutChildren;
+
+    invoke-virtual {p0, v1}, Lcom/android/launcher3/home/WorkspaceCellLayout;->indexOfChild(Landroid/view/View;)I
+
+    move-result v1
+
+    invoke-virtual {p0, v0, v1}, Lcom/android/launcher3/home/WorkspaceCellLayout;->addView(Landroid/view/View;I)V
+
+    return-void
+.end method
+
 .method addPageDeleteBtn(Landroid/view/View$OnClickListener;)V
-    .locals 4
+    .locals 5
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    new-instance v0, Landroid/widget/ImageView;
+    new-instance v1, Landroid/widget/ImageView;
 
-    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mLauncher:Lcom/android/launcher3/Launcher;
+    iget-object v2, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    invoke-direct {v0, v1}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
+    invoke-direct {v1, v2}, Landroid/widget/ImageView;-><init>(Landroid/content/Context;)V
 
-    iput-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageDeleteBtn:Landroid/widget/ImageView;
+    iput-object v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageDeleteBtn:Landroid/widget/ImageView;
 
-    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageDeleteBtn:Landroid/widget/ImageView;
+    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageDeleteBtn:Landroid/widget/ImageView;
 
-    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mLauncher:Lcom/android/launcher3/Launcher;
+    iget-object v2, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v2, 0x7f02008f
+    const v3, 0x7f02008e
 
-    invoke-virtual {v1, v2}, Lcom/android/launcher3/Launcher;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v2, v3}, Lcom/android/launcher3/Launcher;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageDeleteBtn:Landroid/widget/ImageView;
+    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageDeleteBtn:Landroid/widget/ImageView;
 
-    sget-object v1, Landroid/widget/ImageView$ScaleType;->FIT_CENTER:Landroid/widget/ImageView$ScaleType;
+    sget-object v2, Landroid/widget/ImageView$ScaleType;->FIT_CENTER:Landroid/widget/ImageView$ScaleType;
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
+    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setScaleType(Landroid/widget/ImageView$ScaleType;)V
 
-    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageDeleteBtn:Landroid/widget/ImageView;
+    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageDeleteBtn:Landroid/widget/ImageView;
 
-    invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setFocusable(Z)V
+    invoke-virtual {v1, v4}, Landroid/widget/ImageView;->setFocusable(Z)V
 
-    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageDeleteBtn:Landroid/widget/ImageView;
+    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageDeleteBtn:Landroid/widget/ImageView;
 
-    invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setClickable(Z)V
+    invoke-virtual {v1, v4}, Landroid/widget/ImageView;->setClickable(Z)V
 
-    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageDeleteBtn:Landroid/widget/ImageView;
+    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageDeleteBtn:Landroid/widget/ImageView;
 
-    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mLauncher:Lcom/android/launcher3/Launcher;
+    iget-object v2, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v2, 0x7f020071
+    const v3, 0x7f020071
 
-    invoke-virtual {v1, v2}, Lcom/android/launcher3/Launcher;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v2, v3}, Lcom/android/launcher3/Launcher;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackground(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageDeleteBtn:Landroid/widget/ImageView;
+    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageDeleteBtn:Landroid/widget/ImageView;
 
-    invoke-virtual {v0, p1}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageDeleteBtn:Landroid/widget/ImageView;
+    invoke-virtual {v1, p1}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     invoke-virtual {p0}, Lcom/android/launcher3/home/WorkspaceCellLayout;->getResources()Landroid/content/res/Resources;
 
     move-result-object v1
 
-    const v2, 0x7f080095
+    const v2, 0x7f0900a1
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setContentDescription(Ljava/lang/CharSequence;)V
+    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageDeleteBtn:Landroid/widget/ImageView;
 
-    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageDeleteBtn:Landroid/widget/ImageView;
+    invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    sget-object v1, Lcom/android/launcher3/home/HomeFocusHelper;->PAGE_DELETE_BUTTON_KEY_LISTENER:Landroid/view/View$OnKeyListener;
+    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageDeleteBtn:Landroid/widget/ImageView;
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
+    invoke-static {v1, v0}, Lcom/android/launcher3/Utilities;->setHoverPopupContentDescription(Landroid/view/View;Ljava/lang/CharSequence;)V
 
-    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageDeleteBtn:Landroid/widget/ImageView;
+    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageDeleteBtn:Landroid/widget/ImageView;
 
-    invoke-virtual {p0, v0}, Lcom/android/launcher3/home/WorkspaceCellLayout;->addView(Landroid/view/View;)V
+    sget-object v2, Lcom/android/launcher3/home/HomeFocusHelper;->PAGE_DELETE_BUTTON_KEY_LISTENER:Landroid/view/View$OnKeyListener;
+
+    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
+
+    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageDeleteBtn:Landroid/widget/ImageView;
+
+    invoke-virtual {p0, v1}, Lcom/android/launcher3/home/WorkspaceCellLayout;->addView(Landroid/view/View;)V
 
     return-void
 .end method
 
 .method addZeroPageSwitch(Ljava/lang/String;ZLandroid/widget/CompoundButton$OnCheckedChangeListener;)V
-    .locals 10
+    .locals 5
 
-    const/4 v9, 0x1
+    const/4 v4, 0x1
 
-    const/4 v8, 0x0
+    const/4 v3, 0x0
 
-    const/4 v7, 0x0
+    const/4 v2, 0x0
 
-    new-instance v4, Landroid/widget/LinearLayout;
+    new-instance v0, Landroid/widget/LinearLayout;
 
-    iget-object v5, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mLauncher:Lcom/android/launcher3/Launcher;
+    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    invoke-direct {v4, v5}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, v1}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    iput-object v4, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitchLayout:Landroid/widget/LinearLayout;
+    iput-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitchLayout:Landroid/widget/LinearLayout;
 
-    new-instance v4, Landroid/widget/Switch;
+    new-instance v0, Landroid/widget/Switch;
 
-    iget-object v5, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mLauncher:Lcom/android/launcher3/Launcher;
+    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    invoke-direct {v4, v5}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, v1}, Landroid/widget/Switch;-><init>(Landroid/content/Context;)V
 
-    iput-object v4, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
+    iput-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
 
-    iget-object v4, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitchLayout:Landroid/widget/LinearLayout;
+    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitchLayout:Landroid/widget/LinearLayout;
 
-    iget-object v5, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
+    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v4, v5}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    iget-object v4, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
+    invoke-direct {p0}, Lcom/android/launcher3/home/WorkspaceCellLayout;->setupZeroPageSwitchLayout()V
 
-    invoke-virtual {v4}, Landroid/widget/Switch;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
 
-    move-result-object v0
+    invoke-virtual {v0, p2}, Landroid/widget/Switch;->setChecked(Z)V
 
-    invoke-virtual {p0}, Lcom/android/launcher3/home/WorkspaceCellLayout;->getResources()Landroid/content/res/Resources;
+    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
 
-    move-result-object v4
+    invoke-virtual {v0, p3}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
-    invoke-virtual {v4}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
 
-    move-result-object v4
+    sget-object v1, Lcom/android/launcher3/home/HomeFocusHelper;->ZERO_PAGE_SWITCH_KEY_LISTENER:Landroid/view/View$OnKeyListener;
 
-    iget v4, v4, Landroid/util/DisplayMetrics;->widthPixels:I
+    invoke-virtual {v0, v1}, Landroid/widget/Switch;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
 
-    iget v5, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mDefaultPadding:I
+    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
 
-    mul-int/lit8 v5, v5, 0x2
-
-    sub-int/2addr v4, v5
-
-    iput v4, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
-
-    iget-object v4, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
-
-    invoke-virtual {v4, v0}, Landroid/widget/Switch;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    iget v4, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
-
-    int-to-float v4, v4
-
-    iget v5, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
-
-    int-to-float v5, v5
-
-    iget v6, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mOverviewShrinkFactorReverse:F
-
-    div-float/2addr v5, v6
-
-    sub-float/2addr v4, v5
-
-    const/high16 v5, 0x40000000    # 2.0f
-
-    div-float/2addr v4, v5
-
-    float-to-int v2, v4
-
-    invoke-virtual {p0}, Lcom/android/launcher3/home/WorkspaceCellLayout;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v4
-
-    const v5, 0x7f09012b
-
-    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
-
-    move-result v3
-
-    invoke-virtual {p0}, Lcom/android/launcher3/home/WorkspaceCellLayout;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v4
-
-    const v5, 0x7f09012c
-
-    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
-
-    move-result v1
-
-    iget-object v5, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
-
-    sget-boolean v4, Lcom/android/launcher3/Utilities;->sIsRtl:Z
-
-    if-eqz v4, :cond_2
-
-    move v4, v1
-
-    :goto_0
-    add-int/2addr v4, v2
-
-    sget-boolean v6, Lcom/android/launcher3/Utilities;->sIsRtl:Z
-
-    if-eqz v6, :cond_3
-
-    :goto_1
-    add-int v6, v3, v2
-
-    invoke-virtual {v5, v4, v7, v6, v7}, Landroid/widget/Switch;->setPadding(IIII)V
-
-    iget-object v4, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
-
-    invoke-virtual {v4, p2}, Landroid/widget/Switch;->setChecked(Z)V
-
-    iget-object v4, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
-
-    invoke-virtual {v4, p3}, Landroid/widget/Switch;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
-
-    iget-object v4, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
-
-    sget-object v5, Lcom/android/launcher3/home/HomeFocusHelper;->ZERO_PAGE_SWITCH_KEY_LISTENER:Landroid/view/View$OnKeyListener;
-
-    invoke-virtual {v4, v5}, Landroid/widget/Switch;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
-
-    iget-object v4, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
-
-    invoke-virtual {v4, p1}, Landroid/widget/Switch;->setText(Ljava/lang/CharSequence;)V
-
-    iget-object v4, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
-
-    const v5, 0x7f100013
-
-    invoke-virtual {v4, v5}, Landroid/widget/Switch;->setTextAppearance(I)V
-
-    iget-object v4, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
-
-    iget v5, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitchHeight:I
-
-    invoke-virtual {v4, v5}, Landroid/widget/Switch;->setMinHeight(I)V
-
-    iget-object v4, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
-
-    iget v5, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mOverviewShrinkFactorReverse:F
-
-    invoke-virtual {v4, v5}, Landroid/widget/Switch;->setScaleX(F)V
-
-    iget-object v4, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
-
-    iget v5, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mOverviewShrinkFactorReverse:F
-
-    invoke-virtual {v4, v5}, Landroid/widget/Switch;->setScaleY(F)V
+    invoke-virtual {v0, p1}, Landroid/widget/Switch;->setText(Ljava/lang/CharSequence;)V
 
     invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportZeroPageSwitch()Z
 
-    move-result v4
+    move-result v0
 
-    if-nez v4, :cond_0
+    if-nez v0, :cond_0
 
-    iget-object v4, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
+    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v4, v8}, Landroid/widget/Switch;->setThumbDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v0, v2}, Landroid/widget/Switch;->setThumbDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    iget-object v4, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
+    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v4, v8}, Landroid/widget/Switch;->setTrackDrawable(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v0, v2}, Landroid/widget/Switch;->setTrackDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    iget-object v4, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
+    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v4, v7}, Landroid/widget/Switch;->setClickable(Z)V
+    invoke-virtual {v0, v3}, Landroid/widget/Switch;->setClickable(Z)V
 
-    iget-object v4, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
+    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
 
-    invoke-virtual {v4, v8}, Landroid/widget/Switch;->setBackground(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v0, v2}, Landroid/widget/Switch;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
     :cond_0
-    new-instance v4, Landroid/view/View;
+    new-instance v0, Landroid/view/View;
 
-    iget-object v5, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mLauncher:Lcom/android/launcher3/Launcher;
+    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    invoke-direct {v4, v5}, Landroid/view/View;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, v1}, Landroid/view/View;-><init>(Landroid/content/Context;)V
 
-    iput-object v4, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mDividerTop:Landroid/view/View;
+    iput-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mDividerTop:Landroid/view/View;
 
-    iget-object v4, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mDividerTop:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mDividerTop:Landroid/view/View;
 
-    invoke-virtual {v4, v7}, Landroid/view/View;->setFocusable(Z)V
+    invoke-virtual {v0, v3}, Landroid/view/View;->setFocusable(Z)V
 
-    iget-object v4, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mDividerTop:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mDividerTop:Landroid/view/View;
 
-    iget-object v5, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mLauncher:Lcom/android/launcher3/Launcher;
+    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v6, 0x7f0d0023
+    const v2, 0x7f0e0027
 
-    invoke-virtual {v5, v6}, Lcom/android/launcher3/Launcher;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v1, v2}, Lcom/android/launcher3/Launcher;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-virtual {v4, v5}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setBackground(Landroid/graphics/drawable/Drawable;)V
 
-    iget-object v4, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitchLayout:Landroid/widget/LinearLayout;
+    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitchLayout:Landroid/widget/LinearLayout;
 
-    iget-object v5, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mDividerTop:Landroid/view/View;
+    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mDividerTop:Landroid/view/View;
 
-    invoke-virtual {v4, v5}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;)V
 
-    iget-object v4, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitchLayout:Landroid/widget/LinearLayout;
+    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitchLayout:Landroid/widget/LinearLayout;
 
-    invoke-virtual {p0, v4}, Lcom/android/launcher3/home/WorkspaceCellLayout;->addView(Landroid/view/View;)V
+    invoke-virtual {p0, v0}, Lcom/android/launcher3/home/WorkspaceCellLayout;->addView(Landroid/view/View;)V
 
     invoke-static {}, Lcom/android/launcher3/util/WhiteBgManager;->isWhiteBg()Z
 
-    move-result v4
+    move-result v0
 
-    if-eqz v4, :cond_1
+    if-eqz v0, :cond_1
 
-    iget-object v4, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mLauncher:Lcom/android/launcher3/Launcher;
+    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    iget-object v5, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
+    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitch:Landroid/widget/Switch;
 
-    invoke-static {v4, v5, v9}, Lcom/android/launcher3/util/WhiteBgManager;->changeTextColorForBg(Landroid/content/Context;Landroid/widget/TextView;Z)V
+    invoke-static {v0, v1, v4}, Lcom/android/launcher3/util/WhiteBgManager;->changeTextColorForBg(Landroid/content/Context;Landroid/widget/TextView;Z)V
 
-    iget-object v4, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mLauncher:Lcom/android/launcher3/Launcher;
+    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    iget-object v5, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mDividerTop:Landroid/view/View;
+    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mDividerTop:Landroid/view/View;
 
-    invoke-virtual {v5}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v1}, Landroid/view/View;->getBackground()Landroid/graphics/drawable/Drawable;
 
-    move-result-object v5
+    move-result-object v1
 
-    invoke-static {v4, v5, v9}, Lcom/android/launcher3/util/WhiteBgManager;->changeColorFilterForBg(Landroid/content/Context;Landroid/graphics/drawable/Drawable;Z)V
+    invoke-static {v0, v1, v4}, Lcom/android/launcher3/util/WhiteBgManager;->changeColorFilterForBg(Landroid/content/Context;Landroid/graphics/drawable/Drawable;Z)V
 
     :cond_1
     return-void
+.end method
 
-    :cond_2
-    move v4, v3
+.method public callRefreshLiveIcon()V
+    .locals 1
 
-    goto/16 :goto_0
+    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mChildren:Lcom/android/launcher3/common/base/view/CellLayoutChildren;
 
-    :cond_3
-    move v3, v1
+    if-nez v0, :cond_0
 
-    goto/16 :goto_1
+    :goto_0
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mChildren:Lcom/android/launcher3/common/base/view/CellLayoutChildren;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->callRefreshLiveIcon()V
+
+    goto :goto_0
 .end method
 
 .method changeColorForBg(Z)V
@@ -1518,6 +1665,112 @@
 
     :cond_1
     return-void
+.end method
+
+.method endPageFullVI()V
+    .locals 5
+
+    iget-boolean v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageFullVI_Started:Z
+
+    if-nez v1, :cond_0
+
+    :goto_0
+    return-void
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageFullVI:Landroid/animation/ValueAnimator;
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageFullVI:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {v1}, Landroid/animation/ValueAnimator;->cancel()V
+
+    :cond_1
+    invoke-virtual {p0}, Lcom/android/launcher3/home/WorkspaceCellLayout;->getParent()Landroid/view/ViewParent;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/launcher3/home/Workspace;
+
+    invoke-virtual {v0, p0}, Lcom/android/launcher3/home/Workspace;->indexOfChild(Landroid/view/View;)I
+
+    move-result v1
+
+    invoke-virtual {v0}, Lcom/android/launcher3/home/Workspace;->getCurrentPage()I
+
+    move-result v2
+
+    if-ne v1, v2, :cond_3
+
+    const-string v1, "backgroundAlpha"
+
+    const/4 v2, 0x2
+
+    new-array v2, v2, [F
+
+    fill-array-data v2, :array_0
+
+    invoke-static {p0, v1, v2}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageFullVI:Landroid/animation/ValueAnimator;
+
+    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageFullVI:Landroid/animation/ValueAnimator;
+
+    const-wide/16 v2, 0xc8
+
+    invoke-virtual {v1, v2, v3}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+
+    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageFullVI:Landroid/animation/ValueAnimator;
+
+    new-instance v2, Lcom/android/launcher3/home/WorkspaceCellLayout$1;
+
+    invoke-direct {v2, p0}, Lcom/android/launcher3/home/WorkspaceCellLayout$1;-><init>(Lcom/android/launcher3/home/WorkspaceCellLayout;)V
+
+    invoke-virtual {v1, v2}, Landroid/animation/ValueAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+
+    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageFullVI:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {v1}, Landroid/animation/ValueAnimator;->start()V
+
+    :cond_2
+    :goto_1
+    const/4 v1, 0x0
+
+    iput-boolean v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageFullVI_Started:Z
+
+    goto :goto_0
+
+    :cond_3
+    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mDragBackground:Landroid/graphics/drawable/Drawable;
+
+    if-eqz v1, :cond_2
+
+    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mDragBackground:Landroid/graphics/drawable/Drawable;
+
+    invoke-virtual {p0, v1}, Lcom/android/launcher3/home/WorkspaceCellLayout;->setBackground(Landroid/graphics/drawable/Drawable;)V
+
+    iget v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mDefaultPadding:I
+
+    iget v2, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mDefaultPadding:I
+
+    iget v3, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mDefaultPadding:I
+
+    iget v4, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mDefaultPadding:I
+
+    invoke-virtual {p0, v1, v2, v3, v4}, Lcom/android/launcher3/home/WorkspaceCellLayout;->setPadding(IIII)V
+
+    goto :goto_1
+
+    nop
+
+    :array_0
+    .array-data 4
+        0x3f800000    # 1.0f
+        0x0
+    .end array-data
 .end method
 
 .method findNearestVacantAreaWithCell(IIII[IZ)V
@@ -1695,7 +1948,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b000b
+    const v4, 0x7f0d000a
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1709,7 +1962,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090147
+    const v3, 0x7f0a018c
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1770,6 +2023,14 @@
     return-void
 .end method
 
+.method isPageFullVIStarted()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageFullVI_Started:Z
+
+    return v0
+.end method
+
 .method markCellsForGrid(IIII)V
     .locals 7
 
@@ -1819,6 +2080,10 @@
 .method onConfigurationChangedIfNeeded()V
     .locals 1
 
+    invoke-direct {p0}, Lcom/android/launcher3/home/WorkspaceCellLayout;->setupOverviewLayout()V
+
+    invoke-direct {p0}, Lcom/android/launcher3/home/WorkspaceCellLayout;->setupScreenGridLayout()V
+
     iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mZeroPageSwitchLayout:Landroid/widget/LinearLayout;
 
     if-nez v0, :cond_0
@@ -1827,10 +2092,58 @@
 
     invoke-direct {p0}, Lcom/android/launcher3/home/WorkspaceCellLayout;->updateIconViews()V
 
-    :cond_0
-    invoke-direct {p0}, Lcom/android/launcher3/home/WorkspaceCellLayout;->setupOverviewLayout()V
+    :goto_0
+    return-void
 
-    invoke-direct {p0}, Lcom/android/launcher3/home/WorkspaceCellLayout;->setupScreenGridLayout()V
+    :cond_0
+    invoke-direct {p0}, Lcom/android/launcher3/home/WorkspaceCellLayout;->setupZeroPageSwitchLayout()V
+
+    goto :goto_0
+.end method
+
+.method public onDragEnter()V
+    .locals 3
+
+    invoke-super {p0}, Lcom/android/launcher3/common/base/view/CellLayout;->onDragEnter()V
+
+    iget-object v2, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v2}, Lcom/android/launcher3/Launcher;->getDragMgr()Lcom/android/launcher3/common/drag/DragManager;
+
+    move-result-object v0
+
+    invoke-virtual {p0}, Lcom/android/launcher3/home/WorkspaceCellLayout;->getParent()Landroid/view/ViewParent;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/launcher3/home/Workspace;
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/launcher3/common/drag/DragManager;->isInScrollArea()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    invoke-virtual {v1}, Lcom/android/launcher3/home/Workspace;->isScrolling()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/launcher3/home/WorkspaceCellLayout;->startPageFullVI()V
+
+    :cond_0
+    return-void
+.end method
+
+.method public onDragExit()V
+    .locals 0
+
+    invoke-super {p0}, Lcom/android/launcher3/common/base/view/CellLayout;->onDragExit()V
+
+    invoke-virtual {p0}, Lcom/android/launcher3/home/WorkspaceCellLayout;->endPageFullVI()V
 
     return-void
 .end method
@@ -1898,7 +2211,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f090125
+    const v4, 0x7f0a00b8
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1926,7 +2239,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f090126
+    const v5, 0x7f0a00b9
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -2447,7 +2760,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0200d1
+    const v2, 0x7f0200d4
 
     invoke-virtual {v1, v2, v4}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
@@ -2474,7 +2787,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0200d0
+    const v2, 0x7f0200d2
 
     invoke-virtual {v1, v2, v4}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
@@ -2636,6 +2949,50 @@
 
     iput v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mCountY:I
 
+    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mOccupied:[[Z
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mOccupied:[[Z
+
+    array-length v0, v0
+
+    iget v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mCountX:I
+
+    if-ne v0, v1, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mOccupied:[[Z
+
+    const/4 v1, 0x0
+
+    aget-object v0, v0, v1
+
+    array-length v0, v0
+
+    iget v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mCountY:I
+
+    if-eq v0, v1, :cond_1
+
+    :cond_0
+    iget v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mCountX:I
+
+    iget v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mCountY:I
+
+    filled-new-array {v0, v1}, [I
+
+    move-result-object v0
+
+    sget-object v1, Ljava/lang/Boolean;->TYPE:Ljava/lang/Class;
+
+    invoke-static {v1, v0}, Ljava/lang/reflect/Array;->newInstance(Ljava/lang/Class;[I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, [[Z
+
+    iput-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mOccupied:[[Z
+
+    :cond_1
     iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mChildren:Lcom/android/launcher3/common/base/view/CellLayoutChildren;
 
     iget v1, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mCellWidth:I
@@ -2971,6 +3328,212 @@
     return-object v0
 .end method
 
+.method startPageFullVI()V
+    .locals 12
+
+    const/4 v10, 0x0
+
+    const/4 v11, 0x2
+
+    const/4 v9, 0x0
+
+    iget-object v7, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v7}, Lcom/android/launcher3/Launcher;->getDragMgr()Lcom/android/launcher3/common/drag/DragManager;
+
+    move-result-object v2
+
+    invoke-virtual {p0}, Lcom/android/launcher3/home/WorkspaceCellLayout;->getParent()Landroid/view/ViewParent;
+
+    move-result-object v6
+
+    check-cast v6, Lcom/android/launcher3/home/Workspace;
+
+    if-eqz v6, :cond_0
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {v2}, Lcom/android/launcher3/common/drag/DragManager;->isDragging()Z
+
+    move-result v7
+
+    if-nez v7, :cond_1
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    iget-boolean v7, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageFullVI_Started:Z
+
+    if-eqz v7, :cond_2
+
+    invoke-virtual {v6, p0}, Lcom/android/launcher3/home/Workspace;->indexOfChild(Landroid/view/View;)I
+
+    move-result v7
+
+    invoke-virtual {v6}, Lcom/android/launcher3/home/Workspace;->getCurrentPage()I
+
+    move-result v8
+
+    if-ne v7, v8, :cond_2
+
+    invoke-virtual {p0}, Lcom/android/launcher3/home/WorkspaceCellLayout;->getBackgroundAlpha()F
+
+    move-result v7
+
+    const/4 v8, 0x0
+
+    cmpl-float v7, v7, v8
+
+    if-nez v7, :cond_2
+
+    iput-boolean v9, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageFullVI_Started:Z
+
+    :cond_2
+    iget-boolean v7, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageFullVI_Started:Z
+
+    if-nez v7, :cond_0
+
+    new-array v1, v11, [I
+
+    const/4 v3, 0x1
+
+    const/4 v4, 0x1
+
+    if-eqz v2, :cond_4
+
+    invoke-virtual {v2}, Lcom/android/launcher3/common/drag/DragManager;->getDragObject()Lcom/android/launcher3/common/drag/DropTarget$DragObject;
+
+    move-result-object v7
+
+    if-eqz v7, :cond_4
+
+    invoke-virtual {v2}, Lcom/android/launcher3/common/drag/DragManager;->getDragObject()Lcom/android/launcher3/common/drag/DropTarget$DragObject;
+
+    move-result-object v7
+
+    iget-object v7, v7, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->dragInfo:Ljava/lang/Object;
+
+    instance-of v7, v7, Lcom/android/launcher3/common/base/item/PendingAddItemInfo;
+
+    if-nez v7, :cond_3
+
+    invoke-virtual {v2}, Lcom/android/launcher3/common/drag/DragManager;->getDragObject()Lcom/android/launcher3/common/drag/DropTarget$DragObject;
+
+    move-result-object v7
+
+    iget-object v7, v7, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->dragInfo:Ljava/lang/Object;
+
+    instance-of v7, v7, Lcom/android/launcher3/home/LauncherAppWidgetInfo;
+
+    if-eqz v7, :cond_4
+
+    :cond_3
+    invoke-virtual {v2}, Lcom/android/launcher3/common/drag/DragManager;->getDragObject()Lcom/android/launcher3/common/drag/DropTarget$DragObject;
+
+    move-result-object v7
+
+    iget-object v5, v7, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->dragInfo:Ljava/lang/Object;
+
+    check-cast v5, Lcom/android/launcher3/common/base/item/ItemInfo;
+
+    iget v3, v5, Lcom/android/launcher3/common/base/item/ItemInfo;->minSpanX:I
+
+    iget v4, v5, Lcom/android/launcher3/common/base/item/ItemInfo;->minSpanY:I
+
+    :cond_4
+    invoke-virtual {p0, v1, v3, v4, v9}, Lcom/android/launcher3/home/WorkspaceCellLayout;->findCellForSpan([IIIZ)Z
+
+    move-result v7
+
+    if-nez v7, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/launcher3/home/WorkspaceCellLayout;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v7
+
+    const v8, 0x7f0200d3
+
+    invoke-virtual {v7, v8, v10}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v7, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageFullVI:Landroid/animation/ValueAnimator;
+
+    if-eqz v7, :cond_5
+
+    iget-object v7, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageFullVI:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {v7}, Landroid/animation/ValueAnimator;->cancel()V
+
+    :cond_5
+    iget-object v7, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mDragBackground:Landroid/graphics/drawable/Drawable;
+
+    if-nez v7, :cond_6
+
+    invoke-virtual {p0}, Lcom/android/launcher3/home/WorkspaceCellLayout;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v7
+
+    const v8, 0x7f0200d2
+
+    invoke-virtual {v7, v8, v10}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v7
+
+    iput-object v7, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mDragBackground:Landroid/graphics/drawable/Drawable;
+
+    :cond_6
+    invoke-virtual {p0, v0}, Lcom/android/launcher3/home/WorkspaceCellLayout;->setBackground(Landroid/graphics/drawable/Drawable;)V
+
+    iget v7, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mDefaultPadding:I
+
+    iget v8, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mDefaultPadding:I
+
+    iget v9, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mDefaultPadding:I
+
+    iget v10, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mDefaultPadding:I
+
+    invoke-virtual {p0, v7, v8, v9, v10}, Lcom/android/launcher3/home/WorkspaceCellLayout;->setPadding(IIII)V
+
+    const-string v7, "backgroundAlpha"
+
+    new-array v8, v11, [F
+
+    fill-array-data v8, :array_0
+
+    invoke-static {p0, v7, v8}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
+
+    move-result-object v7
+
+    iput-object v7, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageFullVI:Landroid/animation/ValueAnimator;
+
+    iget-object v7, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageFullVI:Landroid/animation/ValueAnimator;
+
+    const-wide/16 v8, 0xc8
+
+    invoke-virtual {v7, v8, v9}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+
+    iget-object v7, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageFullVI:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {v7}, Landroid/animation/ValueAnimator;->start()V
+
+    const/4 v7, 0x1
+
+    iput-boolean v7, p0, Lcom/android/launcher3/home/WorkspaceCellLayout;->mPageFullVI_Started:Z
+
+    goto/16 :goto_0
+
+    :array_0
+    .array-data 4
+        0x0
+        0x3f800000    # 1.0f
+    .end array-data
+.end method
+
 .method public touchPageDeleteBtn()V
     .locals 1
 
@@ -3043,4 +3606,42 @@
 
     :cond_0
     return-void
+.end method
+
+.method public visualizeDropLocation(Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/graphics/drawable/Drawable;IIIIZ)V
+    .locals 2
+
+    invoke-virtual {p0}, Lcom/android/launcher3/home/WorkspaceCellLayout;->getParent()Landroid/view/ViewParent;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/launcher3/home/Workspace;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/home/Workspace;->isScrolling()Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    if-ltz p3, :cond_0
+
+    if-ltz p4, :cond_0
+
+    if-ltz p6, :cond_0
+
+    if-gez p5, :cond_2
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/launcher3/home/WorkspaceCellLayout;->startPageFullVI()V
+
+    :cond_1
+    :goto_0
+    invoke-super/range {p0 .. p7}, Lcom/android/launcher3/common/base/view/CellLayout;->visualizeDropLocation(Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/graphics/drawable/Drawable;IIIIZ)V
+
+    return-void
+
+    :cond_2
+    invoke-virtual {p0}, Lcom/android/launcher3/home/WorkspaceCellLayout;->endPageFullVI()V
+
+    goto :goto_0
 .end method

@@ -636,107 +636,47 @@
 .method public changeHomePageOrder(II)V
     .locals 4
 
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeProxyCallbacksImpl;->mHomeController:Lcom/android/launcher3/home/HomeController;
-
-    invoke-virtual {v1}, Lcom/android/launcher3/home/HomeController;->getWorkspace()Lcom/android/launcher3/home/Workspace;
-
-    move-result-object v1
-
     iget-object v2, p0, Lcom/android/launcher3/home/HomeProxyCallbacksImpl;->mHomeController:Lcom/android/launcher3/home/HomeController;
 
     invoke-virtual {v2}, Lcom/android/launcher3/home/HomeController;->getWorkspace()Lcom/android/launcher3/home/Workspace;
-
-    move-result-object v2
-
-    iget-object v3, p0, Lcom/android/launcher3/home/HomeProxyCallbacksImpl;->mHomeController:Lcom/android/launcher3/home/HomeController;
-
-    invoke-virtual {v3}, Lcom/android/launcher3/home/HomeController;->getWorkspace()Lcom/android/launcher3/home/Workspace;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/android/launcher3/home/Workspace;->getDefaultPage()I
-
-    move-result v3
-
-    invoke-virtual {v2, v3}, Lcom/android/launcher3/home/Workspace;->getScreenIdForPageIndex(I)J
-
-    move-result-wide v2
-
-    invoke-virtual {v1, v2, v3}, Lcom/android/launcher3/home/Workspace;->updateDefaultHomeScreenId(J)V
-
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeProxyCallbacksImpl;->mHomeController:Lcom/android/launcher3/home/HomeController;
-
-    invoke-virtual {v1}, Lcom/android/launcher3/home/HomeController;->getWorkspace()Lcom/android/launcher3/home/Workspace;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Lcom/android/launcher3/home/Workspace;->getPageAt(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeProxyCallbacksImpl;->mHomeController:Lcom/android/launcher3/home/HomeController;
-
-    invoke-virtual {v1}, Lcom/android/launcher3/home/HomeController;->getWorkspace()Lcom/android/launcher3/home/Workspace;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Lcom/android/launcher3/home/Workspace;->removeView(Landroid/view/View;)V
-
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeProxyCallbacksImpl;->mHomeController:Lcom/android/launcher3/home/HomeController;
-
-    invoke-virtual {v1}, Lcom/android/launcher3/home/HomeController;->getWorkspace()Lcom/android/launcher3/home/Workspace;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0, p2}, Lcom/android/launcher3/home/Workspace;->addView(Landroid/view/View;I)V
-
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeProxyCallbacksImpl;->mHomeController:Lcom/android/launcher3/home/HomeController;
-
-    invoke-virtual {v1}, Lcom/android/launcher3/home/HomeController;->getWorkspace()Lcom/android/launcher3/home/Workspace;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p2}, Lcom/android/launcher3/home/Workspace;->setCurrentPage(I)V
-
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeProxyCallbacksImpl;->mHomeController:Lcom/android/launcher3/home/HomeController;
-
-    invoke-virtual {v1}, Lcom/android/launcher3/home/HomeController;->getWorkspace()Lcom/android/launcher3/home/Workspace;
 
     move-result-object v1
 
     invoke-virtual {v1}, Lcom/android/launcher3/home/Workspace;->getDefaultPage()I
 
-    move-result v1
+    move-result v2
 
-    if-ne p1, v1, :cond_0
+    invoke-virtual {v1, v2}, Lcom/android/launcher3/home/Workspace;->getScreenIdForPageIndex(I)J
 
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeProxyCallbacksImpl;->mHomeController:Lcom/android/launcher3/home/HomeController;
+    move-result-wide v2
 
-    invoke-virtual {v1}, Lcom/android/launcher3/home/HomeController;->getWorkspace()Lcom/android/launcher3/home/Workspace;
+    invoke-virtual {v1, v2, v3}, Lcom/android/launcher3/home/Workspace;->updateDefaultHomeScreenId(J)V
 
-    move-result-object v1
+    invoke-virtual {v1, p1}, Lcom/android/launcher3/home/Workspace;->getPageAt(I)Landroid/view/View;
 
-    iget-object v2, p0, Lcom/android/launcher3/home/HomeProxyCallbacksImpl;->mHomeController:Lcom/android/launcher3/home/HomeController;
+    move-result-object v0
 
-    invoke-virtual {v2}, Lcom/android/launcher3/home/HomeController;->getWorkspace()Lcom/android/launcher3/home/Workspace;
+    invoke-virtual {v1, v0}, Lcom/android/launcher3/home/Workspace;->removeView(Landroid/view/View;)V
 
-    move-result-object v2
+    invoke-virtual {v1, v0, p2}, Lcom/android/launcher3/home/Workspace;->addView(Landroid/view/View;I)V
+
+    invoke-virtual {v1, p2}, Lcom/android/launcher3/home/Workspace;->setCurrentPage(I)V
+
+    invoke-virtual {v1}, Lcom/android/launcher3/home/Workspace;->getDefaultPage()I
+
+    move-result v2
+
+    if-ne p1, v2, :cond_0
 
     check-cast v0, Lcom/android/launcher3/common/base/view/CellLayout;
 
-    invoke-virtual {v2, v0}, Lcom/android/launcher3/home/Workspace;->getIdForScreen(Lcom/android/launcher3/common/base/view/CellLayout;)J
+    invoke-virtual {v1, v0}, Lcom/android/launcher3/home/Workspace;->getIdForScreen(Lcom/android/launcher3/common/base/view/CellLayout;)J
 
     move-result-wide v2
 
     invoke-virtual {v1, v2, v3}, Lcom/android/launcher3/home/Workspace;->updateDefaultHomeScreenId(J)V
 
     :cond_0
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeProxyCallbacksImpl;->mHomeController:Lcom/android/launcher3/home/HomeController;
-
-    invoke-virtual {v1}, Lcom/android/launcher3/home/HomeController;->getWorkspace()Lcom/android/launcher3/home/Workspace;
-
-    move-result-object v1
-
     invoke-virtual {v1}, Lcom/android/launcher3/home/Workspace;->onEndReordering()V
 
     return-void
@@ -1910,6 +1850,16 @@
     const/4 v2, -0x1
 
     goto :goto_1
+.end method
+
+.method public moveItemFromFolder(Lcom/android/launcher3/common/base/item/IconInfo;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeProxyCallbacksImpl;->mHomeController:Lcom/android/launcher3/home/HomeController;
+
+    invoke-virtual {v0, p1}, Lcom/android/launcher3/home/HomeController;->moveItemFromFolder(Lcom/android/launcher3/common/base/item/IconInfo;)V
+
+    return-void
 .end method
 
 .method public movePage(I)V

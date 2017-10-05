@@ -39,25 +39,17 @@
 
     const/4 v2, 0x0
 
-    iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderView$3;->this$0:Lcom/android/launcher3/folder/view/FolderView;
-
-    invoke-static {v0}, Lcom/android/launcher3/folder/view/FolderView;->access$000(Lcom/android/launcher3/folder/view/FolderView;)Lcom/android/launcher3/folder/view/FolderNameEditText;
-
-    move-result-object v0
-
-    if-ne p1, v0, :cond_1
+    if-eqz p2, :cond_2
 
     iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderView$3;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-    invoke-static {v0}, Lcom/android/launcher3/folder/view/FolderView;->access$100(Lcom/android/launcher3/folder/view/FolderView;)I
+    invoke-static {v0}, Lcom/android/launcher3/folder/view/FolderView;->access$000(Lcom/android/launcher3/folder/view/FolderView;)I
 
     move-result v0
 
     const/4 v1, 0x2
 
     if-ne v0, v1, :cond_1
-
-    if-eqz p2, :cond_2
 
     invoke-virtual {p1}, Landroid/view/View;->isInTouchMode()Z
 
@@ -67,7 +59,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderView$3;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-    invoke-static {v0}, Lcom/android/launcher3/folder/view/FolderView;->access$200(Lcom/android/launcher3/folder/view/FolderView;)Z
+    invoke-static {v0}, Lcom/android/launcher3/folder/view/FolderView;->access$100(Lcom/android/launcher3/folder/view/FolderView;)Z
 
     move-result v0
 
@@ -76,17 +68,11 @@
     :cond_0
     iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderView$3;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-    invoke-static {v0, v2}, Lcom/android/launcher3/folder/view/FolderView;->access$202(Lcom/android/launcher3/folder/view/FolderView;Z)Z
+    invoke-static {v0, v2}, Lcom/android/launcher3/folder/view/FolderView;->access$102(Lcom/android/launcher3/folder/view/FolderView;Z)Z
 
     iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderView$3;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-    invoke-static {v0}, Lcom/android/launcher3/folder/view/FolderView;->access$000(Lcom/android/launcher3/folder/view/FolderView;)Lcom/android/launcher3/folder/view/FolderNameEditText;
-
-    move-result-object v0
-
-    const/4 v1, 0x1
-
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/folder/view/FolderNameEditText;->setCursorVisible(Z)V
+    invoke-virtual {v0}, Lcom/android/launcher3/folder/view/FolderView;->startEditingFolderName()V
 
     :cond_1
     :goto_0
@@ -95,7 +81,7 @@
     :cond_2
     iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderView$3;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-    invoke-static {v0}, Lcom/android/launcher3/folder/view/FolderView;->access$300(Lcom/android/launcher3/folder/view/FolderView;)Landroid/view/inputmethod/InputMethodManager;
+    invoke-static {v0}, Lcom/android/launcher3/folder/view/FolderView;->access$200(Lcom/android/launcher3/folder/view/FolderView;)Landroid/view/inputmethod/InputMethodManager;
 
     move-result-object v0
 
@@ -106,14 +92,6 @@
     move-result-object v1
 
     invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->hideSoftInputFromWindow(Landroid/os/IBinder;I)Z
-
-    iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderView$3;->this$0:Lcom/android/launcher3/folder/view/FolderView;
-
-    invoke-static {v0}, Lcom/android/launcher3/folder/view/FolderView;->access$000(Lcom/android/launcher3/folder/view/FolderView;)Lcom/android/launcher3/folder/view/FolderNameEditText;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v2}, Lcom/android/launcher3/folder/view/FolderNameEditText;->setCursorVisible(Z)V
 
     goto :goto_0
 .end method

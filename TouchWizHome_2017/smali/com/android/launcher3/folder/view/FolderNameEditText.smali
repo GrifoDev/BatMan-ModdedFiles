@@ -12,6 +12,8 @@
 
 
 # instance fields
+.field private mBackupKeyListener:Landroid/text/method/KeyListener;
+
 .field private mOnEventListener:Lcom/android/launcher3/folder/view/FolderNameEditText$OnEventListener;
 
 
@@ -42,6 +44,42 @@
 
 
 # virtual methods
+.method protected onFocusChanged(ZILandroid/graphics/Rect;)V
+    .locals 2
+
+    if-eqz p1, :cond_1
+
+    iget-object v1, p0, Lcom/android/launcher3/folder/view/FolderNameEditText;->mBackupKeyListener:Landroid/text/method/KeyListener;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/launcher3/folder/view/FolderNameEditText;->mBackupKeyListener:Landroid/text/method/KeyListener;
+
+    invoke-virtual {p0, v1}, Lcom/android/launcher3/folder/view/FolderNameEditText;->setKeyListener(Landroid/text/method/KeyListener;)V
+
+    :cond_0
+    :goto_0
+    invoke-super {p0, p1, p2, p3}, Landroid/widget/EditText;->onFocusChanged(ZILandroid/graphics/Rect;)V
+
+    return-void
+
+    :cond_1
+    invoke-virtual {p0}, Lcom/android/launcher3/folder/view/FolderNameEditText;->getKeyListener()Landroid/text/method/KeyListener;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_2
+
+    iput-object v0, p0, Lcom/android/launcher3/folder/view/FolderNameEditText;->mBackupKeyListener:Landroid/text/method/KeyListener;
+
+    :cond_2
+    const/4 v1, 0x0
+
+    invoke-virtual {p0, v1}, Lcom/android/launcher3/folder/view/FolderNameEditText;->setKeyListener(Landroid/text/method/KeyListener;)V
+
+    goto :goto_0
+.end method
+
 .method public onKeyPreIme(ILandroid/view/KeyEvent;)Z
     .locals 2
 

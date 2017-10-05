@@ -53,7 +53,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f080199
+    const v4, 0x7f0901b6
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -65,7 +65,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f08012b
+    const v5, 0x7f090146
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -94,8 +94,6 @@
     invoke-virtual {v0, v2}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
     invoke-virtual {v1, v0}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;)V
-
-    invoke-virtual {v1}, Landroid/app/Activity;->finish()V
 
     :cond_0
     const/4 v2, 0x0

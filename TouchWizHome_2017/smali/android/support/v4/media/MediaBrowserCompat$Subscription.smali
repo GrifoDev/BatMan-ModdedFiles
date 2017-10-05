@@ -61,9 +61,18 @@
 
 
 # virtual methods
-.method public getCallback(Landroid/os/Bundle;)Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;
+.method public getCallback(Landroid/content/Context;Landroid/os/Bundle;)Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;
     .locals 2
 
+    if-eqz p2, :cond_0
+
+    invoke-virtual {p1}, Landroid/content/Context;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v1
+
+    invoke-virtual {p2, v1}, Landroid/os/Bundle;->setClassLoader(Ljava/lang/ClassLoader;)V
+
+    :cond_0
     const/4 v0, 0x0
 
     :goto_0
@@ -73,7 +82,7 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_2
 
     iget-object v1, p0, Landroid/support/v4/media/MediaBrowserCompat$Subscription;->mOptionsList:Ljava/util/List;
 
@@ -83,11 +92,11 @@
 
     check-cast v1, Landroid/os/Bundle;
 
-    invoke-static {v1, p1}, Landroid/support/v4/media/MediaBrowserCompatUtils;->areSameOptions(Landroid/os/Bundle;Landroid/os/Bundle;)Z
+    invoke-static {v1, p2}, Landroid/support/v4/media/MediaBrowserCompatUtils;->areSameOptions(Landroid/os/Bundle;Landroid/os/Bundle;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     iget-object v1, p0, Landroid/support/v4/media/MediaBrowserCompat$Subscription;->mCallbacks:Ljava/util/List;
 
@@ -100,12 +109,12 @@
     :goto_1
     return-object v1
 
-    :cond_0
+    :cond_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     const/4 v1, 0x0
 
     goto :goto_1
@@ -157,9 +166,18 @@
     return v0
 .end method
 
-.method public putCallback(Landroid/os/Bundle;Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;)V
+.method public putCallback(Landroid/content/Context;Landroid/os/Bundle;Landroid/support/v4/media/MediaBrowserCompat$SubscriptionCallback;)V
     .locals 2
 
+    if-eqz p2, :cond_0
+
+    invoke-virtual {p1}, Landroid/content/Context;->getClassLoader()Ljava/lang/ClassLoader;
+
+    move-result-object v1
+
+    invoke-virtual {p2, v1}, Landroid/os/Bundle;->setClassLoader(Ljava/lang/ClassLoader;)V
+
+    :cond_0
     const/4 v0, 0x0
 
     :goto_0
@@ -169,7 +187,7 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_1
+    if-ge v0, v1, :cond_2
 
     iget-object v1, p0, Landroid/support/v4/media/MediaBrowserCompat$Subscription;->mOptionsList:Ljava/util/List;
 
@@ -179,32 +197,32 @@
 
     check-cast v1, Landroid/os/Bundle;
 
-    invoke-static {v1, p1}, Landroid/support/v4/media/MediaBrowserCompatUtils;->areSameOptions(Landroid/os/Bundle;Landroid/os/Bundle;)Z
+    invoke-static {v1, p2}, Landroid/support/v4/media/MediaBrowserCompatUtils;->areSameOptions(Landroid/os/Bundle;Landroid/os/Bundle;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     iget-object v1, p0, Landroid/support/v4/media/MediaBrowserCompat$Subscription;->mCallbacks:Ljava/util/List;
 
-    invoke-interface {v1, v0, p2}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {v1, v0, p3}, Ljava/util/List;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
     :goto_1
     return-void
 
-    :cond_0
+    :cond_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     iget-object v1, p0, Landroid/support/v4/media/MediaBrowserCompat$Subscription;->mCallbacks:Ljava/util/List;
 
-    invoke-interface {v1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, p3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     iget-object v1, p0, Landroid/support/v4/media/MediaBrowserCompat$Subscription;->mOptionsList:Ljava/util/List;
 
-    invoke-interface {v1, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v1, p2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 .end method

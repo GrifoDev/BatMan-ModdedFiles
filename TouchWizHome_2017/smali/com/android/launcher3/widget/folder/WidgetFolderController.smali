@@ -23,6 +23,10 @@
 # instance fields
 .field private mActionListener:Lcom/android/launcher3/widget/controller/WidgetState$ActionListener;
 
+.field private mBgBlurAmount:F
+
+.field private mBgDarkenAlpha:F
+
 .field private mDragController:Lcom/android/launcher3/widget/controller/WidgetDragController;
 
 .field private mFolderManager:Lcom/android/launcher3/widget/controller/WidgetController$FolderManager;
@@ -116,14 +120,6 @@
 .method private changeColorForBg(Z)V
     .locals 2
 
-    iget-boolean v0, p0, Lcom/android/launcher3/widget/folder/WidgetFolderController;->mWhiteWallpaper:Z
-
-    if-ne v0, p1, :cond_0
-
-    :goto_0
-    return-void
-
-    :cond_0
     iput-boolean p1, p0, Lcom/android/launcher3/widget/folder/WidgetFolderController;->mWhiteWallpaper:Z
 
     iget-object v0, p0, Lcom/android/launcher3/widget/folder/WidgetFolderController;->mWidgetFolder:Lcom/android/launcher3/widget/view/WidgetFolder;
@@ -136,7 +132,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/widget/view/WidgetPagedView;->changeColorForBg(Z)V
 
-    goto :goto_0
+    return-void
 .end method
 
 .method private changeState(Lcom/android/launcher3/widget/controller/WidgetState$State;Z)V
@@ -223,12 +219,50 @@
     return v0
 .end method
 
+.method protected getBackgroundBlurAmountForState(I)F
+    .locals 1
+
+    iget v0, p0, Lcom/android/launcher3/widget/folder/WidgetFolderController;->mBgBlurAmount:F
+
+    return v0
+.end method
+
+.method protected getBackgroundDimAlphaForState(I)F
+    .locals 1
+
+    iget v0, p0, Lcom/android/launcher3/widget/folder/WidgetFolderController;->mBgDarkenAlpha:F
+
+    return v0
+.end method
+
+.method protected getBackgroundImageAlphaForState(I)F
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
 .method public getContainerView()Landroid/view/View;
     .locals 1
 
     iget-object v0, p0, Lcom/android/launcher3/widget/folder/WidgetFolderController;->mWidgetFolder:Lcom/android/launcher3/widget/view/WidgetFolder;
 
     return-object v0
+.end method
+
+.method protected getInternalState()I
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/launcher3/widget/folder/WidgetFolderController;->getState()Lcom/android/launcher3/widget/controller/WidgetState$State;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/launcher3/widget/controller/WidgetState$State;->ordinal()I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public getState()Lcom/android/launcher3/widget/controller/WidgetState$State;
@@ -246,6 +280,8 @@
 .method public initStageView()V
     .locals 3
 
+    const/high16 v2, 0x42c80000    # 100.0f
+
     iget-boolean v0, p0, Lcom/android/launcher3/widget/folder/WidgetFolderController;->mViewInitiated:Z
 
     if-eqz v0, :cond_0
@@ -256,6 +292,42 @@
     :cond_0
     iget-object v0, p0, Lcom/android/launcher3/widget/folder/WidgetFolderController;->mLauncher:Lcom/android/launcher3/Launcher;
 
+    invoke-virtual {v0}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f0d0044
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v0
+
+    int-to-float v0, v0
+
+    div-float/2addr v0, v2
+
+    iput v0, p0, Lcom/android/launcher3/widget/folder/WidgetFolderController;->mBgBlurAmount:F
+
+    iget-object v0, p0, Lcom/android/launcher3/widget/folder/WidgetFolderController;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f0d0045
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v0
+
+    int-to-float v0, v0
+
+    div-float/2addr v0, v2
+
+    iput v0, p0, Lcom/android/launcher3/widget/folder/WidgetFolderController;->mBgDarkenAlpha:F
+
+    iget-object v0, p0, Lcom/android/launcher3/widget/folder/WidgetFolderController;->mLauncher:Lcom/android/launcher3/Launcher;
+
     invoke-virtual {v0}, Lcom/android/launcher3/Launcher;->getLayoutInflater()Landroid/view/LayoutInflater;
 
     move-result-object v0
@@ -264,7 +336,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/widget/folder/WidgetFolderController;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x7f030048
+    const v1, 0x7f04005b
 
     const/4 v2, 0x0
 
@@ -278,7 +350,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/widget/folder/WidgetFolderController;->mWidgetFolder:Lcom/android/launcher3/widget/view/WidgetFolder;
 
-    const v1, 0x7f0f00e8
+    const v1, 0x7f110105
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/widget/view/WidgetFolder;->findViewById(I)Landroid/view/View;
 
@@ -370,7 +442,7 @@
     return-void
 .end method
 
-.method public onConfigurationChangedIfNeeded()V
+.method public onConfigurationChangedIfNeeded(Z)V
     .locals 1
 
     iget-object v0, p0, Lcom/android/launcher3/widget/folder/WidgetFolderController;->mWidgetFolder:Lcom/android/launcher3/widget/view/WidgetFolder;
@@ -519,6 +591,14 @@
     goto :goto_0
 .end method
 
+.method protected onStageEnterByTray()Landroid/animation/Animator;
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
 .method protected onStageExit(Lcom/android/launcher3/common/stage/StageEntry;)Landroid/animation/Animator;
     .locals 6
 
@@ -624,6 +704,14 @@
     goto :goto_1
 .end method
 
+.method protected onStageExitByTray()Landroid/animation/Animator;
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
 .method public onWidgetItemClick(Landroid/view/View;)V
     .locals 1
 
@@ -679,4 +767,20 @@
     .locals 0
 
     return-void
+.end method
+
+.method protected supportNavigationBarForState(I)Z
+    .locals 1
+
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
+.method protected supportStatusBarForState(I)Z
+    .locals 1
+
+    const/4 v0, 0x1
+
+    return v0
 .end method

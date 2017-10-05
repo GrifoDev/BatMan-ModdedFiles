@@ -1732,7 +1732,7 @@
 .end method
 
 .method public restoreLayout(Landroid/content/Context;Lorg/xmlpull/v1/XmlPullParser;Ljava/util/ArrayList;Lcom/android/launcher3/common/bnr/LauncherBnrListener$Result;)V
-    .locals 5
+    .locals 8
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1747,44 +1747,70 @@
         }
     .end annotation
 
+    const/4 v2, 0x0
+
     const/4 v4, 0x1
 
     invoke-static {}, Lcom/android/launcher3/common/model/FavoritesProvider;->getInstance()Lcom/android/launcher3/common/model/FavoritesProvider;
 
-    move-result-object v0
+    move-result-object v6
 
-    if-nez v0, :cond_1
+    if-nez v6, :cond_0
 
-    const-string v2, "Launcher.AppsBnr"
+    const-string v1, "Launcher.AppsBnr"
 
-    const-string v3, "FavoritesProvider.getInstance() is null"
+    const-string v2, "FavoritesProvider.getInstance() is null"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     iput v4, p4, Lcom/android/launcher3/common/bnr/LauncherBnrListener$Result;->result:I
 
-    :cond_0
     :goto_0
     return-void
 
-    :cond_1
-    const-string v2, "Launcher.AppsBnr"
+    :cond_0
+    const-string v1, "Launcher.AppsBnr"
 
     const-string v3, "restoreLayout"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    new-instance v1, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;
+    new-instance v7, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;
 
-    invoke-direct {v1, p1, v0, p2}, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;-><init>(Landroid/content/Context;Lcom/android/launcher3/common/model/FavoritesProvider;Lorg/xmlpull/v1/XmlPullParser;)V
+    invoke-direct {v7, p1, v6, p2}, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;-><init>(Landroid/content/Context;Lcom/android/launcher3/common/model/FavoritesProvider;Lorg/xmlpull/v1/XmlPullParser;)V
 
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/model/FavoritesProvider;->restoreAppsFavorites(Lcom/android/launcher3/common/model/DefaultLayoutParser;)I
+    invoke-virtual {v6, v7}, Lcom/android/launcher3/common/model/FavoritesProvider;->restoreAppsFavorites(Lcom/android/launcher3/common/model/DefaultLayoutParser;)I
 
-    move-result v2
+    move-result v1
 
-    if-gez v2, :cond_0
+    if-gez v1, :cond_1
 
     iput v4, p4, Lcom/android/launcher3/common/bnr/LauncherBnrListener$Result;->result:I
+
+    goto :goto_0
+
+    :cond_1
+    new-instance v0, Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;
+
+    invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v4
+
+    const/4 v5, 0x0
+
+    move-object v1, p1
+
+    move-object v3, v2
+
+    invoke-direct/range {v0 .. v5}, Lcom/android/launcher3/allapps/model/AppsDefaultLayoutParser;-><init>(Landroid/content/Context;Landroid/appwidget/AppWidgetHost;Lcom/android/launcher3/common/model/DefaultLayoutParser$LayoutParserCallback;Landroid/content/res/Resources;I)V
+
+    check-cast v7, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;
+
+    invoke-virtual {v7}, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;->getRestoredCategory()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v6, v0, v1}, Lcom/android/launcher3/common/model/FavoritesProvider;->removeAndAddHiddenApp(Lcom/android/launcher3/common/model/DefaultLayoutParser;Ljava/lang/String;)V
 
     goto :goto_0
 .end method

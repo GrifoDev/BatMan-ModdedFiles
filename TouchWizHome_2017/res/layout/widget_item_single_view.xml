@@ -2,7 +2,7 @@
 <com.android.launcher3.widget.view.WidgetItemSingleView android:orientation="vertical" android:background="@drawable/focusable_view_bg" android:padding="@dimen/widget_itemview_focus_padding" android:focusable="true" android:layout_width="@dimen/widget_itemview_width" android:layout_height="fill_parent"
   xmlns:android="http://schemas.android.com/apk/res/android">
     <LinearLayout android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="fill_parent">
-        <LinearLayout android:layout_gravity="start|center|top" android:orientation="vertical" android:paddingBottom="@dimen/widget_itemview_focus_padding" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
+        <LinearLayout android:layout_gravity="start|center|top" android:orientation="vertical" android:paddingBottom="@dimen/widget_title_bottom_padding" android:layout_width="0.0dip" android:layout_height="wrap_content" android:layout_weight="1.0">
             <TextView android:ellipsize="end" android:gravity="start|center|top" android:id="@id/widget_name" android:layout_width="wrap_content" android:layout_height="@dimen/widget_itemview_title_name_height" android:maxLines="1" android:textDirection="locale" style="@style/WidgetListText" />
             <TextView android:ellipsize="end" android:gravity="start|center|top" android:id="@id/widget_dims" android:layout_width="wrap_content" android:layout_height="@dimen/widget_itemview_title_cellspan_height" android:maxLines="1" style="@style/WidgetListText" />
         </LinearLayout>

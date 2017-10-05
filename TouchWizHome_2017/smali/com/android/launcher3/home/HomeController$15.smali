@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/HomeController;->getFirstMatch(Lcom/android/launcher3/common/base/item/ItemOperator;)Landroid/view/View;
+    value = Lcom/android/launcher3/home/HomeController;->getWidgetForAppWidgetId(I)Lcom/android/launcher3/home/LauncherAppWidgetHostView;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/home/HomeController;
 
-.field final synthetic val$operator:Lcom/android/launcher3/common/base/item/ItemOperator;
-
-.field final synthetic val$value:[Landroid/view/View;
+.field final synthetic val$appWidgetId:I
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/home/HomeController;Lcom/android/launcher3/common/base/item/ItemOperator;[Landroid/view/View;)V
+.method constructor <init>(Lcom/android/launcher3/home/HomeController;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/home/HomeController$15;->this$0:Lcom/android/launcher3/home/HomeController;
 
-    iput-object p2, p0, Lcom/android/launcher3/home/HomeController$15;->val$operator:Lcom/android/launcher3/common/base/item/ItemOperator;
-
-    iput-object p3, p0, Lcom/android/launcher3/home/HomeController$15;->val$value:[Landroid/view/View;
+    iput p2, p0, Lcom/android/launcher3/home/HomeController$15;->val$appWidgetId:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -45,22 +41,25 @@
 .method public evaluate(Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/view/View;Landroid/view/View;)Z
     .locals 2
 
-    const/4 v0, 0x0
+    instance-of v0, p1, Lcom/android/launcher3/home/LauncherAppWidgetInfo;
 
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeController$15;->val$operator:Lcom/android/launcher3/common/base/item/ItemOperator;
+    if-eqz v0, :cond_0
 
-    invoke-interface {v1, p1, p2, p3}, Lcom/android/launcher3/common/base/item/ItemOperator;->evaluate(Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/view/View;Landroid/view/View;)Z
+    check-cast p1, Lcom/android/launcher3/home/LauncherAppWidgetInfo;
 
-    move-result v1
+    iget v0, p1, Lcom/android/launcher3/home/LauncherAppWidgetInfo;->appWidgetId:I
 
-    if-eqz v1, :cond_0
+    iget v1, p0, Lcom/android/launcher3/home/HomeController$15;->val$appWidgetId:I
 
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeController$15;->val$value:[Landroid/view/View;
-
-    aput-object p2, v1, v0
+    if-ne v0, v1, :cond_0
 
     const/4 v0, 0x1
 
-    :cond_0
+    :goto_0
     return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method

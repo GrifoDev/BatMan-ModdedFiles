@@ -1,11 +1,14 @@
 .class Lcom/android/launcher3/home/HomeController$17;
-.super Landroid/os/AsyncTask;
+.super Ljava/lang/Object;
 .source "HomeController.java"
+
+# interfaces
+.implements Lcom/android/launcher3/common/base/item/ItemOperator;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/HomeController;->removeHomeItem(Lcom/android/launcher3/common/base/item/ItemInfo;)V
+    value = Lcom/android/launcher3/home/HomeController;->getFirstMatch(Lcom/android/launcher3/common/base/item/ItemOperator;)Landroid/view/View;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -13,67 +16,51 @@
     name = null
 .end annotation
 
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Landroid/os/AsyncTask",
-        "<",
-        "Ljava/lang/Void;",
-        "Ljava/lang/Void;",
-        "Ljava/lang/Void;",
-        ">;"
-    }
-.end annotation
-
 
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/home/HomeController;
 
-.field final synthetic val$widget:Lcom/android/launcher3/home/LauncherAppWidgetInfo;
+.field final synthetic val$operator:Lcom/android/launcher3/common/base/item/ItemOperator;
+
+.field final synthetic val$value:[Landroid/view/View;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/home/HomeController;Lcom/android/launcher3/home/LauncherAppWidgetInfo;)V
+.method constructor <init>(Lcom/android/launcher3/home/HomeController;Lcom/android/launcher3/common/base/item/ItemOperator;[Landroid/view/View;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/home/HomeController$17;->this$0:Lcom/android/launcher3/home/HomeController;
 
-    iput-object p2, p0, Lcom/android/launcher3/home/HomeController$17;->val$widget:Lcom/android/launcher3/home/LauncherAppWidgetInfo;
+    iput-object p2, p0, Lcom/android/launcher3/home/HomeController$17;->val$operator:Lcom/android/launcher3/common/base/item/ItemOperator;
 
-    invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
+    iput-object p3, p0, Lcom/android/launcher3/home/HomeController$17;->val$value:[Landroid/view/View;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 1
-
-    check-cast p1, [Ljava/lang/Void;
-
-    invoke-virtual {p0, p1}, Lcom/android/launcher3/home/HomeController$17;->doInBackground([Ljava/lang/Void;)Ljava/lang/Void;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public varargs doInBackground([Ljava/lang/Void;)Ljava/lang/Void;
+.method public evaluate(Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/view/View;Landroid/view/View;)Z
     .locals 2
-
-    iget-object v0, p0, Lcom/android/launcher3/home/HomeController$17;->this$0:Lcom/android/launcher3/home/HomeController;
-
-    invoke-static {v0}, Lcom/android/launcher3/home/HomeController;->access$1000(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/home/LauncherAppWidgetHost;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeController$17;->val$widget:Lcom/android/launcher3/home/LauncherAppWidgetInfo;
-
-    iget v1, v1, Lcom/android/launcher3/home/LauncherAppWidgetInfo;->appWidgetId:I
-
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/home/LauncherAppWidgetHost;->deleteAppWidgetId(I)V
 
     const/4 v0, 0x0
 
-    return-object v0
+    iget-object v1, p0, Lcom/android/launcher3/home/HomeController$17;->val$operator:Lcom/android/launcher3/common/base/item/ItemOperator;
+
+    invoke-interface {v1, p1, p2, p3}, Lcom/android/launcher3/common/base/item/ItemOperator;->evaluate(Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/view/View;Landroid/view/View;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/launcher3/home/HomeController$17;->val$value:[Landroid/view/View;
+
+    aput-object p2, v1, v0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    return v0
 .end method

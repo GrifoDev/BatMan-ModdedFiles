@@ -701,12 +701,17 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
+    sget-object v0, Lcom/android/launcher3/util/logging/Logging;->sContext:Landroid/content/Context;
+
+    if-nez v0, :cond_1
+
+    :cond_0
     :goto_0
     return-void
 
-    :cond_0
+    :cond_1
     sget-object v0, Lcom/android/launcher3/util/logging/Logging;->sLoggingThread:Landroid/os/HandlerThread;
 
     invoke-virtual {v0}, Landroid/os/HandlerThread;->getThreadId()I
@@ -717,13 +722,13 @@
 
     move-result v1
 
-    if-ne v0, v1, :cond_1
+    if-ne v0, v1, :cond_2
 
     invoke-interface {p1}, Ljava/lang/Runnable;->run()V
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     sget-object v0, Lcom/android/launcher3/util/logging/Logging;->sLoggingHandler:Landroid/os/Handler;
 
     invoke-virtual {v0, p1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z

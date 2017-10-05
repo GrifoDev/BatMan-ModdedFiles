@@ -69,6 +69,20 @@
     return v0
 .end method
 
+.method public hasExplicitFocusable(Landroid/view/View;)Z
+    .locals 1
+    .param p1    # Landroid/view/View;
+        .annotation build Landroid/support/annotation/NonNull;
+        .end annotation
+    .end param
+
+    invoke-virtual {p1}, Landroid/view/View;->hasExplicitFocusable()Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public isFocusedByDefault(Landroid/view/View;)Z
     .locals 1
     .param p1    # Landroid/view/View;

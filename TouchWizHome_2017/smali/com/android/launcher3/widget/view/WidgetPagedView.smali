@@ -127,9 +127,9 @@
 
     iput-boolean v1, p0, Lcom/android/launcher3/widget/view/WidgetPagedView;->mChildrenLayersEnabled:Z
 
-    new-instance v0, Lcom/android/launcher3/widget/view/WidgetPagedView$1;
+    new-instance v0, Lcom/android/launcher3/widget/view/WidgetPagedView$2;
 
-    invoke-direct {v0, p0}, Lcom/android/launcher3/widget/view/WidgetPagedView$1;-><init>(Lcom/android/launcher3/widget/view/WidgetPagedView;)V
+    invoke-direct {v0, p0}, Lcom/android/launcher3/widget/view/WidgetPagedView$2;-><init>(Lcom/android/launcher3/widget/view/WidgetPagedView;)V
 
     iput-object v0, p0, Lcom/android/launcher3/widget/view/WidgetPagedView;->mItemKeyEventListener:Lcom/android/launcher3/widget/controller/WidgetFocusHelper$ItemKeyEventListener;
 
@@ -160,7 +160,15 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/launcher3/widget/view/WidgetPagedView;)Lcom/android/launcher3/widget/view/WidgetPagedView$Listener;
+.method static synthetic access$002(Lcom/android/launcher3/widget/view/WidgetPagedView;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/launcher3/widget/view/WidgetPagedView;->mFirstLayout:Z
+
+    return p1
+.end method
+
+.method static synthetic access$100(Lcom/android/launcher3/widget/view/WidgetPagedView;)Lcom/android/launcher3/widget/view/WidgetPagedView$Listener;
     .locals 1
 
     iget-object v0, p0, Lcom/android/launcher3/widget/view/WidgetPagedView;->mListener:Lcom/android/launcher3/widget/view/WidgetPagedView$Listener;
@@ -790,7 +798,7 @@
 .method protected getCurrentPageDescription()Ljava/lang/String;
     .locals 5
 
-    const v0, 0x7f080028
+    const v0, 0x7f090031
 
     invoke-virtual {p0}, Lcom/android/launcher3/widget/view/WidgetPagedView;->getContext()Landroid/content/Context;
 
@@ -949,19 +957,16 @@
 
     check-cast v0, Landroid/widget/FrameLayout$LayoutParams;
 
-    invoke-virtual {p0}, Lcom/android/launcher3/widget/view/WidgetPagedView;->getResources()Landroid/content/res/Resources;
+    instance-of v2, p0, Lcom/android/launcher3/widget/view/WidgetFolderPagedView;
 
-    move-result-object v2
+    if-eqz v2, :cond_3
 
-    const v3, 0x7f09008a
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v2
+    const/4 v2, 0x0
 
     iput v2, v0, Landroid/widget/FrameLayout$LayoutParams;->bottomMargin:I
 
     :cond_2
+    :goto_1
     invoke-direct {p0}, Lcom/android/launcher3/widget/view/WidgetPagedView;->runFilter()V
 
     invoke-virtual {p0}, Lcom/android/launcher3/widget/view/WidgetPagedView;->isDataReady()Z
@@ -973,6 +978,21 @@
     invoke-virtual {p0}, Lcom/android/launcher3/widget/view/WidgetPagedView;->requestLayout()V
 
     goto :goto_0
+
+    :cond_3
+    invoke-virtual {p0}, Lcom/android/launcher3/widget/view/WidgetPagedView;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f0a008d
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v2
+
+    iput v2, v0, Landroid/widget/FrameLayout$LayoutParams;->bottomMargin:I
+
+    goto :goto_1
 .end method
 
 .method protected isContentsRefreshable()Z
@@ -1050,9 +1070,15 @@
 .end method
 
 .method public onConfigurationChangedIfNeeded()V
-    .locals 0
+    .locals 1
 
-    invoke-virtual {p0}, Lcom/android/launcher3/widget/view/WidgetPagedView;->invalidatePageData()V
+    invoke-virtual {p0}, Lcom/android/launcher3/widget/view/WidgetPagedView;->invalidateWigetItems()V
+
+    new-instance v0, Lcom/android/launcher3/widget/view/WidgetPagedView$1;
+
+    invoke-direct {v0, p0}, Lcom/android/launcher3/widget/view/WidgetPagedView$1;-><init>(Lcom/android/launcher3/widget/view/WidgetPagedView;)V
+
+    invoke-virtual {p0, v0}, Lcom/android/launcher3/widget/view/WidgetPagedView;->post(Ljava/lang/Runnable;)Z
 
     return-void
 .end method
@@ -1460,13 +1486,13 @@
 
     move-result-object v2
 
-    const v3, 0x7f08019e
+    const v3, 0x7f0901bb
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v4, 0x7f080107
+    const v4, 0x7f090122
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1489,13 +1515,13 @@
 
     move-result-object v2
 
-    const v3, 0x7f08019f
+    const v3, 0x7f0901bc
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v4, 0x7f080106
+    const v4, 0x7f090121
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

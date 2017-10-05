@@ -39,11 +39,11 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsDragController$1;->this$0:Lcom/android/launcher3/allapps/controller/AppsDragController;
 
-    invoke-static {v0}, Lcom/android/launcher3/allapps/controller/AppsDragController;->access$000(Lcom/android/launcher3/allapps/controller/AppsDragController;)Lcom/android/launcher3/allapps/controller/AppsController;
+    invoke-static {v0}, Lcom/android/launcher3/allapps/controller/AppsDragController;->access$000(Lcom/android/launcher3/allapps/controller/AppsDragController;)Lcom/android/launcher3/allapps/view/AppsPagedView$Listener;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/launcher3/allapps/controller/AppsController;->exitDragStateDelayed()V
+    invoke-interface {v0}, Lcom/android/launcher3/allapps/view/AppsPagedView$Listener;->exitDragStateDelayed()V
 
     return-void
 .end method

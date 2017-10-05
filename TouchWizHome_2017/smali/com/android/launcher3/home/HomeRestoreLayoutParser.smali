@@ -15,6 +15,7 @@
         Lcom/android/launcher3/home/HomeRestoreLayoutParser$HomeScreenContentParser;,
         Lcom/android/launcher3/home/HomeRestoreLayoutParser$AppsButtonParser;,
         Lcom/android/launcher3/home/HomeRestoreLayoutParser$ZeroPageParser;,
+        Lcom/android/launcher3/home/HomeRestoreLayoutParser$ZeroPageContentsParser;,
         Lcom/android/launcher3/home/HomeRestoreLayoutParser$ScreenIndexParser;,
         Lcom/android/launcher3/home/HomeRestoreLayoutParser$PageCountParser;,
         Lcom/android/launcher3/home/HomeRestoreLayoutParser$ColumnsParser;,
@@ -81,6 +82,8 @@
     .end annotation
 .end field
 
+.field private mZeroPageContents:Landroid/content/ComponentName;
+
 
 # direct methods
 .method static constructor <clinit>()V
@@ -132,6 +135,8 @@
         }
     .end annotation
 
+    const/4 v6, 0x0
+
     invoke-virtual {p2}, Lcom/android/launcher3/common/model/FavoritesProvider;->getAppWidgetHost()Landroid/appwidget/AppWidgetHost;
 
     move-result-object v2
@@ -142,8 +147,6 @@
 
     const/4 v5, 0x0
 
-    const/4 v6, 0x0
-
     move-object v0, p0
 
     move-object v1, p1
@@ -151,6 +154,8 @@
     move-object v3, p2
 
     invoke-direct/range {v0 .. v6}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;-><init>(Landroid/content/Context;Landroid/appwidget/AppWidgetHost;Lcom/android/launcher3/common/model/DefaultLayoutParser$LayoutParserCallback;Landroid/content/res/Resources;ILjava/lang/String;)V
+
+    iput-object v6, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mZeroPageContents:Landroid/content/ComponentName;
 
     new-instance v0, Ljava/util/HashMap;
 
@@ -173,7 +178,7 @@
     return-void
 .end method
 
-.method static synthetic access$1200(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)I
+.method static synthetic access$1300(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)I
     .locals 1
 
     iget v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mRows:I
@@ -181,7 +186,7 @@
     return v0
 .end method
 
-.method static synthetic access$1202(Lcom/android/launcher3/home/HomeRestoreLayoutParser;I)I
+.method static synthetic access$1302(Lcom/android/launcher3/home/HomeRestoreLayoutParser;I)I
     .locals 0
 
     iput p1, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mRows:I
@@ -189,7 +194,7 @@
     return p1
 .end method
 
-.method static synthetic access$1300(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)I
+.method static synthetic access$1400(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)I
     .locals 1
 
     iget v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mColumns:I
@@ -197,20 +202,12 @@
     return v0
 .end method
 
-.method static synthetic access$1302(Lcom/android/launcher3/home/HomeRestoreLayoutParser;I)I
+.method static synthetic access$1402(Lcom/android/launcher3/home/HomeRestoreLayoutParser;I)I
     .locals 0
 
     iput p1, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mColumns:I
 
     return p1
-.end method
-
-.method static synthetic access$1400(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/Context;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mContext:Landroid/content/Context;
-
-    return-object v0
 .end method
 
 .method static synthetic access$1500(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/Context;
@@ -221,18 +218,18 @@
     return-object v0
 .end method
 
-.method static synthetic access$1600(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Lcom/android/launcher3/common/model/FavoritesProvider;
+.method static synthetic access$1600(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/Context;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mFavoritesProvider:Lcom/android/launcher3/common/model/FavoritesProvider;
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
 
-.method static synthetic access$1700(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Ljava/util/ArrayList;
+.method static synthetic access$1700(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/Context;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mRestoredTable:Ljava/util/ArrayList;
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
@@ -245,18 +242,18 @@
     return-object v0
 .end method
 
-.method static synthetic access$1900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/Context;
+.method static synthetic access$1900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Lcom/android/launcher3/common/model/FavoritesProvider;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mFavoritesProvider:Lcom/android/launcher3/common/model/FavoritesProvider;
 
     return-object v0
 .end method
 
-.method static synthetic access$2000(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/Context;
+.method static synthetic access$2000(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Ljava/util/ArrayList;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mRestoredTable:Ljava/util/ArrayList;
 
     return-object v0
 .end method
@@ -269,52 +266,58 @@
     return-object v0
 .end method
 
-.method static synthetic access$2200(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/ContentValues;
+.method static synthetic access$2200(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/Context;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mValues:Landroid/content/ContentValues;
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
 
-.method static synthetic access$2300(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/ContentValues;
+.method static synthetic access$2300(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/Context;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mValues:Landroid/content/ContentValues;
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
 
-.method static synthetic access$2400(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/ContentValues;
+.method static synthetic access$2400(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/ComponentName;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mValues:Landroid/content/ContentValues;
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mZeroPageContents:Landroid/content/ComponentName;
 
     return-object v0
 .end method
 
-.method static synthetic access$2500(Lcom/android/launcher3/home/HomeRestoreLayoutParser;Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;I)J
-    .locals 2
+.method static synthetic access$2402(Lcom/android/launcher3/home/HomeRestoreLayoutParser;Landroid/content/ComponentName;)Landroid/content/ComponentName;
+    .locals 0
 
-    invoke-virtual {p0, p1, p2, p3, p4}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->addShortcut(Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;I)J
+    iput-object p1, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mZeroPageContents:Landroid/content/ComponentName;
 
-    move-result-wide v0
-
-    return-wide v0
+    return-object p1
 .end method
 
-.method static synthetic access$2600(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/ContentValues;
+.method static synthetic access$2500(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/Context;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mValues:Landroid/content/ContentValues;
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
 
-.method static synthetic access$2700(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/ContentValues;
+.method static synthetic access$2600(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/Context;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mValues:Landroid/content/ContentValues;
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mContext:Landroid/content/Context;
+
+    return-object v0
+.end method
+
+.method static synthetic access$2700(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/Context;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
@@ -327,10 +330,10 @@
     return-object v0
 .end method
 
-.method static synthetic access$2900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/ContentValues;
+.method static synthetic access$2900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/Context;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mValues:Landroid/content/ContentValues;
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
@@ -343,12 +346,12 @@
     return-object v0
 .end method
 
-.method static synthetic access$3100(Lcom/android/launcher3/home/HomeRestoreLayoutParser;Ljava/lang/String;J)V
-    .locals 0
+.method static synthetic access$3100(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/ContentValues;
+    .locals 1
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->restoreContactShortcut(Ljava/lang/String;J)V
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mValues:Landroid/content/ContentValues;
 
-    return-void
+    return-object v0
 .end method
 
 .method static synthetic access$3200(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/ContentValues;
@@ -359,12 +362,14 @@
     return-object v0
 .end method
 
-.method static synthetic access$3300(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/ContentValues;
-    .locals 1
+.method static synthetic access$3300(Lcom/android/launcher3/home/HomeRestoreLayoutParser;Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;I)J
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mValues:Landroid/content/ContentValues;
+    invoke-virtual {p0, p1, p2, p3, p4}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->addShortcut(Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;I)J
 
-    return-object v0
+    move-result-wide v0
+
+    return-wide v0
 .end method
 
 .method static synthetic access$3400(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/ContentValues;
@@ -375,18 +380,18 @@
     return-object v0
 .end method
 
-.method static synthetic access$3500(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/Context;
+.method static synthetic access$3500(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/ContentValues;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mContext:Landroid/content/Context;
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mValues:Landroid/content/ContentValues;
 
     return-object v0
 .end method
 
-.method static synthetic access$3600(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Ljava/util/HashMap;
+.method static synthetic access$3600(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/Context;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mRestoreAppWidgetId:Ljava/util/HashMap;
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mContext:Landroid/content/Context;
 
     return-object v0
 .end method
@@ -407,7 +412,47 @@
     return-object v0
 .end method
 
-.method static synthetic access$3900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/Context;
+.method static synthetic access$3900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;Ljava/lang/String;J)V
+    .locals 0
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->restoreContactShortcut(Ljava/lang/String;J)V
+
+    return-void
+.end method
+
+.method static synthetic access$4000(Lcom/android/launcher3/home/HomeRestoreLayoutParser;Landroid/content/Intent;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->restoreDeepShortcut(Landroid/content/Intent;)V
+
+    return-void
+.end method
+
+.method static synthetic access$4100(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/ContentValues;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mValues:Landroid/content/ContentValues;
+
+    return-object v0
+.end method
+
+.method static synthetic access$4200(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/ContentValues;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mValues:Landroid/content/ContentValues;
+
+    return-object v0
+.end method
+
+.method static synthetic access$4300(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/ContentValues;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mValues:Landroid/content/ContentValues;
+
+    return-object v0
+.end method
+
+.method static synthetic access$4400(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/Context;
     .locals 1
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mContext:Landroid/content/Context;
@@ -415,7 +460,39 @@
     return-object v0
 .end method
 
-.method static synthetic access$4000(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/ContentValues;
+.method static synthetic access$4500(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Ljava/util/HashMap;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mRestoreAppWidgetId:Ljava/util/HashMap;
+
+    return-object v0
+.end method
+
+.method static synthetic access$4600(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/ContentValues;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mValues:Landroid/content/ContentValues;
+
+    return-object v0
+.end method
+
+.method static synthetic access$4700(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/ContentValues;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mValues:Landroid/content/ContentValues;
+
+    return-object v0
+.end method
+
+.method static synthetic access$4800(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/Context;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mContext:Landroid/content/Context;
+
+    return-object v0
+.end method
+
+.method static synthetic access$4900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/ContentValues;
     .locals 1
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->mValues:Landroid/content/ContentValues;
@@ -938,28 +1015,28 @@
     const/4 v9, 0x0
 
     :try_start_0
-    new-instance v2, Ljava/io/File;
+    new-instance v3, Ljava/io/File;
 
     sget-object v11, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->VCF_RESTORE_PATH:Ljava/lang/String;
 
-    invoke-direct {v2, v11}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    invoke-direct {v3, v11}, Ljava/io/File;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v2}, Ljava/io/File;->exists()Z
+    invoke-virtual {v3}, Ljava/io/File;->exists()Z
 
     move-result v11
 
     if-nez v11, :cond_3
 
-    invoke-virtual {v2}, Ljava/io/File;->mkdirs()Z
+    invoke-virtual {v3}, Ljava/io/File;->mkdirs()Z
 
     :cond_3
-    new-instance v4, Ljava/lang/StringBuffer;
+    new-instance v5, Ljava/lang/StringBuffer;
 
-    invoke-direct {v4}, Ljava/lang/StringBuffer;-><init>()V
+    invoke-direct {v5}, Ljava/lang/StringBuffer;-><init>()V
 
     const-string v11, "file://"
 
-    invoke-virtual {v4, v11}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
+    invoke-virtual {v5, v11}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
     move-result-object v11
 
@@ -985,13 +1062,13 @@
 
     invoke-virtual {v11, v12}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
 
-    invoke-virtual {v4}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v11
 
     invoke-static {v11}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
-    move-result-object v7
+    move-result-object v8
 
     move-object/from16 v0, p0
 
@@ -1001,17 +1078,17 @@
 
     move-result-object v11
 
-    invoke-virtual {v11, v7}, Landroid/content/ContentResolver;->openOutputStream(Landroid/net/Uri;)Ljava/io/OutputStream;
+    invoke-virtual {v11, v8}, Landroid/content/ContentResolver;->openOutputStream(Landroid/net/Uri;)Ljava/io/OutputStream;
 
-    move-result-object v5
+    move-result-object v6
 
-    if-eqz v5, :cond_4
+    if-eqz v6, :cond_4
 
     new-instance v10, Ljava/io/BufferedWriter;
 
     new-instance v11, Ljava/io/OutputStreamWriter;
 
-    invoke-direct {v11, v5}, Ljava/io/OutputStreamWriter;-><init>(Ljava/io/OutputStream;)V
+    invoke-direct {v11, v6}, Ljava/io/OutputStreamWriter;-><init>(Ljava/io/OutputStream;)V
 
     invoke-direct {v10, v11}, Ljava/io/BufferedWriter;-><init>(Ljava/io/Writer;)V
     :try_end_0
@@ -1036,7 +1113,7 @@
 
     move-result-object v12
 
-    invoke-virtual {v4}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual {v5}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
     move-result-object v13
 
@@ -1062,7 +1139,7 @@
 
     invoke-virtual {v11, v12, v13}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    move-result-object v6
+    move-result-object v7
 
     const-string v11, "contact_shortcut_ids"
 
@@ -1070,23 +1147,23 @@
 
     invoke-direct {v12}, Ljava/util/HashSet;-><init>()V
 
-    invoke-interface {v6, v11, v12}, Landroid/content/SharedPreferences;->getStringSet(Ljava/lang/String;Ljava/util/Set;)Ljava/util/Set;
+    invoke-interface {v7, v11, v12}, Landroid/content/SharedPreferences;->getStringSet(Ljava/lang/String;Ljava/util/Set;)Ljava/util/Set;
 
-    move-result-object v8
+    move-result-object v2
 
     invoke-static/range {p2 .. p3}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
     move-result-object v11
 
-    invoke-interface {v8, v11}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
+    invoke-interface {v2, v11}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    invoke-interface {v6}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v7}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v11
 
     const-string v12, "contact_shortcut_ids"
 
-    invoke-interface {v11, v12, v8}, Landroid/content/SharedPreferences$Editor;->putStringSet(Ljava/lang/String;Ljava/util/Set;)Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v11, v12, v2}, Landroid/content/SharedPreferences$Editor;->putStringSet(Ljava/lang/String;Ljava/util/Set;)Landroid/content/SharedPreferences$Editor;
 
     move-result-object v11
 
@@ -1133,7 +1210,7 @@
     goto/16 :goto_0
 
     :catch_0
-    move-exception v3
+    move-exception v4
 
     const-string v11, "Launcher.HomeRestore"
 
@@ -1147,7 +1224,7 @@
 
     move-result-object v12
 
-    invoke-virtual {v12, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v12, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v12
 
@@ -1160,7 +1237,7 @@
     goto/16 :goto_0
 
     :catch_1
-    move-exception v3
+    move-exception v4
 
     :goto_1
     :try_start_3
@@ -1168,7 +1245,7 @@
 
     const-string v12, "restoreContactShortcut, FileNotFoundException : "
 
-    invoke-static {v11, v12, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v11, v12, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
@@ -1182,7 +1259,7 @@
     goto/16 :goto_0
 
     :catch_2
-    move-exception v3
+    move-exception v4
 
     const-string v11, "Launcher.HomeRestore"
 
@@ -1196,7 +1273,7 @@
 
     move-result-object v12
 
-    invoke-virtual {v12, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v12, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v12
 
@@ -1209,7 +1286,7 @@
     goto/16 :goto_0
 
     :catch_3
-    move-exception v3
+    move-exception v4
 
     :goto_2
     :try_start_5
@@ -1225,7 +1302,7 @@
 
     move-result-object v12
 
-    invoke-virtual {v12, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v12, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v12
 
@@ -1247,7 +1324,7 @@
     goto/16 :goto_0
 
     :catch_4
-    move-exception v3
+    move-exception v4
 
     const-string v11, "Launcher.HomeRestore"
 
@@ -1261,7 +1338,7 @@
 
     move-result-object v12
 
-    invoke-virtual {v12, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v12, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v12
 
@@ -1289,7 +1366,7 @@
     throw v11
 
     :catch_5
-    move-exception v3
+    move-exception v4
 
     const-string v12, "Launcher.HomeRestore"
 
@@ -1303,7 +1380,7 @@
 
     move-result-object v13
 
-    invoke-virtual {v13, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v13, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v13
 
@@ -1323,18 +1400,83 @@
     goto :goto_3
 
     :catch_6
-    move-exception v3
+    move-exception v4
 
     move-object v9, v10
 
     goto :goto_2
 
     :catch_7
-    move-exception v3
+    move-exception v4
 
     move-object v9, v10
 
     goto/16 :goto_1
+.end method
+
+.method private restoreDeepShortcut(Landroid/content/Intent;)V
+    .locals 4
+
+    if-eqz p1, :cond_0
+
+    invoke-static {p1}, Lcom/android/launcher3/Utilities;->isDeepShortcut(Landroid/content/Intent;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    :cond_0
+    const-string v1, "Launcher.HomeRestore"
+
+    const-string v2, "intent is null or not deep shortcut"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_0
+    return-void
+
+    :cond_1
+    invoke-static {}, Lcom/android/launcher3/common/compat/UserHandleCompat;->myUserHandle()Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    move-result-object v1
+
+    invoke-static {p1, v1}, Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutKey;->fromIntent(Landroid/content/Intent;Lcom/android/launcher3/common/compat/UserHandleCompat;)Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutKey;
+
+    move-result-object v0
+
+    const-string v1, "Launcher.HomeRestore"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "restoreDeepShortcut key : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/launcher3/LauncherAppState;->getShortcutManager()Lcom/android/launcher3/common/quickoption/shortcuts/DeepShortcutManager;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Lcom/android/launcher3/common/quickoption/shortcuts/DeepShortcutManager;->pinShortcut(Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutKey;)V
+
+    goto :goto_0
 .end method
 
 
@@ -1420,6 +1562,21 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportDeepShortcut()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const-string v1, "deepshortcut"
+
+    new-instance v2, Lcom/android/launcher3/home/HomeRestoreLayoutParser$RestoreUriShortcutParser;
+
+    invoke-direct {v2, p0, v3}, Lcom/android/launcher3/home/HomeRestoreLayoutParser$RestoreUriShortcutParser;-><init>(Lcom/android/launcher3/home/HomeRestoreLayoutParser;Lcom/android/launcher3/home/HomeRestoreLayoutParser$1;)V
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_0
     const-string v1, "folder"
 
     new-instance v2, Lcom/android/launcher3/home/HomeRestoreLayoutParser$RestoreHomeFolderParser;

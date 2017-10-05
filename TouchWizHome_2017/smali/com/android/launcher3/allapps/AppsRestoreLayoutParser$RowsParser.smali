@@ -69,7 +69,7 @@
 
     move-result v1
 
-    invoke-static {v0, v1}, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;->access$902(Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;I)I
+    invoke-static {v0, v1}, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;->access$1002(Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;I)I
 
     const-string v0, "Launcher.AppsRestore"
 
@@ -85,7 +85,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser$RowsParser;->this$0:Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;
 
-    invoke-static {v2}, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;->access$900(Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;)I
+    invoke-static {v2}, Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;->access$1000(Lcom/android/launcher3/allapps/AppsRestoreLayoutParser;)I
 
     move-result v2
 

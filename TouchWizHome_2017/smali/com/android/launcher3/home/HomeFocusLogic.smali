@@ -152,99 +152,167 @@
 .end method
 
 .method public static createSparseMatrix(Lcom/android/launcher3/common/base/view/CellLayout;II)[[I
-    .locals 8
+    .locals 12
 
-    const/16 v7, 0x64
+    const/4 v10, 0x0
 
     invoke-virtual {p0}, Lcom/android/launcher3/common/base/view/CellLayout;->getCellLayoutChildren()Lcom/android/launcher3/common/base/view/CellLayoutChildren;
 
-    move-result-object v3
+    move-result-object v5
 
     invoke-virtual {p0}, Lcom/android/launcher3/common/base/view/CellLayout;->getCountX()I
 
-    move-result v5
+    move-result v9
 
-    add-int/lit8 v5, v5, 0x1
+    add-int/lit8 v0, v9, 0x1
 
     invoke-virtual {p0}, Lcom/android/launcher3/common/base/view/CellLayout;->getCountY()I
 
-    move-result v6
+    move-result v1
 
-    invoke-static {v5, v6}, Lcom/android/launcher3/home/HomeFocusLogic;->createFullMatrix(II)[[I
+    invoke-static {v0, v1}, Lcom/android/launcher3/home/HomeFocusLogic;->createFullMatrix(II)[[I
 
-    move-result-object v4
+    move-result-object v6
 
-    const/4 v2, 0x0
+    const/4 v4, 0x0
 
     :goto_0
-    invoke-virtual {v3}, Landroid/view/ViewGroup;->getChildCount()I
+    invoke-virtual {v5}, Landroid/view/ViewGroup;->getChildCount()I
 
-    move-result v5
+    move-result v9
 
-    if-ge v2, v5, :cond_1
+    if-ge v4, v9, :cond_1
 
-    invoke-virtual {v3, v2}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v5, v4}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v9
 
-    invoke-virtual {v5}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual {v9}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    move-result-object v5
+    move-result-object v9
 
-    check-cast v5, Lcom/android/launcher3/common/base/view/CellLayout$LayoutParams;
+    check-cast v9, Lcom/android/launcher3/common/base/view/CellLayout$LayoutParams;
 
-    iget v0, v5, Lcom/android/launcher3/common/base/view/CellLayout$LayoutParams;->cellX:I
+    iget v2, v9, Lcom/android/launcher3/common/base/view/CellLayout$LayoutParams;->cellX:I
 
-    invoke-virtual {v3, v2}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v5, v4}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v5
+    move-result-object v9
 
-    invoke-virtual {v5}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+    invoke-virtual {v9}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    move-result-object v5
+    move-result-object v9
 
-    check-cast v5, Lcom/android/launcher3/common/base/view/CellLayout$LayoutParams;
+    check-cast v9, Lcom/android/launcher3/common/base/view/CellLayout$LayoutParams;
 
-    iget v1, v5, Lcom/android/launcher3/common/base/view/CellLayout$LayoutParams;->cellY:I
+    iget v3, v9, Lcom/android/launcher3/common/base/view/CellLayout$LayoutParams;->cellY:I
 
     if-gez p1, :cond_0
 
-    sub-int v5, v0, p1
+    sub-int v9, v2, p1
 
-    aget-object v5, v4, v5
+    aget-object v9, v6, v9
 
-    aput v2, v5, v1
+    aput v4, v9, v3
 
     :goto_1
-    add-int/lit8 v2, v2, 0x1
+    add-int/lit8 v4, v4, 0x1
 
     goto :goto_0
 
     :cond_0
-    aget-object v5, v4, v0
+    aget-object v9, v6, v2
 
-    aput v2, v5, v1
+    aput v4, v9, v3
 
     goto :goto_1
 
     :cond_1
-    if-gez p1, :cond_2
+    add-int/lit8 v9, v0, -0x1
 
-    const/4 v5, 0x0
+    invoke-static {p1, v9}, Ljava/lang/Math;->min(II)I
 
-    aget-object v5, v4, v5
+    move-result v9
 
-    aput v7, v5, p2
+    invoke-static {v10, v9}, Ljava/lang/Math;->max(II)I
 
-    :goto_2
-    return-object v4
+    move-result v7
+
+    add-int/lit8 v9, v1, -0x1
+
+    invoke-static {p2, v9}, Ljava/lang/Math;->min(II)I
+
+    move-result v9
+
+    invoke-static {v10, v9}, Ljava/lang/Math;->max(II)I
+
+    move-result v8
+
+    aget-object v9, v6, v7
+
+    const/16 v10, 0x64
+
+    aput v10, v9, v8
+
+    if-ge p1, v0, :cond_2
+
+    if-lt p2, v1, :cond_3
 
     :cond_2
-    aget-object v5, v4, p1
+    const-string v9, "HomeFocusLogic"
 
-    aput v7, v5, p2
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    goto :goto_2
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v11, "PIVOT error, pivotX: "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string v11, ", count_x: "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string v11, ", pivotY: "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string v11, ", count_y: "
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_3
+    return-object v6
 .end method
 
 .method public static createSparseMatrix(Lcom/android/launcher3/common/base/view/CellLayout;Lcom/android/launcher3/common/base/view/CellLayout;Z)[[I
@@ -756,7 +824,7 @@
 
     check-cast v10, Landroid/view/ViewGroup;
 
-    const v1, 0x7f0f0008
+    const v1, 0x7f11000d
 
     invoke-virtual {v10, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 

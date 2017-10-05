@@ -6,13 +6,15 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Landroid/support/v4/print/PrintHelper$PrintHelperApi24Impl;,
-        Landroid/support/v4/print/PrintHelper$PrintHelperApi23Impl;,
-        Landroid/support/v4/print/PrintHelper$PrintHelperApi20Impl;,
-        Landroid/support/v4/print/PrintHelper$PrintHelperKitkatImpl;,
-        Landroid/support/v4/print/PrintHelper$PrintHelperImpl;,
-        Landroid/support/v4/print/PrintHelper$PrintHelperStubImpl;,
+        Landroid/support/v4/print/PrintHelper$PrintHelperApi24;,
+        Landroid/support/v4/print/PrintHelper$PrintHelperApi23;,
+        Landroid/support/v4/print/PrintHelper$PrintHelperApi20;,
+        Landroid/support/v4/print/PrintHelper$PrintHelperApi19;,
+        Landroid/support/v4/print/PrintHelper$PrintHelperStub;,
         Landroid/support/v4/print/PrintHelper$PrintHelperVersionImpl;,
+        Landroid/support/v4/print/PrintHelper$Orientation;,
+        Landroid/support/v4/print/PrintHelper$ColorMode;,
+        Landroid/support/v4/print/PrintHelper$ScaleMode;,
         Landroid/support/v4/print/PrintHelper$OnPrintFinishCallback;
     }
 .end annotation
@@ -33,7 +35,7 @@
 
 
 # instance fields
-.field mImpl:Landroid/support/v4/print/PrintHelper$PrintHelperVersionImpl;
+.field private final mImpl:Landroid/support/v4/print/PrintHelper$PrintHelperVersionImpl;
 
 
 # direct methods
@@ -48,9 +50,9 @@
 
     if-lt v0, v1, :cond_0
 
-    new-instance v0, Landroid/support/v4/print/PrintHelper$PrintHelperApi24Impl;
+    new-instance v0, Landroid/support/v4/print/PrintHelper$PrintHelperApi24;
 
-    invoke-direct {v0, p1}, Landroid/support/v4/print/PrintHelper$PrintHelperApi24Impl;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p1}, Landroid/support/v4/print/PrintHelper$PrintHelperApi24;-><init>(Landroid/content/Context;)V
 
     iput-object v0, p0, Landroid/support/v4/print/PrintHelper;->mImpl:Landroid/support/v4/print/PrintHelper$PrintHelperVersionImpl;
 
@@ -64,9 +66,9 @@
 
     if-lt v0, v1, :cond_1
 
-    new-instance v0, Landroid/support/v4/print/PrintHelper$PrintHelperApi23Impl;
+    new-instance v0, Landroid/support/v4/print/PrintHelper$PrintHelperApi23;
 
-    invoke-direct {v0, p1}, Landroid/support/v4/print/PrintHelper$PrintHelperApi23Impl;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p1}, Landroid/support/v4/print/PrintHelper$PrintHelperApi23;-><init>(Landroid/content/Context;)V
 
     iput-object v0, p0, Landroid/support/v4/print/PrintHelper;->mImpl:Landroid/support/v4/print/PrintHelper$PrintHelperVersionImpl;
 
@@ -79,9 +81,9 @@
 
     if-lt v0, v1, :cond_2
 
-    new-instance v0, Landroid/support/v4/print/PrintHelper$PrintHelperApi20Impl;
+    new-instance v0, Landroid/support/v4/print/PrintHelper$PrintHelperApi20;
 
-    invoke-direct {v0, p1}, Landroid/support/v4/print/PrintHelper$PrintHelperApi20Impl;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p1}, Landroid/support/v4/print/PrintHelper$PrintHelperApi20;-><init>(Landroid/content/Context;)V
 
     iput-object v0, p0, Landroid/support/v4/print/PrintHelper;->mImpl:Landroid/support/v4/print/PrintHelper$PrintHelperVersionImpl;
 
@@ -94,20 +96,20 @@
 
     if-lt v0, v1, :cond_3
 
-    new-instance v0, Landroid/support/v4/print/PrintHelper$PrintHelperKitkatImpl;
+    new-instance v0, Landroid/support/v4/print/PrintHelper$PrintHelperApi19;
 
-    invoke-direct {v0, p1}, Landroid/support/v4/print/PrintHelper$PrintHelperKitkatImpl;-><init>(Landroid/content/Context;)V
+    invoke-direct {v0, p1}, Landroid/support/v4/print/PrintHelper$PrintHelperApi19;-><init>(Landroid/content/Context;)V
 
     iput-object v0, p0, Landroid/support/v4/print/PrintHelper;->mImpl:Landroid/support/v4/print/PrintHelper$PrintHelperVersionImpl;
 
     goto :goto_0
 
     :cond_3
-    new-instance v0, Landroid/support/v4/print/PrintHelper$PrintHelperStubImpl;
+    new-instance v0, Landroid/support/v4/print/PrintHelper$PrintHelperStub;
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, v1}, Landroid/support/v4/print/PrintHelper$PrintHelperStubImpl;-><init>(Landroid/support/v4/print/PrintHelper$1;)V
+    invoke-direct {v0, v1}, Landroid/support/v4/print/PrintHelper$PrintHelperStub;-><init>(Landroid/support/v4/print/PrintHelper$1;)V
 
     iput-object v0, p0, Landroid/support/v4/print/PrintHelper;->mImpl:Landroid/support/v4/print/PrintHelper$PrintHelperVersionImpl;
 

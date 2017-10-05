@@ -32,6 +32,8 @@
 
 .field public static final OPTION_SELECT:I = 0x1
 
+.field public static final OPTION_SET_TO_ZEROPAGE:I = 0x10000
+
 .field public static final OPTION_UNINSTALL:I = 0x100
 
 .field public static final OPTION_UNLOCK:I = 0x2000
@@ -148,11 +150,11 @@
 
     invoke-direct {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;-><init>()V
 
-    const v2, 0x7f0200db
+    const v2, 0x7f0200de
 
     invoke-virtual {v0, v2}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setIconRsrId(I)V
 
-    const v2, 0x7f080087
+    const v2, 0x7f090093
 
     invoke-virtual {v0, v2}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setTitleRsrId(I)V
 
@@ -183,11 +185,11 @@
 
     invoke-direct {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;-><init>()V
 
-    const v1, 0x7f0200dc
+    const v1, 0x7f0200df
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setIconRsrId(I)V
 
-    const v1, 0x7f080088
+    const v1, 0x7f090094
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setTitleRsrId(I)V
 
@@ -237,11 +239,11 @@
 
     invoke-direct {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;-><init>()V
 
-    const v2, 0x7f0200dd
+    const v2, 0x7f0200e0
 
     invoke-virtual {v0, v2}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setIconRsrId(I)V
 
-    const v2, 0x7f080089
+    const v2, 0x7f090095
 
     invoke-virtual {v0, v2}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setTitleRsrId(I)V
 
@@ -269,11 +271,11 @@
 
     invoke-direct {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;-><init>()V
 
-    const v1, 0x7f0200df
+    const v1, 0x7f0200e2
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setIconRsrId(I)V
 
-    const v1, 0x7f08008a
+    const v1, 0x7f090096
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setTitleRsrId(I)V
 
@@ -303,11 +305,11 @@
 
     invoke-direct {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;-><init>()V
 
-    const v1, 0x7f0200e0
+    const v1, 0x7f0200e3
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setIconRsrId(I)V
 
-    const v1, 0x7f08008c
+    const v1, 0x7f090098
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setTitleRsrId(I)V
 
@@ -333,11 +335,11 @@
 
     invoke-direct {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;-><init>()V
 
-    const v1, 0x7f0200e6
+    const v1, 0x7f0200e9
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setIconRsrId(I)V
 
-    const v1, 0x7f08008d
+    const v1, 0x7f090099
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setTitleRsrId(I)V
 
@@ -353,7 +355,7 @@
 .method private getOptionDisable(Lcom/android/launcher3/common/base/item/IconInfo;Landroid/content/ComponentName;)Lcom/android/launcher3/common/quickoption/QuickOptionListItem;
     .locals 5
 
-    const v4, 0x7f0200e1
+    const v4, 0x7f0200e4
 
     if-eqz p2, :cond_1
 
@@ -375,7 +377,7 @@
 
     invoke-virtual {v1, v4}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setIconRsrId(I)V
 
-    const v3, 0x7f080091
+    const v3, 0x7f09009d
 
     invoke-virtual {v1, v3}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setTitleRsrId(I)V
 
@@ -403,7 +405,7 @@
 
     invoke-virtual {v0, v4}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setIconRsrId(I)V
 
-    const v3, 0x7f080090
+    const v3, 0x7f09009c
 
     invoke-virtual {v0, v3}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setTitleRsrId(I)V
 
@@ -438,11 +440,11 @@
 
     invoke-direct {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;-><init>()V
 
-    const v1, 0x7f0200e2
+    const v1, 0x7f0200e6
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setIconRsrId(I)V
 
-    const v1, 0x7f080092
+    const v1, 0x7f09009e
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setTitleRsrId(I)V
 
@@ -487,11 +489,11 @@
 
     invoke-direct {v1}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;-><init>()V
 
-    const v2, 0x7f0200e4
+    const v2, 0x7f0200e7
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setIconRsrId(I)V
 
-    const v2, 0x7f080093
+    const v2, 0x7f09009f
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setTitleRsrId(I)V
 
@@ -511,11 +513,11 @@
 
     invoke-direct {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;-><init>()V
 
-    const v1, 0x7f0200e5
+    const v1, 0x7f0200e8
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setIconRsrId(I)V
 
-    const v1, 0x7f080094
+    const v1, 0x7f0900a0
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setTitleRsrId(I)V
 
@@ -528,14 +530,14 @@
     return-object v0
 .end method
 
-.method private getOptionPutToSleep(Ljava/lang/String;)Lcom/android/launcher3/common/quickoption/QuickOptionListItem;
+.method private getOptionPutToSleep(Lcom/android/launcher3/common/compat/UserHandleCompat;Ljava/lang/String;)Lcom/android/launcher3/common/quickoption/QuickOptionListItem;
     .locals 4
 
-    if-eqz p1, :cond_1
+    if-eqz p2, :cond_1
 
     iget-object v1, p0, Lcom/android/launcher3/common/quickoption/QuickOptionManager;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    invoke-static {v1, p1}, Lcom/android/launcher3/util/AppFreezerUtils;->canPutIntoSleepMode(Landroid/content/Context;Ljava/lang/String;)Z
+    invoke-static {v1, p1, p2}, Lcom/android/launcher3/util/AppFreezerUtils;->canPutIntoSleepMode(Landroid/content/Context;Lcom/android/launcher3/common/compat/UserHandleCompat;Ljava/lang/String;)Z
 
     move-result v1
 
@@ -545,17 +547,17 @@
 
     invoke-direct {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;-><init>()V
 
-    const v1, 0x7f0200e8
+    const v1, 0x7f0200eb
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setIconRsrId(I)V
 
-    const v1, 0x7f080099
+    const v1, 0x7f0900a5
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setTitleRsrId(I)V
 
     new-instance v1, Lcom/android/launcher3/common/quickoption/QuickOptionManager$5;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/launcher3/common/quickoption/QuickOptionManager$5;-><init>(Lcom/android/launcher3/common/quickoption/QuickOptionManager;Ljava/lang/String;)V
+    invoke-direct {v1, p0, p1, p2}, Lcom/android/launcher3/common/quickoption/QuickOptionManager$5;-><init>(Lcom/android/launcher3/common/quickoption/QuickOptionManager;Lcom/android/launcher3/common/compat/UserHandleCompat;Ljava/lang/String;)V
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setCallback(Ljava/lang/Runnable;)V
 
@@ -575,7 +577,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
@@ -604,7 +606,7 @@
 
     invoke-direct {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;-><init>()V
 
-    const v1, 0x7f0200e6
+    const v1, 0x7f0200e9
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setIconRsrId(I)V
 
@@ -619,7 +621,7 @@
     if-nez v1, :cond_1
 
     :cond_0
-    const v1, 0x7f080096
+    const v1, 0x7f0900a2
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setTitleRsrId(I)V
 
@@ -640,14 +642,14 @@
 
     if-ne v1, v2, :cond_2
 
-    const v1, 0x7f08008d
+    const v1, 0x7f090099
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setTitleRsrId(I)V
 
     goto :goto_0
 
     :cond_2
-    const v1, 0x7f080095
+    const v1, 0x7f0900a1
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setTitleRsrId(I)V
 
@@ -659,14 +661,14 @@
     goto :goto_1
 .end method
 
-.method private getOptionSecureFolder(Ljava/lang/String;)Lcom/android/launcher3/common/quickoption/QuickOptionListItem;
+.method private getOptionSecureFolder(Lcom/android/launcher3/common/compat/UserHandleCompat;Ljava/lang/String;)Lcom/android/launcher3/common/quickoption/QuickOptionListItem;
     .locals 2
 
-    if-eqz p1, :cond_0
+    if-eqz p2, :cond_0
 
     iget-object v1, p0, Lcom/android/launcher3/common/quickoption/QuickOptionManager;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    invoke-static {v1, p1}, Lcom/android/launcher3/util/SecureFolderHelper;->canAddAppToSecureFolder(Landroid/content/Context;Ljava/lang/String;)Z
+    invoke-static {v1, p1, p2}, Lcom/android/launcher3/util/SecureFolderHelper;->canAddAppToSecureFolder(Landroid/content/Context;Lcom/android/launcher3/common/compat/UserHandleCompat;Ljava/lang/String;)Z
 
     move-result v1
 
@@ -676,17 +678,17 @@
 
     invoke-direct {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;-><init>()V
 
-    const v1, 0x7f0200de
+    const v1, 0x7f0200e1
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setIconRsrId(I)V
 
-    const v1, 0x7f080098
+    const v1, 0x7f0900a3
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setTitleRsrId(I)V
 
     new-instance v1, Lcom/android/launcher3/common/quickoption/QuickOptionManager$4;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/launcher3/common/quickoption/QuickOptionManager$4;-><init>(Lcom/android/launcher3/common/quickoption/QuickOptionManager;Ljava/lang/String;)V
+    invoke-direct {v1, p0, p2}, Lcom/android/launcher3/common/quickoption/QuickOptionManager$4;-><init>(Lcom/android/launcher3/common/quickoption/QuickOptionManager;Ljava/lang/String;)V
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setCallback(Ljava/lang/Runnable;)V
 
@@ -715,11 +717,11 @@
 
     invoke-direct {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;-><init>()V
 
-    const v1, 0x7f0200e7
+    const v1, 0x7f0200ea
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setIconRsrId(I)V
 
-    const v1, 0x7f080098
+    const v1, 0x7f0900a4
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setTitleRsrId(I)V
 
@@ -733,6 +735,40 @@
     return-object v0
 
     :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method private getOptionSetToZeroPage(Lcom/android/launcher3/common/base/item/ItemInfo;)Lcom/android/launcher3/common/quickoption/QuickOptionListItem;
+    .locals 2
+
+    instance-of v1, p1, Lcom/android/launcher3/common/base/item/IconInfo;
+
+    if-eqz v1, :cond_0
+
+    new-instance v0, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;
+
+    invoke-direct {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;-><init>()V
+
+    const v1, 0x7f0200de
+
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setIconRsrId(I)V
+
+    const v1, 0x7f09019e
+
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setTitleRsrId(I)V
+
+    new-instance v1, Lcom/android/launcher3/common/quickoption/QuickOptionManager$18;
+
+    invoke-direct {v1, p0, p1}, Lcom/android/launcher3/common/quickoption/QuickOptionManager$18;-><init>(Lcom/android/launcher3/common/quickoption/QuickOptionManager;Lcom/android/launcher3/common/base/item/ItemInfo;)V
+
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setCallback(Ljava/lang/Runnable;)V
+
+    :goto_0
+    return-object v0
+
+    :cond_0
     const/4 v0, 0x0
 
     goto :goto_0
@@ -759,11 +795,11 @@
 
     invoke-direct {v1}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;-><init>()V
 
-    const v2, 0x7f0200e9
+    const v2, 0x7f0200ec
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setIconRsrId(I)V
 
-    const v2, 0x7f08009b
+    const v2, 0x7f0900a7
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setTitleRsrId(I)V
 
@@ -808,11 +844,11 @@
 
     invoke-direct {v1}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;-><init>()V
 
-    const v2, 0x7f0200ea
+    const v2, 0x7f0200ed
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setIconRsrId(I)V
 
-    const v2, 0x7f08009c
+    const v2, 0x7f0900a8
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/common/quickoption/QuickOptionListItem;->setTitleRsrId(I)V
 
@@ -953,6 +989,12 @@
     if-eq v1, v0, :cond_2
 
     :cond_0
+    iget v1, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->itemType:I
+
+    const/4 v2, 0x6
+
+    if-eq v1, v2, :cond_2
+
     iget v1, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->itemType:I
 
     const/4 v2, 0x4
@@ -1123,7 +1165,7 @@
 
     instance-of v4, v1, Lcom/android/launcher3/common/base/item/IconInfo;
 
-    if-eqz v4, :cond_12
+    if-eqz v4, :cond_13
 
     move-object v4, v1
 
@@ -1133,7 +1175,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_12
+    if-nez v4, :cond_13
 
     move-object v4, v1
 
@@ -1234,7 +1276,9 @@
 
     if-eqz v4, :cond_8
 
-    invoke-direct {p0, v3}, Lcom/android/launcher3/common/quickoption/QuickOptionManager;->getOptionSecureFolder(Ljava/lang/String;)Lcom/android/launcher3/common/quickoption/QuickOptionListItem;
+    iget-object v4, v1, Lcom/android/launcher3/common/base/item/ItemInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    invoke-direct {p0, v4, v3}, Lcom/android/launcher3/common/quickoption/QuickOptionManager;->getOptionSecureFolder(Lcom/android/launcher3/common/compat/UserHandleCompat;Ljava/lang/String;)Lcom/android/launcher3/common/quickoption/QuickOptionListItem;
 
     move-result-object v4
 
@@ -1245,7 +1289,9 @@
 
     if-eqz v4, :cond_9
 
-    invoke-direct {p0, v3}, Lcom/android/launcher3/common/quickoption/QuickOptionManager;->getOptionPutToSleep(Ljava/lang/String;)Lcom/android/launcher3/common/quickoption/QuickOptionListItem;
+    iget-object v4, v1, Lcom/android/launcher3/common/base/item/ItemInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    invoke-direct {p0, v4, v3}, Lcom/android/launcher3/common/quickoption/QuickOptionManager;->getOptionPutToSleep(Lcom/android/launcher3/common/compat/UserHandleCompat;Ljava/lang/String;)Lcom/android/launcher3/common/quickoption/QuickOptionListItem;
 
     move-result-object v4
 
@@ -1362,6 +1408,25 @@
     invoke-interface {v2, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :cond_11
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportSetToZeroPage()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_12
+
+    const/high16 v4, 0x10000
+
+    and-int/2addr v4, p2
+
+    if-eqz v4, :cond_12
+
+    invoke-direct {p0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionManager;->getOptionSetToZeroPage(Lcom/android/launcher3/common/base/item/ItemInfo;)Lcom/android/launcher3/common/quickoption/QuickOptionListItem;
+
+    move-result-object v4
+
+    invoke-interface {v2, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    :cond_12
     const/4 v4, 0x0
 
     invoke-static {v4}, Ljava/util/Collections;->singleton(Ljava/lang/Object;)Ljava/util/Set;
@@ -1372,7 +1437,7 @@
 
     return-object v2
 
-    :cond_12
+    :cond_13
     instance-of v4, v1, Lcom/android/launcher3/home/LauncherAppWidgetInfo;
 
     if-eqz v4, :cond_0
@@ -1440,9 +1505,9 @@
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
-    new-instance v1, Lcom/android/launcher3/common/quickoption/QuickOptionManager$18;
+    new-instance v1, Lcom/android/launcher3/common/quickoption/QuickOptionManager$19;
 
-    invoke-direct {v1, p0}, Lcom/android/launcher3/common/quickoption/QuickOptionManager$18;-><init>(Lcom/android/launcher3/common/quickoption/QuickOptionManager;)V
+    invoke-direct {v1, p0}, Lcom/android/launcher3/common/quickoption/QuickOptionManager$19;-><init>(Lcom/android/launcher3/common/quickoption/QuickOptionManager;)V
 
     const-wide/16 v2, 0x15e
 

@@ -16,23 +16,9 @@
 
 
 # static fields
-.field static final EXTRA_ACTION_EXTRAS:Ljava/lang/String; = "android.support.actionExtras"
-
 .field static final EXTRA_ALLOW_GENERATED_REPLIES:Ljava/lang/String; = "android.support.allowGeneratedReplies"
 
 .field static final EXTRA_DATA_ONLY_REMOTE_INPUTS:Ljava/lang/String; = "android.support.dataRemoteInputs"
-
-.field static final EXTRA_GROUP_KEY:Ljava/lang/String; = "android.support.groupKey"
-
-.field static final EXTRA_GROUP_SUMMARY:Ljava/lang/String; = "android.support.isGroupSummary"
-
-.field static final EXTRA_LOCAL_ONLY:Ljava/lang/String; = "android.support.localOnly"
-
-.field static final EXTRA_REMOTE_INPUTS:Ljava/lang/String; = "android.support.remoteInputs"
-
-.field static final EXTRA_SORT_KEY:Ljava/lang/String; = "android.support.sortKey"
-
-.field static final EXTRA_USE_SIDE_CHANNEL:Ljava/lang/String; = "android.support.useSideChannel"
 
 .field private static final KEY_ACTION_INTENT:Ljava/lang/String; = "actionIntent"
 

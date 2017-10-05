@@ -126,7 +126,7 @@
 
     move-result-object v5
 
-    if-eqz v5, :cond_9
+    if-eqz v5, :cond_a
 
     invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeFolderName()Ljava/lang/String;
 
@@ -138,7 +138,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_9
+    if-nez v5, :cond_a
 
     const-wide/16 v8, -0x1
 
@@ -348,7 +348,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_6
+    if-nez v5, :cond_7
 
     const-string v5, "PostHomePositioner"
 
@@ -389,7 +389,7 @@
 
     move-result-object v5
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_7
 
     move-object/from16 v0, p0
 
@@ -441,10 +441,45 @@
 
     cmp-long v5, v8, v6
 
-    if-lez v5, :cond_7
+    if-lez v5, :cond_8
 
-    if-eqz v14, :cond_7
+    if-eqz v14, :cond_8
 
+    iget-wide v6, v14, Lcom/android/launcher3/common/base/item/IconInfo;->container:J
+
+    const-wide/16 v18, -0x64
+
+    cmp-long v5, v6, v18
+
+    if-nez v5, :cond_8
+
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getComponentName()Ljava/lang/String;
+
+    move-result-object v5
+
+    iget-object v6, v14, Lcom/android/launcher3/common/base/item/IconInfo;->componentName:Landroid/content/ComponentName;
+
+    invoke-virtual {v6}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_6
+
+    const-string v5, "PostHomePositioner"
+
+    const-string v6, "already write as folder ready id"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v5, 0x1
+
+    goto/16 :goto_0
+
+    :cond_6
     const-string v5, "PostHomePositioner"
 
     const-string v6, "create folder from ready id"
@@ -623,18 +658,18 @@
 
     invoke-virtual {v5, v6, v0, v1, v7}, Lcom/android/launcher3/common/customer/PostPositionSharedPref;->writeFolderId(Ljava/lang/String;JZ)V
 
-    :cond_6
+    :cond_7
     :goto_2
     const/4 v5, 0x1
 
     goto/16 :goto_0
 
-    :cond_7
+    :cond_8
     invoke-direct/range {p0 .. p3}, Lcom/android/launcher3/home/PostHomePositioner;->addShortcut(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/ItemRecord;)Lcom/android/launcher3/common/base/item/IconInfo;
 
     move-result-object v17
 
-    if-nez v17, :cond_8
+    if-nez v17, :cond_9
 
     const-string v5, "PostHomePositioner"
 
@@ -670,7 +705,7 @@
 
     goto/16 :goto_0
 
-    :cond_8
+    :cond_9
     const-string v5, "PostHomePositioner"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -723,12 +758,12 @@
 
     goto :goto_2
 
-    :cond_9
+    :cond_a
     invoke-direct/range {p0 .. p3}, Lcom/android/launcher3/home/PostHomePositioner;->addShortcut(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/ItemRecord;)Lcom/android/launcher3/common/base/item/IconInfo;
 
     move-result-object v5
 
-    if-nez v5, :cond_6
+    if-nez v5, :cond_7
 
     const-string v5, "PostHomePositioner"
 
@@ -1127,8 +1162,36 @@
 .end method
 
 .method private addWidget(Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/ItemRecord;)V
-    .locals 17
+    .locals 18
 
+    const/4 v6, 0x0
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, p2
+
+    invoke-static {v0, v1, v6}, Lcom/android/launcher3/common/model/DataLoader;->getItemInfoByComponentName(Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;Z)Ljava/util/ArrayList;
+
+    move-result-object v16
+
+    if-eqz v16, :cond_0
+
+    invoke-virtual/range {v16 .. v16}, Ljava/util/ArrayList;->size()I
+
+    move-result v6
+
+    if-lez v6, :cond_0
+
+    const-string v6, "PostHomePositioner"
+
+    const-string v7, "already exist widget on workspace."
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_0
+    return-void
+
+    :cond_0
     const-string v6, "PostHomePositioner"
 
     const-string v7, "addToHomeWidget()"
@@ -1147,7 +1210,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_0
+    if-nez v6, :cond_1
 
     move-object/from16 v0, p0
 
@@ -1155,7 +1218,7 @@
 
     invoke-direct {v0, v1}, Lcom/android/launcher3/home/PostHomePositioner;->performHomeReplace(Lcom/android/launcher3/common/customer/ItemRecord;)V
 
-    :cond_0
+    :cond_1
     move-object/from16 v0, p0
 
     iget-object v6, v0, Lcom/android/launcher3/home/PostHomePositioner;->mHomeLoader:Lcom/android/launcher3/home/HomeLoader;
@@ -1180,7 +1243,7 @@
 
     cmp-long v6, v4, v6
 
-    if-nez v6, :cond_1
+    if-nez v6, :cond_2
 
     const-string v6, "PostHomePositioner"
 
@@ -1208,10 +1271,9 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :goto_0
-    return-void
+    goto :goto_0
 
-    :cond_1
+    :cond_2
     const/4 v6, 0x2
 
     new-array v3, v6, [I
@@ -1222,7 +1284,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_2
+    if-eqz v6, :cond_3
 
     const/4 v13, 0x1
 
@@ -1252,7 +1314,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_3
+    if-nez v6, :cond_4
 
     const-string v6, "PostHomePositioner"
 
@@ -1273,9 +1335,9 @@
 
     invoke-static {v6, v7, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    :cond_2
+    :cond_3
     const/4 v6, 0x0
 
     invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeCellX()I
@@ -1308,20 +1370,20 @@
 
     goto :goto_1
 
-    :cond_3
+    :cond_4
     move-object/from16 v0, p0
 
     iget-object v6, v0, Lcom/android/launcher3/home/PostHomePositioner;->mContext:Landroid/content/Context;
 
     invoke-static {v6}, Lcom/android/launcher3/common/compat/AppWidgetManagerCompat;->getInstance(Landroid/content/Context;)Lcom/android/launcher3/common/compat/AppWidgetManagerCompat;
 
-    move-result-object v16
+    move-result-object v17
 
     move-object/from16 v0, p0
 
     iget-object v6, v0, Lcom/android/launcher3/home/PostHomePositioner;->mContext:Landroid/content/Context;
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
     invoke-virtual {v0, v10}, Lcom/android/launcher3/common/compat/AppWidgetManagerCompat;->getAppWidgetInfo(I)Landroid/appwidget/AppWidgetProviderInfo;
 
@@ -1385,7 +1447,7 @@
 
     iput v6, v15, Lcom/android/launcher3/home/LauncherAppWidgetInfo;->cellY:I
 
-    if-nez v13, :cond_4
+    if-nez v13, :cond_5
 
     invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getWidgetSpanX()I
 
@@ -1401,7 +1463,7 @@
 
     move-result v13
 
-    if-eqz v13, :cond_5
+    if-eqz v13, :cond_6
 
     const/4 v6, 0x0
 
@@ -1415,7 +1477,7 @@
 
     iput v6, v15, Lcom/android/launcher3/home/LauncherAppWidgetInfo;->cellY:I
 
-    :cond_4
+    :cond_5
     :goto_2
     new-instance v9, Ljava/util/ArrayList;
 
@@ -1437,7 +1499,7 @@
 
     goto/16 :goto_0
 
-    :cond_5
+    :cond_6
     const/4 v6, 0x1
 
     move-object/from16 v0, p0
@@ -1452,7 +1514,7 @@
 
     cmp-long v6, v4, v6
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_5
 
     iput-wide v4, v15, Lcom/android/launcher3/home/LauncherAppWidgetInfo;->screenId:J
 
@@ -2052,49 +2114,6 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/android/launcher3/home/PostHomePositioner;->mAppState:Lcom/android/launcher3/LauncherAppState;
-
-    if-nez v0, :cond_2
-
-    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/launcher3/home/PostHomePositioner;->mAppState:Lcom/android/launcher3/LauncherAppState;
-
-    :cond_2
-    iget-object v0, p0, Lcom/android/launcher3/home/PostHomePositioner;->mHomeLoader:Lcom/android/launcher3/home/HomeLoader;
-
-    if-nez v0, :cond_3
-
-    iget-object v0, p0, Lcom/android/launcher3/home/PostHomePositioner;->mAppState:Lcom/android/launcher3/LauncherAppState;
-
-    invoke-virtual {v0}, Lcom/android/launcher3/LauncherAppState;->getModel()Lcom/android/launcher3/LauncherModel;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/launcher3/LauncherModel;->getHomeLoader()Lcom/android/launcher3/home/HomeLoader;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/launcher3/home/PostHomePositioner;->mHomeLoader:Lcom/android/launcher3/home/HomeLoader;
-
-    :cond_3
-    iget-object v0, p0, Lcom/android/launcher3/home/PostHomePositioner;->mFavoritesUpdater:Lcom/android/launcher3/common/model/FavoritesUpdater;
-
-    if-nez v0, :cond_4
-
-    iget-object v0, p0, Lcom/android/launcher3/home/PostHomePositioner;->mHomeLoader:Lcom/android/launcher3/home/HomeLoader;
-
-    invoke-virtual {v0}, Lcom/android/launcher3/home/HomeLoader;->getUpdater()Lcom/android/launcher3/common/model/DataUpdater;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/launcher3/common/model/FavoritesUpdater;
-
-    iput-object v0, p0, Lcom/android/launcher3/home/PostHomePositioner;->mFavoritesUpdater:Lcom/android/launcher3/common/model/FavoritesUpdater;
-
-    :cond_4
     iget-object v0, p0, Lcom/android/launcher3/home/PostHomePositioner;->mModelWorker:Landroid/os/Handler;
 
     new-instance v1, Lcom/android/launcher3/home/PostHomePositioner$1;
@@ -2106,61 +2125,6 @@
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
     const/4 v0, 0x1
-
-    goto/16 :goto_0
-.end method
-
-.method public deleteFolder(J)V
-    .locals 7
-
-    const-wide/32 v4, 0x1869f
-
-    const/4 v2, 0x0
-
-    iget-object v1, p0, Lcom/android/launcher3/home/PostHomePositioner;->mPrefInfo:Lcom/android/launcher3/common/customer/PostPositionSharedPref;
-
-    invoke-virtual {v1, p1, p2}, Lcom/android/launcher3/common/customer/PostPositionSharedPref;->getFolderNameId(J)Ljava/lang/String;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_1
-
-    const-string v1, ""
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_1
-
-    iget-object v1, p0, Lcom/android/launcher3/home/PostHomePositioner;->mPrefInfo:Lcom/android/launcher3/common/customer/PostPositionSharedPref;
-
-    invoke-virtual {v1, v0, v4, v5, v2}, Lcom/android/launcher3/common/customer/PostPositionSharedPref;->writeFolderId(Ljava/lang/String;JZ)V
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
-    iget-object v1, p0, Lcom/android/launcher3/home/PostHomePositioner;->mPrefInfo:Lcom/android/launcher3/common/customer/PostPositionSharedPref;
-
-    invoke-virtual {v1, p1, p2}, Lcom/android/launcher3/common/customer/PostPositionSharedPref;->getPreloadedFolderNameId(J)Ljava/lang/String;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    const-string v1, ""
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/launcher3/home/PostHomePositioner;->mPrefInfo:Lcom/android/launcher3/common/customer/PostPositionSharedPref;
-
-    invoke-virtual {v1, v0, v4, v5, v2}, Lcom/android/launcher3/common/customer/PostPositionSharedPref;->writeFolderId(Ljava/lang/String;JZ)V
 
     goto :goto_0
 .end method
@@ -2420,6 +2384,99 @@
     return-void
 .end method
 
+.method protected hasItem(JZ)Z
+    .locals 5
+
+    const/4 v0, 0x1
+
+    const/4 v1, 0x0
+
+    if-eqz p3, :cond_2
+
+    iget-object v2, p0, Lcom/android/launcher3/home/PostHomePositioner;->mHomeLoader:Lcom/android/launcher3/home/HomeLoader;
+
+    invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Lcom/android/launcher3/home/HomeLoader;->findFolderById(Ljava/lang/Long;)Lcom/android/launcher3/folder/FolderInfo;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_1
+
+    :cond_0
+    :goto_0
+    return v0
+
+    :cond_1
+    move v0, v1
+
+    goto :goto_0
+
+    :cond_2
+    iget-object v2, p0, Lcom/android/launcher3/home/PostHomePositioner;->mHomeLoader:Lcom/android/launcher3/home/HomeLoader;
+
+    invoke-virtual {v2, p1, p2}, Lcom/android/launcher3/home/HomeLoader;->getItemById(J)Lcom/android/launcher3/common/base/item/ItemInfo;
+
+    move-result-object v2
+
+    if-nez v2, :cond_0
+
+    move v0, v1
+
+    goto :goto_0
+.end method
+
+.method protected init()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/home/PostHomePositioner;->mAppState:Lcom/android/launcher3/LauncherAppState;
+
+    if-nez v0, :cond_0
+
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/launcher3/home/PostHomePositioner;->mAppState:Lcom/android/launcher3/LauncherAppState;
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/launcher3/home/PostHomePositioner;->mHomeLoader:Lcom/android/launcher3/home/HomeLoader;
+
+    if-nez v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/launcher3/home/PostHomePositioner;->mAppState:Lcom/android/launcher3/LauncherAppState;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/LauncherAppState;->getModel()Lcom/android/launcher3/LauncherModel;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/launcher3/LauncherModel;->getHomeLoader()Lcom/android/launcher3/home/HomeLoader;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/launcher3/home/PostHomePositioner;->mHomeLoader:Lcom/android/launcher3/home/HomeLoader;
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/launcher3/home/PostHomePositioner;->mFavoritesUpdater:Lcom/android/launcher3/common/model/FavoritesUpdater;
+
+    if-nez v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/launcher3/home/PostHomePositioner;->mHomeLoader:Lcom/android/launcher3/home/HomeLoader;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/home/HomeLoader;->getUpdater()Lcom/android/launcher3/common/model/DataUpdater;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/launcher3/common/model/FavoritesUpdater;
+
+    iput-object v0, p0, Lcom/android/launcher3/home/PostHomePositioner;->mFavoritesUpdater:Lcom/android/launcher3/common/model/FavoritesUpdater;
+
+    :cond_2
+    return-void
+.end method
+
 .method protected setup()V
     .locals 3
 
@@ -2438,6 +2495,8 @@
     const/16 v1, -0x64
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/common/customer/PostPositionSharedPref;->setContainer(I)V
+
+    invoke-virtual {p0}, Lcom/android/launcher3/home/PostHomePositioner;->init()V
 
     return-void
 .end method

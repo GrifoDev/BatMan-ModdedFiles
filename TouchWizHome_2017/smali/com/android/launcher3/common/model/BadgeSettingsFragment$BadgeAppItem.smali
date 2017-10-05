@@ -23,6 +23,8 @@
 
 .field private hidden:Z
 
+.field private mUser:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
 .field private packageName:Ljava/lang/String;
 
 .field final synthetic this$0:Lcom/android/launcher3/common/model/BadgeSettingsFragment;
@@ -32,7 +34,7 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/launcher3/common/model/BadgeSettingsFragment;Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;)V
-    .locals 4
+    .locals 6
 
     const/4 v1, 0x1
 
@@ -92,13 +94,27 @@
 
     iput-object v2, p0, Lcom/android/launcher3/common/model/BadgeSettingsFragment$BadgeAppItem;->className:Ljava/lang/String;
 
+    invoke-virtual {p2}, Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;->getUser()Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/android/launcher3/common/model/BadgeSettingsFragment$BadgeAppItem;->mUser:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
     invoke-static {p1}, Lcom/android/launcher3/common/model/BadgeSettingsFragment;->access$400(Lcom/android/launcher3/common/model/BadgeSettingsFragment;)Ljava/util/List;
 
     move-result-object v2
 
+    new-instance v3, Lcom/android/launcher3/common/model/BadgeCache$CacheKey;
+
     invoke-virtual {p2}, Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;->getComponentName()Landroid/content/ComponentName;
 
-    move-result-object v3
+    move-result-object v4
+
+    invoke-virtual {p2}, Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;->getUser()Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    move-result-object v5
+
+    invoke-direct {v3, v4, v5}, Lcom/android/launcher3/common/model/BadgeCache$CacheKey;-><init>(Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
 
     invoke-interface {v2, v3}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
@@ -106,11 +122,11 @@
 
     if-nez v2, :cond_0
 
-    invoke-static {p1}, Lcom/android/launcher3/common/model/BadgeSettingsFragment;->access$500(Lcom/android/launcher3/common/model/BadgeSettingsFragment;)I
+    invoke-static {p1}, Lcom/android/launcher3/common/model/BadgeSettingsFragment;->access$500(Lcom/android/launcher3/common/model/BadgeSettingsFragment;)Z
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-eqz v2, :cond_1
 
     :cond_0
     move v0, v1
@@ -122,9 +138,17 @@
 
     move-result-object v0
 
+    new-instance v2, Lcom/android/launcher3/common/model/BadgeCache$CacheKey;
+
     invoke-virtual {p2}, Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;->getComponentName()Landroid/content/ComponentName;
 
-    move-result-object v2
+    move-result-object v3
+
+    invoke-virtual {p2}, Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;->getUser()Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    move-result-object v4
+
+    invoke-direct {v2, v3, v4}, Lcom/android/launcher3/common/model/BadgeCache$CacheKey;-><init>(Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
 
     invoke-interface {v0, v2}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
 
@@ -132,11 +156,11 @@
 
     if-nez v0, :cond_2
 
-    invoke-static {p1}, Lcom/android/launcher3/common/model/BadgeSettingsFragment;->access$500(Lcom/android/launcher3/common/model/BadgeSettingsFragment;)I
+    invoke-static {p1}, Lcom/android/launcher3/common/model/BadgeSettingsFragment;->access$500(Lcom/android/launcher3/common/model/BadgeSettingsFragment;)Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-eqz v0, :cond_2
 
     iput-boolean v1, p0, Lcom/android/launcher3/common/model/BadgeSettingsFragment$BadgeAppItem;->hasChange:Z
 
@@ -174,6 +198,14 @@
     .locals 1
 
     iget-object v0, p0, Lcom/android/launcher3/common/model/BadgeSettingsFragment$BadgeAppItem;->title:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method public getUser()Lcom/android/launcher3/common/compat/UserHandleCompat;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/common/model/BadgeSettingsFragment$BadgeAppItem;->mUser:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
     return-object v0
 .end method

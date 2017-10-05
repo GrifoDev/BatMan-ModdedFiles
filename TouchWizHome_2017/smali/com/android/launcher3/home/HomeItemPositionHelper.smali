@@ -468,248 +468,6 @@
     throw v6
 .end method
 
-.method private findVacantCell([IIIII[[ZZ)Z
-    .locals 8
-
-    const/4 v6, 0x0
-
-    const/4 v7, 0x0
-
-    aput v7, p1, v6
-
-    const/4 v6, 0x1
-
-    const/4 v7, 0x0
-
-    aput v7, p1, v6
-
-    const/4 v3, 0x0
-
-    if-eqz p7, :cond_9
-
-    add-int/lit8 v5, p5, -0x1
-
-    :goto_0
-    if-ltz v5, :cond_0
-
-    add-int/lit8 v4, p4, -0x1
-
-    :goto_1
-    if-ltz v4, :cond_8
-
-    aget-object v6, p6, v4
-
-    aget-boolean v6, v6, v5
-
-    if-eqz v6, :cond_7
-
-    const/4 v6, 0x1
-
-    if-le p2, v6, :cond_4
-
-    const/4 v7, 0x0
-
-    add-int v6, v4, p2
-
-    if-lt v6, p4, :cond_2
-
-    const/4 v6, 0x0
-
-    :goto_2
-    aput v6, p1, v7
-
-    const/4 v7, 0x1
-
-    add-int v6, v4, p2
-
-    if-lt v6, p4, :cond_3
-
-    add-int/lit8 v6, v5, 0x1
-
-    :goto_3
-    aput v6, p1, v7
-
-    :cond_0
-    :goto_4
-    const/4 v6, 0x1
-
-    if-le p3, v6, :cond_1
-
-    add-int/lit8 v3, p3, -0x1
-
-    :cond_1
-    if-eqz p7, :cond_11
-
-    const/4 v6, 0x1
-
-    aget v6, p1, v6
-
-    add-int/2addr v6, v3
-
-    if-ge v6, p5, :cond_11
-
-    const/4 v6, 0x1
-
-    :goto_5
-    return v6
-
-    :cond_2
-    add-int/lit8 v6, v4, 0x1
-
-    goto :goto_2
-
-    :cond_3
-    move v6, v5
-
-    goto :goto_3
-
-    :cond_4
-    const/4 v7, 0x0
-
-    add-int/lit8 v6, v4, 0x1
-
-    if-ne v6, p4, :cond_5
-
-    const/4 v6, 0x0
-
-    :goto_6
-    aput v6, p1, v7
-
-    const/4 v7, 0x1
-
-    add-int/lit8 v6, v4, 0x1
-
-    if-ne v6, p4, :cond_6
-
-    add-int/lit8 v6, v5, 0x1
-
-    :goto_7
-    aput v6, p1, v7
-
-    goto :goto_4
-
-    :cond_5
-    add-int/lit8 v6, v4, 0x1
-
-    goto :goto_6
-
-    :cond_6
-    move v6, v5
-
-    goto :goto_7
-
-    :cond_7
-    add-int/lit8 v4, v4, -0x1
-
-    goto :goto_1
-
-    :cond_8
-    add-int/lit8 v5, v5, -0x1
-
-    goto :goto_0
-
-    :cond_9
-    const/4 v5, 0x0
-
-    :goto_8
-    add-int v6, v5, p3
-
-    if-gt v6, p5, :cond_1
-
-    const/4 v4, 0x0
-
-    :goto_9
-    add-int v6, v4, p2
-
-    if-gt v6, p4, :cond_10
-
-    aget-object v6, p6, v4
-
-    aget-boolean v6, v6, v5
-
-    if-nez v6, :cond_b
-
-    const/4 v0, 0x1
-
-    :goto_a
-    move v1, v4
-
-    :goto_b
-    add-int v6, v4, p2
-
-    if-ge v1, v6, :cond_a
-
-    move v2, v5
-
-    :goto_c
-    add-int v6, v5, p3
-
-    if-ge v2, v6, :cond_e
-
-    if-eqz v0, :cond_c
-
-    aget-object v6, p6, v1
-
-    aget-boolean v6, v6, v2
-
-    if-nez v6, :cond_c
-
-    const/4 v0, 0x1
-
-    :goto_d
-    if-nez v0, :cond_d
-
-    :cond_a
-    if-eqz v0, :cond_f
-
-    const/4 v6, 0x0
-
-    aput v4, p1, v6
-
-    const/4 v6, 0x1
-
-    aput v5, p1, v6
-
-    const/4 v6, 0x1
-
-    goto :goto_5
-
-    :cond_b
-    const/4 v0, 0x0
-
-    goto :goto_a
-
-    :cond_c
-    const/4 v0, 0x0
-
-    goto :goto_d
-
-    :cond_d
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_c
-
-    :cond_e
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_b
-
-    :cond_f
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_9
-
-    :cond_10
-    add-int/lit8 v5, v5, 0x1
-
-    goto :goto_8
-
-    :cond_11
-    const/4 v6, 0x0
-
-    goto :goto_5
-.end method
-
 .method private getItemsInLocalCoordinates(JJ)Ljava/util/ArrayList;
     .locals 17
     .annotation system Ldalvik/annotation/Signature;
@@ -2043,9 +1801,251 @@
 
     move/from16 v9, p7
 
-    invoke-direct/range {v2 .. v9}, Lcom/android/launcher3/home/HomeItemPositionHelper;->findVacantCell([IIIII[[ZZ)Z
+    invoke-virtual/range {v2 .. v9}, Lcom/android/launcher3/home/HomeItemPositionHelper;->findVacantCell([IIIII[[ZZ)Z
 
     move-result v2
 
     return v2
+.end method
+
+.method findVacantCell([IIIII[[ZZ)Z
+    .locals 8
+
+    const/4 v6, 0x0
+
+    const/4 v7, 0x0
+
+    aput v7, p1, v6
+
+    const/4 v6, 0x1
+
+    const/4 v7, 0x0
+
+    aput v7, p1, v6
+
+    const/4 v3, 0x0
+
+    if-eqz p7, :cond_9
+
+    add-int/lit8 v5, p5, -0x1
+
+    :goto_0
+    if-ltz v5, :cond_0
+
+    add-int/lit8 v4, p4, -0x1
+
+    :goto_1
+    if-ltz v4, :cond_8
+
+    aget-object v6, p6, v4
+
+    aget-boolean v6, v6, v5
+
+    if-eqz v6, :cond_7
+
+    const/4 v6, 0x1
+
+    if-le p2, v6, :cond_4
+
+    const/4 v7, 0x0
+
+    add-int v6, v4, p2
+
+    if-lt v6, p4, :cond_2
+
+    const/4 v6, 0x0
+
+    :goto_2
+    aput v6, p1, v7
+
+    const/4 v7, 0x1
+
+    add-int v6, v4, p2
+
+    if-lt v6, p4, :cond_3
+
+    add-int/lit8 v6, v5, 0x1
+
+    :goto_3
+    aput v6, p1, v7
+
+    :cond_0
+    :goto_4
+    const/4 v6, 0x1
+
+    if-le p3, v6, :cond_1
+
+    add-int/lit8 v3, p3, -0x1
+
+    :cond_1
+    if-eqz p7, :cond_11
+
+    const/4 v6, 0x1
+
+    aget v6, p1, v6
+
+    add-int/2addr v6, v3
+
+    if-ge v6, p5, :cond_11
+
+    const/4 v6, 0x1
+
+    :goto_5
+    return v6
+
+    :cond_2
+    add-int/lit8 v6, v4, 0x1
+
+    goto :goto_2
+
+    :cond_3
+    move v6, v5
+
+    goto :goto_3
+
+    :cond_4
+    const/4 v7, 0x0
+
+    add-int/lit8 v6, v4, 0x1
+
+    if-ne v6, p4, :cond_5
+
+    const/4 v6, 0x0
+
+    :goto_6
+    aput v6, p1, v7
+
+    const/4 v7, 0x1
+
+    add-int/lit8 v6, v4, 0x1
+
+    if-ne v6, p4, :cond_6
+
+    add-int/lit8 v6, v5, 0x1
+
+    :goto_7
+    aput v6, p1, v7
+
+    goto :goto_4
+
+    :cond_5
+    add-int/lit8 v6, v4, 0x1
+
+    goto :goto_6
+
+    :cond_6
+    move v6, v5
+
+    goto :goto_7
+
+    :cond_7
+    add-int/lit8 v4, v4, -0x1
+
+    goto :goto_1
+
+    :cond_8
+    add-int/lit8 v5, v5, -0x1
+
+    goto :goto_0
+
+    :cond_9
+    const/4 v5, 0x0
+
+    :goto_8
+    add-int v6, v5, p3
+
+    if-gt v6, p5, :cond_1
+
+    const/4 v4, 0x0
+
+    :goto_9
+    add-int v6, v4, p2
+
+    if-gt v6, p4, :cond_10
+
+    aget-object v6, p6, v4
+
+    aget-boolean v6, v6, v5
+
+    if-nez v6, :cond_b
+
+    const/4 v0, 0x1
+
+    :goto_a
+    move v1, v4
+
+    :goto_b
+    add-int v6, v4, p2
+
+    if-ge v1, v6, :cond_a
+
+    move v2, v5
+
+    :goto_c
+    add-int v6, v5, p3
+
+    if-ge v2, v6, :cond_e
+
+    if-eqz v0, :cond_c
+
+    aget-object v6, p6, v1
+
+    aget-boolean v6, v6, v2
+
+    if-nez v6, :cond_c
+
+    const/4 v0, 0x1
+
+    :goto_d
+    if-nez v0, :cond_d
+
+    :cond_a
+    if-eqz v0, :cond_f
+
+    const/4 v6, 0x0
+
+    aput v4, p1, v6
+
+    const/4 v6, 0x1
+
+    aput v5, p1, v6
+
+    const/4 v6, 0x1
+
+    goto :goto_5
+
+    :cond_b
+    const/4 v0, 0x0
+
+    goto :goto_a
+
+    :cond_c
+    const/4 v0, 0x0
+
+    goto :goto_d
+
+    :cond_d
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_c
+
+    :cond_e
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_b
+
+    :cond_f
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_9
+
+    :cond_10
+    add-int/lit8 v5, v5, 0x1
+
+    goto :goto_8
+
+    :cond_11
+    const/4 v6, 0x0
+
+    goto :goto_5
 .end method

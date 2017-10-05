@@ -12,6 +12,9 @@
     name = "SettingBuilder"
 .end annotation
 
+.annotation runtime Ljava/lang/Deprecated;
+.end annotation
+
 
 # instance fields
 .field private map:Ljava/util/Map;

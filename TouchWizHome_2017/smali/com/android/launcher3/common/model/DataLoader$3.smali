@@ -3,12 +3,12 @@
 .source "DataLoader.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Lcom/android/launcher3/common/model/DataLoader$ItemInfoFilter;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/common/model/DataLoader;->executeLoaderTask(Lcom/android/launcher3/common/model/DataLoader$DataLoaderCallback;)V
+    value = Lcom/android/launcher3/common/model/DataLoader;->getItemInfoByComponentName(Landroid/content/ComponentName;Ljava/util/ArrayList;Lcom/android/launcher3/common/compat/UserHandleCompat;Z)Ljava/util/ArrayList;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,16 +20,20 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/common/model/DataLoader;
 
-.field final synthetic val$loaderCallback:Lcom/android/launcher3/common/model/DataLoader$DataLoaderCallback;
+.field final synthetic val$cName:Landroid/content/ComponentName;
+
+.field final synthetic val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/common/model/DataLoader;Lcom/android/launcher3/common/model/DataLoader$DataLoaderCallback;)V
+.method constructor <init>(Lcom/android/launcher3/common/model/DataLoader;Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/common/model/DataLoader$3;->this$0:Lcom/android/launcher3/common/model/DataLoader;
 
-    iput-object p2, p0, Lcom/android/launcher3/common/model/DataLoader$3;->val$loaderCallback:Lcom/android/launcher3/common/model/DataLoader$DataLoaderCallback;
+    iput-object p2, p0, Lcom/android/launcher3/common/model/DataLoader$3;->val$cName:Landroid/content/ComponentName;
+
+    iput-object p3, p0, Lcom/android/launcher3/common/model/DataLoader$3;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,33 +42,47 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 5
+.method public filterItem(Lcom/android/launcher3/common/base/item/ItemInfo;Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/content/ComponentName;)Z
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/launcher3/common/model/DataLoader$3;->this$0:Lcom/android/launcher3/common/model/DataLoader;
+    iget-object v0, p2, Lcom/android/launcher3/common/base/item/ItemInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
-    iget-object v0, v0, Lcom/android/launcher3/common/model/DataLoader;->mPageLoaderTask:Lcom/android/launcher3/common/model/DataLoader$PageLoaderTask;
+    if-nez v0, :cond_0
 
-    if-eqz v0, :cond_0
+    iget-object v0, p0, Lcom/android/launcher3/common/model/DataLoader$3;->val$cName:Landroid/content/ComponentName;
 
-    iget-object v0, p0, Lcom/android/launcher3/common/model/DataLoader$3;->this$0:Lcom/android/launcher3/common/model/DataLoader;
+    invoke-virtual {p3, v0}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
 
-    iget-object v0, v0, Lcom/android/launcher3/common/model/DataLoader;->mPageLoaderTask:Lcom/android/launcher3/common/model/DataLoader$PageLoaderTask;
+    move-result v0
 
-    sget-object v1, Lcom/android/launcher3/Utilities;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
-
-    const/4 v2, 0x1
-
-    new-array v2, v2, [Lcom/android/launcher3/common/model/DataLoader$DataLoaderCallback;
-
-    const/4 v3, 0x0
-
-    iget-object v4, p0, Lcom/android/launcher3/common/model/DataLoader$3;->val$loaderCallback:Lcom/android/launcher3/common/model/DataLoader$DataLoaderCallback;
-
-    aput-object v4, v2, v3
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/launcher3/common/model/DataLoader$PageLoaderTask;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
+    :goto_0
+    return v0
 
     :cond_0
-    return-void
+    iget-object v0, p0, Lcom/android/launcher3/common/model/DataLoader$3;->val$cName:Landroid/content/ComponentName;
+
+    invoke-virtual {p3, v0}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p2, Lcom/android/launcher3/common/base/item/ItemInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    iget-object v1, p0, Lcom/android/launcher3/common/model/DataLoader$3;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/compat/UserHandleCompat;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method

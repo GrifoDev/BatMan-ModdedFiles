@@ -45,11 +45,11 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/model/IconCache$2;->this$0:Lcom/android/launcher3/common/model/IconCache;
 
-    invoke-static {v0}, Lcom/android/launcher3/common/model/IconCache;->access$800(Lcom/android/launcher3/common/model/IconCache;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/launcher3/common/model/IconCache;->access$1000(Lcom/android/launcher3/common/model/IconCache;)Landroid/os/Handler;
 
     move-result-object v0
 
-    invoke-static {}, Lcom/android/launcher3/common/model/IconCache;->access$700()Ljava/lang/Object;
+    invoke-static {}, Lcom/android/launcher3/common/model/IconCache;->access$900()Ljava/lang/Object;
 
     move-result-object v1
 
@@ -71,7 +71,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/android/launcher3/common/model/IconCache$IconDB;->access$900(Lcom/android/launcher3/common/model/IconCache$IconDB;Landroid/database/sqlite/SQLiteDatabase;)V
+    invoke-static {v0, v1}, Lcom/android/launcher3/common/model/IconCache$IconDB;->access$1100(Lcom/android/launcher3/common/model/IconCache$IconDB;Landroid/database/sqlite/SQLiteDatabase;)V
 
     return-void
 .end method

@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/HomeBindController;->bindUpdateContainer(ZLcom/android/launcher3/folder/FolderInfo;Lcom/android/launcher3/common/base/item/IconInfo;)V
+    value = Lcom/android/launcher3/home/HomeBindController;->bindFolders(Lcom/android/launcher3/util/LongArrayMap;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,24 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/home/HomeBindController;
 
-.field final synthetic val$addToFolder:Z
-
-.field final synthetic val$folder:Lcom/android/launcher3/folder/FolderInfo;
-
-.field final synthetic val$item:Lcom/android/launcher3/common/base/item/IconInfo;
+.field final synthetic val$folders:Lcom/android/launcher3/util/LongArrayMap;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/home/HomeBindController;ZLcom/android/launcher3/folder/FolderInfo;Lcom/android/launcher3/common/base/item/IconInfo;)V
+.method constructor <init>(Lcom/android/launcher3/home/HomeBindController;Lcom/android/launcher3/util/LongArrayMap;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/home/HomeBindController$7;->this$0:Lcom/android/launcher3/home/HomeBindController;
 
-    iput-boolean p2, p0, Lcom/android/launcher3/home/HomeBindController$7;->val$addToFolder:Z
-
-    iput-object p3, p0, Lcom/android/launcher3/home/HomeBindController$7;->val$folder:Lcom/android/launcher3/folder/FolderInfo;
-
-    iput-object p4, p0, Lcom/android/launcher3/home/HomeBindController$7;->val$item:Lcom/android/launcher3/common/base/item/IconInfo;
+    iput-object p2, p0, Lcom/android/launcher3/home/HomeBindController$7;->val$folders:Lcom/android/launcher3/util/LongArrayMap;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -47,17 +39,13 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 2
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeBindController$7;->this$0:Lcom/android/launcher3/home/HomeBindController;
 
-    iget-boolean v1, p0, Lcom/android/launcher3/home/HomeBindController$7;->val$addToFolder:Z
+    iget-object v1, p0, Lcom/android/launcher3/home/HomeBindController$7;->val$folders:Lcom/android/launcher3/util/LongArrayMap;
 
-    iget-object v2, p0, Lcom/android/launcher3/home/HomeBindController$7;->val$folder:Lcom/android/launcher3/folder/FolderInfo;
-
-    iget-object v3, p0, Lcom/android/launcher3/home/HomeBindController$7;->val$item:Lcom/android/launcher3/common/base/item/IconInfo;
-
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/launcher3/home/HomeBindController;->bindUpdateContainer(ZLcom/android/launcher3/folder/FolderInfo;Lcom/android/launcher3/common/base/item/IconInfo;)V
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/home/HomeBindController;->bindFolders(Lcom/android/launcher3/util/LongArrayMap;)V
 
     return-void
 .end method

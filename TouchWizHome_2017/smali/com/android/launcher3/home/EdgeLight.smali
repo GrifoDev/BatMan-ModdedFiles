@@ -163,7 +163,7 @@
 .method private getArrowAnimSet(I)Landroid/animation/AnimatorSet;
     .locals 7
 
-    const v6, 0x7f050002
+    const v6, 0x7f060002
 
     new-instance v0, Landroid/animation/AnimatorSet;
 
@@ -173,7 +173,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f050003
+    const v5, 0x7f060003
 
     invoke-static {v4, v5}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -249,7 +249,7 @@
 
     const/16 v4, 0x258
 
-    const v0, 0x7f0f0064
+    const v0, 0x7f11006d
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/EdgeLight;->findViewById(I)Landroid/view/View;
 
@@ -269,7 +269,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/home/EdgeLight;->mEdgeLightAnimator:Landroid/graphics/drawable/AnimationDrawable;
 
-    const v0, 0x7f0f0065
+    const v0, 0x7f11006e
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/EdgeLight;->findViewById(I)Landroid/view/View;
 
@@ -279,7 +279,7 @@
 
     if-eqz p1, :cond_0
 
-    const v0, 0x7f0f0066
+    const v0, 0x7f11006f
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/EdgeLight;->findViewById(I)Landroid/view/View;
 
@@ -289,7 +289,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/home/EdgeLight;->mArrowView1:Landroid/widget/ImageView;
 
-    const v0, 0x7f0f0067
+    const v0, 0x7f110070
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/EdgeLight;->findViewById(I)Landroid/view/View;
 

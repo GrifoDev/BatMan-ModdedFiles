@@ -47,7 +47,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f08018c
+    const v3, 0x7f0901a9
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -59,7 +59,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f080101
+    const v4, 0x7f09011c
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -69,13 +69,13 @@
 
     iget-object v1, p0, Lcom/android/launcher3/allapps/view/AppsSearchBar$6;->this$0:Lcom/android/launcher3/allapps/view/AppsSearchBar;
 
-    invoke-static {v1}, Lcom/android/launcher3/allapps/view/AppsSearchBar;->access$300(Lcom/android/launcher3/allapps/view/AppsSearchBar;)Lcom/android/launcher3/allapps/controller/AppsController;
+    invoke-virtual {v1}, Lcom/android/launcher3/allapps/view/AppsSearchBar;->getContext()Landroid/content/Context;
 
     move-result-object v1
 
     const-string v2, "com.samsung.android.app.galaxyfinder"
 
-    invoke-virtual {v1, v2}, Lcom/android/launcher3/allapps/controller/AppsController;->isAppInstalled(Ljava/lang/String;)Z
+    invoke-static {v1, v2}, Lcom/android/launcher3/Utilities;->isAppInstalled(Landroid/content/Context;Ljava/lang/String;)Z
 
     move-result v1
 

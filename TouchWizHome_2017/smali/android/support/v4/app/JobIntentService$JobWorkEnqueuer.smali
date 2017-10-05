@@ -25,10 +25,10 @@
 
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Ljava/lang/Class;I)V
+.method constructor <init>(Landroid/content/Context;Landroid/content/ComponentName;I)V
     .locals 4
 
-    invoke-direct {p0, p1, p2}, Landroid/support/v4/app/JobIntentService$WorkEnqueuer;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+    invoke-direct {p0, p1, p2}, Landroid/support/v4/app/JobIntentService$WorkEnqueuer;-><init>(Landroid/content/Context;Landroid/content/ComponentName;)V
 
     invoke-virtual {p0, p3}, Landroid/support/v4/app/JobIntentService$JobWorkEnqueuer;->ensureJobId(I)V
 

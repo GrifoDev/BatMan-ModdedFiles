@@ -18,16 +18,10 @@
 
 .field private static sSharedPref:Landroid/content/SharedPreferences;
 
-.field private static sUseExternalRequestQueue:Z
-
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
-
-    const/4 v0, 0x0
-
-    sput-boolean v0, Lcom/android/launcher3/home/ExternalRequestQueue;->sUseExternalRequestQueue:Z
 
     new-instance v0, Ljava/lang/Object;
 
@@ -199,32 +193,30 @@
     .end packed-switch
 .end method
 
-.method public static disableAndFlushExternalRequestQueue(Lcom/android/launcher3/Launcher;)V
+.method public static disableAndFlushExternalRequestQueue(Landroid/content/Context;Lcom/android/launcher3/LauncherAppState;)V
     .locals 1
 
     const/4 v0, 0x0
 
-    sput-boolean v0, Lcom/android/launcher3/home/ExternalRequestQueue;->sUseExternalRequestQueue:Z
+    invoke-virtual {p1, v0}, Lcom/android/launcher3/LauncherAppState;->enableExternalQueue(Z)V
 
-    invoke-static {p0}, Lcom/android/launcher3/home/ExternalRequestQueue;->flushExternalRequestQueue(Lcom/android/launcher3/Launcher;)V
-
-    return-void
-.end method
-
-.method public static enableExternalRequestQueue()V
-    .locals 1
-
-    const/4 v0, 0x1
-
-    sput-boolean v0, Lcom/android/launcher3/home/ExternalRequestQueue;->sUseExternalRequestQueue:Z
+    invoke-static {p0, p1}, Lcom/android/launcher3/home/ExternalRequestQueue;->flushExternalRequestQueue(Landroid/content/Context;Lcom/android/launcher3/LauncherAppState;)V
 
     return-void
 .end method
 
-.method private static flushExternalRequestQueue(Lcom/android/launcher3/Launcher;)V
+.method private static flushExternalRequestQueue(Landroid/content/Context;Lcom/android/launcher3/LauncherAppState;)V
     .locals 4
 
-    invoke-virtual {p0}, Lcom/android/launcher3/Launcher;->isHomeNormal()Z
+    invoke-virtual {p1}, Lcom/android/launcher3/LauncherAppState;->getModel()Lcom/android/launcher3/LauncherModel;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/android/launcher3/LauncherModel;->getCallback()Lcom/android/launcher3/LauncherModel$Callbacks;
+
+    move-result-object v3
+
+    invoke-interface {v3}, Lcom/android/launcher3/LauncherModel$Callbacks;->isHomeNormal()Z
 
     move-result v3
 
@@ -544,7 +536,9 @@
     const/4 v0, 0x1
 
     :goto_0
-    sget-boolean v1, Lcom/android/launcher3/home/ExternalRequestQueue;->sUseExternalRequestQueue:Z
+    invoke-virtual {p2}, Lcom/android/launcher3/LauncherAppState;->isExternalQueueEnabled()Z
+
+    move-result v1
 
     if-nez v1, :cond_1
 

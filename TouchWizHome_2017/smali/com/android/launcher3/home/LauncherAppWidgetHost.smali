@@ -128,17 +128,49 @@
 .end method
 
 .method protected onProviderChanged(ILandroid/appwidget/AppWidgetProviderInfo;)V
-    .locals 2
+    .locals 5
 
-    iget-object v1, p0, Lcom/android/launcher3/home/LauncherAppWidgetHost;->mLauncher:Lcom/android/launcher3/Launcher;
+    iget-object v2, p0, Lcom/android/launcher3/home/LauncherAppWidgetHost;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    invoke-static {v1, p2}, Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo;->fromProviderInfo(Landroid/content/Context;Landroid/appwidget/AppWidgetProviderInfo;)Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo;
+    invoke-static {v2}, Lcom/android/launcher3/common/compat/AppWidgetManagerCompat;->getInstance(Landroid/content/Context;)Lcom/android/launcher3/common/compat/AppWidgetManagerCompat;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Lcom/android/launcher3/common/compat/AppWidgetManagerCompat;->getLauncherAppWidgetInfo(I)Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo;
 
     move-result-object v0
 
+    if-nez v0, :cond_0
+
+    const-string v2, "LauncherAppWidgetHost"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "onProviderChanged. info is null. appWidgetId: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_0
+    return-void
+
+    :cond_0
     invoke-super {p0, p1, v0}, Landroid/appwidget/AppWidgetHost;->onProviderChanged(ILandroid/appwidget/AppWidgetProviderInfo;)V
 
-    return-void
+    goto :goto_0
 .end method
 
 .method protected onProvidersChanged()V

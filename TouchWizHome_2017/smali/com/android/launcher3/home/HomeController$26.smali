@@ -3,12 +3,12 @@
 .source "HomeController.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/animation/Animator$AnimatorListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/HomeController;->changeHomeScreenMode(Ljava/lang/String;)V
+    value = Lcom/android/launcher3/home/HomeController;->removeItemsByMatcher(Lcom/android/launcher3/util/ItemInfoMatcher;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,16 +20,20 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/home/HomeController;
 
-.field final synthetic val$HomeOnlySettingValue:Z
+.field final synthetic val$child:Landroid/view/View;
+
+.field final synthetic val$layoutParent:Lcom/android/launcher3/common/base/view/CellLayout;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/home/HomeController;Z)V
+.method constructor <init>(Lcom/android/launcher3/home/HomeController;Lcom/android/launcher3/common/base/view/CellLayout;Landroid/view/View;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/home/HomeController$26;->this$0:Lcom/android/launcher3/home/HomeController;
 
-    iput-boolean p2, p0, Lcom/android/launcher3/home/HomeController$26;->val$HomeOnlySettingValue:Z
+    iput-object p2, p0, Lcom/android/launcher3/home/HomeController$26;->val$layoutParent:Lcom/android/launcher3/common/base/view/CellLayout;
+
+    iput-object p3, p0, Lcom/android/launcher3/home/HomeController$26;->val$child:Landroid/view/View;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,40 +42,32 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 3
-
-    const/4 v1, 0x1
-
-    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/launcher3/LauncherAppState;->getModel()Lcom/android/launcher3/LauncherModel;
-
-    move-result-object v2
-
-    iget-boolean v0, p0, Lcom/android/launcher3/home/HomeController$26;->val$HomeOnlySettingValue:Z
-
-    if-nez v0, :cond_0
-
-    move v0, v1
-
-    :goto_0
-    invoke-virtual {v2, v0, v1}, Lcom/android/launcher3/LauncherModel;->resetLoadedState(ZZ)V
-
-    iget-object v0, p0, Lcom/android/launcher3/home/HomeController$26;->this$0:Lcom/android/launcher3/home/HomeController;
-
-    invoke-static {v0}, Lcom/android/launcher3/home/HomeController;->access$1200(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/Launcher;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/launcher3/Launcher;->recreateLauncher()V
+.method public onAnimationCancel(Landroid/animation/Animator;)V
+    .locals 0
 
     return-void
+.end method
 
-    :cond_0
-    const/4 v0, 0x0
+.method public onAnimationEnd(Landroid/animation/Animator;)V
+    .locals 2
 
-    goto :goto_0
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeController$26;->val$layoutParent:Lcom/android/launcher3/common/base/view/CellLayout;
+
+    iget-object v1, p0, Lcom/android/launcher3/home/HomeController$26;->val$child:Landroid/view/View;
+
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/base/view/CellLayout;->removeViewInLayout(Landroid/view/View;)V
+
+    return-void
+.end method
+
+.method public onAnimationRepeat(Landroid/animation/Animator;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onAnimationStart(Landroid/animation/Animator;)V
+    .locals 0
+
+    return-void
 .end method

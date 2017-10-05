@@ -20,6 +20,8 @@
 
 .field static final CALL_PREF_EXISTS:Ljava/lang/String; = "checkPrefExists"
 
+.field static final CALL_PREF_INIT:Ljava/lang/String; = "initPref"
+
 .field static final CONTENT_APPWIDGET_UNBIND_URI:Landroid/net/Uri;
 
 .field static final PARAMETER_INITID:Ljava/lang/String; = "initId"
@@ -62,6 +64,71 @@
     return-void
 .end method
 
+.method private getFavoriteTable()Ljava/lang/String;
+    .locals 4
+
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/launcher3/LauncherAppState;->isHomeOnlyModeEnabled()Z
+
+    move-result v1
+
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/launcher3/LauncherAppState;->isEasyModeEnabled()Z
+
+    move-result v0
+
+    if-nez v1, :cond_0
+
+    if-nez v0, :cond_0
+
+    const-string v2, "favorites"
+
+    :goto_0
+    return-object v2
+
+    :cond_0
+    if-eqz v1, :cond_1
+
+    const-string v2, "favorites_homeApps"
+
+    goto :goto_0
+
+    :cond_1
+    if-eqz v0, :cond_3
+
+    invoke-static {}, Lcom/android/launcher3/common/model/FavoritesProvider;->getInstance()Lcom/android/launcher3/common/model/FavoritesProvider;
+
+    move-result-object v2
+
+    const-string v3, "favorites_homeApps"
+
+    invoke-virtual {v2, v3}, Lcom/android/launcher3/common/model/FavoritesProvider;->tableExists(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    const-string v2, "favorites_homeApps"
+
+    goto :goto_0
+
+    :cond_2
+    const-string v2, "favorites_standard"
+
+    goto :goto_0
+
+    :cond_3
+    const/4 v2, 0x0
+
+    goto :goto_0
+.end method
+
 .method public static getInstance()Lcom/android/launcher3/LauncherProviderID;
     .locals 1
 
@@ -91,141 +158,206 @@
     return-object v0
 .end method
 
+.method private getworkSpaceScreensTable()Ljava/lang/String;
+    .locals 4
+
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/launcher3/LauncherAppState;->isHomeOnlyModeEnabled()Z
+
+    move-result v1
+
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/launcher3/LauncherAppState;->isEasyModeEnabled()Z
+
+    move-result v0
+
+    if-nez v1, :cond_0
+
+    if-nez v0, :cond_0
+
+    const-string v2, "workspaceScreens"
+
+    :goto_0
+    return-object v2
+
+    :cond_0
+    if-eqz v1, :cond_1
+
+    const-string v2, "workspaceScreens_homeApps"
+
+    goto :goto_0
+
+    :cond_1
+    if-eqz v0, :cond_3
+
+    invoke-static {}, Lcom/android/launcher3/common/model/FavoritesProvider;->getInstance()Lcom/android/launcher3/common/model/FavoritesProvider;
+
+    move-result-object v2
+
+    const-string v3, "workspaceScreens_homeApps"
+
+    invoke-virtual {v2, v3}, Lcom/android/launcher3/common/model/FavoritesProvider;->tableExists(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    const-string v2, "workspaceScreens_homeApps"
+
+    goto :goto_0
+
+    :cond_2
+    const-string v2, "workspaceScreens_standard"
+
+    goto :goto_0
+
+    :cond_3
+    const/4 v2, 0x0
+
+    goto :goto_0
+.end method
+
 .method private handleWidget(Landroid/database/sqlite/SQLiteDatabase;Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
     .locals 20
 
     if-eqz p3, :cond_0
 
-    const-string v17, "itemType"
+    const-string v18, "itemType"
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v18
 
     invoke-virtual {v0, v1}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
 
-    move-result-object v17
+    move-result-object v18
 
-    if-nez v17, :cond_1
+    if-nez v18, :cond_1
 
     :cond_0
-    const/16 v17, 0x0
+    const/16 v18, 0x0
 
     :goto_0
-    return-object v17
+    return-object v18
 
     :cond_1
-    const-string v17, "itemType"
+    const-string v18, "itemType"
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v18
 
     invoke-virtual {v0, v1}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
 
-    move-result-object v17
+    move-result-object v18
 
-    invoke-virtual/range {v17 .. v17}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/Integer;->intValue()I
 
     move-result v10
 
-    const/16 v17, 0x4
+    const/16 v18, 0x4
 
-    move/from16 v0, v17
+    move/from16 v0, v18
 
     if-ne v10, v0, :cond_8
 
-    const-string v17, "appWidgetId"
+    const-string v18, "appWidgetId"
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v18
 
     invoke-virtual {v0, v1}, Landroid/content/ContentValues;->containsKey(Ljava/lang/String;)Z
 
-    move-result v17
+    move-result v18
 
-    if-eqz v17, :cond_8
+    if-eqz v18, :cond_8
 
-    const-string v17, "appWidgetId"
-
-    move-object/from16 v0, p3
-
-    move-object/from16 v1, v17
-
-    invoke-virtual {v0, v1}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
-
-    move-result-object v17
-
-    if-eqz v17, :cond_8
-
-    const-string v17, "appWidgetId"
+    const-string v18, "appWidgetId"
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v18
 
     invoke-virtual {v0, v1}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
 
-    move-result-object v17
+    move-result-object v18
 
-    invoke-virtual/range {v17 .. v17}, Ljava/lang/Integer;->intValue()I
+    if-eqz v18, :cond_8
 
-    move-result v17
+    const-string v18, "appWidgetId"
 
-    const/16 v18, -0x1
+    move-object/from16 v0, p3
 
-    move/from16 v0, v17
+    move-object/from16 v1, v18
 
-    move/from16 v1, v18
+    invoke-virtual {v0, v1}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
+
+    move-result-object v18
+
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/Integer;->intValue()I
+
+    move-result v18
+
+    const/16 v19, -0x1
+
+    move/from16 v0, v18
+
+    move/from16 v1, v19
 
     if-ne v0, v1, :cond_8
 
-    const-string v17, "widgetPkgName"
+    const-string v18, "widgetPkgName"
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v18
 
     invoke-virtual {v0, v1}, Landroid/content/ContentValues;->containsKey(Ljava/lang/String;)Z
 
-    move-result v17
+    move-result v18
 
-    if-eqz v17, :cond_8
+    if-eqz v18, :cond_8
 
-    const-string v17, "widgetPkgName"
+    const-string v18, "widgetPkgName"
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v18
 
     invoke-virtual {v0, v1}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v11
 
-    const-string v17, "widgetClsName"
+    const-string v18, "widgetClsName"
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v18
 
     invoke-virtual {v0, v1}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v7
 
-    const-string v17, "widgetPkgName"
+    const-string v18, "widgetPkgName"
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v18
 
     invoke-virtual {v0, v1}, Landroid/content/ContentValues;->remove(Ljava/lang/String;)V
 
-    const-string v17, "widgetClsName"
+    const-string v18, "widgetClsName"
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v18
 
     invoke-virtual {v0, v1}, Landroid/content/ContentValues;->remove(Ljava/lang/String;)V
 
@@ -235,9 +367,9 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/LauncherProviderID;->getContext()Landroid/content/Context;
 
-    move-result-object v17
+    move-result-object v18
 
-    invoke-static/range {v17 .. v17}, Landroid/appwidget/AppWidgetManager;->getInstance(Landroid/content/Context;)Landroid/appwidget/AppWidgetManager;
+    invoke-static/range {v18 .. v18}, Landroid/appwidget/AppWidgetManager;->getInstance(Landroid/content/Context;)Landroid/appwidget/AppWidgetManager;
 
     move-result-object v6
 
@@ -245,36 +377,38 @@
 
     invoke-virtual {v6}, Landroid/appwidget/AppWidgetManager;->getInstalledProviders()Ljava/util/List;
 
-    move-result-object v16
-
-    invoke-interface/range {v16 .. v16}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
     move-result-object v17
 
+    invoke-interface/range {v17 .. v17}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v18
+
     :cond_2
-    invoke-interface/range {v17 .. v17}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface/range {v18 .. v18}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v18
+    move-result v19
 
-    if-eqz v18, :cond_3
+    if-eqz v19, :cond_3
 
-    invoke-interface/range {v17 .. v17}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface/range {v18 .. v18}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v13
+    move-result-object v16
 
-    check-cast v13, Landroid/appwidget/AppWidgetProviderInfo;
+    check-cast v16, Landroid/appwidget/AppWidgetProviderInfo;
 
-    iget-object v0, v13, Landroid/appwidget/AppWidgetProviderInfo;->provider:Landroid/content/ComponentName;
+    move-object/from16 v0, v16
 
-    move-object/from16 v18, v0
+    iget-object v0, v0, Landroid/appwidget/AppWidgetProviderInfo;->provider:Landroid/content/ComponentName;
 
-    move-object/from16 v0, v18
+    move-object/from16 v19, v0
+
+    move-object/from16 v0, v19
 
     invoke-virtual {v0, v8}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
 
-    move-result v18
+    move-result v19
 
-    if-eqz v18, :cond_2
+    if-eqz v19, :cond_2
 
     const/4 v9, 0x1
 
@@ -285,13 +419,13 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/LauncherProviderID;->getContext()Landroid/content/Context;
 
-    move-result-object v17
+    move-result-object v18
 
-    const/16 v18, 0x400
+    const/16 v19, 0x400
 
-    move-object/from16 v0, v17
+    move-object/from16 v0, v18
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
     invoke-direct {v4, v0, v1}, Landroid/appwidget/AppWidgetHost;-><init>(Landroid/content/Context;I)V
 
@@ -299,17 +433,17 @@
 
     move-result v5
 
-    const-string v17, "appWidgetId"
+    const-string v18, "appWidgetId"
 
     invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v18
+    move-result-object v19
 
     move-object/from16 v0, p3
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v18
 
-    move-object/from16 v2, v18
+    move-object/from16 v2, v19
 
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
@@ -319,59 +453,60 @@
 
     if-nez v12, :cond_4
 
-    const/16 v17, 0x0
+    const/16 v18, 0x0
 
     goto/16 :goto_0
 
     :cond_4
-    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
+    invoke-direct/range {p0 .. p0}, Lcom/android/launcher3/LauncherProviderID;->getFavoriteTable()Ljava/lang/String;
 
-    move-result-object v17
+    move-result-object v13
 
-    invoke-virtual/range {v17 .. v17}, Lcom/android/launcher3/LauncherAppState;->isHomeOnlyModeEnabled()Z
+    invoke-static {v13}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v17
+    move-result v18
 
-    if-eqz v17, :cond_5
+    if-eqz v18, :cond_5
 
-    const-string v17, "favorites_homeApps"
+    const-string v18, "LauncherFacade::ID"
 
-    :goto_1
+    const-string v19, "[SPRINT]Error in getting favorite table Name,widget insertion failed"
+
+    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/16 v18, 0x0
+
+    goto/16 :goto_0
+
+    :cond_5
     const/16 v18, 0x0
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v18
 
-    move-object/from16 v2, v18
+    move-object/from16 v2, p3
 
-    move-object/from16 v3, p3
-
-    invoke-static {v0, v1, v2, v3}, Lcom/android/launcher3/LauncherProvider;->dbInsertAndCheck(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentValues;)J
+    invoke-static {v0, v13, v1, v2}, Lcom/android/launcher3/LauncherProvider;->dbInsertAndCheck(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentValues;)J
 
     move-result-wide v14
 
     const-wide/16 v18, 0x0
 
-    cmp-long v17, v14, v18
+    cmp-long v18, v14, v18
 
-    if-gtz v17, :cond_6
+    if-gtz v18, :cond_6
 
-    const/16 v17, 0x0
+    const/16 v18, 0x0
 
     goto/16 :goto_0
-
-    :cond_5
-    const-string v17, "favorites"
-
-    goto :goto_1
 
     :cond_6
     invoke-virtual {v6, v5, v8}, Landroid/appwidget/AppWidgetManager;->bindAppWidgetIdIfAllowed(ILandroid/content/ComponentName;)Z
 
-    move-result v17
+    move-result v18
 
-    if-eqz v17, :cond_7
+    if-eqz v18, :cond_7
 
     move-object/from16 v0, p2
 
@@ -379,35 +514,37 @@
 
     move-result-object p2
 
-    move-object/from16 v17, p2
+    move-object/from16 v18, p2
 
     goto/16 :goto_0
 
     :cond_7
-    const-string v17, "LauncherFacade::ID"
+    const-string v18, "LauncherFacade::ID"
 
-    const-string v18, "Problem allocating appWidgetId"
+    const-string v19, "Problem allocating appWidgetId"
 
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v18 .. v19}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_8
-    :goto_2
-    const/16 v17, 0x0
+    :goto_1
+    const/16 v18, 0x0
 
     goto/16 :goto_0
 
     :cond_9
-    const-string v17, "LauncherFacade::ID"
+    const-string v18, "LauncherFacade::ID"
 
-    const-string v18, "No insertion for widget"
+    const-string v19, "No insertion for widget"
 
-    invoke-static/range {v17 .. v18}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v18 .. v19}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_2
+    goto :goto_1
 .end method
 
 .method private initValues(Landroid/net/Uri;Landroid/content/ContentValues;)V
     .locals 10
+
+    const-wide/16 v8, 0x1
 
     const-string v5, "initId"
 
@@ -423,16 +560,16 @@
 
     move-result v5
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_6
 
     :cond_0
     invoke-direct {p0}, Lcom/android/launcher3/LauncherProviderID;->getLauncherProvider()Lcom/android/launcher3/LauncherProvider;
 
     move-result-object v4
 
-    if-eqz v4, :cond_1
+    if-eqz v4, :cond_2
 
-    if-eqz p2, :cond_1
+    if-eqz p2, :cond_2
 
     const-string v5, "_id"
 
@@ -440,13 +577,13 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
 
     move-result v5
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_2
 
     const-string v5, "LauncherFacade::ID"
 
@@ -464,7 +601,50 @@
 
     move-result v5
 
-    if-eqz v5, :cond_2
+    if-nez v5, :cond_3
+
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/android/launcher3/LauncherAppState;->isEasyModeEnabled()Z
+
+    move-result v5
+
+    if-nez v5, :cond_3
+
+    invoke-static {}, Lcom/android/launcher3/common/model/FavoritesProvider;->getInstance()Lcom/android/launcher3/common/model/FavoritesProvider;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/android/launcher3/common/model/FavoritesProvider;->generateNewItemId()J
+
+    move-result-wide v2
+
+    :cond_1
+    :goto_0
+    const-string v5, "_id"
+
+    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v6
+
+    invoke-virtual {p2, v5, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
+
+    :cond_2
+    :goto_1
+    return-void
+
+    :cond_3
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/android/launcher3/LauncherAppState;->isHomeOnlyModeEnabled()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_4
 
     invoke-static {}, Lcom/android/launcher3/common/model/FavoritesProvider;->getInstance()Lcom/android/launcher3/common/model/FavoritesProvider;
 
@@ -476,35 +656,63 @@
 
     move-result-wide v6
 
-    const-wide/16 v8, 0x1
-
     add-long v2, v6, v8
 
-    :goto_0
-    const-string v5, "_id"
+    goto :goto_0
 
-    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    :cond_4
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
-    move-result-object v6
+    move-result-object v5
 
-    invoke-virtual {p2, v5, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
+    invoke-virtual {v5}, Lcom/android/launcher3/LauncherAppState;->isEasyModeEnabled()Z
 
-    :cond_1
-    :goto_1
-    return-void
+    move-result v5
 
-    :cond_2
+    if-eqz v5, :cond_1
+
     invoke-static {}, Lcom/android/launcher3/common/model/FavoritesProvider;->getInstance()Lcom/android/launcher3/common/model/FavoritesProvider;
 
     move-result-object v5
 
-    invoke-virtual {v5}, Lcom/android/launcher3/common/model/FavoritesProvider;->generateNewItemId()J
+    const-string v6, "favorites_homeApps"
 
-    move-result-wide v2
+    invoke-virtual {v5, v6}, Lcom/android/launcher3/common/model/FavoritesProvider;->tableExists(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_5
+
+    invoke-static {}, Lcom/android/launcher3/common/model/FavoritesProvider;->getInstance()Lcom/android/launcher3/common/model/FavoritesProvider;
+
+    move-result-object v5
+
+    const-string v6, "favorites_homeApps"
+
+    invoke-virtual {v5, v6}, Lcom/android/launcher3/common/model/FavoritesProvider;->getMaxId(Ljava/lang/String;)J
+
+    move-result-wide v6
+
+    add-long v2, v6, v8
 
     goto :goto_0
 
-    :cond_3
+    :cond_5
+    invoke-static {}, Lcom/android/launcher3/common/model/FavoritesProvider;->getInstance()Lcom/android/launcher3/common/model/FavoritesProvider;
+
+    move-result-object v5
+
+    const-string v6, "favorites_standard"
+
+    invoke-virtual {v5, v6}, Lcom/android/launcher3/common/model/FavoritesProvider;->getMaxId(Ljava/lang/String;)J
+
+    move-result-wide v6
+
+    add-long v2, v6, v8
+
+    goto :goto_0
+
+    :cond_6
     const-string v5, "LauncherFacade::ID"
 
     const-string v6, "Using old ID on insert"
@@ -530,142 +738,155 @@
 
 # virtual methods
 .method public call(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
-    .locals 8
+    .locals 10
 
-    const/4 v6, 0x2
+    const/4 v8, 0x2
 
-    const/4 v4, 0x0
+    const/4 v7, 0x1
 
-    const/4 v5, 0x1
+    const/4 v6, 0x0
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    new-instance v1, Landroid/os/Bundle;
+    new-instance v2, Landroid/os/Bundle;
 
-    invoke-direct {v1, v5}, Landroid/os/Bundle;-><init>(I)V
+    invoke-direct {v2, v7}, Landroid/os/Bundle;-><init>(I)V
 
-    const/4 v3, -0x1
+    const/4 v5, -0x1
 
     invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
 
-    move-result v7
+    move-result v9
 
-    sparse-switch v7, :sswitch_data_0
+    sparse-switch v9, :sswitch_data_0
 
     :cond_0
     :goto_0
-    packed-switch v3, :pswitch_data_0
+    packed-switch v5, :pswitch_data_0
 
     :goto_1
-    return-object v1
+    return-object v2
 
     :sswitch_0
-    const-string v7, "gridSize"
+    const-string v9, "gridSize"
 
-    invoke-virtual {p1, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v9
 
-    if-eqz v7, :cond_0
+    if-eqz v9, :cond_0
 
-    move v3, v4
+    move v5, v6
 
     goto :goto_0
 
     :sswitch_1
-    const-string v7, "checkPrefExists"
+    const-string v9, "checkPrefExists"
 
-    invoke-virtual {p1, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v9
 
-    if-eqz v7, :cond_0
+    if-eqz v9, :cond_0
 
-    move v3, v5
+    move v5, v7
 
     goto :goto_0
 
     :sswitch_2
-    const-string v7, "createPref"
+    const-string v9, "createPref"
 
-    invoke-virtual {p1, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {p1, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v7
+    move-result v9
 
-    if-eqz v7, :cond_0
+    if-eqz v9, :cond_0
 
-    move v3, v6
+    move v5, v8
+
+    goto :goto_0
+
+    :sswitch_3
+    const-string v9, "initPref"
+
+    invoke-virtual {p1, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_0
+
+    const/4 v5, 0x3
 
     goto :goto_0
 
     :pswitch_0
-    new-array v2, v6, [I
+    new-array v4, v8, [I
 
     invoke-virtual {p0}, Lcom/android/launcher3/LauncherProviderID;->getContext()Landroid/content/Context;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-static {v3, v2}, Lcom/android/launcher3/Utilities;->loadCurrentGridSize(Landroid/content/Context;[I)V
+    invoke-static {v5, v4}, Lcom/android/launcher3/Utilities;->loadCurrentGridSize(Landroid/content/Context;[I)V
 
-    const-string v3, "gridSize"
+    const-string v5, "gridSize"
 
-    invoke-virtual {v1, v3, v2}, Landroid/os/Bundle;->putIntArray(Ljava/lang/String;[I)V
+    invoke-virtual {v2, v5, v4}, Landroid/os/Bundle;->putIntArray(Ljava/lang/String;[I)V
 
     goto :goto_1
 
     :pswitch_1
     invoke-static {}, Lcom/android/launcher3/common/model/FavoritesProvider;->getInstance()Lcom/android/launcher3/common/model/FavoritesProvider;
 
-    move-result-object v3
+    move-result-object v5
 
-    const-string v4, "prefs"
+    const-string v6, "prefs"
 
-    invoke-virtual {v3, v4}, Lcom/android/launcher3/common/model/FavoritesProvider;->tableExists(Ljava/lang/String;)Z
+    invoke-virtual {v5, v6}, Lcom/android/launcher3/common/model/FavoritesProvider;->tableExists(Ljava/lang/String;)Z
 
     move-result v0
 
-    const-string v3, "LauncherFacade::ID"
+    const-string v5, "LauncherFacade::ID"
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "checkPrefExists: "
+    const-string v7, "checkPrefExists: "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string v3, "checkPrefExists"
+    const-string v5, "checkPrefExists"
 
-    invoke-virtual {v1, v3, v0}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+    invoke-virtual {v2, v5, v0}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
     goto :goto_1
 
     :pswitch_2
-    sget-object v3, Lcom/android/launcher3/LauncherProviderID;->sDb:Landroid/database/sqlite/SQLiteDatabase;
+    sget-object v5, Lcom/android/launcher3/LauncherProviderID;->sDb:Landroid/database/sqlite/SQLiteDatabase;
 
-    if-nez v3, :cond_1
+    if-nez v5, :cond_1
 
-    const-string v3, "LauncherFacade::ID"
+    const-string v5, "LauncherFacade::ID"
 
-    const-string v5, "createPref: Unable to create table"
+    const-string v7, "createPref: Unable to create table"
 
-    invoke-static {v3, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v5, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string v3, "createPref"
+    const-string v5, "createPref"
 
-    invoke-virtual {v1, v3, v4}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+    invoke-virtual {v2, v5, v6}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
     goto :goto_1
 
@@ -674,21 +895,88 @@
 
     invoke-virtual {p0}, Lcom/android/launcher3/LauncherProviderID;->getContext()Landroid/content/Context;
 
-    move-result-object v3
+    move-result-object v5
 
-    invoke-virtual {p0, v3}, Lcom/android/launcher3/LauncherProviderID;->initPreferences(Landroid/content/Context;)V
+    invoke-virtual {p0, v5}, Lcom/android/launcher3/LauncherProviderID;->initPreferences(Landroid/content/Context;)V
 
-    const-string v3, "createPref"
+    const-string v5, "createPref"
 
-    invoke-virtual {v1, v3, v5}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+    invoke-virtual {v2, v5, v7}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
     goto :goto_1
 
-    nop
+    :pswitch_3
+    invoke-direct {p0}, Lcom/android/launcher3/LauncherProviderID;->getworkSpaceScreensTable()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_2
+
+    const-string v5, "LauncherFacade::ID"
+
+    const-string v8, "[SPRINT]InitPref: Unable to initilize table"
+
+    invoke-static {v5, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string v5, "initPref"
+
+    invoke-virtual {v2, v5, v6}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+
+    :cond_2
+    invoke-static {}, Lcom/android/launcher3/common/model/FavoritesProvider;->getInstance()Lcom/android/launcher3/common/model/FavoritesProvider;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v3}, Lcom/android/launcher3/common/model/FavoritesProvider;->getItemCount(Ljava/lang/String;)I
+
+    move-result v1
+
+    sget-object v5, Lcom/android/launcher3/LauncherProviderID;->sDb:Landroid/database/sqlite/SQLiteDatabase;
+
+    if-eqz v5, :cond_3
+
+    if-nez v1, :cond_4
+
+    :cond_3
+    const-string v5, "LauncherFacade::ID"
+
+    const-string v7, "[SPRINT]InitPref: Unable to initilize table"
+
+    invoke-static {v5, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string v5, "initPref"
+
+    invoke-virtual {v2, v5, v6}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+
+    goto/16 :goto_1
+
+    :cond_4
+    const-string v5, "LauncherFacade::ID"
+
+    const-string v6, "[SPRINT] Init pref table "
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {p0}, Lcom/android/launcher3/LauncherProviderID;->getContext()Landroid/content/Context;
+
+    move-result-object v5
+
+    invoke-virtual {p0, v5}, Lcom/android/launcher3/LauncherProviderID;->initPreferences(Landroid/content/Context;)V
+
+    const-string v5, "initPref"
+
+    invoke-virtual {v2, v5, v7}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+
+    goto/16 :goto_1
 
     :sswitch_data_0
     .sparse-switch
         -0x4586cc79 -> :sswitch_1
+        0xffe7353 -> :sswitch_3
         0x12f4cc67 -> :sswitch_0
         0x519ad93f -> :sswitch_2
     .end sparse-switch
@@ -698,6 +986,7 @@
         :pswitch_0
         :pswitch_1
         :pswitch_2
+        :pswitch_3
     .end packed-switch
 .end method
 
@@ -1021,26 +1310,33 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
+    invoke-direct {p0}, Lcom/android/launcher3/LauncherProviderID;->getworkSpaceScreensTable()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    const-string v5, "LauncherFacade::ID"
+
+    const-string v6, "[SPRINT]Unable to get screen tableName , init failed"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_0
+    return-void
+
+    :cond_0
+    invoke-static {}, Lcom/android/launcher3/common/model/FavoritesProvider;->getInstance()Lcom/android/launcher3/common/model/FavoritesProvider;
 
     move-result-object v5
 
-    invoke-virtual {v5}, Lcom/android/launcher3/LauncherAppState;->isHomeOnlyModeEnabled()Z
+    invoke-virtual {v5, v4}, Lcom/android/launcher3/common/model/FavoritesProvider;->getItemCount(Ljava/lang/String;)I
 
     move-result v2
-
-    invoke-static {}, Lcom/android/launcher3/common/model/FavoritesProvider;->getInstance()Lcom/android/launcher3/common/model/FavoritesProvider;
-
-    move-result-object v6
-
-    if-eqz v2, :cond_0
-
-    const-string v5, "workspaceScreens_homeApps"
-
-    :goto_0
-    invoke-virtual {v6, v5}, Lcom/android/launcher3/common/model/FavoritesProvider;->getItemCount(Ljava/lang/String;)I
-
-    move-result v3
 
     const-string v5, "LauncherFacade::ID"
 
@@ -1054,7 +1350,7 @@
 
     move-result-object v6
 
-    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v6
 
@@ -1082,12 +1378,6 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :goto_1
-    return-void
-
-    :cond_0
-    const-string v5, "workspaceScreens"
-
     goto :goto_0
 
     :cond_1
@@ -1102,19 +1392,19 @@
 
     invoke-virtual {v5, v6}, Landroid/database/sqlite/SQLiteDatabase;->compileStatement(Ljava/lang/String;)Landroid/database/sqlite/SQLiteStatement;
 
-    move-result-object v4
+    move-result-object v3
 
     const/4 v5, 0x1
 
     const-string v6, "defaultScreen_HomeApps"
 
-    invoke-virtual {v4, v5, v6}, Landroid/database/sqlite/SQLiteStatement;->bindString(ILjava/lang/String;)V
+    invoke-virtual {v3, v5, v6}, Landroid/database/sqlite/SQLiteStatement;->bindString(ILjava/lang/String;)V
 
     const/4 v5, 0x2
 
     int-to-long v6, v1
 
-    invoke-virtual {v4, v5, v6, v7}, Landroid/database/sqlite/SQLiteStatement;->bindLong(IJ)V
+    invoke-virtual {v3, v5, v6, v7}, Landroid/database/sqlite/SQLiteStatement;->bindLong(IJ)V
 
     const/4 v5, 0x3
 
@@ -1122,21 +1412,21 @@
 
     move-result-wide v6
 
-    invoke-virtual {v4, v5, v6, v7}, Landroid/database/sqlite/SQLiteStatement;->bindLong(IJ)V
+    invoke-virtual {v3, v5, v6, v7}, Landroid/database/sqlite/SQLiteStatement;->bindLong(IJ)V
 
-    invoke-virtual {v4}, Landroid/database/sqlite/SQLiteStatement;->execute()V
+    invoke-virtual {v3}, Landroid/database/sqlite/SQLiteStatement;->execute()V
 
     const/4 v5, 0x1
 
     const-string v6, "numScreens_HomeApps"
 
-    invoke-virtual {v4, v5, v6}, Landroid/database/sqlite/SQLiteStatement;->bindString(ILjava/lang/String;)V
+    invoke-virtual {v3, v5, v6}, Landroid/database/sqlite/SQLiteStatement;->bindString(ILjava/lang/String;)V
 
     const/4 v5, 0x2
 
-    int-to-long v6, v3
+    int-to-long v6, v2
 
-    invoke-virtual {v4, v5, v6, v7}, Landroid/database/sqlite/SQLiteStatement;->bindLong(IJ)V
+    invoke-virtual {v3, v5, v6, v7}, Landroid/database/sqlite/SQLiteStatement;->bindLong(IJ)V
 
     const/4 v5, 0x3
 
@@ -1144,11 +1434,11 @@
 
     move-result-wide v6
 
-    invoke-virtual {v4, v5, v6, v7}, Landroid/database/sqlite/SQLiteStatement;->bindLong(IJ)V
+    invoke-virtual {v3, v5, v6, v7}, Landroid/database/sqlite/SQLiteStatement;->bindLong(IJ)V
 
-    invoke-virtual {v4}, Landroid/database/sqlite/SQLiteStatement;->execute()V
+    invoke-virtual {v3}, Landroid/database/sqlite/SQLiteStatement;->execute()V
 
-    invoke-virtual {v4}, Landroid/database/sqlite/SQLiteStatement;->close()V
+    invoke-virtual {v3}, Landroid/database/sqlite/SQLiteStatement;->close()V
 
     sget-object v5, Lcom/android/launcher3/LauncherProviderID;->sDb:Landroid/database/sqlite/SQLiteDatabase;
 
@@ -1161,14 +1451,14 @@
 
     invoke-virtual {v5}, Landroid/database/sqlite/SQLiteDatabase;->endTransaction()V
 
-    :goto_2
+    :goto_1
     const-string v5, "LauncherFacade::ID"
 
     const-string v6, "[SPRINT] init pref table DONE"
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_1
+    goto/16 :goto_0
 
     :catch_0
     move-exception v0
@@ -1206,7 +1496,7 @@
 
     invoke-virtual {v5}, Landroid/database/sqlite/SQLiteDatabase;->endTransaction()V
 
-    goto :goto_2
+    goto :goto_1
 
     :catchall_0
     move-exception v5
@@ -1219,7 +1509,9 @@
 .end method
 
 .method public insert(Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
-    .locals 4
+    .locals 5
+
+    const/4 v2, 0x0
 
     invoke-direct {p0}, Lcom/android/launcher3/LauncherProviderID;->getLauncherProvider()Lcom/android/launcher3/LauncherProvider;
 
@@ -1227,7 +1519,7 @@
 
     if-nez v0, :cond_1
 
-    const/4 v1, 0x0
+    move-object v1, v2
 
     :cond_0
     :goto_0
@@ -1236,40 +1528,63 @@
     :cond_1
     invoke-direct {p0, p1, p2}, Lcom/android/launcher3/LauncherProviderID;->initValues(Landroid/net/Uri;Landroid/content/ContentValues;)V
 
-    sget-object v2, Lcom/android/launcher3/LauncherProviderID;->sDb:Landroid/database/sqlite/SQLiteDatabase;
+    sget-object v3, Lcom/android/launcher3/LauncherProviderID;->sDb:Landroid/database/sqlite/SQLiteDatabase;
 
-    invoke-direct {p0, v2, p1, p2}, Lcom/android/launcher3/LauncherProviderID;->handleWidget(Landroid/database/sqlite/SQLiteDatabase;Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
+    invoke-direct {p0, v3, p1, p2}, Lcom/android/launcher3/LauncherProviderID;->handleWidget(Landroid/database/sqlite/SQLiteDatabase;Landroid/net/Uri;Landroid/content/ContentValues;)Landroid/net/Uri;
 
     move-result-object v1
 
     if-nez v1, :cond_0
 
-    const-string v2, "widgetPkgName"
+    const-string v3, "widgetPkgName"
 
-    invoke-virtual {p2, v2}, Landroid/content/ContentValues;->containsKey(Ljava/lang/String;)Z
+    invoke-virtual {p2, v3}, Landroid/content/ContentValues;->containsKey(Ljava/lang/String;)Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_2
+    if-eqz v3, :cond_2
 
-    const-string v2, "widgetPkgName"
+    const-string v3, "widgetPkgName"
 
-    invoke-virtual {p2, v2}, Landroid/content/ContentValues;->remove(Ljava/lang/String;)V
+    invoke-virtual {p2, v3}, Landroid/content/ContentValues;->remove(Ljava/lang/String;)V
 
     :cond_2
-    const-string v2, "widgetClsName"
+    const-string v3, "widgetClsName"
 
-    invoke-virtual {p2, v2}, Landroid/content/ContentValues;->containsKey(Ljava/lang/String;)Z
+    invoke-virtual {p2, v3}, Landroid/content/ContentValues;->containsKey(Ljava/lang/String;)Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_3
+    if-eqz v3, :cond_3
 
-    const-string v2, "widgetClsName"
+    const-string v3, "widgetClsName"
 
-    invoke-virtual {p2, v2}, Landroid/content/ContentValues;->remove(Ljava/lang/String;)V
+    invoke-virtual {p2, v3}, Landroid/content/ContentValues;->remove(Ljava/lang/String;)V
 
     :cond_3
+    const-string v3, "_id"
+
+    invoke-virtual {p2, v3}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
+
+    move-result v3
+
+    if-gez v3, :cond_4
+
+    const-string v3, "LauncherFacade::ID"
+
+    const-string v4, "[SPRINT] Error: Unable to get row ID"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    move-object v1, v2
+
+    goto :goto_0
+
+    :cond_4
     const-string v2, "LauncherFacade::ID"
 
     const-string v3, "About to insert"
@@ -1386,24 +1701,21 @@
 
     move-result-object v4
 
-    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
+    invoke-direct {p0}, Lcom/android/launcher3/LauncherProviderID;->getworkSpaceScreensTable()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v3
 
-    invoke-virtual {v5}, Lcom/android/launcher3/LauncherAppState;->isHomeOnlyModeEnabled()Z
+    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v3
+    move-result v5
+
+    if-nez v5, :cond_1
 
     invoke-static {}, Lcom/android/launcher3/common/model/FavoritesProvider;->getInstance()Lcom/android/launcher3/common/model/FavoritesProvider;
 
-    move-result-object v6
+    move-result-object v5
 
-    if-eqz v3, :cond_1
-
-    const-string v5, "workspaceScreens_homeApps"
-
-    :goto_1
-    invoke-virtual {v6, v5}, Lcom/android/launcher3/common/model/FavoritesProvider;->getItemCount(Ljava/lang/String;)I
+    invoke-virtual {v5, v3}, Lcom/android/launcher3/common/model/FavoritesProvider;->getItemCount(Ljava/lang/String;)I
 
     move-result v5
 
@@ -1460,6 +1772,7 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
+    :goto_1
     sget-object v5, Lcom/android/launcher3/LauncherProviderID;->sDb:Landroid/database/sqlite/SQLiteDatabase;
 
     invoke-virtual {v5}, Landroid/database/sqlite/SQLiteDatabase;->endTransaction()V
@@ -1468,7 +1781,11 @@
 
     :cond_1
     :try_start_1
-    const-string v5, "workspaceScreens"
+    const-string v5, "LauncherFacade::ID"
+
+    const-string v6, "[SPRINT]unable to update screen count"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
     .catchall {:try_start_1 .. :try_end_1} :catchall_0

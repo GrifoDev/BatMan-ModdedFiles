@@ -34,51 +34,15 @@
     throw v0
 
     :cond_0
-    invoke-virtual {p1}, Lcom/android/launcher3/executor/ExecutorState;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v1, "HomeSingleAppUnlock"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    const-string v0, "Home"
-
-    iput-object v0, p0, Lcom/android/launcher3/executor/HomeFolderUnlockStateHandler;->mNlgTargetState:Ljava/lang/String;
-
-    :goto_0
     return-void
-
-    :cond_1
-    const-string v0, "AppsPageView"
-
-    iput-object v0, p0, Lcom/android/launcher3/executor/HomeFolderUnlockStateHandler;->mNlgTargetState:Ljava/lang/String;
-
-    goto :goto_0
 .end method
 
 
 # virtual methods
 .method public execute(Lcom/android/launcher3/executor/StateExecutionCallback;)V
-    .locals 5
+    .locals 6
 
-    const/4 v0, 0x0
-
-    iget-object v1, p0, Lcom/android/launcher3/executor/HomeFolderUnlockStateHandler;->mAppInfo:Lcom/android/launcher3/executor/StateAppInfo;
-
-    invoke-virtual {v1}, Lcom/android/launcher3/executor/StateAppInfo;->getItemInfo()Lcom/android/launcher3/common/base/item/ItemInfo;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/launcher3/executor/HomeFolderUnlockStateHandler;->getLauncherProxy()Lcom/android/launcher3/proxy/LauncherProxy;
-
-    move-result-object v1
+    const/4 v1, 0x0
 
     iget-object v2, p0, Lcom/android/launcher3/executor/HomeFolderUnlockStateHandler;->mAppInfo:Lcom/android/launcher3/executor/StateAppInfo;
 
@@ -86,51 +50,112 @@
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Lcom/android/launcher3/proxy/LauncherProxy;->unlockFolder(Lcom/android/launcher3/common/base/item/ItemInfo;)I
+    instance-of v2, v2, Lcom/android/launcher3/folder/FolderInfo;
 
-    new-instance v1, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+    if-eqz v2, :cond_1
 
-    iget-object v2, p0, Lcom/android/launcher3/executor/HomeFolderUnlockStateHandler;->mNlgTargetState:Ljava/lang/String;
+    invoke-static {}, Lcom/android/launcher3/folder/folderlock/FolderLock;->getInstance()Lcom/android/launcher3/folder/folderlock/FolderLock;
 
-    invoke-direct {v1, v2}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;-><init>(Ljava/lang/String;)V
+    move-result-object v0
 
-    const-string v2, "Folder"
+    iget-object v2, p0, Lcom/android/launcher3/executor/HomeFolderUnlockStateHandler;->mAppInfo:Lcom/android/launcher3/executor/StateAppInfo;
 
-    const-string v3, "Match"
+    invoke-virtual {v2}, Lcom/android/launcher3/executor/StateAppInfo;->getItemInfo()Lcom/android/launcher3/common/base/item/ItemInfo;
 
-    const-string v4, "yes"
+    move-result-object v2
 
-    invoke-virtual {v1, v2, v3, v4}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+    check-cast v2, Lcom/android/launcher3/folder/FolderInfo;
 
-    move-result-object v1
+    invoke-virtual {v0, v2}, Lcom/android/launcher3/folder/folderlock/FolderLock;->isLockedFolder(Lcom/android/launcher3/folder/FolderInfo;)Z
 
-    iput-object v1, p0, Lcom/android/launcher3/executor/HomeFolderUnlockStateHandler;->mNlgRequestInfo:Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/launcher3/executor/HomeFolderUnlockStateHandler;->getLauncherProxy()Lcom/android/launcher3/proxy/LauncherProxy;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/launcher3/executor/HomeFolderUnlockStateHandler;->mAppInfo:Lcom/android/launcher3/executor/StateAppInfo;
+
+    invoke-virtual {v3}, Lcom/android/launcher3/executor/StateAppInfo;->getItemInfo()Lcom/android/launcher3/common/base/item/ItemInfo;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Lcom/android/launcher3/proxy/LauncherProxy;->unlockFolder(Lcom/android/launcher3/common/base/item/ItemInfo;)I
+
+    new-instance v2, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+
+    iget-object v3, p0, Lcom/android/launcher3/executor/HomeFolderUnlockStateHandler;->mStateId:Lcom/android/launcher3/executor/ExecutorState;
+
+    invoke-virtual {v3}, Lcom/android/launcher3/executor/ExecutorState;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-direct {v2, v3}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;-><init>(Ljava/lang/String;)V
+
+    const-string v3, "Folder"
+
+    const-string v4, "Already unlocked"
+
+    const-string v5, "no"
+
+    invoke-virtual {v2, v3, v4, v5}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/android/launcher3/executor/HomeFolderUnlockStateHandler;->mNlgRequestInfo:Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
 
     :goto_0
-    invoke-virtual {p0, p1, v0}, Lcom/android/launcher3/executor/HomeFolderUnlockStateHandler;->completeExecuteRequest(Lcom/android/launcher3/executor/StateExecutionCallback;I)V
+    invoke-virtual {p0, p1, v1}, Lcom/android/launcher3/executor/HomeFolderUnlockStateHandler;->completeExecuteRequest(Lcom/android/launcher3/executor/StateExecutionCallback;I)V
 
     return-void
 
     :cond_0
-    new-instance v1, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+    new-instance v2, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
 
-    iget-object v2, p0, Lcom/android/launcher3/executor/HomeFolderUnlockStateHandler;->mNlgTargetState:Ljava/lang/String;
+    iget-object v3, p0, Lcom/android/launcher3/executor/HomeFolderUnlockStateHandler;->mStateId:Lcom/android/launcher3/executor/ExecutorState;
 
-    invoke-direct {v1, v2}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;-><init>(Ljava/lang/String;)V
+    invoke-virtual {v3}, Lcom/android/launcher3/executor/ExecutorState;->toString()Ljava/lang/String;
 
-    const-string v2, "Folder"
+    move-result-object v3
 
-    const-string v3, "Match"
+    invoke-direct {v2, v3}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;-><init>(Ljava/lang/String;)V
 
-    const-string v4, "no"
+    const-string v3, "Folder"
 
-    invoke-virtual {v1, v2, v3, v4}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+    const-string v4, "Already unlocked"
 
-    move-result-object v1
+    const-string v5, "yes"
 
-    iput-object v1, p0, Lcom/android/launcher3/executor/HomeFolderUnlockStateHandler;->mNlgRequestInfo:Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+    invoke-virtual {v2, v3, v4, v5}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
 
-    const/4 v0, 0x1
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/android/launcher3/executor/HomeFolderUnlockStateHandler;->mNlgRequestInfo:Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+
+    goto :goto_0
+
+    :cond_1
+    new-instance v2, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+
+    const-string v3, "Home"
+
+    invoke-direct {v2, v3}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;-><init>(Ljava/lang/String;)V
+
+    const-string v3, "FolderName"
+
+    const-string v4, "Match"
+
+    const-string v5, "no"
+
+    invoke-virtual {v2, v3, v4, v5}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/android/launcher3/executor/HomeFolderUnlockStateHandler;->mNlgRequestInfo:Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+
+    const/4 v1, 0x1
 
     goto :goto_0
 .end method

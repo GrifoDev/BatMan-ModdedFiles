@@ -18,6 +18,8 @@
 
 .field public rowIndex:I
 
+.field public screenMode:I
+
 .field public title:Landroid/widget/TextView;
 
 

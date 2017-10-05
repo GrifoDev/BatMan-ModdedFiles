@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/allapps/model/AppsLoader;->bindRemainedItems(Ljava/util/ArrayList;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)V
+    value = Lcom/android/launcher3/allapps/model/AppsLoader;->finishBind(Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,32 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
 
-.field final synthetic val$chunkSize:I
-
-.field final synthetic val$oldCallbacks:Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
-
-.field final synthetic val$remainedItems:Ljava/util/ArrayList;
-
-.field final synthetic val$start:I
-
 .field final synthetic val$task:Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/allapps/model/AppsLoader;Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;Ljava/util/ArrayList;II)V
+.method constructor <init>(Lcom/android/launcher3/allapps/model/AppsLoader;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/allapps/model/AppsLoader$12;->this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
 
-    iput-object p2, p0, Lcom/android/launcher3/allapps/model/AppsLoader$12;->val$oldCallbacks:Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
-
-    iput-object p3, p0, Lcom/android/launcher3/allapps/model/AppsLoader$12;->val$task:Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;
-
-    iput-object p4, p0, Lcom/android/launcher3/allapps/model/AppsLoader$12;->val$remainedItems:Ljava/util/ArrayList;
-
-    iput p5, p0, Lcom/android/launcher3/allapps/model/AppsLoader$12;->val$start:I
-
-    iput p6, p0, Lcom/android/launcher3/allapps/model/AppsLoader$12;->val$chunkSize:I
+    iput-object p2, p0, Lcom/android/launcher3/allapps/model/AppsLoader$12;->val$task:Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -57,29 +41,59 @@
 .method public run()V
     .locals 5
 
-    iget-object v1, p0, Lcom/android/launcher3/allapps/model/AppsLoader$12;->this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
+    iget-object v0, p0, Lcom/android/launcher3/allapps/model/AppsLoader$12;->this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
 
-    iget-object v2, p0, Lcom/android/launcher3/allapps/model/AppsLoader$12;->val$oldCallbacks:Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
+    iget-object v1, p0, Lcom/android/launcher3/allapps/model/AppsLoader$12;->val$task:Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;
 
-    iget-object v3, p0, Lcom/android/launcher3/allapps/model/AppsLoader$12;->val$task:Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;
+    invoke-static {v0, v1}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$1300(Lcom/android/launcher3/allapps/model/AppsLoader;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)Z
 
-    invoke-static {v1, v2, v3}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$1400(Lcom/android/launcher3/allapps/model/AppsLoader;Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-static {}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$1400()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-static {}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$1500()Ljava/util/HashMap;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    invoke-virtual {v0}, Ljava/util/HashMap;->isEmpty()Z
 
-    iget-object v1, p0, Lcom/android/launcher3/allapps/model/AppsLoader$12;->val$remainedItems:Ljava/util/ArrayList;
+    move-result v0
 
-    iget v2, p0, Lcom/android/launcher3/allapps/model/AppsLoader$12;->val$start:I
+    if-nez v0, :cond_0
 
-    iget v3, p0, Lcom/android/launcher3/allapps/model/AppsLoader$12;->val$start:I
+    const-string v0, "AppsLoader"
 
-    iget v4, p0, Lcom/android/launcher3/allapps/model/AppsLoader$12;->val$chunkSize:I
+    const-string v1, "Apps finishBind but has PendingPackages, so registerReceiver : AppsAvailabilityCheck"
 
-    add-int/2addr v3, v4
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-interface {v0, v1, v2, v3}, Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;->bindItems(Ljava/util/ArrayList;II)V
+    invoke-static {}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$1700()Landroid/content/Context;
+
+    move-result-object v0
+
+    new-instance v1, Lcom/android/launcher3/home/HomeLoader$AppsAvailabilityCheck;
+
+    invoke-direct {v1}, Lcom/android/launcher3/home/HomeLoader$AppsAvailabilityCheck;-><init>()V
+
+    new-instance v2, Landroid/content/IntentFilter;
+
+    const-string v3, "com.android.launcher3.SYSTEM_READY"
+
+    invoke-direct {v2, v3}, Landroid/content/IntentFilter;-><init>(Ljava/lang/String;)V
+
+    const/4 v3, 0x0
+
+    invoke-static {}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$1600()Landroid/os/Handler;
+
+    move-result-object v4
+
+    invoke-virtual {v0, v1, v2, v3, v4}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;Ljava/lang/String;Landroid/os/Handler;)Landroid/content/Intent;
 
     :cond_0
     return-void

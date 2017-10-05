@@ -34,16 +34,20 @@
 
 .field final synthetic val$request:Landroid/support/v4/provider/FontRequest;
 
+.field final synthetic val$style:I
+
 
 # direct methods
-.method constructor <init>(Landroid/content/Context;Landroid/support/v4/provider/FontRequest;Ljava/lang/String;)V
+.method constructor <init>(Landroid/content/Context;Landroid/support/v4/provider/FontRequest;ILjava/lang/String;)V
     .locals 0
 
     iput-object p1, p0, Landroid/support/v4/provider/FontsContractCompat$1;->val$context:Landroid/content/Context;
 
     iput-object p2, p0, Landroid/support/v4/provider/FontsContractCompat$1;->val$request:Landroid/support/v4/provider/FontRequest;
 
-    iput-object p3, p0, Landroid/support/v4/provider/FontsContractCompat$1;->val$id:Ljava/lang/String;
+    iput p3, p0, Landroid/support/v4/provider/FontsContractCompat$1;->val$style:I
+
+    iput-object p4, p0, Landroid/support/v4/provider/FontsContractCompat$1;->val$id:Ljava/lang/String;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -53,7 +57,7 @@
 
 # virtual methods
 .method public call()Landroid/graphics/Typeface;
-    .locals 3
+    .locals 4
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/Exception;
@@ -64,7 +68,9 @@
 
     iget-object v2, p0, Landroid/support/v4/provider/FontsContractCompat$1;->val$request:Landroid/support/v4/provider/FontRequest;
 
-    invoke-static {v1, v2}, Landroid/support/v4/provider/FontsContractCompat;->access$000(Landroid/content/Context;Landroid/support/v4/provider/FontRequest;)Landroid/graphics/Typeface;
+    iget v3, p0, Landroid/support/v4/provider/FontsContractCompat$1;->val$style:I
+
+    invoke-static {v1, v2, v3}, Landroid/support/v4/provider/FontsContractCompat;->access$000(Landroid/content/Context;Landroid/support/v4/provider/FontRequest;I)Landroid/graphics/Typeface;
 
     move-result-object v0
 

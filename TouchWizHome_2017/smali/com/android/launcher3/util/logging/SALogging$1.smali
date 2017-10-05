@@ -60,7 +60,7 @@
 
     move-result-object v2
 
-    const-string v3, "8.12"
+    const-string v3, "8.13"
 
     invoke-virtual {v2, v3}, Lcom/samsung/context/sdk/samsunganalytics/Configuration;->setVersion(Ljava/lang/String;)Lcom/samsung/context/sdk/samsunganalytics/Configuration;
 
@@ -72,9 +72,19 @@
 
     invoke-static {v1, v2}, Lcom/samsung/context/sdk/samsunganalytics/SamsungAnalytics;->setConfiguration(Landroid/app/Application;Lcom/samsung/context/sdk/samsunganalytics/Configuration;)V
 
+    invoke-static {}, Lcom/samsung/context/sdk/samsunganalytics/SamsungAnalytics;->getInstance()Lcom/samsung/context/sdk/samsunganalytics/SamsungAnalytics;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/samsung/context/sdk/samsunganalytics/SamsungAnalytics;->enableUncaughtExceptionLogging()Lcom/samsung/context/sdk/samsunganalytics/SamsungAnalytics;
+
     iget-object v1, p0, Lcom/android/launcher3/util/logging/SALogging$1;->this$0:Lcom/android/launcher3/util/logging/SALogging;
 
     invoke-static {v1}, Lcom/android/launcher3/util/logging/SALogging;->access$100(Lcom/android/launcher3/util/logging/SALogging;)V
+
+    iget-object v1, p0, Lcom/android/launcher3/util/logging/SALogging$1;->this$0:Lcom/android/launcher3/util/logging/SALogging;
+
+    invoke-static {v1}, Lcom/android/launcher3/util/logging/SALogging;->access$200(Lcom/android/launcher3/util/logging/SALogging;)V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 

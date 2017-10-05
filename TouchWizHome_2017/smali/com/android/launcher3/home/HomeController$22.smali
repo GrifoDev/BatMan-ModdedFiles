@@ -3,12 +3,12 @@
 .source "HomeController.java"
 
 # interfaces
-.implements Lcom/android/launcher3/common/base/item/ItemOperator;
+.implements Lcom/android/launcher3/common/model/DataLoader$ItemInfoFilter;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/HomeController;->updateShortcuts(Ljava/util/ArrayList;Lcom/android/launcher3/common/model/IconCache;)V
+    value = Lcom/android/launcher3/home/HomeController;->removeItemsByPackageName(Ljava/util/ArrayList;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,24 +20,24 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/home/HomeController;
 
-.field final synthetic val$folderIconsToRefresh:Ljava/util/ArrayList;
+.field final synthetic val$cns:Ljava/util/HashSet;
 
-.field final synthetic val$iconCache:Lcom/android/launcher3/common/model/IconCache;
+.field final synthetic val$packageNames:Ljava/util/HashSet;
 
-.field final synthetic val$updates:Ljava/util/HashSet;
+.field final synthetic val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/home/HomeController;Ljava/util/HashSet;Lcom/android/launcher3/common/model/IconCache;Ljava/util/ArrayList;)V
+.method constructor <init>(Lcom/android/launcher3/home/HomeController;Ljava/util/HashSet;Lcom/android/launcher3/common/compat/UserHandleCompat;Ljava/util/HashSet;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/home/HomeController$22;->this$0:Lcom/android/launcher3/home/HomeController;
 
-    iput-object p2, p0, Lcom/android/launcher3/home/HomeController$22;->val$updates:Ljava/util/HashSet;
+    iput-object p2, p0, Lcom/android/launcher3/home/HomeController$22;->val$packageNames:Ljava/util/HashSet;
 
-    iput-object p3, p0, Lcom/android/launcher3/home/HomeController$22;->val$iconCache:Lcom/android/launcher3/common/model/IconCache;
+    iput-object p3, p0, Lcom/android/launcher3/home/HomeController$22;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
-    iput-object p4, p0, Lcom/android/launcher3/home/HomeController$22;->val$folderIconsToRefresh:Ljava/util/ArrayList;
+    iput-object p4, p0, Lcom/android/launcher3/home/HomeController$22;->val$cns:Ljava/util/HashSet;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -46,101 +46,42 @@
 
 
 # virtual methods
-.method public evaluate(Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/view/View;Landroid/view/View;)Z
-    .locals 8
+.method public filterItem(Lcom/android/launcher3/common/base/item/ItemInfo;Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/content/ComponentName;)Z
+    .locals 2
 
-    const/4 v4, 0x1
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeController$22;->val$packageNames:Ljava/util/HashSet;
 
-    const/4 v5, 0x0
+    invoke-virtual {p3}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
-    instance-of v6, p1, Lcom/android/launcher3/common/base/item/IconInfo;
+    move-result-object v1
 
-    if-eqz v6, :cond_0
+    invoke-virtual {v0, v1}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
 
-    instance-of v6, p2, Lcom/android/launcher3/common/view/IconView;
+    move-result v0
 
-    if-eqz v6, :cond_0
+    if-eqz v0, :cond_0
 
-    iget-object v6, p0, Lcom/android/launcher3/home/HomeController$22;->val$updates:Ljava/util/HashSet;
+    iget-object v0, p2, Lcom/android/launcher3/common/base/item/ItemInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
-    invoke-virtual {v6, p1}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
+    iget-object v1, p0, Lcom/android/launcher3/home/HomeController$22;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
-    move-result v6
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/compat/UserHandleCompat;->equals(Ljava/lang/Object;)Z
 
-    if-eqz v6, :cond_0
+    move-result v0
 
-    move-object v0, p1
+    if-eqz v0, :cond_0
 
-    check-cast v0, Lcom/android/launcher3/common/base/item/IconInfo;
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeController$22;->val$cns:Ljava/util/HashSet;
 
-    move-object v1, p2
+    invoke-virtual {v0, p3}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    check-cast v1, Lcom/android/launcher3/common/view/IconView;
-
-    invoke-virtual {v1}, Lcom/android/launcher3/common/view/IconView;->getIcon()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v2
-
-    instance-of v6, v2, Lcom/android/launcher3/common/drawable/PreloadIconDrawable;
-
-    if-eqz v6, :cond_1
-
-    check-cast v2, Lcom/android/launcher3/common/drawable/PreloadIconDrawable;
-
-    invoke-virtual {v2}, Lcom/android/launcher3/common/drawable/PreloadIconDrawable;->hasNotCompleted()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_1
-
-    move v3, v4
+    const/4 v0, 0x1
 
     :goto_0
-    iget-object v6, p0, Lcom/android/launcher3/home/HomeController$22;->val$iconCache:Lcom/android/launcher3/common/model/IconCache;
-
-    invoke-virtual {v0}, Lcom/android/launcher3/common/base/item/IconInfo;->isPromise()Z
-
-    move-result v7
-
-    if-eq v7, v3, :cond_2
-
-    :goto_1
-    invoke-virtual {v1, v0, v6, v4}, Lcom/android/launcher3/common/view/IconView;->applyFromShortcutInfo(Lcom/android/launcher3/common/base/item/IconInfo;Lcom/android/launcher3/common/model/IconCache;Z)V
-
-    instance-of v4, p3, Lcom/android/launcher3/folder/view/FolderIconView;
-
-    if-eqz v4, :cond_0
-
-    iget v4, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->rank:I
-
-    const/16 v6, 0x9
-
-    if-ge v4, v6, :cond_0
-
-    iget-object v4, p0, Lcom/android/launcher3/home/HomeController$22;->val$folderIconsToRefresh:Ljava/util/ArrayList;
-
-    invoke-virtual {v4, p3}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_0
-
-    iget-object v4, p0, Lcom/android/launcher3/home/HomeController$22;->val$folderIconsToRefresh:Ljava/util/ArrayList;
-
-    check-cast p3, Lcom/android/launcher3/folder/view/FolderIconView;
-
-    invoke-virtual {v4, p3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    return v0
 
     :cond_0
-    return v5
-
-    :cond_1
-    move v3, v5
+    const/4 v0, 0x0
 
     goto :goto_0
-
-    :cond_2
-    move v4, v5
-
-    goto :goto_1
 .end method

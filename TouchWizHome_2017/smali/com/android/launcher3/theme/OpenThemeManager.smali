@@ -20,9 +20,9 @@
 
 .field public static final INVALID_INT_VALUE:I = -0x1
 
-.field private static final INVALID_VALUE:I = 0x0
-
 .field private static final TAG:Ljava/lang/String; = "OpenThemeManager"
+
+.field public static final THEME_INVALID_VALUE:I
 
 .field private static mContext:Landroid/content/Context;
 
@@ -1120,7 +1120,7 @@
 
     if-eqz v0, :cond_0
 
-    const v1, 0x7f0200be
+    const v1, 0x7f0200b7
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1207,7 +1207,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0900e8
+    const v1, 0x7f0a013e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1215,7 +1215,7 @@
 
     iput v1, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mTextBackgroundExtraPadding:I
 
-    const v1, 0x7f0900e7
+    const v1, 0x7f0a013d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1341,63 +1341,45 @@
 .end method
 
 .method public getBoolean(IZ)Z
-    .locals 8
+    .locals 9
 
-    iget-object v5, p0, Lcom/android/launcher3/theme/OpenThemeManager;->themeKey:[Ljava/lang/String;
+    iget-object v6, p0, Lcom/android/launcher3/theme/OpenThemeManager;->themeKey:[Ljava/lang/String;
 
-    aget-object v5, v5, p1
+    aget-object v6, v6, p1
 
-    invoke-direct {p0, v5}, Lcom/android/launcher3/theme/OpenThemeManager;->getThemeType(Ljava/lang/String;)I
+    invoke-direct {p0, v6}, Lcom/android/launcher3/theme/OpenThemeManager;->getThemeType(Ljava/lang/String;)I
 
-    move-result v4
-
-    iget-object v5, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher3/theme/OpenThemeLoader;
-
-    invoke-virtual {v5, v4}, Lcom/android/launcher3/theme/OpenThemeLoader;->getThemePackageName(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    move v0, p2
-
-    iget-object v5, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher3/theme/OpenThemeLoader;
-
-    invoke-virtual {v5, v1}, Lcom/android/launcher3/theme/OpenThemeLoader;->getResources(Ljava/lang/String;)Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_2
-
-    iget-object v5, p0, Lcom/android/launcher3/theme/OpenThemeManager;->themeKey:[Ljava/lang/String;
-
-    aget-object v5, v5, p1
-
-    const-string v6, "bool"
-
-    invoke-virtual {v2, v5, v6, v1}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v3
-
-    if-nez v3, :cond_1
-
-    iget-object v5, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher3/theme/OpenThemeLoader;
+    move-result v5
 
     iget-object v6, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher3/theme/OpenThemeLoader;
 
-    invoke-virtual {v6}, Lcom/android/launcher3/theme/OpenThemeLoader;->getDefaultPackageName()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Lcom/android/launcher3/theme/OpenThemeLoader;->getResources(Ljava/lang/String;)Landroid/content/res/Resources;
+    invoke-virtual {v6, v5}, Lcom/android/launcher3/theme/OpenThemeLoader;->getThemePackageName(I)Ljava/lang/String;
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    move v0, p2
 
-    iget-object v5, p0, Lcom/android/launcher3/theme/OpenThemeManager;->themeKey:[Ljava/lang/String;
+    iget-object v6, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher3/theme/OpenThemeLoader;
 
-    aget-object v5, v5, p1
+    invoke-virtual {v6, v2}, Lcom/android/launcher3/theme/OpenThemeLoader;->getResources(Ljava/lang/String;)Landroid/content/res/Resources;
 
-    const-string v6, "bool"
+    move-result-object v3
+
+    if-eqz v3, :cond_2
+
+    iget-object v6, p0, Lcom/android/launcher3/theme/OpenThemeManager;->themeKey:[Ljava/lang/String;
+
+    aget-object v6, v6, p1
+
+    const-string v7, "bool"
+
+    invoke-virtual {v3, v6, v7, v2}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    if-nez v4, :cond_1
+
+    iget-object v6, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher3/theme/OpenThemeLoader;
 
     iget-object v7, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher3/theme/OpenThemeLoader;
 
@@ -1405,124 +1387,178 @@
 
     move-result-object v7
 
-    invoke-virtual {v2, v5, v6, v7}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v6, v7}, Lcom/android/launcher3/theme/OpenThemeLoader;->getResources(Ljava/lang/String;)Landroid/content/res/Resources;
 
-    move-result v3
+    move-result-object v3
 
-    if-nez v3, :cond_1
+    if-eqz v3, :cond_0
 
-    move v5, v0
+    iget-object v6, p0, Lcom/android/launcher3/theme/OpenThemeManager;->themeKey:[Ljava/lang/String;
+
+    aget-object v6, v6, p1
+
+    const-string v7, "bool"
+
+    iget-object v8, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher3/theme/OpenThemeLoader;
+
+    invoke-virtual {v8}, Lcom/android/launcher3/theme/OpenThemeLoader;->getDefaultPackageName()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v3, v6, v7, v8}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    if-nez v4, :cond_1
+
+    move v6, v0
 
     :goto_0
-    return v5
+    return v6
 
     :cond_0
-    const-string v5, "OpenThemeManager"
+    const-string v6, "OpenThemeManager"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v7, "Can\'t find such bool in the default resource : "
+    const-string v8, "Can\'t find such bool in the default resource : "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
     goto :goto_0
 
     :cond_1
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getBoolean(I)Z
+    :try_start_0
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getBoolean(I)Z
+    :try_end_0
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v0
 
     :goto_1
-    move v5, v0
+    move v6, v0
 
     goto :goto_0
 
+    :catch_0
+    move-exception v1
+
+    const-string v6, "OpenThemeManager"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "Theme package has existed ["
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    const-string v8, "] but no resources."
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+
     :cond_2
-    const-string v5, "OpenThemeManager"
+    const-string v6, "OpenThemeManager"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v7, "fail to getting resources from "
+    const-string v8, "fail to getting resources from "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
 .end method
 
 .method public getColor(I)I
-    .locals 8
+    .locals 9
 
-    iget-object v5, p0, Lcom/android/launcher3/theme/OpenThemeManager;->themeKey:[Ljava/lang/String;
+    iget-object v6, p0, Lcom/android/launcher3/theme/OpenThemeManager;->themeKey:[Ljava/lang/String;
 
-    aget-object v5, v5, p1
+    aget-object v6, v6, p1
 
-    invoke-direct {p0, v5}, Lcom/android/launcher3/theme/OpenThemeManager;->getThemeType(Ljava/lang/String;)I
+    invoke-direct {p0, v6}, Lcom/android/launcher3/theme/OpenThemeManager;->getThemeType(Ljava/lang/String;)I
 
-    move-result v4
+    move-result v5
 
-    iget-object v5, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher3/theme/OpenThemeLoader;
+    iget-object v6, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher3/theme/OpenThemeLoader;
 
-    invoke-virtual {v5, v4}, Lcom/android/launcher3/theme/OpenThemeLoader;->getThemePackageName(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    iget-object v5, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher3/theme/OpenThemeLoader;
-
-    invoke-virtual {v5, v1}, Lcom/android/launcher3/theme/OpenThemeLoader;->getResources(Ljava/lang/String;)Landroid/content/res/Resources;
+    invoke-virtual {v6, v5}, Lcom/android/launcher3/theme/OpenThemeLoader;->getThemePackageName(I)Ljava/lang/String;
 
     move-result-object v2
 
+    iget-object v6, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher3/theme/OpenThemeLoader;
+
+    invoke-virtual {v6, v2}, Lcom/android/launcher3/theme/OpenThemeLoader;->getResources(Ljava/lang/String;)Landroid/content/res/Resources;
+
+    move-result-object v3
+
     const v0, 0x1ffffff
 
-    if-eqz v2, :cond_1
+    if-eqz v3, :cond_1
 
-    iget-object v5, p0, Lcom/android/launcher3/theme/OpenThemeManager;->themeKey:[Ljava/lang/String;
+    iget-object v6, p0, Lcom/android/launcher3/theme/OpenThemeManager;->themeKey:[Ljava/lang/String;
 
-    aget-object v5, v5, p1
+    aget-object v6, v6, p1
 
-    const-string v6, "color"
+    const-string v7, "color"
 
-    invoke-virtual {v2, v5, v6, v1}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v3, v6, v7, v2}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result v3
+    move-result v4
 
-    if-nez v3, :cond_0
+    if-nez v4, :cond_0
 
-    iget-object v5, p0, Lcom/android/launcher3/theme/OpenThemeManager;->themeKey:[Ljava/lang/String;
+    iget-object v6, p0, Lcom/android/launcher3/theme/OpenThemeManager;->themeKey:[Ljava/lang/String;
 
-    aget-object v5, v5, p1
+    aget-object v6, v6, p1
 
-    invoke-virtual {p0, v5}, Lcom/android/launcher3/theme/OpenThemeManager;->getItemColorforDefaultResource(Ljava/lang/String;)I
+    invoke-virtual {p0, v6}, Lcom/android/launcher3/theme/OpenThemeManager;->getItemColorforDefaultResource(Ljava/lang/String;)I
 
     move-result v0
 
@@ -1530,34 +1566,70 @@
     return v0
 
     :cond_0
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
+    :try_start_0
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getColor(I)I
+    :try_end_0
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v0
 
     goto :goto_0
 
+    :catch_0
+    move-exception v1
+
+    const-string v6, "OpenThemeManager"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "Theme package has existed ["
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    const-string v8, "] but no resources."
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
     :cond_1
-    const-string v5, "OpenThemeManager"
+    const-string v6, "OpenThemeManager"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v7, "fail to getting resources from "
+    const-string v8, "fail to getting resources from "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 .end method
@@ -1587,7 +1659,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2
 
     iget-object v6, p0, Lcom/android/launcher3/theme/OpenThemeManager;->themeKey:[Ljava/lang/String;
 
@@ -1599,7 +1671,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_0
+    if-nez v4, :cond_1
 
     :try_start_0
     iget-object v6, p0, Lcom/android/launcher3/theme/OpenThemeManager;->themeKey:[Ljava/lang/String;
@@ -1607,16 +1679,31 @@
     aget-object v6, v6, p1
 
     invoke-virtual {p0, v6}, Lcom/android/launcher3/theme/OpenThemeManager;->getItemDrawableforDefaultResource(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
+    :try_end_0
+    .catch Ljava/lang/OutOfMemoryError; {:try_start_0 .. :try_end_0} :catch_1
 
     move-result-object v0
 
+    :cond_0
     :goto_0
     return-object v0
 
-    :cond_0
+    :cond_1
+    :try_start_1
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
-    :try_end_0
-    .catch Ljava/lang/OutOfMemoryError; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    iget-object v6, p0, Lcom/android/launcher3/theme/OpenThemeManager;->themeKey:[Ljava/lang/String;
+
+    aget-object v6, v6, p1
+
+    invoke-virtual {p0, v6}, Lcom/android/launcher3/theme/OpenThemeManager;->getItemDrawableforDefaultResource(Ljava/lang/String;)Landroid/graphics/drawable/Drawable;
+    :try_end_1
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/lang/OutOfMemoryError; {:try_start_1 .. :try_end_1} :catch_1
 
     move-result-object v0
 
@@ -1625,11 +1712,47 @@
     :catch_0
     move-exception v1
 
+    :try_start_2
+    const-string v6, "OpenThemeManager"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "Theme package has existed ["
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    const-string v8, "] but no resources."
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_2
+    .catch Ljava/lang/OutOfMemoryError; {:try_start_2 .. :try_end_2} :catch_1
+
+    goto :goto_0
+
+    :catch_1
+    move-exception v1
+
     invoke-virtual {v1}, Ljava/lang/OutOfMemoryError;->printStackTrace()V
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     const-string v6, "OpenThemeManager"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -1728,63 +1851,45 @@
 .end method
 
 .method public getInteger(I)I
-    .locals 8
+    .locals 9
 
-    iget-object v5, p0, Lcom/android/launcher3/theme/OpenThemeManager;->themeKey:[Ljava/lang/String;
+    iget-object v6, p0, Lcom/android/launcher3/theme/OpenThemeManager;->themeKey:[Ljava/lang/String;
 
-    aget-object v5, v5, p1
+    aget-object v6, v6, p1
 
-    invoke-direct {p0, v5}, Lcom/android/launcher3/theme/OpenThemeManager;->getThemeType(Ljava/lang/String;)I
+    invoke-direct {p0, v6}, Lcom/android/launcher3/theme/OpenThemeManager;->getThemeType(Ljava/lang/String;)I
 
-    move-result v4
-
-    iget-object v5, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher3/theme/OpenThemeLoader;
-
-    invoke-virtual {v5, v4}, Lcom/android/launcher3/theme/OpenThemeLoader;->getThemePackageName(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    iget-object v5, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher3/theme/OpenThemeLoader;
-
-    invoke-virtual {v5, v1}, Lcom/android/launcher3/theme/OpenThemeLoader;->getResources(Ljava/lang/String;)Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    const/4 v0, -0x1
-
-    if-eqz v2, :cond_2
-
-    iget-object v5, p0, Lcom/android/launcher3/theme/OpenThemeManager;->themeKey:[Ljava/lang/String;
-
-    aget-object v5, v5, p1
-
-    const-string v6, "integer"
-
-    invoke-virtual {v2, v5, v6, v1}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v3
-
-    if-nez v3, :cond_1
-
-    iget-object v5, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher3/theme/OpenThemeLoader;
+    move-result v5
 
     iget-object v6, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher3/theme/OpenThemeLoader;
 
-    invoke-virtual {v6}, Lcom/android/launcher3/theme/OpenThemeLoader;->getDefaultPackageName()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Lcom/android/launcher3/theme/OpenThemeLoader;->getResources(Ljava/lang/String;)Landroid/content/res/Resources;
+    invoke-virtual {v6, v5}, Lcom/android/launcher3/theme/OpenThemeLoader;->getThemePackageName(I)Ljava/lang/String;
 
     move-result-object v2
 
-    if-eqz v2, :cond_0
+    iget-object v6, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher3/theme/OpenThemeLoader;
 
-    iget-object v5, p0, Lcom/android/launcher3/theme/OpenThemeManager;->themeKey:[Ljava/lang/String;
+    invoke-virtual {v6, v2}, Lcom/android/launcher3/theme/OpenThemeLoader;->getResources(Ljava/lang/String;)Landroid/content/res/Resources;
 
-    aget-object v5, v5, p1
+    move-result-object v3
 
-    const-string v6, "integer"
+    const/4 v1, -0x1
+
+    if-eqz v3, :cond_2
+
+    iget-object v6, p0, Lcom/android/launcher3/theme/OpenThemeManager;->themeKey:[Ljava/lang/String;
+
+    aget-object v6, v6, p1
+
+    const-string v7, "integer"
+
+    invoke-virtual {v3, v6, v7, v2}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    if-nez v4, :cond_1
+
+    iget-object v6, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher3/theme/OpenThemeLoader;
 
     iget-object v7, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher3/theme/OpenThemeLoader;
 
@@ -1792,76 +1897,130 @@
 
     move-result-object v7
 
-    invoke-virtual {v2, v5, v6, v7}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v6, v7}, Lcom/android/launcher3/theme/OpenThemeLoader;->getResources(Ljava/lang/String;)Landroid/content/res/Resources;
 
-    move-result v3
+    move-result-object v3
 
-    if-nez v3, :cond_1
+    if-eqz v3, :cond_0
 
-    move v5, v0
+    iget-object v6, p0, Lcom/android/launcher3/theme/OpenThemeManager;->themeKey:[Ljava/lang/String;
+
+    aget-object v6, v6, p1
+
+    const-string v7, "integer"
+
+    iget-object v8, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher3/theme/OpenThemeLoader;
+
+    invoke-virtual {v8}, Lcom/android/launcher3/theme/OpenThemeLoader;->getDefaultPackageName()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v3, v6, v7, v8}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v4
+
+    if-nez v4, :cond_1
+
+    move v6, v1
 
     :goto_0
-    return v5
+    return v6
 
     :cond_0
-    const-string v5, "OpenThemeManager"
+    const-string v6, "OpenThemeManager"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v7, "Can\'t find such integer in the default resource : "
+    const-string v8, "Can\'t find such integer in the default resource : "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v5, -0x1
+    const/4 v6, -0x1
 
     goto :goto_0
 
     :cond_1
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
+    :try_start_0
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getInteger(I)I
+    :try_end_0
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v0
+    move-result v1
 
     :goto_1
-    move v5, v0
+    move v6, v1
 
     goto :goto_0
 
+    :catch_0
+    move-exception v0
+
+    const-string v6, "OpenThemeManager"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "Theme package has existed ["
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    const-string v8, "] but no resources."
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+
     :cond_2
-    const-string v5, "OpenThemeManager"
+    const-string v6, "OpenThemeManager"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v7, "fail to getting resources from "
+    const-string v8, "fail to getting resources from "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
 .end method
@@ -2173,63 +2332,45 @@
 .end method
 
 .method public getString(I)Ljava/lang/String;
-    .locals 8
+    .locals 9
 
-    iget-object v5, p0, Lcom/android/launcher3/theme/OpenThemeManager;->themeKey:[Ljava/lang/String;
+    iget-object v6, p0, Lcom/android/launcher3/theme/OpenThemeManager;->themeKey:[Ljava/lang/String;
 
-    aget-object v5, v5, p1
+    aget-object v6, v6, p1
 
-    invoke-direct {p0, v5}, Lcom/android/launcher3/theme/OpenThemeManager;->getThemeType(Ljava/lang/String;)I
+    invoke-direct {p0, v6}, Lcom/android/launcher3/theme/OpenThemeManager;->getThemeType(Ljava/lang/String;)I
 
-    move-result v4
-
-    iget-object v5, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher3/theme/OpenThemeLoader;
-
-    invoke-virtual {v5, v4}, Lcom/android/launcher3/theme/OpenThemeLoader;->getThemePackageName(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    const/4 v3, 0x0
-
-    iget-object v5, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher3/theme/OpenThemeLoader;
-
-    invoke-virtual {v5, v0}, Lcom/android/launcher3/theme/OpenThemeLoader;->getResources(Ljava/lang/String;)Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_2
-
-    iget-object v5, p0, Lcom/android/launcher3/theme/OpenThemeManager;->themeKey:[Ljava/lang/String;
-
-    aget-object v5, v5, p1
-
-    const-string v6, "string"
-
-    invoke-virtual {v1, v5, v6, v0}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v2
-
-    if-nez v2, :cond_1
-
-    iget-object v5, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher3/theme/OpenThemeLoader;
+    move-result v5
 
     iget-object v6, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher3/theme/OpenThemeLoader;
 
-    invoke-virtual {v6}, Lcom/android/launcher3/theme/OpenThemeLoader;->getDefaultPackageName()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Lcom/android/launcher3/theme/OpenThemeLoader;->getResources(Ljava/lang/String;)Landroid/content/res/Resources;
+    invoke-virtual {v6, v5}, Lcom/android/launcher3/theme/OpenThemeLoader;->getThemePackageName(I)Ljava/lang/String;
 
     move-result-object v1
 
-    if-eqz v1, :cond_0
+    const/4 v4, 0x0
 
-    iget-object v5, p0, Lcom/android/launcher3/theme/OpenThemeManager;->themeKey:[Ljava/lang/String;
+    iget-object v6, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher3/theme/OpenThemeLoader;
 
-    aget-object v5, v5, p1
+    invoke-virtual {v6, v1}, Lcom/android/launcher3/theme/OpenThemeLoader;->getResources(Ljava/lang/String;)Landroid/content/res/Resources;
 
-    const-string v6, "string"
+    move-result-object v2
+
+    if-eqz v2, :cond_2
+
+    iget-object v6, p0, Lcom/android/launcher3/theme/OpenThemeManager;->themeKey:[Ljava/lang/String;
+
+    aget-object v6, v6, p1
+
+    const-string v7, "string"
+
+    invoke-virtual {v2, v6, v7, v1}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    if-nez v3, :cond_1
+
+    iget-object v6, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher3/theme/OpenThemeLoader;
 
     iget-object v7, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher3/theme/OpenThemeLoader;
 
@@ -2237,76 +2378,130 @@
 
     move-result-object v7
 
-    invoke-virtual {v1, v5, v6, v7}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v6, v7}, Lcom/android/launcher3/theme/OpenThemeLoader;->getResources(Ljava/lang/String;)Landroid/content/res/Resources;
 
-    move-result v2
+    move-result-object v2
 
-    if-nez v2, :cond_1
+    if-eqz v2, :cond_0
 
-    move-object v5, v3
+    iget-object v6, p0, Lcom/android/launcher3/theme/OpenThemeManager;->themeKey:[Ljava/lang/String;
+
+    aget-object v6, v6, p1
+
+    const-string v7, "string"
+
+    iget-object v8, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher3/theme/OpenThemeLoader;
+
+    invoke-virtual {v8}, Lcom/android/launcher3/theme/OpenThemeLoader;->getDefaultPackageName()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v2, v6, v7, v8}, Landroid/content/res/Resources;->getIdentifier(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)I
+
+    move-result v3
+
+    if-nez v3, :cond_1
+
+    move-object v6, v4
 
     :goto_0
-    return-object v5
+    return-object v6
 
     :cond_0
-    const-string v5, "OpenThemeManager"
+    const-string v6, "OpenThemeManager"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v7, "Can\'t find such string in the default resource : "
+    const-string v8, "Can\'t find such string in the default resource : "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
     goto :goto_0
 
     :cond_1
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    :try_start_0
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    :try_end_0
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result-object v3
+    move-result-object v4
 
     :goto_1
-    move-object v5, v3
+    move-object v6, v4
 
     goto :goto_0
 
+    :catch_0
+    move-exception v0
+
+    const-string v6, "OpenThemeManager"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "Theme package has existed ["
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    const-string v8, "] but no resources."
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+
     :cond_2
-    const-string v5, "OpenThemeManager"
+    const-string v6, "OpenThemeManager"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v7, "fail to getting resources from "
+    const-string v8, "fail to getting resources from "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v7
 
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
 .end method
@@ -2353,7 +2548,7 @@
     return-object v2
 .end method
 
-.method public initThemeForIconLoading()V
+.method public initThemeForIconLoading(Z)V
     .locals 2
 
     invoke-virtual {p0}, Lcom/android/launcher3/theme/OpenThemeManager;->isThemeChanged()Z
@@ -2379,6 +2574,23 @@
     invoke-virtual {v0, v1}, Lcom/android/launcher3/theme/OpenThemeLoader;->setIsThemeChanged(Z)V
 
     :cond_0
+    if-eqz p1, :cond_1
+
+    const-string v0, "OpenThemeManager"
+
+    const-string v1, "dpi changed, reload ThemeLoader and FolderStyle"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher3/theme/OpenThemeLoader;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/theme/OpenThemeLoader;->reloadThemePackages()V
+
+    iget-object v0, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mFolderStyle:Lcom/android/launcher3/theme/OpenThemeManager$FolderStyle;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/theme/OpenThemeManager$FolderStyle;->setFolderTheme()V
+
+    :cond_1
     return-void
 .end method
 

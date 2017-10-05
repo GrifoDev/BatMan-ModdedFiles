@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController$9;->this$0:Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;
 
-    invoke-static {v0}, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->access$400(Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;)Landroid/widget/SearchView;
+    invoke-static {v0}, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->access$300(Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;)Landroid/widget/SearchView;
 
     move-result-object v0
 
@@ -53,7 +53,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController$9;->this$0:Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;
 
-    invoke-static {v1}, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->access$400(Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;)Landroid/widget/SearchView;
+    invoke-static {v1}, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->access$300(Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;)Landroid/widget/SearchView;
 
     move-result-object v1
 

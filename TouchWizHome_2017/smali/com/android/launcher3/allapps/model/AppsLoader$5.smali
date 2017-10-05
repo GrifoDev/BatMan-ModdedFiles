@@ -3,7 +3,7 @@
 .source "AppsLoader.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Ljava/util/Comparator;
 
 
 # annotations
@@ -16,20 +16,26 @@
     name = null
 .end annotation
 
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Ljava/util/Comparator",
+        "<",
+        "Lcom/android/launcher3/common/base/item/ItemInfo;",
+        ">;"
+    }
+.end annotation
+
 
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
 
-.field final synthetic val$r:Ljava/lang/Runnable;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/allapps/model/AppsLoader;Ljava/lang/Runnable;)V
+.method constructor <init>(Lcom/android/launcher3/allapps/model/AppsLoader;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/allapps/model/AppsLoader$5;->this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
-
-    iput-object p2, p0, Lcom/android/launcher3/allapps/model/AppsLoader$5;->val$r:Ljava/lang/Runnable;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,48 +44,40 @@
 
 
 # virtual methods
-.method public run()V
+.method public compare(Lcom/android/launcher3/common/base/item/ItemInfo;Lcom/android/launcher3/common/base/item/ItemInfo;)I
     .locals 3
 
-    invoke-static {}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$1000()Z
+    sget-object v0, Lcom/android/launcher3/allapps/model/AppsLoader;->sCollator:Ljava/text/Collator;
 
-    move-result v0
+    iget-object v1, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->title:Ljava/lang/CharSequence;
 
-    if-eqz v0, :cond_0
-
-    invoke-static {}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$1100()Ljava/util/ArrayList;
+    invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v1
 
-    monitor-enter v1
+    iget-object v2, p2, Lcom/android/launcher3/common/base/item/ItemInfo;->title:Ljava/lang/CharSequence;
 
-    :try_start_0
-    invoke-static {}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$1200()Ljava/util/ArrayList;
+    invoke-interface {v2}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v2
 
-    iget-object v2, p0, Lcom/android/launcher3/allapps/model/AppsLoader$5;->val$r:Ljava/lang/Runnable;
+    invoke-virtual {v0, v1, v2}, Ljava/text/Collator;->compare(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-result v0
 
-    monitor-exit v1
+    return v0
+.end method
 
-    :goto_0
-    return-void
+.method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
+    .locals 1
 
-    :catchall_0
-    move-exception v0
+    check-cast p1, Lcom/android/launcher3/common/base/item/ItemInfo;
 
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+    check-cast p2, Lcom/android/launcher3/common/base/item/ItemInfo;
 
-    throw v0
+    invoke-virtual {p0, p1, p2}, Lcom/android/launcher3/allapps/model/AppsLoader$5;->compare(Lcom/android/launcher3/common/base/item/ItemInfo;Lcom/android/launcher3/common/base/item/ItemInfo;)I
 
-    :cond_0
-    iget-object v0, p0, Lcom/android/launcher3/allapps/model/AppsLoader$5;->val$r:Ljava/lang/Runnable;
+    move-result v0
 
-    invoke-static {v0}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$1300(Ljava/lang/Runnable;)V
-
-    goto :goto_0
+    return v0
 .end method

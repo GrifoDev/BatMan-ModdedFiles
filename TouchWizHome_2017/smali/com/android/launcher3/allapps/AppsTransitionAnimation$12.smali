@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/allapps/AppsTransitionAnimation;->getExitToWidgetAnim(ZLjava/util/HashMap;)Landroid/animation/Animator;
+    value = Lcom/android/launcher3/allapps/AppsTransitionAnimation;->getEnterFromSettingAnim(ZLjava/util/HashMap;)Landroid/animation/Animator;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -38,29 +38,15 @@
 
     move-result-object v0
 
-    const/4 v1, 0x4
+    const/high16 v1, 0x3f800000    # 1.0f
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->setVisibility(I)V
-
-    iget-object v0, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$12;->this$0:Lcom/android/launcher3/allapps/AppsTransitionAnimation;
-
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->access$102(Lcom/android/launcher3/allapps/AppsTransitionAnimation;Landroid/animation/AnimatorSet;)Landroid/animation/AnimatorSet;
+    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->setAlpha(F)V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/launcher3/allapps/AppsTransitionAnimation$12;->animationComplete()V
-
-    return-void
-.end method
-
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 0
 
@@ -74,17 +60,13 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$12;->this$0:Lcom/android/launcher3/allapps/AppsTransitionAnimation;
 
-    invoke-static {v0}, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->access$400(Lcom/android/launcher3/allapps/AppsTransitionAnimation;)Lcom/android/launcher3/Launcher;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/launcher3/Launcher;->getDragLayer()Lcom/android/launcher3/common/view/DragLayer;
+    invoke-static {v0}, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->access$000(Lcom/android/launcher3/allapps/AppsTransitionAnimation;)Landroid/view/ViewGroup;
 
     move-result-object v0
 
     const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/view/DragLayer;->setBackgroundImageAlpha(F)V
+    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->setAlpha(F)V
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$12;->this$0:Lcom/android/launcher3/allapps/AppsTransitionAnimation;
 
@@ -92,9 +74,9 @@
 
     move-result-object v0
 
-    const/high16 v1, 0x3f800000    # 1.0f
+    const/4 v1, 0x0
 
-    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->setAlpha(F)V
+    invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->setVisibility(I)V
 
     return-void
 .end method

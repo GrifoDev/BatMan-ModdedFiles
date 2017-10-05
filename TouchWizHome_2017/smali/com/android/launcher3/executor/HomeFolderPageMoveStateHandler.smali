@@ -152,13 +152,9 @@
 
     iget-object v2, p0, Lcom/android/launcher3/executor/HomeFolderPageMoveStateHandler;->mStateId:Lcom/android/launcher3/executor/ExecutorState;
 
-    const-string v3, "AppsFolderPageMove"
+    sget-object v3, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_PAGE_MOVE:Lcom/android/launcher3/executor/ExecutorState;
 
-    invoke-virtual {v2, v3}, Lcom/android/launcher3/executor/ExecutorState;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
+    if-ne v2, v3, :cond_1
 
     iget-object v2, p0, Lcom/android/launcher3/executor/HomeFolderPageMoveStateHandler;->mStateId:Lcom/android/launcher3/executor/ExecutorState;
 

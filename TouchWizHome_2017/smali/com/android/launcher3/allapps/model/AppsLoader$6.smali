@@ -3,12 +3,12 @@
 .source "AppsLoader.java"
 
 # interfaces
-.implements Ljava/util/Comparator;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/allapps/model/AppsLoader;->loadRemainedApps(Ljava/util/ArrayList;Ljava/util/ArrayList;)Ljava/util/ArrayList;
+    value = Lcom/android/launcher3/allapps/model/AppsLoader;->bindPageItems(Ljava/util/ArrayList;Ljava/util/ArrayList;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -16,26 +16,24 @@
     name = null
 .end annotation
 
-.annotation system Ldalvik/annotation/Signature;
-    value = {
-        "Ljava/lang/Object;",
-        "Ljava/util/Comparator",
-        "<",
-        "Lcom/android/launcher3/common/base/item/ItemInfo;",
-        ">;"
-    }
-.end annotation
-
 
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
 
+.field final synthetic val$oldCallbacks:Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
+
+.field final synthetic val$task:Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;
+
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/allapps/model/AppsLoader;)V
+.method constructor <init>(Lcom/android/launcher3/allapps/model/AppsLoader;Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/allapps/model/AppsLoader$6;->this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
+
+    iput-object p2, p0, Lcom/android/launcher3/allapps/model/AppsLoader$6;->val$oldCallbacks:Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
+
+    iput-object p3, p0, Lcom/android/launcher3/allapps/model/AppsLoader$6;->val$task:Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -44,42 +42,23 @@
 
 
 # virtual methods
-.method public compare(Lcom/android/launcher3/common/base/item/ItemInfo;Lcom/android/launcher3/common/base/item/ItemInfo;)I
-    .locals 3
+.method public run()V
+    .locals 4
 
-    invoke-static {}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$800()Ljava/text/Collator;
+    iget-object v1, p0, Lcom/android/launcher3/allapps/model/AppsLoader$6;->this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
+
+    iget-object v2, p0, Lcom/android/launcher3/allapps/model/AppsLoader$6;->val$oldCallbacks:Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
+
+    iget-object v3, p0, Lcom/android/launcher3/allapps/model/AppsLoader$6;->val$task:Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;
+
+    invoke-static {v1, v2, v3}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$1200(Lcom/android/launcher3/allapps/model/AppsLoader;Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
 
     move-result-object v0
 
-    iget-object v1, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->title:Ljava/lang/CharSequence;
+    if-eqz v0, :cond_0
 
-    invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    invoke-interface {v0}, Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;->startBinding()V
 
-    move-result-object v1
-
-    iget-object v2, p2, Lcom/android/launcher3/common/base/item/ItemInfo;->title:Ljava/lang/CharSequence;
-
-    invoke-interface {v2}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Ljava/text/Collator;->compare(Ljava/lang/String;Ljava/lang/String;)I
-
-    move-result v0
-
-    return v0
-.end method
-
-.method public bridge synthetic compare(Ljava/lang/Object;Ljava/lang/Object;)I
-    .locals 1
-
-    check-cast p1, Lcom/android/launcher3/common/base/item/ItemInfo;
-
-    check-cast p2, Lcom/android/launcher3/common/base/item/ItemInfo;
-
-    invoke-virtual {p0, p1, p2}, Lcom/android/launcher3/allapps/model/AppsLoader$6;->compare(Lcom/android/launcher3/common/base/item/ItemInfo;Lcom/android/launcher3/common/base/item/ItemInfo;)I
-
-    move-result v0
-
-    return v0
+    :cond_0
+    return-void
 .end method

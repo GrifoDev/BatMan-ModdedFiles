@@ -92,7 +92,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f050001
+    const v4, 0x7f060001
 
     invoke-static {v3, v4}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -118,7 +118,7 @@
 
     move-result-object v3
 
-    const/high16 v4, 0x7f050000
+    const/high16 v4, 0x7f060000
 
     invoke-static {v3, v4}, Landroid/animation/AnimatorInflater;->loadAnimator(Landroid/content/Context;I)Landroid/animation/Animator;
 
@@ -445,7 +445,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d002f
+    const v2, 0x7f0e0039
 
     invoke-static {v1, v2}, Landroid/support/v4/content/ContextCompat;->getColor(Landroid/content/Context;I)I
 
@@ -469,7 +469,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d002e
+    const v2, 0x7f0e0038
 
     invoke-static {v1, v2}, Landroid/support/v4/content/ContextCompat;->getColor(Landroid/content/Context;I)I
 
@@ -544,6 +544,42 @@
 
 .method public onClick(Landroid/view/View;)V
     .locals 0
+
+    return-void
+.end method
+
+.method onConfigurationChangedIfNeeded(I)V
+    .locals 5
+
+    iget-object v1, p0, Lcom/android/launcher3/home/CancelDropTarget;->mCircleView:Landroid/widget/ImageView;
+
+    invoke-virtual {v1}, Landroid/widget/ImageView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v0
+
+    iput p1, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
+
+    iput p1, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
+
+    iget-object v1, p0, Lcom/android/launcher3/home/CancelDropTarget;->mCircleView:Landroid/widget/ImageView;
+
+    invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    iget-object v1, p0, Lcom/android/launcher3/home/CancelDropTarget;->mTextView:Landroid/widget/TextView;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {p0}, Lcom/android/launcher3/home/CancelDropTarget;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    const v4, 0x7f0a00aa
+
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
+
+    move-result v3
+
+    invoke-virtual {v1, v2, v3}, Landroid/widget/TextView;->setTextSize(IF)V
 
     return-void
 .end method
@@ -638,7 +674,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f080026
+    const v4, 0x7f09002f
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -658,7 +694,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f080025
+    const v4, 0x7f09002e
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1020,7 +1056,7 @@
     :cond_0
     sget-object v5, Lcom/android/launcher3/util/Talk;->INSTANCE:Lcom/android/launcher3/util/Talk;
 
-    const v9, 0x7f080026
+    const v9, 0x7f09002f
 
     invoke-virtual {v5, v9}, Lcom/android/launcher3/util/Talk;->say(I)V
 
@@ -1225,7 +1261,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f03001f
+    const v3, 0x7f040022
 
     invoke-virtual {v2, v3, p0, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -1233,7 +1269,7 @@
 
     check-cast v1, Landroid/widget/FrameLayout;
 
-    const v2, 0x7f0f0063
+    const v2, 0x7f11006c
 
     invoke-virtual {v1, v2}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -1243,7 +1279,7 @@
 
     iput-object v2, p0, Lcom/android/launcher3/home/CancelDropTarget;->mTextView:Landroid/widget/TextView;
 
-    const v2, 0x7f0f0062
+    const v2, 0x7f11006b
 
     invoke-virtual {v1, v2}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -1253,7 +1289,7 @@
 
     iput-object v2, p0, Lcom/android/launcher3/home/CancelDropTarget;->mImageView:Landroid/widget/ImageView;
 
-    const v2, 0x7f0f0061
+    const v2, 0x7f11006a
 
     invoke-virtual {v1, v2}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -1299,9 +1335,9 @@
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     :cond_1
-    const v2, 0x7f080026
+    const v2, 0x7f09002f
 
-    const v3, 0x7f0200fe
+    const v3, 0x7f0200ff
 
     const v4, 0x7f02002d
 
@@ -1314,26 +1350,6 @@
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/launcher3/home/CancelDropTarget;->mEnable:Z
-
-    return-void
-.end method
-
-.method updateCircleSize(I)V
-    .locals 2
-
-    iget-object v1, p0, Lcom/android/launcher3/home/CancelDropTarget;->mCircleView:Landroid/widget/ImageView;
-
-    invoke-virtual {v1}, Landroid/widget/ImageView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v0
-
-    iput p1, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
-
-    iput p1, v0, Landroid/view/ViewGroup$LayoutParams;->width:I
-
-    iget-object v1, p0, Lcom/android/launcher3/home/CancelDropTarget;->mCircleView:Landroid/widget/ImageView;
-
-    invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     return-void
 .end method

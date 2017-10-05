@@ -37,9 +37,13 @@
 
 .field private static final THREAD_EXIT_DELAY:I = 0xbb8
 
+.field private static final TOKEN:[C
+
 .field private static final TO_HOMEPAGE:I = 0x8
 
 .field private static final TO_ZEROEPAGE:I = 0x4
+
+.field private static final ZERO_PAGE_APP_LIST:[Landroid/content/ComponentName;
 
 .field public static final ZERO_PAGE_SCREEN_INDEX:I = -0x1
 
@@ -54,6 +58,8 @@
 .field private static sVirtualScreenManager:Lcom/samsung/android/sdk/virtualscreen/SVirtualScreenManager;
 
 .field public static sZeroPageCompName:Landroid/content/ComponentName;
+
+.field private static sZeroPageDefaultOnOffState:Z
 
 
 # instance fields
@@ -116,11 +122,11 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 5
+    .locals 7
 
-    const/4 v4, 0x1
+    const/4 v6, 0x1
 
-    const/4 v3, 0x0
+    const/4 v5, 0x0
 
     const-class v0, Lcom/android/launcher3/home/ZeroPageController;
 
@@ -140,15 +146,108 @@
 
     sput-object v0, Lcom/android/launcher3/home/ZeroPageController;->sZeroPageCompName:Landroid/content/ComponentName;
 
-    sput-boolean v4, Lcom/android/launcher3/home/ZeroPageController;->sEnableZeroPage:Z
+    const/4 v0, 0x5
 
-    sput-boolean v4, Lcom/android/launcher3/home/ZeroPageController;->sActiveZeroPage:Z
+    new-array v0, v0, [Landroid/content/ComponentName;
 
-    sput-boolean v3, Lcom/android/launcher3/home/ZeroPageController;->sSupportVirtualScreen:Z
+    new-instance v1, Landroid/content/ComponentName;
 
-    sput-boolean v3, Lcom/android/launcher3/home/ZeroPageController;->sVirtualScreenAvailableChecked:Z
+    const-string v2, "com.samsung.android.app.spage"
+
+    const-string v3, "com.samsung.android.app.spage.main.MainActivity"
+
+    invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    aput-object v1, v0, v5
+
+    new-instance v1, Landroid/content/ComponentName;
+
+    const-string v2, "com.ss.android.sdk.minusscreen.samsung"
+
+    const-string v3, "com.ss.android.sdk.minusscreen.samsung.activity.FeedFragmentActivity"
+
+    invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    aput-object v1, v0, v6
+
+    const/4 v1, 0x2
+
+    new-instance v2, Landroid/content/ComponentName;
+
+    const-string v3, "de.axelspringer.yana.zeropage"
+
+    const-string v4, "de.axelspringer.yana.activities.HomeActivity"
+
+    invoke-direct {v2, v3, v4}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x3
+
+    new-instance v2, Landroid/content/ComponentName;
+
+    const-string v3, "com.mobilesrepublic.sohu.launcher"
+
+    const-string v4, "com.mobilesrepublic.sohu.launcher.MainActivity"
+
+    invoke-direct {v2, v3, v4}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    aput-object v2, v0, v1
+
+    const/4 v1, 0x4
+
+    new-instance v2, Landroid/content/ComponentName;
+
+    const-string v3, "flipboard.boxer.app"
+
+    const-string v4, "flipboard.boxer.gui.LaunchActivity"
+
+    invoke-direct {v2, v3, v4}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    aput-object v2, v0, v1
+
+    sput-object v0, Lcom/android/launcher3/home/ZeroPageController;->ZERO_PAGE_APP_LIST:[Landroid/content/ComponentName;
+
+    invoke-static {}, Lcom/android/launcher3/home/ZeroPageController;->supportVirtualScreen()Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/launcher3/home/ZeroPageController;->sEnableZeroPage:Z
+
+    sput-boolean v6, Lcom/android/launcher3/home/ZeroPageController;->sActiveZeroPage:Z
+
+    sput-boolean v6, Lcom/android/launcher3/home/ZeroPageController;->sZeroPageDefaultOnOffState:Z
+
+    sput-boolean v5, Lcom/android/launcher3/home/ZeroPageController;->sSupportVirtualScreen:Z
+
+    sput-boolean v5, Lcom/android/launcher3/home/ZeroPageController;->sVirtualScreenAvailableChecked:Z
+
+    const/16 v0, 0xd
+
+    new-array v0, v0, [C
+
+    fill-array-data v0, :array_0
+
+    sput-object v0, Lcom/android/launcher3/home/ZeroPageController;->TOKEN:[C
 
     return-void
+
+    :array_0
+    .array-data 2
+        0x69s
+        0x6cs
+        0x6fs
+        0x76s
+        0x65s
+        0x7as
+        0x65s
+        0x72s
+        0x6fs
+        0x70s
+        0x61s
+        0x67s
+        0x65s
+    .end array-data
 .end method
 
 .method constructor <init>(Landroid/content/Context;Lcom/android/launcher3/home/Workspace;)V
@@ -221,7 +320,31 @@
     return-object v0
 .end method
 
-.method static synthetic access$1002(Lcom/android/launcher3/home/ZeroPageController;I)I
+.method static synthetic access$1002(Lcom/android/launcher3/home/ZeroPageController;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/launcher3/home/ZeroPageController;->mBezelSwipe:Z
+
+    return p1
+.end method
+
+.method static synthetic access$1100(Lcom/android/launcher3/home/ZeroPageController;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/launcher3/home/ZeroPageController;->mMovingState:I
+
+    return v0
+.end method
+
+.method static synthetic access$1102(Lcom/android/launcher3/home/ZeroPageController;I)I
+    .locals 0
+
+    iput p1, p0, Lcom/android/launcher3/home/ZeroPageController;->mMovingState:I
+
+    return p1
+.end method
+
+.method static synthetic access$1202(Lcom/android/launcher3/home/ZeroPageController;I)I
     .locals 0
 
     iput p1, p0, Lcom/android/launcher3/home/ZeroPageController;->mPreValues:I
@@ -229,7 +352,7 @@
     return p1
 .end method
 
-.method static synthetic access$1100(Lcom/android/launcher3/home/ZeroPageController;)Lcom/android/launcher3/home/Workspace;
+.method static synthetic access$1300(Lcom/android/launcher3/home/ZeroPageController;)Lcom/android/launcher3/home/Workspace;
     .locals 1
 
     iget-object v0, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
@@ -237,7 +360,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$1200(Lcom/android/launcher3/home/ZeroPageController;)J
+.method static synthetic access$1400(Lcom/android/launcher3/home/ZeroPageController;)J
     .locals 2
 
     iget-wide v0, p0, Lcom/android/launcher3/home/ZeroPageController;->mInterval:J
@@ -245,7 +368,7 @@
     return-wide v0
 .end method
 
-.method static synthetic access$1202(Lcom/android/launcher3/home/ZeroPageController;J)J
+.method static synthetic access$1402(Lcom/android/launcher3/home/ZeroPageController;J)J
     .locals 1
 
     iput-wide p1, p0, Lcom/android/launcher3/home/ZeroPageController;->mInterval:J
@@ -253,7 +376,7 @@
     return-wide p1
 .end method
 
-.method static synthetic access$1300(Lcom/android/launcher3/home/ZeroPageController;IIZJ)V
+.method static synthetic access$1500(Lcom/android/launcher3/home/ZeroPageController;IIZJ)V
     .locals 0
 
     invoke-direct/range {p0 .. p5}, Lcom/android/launcher3/home/ZeroPageController;->setOffsetMsg(IIZJ)V
@@ -261,7 +384,7 @@
     return-void
 .end method
 
-.method static synthetic access$1400(Lcom/android/launcher3/home/ZeroPageController;IIZ)Z
+.method static synthetic access$1600(Lcom/android/launcher3/home/ZeroPageController;IIZ)Z
     .locals 1
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/launcher3/home/ZeroPageController;->setOffset(IIZ)Z
@@ -271,7 +394,7 @@
     return v0
 .end method
 
-.method static synthetic access$1500(Lcom/android/launcher3/home/ZeroPageController;)Lcom/android/launcher3/util/alarm/Alarm;
+.method static synthetic access$1700(Lcom/android/launcher3/home/ZeroPageController;)Lcom/android/launcher3/util/alarm/Alarm;
     .locals 1
 
     iget-object v0, p0, Lcom/android/launcher3/home/ZeroPageController;->mThreadExitAlarm:Lcom/android/launcher3/util/alarm/Alarm;
@@ -279,7 +402,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$1600(Lcom/android/launcher3/home/ZeroPageController;Landroid/widget/Switch;Z)V
+.method static synthetic access$1800(Lcom/android/launcher3/home/ZeroPageController;Landroid/widget/Switch;Z)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/launcher3/home/ZeroPageController;->showZeroPageDownloadDialog(Landroid/widget/Switch;Z)V
@@ -287,26 +410,10 @@
     return-void
 .end method
 
-.method static synthetic access$1700(Lcom/android/launcher3/home/ZeroPageController;ZZ)V
+.method static synthetic access$1900(Lcom/android/launcher3/home/ZeroPageController;ZZ)V
     .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/launcher3/home/ZeroPageController;->updateZeroPageBg(ZZ)V
-
-    return-void
-.end method
-
-.method static synthetic access$1800(Lcom/android/launcher3/home/ZeroPageController;Landroid/content/Context;ZZ)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/launcher3/home/ZeroPageController;->startActivityInVirtualScreen(Landroid/content/Context;ZZ)V
-
-    return-void
-.end method
-
-.method static synthetic access$1900(Lcom/android/launcher3/home/ZeroPageController;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/launcher3/home/ZeroPageController;->bindVirtualScreen()V
 
     return-void
 .end method
@@ -321,17 +428,23 @@
     return-object v0
 .end method
 
-.method static synthetic access$2000(Lcom/android/launcher3/home/ZeroPageController;)Ljava/lang/String;
-    .locals 1
+.method static synthetic access$2000(Lcom/android/launcher3/home/ZeroPageController;Landroid/content/Context;ZZ)V
+    .locals 0
 
-    invoke-direct {p0}, Lcom/android/launcher3/home/ZeroPageController;->getZeroPagePackageName()Ljava/lang/String;
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/launcher3/home/ZeroPageController;->startActivityInVirtualScreen(Landroid/content/Context;ZZ)V
 
-    move-result-object v0
-
-    return-object v0
+    return-void
 .end method
 
-.method static synthetic access$2102(Lcom/android/launcher3/home/ZeroPageController;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
+.method static synthetic access$2100(Lcom/android/launcher3/home/ZeroPageController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/launcher3/home/ZeroPageController;->bindVirtualScreen()V
+
+    return-void
+.end method
+
+.method static synthetic access$2202(Lcom/android/launcher3/home/ZeroPageController;Landroid/app/AlertDialog;)Landroid/app/AlertDialog;
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/home/ZeroPageController;->mZeropageDownloadDialog:Landroid/app/AlertDialog;
@@ -373,7 +486,17 @@
     return v0
 .end method
 
-.method static synthetic access$600(Lcom/android/launcher3/home/ZeroPageController;)Landroid/widget/LinearLayout;
+.method static synthetic access$600(Lcom/android/launcher3/home/ZeroPageController;Ljava/lang/String;)I
+    .locals 1
+
+    invoke-direct {p0, p1}, Lcom/android/launcher3/home/ZeroPageController;->getZeroPagePreviewId(Ljava/lang/String;)I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic access$700(Lcom/android/launcher3/home/ZeroPageController;)Landroid/widget/LinearLayout;
     .locals 1
 
     iget-object v0, p0, Lcom/android/launcher3/home/ZeroPageController;->mZeroPageBgView:Landroid/widget/LinearLayout;
@@ -381,28 +504,14 @@
     return-object v0
 .end method
 
-.method static synthetic access$802(Lcom/android/launcher3/home/ZeroPageController;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/launcher3/home/ZeroPageController;->mBezelSwipe:Z
-
-    return p1
-.end method
-
-.method static synthetic access$900(Lcom/android/launcher3/home/ZeroPageController;)I
+.method static synthetic access$800(Lcom/android/launcher3/home/ZeroPageController;)Ljava/lang/String;
     .locals 1
 
-    iget v0, p0, Lcom/android/launcher3/home/ZeroPageController;->mMovingState:I
+    invoke-direct {p0}, Lcom/android/launcher3/home/ZeroPageController;->getZeroPagePackageName()Ljava/lang/String;
 
-    return v0
-.end method
+    move-result-object v0
 
-.method static synthetic access$902(Lcom/android/launcher3/home/ZeroPageController;I)I
-    .locals 0
-
-    iput p1, p0, Lcom/android/launcher3/home/ZeroPageController;->mMovingState:I
-
-    return p1
+    return-object v0
 .end method
 
 .method private acquireVelocityTrackerAndAddMovement(Landroid/view/MotionEvent;)V
@@ -848,7 +957,7 @@
 
     const-string v1, "com.sec.android.app.launcher.zeropage.state.prefs"
 
-    sget-boolean v2, Lcom/android/launcher3/home/ZeroPageController;->sEnableZeroPage:Z
+    sget-boolean v2, Lcom/android/launcher3/home/ZeroPageController;->sZeroPageDefaultOnOffState:Z
 
     invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
@@ -882,6 +991,153 @@
     return-object v0
 .end method
 
+.method public static getZeroPageContents(Landroid/content/Context;)Landroid/content/ComponentName;
+    .locals 9
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
+
+    invoke-static {}, Lcom/android/launcher3/home/ZeroPageController;->supportVirtualScreen()Z
+
+    move-result v6
+
+    if-nez v6, :cond_0
+
+    sget-object v5, Lcom/android/launcher3/home/ZeroPageController;->TAG:Ljava/lang/String;
+
+    const-string v6, "not support virtual screen"
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_0
+    return-object v4
+
+    :cond_0
+    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+
+    move-result-object v6
+
+    const-string v7, "CscFeature_Launcher_ConfigZeroPageApp"
+
+    invoke-virtual {v6, v7, v4}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    new-instance v4, Landroid/content/ComponentName;
+
+    const-string v6, "com.samsung.android.app.spage"
+
+    const-string v7, "com.samsung.android.app.spage.main.MainActivity"
+
+    invoke-direct {v4, v6, v7}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    if-nez v0, :cond_3
+
+    sget-object v6, Lcom/android/launcher3/home/ZeroPageController;->ZERO_PAGE_APP_LIST:[Landroid/content/ComponentName;
+
+    array-length v7, v6
+
+    :goto_1
+    if-ge v5, v7, :cond_1
+
+    aget-object v2, v6, v5
+
+    invoke-virtual {v2}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {p0, v8}, Lcom/android/launcher3/Utilities;->isPackageExist(Landroid/content/Context;Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    move-object v4, v2
+
+    :cond_1
+    :goto_2
+    sget-object v5, Lcom/android/launcher3/home/ZeroPageController;->TAG:Ljava/lang/String;
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v7, "ZeroPageContents : "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :cond_2
+    add-int/lit8 v5, v5, 0x1
+
+    goto :goto_1
+
+    :cond_3
+    sget-object v6, Lcom/android/launcher3/home/ZeroPageController;->TAG:Ljava/lang/String;
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "csc zero page app is not null : "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {v0}, Landroid/content/ComponentName;->unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
+
+    move-result-object v3
+
+    sget-object v6, Lcom/android/launcher3/home/ZeroPageController;->ZERO_PAGE_APP_LIST:[Landroid/content/ComponentName;
+
+    array-length v7, v6
+
+    :goto_3
+    if-ge v5, v7, :cond_1
+
+    aget-object v2, v6, v5
+
+    invoke-virtual {v2, v3}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_4
+
+    move-object v4, v2
+
+    goto :goto_2
+
+    :cond_4
+    add-int/lit8 v5, v5, 0x1
+
+    goto :goto_3
+.end method
+
 .method private getZeroPagePackageName()Ljava/lang/String;
     .locals 3
 
@@ -902,100 +1158,384 @@
     return-object v0
 .end method
 
-.method private init()V
-    .locals 3
+.method private getZeroPagePreviewId(Ljava/lang/String;)I
+    .locals 2
 
-    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
+    const-string v1, "com.samsung.android.app.spage"
 
-    sget-object v2, Lcom/android/launcher3/home/ZeroPageController;->sZeroPageCompName:Landroid/content/ComponentName;
-
-    invoke-virtual {v2}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Lcom/android/launcher3/Utilities;->isPackageExist(Landroid/content/Context;Ljava/lang/String;)Z
-
-    move-result v0
-
-    invoke-static {}, Lcom/android/launcher3/Utilities;->isKnoxMode()Z
+    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-nez v1, :cond_2
+    if-eqz v1, :cond_0
 
-    if-nez v0, :cond_0
+    const v0, 0x7f020029
 
-    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->isChinaModel()Z
+    :goto_0
+    return v0
+
+    :cond_0
+    const-string v1, "flipboard.boxer.app"
+
+    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    const v0, 0x7f02000a
+
+    goto :goto_0
+
+    :cond_1
+    const-string v1, "com.ss.android.sdk.minusscreen.samsung"
+
+    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
     if-eqz v1, :cond_2
 
-    :cond_0
-    invoke-static {}, Lcom/android/launcher3/Utilities;->isGuest()Z
-
-    move-result v1
-
-    if-nez v1, :cond_2
-
-    const/4 v1, 0x1
-
-    sput-boolean v1, Lcom/android/launcher3/home/ZeroPageController;->sEnableZeroPage:Z
-
-    iput-boolean v0, p0, Lcom/android/launcher3/home/ZeroPageController;->mInstalled:Z
-
-    sget-object v1, Lcom/android/launcher3/home/ZeroPageController;->sZeroPageCompName:Landroid/content/ComponentName;
-
-    invoke-direct {p0, v1}, Lcom/android/launcher3/home/ZeroPageController;->updateZeroPageAppMetadata(Landroid/content/ComponentName;)V
-
-    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    invoke-virtual {v1}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v2, 0x7f09016e
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v1
-
-    iput v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mZeroPageBitmapWidth:I
-
-    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    invoke-virtual {v1}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v2, 0x7f09016d
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v1
-
-    iput v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mZeroPageBitmapHeight:I
-
-    iget-boolean v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mInstalled:Z
-
-    if-nez v1, :cond_1
-
-    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    iget-boolean v2, p0, Lcom/android/launcher3/home/ZeroPageController;->mInstalled:Z
-
-    invoke-static {v1, v2}, Lcom/android/launcher3/home/ZeroPageController;->setZeroPageActiveState(Landroid/content/Context;Z)V
-
-    :cond_1
-    :goto_0
-    return-void
-
-    :cond_2
-    const/4 v1, 0x0
-
-    sput-boolean v1, Lcom/android/launcher3/home/ZeroPageController;->sEnableZeroPage:Z
+    const v0, 0x7f020100
 
     goto :goto_0
+
+    :cond_2
+    const v0, 0x7f0200fc
+
+    goto :goto_0
+.end method
+
+.method private getZeroPageTitle(Ljava/lang/String;)Ljava/lang/String;
+    .locals 3
+
+    const-string v1, "com.ss.android.sdk.minusscreen.samsung"
+
+    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f0900eb
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    const-string v1, "com.samsung.android.app.spage"
+
+    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f0900e9
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :cond_1
+    const-string v1, "flipboard.boxer.app"
+
+    invoke-virtual {v1, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f0900e6
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :cond_2
+    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f0900ea
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+.end method
+
+.method private init()V
+    .locals 12
+
+    const/4 v9, 0x0
+
+    const/4 v6, 0x1
+
+    const/4 v7, 0x0
+
+    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+
+    move-result-object v5
+
+    const-string v8, "CscFeature_Launcher_ConfigZeroPageApp"
+
+    invoke-virtual {v5, v8, v9}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+
+    move-result-object v5
+
+    const-string v8, "CscFeature_Launcher_ConfigMagazineHome"
+
+    invoke-virtual {v5, v8, v9}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    iput-boolean v7, p0, Lcom/android/launcher3/home/ZeroPageController;->mInstalled:Z
+
+    const-string v5, "off"
+
+    invoke-virtual {v5, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_4
+
+    move v5, v6
+
+    :goto_0
+    sput-boolean v5, Lcom/android/launcher3/home/ZeroPageController;->sZeroPageDefaultOnOffState:Z
+
+    if-nez v0, :cond_6
+
+    sget-object v8, Lcom/android/launcher3/home/ZeroPageController;->ZERO_PAGE_APP_LIST:[Landroid/content/ComponentName;
+
+    array-length v9, v8
+
+    move v5, v7
+
+    :goto_1
+    if-ge v5, v9, :cond_0
+
+    aget-object v3, v8, v5
+
+    iget-object v10, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v3}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-static {v10, v11}, Lcom/android/launcher3/Utilities;->isPackageExist(Landroid/content/Context;Ljava/lang/String;)Z
+
+    move-result v10
+
+    iput-boolean v10, p0, Lcom/android/launcher3/home/ZeroPageController;->mInstalled:Z
+
+    iget-boolean v10, p0, Lcom/android/launcher3/home/ZeroPageController;->mInstalled:Z
+
+    if-eqz v10, :cond_5
+
+    sput-object v3, Lcom/android/launcher3/home/ZeroPageController;->sZeroPageCompName:Landroid/content/ComponentName;
+
+    :cond_0
+    :goto_2
+    sget-object v5, Lcom/android/launcher3/home/ZeroPageController;->sZeroPageCompName:Landroid/content/ComponentName;
+
+    new-instance v8, Landroid/content/ComponentName;
+
+    const-string v9, "com.samsung.android.app.spage"
+
+    const-string v10, "com.samsung.android.app.spage.main.MainActivity"
+
+    invoke-direct {v8, v9, v10}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-virtual {v5, v8}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    const/4 v1, 0x0
+
+    sput-boolean v6, Lcom/android/launcher3/home/ZeroPageController;->sZeroPageDefaultOnOffState:Z
+
+    :cond_1
+    const-string v5, "disable"
+
+    invoke-virtual {v5, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_8
+
+    invoke-static {}, Lcom/android/launcher3/Utilities;->isKnoxMode()Z
+
+    move-result v5
+
+    if-nez v5, :cond_8
+
+    iget-boolean v5, p0, Lcom/android/launcher3/home/ZeroPageController;->mInstalled:Z
+
+    if-nez v5, :cond_2
+
+    if-eqz v2, :cond_8
+
+    :cond_2
+    invoke-static {}, Lcom/android/launcher3/Utilities;->isGuest()Z
+
+    move-result v5
+
+    if-nez v5, :cond_8
+
+    sput-boolean v6, Lcom/android/launcher3/home/ZeroPageController;->sEnableZeroPage:Z
+
+    sget-object v5, Lcom/android/launcher3/home/ZeroPageController;->sZeroPageCompName:Landroid/content/ComponentName;
+
+    invoke-direct {p0, v5}, Lcom/android/launcher3/home/ZeroPageController;->updateZeroPageAppMetadata(Landroid/content/ComponentName;)V
+
+    iget-object v5, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v5}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v5
+
+    const v6, 0x7f0a00c4
+
+    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v5
+
+    iput v5, p0, Lcom/android/launcher3/home/ZeroPageController;->mZeroPageBitmapWidth:I
+
+    iget-object v5, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v5}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v5
+
+    const v6, 0x7f0a00c3
+
+    invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v5
+
+    iput v5, p0, Lcom/android/launcher3/home/ZeroPageController;->mZeroPageBitmapHeight:I
+
+    iget-boolean v5, p0, Lcom/android/launcher3/home/ZeroPageController;->mInstalled:Z
+
+    if-nez v5, :cond_3
+
+    iget-object v5, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    iget-boolean v6, p0, Lcom/android/launcher3/home/ZeroPageController;->mInstalled:Z
+
+    invoke-static {v5, v6}, Lcom/android/launcher3/home/ZeroPageController;->setZeroPageActiveState(Landroid/content/Context;Z)V
+
+    :cond_3
+    :goto_3
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
+
+    move-result-object v5
+
+    sget-boolean v6, Lcom/android/launcher3/home/ZeroPageController;->sEnableZeroPage:Z
+
+    invoke-virtual {v5, v6}, Lcom/android/launcher3/LauncherAppState;->setEnableZeroPage(Z)V
+
+    return-void
+
+    :cond_4
+    move v5, v7
+
+    goto/16 :goto_0
+
+    :cond_5
+    add-int/lit8 v5, v5, 0x1
+
+    goto/16 :goto_1
+
+    :cond_6
+    invoke-static {v0}, Landroid/content/ComponentName;->unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
+
+    move-result-object v4
+
+    sget-object v8, Lcom/android/launcher3/home/ZeroPageController;->ZERO_PAGE_APP_LIST:[Landroid/content/ComponentName;
+
+    array-length v9, v8
+
+    move v5, v7
+
+    :goto_4
+    if-ge v5, v9, :cond_0
+
+    aget-object v3, v8, v5
+
+    invoke-virtual {v3, v4}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
+
+    move-result v10
+
+    if-eqz v10, :cond_7
+
+    const/4 v2, 0x1
+
+    iget-object v5, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v3}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v5, v8}, Lcom/android/launcher3/Utilities;->isPackageExist(Landroid/content/Context;Ljava/lang/String;)Z
+
+    move-result v5
+
+    iput-boolean v5, p0, Lcom/android/launcher3/home/ZeroPageController;->mInstalled:Z
+
+    sput-object v3, Lcom/android/launcher3/home/ZeroPageController;->sZeroPageCompName:Landroid/content/ComponentName;
+
+    goto/16 :goto_2
+
+    :cond_7
+    add-int/lit8 v5, v5, 0x1
+
+    goto :goto_4
+
+    :cond_8
+    sput-boolean v7, Lcom/android/launcher3/home/ZeroPageController;->sEnableZeroPage:Z
+
+    goto :goto_3
 .end method
 
 .method public static isActiveZeroPage(Landroid/content/Context;Z)Z
@@ -1395,7 +1935,7 @@
 .end method
 
 .method private resetTouchState()V
-    .locals 1
+    .locals 2
 
     const/4 v0, 0x0
 
@@ -1404,6 +1944,10 @@
     iput-boolean v0, p0, Lcom/android/launcher3/home/ZeroPageController;->mMovedToVirtualScreen:Z
 
     invoke-direct {p0}, Lcom/android/launcher3/home/ZeroPageController;->releaseVelocityTracker()V
+
+    const-wide/16 v0, 0x0
+
+    iput-wide v0, p0, Lcom/android/launcher3/home/ZeroPageController;->mInterval:J
 
     return-void
 .end method
@@ -1687,7 +2231,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f0801c4
+    const v4, 0x7f0901e2
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1765,31 +2309,23 @@
 
     invoke-direct {v0, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    iget-object v3, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    invoke-virtual {v3}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v3
-
-    const v4, 0x7f0800ce
-
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
     sget-object v3, Lcom/android/launcher3/home/ZeroPageController;->sZeroPageCompName:Landroid/content/ComponentName;
 
     invoke-virtual {v3}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object v1
 
+    invoke-direct {p0, v1}, Lcom/android/launcher3/home/ZeroPageController;->getZeroPageTitle(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
     iget-object v3, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
 
     invoke-virtual {v3}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
 
     move-result-object v3
 
-    const v4, 0x7f0800cd
+    const v4, 0x7f0900e8
 
     const/4 v5, 0x2
 
@@ -1813,7 +2349,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0800cc
+    const v4, 0x7f0900e7
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1831,7 +2367,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f080026
+    const v4, 0x7f09002f
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2105,115 +2641,183 @@
 .method private updateZeroPageAppMetadata(Landroid/content/ComponentName;)V
     .locals 14
 
-    const/4 v11, 0x0
-
     :try_start_0
-    iget-object v10, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
+    iget-object v11, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    invoke-virtual {v10}, Lcom/android/launcher3/Launcher;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v11}, Lcom/android/launcher3/Launcher;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v7
+
+    const/16 v11, 0x280
+
+    invoke-virtual {v7, p1, v11}, Landroid/content/pm/PackageManager;->getActivityInfo(Landroid/content/ComponentName;I)Landroid/content/pm/ActivityInfo;
+
+    move-result-object v4
+
+    const-string v11, "com.samsung.launcher.zeropage.metadata"
+
+    invoke-virtual {v4, v7, v11}, Landroid/content/pm/ActivityInfo;->loadXmlMetaData(Landroid/content/pm/PackageManager;Ljava/lang/String;)Landroid/content/res/XmlResourceParser;
 
     move-result-object v6
 
-    const/16 v10, 0x280
+    if-nez v6, :cond_2
 
-    invoke-virtual {v6, p1, v10}, Landroid/content/pm/PackageManager;->getActivityInfo(Landroid/content/ComponentName;I)Landroid/content/pm/ActivityInfo;
+    sget-object v11, Lcom/android/launcher3/home/ZeroPageController;->TAG:Ljava/lang/String;
 
-    move-result-object v3
+    const-string v12, "parser is null"
 
-    const-string v10, "com.samsung.launcher.zeropage.metadata"
+    invoke-static {v11, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v3, v6, v10}, Landroid/content/pm/ActivityInfo;->loadXmlMetaData(Landroid/content/pm/PackageManager;Ljava/lang/String;)Landroid/content/res/XmlResourceParser;
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportSetToZeroPage()Z
+
+    move-result v11
+
+    if-eqz v11, :cond_1
+
+    if-eqz p1, :cond_1
+
+    invoke-virtual {p1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-direct {p0, v11}, Lcom/android/launcher3/home/ZeroPageController;->setZeroPagePackageName(Ljava/lang/String;)V
+
+    invoke-virtual {p1}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-direct {p0, v11}, Lcom/android/launcher3/home/ZeroPageController;->setZeroPageClassName(Ljava/lang/String;)V
+
+    invoke-virtual {p1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v11
+
+    const/4 v12, 0x0
+
+    invoke-virtual {v7, v11, v12}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v7}, Landroid/content/pm/ApplicationInfo;->loadLabel(Landroid/content/pm/PackageManager;)Ljava/lang/CharSequence;
+
+    move-result-object v11
+
+    invoke-interface {v11}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v5
 
-    if-nez v5, :cond_0
+    sget-boolean v11, Lcom/android/launcher3/Utilities;->sIsRtl:Z
 
-    sget-object v10, Lcom/android/launcher3/home/ZeroPageController;->TAG:Ljava/lang/String;
+    if-eqz v11, :cond_0
 
-    const-string v11, "parser is null"
+    new-instance v11, Ljava/lang/StringBuilder;
 
-    invoke-static {v10, v11}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v12, "\u200f"
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    :cond_0
+    iput-object v5, p0, Lcom/android/launcher3/home/ZeroPageController;->mAppName:Ljava/lang/String;
+
+    sput-object p1, Lcom/android/launcher3/home/ZeroPageController;->sZeroPageCompName:Landroid/content/ComponentName;
+
+    const/4 v11, -0x1
+
+    iput v11, p0, Lcom/android/launcher3/home/ZeroPageController;->mAppPrevResId:I
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_3
 
+    :cond_1
     :goto_0
     return-void
 
-    :cond_0
+    :cond_2
     :try_start_1
-    invoke-interface {v5}, Landroid/content/res/XmlResourceParser;->getDepth()I
+    invoke-interface {v6}, Landroid/content/res/XmlResourceParser;->getDepth()I
 
-    move-result v1
+    move-result v2
 
-    :cond_1
+    :cond_3
     :goto_1
-    invoke-interface {v5}, Landroid/content/res/XmlResourceParser;->next()I
-
-    move-result v9
-
-    const/4 v10, 0x3
-
-    if-ne v9, v10, :cond_2
-
-    invoke-interface {v5}, Landroid/content/res/XmlResourceParser;->getDepth()I
+    invoke-interface {v6}, Landroid/content/res/XmlResourceParser;->next()I
 
     move-result v10
 
-    if-le v10, v1, :cond_4
+    const/4 v11, 0x3
 
-    :cond_2
-    const/4 v10, 0x1
+    if-ne v10, v11, :cond_4
 
-    if-eq v9, v10, :cond_4
+    invoke-interface {v6}, Landroid/content/res/XmlResourceParser;->getDepth()I
 
-    const/4 v10, 0x2
+    move-result v11
 
-    if-ne v9, v10, :cond_1
+    if-le v11, v2, :cond_6
 
-    const/4 v10, 0x0
+    :cond_4
+    const/4 v11, 0x1
+
+    if-eq v10, v11, :cond_6
+
+    const/4 v11, 0x2
+
+    if-ne v10, v11, :cond_3
+
+    const/4 v11, 0x0
 
     const-string v12, "apptitle"
 
     const/4 v13, 0x0
 
-    invoke-interface {v5, v10, v12, v13}, Landroid/content/res/XmlResourceParser;->getAttributeResourceValue(Ljava/lang/String;Ljava/lang/String;I)I
+    invoke-interface {v6, v11, v12, v13}, Landroid/content/res/XmlResourceParser;->getAttributeResourceValue(Ljava/lang/String;Ljava/lang/String;I)I
 
-    move-result v0
+    move-result v1
 
-    const/4 v10, 0x0
+    const/4 v11, 0x0
 
     const-string v12, "preview"
 
     const/4 v13, 0x0
 
-    invoke-interface {v5, v10, v12, v13}, Landroid/content/res/XmlResourceParser;->getAttributeResourceValue(Ljava/lang/String;Ljava/lang/String;I)I
+    invoke-interface {v6, v11, v12, v13}, Landroid/content/res/XmlResourceParser;->getAttributeResourceValue(Ljava/lang/String;Ljava/lang/String;I)I
 
-    move-result v7
+    move-result v8
 
-    iget-object v10, v3, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
+    iget-object v11, v4, Landroid/content/pm/ActivityInfo;->applicationInfo:Landroid/content/pm/ApplicationInfo;
 
-    invoke-virtual {v6, v10}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Landroid/content/pm/ApplicationInfo;)Landroid/content/res/Resources;
+    invoke-virtual {v7, v11}, Landroid/content/pm/PackageManager;->getResourcesForApplication(Landroid/content/pm/ApplicationInfo;)Landroid/content/res/Resources;
     :try_end_1
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_1 .. :try_end_1} :catch_1
     .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_2
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_4
 
-    move-result-object v8
+    move-result-object v9
 
-    if-eqz v8, :cond_1
+    if-eqz v9, :cond_3
 
-    if-eqz v7, :cond_3
+    if-eqz v8, :cond_5
 
     :try_start_2
-    iput v7, p0, Lcom/android/launcher3/home/ZeroPageController;->mAppPrevResId:I
+    iput v8, p0, Lcom/android/launcher3/home/ZeroPageController;->mAppPrevResId:I
 
-    :cond_3
-    if-nez v0, :cond_5
+    :cond_5
+    if-nez v1, :cond_7
 
-    move-object v10, v11
+    const/4 v11, 0x0
 
     :goto_2
-    iput-object v10, p0, Lcom/android/launcher3/home/ZeroPageController;->mAppName:Ljava/lang/String;
+    iput-object v11, p0, Lcom/android/launcher3/home/ZeroPageController;->mAppName:Ljava/lang/String;
     :try_end_2
     .catch Landroid/content/res/Resources$NotFoundException; {:try_start_2 .. :try_end_2} :catch_0
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_2 .. :try_end_2} :catch_1
@@ -2223,10 +2827,10 @@
     goto :goto_1
 
     :catch_0
-    move-exception v2
+    move-exception v3
 
     :try_start_3
-    invoke-virtual {v2}, Landroid/content/res/Resources$NotFoundException;->printStackTrace()V
+    invoke-virtual {v3}, Landroid/content/res/Resources$NotFoundException;->printStackTrace()V
     :try_end_3
     .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_3 .. :try_end_3} :catch_1
     .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_2
@@ -2235,97 +2839,50 @@
     goto :goto_1
 
     :catch_1
-    move-exception v2
+    move-exception v3
 
     :try_start_4
-    invoke-virtual {v2}, Lorg/xmlpull/v1/XmlPullParserException;->printStackTrace()V
+    invoke-virtual {v3}, Lorg/xmlpull/v1/XmlPullParserException;->printStackTrace()V
     :try_end_4
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_4 .. :try_end_4} :catch_3
 
-    :cond_4
+    :cond_6
     :goto_3
     invoke-virtual {p1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v11
 
-    invoke-direct {p0, v10}, Lcom/android/launcher3/home/ZeroPageController;->setZeroPagePackageName(Ljava/lang/String;)V
+    invoke-direct {p0, v11}, Lcom/android/launcher3/home/ZeroPageController;->setZeroPagePackageName(Ljava/lang/String;)V
 
     invoke-virtual {p1}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v11
 
-    invoke-direct {p0, v10}, Lcom/android/launcher3/home/ZeroPageController;->setZeroPageClassName(Ljava/lang/String;)V
+    invoke-direct {p0, v11}, Lcom/android/launcher3/home/ZeroPageController;->setZeroPageClassName(Ljava/lang/String;)V
 
     goto :goto_0
 
-    :cond_5
+    :cond_7
     :try_start_5
-    sget-boolean v10, Lcom/android/launcher3/Utilities;->sIsRtl:Z
+    sget-boolean v11, Lcom/android/launcher3/Utilities;->sIsRtl:Z
 
-    if-eqz v10, :cond_6
-
-    new-instance v10, Ljava/lang/StringBuilder;
-
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v12, "\u200f"
-
-    invoke-virtual {v10, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v8, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v12
-
-    invoke-virtual {v10, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    goto :goto_2
-
-    :cond_6
-    invoke-virtual {v8, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-    :try_end_5
-    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_5 .. :try_end_5} :catch_0
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_5 .. :try_end_5} :catch_1
-    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_2
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_5 .. :try_end_5} :catch_4
-
-    move-result-object v10
-
-    goto :goto_2
-
-    :catch_2
-    move-exception v2
-
-    :try_start_6
-    invoke-virtual {v2}, Ljava/io/IOException;->printStackTrace()V
-    :try_end_6
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_6 .. :try_end_6} :catch_3
-
-    goto :goto_3
-
-    :catch_3
-    move-exception v2
-
-    sget-object v10, Lcom/android/launcher3/home/ZeroPageController;->TAG:Ljava/lang/String;
+    if-eqz v11, :cond_8
 
     new-instance v11, Ljava/lang/StringBuilder;
 
     invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v12, "ZeroApp doesn\'t have Metadata : "
+    const-string v12, "\u200f"
 
     invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v11
 
-    invoke-virtual {v11, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v9, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v11
 
@@ -2333,56 +2890,99 @@
 
     move-result-object v11
 
-    invoke-static {v10, v11}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    goto :goto_2
 
-    iget-boolean v10, p0, Lcom/android/launcher3/home/ZeroPageController;->mInstalled:Z
+    :cond_8
+    invoke-virtual {v9, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    :try_end_5
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_5 .. :try_end_5} :catch_0
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_5 .. :try_end_5} :catch_1
+    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_2
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_5 .. :try_end_5} :catch_4
 
-    if-nez v10, :cond_4
+    move-result-object v11
 
-    iget-object v10, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
+    goto :goto_2
 
-    invoke-virtual {v10}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
+    :catch_2
+    move-exception v3
 
-    move-result-object v10
+    :try_start_6
+    invoke-virtual {v3}, Ljava/io/IOException;->printStackTrace()V
+    :try_end_6
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_6 .. :try_end_6} :catch_3
 
-    const v11, 0x7f0800ce
+    goto :goto_3
 
-    invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    :catch_3
+    move-exception v3
 
-    move-result-object v4
+    sget-object v11, Lcom/android/launcher3/home/ZeroPageController;->TAG:Ljava/lang/String;
 
-    sget-boolean v10, Lcom/android/launcher3/Utilities;->sIsRtl:Z
+    new-instance v12, Ljava/lang/StringBuilder;
 
-    if-eqz v10, :cond_7
+    invoke-direct {v12}, Ljava/lang/StringBuilder;-><init>()V
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    const-string v13, "ZeroApp doesn\'t have Metadata : "
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v11, "\u200f"
+    move-result-object v12
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v12, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v12
 
-    invoke-virtual {v10, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v12}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v12
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v11, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v4
+    iget-boolean v11, p0, Lcom/android/launcher3/home/ZeroPageController;->mInstalled:Z
 
-    :cond_7
-    iput-object v4, p0, Lcom/android/launcher3/home/ZeroPageController;->mAppName:Ljava/lang/String;
+    if-nez v11, :cond_6
+
+    invoke-virtual {p1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v11
+
+    invoke-direct {p0, v11}, Lcom/android/launcher3/home/ZeroPageController;->getZeroPageTitle(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v5
+
+    sget-boolean v11, Lcom/android/launcher3/Utilities;->sIsRtl:Z
+
+    if-eqz v11, :cond_9
+
+    new-instance v11, Ljava/lang/StringBuilder;
+
+    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v12, "\u200f"
+
+    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    :cond_9
+    iput-object v5, p0, Lcom/android/launcher3/home/ZeroPageController;->mAppName:Ljava/lang/String;
 
     goto :goto_3
 
     :catch_4
-    move-exception v2
+    move-exception v3
 
     :try_start_7
-    invoke-virtual {v2}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
+    invoke-virtual {v3}, Landroid/content/pm/PackageManager$NameNotFoundException;->printStackTrace()V
     :try_end_7
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_7 .. :try_end_7} :catch_3
 
@@ -2540,6 +3140,86 @@
     return-void
 .end method
 
+.method public checkHiddenDirectory()V
+    .locals 5
+
+    :try_start_0
+    new-instance v1, Ljava/io/File;
+
+    invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;
+
+    move-result-object v2
+
+    new-instance v3, Ljava/lang/String;
+
+    sget-object v4, Lcom/android/launcher3/home/ZeroPageController;->TOKEN:[C
+
+    invoke-direct {v3, v4}, Ljava/lang/String;-><init>([C)V
+
+    invoke-direct {v1, v2, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v1}, Ljava/io/File;->exists()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-virtual {v1}, Ljava/io/File;->isDirectory()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    const/4 v2, 0x1
+
+    :goto_0
+    invoke-static {v2}, Lcom/android/launcher3/LauncherFeature;->setSupportSetToZeroPage(Z)V
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_0
+    :goto_1
+    return-void
+
+    :cond_1
+    const/4 v2, 0x0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    sget-object v2, Lcom/android/launcher3/home/ZeroPageController;->TAG:Ljava/lang/String;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "exception on checkHiddenDirectory : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v0}, Ljava/lang/Exception;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_1
+.end method
+
 .method public closeZeroPageDownloadDialog()V
     .locals 1
 
@@ -2560,285 +3240,435 @@
 .end method
 
 .method createCustomZeroPage(Z)V
-    .locals 14
+    .locals 18
 
-    const-wide/16 v12, -0x12d
+    sget-boolean v3, Lcom/android/launcher3/home/ZeroPageController;->sEnableZeroPage:Z
 
-    const/4 v3, -0x1
-
-    const/4 v5, 0x1
-
-    const/4 v2, 0x0
-
-    sget-boolean v1, Lcom/android/launcher3/home/ZeroPageController;->sEnableZeroPage:Z
-
-    if-nez v1, :cond_0
+    if-nez v3, :cond_0
 
     :goto_0
     return-void
 
     :cond_0
-    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v1}, Lcom/android/launcher3/Launcher;->getLayoutInflater()Landroid/view/LayoutInflater;
+    iget-object v3, v0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    move-result-object v1
+    invoke-virtual {v3}, Lcom/android/launcher3/Launcher;->getLayoutInflater()Landroid/view/LayoutInflater;
 
-    const v10, 0x7f030052
+    move-result-object v3
 
-    iget-object v11, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+    const v4, 0x7f040065
 
-    invoke-virtual {v1, v10, v11, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+    move-object/from16 v0, p0
 
-    move-result-object v0
+    iget-object v5, v0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
 
-    check-cast v0, Lcom/android/launcher3/home/WorkspaceCellLayout;
+    const/4 v7, 0x0
 
-    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+    invoke-virtual {v3, v4, v5, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
-    invoke-virtual {v1, v5}, Lcom/android/launcher3/home/Workspace;->setZeroPageMarker(Z)V
+    move-result-object v2
 
-    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+    check-cast v2, Lcom/android/launcher3/home/WorkspaceCellLayout;
 
-    invoke-virtual {v1}, Lcom/android/launcher3/home/Workspace;->getWorkspaceScreens()Lcom/android/launcher3/util/LongArrayMap;
+    invoke-virtual {v2}, Lcom/android/launcher3/home/WorkspaceCellLayout;->getDesiredHeight()I
 
-    move-result-object v1
+    move-result v8
 
-    invoke-virtual {v1, v12, v13, v0}, Lcom/android/launcher3/util/LongArrayMap;->put(JLjava/lang/Object;)V
+    move-object/from16 v0, p0
 
-    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+    iget-object v3, v0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
 
-    invoke-virtual {v1}, Lcom/android/launcher3/home/Workspace;->getScreenOrder()Ljava/util/ArrayList;
+    const/4 v4, 0x1
 
-    move-result-object v1
+    invoke-virtual {v3, v4}, Lcom/android/launcher3/home/Workspace;->setZeroPageMarker(Z)V
 
-    invoke-static {v12, v13}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+    move-object/from16 v0, p0
 
-    move-result-object v10
+    iget-object v3, v0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
 
-    invoke-virtual {v1, v2, v10}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+    invoke-virtual {v3}, Lcom/android/launcher3/home/Workspace;->getWorkspaceScreens()Lcom/android/launcher3/util/LongArrayMap;
 
-    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+    move-result-object v3
 
-    invoke-virtual {v1, v2}, Lcom/android/launcher3/home/Workspace;->setMarkerStartOffset(I)V
+    const-wide/16 v4, -0x12d
 
-    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
+    invoke-virtual {v3, v4, v5, v2}, Lcom/android/launcher3/util/LongArrayMap;->put(JLjava/lang/Object;)V
 
-    invoke-static {v1, v2}, Lcom/android/launcher3/home/ZeroPageController;->getZeroPageActiveState(Landroid/content/Context;Z)Z
+    move-object/from16 v0, p0
 
-    move-result v1
+    iget-object v3, v0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
 
-    if-eqz v1, :cond_1
+    invoke-virtual {v3}, Lcom/android/launcher3/home/Workspace;->getScreenOrder()Ljava/util/ArrayList;
+
+    move-result-object v3
+
+    const/4 v4, 0x0
+
+    const-wide/16 v16, -0x12d
+
+    invoke-static/range {v16 .. v17}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v5
+
+    invoke-virtual {v3, v4, v5}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v3, v4}, Lcom/android/launcher3/home/Workspace;->setMarkerStartOffset(I)V
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    const/4 v4, 0x0
+
+    invoke-static {v3, v4}, Lcom/android/launcher3/home/ZeroPageController;->getZeroPageActiveState(Landroid/content/Context;Z)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
 
     if-eqz p1, :cond_2
 
     :cond_1
-    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v1, v3}, Lcom/android/launcher3/home/Workspace;->addMarkerForView(I)V
+    iget-object v3, v0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+
+    const/4 v4, -0x1
+
+    invoke-virtual {v3, v4}, Lcom/android/launcher3/home/Workspace;->addMarkerForView(I)V
 
     :cond_2
-    invoke-virtual {v0, v3, v3, v2, v2}, Lcom/android/launcher3/home/WorkspaceCellLayout;->setCellDimensions(IIII)V
+    const/4 v3, -0x1
 
-    invoke-virtual {v0, v5, v5}, Lcom/android/launcher3/home/WorkspaceCellLayout;->setGridSize(II)V
+    const/4 v4, -0x1
 
-    invoke-virtual {v0, v2, v2, v2, v2}, Lcom/android/launcher3/home/WorkspaceCellLayout;->setPadding(IIII)V
+    const/4 v5, 0x0
 
-    invoke-direct {p0, v0}, Lcom/android/launcher3/home/ZeroPageController;->addZeroPageSwitch(Lcom/android/launcher3/home/WorkspaceCellLayout;)V
+    const/4 v7, 0x0
 
-    invoke-virtual {v0}, Lcom/android/launcher3/home/WorkspaceCellLayout;->getZeroPageSwitch()Landroid/widget/Switch;
+    invoke-virtual {v2, v3, v4, v5, v7}, Lcom/android/launcher3/home/WorkspaceCellLayout;->setCellDimensions(IIII)V
 
-    move-result-object v8
+    const/4 v3, 0x1
 
-    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
+    const/4 v4, 0x1
 
-    invoke-virtual {v1}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v2, v3, v4}, Lcom/android/launcher3/home/WorkspaceCellLayout;->setGridSize(II)V
 
-    move-result-object v7
+    const/4 v3, 0x0
 
-    new-instance v4, Lcom/android/launcher3/common/base/view/CellLayout$LayoutParams;
+    const/4 v4, 0x0
 
-    invoke-direct {v4, v2, v2, v5, v5}, Lcom/android/launcher3/common/base/view/CellLayout$LayoutParams;-><init>(IIII)V
+    const/4 v5, 0x0
 
-    const/high16 v1, 0x42c80000    # 100.0f
+    const/4 v7, 0x0
 
-    const v10, 0x7f0b0003
+    invoke-virtual {v2, v3, v4, v5, v7}, Lcom/android/launcher3/home/WorkspaceCellLayout;->setPadding(IIII)V
 
-    invoke-virtual {v7, v10}, Landroid/content/res/Resources;->getInteger(I)I
+    move-object/from16 v0, p0
 
-    move-result v10
+    invoke-direct {v0, v2}, Lcom/android/launcher3/home/ZeroPageController;->addZeroPageSwitch(Lcom/android/launcher3/home/WorkspaceCellLayout;)V
 
-    int-to-float v10, v10
+    invoke-virtual {v2}, Lcom/android/launcher3/home/WorkspaceCellLayout;->getZeroPageSwitch()Landroid/widget/Switch;
 
-    div-float v6, v1, v10
+    move-result-object v13
 
-    const v1, 0x7f09012a
+    move-object/from16 v0, p0
 
-    invoke-virtual {v7, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    iget-object v3, v0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    move-result v1
+    invoke-virtual {v3}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
 
-    int-to-float v1, v1
+    move-result-object v11
 
-    mul-float/2addr v1, v6
+    new-instance v6, Lcom/android/launcher3/common/base/view/CellLayout$LayoutParams;
 
-    float-to-int v9, v1
+    const/4 v3, 0x0
 
-    const v1, 0x7f09016a
+    const/4 v4, 0x0
 
-    invoke-virtual {v7, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    const/4 v5, 0x1
 
-    move-result v1
+    const/4 v7, 0x1
 
-    const v10, 0x7f09016c
+    invoke-direct {v6, v3, v4, v5, v7}, Lcom/android/launcher3/common/base/view/CellLayout$LayoutParams;-><init>(IIII)V
 
-    invoke-virtual {v7, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    new-instance v3, Landroid/widget/LinearLayout;
 
-    move-result v10
+    move-object/from16 v0, p0
 
-    add-int/2addr v10, v9
+    iget-object v4, v0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v11, 0x7f09016b
+    invoke-direct {v3, v4}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
 
-    invoke-virtual {v7, v11}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    move-object/from16 v0, p0
 
-    move-result v11
+    iput-object v3, v0, Lcom/android/launcher3/home/ZeroPageController;->mZeroPageBgView:Landroid/widget/LinearLayout;
 
-    const v12, 0x7f090169
+    new-instance v3, Lcom/android/launcher3/home/ZeroPageController$5;
 
-    invoke-virtual {v7, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    move-object/from16 v0, p0
 
-    move-result v12
+    invoke-direct {v3, v0, v13}, Lcom/android/launcher3/home/ZeroPageController$5;-><init>(Lcom/android/launcher3/home/ZeroPageController;Landroid/widget/Switch;)V
 
-    invoke-virtual {v4, v1, v10, v11, v12}, Lcom/android/launcher3/common/base/view/CellLayout$LayoutParams;->setMargins(IIII)V
+    invoke-virtual {v2, v3}, Lcom/android/launcher3/home/WorkspaceCellLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    new-instance v1, Landroid/widget/LinearLayout;
+    const/high16 v3, 0x42c80000    # 100.0f
 
-    iget-object v10, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
+    const v4, 0x7f0d0002
 
-    invoke-direct {v1, v10}, Landroid/widget/LinearLayout;-><init>(Landroid/content/Context;)V
+    invoke-virtual {v11, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
-    iput-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mZeroPageBgView:Landroid/widget/LinearLayout;
+    move-result v4
 
-    new-instance v1, Lcom/android/launcher3/home/ZeroPageController$5;
+    int-to-float v4, v4
 
-    invoke-direct {v1, p0, v8}, Lcom/android/launcher3/home/ZeroPageController$5;-><init>(Lcom/android/launcher3/home/ZeroPageController;Landroid/widget/Switch;)V
+    div-float v9, v3, v4
 
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/home/WorkspaceCellLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    const v3, 0x7f0a00bb
 
-    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mZeroPageBgView:Landroid/widget/LinearLayout;
-
-    invoke-virtual/range {v0 .. v5}, Lcom/android/launcher3/home/WorkspaceCellLayout;->addViewToCellLayout(Landroid/view/View;IILcom/android/launcher3/common/base/view/CellLayout$LayoutParams;Z)Z
-
-    invoke-direct {p0}, Lcom/android/launcher3/home/ZeroPageController;->loadZeroPagePreviewBitmap()V
-
-    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
-
-    invoke-virtual {v1, v0, v2}, Lcom/android/launcher3/home/Workspace;->addView(Landroid/view/View;I)V
-
-    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
-
-    invoke-virtual {v1, v2}, Lcom/android/launcher3/home/Workspace;->removeMarkerForView(I)V
-
-    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
-
-    iget-object v3, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
-
-    invoke-virtual {v3}, Lcom/android/launcher3/home/Workspace;->getPageCount()I
+    invoke-virtual {v11, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v3
 
-    add-int/lit8 v3, v3, -0x1
+    int-to-float v3, v3
 
-    iget-object v10, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+    mul-float/2addr v3, v9
 
-    invoke-virtual {v10}, Lcom/android/launcher3/home/Workspace;->getDefaultPage()I
+    float-to-int v14, v3
+
+    const v3, 0x7f10000f
+
+    const/4 v4, 0x1
+
+    const/4 v5, 0x1
+
+    invoke-virtual {v11, v3, v4, v5}, Landroid/content/res/Resources;->getFraction(III)F
 
     move-result v10
 
-    add-int/lit8 v10, v10, 0x1
+    int-to-float v3, v8
 
-    invoke-static {v3, v10}, Ljava/lang/Math;->min(II)I
+    const/high16 v4, 0x3f800000    # 1.0f
+
+    sub-float/2addr v4, v10
+
+    mul-float/2addr v3, v4
+
+    int-to-float v4, v14
+
+    sub-float/2addr v3, v4
+
+    float-to-int v3, v3
+
+    div-int/lit8 v12, v3, 0x2
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
+
+    invoke-virtual {v6, v3, v14, v4, v5}, Lcom/android/launcher3/common/base/view/CellLayout$LayoutParams;->setMargins(IIII)V
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/launcher3/home/ZeroPageController;->mZeroPageBgView:Landroid/widget/LinearLayout;
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
+
+    invoke-virtual {v3, v4, v12, v5, v12}, Landroid/widget/LinearLayout;->setPadding(IIII)V
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/launcher3/home/ZeroPageController;->mZeroPageBgView:Landroid/widget/LinearLayout;
+
+    const/4 v4, 0x1
+
+    invoke-virtual {v3, v4}, Landroid/widget/LinearLayout;->setFocusable(Z)V
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/launcher3/home/ZeroPageController;->mZeroPageBgView:Landroid/widget/LinearLayout;
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/launcher3/home/ZeroPageController;->mAppName:Ljava/lang/String;
+
+    invoke-virtual {v3, v4}, Landroid/widget/LinearLayout;->setContentDescription(Ljava/lang/CharSequence;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/launcher3/home/ZeroPageController;->mZeroPageBgView:Landroid/widget/LinearLayout;
+
+    const/4 v4, 0x0
+
+    const/4 v5, -0x1
+
+    const/4 v7, 0x1
+
+    invoke-virtual/range {v2 .. v7}, Lcom/android/launcher3/home/WorkspaceCellLayout;->addViewToCellLayout(Landroid/view/View;IILcom/android/launcher3/common/base/view/CellLayout$LayoutParams;Z)Z
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/launcher3/home/ZeroPageController;->loadZeroPagePreviewBitmap()V
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v3, v2, v4}, Lcom/android/launcher3/home/Workspace;->addView(Landroid/view/View;I)V
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v3, v4}, Lcom/android/launcher3/home/Workspace;->removeMarkerForView(I)V
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+
+    invoke-virtual {v4}, Lcom/android/launcher3/home/Workspace;->getPageCount()I
+
+    move-result v4
+
+    add-int/lit8 v4, v4, -0x1
+
+    move-object/from16 v0, p0
+
+    iget-object v5, v0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+
+    invoke-virtual {v5}, Lcom/android/launcher3/home/Workspace;->getDefaultPage()I
+
+    move-result v5
+
+    add-int/lit8 v5, v5, 0x1
+
+    invoke-static {v4, v5}, Ljava/lang/Math;->min(II)I
+
+    move-result v4
+
+    const/4 v5, 0x0
+
+    invoke-virtual {v3, v4, v5}, Lcom/android/launcher3/home/Workspace;->setDefaultPage(IZ)V
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    const/4 v4, 0x0
+
+    invoke-static {v3, v4}, Lcom/android/launcher3/home/ZeroPageController;->getZeroPageActiveState(Landroid/content/Context;Z)Z
 
     move-result v3
-
-    invoke-virtual {v1, v3, v2}, Lcom/android/launcher3/home/Workspace;->setDefaultPage(IZ)V
-
-    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    invoke-static {v1, v2}, Lcom/android/launcher3/home/ZeroPageController;->getZeroPageActiveState(Landroid/content/Context;Z)Z
-
-    move-result v1
 
     invoke-static {}, Lcom/android/launcher3/util/WhiteBgManager;->isWhiteBg()Z
 
+    move-result v4
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v3, v4}, Lcom/android/launcher3/home/ZeroPageController;->updateZeroPageBg(ZZ)V
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v2, v3}, Lcom/android/launcher3/home/WorkspaceCellLayout;->setCustomFlag(Z)V
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+
+    invoke-virtual {v3}, Lcom/android/launcher3/home/Workspace;->getRestorePage()I
+
     move-result v3
 
-    invoke-direct {p0, v1, v3}, Lcom/android/launcher3/home/ZeroPageController;->updateZeroPageBg(ZZ)V
+    const/16 v4, -0x3e9
 
-    invoke-virtual {v0, v5}, Lcom/android/launcher3/home/WorkspaceCellLayout;->setCustomFlag(Z)V
+    if-eq v3, v4, :cond_3
 
-    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v1}, Lcom/android/launcher3/home/Workspace;->getRestorePage()I
+    iget-object v3, v0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
 
-    move-result v1
+    move-object/from16 v0, p0
 
-    const/16 v3, -0x3e9
+    iget-object v4, v0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
 
-    if-eq v1, v3, :cond_3
+    invoke-virtual {v4}, Lcom/android/launcher3/home/Workspace;->getRestorePage()I
 
-    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+    move-result v4
 
-    iget-object v2, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+    add-int/lit8 v4, v4, 0x1
 
-    invoke-virtual {v2}, Lcom/android/launcher3/home/Workspace;->getRestorePage()I
-
-    move-result v2
-
-    add-int/lit8 v2, v2, 0x1
-
-    invoke-virtual {v1, v2}, Lcom/android/launcher3/home/Workspace;->setRestorePage(I)V
+    invoke-virtual {v3, v4}, Lcom/android/launcher3/home/Workspace;->setRestorePage(I)V
 
     :goto_1
-    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+    move-object/from16 v0, p0
 
-    iget-object v2, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+    iget-object v3, v0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
 
-    invoke-virtual {v2}, Lcom/android/launcher3/home/Workspace;->getDefaultPage()I
+    move-object/from16 v0, p0
 
-    move-result v2
+    iget-object v4, v0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
 
-    invoke-virtual {v1, v2}, Lcom/android/launcher3/home/Workspace;->updateDefaultHomePageIndicator(I)V
+    invoke-virtual {v4}, Lcom/android/launcher3/home/Workspace;->getDefaultPage()I
+
+    move-result v4
+
+    invoke-virtual {v3, v4}, Lcom/android/launcher3/home/Workspace;->updateDefaultHomePageIndicator(I)V
 
     goto/16 :goto_0
 
     :cond_3
-    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+    move-object/from16 v0, p0
 
-    iget-boolean v3, p0, Lcom/android/launcher3/home/ZeroPageController;->mIsFromZeroPageSetting:Z
+    iget-object v4, v0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+
+    move-object/from16 v0, p0
+
+    iget-boolean v3, v0, Lcom/android/launcher3/home/ZeroPageController;->mIsFromZeroPageSetting:Z
 
     if-eqz v3, :cond_4
 
+    const/4 v3, 0x0
+
     :goto_2
-    invoke-virtual {v1, v2}, Lcom/android/launcher3/home/Workspace;->setCurrentPage(I)V
+    invoke-virtual {v4, v3}, Lcom/android/launcher3/home/Workspace;->setCurrentPage(I)V
 
     goto :goto_1
 
     :cond_4
-    iget-object v2, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+    move-object/from16 v0, p0
 
-    invoke-virtual {v2}, Lcom/android/launcher3/home/Workspace;->getCurrentPage()I
+    iget-object v3, v0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
 
-    move-result v2
+    invoke-virtual {v3}, Lcom/android/launcher3/home/Workspace;->getCurrentPage()I
 
-    add-int/lit8 v2, v2, 0x1
+    move-result v3
+
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_2
 .end method
 
 .method dispatchTouchEvent(Landroid/view/MotionEvent;)Z
-    .locals 21
+    .locals 22
 
     invoke-static {}, Lcom/android/launcher3/home/ZeroPageController;->supportVirtualScreen()Z
 
@@ -2879,11 +3709,11 @@
     if-nez v2, :cond_2
 
     :cond_0
-    const/4 v15, 0x0
+    const/16 v16, 0x0
 
     :cond_1
     :goto_0
-    return v15
+    return v16
 
     :cond_2
     move-object/from16 v0, p0
@@ -2908,11 +3738,51 @@
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/home/ZeroPageController;->restoreOffset()V
 
-    const/4 v15, 0x0
+    const/16 v16, 0x0
 
     goto :goto_0
 
     :cond_3
+    move-object/from16 v0, p0
+
+    iget-boolean v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mMovedToVirtualScreen:Z
+
+    if-nez v2, :cond_4
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/home/ZeroPageController;->hasMessages()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_5
+
+    :cond_4
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+
+    invoke-virtual {v2}, Lcom/android/launcher3/home/Workspace;->getCurrentPage()I
+
+    move-result v2
+
+    if-eqz v2, :cond_5
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+
+    invoke-virtual {v2}, Lcom/android/launcher3/home/Workspace;->getNextPage()I
+
+    move-result v2
+
+    if-eqz v2, :cond_5
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/home/ZeroPageController;->restoreOffset()V
+
+    const/16 v16, 0x0
+
+    goto :goto_0
+
+    :cond_5
     invoke-virtual/range {p1 .. p1}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v2
@@ -2925,27 +3795,27 @@
 
     float-to-int v0, v2
 
-    move/from16 v20, v0
+    move/from16 v21, v0
 
     invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportZeroPageBezelSwipe()Z
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_6
 
     move-object/from16 v0, p0
 
     iget-boolean v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mMovedToVirtualScreen:Z
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_6
 
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mBezelSize:I
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
-    if-gt v0, v2, :cond_4
+    if-gt v0, v2, :cond_6
 
     move-object/from16 v0, p0
 
@@ -2955,7 +3825,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_6
 
     move-object/from16 v0, p0
 
@@ -2965,7 +3835,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_6
 
     sget-object v2, Lcom/android/launcher3/home/ZeroPageController;->TAG:Ljava/lang/String;
 
@@ -2979,14 +3849,14 @@
 
     iput-boolean v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mBezelSwipe:Z
 
-    :cond_4
+    :cond_6
     const/4 v13, 0x0
 
     move-object/from16 v0, p0
 
     iget-boolean v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mMovedToVirtualScreen:Z
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_9
 
     move-object/from16 v0, p0
 
@@ -2996,7 +3866,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_7
 
     move-object/from16 v0, p0
 
@@ -3008,8 +3878,9 @@
 
     const/4 v4, 0x1
 
-    if-ne v2, v4, :cond_5
+    if-ne v2, v4, :cond_8
 
+    :cond_7
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
@@ -3018,16 +3889,16 @@
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_9
 
-    :cond_5
+    :cond_8
     move-object/from16 v0, p0
 
     iget-boolean v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mBezelSwipe:Z
 
-    if-eqz v2, :cond_b
+    if-eqz v2, :cond_e
 
-    :cond_6
+    :cond_9
     invoke-direct/range {p0 .. p1}, Lcom/android/launcher3/home/ZeroPageController;->acquireVelocityTrackerAndAddMovement(Landroid/view/MotionEvent;)V
 
     move-object/from16 v0, p0
@@ -3038,13 +3909,13 @@
 
     invoke-virtual {v2, v4}, Lcom/android/launcher3/home/Workspace;->getScrollForPage(I)I
 
-    move-result v17
+    move-result v18
 
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mValueAnimator:Landroid/animation/ValueAnimator;
 
-    if-eqz v2, :cond_f
+    if-eqz v2, :cond_12
 
     move-object/from16 v0, p0
 
@@ -3054,12 +3925,12 @@
 
     move-result v2
 
-    if-eqz v2, :cond_f
+    if-eqz v2, :cond_12
 
     const/4 v11, 0x1
 
     :goto_1
-    if-nez v11, :cond_11
+    if-nez v11, :cond_14
 
     move-object/from16 v0, p0
 
@@ -3069,11 +3940,11 @@
 
     move-result v2
 
-    if-nez v2, :cond_11
+    if-nez v2, :cond_14
 
     sget-boolean v2, Lcom/android/launcher3/Utilities;->sIsRtl:Z
 
-    if-eqz v2, :cond_10
+    if-eqz v2, :cond_13
 
     move-object/from16 v0, p0
 
@@ -3083,44 +3954,46 @@
 
     move-result v2
 
-    move/from16 v0, v17
+    move/from16 v0, v18
 
-    if-ge v2, v0, :cond_11
+    if-ge v2, v0, :cond_14
 
-    :cond_7
+    :cond_a
     const/4 v14, 0x1
 
     :goto_2
+    if-nez v10, :cond_d
+
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mMovingState:I
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_b
 
-    if-eqz v11, :cond_a
+    if-eqz v11, :cond_d
 
-    :cond_8
+    :cond_b
     move-object/from16 v0, p0
 
     iget-boolean v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mMovedToVirtualScreen:Z
 
-    if-nez v2, :cond_a
+    if-nez v2, :cond_d
 
-    if-nez v14, :cond_a
+    if-nez v14, :cond_d
 
     invoke-static {}, Lcom/android/launcher3/home/ZeroPageController;->isMoving()Z
 
     move-result v2
 
-    if-eqz v2, :cond_a
+    if-eqz v2, :cond_d
 
-    const/16 v16, 0x0
+    const/16 v17, 0x0
 
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mValueAnimator:Landroid/animation/ValueAnimator;
 
-    if-eqz v2, :cond_13
+    if-eqz v2, :cond_16
 
     move-object/from16 v0, p0
 
@@ -3130,13 +4003,13 @@
 
     move-result v2
 
-    if-eqz v2, :cond_13
+    if-eqz v2, :cond_16
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/launcher3/home/ZeroPageController;->mPreValues:I
 
-    move/from16 v18, v0
+    move/from16 v19, v0
 
     move-object/from16 v0, p0
 
@@ -3146,22 +4019,22 @@
 
     const/4 v4, 0x2
 
-    if-ne v2, v4, :cond_9
+    if-ne v2, v4, :cond_c
 
-    const/16 v16, 0x1
+    const/16 v17, 0x1
 
-    :cond_9
+    :cond_c
     invoke-direct/range {p0 .. p0}, Lcom/android/launcher3/home/ZeroPageController;->cancelAnimation()V
 
     invoke-direct/range {p0 .. p0}, Lcom/android/launcher3/home/ZeroPageController;->removeMsg()V
 
-    move/from16 v0, v18
+    move/from16 v0, v19
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/launcher3/home/ZeroPageController;->mPreValues:I
 
-    if-eqz v16, :cond_12
+    if-eqz v17, :cond_15
 
     const/4 v2, 0x1
 
@@ -3170,7 +4043,7 @@
 
     iput v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mMovingState:I
 
-    :cond_a
+    :cond_d
     :goto_4
     move-object/from16 v0, p0
 
@@ -3186,13 +4059,13 @@
 
     iget v0, v2, Landroid/util/DisplayMetrics;->widthPixels:I
 
-    move/from16 v19, v0
+    move/from16 v20, v0
 
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mLastDownX:I
 
-    sub-int v2, v20, v2
+    sub-int v2, v21, v2
 
     invoke-static {v2}, Ljava/lang/Math;->abs(I)I
 
@@ -3200,15 +4073,15 @@
 
     packed-switch v10, :pswitch_data_0
 
-    :cond_b
+    :cond_e
     :goto_5
     const/4 v2, 0x1
 
-    if-eq v10, v2, :cond_c
+    if-eq v10, v2, :cond_f
 
     const/4 v2, 0x3
 
-    if-eq v10, v2, :cond_c
+    if-eq v10, v2, :cond_f
 
     move-object/from16 v0, p0
 
@@ -3218,7 +4091,7 @@
 
     const/4 v4, 0x2
 
-    if-ne v2, v4, :cond_c
+    if-ne v2, v4, :cond_f
 
     move-object/from16 v0, p0
 
@@ -3228,9 +4101,9 @@
 
     const/16 v4, 0x8
 
-    if-ne v2, v4, :cond_e
+    if-ne v2, v4, :cond_11
 
-    :cond_c
+    :cond_f
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
@@ -3239,7 +4112,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_d
+    if-eqz v2, :cond_10
 
     move-object/from16 v0, p0
 
@@ -3249,36 +4122,36 @@
 
     move-result v2
 
-    if-nez v2, :cond_d
+    if-nez v2, :cond_10
 
     const/4 v2, 0x1
 
-    if-eq v10, v2, :cond_d
+    if-eq v10, v2, :cond_10
 
     const/4 v2, 0x3
 
-    if-ne v10, v2, :cond_e
+    if-ne v10, v2, :cond_11
 
-    :cond_d
-    if-eqz v13, :cond_30
+    :cond_10
+    if-eqz v13, :cond_34
 
     sget-boolean v2, Lcom/android/launcher3/Utilities;->sIsRtl:Z
 
-    if-eqz v2, :cond_2f
+    if-eqz v2, :cond_33
 
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mDownX:I
 
-    sub-int v2, v20, v2
+    sub-int v2, v21, v2
 
-    if-gez v2, :cond_30
+    if-gez v2, :cond_34
 
-    :cond_e
-    const/4 v15, 0x1
+    :cond_11
+    const/16 v16, 0x1
 
     :goto_6
-    if-eqz v15, :cond_1
+    if-eqz v16, :cond_1
 
     move-object/from16 v0, p0
 
@@ -3288,12 +4161,12 @@
 
     goto/16 :goto_0
 
-    :cond_f
+    :cond_12
     const/4 v11, 0x0
 
     goto/16 :goto_1
 
-    :cond_10
+    :cond_13
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
@@ -3302,21 +4175,21 @@
 
     move-result v2
 
-    move/from16 v0, v17
+    move/from16 v0, v18
 
-    if-gt v2, v0, :cond_7
+    if-gt v2, v0, :cond_a
 
-    :cond_11
+    :cond_14
     const/4 v14, 0x0
 
     goto/16 :goto_2
 
-    :cond_12
+    :cond_15
     const/4 v2, 0x2
 
     goto/16 :goto_3
 
-    :cond_13
+    :cond_16
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mMovingState:I
@@ -3325,12 +4198,12 @@
 
     const/4 v4, 0x1
 
-    if-ne v2, v4, :cond_14
+    if-ne v2, v4, :cond_17
 
-    const/16 v16, 0x1
+    const/16 v17, 0x1
 
-    :cond_14
-    if-eqz v16, :cond_15
+    :cond_17
+    if-eqz v17, :cond_18
 
     const/4 v2, 0x2
 
@@ -3341,7 +4214,7 @@
 
     goto/16 :goto_4
 
-    :cond_15
+    :cond_18
     const/4 v2, 0x1
 
     goto :goto_7
@@ -3353,13 +4226,13 @@
 
     iput-boolean v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mTouchDowned:Z
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/launcher3/home/ZeroPageController;->mLastDownX:I
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
     move-object/from16 v1, p0
 
@@ -3378,19 +4251,19 @@
 
     iget-boolean v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mTouchDowned:Z
 
-    if-nez v2, :cond_16
+    if-nez v2, :cond_19
 
     move-object/from16 v0, p0
 
     iget-boolean v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mMovedToVirtualScreen:Z
 
-    if-nez v2, :cond_16
+    if-nez v2, :cond_19
 
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mMovingState:I
 
-    if-nez v2, :cond_16
+    if-nez v2, :cond_19
 
     sget-object v2, Lcom/android/launcher3/home/ZeroPageController;->TAG:Ljava/lang/String;
 
@@ -3400,30 +4273,30 @@
 
     goto/16 :goto_5
 
-    :cond_16
+    :cond_19
     move-object/from16 v0, p0
 
     iget-boolean v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mMovedToVirtualScreen:Z
 
-    if-eqz v2, :cond_22
+    if-eqz v2, :cond_25
 
     sget-boolean v2, Lcom/android/launcher3/Utilities;->sIsRtl:Z
 
-    if-eqz v2, :cond_1b
+    if-eqz v2, :cond_1e
 
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mLastDownX:I
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
-    if-ge v2, v0, :cond_17
+    if-ge v2, v0, :cond_1a
 
     :goto_8
     invoke-direct/range {p0 .. p0}, Lcom/android/launcher3/home/ZeroPageController;->removeMsg()V
 
-    :cond_17
-    move/from16 v0, v20
+    :cond_1a
+    move/from16 v0, v21
 
     move-object/from16 v1, p0
 
@@ -3433,30 +4306,30 @@
 
     iget v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mDownX:I
 
-    sub-int v3, v20, v2
+    sub-int v3, v21, v2
 
     sget-boolean v2, Lcom/android/launcher3/Utilities;->sIsRtl:Z
 
-    if-eqz v2, :cond_1c
+    if-eqz v2, :cond_1f
 
-    if-lez v3, :cond_1d
+    if-lez v3, :cond_20
 
-    :cond_18
+    :cond_1b
     const/4 v3, 0x0
 
-    :cond_19
+    :cond_1c
     :goto_9
     move-object/from16 v0, p0
 
     iget-boolean v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mBezelSwipe:Z
 
-    if-nez v2, :cond_1a
+    if-nez v2, :cond_1d
 
-    if-eqz v3, :cond_1a
+    if-eqz v3, :cond_1d
 
     sget-boolean v2, Lcom/android/launcher3/Utilities;->sIsRtl:Z
 
-    if-eqz v2, :cond_20
+    if-eqz v2, :cond_23
 
     move-object/from16 v0, p0
 
@@ -3466,27 +4339,27 @@
 
     move-result v2
 
-    move/from16 v0, v17
+    move/from16 v0, v18
 
-    if-ge v2, v0, :cond_1a
+    if-ge v2, v0, :cond_1d
 
     :goto_a
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
 
-    move/from16 v0, v17
+    move/from16 v0, v18
 
     invoke-virtual {v2, v0}, Lcom/android/launcher3/home/Workspace;->setScrollX(I)V
 
-    :cond_1a
+    :cond_1d
     const/4 v4, 0x0
 
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mMovingState:I
 
-    if-eqz v2, :cond_21
+    if-eqz v2, :cond_24
 
     const/4 v5, 0x1
 
@@ -3497,7 +4370,7 @@
 
     invoke-direct/range {v2 .. v7}, Lcom/android/launcher3/home/ZeroPageController;->setOffsetMsg(IIZJ)V
 
-    if-nez v3, :cond_b
+    if-nez v3, :cond_e
 
     const/4 v2, 0x0
 
@@ -3513,56 +4386,56 @@
 
     goto/16 :goto_5
 
-    :cond_1b
+    :cond_1e
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mLastDownX:I
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
-    if-le v2, v0, :cond_17
+    if-le v2, v0, :cond_1a
 
     goto :goto_8
 
-    :cond_1c
-    if-ltz v3, :cond_18
+    :cond_1f
+    if-ltz v3, :cond_1b
 
-    :cond_1d
+    :cond_20
     sget-boolean v2, Lcom/android/launcher3/Utilities;->sIsRtl:Z
 
-    if-eqz v2, :cond_1e
+    if-eqz v2, :cond_21
 
-    move/from16 v0, v19
+    move/from16 v0, v20
 
     neg-int v2, v0
 
-    if-ge v3, v2, :cond_19
+    if-ge v3, v2, :cond_1c
 
     :goto_c
     sget-boolean v2, Lcom/android/launcher3/Utilities;->sIsRtl:Z
 
-    if-eqz v2, :cond_1f
+    if-eqz v2, :cond_22
 
-    move/from16 v0, v19
+    move/from16 v0, v20
 
     neg-int v3, v0
 
     :goto_d
     goto :goto_9
 
-    :cond_1e
-    move/from16 v0, v19
+    :cond_21
+    move/from16 v0, v20
 
-    if-le v3, v0, :cond_19
+    if-le v3, v0, :cond_1c
 
     goto :goto_c
 
-    :cond_1f
-    move/from16 v3, v19
+    :cond_22
+    move/from16 v3, v20
 
     goto :goto_d
 
-    :cond_20
+    :cond_23
     move-object/from16 v0, p0
 
     iget-object v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
@@ -3571,37 +4444,37 @@
 
     move-result v2
 
-    move/from16 v0, v17
+    move/from16 v0, v18
 
-    if-le v2, v0, :cond_1a
+    if-le v2, v0, :cond_1d
 
     goto :goto_a
 
-    :cond_21
+    :cond_24
     const/4 v5, 0x0
 
     goto :goto_b
 
-    :cond_22
+    :cond_25
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mMovingState:I
 
-    if-nez v2, :cond_25
+    if-nez v2, :cond_28
 
     sget-boolean v2, Lcom/android/launcher3/Utilities;->sIsRtl:Z
 
-    if-eqz v2, :cond_24
+    if-eqz v2, :cond_27
 
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mLastDownX:I
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
-    if-ge v2, v0, :cond_25
+    if-ge v2, v0, :cond_28
 
-    :cond_23
+    :cond_26
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mDownX:I
@@ -3616,52 +4489,66 @@
 
     goto/16 :goto_5
 
-    :cond_24
+    :cond_27
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mLastDownX:I
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
-    if-gt v2, v0, :cond_23
+    if-gt v2, v0, :cond_26
 
-    :cond_25
+    :cond_28
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mMovingState:I
 
-    if-nez v2, :cond_26
+    if-nez v2, :cond_29
 
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mTouchSlop:I
 
-    if-lt v12, v2, :cond_b
+    if-lt v12, v2, :cond_e
 
-    invoke-static {}, Lcom/android/launcher3/util/event/ScrollDetector;->isHorizontalScroll()Z
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v2}, Lcom/android/launcher3/Launcher;->getHomeController()Lcom/android/launcher3/home/HomeController;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/launcher3/home/HomeController;->isHorizontalScoll()Z
 
     move-result v2
 
-    if-eqz v2, :cond_b
+    if-eqz v2, :cond_e
 
-    :cond_26
+    :cond_29
     const/4 v2, 0x1
 
     move-object/from16 v0, p0
 
     iput-boolean v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mMovedToVirtualScreen:Z
 
-    move/from16 v0, v20
+    move/from16 v0, v21
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/launcher3/home/ZeroPageController;->mDownX:I
 
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportZeroPageBezelSwipe()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2a
+
     move-object/from16 v0, p0
 
     iget-boolean v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mBezelSwipe:Z
 
-    if-eqz v2, :cond_27
+    if-eqz v2, :cond_2b
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/home/ZeroPageController;->unBindVirtualScreen()V
 
@@ -3687,12 +4574,13 @@
 
     invoke-virtual {v2}, Lcom/android/launcher3/home/Workspace;->pageEndMoving()V
 
+    :cond_2a
     :goto_e
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mMovingState:I
 
-    if-nez v2, :cond_2a
+    if-nez v2, :cond_2e
 
     move-object/from16 v0, p0
 
@@ -3728,7 +4616,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f08019a
+    const v5, 0x7f0901b7
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3742,7 +4630,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f08010d
+    const v6, 0x7f090128
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3754,7 +4642,7 @@
 
     sget-boolean v2, Lcom/android/launcher3/Utilities;->sIsRtl:Z
 
-    if-eqz v2, :cond_28
+    if-eqz v2, :cond_2c
 
     const/4 v2, -0x1
 
@@ -3765,7 +4653,7 @@
 
     iget v4, v0, Lcom/android/launcher3/home/ZeroPageController;->mMovingState:I
 
-    if-eqz v4, :cond_29
+    if-eqz v4, :cond_2d
 
     const/4 v4, 0x1
 
@@ -3776,37 +4664,33 @@
 
     goto/16 :goto_5
 
-    :cond_27
+    :cond_2b
     invoke-direct/range {p0 .. p0}, Lcom/android/launcher3/home/ZeroPageController;->bindVirtualScreen()V
 
     goto :goto_e
 
-    :cond_28
+    :cond_2c
     const/4 v2, 0x1
 
     goto :goto_f
 
-    :cond_29
+    :cond_2d
     const/4 v4, 0x0
 
     goto :goto_10
 
-    :cond_2a
+    :cond_2e
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/home/ZeroPageController;->getOffset()Landroid/graphics/Point;
 
-    move-result-object v2
+    move-result-object v15
 
-    if-eqz v2, :cond_b
+    if-eqz v15, :cond_e
 
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mDownX:I
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/home/ZeroPageController;->getOffset()Landroid/graphics/Point;
-
-    move-result-object v4
-
-    iget v4, v4, Landroid/graphics/Point;->x:I
+    iget v4, v15, Landroid/graphics/Point;->x:I
 
     sub-int/2addr v2, v4
 
@@ -3814,11 +4698,7 @@
 
     iput v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mDownX:I
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/home/ZeroPageController;->getOffset()Landroid/graphics/Point;
-
-    move-result-object v2
-
-    iget v5, v2, Landroid/graphics/Point;->x:I
+    iget v5, v15, Landroid/graphics/Point;->x:I
 
     const/4 v6, 0x0
 
@@ -3826,7 +4706,7 @@
 
     iget v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mMovingState:I
 
-    if-eqz v2, :cond_2b
+    if-eqz v2, :cond_2f
 
     const/4 v7, 0x1
 
@@ -3839,7 +4719,7 @@
 
     goto/16 :goto_5
 
-    :cond_2b
+    :cond_2f
     const/4 v7, 0x0
 
     goto :goto_11
@@ -3849,19 +4729,19 @@
 
     iget-boolean v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mTouchDowned:Z
 
-    if-nez v2, :cond_2c
+    if-nez v2, :cond_30
 
     move-object/from16 v0, p0
 
     iget-boolean v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mMovedToVirtualScreen:Z
 
-    if-nez v2, :cond_2c
+    if-nez v2, :cond_30
 
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mMovingState:I
 
-    if-nez v2, :cond_2c
+    if-nez v2, :cond_30
 
     sget-object v2, Lcom/android/launcher3/home/ZeroPageController;->TAG:Ljava/lang/String;
 
@@ -3871,18 +4751,18 @@
 
     goto/16 :goto_5
 
-    :cond_2c
+    :cond_30
     move-object/from16 v0, p0
 
     iget-boolean v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mMovedToVirtualScreen:Z
 
-    if-eqz v2, :cond_2d
+    if-eqz v2, :cond_31
 
     const/4 v13, 0x1
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v20
+    move/from16 v1, v21
 
     invoke-direct {v0, v1}, Lcom/android/launcher3/home/ZeroPageController;->moveToVirtualScreen(I)V
 
@@ -3891,22 +4771,22 @@
 
     goto/16 :goto_5
 
-    :cond_2d
+    :cond_31
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mMovingState:I
 
-    if-eqz v2, :cond_2e
+    if-eqz v2, :cond_32
 
     move-object/from16 v0, p0
 
-    move/from16 v1, v20
+    move/from16 v1, v21
 
     invoke-direct {v0, v1}, Lcom/android/launcher3/home/ZeroPageController;->moveToVirtualScreen(I)V
 
     goto :goto_12
 
-    :cond_2e
+    :cond_32
     const/4 v2, 0x0
 
     move-object/from16 v0, p0
@@ -3920,17 +4800,17 @@
 
     goto/16 :goto_5
 
-    :cond_2f
+    :cond_33
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mDownX:I
 
-    sub-int v2, v20, v2
+    sub-int v2, v21, v2
 
-    if-gtz v2, :cond_e
+    if-gtz v2, :cond_11
 
-    :cond_30
-    const/4 v15, 0x0
+    :cond_34
+    const/16 v16, 0x0
 
     goto/16 :goto_6
 
@@ -3986,6 +4866,14 @@
     iput-boolean v2, p0, Lcom/android/launcher3/home/ZeroPageController;->mIsFromZeroPageSetting:Z
 
     return-void
+.end method
+
+.method getAppName()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/home/ZeroPageController;->mAppName:Ljava/lang/String;
+
+    return-object v0
 .end method
 
 .method getOffset()Landroid/graphics/Point;
@@ -4096,6 +4984,26 @@
     invoke-virtual {v0}, Landroid/os/HandlerThread;->quitSafely()Z
 
     :cond_1
+    return-void
+.end method
+
+.method onZeroPageActiveChanged(Z)V
+    .locals 2
+
+    new-instance v0, Landroid/os/Handler;
+
+    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+
+    new-instance v1, Lcom/android/launcher3/home/ZeroPageController$11;
+
+    invoke-direct {v1, p0, p1}, Lcom/android/launcher3/home/ZeroPageController$11;-><init>(Lcom/android/launcher3/home/ZeroPageController;Z)V
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
     return-void
 .end method
 
@@ -4429,148 +5337,138 @@
 .end method
 
 .method setup()V
-    .locals 6
+    .locals 5
 
-    const/4 v5, 0x1
+    const/4 v4, 0x1
 
-    sget-boolean v3, Lcom/android/launcher3/home/ZeroPageController;->sEnableZeroPage:Z
+    sget-boolean v2, Lcom/android/launcher3/home/ZeroPageController;->sEnableZeroPage:Z
 
-    if-nez v3, :cond_0
+    if-nez v2, :cond_0
 
     :goto_0
     return-void
 
     :cond_0
-    new-instance v3, Landroid/os/HandlerThread;
+    new-instance v2, Landroid/os/HandlerThread;
 
-    const-string v4, "VirtualScreenThread"
+    const-string v3, "VirtualScreenThread"
 
-    invoke-direct {v3, v4}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;)V
+    invoke-direct {v2, v3}, Landroid/os/HandlerThread;-><init>(Ljava/lang/String;)V
 
-    iput-object v3, p0, Lcom/android/launcher3/home/ZeroPageController;->mVirtualScreenThread:Landroid/os/HandlerThread;
+    iput-object v2, p0, Lcom/android/launcher3/home/ZeroPageController;->mVirtualScreenThread:Landroid/os/HandlerThread;
+
+    iget-object v2, p0, Lcom/android/launcher3/home/ZeroPageController;->mVirtualScreenThread:Landroid/os/HandlerThread;
+
+    const/16 v3, 0xa
+
+    invoke-virtual {v2, v3}, Landroid/os/HandlerThread;->setPriority(I)V
+
+    iget-object v2, p0, Lcom/android/launcher3/home/ZeroPageController;->mVirtualScreenThread:Landroid/os/HandlerThread;
+
+    invoke-virtual {v2}, Landroid/os/HandlerThread;->start()V
+
+    new-instance v2, Lcom/android/launcher3/home/ZeroPageController$VirtualScreenHandler;
 
     iget-object v3, p0, Lcom/android/launcher3/home/ZeroPageController;->mVirtualScreenThread:Landroid/os/HandlerThread;
 
-    const/16 v4, 0xa
-
-    invoke-virtual {v3, v4}, Landroid/os/HandlerThread;->setPriority(I)V
-
-    iget-object v3, p0, Lcom/android/launcher3/home/ZeroPageController;->mVirtualScreenThread:Landroid/os/HandlerThread;
-
-    invoke-virtual {v3}, Landroid/os/HandlerThread;->start()V
-
-    new-instance v3, Lcom/android/launcher3/home/ZeroPageController$VirtualScreenHandler;
-
-    iget-object v4, p0, Lcom/android/launcher3/home/ZeroPageController;->mVirtualScreenThread:Landroid/os/HandlerThread;
-
-    invoke-virtual {v4}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
-
-    move-result-object v4
-
-    invoke-direct {v3, p0, p0, v4}, Lcom/android/launcher3/home/ZeroPageController$VirtualScreenHandler;-><init>(Lcom/android/launcher3/home/ZeroPageController;Lcom/android/launcher3/home/ZeroPageController;Landroid/os/Looper;)V
-
-    iput-object v3, p0, Lcom/android/launcher3/home/ZeroPageController;->mVirtualScreenHandler:Lcom/android/launcher3/home/ZeroPageController$VirtualScreenHandler;
-
-    new-instance v3, Lcom/samsung/android/sdk/virtualscreen/SVirtualScreenManager;
-
-    iget-object v4, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    invoke-direct {v3, v4}, Lcom/samsung/android/sdk/virtualscreen/SVirtualScreenManager;-><init>(Landroid/content/Context;)V
-
-    sput-object v3, Lcom/android/launcher3/home/ZeroPageController;->sVirtualScreenManager:Lcom/samsung/android/sdk/virtualscreen/SVirtualScreenManager;
-
-    iget-object v3, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    const-string v4, "desktopmode"
-
-    invoke-virtual {v3, v4}, Lcom/android/launcher3/Launcher;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    check-cast v1, Lcom/samsung/android/desktopmode/SemDesktopModeManager;
-
-    if-eqz v1, :cond_2
-
-    invoke-static {}, Lcom/samsung/android/desktopmode/SemDesktopModeManager;->isDesktopMode()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_2
-
-    sget-object v3, Lcom/android/launcher3/home/ZeroPageController;->TAG:Ljava/lang/String;
-
-    const-string v4, "DeX mode - do not startActivityInVirtualScreen"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_1
-    :goto_1
-    new-instance v3, Lcom/android/launcher3/util/alarm/Alarm;
-
-    invoke-direct {v3}, Lcom/android/launcher3/util/alarm/Alarm;-><init>()V
-
-    iput-object v3, p0, Lcom/android/launcher3/home/ZeroPageController;->mThreadExitAlarm:Lcom/android/launcher3/util/alarm/Alarm;
-
-    iget-object v3, p0, Lcom/android/launcher3/home/ZeroPageController;->mThreadExitAlarm:Lcom/android/launcher3/util/alarm/Alarm;
-
-    new-instance v4, Lcom/android/launcher3/home/ZeroPageController$1;
-
-    invoke-direct {v4, p0}, Lcom/android/launcher3/home/ZeroPageController$1;-><init>(Lcom/android/launcher3/home/ZeroPageController;)V
-
-    invoke-virtual {v3, v4}, Lcom/android/launcher3/util/alarm/Alarm;->setOnAlarmListener(Lcom/android/launcher3/util/alarm/OnAlarmListener;)V
-
-    iget-object v3, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    invoke-virtual {v3}, Lcom/android/launcher3/Launcher;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v3}, Landroid/os/HandlerThread;->getLooper()Landroid/os/Looper;
 
     move-result-object v3
 
-    invoke-static {v3}, Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
+    invoke-direct {v2, p0, p0, v3}, Lcom/android/launcher3/home/ZeroPageController$VirtualScreenHandler;-><init>(Lcom/android/launcher3/home/ZeroPageController;Lcom/android/launcher3/home/ZeroPageController;Landroid/os/Looper;)V
+
+    iput-object v2, p0, Lcom/android/launcher3/home/ZeroPageController;->mVirtualScreenHandler:Lcom/android/launcher3/home/ZeroPageController$VirtualScreenHandler;
+
+    new-instance v2, Lcom/samsung/android/sdk/virtualscreen/SVirtualScreenManager;
+
+    iget-object v3, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-direct {v2, v3}, Lcom/samsung/android/sdk/virtualscreen/SVirtualScreenManager;-><init>(Landroid/content/Context;)V
+
+    sput-object v2, Lcom/android/launcher3/home/ZeroPageController;->sVirtualScreenManager:Lcom/samsung/android/sdk/virtualscreen/SVirtualScreenManager;
+
+    iget-object v2, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-static {v2}, Lcom/android/launcher3/Utilities;->isDeskTopMode(Landroid/content/Context;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    sget-object v2, Lcom/android/launcher3/home/ZeroPageController;->TAG:Ljava/lang/String;
+
+    const-string v3, "DeX mode - do not startActivityInVirtualScreen"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    :goto_1
+    new-instance v2, Lcom/android/launcher3/util/alarm/Alarm;
+
+    invoke-direct {v2}, Lcom/android/launcher3/util/alarm/Alarm;-><init>()V
+
+    iput-object v2, p0, Lcom/android/launcher3/home/ZeroPageController;->mThreadExitAlarm:Lcom/android/launcher3/util/alarm/Alarm;
+
+    iget-object v2, p0, Lcom/android/launcher3/home/ZeroPageController;->mThreadExitAlarm:Lcom/android/launcher3/util/alarm/Alarm;
+
+    new-instance v3, Lcom/android/launcher3/home/ZeroPageController$1;
+
+    invoke-direct {v3, p0}, Lcom/android/launcher3/home/ZeroPageController$1;-><init>(Lcom/android/launcher3/home/ZeroPageController;)V
+
+    invoke-virtual {v2, v3}, Lcom/android/launcher3/util/alarm/Alarm;->setOnAlarmListener(Lcom/android/launcher3/util/alarm/OnAlarmListener;)V
+
+    iget-object v2, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v2}, Lcom/android/launcher3/Launcher;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-static {v2}, Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
 
     move-result-object v0
 
     invoke-virtual {v0}, Landroid/view/ViewConfiguration;->getScaledTouchSlop()I
 
-    move-result v3
+    move-result v2
 
-    iput v3, p0, Lcom/android/launcher3/home/ZeroPageController;->mTouchSlop:I
+    iput v2, p0, Lcom/android/launcher3/home/ZeroPageController;->mTouchSlop:I
 
     invoke-virtual {v0}, Landroid/view/ViewConfiguration;->getScaledMaximumFlingVelocity()I
 
-    move-result v3
+    move-result v2
 
-    iput v3, p0, Lcom/android/launcher3/home/ZeroPageController;->mMaximumVelocity:I
+    iput v2, p0, Lcom/android/launcher3/home/ZeroPageController;->mMaximumVelocity:I
 
-    iget-object v3, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
+    iget-object v2, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    invoke-virtual {v3}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v2}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v2
+    move-result-object v1
 
-    const v3, 0x7f090168
+    const v2, 0x7f0a01ab
 
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result v3
+    move-result v2
 
-    iput v3, p0, Lcom/android/launcher3/home/ZeroPageController;->mBezelSize:I
+    iput v2, p0, Lcom/android/launcher3/home/ZeroPageController;->mBezelSize:I
 
     goto :goto_0
 
     :cond_2
-    iget-object v3, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
+    iget-object v2, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    invoke-static {v3, v4}, Lcom/android/launcher3/home/ZeroPageController;->getZeroPageActiveState(Landroid/content/Context;Z)Z
+    invoke-static {v2, v3}, Lcom/android/launcher3/home/ZeroPageController;->getZeroPageActiveState(Landroid/content/Context;Z)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_1
+    if-eqz v2, :cond_1
 
-    iget-object v3, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
+    iget-object v2, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    invoke-direct {p0, v3, v5, v5}, Lcom/android/launcher3/home/ZeroPageController;->startActivityInVirtualScreen(Landroid/content/Context;ZZ)V
+    invoke-direct {p0, v2, v4, v4}, Lcom/android/launcher3/home/ZeroPageController;->startActivityInVirtualScreen(Landroid/content/Context;ZZ)V
 
     invoke-direct {p0}, Lcom/android/launcher3/home/ZeroPageController;->bindVirtualScreen()V
 
@@ -4584,15 +5482,25 @@
 
     invoke-direct {v0}, Landroid/content/Intent;-><init>()V
 
-    const-string v2, "com.samsung.android.app.spage"
+    if-eqz p1, :cond_0
 
-    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    move-result v2
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    if-eqz v2, :cond_0
+    const-string v3, "samsungapps://ProductDetail/"
 
-    const-string v1, "samsungapps://ProductDetail/com.samsung.android.app.spage"
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
 
     invoke-static {v1}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -4852,151 +5760,150 @@
     return-void
 .end method
 
-.method public updatePageIndicatorForZeroPage(ZZ)V
-    .locals 4
+.method updatePageIndicatorForZeroPage(ZZ)V
+    .locals 5
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    const/4 v2, 0x0
-
-    iget-object v0, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    invoke-static {v0, v2}, Lcom/android/launcher3/home/ZeroPageController;->isActiveZeroPage(Landroid/content/Context;Z)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    if-eqz p1, :cond_1
-
-    iget-object v0, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
-
-    invoke-virtual {v0}, Lcom/android/launcher3/home/Workspace;->getPageIndicator()Lcom/android/launcher3/common/view/PageIndicator;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/launcher3/common/view/PageIndicator;->getMarkerStartOffset()I
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
-
-    invoke-virtual {v0, v3}, Lcom/android/launcher3/home/Workspace;->setZeroPageMarker(Z)V
-
-    iget-object v0, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
-
-    const/4 v1, -0x1
-
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/home/Workspace;->addMarkerForView(I)V
-
-    iget-object v0, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
-
-    invoke-virtual {v0, v3}, Lcom/android/launcher3/home/Workspace;->setMarkerStartOffset(I)V
-
-    iget-object v0, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+    const/4 v3, 0x0
 
     iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
 
-    invoke-virtual {v1}, Lcom/android/launcher3/home/Workspace;->getCurrentPage()I
+    invoke-virtual {v1}, Lcom/android/launcher3/home/Workspace;->getPageIndicator()Lcom/android/launcher3/common/view/PageIndicator;
 
-    move-result v1
+    move-result-object v0
 
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/home/Workspace;->setActiveMarker(I)V
+    if-nez v0, :cond_1
+
+    sget-object v1, Lcom/android/launcher3/home/ZeroPageController;->TAG:Ljava/lang/String;
+
+    const-string v2, "updatePageIndicatorForZeroPage, indicator is null"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
     :goto_0
     return-void
 
     :cond_1
-    if-nez p1, :cond_2
+    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    iget-object v0, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
-
-    invoke-virtual {v0}, Lcom/android/launcher3/home/Workspace;->getPageIndicator()Lcom/android/launcher3/common/view/PageIndicator;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/launcher3/common/view/PageIndicator;->getMarkerStartOffset()I
-
-    move-result v0
-
-    if-ne v0, v3, :cond_2
-
-    iget-object v0, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
-
-    invoke-virtual {v0, v2}, Lcom/android/launcher3/home/Workspace;->setMarkerStartOffset(I)V
-
-    iget-object v0, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
-
-    invoke-virtual {v0, v2}, Lcom/android/launcher3/home/Workspace;->removeMarkerForView(I)V
-
-    iget-object v0, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
-
-    invoke-virtual {v0, v2}, Lcom/android/launcher3/home/Workspace;->setZeroPageMarker(Z)V
-
-    iget-object v0, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
-
-    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
-
-    invoke-virtual {v1}, Lcom/android/launcher3/home/Workspace;->getCurrentPage()I
+    invoke-static {v1, v3}, Lcom/android/launcher3/home/ZeroPageController;->isActiveZeroPage(Landroid/content/Context;Z)Z
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/home/Workspace;->setActiveMarker(I)V
+    if-eqz v1, :cond_4
+
+    if-eqz p1, :cond_2
+
+    invoke-virtual {v0}, Lcom/android/launcher3/common/view/PageIndicator;->getMarkerStartOffset()I
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+
+    invoke-virtual {v1, v4}, Lcom/android/launcher3/home/Workspace;->setZeroPageMarker(Z)V
+
+    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+
+    const/4 v2, -0x1
+
+    invoke-virtual {v1, v2}, Lcom/android/launcher3/home/Workspace;->addMarkerForView(I)V
+
+    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+
+    invoke-virtual {v1, v4}, Lcom/android/launcher3/home/Workspace;->setMarkerStartOffset(I)V
+
+    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+
+    iget-object v2, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+
+    invoke-virtual {v2}, Lcom/android/launcher3/home/Workspace;->getCurrentPage()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Lcom/android/launcher3/home/Workspace;->setActiveMarker(I)V
 
     goto :goto_0
 
     :cond_2
-    if-eqz p2, :cond_0
+    if-nez p1, :cond_3
 
-    iget-object v0, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
-
-    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
-
-    invoke-virtual {v1}, Lcom/android/launcher3/home/Workspace;->getCurrentPage()I
+    invoke-virtual {v0}, Lcom/android/launcher3/common/view/PageIndicator;->getMarkerStartOffset()I
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/home/Workspace;->setActiveMarker(I)V
+    if-ne v1, v4, :cond_3
+
+    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+
+    invoke-virtual {v1, v3}, Lcom/android/launcher3/home/Workspace;->setMarkerStartOffset(I)V
+
+    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+
+    invoke-virtual {v1, v3}, Lcom/android/launcher3/home/Workspace;->removeMarkerForView(I)V
+
+    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+
+    invoke-virtual {v1, v3}, Lcom/android/launcher3/home/Workspace;->setZeroPageMarker(Z)V
+
+    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+
+    iget-object v2, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+
+    invoke-virtual {v2}, Lcom/android/launcher3/home/Workspace;->getCurrentPage()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Lcom/android/launcher3/home/Workspace;->setActiveMarker(I)V
 
     goto :goto_0
 
     :cond_3
-    iget-object v0, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
-
-    invoke-virtual {v0}, Lcom/android/launcher3/home/Workspace;->getPageIndicator()Lcom/android/launcher3/common/view/PageIndicator;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/launcher3/common/view/PageIndicator;->getMarkerStartOffset()I
-
-    move-result v0
-
-    if-ne v0, v3, :cond_0
-
-    iget-object v0, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
-
-    invoke-virtual {v0, v2}, Lcom/android/launcher3/home/Workspace;->setZeroPageMarker(Z)V
-
-    iget-object v0, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
-
-    invoke-virtual {v0, v2}, Lcom/android/launcher3/home/Workspace;->setMarkerStartOffset(I)V
-
-    iget-object v0, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+    if-eqz p2, :cond_0
 
     iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
 
-    invoke-virtual {v1}, Lcom/android/launcher3/home/Workspace;->getCurrentPage()I
+    iget-object v2, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+
+    invoke-virtual {v2}, Lcom/android/launcher3/home/Workspace;->getCurrentPage()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Lcom/android/launcher3/home/Workspace;->setActiveMarker(I)V
+
+    goto :goto_0
+
+    :cond_4
+    invoke-virtual {v0}, Lcom/android/launcher3/common/view/PageIndicator;->getMarkerStartOffset()I
 
     move-result v1
 
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/home/Workspace;->setActiveMarker(I)V
+    if-ne v1, v4, :cond_0
 
-    iget-object v0, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
 
-    invoke-virtual {v0, v2}, Lcom/android/launcher3/home/Workspace;->removeMarkerForView(I)V
+    invoke-virtual {v1, v3}, Lcom/android/launcher3/home/Workspace;->setZeroPageMarker(Z)V
+
+    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+
+    invoke-virtual {v1, v3}, Lcom/android/launcher3/home/Workspace;->setMarkerStartOffset(I)V
+
+    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+
+    iget-object v2, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+
+    invoke-virtual {v2}, Lcom/android/launcher3/home/Workspace;->getCurrentPage()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Lcom/android/launcher3/home/Workspace;->setActiveMarker(I)V
+
+    iget-object v1, p0, Lcom/android/launcher3/home/ZeroPageController;->mWorkspace:Lcom/android/launcher3/home/Workspace;
+
+    invoke-virtual {v1, v3}, Lcom/android/launcher3/home/Workspace;->removeMarkerForView(I)V
 
     goto :goto_0
 .end method

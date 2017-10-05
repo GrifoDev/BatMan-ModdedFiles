@@ -13,7 +13,7 @@
 
 
 # static fields
-.field public static final AUTHORITY:Ljava/lang/String;
+.field public static final AUTHORITY:Ljava/lang/String; = "com.sec.android.app.launcher.settings"
 
 .field private static final DATABASE_VERSION:I = 0x1e
 
@@ -31,24 +31,14 @@
 # instance fields
 .field private mAppState:Lcom/android/launcher3/LauncherAppState;
 
-.field private mDesktopModeManager:Lcom/samsung/android/desktopmode/SemDesktopModeManager;
-
 .field private mListener:Lcom/android/launcher3/LauncherProviderChangeListener;
 
 .field private mOpenHelper:Lcom/android/launcher3/LauncherProvider$DatabaseHelper;
 
+.field private mRemoteConfigurationManager:Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;
+
 
 # direct methods
-.method static constructor <clinit>()V
-    .locals 1
-
-    sget-object v0, Lcom/android/launcher3/common/model/LauncherSettings$Settings;->AUTHORITY:Ljava/lang/String;
-
-    sput-object v0, Lcom/android/launcher3/LauncherProvider;->AUTHORITY:Ljava/lang/String;
-
-    return-void
-.end method
-
 .method public constructor <init>()V
     .locals 0
 
@@ -354,442 +344,277 @@
 .end method
 
 .method public call(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
-    .locals 10
+    .locals 6
+
+    const/4 v2, -0x1
 
     const/4 v3, 0x0
 
-    const/4 v7, 0x2
-
-    const/4 v4, -0x1
-
-    const/4 v6, 0x1
-
-    const/4 v5, 0x0
-
     invoke-static {}, Landroid/os/Binder;->getCallingUid()I
 
-    move-result v8
+    move-result v4
 
     invoke-static {}, Landroid/os/Process;->myUid()I
 
-    move-result v9
+    move-result v5
 
-    if-eq v8, v9, :cond_8
+    if-eq v4, v5, :cond_4
 
     invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
 
-    move-result v8
+    move-result v4
 
-    sparse-switch v8, :sswitch_data_0
+    packed-switch v4, :pswitch_data_0
 
     :cond_0
-    move v7, v4
-
     :goto_0
-    packed-switch v7, :pswitch_data_0
+    packed-switch v2, :pswitch_data_1
 
     :cond_1
-    move-object v1, v3
+    iget-object v2, p0, Lcom/android/launcher3/LauncherProvider;->mRemoteConfigurationManager:Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;
+
+    invoke-virtual {v2, p1, p2, p3}, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;->handleRemoteConfigurationCall(Ljava/lang/String;Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
+
+    move-result-object v0
 
     :cond_2
     :goto_1
-    return-object v1
-
-    :sswitch_0
-    const-string v7, "get_home_mode"
-
-    invoke-virtual {p1, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_0
-
-    move v7, v5
-
-    goto :goto_0
-
-    :sswitch_1
-    const-string v7, "get_support_feature"
-
-    invoke-virtual {p1, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_0
-
-    move v7, v6
-
-    goto :goto_0
-
-    :sswitch_2
-    const-string v8, "appWidgetReset"
-
-    invoke-virtual {p1, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v8
-
-    if-eqz v8, :cond_0
-
-    goto :goto_0
+    return-object v0
 
     :pswitch_0
-    const-string v3, "DexHomeConverter"
+    const-string v4, "appWidgetReset"
 
-    const-string v4, "get_home_mode Called."
+    invoke-virtual {p1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result v4
 
-    invoke-static {}, Lcom/samsung/android/desktopmode/SemDesktopModeManager;->isDesktopMode()Z
+    if-eqz v4, :cond_0
 
-    move-result v3
+    move v2, v3
 
-    if-eqz v3, :cond_3
-
-    const-string v3, "persist.service.dex.homesync"
-
-    invoke-static {v3, v6}, Landroid/os/SemSystemProperties;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v3
-
-    if-ne v3, v6, :cond_3
-
-    invoke-virtual {p0}, Lcom/android/launcher3/LauncherProvider;->getContext()Landroid/content/Context;
-
-    move-result-object v3
-
-    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getSharedPreferencesKey()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4, v5}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
-
-    move-result-object v3
-
-    invoke-interface {v3}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
-
-    move-result-object v3
-
-    const-string v4, "dex_need_to_sync"
-
-    invoke-interface {v3, v4, v6}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
-
-    move-result-object v3
-
-    invoke-interface {v3}, Landroid/content/SharedPreferences$Editor;->apply()V
-
-    :cond_3
-    new-instance v1, Landroid/os/Bundle;
-
-    invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
-
-    iget-object v3, p0, Lcom/android/launcher3/LauncherProvider;->mAppState:Lcom/android/launcher3/LauncherAppState;
-
-    invoke-virtual {v3}, Lcom/android/launcher3/LauncherAppState;->isEasyModeEnabled()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_4
-
-    const-string v3, "easy_mode"
-
-    invoke-virtual {v1, p2, v3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_1
-
-    :cond_4
-    iget-object v3, p0, Lcom/android/launcher3/LauncherProvider;->mAppState:Lcom/android/launcher3/LauncherAppState;
-
-    invoke-virtual {v3}, Lcom/android/launcher3/LauncherAppState;->isHomeOnlyModeEnabled()Z
-
-    move-result v3
-
-    if-eqz v3, :cond_5
-
-    const-string v3, "home_only_mode"
-
-    invoke-virtual {v1, p2, v3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_1
-
-    :cond_5
-    const-string v3, "home_apps_mode"
-
-    invoke-virtual {v1, p2, v3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_1
+    goto :goto_0
 
     :pswitch_1
-    const-string v0, "find_app_position"
-
-    new-instance v1, Landroid/os/Bundle;
-
-    invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
-
-    invoke-virtual {p2}, Ljava/lang/String;->hashCode()I
-
-    move-result v7
-
-    packed-switch v7, :pswitch_data_1
-
-    :cond_6
-    :goto_2
-    packed-switch v4, :pswitch_data_2
-
-    :pswitch_2
     invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportSprintExtension()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1
-
-    iget-object v3, p0, Lcom/android/launcher3/LauncherProvider;->mListener:Lcom/android/launcher3/LauncherProviderChangeListener;
-
-    if-eqz v3, :cond_7
-
-    const-string v3, "LauncherProvider"
-
-    const-string v4, "[SPRINT] Resetting App Widget Listener"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v3, p0, Lcom/android/launcher3/LauncherProvider;->mListener:Lcom/android/launcher3/LauncherProviderChangeListener;
-
-    invoke-interface {v3}, Lcom/android/launcher3/LauncherProviderChangeListener;->onAppWidgetHostReset()V
-
-    :goto_3
-    new-instance v1, Landroid/os/Bundle;
-
-    invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
-
-    const-string v3, "SUCCESS"
-
-    invoke-virtual {v1, p2, v3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
-
-    goto/16 :goto_1
-
-    :pswitch_3
-    const-string v7, "find_app_position"
-
-    invoke-virtual {p2, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_6
-
-    move v4, v5
-
-    goto :goto_2
-
-    :pswitch_4
-    const-string v3, "find_app_position"
-
-    invoke-virtual {v1, v3, v6}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
-
-    goto/16 :goto_1
-
-    :cond_7
-    const-string v3, "LauncherProvider"
-
-    const-string v4, "[SPRINT] App Widget Listener is null"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_3
-
-    :cond_8
-    invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
-
-    move-result v8
-
-    sparse-switch v8, :sswitch_data_1
-
-    :cond_9
-    :goto_4
-    packed-switch v4, :pswitch_data_3
-
-    move-object v1, v3
-
-    goto/16 :goto_1
-
-    :sswitch_3
-    const-string v6, "get_boolean_setting"
-
-    invoke-virtual {p1, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_9
-
-    move v4, v5
-
-    goto :goto_4
-
-    :sswitch_4
-    const-string v7, "set_boolean_setting"
-
-    invoke-virtual {p1, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_9
-
-    move v4, v6
-
-    goto :goto_4
-
-    :sswitch_5
-    const-string v6, "getDataBaseVersion"
-
-    invoke-virtual {p1, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_9
-
-    move v4, v7
-
-    goto :goto_4
-
-    :pswitch_5
-    new-instance v1, Landroid/os/Bundle;
-
-    invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
-
-    const-string v3, "value"
-
-    invoke-virtual {p0}, Lcom/android/launcher3/LauncherProvider;->getContext()Landroid/content/Context;
-
-    move-result-object v4
-
-    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getSharedPreferencesKey()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v4, v6, v5}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
-
-    move-result-object v4
-
-    const-string v5, "default_value"
-
-    invoke-virtual {p3, v5}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v5
-
-    invoke-interface {v4, p2, v5}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v4
-
-    invoke-virtual {v1, v3, v4}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
-
-    goto/16 :goto_1
-
-    :pswitch_6
-    const-string v3, "value"
-
-    invoke-virtual {p3, v3}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
     move-result v2
 
+    if-eqz v2, :cond_1
+
+    iget-object v2, p0, Lcom/android/launcher3/LauncherProvider;->mListener:Lcom/android/launcher3/LauncherProviderChangeListener;
+
+    if-eqz v2, :cond_3
+
+    const-string v2, "LauncherProvider"
+
+    const-string v3, "[SPRINT] Resetting App Widget Listener"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v2, p0, Lcom/android/launcher3/LauncherProvider;->mListener:Lcom/android/launcher3/LauncherProviderChangeListener;
+
+    invoke-interface {v2}, Lcom/android/launcher3/LauncherProviderChangeListener;->onAppWidgetHostReset()V
+
+    :goto_2
+    new-instance v0, Landroid/os/Bundle;
+
+    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+
+    const-string v2, "SUCCESS"
+
+    invoke-virtual {v0, p2, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_1
+
+    :cond_3
+    const-string v2, "LauncherProvider"
+
+    const-string v3, "[SPRINT] App Widget Listener is null"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_2
+
+    :cond_4
+    invoke-virtual {p1}, Ljava/lang/String;->hashCode()I
+
+    move-result v4
+
+    sparse-switch v4, :sswitch_data_0
+
+    :cond_5
+    :goto_3
+    packed-switch v2, :pswitch_data_2
+
+    const/4 v0, 0x0
+
+    goto :goto_1
+
+    :sswitch_0
+    const-string v4, "get_boolean_setting"
+
+    invoke-virtual {p1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_5
+
+    move v2, v3
+
+    goto :goto_3
+
+    :sswitch_1
+    const-string v4, "set_boolean_setting"
+
+    invoke-virtual {p1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_5
+
+    const/4 v2, 0x1
+
+    goto :goto_3
+
+    :sswitch_2
+    const-string v4, "getDataBaseVersion"
+
+    invoke-virtual {p1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_5
+
+    const/4 v2, 0x2
+
+    goto :goto_3
+
+    :pswitch_2
+    new-instance v0, Landroid/os/Bundle;
+
+    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+
+    const-string v2, "value"
+
     invoke-virtual {p0}, Lcom/android/launcher3/LauncherProvider;->getContext()Landroid/content/Context;
 
+    move-result-object v4
+
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getSharedPreferencesKey()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5, v3}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+
     move-result-object v3
+
+    const-string v4, "default_value"
+
+    invoke-virtual {p3, v4}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v4
+
+    invoke-interface {v3, p2, v4}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v3
+
+    invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+
+    goto :goto_1
+
+    :pswitch_3
+    const-string v2, "value"
+
+    invoke-virtual {p3, v2}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v1
+
+    invoke-virtual {p0}, Lcom/android/launcher3/LauncherProvider;->getContext()Landroid/content/Context;
+
+    move-result-object v2
 
     invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getSharedPreferencesKey()Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-virtual {v3, v4, v5}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    invoke-virtual {v2, v4, v3}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-interface {v3}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v2}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-interface {v3, p2, v2}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v2, p2, v1}, Landroid/content/SharedPreferences$Editor;->putBoolean(Ljava/lang/String;Z)Landroid/content/SharedPreferences$Editor;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-interface {v3}, Landroid/content/SharedPreferences$Editor;->apply()V
+    invoke-interface {v2}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    iget-object v3, p0, Lcom/android/launcher3/LauncherProvider;->mListener:Lcom/android/launcher3/LauncherProviderChangeListener;
+    iget-object v2, p0, Lcom/android/launcher3/LauncherProvider;->mListener:Lcom/android/launcher3/LauncherProviderChangeListener;
 
-    if-eqz v3, :cond_a
+    if-eqz v2, :cond_6
 
-    iget-object v3, p0, Lcom/android/launcher3/LauncherProvider;->mListener:Lcom/android/launcher3/LauncherProviderChangeListener;
+    iget-object v2, p0, Lcom/android/launcher3/LauncherProvider;->mListener:Lcom/android/launcher3/LauncherProviderChangeListener;
 
-    invoke-interface {v3, p2, v2}, Lcom/android/launcher3/LauncherProviderChangeListener;->onSettingsChanged(Ljava/lang/String;Z)V
+    invoke-interface {v2, p2, v1}, Lcom/android/launcher3/LauncherProviderChangeListener;->onSettingsChanged(Ljava/lang/String;Z)V
 
-    :cond_a
-    new-instance v1, Landroid/os/Bundle;
+    :cond_6
+    new-instance v0, Landroid/os/Bundle;
 
-    invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
+    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    const-string v3, "value"
+    const-string v2, "value"
 
-    invoke-virtual {v1, v3, v2}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
 
     goto/16 :goto_1
 
-    :pswitch_7
-    new-instance v1, Landroid/os/Bundle;
+    :pswitch_4
+    new-instance v0, Landroid/os/Bundle;
 
-    invoke-direct {v1}, Landroid/os/Bundle;-><init>()V
+    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    const-string v3, "getDataBaseVersion"
+    const-string v2, "getDataBaseVersion"
 
-    invoke-virtual {v3, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v2, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v3
+    move-result v2
 
-    if-eqz v3, :cond_2
+    if-eqz v2, :cond_2
 
-    const-string v3, "DBVersion"
+    const-string v2, "DBVersion"
 
-    const/16 v4, 0x1e
+    const/16 v3, 0x1e
 
-    invoke-virtual {v1, v3, v4}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
+    invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     goto/16 :goto_1
 
     nop
 
-    :sswitch_data_0
-    .sparse-switch
-        -0x6311f8a6 -> :sswitch_0
-        -0x48bf2463 -> :sswitch_1
-        0x77bbdc8a -> :sswitch_2
-    .end sparse-switch
-
     :pswitch_data_0
-    .packed-switch 0x0
+    .packed-switch 0x77bbdc8a
         :pswitch_0
-        :pswitch_1
-        :pswitch_2
     .end packed-switch
 
     :pswitch_data_1
-    .packed-switch 0x22836e4d
-        :pswitch_3
+    .packed-switch 0x0
+        :pswitch_1
     .end packed-switch
+
+    :sswitch_data_0
+    .sparse-switch
+        -0x6da47379 -> :sswitch_2
+        -0x6b7b0db0 -> :sswitch_0
+        0x3881875c -> :sswitch_1
+    .end sparse-switch
 
     :pswitch_data_2
     .packed-switch 0x0
+        :pswitch_2
+        :pswitch_3
         :pswitch_4
-    .end packed-switch
-
-    :sswitch_data_1
-    .sparse-switch
-        -0x6da47379 -> :sswitch_5
-        -0x6b7b0db0 -> :sswitch_3
-        0x3881875c -> :sswitch_4
-    .end sparse-switch
-
-    :pswitch_data_3
-    .packed-switch 0x0
-        :pswitch_5
-        :pswitch_6
-        :pswitch_7
     .end packed-switch
 .end method
 
@@ -886,6 +711,14 @@
     invoke-direct {p0, p1}, Lcom/android/launcher3/LauncherProvider;->sendNotify(Landroid/net/Uri;)V
 
     return v1
+.end method
+
+.method public getRemoteConfigurationManager()Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/LauncherProvider;->mRemoteConfigurationManager:Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;
+
+    return-object v0
 .end method
 
 .method public getType(Landroid/net/Uri;)Ljava/lang/String;
@@ -1021,11 +854,6 @@
 
 .method public onCreate()Z
     .locals 6
-    .annotation build Landroid/annotation/SuppressLint;
-        value = {
-            "WrongConstant"
-        }
-    .end annotation
 
     const-string v2, "LauncherProvider"
 
@@ -1063,6 +891,14 @@
 
     invoke-static {v0}, Lcom/android/launcher3/LauncherFeature;->init(Landroid/content/Context;)V
 
+    invoke-virtual {v0}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/launcher3/LauncherAppState;->setApplicationContext(Landroid/content/Context;)V
+
+    invoke-static {p0}, Lcom/android/launcher3/LauncherAppState;->setLauncherProvider(Lcom/android/launcher3/LauncherProvider;)V
+
     new-instance v2, Lcom/android/launcher3/LauncherProvider$DatabaseHelper;
 
     invoke-direct {v2, v0}, Lcom/android/launcher3/LauncherProvider$DatabaseHelper;-><init>(Landroid/content/Context;)V
@@ -1070,18 +906,6 @@
     iput-object v2, p0, Lcom/android/launcher3/LauncherProvider;->mOpenHelper:Lcom/android/launcher3/LauncherProvider$DatabaseHelper;
 
     invoke-static {v1}, Landroid/os/StrictMode;->setThreadPolicy(Landroid/os/StrictMode$ThreadPolicy;)V
-
-    invoke-static {p0}, Lcom/android/launcher3/LauncherAppState;->setLauncherProvider(Lcom/android/launcher3/LauncherProvider;)V
-
-    const-string v2, "desktopmode"
-
-    invoke-virtual {v0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/samsung/android/desktopmode/SemDesktopModeManager;
-
-    iput-object v2, p0, Lcom/android/launcher3/LauncherProvider;->mDesktopModeManager:Lcom/samsung/android/desktopmode/SemDesktopModeManager;
 
     const-string v2, "LauncherProvider"
 
@@ -1095,9 +919,7 @@
 
     move-result-object v3
 
-    iget-object v4, p0, Lcom/android/launcher3/LauncherProvider;->mDesktopModeManager:Lcom/samsung/android/desktopmode/SemDesktopModeManager;
-
-    invoke-static {}, Lcom/samsung/android/desktopmode/SemDesktopModeManager;->isDesktopMode()Z
+    invoke-static {v0}, Lcom/android/launcher3/Utilities;->isDeskTopMode(Landroid/content/Context;)Z
 
     move-result v4
 
@@ -1111,21 +933,25 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {p0}, Lcom/android/launcher3/LauncherProvider;->getContext()Landroid/content/Context;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
-
-    move-result-object v2
-
-    invoke-static {v2}, Lcom/android/launcher3/LauncherAppState;->setApplicationContext(Landroid/content/Context;)V
-
     invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
     move-result-object v2
 
     iput-object v2, p0, Lcom/android/launcher3/LauncherProvider;->mAppState:Lcom/android/launcher3/LauncherAppState;
+
+    new-instance v2, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;
+
+    invoke-virtual {p0}, Lcom/android/launcher3/LauncherProvider;->getContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Landroid/content/Context;->getApplicationContext()Landroid/content/Context;
+
+    move-result-object v3
+
+    invoke-direct {v2, v3}, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;-><init>(Landroid/content/Context;)V
+
+    iput-object v2, p0, Lcom/android/launcher3/LauncherProvider;->mRemoteConfigurationManager:Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;
 
     invoke-direct {p0}, Lcom/android/launcher3/LauncherProvider;->registerBnrCallBack()V
 
@@ -1197,6 +1023,10 @@
     iget-object v1, p0, Lcom/android/launcher3/LauncherProvider;->mListener:Lcom/android/launcher3/LauncherProviderChangeListener;
 
     invoke-static {v0, v1}, Lcom/android/launcher3/LauncherProvider$DatabaseHelper;->access$002(Lcom/android/launcher3/LauncherProvider$DatabaseHelper;Lcom/android/launcher3/LauncherProviderChangeListener;)Lcom/android/launcher3/LauncherProviderChangeListener;
+
+    iget-object v0, p0, Lcom/android/launcher3/LauncherProvider;->mRemoteConfigurationManager:Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;
+
+    invoke-virtual {v0, p1}, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;->setLauncherProviderChangeListener(Lcom/android/launcher3/LauncherProviderChangeListener;)V
 
     return-void
 .end method

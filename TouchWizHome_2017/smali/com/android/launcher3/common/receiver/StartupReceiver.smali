@@ -6,6 +6,8 @@
 # static fields
 .field public static final SYSTEM_READY:Ljava/lang/String; = "com.android.launcher3.SYSTEM_READY"
 
+.field private static final TAG:Ljava/lang/String; = "StartupReceiver"
+
 
 # direct methods
 .method public constructor <init>()V
@@ -19,7 +21,7 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 2
+    .locals 3
 
     const-string v0, "android.intent.action.BOOT_COMPLETED"
 
@@ -37,6 +39,28 @@
     return-void
 
     :cond_0
+    const-string v0, "StartupReceiver"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "onReceive intent="
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.android.launcher3.SYSTEM_READY"

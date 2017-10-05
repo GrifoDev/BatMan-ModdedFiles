@@ -176,54 +176,87 @@
 .end method
 
 .method public findProvider(Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;)Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo;
-    .locals 3
+    .locals 5
 
-    iget-object v1, p0, Lcom/android/launcher3/common/compat/AppWidgetManagerCompatVL;->mAppWidgetManager:Landroid/appwidget/AppWidgetManager;
+    new-instance v1, Ljava/util/ArrayList;
+
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
     invoke-virtual {p2}, Lcom/android/launcher3/common/compat/UserHandleCompat;->getUser()Landroid/os/UserHandle;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Landroid/appwidget/AppWidgetManager;->getInstalledProvidersForProfile(Landroid/os/UserHandle;)Ljava/util/List;
+    iget-object v3, p0, Lcom/android/launcher3/common/compat/AppWidgetManagerCompatVL;->mAppWidgetManager:Landroid/appwidget/AppWidgetManager;
 
-    move-result-object v1
+    invoke-virtual {v3, v2}, Landroid/appwidget/AppWidgetManager;->getInstalledProvidersForProfile(Landroid/os/UserHandle;)Ljava/util/List;
 
-    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    move-result-object v3
 
-    move-result-object v1
+    invoke-virtual {v1, v3}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
+
+    const/4 v3, 0x0
+
+    invoke-direct {p0, v3, v2}, Lcom/android/launcher3/common/compat/AppWidgetManagerCompatVL;->getWidgetProvider(ZLandroid/os/UserHandle;)Ljava/util/List;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v3}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
+
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/android/launcher3/LauncherAppState;->isEasyModeEnabled()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const/4 v3, 0x1
+
+    invoke-direct {p0, v3, v2}, Lcom/android/launcher3/common/compat/AppWidgetManagerCompatVL;->getWidgetProvider(ZLandroid/os/UserHandle;)Ljava/util/List;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v3}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
     :cond_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    move-result v2
+    move-result-object v3
 
-    if-eqz v2, :cond_1
+    :cond_1
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/appwidget/AppWidgetProviderInfo;
 
-    iget-object v2, v0, Landroid/appwidget/AppWidgetProviderInfo;->provider:Landroid/content/ComponentName;
+    iget-object v4, v0, Landroid/appwidget/AppWidgetProviderInfo;->provider:Landroid/content/ComponentName;
 
-    invoke-virtual {v2, p1}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v4, p1}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
 
-    move-result v2
+    move-result v4
 
-    if-eqz v2, :cond_0
+    if-eqz v4, :cond_1
 
-    iget-object v1, p0, Lcom/android/launcher3/common/compat/AppWidgetManagerCompatVL;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Lcom/android/launcher3/common/compat/AppWidgetManagerCompatVL;->mContext:Landroid/content/Context;
 
-    invoke-static {v1, v0}, Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo;->fromProviderInfo(Landroid/content/Context;Landroid/appwidget/AppWidgetProviderInfo;)Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo;
+    invoke-static {v3, v0}, Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo;->fromProviderInfo(Landroid/content/Context;Landroid/appwidget/AppWidgetProviderInfo;)Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo;
 
-    move-result-object v1
+    move-result-object v3
 
     :goto_0
-    return-object v1
+    return-object v3
 
-    :cond_1
-    const/4 v1, 0x0
+    :cond_2
+    const/4 v3, 0x0
 
     goto :goto_0
 .end method
@@ -423,7 +456,7 @@
 
     move-result-object v6
 
-    const v8, 0x7f090135
+    const v8, 0x7f0a017e
 
     invoke-virtual {v6, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -435,7 +468,7 @@
 
     sub-int/2addr v8, v0
 
-    const v9, 0x7f090136
+    const v9, 0x7f0a017f
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -604,7 +637,7 @@
 .method public startConfigActivity(Landroid/appwidget/AppWidgetProviderInfo;ILandroid/app/Activity;Landroid/appwidget/AppWidgetHost;I)V
     .locals 9
 
-    const v8, 0x7f08000b
+    const v8, 0x7f090011
 
     const/4 v7, 0x0
 

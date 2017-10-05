@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/HomeLoader;->updateContainerForDexSync(ZLcom/android/launcher3/folder/FolderInfo;Lcom/android/launcher3/common/base/item/IconInfo;)V
+    value = Lcom/android/launcher3/home/HomeLoader;->insertWorkspaceScreen(Landroid/content/Context;IJ)J
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,28 +20,24 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/home/HomeLoader;
 
-.field final synthetic val$addToFolder:Z
+.field final synthetic val$callbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
 
-.field final synthetic val$folder:Lcom/android/launcher3/folder/FolderInfo;
+.field final synthetic val$insertIndex:I
 
-.field final synthetic val$item:Lcom/android/launcher3/common/base/item/IconInfo;
-
-.field final synthetic val$oldCallbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
+.field final synthetic val$screenId:J
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;ZLcom/android/launcher3/folder/FolderInfo;Lcom/android/launcher3/common/base/item/IconInfo;)V
-    .locals 0
+.method constructor <init>(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;JI)V
+    .locals 1
 
     iput-object p1, p0, Lcom/android/launcher3/home/HomeLoader$35;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    iput-object p2, p0, Lcom/android/launcher3/home/HomeLoader$35;->val$oldCallbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
+    iput-object p2, p0, Lcom/android/launcher3/home/HomeLoader$35;->val$callbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
 
-    iput-boolean p3, p0, Lcom/android/launcher3/home/HomeLoader$35;->val$addToFolder:Z
+    iput-wide p3, p0, Lcom/android/launcher3/home/HomeLoader$35;->val$screenId:J
 
-    iput-object p4, p0, Lcom/android/launcher3/home/HomeLoader$35;->val$folder:Lcom/android/launcher3/folder/FolderInfo;
-
-    iput-object p5, p0, Lcom/android/launcher3/home/HomeLoader$35;->val$item:Lcom/android/launcher3/common/base/item/IconInfo;
+    iput p5, p0, Lcom/android/launcher3/home/HomeLoader$35;->val$insertIndex:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -55,23 +51,21 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/HomeLoader$35;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    invoke-static {v1}, Lcom/android/launcher3/home/HomeLoader;->access$700(Lcom/android/launcher3/home/HomeLoader;)Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
+    invoke-static {v1}, Lcom/android/launcher3/home/HomeLoader;->access$1100(Lcom/android/launcher3/home/HomeLoader;)Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeLoader$35;->val$oldCallbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
+    iget-object v1, p0, Lcom/android/launcher3/home/HomeLoader$35;->val$callbacks:Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
 
-    if-ne v0, v1, :cond_0
+    if-ne v1, v0, :cond_0
 
-    iget-boolean v1, p0, Lcom/android/launcher3/home/HomeLoader$35;->val$addToFolder:Z
+    iget-wide v2, p0, Lcom/android/launcher3/home/HomeLoader$35;->val$screenId:J
 
-    iget-object v2, p0, Lcom/android/launcher3/home/HomeLoader$35;->val$folder:Lcom/android/launcher3/folder/FolderInfo;
+    iget v1, p0, Lcom/android/launcher3/home/HomeLoader$35;->val$insertIndex:I
 
-    iget-object v3, p0, Lcom/android/launcher3/home/HomeLoader$35;->val$item:Lcom/android/launcher3/common/base/item/IconInfo;
-
-    invoke-interface {v0, v1, v2, v3}, Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;->bindUpdateContainer(ZLcom/android/launcher3/folder/FolderInfo;Lcom/android/launcher3/common/base/item/IconInfo;)V
+    invoke-interface {v0, v2, v3, v1}, Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;->bindInsertScreens(JI)V
 
     :cond_0
     return-void

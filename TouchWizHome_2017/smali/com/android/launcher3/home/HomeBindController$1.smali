@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/HomeBindController;->bindAppsButton(Ljava/util/ArrayList;)V
+    value = Lcom/android/launcher3/home/HomeBindController;->bindHotseatItems(Ljava/util/ArrayList;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -45,7 +45,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/HomeBindController$1;->val$items:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/home/HomeBindController;->bindAppsButton(Ljava/util/ArrayList;)V
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/home/HomeBindController;->bindHotseatItems(Ljava/util/ArrayList;)V
 
     return-void
 .end method

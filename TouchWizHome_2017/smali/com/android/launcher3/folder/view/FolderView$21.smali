@@ -3,12 +3,12 @@
 .source "FolderView.java"
 
 # interfaces
-.implements Landroid/view/animation/Animation$AnimationListener;
+.implements Lcom/android/launcher3/common/base/item/ItemOperator;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/folder/view/FolderView;->animateDismiss(Landroid/view/View;Z)V
+    value = Lcom/android/launcher3/folder/view/FolderView;->getItemsInReadingOrder()Ljava/util/ArrayList;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,12 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-.field final synthetic val$keepLayout:Z
-
-.field final synthetic val$targetView:Landroid/view/View;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/folder/view/FolderView;Landroid/view/View;Z)V
+.method constructor <init>(Lcom/android/launcher3/folder/view/FolderView;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/folder/view/FolderView$21;->this$0:Lcom/android/launcher3/folder/view/FolderView;
-
-    iput-object p2, p0, Lcom/android/launcher3/folder/view/FolderView$21;->val$targetView:Landroid/view/View;
-
-    iput-boolean p3, p0, Lcom/android/launcher3/folder/view/FolderView$21;->val$keepLayout:Z
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -42,41 +34,18 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/view/animation/Animation;)V
-    .locals 2
+.method public evaluate(Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/view/View;Landroid/view/View;)Z
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderView$21;->val$targetView:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderView$21;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-    if-eqz v0, :cond_0
+    invoke-static {v0}, Lcom/android/launcher3/folder/view/FolderView;->access$1800(Lcom/android/launcher3/folder/view/FolderView;)Ljava/util/ArrayList;
 
-    iget-object v1, p0, Lcom/android/launcher3/folder/view/FolderView$21;->val$targetView:Landroid/view/View;
+    move-result-object v0
 
-    iget-boolean v0, p0, Lcom/android/launcher3/folder/view/FolderView$21;->val$keepLayout:Z
+    invoke-virtual {v0, p2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    if-eqz v0, :cond_1
+    const/4 v0, 0x0
 
-    const/4 v0, 0x4
-
-    :goto_0
-    invoke-virtual {v1, v0}, Landroid/view/View;->setVisibility(I)V
-
-    :cond_0
-    return-void
-
-    :cond_1
-    const/16 v0, 0x8
-
-    goto :goto_0
-.end method
-
-.method public onAnimationRepeat(Landroid/view/animation/Animation;)V
-    .locals 0
-
-    return-void
-.end method
-
-.method public onAnimationStart(Landroid/view/animation/Animation;)V
-    .locals 0
-
-    return-void
+    return v0
 .end method

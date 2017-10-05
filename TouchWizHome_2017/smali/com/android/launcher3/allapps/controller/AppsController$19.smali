@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/allapps/controller/AppsController;->onUpdateAlphabetList(Lcom/android/launcher3/common/base/item/ItemInfo;)V
+    value = Lcom/android/launcher3/allapps/controller/AppsController;->onBadgeBindingCompleted(Ljava/util/ArrayList;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,16 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/allapps/controller/AppsController;
 
-.field final synthetic val$folderItem:Lcom/android/launcher3/folder/FolderInfo;
+.field final synthetic val$badgeItems:Ljava/util/ArrayList;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/allapps/controller/AppsController;Lcom/android/launcher3/folder/FolderInfo;)V
+.method constructor <init>(Lcom/android/launcher3/allapps/controller/AppsController;Ljava/util/ArrayList;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/allapps/controller/AppsController$19;->this$0:Lcom/android/launcher3/allapps/controller/AppsController;
 
-    iput-object p2, p0, Lcom/android/launcher3/allapps/controller/AppsController$19;->val$folderItem:Lcom/android/launcher3/folder/FolderInfo;
+    iput-object p2, p0, Lcom/android/launcher3/allapps/controller/AppsController$19;->val$badgeItems:Ljava/util/ArrayList;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -39,21 +39,13 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 2
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController$19;->this$0:Lcom/android/launcher3/allapps/controller/AppsController;
 
-    invoke-static {v0}, Lcom/android/launcher3/allapps/controller/AppsController;->access$000(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/allapps/view/AppsPagedView;
+    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController$19;->val$badgeItems:Ljava/util/ArrayList;
 
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController$19;->val$folderItem:Lcom/android/launcher3/folder/FolderInfo;
-
-    iget-wide v2, v1, Lcom/android/launcher3/folder/FolderInfo;->screenId:J
-
-    long-to-int v1, v2
-
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/allapps/view/AppsPagedView;->snapToPageImmediately(I)V
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/allapps/controller/AppsController;->onBadgeBindingCompleted(Ljava/util/ArrayList;)V
 
     return-void
 .end method

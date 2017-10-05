@@ -15,11 +15,11 @@
 
 
 # instance fields
-.field mBigLargeIcon:Landroid/graphics/Bitmap;
+.field private mBigLargeIcon:Landroid/graphics/Bitmap;
 
-.field mBigLargeIconSet:Z
+.field private mBigLargeIconSet:Z
 
-.field mPicture:Landroid/graphics/Bitmap;
+.field private mPicture:Landroid/graphics/Bitmap;
 
 
 # direct methods
@@ -43,6 +43,40 @@
 
 
 # virtual methods
+.method public apply(Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;)V
+    .locals 7
+    .annotation build Landroid/support/annotation/RestrictTo;
+        value = {
+            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
+        }
+    .end annotation
+
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v1, 0x10
+
+    if-lt v0, v1, :cond_0
+
+    iget-object v1, p0, Landroid/support/v4/app/NotificationCompat$BigPictureStyle;->mBigContentTitle:Ljava/lang/CharSequence;
+
+    iget-boolean v2, p0, Landroid/support/v4/app/NotificationCompat$BigPictureStyle;->mSummaryTextSet:Z
+
+    iget-object v3, p0, Landroid/support/v4/app/NotificationCompat$BigPictureStyle;->mSummaryText:Ljava/lang/CharSequence;
+
+    iget-object v4, p0, Landroid/support/v4/app/NotificationCompat$BigPictureStyle;->mPicture:Landroid/graphics/Bitmap;
+
+    iget-object v5, p0, Landroid/support/v4/app/NotificationCompat$BigPictureStyle;->mBigLargeIcon:Landroid/graphics/Bitmap;
+
+    iget-boolean v6, p0, Landroid/support/v4/app/NotificationCompat$BigPictureStyle;->mBigLargeIconSet:Z
+
+    move-object v0, p1
+
+    invoke-static/range {v0 .. v6}, Landroid/support/v4/app/NotificationCompatJellybean;->addBigPictureStyle(Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;Ljava/lang/CharSequence;ZLjava/lang/CharSequence;Landroid/graphics/Bitmap;Landroid/graphics/Bitmap;Z)V
+
+    :cond_0
+    return-void
+.end method
+
 .method public bigLargeIcon(Landroid/graphics/Bitmap;)Landroid/support/v4/app/NotificationCompat$BigPictureStyle;
     .locals 1
 

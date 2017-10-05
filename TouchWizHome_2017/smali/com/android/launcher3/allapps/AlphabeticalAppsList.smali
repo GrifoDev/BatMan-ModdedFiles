@@ -119,7 +119,7 @@
         value = {
             "Ljava/util/List",
             "<",
-            "Lcom/android/launcher3/appssearch/ItemDetails;",
+            "Lcom/android/launcher3/allapps/ItemDetails;",
             ">;"
         }
     .end annotation
@@ -442,7 +442,7 @@
             "()",
             "Ljava/util/List",
             "<",
-            "Lcom/android/launcher3/appssearch/ItemDetails;",
+            "Lcom/android/launcher3/allapps/ItemDetails;",
             ">;"
         }
     .end annotation
@@ -468,7 +468,7 @@
 
     move-result-object v2
 
-    check-cast v2, Lcom/android/launcher3/appssearch/ItemDetails;
+    check-cast v2, Lcom/android/launcher3/allapps/ItemDetails;
 
     if-eqz v2, :cond_0
 
@@ -1434,13 +1434,13 @@
 
     move-result-object v15
 
-    check-cast v15, Lcom/android/launcher3/appssearch/ItemDetails;
+    check-cast v15, Lcom/android/launcher3/allapps/ItemDetails;
 
     add-int/lit8 v22, v2, 0x1
 
     add-int/lit8 v8, v7, 0x1
 
-    invoke-static {v2, v15, v7}, Lcom/android/launcher3/allapps/AlphabeticalAppsList$AdapterItem;->asGalaxyApp(ILcom/android/launcher3/appssearch/ItemDetails;I)Lcom/android/launcher3/allapps/AlphabeticalAppsList$AdapterItem;
+    invoke-static {v2, v15, v7}, Lcom/android/launcher3/allapps/AlphabeticalAppsList$AdapterItem;->asGalaxyApp(ILcom/android/launcher3/allapps/ItemDetails;I)Lcom/android/launcher3/allapps/AlphabeticalAppsList$AdapterItem;
 
     move-result-object v9
 

@@ -205,9 +205,7 @@
 
     if-eqz v1, :cond_0
 
-    const-string v2, ""
-
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1}, Ljava/lang/String;->isEmpty()Z
 
     move-result v2
 

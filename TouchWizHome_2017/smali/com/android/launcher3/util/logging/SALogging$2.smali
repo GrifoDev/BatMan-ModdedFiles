@@ -43,13 +43,15 @@
 
 # virtual methods
 .method public run()V
-    .locals 11
+    .locals 12
 
-    const v10, 0x7f080148
+    const v11, 0x7f090163
 
-    const/4 v9, 0x2
+    const/4 v10, 0x2
 
-    const/4 v8, 0x1
+    const/4 v9, 0x1
+
+    const v8, 0x7f090164
 
     const-string v5, ""
 
@@ -69,9 +71,9 @@
 
     move-result v4
 
-    if-ne v4, v8, :cond_5
+    if-ne v4, v9, :cond_6
 
-    const v6, 0x7f08019a
+    const v6, 0x7f0901b7
 
     invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -81,17 +83,35 @@
 
     instance-of v6, v6, Lcom/android/launcher3/common/base/item/IconInfo;
 
-    if-eqz v6, :cond_3
+    if-eqz v6, :cond_4
 
     iget-object v6, p0, Lcom/android/launcher3/util/logging/SALogging$2;->this$0:Lcom/android/launcher3/util/logging/SALogging;
 
     iget-object v7, p0, Lcom/android/launcher3/util/logging/SALogging$2;->val$info:Lcom/android/launcher3/common/base/item/ItemInfo;
 
-    invoke-static {v6, v7}, Lcom/android/launcher3/util/logging/SALogging;->access$200(Lcom/android/launcher3/util/logging/SALogging;Lcom/android/launcher3/common/base/item/ItemInfo;)Ljava/lang/String;
+    invoke-static {v6, v7}, Lcom/android/launcher3/util/logging/SALogging;->access$300(Lcom/android/launcher3/util/logging/SALogging;Lcom/android/launcher3/common/base/item/ItemInfo;)Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-virtual {v1, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    sget-object v6, Lcom/android/launcher3/util/logging/Logging;->sContext:Landroid/content/Context;
+
+    invoke-static {v6}, Lcom/android/launcher3/util/DualAppUtils;->supportDualApp(Landroid/content/Context;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_3
+
+    iget-object v6, p0, Lcom/android/launcher3/util/logging/SALogging$2;->val$info:Lcom/android/launcher3/common/base/item/ItemInfo;
+
+    iget-object v6, v6, Lcom/android/launcher3/common/base/item/ItemInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    invoke-static {v6}, Lcom/android/launcher3/util/DualAppUtils;->isDualAppId(Lcom/android/launcher3/common/compat/UserHandleCompat;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_3
+
+    invoke-virtual {v1, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
@@ -140,6 +160,13 @@
     return-void
 
     :cond_3
+    invoke-virtual {v1, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :cond_4
     iget-object v6, p0, Lcom/android/launcher3/util/logging/SALogging$2;->val$info:Lcom/android/launcher3/common/base/item/ItemInfo;
 
     instance-of v6, v6, Lcom/android/launcher3/home/LauncherAppWidgetInfo;
@@ -152,7 +179,7 @@
 
     iget-object v6, v6, Lcom/android/launcher3/home/LauncherAppWidgetInfo;->providerName:Landroid/content/ComponentName;
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_5
 
     iget-object v6, p0, Lcom/android/launcher3/util/logging/SALogging$2;->val$info:Lcom/android/launcher3/common/base/item/ItemInfo;
 
@@ -164,8 +191,8 @@
 
     move-result-object v5
 
-    :cond_4
-    const v6, 0x7f080149
+    :cond_5
+    const v6, 0x7f090165
 
     invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -173,10 +200,10 @@
 
     goto :goto_0
 
-    :cond_5
-    if-ne v4, v9, :cond_6
+    :cond_6
+    if-ne v4, v10, :cond_8
 
-    const v6, 0x7f08018c
+    const v6, 0x7f0901a9
 
     invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -192,17 +219,42 @@
 
     iget-object v7, p0, Lcom/android/launcher3/util/logging/SALogging$2;->val$info:Lcom/android/launcher3/common/base/item/ItemInfo;
 
-    invoke-static {v6, v7}, Lcom/android/launcher3/util/logging/SALogging;->access$200(Lcom/android/launcher3/util/logging/SALogging;Lcom/android/launcher3/common/base/item/ItemInfo;)Ljava/lang/String;
+    invoke-static {v6, v7}, Lcom/android/launcher3/util/logging/SALogging;->access$300(Lcom/android/launcher3/util/logging/SALogging;Lcom/android/launcher3/common/base/item/ItemInfo;)Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-virtual {v1, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    sget-object v6, Lcom/android/launcher3/util/logging/Logging;->sContext:Landroid/content/Context;
+
+    invoke-static {v6}, Lcom/android/launcher3/util/DualAppUtils;->supportDualApp(Landroid/content/Context;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_7
+
+    iget-object v6, p0, Lcom/android/launcher3/util/logging/SALogging$2;->val$info:Lcom/android/launcher3/common/base/item/ItemInfo;
+
+    iget-object v6, v6, Lcom/android/launcher3/common/base/item/ItemInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    invoke-static {v6}, Lcom/android/launcher3/util/DualAppUtils;->isDualAppId(Lcom/android/launcher3/common/compat/UserHandleCompat;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_7
+
+    invoke-virtual {v1, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
     goto :goto_0
 
-    :cond_6
+    :cond_7
+    invoke-virtual {v1, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
+    :cond_8
     const/4 v6, 0x5
 
     if-ne v4, v6, :cond_0
@@ -211,7 +263,7 @@
 
     iget-object v7, p0, Lcom/android/launcher3/util/logging/SALogging$2;->val$info:Lcom/android/launcher3/common/base/item/ItemInfo;
 
-    invoke-static {v6, v7}, Lcom/android/launcher3/util/logging/SALogging;->access$200(Lcom/android/launcher3/util/logging/SALogging;Lcom/android/launcher3/common/base/item/ItemInfo;)Ljava/lang/String;
+    invoke-static {v6, v7}, Lcom/android/launcher3/util/logging/SALogging;->access$300(Lcom/android/launcher3/util/logging/SALogging;Lcom/android/launcher3/common/base/item/ItemInfo;)Ljava/lang/String;
 
     move-result-object v5
 
@@ -221,32 +273,57 @@
 
     move-result v3
 
-    if-ne v3, v8, :cond_8
+    if-ne v3, v9, :cond_a
 
-    const v6, 0x7f080192
+    const v6, 0x7f0901af
 
     invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    :cond_7
+    :cond_9
     :goto_1
-    const v6, 0x7f080116
+    sget-object v6, Lcom/android/launcher3/util/logging/Logging;->sContext:Landroid/content/Context;
 
-    invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-static {v6}, Lcom/android/launcher3/util/DualAppUtils;->supportDualApp(Landroid/content/Context;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_b
+
+    iget-object v6, p0, Lcom/android/launcher3/util/logging/SALogging$2;->val$info:Lcom/android/launcher3/common/base/item/ItemInfo;
+
+    iget-object v6, v6, Lcom/android/launcher3/common/base/item/ItemInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    invoke-static {v6}, Lcom/android/launcher3/util/DualAppUtils;->isDualAppId(Lcom/android/launcher3/common/compat/UserHandleCompat;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_b
+
+    invoke-virtual {v1, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
     goto/16 :goto_0
 
-    :cond_8
-    if-ne v3, v9, :cond_7
+    :cond_a
+    if-ne v3, v10, :cond_9
 
-    const v6, 0x7f080186
+    const v6, 0x7f0901a3
 
     invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
     goto :goto_1
+
+    :cond_b
+    const v6, 0x7f090131
+
+    invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto/16 :goto_0
 .end method

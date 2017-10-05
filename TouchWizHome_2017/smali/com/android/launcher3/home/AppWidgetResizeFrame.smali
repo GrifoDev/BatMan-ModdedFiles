@@ -185,7 +185,7 @@
 
     move-result-object v6
 
-    const v9, 0x7f020117
+    const v9, 0x7f020109
 
     const/4 v10, 0x0
 
@@ -195,7 +195,7 @@
 
     iput-object v9, p0, Lcom/android/launcher3/home/AppWidgetResizeFrame;->mBackground:Landroid/graphics/drawable/Drawable;
 
-    const v9, 0x7f020118
+    const v9, 0x7f02010a
 
     const/4 v10, 0x0
 
@@ -205,7 +205,7 @@
 
     iput-object v9, p0, Lcom/android/launcher3/home/AppWidgetResizeFrame;->mBackgroundInvalid:Landroid/graphics/drawable/Drawable;
 
-    const v9, 0x7f09013f
+    const v9, 0x7f0a0183
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -213,7 +213,7 @@
 
     iput v9, p0, Lcom/android/launcher3/home/AppWidgetResizeFrame;->mBackgroundPadding:I
 
-    const v9, 0x7f090140
+    const v9, 0x7f0a0184
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -231,7 +231,7 @@
 
     invoke-virtual {p0, v9, v10, v11, v12}, Lcom/android/launcher3/home/AppWidgetResizeFrame;->setPadding(IIII)V
 
-    const v9, 0x7f020119
+    const v9, 0x7f02010b
 
     const/4 v10, 0x0
 
@@ -245,7 +245,7 @@
 
     iput v9, p0, Lcom/android/launcher3/home/AppWidgetResizeFrame;->mHandleWidth:I
 
-    const v9, 0x7f0801c5
+    const v9, 0x7f0900c3
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -253,7 +253,7 @@
 
     iput-object v9, p0, Lcom/android/launcher3/home/AppWidgetResizeFrame;->mWidgetSpanFormat:Ljava/lang/String;
 
-    const v9, 0x7f0800be
+    const v9, 0x7f0900d8
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -301,11 +301,11 @@
 
     iget-object v9, p0, Lcom/android/launcher3/home/AppWidgetResizeFrame;->mLeftHandle:Landroid/widget/ImageView;
 
-    const v10, 0x7f020119
+    const v10, 0x7f02010b
 
     invoke-virtual {v9, v10}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    const v9, 0x7f0e000d
+    const v9, 0x7f100010
 
     const/4 v10, 0x1
 
@@ -360,7 +360,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0800ba
+    const v10, 0x7f0900d4
 
     invoke-virtual {v6, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -406,7 +406,7 @@
 
     iget-object v9, p0, Lcom/android/launcher3/home/AppWidgetResizeFrame;->mRightHandle:Landroid/widget/ImageView;
 
-    const v10, 0x7f020119
+    const v10, 0x7f02010b
 
     invoke-virtual {v9, v10}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -430,7 +430,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0800c0
+    const v10, 0x7f0900da
 
     invoke-virtual {v6, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -476,7 +476,7 @@
 
     iget-object v9, p0, Lcom/android/launcher3/home/AppWidgetResizeFrame;->mTopHandle:Landroid/widget/ImageView;
 
-    const v10, 0x7f020119
+    const v10, 0x7f02010b
 
     invoke-virtual {v9, v10}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -500,7 +500,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0800c1
+    const v10, 0x7f0900db
 
     invoke-virtual {v6, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -546,7 +546,7 @@
 
     iget-object v9, p0, Lcom/android/launcher3/home/AppWidgetResizeFrame;->mBottomHandle:Landroid/widget/ImageView;
 
-    const v10, 0x7f020119
+    const v10, 0x7f02010b
 
     invoke-virtual {v9, v10}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -570,7 +570,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0800b1
+    const v10, 0x7f0900c6
 
     invoke-virtual {v6, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -714,7 +714,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0800bf
+    const v10, 0x7f0900d9
 
     const/4 v11, 0x1
 
@@ -1649,7 +1649,7 @@
 
     move-result-object v1
 
-    const v6, 0x7f08019d
+    const v6, 0x7f0901ba
 
     move-object/from16 v0, v23
 
@@ -1657,7 +1657,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f080158
+    const v7, 0x7f090175
 
     move-object/from16 v0, v23
 
@@ -1888,7 +1888,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0800ba
+    const v3, 0x7f0900d4
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1899,7 +1899,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0800bb
+    const v3, 0x7f0900d5
 
     const/4 v4, 0x1
 
@@ -1928,7 +1928,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0800c0
+    const v3, 0x7f0900da
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1945,7 +1945,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0800c1
+    const v3, 0x7f0900db
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1958,7 +1958,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0800b1
+    const v3, 0x7f0900c6
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1970,7 +1970,7 @@
 .method private setVisualInvalid()V
     .locals 2
 
-    const v1, 0x7f02011a
+    const v1, 0x7f02010c
 
     const/4 v0, 0x1
 
@@ -1998,7 +1998,7 @@
 .method private setVisualOk()V
     .locals 2
 
-    const v1, 0x7f020119
+    const v1, 0x7f02010b
 
     const/4 v0, 0x0
 
@@ -2265,6 +2265,12 @@
 .method static updateWidgetSizeRanges(Lcom/android/launcher3/Launcher;Landroid/appwidget/AppWidgetHostView;II)V
     .locals 7
 
+    if-nez p1, :cond_0
+
+    :goto_0
+    return-void
+
+    :cond_0
     invoke-static {p0, p1, p2, p3}, Lcom/android/launcher3/home/AppWidgetResizeFrame;->getWidgetSizeRanges(Lcom/android/launcher3/Launcher;Landroid/appwidget/AppWidgetHostView;II)Landroid/graphics/Rect;
 
     move-result-object v6
@@ -2277,11 +2283,11 @@
 
     check-cast v0, Lcom/android/launcher3/home/LauncherAppWidgetHostView;
 
-    invoke-virtual {v0}, Lcom/android/launcher3/home/LauncherAppWidgetHostView;->getIsSetFlingOption()Z
+    invoke-virtual {v0}, Lcom/android/launcher3/home/LauncherAppWidgetHostView;->supportFlingOption()Z
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     const-string v0, "fling"
 
@@ -2289,12 +2295,12 @@
 
     invoke-virtual {v1, v0, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    :cond_0
+    :cond_1
     invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportGSAPreWarming()Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     move-object v0, p1
 
@@ -2304,7 +2310,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     const-string v0, "AppWidgetResizeFrame"
 
@@ -2426,7 +2432,7 @@
 
     invoke-virtual {v1, v0, v2}, Landroid/os/Bundle;->putFloat(Ljava/lang/String;F)V
 
-    :cond_1
+    :cond_2
     iget v2, v6, Landroid/graphics/Rect;->left:I
 
     iget v3, v6, Landroid/graphics/Rect;->top:I
@@ -2439,7 +2445,7 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/appwidget/AppWidgetHostView;->updateAppWidgetSize(Landroid/os/Bundle;IIII)V
 
-    return-void
+    goto/16 :goto_0
 .end method
 
 .method private visualizeResizeForDelta(IIZ)V
@@ -2958,7 +2964,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0800c2
+    const v4, 0x7f0900dc
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

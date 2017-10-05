@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/HomeBindController;->bindWidgetsRestored(Ljava/util/ArrayList;)V
+    value = Lcom/android/launcher3/home/HomeBindController;->bindItemsRemoved(Ljava/util/ArrayList;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,7 +20,7 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/home/HomeBindController;
 
-.field final synthetic val$widgets:Ljava/util/ArrayList;
+.field final synthetic val$removed:Ljava/util/ArrayList;
 
 
 # direct methods
@@ -29,7 +29,7 @@
 
     iput-object p1, p0, Lcom/android/launcher3/home/HomeBindController$17;->this$0:Lcom/android/launcher3/home/HomeBindController;
 
-    iput-object p2, p0, Lcom/android/launcher3/home/HomeBindController$17;->val$widgets:Ljava/util/ArrayList;
+    iput-object p2, p0, Lcom/android/launcher3/home/HomeBindController$17;->val$removed:Ljava/util/ArrayList;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,9 +43,9 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeBindController$17;->this$0:Lcom/android/launcher3/home/HomeBindController;
 
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeBindController$17;->val$widgets:Ljava/util/ArrayList;
+    iget-object v1, p0, Lcom/android/launcher3/home/HomeBindController$17;->val$removed:Ljava/util/ArrayList;
 
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/home/HomeBindController;->bindWidgetsRestored(Ljava/util/ArrayList;)V
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/home/HomeBindController;->bindItemsRemoved(Ljava/util/ArrayList;)V
 
     return-void
 .end method

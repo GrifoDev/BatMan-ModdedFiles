@@ -13,7 +13,10 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Landroid/support/v7/widget/FastScroller$AnimatorUpdater;,
-        Landroid/support/v7/widget/FastScroller$AnimatorListener;
+        Landroid/support/v7/widget/FastScroller$AnimatorListener;,
+        Landroid/support/v7/widget/FastScroller$AnimationState;,
+        Landroid/support/v7/widget/FastScroller$DragState;,
+        Landroid/support/v7/widget/FastScroller$State;
     }
 .end annotation
 

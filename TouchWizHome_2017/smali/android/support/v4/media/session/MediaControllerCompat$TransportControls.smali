@@ -14,6 +14,10 @@
 .end annotation
 
 
+# static fields
+.field public static final EXTRA_LEGACY_STREAM_TYPE:Ljava/lang/String; = "android.media.session.extra.LEGACY_STREAM_TYPE"
+
+
 # direct methods
 .method constructor <init>()V
     .locals 0
@@ -71,6 +75,9 @@
 .end method
 
 .method public abstract setRating(Landroid/support/v4/media/RatingCompat;)V
+.end method
+
+.method public abstract setRating(Landroid/support/v4/media/RatingCompat;Landroid/os/Bundle;)V
 .end method
 
 .method public abstract setRepeatMode(I)V

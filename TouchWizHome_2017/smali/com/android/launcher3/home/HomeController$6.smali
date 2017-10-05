@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/HomeController;->requestCreateShortcut(IILandroid/content/Intent;)V
+    value = Lcom/android/launcher3/home/HomeController;->requestCreateOrPickAppWidget(IILandroid/content/Intent;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -35,11 +35,13 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .locals 2
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController$6;->this$0:Lcom/android/launcher3/home/HomeController;
 
-    invoke-virtual {v0}, Lcom/android/launcher3/home/HomeController;->exitDragStateDelayed()V
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/home/HomeController;->exitDragStateDelayed(I)V
 
     return-void
 .end method

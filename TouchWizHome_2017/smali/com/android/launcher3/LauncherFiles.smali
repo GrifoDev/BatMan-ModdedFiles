@@ -50,7 +50,9 @@
     .end annotation
 .end field
 
-.field public static final SAMSUNG_ANALYTICS_PREFERENCES_KEY:Ljava/lang/String; = "SASettingPref"
+.field public static final SAMSUNG_ANALYTICS_PREFERENCES_KEY:Ljava/lang/String; = "com.sec.android.app.launcher.prefs.sa"
+
+.field public static final SAMSUNG_ANALYTICS_PREFERENCES_KEY_LEGACY:Ljava/lang/String; = "SASettingPref"
 
 .field public static final SHARED_PREFERENCES_KEY:Ljava/lang/String; = "com.sec.android.app.launcher.prefs"
 
@@ -157,7 +159,7 @@
 
     const/16 v1, 0xd
 
-    const-string v2, "SASettingPref"
+    const-string v2, "com.sec.android.app.launcher.prefs.sa"
 
     aput-object v2, v0, v1
 

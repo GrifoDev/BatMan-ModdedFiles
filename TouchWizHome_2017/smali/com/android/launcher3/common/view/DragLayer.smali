@@ -19,7 +19,9 @@
 
 .field public static final ICON_FLICKING_DURATION:I = 0x1e0
 
-.field private static final SCRIM_COLOR:I
+.field private static final SCRIM_COLOR:I = 0x0
+
+.field private static final TAG:Ljava/lang/String; = "DragLayer"
 
 
 # instance fields
@@ -44,6 +46,8 @@
 .field private mDropAnim:Landroid/animation/ValueAnimator;
 
 .field private mDropView:Lcom/android/launcher3/common/drag/DragView;
+
+.field private final mHitRect:Landroid/graphics/Rect;
 
 .field private mLauncher:Lcom/android/launcher3/Launcher;
 
@@ -105,6 +109,12 @@
     const/high16 v0, -0x40800000    # -1.0f
 
     iput v0, p0, Lcom/android/launcher3/common/view/DragLayer;->mBackgroundImageAlpha:F
+
+    new-instance v0, Landroid/graphics/Rect;
+
+    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+
+    iput-object v0, p0, Lcom/android/launcher3/common/view/DragLayer;->mHitRect:Landroid/graphics/Rect;
 
     invoke-virtual {p0, v3}, Lcom/android/launcher3/common/view/DragLayer;->setMotionEventSplittingEnabled(Z)V
 
@@ -232,91 +242,145 @@
 .end method
 
 .method private handleTouchDown(Landroid/view/MotionEvent;Z)Z
-    .locals 7
+    .locals 10
 
-    const/4 v3, 0x1
+    const/4 v6, 0x0
 
-    new-instance v0, Landroid/graphics/Rect;
+    const/4 v5, 0x1
 
-    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+    new-instance v1, Landroid/graphics/Rect;
+
+    invoke-direct {v1}, Landroid/graphics/Rect;-><init>()V
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
-    move-result v4
+    move-result v7
 
-    float-to-int v1, v4
+    float-to-int v3, v7
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
-    move-result v4
+    move-result v7
 
-    float-to-int v2, v4
+    float-to-int v4, v7
 
-    iget-object v4, p0, Lcom/android/launcher3/common/view/DragLayer;->mResizeFrame:Lcom/android/launcher3/home/AppWidgetResizeFrame;
+    iget-object v7, p0, Lcom/android/launcher3/common/view/DragLayer;->mResizeFrame:Lcom/android/launcher3/home/AppWidgetResizeFrame;
 
-    if-eqz v4, :cond_1
+    if-eqz v7, :cond_1
 
-    iget-object v4, p0, Lcom/android/launcher3/common/view/DragLayer;->mResizeFrame:Lcom/android/launcher3/home/AppWidgetResizeFrame;
+    iget-object v7, p0, Lcom/android/launcher3/common/view/DragLayer;->mResizeFrame:Lcom/android/launcher3/home/AppWidgetResizeFrame;
 
-    invoke-virtual {v4, v0}, Lcom/android/launcher3/home/AppWidgetResizeFrame;->getHitRect(Landroid/graphics/Rect;)V
+    invoke-virtual {v7, v1}, Lcom/android/launcher3/home/AppWidgetResizeFrame;->getHitRect(Landroid/graphics/Rect;)V
 
-    invoke-virtual {v0, v1, v2}, Landroid/graphics/Rect;->contains(II)Z
+    invoke-virtual {v1, v3, v4}, Landroid/graphics/Rect;->contains(II)Z
 
-    move-result v4
+    move-result v7
 
-    if-eqz v4, :cond_1
+    if-eqz v7, :cond_1
 
-    iget-object v4, p0, Lcom/android/launcher3/common/view/DragLayer;->mResizeFrame:Lcom/android/launcher3/home/AppWidgetResizeFrame;
+    iget-object v7, p0, Lcom/android/launcher3/common/view/DragLayer;->mResizeFrame:Lcom/android/launcher3/home/AppWidgetResizeFrame;
 
-    iget-object v5, p0, Lcom/android/launcher3/common/view/DragLayer;->mResizeFrame:Lcom/android/launcher3/home/AppWidgetResizeFrame;
+    iget-object v8, p0, Lcom/android/launcher3/common/view/DragLayer;->mResizeFrame:Lcom/android/launcher3/home/AppWidgetResizeFrame;
 
-    invoke-virtual {v5}, Lcom/android/launcher3/home/AppWidgetResizeFrame;->getLeft()I
+    invoke-virtual {v8}, Lcom/android/launcher3/home/AppWidgetResizeFrame;->getLeft()I
 
-    move-result v5
+    move-result v8
 
-    sub-int v5, v1, v5
+    sub-int v8, v3, v8
+
+    iget-object v9, p0, Lcom/android/launcher3/common/view/DragLayer;->mResizeFrame:Lcom/android/launcher3/home/AppWidgetResizeFrame;
+
+    invoke-virtual {v9}, Lcom/android/launcher3/home/AppWidgetResizeFrame;->getTop()I
+
+    move-result v9
+
+    sub-int v9, v4, v9
+
+    invoke-virtual {v7, v8, v9}, Lcom/android/launcher3/home/AppWidgetResizeFrame;->beginResizeIfPointInRegion(II)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_1
 
     iget-object v6, p0, Lcom/android/launcher3/common/view/DragLayer;->mResizeFrame:Lcom/android/launcher3/home/AppWidgetResizeFrame;
 
-    invoke-virtual {v6}, Lcom/android/launcher3/home/AppWidgetResizeFrame;->getTop()I
+    invoke-virtual {v6}, Lcom/android/launcher3/home/AppWidgetResizeFrame;->onTouchDown()V
 
-    move-result v6
+    iput v3, p0, Lcom/android/launcher3/common/view/DragLayer;->mXDown:I
 
-    sub-int v6, v2, v6
+    iput v4, p0, Lcom/android/launcher3/common/view/DragLayer;->mYDown:I
 
-    invoke-virtual {v4, v5, v6}, Lcom/android/launcher3/home/AppWidgetResizeFrame;->beginResizeIfPointInRegion(II)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1
-
-    iget-object v4, p0, Lcom/android/launcher3/common/view/DragLayer;->mResizeFrame:Lcom/android/launcher3/home/AppWidgetResizeFrame;
-
-    invoke-virtual {v4}, Lcom/android/launcher3/home/AppWidgetResizeFrame;->onTouchDown()V
-
-    iput v1, p0, Lcom/android/launcher3/common/view/DragLayer;->mXDown:I
-
-    iput v2, p0, Lcom/android/launcher3/common/view/DragLayer;->mYDown:I
-
-    invoke-virtual {p0, v3}, Lcom/android/launcher3/common/view/DragLayer;->requestDisallowInterceptTouchEvent(Z)V
+    invoke-virtual {p0, v5}, Lcom/android/launcher3/common/view/DragLayer;->requestDisallowInterceptTouchEvent(Z)V
 
     :cond_0
     :goto_0
-    return v3
+    return v5
 
     :cond_1
-    if-nez p2, :cond_2
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportDeepShortcut()Z
 
-    iget-object v4, p0, Lcom/android/launcher3/common/view/DragLayer;->mLauncher:Lcom/android/launcher3/Launcher;
+    move-result v7
 
-    invoke-virtual {v4}, Lcom/android/launcher3/Launcher;->finishStageOnTouchOutSide()Z
+    if-eqz v7, :cond_3
 
-    move-result v4
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
-    if-nez v4, :cond_0
+    move-result-object v7
+
+    invoke-virtual {v7}, Lcom/android/launcher3/LauncherAppState;->getShortcutManager()Lcom/android/launcher3/common/quickoption/shortcuts/DeepShortcutManager;
+
+    move-result-object v2
+
+    iget-object v7, p0, Lcom/android/launcher3/common/view/DragLayer;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v2, v7}, Lcom/android/launcher3/common/quickoption/shortcuts/DeepShortcutManager;->getOpenShortcutsContainer(Landroid/content/Context;)Lcom/android/launcher3/common/quickoption/shortcuts/DeepShortcutsContainer;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_3
+
+    invoke-virtual {p0, v0, p1}, Lcom/android/launcher3/common/view/DragLayer;->isEventOverView(Landroid/view/View;Landroid/view/MotionEvent;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_2
+
+    move v5, v6
+
+    goto :goto_0
 
     :cond_2
-    const/4 v3, 0x0
+    iget-object v7, p0, Lcom/android/launcher3/common/view/DragLayer;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v2, v7}, Lcom/android/launcher3/common/quickoption/shortcuts/DeepShortcutManager;->closeShortcutsContainer(Landroid/content/Context;)V
+
+    invoke-virtual {v0}, Lcom/android/launcher3/common/quickoption/shortcuts/DeepShortcutsContainer;->getDeferredDragIcon()Lcom/android/launcher3/common/view/IconView;
+
+    move-result-object v7
+
+    invoke-virtual {p0, v7, p1}, Lcom/android/launcher3/common/view/DragLayer;->isEventOverView(Landroid/view/View;Landroid/view/MotionEvent;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_0
+
+    move v5, v6
+
+    goto :goto_0
+
+    :cond_3
+    if-nez p2, :cond_4
+
+    iget-object v7, p0, Lcom/android/launcher3/common/view/DragLayer;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v7}, Lcom/android/launcher3/Launcher;->finishStageOnTouchOutSide()Z
+
+    move-result v7
+
+    if-nez v7, :cond_0
+
+    :cond_4
+    move v5, v6
 
     goto :goto_0
 .end method
@@ -378,6 +442,19 @@
     iput-object v1, p0, Lcom/android/launcher3/common/view/DragLayer;->mResizeFrame:Lcom/android/launcher3/home/AppWidgetResizeFrame;
 
     :cond_0
+    if-nez p2, :cond_2
+
+    const-string v1, "DragLayer"
+
+    const-string v2, "addResizeFrame() : widget hostview is null"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    :goto_0
+    return-void
+
+    :cond_2
     new-instance v0, Lcom/android/launcher3/home/AppWidgetResizeFrame;
 
     invoke-virtual {p0}, Lcom/android/launcher3/common/view/DragLayer;->getContext()Landroid/content/Context;
@@ -410,8 +487,6 @@
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/home/AppWidgetResizeFrame;->snapToWidget(Z)V
 
-    if-eqz p2, :cond_1
-
     invoke-virtual {p2}, Lcom/android/launcher3/home/LauncherAppWidgetHostView;->getAppWidgetInfo()Landroid/appwidget/AppWidgetProviderInfo;
 
     move-result-object v1
@@ -428,8 +503,7 @@
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/util/logging/SALogging;->insertEnterResizeWidgetLog(Landroid/appwidget/AppWidgetProviderInfo;)V
 
-    :cond_1
-    return-void
+    goto :goto_0
 .end method
 
 .method public animateView(Lcom/android/launcher3/common/drag/DragView;Landroid/animation/ValueAnimator$AnimatorUpdateListener;ILandroid/animation/TimeInterpolator;Ljava/lang/Runnable;ILandroid/view/View;)V
@@ -550,7 +624,7 @@
 
     move-result-object v32
 
-    const v5, 0x7f0b0018
+    const v5, 0x7f0d0022
 
     move-object/from16 v0, v32
 
@@ -564,7 +638,7 @@
 
     if-gez p9, :cond_1
 
-    const v5, 0x7f0b0019
+    const v5, 0x7f0d0023
 
     move-object/from16 v0, v32
 
@@ -597,7 +671,7 @@
     move/from16 p9, v0
 
     :cond_0
-    const v5, 0x7f0b001a
+    const v5, 0x7f0d0024
 
     move-object/from16 v0, v32
 
@@ -862,6 +936,30 @@
 .end method
 
 .method public animateViewIntoPosition(Lcom/android/launcher3/common/drag/DragView;Landroid/view/View;ILjava/lang/Runnable;Landroid/view/View;I)V
+    .locals 8
+
+    const/4 v7, 0x0
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move-object v2, p2
+
+    move v3, p3
+
+    move-object v4, p4
+
+    move-object v5, p5
+
+    move v6, p6
+
+    invoke-virtual/range {v0 .. v7}, Lcom/android/launcher3/common/view/DragLayer;->animateViewIntoPosition(Lcom/android/launcher3/common/drag/DragView;Landroid/view/View;ILjava/lang/Runnable;Landroid/view/View;II)V
+
+    return-void
+.end method
+
+.method public animateViewIntoPosition(Lcom/android/launcher3/common/drag/DragView;Landroid/view/View;ILjava/lang/Runnable;Landroid/view/View;II)V
     .locals 28
 
     new-instance v25, Landroid/graphics/Rect;
@@ -995,7 +1093,9 @@
 
     const/4 v3, 0x1
 
-    aget v27, v19, v3
+    aget v3, v19, v3
+
+    add-int v27, v3, p7
 
     move/from16 v12, v26
 
@@ -1896,6 +1996,34 @@
     return-void
 .end method
 
+.method public isEventOverView(Landroid/view/View;Landroid/view/MotionEvent;)Z
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/launcher3/common/view/DragLayer;->mHitRect:Landroid/graphics/Rect;
+
+    invoke-virtual {p0, p1, v0}, Lcom/android/launcher3/common/view/DragLayer;->getDescendantRectRelativeToSelf(Landroid/view/View;Landroid/graphics/Rect;)F
+
+    iget-object v0, p0, Lcom/android/launcher3/common/view/DragLayer;->mHitRect:Landroid/graphics/Rect;
+
+    invoke-virtual {p2}, Landroid/view/MotionEvent;->getX()F
+
+    move-result v1
+
+    float-to-int v1, v1
+
+    invoke-virtual {p2}, Landroid/view/MotionEvent;->getY()F
+
+    move-result v2
+
+    float-to-int v2, v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/graphics/Rect;->contains(II)Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public isResizeFrameArea(FF)Z
     .locals 5
 
@@ -2346,7 +2474,7 @@
 
     invoke-virtual {v0, p0}, Lcom/android/launcher3/common/drag/DragManager;->setScrollView(Landroid/view/View;)V
 
-    const v0, 0x7f0f00a3
+    const v0, 0x7f1100af
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/view/DragLayer;->findViewById(I)Landroid/view/View;
 

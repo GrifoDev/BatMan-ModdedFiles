@@ -14,6 +14,8 @@
 
 .field public static final DRAG_SOURCE_HOTSEAT:I = 0x2
 
+.field public static final DRAG_SOURCE_QUICK_OPTION_POPUP:I = 0x6
+
 .field public static final DRAG_SOURCE_WIDGET:I = 0x5
 
 

@@ -47,7 +47,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter$2;->this$0:Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;
 
-    invoke-static {v1}, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->access$000(Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;)Lcom/android/launcher3/appspicker/AppsPickerInfoInterface;
+    invoke-static {v1}, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->access$100(Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;)Lcom/android/launcher3/appspicker/AppsPickerInfoInterface;
 
     move-result-object v1
 
@@ -61,7 +61,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter$2;->this$0:Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;
 
-    invoke-static {v1}, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->access$000(Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;)Lcom/android/launcher3/appspicker/AppsPickerInfoInterface;
+    invoke-static {v1}, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->access$100(Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;)Lcom/android/launcher3/appspicker/AppsPickerInfoInterface;
 
     move-result-object v1
 

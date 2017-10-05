@@ -749,7 +749,7 @@
 
     move-result-object v8
 
-    const/4 v9, 0x4
+    const/4 v9, 0x0
 
     invoke-virtual {v7, v8, v9}, Landroid/content/pm/PackageManager;->queryIntentServices(Landroid/content/Intent;I)Ljava/util/List;
 

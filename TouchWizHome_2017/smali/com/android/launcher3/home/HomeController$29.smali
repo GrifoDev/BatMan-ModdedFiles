@@ -3,12 +3,12 @@
 .source "HomeController.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Lcom/android/launcher3/common/base/item/ItemOperator;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/HomeController;->createFolder()V
+    value = Lcom/android/launcher3/home/HomeController;->updateRestoreItems(Ljava/util/HashSet;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,16 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/home/HomeController;
 
-.field final synthetic val$folder:Lcom/android/launcher3/folder/view/FolderIconView;
+.field final synthetic val$updates:Ljava/util/HashSet;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/home/HomeController;Lcom/android/launcher3/folder/view/FolderIconView;)V
+.method constructor <init>(Lcom/android/launcher3/home/HomeController;Ljava/util/HashSet;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/home/HomeController$29;->this$0:Lcom/android/launcher3/home/HomeController;
 
-    iput-object p2, p0, Lcom/android/launcher3/home/HomeController$29;->val$folder:Lcom/android/launcher3/folder/view/FolderIconView;
+    iput-object p2, p0, Lcom/android/launcher3/home/HomeController$29;->val$updates:Ljava/util/HashSet;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,75 +38,55 @@
 
 
 # virtual methods
-.method public run()V
-    .locals 4
+.method public evaluate(Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/view/View;Landroid/view/View;)Z
+    .locals 2
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeController$29;->this$0:Lcom/android/launcher3/home/HomeController;
+    instance-of v0, p1, Lcom/android/launcher3/common/base/item/IconInfo;
 
-    invoke-static {v1}, Lcom/android/launcher3/home/HomeController;->access$1300(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/Launcher;
+    if-eqz v0, :cond_1
 
-    move-result-object v1
+    instance-of v0, p2, Lcom/android/launcher3/common/view/IconView;
 
-    invoke-virtual {v1}, Lcom/android/launcher3/Launcher;->isHomeStage()Z
+    if-eqz v0, :cond_1
 
-    move-result v1
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeController$29;->val$updates:Ljava/util/HashSet;
 
-    if-eqz v1, :cond_0
+    invoke-virtual {v0, p1}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
 
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeController$29;->this$0:Lcom/android/launcher3/home/HomeController;
+    move-result v0
 
-    invoke-static {v1}, Lcom/android/launcher3/home/HomeController;->access$500(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/home/Workspace;
+    if-eqz v0, :cond_1
 
-    move-result-object v1
+    check-cast p2, Lcom/android/launcher3/common/view/IconView;
 
-    invoke-virtual {v1, v2}, Lcom/android/launcher3/home/Workspace;->setTargetView(Landroid/view/View;)V
-
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeController$29;->this$0:Lcom/android/launcher3/home/HomeController;
-
-    invoke-static {v1}, Lcom/android/launcher3/home/HomeController;->access$1400(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/home/Hotseat;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v2}, Lcom/android/launcher3/home/Hotseat;->setTargetView(Landroid/view/View;)V
-
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeController$29;->this$0:Lcom/android/launcher3/home/HomeController;
-
-    invoke-static {v1}, Lcom/android/launcher3/home/HomeController;->access$1400(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/home/Hotseat;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/launcher3/home/Hotseat;->getDragController()Lcom/android/launcher3/home/HotseatDragController;
-
-    move-result-object v1
-
-    const/4 v2, 0x0
-
-    const/4 v3, 0x1
-
-    invoke-virtual {v1, v2, v3}, Lcom/android/launcher3/home/HotseatDragController;->removeEmptyCells(ZZ)V
-
-    new-instance v0, Lcom/android/launcher3/common/stage/StageEntry;
-
-    invoke-direct {v0}, Lcom/android/launcher3/common/stage/StageEntry;-><init>()V
-
-    const-string v1, "KEY_FOLDER_ICON_VIEW"
-
-    iget-object v2, p0, Lcom/android/launcher3/home/HomeController$29;->val$folder:Lcom/android/launcher3/folder/view/FolderIconView;
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/launcher3/common/stage/StageEntry;->putExtras(Ljava/lang/String;Ljava/lang/Object;)V
-
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeController$29;->this$0:Lcom/android/launcher3/home/HomeController;
-
-    invoke-static {v1}, Lcom/android/launcher3/home/HomeController;->access$1500(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/common/stage/StageManager;
-
-    move-result-object v1
-
-    const/4 v2, 0x5
-
-    invoke-virtual {v1, v2, v0}, Lcom/android/launcher3/common/stage/StageManager;->startStage(ILcom/android/launcher3/common/stage/StageEntry;)V
+    invoke-virtual {p2, v1}, Lcom/android/launcher3/common/view/IconView;->applyState(Z)V
 
     :cond_0
-    return-void
+    :goto_0
+    return v1
+
+    :cond_1
+    instance-of v0, p2, Lcom/android/launcher3/home/PendingAppWidgetHostView;
+
+    if-eqz v0, :cond_0
+
+    instance-of v0, p1, Lcom/android/launcher3/home/LauncherAppWidgetInfo;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeController$29;->val$updates:Ljava/util/HashSet;
+
+    invoke-virtual {v0, p1}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    check-cast p2, Lcom/android/launcher3/home/PendingAppWidgetHostView;
+
+    invoke-virtual {p2}, Lcom/android/launcher3/home/PendingAppWidgetHostView;->applyState()V
+
+    goto :goto_0
 .end method

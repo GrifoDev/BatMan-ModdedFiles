@@ -17,7 +17,7 @@
     .end annotation
 .end field
 
-.field private static ITEM_ALIGN_UPWARD:Ljava/util/Comparator;
+.field static ITEM_ALIGN_UPWARD:Ljava/util/Comparator;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Ljava/util/Comparator",

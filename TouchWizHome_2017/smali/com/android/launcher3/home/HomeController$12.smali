@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/HomeController;->getViewForTag(Ljava/lang/Object;)Landroid/view/View;
+    value = Lcom/android/launcher3/home/HomeController;->getFolderForTag(Ljava/lang/Object;)Lcom/android/launcher3/folder/view/FolderView;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -39,11 +39,33 @@
 
 # virtual methods
 .method public evaluate(Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/view/View;Landroid/view/View;)Z
-    .locals 1
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/launcher3/home/HomeController$12;->val$tag:Ljava/lang/Object;
+    instance-of v0, p2, Lcom/android/launcher3/folder/view/FolderView;
 
-    if-ne p1, v0, :cond_0
+    if-eqz v0, :cond_0
+
+    move-object v0, p2
+
+    check-cast v0, Lcom/android/launcher3/folder/view/FolderView;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/folder/view/FolderView;->getInfo()Lcom/android/launcher3/folder/FolderInfo;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/launcher3/home/HomeController$12;->val$tag:Ljava/lang/Object;
+
+    if-ne v0, v1, :cond_0
+
+    check-cast p2, Lcom/android/launcher3/folder/view/FolderView;
+
+    invoke-virtual {p2}, Lcom/android/launcher3/folder/view/FolderView;->getInfo()Lcom/android/launcher3/folder/FolderInfo;
+
+    move-result-object v0
+
+    iget-boolean v0, v0, Lcom/android/launcher3/folder/FolderInfo;->opened:Z
+
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 

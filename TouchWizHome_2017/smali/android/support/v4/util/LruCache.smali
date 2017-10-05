@@ -699,7 +699,7 @@
 .end method
 
 .method public final declared-synchronized toString()Ljava/lang/String;
-    .locals 6
+    .locals 7
 
     const/4 v1, 0x0
 
@@ -721,51 +721,53 @@
     div-int v1, v2, v0
 
     :cond_0
-    const-string v2, "LruCache[maxSize=%d,hits=%d,misses=%d,hitRate=%d%%]"
+    sget-object v2, Ljava/util/Locale;->US:Ljava/util/Locale;
 
-    const/4 v3, 0x4
+    const-string v3, "LruCache[maxSize=%d,hits=%d,misses=%d,hitRate=%d%%]"
 
-    new-array v3, v3, [Ljava/lang/Object;
+    const/4 v4, 0x4
 
-    const/4 v4, 0x0
+    new-array v4, v4, [Ljava/lang/Object;
 
-    iget v5, p0, Landroid/support/v4/util/LruCache;->maxSize:I
+    const/4 v5, 0x0
 
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    iget v6, p0, Landroid/support/v4/util/LruCache;->maxSize:I
 
-    move-result-object v5
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    aput-object v5, v3, v4
+    move-result-object v6
 
-    const/4 v4, 0x1
+    aput-object v6, v4, v5
 
-    iget v5, p0, Landroid/support/v4/util/LruCache;->hitCount:I
+    const/4 v5, 0x1
 
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    iget v6, p0, Landroid/support/v4/util/LruCache;->hitCount:I
 
-    move-result-object v5
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    aput-object v5, v3, v4
+    move-result-object v6
 
-    const/4 v4, 0x2
+    aput-object v6, v4, v5
 
-    iget v5, p0, Landroid/support/v4/util/LruCache;->missCount:I
+    const/4 v5, 0x2
 
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    iget v6, p0, Landroid/support/v4/util/LruCache;->missCount:I
 
-    move-result-object v5
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    aput-object v5, v3, v4
+    move-result-object v6
 
-    const/4 v4, 0x3
+    aput-object v6, v4, v5
+
+    const/4 v5, 0x3
 
     invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v5
+    move-result-object v6
 
-    aput-object v5, v3, v4
+    aput-object v6, v4, v5
 
-    invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static {v2, v3, v4}, Ljava/lang/String;->format(Ljava/util/Locale;Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

@@ -3,12 +3,12 @@
 .source "FakeView.java"
 
 # interfaces
-.implements Lcom/android/launcher3/util/alarm/OnAlarmListener;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/launcher3/common/tray/FakeView;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/launcher3/common/tray/FakeView;->onDrop(Lcom/android/launcher3/common/drag/DropTarget$DragObject;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,47 +34,18 @@
 
 
 # virtual methods
-.method public onAlarm(Lcom/android/launcher3/util/alarm/Alarm;)V
-    .locals 3
+.method public run()V
+    .locals 2
 
-    iget-object v1, p0, Lcom/android/launcher3/common/tray/FakeView$2;->this$0:Lcom/android/launcher3/common/tray/FakeView;
+    iget-object v0, p0, Lcom/android/launcher3/common/tray/FakeView$2;->this$0:Lcom/android/launcher3/common/tray/FakeView;
 
-    invoke-static {v1}, Lcom/android/launcher3/common/tray/FakeView;->access$100(Lcom/android/launcher3/common/tray/FakeView;)Lcom/android/launcher3/common/tray/FakeView$DragEventCallback;
+    invoke-static {v0}, Lcom/android/launcher3/common/tray/FakeView;->access$300(Lcom/android/launcher3/common/tray/FakeView;)Lcom/android/launcher3/util/alarm/OnAlarmListener;
 
-    move-result-object v1
+    move-result-object v0
 
-    if-eqz v1, :cond_0
+    const/4 v1, 0x0
 
-    iget-object v1, p0, Lcom/android/launcher3/common/tray/FakeView$2;->this$0:Lcom/android/launcher3/common/tray/FakeView;
+    invoke-interface {v0, v1}, Lcom/android/launcher3/util/alarm/OnAlarmListener;->onAlarm(Lcom/android/launcher3/util/alarm/Alarm;)V
 
-    invoke-static {v1}, Lcom/android/launcher3/common/tray/FakeView;->access$200(Lcom/android/launcher3/common/tray/FakeView;)I
-
-    move-result v1
-
-    if-nez v1, :cond_1
-
-    const/4 v0, 0x0
-
-    :goto_0
-    iget-object v1, p0, Lcom/android/launcher3/common/tray/FakeView$2;->this$0:Lcom/android/launcher3/common/tray/FakeView;
-
-    invoke-static {v1}, Lcom/android/launcher3/common/tray/FakeView;->access$100(Lcom/android/launcher3/common/tray/FakeView;)Lcom/android/launcher3/common/tray/FakeView$DragEventCallback;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/launcher3/common/tray/FakeView$2;->this$0:Lcom/android/launcher3/common/tray/FakeView;
-
-    invoke-static {v2}, Lcom/android/launcher3/common/tray/FakeView;->access$300(Lcom/android/launcher3/common/tray/FakeView;)Lcom/android/launcher3/common/tray/TrayManager$TrayLevel;
-
-    move-result-object v2
-
-    invoke-interface {v1, v2, v0}, Lcom/android/launcher3/common/tray/FakeView$DragEventCallback;->onChangeStage(Lcom/android/launcher3/common/tray/TrayManager$TrayLevel;I)V
-
-    :cond_0
     return-void
-
-    :cond_1
-    const/4 v0, 0x1
-
-    goto :goto_0
 .end method

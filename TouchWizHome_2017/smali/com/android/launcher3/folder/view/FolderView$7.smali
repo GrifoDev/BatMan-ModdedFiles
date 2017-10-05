@@ -45,7 +45,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderView$7;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-    invoke-static {v0}, Lcom/android/launcher3/folder/view/FolderView;->access$300(Lcom/android/launcher3/folder/view/FolderView;)Landroid/view/inputmethod/InputMethodManager;
+    invoke-static {v0}, Lcom/android/launcher3/folder/view/FolderView;->access$200(Lcom/android/launcher3/folder/view/FolderView;)Landroid/view/inputmethod/InputMethodManager;
 
     move-result-object v0
 
@@ -56,6 +56,14 @@
     if-nez v0, :cond_0
 
     iget-boolean v0, p0, Lcom/android/launcher3/folder/view/FolderView$7;->mBackKeyPressed:Z
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderView$7;->this$0:Lcom/android/launcher3/folder/view/FolderView;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/folder/view/FolderView;->isEditingName()Z
+
+    move-result v0
 
     if-eqz v0, :cond_0
 

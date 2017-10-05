@@ -9,4 +9,5 @@
     <integer name="widget_page_row">3</integer>
     <integer name="home_cellCountX">5</integer>
     <integer name="home_cellCountY">5</integer>
+    <integer name="config_workspaceScreenGridShrinkPercentage">70</integer>
 </resources>

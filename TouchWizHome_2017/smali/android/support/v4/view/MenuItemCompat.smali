@@ -47,13 +47,13 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 1
+    .locals 2
 
-    invoke-static {}, Landroid/support/v4/os/BuildCompat;->isAtLeastO()Z
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    move-result v0
+    const/16 v1, 0x1a
 
-    if-eqz v0, :cond_0
+    if-lt v0, v1, :cond_0
 
     new-instance v0, Landroid/support/v4/view/MenuItemCompat$MenuItemCompatApi26Impl;
 

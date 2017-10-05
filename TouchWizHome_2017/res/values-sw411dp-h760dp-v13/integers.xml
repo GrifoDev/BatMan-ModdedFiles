@@ -9,5 +9,4 @@
     <integer name="widget_page_row">3</integer>
     <integer name="home_cellCountX">5</integer>
     <integer name="home_cellCountY">5</integer>
-    <integer name="config_badgePositionPercentage">34</integer>
 </resources>

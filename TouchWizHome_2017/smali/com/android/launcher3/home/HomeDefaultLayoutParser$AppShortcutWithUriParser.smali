@@ -58,7 +58,7 @@
     :try_start_0
     iget-object v5, p0, Lcom/android/launcher3/home/HomeDefaultLayoutParser$AppShortcutWithUriParser;->this$0:Lcom/android/launcher3/home/HomeDefaultLayoutParser;
 
-    invoke-static {v5}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$1100(Lcom/android/launcher3/home/HomeDefaultLayoutParser;)Landroid/content/pm/PackageManager;
+    invoke-static {v5}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$1200(Lcom/android/launcher3/home/HomeDefaultLayoutParser;)Landroid/content/pm/PackageManager;
 
     move-result-object v7
 
@@ -237,7 +237,7 @@
 
     iget-object v10, p0, Lcom/android/launcher3/home/HomeDefaultLayoutParser$AppShortcutWithUriParser;->this$0:Lcom/android/launcher3/home/HomeDefaultLayoutParser;
 
-    invoke-static {v10}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$600(Lcom/android/launcher3/home/HomeDefaultLayoutParser;)Landroid/content/pm/PackageManager;
+    invoke-static {v10}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$700(Lcom/android/launcher3/home/HomeDefaultLayoutParser;)Landroid/content/pm/PackageManager;
 
     move-result-object v10
 
@@ -247,7 +247,7 @@
 
     iget-object v10, p0, Lcom/android/launcher3/home/HomeDefaultLayoutParser$AppShortcutWithUriParser;->this$0:Lcom/android/launcher3/home/HomeDefaultLayoutParser;
 
-    invoke-static {v10}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$700(Lcom/android/launcher3/home/HomeDefaultLayoutParser;)Landroid/content/pm/PackageManager;
+    invoke-static {v10}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$800(Lcom/android/launcher3/home/HomeDefaultLayoutParser;)Landroid/content/pm/PackageManager;
 
     move-result-object v10
 
@@ -330,7 +330,7 @@
 
     iget-object v10, p0, Lcom/android/launcher3/home/HomeDefaultLayoutParser$AppShortcutWithUriParser;->this$0:Lcom/android/launcher3/home/HomeDefaultLayoutParser;
 
-    invoke-static {v10}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$800(Lcom/android/launcher3/home/HomeDefaultLayoutParser;)Landroid/content/pm/PackageManager;
+    invoke-static {v10}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$900(Lcom/android/launcher3/home/HomeDefaultLayoutParser;)Landroid/content/pm/PackageManager;
 
     move-result-object v10
 
@@ -350,7 +350,7 @@
 
     iget-object v9, p0, Lcom/android/launcher3/home/HomeDefaultLayoutParser$AppShortcutWithUriParser;->this$0:Lcom/android/launcher3/home/HomeDefaultLayoutParser;
 
-    invoke-static {v9}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$900(Lcom/android/launcher3/home/HomeDefaultLayoutParser;)Landroid/content/pm/PackageManager;
+    invoke-static {v9}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$1000(Lcom/android/launcher3/home/HomeDefaultLayoutParser;)Landroid/content/pm/PackageManager;
 
     move-result-object v9
 
@@ -362,7 +362,7 @@
 
     move-result-object v9
 
-    invoke-static {v8, p2, v9, v3, v12}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$1000(Lcom/android/launcher3/home/HomeDefaultLayoutParser;Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;I)J
+    invoke-static {v8, p2, v9, v3, v12}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->access$1100(Lcom/android/launcher3/home/HomeDefaultLayoutParser;Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;I)J
 
     move-result-wide v8
 

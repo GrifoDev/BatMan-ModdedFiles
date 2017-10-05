@@ -17,6 +17,10 @@
 .end annotation
 
 
+# static fields
+.field static final TAG:Ljava/lang/String; = "MediaSessionCompatApi21"
+
+
 # direct methods
 .method constructor <init>()V
     .locals 0
@@ -56,6 +60,70 @@
     move-result-object v0
 
     return-object v0
+.end method
+
+.method public static hasCallback(Ljava/lang/Object;)Z
+    .locals 6
+
+    const/4 v2, 0x1
+
+    const/4 v3, 0x0
+
+    const/4 v0, 0x0
+
+    :try_start_0
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v4
+
+    const-string v5, "mCallback"
+
+    invoke-virtual {v4, v5}, Ljava/lang/Class;->getDeclaredField(Ljava/lang/String;)Ljava/lang/reflect/Field;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    const/4 v4, 0x1
+
+    invoke-virtual {v0, v4}, Ljava/lang/reflect/Field;->setAccessible(Z)V
+
+    invoke-virtual {v0, p0}, Ljava/lang/reflect/Field;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_0
+    .catch Ljava/lang/NoSuchFieldException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
+
+    move-result-object v4
+
+    if-eqz v4, :cond_0
+
+    :goto_0
+    return v2
+
+    :cond_0
+    move v2, v3
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v1
+
+    :goto_1
+    const-string v2, "MediaSessionCompatApi21"
+
+    const-string v4, "Failed to get mCallback object."
+
+    invoke-static {v2, v4}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    move v2, v3
+
+    goto :goto_0
+
+    :catch_1
+    move-exception v1
+
+    goto :goto_1
 .end method
 
 .method public static isActive(Ljava/lang/Object;)Z

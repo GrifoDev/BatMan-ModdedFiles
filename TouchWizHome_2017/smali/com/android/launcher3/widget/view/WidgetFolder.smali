@@ -240,9 +240,9 @@
 
     invoke-virtual {p1, v1}, Landroid/animation/AnimatorSet;->play(Landroid/animation/Animator;)Landroid/animation/AnimatorSet$Builder;
 
-    new-instance v2, Lcom/android/launcher3/widget/view/WidgetFolder$2;
+    new-instance v2, Lcom/android/launcher3/widget/view/WidgetFolder$3;
 
-    invoke-direct {v2, p0}, Lcom/android/launcher3/widget/view/WidgetFolder$2;-><init>(Lcom/android/launcher3/widget/view/WidgetFolder;)V
+    invoke-direct {v2, p0}, Lcom/android/launcher3/widget/view/WidgetFolder$3;-><init>(Lcom/android/launcher3/widget/view/WidgetFolder;)V
 
     invoke-virtual {p1, v2}, Landroid/animation/AnimatorSet;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
@@ -377,9 +377,9 @@
 
     invoke-virtual {p1, v1}, Landroid/animation/AnimatorSet;->play(Landroid/animation/Animator;)Landroid/animation/AnimatorSet$Builder;
 
-    new-instance v2, Lcom/android/launcher3/widget/view/WidgetFolder$3;
+    new-instance v2, Lcom/android/launcher3/widget/view/WidgetFolder$4;
 
-    invoke-direct {v2, p0}, Lcom/android/launcher3/widget/view/WidgetFolder$3;-><init>(Lcom/android/launcher3/widget/view/WidgetFolder;)V
+    invoke-direct {v2, p0}, Lcom/android/launcher3/widget/view/WidgetFolder$4;-><init>(Lcom/android/launcher3/widget/view/WidgetFolder;)V
 
     invoke-virtual {p1, v2}, Landroid/animation/AnimatorSet;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
@@ -638,7 +638,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090089
+    const v2, 0x7f0a008c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -670,7 +670,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090053
+    const v2, 0x7f0a0056
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1025,9 +1025,9 @@
 .end method
 
 .method public onConfigurationChangedIfNeeded()V
-    .locals 5
+    .locals 7
 
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
     iget-object v3, p0, Lcom/android/launcher3/widget/view/WidgetFolder;->mLauncher:Lcom/android/launcher3/Launcher;
 
@@ -1049,7 +1049,7 @@
 
     iget v3, v0, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->navigationBarHeight:I
 
-    invoke-virtual {p0, v4, v4, v3, v4}, Lcom/android/launcher3/widget/view/WidgetFolder;->setPadding(IIII)V
+    invoke-virtual {p0, v6, v6, v3, v6}, Lcom/android/launcher3/widget/view/WidgetFolder;->setPadding(IIII)V
 
     :cond_0
     :goto_0
@@ -1069,13 +1069,27 @@
 
     move-result-object v3
 
-    const v4, 0x7f090053
+    const v4, 0x7f0a0056
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v3
 
     iput v3, v1, Landroid/widget/LinearLayout$LayoutParams;->height:I
+
+    iget-object v3, p0, Lcom/android/launcher3/widget/view/WidgetFolder;->mTitle:Landroid/widget/TextView;
+
+    invoke-virtual {p0}, Lcom/android/launcher3/widget/view/WidgetFolder;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v4
+
+    const v5, 0x7f0a0057
+
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v4
+
+    invoke-virtual {v3, v4, v6, v6, v6}, Landroid/widget/TextView;->setPaddingRelative(IIII)V
 
     invoke-direct {p0}, Lcom/android/launcher3/widget/view/WidgetFolder;->getTitleBarHeight()I
 
@@ -1095,7 +1109,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f090089
+    const v4, 0x7f0a008c
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1116,7 +1130,7 @@
     :cond_1
     iget v3, v0, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->navigationBarHeight:I
 
-    invoke-virtual {p0, v4, v4, v4, v3}, Lcom/android/launcher3/widget/view/WidgetFolder;->setPadding(IIII)V
+    invoke-virtual {p0, v6, v6, v6, v3}, Lcom/android/launcher3/widget/view/WidgetFolder;->setPadding(IIII)V
 
     goto :goto_0
 .end method
@@ -1134,7 +1148,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/widget/view/WidgetFolder;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v0, 0x7f0f00e7
+    const v0, 0x7f110104
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/widget/view/WidgetFolder;->findViewById(I)Landroid/view/View;
 
@@ -1144,7 +1158,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/widget/view/WidgetFolder;->mTitle:Landroid/widget/TextView;
 
-    const v0, 0x7f0f00e8
+    const v0, 0x7f110105
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/widget/view/WidgetFolder;->findViewById(I)Landroid/view/View;
 
@@ -1154,7 +1168,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/widget/view/WidgetFolder;->mPagedView:Lcom/android/launcher3/widget/view/WidgetFolderPagedView;
 
-    const v0, 0x7f0f00ea
+    const v0, 0x7f110107
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/widget/view/WidgetFolder;->findViewById(I)Landroid/view/View;
 
@@ -1188,7 +1202,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b003a
+    const v1, 0x7f0d0046
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1305,7 +1319,7 @@
 
     move-result-object v6
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_2
 
     move v2, v3
 
@@ -1361,11 +1375,38 @@
 
     invoke-virtual {p0, v2}, Lcom/android/launcher3/widget/view/WidgetFolder;->post(Ljava/lang/Runnable;)Z
 
+    sget-object v2, Lcom/android/launcher3/util/Talk;->INSTANCE:Lcom/android/launcher3/util/Talk;
+
+    invoke-virtual {v2}, Lcom/android/launcher3/util/Talk;->isAccessibilityEnabled()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-static {}, Lcom/android/launcher3/util/TestHelper;->isRoboUnitTest()Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    iget-object v2, p0, Lcom/android/launcher3/widget/view/WidgetFolder;->mStageAnimator:Landroid/animation/AnimatorSet;
+
+    if-eqz v2, :cond_1
+
+    iget-object v2, p0, Lcom/android/launcher3/widget/view/WidgetFolder;->mStageAnimator:Landroid/animation/AnimatorSet;
+
+    new-instance v3, Lcom/android/launcher3/widget/view/WidgetFolder$2;
+
+    invoke-direct {v3, p0}, Lcom/android/launcher3/widget/view/WidgetFolder$2;-><init>(Lcom/android/launcher3/widget/view/WidgetFolder;)V
+
+    invoke-virtual {v2, v3}, Landroid/animation/AnimatorSet;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+
+    :cond_1
     iget-object v2, p0, Lcom/android/launcher3/widget/view/WidgetFolder;->mStageAnimator:Landroid/animation/AnimatorSet;
 
     return-object v2
 
-    :cond_1
+    :cond_2
     move v2, v4
 
     goto :goto_0

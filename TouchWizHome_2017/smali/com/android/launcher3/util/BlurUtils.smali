@@ -4,8 +4,6 @@
 
 
 # static fields
-.field public static final BLUR_MAX_AMOUNT:F = 0.3f
-
 .field private static final BLUR_UPDATE_LEVEL:F = 12.0f
 
 .field private static final DEBUG:Z = false
@@ -13,6 +11,8 @@
 .field private static final DEFAULT_BLUR_AMOUNT:F = 0.2f
 
 .field private static final DEFAULT_BLUR_DURATION:J = -0x1L
+
+.field private static final MAX_BLUR_AMOUNT:F = 0.3f
 
 .field private static final TAG:Ljava/lang/String; = "BlurUtils"
 
@@ -391,6 +391,14 @@
     const/4 v0, 0x0
 
     goto :goto_0
+.end method
+
+.method public static getMaxBlurAmount()F
+    .locals 1
+
+    const v0, 0x3e99999a    # 0.3f
+
+    return v0
 .end method
 
 .method public static resetBlur()V

@@ -22,13 +22,7 @@
 
     const/16 v2, 0x19
 
-    if-lt v1, v2, :cond_0
-
-    invoke-static {}, Landroid/support/v4/os/BuildCompat;->isAtLeastO()Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
+    if-ne v1, v2, :cond_0
 
     :try_start_0
     const-class v1, Landroid/view/ViewConfiguration;
@@ -157,7 +151,7 @@
 .end method
 
 .method public static getScaledHorizontalScrollFactor(Landroid/view/ViewConfiguration;Landroid/content/Context;)F
-    .locals 1
+    .locals 2
     .param p0    # Landroid/view/ViewConfiguration;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -167,11 +161,11 @@
         .end annotation
     .end param
 
-    invoke-static {}, Landroid/support/v4/os/BuildCompat;->isAtLeastO()Z
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    move-result v0
+    const/16 v1, 0x1a
 
-    if-eqz v0, :cond_0
+    if-lt v0, v1, :cond_0
 
     invoke-virtual {p0}, Landroid/view/ViewConfiguration;->getScaledHorizontalScrollFactor()F
 
@@ -201,7 +195,7 @@
 .end method
 
 .method public static getScaledVerticalScrollFactor(Landroid/view/ViewConfiguration;Landroid/content/Context;)F
-    .locals 1
+    .locals 2
     .param p0    # Landroid/view/ViewConfiguration;
         .annotation build Landroid/support/annotation/NonNull;
         .end annotation
@@ -211,11 +205,11 @@
         .end annotation
     .end param
 
-    invoke-static {}, Landroid/support/v4/os/BuildCompat;->isAtLeastO()Z
+    sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
-    move-result v0
+    const/16 v1, 0x1a
 
-    if-eqz v0, :cond_0
+    if-lt v0, v1, :cond_0
 
     invoke-virtual {p0}, Landroid/view/ViewConfiguration;->getScaledVerticalScrollFactor()F
 

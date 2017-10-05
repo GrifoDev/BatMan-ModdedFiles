@@ -878,7 +878,7 @@
     const/4 v13, 0x0
 
     :goto_2
-    if-ge v13, v11, :cond_4
+    if-ge v13, v11, :cond_5
 
     invoke-virtual {v12, v13}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->getChildAt(I)Landroid/view/View;
 
@@ -895,6 +895,14 @@
     goto :goto_2
 
     :cond_3
+    invoke-virtual {v2}, Landroid/view/View;->getTag()Ljava/lang/Object;
+
+    move-result-object v1
+
+    instance-of v1, v1, Lcom/android/launcher3/common/base/item/ItemInfo;
+
+    if-eqz v1, :cond_4
+
     move-object/from16 v0, p1
 
     iget-object v1, v0, Lcom/android/launcher3/home/WorkspaceReorderController$ItemConfiguration;->map:Ljava/util/HashMap;
@@ -948,7 +956,32 @@
     goto :goto_3
 
     :cond_4
-    if-eqz p3, :cond_5
+    const-string v1, "WSReorderController"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "animateItemsToSolution() - child is not ItemInfo type. : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v1, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_3
+
+    :cond_5
+    if-eqz p3, :cond_6
 
     move-object/from16 v0, p1
 
@@ -974,7 +1007,7 @@
 
     invoke-direct/range {v3 .. v9}, Lcom/android/launcher3/home/WorkspaceReorderController;->markCellsForView(IIII[[ZZ)V
 
-    :cond_5
+    :cond_6
     return-void
 .end method
 

@@ -31,9 +31,7 @@
 
 
 # instance fields
-.field private mBackUpStatusBarShow:Z
-
-.field private mBackupBgDrakenAlpha:F
+.field private mBgBlurAmount:F
 
 .field private mBgDarkenAlpha:F
 
@@ -114,17 +112,9 @@
 
     iput-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mHandler:Landroid/os/Handler;
 
-    const/high16 v0, -0x40800000    # -1.0f
-
-    iput v0, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mBackupBgDrakenAlpha:F
-
     iput-boolean v2, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWhiteWallpaper:Z
 
     iput-boolean v2, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mFromHomeSetting:Z
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mBackUpStatusBarShow:Z
 
     new-instance v0, Lcom/android/launcher3/widget/controller/WidgetController$1;
 
@@ -278,7 +268,7 @@
 .end method
 
 .method private changeColorForBg(Z)V
-    .locals 3
+    .locals 2
 
     iput-boolean p1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWhiteWallpaper:Z
 
@@ -298,9 +288,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mNoResultText:Landroid/widget/TextView;
 
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1, p1, v2}, Lcom/android/launcher3/util/WhiteBgManager;->changeTextColorForBg(Landroid/content/Context;Landroid/widget/TextView;ZZ)V
+    invoke-static {v0, v1, p1}, Lcom/android/launcher3/util/WhiteBgManager;->changeTextColorForBg(Landroid/content/Context;Landroid/widget/TextView;Z)V
 
     return-void
 .end method
@@ -443,7 +431,7 @@
 .method private getWidgetState(Lcom/android/launcher3/widget/controller/WidgetState$State;)Lcom/android/launcher3/widget/controller/WidgetState;
     .locals 5
 
-    const v4, 0x7f0f00dd
+    const v4, 0x7f1100fa
 
     iget-object v3, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetStateMap:Ljava/util/HashMap;
 
@@ -499,7 +487,7 @@
 
     iget-object v3, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetView:Landroid/widget/FrameLayout;
 
-    const v4, 0x7f0f00dc
+    const v4, 0x7f1100f9
 
     invoke-virtual {v3, v4}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
 
@@ -585,54 +573,6 @@
     goto :goto_0
 .end method
 
-.method private setDragLayerDarken(Z)V
-    .locals 2
-
-    const/high16 v1, -0x40800000    # -1.0f
-
-    if-eqz p1, :cond_2
-
-    iget v0, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mBackupBgDrakenAlpha:F
-
-    cmpl-float v0, v0, v1
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mDragLayer:Lcom/android/launcher3/common/view/DragLayer;
-
-    invoke-virtual {v0}, Lcom/android/launcher3/common/view/DragLayer;->getBackgroundAlpha()F
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mBackupBgDrakenAlpha:F
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mDragLayer:Lcom/android/launcher3/common/view/DragLayer;
-
-    iget v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mBgDarkenAlpha:F
-
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/view/DragLayer;->setBackgroundAlpha(F)V
-
-    :cond_1
-    :goto_0
-    return-void
-
-    :cond_2
-    iget v0, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mBackupBgDrakenAlpha:F
-
-    cmpl-float v0, v0, v1
-
-    if-eqz v0, :cond_1
-
-    iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mDragLayer:Lcom/android/launcher3/common/view/DragLayer;
-
-    iget v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mBackupBgDrakenAlpha:F
-
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/view/DragLayer;->setBackgroundAlpha(F)V
-
-    goto :goto_0
-.end method
-
 .method private setPreDrawListener()V
     .locals 2
 
@@ -652,56 +592,74 @@
 .end method
 
 .method private updateNoSearchResultView(Z)V
-    .locals 3
+    .locals 5
 
     if-eqz p1, :cond_1
 
-    const/4 v0, 0x0
+    const/4 v1, 0x0
 
     :goto_0
-    iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mNoResultView:Landroid/widget/LinearLayout;
+    iget-object v3, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    invoke-virtual {v1}, Landroid/widget/LinearLayout;->getVisibility()I
+    invoke-virtual {v3}, Lcom/android/launcher3/Launcher;->getWindow()Landroid/view/Window;
 
-    move-result v1
+    move-result-object v2
 
-    if-eq v1, v0, :cond_0
+    invoke-virtual {v2}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
 
-    if-nez v0, :cond_2
+    move-result-object v3
 
-    iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mNoResultView:Landroid/widget/LinearLayout;
+    iget v0, v3, Landroid/view/WindowManager$LayoutParams;->softInputMode:I
 
-    invoke-virtual {v1}, Landroid/widget/LinearLayout;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+    iget-object v3, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mNoResultView:Landroid/widget/LinearLayout;
 
-    move-result-object v1
+    invoke-virtual {v3}, Landroid/widget/LinearLayout;->getVisibility()I
 
-    iget-object v2, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mOnGlobalLayoutListener:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
+    move-result v3
 
-    invoke-virtual {v1, v2}, Landroid/view/ViewTreeObserver;->addOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
+    if-eq v3, v1, :cond_0
+
+    if-nez v1, :cond_2
+
+    and-int/lit8 v0, v0, -0x11
+
+    iget-object v3, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mNoResultView:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v3}, Landroid/widget/LinearLayout;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mOnGlobalLayoutListener:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
+
+    invoke-virtual {v3, v4}, Landroid/view/ViewTreeObserver;->addOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
 
     :goto_1
-    iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mNoResultView:Landroid/widget/LinearLayout;
+    invoke-virtual {p0, v2, v0}, Lcom/android/launcher3/widget/controller/WidgetController;->updateSoftInputParam(Landroid/view/Window;I)V
 
-    invoke-virtual {v1, v0}, Landroid/widget/LinearLayout;->setVisibility(I)V
+    iget-object v3, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mNoResultView:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v3, v1}, Landroid/widget/LinearLayout;->setVisibility(I)V
 
     :cond_0
     return-void
 
     :cond_1
-    const/4 v0, 0x4
+    const/4 v1, 0x4
 
     goto :goto_0
 
     :cond_2
-    iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mNoResultView:Landroid/widget/LinearLayout;
+    or-int/lit8 v0, v0, 0x10
 
-    invoke-virtual {v1}, Landroid/widget/LinearLayout;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+    iget-object v3, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mNoResultView:Landroid/widget/LinearLayout;
 
-    move-result-object v1
+    invoke-virtual {v3}, Landroid/widget/LinearLayout;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
 
-    iget-object v2, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mOnGlobalLayoutListener:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
+    move-result-object v3
 
-    invoke-virtual {v1, v2}, Landroid/view/ViewTreeObserver;->removeOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
+    iget-object v4, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mOnGlobalLayoutListener:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
+
+    invoke-virtual {v3, v4}, Landroid/view/ViewTreeObserver;->removeOnGlobalLayoutListener(Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;)V
 
     goto :goto_1
 .end method
@@ -881,29 +839,31 @@
 
 # virtual methods
 .method public dispatchKeyEvent(Landroid/view/KeyEvent;)Z
-    .locals 2
+    .locals 3
+
+    const/4 v0, 0x1
+
+    const/4 v1, 0x0
 
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getAction()I
 
-    move-result v0
+    move-result v2
 
-    const/4 v1, 0x1
-
-    if-ne v0, v1, :cond_0
+    if-ne v2, v0, :cond_0
 
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getKeyCode()I
 
-    move-result v0
+    move-result v2
 
-    packed-switch v0, :pswitch_data_0
+    sparse-switch v2, :sswitch_data_0
 
     :cond_0
-    const/4 v0, 0x0
+    move v0, v1
 
     :goto_0
     return v0
 
-    :pswitch_0
+    :sswitch_0
     iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetState:Lcom/android/launcher3/widget/controller/WidgetState;
 
     invoke-virtual {v0}, Lcom/android/launcher3/widget/controller/WidgetState;->showPopupMenu()Z
@@ -912,12 +872,92 @@
 
     goto :goto_0
 
-    nop
+    :sswitch_1
+    sget-object v2, Lcom/android/launcher3/widget/controller/WidgetState$State;->SEARCH:Lcom/android/launcher3/widget/controller/WidgetState$State;
 
-    :pswitch_data_0
-    .packed-switch 0x52
-        :pswitch_0
-    .end packed-switch
+    invoke-direct {p0, v2, v1}, Lcom/android/launcher3/widget/controller/WidgetController;->changeState(Lcom/android/launcher3/widget/controller/WidgetState$State;Z)V
+
+    iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetState:Lcom/android/launcher3/widget/controller/WidgetState;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/widget/controller/WidgetState;->setFocusToSearchEditText()V
+
+    goto :goto_0
+
+    :sswitch_2
+    invoke-virtual {p1}, Landroid/view/KeyEvent;->isCtrlPressed()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    sget-object v2, Lcom/android/launcher3/widget/controller/WidgetState$State;->SEARCH:Lcom/android/launcher3/widget/controller/WidgetState$State;
+
+    invoke-direct {p0, v2, v1}, Lcom/android/launcher3/widget/controller/WidgetController;->changeState(Lcom/android/launcher3/widget/controller/WidgetState$State;Z)V
+
+    iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetState:Lcom/android/launcher3/widget/controller/WidgetState;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/widget/controller/WidgetState;->setFocusToSearchEditText()V
+
+    goto :goto_0
+
+    :sswitch_data_0
+    .sparse-switch
+        0x22 -> :sswitch_2
+        0x52 -> :sswitch_0
+        0x54 -> :sswitch_1
+    .end sparse-switch
+.end method
+
+.method public dispatchPopulateAccessibilityEvent(Landroid/view/accessibility/AccessibilityEvent;)Z
+    .locals 3
+
+    invoke-virtual {p1}, Landroid/view/accessibility/AccessibilityEvent;->getText()Ljava/util/List;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/util/List;->clear()V
+
+    iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f0900e4
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    const/4 v1, 0x1
+
+    return v1
+.end method
+
+.method protected getBackgroundBlurAmountForState(I)F
+    .locals 1
+
+    iget v0, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mBgBlurAmount:F
+
+    return v0
+.end method
+
+.method protected getBackgroundDimAlphaForState(I)F
+    .locals 1
+
+    iget v0, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mBgDarkenAlpha:F
+
+    return v0
+.end method
+
+.method protected getBackgroundImageAlphaForState(I)F
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
 .end method
 
 .method public getContainerView()Landroid/view/View;
@@ -926,6 +966,20 @@
     iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetView:Landroid/widget/FrameLayout;
 
     return-object v0
+.end method
+
+.method protected getInternalState()I
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/launcher3/widget/controller/WidgetController;->getState()Lcom/android/launcher3/widget/controller/WidgetState$State;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/launcher3/widget/controller/WidgetState$State;->ordinal()I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public getState()Lcom/android/launcher3/widget/controller/WidgetState$State;
@@ -951,7 +1005,9 @@
 .end method
 
 .method public initStageView()V
-    .locals 4
+    .locals 5
+
+    const/high16 v4, 0x42c80000    # 100.0f
 
     const/4 v3, 0x0
 
@@ -977,7 +1033,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0039
+    const v2, 0x7f0d0044
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -985,15 +1041,31 @@
 
     int-to-float v1, v1
 
-    const/high16 v2, 0x42c80000    # 100.0f
+    div-float/2addr v1, v4
 
-    div-float/2addr v1, v2
+    iput v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mBgBlurAmount:F
+
+    iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f0d0045
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v1
+
+    int-to-float v1, v1
+
+    div-float/2addr v1, v4
 
     iput v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mBgDarkenAlpha:F
 
     iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v2, 0x7f0f00b1
+    const v2, 0x7f1100bd
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -1031,7 +1103,7 @@
     :goto_1
     iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v2, 0x7f0f00e1
+    const v2, 0x7f1100fe
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -1043,7 +1115,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v2, 0x7f0f00df
+    const v2, 0x7f1100fc
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -1055,7 +1127,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v2, 0x7f0f00e0
+    const v2, 0x7f1100fd
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
 
@@ -1079,7 +1151,7 @@
 
     invoke-super {p0}, Lcom/android/launcher3/common/stage/Stage;->initStageView()V
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_2
     iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetView:Landroid/widget/FrameLayout;
@@ -1197,7 +1269,7 @@
     return-void
 .end method
 
-.method public onConfigurationChangedIfNeeded()V
+.method public onConfigurationChangedIfNeeded(Z)V
     .locals 4
 
     const/4 v3, 0x0
@@ -1299,29 +1371,8 @@
 .end method
 
 .method public onResumeActivity()V
-    .locals 2
+    .locals 0
 
-    invoke-virtual {p0}, Lcom/android/launcher3/widget/controller/WidgetController;->getStageManager()Lcom/android/launcher3/common/stage/StageManager;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/launcher3/common/stage/StageManager;->getTopStage()Lcom/android/launcher3/common/stage/Stage;
-
-    move-result-object v0
-
-    if-ne v0, p0, :cond_0
-
-    const/4 v0, 0x1
-
-    iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    invoke-virtual {v1}, Lcom/android/launcher3/Launcher;->getWindow()Landroid/view/Window;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/android/launcher3/util/BlurUtils;->blurByWindowManager(ZLandroid/view/Window;)V
-
-    :cond_0
     return-void
 .end method
 
@@ -1344,103 +1395,99 @@
 .end method
 
 .method protected onStageEnter(Lcom/android/launcher3/common/stage/StageEntry;)Landroid/animation/Animator;
-    .locals 6
+    .locals 5
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    iput-boolean v3, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mIsOnStage:Z
+    iput-boolean v4, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mIsOnStage:Z
 
-    const-string v2, "KEY_WIDGET_FROM_SETTING"
+    const-string v1, "KEY_WIDGET_FROM_SETTING"
 
-    invoke-static {v4}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v5
-
-    invoke-virtual {p1, v2, v5}, Lcom/android/launcher3/common/stage/StageEntry;->getExtras(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-static {v3}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v2
 
-    check-cast v2, Ljava/lang/Boolean;
+    invoke-virtual {p1, v1, v2}, Lcom/android/launcher3/common/stage/StageEntry;->getExtras(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
+    move-result-object v1
 
-    move-result v2
+    check-cast v1, Ljava/lang/Boolean;
 
-    iput-boolean v2, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mFromHomeSetting:Z
+    invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
 
-    sget-object v2, Lcom/android/launcher3/widget/controller/WidgetState$State;->NORMAL:Lcom/android/launcher3/widget/controller/WidgetState$State;
+    move-result v1
 
-    invoke-direct {p0, v2, v4}, Lcom/android/launcher3/widget/controller/WidgetController;->changeState(Lcom/android/launcher3/widget/controller/WidgetState$State;Z)V
+    iput-boolean v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mFromHomeSetting:Z
+
+    iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetState:Lcom/android/launcher3/widget/controller/WidgetState;
+
+    if-eqz v1, :cond_0
+
+    iget v1, p1, Lcom/android/launcher3/common/stage/StageEntry;->fromStage:I
+
+    if-eq v1, v4, :cond_0
+
+    iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetState:Lcom/android/launcher3/widget/controller/WidgetState;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/widget/controller/WidgetState;->getState()Lcom/android/launcher3/widget/controller/WidgetState$State;
+
+    move-result-object v1
+
+    invoke-direct {p0, v1, v3}, Lcom/android/launcher3/widget/controller/WidgetController;->changeState(Lcom/android/launcher3/widget/controller/WidgetState$State;Z)V
+
+    :goto_0
+    iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetState:Lcom/android/launcher3/widget/controller/WidgetState;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/widget/controller/WidgetState;->onStageEnter()V
 
     invoke-static {}, Lcom/android/launcher3/util/WhiteBgManager;->isWhiteBg()Z
 
-    move-result v2
+    move-result v1
 
-    invoke-direct {p0, v2}, Lcom/android/launcher3/widget/controller/WidgetController;->changeColorForBg(Z)V
+    invoke-direct {p0, v1}, Lcom/android/launcher3/widget/controller/WidgetController;->changeColorForBg(Z)V
 
-    iget-object v2, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mPagedView:Lcom/android/launcher3/widget/view/WidgetPagedView;
+    iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mPagedView:Lcom/android/launcher3/widget/view/WidgetPagedView;
 
-    invoke-virtual {v2}, Lcom/android/launcher3/widget/view/WidgetPagedView;->updateCellSpan()V
-
-    invoke-direct {p0, v3}, Lcom/android/launcher3/widget/controller/WidgetController;->setDragLayerDarken(Z)V
+    invoke-virtual {v1}, Lcom/android/launcher3/widget/view/WidgetPagedView;->updateCellSpan()V
 
     invoke-direct {p0}, Lcom/android/launcher3/widget/controller/WidgetController;->setPreDrawListener()V
 
     invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Lcom/android/launcher3/LauncherAppState;->getTopViewChangedMessageHandler()Lcom/android/launcher3/proxy/LauncherTopViewChangedMessageHandler;
+    invoke-virtual {v1}, Lcom/android/launcher3/LauncherAppState;->getTopViewChangedMessageHandler()Lcom/android/launcher3/proxy/LauncherTopViewChangedMessageHandler;
 
-    move-result-object v2
+    move-result-object v1
 
-    const/4 v5, 0x7
+    const/4 v2, 0x7
 
-    invoke-virtual {v2, v5}, Lcom/android/launcher3/proxy/LauncherTopViewChangedMessageHandler;->sendMessage(I)V
+    invoke-virtual {v1, v2}, Lcom/android/launcher3/proxy/LauncherTopViewChangedMessageHandler;->sendMessage(I)V
 
     iget-boolean v0, p1, Lcom/android/launcher3/common/stage/StageEntry;->enableAnimation:Z
 
-    iget-object v2, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    invoke-virtual {v2}, Lcom/android/launcher3/Launcher;->getWindow()Landroid/view/Window;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Landroid/view/Window;->getAttributes()Landroid/view/WindowManager$LayoutParams;
-
-    move-result-object v2
-
-    iget v1, v2, Landroid/view/WindowManager$LayoutParams;->flags:I
-
-    and-int/lit16 v2, v1, 0x800
-
-    if-eqz v2, :cond_0
-
-    move v2, v3
-
-    :goto_0
-    iput-boolean v2, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mBackUpStatusBarShow:Z
-
-    iget-object v2, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    invoke-virtual {v2}, Lcom/android/launcher3/Launcher;->getWindow()Landroid/view/Window;
-
-    move-result-object v2
-
-    invoke-static {v2, v4}, Lcom/android/launcher3/Utilities;->hideStatusBar(Landroid/view/Window;Z)V
-
     invoke-direct {p0, v0, p1}, Lcom/android/launcher3/widget/controller/WidgetController;->createAnimationOnEnter(ZLcom/android/launcher3/common/stage/StageEntry;)Landroid/animation/Animator;
 
-    move-result-object v2
+    move-result-object v1
 
-    return-object v2
+    return-object v1
 
     :cond_0
-    move v2, v4
+    sget-object v1, Lcom/android/launcher3/widget/controller/WidgetState$State;->NORMAL:Lcom/android/launcher3/widget/controller/WidgetState$State;
+
+    invoke-direct {p0, v1, v3}, Lcom/android/launcher3/widget/controller/WidgetController;->changeState(Lcom/android/launcher3/widget/controller/WidgetState$State;Z)V
 
     goto :goto_0
+.end method
+
+.method protected onStageEnterByTray()Landroid/animation/Animator;
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return-object v0
 .end method
 
 .method protected onStageExit(Lcom/android/launcher3/common/stage/StageEntry;)Landroid/animation/Animator;
@@ -1456,8 +1503,13 @@
 
     iget-object v5, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetState:Lcom/android/launcher3/widget/controller/WidgetState;
 
+    if-eqz v5, :cond_0
+
+    iget-object v5, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetState:Lcom/android/launcher3/widget/controller/WidgetState;
+
     invoke-virtual {v5}, Lcom/android/launcher3/widget/controller/WidgetState;->onStageExit()V
 
+    :cond_0
     iget-object v5, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mPagedView:Lcom/android/launcher3/widget/view/WidgetPagedView;
 
     invoke-virtual {v5, v4, v4}, Lcom/android/launcher3/widget/view/WidgetPagedView;->prepareInOut(IZ)V
@@ -1490,9 +1542,7 @@
     move v2, v3
 
     :goto_1
-    if-ne v1, v3, :cond_0
-
-    invoke-direct {p0, v4}, Lcom/android/launcher3/widget/controller/WidgetController;->setDragLayerDarken(Z)V
+    if-ne v1, v3, :cond_1
 
     invoke-virtual {p1}, Lcom/android/launcher3/common/stage/StageEntry;->getInternalStateTo()I
 
@@ -1508,28 +1558,8 @@
 
     invoke-virtual {v5, v6}, Lcom/android/launcher3/util/logging/SALogging;->insertCloseWidgetLog(Ljava/lang/String;)V
 
-    :cond_0
-    :goto_2
-    const/4 v5, 0x4
-
-    if-eq v1, v5, :cond_1
-
-    iget-object v5, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    invoke-virtual {v5}, Lcom/android/launcher3/Launcher;->getWindow()Landroid/view/Window;
-
-    move-result-object v6
-
-    iget-boolean v5, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mBackUpStatusBarShow:Z
-
-    if-nez v5, :cond_5
-
-    move v5, v3
-
-    :goto_3
-    invoke-static {v6, v5}, Lcom/android/launcher3/Utilities;->hideStatusBar(Landroid/view/Window;Z)V
-
     :cond_1
+    :goto_2
     const-string v5, "WidgetController"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -1562,11 +1592,11 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_5
 
-    if-nez v2, :cond_6
+    if-nez v2, :cond_5
 
-    :goto_4
+    :goto_3
     invoke-direct {p0, v3, p1}, Lcom/android/launcher3/widget/controller/WidgetController;->createAnimationOnExit(ZLcom/android/launcher3/common/stage/StageEntry;)Landroid/animation/Animator;
 
     move-result-object v3
@@ -1588,7 +1618,7 @@
 
     move-result v5
 
-    if-ne v5, v3, :cond_0
+    if-ne v5, v3, :cond_1
 
     invoke-static {}, Lcom/android/launcher3/util/logging/SALogging;->getInstance()Lcom/android/launcher3/util/logging/SALogging;
 
@@ -1601,22 +1631,21 @@
     goto :goto_2
 
     :cond_5
-    move v5, v4
-
-    goto :goto_3
-
-    :cond_6
     move v3, v4
 
-    goto :goto_4
+    goto :goto_3
+.end method
+
+.method protected onStageExitByTray()Landroid/animation/Animator;
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return-object v0
 .end method
 
 .method protected onStageMovingToInitial(Lcom/android/launcher3/common/stage/StageEntry;)V
-    .locals 3
-
-    const/4 v2, 0x0
-
-    invoke-direct {p0, v2}, Lcom/android/launcher3/widget/controller/WidgetController;->setDragLayerDarken(Z)V
+    .locals 2
 
     iget v0, p1, Lcom/android/launcher3/common/stage/StageEntry;->toStage:I
 
@@ -1624,7 +1653,9 @@
 
     if-ne v0, v1, :cond_0
 
-    iput-boolean v2, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mFromHomeSetting:Z
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mFromHomeSetting:Z
 
     :cond_0
     iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetView:Landroid/widget/FrameLayout;
@@ -1734,4 +1765,20 @@
     invoke-virtual {v0, v1}, Lcom/android/launcher3/proxy/LauncherProxy;->setWidgetProxyCallbacks(Lcom/android/launcher3/proxy/WidgetProxyCallbacks;)V
 
     return-void
+.end method
+
+.method protected supportNavigationBarForState(I)Z
+    .locals 1
+
+    const/4 v0, 0x1
+
+    return v0
+.end method
+
+.method protected supportStatusBarForState(I)Z
+    .locals 1
+
+    const/4 v0, 0x1
+
+    return v0
 .end method

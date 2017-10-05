@@ -8,11 +8,11 @@
 
 .field private static final PERMISSION_INSTALL_APK:Ljava/lang/String; = "com.sec.knox.APK_INSTALL_LWC"
 
-.field private static final SECURE_FOLDER_PACKAGE_NAME:Ljava/lang/String; = "com.samsung.knox.securefolder"
+.field public static final SECURE_FOLDER_PACKAGE_NAME:Ljava/lang/String; = "com.samsung.knox.securefolder"
 
 .field private static final TAG:Ljava/lang/String; = "SecureFolderHelper"
 
-.field private static sUserId:I
+.field private static sSecureFolderId:I
 
 
 # direct methods
@@ -21,7 +21,7 @@
 
     const/4 v0, 0x0
 
-    sput v0, Lcom/android/launcher3/util/SecureFolderHelper;->sUserId:I
+    sput v0, Lcom/android/launcher3/util/SecureFolderHelper;->sSecureFolderId:I
 
     return-void
 .end method
@@ -79,11 +79,11 @@
 
     invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    invoke-static {p0}, Lcom/android/launcher3/util/SecureFolderHelper;->getUserId(Landroid/content/Context;)I
+    invoke-static {p0}, Lcom/android/launcher3/util/SecureFolderHelper;->getSecureFolderId(Landroid/content/Context;)I
 
     move-result v6
 
-    sput v6, Lcom/android/launcher3/util/SecureFolderHelper;->sUserId:I
+    sput v6, Lcom/android/launcher3/util/SecureFolderHelper;->sSecureFolderId:I
 
     invoke-virtual {p1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
@@ -126,7 +126,7 @@
 
     move-result-object v4
 
-    sget v7, Lcom/android/launcher3/util/SecureFolderHelper;->sUserId:I
+    sget v7, Lcom/android/launcher3/util/SecureFolderHelper;->sSecureFolderId:I
 
     invoke-static {p0, v7, v4}, Lcom/android/launcher3/util/SecureFolderHelper;->canAddAppToSecureFolder(Landroid/content/Context;ILjava/lang/String;)Z
 
@@ -165,7 +165,7 @@
     return-void
 .end method
 
-.method public static canAddAppToSecureFolder(Landroid/content/Context;ILjava/lang/String;)Z
+.method private static canAddAppToSecureFolder(Landroid/content/Context;ILjava/lang/String;)Z
     .locals 2
     .annotation build Landroid/annotation/SuppressLint;
         value = {
@@ -200,68 +200,37 @@
     goto :goto_0
 .end method
 
-.method public static canAddAppToSecureFolder(Landroid/content/Context;Ljava/lang/String;)Z
+.method public static canAddAppToSecureFolder(Landroid/content/Context;Lcom/android/launcher3/common/compat/UserHandleCompat;Ljava/lang/String;)Z
     .locals 1
 
-    invoke-static {p0}, Lcom/android/launcher3/util/SecureFolderHelper;->getUserId(Landroid/content/Context;)I
+    invoke-static {p1}, Lcom/android/launcher3/util/DualAppUtils;->isDualAppId(Lcom/android/launcher3/common/compat/UserHandleCompat;)Z
 
     move-result v0
 
-    sput v0, Lcom/android/launcher3/util/SecureFolderHelper;->sUserId:I
+    if-nez v0, :cond_0
 
-    sget v0, Lcom/android/launcher3/util/SecureFolderHelper;->sUserId:I
-
-    invoke-static {p0, v0, p1}, Lcom/android/launcher3/util/SecureFolderHelper;->canAddAppToSecureFolder(Landroid/content/Context;ILjava/lang/String;)Z
+    invoke-static {p0}, Lcom/android/launcher3/util/SecureFolderHelper;->getSecureFolderId(Landroid/content/Context;)I
 
     move-result v0
 
-    return v0
-.end method
+    sput v0, Lcom/android/launcher3/util/SecureFolderHelper;->sSecureFolderId:I
 
-.method public static getSecureFolderTitle(Landroid/content/Context;)Ljava/lang/String;
-    .locals 5
+    sget v0, Lcom/android/launcher3/util/SecureFolderHelper;->sSecureFolderId:I
 
-    :try_start_0
-    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-static {p0, v0, p2}, Lcom/android/launcher3/util/SecureFolderHelper;->canAddAppToSecureFolder(Landroid/content/Context;ILjava/lang/String;)Z
 
-    move-result-object v2
-
-    const-string v3, "com.samsung.knox.securefolder"
-
-    const/4 v4, 0x0
-
-    invoke-virtual {v2, v3, v4}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
-
-    move-result-object v0
-
-    invoke-virtual {v2, v0}, Landroid/content/pm/PackageManager;->getApplicationLabel(Landroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
-
-    move-result-object v3
-
-    check-cast v3, Ljava/lang/String;
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    move-result v0
 
     :goto_0
-    return-object v3
+    return v0
 
-    :catch_0
-    move-exception v1
-
-    const-string v3, "SecureFolderHelper"
-
-    invoke-virtual {v1}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v3, 0x0
+    :cond_0
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method
 
-.method public static getUserId(Landroid/content/Context;)I
+.method private static getSecureFolderId(Landroid/content/Context;)I
     .locals 7
     .annotation build Landroid/annotation/SuppressLint;
         value = {
@@ -328,6 +297,49 @@
     goto :goto_0
 .end method
 
+.method public static getSecureFolderTitle(Landroid/content/Context;)Ljava/lang/String;
+    .locals 5
+
+    :try_start_0
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v2
+
+    const-string v3, "com.samsung.knox.securefolder"
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v2, v3, v4}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v0
+
+    invoke-virtual {v2, v0}, Landroid/content/pm/PackageManager;->getApplicationLabel(Landroid/content/pm/ApplicationInfo;)Ljava/lang/CharSequence;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/lang/String;
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+
+    :goto_0
+    return-object v3
+
+    :catch_0
+    move-exception v1
+
+    const-string v3, "SecureFolderHelper"
+
+    invoke-virtual {v1}, Ljava/lang/Exception;->getMessage()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v3, 0x0
+
+    goto :goto_0
+.end method
+
 .method public static isSecureFolderExist(Landroid/content/Context;)Z
     .locals 6
 
@@ -371,7 +383,7 @@
     goto :goto_0
 .end method
 
-.method public static sendBroadcastAsUser(Landroid/content/Context;Ljava/util/ArrayList;)V
+.method private static sendBroadcastAsUser(Landroid/content/Context;Ljava/util/ArrayList;)V
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -400,7 +412,7 @@
 
     const-string v1, "userid"
 
-    sget v2, Lcom/android/launcher3/util/SecureFolderHelper;->sUserId:I
+    sget v2, Lcom/android/launcher3/util/SecureFolderHelper;->sSecureFolderId:I
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 

@@ -43,6 +43,7 @@
         <favorite launcher:className="com.microsoft.skydrive.MainActivity" launcher:packageName="com.microsoft.skydrive" launcher:screen="3" />
         <favorite launcher:className="com.microsoft.office.onenote.ui.ONMSplashActivity" launcher:packageName="com.microsoft.office.onenote" launcher:screen="4" />
         <favorite launcher:className="com.skype.raider.Main" launcher:packageName="com.skype.raider" launcher:screen="5" />
+        <favorite launcher:className="com.linkedin.android.MainActivity" launcher:packageName="com.linkedin.android" launcher:screen="6" />
     </folder>
     <favorite launcher:className="com.samsung.android.app.watchmanager.setupwizard.SetupWizardWelcomeActivity" launcher:packageName="com.samsung.android.app.watchmanager" launcher:screen="0" />
     <favorite launcher:className="com.android.vending.AssetBrowserActivity" launcher:packageName="com.android.vending" launcher:screen="0" />

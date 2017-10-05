@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/LauncherModel;->updateItemInfo(Ljava/util/ArrayList;Ljava/util/ArrayList;Z)V
+    value = Lcom/android/launcher3/LauncherModel;->loadWidgetsAndShortcuts([Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;Z)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,24 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/LauncherModel;
 
-.field final synthetic val$addItems:Ljava/util/ArrayList;
-
-.field final synthetic val$hideItems:Ljava/util/ArrayList;
-
-.field final synthetic val$isGameApp:Z
+.field final synthetic val$refresh:Z
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/LauncherModel;Ljava/util/ArrayList;ZLjava/util/ArrayList;)V
+.method constructor <init>(Lcom/android/launcher3/LauncherModel;Z)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/LauncherModel$5;->this$0:Lcom/android/launcher3/LauncherModel;
 
-    iput-object p2, p0, Lcom/android/launcher3/LauncherModel$5;->val$hideItems:Ljava/util/ArrayList;
-
-    iput-boolean p3, p0, Lcom/android/launcher3/LauncherModel$5;->val$isGameApp:Z
-
-    iput-object p4, p0, Lcom/android/launcher3/LauncherModel$5;->val$addItems:Ljava/util/ArrayList;
+    iput-boolean p2, p0, Lcom/android/launcher3/LauncherModel$5;->val$refresh:Z
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -47,102 +39,13 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/launcher3/LauncherModel$5;->val$hideItems:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
+    .locals 2
 
     iget-object v0, p0, Lcom/android/launcher3/LauncherModel$5;->this$0:Lcom/android/launcher3/LauncherModel;
 
-    iget-object v0, v0, Lcom/android/launcher3/LauncherModel;->mHomeLoader:Lcom/android/launcher3/home/HomeLoader;
+    iget-boolean v1, p0, Lcom/android/launcher3/LauncherModel$5;->val$refresh:Z
 
-    iget-object v1, p0, Lcom/android/launcher3/LauncherModel$5;->val$hideItems:Ljava/util/ArrayList;
+    invoke-static {v0, v1}, Lcom/android/launcher3/LauncherModel;->access$2500(Lcom/android/launcher3/LauncherModel;Z)V
 
-    iget-boolean v2, p0, Lcom/android/launcher3/LauncherModel$5;->val$isGameApp:Z
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/launcher3/home/HomeLoader;->hideApps(Ljava/util/ArrayList;Z)V
-
-    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportHomeModeChange()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/launcher3/LauncherAppState;->isHomeOnlyModeEnabled()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/launcher3/LauncherModel$5;->this$0:Lcom/android/launcher3/LauncherModel;
-
-    iget-object v0, v0, Lcom/android/launcher3/LauncherModel;->mAppsLoader:Lcom/android/launcher3/allapps/model/AppsLoader;
-
-    iget-object v1, p0, Lcom/android/launcher3/LauncherModel$5;->val$hideItems:Ljava/util/ArrayList;
-
-    iget-boolean v2, p0, Lcom/android/launcher3/LauncherModel$5;->val$isGameApp:Z
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/launcher3/allapps/model/AppsLoader;->hideApps(Ljava/util/ArrayList;Z)V
-
-    :cond_1
-    iget-object v0, p0, Lcom/android/launcher3/LauncherModel$5;->val$addItems:Ljava/util/ArrayList;
-
-    invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
-
-    move-result v0
-
-    if-nez v0, :cond_2
-
-    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportHomeModeChange()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/launcher3/LauncherAppState;->isHomeOnlyModeEnabled()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_3
-
-    iget-object v0, p0, Lcom/android/launcher3/LauncherModel$5;->this$0:Lcom/android/launcher3/LauncherModel;
-
-    iget-object v0, v0, Lcom/android/launcher3/LauncherModel;->mHomeLoader:Lcom/android/launcher3/home/HomeLoader;
-
-    iget-object v1, p0, Lcom/android/launcher3/LauncherModel$5;->val$addItems:Ljava/util/ArrayList;
-
-    iget-boolean v2, p0, Lcom/android/launcher3/LauncherModel$5;->val$isGameApp:Z
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/launcher3/home/HomeLoader;->showApps(Ljava/util/ArrayList;Z)V
-
-    :cond_2
-    :goto_0
     return-void
-
-    :cond_3
-    iget-object v0, p0, Lcom/android/launcher3/LauncherModel$5;->this$0:Lcom/android/launcher3/LauncherModel;
-
-    iget-object v0, v0, Lcom/android/launcher3/LauncherModel;->mAppsLoader:Lcom/android/launcher3/allapps/model/AppsLoader;
-
-    iget-object v1, p0, Lcom/android/launcher3/LauncherModel$5;->val$addItems:Ljava/util/ArrayList;
-
-    iget-boolean v2, p0, Lcom/android/launcher3/LauncherModel$5;->val$isGameApp:Z
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/launcher3/allapps/model/AppsLoader;->showApps(Ljava/util/ArrayList;Z)V
-
-    goto :goto_0
 .end method

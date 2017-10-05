@@ -447,7 +447,7 @@
     return-object v0
 .end method
 
-.method getIconView(Landroid/content/ComponentName;)Landroid/view/View;
+.method getIconView(Landroid/content/ComponentName;Landroid/os/UserHandle;)Landroid/view/View;
     .locals 8
 
     const/4 v5, 0x0
@@ -502,6 +502,20 @@
 
     move-result v6
 
+    if-eqz v6, :cond_2
+
+    invoke-virtual {v2}, Lcom/android/launcher3/common/base/item/IconInfo;->getUserHandle()Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Lcom/android/launcher3/common/compat/UserHandleCompat;->getUser()Landroid/os/UserHandle;
+
+    move-result-object v6
+
+    invoke-virtual {p2, v6}, Landroid/os/UserHandle;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
     if-nez v6, :cond_0
 
     :cond_2
@@ -548,6 +562,20 @@
     move-result-object v7
 
     invoke-virtual {p1, v7}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_4
+
+    invoke-virtual {v2}, Lcom/android/launcher3/common/base/item/IconInfo;->getUserHandle()Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Lcom/android/launcher3/common/compat/UserHandleCompat;->getUser()Landroid/os/UserHandle;
+
+    move-result-object v7
+
+    invoke-virtual {p2, v7}, Landroid/os/UserHandle;->equals(Ljava/lang/Object;)Z
 
     move-result v7
 
@@ -625,11 +653,11 @@
 .end method
 
 .method protected onFinishInflate()V
-    .locals 3
+    .locals 2
 
     invoke-super {p0}, Landroid/widget/FrameLayout;->onFinishInflate()V
 
-    const v0, 0x7f0f009a
+    const v0, 0x7f1100a6
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/Hotseat;->findViewById(I)Landroid/view/View;
 
@@ -647,13 +675,11 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/Hotseat;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    invoke-virtual {v1}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v1}, Lcom/android/launcher3/Launcher;->getDeviceProfile()Lcom/android/launcher3/common/deviceprofile/DeviceProfile;
 
     move-result-object v1
 
-    const v2, 0x7f0b003f
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
+    invoke-virtual {v1}, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->getMaxHotseatCount()I
 
     move-result v1
 

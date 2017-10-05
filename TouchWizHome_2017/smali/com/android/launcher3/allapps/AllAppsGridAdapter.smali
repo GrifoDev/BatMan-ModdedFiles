@@ -145,7 +145,7 @@
 
     iput-object p2, p0, Lcom/android/launcher3/allapps/AllAppsGridAdapter;->mApps:Lcom/android/launcher3/allapps/AlphabeticalAppsList;
 
-    const v3, 0x7f0800d2
+    const v3, 0x7f0900ed
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -187,7 +187,7 @@
 
     iput-object p4, p0, Lcom/android/launcher3/allapps/AllAppsGridAdapter;->mIconClickListener:Landroid/view/View$OnClickListener;
 
-    const v3, 0x7f0900a3
+    const v3, 0x7f0a00f0
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -195,7 +195,7 @@
 
     iput v3, p0, Lcom/android/launcher3/allapps/AllAppsGridAdapter;->mSectionNamesMargin:I
 
-    const v3, 0x7f0900a2
+    const v3, 0x7f0a00ee
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -211,7 +211,7 @@
 
     iget-object v3, p0, Lcom/android/launcher3/allapps/AllAppsGridAdapter;->mSectionTextPaint:Landroid/graphics/Paint;
 
-    const v4, 0x7f0900a1
+    const v4, 0x7f0a00ed
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -223,7 +223,7 @@
 
     iget-object v3, p0, Lcom/android/launcher3/allapps/AllAppsGridAdapter;->mSectionTextPaint:Landroid/graphics/Paint;
 
-    const v4, 0x7f0d0002
+    const v4, 0x7f0e0003
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -267,7 +267,7 @@
 
     invoke-virtual {v3, v6}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
-    const v3, 0x7f0900a7
+    const v3, 0x7f0a00c7
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -275,7 +275,7 @@
 
     neg-int v3, v3
 
-    const v4, 0x7f0900a4
+    const v4, 0x7f0a00c5
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -505,7 +505,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0d0007
+    const v7, 0x7f0e0008
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -916,7 +916,7 @@
 
     move-object/from16 v18, v0
 
-    const v23, 0x7f0f0030
+    const v23, 0x7f110036
 
     move-object/from16 v0, v18
 
@@ -938,7 +938,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0800c3
+    const v24, 0x7f0900dd
 
     invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -963,7 +963,7 @@
 
     move-object/from16 v16, v0
 
-    const v23, 0x7f0f0030
+    const v23, 0x7f110036
 
     move-object/from16 v0, v16
 
@@ -985,7 +985,7 @@
 
     move-result-object v23
 
-    const v24, 0x7f0800c4
+    const v24, 0x7f0900de
 
     invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1034,7 +1034,7 @@
 
     iget-object v11, v0, Lcom/android/launcher3/allapps/AllAppsGridAdapter$ViewHolder;->mContent:Landroid/view/View;
 
-    const v23, 0x7f0f001a
+    const v23, 0x7f110020
 
     move/from16 v0, v23
 
@@ -1075,7 +1075,7 @@
 
     move-object/from16 v0, v23
 
-    iget-object v10, v0, Lcom/android/launcher3/allapps/AlphabeticalAppsList$AdapterItem;->itemDetails:Lcom/android/launcher3/appssearch/ItemDetails;
+    iget-object v10, v0, Lcom/android/launcher3/allapps/AlphabeticalAppsList$AdapterItem;->itemDetails:Lcom/android/launcher3/allapps/ItemDetails;
 
     move-object/from16 v0, p1
 
@@ -1091,13 +1091,13 @@
 
     move-result-object v23
 
-    const v24, 0x7f080178
+    const v24, 0x7f090197
 
     invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v13
 
-    const v23, 0x7f0f009c
+    const v23, 0x7f1100a8
 
     move/from16 v0, v23
 
@@ -1109,7 +1109,7 @@
 
     invoke-virtual {v2, v10}, Landroid/widget/ImageView;->setTag(Ljava/lang/Object;)V
 
-    const v23, 0x7f0f009d
+    const v23, 0x7f1100a9
 
     move/from16 v0, v23
 
@@ -1119,7 +1119,7 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    const v23, 0x7f0f009e
+    const v23, 0x7f1100aa
 
     move/from16 v0, v23
 
@@ -1129,7 +1129,7 @@
 
     check-cast v5, Landroid/widget/TextView;
 
-    const v23, 0x7f0f009f
+    const v23, 0x7f1100ab
 
     move/from16 v0, v23
 
@@ -1139,7 +1139,7 @@
 
     check-cast v4, Landroid/widget/TextView;
 
-    const v23, 0x7f0f00a0
+    const v23, 0x7f1100ac
 
     move/from16 v0, v23
 
@@ -1157,7 +1157,7 @@
 
     if-lez v23, :cond_0
 
-    invoke-virtual {v10}, Lcom/android/launcher3/appssearch/ItemDetails;->getIconImage()Landroid/graphics/Bitmap;
+    invoke-virtual {v10}, Lcom/android/launcher3/allapps/ItemDetails;->getIconImage()Landroid/graphics/Bitmap;
 
     move-result-object v23
 
@@ -1181,7 +1181,7 @@
 
     invoke-virtual {v2, v14}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
 
-    invoke-virtual {v10}, Lcom/android/launcher3/appssearch/ItemDetails;->getName()Ljava/lang/String;
+    invoke-virtual {v10}, Lcom/android/launcher3/allapps/ItemDetails;->getName()Ljava/lang/String;
 
     move-result-object v23
 
@@ -1189,7 +1189,7 @@
 
     invoke-virtual {v3, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    invoke-virtual {v10}, Lcom/android/launcher3/appssearch/ItemDetails;->getItemSeller()Ljava/lang/String;
+    invoke-virtual {v10}, Lcom/android/launcher3/allapps/ItemDetails;->getItemSeller()Ljava/lang/String;
 
     move-result-object v23
 
@@ -1197,7 +1197,7 @@
 
     invoke-virtual {v5, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    invoke-virtual {v10}, Lcom/android/launcher3/appssearch/ItemDetails;->getPrice()Ljava/lang/String;
+    invoke-virtual {v10}, Lcom/android/launcher3/allapps/ItemDetails;->getPrice()Ljava/lang/String;
 
     move-result-object v23
 
@@ -1216,7 +1216,7 @@
     invoke-virtual {v4, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     :goto_3
-    invoke-virtual {v10}, Lcom/android/launcher3/appssearch/ItemDetails;->getRating()Ljava/lang/String;
+    invoke-virtual {v10}, Lcom/android/launcher3/allapps/ItemDetails;->getRating()Ljava/lang/String;
 
     move-result-object v23
 
@@ -1227,7 +1227,7 @@
     goto/16 :goto_0
 
     :cond_4
-    invoke-virtual {v10}, Lcom/android/launcher3/appssearch/ItemDetails;->getPrice()Ljava/lang/String;
+    invoke-virtual {v10}, Lcom/android/launcher3/allapps/ItemDetails;->getPrice()Ljava/lang/String;
 
     move-result-object v23
 
@@ -1267,9 +1267,9 @@
 .method public onCreateViewHolder(Landroid/view/ViewGroup;I)Lcom/android/launcher3/allapps/AllAppsGridAdapter$ViewHolder;
     .locals 10
 
-    const v9, 0x7f03000a
+    const v9, 0x7f04000b
 
-    const v7, 0x7f030003
+    const v7, 0x7f040004
 
     const/4 v6, 0x1
 
@@ -1374,7 +1374,7 @@
 
     iget-object v6, p0, Lcom/android/launcher3/allapps/AllAppsGridAdapter;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v7, 0x7f030002
+    const v7, 0x7f040003
 
     invoke-virtual {v6, v7, p1, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -1389,7 +1389,7 @@
 
     iget-object v6, p0, Lcom/android/launcher3/allapps/AllAppsGridAdapter;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v7, 0x7f030007
+    const v7, 0x7f040008
 
     invoke-virtual {v6, v7, p1, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -1402,7 +1402,7 @@
     :pswitch_5
     iget-object v5, p0, Lcom/android/launcher3/allapps/AllAppsGridAdapter;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v6, 0x7f030006
+    const v6, 0x7f040007
 
     invoke-virtual {v5, v6, p1, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -1425,7 +1425,7 @@
 
     iget-object v6, p0, Lcom/android/launcher3/allapps/AllAppsGridAdapter;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v7, 0x7f030005
+    const v7, 0x7f040006
 
     invoke-virtual {v6, v7, p1, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -1471,7 +1471,7 @@
 
     iget-object v6, p0, Lcom/android/launcher3/allapps/AllAppsGridAdapter;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v7, 0x7f03000b
+    const v7, 0x7f04000c
 
     invoke-virtual {v6, v7, p1, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -1520,7 +1520,7 @@
 
     iget-object v6, p0, Lcom/android/launcher3/allapps/AllAppsGridAdapter;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v7, 0x7f030004
+    const v7, 0x7f040005
 
     invoke-virtual {v6, v7, p1, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -1533,13 +1533,13 @@
     :pswitch_c
     iget-object v5, p0, Lcom/android/launcher3/allapps/AllAppsGridAdapter;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v6, 0x7f03002d
+    const v6, 0x7f040030
 
     invoke-virtual {v5, v6, p1, v8}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v3
 
-    const v5, 0x7f0f009c
+    const v5, 0x7f1100a8
 
     invoke-virtual {v3, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1584,7 +1584,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f080010
+    const v1, 0x7f090018
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1598,7 +1598,7 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x7f0800d3
+    const v1, 0x7f0900ee
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

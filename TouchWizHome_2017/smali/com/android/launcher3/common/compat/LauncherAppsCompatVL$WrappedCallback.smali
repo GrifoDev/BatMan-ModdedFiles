@@ -128,3 +128,74 @@
 
     return-void
 .end method
+
+.method public onShortcutsChanged(Ljava/lang/String;Ljava/util/List;Landroid/os/UserHandle;)V
+    .locals 4
+    .annotation build Landroid/annotation/TargetApi;
+        value = 0x19
+    .end annotation
+
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/lang/String;",
+            "Ljava/util/List",
+            "<",
+            "Landroid/content/pm/ShortcutInfo;",
+            ">;",
+            "Landroid/os/UserHandle;",
+            ")V"
+        }
+    .end annotation
+
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportDeepShortcut()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    new-instance v1, Ljava/util/ArrayList;
+
+    invoke-interface {p2}, Ljava/util/List;->size()I
+
+    move-result v2
+
+    invoke-direct {v1, v2}, Ljava/util/ArrayList;-><init>(I)V
+
+    invoke-interface {p2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/pm/ShortcutInfo;
+
+    new-instance v3, Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutInfoCompat;
+
+    invoke-direct {v3, v0}, Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutInfoCompat;-><init>(Landroid/content/pm/ShortcutInfo;)V
+
+    invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
+
+    :cond_0
+    iget-object v2, p0, Lcom/android/launcher3/common/compat/LauncherAppsCompatVL$WrappedCallback;->mCallback:Lcom/android/launcher3/common/compat/LauncherAppsCompat$OnAppsChangedCallbackCompat;
+
+    invoke-static {p3}, Lcom/android/launcher3/common/compat/UserHandleCompat;->fromUser(Landroid/os/UserHandle;)Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    move-result-object v3
+
+    invoke-interface {v2, p1, v1, v3}, Lcom/android/launcher3/common/compat/LauncherAppsCompat$OnAppsChangedCallbackCompat;->onShortcutsChanged(Ljava/lang/String;Ljava/util/List;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
+
+    :cond_1
+    return-void
+.end method

@@ -6,6 +6,8 @@
 # static fields
 .field public static final ALLOW_BORDER:Z = true
 
+.field public static final ALLOW_DYNAMIC_BINDING:Z = true
+
 .field public static final ALLOW_FOLDER_SCROLL:Z = true
 
 .field public static final ALLOW_SIDE_EXPAND:Z = true

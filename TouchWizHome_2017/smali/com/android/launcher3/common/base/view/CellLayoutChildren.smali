@@ -40,6 +40,12 @@
     return-void
 .end method
 
+.method public callRefreshLiveIcon()V
+    .locals 0
+
+    return-void
+.end method
+
 .method public cancelLongPress()V
     .locals 3
 
@@ -184,8 +190,50 @@
     goto :goto_0
 .end method
 
+.method public getChildren()Ljava/util/ArrayList;
+    .locals 4
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/ArrayList",
+            "<",
+            "Landroid/view/View;",
+            ">;"
+        }
+    .end annotation
+
+    new-instance v3, Ljava/util/ArrayList;
+
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+
+    invoke-virtual {p0}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->getChildCount()I
+
+    move-result v1
+
+    const/4 v2, 0x0
+
+    :goto_0
+    if-ge v2, v1, :cond_1
+
+    invoke-virtual {p0, v2}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v3, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    :cond_0
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    return-object v3
+.end method
+
 .method public getChildrenAllItems()Ljava/util/ArrayList;
-    .locals 5
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -214,6 +262,14 @@
     move-result-object v0
 
     if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Landroid/view/View;->getTag()Ljava/lang/Object;
+
+    move-result-object v5
+
+    instance-of v5, v5, Lcom/android/launcher3/common/base/item/ItemInfo;
+
+    if-eqz v5, :cond_0
 
     invoke-virtual {v0}, Landroid/view/View;->getTag()Ljava/lang/Object;
 

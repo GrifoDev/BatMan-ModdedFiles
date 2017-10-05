@@ -4,7 +4,7 @@
 
 
 # static fields
-.field private static final TAG:Ljava/lang/String; = "AppsPickerListAdapter"
+.field private static final TAG:Ljava/lang/String; = "AppsPickerSearchListAdapter"
 
 
 # instance fields
@@ -30,6 +30,8 @@
 
 .field private mNumAppsPerRow:I
 
+.field private mScreenMode:I
+
 .field private mSearchText:Ljava/lang/String;
 
 .field private mTextColor:I
@@ -45,7 +47,17 @@
 
     iput-object p2, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mAppsList:Lcom/android/launcher3/appspicker/AppsPickerAlphabeticalAppsList;
 
-    const/4 v0, 0x5
+    iget-object v0, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f0d000d
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v0
 
     iput v0, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mMaxNumAppsPerRow:I
 
@@ -63,7 +75,21 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0007
+    invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/content/res/Configuration;->orientation:I
+
+    iput v0, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mScreenMode:I
+
+    iget-object v0, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f0e0008
 
     const/4 v2, 0x0
 
@@ -104,12 +130,143 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;)Lcom/android/launcher3/appspicker/AppsPickerInfoInterface;
+.method static synthetic access$000(Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;)Landroid/content/Context;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mContext:Landroid/content/Context;
+
+    return-object v0
+.end method
+
+.method static synthetic access$100(Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;)Lcom/android/launcher3/appspicker/AppsPickerInfoInterface;
     .locals 1
 
     iget-object v0, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mItemSelectedListener:Lcom/android/launcher3/appspicker/AppsPickerInfoInterface;
 
     return-object v0
+.end method
+
+.method private createHolders(Landroid/view/LayoutInflater;Landroid/widget/LinearLayout;Landroid/view/View;)[Lcom/android/launcher3/appspicker/AppIconViewHolder;
+    .locals 9
+
+    const/4 v8, -0x2
+
+    iget v5, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mMaxNumAppsPerRow:I
+
+    new-array v1, v5, [Lcom/android/launcher3/appspicker/AppIconViewHolder;
+
+    const/4 v2, 0x0
+
+    :goto_0
+    array-length v5, v1
+
+    if-ge v2, v5, :cond_1
+
+    const v5, 0x7f040011
+
+    const/4 v6, 0x0
+
+    invoke-virtual {p1, v5, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/view/ViewGroup;
+
+    new-instance v5, Lcom/android/launcher3/appspicker/AppIconViewHolder;
+
+    invoke-direct {v5}, Lcom/android/launcher3/appspicker/AppIconViewHolder;-><init>()V
+
+    aput-object v5, v1, v2
+
+    aget-object v5, v1, v2
+
+    iput-object v3, v5, Lcom/android/launcher3/appspicker/AppIconViewHolder;->container:Landroid/view/ViewGroup;
+
+    aget-object v6, v1, v2
+
+    const v5, 0x7f110044
+
+    invoke-virtual {v3, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/widget/ImageView;
+
+    iput-object v5, v6, Lcom/android/launcher3/appspicker/AppIconViewHolder;->icon:Landroid/widget/ImageView;
+
+    aget-object v6, v1, v2
+
+    const v5, 0x7f110045
+
+    invoke-virtual {v3, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/widget/TextView;
+
+    iput-object v5, v6, Lcom/android/launcher3/appspicker/AppIconViewHolder;->title:Landroid/widget/TextView;
+
+    aget-object v6, v1, v2
+
+    const v5, 0x7f110046
+
+    invoke-virtual {v3, v5}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/widget/CheckBox;
+
+    iput-object v5, v6, Lcom/android/launcher3/appspicker/AppIconViewHolder;->checkBox:Landroid/widget/CheckBox;
+
+    aget-object v5, v1, v2
+
+    iget v6, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mScreenMode:I
+
+    iput v6, v5, Lcom/android/launcher3/appspicker/AppIconViewHolder;->screenMode:I
+
+    if-lez v2, :cond_0
+
+    new-instance v0, Landroid/widget/LinearLayout$LayoutParams;
+
+    invoke-direct {v0, v8, v8}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+
+    const/high16 v5, 0x3f800000    # 1.0f
+
+    iput v5, v0, Landroid/widget/LinearLayout$LayoutParams;->weight:F
+
+    aget-object v5, v1, v2
+
+    new-instance v6, Landroid/view/View;
+
+    iget-object v7, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mContext:Landroid/content/Context;
+
+    invoke-direct {v6, v7}, Landroid/view/View;-><init>(Landroid/content/Context;)V
+
+    iput-object v6, v5, Lcom/android/launcher3/appspicker/AppIconViewHolder;->leftGap:Landroid/view/View;
+
+    aget-object v5, v1, v2
+
+    iget-object v5, v5, Lcom/android/launcher3/appspicker/AppIconViewHolder;->leftGap:Landroid/view/View;
+
+    invoke-virtual {p2, v5, v0}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    :cond_0
+    new-instance v4, Landroid/widget/LinearLayout$LayoutParams;
+
+    invoke-direct {v4, v8, v8}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
+
+    const/4 v5, 0x0
+
+    iput v5, v4, Landroid/widget/LinearLayout$LayoutParams;->weight:F
+
+    invoke-virtual {p2, v3, v4}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
+
+    add-int/lit8 v2, v2, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    return-object v1
 .end method
 
 .method private displayHighlightedName(Landroid/widget/TextView;Ljava/lang/String;)V
@@ -263,7 +420,7 @@
 
     if-eqz p1, :cond_0
 
-    const v0, 0x7f0d0004
+    const v0, 0x7f0e0005
 
     :goto_0
     iget-object v1, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mContext:Landroid/content/Context;
@@ -283,7 +440,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f0d0005
+    const v0, 0x7f0e0006
 
     goto :goto_0
 .end method
@@ -344,7 +501,7 @@
 .method public getItem(I)Lcom/android/launcher3/common/base/item/IconInfo;
     .locals 3
 
-    const-string v0, "AppsPickerListAdapter"
+    const-string v0, "AppsPickerSearchListAdapter"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -417,542 +574,576 @@
     goto :goto_0
 .end method
 
+.method public getSearchText()Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mSearchText:Ljava/lang/String;
+
+    return-object v0
+.end method
+
 .method public getView(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;
-    .locals 16
+    .locals 12
 
-    if-nez p2, :cond_6
+    iget-object v8, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mContext:Landroid/content/Context;
 
-    move-object/from16 v0, p0
+    invoke-static {v8}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
-    iget-object v12, v0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mContext:Landroid/content/Context;
+    move-result-object v3
 
-    invoke-static {v12}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+    if-nez p2, :cond_5
 
-    move-result-object v5
+    const v8, 0x7f040014
 
-    const v12, 0x7f030013
+    const/4 v9, 0x0
 
-    const/4 v13, 0x0
-
-    invoke-virtual {v5, v12, v13}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    invoke-virtual {v3, v8, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object p2
 
-    const v12, 0x7f0f003a
+    const v8, 0x7f110040
 
-    move-object/from16 v0, p2
+    invoke-virtual {p2, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    invoke-virtual {v0, v12}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    move-result-object v6
+
+    check-cast v6, Landroid/widget/LinearLayout;
+
+    invoke-direct {p0, v3, v6, p2}, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->createHolders(Landroid/view/LayoutInflater;Landroid/widget/LinearLayout;Landroid/view/View;)[Lcom/android/launcher3/appspicker/AppIconViewHolder;
+
+    move-result-object v1
+
+    invoke-virtual {p2, v1}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
+
+    :cond_0
+    :goto_0
+    iget v8, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mNumAppsPerRow:I
+
+    mul-int v7, p1, v8
+
+    const/4 v2, 0x0
+
+    :goto_1
+    iget v8, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mMaxNumAppsPerRow:I
+
+    if-ge v2, v8, :cond_a
+
+    add-int v0, v7, v2
+
+    const/4 v4, 0x0
+
+    iget-object v8, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mAppsList:Lcom/android/launcher3/appspicker/AppsPickerAlphabeticalAppsList;
+
+    invoke-virtual {v8}, Lcom/android/launcher3/appspicker/AppsPickerAlphabeticalAppsList;->getAdapterItems()Ljava/util/List;
 
     move-result-object v8
 
-    check-cast v8, Landroid/widget/LinearLayout;
+    invoke-interface {v8}, Ljava/util/List;->size()I
 
-    move-object/from16 v0, p0
+    move-result v8
 
-    iget v12, v0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mMaxNumAppsPerRow:I
+    if-ge v0, v8, :cond_1
 
-    new-array v3, v12, [Lcom/android/launcher3/appspicker/AppIconViewHolder;
+    iget-object v8, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mAppsList:Lcom/android/launcher3/appspicker/AppsPickerAlphabeticalAppsList;
 
-    const/4 v4, 0x0
+    invoke-virtual {v8}, Lcom/android/launcher3/appspicker/AppsPickerAlphabeticalAppsList;->getAdapterItems()Ljava/util/List;
 
-    :goto_0
-    array-length v12, v3
+    move-result-object v8
 
-    if-ge v4, v12, :cond_1
+    invoke-interface {v8, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    const v12, 0x7f030010
+    move-result-object v8
 
-    const/4 v13, 0x0
+    check-cast v8, Lcom/android/launcher3/allapps/AlphabeticalAppsList$AdapterItem;
 
-    invoke-virtual {v5, v12, v13}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+    iget-object v4, v8, Lcom/android/launcher3/allapps/AlphabeticalAppsList$AdapterItem;->iconInfo:Lcom/android/launcher3/common/base/item/IconInfo;
+
+    :cond_1
+    if-eqz v4, :cond_7
+
+    iget v8, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mNumAppsPerRow:I
+
+    if-ge v2, v8, :cond_7
+
+    aget-object v8, v1, v2
+
+    iput-object v4, v8, Lcom/android/launcher3/appspicker/AppIconViewHolder;->iconInfo:Lcom/android/launcher3/common/base/item/IconInfo;
+
+    aget-object v8, v1, v2
+
+    iget-object v8, v8, Lcom/android/launcher3/appspicker/AppIconViewHolder;->container:Landroid/view/ViewGroup;
+
+    const/4 v9, 0x1
+
+    invoke-virtual {v8, v9}, Landroid/view/ViewGroup;->setFocusable(Z)V
+
+    aget-object v8, v1, v2
+
+    iget-object v8, v8, Lcom/android/launcher3/appspicker/AppIconViewHolder;->container:Landroid/view/ViewGroup;
+
+    iget-object v9, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mItemContainerClickListener:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v8, v9}, Landroid/view/ViewGroup;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    aget-object v8, v1, v2
+
+    iget-object v8, v8, Lcom/android/launcher3/appspicker/AppIconViewHolder;->container:Landroid/view/ViewGroup;
+
+    const/4 v9, 0x0
+
+    invoke-virtual {v8, v9}, Landroid/view/ViewGroup;->setVisibility(I)V
+
+    aget-object v8, v1, v2
+
+    iget-object v8, v8, Lcom/android/launcher3/appspicker/AppIconViewHolder;->checkBox:Landroid/widget/CheckBox;
+
+    aget-object v9, v1, v2
+
+    iget-object v9, v9, Lcom/android/launcher3/appspicker/AppIconViewHolder;->iconInfo:Lcom/android/launcher3/common/base/item/IconInfo;
+
+    invoke-virtual {v8, v9}, Landroid/widget/CheckBox;->setTag(Ljava/lang/Object;)V
+
+    aget-object v8, v1, v2
+
+    iget-object v8, v8, Lcom/android/launcher3/appspicker/AppIconViewHolder;->container:Landroid/view/ViewGroup;
+
+    aget-object v9, v1, v2
+
+    iget-object v9, v9, Lcom/android/launcher3/appspicker/AppIconViewHolder;->iconInfo:Lcom/android/launcher3/common/base/item/IconInfo;
+
+    invoke-virtual {v8, v9}, Landroid/view/ViewGroup;->setTag(Ljava/lang/Object;)V
+
+    aget-object v8, v1, v2
+
+    iput v2, v8, Lcom/android/launcher3/appspicker/AppIconViewHolder;->colIndex:I
+
+    aget-object v8, v1, v2
+
+    iget-object v8, v8, Lcom/android/launcher3/appspicker/AppIconViewHolder;->container:Landroid/view/ViewGroup;
+
+    iget-object v9, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mKeyListener:Lcom/android/launcher3/appspicker/AppsPickerFocusListener;
+
+    invoke-virtual {v8, v9}, Landroid/view/ViewGroup;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
+
+    aget-object v8, v1, v2
+
+    iput p1, v8, Lcom/android/launcher3/appspicker/AppIconViewHolder;->rowIndex:I
+
+    if-lez v2, :cond_2
+
+    aget-object v8, v1, v2
+
+    iget-object v8, v8, Lcom/android/launcher3/appspicker/AppIconViewHolder;->leftGap:Landroid/view/View;
+
+    if-eqz v8, :cond_2
+
+    aget-object v8, v1, v2
+
+    iget-object v8, v8, Lcom/android/launcher3/appspicker/AppIconViewHolder;->leftGap:Landroid/view/View;
+
+    const/4 v9, 0x0
+
+    invoke-virtual {v8, v9}, Landroid/view/View;->setVisibility(I)V
+
+    :cond_2
+    aget-object v8, v1, v2
+
+    iget-object v8, v8, Lcom/android/launcher3/appspicker/AppIconViewHolder;->title:Landroid/widget/TextView;
+
+    iget-object v9, v4, Lcom/android/launcher3/common/base/item/IconInfo;->title:Ljava/lang/CharSequence;
+
+    invoke-virtual {v8, v9}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    iget-object v8, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mContext:Landroid/content/Context;
+
+    aget-object v9, v1, v2
+
+    iget-object v9, v9, Lcom/android/launcher3/appspicker/AppIconViewHolder;->title:Landroid/widget/TextView;
+
+    iget-boolean v10, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mIsWhiteBg:Z
+
+    invoke-static {v8, v9, v10}, Lcom/android/launcher3/util/WhiteBgManager;->changeTextColorForBg(Landroid/content/Context;Landroid/widget/TextView;Z)V
+
+    aget-object v8, v1, v2
+
+    iget-object v8, v8, Lcom/android/launcher3/appspicker/AppIconViewHolder;->icon:Landroid/widget/ImageView;
+
+    iget-object v9, v4, Lcom/android/launcher3/common/base/item/IconInfo;->mIcon:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v8, v9}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
+
+    const/4 v5, 0x0
+
+    iget-object v8, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mItemSelectedListener:Lcom/android/launcher3/appspicker/AppsPickerInfoInterface;
+
+    if-eqz v8, :cond_3
+
+    iget-object v8, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mItemSelectedListener:Lcom/android/launcher3/appspicker/AppsPickerInfoInterface;
+
+    invoke-interface {v8, v4}, Lcom/android/launcher3/appspicker/AppsPickerInfoInterface;->isCheckedItem(Lcom/android/launcher3/common/base/item/IconInfo;)Z
+
+    move-result v5
+
+    :cond_3
+    if-eqz v5, :cond_6
+
+    aget-object v8, v1, v2
+
+    iget-object v8, v8, Lcom/android/launcher3/appspicker/AppIconViewHolder;->container:Landroid/view/ViewGroup;
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    aget-object v10, v1, v2
+
+    iget-object v10, v10, Lcom/android/launcher3/appspicker/AppIconViewHolder;->title:Landroid/widget/TextView;
+
+    invoke-virtual {v10}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v9
 
-    check-cast v9, Landroid/view/ViewGroup;
+    const-string v10, " "
 
-    new-instance v12, Lcom/android/launcher3/appspicker/AppIconViewHolder;
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct {v12}, Lcom/android/launcher3/appspicker/AppIconViewHolder;-><init>()V
+    move-result-object v9
 
-    aput-object v12, v3, v4
+    iget-object v10, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mContext:Landroid/content/Context;
 
-    aget-object v12, v3, v4
+    invoke-virtual {v10}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    iput-object v9, v12, Lcom/android/launcher3/appspicker/AppIconViewHolder;->container:Landroid/view/ViewGroup;
+    move-result-object v10
 
-    aget-object v13, v3, v4
+    const v11, 0x7f0900af
 
-    const v12, 0x7f0f003e
+    invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    invoke-virtual {v9, v12}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
+    move-result-object v10
 
-    move-result-object v12
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    check-cast v12, Landroid/widget/ImageView;
+    move-result-object v9
 
-    iput-object v12, v13, Lcom/android/launcher3/appspicker/AppIconViewHolder;->icon:Landroid/widget/ImageView;
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    aget-object v13, v3, v4
+    move-result-object v9
 
-    const v12, 0x7f0f003f
-
-    invoke-virtual {v9, v12}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
-
-    move-result-object v12
-
-    check-cast v12, Landroid/widget/TextView;
-
-    iput-object v12, v13, Lcom/android/launcher3/appspicker/AppIconViewHolder;->title:Landroid/widget/TextView;
-
-    aget-object v13, v3, v4
-
-    const v12, 0x7f0f0040
-
-    invoke-virtual {v9, v12}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
-
-    move-result-object v12
-
-    check-cast v12, Landroid/widget/CheckBox;
-
-    iput-object v12, v13, Lcom/android/launcher3/appspicker/AppIconViewHolder;->checkBox:Landroid/widget/CheckBox;
-
-    if-lez v4, :cond_0
-
-    new-instance v2, Landroid/widget/LinearLayout$LayoutParams;
-
-    const/4 v12, -0x2
-
-    const/4 v13, -0x2
-
-    invoke-direct {v2, v12, v13}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
-
-    const/high16 v12, 0x3f800000    # 1.0f
-
-    iput v12, v2, Landroid/widget/LinearLayout$LayoutParams;->weight:F
-
-    aget-object v12, v3, v4
-
-    new-instance v13, Landroid/view/View;
-
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mContext:Landroid/content/Context;
-
-    invoke-direct {v13, v14}, Landroid/view/View;-><init>(Landroid/content/Context;)V
-
-    iput-object v13, v12, Lcom/android/launcher3/appspicker/AppIconViewHolder;->leftGap:Landroid/view/View;
-
-    aget-object v12, v3, v4
-
-    iget-object v12, v12, Lcom/android/launcher3/appspicker/AppIconViewHolder;->leftGap:Landroid/view/View;
-
-    invoke-virtual {v8, v12, v2}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-
-    :cond_0
-    new-instance v10, Landroid/widget/LinearLayout$LayoutParams;
-
-    const/4 v12, -0x2
-
-    const/4 v13, -0x2
-
-    invoke-direct {v10, v12, v13}, Landroid/widget/LinearLayout$LayoutParams;-><init>(II)V
-
-    const/4 v12, 0x0
-
-    iput v12, v10, Landroid/widget/LinearLayout$LayoutParams;->weight:F
-
-    invoke-virtual {v8, v9, v10}, Landroid/widget/LinearLayout;->addView(Landroid/view/View;Landroid/view/ViewGroup$LayoutParams;)V
-
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_0
-
-    :cond_1
-    move-object/from16 v0, p2
-
-    invoke-virtual {v0, v3}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
-
-    :goto_1
-    move-object/from16 v0, p0
-
-    iget v12, v0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mNumAppsPerRow:I
-
-    mul-int v11, p1, v12
-
-    const/4 v4, 0x0
+    invoke-virtual {v8, v9}, Landroid/view/ViewGroup;->setContentDescription(Ljava/lang/CharSequence;)V
 
     :goto_2
-    move-object/from16 v0, p0
+    aget-object v8, v1, v2
 
-    iget v12, v0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mMaxNumAppsPerRow:I
+    iget-object v8, v8, Lcom/android/launcher3/appspicker/AppIconViewHolder;->checkBox:Landroid/widget/CheckBox;
 
-    if-ge v4, v12, :cond_a
+    invoke-virtual {v8, v5}, Landroid/widget/CheckBox;->setChecked(Z)V
 
-    add-int v1, v11, v4
+    aget-object v8, v1, v2
 
-    const/4 v6, 0x0
+    iget-object v8, v8, Lcom/android/launcher3/appspicker/AppIconViewHolder;->checkBox:Landroid/widget/CheckBox;
 
-    move-object/from16 v0, p0
+    iget-object v9, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mItemCheckBoxClickListener:Landroid/view/View$OnClickListener;
 
-    iget-object v12, v0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mAppsList:Lcom/android/launcher3/appspicker/AppsPickerAlphabeticalAppsList;
+    invoke-virtual {v8, v9}, Landroid/widget/CheckBox;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    invoke-virtual {v12}, Lcom/android/launcher3/appspicker/AppsPickerAlphabeticalAppsList;->getAdapterItems()Ljava/util/List;
+    iget-object v8, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mSearchText:Ljava/lang/String;
 
-    move-result-object v12
+    invoke-virtual {v8}, Ljava/lang/String;->isEmpty()Z
 
-    invoke-interface {v12}, Ljava/util/List;->size()I
+    move-result v8
 
-    move-result v12
+    if-nez v8, :cond_4
 
-    if-ge v1, v12, :cond_2
+    aget-object v8, v1, v2
 
-    move-object/from16 v0, p0
+    iget-object v8, v8, Lcom/android/launcher3/appspicker/AppIconViewHolder;->title:Landroid/widget/TextView;
 
-    iget-object v12, v0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mAppsList:Lcom/android/launcher3/appspicker/AppsPickerAlphabeticalAppsList;
+    iget-object v9, v4, Lcom/android/launcher3/common/base/item/IconInfo;->title:Ljava/lang/CharSequence;
 
-    invoke-virtual {v12}, Lcom/android/launcher3/appspicker/AppsPickerAlphabeticalAppsList;->getAdapterItems()Ljava/util/List;
+    invoke-interface {v9}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v9
 
-    invoke-interface {v12, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v12
-
-    check-cast v12, Lcom/android/launcher3/allapps/AlphabeticalAppsList$AdapterItem;
-
-    iget-object v6, v12, Lcom/android/launcher3/allapps/AlphabeticalAppsList$AdapterItem;->iconInfo:Lcom/android/launcher3/common/base/item/IconInfo;
-
-    :cond_2
-    if-eqz v6, :cond_7
-
-    move-object/from16 v0, p0
-
-    iget v12, v0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mNumAppsPerRow:I
-
-    if-ge v4, v12, :cond_7
-
-    aget-object v12, v3, v4
-
-    iput-object v6, v12, Lcom/android/launcher3/appspicker/AppIconViewHolder;->iconInfo:Lcom/android/launcher3/common/base/item/IconInfo;
-
-    aget-object v12, v3, v4
-
-    iget-object v12, v12, Lcom/android/launcher3/appspicker/AppIconViewHolder;->container:Landroid/view/ViewGroup;
-
-    const/4 v13, 0x1
-
-    invoke-virtual {v12, v13}, Landroid/view/ViewGroup;->setFocusable(Z)V
-
-    aget-object v12, v3, v4
-
-    iget-object v12, v12, Lcom/android/launcher3/appspicker/AppIconViewHolder;->container:Landroid/view/ViewGroup;
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mItemContainerClickListener:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v12, v13}, Landroid/view/ViewGroup;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    aget-object v12, v3, v4
-
-    iget-object v12, v12, Lcom/android/launcher3/appspicker/AppIconViewHolder;->container:Landroid/view/ViewGroup;
-
-    const/4 v13, 0x0
-
-    invoke-virtual {v12, v13}, Landroid/view/ViewGroup;->setVisibility(I)V
-
-    aget-object v12, v3, v4
-
-    iget-object v12, v12, Lcom/android/launcher3/appspicker/AppIconViewHolder;->checkBox:Landroid/widget/CheckBox;
-
-    aget-object v13, v3, v4
-
-    iget-object v13, v13, Lcom/android/launcher3/appspicker/AppIconViewHolder;->iconInfo:Lcom/android/launcher3/common/base/item/IconInfo;
-
-    invoke-virtual {v12, v13}, Landroid/widget/CheckBox;->setTag(Ljava/lang/Object;)V
-
-    aget-object v12, v3, v4
-
-    iget-object v12, v12, Lcom/android/launcher3/appspicker/AppIconViewHolder;->container:Landroid/view/ViewGroup;
-
-    aget-object v13, v3, v4
-
-    iget-object v13, v13, Lcom/android/launcher3/appspicker/AppIconViewHolder;->iconInfo:Lcom/android/launcher3/common/base/item/IconInfo;
-
-    invoke-virtual {v12, v13}, Landroid/view/ViewGroup;->setTag(Ljava/lang/Object;)V
-
-    aget-object v12, v3, v4
-
-    iput v4, v12, Lcom/android/launcher3/appspicker/AppIconViewHolder;->colIndex:I
-
-    aget-object v12, v3, v4
-
-    iget-object v12, v12, Lcom/android/launcher3/appspicker/AppIconViewHolder;->container:Landroid/view/ViewGroup;
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mKeyListener:Lcom/android/launcher3/appspicker/AppsPickerFocusListener;
-
-    invoke-virtual {v12, v13}, Landroid/view/ViewGroup;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
-
-    aget-object v12, v3, v4
-
-    move/from16 v0, p1
-
-    iput v0, v12, Lcom/android/launcher3/appspicker/AppIconViewHolder;->rowIndex:I
-
-    if-lez v4, :cond_3
-
-    aget-object v12, v3, v4
-
-    iget-object v12, v12, Lcom/android/launcher3/appspicker/AppIconViewHolder;->leftGap:Landroid/view/View;
-
-    if-eqz v12, :cond_3
-
-    aget-object v12, v3, v4
-
-    iget-object v12, v12, Lcom/android/launcher3/appspicker/AppIconViewHolder;->leftGap:Landroid/view/View;
-
-    const/4 v13, 0x0
-
-    invoke-virtual {v12, v13}, Landroid/view/View;->setVisibility(I)V
-
-    :cond_3
-    aget-object v12, v3, v4
-
-    iget-object v12, v12, Lcom/android/launcher3/appspicker/AppIconViewHolder;->title:Landroid/widget/TextView;
-
-    iget-object v13, v6, Lcom/android/launcher3/common/base/item/IconInfo;->title:Ljava/lang/CharSequence;
-
-    invoke-virtual {v12, v13}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mContext:Landroid/content/Context;
-
-    aget-object v13, v3, v4
-
-    iget-object v13, v13, Lcom/android/launcher3/appspicker/AppIconViewHolder;->title:Landroid/widget/TextView;
-
-    move-object/from16 v0, p0
-
-    iget-boolean v14, v0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mIsWhiteBg:Z
-
-    const/4 v15, 0x1
-
-    invoke-static {v12, v13, v14, v15}, Lcom/android/launcher3/util/WhiteBgManager;->changeTextColorForBg(Landroid/content/Context;Landroid/widget/TextView;ZZ)V
-
-    aget-object v12, v3, v4
-
-    iget-object v12, v12, Lcom/android/launcher3/appspicker/AppIconViewHolder;->icon:Landroid/widget/ImageView;
-
-    iget-object v13, v6, Lcom/android/launcher3/common/base/item/IconInfo;->mIcon:Landroid/graphics/Bitmap;
-
-    invoke-virtual {v12, v13}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
-
-    const/4 v7, 0x0
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mItemSelectedListener:Lcom/android/launcher3/appspicker/AppsPickerInfoInterface;
-
-    if-eqz v12, :cond_4
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mItemSelectedListener:Lcom/android/launcher3/appspicker/AppsPickerInfoInterface;
-
-    invoke-interface {v12, v6}, Lcom/android/launcher3/appspicker/AppsPickerInfoInterface;->isCheckedItem(Lcom/android/launcher3/common/base/item/IconInfo;)Z
-
-    move-result v7
+    invoke-direct {p0, v8, v9}, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->displayHighlightedName(Landroid/widget/TextView;Ljava/lang/String;)V
 
     :cond_4
-    aget-object v12, v3, v4
-
-    iget-object v12, v12, Lcom/android/launcher3/appspicker/AppIconViewHolder;->checkBox:Landroid/widget/CheckBox;
-
-    invoke-virtual {v12, v7}, Landroid/widget/CheckBox;->setChecked(Z)V
-
-    aget-object v12, v3, v4
-
-    iget-object v12, v12, Lcom/android/launcher3/appspicker/AppIconViewHolder;->checkBox:Landroid/widget/CheckBox;
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mItemCheckBoxClickListener:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v12, v13}, Landroid/widget/CheckBox;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mSearchText:Ljava/lang/String;
-
-    invoke-virtual {v12}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v12
-
-    if-nez v12, :cond_5
-
-    aget-object v12, v3, v4
-
-    iget-object v12, v12, Lcom/android/launcher3/appspicker/AppIconViewHolder;->title:Landroid/widget/TextView;
-
-    iget-object v13, v6, Lcom/android/launcher3/common/base/item/IconInfo;->title:Ljava/lang/CharSequence;
-
-    invoke-interface {v13}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object v13
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v12, v13}, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->displayHighlightedName(Landroid/widget/TextView;Ljava/lang/String;)V
-
-    :cond_5
     :goto_3
-    add-int/lit8 v4, v4, 0x1
-
-    goto/16 :goto_2
-
-    :cond_6
-    invoke-virtual/range {p2 .. p2}, Landroid/view/View;->getTag()Ljava/lang/Object;
-
-    move-result-object v12
-
-    check-cast v12, [Lcom/android/launcher3/appspicker/AppIconViewHolder;
-
-    move-object v3, v12
-
-    check-cast v3, [Lcom/android/launcher3/appspicker/AppIconViewHolder;
+    add-int/lit8 v2, v2, 0x1
 
     goto/16 :goto_1
 
+    :cond_5
+    invoke-virtual {p2}, Landroid/view/View;->getTag()Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, [Lcom/android/launcher3/appspicker/AppIconViewHolder;
+
+    move-object v1, v8
+
+    check-cast v1, [Lcom/android/launcher3/appspicker/AppIconViewHolder;
+
+    const/4 v8, 0x0
+
+    aget-object v8, v1, v8
+
+    iget v8, v8, Lcom/android/launcher3/appspicker/AppIconViewHolder;->screenMode:I
+
+    iget v9, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mScreenMode:I
+
+    if-eq v8, v9, :cond_0
+
+    const/4 p2, 0x0
+
+    const v8, 0x7f040014
+
+    const/4 v9, 0x0
+
+    invoke-virtual {v3, v8, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
+
+    move-result-object p2
+
+    const v8, 0x7f110040
+
+    invoke-virtual {p2, v8}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/widget/LinearLayout;
+
+    invoke-direct {p0, v3, v6, p2}, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->createHolders(Landroid/view/LayoutInflater;Landroid/widget/LinearLayout;Landroid/view/View;)[Lcom/android/launcher3/appspicker/AppIconViewHolder;
+
+    move-result-object v1
+
+    invoke-virtual {p2, v1}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
+
+    goto/16 :goto_0
+
+    :cond_6
+    aget-object v8, v1, v2
+
+    iget-object v8, v8, Lcom/android/launcher3/appspicker/AppIconViewHolder;->container:Landroid/view/ViewGroup;
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    aget-object v10, v1, v2
+
+    iget-object v10, v10, Lcom/android/launcher3/appspicker/AppIconViewHolder;->title:Landroid/widget/TextView;
+
+    invoke-virtual {v10}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    const-string v10, " "
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    iget-object v10, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v10}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v10
+
+    const v11, 0x7f09007b
+
+    invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Landroid/view/ViewGroup;->setContentDescription(Ljava/lang/CharSequence;)V
+
+    goto/16 :goto_2
+
     :cond_7
-    aget-object v12, v3, v4
+    aget-object v8, v1, v2
 
-    const/4 v13, 0x0
+    const/4 v9, 0x0
 
-    iput-object v13, v12, Lcom/android/launcher3/appspicker/AppIconViewHolder;->iconInfo:Lcom/android/launcher3/common/base/item/IconInfo;
+    iput-object v9, v8, Lcom/android/launcher3/appspicker/AppIconViewHolder;->iconInfo:Lcom/android/launcher3/common/base/item/IconInfo;
 
-    aget-object v12, v3, v4
+    aget-object v8, v1, v2
 
-    iget-object v12, v12, Lcom/android/launcher3/appspicker/AppIconViewHolder;->container:Landroid/view/ViewGroup;
+    iget-object v8, v8, Lcom/android/launcher3/appspicker/AppIconViewHolder;->container:Landroid/view/ViewGroup;
 
-    const/4 v13, 0x0
+    const/4 v9, 0x0
 
-    invoke-virtual {v12, v13}, Landroid/view/ViewGroup;->setFocusable(Z)V
+    invoke-virtual {v8, v9}, Landroid/view/ViewGroup;->setFocusable(Z)V
 
-    aget-object v12, v3, v4
+    aget-object v8, v1, v2
 
-    iget-object v12, v12, Lcom/android/launcher3/appspicker/AppIconViewHolder;->container:Landroid/view/ViewGroup;
+    iget-object v8, v8, Lcom/android/launcher3/appspicker/AppIconViewHolder;->container:Landroid/view/ViewGroup;
 
-    const/4 v13, 0x0
+    const/4 v9, 0x0
 
-    invoke-virtual {v12, v13}, Landroid/view/ViewGroup;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v8, v9}, Landroid/view/ViewGroup;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    move-object/from16 v0, p0
+    iget v8, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mNumAppsPerRow:I
 
-    iget v12, v0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mNumAppsPerRow:I
+    if-ge v2, v8, :cond_9
 
-    if-ge v4, v12, :cond_9
+    aget-object v8, v1, v2
 
-    aget-object v12, v3, v4
+    iget-object v8, v8, Lcom/android/launcher3/appspicker/AppIconViewHolder;->container:Landroid/view/ViewGroup;
 
-    iget-object v12, v12, Lcom/android/launcher3/appspicker/AppIconViewHolder;->container:Landroid/view/ViewGroup;
+    const/4 v9, 0x4
 
-    const/4 v13, 0x4
+    invoke-virtual {v8, v9}, Landroid/view/ViewGroup;->setVisibility(I)V
 
-    invoke-virtual {v12, v13}, Landroid/view/ViewGroup;->setVisibility(I)V
+    if-lez v2, :cond_8
+
+    aget-object v8, v1, v2
+
+    iget-object v8, v8, Lcom/android/launcher3/appspicker/AppIconViewHolder;->leftGap:Landroid/view/View;
+
+    if-eqz v8, :cond_8
+
+    aget-object v8, v1, v2
+
+    iget-object v8, v8, Lcom/android/launcher3/appspicker/AppIconViewHolder;->leftGap:Landroid/view/View;
+
+    const/4 v9, 0x0
+
+    invoke-virtual {v8, v9}, Landroid/view/View;->setVisibility(I)V
 
     :cond_8
     :goto_4
-    aget-object v12, v3, v4
+    aget-object v8, v1, v2
 
-    iget-object v12, v12, Lcom/android/launcher3/appspicker/AppIconViewHolder;->checkBox:Landroid/widget/CheckBox;
+    iget-object v8, v8, Lcom/android/launcher3/appspicker/AppIconViewHolder;->checkBox:Landroid/widget/CheckBox;
 
-    const/4 v13, 0x0
+    const/4 v9, 0x0
 
-    invoke-virtual {v12, v13}, Landroid/widget/CheckBox;->setTag(Ljava/lang/Object;)V
+    invoke-virtual {v8, v9}, Landroid/widget/CheckBox;->setTag(Ljava/lang/Object;)V
 
-    aget-object v12, v3, v4
+    aget-object v8, v1, v2
 
-    iget-object v12, v12, Lcom/android/launcher3/appspicker/AppIconViewHolder;->container:Landroid/view/ViewGroup;
+    iget-object v8, v8, Lcom/android/launcher3/appspicker/AppIconViewHolder;->container:Landroid/view/ViewGroup;
 
-    const/4 v13, 0x0
+    const/4 v9, 0x0
 
-    invoke-virtual {v12, v13}, Landroid/view/ViewGroup;->setTag(Ljava/lang/Object;)V
+    invoke-virtual {v8, v9}, Landroid/view/ViewGroup;->setTag(Ljava/lang/Object;)V
 
-    aget-object v12, v3, v4
+    aget-object v8, v1, v2
 
-    iget-object v12, v12, Lcom/android/launcher3/appspicker/AppIconViewHolder;->checkBox:Landroid/widget/CheckBox;
+    iget-object v8, v8, Lcom/android/launcher3/appspicker/AppIconViewHolder;->checkBox:Landroid/widget/CheckBox;
 
-    const/4 v13, 0x0
+    const/4 v9, 0x0
 
-    invoke-virtual {v12, v13}, Landroid/widget/CheckBox;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v8, v9}, Landroid/widget/CheckBox;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    aget-object v12, v3, v4
+    aget-object v8, v1, v2
 
-    iget-object v12, v12, Lcom/android/launcher3/appspicker/AppIconViewHolder;->container:Landroid/view/ViewGroup;
+    iget-object v8, v8, Lcom/android/launcher3/appspicker/AppIconViewHolder;->container:Landroid/view/ViewGroup;
 
-    const/4 v13, 0x0
+    const/4 v9, 0x0
 
-    invoke-virtual {v12, v13}, Landroid/view/ViewGroup;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+    invoke-virtual {v8, v9}, Landroid/view/ViewGroup;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    aget-object v12, v3, v4
+    aget-object v8, v1, v2
 
-    iget-object v12, v12, Lcom/android/launcher3/appspicker/AppIconViewHolder;->checkBox:Landroid/widget/CheckBox;
+    iget-object v8, v8, Lcom/android/launcher3/appspicker/AppIconViewHolder;->checkBox:Landroid/widget/CheckBox;
 
-    const/4 v13, 0x0
+    const/4 v9, 0x0
 
-    invoke-virtual {v12, v13}, Landroid/widget/CheckBox;->setChecked(Z)V
+    invoke-virtual {v8, v9}, Landroid/widget/CheckBox;->setChecked(Z)V
 
-    aget-object v12, v3, v4
+    aget-object v8, v1, v2
 
-    iget-object v12, v12, Lcom/android/launcher3/appspicker/AppIconViewHolder;->title:Landroid/widget/TextView;
+    iget-object v8, v8, Lcom/android/launcher3/appspicker/AppIconViewHolder;->title:Landroid/widget/TextView;
 
-    const/4 v13, 0x0
+    const/4 v9, 0x0
 
-    invoke-virtual {v12, v13}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v8, v9}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    aget-object v12, v3, v4
+    aget-object v8, v1, v2
 
-    iget-object v12, v12, Lcom/android/launcher3/appspicker/AppIconViewHolder;->icon:Landroid/widget/ImageView;
+    iget-object v8, v8, Lcom/android/launcher3/appspicker/AppIconViewHolder;->icon:Landroid/widget/ImageView;
 
-    const/4 v13, 0x0
+    const/4 v9, 0x0
 
-    invoke-virtual {v12, v13}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
+    invoke-virtual {v8, v9}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
 
-    goto :goto_3
+    goto/16 :goto_3
 
     :cond_9
-    aget-object v12, v3, v4
+    aget-object v8, v1, v2
 
-    iget-object v12, v12, Lcom/android/launcher3/appspicker/AppIconViewHolder;->container:Landroid/view/ViewGroup;
+    iget-object v8, v8, Lcom/android/launcher3/appspicker/AppIconViewHolder;->container:Landroid/view/ViewGroup;
 
-    const/16 v13, 0x8
+    const/16 v9, 0x8
 
-    invoke-virtual {v12, v13}, Landroid/view/ViewGroup;->setVisibility(I)V
+    invoke-virtual {v8, v9}, Landroid/view/ViewGroup;->setVisibility(I)V
 
-    if-lez v4, :cond_8
+    if-lez v2, :cond_8
 
-    aget-object v12, v3, v4
+    aget-object v8, v1, v2
 
-    iget-object v12, v12, Lcom/android/launcher3/appspicker/AppIconViewHolder;->leftGap:Landroid/view/View;
+    iget-object v8, v8, Lcom/android/launcher3/appspicker/AppIconViewHolder;->leftGap:Landroid/view/View;
 
-    if-eqz v12, :cond_8
+    if-eqz v8, :cond_8
 
-    aget-object v12, v3, v4
+    aget-object v8, v1, v2
 
-    iget-object v12, v12, Lcom/android/launcher3/appspicker/AppIconViewHolder;->leftGap:Landroid/view/View;
+    iget-object v8, v8, Lcom/android/launcher3/appspicker/AppIconViewHolder;->leftGap:Landroid/view/View;
 
-    const/16 v13, 0x8
+    const/16 v9, 0x8
 
-    invoke-virtual {v12, v13}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v8, v9}, Landroid/view/View;->setVisibility(I)V
 
     goto :goto_4
 
     :cond_a
     return-object p2
+.end method
+
+.method public notifyDataSetChanged()V
+    .locals 1
+
+    invoke-super {p0}, Landroid/widget/BaseAdapter;->notifyDataSetChanged()V
+
+    iget-object v0, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mAppsList:Lcom/android/launcher3/appspicker/AppsPickerAlphabeticalAppsList;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/appspicker/AppsPickerAlphabeticalAppsList;->getNumAppsPerRow()I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mNumAppsPerRow:I
+
+    iget-object v0, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v0
+
+    iget v0, v0, Landroid/content/res/Configuration;->orientation:I
+
+    iput v0, p0, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->mScreenMode:I
+
+    return-void
 .end method
 
 .method public setSearchText(Ljava/lang/String;)V

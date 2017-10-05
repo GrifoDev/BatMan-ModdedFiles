@@ -55,6 +55,23 @@
     return-void
 
     :cond_0
+    invoke-static {}, Lcom/android/launcher3/util/GlobalSettingUtils;->getStartSetting()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    invoke-static {}, Lcom/android/launcher3/util/GlobalSettingUtils;->resetSettingsValue()V
+
+    iget-object v3, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel$2;->this$0:Lcom/android/launcher3/allapps/AppsScreenGridPanel;
+
+    invoke-static {v3}, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->access$200(Lcom/android/launcher3/allapps/AppsScreenGridPanel;)Lcom/android/launcher3/Launcher;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Lcom/android/launcher3/Launcher;->finishSettingsActivity()V
+
+    :cond_1
     const-string v3, "AppsScreenGridPanel"
 
     const-string v4, "ScreenGrid apply button clicked."
@@ -71,7 +88,7 @@
 
     iget-object v3, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel$2;->this$0:Lcom/android/launcher3/allapps/AppsScreenGridPanel;
 
-    invoke-static {v3}, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->access$100(Lcom/android/launcher3/allapps/AppsScreenGridPanel;)Lcom/android/launcher3/Launcher;
+    invoke-static {v3}, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->access$200(Lcom/android/launcher3/allapps/AppsScreenGridPanel;)Lcom/android/launcher3/Launcher;
 
     move-result-object v3
 
@@ -99,7 +116,7 @@
 
     iget-object v3, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel$2;->this$0:Lcom/android/launcher3/allapps/AppsScreenGridPanel;
 
-    invoke-static {v3}, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->access$200(Lcom/android/launcher3/allapps/AppsScreenGridPanel;)Landroid/view/View;
+    invoke-static {v3}, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->access$300(Lcom/android/launcher3/allapps/AppsScreenGridPanel;)Landroid/view/View;
 
     move-result-object v3
 

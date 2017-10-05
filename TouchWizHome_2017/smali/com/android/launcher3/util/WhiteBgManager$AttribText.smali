@@ -60,7 +60,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0048
+    const v1, 0x7f0d0054
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -74,7 +74,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0046
+    const v1, 0x7f0d0052
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -84,7 +84,7 @@
 
     sput v0, Lcom/android/launcher3/util/WhiteBgManager$AttribText;->sDy:F
 
-    const v0, 0x7f0d0031
+    const v0, 0x7f0e003b
 
     invoke-static {p0, v0}, Landroid/support/v4/content/ContextCompat;->getColor(Landroid/content/Context;I)I
 
@@ -92,7 +92,7 @@
 
     sput v0, Lcom/android/launcher3/util/WhiteBgManager$AttribText;->sShadowColor:I
 
-    const v0, 0x7f0d002f
+    const v0, 0x7f0e0039
 
     invoke-static {p0, v0}, Landroid/support/v4/content/ContextCompat;->getColor(Landroid/content/Context;I)I
 
@@ -108,7 +108,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0047
+    const v1, 0x7f0d0053
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -122,7 +122,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0045
+    const v1, 0x7f0d0051
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -169,7 +169,7 @@
     goto :goto_0
 
     :cond_1
-    const v0, 0x7f0d0030
+    const v0, 0x7f0e003a
 
     invoke-static {p0, v0}, Landroid/support/v4/content/ContextCompat;->getColor(Landroid/content/Context;I)I
 
@@ -177,7 +177,7 @@
 
     sput v0, Lcom/android/launcher3/util/WhiteBgManager$AttribText;->sShadowColor:I
 
-    const v0, 0x7f0d002e
+    const v0, 0x7f0e0038
 
     invoke-static {p0, v0}, Landroid/support/v4/content/ContextCompat;->getColor(Landroid/content/Context;I)I
 

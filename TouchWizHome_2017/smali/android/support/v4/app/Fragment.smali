@@ -91,6 +91,8 @@
 
 .field mInnerView:Landroid/view/View;
 
+.field mIsCreated:Z
+
 .field mIsNewlyAdded:Z
 
 .field mLayoutInflater:Landroid/view/LayoutInflater;
@@ -2921,6 +2923,8 @@
 .method performCreate(Landroid/os/Bundle;)V
     .locals 3
 
+    const/4 v1, 0x1
+
     iget-object v0, p0, Landroid/support/v4/app/Fragment;->mChildFragmentManager:Landroid/support/v4/app/FragmentManagerImpl;
 
     if-eqz v0, :cond_0
@@ -2930,15 +2934,15 @@
     invoke-virtual {v0}, Landroid/support/v4/app/FragmentManagerImpl;->noteStateNotSaved()V
 
     :cond_0
-    const/4 v0, 0x1
-
-    iput v0, p0, Landroid/support/v4/app/Fragment;->mState:I
+    iput v1, p0, Landroid/support/v4/app/Fragment;->mState:I
 
     const/4 v0, 0x0
 
     iput-boolean v0, p0, Landroid/support/v4/app/Fragment;->mCalled:Z
 
     invoke-virtual {p0, p1}, Landroid/support/v4/app/Fragment;->onCreate(Landroid/os/Bundle;)V
+
+    iput-boolean v1, p0, Landroid/support/v4/app/Fragment;->mIsCreated:Z
 
     iget-boolean v0, p0, Landroid/support/v4/app/Fragment;->mCalled:Z
 
@@ -3056,6 +3060,8 @@
     iput v1, p0, Landroid/support/v4/app/Fragment;->mState:I
 
     iput-boolean v1, p0, Landroid/support/v4/app/Fragment;->mCalled:Z
+
+    iput-boolean v1, p0, Landroid/support/v4/app/Fragment;->mIsCreated:Z
 
     invoke-virtual {p0}, Landroid/support/v4/app/Fragment;->onDestroy()V
 

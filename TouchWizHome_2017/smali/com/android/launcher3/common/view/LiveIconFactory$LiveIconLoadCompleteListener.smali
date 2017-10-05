@@ -105,6 +105,22 @@
 
     move-result-object v2
 
+    const/16 v3, 0x2c
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/launcher3/common/view/LiveIconFactory$LiveIconLoadCompleteListener;->this$0:Lcom/android/launcher3/common/view/LiveIconFactory;
+
+    invoke-static {v3}, Lcom/android/launcher3/common/view/LiveIconFactory;->access$300(Lcom/android/launcher3/common/view/LiveIconFactory;)Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v2
@@ -117,7 +133,7 @@
 
     move-result-wide v2
 
-    invoke-static {v1, v2, v3}, Lcom/android/launcher3/common/view/LiveIconFactory;->access$302(Lcom/android/launcher3/common/view/LiveIconFactory;J)J
+    invoke-static {v1, v2, v3}, Lcom/android/launcher3/common/view/LiveIconFactory;->access$402(Lcom/android/launcher3/common/view/LiveIconFactory;J)J
 
     iget-object v1, p0, Lcom/android/launcher3/common/view/LiveIconFactory$LiveIconLoadCompleteListener;->this$0:Lcom/android/launcher3/common/view/LiveIconFactory;
 
@@ -127,7 +143,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/common/view/LiveIconFactory$LiveIconLoadCompleteListener;->this$0:Lcom/android/launcher3/common/view/LiveIconFactory;
 
-    invoke-static {v2}, Lcom/android/launcher3/common/view/LiveIconFactory;->access$400(Lcom/android/launcher3/common/view/LiveIconFactory;)Lcom/android/launcher3/common/compat/UserHandleCompat;
+    invoke-static {v2}, Lcom/android/launcher3/common/view/LiveIconFactory;->access$300(Lcom/android/launcher3/common/view/LiveIconFactory;)Lcom/android/launcher3/common/compat/UserHandleCompat;
 
     move-result-object v2
 

@@ -1,6 +1,9 @@
 .class Lcom/android/launcher3/allapps/AppsTransitionAnimation$6;
-.super Landroid/animation/AnimatorListenerAdapter;
+.super Ljava/lang/Object;
 .source "AppsTransitionAnimation.java"
+
+# interfaces
+.implements Ljava/lang/Runnable;
 
 
 # annotations
@@ -19,47 +22,32 @@
 
 .field final synthetic val$enter:Z
 
-.field final synthetic val$tidyUpContainerView:Landroid/view/View;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/allapps/AppsTransitionAnimation;ZLandroid/view/View;)V
+.method constructor <init>(Lcom/android/launcher3/allapps/AppsTransitionAnimation;Z)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$6;->this$0:Lcom/android/launcher3/allapps/AppsTransitionAnimation;
 
     iput-boolean p2, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$6;->val$enter:Z
 
-    iput-object p3, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$6;->val$tidyUpContainerView:Landroid/view/View;
-
-    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 0
+.method public run()V
+    .locals 3
 
-    invoke-virtual {p0, p1}, Lcom/android/launcher3/allapps/AppsTransitionAnimation$6;->onAnimationEnd(Landroid/animation/Animator;)V
+    iget-object v0, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$6;->this$0:Lcom/android/launcher3/allapps/AppsTransitionAnimation;
 
-    return-void
-.end method
+    const/4 v1, 0x4
 
-.method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
+    iget-boolean v2, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$6;->val$enter:Z
 
-    iget-boolean v0, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$6;->val$enter:Z
+    invoke-static {v0, v1, v2}, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->access$500(Lcom/android/launcher3/allapps/AppsTransitionAnimation;IZ)V
 
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$6;->val$tidyUpContainerView:Landroid/view/View;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
-
-    :cond_0
     return-void
 .end method

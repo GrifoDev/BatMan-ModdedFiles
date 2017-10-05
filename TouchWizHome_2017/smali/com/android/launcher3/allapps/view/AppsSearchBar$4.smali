@@ -55,7 +55,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f08018c
+    const v2, 0x7f0901a9
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -67,7 +67,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0800fc
+    const v3, 0x7f090117
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -85,7 +85,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/view/AppsSearchBar$4;->this$0:Lcom/android/launcher3/allapps/view/AppsSearchBar;
 
-    invoke-static {v0}, Lcom/android/launcher3/allapps/view/AppsSearchBar;->access$400(Lcom/android/launcher3/allapps/view/AppsSearchBar;)Z
+    invoke-virtual {v0}, Lcom/android/launcher3/allapps/view/AppsSearchBar;->launchSfinder()Z
 
     :cond_0
     const/4 v0, 0x0

@@ -337,7 +337,7 @@
 .end method
 
 .method private parseSupportSpans()V
-    .locals 24
+    .locals 26
 
     invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
@@ -586,8 +586,13 @@
 
     move-result v20
 
+    const/16 v17, 0x0
+
+    const/16 v18, 0x0
+
     const/16 v23, 0x0
 
+    :try_start_3
     move/from16 v0, v23
 
     move/from16 v1, v20
@@ -609,6 +614,8 @@
     move-result-object v23
 
     invoke-static/range {v23 .. v23}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    :try_end_3
+    .catch Ljava/lang/Exception; {:try_start_3 .. :try_end_3} :catch_4
 
     move-result v18
 
@@ -630,6 +637,7 @@
     invoke-direct {v0, v1, v2}, Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo$SupportCellSpans;->addSupportSpan(II)V
 
     :cond_6
+    :goto_4
     add-int/lit8 v21, v21, 0x1
 
     goto :goto_3
@@ -685,6 +693,51 @@
     invoke-static/range {v21 .. v22}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_2
+
+    :catch_4
+    move-exception v6
+
+    const-string v23, "LauncherAWProviderInfo"
+
+    new-instance v24, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v25, "parsed = "
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    const-string v25, " , x = "
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    move-object/from16 v0, v24
+
+    move/from16 v1, v20
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v24
+
+    invoke-static/range {v23 .. v24}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v6}, Ljava/lang/Exception;->printStackTrace()V
+
+    goto :goto_4
 
     :cond_7
     move-object/from16 v0, p0

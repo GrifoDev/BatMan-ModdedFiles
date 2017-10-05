@@ -7,7 +7,7 @@
             <TextView android:id="@id/screen_grid_cancel_button" android:text="@string/cancel" style="@style/ScreenGridTopButton" />
             <TextView android:id="@id/screen_grid_apply_button" android:text="@string/apply" style="@style/ScreenGridTopButton" />
         </LinearLayout>
-        <TextView android:ellipsize="end" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/screen_grid_explain_text" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="@dimen/screen_grid_explain_view_height" android:maxLines="2" android:layout_below="@id/screen_grid_button_layout" style="@style/ScreenGridButton" />
+        <TextView android:ellipsize="end" android:gravity="center" android:layout_gravity="center_horizontal" android:id="@id/screen_grid_explain_text" android:visibility="gone" android:layout_width="wrap_content" android:layout_height="@dimen/screen_grid_explain_view_height" android:maxLines="2" style="@style/ScreenGridButton" />
     </LinearLayout>
     <com.android.launcher3.home.Workspace android:id="@id/workspace" android:layout_width="fill_parent" android:layout_height="fill_parent" launcher:pageIndicator="@id/home_page_indicator" launcher:defaultScreen="@integer/config_workspaceDefaultScreen" />
     <include android:id="@id/hotseat" layout="@layout/hotseat" />

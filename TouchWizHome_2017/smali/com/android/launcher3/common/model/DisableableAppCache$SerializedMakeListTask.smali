@@ -57,83 +57,83 @@
 
 # virtual methods
 .method public run()V
-    .locals 12
+    .locals 9
 
-    iget-object v9, p0, Lcom/android/launcher3/common/model/DisableableAppCache$SerializedMakeListTask;->mAppsToMakeList:Ljava/util/Stack;
+    iget-object v6, p0, Lcom/android/launcher3/common/model/DisableableAppCache$SerializedMakeListTask;->mAppsToMakeList:Ljava/util/Stack;
 
-    invoke-virtual {v9}, Ljava/util/Stack;->isEmpty()Z
+    invoke-virtual {v6}, Ljava/util/Stack;->isEmpty()Z
 
-    move-result v9
+    move-result v6
 
-    if-nez v9, :cond_2
+    if-nez v6, :cond_2
 
-    iget-object v9, p0, Lcom/android/launcher3/common/model/DisableableAppCache$SerializedMakeListTask;->mAppsToMakeList:Ljava/util/Stack;
+    iget-object v6, p0, Lcom/android/launcher3/common/model/DisableableAppCache$SerializedMakeListTask;->mAppsToMakeList:Ljava/util/Stack;
 
-    invoke-virtual {v9}, Ljava/util/Stack;->pop()Ljava/lang/Object;
+    invoke-virtual {v6}, Ljava/util/Stack;->pop()Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v4
 
-    check-cast v5, Landroid/content/pm/ResolveInfo;
+    check-cast v4, Landroid/content/pm/ResolveInfo;
 
     :try_start_0
-    iget-object v9, p0, Lcom/android/launcher3/common/model/DisableableAppCache$SerializedMakeListTask;->this$0:Lcom/android/launcher3/common/model/DisableableAppCache;
+    iget-object v6, p0, Lcom/android/launcher3/common/model/DisableableAppCache$SerializedMakeListTask;->this$0:Lcom/android/launcher3/common/model/DisableableAppCache;
 
-    invoke-static {v9}, Lcom/android/launcher3/common/model/DisableableAppCache;->access$000(Lcom/android/launcher3/common/model/DisableableAppCache;)Landroid/content/pm/PackageManager;
+    invoke-static {v6}, Lcom/android/launcher3/common/model/DisableableAppCache;->access$000(Lcom/android/launcher3/common/model/DisableableAppCache;)Landroid/content/pm/PackageManager;
 
-    move-result-object v9
+    move-result-object v6
 
-    iget-object v10, v5, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+    iget-object v7, v4, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v10, v10, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+    iget-object v7, v7, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
 
-    const/16 v11, 0x80
+    const/16 v8, 0x80
 
-    invoke-virtual {v9, v10, v11}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+    invoke-virtual {v6, v7, v8}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
 
     move-result-object v2
 
-    iget-object v4, v2, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
+    iget-object v3, v2, Landroid/content/pm/ApplicationInfo;->metaData:Landroid/os/Bundle;
 
-    const/4 v8, 0x0
+    const/4 v5, 0x0
 
     const/4 v0, 0x0
 
-    if-eqz v4, :cond_0
+    if-eqz v3, :cond_0
 
-    iget-object v9, v2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    iget-object v6, v2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    if-eqz v9, :cond_0
+    if-eqz v6, :cond_0
 
-    const-string v9, "com.sec.android.app.unblockdisabling"
+    const-string v6, "com.sec.android.app.unblockdisabling"
 
-    invoke-virtual {v4, v9}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual {v3, v6}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
-    move-result v8
+    move-result v5
 
-    const-string v9, "com.sec.android.app.blockdisabling"
+    const-string v6, "com.sec.android.app.blockdisabling"
 
-    invoke-virtual {v4, v9}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual {v3, v6}, Landroid/os/Bundle;->getBoolean(Ljava/lang/String;)Z
 
     move-result v0
 
     :cond_0
-    sget-object v9, Lcom/android/launcher3/common/model/DisableableAppCache;->mDisableBlockedItems:Ljava/util/ArrayList;
+    sget-object v6, Lcom/android/launcher3/common/model/DisableableAppCache;->mDisableBlockedItems:Ljava/util/ArrayList;
 
-    iget-object v10, v2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    iget-object v7, v2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    invoke-virtual {v9, v10}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v7}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
-    move-result v9
+    move-result v6
 
-    if-nez v9, :cond_1
+    if-nez v6, :cond_1
 
     if-eqz v0, :cond_3
 
-    sget-object v9, Lcom/android/launcher3/common/model/DisableableAppCache;->mDisableBlockedItems:Ljava/util/ArrayList;
+    sget-object v6, Lcom/android/launcher3/common/model/DisableableAppCache;->mDisableBlockedItems:Ljava/util/ArrayList;
 
-    iget-object v10, v2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    iget-object v7, v2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    invoke-virtual {v9, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -145,24 +145,24 @@
     return-void
 
     :cond_3
-    if-eqz v8, :cond_4
+    if-eqz v5, :cond_4
 
     :try_start_1
-    sget-object v9, Lcom/android/launcher3/common/model/DisableableAppCache;->mDisableableItems:Ljava/util/ArrayList;
+    sget-object v6, Lcom/android/launcher3/common/model/DisableableAppCache;->mDisableableItems:Ljava/util/ArrayList;
 
-    iget-object v10, v2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    iget-object v7, v2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    invoke-virtual {v9, v10}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v7}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
-    move-result v9
+    move-result v6
 
-    if-nez v9, :cond_1
+    if-nez v6, :cond_1
 
-    sget-object v9, Lcom/android/launcher3/common/model/DisableableAppCache;->mDisableableItems:Ljava/util/ArrayList;
+    sget-object v6, Lcom/android/launcher3/common/model/DisableableAppCache;->mDisableableItems:Ljava/util/ArrayList;
 
-    iget-object v10, v2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    iget-object v7, v2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    invoke-virtual {v9, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     :try_end_1
     .catch Ljava/lang/Exception; {:try_start_1 .. :try_end_1} :catch_0
 
@@ -171,97 +171,106 @@
     :catch_0
     move-exception v1
 
-    const-string v9, "DisableableAppCache"
+    const-string v6, "DisableableAppCache"
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v11, "Exception while making list from Meta : "
+    const-string v8, "Exception while making list from Meta : "
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v7
 
     invoke-virtual {v1}, Ljava/lang/Exception;->toString()Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v8
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v10
+    move-result-object v7
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v7
 
-    invoke-static {v9, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
     :cond_4
     :try_start_2
-    iget-object v9, p0, Lcom/android/launcher3/common/model/DisableableAppCache$SerializedMakeListTask;->this$0:Lcom/android/launcher3/common/model/DisableableAppCache;
+    sget-boolean v6, Lcom/android/launcher3/Utilities;->ATLEAST_N_MR1:Z
 
-    invoke-static {v9}, Lcom/android/launcher3/common/model/DisableableAppCache;->access$000(Lcom/android/launcher3/common/model/DisableableAppCache;)Landroid/content/pm/PackageManager;
+    if-eqz v6, :cond_5
 
-    move-result-object v9
+    const-string v6, "com.samsung.knox.securefolder"
 
-    const-string v10, "android"
+    iget-object v7, v2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    const/16 v11, 0x40
+    invoke-virtual {v6, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v9, v10, v11}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+    move-result v6
 
-    move-result-object v7
+    if-eqz v6, :cond_5
 
-    iget-object v9, v7, Landroid/content/pm/PackageInfo;->signatures:[Landroid/content/pm/Signature;
+    iget-object v6, p0, Lcom/android/launcher3/common/model/DisableableAppCache$SerializedMakeListTask;->this$0:Lcom/android/launcher3/common/model/DisableableAppCache;
 
-    const/4 v10, 0x0
+    invoke-static {v6}, Lcom/android/launcher3/common/model/DisableableAppCache;->access$100(Lcom/android/launcher3/common/model/DisableableAppCache;)Landroid/content/Context;
 
-    aget-object v6, v9, v10
+    move-result-object v6
 
-    iget-object v9, p0, Lcom/android/launcher3/common/model/DisableableAppCache$SerializedMakeListTask;->this$0:Lcom/android/launcher3/common/model/DisableableAppCache;
+    invoke-static {v6}, Lcom/android/launcher3/util/SecureFolderHelper;->isSecureFolderExist(Landroid/content/Context;)Z
 
-    invoke-static {v9}, Lcom/android/launcher3/common/model/DisableableAppCache;->access$000(Lcom/android/launcher3/common/model/DisableableAppCache;)Landroid/content/pm/PackageManager;
+    move-result v6
 
-    move-result-object v9
+    if-nez v6, :cond_5
 
-    iget-object v10, v2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    sget-object v6, Lcom/android/launcher3/common/model/DisableableAppCache;->mDisableableItems:Ljava/util/ArrayList;
 
-    const/16 v11, 0x40
+    iget-object v7, v2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    invoke-virtual {v9, v10, v11}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+    invoke-virtual {v6, v7}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
-    move-result-object v3
+    move-result v6
 
-    iget-object v9, v3, Landroid/content/pm/PackageInfo;->signatures:[Landroid/content/pm/Signature;
+    if-nez v6, :cond_1
 
-    const/4 v10, 0x0
+    sget-object v6, Lcom/android/launcher3/common/model/DisableableAppCache;->mDisableableItems:Ljava/util/ArrayList;
 
-    aget-object v9, v9, v10
+    iget-object v7, v2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    invoke-virtual {v6, v9}, Landroid/content/pm/Signature;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    move-result v9
+    goto :goto_0
 
-    if-nez v9, :cond_1
+    :cond_5
+    iget-object v6, p0, Lcom/android/launcher3/common/model/DisableableAppCache$SerializedMakeListTask;->this$0:Lcom/android/launcher3/common/model/DisableableAppCache;
 
-    sget-object v9, Lcom/android/launcher3/common/model/DisableableAppCache;->mDisableableItems:Ljava/util/ArrayList;
+    iget-object v7, v2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    iget-object v10, v2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    invoke-static {v6, v7}, Lcom/android/launcher3/common/model/DisableableAppCache;->access$200(Lcom/android/launcher3/common/model/DisableableAppCache;Ljava/lang/String;)Z
 
-    invoke-virtual {v9, v10}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+    move-result v6
 
-    move-result v9
+    if-nez v6, :cond_1
 
-    if-nez v9, :cond_1
+    sget-object v6, Lcom/android/launcher3/common/model/DisableableAppCache;->mDisableableItems:Ljava/util/ArrayList;
 
-    sget-object v9, Lcom/android/launcher3/common/model/DisableableAppCache;->mDisableableItems:Ljava/util/ArrayList;
+    iget-object v7, v2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    iget-object v10, v2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    invoke-virtual {v6, v7}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
-    invoke-virtual {v9, v10}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-result v6
+
+    if-nez v6, :cond_1
+
+    sget-object v6, Lcom/android/launcher3/common/model/DisableableAppCache;->mDisableableItems:Ljava/util/ArrayList;
+
+    iget-object v7, v2, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v6, v7}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     :try_end_2
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
 
@@ -273,11 +282,11 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/model/DisableableAppCache$SerializedMakeListTask;->this$0:Lcom/android/launcher3/common/model/DisableableAppCache;
 
-    invoke-static {v0}, Lcom/android/launcher3/common/model/DisableableAppCache;->access$200(Lcom/android/launcher3/common/model/DisableableAppCache;)Landroid/os/Handler;
+    invoke-static {v0}, Lcom/android/launcher3/common/model/DisableableAppCache;->access$400(Lcom/android/launcher3/common/model/DisableableAppCache;)Landroid/os/Handler;
 
     move-result-object v0
 
-    invoke-static {}, Lcom/android/launcher3/common/model/DisableableAppCache;->access$100()Ljava/lang/Object;
+    invoke-static {}, Lcom/android/launcher3/common/model/DisableableAppCache;->access$300()Ljava/lang/Object;
 
     move-result-object v1
 

@@ -12,9 +12,9 @@
     <dimen name="appsPicker_header_margin_bottom">0.0dip</dimen>
     <dimen name="appsPicker_header_margin_end">32.0dip</dimen>
     <dimen name="appsPicker_header_margin_start">8.0dip</dimen>
-    <dimen name="appsPicker_header_text_height">25.0dip</dimen>
-    <dimen name="appsPicker_header_text_padding">5.0dip</dimen>
-    <dimen name="appsPicker_header_text_size">13.0sp</dimen>
+    <dimen name="appsPicker_header_text_height">27.0dip</dimen>
+    <dimen name="appsPicker_header_text_padding">6.0dip</dimen>
+    <dimen name="appsPicker_header_text_size">14.0sp</dimen>
     <dimen name="appsPicker_icon_checkbox_margin_start">8.0dip</dimen>
     <dimen name="appsPicker_icon_checkbox_margin_top">0.0dip</dimen>
     <dimen name="appsPicker_icon_drawable_padding">1.0dip</dimen>
@@ -25,9 +25,11 @@
     <dimen name="appsPicker_icon_text_size">11.0dip</dimen>
     <dimen name="appsPicker_index_scroll_default_interval">36.0dip</dimen>
     <dimen name="appsPicker_search_bar_layout_height">56.0dip</dimen>
-    <dimen name="appsPicker_title_count_text_size">16.0dip</dimen>
+    <dimen name="appsPicker_title_count_text_size">16.0sp</dimen>
     <dimen name="appsPicker_title_gap_x">16.0dip</dimen>
     <dimen name="appsPicker_title_layout_height">56.0dip</dimen>
+    <dimen name="apps_indicator_margin_bottom_screengrid">81.5dip</dimen>
+    <dimen name="apps_paged_view_offsetY_screengrid">35.0dip</dimen>
     <dimen name="badge_text_size">10.659973dip</dimen>
     <dimen name="drop_target_bar_height">56.0dip</dimen>
     <dimen name="edit_app_bar_divider_height">3.0px</dimen>
@@ -44,6 +46,7 @@
     <dimen name="more_icon_btn_bg_width">24.0dip</dimen>
     <dimen name="multi_select_pannel_height">40.0dip</dimen>
     <dimen name="multi_select_pannel_textsize">11.0dip</dimen>
+    <dimen name="open_folder_border_margin">30.0dip</dimen>
     <dimen name="open_folder_content_min_height">266.0dip</dimen>
     <dimen name="open_folder_content_min_margin">10.0dip</dimen>
     <dimen name="open_folder_edit_help_text_margin_from_folder_content">36.0dip</dimen>
@@ -53,6 +56,7 @@
     <dimen name="open_folder_outer_add_button_container_margin">10.0dip</dimen>
     <dimen name="open_folder_outer_add_button_text_size">12.0dip</dimen>
     <dimen name="open_folder_page_indicator_margin_top">14.0dip</dimen>
+    <dimen name="open_folder_page_spacing_on_drag">5.0dip</dimen>
     <dimen name="open_folder_title_colorpicker_img_gap_x">10.0dip</dimen>
     <dimen name="open_folder_title_colorpicker_img_size">30.0dip</dimen>
     <dimen name="open_folder_title_colorpicker_layout_margin_bottom">3.0dip</dimen>
@@ -66,10 +70,9 @@
     <dimen name="overview_pannel_drawable_padding">0.0dip</dimen>
     <dimen name="overview_pannel_margin_bottom">5.0dip</dimen>
     <dimen name="overview_pannel_options_button_height">69.0dip</dimen>
-    <dimen name="overview_pannel_padding_for_focus">2.0dip</dimen>
     <dimen name="overview_pannel_textsize">11.0dip</dimen>
+    <dimen name="pageIndicator_dot_gap">8.0dip</dimen>
     <dimen name="pageIndicator_dot_size">7.0dip</dimen>
-    <dimen name="pageIndicator_gap">8.0dip</dimen>
     <dimen name="quick_option_popup_margin_widget">3.0dip</dimen>
     <dimen name="quick_options_text_size">11.0dip</dimen>
     <dimen name="screen_grid_explain_view_height">35.0dip</dimen>

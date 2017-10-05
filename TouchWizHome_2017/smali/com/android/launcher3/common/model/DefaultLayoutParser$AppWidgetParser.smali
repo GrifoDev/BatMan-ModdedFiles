@@ -199,6 +199,23 @@
         }
     .end annotation
 
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppWidgetParser;->this$0:Lcom/android/launcher3/common/model/DefaultLayoutParser;
+
+    invoke-static {v3}, Lcom/android/launcher3/common/model/DefaultLayoutParser;->access$200(Lcom/android/launcher3/common/model/DefaultLayoutParser;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    const-wide/16 v12, -0x1
+
+    :cond_0
+    :goto_0
+    return-wide v12
+
+    :cond_1
     const-string v3, "packageName"
 
     move-object/from16 v0, p1
@@ -219,15 +236,15 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_2
 
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3
 
-    :cond_0
+    :cond_2
     const-string v3, "DefaultLayoutParser"
 
     const-string v8, "Skipping invalid <favorite> with no component"
@@ -236,24 +253,22 @@
 
     const-wide/16 v12, -0x1
 
-    :cond_1
-    :goto_0
-    return-wide v12
+    goto :goto_0
 
-    :cond_2
+    :cond_3
     move-object/from16 v0, p0
 
     invoke-virtual {v0, v15, v2}, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppWidgetParser;->getWidgetComponent(Ljava/lang/String;Ljava/lang/String;)Landroid/content/ComponentName;
 
     move-result-object v5
 
-    if-nez v5, :cond_3
+    if-nez v5, :cond_4
 
     const-wide/16 v12, -0x1
 
     goto :goto_0
 
-    :cond_3
+    :cond_4
     new-instance v10, Landroid/os/Bundle;
 
     invoke-direct {v10}, Landroid/os/Bundle;-><init>()V
@@ -262,7 +277,7 @@
 
     move-result v18
 
-    :cond_4
+    :cond_5
     :goto_1
     invoke-interface/range {p1 .. p1}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
@@ -272,7 +287,7 @@
 
     move/from16 v0, v16
 
-    if-ne v0, v3, :cond_5
+    if-ne v0, v3, :cond_6
 
     invoke-interface/range {p1 .. p1}, Lorg/xmlpull/v1/XmlPullParser;->getDepth()I
 
@@ -280,14 +295,14 @@
 
     move/from16 v0, v18
 
-    if-le v3, v0, :cond_8
+    if-le v3, v0, :cond_9
 
-    :cond_5
+    :cond_6
     const/4 v3, 0x2
 
     move/from16 v0, v16
 
-    if-ne v0, v3, :cond_4
+    if-ne v0, v3, :cond_5
 
     const-string v3, "extra"
 
@@ -299,7 +314,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_8
 
     const-string v3, "key"
 
@@ -317,9 +332,9 @@
 
     move-result-object v17
 
-    if-eqz v14, :cond_6
+    if-eqz v14, :cond_7
 
-    if-eqz v17, :cond_6
+    if-eqz v17, :cond_7
 
     move-object/from16 v0, v17
 
@@ -327,7 +342,7 @@
 
     goto :goto_1
 
-    :cond_6
+    :cond_7
     new-instance v3, Ljava/lang/RuntimeException;
 
     const-string v8, "Widget extras must have a key and value"
@@ -336,7 +351,7 @@
 
     throw v3
 
-    :cond_7
+    :cond_8
     new-instance v3, Ljava/lang/RuntimeException;
 
     const-string v8, "Widgets can contain only extras"
@@ -345,7 +360,7 @@
 
     throw v3
 
-    :cond_8
+    :cond_9
     const-wide/16 v12, -0x1
 
     :try_start_0
@@ -371,13 +386,13 @@
 
     move-result v3
 
-    if-nez v3, :cond_9
+    if-nez v3, :cond_a
 
     const-wide/16 v12, -0x1
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    :cond_9
+    :cond_a
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppWidgetParser;->this$0:Lcom/android/launcher3/common/model/DefaultLayoutParser;
@@ -480,7 +495,7 @@
 
     cmp-long v3, v12, v20
 
-    if-gez v3, :cond_a
+    if-gez v3, :cond_b
 
     move-object/from16 v0, p0
 
@@ -505,13 +520,13 @@
 
     goto/16 :goto_0
 
-    :cond_a
+    :cond_b
     :try_start_1
     invoke-virtual {v10}, Landroid/os/Bundle;->isEmpty()Z
 
     move-result v3
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_0
 
     new-instance v11, Landroid/content/Intent;
 

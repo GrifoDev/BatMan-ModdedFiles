@@ -53,13 +53,11 @@
 .method public run()V
     .locals 9
 
-    const/4 v0, 0x0
-
     const/4 v8, 0x6
 
-    const/4 v7, 0x4
+    const/4 v7, 0x5
 
-    const/4 v6, 0x5
+    const/4 v6, 0x4
 
     sget-object v5, Lcom/android/launcher3/util/logging/Logging;->sContext:Landroid/content/Context;
 
@@ -69,9 +67,9 @@
 
     iget-boolean v5, p0, Lcom/android/launcher3/util/logging/SALogging$21;->val$isHomeGrid:Z
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_1
 
-    const v5, 0x7f080197
+    const v5, 0x7f0901b4
 
     invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -80,9 +78,9 @@
     :goto_0
     iget-boolean v5, p0, Lcom/android/launcher3/util/logging/SALogging$21;->val$isHomeGrid:Z
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_2
 
-    const v5, 0x7f080159
+    const v5, 0x7f090176
 
     invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -91,9 +89,9 @@
     :goto_1
     iget-boolean v5, p0, Lcom/android/launcher3/util/logging/SALogging$21;->val$isHomeGrid:Z
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_3
 
-    const v5, 0x7f0801bb
+    const v5, 0x7f0901d8
 
     invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -102,19 +100,18 @@
     :goto_2
     iget-boolean v5, p0, Lcom/android/launcher3/util/logging/SALogging$21;->val$isHomeGrid:Z
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_9
 
     iget v5, p0, Lcom/android/launcher3/util/logging/SALogging$21;->val$x:I
 
-    if-ne v5, v7, :cond_5
+    if-ne v5, v6, :cond_4
 
     iget v5, p0, Lcom/android/launcher3/util/logging/SALogging$21;->val$y:I
 
-    if-ne v5, v6, :cond_5
+    if-ne v5, v7, :cond_4
 
     const-string v0, "1"
 
-    :cond_0
     :goto_3
     iget-object v5, p0, Lcom/android/launcher3/util/logging/SALogging$21;->this$0:Lcom/android/launcher3/util/logging/SALogging;
 
@@ -122,17 +119,17 @@
 
     iget-boolean v5, p0, Lcom/android/launcher3/util/logging/SALogging$21;->val$statusLogOnly:Z
 
-    if-nez v5, :cond_1
+    if-nez v5, :cond_0
 
     iget-object v5, p0, Lcom/android/launcher3/util/logging/SALogging$21;->this$0:Lcom/android/launcher3/util/logging/SALogging;
 
     invoke-virtual {v5, v3, v1, v0}, Lcom/android/launcher3/util/logging/SALogging;->insertEventLog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_1
+    :cond_0
     return-void
 
-    :cond_2
-    const v5, 0x7f08018b
+    :cond_1
+    const v5, 0x7f0901a8
 
     invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -140,8 +137,8 @@
 
     goto :goto_0
 
-    :cond_3
-    const v5, 0x7f08015a
+    :cond_2
+    const v5, 0x7f090177
 
     invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -149,14 +146,27 @@
 
     goto :goto_1
 
-    :cond_4
-    const v5, 0x7f0801a8
+    :cond_3
+    const v5, 0x7f0901c5
 
     invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v4
 
     goto :goto_2
+
+    :cond_4
+    iget v5, p0, Lcom/android/launcher3/util/logging/SALogging$21;->val$x:I
+
+    if-ne v5, v6, :cond_5
+
+    iget v5, p0, Lcom/android/launcher3/util/logging/SALogging$21;->val$y:I
+
+    if-ne v5, v8, :cond_5
+
+    const-string v0, "2"
+
+    goto :goto_3
 
     :cond_5
     iget v5, p0, Lcom/android/launcher3/util/logging/SALogging$21;->val$x:I
@@ -165,48 +175,71 @@
 
     iget v5, p0, Lcom/android/launcher3/util/logging/SALogging$21;->val$y:I
 
-    if-ne v5, v8, :cond_6
+    if-ne v5, v7, :cond_6
 
-    const-string v0, "2"
+    const-string v0, "3"
 
     goto :goto_3
 
     :cond_6
     iget v5, p0, Lcom/android/launcher3/util/logging/SALogging$21;->val$x:I
 
-    if-ne v5, v6, :cond_0
+    if-ne v5, v7, :cond_7
 
     iget v5, p0, Lcom/android/launcher3/util/logging/SALogging$21;->val$y:I
 
-    if-ne v5, v6, :cond_0
+    if-ne v5, v8, :cond_7
 
-    const-string v0, "3"
+    const-string v0, "4"
 
     goto :goto_3
 
     :cond_7
     iget v5, p0, Lcom/android/launcher3/util/logging/SALogging$21;->val$x:I
 
-    if-ne v5, v7, :cond_8
+    if-ne v5, v6, :cond_8
 
     iget v5, p0, Lcom/android/launcher3/util/logging/SALogging$21;->val$y:I
 
-    if-ne v5, v8, :cond_8
+    if-ne v5, v6, :cond_8
+
+    const-string v0, "5"
+
+    goto :goto_3
+
+    :cond_8
+    const-string v0, ""
+
+    goto :goto_3
+
+    :cond_9
+    iget v5, p0, Lcom/android/launcher3/util/logging/SALogging$21;->val$x:I
+
+    if-ne v5, v6, :cond_a
+
+    iget v5, p0, Lcom/android/launcher3/util/logging/SALogging$21;->val$y:I
+
+    if-ne v5, v8, :cond_a
 
     const-string v0, "1"
 
     goto :goto_3
 
-    :cond_8
+    :cond_a
     iget v5, p0, Lcom/android/launcher3/util/logging/SALogging$21;->val$x:I
 
-    if-ne v5, v6, :cond_0
+    if-ne v5, v7, :cond_b
 
     iget v5, p0, Lcom/android/launcher3/util/logging/SALogging$21;->val$y:I
 
-    if-ne v5, v8, :cond_0
+    if-ne v5, v8, :cond_b
 
     const-string v0, "2"
+
+    goto :goto_3
+
+    :cond_b
+    const-string v0, ""
 
     goto :goto_3
 .end method

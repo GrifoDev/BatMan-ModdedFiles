@@ -40,9 +40,9 @@
 
     iget-object v0, p0, Lcom/android/launcher3/widget/view/WidgetFolder$FakeAnchorViewAnim$1;->val$anchorView:Landroid/view/View;
 
-    const/4 v1, 0x0
+    const/high16 v1, 0x3f800000    # 1.0f
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
 
     return-void
 .end method

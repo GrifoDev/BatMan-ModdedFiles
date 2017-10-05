@@ -15,35 +15,35 @@
 
 
 # static fields
-.field public static final app_search_setting:I = 0x7f070000
+.field public static final app_search_setting:I = 0x7f080000
 
-.field public static final backup_item:I = 0x7f070001
+.field public static final backup_item:I = 0x7f080001
 
-.field public static final default_application_order:I = 0x7f070002
+.field public static final default_application_order:I = 0x7f080002
 
-.field public static final default_application_order_guest:I = 0x7f070003
+.field public static final default_application_order_guest:I = 0x7f080003
 
-.field public static final default_application_order_knox:I = 0x7f070004
+.field public static final default_application_order_knox:I = 0x7f080004
 
-.field public static final default_disableapp_skiplist:I = 0x7f070005
+.field public static final default_disableapp_skiplist:I = 0x7f080005
 
-.field public static final default_workspace:I = 0x7f070006
+.field public static final default_workspace:I = 0x7f080006
 
-.field public static final default_workspace_easy:I = 0x7f070007
+.field public static final default_workspace_easy:I = 0x7f080007
 
-.field public static final default_workspace_guest:I = 0x7f070008
+.field public static final default_workspace_guest:I = 0x7f080008
 
-.field public static final default_workspace_homeonly:I = 0x7f070009
+.field public static final default_workspace_homeonly:I = 0x7f080009
 
-.field public static final default_workspace_homeonly_knox:I = 0x7f07000a
+.field public static final default_workspace_homeonly_knox:I = 0x7f08000a
 
-.field public static final default_workspace_knox:I = 0x7f07000b
+.field public static final default_workspace_knox:I = 0x7f08000b
 
-.field public static final default_workspace_wifi:I = 0x7f07000c
+.field public static final default_workspace_wifi:I = 0x7f08000c
 
-.field public static final launcher_preferences:I = 0x7f07000d
+.field public static final launcher_preferences:I = 0x7f08000d
 
-.field public static final searchable_include_voice:I = 0x7f07000e
+.field public static final searchable_include_voice:I = 0x7f08000e
 
 
 # direct methods

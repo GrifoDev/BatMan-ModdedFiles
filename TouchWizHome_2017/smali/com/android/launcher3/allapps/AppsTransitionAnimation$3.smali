@@ -88,7 +88,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$3;->this$0:Lcom/android/launcher3/allapps/AppsTransitionAnimation;
 
-    invoke-static {v1}, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->access$200(Lcom/android/launcher3/allapps/AppsTransitionAnimation;)Lcom/android/launcher3/allapps/controller/AppsController;
+    invoke-static {v1}, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->access$300(Lcom/android/launcher3/allapps/AppsTransitionAnimation;)Lcom/android/launcher3/allapps/controller/AppsController;
 
     move-result-object v1
 
@@ -122,5 +122,21 @@
     goto :goto_0
 
     :cond_0
+    return-void
+.end method
+
+.method public onAnimationStart(Landroid/animation/Animator;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$3;->this$0:Lcom/android/launcher3/allapps/AppsTransitionAnimation;
+
+    invoke-static {v0}, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->access$200(Lcom/android/launcher3/allapps/AppsTransitionAnimation;)Lcom/android/launcher3/allapps/view/AppsPagedView;
+
+    move-result-object v0
+
+    const/16 v1, 0x8
+
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/allapps/view/AppsPagedView;->setCrosshairsVisibilityChilds(I)V
+
     return-void
 .end method

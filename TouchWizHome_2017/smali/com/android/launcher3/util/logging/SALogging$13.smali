@@ -70,7 +70,7 @@
 
     move-object/from16 v20, v0
 
-    invoke-static/range {v20 .. v20}, Lcom/android/launcher3/util/logging/SALogging;->access$300(Lcom/android/launcher3/util/logging/SALogging;)[C
+    invoke-static/range {v20 .. v20}, Lcom/android/launcher3/util/logging/SALogging;->access$400(Lcom/android/launcher3/util/logging/SALogging;)[C
 
     move-result-object v22
 
@@ -89,11 +89,11 @@
 
     move/from16 v1, v23
 
-    if-ge v0, v1, :cond_b
+    if-ge v0, v1, :cond_c
 
     aget-char v13, v22, v21
 
-    if-ne v6, v13, :cond_7
+    if-ne v6, v13, :cond_8
 
     sget-object v20, Lcom/android/launcher3/util/logging/Logging;->sContext:Landroid/content/Context;
 
@@ -107,7 +107,7 @@
 
     move-object/from16 v20, v0
 
-    const v24, 0x7f0801b8
+    const v24, 0x7f0901d5
 
     move-object/from16 v0, v17
 
@@ -158,7 +158,7 @@
 
     move-object/from16 v0, v20
 
-    invoke-static {v0, v11}, Lcom/android/launcher3/util/logging/SALogging;->access$700(Lcom/android/launcher3/util/logging/SALogging;I)Ljava/lang/String;
+    invoke-static {v0, v11}, Lcom/android/launcher3/util/logging/SALogging;->access$800(Lcom/android/launcher3/util/logging/SALogging;I)Ljava/lang/String;
 
     move-result-object v18
 
@@ -217,7 +217,7 @@
 
     move-object/from16 v20, v0
 
-    const v24, 0x7f0801b5
+    const v24, 0x7f0901d2
 
     move-object/from16 v0, v17
 
@@ -245,7 +245,7 @@
 
     move-object/from16 v20, v0
 
-    const v24, 0x7f0801b4
+    const v24, 0x7f0901d1
 
     move-object/from16 v0, v17
 
@@ -285,7 +285,7 @@
 
     move-object/from16 v20, v0
 
-    const v24, 0x7f0801be
+    const v24, 0x7f0901db
 
     move-object/from16 v0, v17
 
@@ -315,7 +315,7 @@
 
     move-object/from16 v20, v0
 
-    const v24, 0x7f0801bd
+    const v24, 0x7f0901da
 
     move-object/from16 v0, v17
 
@@ -345,7 +345,7 @@
 
     move-object/from16 v20, v0
 
-    const v24, 0x7f0801ac
+    const v24, 0x7f0901c9
 
     move-object/from16 v0, v17
 
@@ -387,7 +387,7 @@
 
     move-object/from16 v20, v0
 
-    const v24, 0x7f0801ab
+    const v24, 0x7f0901c8
 
     move-object/from16 v0, v17
 
@@ -427,7 +427,7 @@
 
     move-object/from16 v20, v0
 
-    const v24, 0x7f0801ad
+    const v24, 0x7f0901ca
 
     move-object/from16 v0, v17
 
@@ -457,7 +457,7 @@
 
     move-object/from16 v20, v0
 
-    const v24, 0x7f0801ba
+    const v24, 0x7f0901d7
 
     move-object/from16 v0, v17
 
@@ -491,7 +491,7 @@
 
     move-object/from16 v20, v0
 
-    const v24, 0x7f0801b6
+    const v24, 0x7f0901d3
 
     move-object/from16 v0, v17
 
@@ -525,7 +525,7 @@
 
     move-object/from16 v20, v0
 
-    const v24, 0x7f0801b3
+    const v24, 0x7f0901d0
 
     move-object/from16 v0, v17
 
@@ -555,7 +555,7 @@
 
     move-object/from16 v20, v0
 
-    const v24, 0x7f0801b9
+    const v24, 0x7f0901d6
 
     move-object/from16 v0, v17
 
@@ -605,7 +605,7 @@
 
     move-object/from16 v20, v0
 
-    const v24, 0x7f0801c2
+    const v24, 0x7f0901e0
 
     move-object/from16 v0, v17
 
@@ -633,7 +633,7 @@
 
     move-object/from16 v20, v0
 
-    const v24, 0x7f0801c0
+    const v24, 0x7f0901de
 
     move-object/from16 v0, v17
 
@@ -661,7 +661,7 @@
 
     move-object/from16 v20, v0
 
-    const v24, 0x7f0801bf
+    const v24, 0x7f0901dc
 
     move-object/from16 v0, v17
 
@@ -696,7 +696,7 @@
 
     move/from16 v1, v24
 
-    invoke-static {v0, v1}, Lcom/android/launcher3/util/logging/SALogging;->access$400(Lcom/android/launcher3/util/logging/SALogging;I)Ljava/lang/String;
+    invoke-static {v0, v1}, Lcom/android/launcher3/util/logging/SALogging;->access$500(Lcom/android/launcher3/util/logging/SALogging;I)Ljava/lang/String;
 
     move-result-object v8
 
@@ -706,7 +706,7 @@
 
     move-object/from16 v20, v0
 
-    const v24, 0x7f0801b7
+    const v24, 0x7f0901d4
 
     move-object/from16 v0, v17
 
@@ -736,7 +736,7 @@
 
     move-result-object v20
 
-    const v25, 0x7f0801c4
+    const v25, 0x7f0901e2
 
     move-object/from16 v0, v20
 
@@ -789,7 +789,7 @@
 
     move-result-object v20
 
-    const v25, 0x7f0801bc
+    const v25, 0x7f0901d9
 
     move-object/from16 v0, v20
 
@@ -834,7 +834,7 @@
 
     move-result-object v20
 
-    const v25, 0x7f0801a3
+    const v25, 0x7f0901c0
 
     move-object/from16 v0, v20
 
@@ -857,6 +857,51 @@
     const/16 v20, 0x1
 
     :goto_5
+    move-object/from16 v0, v24
+
+    move-object/from16 v1, v25
+
+    move/from16 v2, v20
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/launcher3/util/logging/SALogging;->insertStatusLog(Ljava/lang/String;I)V
+
+    invoke-static {}, Lcom/android/launcher3/util/logging/SALogging;->getInstance()Lcom/android/launcher3/util/logging/SALogging;
+
+    move-result-object v24
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher3/util/logging/SALogging$13;->val$context:Landroid/content/Context;
+
+    move-object/from16 v20, v0
+
+    invoke-virtual/range {v20 .. v20}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v20
+
+    const v25, 0x7f0901dd
+
+    move-object/from16 v0, v20
+
+    move/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v25
+
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
+
+    move-result-object v20
+
+    invoke-virtual/range {v20 .. v20}, Lcom/android/launcher3/LauncherAppState;->getNotificationPanelExpansionEnabled()Z
+
+    move-result v20
+
+    if-eqz v20, :cond_7
+
+    const/16 v20, 0x1
+
+    :goto_6
     move-object/from16 v0, v24
 
     move-object/from16 v1, v25
@@ -919,7 +964,7 @@
 
     move-object/from16 v24, v0
 
-    const v20, 0x7f0801b1
+    const v20, 0x7f0901ce
 
     move-object/from16 v0, v17
 
@@ -953,7 +998,7 @@
 
     move-object/from16 v24, v0
 
-    const v20, 0x7f0801b2
+    const v20, 0x7f0901cf
 
     move-object/from16 v0, v17
 
@@ -977,7 +1022,7 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/launcher3/util/logging/SALogging;->insertStatusLog(Ljava/lang/String;Ljava/lang/String;)V
 
-    :goto_6
+    :goto_7
     add-int/lit8 v20, v21, 0x1
 
     move/from16 v21, v20
@@ -1000,13 +1045,18 @@
     goto/16 :goto_5
 
     :cond_7
+    const/16 v20, 0x0
+
+    goto/16 :goto_6
+
+    :cond_8
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher3/util/logging/SALogging$13;->val$context:Landroid/content/Context;
 
     move-object/from16 v20, v0
 
-    const-string v24, "SASettingPref"
+    const-string v24, "com.sec.android.app.launcher.prefs.sa"
 
     const/16 v25, 0x0
 
@@ -1030,7 +1080,7 @@
 
     move-object/from16 v20, v0
 
-    invoke-static/range {v20 .. v20}, Lcom/android/launcher3/util/logging/SALogging;->access$500(Lcom/android/launcher3/util/logging/SALogging;)Ljava/util/HashMap;
+    invoke-static/range {v20 .. v20}, Lcom/android/launcher3/util/logging/SALogging;->access$600(Lcom/android/launcher3/util/logging/SALogging;)Ljava/util/HashMap;
 
     move-result-object v20
 
@@ -1042,13 +1092,13 @@
 
     move-result-object v24
 
-    :cond_8
-    :goto_7
+    :cond_9
+    :goto_8
     invoke-interface/range {v24 .. v24}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v20
 
-    if-eqz v20, :cond_a
+    if-eqz v20, :cond_b
 
     invoke-interface/range {v24 .. v24}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1060,7 +1110,7 @@
 
     move/from16 v0, v20
 
-    if-ne v6, v0, :cond_9
+    if-ne v6, v0, :cond_a
 
     move-object/from16 v0, p0
 
@@ -1072,7 +1122,7 @@
 
     move-object/from16 v1, v18
 
-    invoke-static {v0, v1, v13}, Lcom/android/launcher3/util/logging/SALogging;->access$600(Lcom/android/launcher3/util/logging/SALogging;Ljava/lang/String;C)Ljava/lang/String;
+    invoke-static {v0, v1, v13}, Lcom/android/launcher3/util/logging/SALogging;->access$700(Lcom/android/launcher3/util/logging/SALogging;Ljava/lang/String;C)Ljava/lang/String;
 
     move-result-object v15
 
@@ -1080,16 +1130,16 @@
 
     invoke-interface {v0, v15}, Landroid/content/SharedPreferences$Editor;->remove(Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    goto :goto_7
+    goto :goto_8
 
-    :cond_9
+    :cond_a
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher3/util/logging/SALogging$13;->this$0:Lcom/android/launcher3/util/logging/SALogging;
 
     move-object/from16 v20, v0
 
-    invoke-static/range {v20 .. v20}, Lcom/android/launcher3/util/logging/SALogging;->access$500(Lcom/android/launcher3/util/logging/SALogging;)Ljava/util/HashMap;
+    invoke-static/range {v20 .. v20}, Lcom/android/launcher3/util/logging/SALogging;->access$600(Lcom/android/launcher3/util/logging/SALogging;)Ljava/util/HashMap;
 
     move-result-object v20
 
@@ -1113,7 +1163,7 @@
 
     move-result v20
 
-    if-eqz v20, :cond_8
+    if-eqz v20, :cond_9
 
     move-object/from16 v0, p0
 
@@ -1125,7 +1175,7 @@
 
     move-object/from16 v1, v18
 
-    invoke-static {v0, v1, v13}, Lcom/android/launcher3/util/logging/SALogging;->access$600(Lcom/android/launcher3/util/logging/SALogging;Ljava/lang/String;C)Ljava/lang/String;
+    invoke-static {v0, v1, v13}, Lcom/android/launcher3/util/logging/SALogging;->access$700(Lcom/android/launcher3/util/logging/SALogging;Ljava/lang/String;C)Ljava/lang/String;
 
     move-result-object v15
 
@@ -1133,13 +1183,13 @@
 
     invoke-interface {v0, v15}, Landroid/content/SharedPreferences$Editor;->remove(Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    goto :goto_7
-
-    :cond_a
-    invoke-interface/range {v16 .. v16}, Landroid/content/SharedPreferences$Editor;->apply()V
-
-    goto/16 :goto_6
+    goto :goto_8
 
     :cond_b
+    invoke-interface/range {v16 .. v16}, Landroid/content/SharedPreferences$Editor;->apply()V
+
+    goto/16 :goto_7
+
+    :cond_c
     return-void
 .end method

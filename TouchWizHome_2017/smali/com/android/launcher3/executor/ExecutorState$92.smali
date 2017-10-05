@@ -31,11 +31,11 @@
 .method public create()Lcom/android/launcher3/executor/StateHandler;
     .locals 2
 
-    new-instance v0, Lcom/android/launcher3/executor/AppsFolderMakeShortcutStateHandler;
+    new-instance v0, Lcom/android/launcher3/executor/AppsFolderAddIconSearchViewResultStateHandler;
 
-    sget-object v1, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_MAKE_SHORTCUT:Lcom/android/launcher3/executor/ExecutorState;
+    sget-object v1, Lcom/android/launcher3/executor/ExecutorState;->APPS_FOLDER_ADD_ICON_SEARCH_RESULT:Lcom/android/launcher3/executor/ExecutorState;
 
-    invoke-direct {v0, v1}, Lcom/android/launcher3/executor/AppsFolderMakeShortcutStateHandler;-><init>(Lcom/android/launcher3/executor/ExecutorState;)V
+    invoke-direct {v0, v1}, Lcom/android/launcher3/executor/AppsFolderAddIconSearchViewResultStateHandler;-><init>(Lcom/android/launcher3/executor/ExecutorState;)V
 
     return-object v0
 .end method

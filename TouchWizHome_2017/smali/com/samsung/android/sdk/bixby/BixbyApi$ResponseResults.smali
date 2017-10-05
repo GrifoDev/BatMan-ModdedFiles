@@ -28,6 +28,8 @@
 
 .field public static final enum FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
+.field public static final enum RULE_COMPLETE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
 .field public static final enum STATE_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
 .field public static final enum STATE_SUCCESS:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
@@ -161,7 +163,19 @@
 
     sput-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->TEST_ALL_STATES_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
-    const/16 v0, 0xa
+    new-instance v0, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    const-string v1, "RULE_COMPLETE"
+
+    const/16 v2, 0xa
+
+    const/16 v3, 0x8
+
+    invoke-direct {v0, v1, v2, v3}, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;-><init>(Ljava/lang/String;II)V
+
+    sput-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->RULE_COMPLETE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    const/16 v0, 0xb
 
     new-array v0, v0, [Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
@@ -212,6 +226,12 @@
     const/16 v1, 0x9
 
     sget-object v2, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->TEST_ALL_STATES_FAILURE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
+
+    aput-object v2, v0, v1
+
+    const/16 v1, 0xa
+
+    sget-object v2, Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;->RULE_COMPLETE:Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;
 
     aput-object v2, v0, v1
 
@@ -303,6 +323,13 @@
 
     goto :goto_0
 
+    :pswitch_2
+    const-string v0, "rule_complete"
+
+    goto :goto_0
+
+    nop
+
     :pswitch_data_0
     .packed-switch 0x1
         :pswitch_0
@@ -315,5 +342,6 @@
         :pswitch_1
         :pswitch_1
         :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method

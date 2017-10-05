@@ -415,6 +415,14 @@
 
     if-eqz v1, :cond_0
 
+    iget-object v1, p0, Lcom/android/launcher3/common/drawable/FastBitmapDrawable;->mBitmap:Landroid/graphics/Bitmap;
+
+    invoke-virtual {v1}, Landroid/graphics/Bitmap;->isRecycled()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
     invoke-virtual {p0}, Lcom/android/launcher3/common/drawable/FastBitmapDrawable;->getBounds()Landroid/graphics/Rect;
 
     move-result-object v0

@@ -28,7 +28,7 @@
 
 .field final mCallbackObj:Ljava/lang/Object;
 
-.field private mMediaPlayPauseKeyHandled:Z
+.field private mMediaPlayPauseKeyPending:Z
 
 .field private mSessionImpl:Ljava/lang/ref/WeakReference;
     .annotation system Ldalvik/annotation/Signature;
@@ -118,7 +118,7 @@
 .method static synthetic access$000(Landroid/support/v4/media/session/MediaSessionCompat$Callback;)V
     .locals 0
 
-    invoke-direct {p0}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->handleMediaPlayPauseKeySingleTapIfUnhandled()V
+    invoke-direct {p0}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->handleMediaPlayPauseKeySingleTapIfPending()V
 
     return-void
 .end method
@@ -139,24 +139,30 @@
     return-void
 .end method
 
-.method private handleMediaPlayPauseKeySingleTapIfUnhandled()V
+.method private handleMediaPlayPauseKeySingleTapIfPending()V
     .locals 12
 
     const-wide/16 v8, 0x0
 
-    const/4 v5, 0x0
-
     const/4 v0, 0x1
 
-    iget-boolean v10, p0, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->mMediaPlayPauseKeyHandled:Z
+    const/4 v5, 0x0
 
-    if-eqz v10, :cond_1
+    iget-boolean v10, p0, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->mMediaPlayPauseKeyPending:Z
+
+    if-nez v10, :cond_1
 
     :cond_0
     :goto_0
     return-void
 
     :cond_1
+    iput-boolean v5, p0, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->mMediaPlayPauseKeyPending:Z
+
+    iget-object v10, p0, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->mCallbackHandler:Landroid/support/v4/media/session/MediaSessionCompat$Callback$CallbackHandler;
+
+    invoke-virtual {v10, v0}, Landroid/support/v4/media/session/MediaSessionCompat$Callback$CallbackHandler;->removeMessages(I)V
+
     iget-object v10, p0, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->mSessionImpl:Ljava/lang/ref/WeakReference;
 
     invoke-virtual {v10}, Ljava/lang/ref/WeakReference;->get()Ljava/lang/Object;
@@ -166,8 +172,6 @@
     check-cast v2, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImpl;
 
     if-eqz v2, :cond_0
-
-    iput-boolean v0, p0, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->mMediaPlayPauseKeyHandled:Z
 
     invoke-interface {v2}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImpl;->getPlaybackState()Landroid/support/v4/media/session/PlaybackStateCompat;
 
@@ -321,9 +325,9 @@
 
     const-wide/16 v8, 0x0
 
-    const/4 v7, 0x0
-
     const/4 v6, 0x1
+
+    const/4 v7, 0x0
 
     iget-object v10, p0, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->mSessionImpl:Ljava/lang/ref/WeakReference;
 
@@ -375,6 +379,8 @@
 
     sparse-switch v1, :sswitch_data_0
 
+    invoke-direct {p0}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->handleMediaPlayPauseKeySingleTapIfPending()V
+
     move v6, v7
 
     goto :goto_0
@@ -386,38 +392,26 @@
 
     if-lez v10, :cond_5
 
-    iget-object v7, p0, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->mCallbackHandler:Landroid/support/v4/media/session/MediaSessionCompat$Callback$CallbackHandler;
-
-    invoke-virtual {v7, v6}, Landroid/support/v4/media/session/MediaSessionCompat$Callback$CallbackHandler;->removeMessages(I)V
-
-    invoke-virtual {v2}, Landroid/view/KeyEvent;->getRepeatCount()I
-
-    move-result v7
-
-    if-ne v7, v6, :cond_1
-
-    invoke-direct {p0}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->handleMediaPlayPauseKeySingleTapIfUnhandled()V
+    invoke-direct {p0}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->handleMediaPlayPauseKeySingleTapIfPending()V
 
     goto :goto_0
 
     :cond_5
+    iget-boolean v10, p0, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->mMediaPlayPauseKeyPending:Z
+
+    if-eqz v10, :cond_7
+
     iget-object v10, p0, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->mCallbackHandler:Landroid/support/v4/media/session/MediaSessionCompat$Callback$CallbackHandler;
 
-    invoke-virtual {v10, v6}, Landroid/support/v4/media/session/MediaSessionCompat$Callback$CallbackHandler;->hasMessages(I)Z
+    invoke-virtual {v10, v6}, Landroid/support/v4/media/session/MediaSessionCompat$Callback$CallbackHandler;->removeMessages(I)V
 
-    move-result v10
-
-    if-eqz v10, :cond_8
-
-    iget-object v7, p0, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->mCallbackHandler:Landroid/support/v4/media/session/MediaSessionCompat$Callback$CallbackHandler;
-
-    invoke-virtual {v7, v6}, Landroid/support/v4/media/session/MediaSessionCompat$Callback$CallbackHandler;->removeMessages(I)V
+    iput-boolean v7, p0, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->mMediaPlayPauseKeyPending:Z
 
     invoke-interface {v0}, Landroid/support/v4/media/session/MediaSessionCompat$MediaSessionImpl;->getPlaybackState()Landroid/support/v4/media/session/PlaybackStateCompat;
 
     move-result-object v3
 
-    if-nez v3, :cond_7
+    if-nez v3, :cond_6
 
     move-wide v4, v8
 
@@ -428,24 +422,21 @@
 
     cmp-long v7, v10, v8
 
-    if-eqz v7, :cond_6
+    if-eqz v7, :cond_1
 
     invoke-virtual {p0}, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->onSkipToNext()V
 
-    :cond_6
-    iput-boolean v6, p0, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->mMediaPlayPauseKeyHandled:Z
-
     goto :goto_0
 
-    :cond_7
+    :cond_6
     invoke-virtual {v3}, Landroid/support/v4/media/session/PlaybackStateCompat;->getActions()J
 
     move-result-wide v4
 
     goto :goto_1
 
-    :cond_8
-    iput-boolean v7, p0, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->mMediaPlayPauseKeyHandled:Z
+    :cond_7
+    iput-boolean v6, p0, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->mMediaPlayPauseKeyPending:Z
 
     iget-object v7, p0, Landroid/support/v4/media/session/MediaSessionCompat$Callback;->mCallbackHandler:Landroid/support/v4/media/session/MediaSessionCompat$Callback$CallbackHandler;
 
@@ -555,6 +546,12 @@
 .end method
 
 .method public onSetRating(Landroid/support/v4/media/RatingCompat;)V
+    .locals 0
+
+    return-void
+.end method
+
+.method public onSetRating(Landroid/support/v4/media/RatingCompat;Landroid/os/Bundle;)V
     .locals 0
 
     return-void

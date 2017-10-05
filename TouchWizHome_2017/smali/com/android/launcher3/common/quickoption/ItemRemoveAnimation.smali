@@ -35,167 +35,303 @@
 
 # virtual methods
 .method animate()V
-    .locals 9
+    .locals 13
 
-    const/high16 v2, 0x40000000    # 2.0f
+    const/4 v12, 0x0
 
-    const/high16 v5, 0x3f800000    # 1.0f
+    const/4 v11, 0x2
+
+    const/high16 v8, 0x40000000    # 2.0f
+
+    const/4 v10, 0x0
+
+    const/4 v9, 0x1
+
+    iget-object v2, p0, Lcom/android/launcher3/common/quickoption/ItemRemoveAnimation;->mView:Landroid/view/View;
+
+    invoke-virtual {v2}, Landroid/view/View;->clearAnimation()V
+
+    iget-object v2, p0, Lcom/android/launcher3/common/quickoption/ItemRemoveAnimation;->mView:Landroid/view/View;
+
+    iget-object v3, p0, Lcom/android/launcher3/common/quickoption/ItemRemoveAnimation;->mView:Landroid/view/View;
+
+    invoke-virtual {v3}, Landroid/view/View;->getWidth()I
+
+    move-result v3
+
+    int-to-float v3, v3
+
+    div-float/2addr v3, v8
+
+    invoke-virtual {v2, v3}, Landroid/view/View;->setPivotX(F)V
+
+    iget-object v2, p0, Lcom/android/launcher3/common/quickoption/ItemRemoveAnimation;->mView:Landroid/view/View;
+
+    iget-object v3, p0, Lcom/android/launcher3/common/quickoption/ItemRemoveAnimation;->mView:Landroid/view/View;
+
+    invoke-virtual {v3}, Landroid/view/View;->getHeight()I
+
+    move-result v3
+
+    int-to-float v3, v3
+
+    div-float/2addr v3, v8
+
+    invoke-virtual {v2, v3}, Landroid/view/View;->setPivotY(F)V
+
+    iget-object v2, p0, Lcom/android/launcher3/common/quickoption/ItemRemoveAnimation;->mView:Landroid/view/View;
+
+    instance-of v2, v2, Lcom/android/launcher3/home/LauncherAppWidgetHostView;
+
+    if-eqz v2, :cond_0
+
+    iget-object v1, p0, Lcom/android/launcher3/common/quickoption/ItemRemoveAnimation;->mView:Landroid/view/View;
+
+    check-cast v1, Lcom/android/launcher3/home/LauncherAppWidgetHostView;
+
+    iput-boolean v9, v1, Lcom/android/launcher3/home/LauncherAppWidgetHostView;->mHasSetPivot:Z
+
+    invoke-virtual {v1}, Lcom/android/launcher3/home/LauncherAppWidgetHostView;->getResizeResult()Lcom/android/launcher3/home/LauncherAppWidgetHostView$ResizeResult;
+
+    move-result-object v2
+
+    iget v2, v2, Lcom/android/launcher3/home/LauncherAppWidgetHostView$ResizeResult;->visibleWidth:I
+
+    iget-object v3, p0, Lcom/android/launcher3/common/quickoption/ItemRemoveAnimation;->mView:Landroid/view/View;
+
+    invoke-virtual {v3}, Landroid/view/View;->getWidth()I
+
+    move-result v3
+
+    sub-int/2addr v2, v3
+
+    int-to-float v2, v2
+
+    div-float/2addr v2, v8
+
+    invoke-virtual {v1, v2}, Lcom/android/launcher3/home/LauncherAppWidgetHostView;->setTranslationX(F)V
+
+    invoke-virtual {v1}, Lcom/android/launcher3/home/LauncherAppWidgetHostView;->getResizeResult()Lcom/android/launcher3/home/LauncherAppWidgetHostView$ResizeResult;
+
+    move-result-object v2
+
+    iget v2, v2, Lcom/android/launcher3/home/LauncherAppWidgetHostView$ResizeResult;->visibleHeight:I
+
+    iget-object v3, p0, Lcom/android/launcher3/common/quickoption/ItemRemoveAnimation;->mView:Landroid/view/View;
+
+    invoke-virtual {v3}, Landroid/view/View;->getHeight()I
+
+    move-result v3
+
+    sub-int/2addr v2, v3
+
+    int-to-float v2, v2
+
+    div-float/2addr v2, v8
+
+    invoke-virtual {v1, v2}, Lcom/android/launcher3/home/LauncherAppWidgetHostView;->setTranslationY(F)V
+
+    invoke-virtual {v1}, Lcom/android/launcher3/home/LauncherAppWidgetHostView;->getResizeResult()Lcom/android/launcher3/home/LauncherAppWidgetHostView$ResizeResult;
+
+    move-result-object v2
+
+    iget v0, v2, Lcom/android/launcher3/home/LauncherAppWidgetHostView$ResizeResult;->scaleToResize:F
+
+    iget-object v2, p0, Lcom/android/launcher3/common/quickoption/ItemRemoveAnimation;->mAnimatorSet:Landroid/animation/AnimatorSet;
+
+    const/4 v3, 0x3
+
+    new-array v3, v3, [Landroid/animation/Animator;
+
+    iget-object v4, p0, Lcom/android/launcher3/common/quickoption/ItemRemoveAnimation;->mView:Landroid/view/View;
+
+    sget-object v5, Landroid/view/View;->SCALE_X:Landroid/util/Property;
+
+    invoke-virtual {v5}, Landroid/util/Property;->getName()Ljava/lang/String;
+
+    move-result-object v5
+
+    new-array v6, v11, [F
+
+    aput v0, v6, v10
+
+    div-float v7, v0, v8
+
+    aput v7, v6, v9
+
+    invoke-static {v4, v5, v6}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
+
+    move-result-object v4
+
+    aput-object v4, v3, v10
+
+    iget-object v4, p0, Lcom/android/launcher3/common/quickoption/ItemRemoveAnimation;->mView:Landroid/view/View;
+
+    sget-object v5, Landroid/view/View;->SCALE_Y:Landroid/util/Property;
+
+    invoke-virtual {v5}, Landroid/util/Property;->getName()Ljava/lang/String;
+
+    move-result-object v5
+
+    new-array v6, v11, [F
+
+    aput v0, v6, v10
+
+    div-float v7, v0, v8
+
+    aput v7, v6, v9
+
+    invoke-static {v4, v5, v6}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
+
+    move-result-object v4
+
+    aput-object v4, v3, v9
+
+    iget-object v4, p0, Lcom/android/launcher3/common/quickoption/ItemRemoveAnimation;->mView:Landroid/view/View;
+
+    sget-object v5, Landroid/view/View;->ALPHA:Landroid/util/Property;
+
+    invoke-virtual {v5}, Landroid/util/Property;->getName()Ljava/lang/String;
+
+    move-result-object v5
+
+    new-array v6, v9, [F
+
+    aput v12, v6, v10
+
+    invoke-static {v4, v5, v6}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
+
+    move-result-object v4
+
+    aput-object v4, v3, v11
+
+    invoke-virtual {v2, v3}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
+
+    :goto_0
+    iget-object v2, p0, Lcom/android/launcher3/common/quickoption/ItemRemoveAnimation;->mAnimatorSet:Landroid/animation/AnimatorSet;
+
+    const-wide/16 v4, 0xc8
+
+    invoke-virtual {v2, v4, v5}, Landroid/animation/AnimatorSet;->setDuration(J)Landroid/animation/AnimatorSet;
+
+    iget-object v2, p0, Lcom/android/launcher3/common/quickoption/ItemRemoveAnimation;->mAnimatorSet:Landroid/animation/AnimatorSet;
+
+    invoke-virtual {v2}, Landroid/animation/AnimatorSet;->start()V
+
+    return-void
+
+    :cond_0
+    iget-object v2, p0, Lcom/android/launcher3/common/quickoption/ItemRemoveAnimation;->mAnimatorSet:Landroid/animation/AnimatorSet;
+
+    const/4 v3, 0x5
+
+    new-array v3, v3, [Landroid/animation/Animator;
+
+    iget-object v4, p0, Lcom/android/launcher3/common/quickoption/ItemRemoveAnimation;->mView:Landroid/view/View;
+
+    sget-object v5, Landroid/view/View;->TRANSLATION_X:Landroid/util/Property;
+
+    invoke-virtual {v5}, Landroid/util/Property;->getName()Ljava/lang/String;
+
+    move-result-object v5
+
+    new-array v6, v9, [F
+
+    const/high16 v7, 0x3f800000    # 1.0f
+
+    aput v7, v6, v10
+
+    invoke-static {v4, v5, v6}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
+
+    move-result-object v4
+
+    aput-object v4, v3, v10
+
+    iget-object v4, p0, Lcom/android/launcher3/common/quickoption/ItemRemoveAnimation;->mView:Landroid/view/View;
+
+    sget-object v5, Landroid/view/View;->TRANSLATION_Y:Landroid/util/Property;
+
+    invoke-virtual {v5}, Landroid/util/Property;->getName()Ljava/lang/String;
+
+    move-result-object v5
+
+    new-array v6, v9, [F
+
+    const/high16 v7, 0x3f800000    # 1.0f
+
+    aput v7, v6, v10
+
+    invoke-static {v4, v5, v6}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
+
+    move-result-object v4
+
+    aput-object v4, v3, v9
+
+    iget-object v4, p0, Lcom/android/launcher3/common/quickoption/ItemRemoveAnimation;->mView:Landroid/view/View;
+
+    sget-object v5, Landroid/view/View;->SCALE_X:Landroid/util/Property;
+
+    invoke-virtual {v5}, Landroid/util/Property;->getName()Ljava/lang/String;
+
+    move-result-object v5
+
+    new-array v6, v9, [F
+
+    const/high16 v7, 0x3f000000    # 0.5f
+
+    aput v7, v6, v10
+
+    invoke-static {v4, v5, v6}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
+
+    move-result-object v4
+
+    aput-object v4, v3, v11
+
+    const/4 v4, 0x3
+
+    iget-object v5, p0, Lcom/android/launcher3/common/quickoption/ItemRemoveAnimation;->mView:Landroid/view/View;
+
+    sget-object v6, Landroid/view/View;->SCALE_Y:Landroid/util/Property;
+
+    invoke-virtual {v6}, Landroid/util/Property;->getName()Ljava/lang/String;
+
+    move-result-object v6
+
+    new-array v7, v9, [F
 
     const/high16 v8, 0x3f000000    # 0.5f
 
-    const/4 v6, 0x1
+    aput v8, v7, v10
 
-    const/4 v7, 0x0
+    invoke-static {v5, v6, v7}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
 
-    iget-object v0, p0, Lcom/android/launcher3/common/quickoption/ItemRemoveAnimation;->mView:Landroid/view/View;
+    move-result-object v5
 
-    invoke-virtual {v0}, Landroid/view/View;->clearAnimation()V
+    aput-object v5, v3, v4
 
-    iget-object v0, p0, Lcom/android/launcher3/common/quickoption/ItemRemoveAnimation;->mView:Landroid/view/View;
+    const/4 v4, 0x4
 
-    iget-object v1, p0, Lcom/android/launcher3/common/quickoption/ItemRemoveAnimation;->mView:Landroid/view/View;
+    iget-object v5, p0, Lcom/android/launcher3/common/quickoption/ItemRemoveAnimation;->mView:Landroid/view/View;
 
-    invoke-virtual {v1}, Landroid/view/View;->getWidth()I
+    sget-object v6, Landroid/view/View;->ALPHA:Landroid/util/Property;
 
-    move-result v1
+    invoke-virtual {v6}, Landroid/util/Property;->getName()Ljava/lang/String;
 
-    int-to-float v1, v1
+    move-result-object v6
 
-    div-float/2addr v1, v2
+    new-array v7, v9, [F
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setPivotX(F)V
+    aput v12, v7, v10
 
-    iget-object v0, p0, Lcom/android/launcher3/common/quickoption/ItemRemoveAnimation;->mView:Landroid/view/View;
+    invoke-static {v5, v6, v7}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
 
-    iget-object v1, p0, Lcom/android/launcher3/common/quickoption/ItemRemoveAnimation;->mView:Landroid/view/View;
+    move-result-object v5
 
-    invoke-virtual {v1}, Landroid/view/View;->getHeight()I
+    aput-object v5, v3, v4
 
-    move-result v1
+    invoke-virtual {v2, v3}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
 
-    int-to-float v1, v1
-
-    div-float/2addr v1, v2
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setPivotY(F)V
-
-    iget-object v0, p0, Lcom/android/launcher3/common/quickoption/ItemRemoveAnimation;->mAnimatorSet:Landroid/animation/AnimatorSet;
-
-    const/4 v1, 0x5
-
-    new-array v1, v1, [Landroid/animation/Animator;
-
-    iget-object v2, p0, Lcom/android/launcher3/common/quickoption/ItemRemoveAnimation;->mView:Landroid/view/View;
-
-    sget-object v3, Landroid/view/View;->TRANSLATION_X:Landroid/util/Property;
-
-    invoke-virtual {v3}, Landroid/util/Property;->getName()Ljava/lang/String;
-
-    move-result-object v3
-
-    new-array v4, v6, [F
-
-    aput v5, v4, v7
-
-    invoke-static {v2, v3, v4}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
-
-    move-result-object v2
-
-    aput-object v2, v1, v7
-
-    iget-object v2, p0, Lcom/android/launcher3/common/quickoption/ItemRemoveAnimation;->mView:Landroid/view/View;
-
-    sget-object v3, Landroid/view/View;->TRANSLATION_Y:Landroid/util/Property;
-
-    invoke-virtual {v3}, Landroid/util/Property;->getName()Ljava/lang/String;
-
-    move-result-object v3
-
-    new-array v4, v6, [F
-
-    aput v5, v4, v7
-
-    invoke-static {v2, v3, v4}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
-
-    move-result-object v2
-
-    aput-object v2, v1, v6
-
-    const/4 v2, 0x2
-
-    iget-object v3, p0, Lcom/android/launcher3/common/quickoption/ItemRemoveAnimation;->mView:Landroid/view/View;
-
-    sget-object v4, Landroid/view/View;->SCALE_X:Landroid/util/Property;
-
-    invoke-virtual {v4}, Landroid/util/Property;->getName()Ljava/lang/String;
-
-    move-result-object v4
-
-    new-array v5, v6, [F
-
-    aput v8, v5, v7
-
-    invoke-static {v3, v4, v5}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
-
-    move-result-object v3
-
-    aput-object v3, v1, v2
-
-    const/4 v2, 0x3
-
-    iget-object v3, p0, Lcom/android/launcher3/common/quickoption/ItemRemoveAnimation;->mView:Landroid/view/View;
-
-    sget-object v4, Landroid/view/View;->SCALE_Y:Landroid/util/Property;
-
-    invoke-virtual {v4}, Landroid/util/Property;->getName()Ljava/lang/String;
-
-    move-result-object v4
-
-    new-array v5, v6, [F
-
-    aput v8, v5, v7
-
-    invoke-static {v3, v4, v5}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
-
-    move-result-object v3
-
-    aput-object v3, v1, v2
-
-    const/4 v2, 0x4
-
-    iget-object v3, p0, Lcom/android/launcher3/common/quickoption/ItemRemoveAnimation;->mView:Landroid/view/View;
-
-    sget-object v4, Landroid/view/View;->ALPHA:Landroid/util/Property;
-
-    invoke-virtual {v4}, Landroid/util/Property;->getName()Ljava/lang/String;
-
-    move-result-object v4
-
-    new-array v5, v6, [F
-
-    const/4 v6, 0x0
-
-    aput v6, v5, v7
-
-    invoke-static {v3, v4, v5}, Landroid/animation/ObjectAnimator;->ofFloat(Ljava/lang/Object;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
-
-    move-result-object v3
-
-    aput-object v3, v1, v2
-
-    invoke-virtual {v0, v1}, Landroid/animation/AnimatorSet;->playTogether([Landroid/animation/Animator;)V
-
-    iget-object v0, p0, Lcom/android/launcher3/common/quickoption/ItemRemoveAnimation;->mAnimatorSet:Landroid/animation/AnimatorSet;
-
-    const-wide/16 v2, 0xc8
-
-    invoke-virtual {v0, v2, v3}, Landroid/animation/AnimatorSet;->setDuration(J)Landroid/animation/AnimatorSet;
-
-    iget-object v0, p0, Lcom/android/launcher3/common/quickoption/ItemRemoveAnimation;->mAnimatorSet:Landroid/animation/AnimatorSet;
-
-    invoke-virtual {v0}, Landroid/animation/AnimatorSet;->start()V
-
-    return-void
+    goto :goto_0
 .end method
 
 .method public cancel()V

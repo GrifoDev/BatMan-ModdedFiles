@@ -50,7 +50,7 @@
 
     const-string v1, "AutoAlignConfirm"
 
-    invoke-virtual {v0, p0, v1}, Lcom/android/launcher3/home/AutoAlignConfirmDialog;->show(Landroid/app/FragmentManager;Ljava/lang/String;)V
+    invoke-virtual {v0, p0, v1}, Lcom/android/launcher3/home/AutoAlignConfirmDialog;->showAllowingStateLoss(Landroid/app/FragmentManager;Ljava/lang/String;)V
 
     goto :goto_0
 .end method
@@ -119,7 +119,7 @@
 .method public onClick(Landroid/content/DialogInterface;I)V
     .locals 6
 
-    const v3, 0x7f080196
+    const v3, 0x7f0901b3
 
     const/4 v5, 0x0
 
@@ -151,7 +151,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0800dd
+    const v4, 0x7f0900f8
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -233,7 +233,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0800dc
+    const v4, 0x7f0900f7
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -259,7 +259,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f03001b
+    const v3, 0x7f04001c
 
     const/4 v4, 0x0
 
@@ -267,7 +267,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0f0055
+    const v3, 0x7f11005b
 
     invoke-virtual {v2, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -281,19 +281,19 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f08001f
+    const v3, 0x7f090028
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    const v3, 0x7f080013
+    const v3, 0x7f09001c
 
     invoke-virtual {v0, v3, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    const v3, 0x7f080026
+    const v3, 0x7f09002f
 
     invoke-virtual {v0, v3, p0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    const v3, 0x7f08001e
+    const v3, 0x7f090027
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -335,5 +335,22 @@
 
     invoke-super {p0, p1}, Landroid/app/DialogFragment;->onDismiss(Landroid/content/DialogInterface;)V
 
+    return-void
+.end method
+
+.method public showAllowingStateLoss(Landroid/app/FragmentManager;Ljava/lang/String;)V
+    .locals 1
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p1}, Landroid/app/FragmentManager;->beginTransaction()Landroid/app/FragmentTransaction;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p0, p2}, Landroid/app/FragmentTransaction;->add(Landroid/app/Fragment;Ljava/lang/String;)Landroid/app/FragmentTransaction;
+
+    invoke-virtual {v0}, Landroid/app/FragmentTransaction;->commitAllowingStateLoss()I
+
+    :cond_0
     return-void
 .end method

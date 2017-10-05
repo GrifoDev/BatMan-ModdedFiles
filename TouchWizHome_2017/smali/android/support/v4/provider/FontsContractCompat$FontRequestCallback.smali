@@ -13,6 +13,12 @@
     name = "FontRequestCallback"
 .end annotation
 
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/support/v4/provider/FontsContractCompat$FontRequestCallback$FontRequestFailReason;
+    }
+.end annotation
+
 
 # static fields
 .field public static final FAIL_REASON_FONT_LOAD_ERROR:I = -0x3

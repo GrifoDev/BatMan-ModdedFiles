@@ -190,11 +190,11 @@
 .end method
 
 .method private changeColorForBg(Z)V
-    .locals 4
+    .locals 5
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    const v1, 0x7f0f00be
+    const v1, 0x7f1100ca
 
     invoke-virtual {p0, v1}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->findViewById(I)Landroid/view/View;
 
@@ -214,7 +214,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mUninstallButton:Landroid/widget/TextView;
 
-    invoke-static {v1, v2, p1, v3}, Lcom/android/launcher3/util/WhiteBgManager;->changeTextColorForBg(Landroid/content/Context;Landroid/widget/TextView;ZZ)V
+    invoke-static {v1, v2, p1}, Lcom/android/launcher3/util/WhiteBgManager;->changeTextColorForBg(Landroid/content/Context;Landroid/widget/TextView;Z)V
 
     iget-object v1, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mLauncher:Lcom/android/launcher3/Launcher;
 
@@ -224,15 +224,25 @@
 
     move-result-object v2
 
-    aget-object v2, v2, v3
+    aget-object v2, v2, v4
 
     invoke-static {v1, v2, p1}, Lcom/android/launcher3/util/WhiteBgManager;->changeColorFilterForBg(Landroid/content/Context;Landroid/graphics/drawable/Drawable;Z)V
+
+    iget-object v1, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mUninstallButton:Landroid/widget/TextView;
+
+    iget-object v2, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mEnabledBtn:[Z
+
+    const/4 v3, 0x0
+
+    aget-boolean v2, v2, v3
+
+    invoke-direct {p0, v1, v2}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->setShadowLayer(Landroid/widget/TextView;Z)V
 
     iget-object v1, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mLauncher:Lcom/android/launcher3/Launcher;
 
     iget-object v2, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mRemoveShortcutButton:Landroid/widget/TextView;
 
-    invoke-static {v1, v2, p1, v3}, Lcom/android/launcher3/util/WhiteBgManager;->changeTextColorForBg(Landroid/content/Context;Landroid/widget/TextView;ZZ)V
+    invoke-static {v1, v2, p1}, Lcom/android/launcher3/util/WhiteBgManager;->changeTextColorForBg(Landroid/content/Context;Landroid/widget/TextView;Z)V
 
     iget-object v1, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mLauncher:Lcom/android/launcher3/Launcher;
 
@@ -242,15 +252,23 @@
 
     move-result-object v2
 
-    aget-object v2, v2, v3
+    aget-object v2, v2, v4
 
     invoke-static {v1, v2, p1}, Lcom/android/launcher3/util/WhiteBgManager;->changeColorFilterForBg(Landroid/content/Context;Landroid/graphics/drawable/Drawable;Z)V
+
+    iget-object v1, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mRemoveShortcutButton:Landroid/widget/TextView;
+
+    iget-object v2, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mEnabledBtn:[Z
+
+    aget-boolean v2, v2, v4
+
+    invoke-direct {p0, v1, v2}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->setShadowLayer(Landroid/widget/TextView;Z)V
 
     iget-object v1, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mLauncher:Lcom/android/launcher3/Launcher;
 
     iget-object v2, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mCreateFolderButton:Landroid/widget/TextView;
 
-    invoke-static {v1, v2, p1, v3}, Lcom/android/launcher3/util/WhiteBgManager;->changeTextColorForBg(Landroid/content/Context;Landroid/widget/TextView;ZZ)V
+    invoke-static {v1, v2, p1}, Lcom/android/launcher3/util/WhiteBgManager;->changeTextColorForBg(Landroid/content/Context;Landroid/widget/TextView;Z)V
 
     iget-object v1, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mLauncher:Lcom/android/launcher3/Launcher;
 
@@ -260,15 +278,25 @@
 
     move-result-object v2
 
-    aget-object v2, v2, v3
+    aget-object v2, v2, v4
 
     invoke-static {v1, v2, p1}, Lcom/android/launcher3/util/WhiteBgManager;->changeColorFilterForBg(Landroid/content/Context;Landroid/graphics/drawable/Drawable;Z)V
+
+    iget-object v1, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mCreateFolderButton:Landroid/widget/TextView;
+
+    iget-object v2, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mEnabledBtn:[Z
+
+    const/4 v3, 0x2
+
+    aget-boolean v2, v2, v3
+
+    invoke-direct {p0, v1, v2}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->setShadowLayer(Landroid/widget/TextView;Z)V
 
     iget-object v1, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mLauncher:Lcom/android/launcher3/Launcher;
 
     iget-object v2, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mSecureFolderButton:Landroid/widget/TextView;
 
-    invoke-static {v1, v2, p1, v3}, Lcom/android/launcher3/util/WhiteBgManager;->changeTextColorForBg(Landroid/content/Context;Landroid/widget/TextView;ZZ)V
+    invoke-static {v1, v2, p1}, Lcom/android/launcher3/util/WhiteBgManager;->changeTextColorForBg(Landroid/content/Context;Landroid/widget/TextView;Z)V
 
     iget-object v1, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mLauncher:Lcom/android/launcher3/Launcher;
 
@@ -278,15 +306,25 @@
 
     move-result-object v2
 
-    aget-object v2, v2, v3
+    aget-object v2, v2, v4
 
     invoke-static {v1, v2, p1}, Lcom/android/launcher3/util/WhiteBgManager;->changeColorFilterForBg(Landroid/content/Context;Landroid/graphics/drawable/Drawable;Z)V
+
+    iget-object v1, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mSecureFolderButton:Landroid/widget/TextView;
+
+    iget-object v2, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mEnabledBtn:[Z
+
+    const/4 v3, 0x3
+
+    aget-boolean v2, v2, v3
+
+    invoke-direct {p0, v1, v2}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->setShadowLayer(Landroid/widget/TextView;Z)V
 
     iget-object v1, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mLauncher:Lcom/android/launcher3/Launcher;
 
     iget-object v2, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mAddToPersonalButton:Landroid/widget/TextView;
 
-    invoke-static {v1, v2, p1, v3}, Lcom/android/launcher3/util/WhiteBgManager;->changeTextColorForBg(Landroid/content/Context;Landroid/widget/TextView;ZZ)V
+    invoke-static {v1, v2, p1}, Lcom/android/launcher3/util/WhiteBgManager;->changeTextColorForBg(Landroid/content/Context;Landroid/widget/TextView;Z)V
 
     iget-object v1, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mLauncher:Lcom/android/launcher3/Launcher;
 
@@ -296,9 +334,19 @@
 
     move-result-object v2
 
-    aget-object v2, v2, v3
+    aget-object v2, v2, v4
 
     invoke-static {v1, v2, p1}, Lcom/android/launcher3/util/WhiteBgManager;->changeColorFilterForBg(Landroid/content/Context;Landroid/graphics/drawable/Drawable;Z)V
+
+    iget-object v1, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mAddToPersonalButton:Landroid/widget/TextView;
+
+    iget-object v2, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mEnabledBtn:[Z
+
+    const/4 v3, 0x4
+
+    aget-boolean v2, v2, v3
+
+    invoke-direct {p0, v1, v2}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->setShadowLayer(Landroid/widget/TextView;Z)V
 
     return-void
 .end method
@@ -448,6 +496,137 @@
     return-void
 .end method
 
+.method private setContentDescription()V
+    .locals 6
+
+    invoke-virtual {p0}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v4
+
+    const v5, 0x7f09000e
+
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v4
+
+    const v5, 0x7f09000f
+
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    :goto_0
+    const/4 v4, 0x5
+
+    if-ge v3, v4, :cond_2
+
+    invoke-direct {p0, v3}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->getViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/TextView;
+
+    invoke-virtual {v0}, Landroid/widget/TextView;->getVisibility()I
+
+    move-result v4
+
+    const/16 v5, 0x8
+
+    if-ne v4, v5, :cond_0
+
+    :goto_1
+    add-int/lit8 v3, v3, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    invoke-virtual {p0, v3}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->getButtonEnabled(I)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string v5, ", "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setContentDescription(Ljava/lang/CharSequence;)V
+
+    goto :goto_1
+
+    :cond_1
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string v5, ", "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string v5, ", "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setContentDescription(Ljava/lang/CharSequence;)V
+
+    goto :goto_1
+
+    :cond_2
+    return-void
+.end method
+
 .method private setShadowLayer(Landroid/widget/TextView;Z)V
     .locals 9
 
@@ -525,7 +704,7 @@
 
     if-eqz p2, :cond_4
 
-    const v4, 0x7f0b0047
+    const v4, 0x7f0d0053
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -533,7 +712,7 @@
 
     int-to-float v4, v4
 
-    const v5, 0x7f0b0045
+    const v5, 0x7f0d0051
 
     invoke-virtual {v1, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -541,7 +720,7 @@
 
     int-to-float v5, v5
 
-    const v6, 0x7f0d0030
+    const v6, 0x7f0e003a
 
     const/4 v7, 0x0
 
@@ -589,11 +768,16 @@
 
     iget-object v3, v1, Lcom/android/launcher3/common/base/item/ItemInfo;->title:Ljava/lang/CharSequence;
 
+    if-eqz v3, :cond_3
+
+    iget-object v3, v1, Lcom/android/launcher3/common/base/item/ItemInfo;->title:Ljava/lang/CharSequence;
+
     invoke-interface {v3}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v2
 
-    if-eqz p2, :cond_4
+    :goto_0
+    if-eqz p2, :cond_6
 
     iget-object v0, v1, Lcom/android/launcher3/common/base/item/ItemInfo;->componentName:Landroid/content/ComponentName;
 
@@ -610,7 +794,7 @@
     move-result-object v0
 
     :cond_0
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_5
 
     invoke-virtual {v0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
@@ -620,14 +804,14 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4
 
     iget-object v3, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mMultiSelectManager:Lcom/android/launcher3/common/multiselect/MultiSelectManager;
 
     invoke-virtual {v3, v2}, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->addAddToPersonalList(Ljava/lang/String;)V
 
     :cond_1
-    :goto_0
+    :goto_1
     iget-object v3, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mMultiSelectManager:Lcom/android/launcher3/common/multiselect/MultiSelectManager;
 
     invoke-virtual {v3}, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->getAddToPersonalListSize()I
@@ -646,28 +830,40 @@
     return-void
 
     :cond_3
-    iget-object v3, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mMultiSelectManager:Lcom/android/launcher3/common/multiselect/MultiSelectManager;
-
-    invoke-virtual {v3, v2}, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->addAddToPersonalPendingList(Ljava/lang/String;)V
+    const-string v2, ""
 
     goto :goto_0
 
     :cond_4
     iget-object v3, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mMultiSelectManager:Lcom/android/launcher3/common/multiselect/MultiSelectManager;
 
+    invoke-virtual {v3, v2}, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->addAddToPersonalPendingList(Ljava/lang/String;)V
+
+    goto :goto_1
+
+    :cond_5
+    iget-object v3, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mMultiSelectManager:Lcom/android/launcher3/common/multiselect/MultiSelectManager;
+
+    invoke-virtual {v3, v2}, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->addAddToPersonalPendingList(Ljava/lang/String;)V
+
+    goto :goto_1
+
+    :cond_6
+    iget-object v3, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mMultiSelectManager:Lcom/android/launcher3/common/multiselect/MultiSelectManager;
+
     invoke-virtual {v3, v2}, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->containsAddToPersonalList(Ljava/lang/String;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_7
 
     iget-object v3, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mMultiSelectManager:Lcom/android/launcher3/common/multiselect/MultiSelectManager;
 
     invoke-virtual {v3, v2}, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->removeAddToPersonalList(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_5
+    :cond_7
     iget-object v3, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mMultiSelectManager:Lcom/android/launcher3/common/multiselect/MultiSelectManager;
 
     invoke-virtual {v3, v2}, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->containsAddToPersonalPendingList(Ljava/lang/String;)Z
@@ -680,11 +876,11 @@
 
     invoke-virtual {v3, v2}, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->removeAddToPersonalPendingList(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method private updateSecureFolderButton(Landroid/view/View;Z)V
-    .locals 5
+    .locals 6
 
     iget-object v3, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mSecureFolderButton:Landroid/widget/TextView;
 
@@ -702,11 +898,16 @@
 
     iget-object v3, v1, Lcom/android/launcher3/common/base/item/ItemInfo;->title:Ljava/lang/CharSequence;
 
+    if-eqz v3, :cond_3
+
+    iget-object v3, v1, Lcom/android/launcher3/common/base/item/ItemInfo;->title:Ljava/lang/CharSequence;
+
     invoke-interface {v3}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
 
     move-result-object v2
 
-    if-eqz p2, :cond_4
+    :goto_0
+    if-eqz p2, :cond_6
 
     iget-object v0, v1, Lcom/android/launcher3/common/base/item/ItemInfo;->componentName:Landroid/content/ComponentName;
 
@@ -716,33 +917,37 @@
 
     if-eqz v3, :cond_0
 
-    check-cast v1, Lcom/android/launcher3/common/base/item/IconInfo;
+    move-object v3, v1
 
-    invoke-virtual {v1}, Lcom/android/launcher3/common/base/item/IconInfo;->getTargetComponent()Landroid/content/ComponentName;
+    check-cast v3, Lcom/android/launcher3/common/base/item/IconInfo;
+
+    invoke-virtual {v3}, Lcom/android/launcher3/common/base/item/IconInfo;->getTargetComponent()Landroid/content/ComponentName;
 
     move-result-object v0
 
     :cond_0
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_5
 
     iget-object v3, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mLauncher:Lcom/android/launcher3/Launcher;
 
+    iget-object v4, v1, Lcom/android/launcher3/common/base/item/ItemInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
     invoke-virtual {v0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v5
 
-    invoke-static {v3, v4}, Lcom/android/launcher3/util/SecureFolderHelper;->canAddAppToSecureFolder(Landroid/content/Context;Ljava/lang/String;)Z
+    invoke-static {v3, v4, v5}, Lcom/android/launcher3/util/SecureFolderHelper;->canAddAppToSecureFolder(Landroid/content/Context;Lcom/android/launcher3/common/compat/UserHandleCompat;Ljava/lang/String;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4
 
     iget-object v3, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mMultiSelectManager:Lcom/android/launcher3/common/multiselect/MultiSelectManager;
 
     invoke-virtual {v3, v2}, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->addSecureFolderList(Ljava/lang/String;)V
 
     :cond_1
-    :goto_0
+    :goto_1
     iget-object v3, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mMultiSelectManager:Lcom/android/launcher3/common/multiselect/MultiSelectManager;
 
     invoke-virtual {v3}, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->getSecureFolderListSize()I
@@ -767,28 +972,40 @@
     return-void
 
     :cond_3
-    iget-object v3, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mMultiSelectManager:Lcom/android/launcher3/common/multiselect/MultiSelectManager;
-
-    invoke-virtual {v3, v2}, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->addSecureFolderPendingList(Ljava/lang/String;)V
+    const-string v2, ""
 
     goto :goto_0
 
     :cond_4
     iget-object v3, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mMultiSelectManager:Lcom/android/launcher3/common/multiselect/MultiSelectManager;
 
+    invoke-virtual {v3, v2}, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->addSecureFolderPendingList(Ljava/lang/String;)V
+
+    goto :goto_1
+
+    :cond_5
+    iget-object v3, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mMultiSelectManager:Lcom/android/launcher3/common/multiselect/MultiSelectManager;
+
+    invoke-virtual {v3, v2}, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->addSecureFolderPendingList(Ljava/lang/String;)V
+
+    goto :goto_1
+
+    :cond_6
+    iget-object v3, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mMultiSelectManager:Lcom/android/launcher3/common/multiselect/MultiSelectManager;
+
     invoke-virtual {v3, v2}, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->containsSecureFolderList(Ljava/lang/String;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_5
+    if-eqz v3, :cond_7
 
     iget-object v3, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mMultiSelectManager:Lcom/android/launcher3/common/multiselect/MultiSelectManager;
 
     invoke-virtual {v3, v2}, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->removeSecureFolderList(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_5
+    :cond_7
     iget-object v3, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mMultiSelectManager:Lcom/android/launcher3/common/multiselect/MultiSelectManager;
 
     invoke-virtual {v3, v2}, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->containsSecureFolderPendingList(Ljava/lang/String;)Z
@@ -801,7 +1018,7 @@
 
     invoke-virtual {v3, v2}, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->removeSecureFolderPendingList(Ljava/lang/String;)V
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method private updateTextSize(Landroid/widget/TextView;)V
@@ -815,7 +1032,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f09002e
+    const v2, 0x7f0a0030
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -836,7 +1053,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v2, 0x7f08006b
+    const v2, 0x7f090073
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -852,7 +1069,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v2, 0x7f08005f
+    const v2, 0x7f090067
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -986,7 +1203,7 @@
 
     move-result v16
 
-    if-lez v16, :cond_f
+    if-lez v16, :cond_10
 
     const/16 v16, 0x1
 
@@ -1045,7 +1262,7 @@
 
     move-result v16
 
-    if-eqz v16, :cond_a
+    if-eqz v16, :cond_b
 
     invoke-interface/range {v17 .. v17}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1256,25 +1473,37 @@
 
     iget-object v0, v0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mMultiSelectManager:Lcom/android/launcher3/common/multiselect/MultiSelectManager;
 
-    move-object/from16 v16, v0
+    move-object/from16 v18, v0
 
     iget-object v0, v10, Lcom/android/launcher3/common/base/item/ItemInfo;->title:Ljava/lang/CharSequence;
 
-    move-object/from16 v18, v0
+    move-object/from16 v16, v0
 
-    invoke-interface/range {v18 .. v18}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    if-eqz v16, :cond_a
 
-    move-result-object v18
+    iget-object v0, v10, Lcom/android/launcher3/common/base/item/ItemInfo;->title:Ljava/lang/CharSequence;
 
-    move-object/from16 v0, v16
+    move-object/from16 v16, v0
 
-    move-object/from16 v1, v18
+    invoke-interface/range {v16 .. v16}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v16
+
+    :goto_4
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v16
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->addUninstallPendingList(Ljava/lang/String;)V
 
     goto :goto_3
 
     :cond_a
+    const-string v16, ""
+
+    goto :goto_4
+
+    :cond_b
     move-object/from16 v0, p0
 
     invoke-direct {v0, v4}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->updateUninstallButtonText(Z)V
@@ -1289,13 +1518,13 @@
 
     move-result v16
 
-    if-eqz v16, :cond_e
+    if-eqz v16, :cond_f
 
     invoke-virtual {v8}, Ljava/util/ArrayList;->size()I
 
     move-result v14
 
-    if-lez v14, :cond_e
+    if-lez v14, :cond_f
 
     invoke-virtual {v2}, Ljava/util/ArrayList;->size()I
 
@@ -1303,7 +1532,7 @@
 
     move/from16 v0, v16
 
-    if-ne v14, v0, :cond_e
+    if-ne v14, v0, :cond_f
 
     add-int/lit8 v16, v14, -0x1
 
@@ -1327,7 +1556,7 @@
 
     move-result-object v9
 
-    if-eqz v9, :cond_e
+    if-eqz v9, :cond_f
 
     invoke-virtual {v9}, Lcom/android/launcher3/folder/FolderInfo;->getItemCount()I
 
@@ -1335,7 +1564,7 @@
 
     move/from16 v0, v16
 
-    if-ne v0, v14, :cond_e
+    if-ne v0, v14, :cond_f
 
     const/4 v7, 0x0
 
@@ -1343,12 +1572,12 @@
 
     move-result-object v16
 
-    :cond_b
+    :cond_c
     invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v17
 
-    if-eqz v17, :cond_c
+    if-eqz v17, :cond_d
 
     invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -1362,12 +1591,12 @@
 
     cmp-long v17, v18, v12
 
-    if-eqz v17, :cond_b
+    if-eqz v17, :cond_c
 
     const/4 v7, 0x1
 
-    :cond_c
-    if-nez v7, :cond_d
+    :cond_d
+    if-nez v7, :cond_e
 
     const/16 v16, 0x3
 
@@ -1377,18 +1606,18 @@
 
     iput v0, v1, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mDimTypeCreateFolder:I
 
-    :cond_d
+    :cond_e
     const/16 v16, 0x2
 
     move/from16 v0, v16
 
     invoke-virtual {v3, v0, v7}, Landroid/util/SparseBooleanArray;->put(IZ)V
 
-    :cond_e
-    :goto_4
+    :cond_f
+    :goto_5
     return-object v3
 
-    :cond_f
+    :cond_10
     const/16 v16, 0x1
 
     move/from16 v0, v16
@@ -1397,7 +1626,7 @@
 
     iput v0, v1, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mDimTypeCreateFolder:I
 
-    goto :goto_4
+    goto :goto_5
 .end method
 
 .method public getTextForUninstallButton()Ljava/lang/String;
@@ -1439,7 +1668,7 @@
 .end method
 
 .method onConfigurationChangedIfNeeded()V
-    .locals 3
+    .locals 8
 
     invoke-virtual {p0}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
@@ -1447,37 +1676,80 @@
 
     invoke-virtual {p0}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v1
+    move-result-object v6
 
-    const v2, 0x7f09002d
+    const v7, 0x7f0a002f
 
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
+    invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
-    move-result v1
+    move-result v6
 
-    iput v1, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
+    iput v6, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
-    iget-object v1, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mUninstallButton:Landroid/widget/TextView;
+    const v6, 0x7f1100ca
 
-    invoke-direct {p0, v1}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->updateTextSize(Landroid/widget/TextView;)V
+    invoke-virtual {p0, v6}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->findViewById(I)Landroid/view/View;
 
-    iget-object v1, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mRemoveShortcutButton:Landroid/widget/TextView;
+    move-result-object v1
 
-    invoke-direct {p0, v1}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->updateTextSize(Landroid/widget/TextView;)V
+    check-cast v1, Landroid/widget/LinearLayout;
 
-    iget-object v1, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mCreateFolderButton:Landroid/widget/TextView;
+    if-eqz v1, :cond_0
 
-    invoke-direct {p0, v1}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->updateTextSize(Landroid/widget/TextView;)V
+    iget-object v6, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    iget-object v1, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mSecureFolderButton:Landroid/widget/TextView;
+    invoke-virtual {v6}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
 
-    invoke-direct {p0, v1}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->updateTextSize(Landroid/widget/TextView;)V
+    move-result-object v3
 
-    iget-object v1, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mAddToPersonalButton:Landroid/widget/TextView;
+    const v6, 0x7f0a00b4
 
-    invoke-direct {p0, v1}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->updateTextSize(Landroid/widget/TextView;)V
+    invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v4
+
+    const v6, 0x7f0a00b5
+
+    invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v5
+
+    invoke-virtual {v1}, Landroid/widget/LinearLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/widget/LinearLayout$LayoutParams;
+
+    iput v5, v2, Landroid/widget/LinearLayout$LayoutParams;->topMargin:I
+
+    iput v4, v2, Landroid/widget/LinearLayout$LayoutParams;->leftMargin:I
+
+    iput v4, v2, Landroid/widget/LinearLayout$LayoutParams;->rightMargin:I
+
+    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+
+    :cond_0
+    iget-object v6, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mUninstallButton:Landroid/widget/TextView;
+
+    invoke-direct {p0, v6}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->updateTextSize(Landroid/widget/TextView;)V
+
+    iget-object v6, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mRemoveShortcutButton:Landroid/widget/TextView;
+
+    invoke-direct {p0, v6}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->updateTextSize(Landroid/widget/TextView;)V
+
+    iget-object v6, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mCreateFolderButton:Landroid/widget/TextView;
+
+    invoke-direct {p0, v6}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->updateTextSize(Landroid/widget/TextView;)V
+
+    iget-object v6, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mSecureFolderButton:Landroid/widget/TextView;
+
+    invoke-direct {p0, v6}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->updateTextSize(Landroid/widget/TextView;)V
+
+    iget-object v6, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mAddToPersonalButton:Landroid/widget/TextView;
+
+    invoke-direct {p0, v6}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->updateTextSize(Landroid/widget/TextView;)V
 
     return-void
 .end method
@@ -1489,7 +1761,7 @@
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
 
-    const v0, 0x7f0f00bf
+    const v0, 0x7f1100cb
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->findViewById(I)Landroid/view/View;
 
@@ -1511,7 +1783,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f0f00c0
+    const v0, 0x7f1100cc
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->findViewById(I)Landroid/view/View;
 
@@ -1533,7 +1805,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f0f00c1
+    const v0, 0x7f1100cd
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->findViewById(I)Landroid/view/View;
 
@@ -1555,7 +1827,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f0f00c2
+    const v0, 0x7f1100ce
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->findViewById(I)Landroid/view/View;
 
@@ -1577,7 +1849,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f0f00c3
+    const v0, 0x7f1100cf
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->findViewById(I)Landroid/view/View;
 
@@ -1679,7 +1951,7 @@
     move v0, v8
 
     :goto_0
-    const v9, 0x7f0f00be
+    const v9, 0x7f1100ca
 
     invoke-virtual {p0, v9}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->findViewById(I)Landroid/view/View;
 
@@ -1695,7 +1967,7 @@
 
     move-result-object v4
 
-    const v9, 0x7f090118
+    const v9, 0x7f0a00b4
 
     invoke-virtual {v4, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1844,7 +2116,7 @@
 .method public setEditTextBg()V
     .locals 5
 
-    const v4, 0x7f0200d5
+    const v4, 0x7f0200d8
 
     invoke-virtual {p0}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->getContext()Landroid/content/Context;
 
@@ -1858,7 +2130,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090115
+    const v3, 0x7f0a0162
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2133,6 +2405,8 @@
     invoke-direct {p0, p1, p2}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->updateSecureFolderButton(Landroid/view/View;Z)V
 
     invoke-direct {p0, p1, p2}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->updateAddToPersonalButton(Landroid/view/View;Z)V
+
+    invoke-direct {p0}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->setContentDescription()V
 
     return-void
 .end method

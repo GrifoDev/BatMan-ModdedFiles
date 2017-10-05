@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/common/view/DragLayer;->animateViewIntoPosition(Lcom/android/launcher3/common/drag/DragView;Landroid/view/View;ILjava/lang/Runnable;Landroid/view/View;I)V
+    value = Lcom/android/launcher3/common/view/DragLayer;->animateViewIntoPosition(Lcom/android/launcher3/common/drag/DragView;Landroid/view/View;ILjava/lang/Runnable;Landroid/view/View;II)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -64,7 +64,7 @@
 
     instance-of v1, v1, Lcom/android/launcher3/common/view/IconView;
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
     iget-object v1, p0, Lcom/android/launcher3/common/view/DragLayer$1;->val$child:Landroid/view/View;
 
@@ -91,5 +91,12 @@
     invoke-virtual {v1, v3, v2}, Lcom/android/launcher3/common/view/IconView;->updateCountBadge(ZZ)V
 
     :cond_1
+    iget-object v1, p0, Lcom/android/launcher3/common/view/DragLayer$1;->val$child:Landroid/view/View;
+
+    check-cast v1, Lcom/android/launcher3/common/view/IconView;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/common/view/IconView;->refreshBadge()V
+
+    :cond_2
     return-void
 .end method

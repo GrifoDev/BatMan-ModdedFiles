@@ -23,6 +23,8 @@
 
 .field protected mFolderTitle:Ljava/lang/String;
 
+.field protected mIsPostPosition:Z
+
 
 # direct methods
 .method private constructor <init>()V
@@ -37,6 +39,10 @@
     iput v0, p0, Lcom/android/launcher3/common/model/DefaultLayoutParser$FolderTagInfo;->mFolderCellX:I
 
     iput v0, p0, Lcom/android/launcher3/common/model/DefaultLayoutParser$FolderTagInfo;->mFolderCellY:I
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/launcher3/common/model/DefaultLayoutParser$FolderTagInfo;->mIsPostPosition:Z
 
     return-void
 .end method
@@ -125,5 +131,13 @@
     iput v0, p0, Lcom/android/launcher3/common/model/DefaultLayoutParser$FolderTagInfo;->mFolderCellY:I
 
     :cond_2
+    return-void
+.end method
+
+.method setPostPositionTag(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/launcher3/common/model/DefaultLayoutParser$FolderTagInfo;->mIsPostPosition:Z
+
     return-void
 .end method

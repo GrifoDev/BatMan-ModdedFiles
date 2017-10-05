@@ -51,7 +51,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/folder/controller/FolderIconDropController$FolderCreationAlarmListener;->this$0:Lcom/android/launcher3/folder/controller/FolderIconDropController;
 
-    invoke-static {v0}, Lcom/android/launcher3/folder/controller/FolderIconDropController;->access$200(Lcom/android/launcher3/folder/controller/FolderIconDropController;)Lcom/android/launcher3/folder/view/FolderIconView$FolderRingAnimator;
+    invoke-static {v0}, Lcom/android/launcher3/folder/controller/FolderIconDropController;->access$300(Lcom/android/launcher3/folder/controller/FolderIconDropController;)Lcom/android/launcher3/folder/view/FolderIconView$FolderRingAnimator;
 
     move-result-object v0
 
@@ -59,7 +59,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/folder/controller/FolderIconDropController$FolderCreationAlarmListener;->this$0:Lcom/android/launcher3/folder/controller/FolderIconDropController;
 
-    invoke-static {v0}, Lcom/android/launcher3/folder/controller/FolderIconDropController;->access$200(Lcom/android/launcher3/folder/controller/FolderIconDropController;)Lcom/android/launcher3/folder/view/FolderIconView$FolderRingAnimator;
+    invoke-static {v0}, Lcom/android/launcher3/folder/controller/FolderIconDropController;->access$300(Lcom/android/launcher3/folder/controller/FolderIconDropController;)Lcom/android/launcher3/folder/view/FolderIconView$FolderRingAnimator;
 
     move-result-object v0
 
@@ -72,7 +72,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/folder/controller/FolderIconDropController$FolderCreationAlarmListener;->this$0:Lcom/android/launcher3/folder/controller/FolderIconDropController;
 
-    invoke-static {v2}, Lcom/android/launcher3/folder/controller/FolderIconDropController;->access$300(Lcom/android/launcher3/folder/controller/FolderIconDropController;)Lcom/android/launcher3/Launcher;
+    invoke-static {v2}, Lcom/android/launcher3/folder/controller/FolderIconDropController;->access$400(Lcom/android/launcher3/folder/controller/FolderIconDropController;)Lcom/android/launcher3/Launcher;
 
     move-result-object v2
 
@@ -80,7 +80,7 @@
 
     iget-object v4, p0, Lcom/android/launcher3/folder/controller/FolderIconDropController$FolderCreationAlarmListener;->this$0:Lcom/android/launcher3/folder/controller/FolderIconDropController;
 
-    invoke-static {v4}, Lcom/android/launcher3/folder/controller/FolderIconDropController;->access$400(Lcom/android/launcher3/folder/controller/FolderIconDropController;)Lcom/android/launcher3/common/base/view/CellLayout;
+    invoke-static {v4}, Lcom/android/launcher3/folder/controller/FolderIconDropController;->access$500(Lcom/android/launcher3/folder/controller/FolderIconDropController;)Lcom/android/launcher3/common/base/view/CellLayout;
 
     move-result-object v4
 
@@ -90,11 +90,11 @@
 
     invoke-direct {v1, v2, v3, v4}, Lcom/android/launcher3/folder/view/FolderIconView$FolderRingAnimator;-><init>(Lcom/android/launcher3/Launcher;Lcom/android/launcher3/folder/view/FolderIconView;I)V
 
-    invoke-static {v0, v1}, Lcom/android/launcher3/folder/controller/FolderIconDropController;->access$202(Lcom/android/launcher3/folder/controller/FolderIconDropController;Lcom/android/launcher3/folder/view/FolderIconView$FolderRingAnimator;)Lcom/android/launcher3/folder/view/FolderIconView$FolderRingAnimator;
+    invoke-static {v0, v1}, Lcom/android/launcher3/folder/controller/FolderIconDropController;->access$302(Lcom/android/launcher3/folder/controller/FolderIconDropController;Lcom/android/launcher3/folder/view/FolderIconView$FolderRingAnimator;)Lcom/android/launcher3/folder/view/FolderIconView$FolderRingAnimator;
 
     iget-object v0, p0, Lcom/android/launcher3/folder/controller/FolderIconDropController$FolderCreationAlarmListener;->this$0:Lcom/android/launcher3/folder/controller/FolderIconDropController;
 
-    invoke-static {v0}, Lcom/android/launcher3/folder/controller/FolderIconDropController;->access$200(Lcom/android/launcher3/folder/controller/FolderIconDropController;)Lcom/android/launcher3/folder/view/FolderIconView$FolderRingAnimator;
+    invoke-static {v0}, Lcom/android/launcher3/folder/controller/FolderIconDropController;->access$300(Lcom/android/launcher3/folder/controller/FolderIconDropController;)Lcom/android/launcher3/folder/view/FolderIconView$FolderRingAnimator;
 
     move-result-object v0
 
@@ -106,7 +106,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/folder/controller/FolderIconDropController$FolderCreationAlarmListener;->this$0:Lcom/android/launcher3/folder/controller/FolderIconDropController;
 
-    invoke-static {v0}, Lcom/android/launcher3/folder/controller/FolderIconDropController;->access$200(Lcom/android/launcher3/folder/controller/FolderIconDropController;)Lcom/android/launcher3/folder/view/FolderIconView$FolderRingAnimator;
+    invoke-static {v0}, Lcom/android/launcher3/folder/controller/FolderIconDropController;->access$300(Lcom/android/launcher3/folder/controller/FolderIconDropController;)Lcom/android/launcher3/folder/view/FolderIconView$FolderRingAnimator;
 
     move-result-object v0
 
@@ -116,7 +116,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/folder/controller/FolderIconDropController$FolderCreationAlarmListener;->this$0:Lcom/android/launcher3/folder/controller/FolderIconDropController;
 
-    invoke-static {v0}, Lcom/android/launcher3/folder/controller/FolderIconDropController;->access$200(Lcom/android/launcher3/folder/controller/FolderIconDropController;)Lcom/android/launcher3/folder/view/FolderIconView$FolderRingAnimator;
+    invoke-static {v0}, Lcom/android/launcher3/folder/controller/FolderIconDropController;->access$300(Lcom/android/launcher3/folder/controller/FolderIconDropController;)Lcom/android/launcher3/folder/view/FolderIconView$FolderRingAnimator;
 
     move-result-object v0
 
@@ -126,7 +126,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/folder/controller/FolderIconDropController$FolderCreationAlarmListener;->this$0:Lcom/android/launcher3/folder/controller/FolderIconDropController;
 
-    invoke-static {v1}, Lcom/android/launcher3/folder/controller/FolderIconDropController;->access$200(Lcom/android/launcher3/folder/controller/FolderIconDropController;)Lcom/android/launcher3/folder/view/FolderIconView$FolderRingAnimator;
+    invoke-static {v1}, Lcom/android/launcher3/folder/controller/FolderIconDropController;->access$300(Lcom/android/launcher3/folder/controller/FolderIconDropController;)Lcom/android/launcher3/folder/view/FolderIconView$FolderRingAnimator;
 
     move-result-object v1
 
@@ -138,11 +138,11 @@
 
     iget-object v0, p0, Lcom/android/launcher3/folder/controller/FolderIconDropController$FolderCreationAlarmListener;->this$0:Lcom/android/launcher3/folder/controller/FolderIconDropController;
 
-    invoke-static {v0}, Lcom/android/launcher3/folder/controller/FolderIconDropController;->access$500(Lcom/android/launcher3/folder/controller/FolderIconDropController;)V
+    invoke-static {v0}, Lcom/android/launcher3/folder/controller/FolderIconDropController;->access$600(Lcom/android/launcher3/folder/controller/FolderIconDropController;)V
 
     iget-object v0, p0, Lcom/android/launcher3/folder/controller/FolderIconDropController$FolderCreationAlarmListener;->this$0:Lcom/android/launcher3/folder/controller/FolderIconDropController;
 
-    invoke-static {v0}, Lcom/android/launcher3/folder/controller/FolderIconDropController;->access$600(Lcom/android/launcher3/folder/controller/FolderIconDropController;)Lcom/android/launcher3/common/drag/DragState;
+    invoke-static {v0}, Lcom/android/launcher3/folder/controller/FolderIconDropController;->access$100(Lcom/android/launcher3/folder/controller/FolderIconDropController;)Lcom/android/launcher3/common/drag/DragState;
 
     move-result-object v0
 

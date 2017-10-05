@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->showPopupMenu()V
+    value = Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->showPopupMenu()Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

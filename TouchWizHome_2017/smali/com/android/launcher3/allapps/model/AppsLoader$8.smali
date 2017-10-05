@@ -20,19 +20,17 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
 
-.field final synthetic val$apps:Ljava/util/ArrayList;
-
-.field final synthetic val$chunkSize:I
+.field final synthetic val$itemNum:I
 
 .field final synthetic val$oldCallbacks:Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
 
-.field final synthetic val$start:I
+.field final synthetic val$page:I
 
 .field final synthetic val$task:Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/allapps/model/AppsLoader;Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;Ljava/util/ArrayList;II)V
+.method constructor <init>(Lcom/android/launcher3/allapps/model/AppsLoader;Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;II)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/allapps/model/AppsLoader$8;->this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
@@ -41,11 +39,9 @@
 
     iput-object p3, p0, Lcom/android/launcher3/allapps/model/AppsLoader$8;->val$task:Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;
 
-    iput-object p4, p0, Lcom/android/launcher3/allapps/model/AppsLoader$8;->val$apps:Ljava/util/ArrayList;
+    iput p4, p0, Lcom/android/launcher3/allapps/model/AppsLoader$8;->val$page:I
 
-    iput p5, p0, Lcom/android/launcher3/allapps/model/AppsLoader$8;->val$start:I
-
-    iput p6, p0, Lcom/android/launcher3/allapps/model/AppsLoader$8;->val$chunkSize:I
+    iput p5, p0, Lcom/android/launcher3/allapps/model/AppsLoader$8;->val$itemNum:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -55,7 +51,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 5
+    .locals 4
 
     iget-object v1, p0, Lcom/android/launcher3/allapps/model/AppsLoader$8;->this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
 
@@ -63,23 +59,17 @@
 
     iget-object v3, p0, Lcom/android/launcher3/allapps/model/AppsLoader$8;->val$task:Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;
 
-    invoke-static {v1, v2, v3}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$1400(Lcom/android/launcher3/allapps/model/AppsLoader;Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
+    invoke-static {v1, v2, v3}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$1200(Lcom/android/launcher3/allapps/model/AppsLoader;Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/launcher3/allapps/model/AppsLoader$8;->val$apps:Ljava/util/ArrayList;
+    iget v1, p0, Lcom/android/launcher3/allapps/model/AppsLoader$8;->val$page:I
 
-    iget v2, p0, Lcom/android/launcher3/allapps/model/AppsLoader$8;->val$start:I
+    iget v2, p0, Lcom/android/launcher3/allapps/model/AppsLoader$8;->val$itemNum:I
 
-    iget v3, p0, Lcom/android/launcher3/allapps/model/AppsLoader$8;->val$start:I
-
-    iget v4, p0, Lcom/android/launcher3/allapps/model/AppsLoader$8;->val$chunkSize:I
-
-    add-int/2addr v3, v4
-
-    invoke-interface {v0, v1, v2, v3}, Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;->bindItems(Ljava/util/ArrayList;II)V
+    invoke-interface {v0, v1, v2}, Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;->removeUnusedItems(II)V
 
     :cond_0
     return-void

@@ -66,7 +66,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$RestoreAppShortcutWithUriParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    invoke-static {v2}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$3700(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/ContentValues;
+    invoke-static {v2}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$4600(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/ContentValues;
 
     move-result-object v2
 
@@ -81,7 +81,7 @@
     :cond_0
     iget-object v2, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$RestoreAppShortcutWithUriParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    invoke-static {v2}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$3800(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/ContentValues;
+    invoke-static {v2}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$4700(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/ContentValues;
 
     move-result-object v2
 
@@ -99,7 +99,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$RestoreAppShortcutWithUriParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    invoke-static {v2}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$3900(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$4800(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)Landroid/content/Context;
 
     move-result-object v2
 

@@ -24,13 +24,13 @@
 # static fields
 .field private static final ACTION_APPWIDGET_DEFAULT_WORKSPACE_CONFIGURE:Ljava/lang/String; = "com.android.launcher.action.APPWIDGET_DEFAULT_WORKSPACE_CONFIGURE"
 
-.field protected static final ATTR_APPSGRID_DEFAULT:Ljava/lang/String; = "default"
-
 .field protected static final ATTR_APPSGRID_SUPPORTSET:Ljava/lang/String; = "supportSet"
 
 .field private static final ATTR_CARRIER:Ljava/lang/String; = "carrier"
 
 .field public static final ATTR_CLASS_NAME:Ljava/lang/String; = "className"
+
+.field protected static final ATTR_GRID_DEFAULT:Ljava/lang/String; = "default"
 
 .field public static final ATTR_HIDDEN:Ljava/lang/String; = "hidden"
 
@@ -72,6 +72,8 @@
 
 .field static final CSC_PATH:Ljava/lang/String; = "/system/csc"
 
+.field private static final INVALID_VALUE:I = -0x1
+
 .field private static final TAG:Ljava/lang/String; = "DefaultLayoutParser"
 
 .field public static final TAG_APPORDER:Ljava/lang/String; = "appOrder"
@@ -82,6 +84,8 @@
 
 .field public static final TAG_AUTO_INSTALL:Ljava/lang/String; = "autoinstall"
 
+.field public static final TAG_DEEP_SHORTCUT:Ljava/lang/String; = "deepshortcut"
+
 .field protected static final TAG_EXTRA:Ljava/lang/String; = "extra"
 
 .field public static final TAG_FAVORITE:Ljava/lang/String; = "favorite"
@@ -91,6 +95,8 @@
 .field public static final TAG_FOLDER:Ljava/lang/String; = "folder"
 
 .field public static final TAG_HOME:Ljava/lang/String; = "home"
+
+.field protected static final TAG_HOMEGRIDINFO:Ljava/lang/String; = "homeGridInfo"
 
 .field public static final TAG_HOTSEAT:Ljava/lang/String; = "hotseat"
 
@@ -128,6 +134,8 @@
 
 .field protected final mPackageManager:Landroid/content/pm/PackageManager;
 
+.field private mReloadPostPosition:Z
+
 .field protected final mRootTag:Ljava/lang/String;
 
 .field protected final mSourceRes:Landroid/content/res/Resources;
@@ -140,6 +148,10 @@
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mReloadPostPosition:Z
 
     iput-object p1, p0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mContext:Landroid/content/Context;
 
@@ -176,14 +188,12 @@
     return-object v0
 .end method
 
-.method static synthetic access$200(Lcom/android/launcher3/common/model/DefaultLayoutParser;Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;)Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;
+.method static synthetic access$200(Lcom/android/launcher3/common/model/DefaultLayoutParser;)Z
     .locals 1
 
-    invoke-direct {p0, p1, p2}, Lcom/android/launcher3/common/model/DefaultLayoutParser;->getActivityInfo(Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;)Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;
+    iget-boolean v0, p0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mReloadPostPosition:Z
 
-    move-result-object v0
-
-    return-object v0
+    return v0
 .end method
 
 .method public static final beginDocument(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)V
@@ -382,7 +392,7 @@
 .end method
 
 .method public static loadOmcIfNecessary(Landroid/content/Context;)V
-    .locals 12
+    .locals 13
 
     const-string v0, "DefaultLayoutParser"
 
@@ -410,13 +420,38 @@
     return-void
 
     :cond_2
+    const-string v0, "device_policy"
+
+    invoke-virtual {p0, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, Landroid/app/admin/DevicePolicyManager;
+
+    if-eqz v7, :cond_3
+
+    invoke-virtual {v7}, Landroid/app/admin/DevicePolicyManager;->semGetDeviceOwner()Ljava/lang/String;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_3
+
+    const-string v0, "DefaultLayoutParser"
+
+    const-string v2, "DeviceOnwerMode now."
+
+    invoke-static {v0, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :cond_3
     const-string v0, "content://com.samsung.android.omcprovider/available_title_icon"
 
     invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v1
 
-    if-nez v1, :cond_3
+    if-nez v1, :cond_4
 
     const-string v0, "DefaultLayoutParser"
 
@@ -426,7 +461,7 @@
 
     goto :goto_0
 
-    :cond_3
+    :cond_4
     new-instance v0, Ljava/util/HashMap;
 
     invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
@@ -452,15 +487,15 @@
 
     move-result-object v6
 
-    if-eqz v6, :cond_7
+    if-eqz v6, :cond_8
 
-    :cond_4
+    :cond_5
     :goto_1
     invoke-interface {v6}, Landroid/database/Cursor;->moveToNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_8
 
     const-string v0, "package"
 
@@ -470,9 +505,9 @@
 
     invoke-interface {v6, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v10
 
-    if-eqz v9, :cond_4
+    if-eqz v10, :cond_5
 
     const-string v0, "title"
 
@@ -482,13 +517,13 @@
 
     invoke-interface {v6, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v11
 
-    if-nez v10, :cond_5
+    if-nez v11, :cond_6
 
-    const-string v10, ""
+    const-string v11, ""
 
-    :cond_5
+    :cond_6
     const-string v0, "icon_drawable"
 
     invoke-interface {v6, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
@@ -497,34 +532,34 @@
 
     invoke-interface {v6, v0}, Landroid/database/Cursor;->getBlob(I)[B
 
-    move-result-object v8
+    move-result-object v9
 
-    invoke-static {v10}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v11}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_7
 
-    if-eqz v8, :cond_4
+    if-eqz v9, :cond_5
 
-    :cond_6
-    new-instance v11, Lcom/android/launcher3/common/model/DefaultLayoutParser$IconTitleValue;
+    :cond_7
+    new-instance v12, Lcom/android/launcher3/common/model/DefaultLayoutParser$IconTitleValue;
 
     const/4 v0, 0x0
 
-    invoke-direct {v11, v0}, Lcom/android/launcher3/common/model/DefaultLayoutParser$IconTitleValue;-><init>(Lcom/android/launcher3/common/model/DefaultLayoutParser$1;)V
+    invoke-direct {v12, v0}, Lcom/android/launcher3/common/model/DefaultLayoutParser$IconTitleValue;-><init>(Lcom/android/launcher3/common/model/DefaultLayoutParser$1;)V
 
-    iput-object v9, v11, Lcom/android/launcher3/common/model/DefaultLayoutParser$IconTitleValue;->iconPackage:Ljava/lang/String;
+    iput-object v10, v12, Lcom/android/launcher3/common/model/DefaultLayoutParser$IconTitleValue;->iconPackage:Ljava/lang/String;
 
-    iput-object v10, v11, Lcom/android/launcher3/common/model/DefaultLayoutParser$IconTitleValue;->title:Ljava/lang/String;
+    iput-object v11, v12, Lcom/android/launcher3/common/model/DefaultLayoutParser$IconTitleValue;->title:Ljava/lang/String;
 
-    iput-object v8, v11, Lcom/android/launcher3/common/model/DefaultLayoutParser$IconTitleValue;->icon:[B
+    iput-object v9, v12, Lcom/android/launcher3/common/model/DefaultLayoutParser$IconTitleValue;->icon:[B
 
     sget-object v0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->sOmcAutoInstallApp:Ljava/util/HashMap;
 
-    iget-object v2, v11, Lcom/android/launcher3/common/model/DefaultLayoutParser$IconTitleValue;->iconPackage:Ljava/lang/String;
+    iget-object v2, v12, Lcom/android/launcher3/common/model/DefaultLayoutParser$IconTitleValue;->iconPackage:Ljava/lang/String;
 
-    invoke-virtual {v0, v2, v11}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v2, v12}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const-string v0, "DefaultLayoutParser"
 
@@ -538,7 +573,7 @@
 
     move-result-object v2
 
-    iget-object v3, v11, Lcom/android/launcher3/common/model/DefaultLayoutParser$IconTitleValue;->iconPackage:Ljava/lang/String;
+    iget-object v3, v12, Lcom/android/launcher3/common/model/DefaultLayoutParser$IconTitleValue;->iconPackage:Ljava/lang/String;
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -562,7 +597,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
@@ -572,7 +607,7 @@
 
     invoke-static {v0, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-nez v8, :cond_4
+    if-nez v9, :cond_5
 
     const-string v0, "DefaultLayoutParser"
 
@@ -586,7 +621,7 @@
     goto :goto_1
 
     :catch_0
-    move-exception v7
+    move-exception v8
 
     :try_start_1
     const-string v0, "DefaultLayoutParser"
@@ -601,7 +636,7 @@
 
     move-result-object v2
 
-    invoke-virtual {v2, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v2
 
@@ -625,7 +660,7 @@
 
     goto/16 :goto_0
 
-    :cond_7
+    :cond_8
     if-eqz v6, :cond_1
 
     invoke-interface {v6}, Landroid/database/Cursor;->isClosed()Z
@@ -641,17 +676,17 @@
     :catchall_0
     move-exception v0
 
-    if-eqz v6, :cond_8
+    if-eqz v6, :cond_9
 
     invoke-interface {v6}, Landroid/database/Cursor;->isClosed()Z
 
     move-result v2
 
-    if-nez v2, :cond_8
+    if-nez v2, :cond_9
 
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    :cond_8
+    :cond_9
     throw v0
 .end method
 
@@ -660,6 +695,17 @@
 .method protected addApps(Ljava/lang/String;Ljava/lang/String;Landroid/content/ComponentName;I)J
     .locals 10
 
+    iget-boolean v6, p0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mReloadPostPosition:Z
+
+    if-eqz v6, :cond_1
+
+    const-wide/16 v0, -0x1
+
+    :cond_0
+    :goto_0
+    return-wide v0
+
+    :cond_1
     iget-object v6, p0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mCallback:Lcom/android/launcher3/common/model/DefaultLayoutParser$LayoutParserCallback;
 
     invoke-interface {v6}, Lcom/android/launcher3/common/model/DefaultLayoutParser$LayoutParserCallback;->generateNewItemId()J
@@ -740,99 +786,110 @@
 
     const-wide/16 v0, -0x1
 
-    :cond_0
-    return-wide v0
+    goto :goto_0
 .end method
 
 .method protected addShortcut(Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;I)J
-    .locals 6
+    .locals 8
 
-    const/4 v5, 0x1
+    const-wide/16 v2, -0x1
 
-    iget-object v2, p0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mCallback:Lcom/android/launcher3/common/model/DefaultLayoutParser$LayoutParserCallback;
+    const/4 v7, 0x1
 
-    invoke-interface {v2}, Lcom/android/launcher3/common/model/DefaultLayoutParser$LayoutParserCallback;->generateNewItemId()J
+    iget-boolean v4, p0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mReloadPostPosition:Z
+
+    if-eqz v4, :cond_1
+
+    move-wide v0, v2
+
+    :cond_0
+    :goto_0
+    return-wide v0
+
+    :cond_1
+    iget-object v4, p0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mCallback:Lcom/android/launcher3/common/model/DefaultLayoutParser$LayoutParserCallback;
+
+    invoke-interface {v4}, Lcom/android/launcher3/common/model/DefaultLayoutParser$LayoutParserCallback;->generateNewItemId()J
 
     move-result-wide v0
 
-    iget-object v2, p0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mValues:Landroid/content/ContentValues;
+    iget-object v4, p0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mValues:Landroid/content/ContentValues;
 
-    const-string v3, "intent"
+    const-string v5, "intent"
 
-    const/4 v4, 0x0
+    const/4 v6, 0x0
 
-    invoke-virtual {p3, v4}, Landroid/content/Intent;->toUri(I)Ljava/lang/String;
+    invoke-virtual {p3, v6}, Landroid/content/Intent;->toUri(I)Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-virtual {v2, v3, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v2, p0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mValues:Landroid/content/ContentValues;
-
-    const-string v3, "title"
-
-    invoke-virtual {v2, v3, p2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
-
-    iget-object v2, p0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mValues:Landroid/content/ContentValues;
-
-    const-string v3, "itemType"
-
-    invoke-static {p4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    invoke-virtual {v2, v3, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
-
-    iget-object v2, p0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mValues:Landroid/content/ContentValues;
-
-    const-string v3, "spanX"
-
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    invoke-virtual {v2, v3, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
-
-    iget-object v2, p0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mValues:Landroid/content/ContentValues;
-
-    const-string v3, "spanY"
-
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    invoke-virtual {v2, v3, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
-
-    iget-object v2, p0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mValues:Landroid/content/ContentValues;
-
-    const-string v3, "_id"
-
-    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v4
-
-    invoke-virtual {v2, v3, v4}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
-
-    iget-object v2, p0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mCallback:Lcom/android/launcher3/common/model/DefaultLayoutParser$LayoutParserCallback;
-
-    iget-object v3, p0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mDb:Landroid/database/sqlite/SQLiteDatabase;
+    invoke-virtual {v4, v5, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     iget-object v4, p0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mValues:Landroid/content/ContentValues;
 
-    invoke-interface {v2, v3, p1, v4}, Lcom/android/launcher3/common/model/DefaultLayoutParser$LayoutParserCallback;->insertAndCheck(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;Landroid/content/ContentValues;)J
+    const-string v5, "title"
 
-    move-result-wide v2
+    invoke-virtual {v4, v5, p2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-wide/16 v4, 0x0
+    iget-object v4, p0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mValues:Landroid/content/ContentValues;
 
-    cmp-long v2, v2, v4
+    const-string v5, "itemType"
 
-    if-gez v2, :cond_0
+    invoke-static {p4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-wide/16 v0, -0x1
+    move-result-object v6
 
-    :cond_0
-    return-wide v0
+    invoke-virtual {v4, v5, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    iget-object v4, p0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mValues:Landroid/content/ContentValues;
+
+    const-string v5, "spanX"
+
+    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v4, v5, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    iget-object v4, p0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mValues:Landroid/content/ContentValues;
+
+    const-string v5, "spanY"
+
+    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    invoke-virtual {v4, v5, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    iget-object v4, p0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mValues:Landroid/content/ContentValues;
+
+    const-string v5, "_id"
+
+    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v6
+
+    invoke-virtual {v4, v5, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
+
+    iget-object v4, p0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mCallback:Lcom/android/launcher3/common/model/DefaultLayoutParser$LayoutParserCallback;
+
+    iget-object v5, p0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mDb:Landroid/database/sqlite/SQLiteDatabase;
+
+    iget-object v6, p0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mValues:Landroid/content/ContentValues;
+
+    invoke-interface {v4, v5, p1, v6}, Lcom/android/launcher3/common/model/DefaultLayoutParser$LayoutParserCallback;->insertAndCheck(Landroid/database/sqlite/SQLiteDatabase;Ljava/lang/String;Landroid/content/ContentValues;)J
+
+    move-result-wide v4
+
+    const-wide/16 v6, 0x0
+
+    cmp-long v4, v4, v6
+
+    if-gez v4, :cond_0
+
+    move-wide v0, v2
+
+    goto :goto_0
 .end method
 
 .method public chooseFilePath(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
@@ -938,7 +995,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0a0009
+    const v5, 0x7f0c0009
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
 
@@ -1105,6 +1162,18 @@
     .end annotation
 .end method
 
+.method protected abstract getHiddenApps()Ljava/util/ArrayList;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/ArrayList",
+            "<",
+            "Landroid/content/ComponentName;",
+            ">;"
+        }
+    .end annotation
+.end method
+
 .method protected abstract getLayoutElementsMap()Ljava/util/HashMap;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -1116,6 +1185,63 @@
             ">;"
         }
     .end annotation
+.end method
+
+.method isPostPositionInsertCondition(Landroid/content/ComponentName;)Z
+    .locals 3
+
+    const/4 v0, 0x1
+
+    iget-boolean v1, p0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mReloadPostPosition:Z
+
+    if-eqz v1, :cond_1
+
+    :cond_0
+    :goto_0
+    return v0
+
+    :cond_1
+    iget-object v1, p0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mContext:Landroid/content/Context;
+
+    invoke-virtual {p1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Lcom/android/launcher3/Utilities;->isPackageExist(Landroid/content/Context;Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    :goto_1
+    if-nez v0, :cond_0
+
+    invoke-static {}, Lcom/android/launcher3/common/compat/UserHandleCompat;->myUserHandle()Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    move-result-object v1
+
+    invoke-direct {p0, p1, v1}, Lcom/android/launcher3/common/model/DefaultLayoutParser;->getActivityInfo(Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;)Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;
+
+    move-result-object v1
+
+    if-nez v1, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    const/4 v0, 0x0
+
+    goto :goto_1
+.end method
+
+.method isReloadPostPosition()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mReloadPostPosition:Z
+
+    return v0
 .end method
 
 .method public loadLayout(Landroid/database/sqlite/SQLiteDatabase;Ljava/util/ArrayList;)I
@@ -1167,4 +1293,12 @@
             ">;)I"
         }
     .end annotation
+.end method
+
+.method public setReloadPostPosition(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mReloadPostPosition:Z
+
+    return-void
 .end method

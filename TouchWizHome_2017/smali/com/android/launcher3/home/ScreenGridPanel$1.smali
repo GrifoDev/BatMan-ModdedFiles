@@ -115,7 +115,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f08009f
+    const v9, 0x7f0900ad
 
     const/4 v10, 0x2
 
@@ -175,23 +175,23 @@
 
     iget-object v8, p0, Lcom/android/launcher3/home/ScreenGridPanel$1;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    invoke-static {v8}, Lcom/android/launcher3/home/ScreenGridPanel;->access$400(Lcom/android/launcher3/home/ScreenGridPanel;)Landroid/view/View;
+    invoke-static {v8}, Lcom/android/launcher3/home/ScreenGridPanel;->access$400(Lcom/android/launcher3/home/ScreenGridPanel;)Landroid/widget/TextView;
 
     move-result-object v8
 
     const/4 v9, 0x0
 
-    invoke-virtual {v8, v9}, Landroid/view/View;->setEnabled(Z)V
+    invoke-virtual {v8, v9}, Landroid/widget/TextView;->setEnabled(Z)V
 
     iget-object v8, p0, Lcom/android/launcher3/home/ScreenGridPanel$1;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    invoke-static {v8}, Lcom/android/launcher3/home/ScreenGridPanel;->access$400(Lcom/android/launcher3/home/ScreenGridPanel;)Landroid/view/View;
+    invoke-static {v8}, Lcom/android/launcher3/home/ScreenGridPanel;->access$400(Lcom/android/launcher3/home/ScreenGridPanel;)Landroid/widget/TextView;
 
     move-result-object v8
 
     const v9, 0x3ecccccd    # 0.4f
 
-    invoke-virtual {v8, v9}, Landroid/view/View;->setAlpha(F)V
+    invoke-virtual {v8, v9}, Landroid/widget/TextView;->setAlpha(F)V
 
     iget-object v8, p0, Lcom/android/launcher3/home/ScreenGridPanel$1;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
@@ -203,22 +203,16 @@
 
     invoke-virtual {v8, v9}, Landroid/widget/TextView;->setVisibility(I)V
 
-    iget-object v8, p0, Lcom/android/launcher3/home/ScreenGridPanel$1;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
-
-    iget-object v9, p0, Lcom/android/launcher3/home/ScreenGridPanel$1;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
-
-    invoke-static {v9}, Lcom/android/launcher3/home/ScreenGridPanel;->access$400(Lcom/android/launcher3/home/ScreenGridPanel;)Landroid/view/View;
-
-    move-result-object v9
-
-    const/4 v10, 0x0
-
-    invoke-virtual {v8, v9, v10}, Lcom/android/launcher3/home/ScreenGridPanel;->setApplyDescription(Landroid/view/View;Z)V
-
     :goto_0
     iget-object v8, p0, Lcom/android/launcher3/home/ScreenGridPanel$1;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
     invoke-static {v8, v2}, Lcom/android/launcher3/home/ScreenGridPanel;->access$800(Lcom/android/launcher3/home/ScreenGridPanel;Ljava/lang/String;)V
+
+    invoke-virtual {p1}, Landroid/view/View;->getContentDescription()Ljava/lang/CharSequence;
+
+    move-result-object v8
+
+    invoke-virtual {p1, v8}, Landroid/view/View;->announceForAccessibility(Ljava/lang/CharSequence;)V
 
     iget-object v8, p0, Lcom/android/launcher3/home/ScreenGridPanel$1;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
@@ -244,23 +238,23 @@
     :cond_1
     iget-object v8, p0, Lcom/android/launcher3/home/ScreenGridPanel$1;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    invoke-static {v8}, Lcom/android/launcher3/home/ScreenGridPanel;->access$400(Lcom/android/launcher3/home/ScreenGridPanel;)Landroid/view/View;
+    invoke-static {v8}, Lcom/android/launcher3/home/ScreenGridPanel;->access$400(Lcom/android/launcher3/home/ScreenGridPanel;)Landroid/widget/TextView;
 
     move-result-object v8
 
     const/4 v9, 0x1
 
-    invoke-virtual {v8, v9}, Landroid/view/View;->setEnabled(Z)V
+    invoke-virtual {v8, v9}, Landroid/widget/TextView;->setEnabled(Z)V
 
     iget-object v8, p0, Lcom/android/launcher3/home/ScreenGridPanel$1;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
-    invoke-static {v8}, Lcom/android/launcher3/home/ScreenGridPanel;->access$400(Lcom/android/launcher3/home/ScreenGridPanel;)Landroid/view/View;
+    invoke-static {v8}, Lcom/android/launcher3/home/ScreenGridPanel;->access$400(Lcom/android/launcher3/home/ScreenGridPanel;)Landroid/widget/TextView;
 
     move-result-object v8
 
     const/high16 v9, 0x3f800000    # 1.0f
 
-    invoke-virtual {v8, v9}, Landroid/view/View;->setAlpha(F)V
+    invoke-virtual {v8, v9}, Landroid/widget/TextView;->setAlpha(F)V
 
     iget-object v8, p0, Lcom/android/launcher3/home/ScreenGridPanel$1;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
 
@@ -287,19 +281,6 @@
 
     invoke-virtual {v8, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    :goto_1
-    iget-object v8, p0, Lcom/android/launcher3/home/ScreenGridPanel$1;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
-
-    iget-object v9, p0, Lcom/android/launcher3/home/ScreenGridPanel$1;->this$0:Lcom/android/launcher3/home/ScreenGridPanel;
-
-    invoke-static {v9}, Lcom/android/launcher3/home/ScreenGridPanel;->access$400(Lcom/android/launcher3/home/ScreenGridPanel;)Landroid/view/View;
-
-    move-result-object v9
-
-    const/4 v10, 0x1
-
-    invoke-virtual {v8, v9, v10}, Lcom/android/launcher3/home/ScreenGridPanel;->setApplyDescription(Landroid/view/View;Z)V
-
     goto :goto_0
 
     :cond_3
@@ -313,5 +294,5 @@
 
     invoke-virtual {v8, v9}, Landroid/widget/TextView;->setVisibility(I)V
 
-    goto :goto_1
+    goto :goto_0
 .end method

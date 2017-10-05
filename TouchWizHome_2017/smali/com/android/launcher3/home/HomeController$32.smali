@@ -3,12 +3,12 @@
 .source "HomeController.java"
 
 # interfaces
-.implements Lcom/android/launcher3/util/capture/CapturePreview$CaptureListener;
+.implements Ljava/lang/Runnable;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/launcher3/home/HomeController;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/launcher3/home/HomeController;->switchInternalStateChange(II)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,12 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/home/HomeController;
 
+.field final synthetic val$fromState:I
+
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/home/HomeController;)V
+.method constructor <init>(Lcom/android/launcher3/home/HomeController;I)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/home/HomeController$32;->this$0:Lcom/android/launcher3/home/HomeController;
+
+    iput p2, p0, Lcom/android/launcher3/home/HomeController$32;->val$fromState:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -34,102 +38,45 @@
 
 
 # virtual methods
-.method public canCapture()Z
+.method public run()V
     .locals 3
-
-    const/4 v0, 0x1
-
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeController$32;->this$0:Lcom/android/launcher3/home/HomeController;
-
-    invoke-static {v1}, Lcom/android/launcher3/home/HomeController;->access$500(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/home/Workspace;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeController$32;->this$0:Lcom/android/launcher3/home/HomeController;
-
-    invoke-virtual {v1}, Lcom/android/launcher3/home/HomeController;->getState()I
-
-    move-result v1
-
-    if-ne v1, v0, :cond_0
-
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeController$32;->this$0:Lcom/android/launcher3/home/HomeController;
-
-    invoke-static {v1}, Lcom/android/launcher3/home/HomeController;->access$500(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/home/Workspace;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/launcher3/home/Workspace;->getCurrentPage()I
-
-    move-result v1
-
-    iget-object v2, p0, Lcom/android/launcher3/home/HomeController$32;->this$0:Lcom/android/launcher3/home/HomeController;
-
-    invoke-static {v2}, Lcom/android/launcher3/home/HomeController;->access$500(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/home/Workspace;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/launcher3/home/Workspace;->getDefaultPage()I
-
-    move-result v2
-
-    if-ne v1, v2, :cond_0
-
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeController$32;->this$0:Lcom/android/launcher3/home/HomeController;
-
-    invoke-static {v1}, Lcom/android/launcher3/home/HomeController;->access$500(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/home/Workspace;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/launcher3/home/Workspace;->isPageMoving()Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeController$32;->this$0:Lcom/android/launcher3/home/HomeController;
-
-    invoke-virtual {v1}, Lcom/android/launcher3/home/HomeController;->isSwitchingState()Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeController$32;->this$0:Lcom/android/launcher3/home/HomeController;
-
-    invoke-static {v1}, Lcom/android/launcher3/home/HomeController;->access$2100(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/Launcher;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/launcher3/Launcher;->isDestroyed()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    :cond_0
-    const-string v0, "Launcher.HomeController"
-
-    const-string v1, "canCapture false"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v0, 0x0
-
-    :cond_1
-    return v0
-.end method
-
-.method public getTargetView()Landroid/view/ViewGroup;
-    .locals 1
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController$32;->this$0:Lcom/android/launcher3/home/HomeController;
 
-    invoke-static {v0}, Lcom/android/launcher3/home/HomeController;->access$2000(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/home/HomeContainer;
+    invoke-static {v0}, Lcom/android/launcher3/home/HomeController;->access$2100(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/home/ZeroPageController;
 
     move-result-object v0
 
-    return-object v0
+    if-eqz v0, :cond_0
+
+    iget v0, p0, Lcom/android/launcher3/home/HomeController$32;->val$fromState:I
+
+    const/4 v1, 0x4
+
+    if-eq v0, v1, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeController$32;->this$0:Lcom/android/launcher3/home/HomeController;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/home/HomeController;->getState()I
+
+    move-result v0
+
+    const/4 v1, 0x6
+
+    if-eq v0, v1, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeController$32;->this$0:Lcom/android/launcher3/home/HomeController;
+
+    invoke-static {v0}, Lcom/android/launcher3/home/HomeController;->access$2100(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/home/ZeroPageController;
+
+    move-result-object v0
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/launcher3/home/ZeroPageController;->updatePageIndicatorForZeroPage(ZZ)V
+
+    :cond_0
+    return-void
 .end method

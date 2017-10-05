@@ -47,57 +47,20 @@
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 0
-
-    invoke-virtual {p0, p1}, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->onAnimationEnd(Landroid/animation/Animator;)V
-
-    return-void
-.end method
-
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 6
+    .locals 5
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
-    const/high16 v4, 0x3f800000    # 1.0f
-
-    iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->this$0:Lcom/android/launcher3/home/HomeTransitionAnimation;
-
-    invoke-static {v0, v5}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$402(Lcom/android/launcher3/home/HomeTransitionAnimation;Z)Z
+    const/high16 v2, 0x3f800000    # 1.0f
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->this$0:Lcom/android/launcher3/home/HomeTransitionAnimation;
 
-    invoke-static {v0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$500(Lcom/android/launcher3/home/HomeTransitionAnimation;)Lcom/android/launcher3/common/tray/TrayManager;
+    invoke-static {v0, v4}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$402(Lcom/android/launcher3/home/HomeTransitionAnimation;Z)Z
 
-    move-result-object v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->this$0:Lcom/android/launcher3/home/HomeTransitionAnimation;
-
-    invoke-static {v0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$500(Lcom/android/launcher3/home/HomeTransitionAnimation;)Lcom/android/launcher3/common/tray/TrayManager;
-
-    move-result-object v0
-
-    invoke-virtual {v0, v5}, Lcom/android/launcher3/common/tray/TrayManager;->setDisallowCallBacksVisibity(Z)V
-
-    iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->this$0:Lcom/android/launcher3/home/HomeTransitionAnimation;
-
-    invoke-static {v0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$500(Lcom/android/launcher3/home/HomeTransitionAnimation;)Lcom/android/launcher3/common/tray/TrayManager;
-
-    move-result-object v0
-
-    iget v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->val$toTranslationY:F
-
-    iget-wide v2, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->val$animDuration:J
-
-    invoke-virtual {v0, v5, v1, v2, v3}, Lcom/android/launcher3/common/tray/TrayManager;->setSwipeAnimationStatus(ZFJ)V
-
-    :cond_0
     iget-boolean v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->val$enter:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->this$0:Lcom/android/launcher3/home/HomeTransitionAnimation;
 
@@ -115,7 +78,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v4}, Landroid/view/View;->setAlpha(F)V
+    invoke-virtual {v0, v2}, Landroid/view/View;->setAlpha(F)V
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->this$0:Lcom/android/launcher3/home/HomeTransitionAnimation;
 
@@ -123,7 +86,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v4}, Landroid/view/View;->setScaleX(F)V
+    invoke-virtual {v0, v2}, Landroid/view/View;->setScaleX(F)V
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->this$0:Lcom/android/launcher3/home/HomeTransitionAnimation;
 
@@ -131,7 +94,36 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v4}, Landroid/view/View;->setScaleY(F)V
+    invoke-virtual {v0, v2}, Landroid/view/View;->setScaleY(F)V
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->this$0:Lcom/android/launcher3/home/HomeTransitionAnimation;
+
+    invoke-static {v0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$500(Lcom/android/launcher3/home/HomeTransitionAnimation;)Lcom/android/launcher3/common/tray/TrayManager;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->this$0:Lcom/android/launcher3/home/HomeTransitionAnimation;
+
+    invoke-static {v0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$500(Lcom/android/launcher3/home/HomeTransitionAnimation;)Lcom/android/launcher3/common/tray/TrayManager;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v4}, Lcom/android/launcher3/common/tray/TrayManager;->setDisallowCallBacksVisibity(Z)V
+
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->this$0:Lcom/android/launcher3/home/HomeTransitionAnimation;
+
+    invoke-static {v0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$500(Lcom/android/launcher3/home/HomeTransitionAnimation;)Lcom/android/launcher3/common/tray/TrayManager;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->val$toTranslationY:F
+
+    iget-wide v2, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->val$animDuration:J
+
+    invoke-virtual {v0, v4, v1, v2, v3}, Lcom/android/launcher3/common/tray/TrayManager;->setSwipeAnimationStatus(ZFJ)V
 
     :cond_1
     return-void
@@ -175,6 +167,14 @@
     iget-wide v2, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->val$animDuration:J
 
     invoke-virtual {v0, v4, v1, v2, v3}, Lcom/android/launcher3/common/tray/TrayManager;->setSwipeAnimationStatus(ZFJ)V
+
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->this$0:Lcom/android/launcher3/home/HomeTransitionAnimation;
+
+    invoke-static {v0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$600(Lcom/android/launcher3/home/HomeTransitionAnimation;)Lcom/android/launcher3/home/HomeController;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/launcher3/home/HomeController;->resetBlurRunnable()V
 
     :cond_0
     return-void

@@ -114,6 +114,16 @@
 
     check-cast v0, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$CustomBuilder;
 
+    const-string v1, "ext"
+
+    const-string v3, "cr"
+
+    invoke-virtual {v0, v1, v3}, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$CustomBuilder;->set(Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$LogBuilder;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$CustomBuilder;
+
     invoke-virtual {v0}, Lcom/samsung/context/sdk/samsunganalytics/LogBuilders$CustomBuilder;->build()Ljava/util/Map;
 
     move-result-object v0

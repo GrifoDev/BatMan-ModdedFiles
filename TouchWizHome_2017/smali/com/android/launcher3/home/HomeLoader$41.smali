@@ -41,20 +41,20 @@
 .method public run()V
     .locals 3
 
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$9700()Z
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$10000()Z
 
     move-result v0
 
     if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$9800()Ljava/util/ArrayList;
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$10100()Ljava/util/ArrayList;
 
     move-result-object v1
 
     monitor-enter v1
 
     :try_start_0
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$9900()Ljava/util/ArrayList;
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$10200()Ljava/util/ArrayList;
 
     move-result-object v0
 
@@ -79,7 +79,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/launcher3/home/HomeLoader$41;->val$r:Ljava/lang/Runnable;
 
-    invoke-static {v0}, Lcom/android/launcher3/home/HomeLoader;->access$10000(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Lcom/android/launcher3/home/HomeLoader;->access$10300(Ljava/lang/Runnable;)V
 
     goto :goto_0
 .end method

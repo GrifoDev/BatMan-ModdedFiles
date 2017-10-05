@@ -205,170 +205,237 @@
 .end method
 
 .method private static convertToLauncherActivityIfPossible(Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;)Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;
-    .locals 8
+    .locals 12
+
+    const/4 v5, 0x0
 
     invoke-virtual {p0}, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->isLuncherActivity()Z
 
-    move-result v4
+    move-result v8
 
-    if-eqz v4, :cond_1
+    if-eqz v8, :cond_1
 
     :cond_0
     :goto_0
     return-object p0
 
     :cond_1
-    iget-object v4, p0, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->mContext:Landroid/content/Context;
+    iget-object v8, p0, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->mContext:Landroid/content/Context;
 
-    invoke-static {v4}, Lcom/android/launcher3/util/DualAppUtils;->supportDualApp(Landroid/content/Context;)Z
+    invoke-static {v8}, Lcom/android/launcher3/util/DualAppUtils;->supportDualApp(Landroid/content/Context;)Z
 
-    move-result v4
+    move-result v8
 
-    if-eqz v4, :cond_3
+    if-eqz v8, :cond_3
 
-    iget-object v4, p0, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+    iget-object v8, p0, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
-    invoke-virtual {v4}, Lcom/android/launcher3/common/compat/UserHandleCompat;->getUser()Landroid/os/UserHandle;
+    invoke-virtual {v8}, Lcom/android/launcher3/common/compat/UserHandleCompat;->getUser()Landroid/os/UserHandle;
 
-    move-result-object v4
+    move-result-object v8
 
-    invoke-virtual {v4}, Landroid/os/UserHandle;->semGetIdentifier()I
+    invoke-virtual {v8}, Landroid/os/UserHandle;->semGetIdentifier()I
 
-    move-result v4
+    move-result v8
 
-    invoke-static {v4}, Lcom/samsung/android/app/SemDualAppManager;->isDualAppId(I)Z
+    invoke-static {v8}, Lcom/samsung/android/app/SemDualAppManager;->isDualAppId(I)Z
 
-    move-result v4
+    move-result v8
 
-    if-eqz v4, :cond_3
+    if-eqz v8, :cond_3
 
-    const-string v4, "com.samsung.android.da.daagent"
+    const/4 v1, 0x1
+
+    :goto_1
+    iget-object v8, p0, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->mContext:Landroid/content/Context;
+
+    invoke-static {v8}, Lcom/android/launcher3/common/compat/UserManagerCompat;->getInstance(Landroid/content/Context;)Lcom/android/launcher3/common/compat/UserManagerCompat;
+
+    move-result-object v8
+
+    iget-object v9, p0, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    invoke-virtual {v8, v9}, Lcom/android/launcher3/common/compat/UserManagerCompat;->getSerialNumberForUser(Lcom/android/launcher3/common/compat/UserHandleCompat;)J
+
+    move-result-wide v6
+
+    const-string v8, "com.samsung.android.da.daagent"
 
     invoke-virtual {p0}, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->getTargetPackage()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v9
 
-    invoke-virtual {v4, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v9}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v8
 
-    if-nez v4, :cond_3
+    if-nez v8, :cond_5
 
-    const-string v4, "InstallShortcutReceiver"
+    if-nez v1, :cond_2
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    const-wide/16 v8, 0x64
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    cmp-long v8, v6, v8
 
-    const-string v6, "This is Dual IM app shortcut "
+    if-gez v8, :cond_5
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    iget-object v6, p0, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->launchIntent:Landroid/content/Intent;
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v4, p0, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->mContext:Landroid/content/Context;
-
-    invoke-static {v4}, Lcom/android/launcher3/common/compat/LauncherAppsCompat;->getInstance(Landroid/content/Context;)Lcom/android/launcher3/common/compat/LauncherAppsCompat;
-
-    move-result-object v1
-
-    iget-object v4, p0, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->launchIntent:Landroid/content/Intent;
-
-    iget-object v5, p0, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
-
-    invoke-virtual {v1, v4, v5}, Lcom/android/launcher3/common/compat/LauncherAppsCompat;->resolveActivity(Landroid/content/Intent;Lcom/android/launcher3/common/compat/UserHandleCompat;)Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;
-
-    move-result-object v2
-
-    if-eqz v2, :cond_2
-
-    new-instance v4, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;
-
-    iget-object v5, p0, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->mContext:Landroid/content/Context;
-
-    iget-wide v6, p0, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->requestTime:J
-
-    invoke-direct {v4, v2, v5, v6, v7}, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;-><init>(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Landroid/content/Context;J)V
-
-    move-object p0, v4
-
-    goto :goto_0
-
-    :cond_2
-    const-string v4, "InstallShortcutReceiver"
-
-    const-string v5, "This is Dual IM app shortcut. But launcherInfo is null!!"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    :cond_3
-    iget-object v4, p0, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->launchIntent:Landroid/content/Intent;
-
-    invoke-static {v4}, Lcom/android/launcher3/Utilities;->isLauncherAppTarget(Landroid/content/Intent;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->getUser()Lcom/android/launcher3/common/compat/UserHandleCompat;
-
-    move-result-object v4
+    iget-object v8, p0, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
     invoke-static {}, Lcom/android/launcher3/common/compat/UserHandleCompat;->myUserHandle()Lcom/android/launcher3/common/compat/UserHandleCompat;
 
-    move-result-object v5
+    move-result-object v9
 
-    invoke-virtual {v4, v5}, Lcom/android/launcher3/common/compat/UserHandleCompat;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v8, v9}, Lcom/android/launcher3/common/compat/UserHandleCompat;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v8
 
-    if-eqz v4, :cond_0
+    if-nez v8, :cond_5
 
-    iget-object v4, p0, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->mContext:Landroid/content/Context;
+    :cond_2
+    const-string v5, "InstallShortcutReceiver"
 
-    invoke-virtual {v4}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v9, "This is other user\'s app shortcut "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    iget-object v9, p0, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->launchIntent:Landroid/content/Intent;
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    const-string v9, " isDualImApp : "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v5, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v5, p0, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->mContext:Landroid/content/Context;
+
+    invoke-static {v5}, Lcom/android/launcher3/common/compat/LauncherAppsCompat;->getInstance(Landroid/content/Context;)Lcom/android/launcher3/common/compat/LauncherAppsCompat;
+
+    move-result-object v2
+
+    iget-object v5, p0, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->launchIntent:Landroid/content/Intent;
+
+    iget-object v8, p0, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    invoke-virtual {v2, v5, v8}, Lcom/android/launcher3/common/compat/LauncherAppsCompat;->resolveActivity(Landroid/content/Intent;Lcom/android/launcher3/common/compat/UserHandleCompat;)Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;
 
     move-result-object v3
 
-    iget-object v4, p0, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->launchIntent:Landroid/content/Intent;
+    if-eqz v3, :cond_4
 
-    const/4 v5, 0x0
+    new-instance v5, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;
 
-    invoke-virtual {v3, v4, v5}, Landroid/content/pm/PackageManager;->resolveActivity(Landroid/content/Intent;I)Landroid/content/pm/ResolveInfo;
+    iget-object v8, p0, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->mContext:Landroid/content/Context;
+
+    iget-wide v10, p0, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->requestTime:J
+
+    invoke-direct {v5, v3, v8, v10, v11}, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;-><init>(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Landroid/content/Context;J)V
+
+    move-object p0, v5
+
+    goto/16 :goto_0
+
+    :cond_3
+    move v1, v5
+
+    goto :goto_1
+
+    :cond_4
+    const-string v5, "InstallShortcutReceiver"
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v9, "This is other user\'s app shortcut. But launcherInfo is null!! isDualImApp : "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v5, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_0
+
+    :cond_5
+    iget-object v8, p0, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->launchIntent:Landroid/content/Intent;
+
+    invoke-static {v8}, Lcom/android/launcher3/Utilities;->isLauncherAppTarget(Landroid/content/Intent;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->getUser()Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    move-result-object v8
+
+    invoke-static {}, Lcom/android/launcher3/common/compat/UserHandleCompat;->myUserHandle()Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    move-result-object v9
+
+    invoke-virtual {v8, v9}, Lcom/android/launcher3/common/compat/UserHandleCompat;->equals(Ljava/lang/Object;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_0
+
+    iget-object v8, p0, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v8}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v4
+
+    iget-object v8, p0, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->launchIntent:Landroid/content/Intent;
+
+    invoke-virtual {v4, v8, v5}, Landroid/content/pm/PackageManager;->resolveActivity(Landroid/content/Intent;I)Landroid/content/pm/ResolveInfo;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    iget-object v4, p0, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->mContext:Landroid/content/Context;
-
-    invoke-static {v0, v4}, Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;->fromResolveInfo(Landroid/content/pm/ResolveInfo;Landroid/content/Context;)Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;
-
-    move-result-object v2
-
-    new-instance v4, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;
-
     iget-object v5, p0, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->mContext:Landroid/content/Context;
 
-    iget-wide v6, p0, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->requestTime:J
+    invoke-static {v0, v5}, Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;->fromResolveInfo(Landroid/content/pm/ResolveInfo;Landroid/content/Context;)Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;
 
-    invoke-direct {v4, v2, v5, v6, v7}, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;-><init>(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Landroid/content/Context;J)V
+    move-result-object v3
 
-    move-object p0, v4
+    new-instance v5, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;
+
+    iget-object v8, p0, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->mContext:Landroid/content/Context;
+
+    iget-wide v10, p0, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->requestTime:J
+
+    invoke-direct {v5, v3, v8, v10, v11}, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;-><init>(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Landroid/content/Context;J)V
+
+    move-object p0, v5
 
     goto/16 :goto_0
 .end method
@@ -1191,7 +1258,7 @@
 
     move-result-object v7
 
-    if-eqz v18, :cond_b
+    if-eqz v18, :cond_c
 
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -1257,7 +1324,7 @@
 
     move-result-object v10
 
-    if-eqz v10, :cond_9
+    if-eqz v10, :cond_a
 
     const-string v5, "intent"
 
@@ -1270,7 +1337,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_9
+    if-eqz v5, :cond_a
 
     move/from16 v0, v19
 
@@ -1315,6 +1382,29 @@
     move-result-object v23
 
     :cond_7
+    invoke-static {v11}, Lcom/android/launcher3/Utilities;->isLauncherAppTarget(Landroid/content/Intent;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_8
+
+    invoke-virtual {v11}, Landroid/content/Intent;->getFlags()I
+
+    move-result v5
+
+    if-nez v5, :cond_8
+
+    const/high16 v5, 0x10200000
+
+    invoke-virtual {v11, v5}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+
+    const/4 v5, 0x0
+
+    invoke-virtual {v11, v5}, Landroid/content/Intent;->toUri(I)Ljava/lang/String;
+
+    move-result-object v23
+
+    :cond_8
     move-object/from16 v0, v21
 
     move-object/from16 v1, v23
@@ -1323,7 +1413,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_8
+    if-nez v5, :cond_9
 
     invoke-virtual/range {v22 .. v23}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
     :try_end_0
@@ -1334,19 +1424,19 @@
 
     if-eqz v5, :cond_6
 
-    :cond_8
+    :cond_9
     const/16 v26, 0x1
 
-    :cond_9
-    if-eqz v10, :cond_a
+    :cond_a
+    if-eqz v10, :cond_b
 
     invoke-interface {v10}, Landroid/database/Cursor;->close()V
 
-    :cond_a
+    :cond_b
     :goto_3
     return v26
 
-    :cond_b
+    :cond_c
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
@@ -1365,7 +1455,7 @@
 
     move-result-object v7
 
-    goto :goto_2
+    goto/16 :goto_2
 
     :catch_0
     move-exception v14
@@ -1395,7 +1485,7 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    if-eqz v10, :cond_a
+    if-eqz v10, :cond_b
 
     invoke-interface {v10}, Landroid/database/Cursor;->close()V
 
@@ -1404,11 +1494,11 @@
     :catchall_0
     move-exception v5
 
-    if-eqz v10, :cond_c
+    if-eqz v10, :cond_d
 
     invoke-interface {v10}, Landroid/database/Cursor;->close()V
 
-    :cond_c
+    :cond_d
     throw v5
 .end method
 
@@ -1862,6 +1952,12 @@
 
     if-eqz v4, :cond_1
 
+    invoke-static {p2}, Lcom/android/launcher3/common/view/IconView;->isKnoxShortcut(Landroid/content/Intent;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_1
+
     invoke-static {p1, v5, p2}, Lcom/android/launcher3/home/ExternalRequestQueue;->removeFromExternalRequestQueue(Landroid/content/Context;ILandroid/content/Intent;)Z
 
     move-result v3
@@ -1908,8 +2004,15 @@
 
     if-eqz v5, :cond_2
 
+    invoke-static {p2}, Lcom/android/launcher3/common/view/IconView;->isKnoxShortcut(Landroid/content/Intent;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_3
+
     invoke-static {p1, v2}, Lcom/android/launcher3/home/ExternalRequestQueue;->removeFromExternalRequestQueue(Landroid/content/Context;Lcom/android/launcher3/home/ExternalRequestInfo;)V
 
+    :cond_3
     const/4 v3, 0x1
 
     goto :goto_0
@@ -1926,22 +2029,21 @@
 
     invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v19
+    move-result-object v20
 
-    if-nez v19, :cond_1
+    if-nez v20, :cond_0
 
-    const/16 v20, 0x0
+    const/16 v28, 0x0
+
+    :goto_0
+    return v28
 
     :cond_0
-    :goto_0
-    return v20
-
-    :cond_1
     const-string v28, ","
 
     const/16 v29, 0x2
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     move-object/from16 v1, v28
 
@@ -1949,7 +2051,7 @@
 
     invoke-virtual {v0, v1, v2}, Ljava/lang/String;->split(Ljava/lang/String;I)[Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v25
 
     const-string v28, "InstallShortcutReceiver"
 
@@ -1965,7 +2067,7 @@
 
     move-object/from16 v0, v29
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v20
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1981,24 +2083,24 @@
 
     const/16 v29, 0x0
 
-    aget-object v29, v24, v29
+    aget-object v29, v25, v29
 
     invoke-virtual/range {v28 .. v29}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v28
 
-    if-eqz v28, :cond_9
+    if-eqz v28, :cond_a
 
     const/16 v28, 0x1
 
     :try_start_0
-    aget-object v28, v24, v28
+    aget-object v28, v25, v28
 
     invoke-static/range {v28 .. v28}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
     :try_end_0
     .catch Ljava/lang/NumberFormatException; {:try_start_0 .. :try_end_0} :catch_0
 
-    move-result v13
+    move-result v14
 
     move-object/from16 v0, p3
 
@@ -2008,11 +2110,11 @@
 
     invoke-virtual/range {v28 .. v28}, Landroid/content/Intent;->getData()Landroid/net/Uri;
 
-    move-result-object v11
+    move-result-object v12
 
     const-string v28, "com.android.contacts"
 
-    invoke-virtual {v11}, Landroid/net/Uri;->getAuthority()Ljava/lang/String;
+    invoke-virtual {v12}, Landroid/net/Uri;->getAuthority()Ljava/lang/String;
 
     move-result-object v29
 
@@ -2020,9 +2122,9 @@
 
     move-result v28
 
-    if-eqz v28, :cond_8
+    if-eqz v28, :cond_9
 
-    const/16 v20, 0x0
+    const/16 v21, 0x0
 
     new-instance v27, Landroid/content/ContentValues;
 
@@ -2044,9 +2146,9 @@
 
     invoke-virtual/range {v27 .. v29}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    sget-object v25, Lcom/android/launcher3/common/model/LauncherSettings$Favorites;->CONTENT_URI:Landroid/net/Uri;
+    sget-object v26, Lcom/android/launcher3/common/model/LauncherSettings$Favorites;->CONTENT_URI:Landroid/net/Uri;
 
-    const-string v22, "_id=? AND title=? AND intent like ?"
+    const-string v23, "_id=? AND title=? AND intent like ?"
 
     const/16 v28, 0x3
 
@@ -2054,15 +2156,15 @@
 
     new-array v0, v0, [Ljava/lang/String;
 
-    move-object/from16 v23, v0
+    move-object/from16 v24, v0
 
     const/16 v28, 0x0
 
-    invoke-static {v13}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    invoke-static {v14}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v29
 
-    aput-object v29, v23, v28
+    aput-object v29, v24, v28
 
     const/16 v28, 0x1
 
@@ -2072,13 +2174,53 @@
 
     move-object/from16 v29, v0
 
-    aput-object v29, v23, v28
+    aput-object v29, v24, v28
 
     const/16 v28, 0x2
 
     const-string v29, "%com.android.contacts%"
 
-    aput-object v29, v23, v28
+    aput-object v29, v24, v28
+
+    const-string v28, "InstallShortcutReceiver"
+
+    new-instance v29, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v29 .. v29}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v30, "id : "
+
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v29
+
+    move-object/from16 v0, v29
+
+    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v29
+
+    const-string v30, " label : "
+
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v29
+
+    move-object/from16 v0, p3
+
+    iget-object v0, v0, Lcom/android/launcher3/home/InstallShortcutReceiver$PendingInstallShortcutInfo;->label:Ljava/lang/String;
+
+    move-object/from16 v30, v0
+
+    invoke-virtual/range {v29 .. v30}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v29
+
+    invoke-virtual/range {v29 .. v29}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v29
+
+    invoke-static/range {v28 .. v29}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -2086,19 +2228,19 @@
 
     move-object/from16 v0, v28
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v26
 
     move-object/from16 v2, v27
 
-    move-object/from16 v3, v22
+    move-object/from16 v3, v23
 
-    move-object/from16 v4, v23
+    move-object/from16 v4, v24
 
     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/content/ContentResolver;->update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
 
-    move-result v21
+    move-result v22
 
-    if-lez v21, :cond_2
+    if-lez v22, :cond_1
 
     const-string v28, "InstallShortcutReceiver"
 
@@ -2114,7 +2256,7 @@
 
     move-object/from16 v0, v29
 
-    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v29
 
@@ -2128,7 +2270,7 @@
 
     move-result-object v6
 
-    new-instance v9, Landroid/content/Intent;
+    new-instance v10, Landroid/content/Intent;
 
     move-object/from16 v0, p3
 
@@ -2138,7 +2280,7 @@
 
     move-object/from16 v0, v28
 
-    invoke-direct {v9, v0}, Landroid/content/Intent;-><init>(Landroid/content/Intent;)V
+    invoke-direct {v10, v0}, Landroid/content/Intent;-><init>(Landroid/content/Intent;)V
 
     invoke-virtual {v6}, Lcom/android/launcher3/LauncherAppState;->getModel()Lcom/android/launcher3/LauncherModel;
 
@@ -2148,7 +2290,7 @@
 
     move-result-object v28
 
-    int-to-long v0, v13
+    int-to-long v0, v14
 
     move-wide/from16 v30, v0
 
@@ -2156,18 +2298,18 @@
 
     move-wide/from16 v1, v30
 
-    invoke-virtual {v0, v1, v2, v9}, Lcom/android/launcher3/home/HomeLoader;->updateContactShortcutInfo(JLandroid/content/Intent;)V
+    invoke-virtual {v0, v1, v2, v10}, Lcom/android/launcher3/home/HomeLoader;->updateContactShortcutInfo(JLandroid/content/Intent;)V
 
-    const/16 v20, 0x1
+    const/16 v21, 0x1
 
-    :cond_2
+    :cond_1
     invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportEasyModeChange()Z
 
     move-result v28
 
-    if-eqz v28, :cond_3
+    if-eqz v28, :cond_2
 
-    if-nez v20, :cond_3
+    if-nez v21, :cond_2
 
     const-string v28, "InstallShortcutReceiver"
 
@@ -2183,9 +2325,9 @@
 
     move-result v28
 
-    if-eqz v28, :cond_5
+    if-eqz v28, :cond_6
 
-    sget-object v25, Lcom/android/launcher3/common/model/LauncherSettings$Favorites_Standard;->CONTENT_URI:Landroid/net/Uri;
+    sget-object v26, Lcom/android/launcher3/common/model/LauncherSettings$Favorites_Standard;->CONTENT_URI:Landroid/net/Uri;
 
     :goto_1
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -2194,19 +2336,19 @@
 
     move-object/from16 v0, v28
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v26
 
     move-object/from16 v2, v27
 
-    move-object/from16 v3, v22
+    move-object/from16 v3, v23
 
-    move-object/from16 v4, v23
+    move-object/from16 v4, v24
 
     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/content/ContentResolver;->update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
 
-    move-result v21
+    move-result v22
 
-    if-lez v21, :cond_3
+    if-lez v22, :cond_2
 
     const-string v28, "InstallShortcutReceiver"
 
@@ -2222,7 +2364,7 @@
 
     move-object/from16 v0, v29
 
-    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v29
 
@@ -2232,16 +2374,16 @@
 
     invoke-static/range {v28 .. v29}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v20, 0x1
+    const/16 v21, 0x1
 
-    :cond_3
+    :cond_2
     invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportHomeModeChange()Z
 
     move-result v28
 
-    if-eqz v28, :cond_4
+    if-eqz v28, :cond_3
 
-    if-nez v20, :cond_4
+    if-nez v21, :cond_3
 
     const-string v28, "InstallShortcutReceiver"
 
@@ -2263,7 +2405,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    move-result-object v12
+    move-result-object v13
 
     const-string v28, "home_only_mode"
 
@@ -2273,13 +2415,13 @@
 
     move/from16 v1, v29
 
-    invoke-interface {v12, v0, v1}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-interface {v13, v0, v1}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
-    move-result v10
+    move-result v11
 
-    if-eqz v10, :cond_6
+    if-eqz v11, :cond_7
 
-    sget-object v25, Lcom/android/launcher3/common/model/LauncherSettings$Favorites_HomeApps;->CONTENT_URI:Landroid/net/Uri;
+    sget-object v26, Lcom/android/launcher3/common/model/LauncherSettings$Favorites_HomeApps;->CONTENT_URI:Landroid/net/Uri;
 
     :goto_2
     invoke-virtual/range {p1 .. p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -2288,19 +2430,19 @@
 
     move-object/from16 v0, v28
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v26
 
     move-object/from16 v2, v27
 
-    move-object/from16 v3, v22
+    move-object/from16 v3, v23
 
-    move-object/from16 v4, v23
+    move-object/from16 v4, v24
 
     invoke-virtual {v0, v1, v2, v3, v4}, Landroid/content/ContentResolver;->update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
 
-    move-result v21
+    move-result v22
 
-    if-lez v21, :cond_4
+    if-lez v22, :cond_3
 
     const-string v28, "InstallShortcutReceiver"
 
@@ -2316,7 +2458,7 @@
 
     move-object/from16 v0, v29
 
-    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v29
 
@@ -2326,9 +2468,9 @@
 
     invoke-static/range {v28 .. v29}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v20, 0x1
+    const/16 v21, 0x1
 
-    :cond_4
+    :cond_3
     invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getSharedPreferencesKey()Ljava/lang/String;
 
     move-result-object v28
@@ -2343,7 +2485,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    move-result-object v12
+    move-result-object v13
 
     const-string v28, "contact_shortcut_ids"
 
@@ -2353,37 +2495,35 @@
 
     move-object/from16 v1, v29
 
-    invoke-interface {v12, v0, v1}, Landroid/content/SharedPreferences;->getStringSet(Ljava/lang/String;Ljava/util/Set;)Ljava/util/Set;
+    invoke-interface {v13, v0, v1}, Landroid/content/SharedPreferences;->getStringSet(Ljava/lang/String;Ljava/util/Set;)Ljava/util/Set;
 
-    move-result-object v26
+    move-result-object v7
 
-    if-eqz v26, :cond_0
+    if-eqz v7, :cond_4
 
-    invoke-interface/range {v26 .. v26}, Ljava/util/Set;->size()I
+    invoke-interface {v7}, Ljava/util/Set;->size()I
 
     move-result v28
 
-    if-lez v28, :cond_0
+    if-lez v28, :cond_4
 
-    invoke-static {v13}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+    invoke-static {v14}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
 
     move-result-object v28
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v28
 
-    move-object/from16 v1, v28
+    invoke-interface {v7, v0}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
 
-    invoke-interface {v0, v1}, Ljava/util/Set;->remove(Ljava/lang/Object;)Z
-
-    invoke-interface/range {v26 .. v26}, Ljava/util/Set;->isEmpty()Z
+    invoke-interface {v7}, Ljava/util/Set;->isEmpty()Z
 
     move-result v28
 
-    if-eqz v28, :cond_7
+    if-eqz v28, :cond_8
 
-    invoke-interface {v12}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v13}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
-    move-result-object v8
+    move-result-object v9
 
     const-string v28, "smartswitch_restore_result"
 
@@ -2393,9 +2533,9 @@
 
     move/from16 v1, v29
 
-    invoke-interface {v12, v0, v1}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
+    invoke-interface {v13, v0, v1}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
 
-    move-result v17
+    move-result v18
 
     const-string v28, "smartswitch_restore_error_code"
 
@@ -2405,9 +2545,9 @@
 
     move/from16 v1, v29
 
-    invoke-interface {v12, v0, v1}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
+    invoke-interface {v13, v0, v1}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
 
-    move-result v15
+    move-result v16
 
     const-string v28, "smartswich_save_file_length"
 
@@ -2417,9 +2557,9 @@
 
     move/from16 v1, v29
 
-    invoke-interface {v12, v0, v1}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
+    invoke-interface {v13, v0, v1}, Landroid/content/SharedPreferences;->getInt(Ljava/lang/String;I)I
 
-    move-result v16
+    move-result v17
 
     const-string v28, "smartswitch_restore_source"
 
@@ -2429,9 +2569,9 @@
 
     move-object/from16 v1, v29
 
-    invoke-interface {v12, v0, v1}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    invoke-interface {v13, v0, v1}, Landroid/content/SharedPreferences;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v18
+    move-result-object v19
 
     const-string v28, "InstallShortcutReceiver"
 
@@ -2447,7 +2587,7 @@
 
     move-object/from16 v0, v29
 
-    move/from16 v1, v17
+    move/from16 v1, v18
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -2463,96 +2603,112 @@
 
     move-object/from16 v0, v28
 
-    invoke-interface {v8, v0}, Landroid/content/SharedPreferences$Editor;->remove(Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v9, v0}, Landroid/content/SharedPreferences$Editor;->remove(Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
     const-string v28, "smartswitch_restore_result"
 
     move-object/from16 v0, v28
 
-    invoke-interface {v8, v0}, Landroid/content/SharedPreferences$Editor;->remove(Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v9, v0}, Landroid/content/SharedPreferences$Editor;->remove(Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
     const-string v28, "smartswitch_restore_error_code"
 
     move-object/from16 v0, v28
 
-    invoke-interface {v8, v0}, Landroid/content/SharedPreferences$Editor;->remove(Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v9, v0}, Landroid/content/SharedPreferences$Editor;->remove(Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
     const-string v28, "smartswich_save_file_length"
 
     move-object/from16 v0, v28
 
-    invoke-interface {v8, v0}, Landroid/content/SharedPreferences$Editor;->remove(Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v9, v0}, Landroid/content/SharedPreferences$Editor;->remove(Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
     const-string v28, "smartswitch_restore_source"
 
     move-object/from16 v0, v28
 
-    invoke-interface {v8, v0}, Landroid/content/SharedPreferences$Editor;->remove(Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v9, v0}, Landroid/content/SharedPreferences$Editor;->remove(Ljava/lang/String;)Landroid/content/SharedPreferences$Editor;
 
-    invoke-interface {v8}, Landroid/content/SharedPreferences$Editor;->apply()V
+    invoke-interface {v9}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    new-instance v14, Landroid/content/Intent;
+    new-instance v15, Landroid/content/Intent;
 
     const-string v28, "com.sec.android.intent.action.RESPONSE_RESTORE_HOMELAYOUT"
 
     move-object/from16 v0, v28
 
-    invoke-direct {v14, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    invoke-direct {v15, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     const-string v28, "RESULT"
 
     move-object/from16 v0, v28
 
-    move/from16 v1, v17
+    move/from16 v1, v18
 
-    invoke-virtual {v14, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+    invoke-virtual {v15, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
     const-string v28, "ERR_CODE"
 
     move-object/from16 v0, v28
 
-    invoke-virtual {v14, v0, v15}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+    move/from16 v1, v16
+
+    invoke-virtual {v15, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
     const-string v28, "REQ_SIZE"
 
     move-object/from16 v0, v28
 
-    move/from16 v1, v16
+    move/from16 v1, v17
 
-    invoke-virtual {v14, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+    invoke-virtual {v15, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
     const-string v28, "SOURCE"
 
     move-object/from16 v0, v28
 
-    move-object/from16 v1, v18
+    move-object/from16 v1, v19
 
-    invoke-virtual {v14, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+    invoke-virtual {v15, v0, v1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v14}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+    invoke-virtual {v0, v15}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+
+    :cond_4
+    :goto_3
+    if-nez v21, :cond_5
+
+    const-string v28, "InstallShortcutReceiver"
+
+    const-string v29, "This contacts shortcut info is not match with DB"
+
+    invoke-static/range {v28 .. v29}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_5
+    :goto_4
+    const/16 v28, 0x1
 
     goto/16 :goto_0
 
     :catch_0
-    move-exception v7
+    move-exception v8
 
-    const/16 v20, 0x1
+    const/16 v28, 0x1
 
     goto/16 :goto_0
 
-    :cond_5
-    sget-object v25, Lcom/android/launcher3/common/model/LauncherSettings$Favorites_Easy;->CONTENT_URI:Landroid/net/Uri;
+    :cond_6
+    sget-object v26, Lcom/android/launcher3/common/model/LauncherSettings$Favorites_Easy;->CONTENT_URI:Landroid/net/Uri;
 
     goto/16 :goto_1
 
-    :cond_6
-    sget-object v25, Lcom/android/launcher3/common/model/LauncherSettings$Favorites_HomeOnly;->CONTENT_URI:Landroid/net/Uri;
+    :cond_7
+    sget-object v26, Lcom/android/launcher3/common/model/LauncherSettings$Favorites_HomeOnly;->CONTENT_URI:Landroid/net/Uri;
 
     goto/16 :goto_2
 
-    :cond_7
+    :cond_8
     const-string v28, "InstallShortcutReceiver"
 
     new-instance v29, Ljava/lang/StringBuilder;
@@ -2565,7 +2721,7 @@
 
     move-result-object v29
 
-    invoke-interface/range {v26 .. v26}, Ljava/util/Set;->size()I
+    invoke-interface {v7}, Ljava/util/Set;->size()I
 
     move-result v30
 
@@ -2579,7 +2735,7 @@
 
     invoke-static/range {v28 .. v29}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-interface {v12}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v13}, Landroid/content/SharedPreferences;->edit()Landroid/content/SharedPreferences$Editor;
 
     move-result-object v28
 
@@ -2589,29 +2745,25 @@
 
     move-object/from16 v1, v29
 
-    move-object/from16 v2, v26
-
-    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences$Editor;->putStringSet(Ljava/lang/String;Ljava/util/Set;)Landroid/content/SharedPreferences$Editor;
+    invoke-interface {v0, v1, v7}, Landroid/content/SharedPreferences$Editor;->putStringSet(Ljava/lang/String;Ljava/util/Set;)Landroid/content/SharedPreferences$Editor;
 
     move-result-object v28
 
     invoke-interface/range {v28 .. v28}, Landroid/content/SharedPreferences$Editor;->apply()V
 
-    goto/16 :goto_0
+    goto :goto_3
 
-    :cond_8
+    :cond_9
     const-string v28, "InstallShortcutReceiver"
 
     const-string v29, "updateContactShortcut failed, not have AUTHORITY"
 
     invoke-static/range {v28 .. v29}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/16 v20, 0x1
+    goto :goto_4
 
-    goto/16 :goto_0
-
-    :cond_9
-    const/16 v20, 0x0
+    :cond_a
+    const/16 v28, 0x0
 
     goto/16 :goto_0
 .end method
@@ -2619,66 +2771,50 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 6
+    .locals 3
 
-    const-string v0, "com.android.launcher.action.INSTALL_SHORTCUT"
+    const-string v1, "com.android.launcher.action.INSTALL_SHORTCUT"
 
     invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
     :goto_0
     return-void
 
     :cond_0
-    const-string v0, "desktopmode"
+    invoke-static {p1}, Lcom/android/launcher3/Utilities;->isDeskTopMode(Landroid/content/Context;)Z
 
-    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    move-result v1
 
-    move-result-object v5
+    if-eqz v1, :cond_1
 
-    check-cast v5, Lcom/samsung/android/desktopmode/SemDesktopModeManager;
+    const-string v1, "InstallShortcutReceiver"
 
-    if-eqz v5, :cond_1
+    const-string v2, "Not support install shortcut on DeX mode"
 
-    invoke-static {}, Lcom/samsung/android/desktopmode/SemDesktopModeManager;->isDesktopMode()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    const-string v0, "InstallShortcutReceiver"
-
-    const-string v1, "Not support install shortcut on DeX mode"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
     :cond_1
     invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v4}, Lcom/android/launcher3/LauncherAppState;->getModel()Lcom/android/launcher3/LauncherModel;
+    invoke-virtual {v0}, Lcom/android/launcher3/LauncherAppState;->getModel()Lcom/android/launcher3/LauncherModel;
 
-    new-instance v0, Lcom/android/launcher3/home/InstallShortcutReceiver$1;
+    new-instance v1, Lcom/android/launcher3/home/InstallShortcutReceiver$1;
 
-    move-object v1, p0
+    invoke-direct {v1, p0, p2, p1, v0}, Lcom/android/launcher3/home/InstallShortcutReceiver$1;-><init>(Lcom/android/launcher3/home/InstallShortcutReceiver;Landroid/content/Intent;Landroid/content/Context;Lcom/android/launcher3/LauncherAppState;)V
 
-    move-object v2, p2
-
-    move-object v3, p1
-
-    invoke-direct/range {v0 .. v5}, Lcom/android/launcher3/home/InstallShortcutReceiver$1;-><init>(Lcom/android/launcher3/home/InstallShortcutReceiver;Landroid/content/Intent;Landroid/content/Context;Lcom/android/launcher3/LauncherAppState;Lcom/samsung/android/desktopmode/SemDesktopModeManager;)V
-
-    invoke-static {v0}, Lcom/android/launcher3/LauncherModel;->runOnWorkerThread(Ljava/lang/Runnable;)V
+    invoke-static {v1}, Lcom/android/launcher3/LauncherModel;->runOnWorkerThread(Ljava/lang/Runnable;)V
 
     goto :goto_0
 .end method

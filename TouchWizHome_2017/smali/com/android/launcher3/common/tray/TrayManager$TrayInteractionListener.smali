@@ -27,16 +27,37 @@
 .method public abstract getDropTarget()Lcom/android/launcher3/common/drag/DropTarget;
 .end method
 
+.method public abstract getScreenDivision()Lcom/android/launcher3/util/event/ScreenDivision;
+.end method
+
+.method public abstract getTrayBgBlurAmount()F
+.end method
+
 .method public abstract getTrayLevel()Lcom/android/launcher3/common/tray/TrayManager$TrayLevel;
 .end method
 
 .method public abstract getTrayScale()F
 .end method
 
+.method public abstract isMovingOnBlock()Z
+.end method
+
+.method public abstract isOverBlurSlop(I)Z
+.end method
+
+.method public abstract isScrollLocked()Z
+.end method
+
+.method public abstract isVerticalScroll()Z
+.end method
+
 .method public abstract onReceiveTrayEvent(Lcom/android/launcher3/common/tray/TrayManager$TrayEvent;)V
 .end method
 
 .method public abstract onSwipeBlockListener(FF)V
+.end method
+
+.method public abstract requestBlurChange(ZLandroid/view/Window;FJ)V
 .end method
 
 .method public abstract startTrayMove()V

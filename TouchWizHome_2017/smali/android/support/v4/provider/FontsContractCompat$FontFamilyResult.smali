@@ -13,6 +13,12 @@
     name = "FontFamilyResult"
 .end annotation
 
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/support/v4/provider/FontsContractCompat$FontFamilyResult$FontResultStatus;
+    }
+.end annotation
+
 
 # static fields
 .field public static final STATUS_OK:I = 0x0

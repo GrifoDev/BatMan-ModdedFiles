@@ -81,7 +81,15 @@
 
     cmpg-float v0, v0, v3
 
-    if-gez v0, :cond_1
+    if-ltz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/home/LauncherAppWidgetHostView$1;->this$0:Lcom/android/launcher3/home/LauncherAppWidgetHostView;
+
+    invoke-static {v0}, Lcom/android/launcher3/home/LauncherAppWidgetHostView;->access$100(Lcom/android/launcher3/home/LauncherAppWidgetHostView;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
 
     :cond_0
     :goto_0
@@ -129,20 +137,20 @@
     move v0, v1
 
     :goto_1
-    invoke-static {v3, v0}, Lcom/android/launcher3/home/LauncherAppWidgetHostView;->access$102(Lcom/android/launcher3/home/LauncherAppWidgetHostView;Z)Z
+    invoke-static {v3, v0}, Lcom/android/launcher3/home/LauncherAppWidgetHostView;->access$202(Lcom/android/launcher3/home/LauncherAppWidgetHostView;Z)Z
 
     iget-object v0, p0, Lcom/android/launcher3/home/LauncherAppWidgetHostView$1;->this$0:Lcom/android/launcher3/home/LauncherAppWidgetHostView;
 
     iget-object v3, p0, Lcom/android/launcher3/home/LauncherAppWidgetHostView$1;->this$0:Lcom/android/launcher3/home/LauncherAppWidgetHostView;
 
-    invoke-static {v3}, Lcom/android/launcher3/home/LauncherAppWidgetHostView;->access$100(Lcom/android/launcher3/home/LauncherAppWidgetHostView;)Z
+    invoke-static {v3}, Lcom/android/launcher3/home/LauncherAppWidgetHostView;->access$200(Lcom/android/launcher3/home/LauncherAppWidgetHostView;)Z
 
     move-result v3
 
     if-nez v3, :cond_3
 
     :goto_2
-    invoke-static {v0, v1}, Lcom/android/launcher3/home/LauncherAppWidgetHostView;->access$202(Lcom/android/launcher3/home/LauncherAppWidgetHostView;Z)Z
+    invoke-static {v0, v1}, Lcom/android/launcher3/home/LauncherAppWidgetHostView;->access$302(Lcom/android/launcher3/home/LauncherAppWidgetHostView;Z)Z
 
     goto :goto_0
 

@@ -32,11 +32,13 @@
 
 # virtual methods
 .method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 1
+    .locals 2
 
     iget-object v0, p0, Lcom/android/launcher3/common/base/view/PagedView$4;->this$0:Lcom/android/launcher3/common/base/view/PagedView;
 
-    invoke-static {v0}, Lcom/android/launcher3/common/base/view/PagedView;->access$400(Lcom/android/launcher3/common/base/view/PagedView;)V
+    const/4 v1, 0x1
+
+    invoke-static {v0, v1}, Lcom/android/launcher3/common/base/view/PagedView;->access$400(Lcom/android/launcher3/common/base/view/PagedView;Z)V
 
     return-void
 .end method

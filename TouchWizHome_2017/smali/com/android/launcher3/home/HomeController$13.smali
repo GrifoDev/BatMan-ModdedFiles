@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/HomeController;->getWidgetForAppWidgetId(I)Lcom/android/launcher3/home/LauncherAppWidgetHostView;
+    value = Lcom/android/launcher3/home/HomeController;->getHomescreenIconByItemId(J)Landroid/view/View;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,16 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/home/HomeController;
 
-.field final synthetic val$appWidgetId:I
+.field final synthetic val$id:J
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/home/HomeController;I)V
+.method constructor <init>(Lcom/android/launcher3/home/HomeController;J)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/home/HomeController$13;->this$0:Lcom/android/launcher3/home/HomeController;
 
-    iput p2, p0, Lcom/android/launcher3/home/HomeController$13;->val$appWidgetId:I
+    iput-wide p2, p0, Lcom/android/launcher3/home/HomeController$13;->val$id:J
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -39,19 +39,17 @@
 
 # virtual methods
 .method public evaluate(Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/view/View;Landroid/view/View;)Z
-    .locals 2
+    .locals 4
 
-    instance-of v0, p1, Lcom/android/launcher3/home/LauncherAppWidgetInfo;
+    if-eqz p1, :cond_0
 
-    if-eqz v0, :cond_0
+    iget-wide v0, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->id:J
 
-    check-cast p1, Lcom/android/launcher3/home/LauncherAppWidgetInfo;
+    iget-wide v2, p0, Lcom/android/launcher3/home/HomeController$13;->val$id:J
 
-    iget v0, p1, Lcom/android/launcher3/home/LauncherAppWidgetInfo;->appWidgetId:I
+    cmp-long v0, v0, v2
 
-    iget v1, p0, Lcom/android/launcher3/home/HomeController$13;->val$appWidgetId:I
-
-    if-ne v0, v1, :cond_0
+    if-nez v0, :cond_0
 
     const/4 v0, 0x1
 

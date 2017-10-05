@@ -9,35 +9,11 @@
 
 # direct methods
 .method constructor <init>(Lcom/android/launcher3/executor/ExecutorState;)V
-    .locals 2
+    .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/launcher3/executor/AbstractStateHandler;-><init>(Lcom/android/launcher3/executor/ExecutorState;)V
 
-    invoke-virtual {p1}, Lcom/android/launcher3/executor/ExecutorState;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v1, "HomeFolderAddIconSearchResult"
-
-    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    const-string v0, "HomeFolderAddIconSearchResult"
-
-    iput-object v0, p0, Lcom/android/launcher3/executor/HomeFolderAddIconSearchViewResultStateHandler;->mNlgTargetState:Ljava/lang/String;
-
-    :goto_0
     return-void
-
-    :cond_0
-    const-string v0, "AppsFolderAddIconSearchResult"
-
-    iput-object v0, p0, Lcom/android/launcher3/executor/HomeFolderAddIconSearchViewResultStateHandler;->mNlgTargetState:Ljava/lang/String;
-
-    goto :goto_0
 .end method
 
 
@@ -61,33 +37,77 @@
 .end method
 
 .method public parseParameters(Lcom/samsung/android/sdk/bixby/data/State;)Ljava/lang/String;
-    .locals 3
+    .locals 6
 
     invoke-virtual {p1}, Lcom/samsung/android/sdk/bixby/data/State;->getParamMap()Ljava/util/Map;
 
-    move-result-object v0
+    move-result-object v1
 
-    const-string v1, "Text"
+    if-eqz v1, :cond_0
 
-    iget-object v2, p0, Lcom/android/launcher3/executor/HomeFolderAddIconSearchViewResultStateHandler;->mNlgTargetState:Ljava/lang/String;
+    invoke-interface {v1}, Ljava/util/Map;->size()I
 
-    invoke-static {p0, v0, v1, v2}, Lcom/android/launcher3/executor/StateParamHelper;->getStringParamValue(Lcom/android/launcher3/executor/AbstractStateHandler;Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-result v2
 
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/launcher3/executor/HomeFolderAddIconSearchViewResultStateHandler;->mSearchText:Ljava/lang/String;
-
-    iget-object v0, p0, Lcom/android/launcher3/executor/HomeFolderAddIconSearchViewResultStateHandler;->mSearchText:Ljava/lang/String;
-
-    if-nez v0, :cond_0
-
-    const-string v0, "PARAM_CHECK_ERROR"
-
-    :goto_0
-    return-object v0
+    if-gez v2, :cond_1
 
     :cond_0
-    const-string v0, "PARAM_CHECK_OK"
+    const-string v2, "PARAM_CHECK_ERROR"
+
+    :goto_0
+    return-object v2
+
+    :cond_1
+    invoke-static {v1}, Lcom/android/launcher3/executor/StateParamHelper;->newHelper(Ljava/util/Map;)Lcom/android/launcher3/executor/StateParamHelper;
+
+    move-result-object v0
+
+    const-string v2, "Text"
+
+    sget-object v3, Lcom/android/launcher3/executor/StateParamHelper$Type;->STRING:Lcom/android/launcher3/executor/StateParamHelper$Type;
+
+    invoke-virtual {v0, v2, v3}, Lcom/android/launcher3/executor/StateParamHelper;->hasSlotValue(Ljava/lang/String;Lcom/android/launcher3/executor/StateParamHelper$Type;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    const-string v2, "Text"
+
+    invoke-virtual {v0, v2}, Lcom/android/launcher3/executor/StateParamHelper;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/android/launcher3/executor/HomeFolderAddIconSearchViewResultStateHandler;->mSearchText:Ljava/lang/String;
+
+    const-string v2, "PARAM_CHECK_OK"
+
+    goto :goto_0
+
+    :cond_2
+    new-instance v2, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+
+    sget-object v3, Lcom/android/launcher3/executor/ExecutorState;->HOME_FOLDER_ADD_ICON_SEARCH_VIEW:Lcom/android/launcher3/executor/ExecutorState;
+
+    invoke-virtual {v3}, Lcom/android/launcher3/executor/ExecutorState;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-direct {v2, v3}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;-><init>(Ljava/lang/String;)V
+
+    const-string v3, "Text"
+
+    const-string v4, "Exist"
+
+    const-string v5, "no"
+
+    invoke-virtual {v2, v3, v4, v5}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+
+    move-result-object v2
+
+    iput-object v2, p0, Lcom/android/launcher3/executor/HomeFolderAddIconSearchViewResultStateHandler;->mNlgRequestInfo:Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+
+    const-string v2, "PARAM_CHECK_ERROR"
 
     goto :goto_0
 .end method

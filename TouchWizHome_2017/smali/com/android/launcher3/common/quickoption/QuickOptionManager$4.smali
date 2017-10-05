@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/common/quickoption/QuickOptionManager;->getOptionSecureFolder(Ljava/lang/String;)Lcom/android/launcher3/common/quickoption/QuickOptionListItem;
+    value = Lcom/android/launcher3/common/quickoption/QuickOptionManager;->getOptionSecureFolder(Lcom/android/launcher3/common/compat/UserHandleCompat;Ljava/lang/String;)Lcom/android/launcher3/common/quickoption/QuickOptionListItem;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

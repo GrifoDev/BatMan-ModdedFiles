@@ -28,112 +28,188 @@
 
 # direct methods
 .method public constructor <init>(Landroid/content/Intent;Landroid/content/Context;J)V
-    .locals 7
+    .locals 11
 
-    const/4 v3, 0x2
+    const-wide/16 v8, -0x1
+
+    const/4 v6, 0x2
 
     invoke-static {}, Lcom/android/launcher3/common/compat/UserHandleCompat;->myUserHandle()Lcom/android/launcher3/common/compat/UserHandleCompat;
 
-    move-result-object v4
+    move-result-object v7
 
-    invoke-direct {p0, v3, v4, p3, p4}, Lcom/android/launcher3/home/ExternalRequestInfo;-><init>(ILcom/android/launcher3/common/compat/UserHandleCompat;J)V
+    invoke-direct {p0, v6, v7, p3, p4}, Lcom/android/launcher3/home/ExternalRequestInfo;-><init>(ILcom/android/launcher3/common/compat/UserHandleCompat;J)V
 
     iput-object p1, p0, Lcom/android/launcher3/home/UninstallShortcutReceiver$PendingUninstallShortcutInfo;->data:Landroid/content/Intent;
 
     iput-object p2, p0, Lcom/android/launcher3/home/UninstallShortcutReceiver$PendingUninstallShortcutInfo;->mContext:Landroid/content/Context;
 
-    const-string v3, "android.intent.extra.shortcut.INTENT"
+    const-string v6, "android.intent.extra.shortcut.INTENT"
 
-    invoke-virtual {p1, v3}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
+    invoke-virtual {p1, v6}, Landroid/content/Intent;->getParcelableExtra(Ljava/lang/String;)Landroid/os/Parcelable;
 
-    move-result-object v3
+    move-result-object v6
 
-    check-cast v3, Landroid/content/Intent;
+    check-cast v6, Landroid/content/Intent;
 
-    iput-object v3, p0, Lcom/android/launcher3/home/UninstallShortcutReceiver$PendingUninstallShortcutInfo;->launchIntent:Landroid/content/Intent;
+    iput-object v6, p0, Lcom/android/launcher3/home/UninstallShortcutReceiver$PendingUninstallShortcutInfo;->launchIntent:Landroid/content/Intent;
 
-    const-string v3, "android.intent.extra.shortcut.NAME"
+    const-string v6, "android.intent.extra.shortcut.NAME"
 
-    invoke-virtual {p1, v3}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p1, v6}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v6
 
-    iput-object v3, p0, Lcom/android/launcher3/home/UninstallShortcutReceiver$PendingUninstallShortcutInfo;->label:Ljava/lang/String;
+    iput-object v6, p0, Lcom/android/launcher3/home/UninstallShortcutReceiver$PendingUninstallShortcutInfo;->label:Ljava/lang/String;
 
-    const-string v3, "duplicate"
+    const-string v6, "duplicate"
 
-    const/4 v4, 0x1
+    const/4 v7, 0x1
 
-    invoke-virtual {p1, v3, v4}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
+    invoke-virtual {p1, v6, v7}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
-    move-result v3
+    move-result v6
 
-    iput-boolean v3, p0, Lcom/android/launcher3/home/UninstallShortcutReceiver$PendingUninstallShortcutInfo;->duplicate:Z
+    iput-boolean v6, p0, Lcom/android/launcher3/home/UninstallShortcutReceiver$PendingUninstallShortcutInfo;->duplicate:Z
 
-    iget-object v3, p0, Lcom/android/launcher3/home/UninstallShortcutReceiver$PendingUninstallShortcutInfo;->launchIntent:Landroid/content/Intent;
+    iget-object v6, p0, Lcom/android/launcher3/home/UninstallShortcutReceiver$PendingUninstallShortcutInfo;->launchIntent:Landroid/content/Intent;
 
-    invoke-static {v3, p1}, Lcom/android/launcher3/home/InstallShortcutReceiver;->convertKnoxLiveIconIntent(Landroid/content/Intent;Landroid/content/Intent;)Z
+    invoke-static {v6, p1}, Lcom/android/launcher3/home/InstallShortcutReceiver;->convertKnoxLiveIconIntent(Landroid/content/Intent;Landroid/content/Intent;)Z
 
-    move-result v3
+    move-result v6
 
-    if-eqz v3, :cond_1
+    if-eqz v6, :cond_2
 
-    iget-object v3, p0, Lcom/android/launcher3/home/UninstallShortcutReceiver$PendingUninstallShortcutInfo;->launchIntent:Landroid/content/Intent;
+    iget-object v6, p0, Lcom/android/launcher3/home/UninstallShortcutReceiver$PendingUninstallShortcutInfo;->launchIntent:Landroid/content/Intent;
 
-    const-string v4, "userid"
+    const-string v7, "userid"
 
-    const/4 v5, -0x1
+    const/4 v8, -0x1
 
-    invoke-virtual {v3, v4, v5}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {v6, v7, v8}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v2
+    move-result v1
 
     invoke-static {p2}, Lcom/android/launcher3/common/compat/UserManagerCompat;->getInstance(Landroid/content/Context;)Lcom/android/launcher3/common/compat/UserManagerCompat;
 
-    move-result-object v3
+    move-result-object v6
 
-    int-to-long v4, v2
+    int-to-long v8, v1
 
-    invoke-virtual {v3, v4, v5}, Lcom/android/launcher3/common/compat/UserManagerCompat;->getUserForSerialNumber(J)Lcom/android/launcher3/common/compat/UserHandleCompat;
+    invoke-virtual {v6, v8, v9}, Lcom/android/launcher3/common/compat/UserManagerCompat;->getUserForSerialNumber(J)Lcom/android/launcher3/common/compat/UserHandleCompat;
 
-    move-result-object v3
+    move-result-object v6
 
-    iput-object v3, p0, Lcom/android/launcher3/home/UninstallShortcutReceiver$PendingUninstallShortcutInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+    iput-object v6, p0, Lcom/android/launcher3/home/UninstallShortcutReceiver$PendingUninstallShortcutInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
     :cond_0
     :goto_0
-    return-void
+    invoke-static {p2}, Lcom/android/launcher3/util/DualAppUtils;->supportDualApp(Landroid/content/Context;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_1
+
+    invoke-static {p1}, Lcom/android/launcher3/common/compat/UserHandleCompat;->fromIntent(Landroid/content/Intent;)Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    iput-object v0, p0, Lcom/android/launcher3/home/UninstallShortcutReceiver$PendingUninstallShortcutInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    const-string v6, "UninstallShortcut"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "EXTRA_USER "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    iget-object v8, p0, Lcom/android/launcher3/home/UninstallShortcutReceiver$PendingUninstallShortcutInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    invoke-virtual {v8}, Lcom/android/launcher3/common/compat/UserHandleCompat;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_1
-    iget-object v3, p0, Lcom/android/launcher3/home/UninstallShortcutReceiver$PendingUninstallShortcutInfo;->launchIntent:Landroid/content/Intent;
+    return-void
 
-    invoke-static {v3}, Lcom/android/launcher3/Utilities;->isLauncherAppTarget(Landroid/content/Intent;)Z
+    :cond_2
+    iget-object v6, p0, Lcom/android/launcher3/home/UninstallShortcutReceiver$PendingUninstallShortcutInfo;->launchIntent:Landroid/content/Intent;
 
-    move-result v3
+    invoke-static {v6}, Lcom/android/launcher3/Utilities;->isLauncherAppTarget(Landroid/content/Intent;)Z
 
-    if-eqz v3, :cond_0
+    move-result v6
+
+    if-eqz v6, :cond_0
 
     invoke-static {p2}, Lcom/android/launcher3/common/compat/UserManagerCompat;->getInstance(Landroid/content/Context;)Lcom/android/launcher3/common/compat/UserManagerCompat;
 
-    move-result-object v3
+    move-result-object v6
 
-    iget-object v4, p0, Lcom/android/launcher3/home/UninstallShortcutReceiver$PendingUninstallShortcutInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+    iget-object v7, p0, Lcom/android/launcher3/home/UninstallShortcutReceiver$PendingUninstallShortcutInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
-    invoke-virtual {v3, v4}, Lcom/android/launcher3/common/compat/UserManagerCompat;->getSerialNumberForUser(Lcom/android/launcher3/common/compat/UserHandleCompat;)J
+    invoke-virtual {v6, v7}, Lcom/android/launcher3/common/compat/UserManagerCompat;->getSerialNumberForUser(Lcom/android/launcher3/common/compat/UserHandleCompat;)J
 
-    move-result-wide v0
+    move-result-wide v4
 
-    iget-object v3, p0, Lcom/android/launcher3/home/UninstallShortcutReceiver$PendingUninstallShortcutInfo;->launchIntent:Landroid/content/Intent;
+    iget-object v6, p0, Lcom/android/launcher3/home/UninstallShortcutReceiver$PendingUninstallShortcutInfo;->launchIntent:Landroid/content/Intent;
 
-    invoke-virtual {v3}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+    invoke-virtual {v6}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
 
-    move-result-object v3
+    move-result-object v6
 
-    invoke-static {v3, v0, v1}, Lcom/android/launcher3/common/base/item/IconInfo;->makeLaunchIntent(Landroid/content/ComponentName;J)Landroid/content/Intent;
+    if-eqz v6, :cond_3
 
-    move-result-object v3
+    iget-object v6, p0, Lcom/android/launcher3/home/UninstallShortcutReceiver$PendingUninstallShortcutInfo;->launchIntent:Landroid/content/Intent;
 
-    iput-object v3, p0, Lcom/android/launcher3/home/UninstallShortcutReceiver$PendingUninstallShortcutInfo;->launchIntent:Landroid/content/Intent;
+    invoke-virtual {v6}, Landroid/content/Intent;->getExtras()Landroid/os/Bundle;
+
+    move-result-object v6
+
+    const-string v7, "profile"
+
+    invoke-virtual {v6, v7, v8, v9}, Landroid/os/Bundle;->getLong(Ljava/lang/String;J)J
+
+    move-result-wide v2
+
+    cmp-long v6, v2, v8
+
+    if-eqz v6, :cond_3
+
+    cmp-long v6, v2, v4
+
+    if-eqz v6, :cond_3
+
+    move-wide v4, v2
+
+    :cond_3
+    iget-object v6, p0, Lcom/android/launcher3/home/UninstallShortcutReceiver$PendingUninstallShortcutInfo;->launchIntent:Landroid/content/Intent;
+
+    invoke-virtual {v6}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v6
+
+    invoke-static {v6, v4, v5}, Lcom/android/launcher3/common/base/item/IconInfo;->makeLaunchIntent(Landroid/content/ComponentName;J)Landroid/content/Intent;
+
+    move-result-object v6
+
+    iput-object v6, p0, Lcom/android/launcher3/home/UninstallShortcutReceiver$PendingUninstallShortcutInfo;->launchIntent:Landroid/content/Intent;
 
     goto :goto_0
 .end method
@@ -230,6 +306,28 @@
     iget-boolean v3, p0, Lcom/android/launcher3/home/UninstallShortcutReceiver$PendingUninstallShortcutInfo;->duplicate:Z
 
     invoke-virtual {v2, v3}, Lorg/json/JSONStringer;->value(Z)Lorg/json/JSONStringer;
+
+    move-result-object v2
+
+    const-string v3, "userHandle"
+
+    invoke-virtual {v2, v3}, Lorg/json/JSONStringer;->key(Ljava/lang/String;)Lorg/json/JSONStringer;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/launcher3/home/UninstallShortcutReceiver$PendingUninstallShortcutInfo;->mContext:Landroid/content/Context;
+
+    invoke-static {v3}, Lcom/android/launcher3/common/compat/UserManagerCompat;->getInstance(Landroid/content/Context;)Lcom/android/launcher3/common/compat/UserManagerCompat;
+
+    move-result-object v3
+
+    iget-object v4, p0, Lcom/android/launcher3/home/UninstallShortcutReceiver$PendingUninstallShortcutInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    invoke-virtual {v3, v4}, Lcom/android/launcher3/common/compat/UserManagerCompat;->getSerialNumberForUser(Lcom/android/launcher3/common/compat/UserHandleCompat;)J
+
+    move-result-wide v4
+
+    invoke-virtual {v2, v4, v5}, Lorg/json/JSONStringer;->value(J)Lorg/json/JSONStringer;
 
     move-result-object v1
 
@@ -330,17 +428,39 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/launcher3/home/UninstallShortcutReceiver$PendingUninstallShortcutInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    if-eqz v0, :cond_1
+
+    iget-object v7, p0, Lcom/android/launcher3/home/UninstallShortcutReceiver$PendingUninstallShortcutInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    :goto_0
+    invoke-static {p1}, Lcom/android/launcher3/util/DualAppUtils;->supportDualApp(Landroid/content/Context;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "com.samsung.android.da.daagent"
+
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
 
     invoke-static {}, Lcom/android/launcher3/common/compat/UserHandleCompat;->myUserHandle()Lcom/android/launcher3/common/compat/UserHandleCompat;
 
     move-result-object v7
 
+    :cond_0
     invoke-static {p1, v8, v7}, Lcom/android/launcher3/LauncherModel;->isValidPackage(Landroid/content/Context;Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;)Z
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_2
 
     const-string v0, "UninstallShortcut"
 
@@ -366,10 +486,17 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :goto_0
+    :goto_1
     return-void
 
-    :cond_0
+    :cond_1
+    invoke-static {}, Lcom/android/launcher3/common/compat/UserHandleCompat;->myUserHandle()Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    move-result-object v7
+
+    goto :goto_0
+
+    :cond_2
     invoke-virtual {v6}, Lcom/android/launcher3/LauncherAppState;->getModel()Lcom/android/launcher3/LauncherModel;
 
     move-result-object v0
@@ -390,5 +517,5 @@
 
     invoke-virtual/range {v0 .. v5}, Lcom/android/launcher3/home/HomeLoader;->removeWorkspaceItem(ZILjava/lang/String;Landroid/content/Intent;Z)V
 
-    goto :goto_0
+    goto :goto_1
 .end method

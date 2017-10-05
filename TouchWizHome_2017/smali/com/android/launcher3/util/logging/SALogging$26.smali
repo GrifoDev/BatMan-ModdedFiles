@@ -49,7 +49,7 @@
 
     iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging$26;->val$statusID:Ljava/lang/String;
 
-    invoke-static {v3, v4}, Lcom/android/launcher3/util/logging/SALogging;->access$1400(Lcom/android/launcher3/util/logging/SALogging;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v3, v4}, Lcom/android/launcher3/util/logging/SALogging;->access$1500(Lcom/android/launcher3/util/logging/SALogging;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -57,13 +57,13 @@
 
     iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging$26;->val$detail:Ljava/lang/String;
 
-    invoke-static {v3, v4}, Lcom/android/launcher3/util/logging/SALogging;->access$1500(Lcom/android/launcher3/util/logging/SALogging;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v3, v4}, Lcom/android/launcher3/util/logging/SALogging;->access$1600(Lcom/android/launcher3/util/logging/SALogging;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     sget-object v3, Lcom/android/launcher3/util/logging/Logging;->sContext:Landroid/content/Context;
 
-    const-string v4, "SASettingPref"
+    const-string v4, "com.sec.android.app.launcher.prefs.sa"
 
     const/4 v5, 0x0
 

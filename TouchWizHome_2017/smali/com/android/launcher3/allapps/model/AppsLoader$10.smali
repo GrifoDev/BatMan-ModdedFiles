@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/allapps/model/AppsLoader;->bindItemsSync(ILcom/android/launcher3/common/model/DataLoader$DataLoaderState;)V
+    value = Lcom/android/launcher3/allapps/model/AppsLoader;->removeAllItems(Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -51,19 +51,13 @@
 
     iget-object v3, p0, Lcom/android/launcher3/allapps/model/AppsLoader$10;->val$task:Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;
 
-    invoke-static {v1, v2, v3}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$1400(Lcom/android/launcher3/allapps/model/AppsLoader;Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
+    invoke-static {v1, v2, v3}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$1200(Lcom/android/launcher3/allapps/model/AppsLoader;Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    iget-object v1, p0, Lcom/android/launcher3/allapps/model/AppsLoader$10;->this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
-
-    invoke-static {v1}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$100(Lcom/android/launcher3/allapps/model/AppsLoader;)I
-
-    move-result v1
-
-    invoke-interface {v0, v1}, Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;->finishBindingItems(I)V
+    invoke-interface {v0}, Lcom/android/launcher3/allapps/model/AppsLoader$AppsCallbacks;->removeAllBindItems()V
 
     :cond_0
     return-void

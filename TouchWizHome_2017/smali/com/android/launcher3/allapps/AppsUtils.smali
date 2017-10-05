@@ -23,7 +23,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f03002c
+    const v2, 0x7f04002f
 
     const/4 v3, 0x0
 
@@ -50,8 +50,10 @@
     return-object v0
 .end method
 
-.method public static createAppIcon(Landroid/app/Activity;Landroid/view/ViewGroup;Lcom/android/launcher3/common/view/IconView;Lcom/android/launcher3/common/base/item/IconInfo;Landroid/view/View$OnClickListener;Landroid/view/View$OnLongClickListener;)Landroid/view/View;
-    .locals 1
+.method public static createAppIcon(Landroid/app/Activity;Landroid/view/ViewGroup;Lcom/android/launcher3/common/view/IconView;Lcom/android/launcher3/common/base/item/IconInfo;Landroid/view/View$OnClickListener;Landroid/view/View$OnLongClickListener;Lcom/android/launcher3/allapps/controller/AppsFocusListener;)Landroid/view/View;
+    .locals 6
+
+    if-eqz p2, :cond_0
 
     const/4 v0, 0x2
 
@@ -63,5 +65,29 @@
 
     invoke-virtual {p2, p5}, Lcom/android/launcher3/common/view/IconView;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
 
+    invoke-virtual {p2, p6}, Lcom/android/launcher3/common/view/IconView;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
+
+    invoke-virtual {p2, p6}, Lcom/android/launcher3/common/view/IconView;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
+
+    :goto_0
     return-object p2
+
+    :cond_0
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move-object v2, p3
+
+    move-object v3, p4
+
+    move-object v4, p5
+
+    move-object v5, p6
+
+    invoke-static/range {v0 .. v5}, Lcom/android/launcher3/allapps/AppsUtils;->createAppIcon(Landroid/app/Activity;Landroid/view/ViewGroup;Lcom/android/launcher3/common/base/item/IconInfo;Landroid/view/View$OnClickListener;Landroid/view/View$OnLongClickListener;Lcom/android/launcher3/allapps/controller/AppsFocusListener;)Landroid/view/View;
+
+    move-result-object p2
+
+    goto :goto_0
 .end method

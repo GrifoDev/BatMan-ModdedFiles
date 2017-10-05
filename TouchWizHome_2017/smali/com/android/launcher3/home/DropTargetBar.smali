@@ -47,7 +47,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090020
+    const v3, 0x7f0a0022
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -57,13 +57,27 @@
 
     move-result-object v0
 
-    iput v1, v0, Landroid/view/ViewGroup$LayoutParams;->height:I
+    check-cast v0, Landroid/widget/FrameLayout$LayoutParams;
+
+    iput v1, v0, Landroid/widget/FrameLayout$LayoutParams;->height:I
+
+    invoke-virtual {p0}, Lcom/android/launcher3/home/DropTargetBar;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f0a00ab
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
+
+    move-result v2
+
+    iput v2, v0, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/DropTargetBar;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     iget-object v2, p0, Lcom/android/launcher3/home/DropTargetBar;->mCancelDropTarget:Lcom/android/launcher3/home/CancelDropTarget;
 
-    invoke-virtual {v2, v1}, Lcom/android/launcher3/home/CancelDropTarget;->updateCircleSize(I)V
+    invoke-virtual {v2, v1}, Lcom/android/launcher3/home/CancelDropTarget;->onConfigurationChangedIfNeeded(I)V
 
     return-void
 .end method
@@ -77,7 +91,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/DropTargetBar;->setVisibility(I)V
 
-    const v0, 0x7f0f005f
+    const v0, 0x7f110068
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/DropTargetBar;->findViewById(I)Landroid/view/View;
 

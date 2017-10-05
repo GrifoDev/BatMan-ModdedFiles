@@ -30,6 +30,8 @@
 
 .field private mLauncherApps:Landroid/content/pm/LauncherApps;
 
+.field private mUm:Landroid/os/UserManager;
+
 
 # direct methods
 .method constructor <init>(Landroid/content/Context;)V
@@ -52,6 +54,16 @@
     check-cast v0, Landroid/content/pm/LauncherApps;
 
     iput-object v0, p0, Lcom/android/launcher3/common/compat/LauncherAppsCompatVL;->mLauncherApps:Landroid/content/pm/LauncherApps;
+
+    const-string v0, "user"
+
+    invoke-virtual {p1, v0}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/os/UserManager;
+
+    iput-object v0, p0, Lcom/android/launcher3/common/compat/LauncherAppsCompatVL;->mUm:Landroid/os/UserManager;
 
     return-void
 .end method
@@ -247,15 +259,33 @@
 .end method
 
 .method public resolveActivity(Landroid/content/Intent;Lcom/android/launcher3/common/compat/UserHandleCompat;)Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;
-    .locals 3
+    .locals 4
 
-    iget-object v1, p0, Lcom/android/launcher3/common/compat/LauncherAppsCompatVL;->mLauncherApps:Landroid/content/pm/LauncherApps;
+    const/4 v1, 0x0
 
-    invoke-virtual {p2}, Lcom/android/launcher3/common/compat/UserHandleCompat;->getUser()Landroid/os/UserHandle;
+    iget-object v2, p0, Lcom/android/launcher3/common/compat/LauncherAppsCompatVL;->mUm:Landroid/os/UserManager;
+
+    invoke-virtual {v2}, Landroid/os/UserManager;->getUserProfiles()Ljava/util/List;
 
     move-result-object v2
 
-    invoke-virtual {v1, p1, v2}, Landroid/content/pm/LauncherApps;->resolveActivity(Landroid/content/Intent;Landroid/os/UserHandle;)Landroid/content/pm/LauncherActivityInfo;
+    invoke-virtual {p2}, Lcom/android/launcher3/common/compat/UserHandleCompat;->getUser()Landroid/os/UserHandle;
+
+    move-result-object v3
+
+    invoke-interface {v2, v3}, Ljava/util/List;->contains(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/launcher3/common/compat/LauncherAppsCompatVL;->mLauncherApps:Landroid/content/pm/LauncherApps;
+
+    invoke-virtual {p2}, Lcom/android/launcher3/common/compat/UserHandleCompat;->getUser()Landroid/os/UserHandle;
+
+    move-result-object v3
+
+    invoke-virtual {v2, p1, v3}, Landroid/content/pm/LauncherApps;->resolveActivity(Landroid/content/Intent;Landroid/os/UserHandle;)Landroid/content/pm/LauncherActivityInfo;
 
     move-result-object v0
 
@@ -265,13 +295,8 @@
 
     invoke-direct {v1, v0}, Lcom/android/launcher3/common/compat/LauncherActivityInfoCompatVL;-><init>(Landroid/content/pm/LauncherActivityInfo;)V
 
-    :goto_0
-    return-object v1
-
     :cond_0
-    const/4 v1, 0x0
-
-    goto :goto_0
+    return-object v1
 .end method
 
 .method public showAppDetailsForProfile(Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;)V

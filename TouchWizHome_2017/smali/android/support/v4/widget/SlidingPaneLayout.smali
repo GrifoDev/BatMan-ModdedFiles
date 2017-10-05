@@ -149,85 +149,81 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
-    .locals 5
+    .locals 4
 
-    const/4 v4, 0x1
+    const/4 v3, 0x1
 
-    const/high16 v3, 0x3f000000    # 0.5f
+    const/high16 v2, 0x3f000000    # 0.5f
 
     invoke-direct {p0, p1, p2, p3}, Landroid/view/ViewGroup;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
-    const v2, -0x33333334
+    const v1, -0x33333334
 
-    iput v2, p0, Landroid/support/v4/widget/SlidingPaneLayout;->mSliderFadeColor:I
+    iput v1, p0, Landroid/support/v4/widget/SlidingPaneLayout;->mSliderFadeColor:I
 
-    iput-boolean v4, p0, Landroid/support/v4/widget/SlidingPaneLayout;->mFirstLayout:Z
+    iput-boolean v3, p0, Landroid/support/v4/widget/SlidingPaneLayout;->mFirstLayout:Z
 
-    new-instance v2, Landroid/graphics/Rect;
+    new-instance v1, Landroid/graphics/Rect;
 
-    invoke-direct {v2}, Landroid/graphics/Rect;-><init>()V
+    invoke-direct {v1}, Landroid/graphics/Rect;-><init>()V
 
-    iput-object v2, p0, Landroid/support/v4/widget/SlidingPaneLayout;->mTmpRect:Landroid/graphics/Rect;
+    iput-object v1, p0, Landroid/support/v4/widget/SlidingPaneLayout;->mTmpRect:Landroid/graphics/Rect;
 
-    new-instance v2, Ljava/util/ArrayList;
+    new-instance v1, Ljava/util/ArrayList;
 
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
 
-    iput-object v2, p0, Landroid/support/v4/widget/SlidingPaneLayout;->mPostedRunnables:Ljava/util/ArrayList;
+    iput-object v1, p0, Landroid/support/v4/widget/SlidingPaneLayout;->mPostedRunnables:Ljava/util/ArrayList;
 
     invoke-virtual {p1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
-
-    move-result-object v2
-
-    iget v0, v2, Landroid/util/DisplayMetrics;->density:F
-
-    const/high16 v2, 0x42000000    # 32.0f
-
-    mul-float/2addr v2, v0
-
-    add-float/2addr v2, v3
-
-    float-to-int v2, v2
-
-    iput v2, p0, Landroid/support/v4/widget/SlidingPaneLayout;->mOverhangSize:I
-
-    invoke-static {p1}, Landroid/view/ViewConfiguration;->get(Landroid/content/Context;)Landroid/view/ViewConfiguration;
+    invoke-virtual {v1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
 
     move-result-object v1
 
-    const/4 v2, 0x0
+    iget v0, v1, Landroid/util/DisplayMetrics;->density:F
 
-    invoke-virtual {p0, v2}, Landroid/support/v4/widget/SlidingPaneLayout;->setWillNotDraw(Z)V
+    const/high16 v1, 0x42000000    # 32.0f
 
-    new-instance v2, Landroid/support/v4/widget/SlidingPaneLayout$AccessibilityDelegate;
+    mul-float/2addr v1, v0
 
-    invoke-direct {v2, p0}, Landroid/support/v4/widget/SlidingPaneLayout$AccessibilityDelegate;-><init>(Landroid/support/v4/widget/SlidingPaneLayout;)V
+    add-float/2addr v1, v2
 
-    invoke-static {p0, v2}, Landroid/support/v4/view/ViewCompat;->setAccessibilityDelegate(Landroid/view/View;Landroid/support/v4/view/AccessibilityDelegateCompat;)V
+    float-to-int v1, v1
 
-    invoke-static {p0, v4}, Landroid/support/v4/view/ViewCompat;->setImportantForAccessibility(Landroid/view/View;I)V
+    iput v1, p0, Landroid/support/v4/widget/SlidingPaneLayout;->mOverhangSize:I
 
-    new-instance v2, Landroid/support/v4/widget/SlidingPaneLayout$DragHelperCallback;
+    const/4 v1, 0x0
 
-    invoke-direct {v2, p0}, Landroid/support/v4/widget/SlidingPaneLayout$DragHelperCallback;-><init>(Landroid/support/v4/widget/SlidingPaneLayout;)V
+    invoke-virtual {p0, v1}, Landroid/support/v4/widget/SlidingPaneLayout;->setWillNotDraw(Z)V
 
-    invoke-static {p0, v3, v2}, Landroid/support/v4/widget/ViewDragHelper;->create(Landroid/view/ViewGroup;FLandroid/support/v4/widget/ViewDragHelper$Callback;)Landroid/support/v4/widget/ViewDragHelper;
+    new-instance v1, Landroid/support/v4/widget/SlidingPaneLayout$AccessibilityDelegate;
 
-    move-result-object v2
+    invoke-direct {v1, p0}, Landroid/support/v4/widget/SlidingPaneLayout$AccessibilityDelegate;-><init>(Landroid/support/v4/widget/SlidingPaneLayout;)V
 
-    iput-object v2, p0, Landroid/support/v4/widget/SlidingPaneLayout;->mDragHelper:Landroid/support/v4/widget/ViewDragHelper;
+    invoke-static {p0, v1}, Landroid/support/v4/view/ViewCompat;->setAccessibilityDelegate(Landroid/view/View;Landroid/support/v4/view/AccessibilityDelegateCompat;)V
 
-    iget-object v2, p0, Landroid/support/v4/widget/SlidingPaneLayout;->mDragHelper:Landroid/support/v4/widget/ViewDragHelper;
+    invoke-static {p0, v3}, Landroid/support/v4/view/ViewCompat;->setImportantForAccessibility(Landroid/view/View;I)V
 
-    const/high16 v3, 0x43c80000    # 400.0f
+    new-instance v1, Landroid/support/v4/widget/SlidingPaneLayout$DragHelperCallback;
 
-    mul-float/2addr v3, v0
+    invoke-direct {v1, p0}, Landroid/support/v4/widget/SlidingPaneLayout$DragHelperCallback;-><init>(Landroid/support/v4/widget/SlidingPaneLayout;)V
 
-    invoke-virtual {v2, v3}, Landroid/support/v4/widget/ViewDragHelper;->setMinVelocity(F)V
+    invoke-static {p0, v2, v1}, Landroid/support/v4/widget/ViewDragHelper;->create(Landroid/view/ViewGroup;FLandroid/support/v4/widget/ViewDragHelper$Callback;)Landroid/support/v4/widget/ViewDragHelper;
+
+    move-result-object v1
+
+    iput-object v1, p0, Landroid/support/v4/widget/SlidingPaneLayout;->mDragHelper:Landroid/support/v4/widget/ViewDragHelper;
+
+    iget-object v1, p0, Landroid/support/v4/widget/SlidingPaneLayout;->mDragHelper:Landroid/support/v4/widget/ViewDragHelper;
+
+    const/high16 v2, 0x43c80000    # 400.0f
+
+    mul-float/2addr v2, v0
+
+    invoke-virtual {v1, v2}, Landroid/support/v4/widget/ViewDragHelper;->setMinVelocity(F)V
 
     return-void
 .end method
@@ -933,200 +929,90 @@
 
     invoke-virtual {p2}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    move-result-object v1
+    move-result-object v0
 
-    check-cast v1, Landroid/support/v4/widget/SlidingPaneLayout$LayoutParams;
+    check-cast v0, Landroid/support/v4/widget/SlidingPaneLayout$LayoutParams;
 
-    const/4 v4, 0x2
+    const/4 v3, 0x2
 
-    invoke-virtual {p1, v4}, Landroid/graphics/Canvas;->save(I)I
+    invoke-virtual {p1, v3}, Landroid/graphics/Canvas;->save(I)I
 
-    move-result v3
+    move-result v2
 
-    iget-boolean v4, p0, Landroid/support/v4/widget/SlidingPaneLayout;->mCanSlide:Z
+    iget-boolean v3, p0, Landroid/support/v4/widget/SlidingPaneLayout;->mCanSlide:Z
 
-    if-eqz v4, :cond_0
+    if-eqz v3, :cond_0
 
-    iget-boolean v4, v1, Landroid/support/v4/widget/SlidingPaneLayout$LayoutParams;->slideable:Z
+    iget-boolean v3, v0, Landroid/support/v4/widget/SlidingPaneLayout$LayoutParams;->slideable:Z
 
-    if-nez v4, :cond_0
+    if-nez v3, :cond_0
 
-    iget-object v4, p0, Landroid/support/v4/widget/SlidingPaneLayout;->mSlideableView:Landroid/view/View;
+    iget-object v3, p0, Landroid/support/v4/widget/SlidingPaneLayout;->mSlideableView:Landroid/view/View;
 
-    if-eqz v4, :cond_0
+    if-eqz v3, :cond_0
 
-    iget-object v4, p0, Landroid/support/v4/widget/SlidingPaneLayout;->mTmpRect:Landroid/graphics/Rect;
+    iget-object v3, p0, Landroid/support/v4/widget/SlidingPaneLayout;->mTmpRect:Landroid/graphics/Rect;
 
-    invoke-virtual {p1, v4}, Landroid/graphics/Canvas;->getClipBounds(Landroid/graphics/Rect;)Z
+    invoke-virtual {p1, v3}, Landroid/graphics/Canvas;->getClipBounds(Landroid/graphics/Rect;)Z
 
     invoke-virtual {p0}, Landroid/support/v4/widget/SlidingPaneLayout;->isLayoutRtlSupport()Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_1
+    if-eqz v3, :cond_1
+
+    iget-object v3, p0, Landroid/support/v4/widget/SlidingPaneLayout;->mTmpRect:Landroid/graphics/Rect;
 
     iget-object v4, p0, Landroid/support/v4/widget/SlidingPaneLayout;->mTmpRect:Landroid/graphics/Rect;
 
-    iget-object v5, p0, Landroid/support/v4/widget/SlidingPaneLayout;->mTmpRect:Landroid/graphics/Rect;
+    iget v4, v4, Landroid/graphics/Rect;->left:I
 
-    iget v5, v5, Landroid/graphics/Rect;->left:I
+    iget-object v5, p0, Landroid/support/v4/widget/SlidingPaneLayout;->mSlideableView:Landroid/view/View;
 
-    iget-object v6, p0, Landroid/support/v4/widget/SlidingPaneLayout;->mSlideableView:Landroid/view/View;
-
-    invoke-virtual {v6}, Landroid/view/View;->getRight()I
-
-    move-result v6
-
-    invoke-static {v5, v6}, Ljava/lang/Math;->max(II)I
+    invoke-virtual {v5}, Landroid/view/View;->getRight()I
 
     move-result v5
 
-    iput v5, v4, Landroid/graphics/Rect;->left:I
+    invoke-static {v4, v5}, Ljava/lang/Math;->max(II)I
+
+    move-result v4
+
+    iput v4, v3, Landroid/graphics/Rect;->left:I
 
     :goto_0
-    iget-object v4, p0, Landroid/support/v4/widget/SlidingPaneLayout;->mTmpRect:Landroid/graphics/Rect;
+    iget-object v3, p0, Landroid/support/v4/widget/SlidingPaneLayout;->mTmpRect:Landroid/graphics/Rect;
 
-    invoke-virtual {p1, v4}, Landroid/graphics/Canvas;->clipRect(Landroid/graphics/Rect;)Z
+    invoke-virtual {p1, v3}, Landroid/graphics/Canvas;->clipRect(Landroid/graphics/Rect;)Z
 
     :cond_0
-    sget v4, Landroid/os/Build$VERSION;->SDK_INT:I
-
-    const/16 v5, 0xb
-
-    if-lt v4, v5, :cond_2
-
     invoke-super {p0, p1, p2, p3, p4}, Landroid/view/ViewGroup;->drawChild(Landroid/graphics/Canvas;Landroid/view/View;J)Z
 
-    move-result v2
+    move-result v1
 
-    :goto_1
-    invoke-virtual {p1, v3}, Landroid/graphics/Canvas;->restoreToCount(I)V
+    invoke-virtual {p1, v2}, Landroid/graphics/Canvas;->restoreToCount(I)V
 
-    return v2
+    return v1
 
     :cond_1
+    iget-object v3, p0, Landroid/support/v4/widget/SlidingPaneLayout;->mTmpRect:Landroid/graphics/Rect;
+
     iget-object v4, p0, Landroid/support/v4/widget/SlidingPaneLayout;->mTmpRect:Landroid/graphics/Rect;
 
-    iget-object v5, p0, Landroid/support/v4/widget/SlidingPaneLayout;->mTmpRect:Landroid/graphics/Rect;
+    iget v4, v4, Landroid/graphics/Rect;->right:I
 
-    iget v5, v5, Landroid/graphics/Rect;->right:I
+    iget-object v5, p0, Landroid/support/v4/widget/SlidingPaneLayout;->mSlideableView:Landroid/view/View;
 
-    iget-object v6, p0, Landroid/support/v4/widget/SlidingPaneLayout;->mSlideableView:Landroid/view/View;
-
-    invoke-virtual {v6}, Landroid/view/View;->getLeft()I
-
-    move-result v6
-
-    invoke-static {v5, v6}, Ljava/lang/Math;->min(II)I
+    invoke-virtual {v5}, Landroid/view/View;->getLeft()I
 
     move-result v5
 
-    iput v5, v4, Landroid/graphics/Rect;->right:I
+    invoke-static {v4, v5}, Ljava/lang/Math;->min(II)I
+
+    move-result v4
+
+    iput v4, v3, Landroid/graphics/Rect;->right:I
 
     goto :goto_0
-
-    :cond_2
-    iget-boolean v4, v1, Landroid/support/v4/widget/SlidingPaneLayout$LayoutParams;->dimWhenOffset:Z
-
-    if-eqz v4, :cond_5
-
-    iget v4, p0, Landroid/support/v4/widget/SlidingPaneLayout;->mSlideOffset:F
-
-    const/4 v5, 0x0
-
-    cmpl-float v4, v4, v5
-
-    if-lez v4, :cond_5
-
-    invoke-virtual {p2}, Landroid/view/View;->isDrawingCacheEnabled()Z
-
-    move-result v4
-
-    if-nez v4, :cond_3
-
-    const/4 v4, 0x1
-
-    invoke-virtual {p2, v4}, Landroid/view/View;->setDrawingCacheEnabled(Z)V
-
-    :cond_3
-    invoke-virtual {p2}, Landroid/view/View;->getDrawingCache()Landroid/graphics/Bitmap;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_4
-
-    invoke-virtual {p2}, Landroid/view/View;->getLeft()I
-
-    move-result v4
-
-    int-to-float v4, v4
-
-    invoke-virtual {p2}, Landroid/view/View;->getTop()I
-
-    move-result v5
-
-    int-to-float v5, v5
-
-    iget-object v6, v1, Landroid/support/v4/widget/SlidingPaneLayout$LayoutParams;->dimPaint:Landroid/graphics/Paint;
-
-    invoke-virtual {p1, v0, v4, v5, v6}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
-
-    const/4 v2, 0x0
-
-    goto :goto_1
-
-    :cond_4
-    const-string v4, "SlidingPaneLayout"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "drawChild: child view "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string v6, " returned null drawing cache"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-super {p0, p1, p2, p3, p4}, Landroid/view/ViewGroup;->drawChild(Landroid/graphics/Canvas;Landroid/view/View;J)Z
-
-    move-result v2
-
-    goto :goto_1
-
-    :cond_5
-    invoke-virtual {p2}, Landroid/view/View;->isDrawingCacheEnabled()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_6
-
-    const/4 v4, 0x0
-
-    invoke-virtual {p2, v4}, Landroid/view/View;->setDrawingCacheEnabled(Z)V
-
-    :cond_6
-    invoke-super {p0, p1, p2, p3, p4}, Landroid/view/ViewGroup;->drawChild(Landroid/graphics/Canvas;Landroid/view/View;J)Z
-
-    move-result v2
-
-    goto :goto_1
 .end method
 
 .method protected generateDefaultLayoutParams()Landroid/view/ViewGroup$LayoutParams;
@@ -2167,7 +2053,7 @@
     :goto_0
     const/16 v16, 0x0
 
-    const/16 v18, -0x1
+    const/16 v18, 0x0
 
     sparse-switch v12, :sswitch_data_0
 

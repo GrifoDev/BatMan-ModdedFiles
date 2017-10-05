@@ -40,7 +40,7 @@
 
 .field private mCancelBtn:Landroid/widget/ImageView;
 
-.field private mContainerView:Landroid/view/ViewGroup;
+.field private mContainerView:Lcom/android/launcher3/allapps/view/AppsSearchContainerView;
 
 .field private final mContext:Landroid/content/Context;
 
@@ -77,9 +77,9 @@
 
     const/4 v6, 0x0
 
-    const v5, 0x7f0d0035
+    const v5, 0x7f0e003f
 
-    const v4, 0x7f0d0027
+    const v4, 0x7f0e002f
 
     const/4 v3, 0x1
 
@@ -103,7 +103,7 @@
 
     aget-object v0, v0, v2
 
-    const v1, 0x7f0d0034
+    const v1, 0x7f0e003e
 
     iput v1, v0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController$Style;->textColorId:I
 
@@ -123,7 +123,7 @@
 
     aget-object v0, v0, v2
 
-    const v1, 0x7f0d0029
+    const v1, 0x7f0e0031
 
     iput v1, v0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController$Style;->dividerColorId:I
 
@@ -151,7 +151,7 @@
 
     aget-object v0, v0, v3
 
-    const v1, 0x7f0d0028
+    const v1, 0x7f0e0030
 
     iput v1, v0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController$Style;->backgroundColorId:I
 
@@ -159,14 +159,14 @@
 
     aget-object v0, v0, v3
 
-    const v1, 0x7f0d002a
+    const v1, 0x7f0e0032
 
     iput v1, v0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController$Style;->dividerColorId:I
 
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;Landroid/view/ViewGroup;Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;Lcom/android/launcher3/allapps/controller/AppsController;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/launcher3/allapps/view/AppsSearchContainerView;Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;Lcom/android/launcher3/allapps/controller/AppsController;)V
     .locals 2
 
     invoke-direct {p0}, Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;-><init>()V
@@ -197,7 +197,7 @@
 
     iput-object v0, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mInputMethodManager:Landroid/view/inputmethod/InputMethodManager;
 
-    iput-object p2, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mContainerView:Landroid/view/ViewGroup;
+    iput-object p2, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mContainerView:Lcom/android/launcher3/allapps/view/AppsSearchContainerView;
 
     iput-object p3, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mAppsRecyclerView:Lcom/android/launcher3/allapps/view/AppsSearchRecyclerView;
 
@@ -222,18 +222,18 @@
     return-object v0
 .end method
 
-.method static synthetic access$300(Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->showPopupMenu()V
-
-    return-void
-.end method
-
-.method static synthetic access$400(Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;)Landroid/widget/SearchView;
+.method static synthetic access$300(Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;)Landroid/widget/SearchView;
     .locals 1
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mSearchBarEditView:Landroid/widget/SearchView;
+
+    return-object v0
+.end method
+
+.method static synthetic access$400(Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;)Lcom/android/launcher3/allapps/view/AppsSearchContainerView;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mContainerView:Lcom/android/launcher3/allapps/view/AppsSearchContainerView;
 
     return-object v0
 .end method
@@ -289,43 +289,43 @@
 
     move-result v5
 
-    const v8, 0x7f0f0103
+    const v8, 0x7f110120
 
     invoke-interface {p1, v8}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v7
 
-    const v8, 0x7f0f0107
+    const v8, 0x7f110124
 
     invoke-interface {p1, v8}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v1
 
-    const v8, 0x7f0f0104
+    const v8, 0x7f110121
 
     invoke-interface {p1, v8}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v6
 
-    const v8, 0x7f0f0108
+    const v8, 0x7f110125
 
     invoke-interface {p1, v8}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v4
 
-    const v8, 0x7f0f0109
+    const v8, 0x7f110126
 
     invoke-interface {p1, v8}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const v8, 0x7f0f0105
+    const v8, 0x7f110122
 
     invoke-interface {p1, v8}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v3
 
-    const v8, 0x7f0f0106
+    const v8, 0x7f110123
 
     invoke-interface {p1, v8}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -387,11 +387,7 @@
     :cond_2
     invoke-interface {v0, v10}, Landroid/view/MenuItem;->setVisible(Z)Landroid/view/MenuItem;
 
-    iget-object v8, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mAppsController:Lcom/android/launcher3/allapps/controller/AppsController;
-
-    invoke-virtual {v8}, Lcom/android/launcher3/allapps/controller/AppsController;->getAppsSearchView()Lcom/android/launcher3/allapps/view/AppsSearchContainerView;
-
-    move-result-object v8
+    iget-object v8, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mContainerView:Lcom/android/launcher3/allapps/view/AppsSearchContainerView;
 
     invoke-virtual {v8}, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->getRecentAppListSize()I
 
@@ -407,77 +403,6 @@
     invoke-interface {v0, v9}, Landroid/view/MenuItem;->setEnabled(Z)Landroid/view/MenuItem;
 
     goto :goto_0
-.end method
-
-.method private showPopupMenu()V
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mPopupMenu:Landroid/widget/PopupMenu;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mPopupMenu:Landroid/widget/PopupMenu;
-
-    invoke-virtual {v0}, Landroid/widget/PopupMenu;->dismiss()V
-
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mPopupMenu:Landroid/widget/PopupMenu;
-
-    :cond_0
-    new-instance v0, Landroid/widget/PopupMenu;
-
-    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mContext:Landroid/content/Context;
-
-    iget-object v2, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mMoreButton:Landroid/widget/ImageButton;
-
-    invoke-direct {v0, v1, v2}, Landroid/widget/PopupMenu;-><init>(Landroid/content/Context;Landroid/view/View;)V
-
-    iput-object v0, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mPopupMenu:Landroid/widget/PopupMenu;
-
-    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mPopupMenu:Landroid/widget/PopupMenu;
-
-    invoke-virtual {v0}, Landroid/widget/PopupMenu;->getMenuInflater()Landroid/view/MenuInflater;
-
-    move-result-object v0
-
-    const/high16 v1, 0x7f110000
-
-    iget-object v2, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mPopupMenu:Landroid/widget/PopupMenu;
-
-    invoke-virtual {v2}, Landroid/widget/PopupMenu;->getMenu()Landroid/view/Menu;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
-
-    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mPopupMenu:Landroid/widget/PopupMenu;
-
-    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mMenuItemClickListener:Landroid/widget/PopupMenu$OnMenuItemClickListener;
-
-    invoke-virtual {v0, v1}, Landroid/widget/PopupMenu;->setOnMenuItemClickListener(Landroid/widget/PopupMenu$OnMenuItemClickListener;)V
-
-    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mPopupMenu:Landroid/widget/PopupMenu;
-
-    invoke-virtual {v0}, Landroid/widget/PopupMenu;->getMenu()Landroid/view/Menu;
-
-    move-result-object v0
-
-    invoke-direct {p0, v0}, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->setupAppsOptionsMenu(Landroid/view/Menu;)Z
-
-    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mPopupMenu:Landroid/widget/PopupMenu;
-
-    new-instance v1, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController$6;
-
-    invoke-direct {v1, p0}, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController$6;-><init>(Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;)V
-
-    invoke-virtual {v0, v1}, Landroid/widget/PopupMenu;->setOnDismissListener(Landroid/widget/PopupMenu$OnDismissListener;)V
-
-    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mPopupMenu:Landroid/widget/PopupMenu;
-
-    invoke-virtual {v0}, Landroid/widget/PopupMenu;->show()V
-
-    return-void
 .end method
 
 .method private showSearchField()V
@@ -639,7 +564,7 @@
 
     const/4 v8, 0x0
 
-    const v1, 0x7f0d0009
+    const v1, 0x7f0e000a
 
     const v9, 0x7f0200f8
 
@@ -753,7 +678,7 @@
 
     const/4 v2, 0x0
 
-    const v6, 0x7f030016
+    const v6, 0x7f040017
 
     invoke-virtual {v3, v6, p1, v9}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -767,7 +692,7 @@
 
     iget-object v6, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mSearchView:Landroid/view/View;
 
-    const v7, 0x7f0f004d
+    const v7, 0x7f110053
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -777,7 +702,7 @@
 
     iget-object v6, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mSearchBarContainerView:Landroid/view/View;
 
-    const v7, 0x7f0f004f
+    const v7, 0x7f110055
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -866,7 +791,7 @@
 
     iget-object v6, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mSearchBarContainerView:Landroid/view/View;
 
-    const v7, 0x7f0f004e
+    const v7, 0x7f110054
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -951,7 +876,7 @@
     :goto_0
     iget-object v6, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mSearchBarContainerView:Landroid/view/View;
 
-    const v7, 0x7f0f00b6
+    const v7, 0x7f1100c2
 
     invoke-virtual {v6, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1153,9 +1078,9 @@
 
     iget-object v5, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mInputMethodManager:Landroid/view/inputmethod/InputMethodManager;
 
-    iget-object v6, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mContainerView:Landroid/view/ViewGroup;
+    iget-object v6, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mContainerView:Lcom/android/launcher3/allapps/view/AppsSearchContainerView;
 
-    invoke-virtual {v6}, Landroid/view/ViewGroup;->getWindowToken()Landroid/os/IBinder;
+    invoke-virtual {v6}, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->getWindowToken()Landroid/os/IBinder;
 
     move-result-object v6
 
@@ -1310,6 +1235,79 @@
     .locals 1
 
     const/4 v0, 0x0
+
+    return v0
+.end method
+
+.method public showPopupMenu()Z
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mPopupMenu:Landroid/widget/PopupMenu;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mPopupMenu:Landroid/widget/PopupMenu;
+
+    invoke-virtual {v0}, Landroid/widget/PopupMenu;->dismiss()V
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mPopupMenu:Landroid/widget/PopupMenu;
+
+    :cond_0
+    new-instance v0, Landroid/widget/PopupMenu;
+
+    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mContext:Landroid/content/Context;
+
+    iget-object v2, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mMoreButton:Landroid/widget/ImageButton;
+
+    invoke-direct {v0, v1, v2}, Landroid/widget/PopupMenu;-><init>(Landroid/content/Context;Landroid/view/View;)V
+
+    iput-object v0, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mPopupMenu:Landroid/widget/PopupMenu;
+
+    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mPopupMenu:Landroid/widget/PopupMenu;
+
+    invoke-virtual {v0}, Landroid/widget/PopupMenu;->getMenuInflater()Landroid/view/MenuInflater;
+
+    move-result-object v0
+
+    const/high16 v1, 0x7f120000
+
+    iget-object v2, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mPopupMenu:Landroid/widget/PopupMenu;
+
+    invoke-virtual {v2}, Landroid/widget/PopupMenu;->getMenu()Landroid/view/Menu;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/view/MenuInflater;->inflate(ILandroid/view/Menu;)V
+
+    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mPopupMenu:Landroid/widget/PopupMenu;
+
+    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mMenuItemClickListener:Landroid/widget/PopupMenu$OnMenuItemClickListener;
+
+    invoke-virtual {v0, v1}, Landroid/widget/PopupMenu;->setOnMenuItemClickListener(Landroid/widget/PopupMenu$OnMenuItemClickListener;)V
+
+    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mPopupMenu:Landroid/widget/PopupMenu;
+
+    invoke-virtual {v0}, Landroid/widget/PopupMenu;->getMenu()Landroid/view/Menu;
+
+    move-result-object v0
+
+    invoke-direct {p0, v0}, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->setupAppsOptionsMenu(Landroid/view/Menu;)Z
+
+    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mPopupMenu:Landroid/widget/PopupMenu;
+
+    new-instance v1, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController$6;
+
+    invoke-direct {v1, p0}, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController$6;-><init>(Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;)V
+
+    invoke-virtual {v0, v1}, Landroid/widget/PopupMenu;->setOnDismissListener(Landroid/widget/PopupMenu$OnDismissListener;)V
+
+    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->mPopupMenu:Landroid/widget/PopupMenu;
+
+    invoke-virtual {v0}, Landroid/widget/PopupMenu;->show()V
+
+    const/4 v0, 0x1
 
     return v0
 .end method

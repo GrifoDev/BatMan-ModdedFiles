@@ -281,6 +281,14 @@
     .end annotation
 .end method
 
+.method public abstract rateWithExtras(Landroid/support/v4/media/RatingCompat;Landroid/os/Bundle;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
 .method public abstract registerCallbackListener(Landroid/support/v4/media/session/IMediaControllerCallback;)V
     .annotation system Ldalvik/annotation/Throws;
         value = {

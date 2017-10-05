@@ -5,6 +5,7 @@
     <Preference android:title="@string/home_screen_screengrid" android:key="pref_screen_grid" />
     <Preference android:title="@string/setting_apps_screen_grid" android:key="pref_apps_screen_grid" />
     <Preference android:title="@string/apps_button_title" android:key="pref_apps_button_setting" android:summary="@string/apps_button_summary" />
+    <SwitchPreference android:title="@string/notification_panel_setting_title" android:key="pref_notification_panel_setting" android:summary="@string/notification_panel_setting_summary" />
     <Preference android:title="@string/badge_manage_title" android:key="badge_manager" android:summary="@string/badge_manage_summary" />
     <Preference android:title="@string/home_screen_settings_hide_apps" android:key="pref_hide_apps" />
     <Preference android:title="@string/widget_button_text" android:key="pref_hide_widgets" />

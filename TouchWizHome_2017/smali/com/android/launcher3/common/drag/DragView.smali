@@ -12,6 +12,8 @@
 
 .field public static final VIEW_SHOW_DURATION:I = 0x96
 
+.field public static final VIEW_ZOOM_DURATION:I = 0x96
+
 .field private static sDragAlpha:F
 
 
@@ -236,7 +238,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0900ce
+    const v2, 0x7f0a0127
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 

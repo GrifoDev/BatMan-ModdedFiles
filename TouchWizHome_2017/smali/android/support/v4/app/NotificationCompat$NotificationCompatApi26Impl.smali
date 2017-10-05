@@ -248,8 +248,15 @@
 
     iget-object v4, v0, Landroid/support/v4/app/NotificationCompat$Builder;->mStyle:Landroid/support/v4/app/NotificationCompat$Style;
 
-    invoke-static {v3, v4}, Landroid/support/v4/app/NotificationCompat;->addStyleToBuilderApi24(Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;Landroid/support/v4/app/NotificationCompat$Style;)V
+    if-eqz v4, :cond_0
 
+    move-object/from16 v0, p1
+
+    iget-object v4, v0, Landroid/support/v4/app/NotificationCompat$Builder;->mStyle:Landroid/support/v4/app/NotificationCompat$Style;
+
+    invoke-virtual {v4, v3}, Landroid/support/v4/app/NotificationCompat$Style;->apply(Landroid/support/v4/app/NotificationBuilderWithBuilderAccessor;)V
+
+    :cond_0
     move-object/from16 v0, p2
 
     move-object/from16 v1, p1
@@ -262,7 +269,7 @@
 
     iget-object v4, v0, Landroid/support/v4/app/NotificationCompat$Builder;->mStyle:Landroid/support/v4/app/NotificationCompat$Style;
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1
 
     move-object/from16 v0, p1
 
@@ -274,6 +281,6 @@
 
     invoke-virtual {v4, v5}, Landroid/support/v4/app/NotificationCompat$Style;->addCompatExtras(Landroid/os/Bundle;)V
 
-    :cond_0
+    :cond_1
     return-object v2
 .end method

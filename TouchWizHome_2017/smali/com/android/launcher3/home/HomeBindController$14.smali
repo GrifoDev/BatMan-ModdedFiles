@@ -1,14 +1,11 @@
 .class Lcom/android/launcher3/home/HomeBindController$14;
-.super Ljava/lang/Object;
+.super Landroid/os/AsyncTask;
 .source "HomeBindController.java"
-
-# interfaces
-.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/HomeBindController;->bindShortcutsChanged(Ljava/util/ArrayList;Ljava/util/ArrayList;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
+    value = Lcom/android/launcher3/home/HomeBindController;->deleteWidgetInfo(Lcom/android/launcher3/home/LauncherAppWidgetInfo;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -16,48 +13,67 @@
     name = null
 .end annotation
 
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Landroid/os/AsyncTask",
+        "<",
+        "Ljava/lang/Void;",
+        "Ljava/lang/Void;",
+        "Ljava/lang/Void;",
+        ">;"
+    }
+.end annotation
+
 
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/home/HomeBindController;
 
-.field final synthetic val$removed:Ljava/util/ArrayList;
+.field final synthetic val$appWidgetHost:Lcom/android/launcher3/home/LauncherAppWidgetHost;
 
-.field final synthetic val$updated:Ljava/util/ArrayList;
-
-.field final synthetic val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+.field final synthetic val$widgetInfo:Lcom/android/launcher3/home/LauncherAppWidgetInfo;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/home/HomeBindController;Ljava/util/ArrayList;Ljava/util/ArrayList;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
+.method constructor <init>(Lcom/android/launcher3/home/HomeBindController;Lcom/android/launcher3/home/LauncherAppWidgetHost;Lcom/android/launcher3/home/LauncherAppWidgetInfo;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/home/HomeBindController$14;->this$0:Lcom/android/launcher3/home/HomeBindController;
 
-    iput-object p2, p0, Lcom/android/launcher3/home/HomeBindController$14;->val$updated:Ljava/util/ArrayList;
+    iput-object p2, p0, Lcom/android/launcher3/home/HomeBindController$14;->val$appWidgetHost:Lcom/android/launcher3/home/LauncherAppWidgetHost;
 
-    iput-object p3, p0, Lcom/android/launcher3/home/HomeBindController$14;->val$removed:Ljava/util/ArrayList;
+    iput-object p3, p0, Lcom/android/launcher3/home/HomeBindController$14;->val$widgetInfo:Lcom/android/launcher3/home/LauncherAppWidgetInfo;
 
-    iput-object p4, p0, Lcom/android/launcher3/home/HomeBindController$14;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
-
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/os/AsyncTask;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public run()V
-    .locals 4
+.method public bridge synthetic doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 1
 
-    iget-object v0, p0, Lcom/android/launcher3/home/HomeBindController$14;->this$0:Lcom/android/launcher3/home/HomeBindController;
+    check-cast p1, [Ljava/lang/Void;
 
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeBindController$14;->val$updated:Ljava/util/ArrayList;
+    invoke-virtual {p0, p1}, Lcom/android/launcher3/home/HomeBindController$14;->doInBackground([Ljava/lang/Void;)Ljava/lang/Void;
 
-    iget-object v2, p0, Lcom/android/launcher3/home/HomeBindController$14;->val$removed:Ljava/util/ArrayList;
+    move-result-object v0
 
-    iget-object v3, p0, Lcom/android/launcher3/home/HomeBindController$14;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+    return-object v0
+.end method
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/launcher3/home/HomeBindController;->bindShortcutsChanged(Ljava/util/ArrayList;Ljava/util/ArrayList;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
+.method public varargs doInBackground([Ljava/lang/Void;)Ljava/lang/Void;
+    .locals 2
 
-    return-void
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeBindController$14;->val$appWidgetHost:Lcom/android/launcher3/home/LauncherAppWidgetHost;
+
+    iget-object v1, p0, Lcom/android/launcher3/home/HomeBindController$14;->val$widgetInfo:Lcom/android/launcher3/home/LauncherAppWidgetInfo;
+
+    iget v1, v1, Lcom/android/launcher3/home/LauncherAppWidgetInfo;->appWidgetId:I
+
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/home/LauncherAppWidgetHost;->deleteAppWidgetId(I)V
+
+    const/4 v0, 0x0
+
+    return-object v0
 .end method

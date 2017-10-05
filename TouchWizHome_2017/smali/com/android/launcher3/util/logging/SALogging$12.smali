@@ -70,7 +70,7 @@
 
     move-object/from16 v19, v0
 
-    invoke-static/range {v19 .. v19}, Lcom/android/launcher3/util/logging/SALogging;->access$300(Lcom/android/launcher3/util/logging/SALogging;)[C
+    invoke-static/range {v19 .. v19}, Lcom/android/launcher3/util/logging/SALogging;->access$400(Lcom/android/launcher3/util/logging/SALogging;)[C
 
     move-result-object v21
 
@@ -121,7 +121,7 @@
 
     move-object/from16 v19, v0
 
-    const v23, 0x7f0801a5
+    const v23, 0x7f0901c2
 
     move-object/from16 v0, v16
 
@@ -153,7 +153,7 @@
 
     move-object/from16 v19, v0
 
-    const v23, 0x7f0801a7
+    const v23, 0x7f0901c4
 
     move-object/from16 v0, v16
 
@@ -195,7 +195,7 @@
 
     move-object/from16 v19, v0
 
-    const v23, 0x7f0801a2
+    const v23, 0x7f0901bf
 
     move-object/from16 v0, v16
 
@@ -205,11 +205,17 @@
 
     move-result-object v23
 
+    invoke-static {v9}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v24
+
     move-object/from16 v0, v19
 
     move-object/from16 v1, v23
 
-    invoke-virtual {v0, v1, v9}, Lcom/android/launcher3/util/logging/SALogging;->insertStatusLog(Ljava/lang/String;I)V
+    move-object/from16 v2, v24
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/launcher3/util/logging/SALogging;->insertStatusLog(Ljava/lang/String;Ljava/lang/String;)V
 
     move-object/from16 v0, p0
 
@@ -217,7 +223,7 @@
 
     move-object/from16 v19, v0
 
-    const v23, 0x7f0801a6
+    const v23, 0x7f0901c3
 
     move-object/from16 v0, v16
 
@@ -293,7 +299,7 @@
 
     move-object/from16 v23, v0
 
-    const v19, 0x7f0801a9
+    const v19, 0x7f0901c6
 
     move-object/from16 v0, v16
 
@@ -328,7 +334,7 @@
 
     move/from16 v1, v23
 
-    invoke-static {v0, v1}, Lcom/android/launcher3/util/logging/SALogging;->access$400(Lcom/android/launcher3/util/logging/SALogging;I)Ljava/lang/String;
+    invoke-static {v0, v1}, Lcom/android/launcher3/util/logging/SALogging;->access$500(Lcom/android/launcher3/util/logging/SALogging;I)Ljava/lang/String;
 
     move-result-object v6
 
@@ -338,7 +344,7 @@
 
     move-object/from16 v19, v0
 
-    const v23, 0x7f0801a4
+    const v23, 0x7f0901c1
 
     move-object/from16 v0, v16
 
@@ -440,7 +446,7 @@
 
     move-object/from16 v19, v0
 
-    const-string v23, "SASettingPref"
+    const-string v23, "com.sec.android.app.launcher.prefs.sa"
 
     const/16 v24, 0x0
 
@@ -464,7 +470,7 @@
 
     move-object/from16 v19, v0
 
-    invoke-static/range {v19 .. v19}, Lcom/android/launcher3/util/logging/SALogging;->access$500(Lcom/android/launcher3/util/logging/SALogging;)Ljava/util/HashMap;
+    invoke-static/range {v19 .. v19}, Lcom/android/launcher3/util/logging/SALogging;->access$600(Lcom/android/launcher3/util/logging/SALogging;)Ljava/util/HashMap;
 
     move-result-object v19
 
@@ -496,7 +502,7 @@
 
     move-object/from16 v19, v0
 
-    invoke-static/range {v19 .. v19}, Lcom/android/launcher3/util/logging/SALogging;->access$500(Lcom/android/launcher3/util/logging/SALogging;)Ljava/util/HashMap;
+    invoke-static/range {v19 .. v19}, Lcom/android/launcher3/util/logging/SALogging;->access$600(Lcom/android/launcher3/util/logging/SALogging;)Ljava/util/HashMap;
 
     move-result-object v19
 
@@ -532,7 +538,7 @@
 
     move-object/from16 v1, v17
 
-    invoke-static {v0, v1, v11}, Lcom/android/launcher3/util/logging/SALogging;->access$600(Lcom/android/launcher3/util/logging/SALogging;Ljava/lang/String;C)Ljava/lang/String;
+    invoke-static {v0, v1, v11}, Lcom/android/launcher3/util/logging/SALogging;->access$700(Lcom/android/launcher3/util/logging/SALogging;Ljava/lang/String;C)Ljava/lang/String;
 
     move-result-object v12
 

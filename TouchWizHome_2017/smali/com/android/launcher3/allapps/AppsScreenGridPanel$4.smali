@@ -35,141 +35,231 @@
 
 # virtual methods
 .method public onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
-    .locals 9
+    .locals 8
 
-    const/16 v8, 0x16
+    const/4 v7, 0x0
 
-    const/16 v7, 0x15
+    invoke-static {p2}, Lcom/android/launcher3/home/HomeFocusLogic;->shouldConsume(I)Z
 
-    const/4 v5, 0x1
+    move-result v2
 
-    const/4 v4, 0x0
-
-    if-eq p2, v7, :cond_0
-
-    if-ne p2, v8, :cond_2
-
-    :cond_0
-    move v1, v5
-
-    :goto_0
     invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I
 
-    move-result v6
+    move-result v5
 
-    if-eq v6, v5, :cond_1
+    const/4 v6, 0x1
 
-    if-nez v1, :cond_3
+    if-eq v5, v6, :cond_0
+
+    if-nez v2, :cond_1
+
+    :cond_0
+    :goto_0
+    return v2
 
     :cond_1
-    :goto_1
-    return v1
+    iget-object v5, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel$4;->this$0:Lcom/android/launcher3/allapps/AppsScreenGridPanel;
+
+    invoke-static {v5}, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->access$400(Lcom/android/launcher3/allapps/AppsScreenGridPanel;)Landroid/widget/LinearLayout;
+
+    move-result-object v5
+
+    if-eqz v5, :cond_0
+
+    iget-object v5, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel$4;->this$0:Lcom/android/launcher3/allapps/AppsScreenGridPanel;
+
+    invoke-static {v5}, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->access$500(Lcom/android/launcher3/allapps/AppsScreenGridPanel;)Landroid/widget/LinearLayout;
+
+    move-result-object v5
+
+    if-eqz v5, :cond_0
+
+    sget-boolean v5, Lcom/android/launcher3/Utilities;->sIsRtl:Z
+
+    if-eqz v5, :cond_2
+
+    const/16 v5, 0x15
+
+    if-ne p2, v5, :cond_3
+
+    const/16 p2, 0x16
 
     :cond_2
-    move v1, v4
+    :goto_1
+    invoke-virtual {p1}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
+
+    move-result-object v5
+
+    iget-object v6, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel$4;->this$0:Lcom/android/launcher3/allapps/AppsScreenGridPanel;
+
+    invoke-static {v6}, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->access$400(Lcom/android/launcher3/allapps/AppsScreenGridPanel;)Landroid/widget/LinearLayout;
+
+    move-result-object v6
+
+    if-ne v5, v6, :cond_4
+
+    iget-object v5, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel$4;->this$0:Lcom/android/launcher3/allapps/AppsScreenGridPanel;
+
+    invoke-static {v5}, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->access$400(Lcom/android/launcher3/allapps/AppsScreenGridPanel;)Landroid/widget/LinearLayout;
+
+    move-result-object v4
+
+    :goto_2
+    invoke-virtual {v4, p1}, Landroid/view/ViewGroup;->indexOfChild(Landroid/view/View;)I
+
+    move-result v3
+
+    invoke-virtual {v4}, Landroid/view/ViewGroup;->getChildCount()I
+
+    move-result v0
+
+    packed-switch p2, :pswitch_data_0
+
+    goto :goto_0
+
+    :pswitch_0
+    iget-object v5, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel$4;->this$0:Lcom/android/launcher3/allapps/AppsScreenGridPanel;
+
+    invoke-static {v5}, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->access$400(Lcom/android/launcher3/allapps/AppsScreenGridPanel;)Landroid/widget/LinearLayout;
+
+    move-result-object v5
+
+    if-ne v5, v4, :cond_0
+
+    iget-object v5, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel$4;->this$0:Lcom/android/launcher3/allapps/AppsScreenGridPanel;
+
+    invoke-static {v5}, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->access$500(Lcom/android/launcher3/allapps/AppsScreenGridPanel;)Landroid/widget/LinearLayout;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v7}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v1}, Landroid/view/View;->isEnabled()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    invoke-virtual {v1}, Landroid/view/View;->requestFocus()Z
+
+    invoke-virtual {v1, v7}, Landroid/view/View;->playSoundEffect(I)V
 
     goto :goto_0
 
     :cond_3
-    const/4 v2, 0x0
+    const/16 v5, 0x16
 
-    iget-object v5, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel$4;->this$0:Lcom/android/launcher3/allapps/AppsScreenGridPanel;
-
-    invoke-static {v5}, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->access$000(Lcom/android/launcher3/allapps/AppsScreenGridPanel;)Lcom/android/launcher3/allapps/controller/AppsController;
-
-    move-result-object v5
-
-    if-eqz v5, :cond_4
-
-    iget-object v5, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel$4;->this$0:Lcom/android/launcher3/allapps/AppsScreenGridPanel;
-
-    invoke-static {v5}, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->access$000(Lcom/android/launcher3/allapps/AppsScreenGridPanel;)Lcom/android/launcher3/allapps/controller/AppsController;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Lcom/android/launcher3/allapps/controller/AppsController;->getAppsScreenGridPanel()Lcom/android/launcher3/allapps/AppsScreenGridPanel;
-
-    move-result-object v5
-
-    if-eqz v5, :cond_4
-
-    iget-object v5, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel$4;->this$0:Lcom/android/launcher3/allapps/AppsScreenGridPanel;
-
-    invoke-static {v5}, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->access$000(Lcom/android/launcher3/allapps/AppsScreenGridPanel;)Lcom/android/launcher3/allapps/controller/AppsController;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Lcom/android/launcher3/allapps/controller/AppsController;->getAppsScreenGridPanel()Lcom/android/launcher3/allapps/AppsScreenGridPanel;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->getGridBtnLayout()Landroid/widget/LinearLayout;
-
-    move-result-object v2
-
-    :cond_4
-    if-eqz v2, :cond_1
-
-    sget-boolean v5, Lcom/android/launcher3/Utilities;->sIsRtl:Z
-
-    if-eqz v5, :cond_5
-
-    if-ne p2, v7, :cond_6
-
-    const/16 p2, 0x16
-
-    :cond_5
-    :goto_2
-    invoke-virtual {v2, p1}, Landroid/widget/LinearLayout;->indexOfChild(Landroid/view/View;)I
-
-    move-result v3
-
-    packed-switch p2, :pswitch_data_0
-
-    goto :goto_1
-
-    :pswitch_0
-    if-eqz v3, :cond_1
-
-    add-int/lit8 v5, v3, -0x1
-
-    invoke-virtual {v2, v5}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_1
-
-    invoke-virtual {v0}, Landroid/view/View;->requestFocus()Z
-
-    invoke-virtual {v0, v4}, Landroid/view/View;->playSoundEffect(I)V
-
-    goto :goto_1
-
-    :cond_6
-    if-ne p2, v8, :cond_5
+    if-ne p2, v5, :cond_2
 
     const/16 p2, 0x15
+
+    goto :goto_1
+
+    :cond_4
+    iget-object v5, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel$4;->this$0:Lcom/android/launcher3/allapps/AppsScreenGridPanel;
+
+    invoke-static {v5}, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->access$500(Lcom/android/launcher3/allapps/AppsScreenGridPanel;)Landroid/widget/LinearLayout;
+
+    move-result-object v4
 
     goto :goto_2
 
     :pswitch_1
+    add-int/lit8 v5, v3, -0x1
+
+    invoke-static {v5, v7}, Ljava/lang/Math;->max(II)I
+
+    move-result v5
+
+    invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v1}, Landroid/view/View;->isEnabled()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    invoke-virtual {v1}, Landroid/view/View;->requestFocus()Z
+
+    invoke-virtual {v1, v7}, Landroid/view/View;->playSoundEffect(I)V
+
+    goto :goto_0
+
+    :pswitch_2
     add-int/lit8 v5, v3, 0x1
 
-    invoke-virtual {v2, v5}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
+    add-int/lit8 v6, v0, -0x1
 
-    move-result-object v0
+    invoke-static {v5, v6}, Ljava/lang/Math;->min(II)I
 
-    if-eqz v0, :cond_1
+    move-result v5
 
-    invoke-virtual {v0}, Landroid/view/View;->requestFocus()Z
+    invoke-virtual {v4, v5}, Landroid/view/ViewGroup;->getChildAt(I)Landroid/view/View;
 
-    invoke-virtual {v0, v4}, Landroid/view/View;->playSoundEffect(I)V
+    move-result-object v1
 
-    goto :goto_1
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v1}, Landroid/view/View;->isEnabled()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    invoke-virtual {v1}, Landroid/view/View;->requestFocus()Z
+
+    invoke-virtual {v1, v7}, Landroid/view/View;->playSoundEffect(I)V
+
+    goto/16 :goto_0
+
+    :pswitch_3
+    iget-object v5, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel$4;->this$0:Lcom/android/launcher3/allapps/AppsScreenGridPanel;
+
+    invoke-static {v5}, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->access$500(Lcom/android/launcher3/allapps/AppsScreenGridPanel;)Landroid/widget/LinearLayout;
+
+    move-result-object v5
+
+    if-ne v5, v4, :cond_0
+
+    iget-object v5, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel$4;->this$0:Lcom/android/launcher3/allapps/AppsScreenGridPanel;
+
+    invoke-static {v5}, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->access$400(Lcom/android/launcher3/allapps/AppsScreenGridPanel;)Landroid/widget/LinearLayout;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v7}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v1}, Landroid/view/View;->isEnabled()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    invoke-virtual {v1}, Landroid/view/View;->requestFocus()Z
+
+    invoke-virtual {v1, v7}, Landroid/view/View;->playSoundEffect(I)V
+
+    goto/16 :goto_0
+
+    nop
 
     :pswitch_data_0
-    .packed-switch 0x15
+    .packed-switch 0x13
         :pswitch_0
+        :pswitch_3
         :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method

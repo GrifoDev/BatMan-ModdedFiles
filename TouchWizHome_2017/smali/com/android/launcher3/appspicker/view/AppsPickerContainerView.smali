@@ -22,9 +22,13 @@
 
 .field private mAppsPickerController:Lcom/android/launcher3/appspicker/controller/AppsPickerController;
 
+.field private mBounceAnimation:Lcom/android/launcher3/util/animation/SearchedAppBounceAnimation;
+
 .field private mContentView:Lcom/android/launcher3/appspicker/view/AppsPickerContentView;
 
 .field private mKeyListener:Lcom/android/launcher3/appspicker/AppsPickerFocusListener;
+
+.field private mLauncher:Lcom/android/launcher3/Launcher;
 
 .field private mPickerMode:I
 
@@ -32,7 +36,7 @@
 
 .field private mSearchBarContainerView:Landroid/view/ViewGroup;
 
-.field private mSearchBarController:Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;
+.field private mSearchBarController:Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;
 
 .field private mSearchListAdapter:Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;
 
@@ -126,6 +130,10 @@
 
     iput-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mQueryKey:Ljava/lang/String;
 
+    check-cast p1, Lcom/android/launcher3/Launcher;
+
+    iput-object p1, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mLauncher:Lcom/android/launcher3/Launcher;
+
     return-void
 .end method
 
@@ -149,6 +157,22 @@
     .locals 1
 
     iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mAppsPickerController:Lcom/android/launcher3/appspicker/controller/AppsPickerController;
+
+    return-object v0
+.end method
+
+.method static synthetic access$300(Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;)Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSearchBarController:Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;
+
+    return-object v0
+.end method
+
+.method static synthetic access$400()Ljava/lang/String;
+    .locals 1
+
+    sget-object v0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->TAG:Ljava/lang/String;
 
     return-object v0
 .end method
@@ -722,7 +746,7 @@
 
     if-eqz p1, :cond_0
 
-    const v1, 0x7f0d0004
+    const v1, 0x7f0e0005
 
     :goto_0
     invoke-virtual {p0}, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->getResources()Landroid/content/res/Resources;
@@ -738,7 +762,7 @@
     return v0
 
     :cond_0
-    const v1, 0x7f0d0005
+    const v1, 0x7f0e0006
 
     goto :goto_0
 .end method
@@ -821,7 +845,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0800ab
+    const v4, 0x7f0900af
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -994,6 +1018,8 @@
 
     invoke-virtual {p0}, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->changeColorAndBackground()V
 
+    invoke-virtual {p0}, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->resetBouncedApp()V
+
     return-void
 .end method
 
@@ -1020,7 +1046,7 @@
 .method public changeColorAndBackground()V
     .locals 14
 
-    const v13, 0x7f090160
+    const v13, 0x7f0a01a2
 
     const/4 v12, 0x0
 
@@ -1090,7 +1116,7 @@
 
     iget-object v10, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSearchBarContainerView:Landroid/view/ViewGroup;
 
-    const v11, 0x7f0f0042
+    const v11, 0x7f110048
 
     invoke-virtual {v10, v11}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -1184,13 +1210,17 @@
 .end method
 
 .method public clearSearchResult()V
-    .locals 2
+    .locals 3
+
+    const/4 v2, 0x0
 
     iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mAppsList:Lcom/android/launcher3/appspicker/AppsPickerAlphabeticalAppsList;
 
     const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/appspicker/AppsPickerAlphabeticalAppsList;->setOrderedFilter(Ljava/util/ArrayList;)V
+
+    invoke-virtual {p0, v2}, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->notifyAppsListChanged(Z)V
 
     iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSearchListAdapter:Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;
 
@@ -1228,9 +1258,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSearchQueryBuilder:Landroid/text/SpannableStringBuilder;
 
-    const/4 v1, 0x0
-
-    invoke-static {v0, v1}, Landroid/text/Selection;->setSelection(Landroid/text/Spannable;I)V
+    invoke-static {v0, v2}, Landroid/text/Selection;->setSelection(Landroid/text/Spannable;I)V
 
     :cond_2
     return-void
@@ -1239,9 +1267,9 @@
 .method public dispatchKeyEvent(Landroid/view/KeyEvent;)Z
     .locals 6
 
-    iget-object v3, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSearchBarController:Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;
+    iget-object v3, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSearchBarController:Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;
 
-    invoke-virtual {v3}, Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;->isSearchFieldFocused()Z
+    invoke-virtual {v3}, Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;->isSearchFieldFocused()Z
 
     move-result v3
 
@@ -1300,9 +1328,9 @@
 
     if-lez v3, :cond_0
 
-    iget-object v3, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSearchBarController:Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;
+    iget-object v3, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSearchBarController:Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;
 
-    invoke-virtual {v3}, Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;->focusSearchField()V
+    invoke-virtual {v3}, Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;->focusSearchField()V
 
     :cond_0
     invoke-super {p0, p1}, Lcom/android/launcher3/common/base/view/BaseContainerView;->dispatchKeyEvent(Landroid/view/KeyEvent;)Z
@@ -1421,6 +1449,25 @@
     return-object v0
 .end method
 
+.method public initBounceAnimation()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mBounceAnimation:Lcom/android/launcher3/util/animation/SearchedAppBounceAnimation;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mBounceAnimation:Lcom/android/launcher3/util/animation/SearchedAppBounceAnimation;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/util/animation/SearchedAppBounceAnimation;->stop()V
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mBounceAnimation:Lcom/android/launcher3/util/animation/SearchedAppBounceAnimation;
+
+    :cond_0
+    return-void
+.end method
+
 .method public isCheckedItem(Lcom/android/launcher3/common/base/item/IconInfo;)Z
     .locals 1
 
@@ -1447,39 +1494,88 @@
     return-object v0
 .end method
 
-.method public notifyAppsListChanged()V
-    .locals 2
+.method public notifyAppsListChanged(Z)V
+    .locals 3
 
-    sget-object v0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->TAG:Ljava/lang/String;
+    sget-object v1, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->TAG:Ljava/lang/String;
 
-    const-string v1, "notifyAppsListChanged()"
+    const-string v2, "notifyAppsListChanged()"
 
-    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mAppsList:Lcom/android/launcher3/appspicker/AppsPickerAlphabeticalAppsList;
+    iget-object v1, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mAppsList:Lcom/android/launcher3/appspicker/AppsPickerAlphabeticalAppsList;
 
-    invoke-virtual {v0}, Lcom/android/launcher3/appspicker/AppsPickerAlphabeticalAppsList;->initAppPositionInfoMap()V
+    invoke-virtual {v1}, Lcom/android/launcher3/appspicker/AppsPickerAlphabeticalAppsList;->resetMap()V
 
-    iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mAllListAdapter:Lcom/android/launcher3/appspicker/AppsPickerListAdapter;
+    iget-object v1, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mAppsList:Lcom/android/launcher3/appspicker/AppsPickerAlphabeticalAppsList;
 
-    if-eqz v0, :cond_0
+    invoke-virtual {v1}, Lcom/android/launcher3/appspicker/AppsPickerAlphabeticalAppsList;->setNumAppsPerRow()V
 
-    iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mAllListAdapter:Lcom/android/launcher3/appspicker/AppsPickerListAdapter;
+    iget-object v1, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mAppsList:Lcom/android/launcher3/appspicker/AppsPickerAlphabeticalAppsList;
 
-    invoke-virtual {v0}, Lcom/android/launcher3/appspicker/AppsPickerListAdapter;->notifyDataSetChanged()V
+    invoke-virtual {v1}, Lcom/android/launcher3/appspicker/AppsPickerAlphabeticalAppsList;->initAppPositionInfoMap()V
+
+    iget-object v1, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mAllListAdapter:Lcom/android/launcher3/appspicker/AppsPickerListAdapter;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mAllListAdapter:Lcom/android/launcher3/appspicker/AppsPickerListAdapter;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/appspicker/AppsPickerListAdapter;->notifyDataSetChanged()V
 
     :cond_0
-    iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSearchListAdapter:Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;
+    iget-object v1, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSearchListAdapter:Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;
 
-    if-eqz v0, :cond_1
+    if-eqz v1, :cond_1
 
-    iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSearchListAdapter:Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;
+    iget-object v1, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSearchListAdapter:Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;
 
-    invoke-virtual {v0}, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->notifyDataSetChanged()V
+    invoke-virtual {v1}, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->notifyDataSetChanged()V
 
     :cond_1
+    invoke-virtual {p0}, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->setScrollIndexer()V
+
+    if-eqz p1, :cond_4
+
+    iget-object v1, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/Launcher;->isPaused()Z
+
+    move-result v1
+
+    const/4 v2, 0x1
+
+    if-ne v1, v2, :cond_3
+
+    iget-object v1, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSearchListAdapter:Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;
+
+    if-eqz v1, :cond_2
+
+    iget-object v1, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSearchListAdapter:Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->getSearchText()Ljava/lang/String;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSearchBarController:Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;
+
+    invoke-virtual {v1, v0}, Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;->onQueryTextChange(Ljava/lang/String;)Z
+
+    :cond_2
+    iget-object v1, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSelectedItems:Ljava/util/ArrayList;
+
+    invoke-virtual {v1}, Ljava/util/ArrayList;->clear()V
+
+    iget-object v1, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mAddButtonContainer:Landroid/view/View;
+
+    const/4 v2, 0x4
+
+    invoke-virtual {v1, v2}, Landroid/view/View;->setVisibility(I)V
+
+    :cond_3
     invoke-direct {p0}, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->checkHiddenItem()V
 
+    :cond_4
     invoke-direct {p0}, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->setSelectionCount()V
 
     return-void
@@ -1502,7 +1598,7 @@
 
     invoke-direct {v0, p0}, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView$1;-><init>(Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;)V
 
-    const v1, 0x7f0f0035
+    const v1, 0x7f11003b
 
     invoke-virtual {p0, v1}, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->findViewById(I)Landroid/view/View;
 
@@ -1516,7 +1612,7 @@
 
     invoke-virtual {v1, v0}, Landroid/view/ViewGroup;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
-    const v1, 0x7f0f0032
+    const v1, 0x7f110038
 
     invoke-virtual {p0, v1}, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->findViewById(I)Landroid/view/View;
 
@@ -1526,7 +1622,7 @@
 
     iput-object v1, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSelectionText:Landroid/widget/TextView;
 
-    const v1, 0x7f0f0033
+    const v1, 0x7f110039
 
     invoke-virtual {p0, v1}, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->findViewById(I)Landroid/view/View;
 
@@ -1552,12 +1648,12 @@
 
     iget-object v1, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mAddButtonContainer:Landroid/view/View;
 
-    const v2, 0x7f0200d5
+    const v2, 0x7f0200d8
 
     invoke-virtual {v1, v2}, Landroid/view/View;->setBackgroundResource(I)V
 
     :cond_0
-    const v1, 0x7f0f0034
+    const v1, 0x7f11003a
 
     invoke-virtual {p0, v1}, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->findViewById(I)Landroid/view/View;
 
@@ -1575,7 +1671,7 @@
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v1, 0x7f0f0036
+    const v1, 0x7f11003c
 
     invoke-virtual {p0, v1}, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->findViewById(I)Landroid/view/View;
 
@@ -1712,10 +1808,47 @@
 .method public onVoiceSearch(Ljava/lang/String;)V
     .locals 1
 
-    iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSearchBarController:Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;
+    iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSearchBarController:Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;
 
-    invoke-virtual {v0, p1}, Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;->onVoiceSearch(Ljava/lang/String;)V
+    invoke-virtual {v0, p1}, Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;->onVoiceSearch(Ljava/lang/String;)V
 
+    return-void
+.end method
+
+.method public onWindowFocusChanged(Z)V
+    .locals 3
+
+    invoke-super {p0, p1}, Lcom/android/launcher3/common/base/view/BaseContainerView;->onWindowFocusChanged(Z)V
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/Launcher;->getStageManager()Lcom/android/launcher3/common/stage/StageManager;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/launcher3/common/stage/StageManager;->getTopStage()Lcom/android/launcher3/common/stage/Stage;
+
+    move-result-object v0
+
+    instance-of v1, v0, Lcom/android/launcher3/appspicker/controller/AppsPickerController;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSearchBarContainerView:Landroid/view/ViewGroup;
+
+    new-instance v2, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView$3;
+
+    invoke-direct {v2, p0}, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView$3;-><init>(Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;)V
+
+    invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->post(Ljava/lang/Runnable;)Z
+
+    :cond_0
     return-void
 .end method
 
@@ -1726,9 +1859,9 @@
 
     const/4 v1, 0x0
 
-    iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSearchBarController:Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;
+    iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSearchBarController:Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;
 
-    invoke-virtual {v0}, Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;->reset()V
+    invoke-virtual {v0}, Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;->reset()V
 
     iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSearchBarContainerView:Landroid/view/ViewGroup;
 
@@ -1765,6 +1898,21 @@
     return-void
 .end method
 
+.method public resetBouncedApp()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mAllListAdapter:Lcom/android/launcher3/appspicker/AppsPickerListAdapter;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mAllListAdapter:Lcom/android/launcher3/appspicker/AppsPickerListAdapter;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/appspicker/AppsPickerListAdapter;->resetBouncedAppInfo()V
+
+    :cond_0
+    return-void
+.end method
+
 .method public setAppsPickerViewTop(Z)V
     .locals 1
 
@@ -1775,6 +1923,21 @@
     iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mContentView:Lcom/android/launcher3/appspicker/view/AppsPickerContentView;
 
     invoke-virtual {v0, p1}, Lcom/android/launcher3/appspicker/view/AppsPickerContentView;->setAppsPickerViewTop(Z)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public setBouncedApp(Landroid/content/ComponentName;Landroid/os/UserHandle;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mAllListAdapter:Lcom/android/launcher3/appspicker/AppsPickerListAdapter;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mAllListAdapter:Lcom/android/launcher3/appspicker/AppsPickerListAdapter;
+
+    invoke-virtual {v0, p1, p2}, Lcom/android/launcher3/appspicker/AppsPickerListAdapter;->setBouncedApp(Landroid/content/ComponentName;Landroid/os/UserHandle;)V
 
     :cond_0
     return-void
@@ -1796,7 +1959,7 @@
 .end method
 
 .method public setPickerMode(I)V
-    .locals 2
+    .locals 4
 
     const/4 v0, 0x1
 
@@ -1804,11 +1967,53 @@
 
     iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mAddButtonText:Landroid/widget/TextView;
 
-    const v1, 0x7f080041
+    const v1, 0x7f090048
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
     :goto_0
+    iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mAddButtonText:Landroid/widget/TextView;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v2, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mAddButtonText:Landroid/widget/TextView;
+
+    invoke-virtual {v2}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, " "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f09002e
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setContentDescription(Ljava/lang/CharSequence;)V
+
     iput p1, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mPickerMode:I
 
     return-void
@@ -1816,7 +2021,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mAddButtonText:Landroid/widget/TextView;
 
-    const v1, 0x7f080014
+    const v1, 0x7f09001d
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -1929,7 +2134,7 @@
 .method public setSearchBarController(Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;)V
     .locals 3
 
-    iget-object v1, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSearchBarController:Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;
+    iget-object v1, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSearchBarController:Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;
 
     if-eqz v1, :cond_0
 
@@ -1942,13 +2147,17 @@
     throw v1
 
     :cond_0
-    iput-object p1, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSearchBarController:Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;
+    move-object v1, p1
 
-    iget-object v1, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSearchBarController:Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;
+    check-cast v1, Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;
+
+    iput-object v1, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSearchBarController:Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;
+
+    iget-object v1, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSearchBarController:Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;
 
     iget-object v2, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mAppsList:Lcom/android/launcher3/appspicker/AppsPickerAlphabeticalAppsList;
 
-    invoke-virtual {v1, v2, p0}, Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;->initialize(Lcom/android/launcher3/allapps/AlphabeticalAppsList;Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController$Callbacks;)V
+    invoke-virtual {v1, v2, p0}, Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;->initialize(Lcom/android/launcher3/allapps/AlphabeticalAppsList;Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController$Callbacks;)V
 
     iget-object v1, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSearchBarContainerView:Landroid/view/ViewGroup;
 
@@ -1974,9 +2183,9 @@
 .method public setSearchText(Ljava/lang/String;)V
     .locals 2
 
-    iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSearchBarController:Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;
+    iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSearchBarController:Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;
 
-    invoke-virtual {v0}, Lcom/android/launcher3/allapps/controller/AllAppsSearchBarController;->getSearchBarEditView()Landroid/widget/SearchView;
+    invoke-virtual {v0}, Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;->getSearchBarEditView()Landroid/widget/SearchView;
 
     move-result-object v0
 
@@ -1985,4 +2194,70 @@
     invoke-virtual {v0, p1, v1}, Landroid/widget/SearchView;->setQuery(Ljava/lang/CharSequence;Z)V
 
     return-void
+.end method
+
+.method public setSelection(I)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mContentView:Lcom/android/launcher3/appspicker/view/AppsPickerContentView;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mContentView:Lcom/android/launcher3/appspicker/view/AppsPickerContentView;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/appspicker/view/AppsPickerContentView;->getListViewForAllApps()Landroid/widget/ListView;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mContentView:Lcom/android/launcher3/appspicker/view/AppsPickerContentView;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/appspicker/view/AppsPickerContentView;->getListViewForAllApps()Landroid/widget/ListView;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p1}, Landroid/widget/ListView;->setSelection(I)V
+
+    :cond_0
+    return-void
+.end method
+
+.method public startBounceAnimation()V
+    .locals 2
+
+    iget-object v1, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mAllListAdapter:Lcom/android/launcher3/appspicker/AppsPickerListAdapter;
+
+    if-eqz v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mAllListAdapter:Lcom/android/launcher3/appspicker/AppsPickerListAdapter;
+
+    iget-object v0, v1, Lcom/android/launcher3/appspicker/AppsPickerListAdapter;->mBouncedHiddenAppView:Landroid/view/View;
+
+    :goto_0
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->initBounceAnimation()V
+
+    new-instance v1, Lcom/android/launcher3/util/animation/SearchedAppBounceAnimation;
+
+    invoke-direct {v1, v0}, Lcom/android/launcher3/util/animation/SearchedAppBounceAnimation;-><init>(Landroid/view/View;)V
+
+    iput-object v1, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mBounceAnimation:Lcom/android/launcher3/util/animation/SearchedAppBounceAnimation;
+
+    iget-object v1, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mBounceAnimation:Lcom/android/launcher3/util/animation/SearchedAppBounceAnimation;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mBounceAnimation:Lcom/android/launcher3/util/animation/SearchedAppBounceAnimation;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/util/animation/SearchedAppBounceAnimation;->animate()V
+
+    :cond_0
+    return-void
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method

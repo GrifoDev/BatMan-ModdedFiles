@@ -102,28 +102,6 @@
 
     invoke-virtual {v3, v2}, Lcom/android/launcher3/proxy/LauncherProxy;->uninstallWidget(Lcom/android/launcher3/common/base/item/ItemInfo;)I
 
-    new-instance v2, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
-
-    sget-object v3, Lcom/android/launcher3/executor/ExecutorState;->HOME_PAGE_WIDGET_UNINSALL_POPUP:Lcom/android/launcher3/executor/ExecutorState;
-
-    invoke-virtual {v3}, Lcom/android/launcher3/executor/ExecutorState;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-direct {v2, v3}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;-><init>(Ljava/lang/String;)V
-
-    const-string v3, "Widget"
-
-    const-string v4, "Match"
-
-    const-string v5, "yes"
-
-    invoke-virtual {v2, v3, v4, v5}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
-
-    move-result-object v2
-
-    iput-object v2, p0, Lcom/android/launcher3/executor/HomePageWidgetUninstallPopupStateHandler;->mNlgRequestInfo:Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
-
     goto :goto_0
 .end method
 

@@ -20,16 +20,32 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/home/WorkspaceDragController;
 
-.field final synthetic val$screenId:J
+.field final synthetic val$animationStyle:I
+
+.field final synthetic val$dragView:Lcom/android/launcher3/common/drag/DragView;
+
+.field final synthetic val$finalView:Landroid/view/View;
+
+.field final synthetic val$info:Lcom/android/launcher3/common/base/item/PendingAddItemInfo;
+
+.field final synthetic val$onAnimationCompleteRunnable:Ljava/lang/Runnable;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/home/WorkspaceDragController;J)V
+.method constructor <init>(Lcom/android/launcher3/home/WorkspaceDragController;Lcom/android/launcher3/common/base/item/PendingAddItemInfo;Lcom/android/launcher3/common/drag/DragView;Ljava/lang/Runnable;ILandroid/view/View;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/home/WorkspaceDragController$5;->this$0:Lcom/android/launcher3/home/WorkspaceDragController;
 
-    iput-wide p2, p0, Lcom/android/launcher3/home/WorkspaceDragController$5;->val$screenId:J
+    iput-object p2, p0, Lcom/android/launcher3/home/WorkspaceDragController$5;->val$info:Lcom/android/launcher3/common/base/item/PendingAddItemInfo;
+
+    iput-object p3, p0, Lcom/android/launcher3/home/WorkspaceDragController$5;->val$dragView:Lcom/android/launcher3/common/drag/DragView;
+
+    iput-object p4, p0, Lcom/android/launcher3/home/WorkspaceDragController$5;->val$onAnimationCompleteRunnable:Ljava/lang/Runnable;
+
+    iput p5, p0, Lcom/android/launcher3/home/WorkspaceDragController$5;->val$animationStyle:I
+
+    iput-object p6, p0, Lcom/android/launcher3/home/WorkspaceDragController$5;->val$finalView:Landroid/view/View;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -39,36 +55,29 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
+    .locals 8
 
-    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceDragController$5;->this$0:Lcom/android/launcher3/home/WorkspaceDragController;
+    iget-object v0, p0, Lcom/android/launcher3/home/WorkspaceDragController$5;->this$0:Lcom/android/launcher3/home/WorkspaceDragController;
 
-    invoke-static {v1}, Lcom/android/launcher3/home/WorkspaceDragController;->access$300(Lcom/android/launcher3/home/WorkspaceDragController;)Lcom/android/launcher3/home/Workspace;
+    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceDragController$5;->val$info:Lcom/android/launcher3/common/base/item/PendingAddItemInfo;
 
-    move-result-object v1
+    iget-object v2, p0, Lcom/android/launcher3/home/WorkspaceDragController$5;->this$0:Lcom/android/launcher3/home/WorkspaceDragController;
 
-    if-eqz v1, :cond_0
+    invoke-static {v2}, Lcom/android/launcher3/home/WorkspaceDragController;->access$100(Lcom/android/launcher3/home/WorkspaceDragController;)Lcom/android/launcher3/common/base/view/CellLayout;
 
-    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceDragController$5;->this$0:Lcom/android/launcher3/home/WorkspaceDragController;
+    move-result-object v2
 
-    invoke-static {v1}, Lcom/android/launcher3/home/WorkspaceDragController;->access$300(Lcom/android/launcher3/home/WorkspaceDragController;)Lcom/android/launcher3/home/Workspace;
+    iget-object v3, p0, Lcom/android/launcher3/home/WorkspaceDragController$5;->val$dragView:Lcom/android/launcher3/common/drag/DragView;
 
-    move-result-object v1
+    iget-object v4, p0, Lcom/android/launcher3/home/WorkspaceDragController$5;->val$onAnimationCompleteRunnable:Ljava/lang/Runnable;
 
-    iget-wide v2, p0, Lcom/android/launcher3/home/WorkspaceDragController$5;->val$screenId:J
+    iget v5, p0, Lcom/android/launcher3/home/WorkspaceDragController$5;->val$animationStyle:I
 
-    invoke-virtual {v1, v2, v3}, Lcom/android/launcher3/home/Workspace;->getPageIndexForScreenId(J)I
+    iget-object v6, p0, Lcom/android/launcher3/home/WorkspaceDragController$5;->val$finalView:Landroid/view/View;
 
-    move-result v0
+    const/4 v7, 0x1
 
-    iget-object v1, p0, Lcom/android/launcher3/home/WorkspaceDragController$5;->this$0:Lcom/android/launcher3/home/WorkspaceDragController;
+    invoke-virtual/range {v0 .. v7}, Lcom/android/launcher3/home/WorkspaceDragController;->animateWidgetDrop(Lcom/android/launcher3/common/base/item/ItemInfo;Lcom/android/launcher3/common/base/view/CellLayout;Lcom/android/launcher3/common/drag/DragView;Ljava/lang/Runnable;ILandroid/view/View;Z)V
 
-    invoke-static {v1}, Lcom/android/launcher3/home/WorkspaceDragController;->access$300(Lcom/android/launcher3/home/WorkspaceDragController;)Lcom/android/launcher3/home/Workspace;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v0}, Lcom/android/launcher3/home/Workspace;->snapToPage(I)V
-
-    :cond_0
     return-void
 .end method

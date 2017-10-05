@@ -60,6 +60,8 @@
 
 .field public static final TAG_ZEROPAGE:Ljava/lang/String; = "zeroPage"
 
+.field public static final TAG_ZEROPAGE_CONTENTS:Ljava/lang/String; = "zeroPageContents"
+
 
 # direct methods
 .method public constructor <init>()V

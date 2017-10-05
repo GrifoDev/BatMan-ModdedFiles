@@ -15,7 +15,7 @@
 
 # virtual methods
 .method public execute(Lcom/android/launcher3/executor/StateExecutionCallback;)V
-    .locals 3
+    .locals 5
 
     const/4 v0, 0x0
 
@@ -32,6 +32,16 @@
     const-string v2, "HomeSettingsBadgeAllAppsDisable"
 
     invoke-direct {v1, v2}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;-><init>(Ljava/lang/String;)V
+
+    const-string v2, "AllappsBadge"
+
+    const-string v3, "AlreadyOFF"
+
+    const-string v4, "no"
+
+    invoke-virtual {v1, v2, v3, v4}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+
+    move-result-object v1
 
     iput-object v1, p0, Lcom/android/launcher3/executor/HomeSettingsBadgeAllAppsDisableStateHandler;->mNlgRequestInfo:Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
 

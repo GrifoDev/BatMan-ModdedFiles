@@ -1,4 +1,4 @@
-.class Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo$Attribute;
+.class public Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo$Attribute;
 .super Ljava/lang/Object;
 .source "NlgRequestInfo.java"
 
@@ -9,7 +9,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0xa
+    accessFlags = 0x9
     name = "Attribute"
 .end annotation
 

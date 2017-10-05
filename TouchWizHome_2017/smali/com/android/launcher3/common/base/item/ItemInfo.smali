@@ -26,6 +26,8 @@
 
 .field public id:J
 
+.field public ignoreCheckItemInfo:Z
+
 .field isGameApp:Z
 
 .field public itemType:I
@@ -45,6 +47,8 @@
 .field public minSpanX:I
 
 .field public minSpanY:I
+
+.field public oldScreenId:J
 
 .field public rank:I
 
@@ -83,6 +87,8 @@
 
     iput-wide v2, p0, Lcom/android/launcher3/common/base/item/ItemInfo;->screenId:J
 
+    iput-wide v2, p0, Lcom/android/launcher3/common/base/item/ItemInfo;->oldScreenId:J
+
     iput v4, p0, Lcom/android/launcher3/common/base/item/ItemInfo;->cellX:I
 
     iput v4, p0, Lcom/android/launcher3/common/base/item/ItemInfo;->cellY:I
@@ -106,6 +112,8 @@
     iput-object v5, p0, Lcom/android/launcher3/common/base/item/ItemInfo;->componentName:Landroid/content/ComponentName;
 
     iput-boolean v0, p0, Lcom/android/launcher3/common/base/item/ItemInfo;->mChecked:Z
+
+    iput-boolean v0, p0, Lcom/android/launcher3/common/base/item/ItemInfo;->ignoreCheckItemInfo:Z
 
     iput-wide v2, p0, Lcom/android/launcher3/common/base/item/ItemInfo;->mDexID:J
 
@@ -143,6 +151,8 @@
 
     iput-wide v2, p0, Lcom/android/launcher3/common/base/item/ItemInfo;->screenId:J
 
+    iput-wide v2, p0, Lcom/android/launcher3/common/base/item/ItemInfo;->oldScreenId:J
+
     iput v4, p0, Lcom/android/launcher3/common/base/item/ItemInfo;->cellX:I
 
     iput v4, p0, Lcom/android/launcher3/common/base/item/ItemInfo;->cellY:I
@@ -166,6 +176,8 @@
     iput-object v5, p0, Lcom/android/launcher3/common/base/item/ItemInfo;->componentName:Landroid/content/ComponentName;
 
     iput-boolean v0, p0, Lcom/android/launcher3/common/base/item/ItemInfo;->mChecked:Z
+
+    iput-boolean v0, p0, Lcom/android/launcher3/common/base/item/ItemInfo;->ignoreCheckItemInfo:Z
 
     iput-wide v2, p0, Lcom/android/launcher3/common/base/item/ItemInfo;->mDexID:J
 
@@ -399,6 +411,12 @@
     iget v2, p0, Lcom/android/launcher3/common/base/item/ItemInfo;->itemType:I
 
     const/4 v3, 0x2
+
+    if-eq v2, v3, :cond_2
+
+    iget v2, p0, Lcom/android/launcher3/common/base/item/ItemInfo;->itemType:I
+
+    const/4 v3, 0x6
 
     if-ne v2, v3, :cond_0
 

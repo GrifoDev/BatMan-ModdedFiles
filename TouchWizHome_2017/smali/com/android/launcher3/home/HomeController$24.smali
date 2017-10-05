@@ -3,12 +3,12 @@
 .source "HomeController.java"
 
 # interfaces
-.implements Lcom/android/launcher3/common/base/item/ItemOperator;
+.implements Landroid/animation/Animator$AnimatorListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/HomeController;->updateRestoreItems(Ljava/util/HashSet;)V
+    value = Lcom/android/launcher3/home/HomeController;->removeItemsByComponentName(Ljava/util/HashSet;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,16 +20,20 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/home/HomeController;
 
-.field final synthetic val$updates:Ljava/util/HashSet;
+.field final synthetic val$child:Landroid/view/View;
+
+.field final synthetic val$item:Lcom/android/launcher3/common/base/item/ItemInfo;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/home/HomeController;Ljava/util/HashSet;)V
+.method constructor <init>(Lcom/android/launcher3/home/HomeController;Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/view/View;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/home/HomeController$24;->this$0:Lcom/android/launcher3/home/HomeController;
 
-    iput-object p2, p0, Lcom/android/launcher3/home/HomeController$24;->val$updates:Ljava/util/HashSet;
+    iput-object p2, p0, Lcom/android/launcher3/home/HomeController$24;->val$item:Lcom/android/launcher3/common/base/item/ItemInfo;
+
+    iput-object p3, p0, Lcom/android/launcher3/home/HomeController$24;->val$child:Landroid/view/View;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -38,55 +42,34 @@
 
 
 # virtual methods
-.method public evaluate(Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/view/View;Landroid/view/View;)Z
-    .locals 2
+.method public onAnimationCancel(Landroid/animation/Animator;)V
+    .locals 0
 
-    const/4 v1, 0x0
+    return-void
+.end method
 
-    instance-of v0, p1, Lcom/android/launcher3/common/base/item/IconInfo;
+.method public onAnimationEnd(Landroid/animation/Animator;)V
+    .locals 3
 
-    if-eqz v0, :cond_1
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeController$24;->this$0:Lcom/android/launcher3/home/HomeController;
 
-    instance-of v0, p2, Lcom/android/launcher3/common/view/IconView;
+    iget-object v1, p0, Lcom/android/launcher3/home/HomeController$24;->val$item:Lcom/android/launcher3/common/base/item/ItemInfo;
 
-    if-eqz v0, :cond_1
+    iget-object v2, p0, Lcom/android/launcher3/home/HomeController$24;->val$child:Landroid/view/View;
 
-    iget-object v0, p0, Lcom/android/launcher3/home/HomeController$24;->val$updates:Ljava/util/HashSet;
+    invoke-virtual {v0, v1, v2}, Lcom/android/launcher3/home/HomeController;->removeHomeOrFolderItem(Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/view/View;)Z
 
-    invoke-virtual {v0, p1}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
+    return-void
+.end method
 
-    move-result v0
+.method public onAnimationRepeat(Landroid/animation/Animator;)V
+    .locals 0
 
-    if-eqz v0, :cond_1
+    return-void
+.end method
 
-    check-cast p2, Lcom/android/launcher3/common/view/IconView;
+.method public onAnimationStart(Landroid/animation/Animator;)V
+    .locals 0
 
-    invoke-virtual {p2, v1}, Lcom/android/launcher3/common/view/IconView;->applyState(Z)V
-
-    :cond_0
-    :goto_0
-    return v1
-
-    :cond_1
-    instance-of v0, p2, Lcom/android/launcher3/home/PendingAppWidgetHostView;
-
-    if-eqz v0, :cond_0
-
-    instance-of v0, p1, Lcom/android/launcher3/home/LauncherAppWidgetInfo;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/launcher3/home/HomeController$24;->val$updates:Ljava/util/HashSet;
-
-    invoke-virtual {v0, p1}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    check-cast p2, Lcom/android/launcher3/home/PendingAppWidgetHostView;
-
-    invoke-virtual {p2}, Lcom/android/launcher3/home/PendingAppWidgetHostView;->applyState()V
-
-    goto :goto_0
+    return-void
 .end method

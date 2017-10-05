@@ -41,7 +41,7 @@
 
     move-result v0
 
-    const v1, 0x7f0f0103
+    const v1, 0x7f110120
 
     if-ne v0, v1, :cond_0
 
@@ -64,7 +64,7 @@
 
     move-result v0
 
-    const v1, 0x7f0f0107
+    const v1, 0x7f110124
 
     if-ne v0, v1, :cond_1
 
@@ -83,7 +83,7 @@
 
     move-result v0
 
-    const v1, 0x7f0f0108
+    const v1, 0x7f110125
 
     if-ne v0, v1, :cond_2
 
@@ -102,7 +102,7 @@
 
     move-result v0
 
-    const v1, 0x7f0f0104
+    const v1, 0x7f110121
 
     if-ne v0, v1, :cond_3
 
@@ -121,17 +121,13 @@
 
     move-result v0
 
-    const v1, 0x7f0f0109
+    const v1, 0x7f110126
 
     if-ne v0, v1, :cond_4
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController$7;->this$0:Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;
 
-    invoke-static {v0}, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->access$500(Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;)Lcom/android/launcher3/allapps/controller/AppsController;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/launcher3/allapps/controller/AppsController;->getAppsSearchView()Lcom/android/launcher3/allapps/view/AppsSearchContainerView;
+    invoke-static {v0}, Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;->access$400(Lcom/android/launcher3/allapps/controller/DefaultAppSearchController;)Lcom/android/launcher3/allapps/view/AppsSearchContainerView;
 
     move-result-object v0
 
@@ -144,7 +140,7 @@
 
     move-result v0
 
-    const v1, 0x7f0f0105
+    const v1, 0x7f110122
 
     if-ne v0, v1, :cond_5
 
@@ -163,7 +159,7 @@
 
     move-result v0
 
-    const v1, 0x7f0f0106
+    const v1, 0x7f110123
 
     if-ne v0, v1, :cond_6
 

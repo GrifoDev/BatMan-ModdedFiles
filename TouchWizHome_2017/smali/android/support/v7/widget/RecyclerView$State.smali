@@ -13,6 +13,12 @@
     name = "State"
 .end annotation
 
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Landroid/support/v7/widget/RecyclerView$State$LayoutState;
+    }
+.end annotation
+
 
 # static fields
 .field static final STEP_ANIMATIONS:I = 0x4

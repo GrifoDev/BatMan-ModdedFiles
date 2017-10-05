@@ -1,9 +1,27 @@
-.class Lcom/android/launcher3/common/view/ScrollHelperByRootView;
+.class public Lcom/android/launcher3/common/view/ScrollHelperByRootView;
 .super Ljava/lang/Object;
 .source "ScrollHelperByRootView.java"
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/android/launcher3/common/view/ScrollHelperByRootView$ScrollTouchListener;
+    }
+.end annotation
+
+
 # static fields
+.field private static final LIMIT_TRACE:I = 0x14
+
+.field public static final LISTENER_APPSCONTROLLER:I = 0x1
+
+.field public static final LISTENER_HOMECONTROLLER:I = 0x0
+
+.field private static final LISTENER_SIZE:I = 0x2
+
+.field private static final TAG:Ljava/lang/String; = "LauncherScroll"
+
 .field private static final X:I = 0x0
 
 .field private static final Y:I = 0x1
@@ -20,28 +38,40 @@
 
 .field private mPressedXY:[F
 
+.field private mScrollId:I
+
+.field private mScrollTouchListeners:[Lcom/android/launcher3/common/view/ScrollHelperByRootView$ScrollTouchListener;
+
 .field private mSumOfAccelaration:F
 
 .field private mTouch:[F
+
+.field private mTraceTouchEvent:Ljava/lang/StringBuilder;
 
 .field private mVelocityTracker:Landroid/view/VelocityTracker;
 
 
 # direct methods
-.method constructor <init>()V
-    .locals 3
+.method public constructor <init>()V
+    .locals 5
+
+    const/4 v4, 0x0
+
+    const/4 v3, 0x0
 
     const/4 v2, 0x0
-
-    const/4 v0, 0x0
 
     const/4 v1, 0x2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput v0, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mLastGradient:F
+    new-array v0, v1, [Lcom/android/launcher3/common/view/ScrollHelperByRootView$ScrollTouchListener;
 
-    iput v0, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mSumOfAccelaration:F
+    iput-object v0, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mScrollTouchListeners:[Lcom/android/launcher3/common/view/ScrollHelperByRootView$ScrollTouchListener;
+
+    iput v3, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mLastGradient:F
+
+    iput v3, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mSumOfAccelaration:F
 
     iput v2, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mGradientCount:I
 
@@ -57,11 +87,13 @@
 
     iput-object v0, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mDistanceFromPress:[F
 
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mVelocityTracker:Landroid/view/VelocityTracker;
+    iput-object v4, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mVelocityTracker:Landroid/view/VelocityTracker;
 
     iput-boolean v2, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mPressed:Z
+
+    iput v2, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mScrollId:I
+
+    iput-object v4, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mTraceTouchEvent:Ljava/lang/StringBuilder;
 
     return-void
 .end method
@@ -85,6 +117,60 @@
     invoke-virtual {v0, p1}, Landroid/view/VelocityTracker;->addMovement(Landroid/view/MotionEvent;)V
 
     return-void
+.end method
+
+.method private displayTrace(Ljava/lang/StringBuilder;)V
+    .locals 2
+
+    if-eqz p1, :cond_0
+
+    invoke-static {}, Lcom/android/launcher3/Utilities;->DEBUGGABLE()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "LauncherScroll"
+
+    invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    return-void
+.end method
+
+.method private enableTrace()Z
+    .locals 2
+
+    invoke-virtual {p0}, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->getCount()I
+
+    move-result v0
+
+    const/16 v1, 0x14
+
+    if-le v0, v1, :cond_1
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mTraceTouchEvent:Ljava/lang/StringBuilder;
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mTraceTouchEvent:Ljava/lang/StringBuilder;
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
 .end method
 
 .method private getDistanceFromPress()[F
@@ -125,6 +211,37 @@
     iget-object v0, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mDistanceFromPress:[F
 
     return-object v0
+.end method
+
+.method private noticeOnTouchEvent(Landroid/view/MotionEvent;)V
+    .locals 2
+
+    const/4 v0, 0x0
+
+    :goto_0
+    const/4 v1, 0x2
+
+    if-ge v0, v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mScrollTouchListeners:[Lcom/android/launcher3/common/view/ScrollHelperByRootView$ScrollTouchListener;
+
+    aget-object v1, v1, v0
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mScrollTouchListeners:[Lcom/android/launcher3/common/view/ScrollHelperByRootView$ScrollTouchListener;
+
+    aget-object v1, v1, v0
+
+    invoke-interface {v1, p1}, Lcom/android/launcher3/common/view/ScrollHelperByRootView$ScrollTouchListener;->onTouchEvent(Landroid/view/MotionEvent;)I
+
+    :cond_0
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_1
+    return-void
 .end method
 
 .method private releaseVelocityTracker()V
@@ -250,8 +367,75 @@
     return-void
 .end method
 
+.method private traceTouchEvent(Ljava/lang/StringBuilder;IILjava/lang/String;)V
+    .locals 3
+
+    invoke-virtual {p0}, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->getCount()I
+
+    move-result v1
+
+    const/16 v2, 0x14
+
+    if-le v1, v2, :cond_0
+
+    const/4 p1, 0x0
+
+    :cond_0
+    if-eqz p1, :cond_1
+
+    const-string v0, "|"
+
+    invoke-virtual {p1, p4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, ","
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, ","
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v2, "|"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_1
+    return-void
+.end method
+
 
 # virtual methods
+.method public addListener(ILcom/android/launcher3/common/view/ScrollHelperByRootView$ScrollTouchListener;)V
+    .locals 1
+
+    if-eqz p2, :cond_0
+
+    const/4 v0, 0x2
+
+    if-ge p1, v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mScrollTouchListeners:[Lcom/android/launcher3/common/view/ScrollHelperByRootView$ScrollTouchListener;
+
+    aput-object p2, v0, p1
+
+    :cond_0
+    return-void
+.end method
+
 .method public getAverageAccelaration()F
     .locals 9
 
@@ -259,7 +443,7 @@
 
     const/4 v7, 0x0
 
-    const v2, 0x3fcccccd    # 1.6f
+    const v2, 0x3fd9999a    # 1.7f
 
     const v3, 0x3f4ccccd    # 0.8f
 
@@ -314,12 +498,18 @@
     goto :goto_1
 .end method
 
-.method public getCount()F
+.method public getCount()I
     .locals 1
 
     iget v0, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mGradientCount:I
 
-    int-to-float v0, v0
+    return v0
+.end method
+
+.method public getScrollId()I
+    .locals 1
+
+    iget v0, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mScrollId:I
 
     return v0
 .end method
@@ -352,7 +542,7 @@
     return v1
 .end method
 
-.method public requestPress()V
+.method requestPress()V
     .locals 1
 
     invoke-direct {p0}, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->releaseVelocityTracker()V
@@ -364,73 +554,144 @@
     return-void
 .end method
 
-.method public setTouchEvent(Landroid/view/MotionEvent;)I
-    .locals 4
-
-    const/4 v2, 0x0
+.method setTouchEvent(Landroid/view/MotionEvent;)I
+    .locals 8
 
     invoke-direct {p0, p1}, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->acquireVelocityTrackerAndAddMovement(Landroid/view/MotionEvent;)V
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getX()F
 
-    move-result v0
+    move-result v2
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getY()F
 
-    move-result v1
+    move-result v3
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
-    move-result v3
+    move-result v4
 
-    and-int/lit16 v3, v3, 0xff
+    const v5, 0xff00
 
-    packed-switch v3, :pswitch_data_0
+    and-int/2addr v4, v5
+
+    shr-int/lit8 v1, v4, 0x8
+
+    invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
+
+    move-result v4
+
+    and-int/lit16 v4, v4, 0xff
+
+    packed-switch v4, :pswitch_data_0
 
     :pswitch_0
     invoke-direct {p0}, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->releaseVelocityTracker()V
 
-    iput-boolean v2, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mPressed:Z
+    const/4 v4, 0x0
+
+    iput-boolean v4, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mPressed:Z
+
+    iget-object v4, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mTraceTouchEvent:Ljava/lang/StringBuilder;
+
+    float-to-int v5, v2
+
+    float-to-int v6, v3
+
+    const-string v7, "R"
+
+    invoke-direct {p0, v4, v5, v6, v7}, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->traceTouchEvent(Ljava/lang/StringBuilder;IILjava/lang/String;)V
+
+    iget-object v4, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mTraceTouchEvent:Ljava/lang/StringBuilder;
+
+    invoke-direct {p0, v4}, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->displayTrace(Ljava/lang/StringBuilder;)V
+
+    const/4 v4, 0x0
+
+    iput-object v4, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mTraceTouchEvent:Ljava/lang/StringBuilder;
 
     invoke-virtual {p1}, Landroid/view/MotionEvent;->getAction()I
 
-    move-result v2
+    move-result v4
 
-    and-int/lit16 v2, v2, 0xff
+    and-int/lit16 v0, v4, 0xff
 
     :goto_0
-    return v2
+    invoke-direct {p0, p1}, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->noticeOnTouchEvent(Landroid/view/MotionEvent;)V
+
+    return v0
 
     :pswitch_1
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    iput-boolean v3, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mPressed:Z
+    iput-boolean v4, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mPressed:Z
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    iput-object v4, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mTraceTouchEvent:Ljava/lang/StringBuilder;
+
+    iget-object v4, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mTraceTouchEvent:Ljava/lang/StringBuilder;
+
+    float-to-int v5, v2
+
+    float-to-int v6, v3
+
+    const-string v7, "P"
+
+    invoke-direct {p0, v4, v5, v6, v7}, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->traceTouchEvent(Ljava/lang/StringBuilder;IILjava/lang/String;)V
 
     invoke-direct {p0}, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->reset()V
 
-    iget-object v3, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mPressedXY:[F
+    iget-object v4, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mPressedXY:[F
 
-    invoke-direct {p0, v3, v0, v1}, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->setTouch([FFF)V
+    invoke-direct {p0, v4, v2, v3}, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->setTouch([FFF)V
 
-    iget-object v3, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mTouch:[F
+    iget-object v4, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mTouch:[F
 
-    invoke-direct {p0, v3, v0, v1}, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->setTouch([FFF)V
+    invoke-direct {p0, v4, v2, v3}, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->setTouch([FFF)V
+
+    const/4 v0, 0x0
 
     goto :goto_0
 
     :pswitch_2
-    iget-boolean v2, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mPressed:Z
+    iget-boolean v4, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mPressed:Z
 
-    if-eqz v2, :cond_0
+    if-eqz v4, :cond_1
 
-    iget-object v2, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mTouch:[F
+    invoke-direct {p0}, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->enableTrace()Z
 
-    invoke-direct {p0, v2, v0, v1}, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->setTouch([FFF)V
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    iget-object v4, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mTraceTouchEvent:Ljava/lang/StringBuilder;
+
+    float-to-int v5, v2
+
+    float-to-int v6, v3
+
+    const-string v7, "M"
+
+    invoke-direct {p0, v4, v5, v6, v7}, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->traceTouchEvent(Ljava/lang/StringBuilder;IILjava/lang/String;)V
+
+    :cond_0
+    iget-object v4, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mTouch:[F
+
+    invoke-direct {p0, v4, v2, v3}, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->setTouch([FFF)V
 
     invoke-direct {p0}, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->setMove()V
 
-    :cond_0
-    const/4 v2, 0x2
+    invoke-virtual {p1, v1}, Landroid/view/MotionEvent;->getPointerId(I)I
+
+    move-result v4
+
+    iput v4, p0, Lcom/android/launcher3/common/view/ScrollHelperByRootView;->mScrollId:I
+
+    :cond_1
+    const/4 v0, 0x2
 
     goto :goto_0
 

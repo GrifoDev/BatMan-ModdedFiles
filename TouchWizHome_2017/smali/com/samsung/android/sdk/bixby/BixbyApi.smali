@@ -9,14 +9,16 @@
         Lcom/samsung/android/sdk/bixby/BixbyApi$OnResponseCallback;,
         Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;,
         Lcom/samsung/android/sdk/bixby/BixbyApi$AbstractEventMonitor;,
+        Lcom/samsung/android/sdk/bixby/BixbyApi$OnNlgEndListener;,
         Lcom/samsung/android/sdk/bixby/BixbyApi$OnTtsResultListener;,
+        Lcom/samsung/android/sdk/bixby/BixbyApi$OnConfirmResultListener;,
+        Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmResultListener;,
         Lcom/samsung/android/sdk/bixby/BixbyApi$TestListener;,
         Lcom/samsung/android/sdk/bixby/BixbyApi$MultiPathRuleListener;,
         Lcom/samsung/android/sdk/bixby/BixbyApi$ChattyModeListener;,
         Lcom/samsung/android/sdk/bixby/BixbyApi$InterimStateListener;,
         Lcom/samsung/android/sdk/bixby/BixbyApi$StartStateListener;,
         Lcom/samsung/android/sdk/bixby/BixbyApi$CommonStateListener;,
-        Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmResultListener;,
         Lcom/samsung/android/sdk/bixby/BixbyApi$TtsResult;,
         Lcom/samsung/android/sdk/bixby/BixbyApi$TtsMode;,
         Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmResult;,
@@ -65,11 +67,13 @@
 
 .field private static final STR_FAILURE:Ljava/lang/String; = "failure"
 
+.field private static final STR_RULE_COMPLETE:Ljava/lang/String; = "rule_complete"
+
 .field private static final STR_SUCCESS:Ljava/lang/String; = "success"
 
 .field private static final TAG:Ljava/lang/String;
 
-.field static final VER:Ljava/lang/String; = "_0.2.4"
+.field static final VER:Ljava/lang/String; = "_0.2.5"
 
 .field private static mInstance:Lcom/samsung/android/sdk/bixby/BixbyApi;
 
@@ -91,8 +95,6 @@
 
 .field private mInterimListener:Lcom/samsung/android/sdk/bixby/BixbyApi$InterimStateListener;
 
-.field private mIsLandingKeyboardOffMode:Z
-
 .field private mIsPartiallyLanded:Z
 
 .field private mIsRuleRunning:Z
@@ -106,6 +108,10 @@
 .field private mLastScreenStateInfo:Lcom/samsung/android/sdk/bixby/data/ScreenStateInfo;
 
 .field private mMultiPathRuleListener:Lcom/samsung/android/sdk/bixby/BixbyApi$MultiPathRuleListener;
+
+.field private mOnConfirmResultListener:Lcom/samsung/android/sdk/bixby/BixbyApi$OnConfirmResultListener;
+
+.field private mOnNlgEndListener:Lcom/samsung/android/sdk/bixby/BixbyApi$OnNlgEndListener;
 
 .field private mOnTtsResultListener:Lcom/samsung/android/sdk/bixby/BixbyApi$OnTtsResultListener;
 
@@ -144,7 +150,7 @@
 
     move-result-object v0
 
-    const-string v1, "_0.2.4"
+    const-string v1, "_0.2.5"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -210,8 +216,6 @@
 
     iput-object v2, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mLastReceivedStateCmd:Lcom/samsung/android/sdk/bixby/data/State;
 
-    iput-boolean v1, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mIsLandingKeyboardOffMode:Z
-
     iput-object v2, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mPathRuleInfo:Lcom/samsung/android/sdk/bixby/data/PathRuleInfo;
 
     iput-boolean v1, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mIsPartiallyLanded:Z
@@ -261,6 +265,22 @@
     iput-object p1, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mSendStateRunnable:Ljava/lang/Runnable;
 
     return-object p1
+.end method
+
+.method private clearListeners()V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-direct {p0, v0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setConfirmResultListener(Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmResultListener;)V
+
+    invoke-direct {p0, v0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setOnConfirmResultListener(Lcom/samsung/android/sdk/bixby/BixbyApi$OnConfirmResultListener;)V
+
+    invoke-direct {p0, v0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setOnTtsResultListener(Lcom/samsung/android/sdk/bixby/BixbyApi$OnTtsResultListener;)V
+
+    invoke-direct {p0, v0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setOnNlgEndListener(Lcom/samsung/android/sdk/bixby/BixbyApi$OnNlgEndListener;)V
+
+    return-void
 .end method
 
 .method public static declared-synchronized createInstance(Landroid/content/Context;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/BixbyApi;
@@ -355,6 +375,16 @@
     iget-object v6, v1, Landroid/content/pm/PackageInfo;->versionName:Ljava/lang/String;
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    const-string v6, ", "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
@@ -724,8 +754,36 @@
 
     invoke-direct {p0, v0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setRuleRunning(Z)V
 
-    invoke-direct {p0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->hideKeyboard()Z
+    iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mOnConfirmResultListener:Lcom/samsung/android/sdk/bixby/BixbyApi$OnConfirmResultListener;
 
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mOnConfirmResultListener:Lcom/samsung/android/sdk/bixby/BixbyApi$OnConfirmResultListener;
+
+    sget-object v1, Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmResult;->CANCEL:Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmResult;
+
+    invoke-interface {v0, v1}, Lcom/samsung/android/sdk/bixby/BixbyApi$OnConfirmResultListener;->onConfirmResult(Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmResult;)V
+
+    :cond_0
+    :goto_0
+    iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mInterimListener:Lcom/samsung/android/sdk/bixby/BixbyApi$InterimStateListener;
+
+    if-nez v0, :cond_2
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mStartListener:Lcom/samsung/android/sdk/bixby/BixbyApi$StartStateListener;
+
+    if-nez v0, :cond_2
+
+    sget-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi;->TAG:Ljava/lang/String;
+
+    const-string v1, "sendState: No listener is set."
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_1
+    return-void
+
+    :cond_1
     iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mConfirmResultListener:Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmResultListener;
 
     if-eqz v0, :cond_0
@@ -736,28 +794,12 @@
 
     invoke-interface {v0, v1}, Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmResultListener;->onResult(Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmResult;)V
 
-    :cond_0
+    goto :goto_0
+
+    :cond_2
     iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mInterimListener:Lcom/samsung/android/sdk/bixby/BixbyApi$InterimStateListener;
 
-    if-nez v0, :cond_1
-
-    iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mStartListener:Lcom/samsung/android/sdk/bixby/BixbyApi$StartStateListener;
-
-    if-nez v0, :cond_1
-
-    sget-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi;->TAG:Ljava/lang/String;
-
-    const-string v1, "sendState: No listener is set."
-
-    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_0
-    return-void
-
-    :cond_1
-    iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mInterimListener:Lcom/samsung/android/sdk/bixby/BixbyApi$InterimStateListener;
-
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mInterimListener:Lcom/samsung/android/sdk/bixby/BixbyApi$InterimStateListener;
 
@@ -767,10 +809,10 @@
 
     invoke-interface {v0, v1}, Lcom/samsung/android/sdk/bixby/BixbyApi$InterimStateListener;->onRuleCanceled(Ljava/lang/String;)V
 
-    :cond_2
+    :cond_3
     iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mStartListener:Lcom/samsung/android/sdk/bixby/BixbyApi$StartStateListener;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mStartListener:Lcom/samsung/android/sdk/bixby/BixbyApi$StartStateListener;
 
@@ -780,12 +822,62 @@
 
     invoke-interface {v0, v1}, Lcom/samsung/android/sdk/bixby/BixbyApi$StartStateListener;->onRuleCanceled(Ljava/lang/String;)V
 
-    :cond_3
-    const/4 v0, 0x0
+    :cond_4
+    invoke-direct {p0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->clearListeners()V
 
-    invoke-direct {p0, v0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setOnTtsResultListener(Lcom/samsung/android/sdk/bixby/BixbyApi$OnTtsResultListener;)V
+    goto :goto_1
+.end method
 
-    goto :goto_0
+.method private handleStates(Lcom/samsung/android/sdk/bixby/data/State;)V
+    .locals 3
+
+    const/4 v2, 0x0
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mSendStateRunnable:Ljava/lang/Runnable;
+
+    if-eqz v0, :cond_0
+
+    sget-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi;->TAG:Ljava/lang/String;
+
+    const-string v1, "sendState: Remove pending state."
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mHandler:Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mSendStateRunnable:Ljava/lang/Runnable;
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
+
+    :cond_0
+    iput v2, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mSendStateRetryCount:I
+
+    new-instance v0, Lcom/samsung/android/sdk/bixby/BixbyApi$1;
+
+    invoke-direct {v0, p0, p1}, Lcom/samsung/android/sdk/bixby/BixbyApi$1;-><init>(Lcom/samsung/android/sdk/bixby/BixbyApi;Lcom/samsung/android/sdk/bixby/data/State;)V
+
+    iput-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mSendStateRunnable:Ljava/lang/Runnable;
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mHandler:Landroid/os/Handler;
+
+    iget-object v1, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mSendStateRunnable:Ljava/lang/Runnable;
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    invoke-virtual {p1}, Lcom/samsung/android/sdk/bixby/data/State;->isLastState()Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    iput-boolean v2, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mIsTestMode:Z
+
+    :cond_1
+    return-void
 .end method
 
 .method private handleTestResponse(Lcom/samsung/android/sdk/bixby/BixbyApi$ResponseResults;Lcom/samsung/android/sdk/bixby/data/State;)V
@@ -1075,264 +1167,6 @@
     goto/16 :goto_0
 .end method
 
-.method private hideKeyboard()Z
-    .locals 7
-
-    const/4 v3, 0x0
-
-    sget-object v4, Lcom/samsung/android/sdk/bixby/BixbyApi;->TAG:Ljava/lang/String;
-
-    const-string v5, "hideKeyboard: entered."
-
-    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-direct {p0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->isLandingKeyboardOffMode()Z
-
-    move-result v4
-
-    if-nez v4, :cond_0
-
-    sget-object v4, Lcom/samsung/android/sdk/bixby/BixbyApi;->TAG:Ljava/lang/String;
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "isLandingKeyboardOffMode:"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-direct {p0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->isLandingKeyboardOffMode()Z
-
-    move-result v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_0
-    return v3
-
-    :cond_0
-    const/4 v3, 0x0
-
-    :try_start_0
-    const-string v4, "android.view.inputmethod.InputMethodManager"
-
-    invoke-static {v4}, Ljava/lang/Class;->forName(Ljava/lang/String;)Ljava/lang/Class;
-
-    move-result-object v1
-
-    const-string v4, "getInstance"
-
-    const/4 v5, 0x0
-
-    new-array v5, v5, [Ljava/lang/Class;
-
-    invoke-virtual {v1, v4, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v4
-
-    const/4 v5, 0x0
-
-    new-array v5, v5, [Ljava/lang/Object;
-
-    invoke-virtual {v4, v1, v5}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Landroid/view/inputmethod/InputMethodManager;
-
-    const-string v4, "semForceHideSoftInput"
-
-    const/4 v5, 0x0
-
-    new-array v5, v5, [Ljava/lang/Class;
-
-    invoke-virtual {v1, v4, v5}, Ljava/lang/Class;->getMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
-
-    move-result-object v4
-
-    const/4 v5, 0x0
-
-    new-array v5, v5, [Ljava/lang/Object;
-
-    invoke-virtual {v4, v2, v5}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Ljava/lang/Boolean;
-
-    invoke-virtual {v4}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v3
-
-    sget-object v4, Lcom/samsung/android/sdk/bixby/BixbyApi;->TAG:Ljava/lang/String;
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "hideKeyboard: result - "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-static {v3}, Ljava/lang/Boolean;->toString(Z)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catch Ljava/lang/NoSuchMethodException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_0 .. :try_end_0} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_0 .. :try_end_0} :catch_2
-    .catch Ljava/lang/ClassNotFoundException; {:try_start_0 .. :try_end_0} :catch_3
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v0
-
-    sget-object v4, Lcom/samsung/android/sdk/bixby/BixbyApi;->TAG:Ljava/lang/String;
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "hideKeyboard: "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v0}, Ljava/lang/NoSuchMethodException;->getMessage()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    :catch_1
-    move-exception v0
-
-    sget-object v4, Lcom/samsung/android/sdk/bixby/BixbyApi;->TAG:Ljava/lang/String;
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "hideKeyboard: "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v0}, Ljava/lang/IllegalAccessException;->getMessage()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_0
-
-    :catch_2
-    move-exception v0
-
-    sget-object v4, Lcom/samsung/android/sdk/bixby/BixbyApi;->TAG:Ljava/lang/String;
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "hideKeyboard: "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v0}, Ljava/lang/reflect/InvocationTargetException;->getMessage()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_0
-
-    :catch_3
-    move-exception v0
-
-    sget-object v4, Lcom/samsung/android/sdk/bixby/BixbyApi;->TAG:Ljava/lang/String;
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "hideKeyboard: "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v0}, Ljava/lang/ClassNotFoundException;->getMessage()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_0
-.end method
-
 .method public static isBixbySupported()Z
     .locals 11
 
@@ -1503,14 +1337,6 @@
     goto :goto_1
 .end method
 
-.method private isLandingKeyboardOffMode()Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mIsLandingKeyboardOffMode:Z
-
-    return v0
-.end method
-
 .method private logState(Ljava/lang/String;Ljava/lang/String;)V
     .locals 5
     .annotation system Ldalvik/annotation/Throws;
@@ -1669,6 +1495,113 @@
     return-void
 .end method
 
+.method private setNlgData(Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;Lcom/samsung/android/sdk/bixby/BixbyApi$OnNlgEndListener;)Ljava/lang/String;
+    .locals 7
+
+    const-string v0, "NONE"
+
+    sget-object v3, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->MULTIPLE:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
+
+    if-ne p2, v3, :cond_0
+
+    invoke-direct {p0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->getNlgStateInfo()Ljava/lang/String;
+
+    move-result-object v0
+
+    :cond_0
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "\"currentStateIds\":\""
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string v4, "\""
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    if-eqz p3, :cond_1
+
+    const-string v1, "\"needResultCallback\":true"
+
+    :goto_0
+    const-string v3, "\"requestedAppName\":\"%s\",%s,%s,%s,%s"
+
+    const/4 v4, 0x5
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    const/4 v5, 0x0
+
+    iget-object v6, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mActiveAppName:Ljava/lang/String;
+
+    aput-object v6, v4, v5
+
+    const/4 v5, 0x1
+
+    invoke-virtual {p1}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    aput-object v6, v4, v5
+
+    const/4 v5, 0x2
+
+    aput-object v2, v4, v5
+
+    const/4 v5, 0x3
+
+    invoke-virtual {p2}, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    aput-object v6, v4, v5
+
+    const/4 v5, 0x4
+
+    aput-object v1, v4, v5
+
+    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v3
+
+    return-object v3
+
+    :cond_1
+    const-string v1, "\"needResultCallback\":false"
+
+    goto :goto_0
+.end method
+
+.method private setOnConfirmResultListener(Lcom/samsung/android/sdk/bixby/BixbyApi$OnConfirmResultListener;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mOnConfirmResultListener:Lcom/samsung/android/sdk/bixby/BixbyApi$OnConfirmResultListener;
+
+    return-void
+.end method
+
+.method private setOnNlgEndListener(Lcom/samsung/android/sdk/bixby/BixbyApi$OnNlgEndListener;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mOnNlgEndListener:Lcom/samsung/android/sdk/bixby/BixbyApi$OnNlgEndListener;
+
+    return-void
+.end method
+
 .method private setOnTtsResultListener(Lcom/samsung/android/sdk/bixby/BixbyApi$OnTtsResultListener;)V
     .locals 0
 
@@ -1708,21 +1641,17 @@
 
     const/4 v1, 0x0
 
+    invoke-direct {p0, v1}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setRuleRunning(Z)V
+
+    invoke-direct {p0, v1}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setTestRunning(Z)V
+
     const/4 v0, 0x0
 
-    invoke-direct {p0, v0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setRuleRunning(Z)V
+    invoke-virtual {p0, v0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setResponseCallback(Lcom/samsung/android/sdk/bixby/BixbyApi$OnResponseCallback;)V
 
-    invoke-direct {p0, v0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setTestRunning(Z)V
+    invoke-virtual {p0, v1}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setPartiallyLanded(Z)V
 
-    invoke-virtual {p0, v1}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setResponseCallback(Lcom/samsung/android/sdk/bixby/BixbyApi$OnResponseCallback;)V
-
-    invoke-virtual {p0, v0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setPartiallyLanded(Z)V
-
-    invoke-virtual {p0, v0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setLandingKeyboardOffMode(Z)V
-
-    invoke-direct {p0, v1}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setConfirmResultListener(Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmResultListener;)V
-
-    invoke-direct {p0, v1}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setOnTtsResultListener(Lcom/samsung/android/sdk/bixby/BixbyApi$OnTtsResultListener;)V
+    invoke-direct {p0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->clearListeners()V
 
     return-void
 .end method
@@ -1832,80 +1761,6 @@
 
     :cond_0
     const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
-.method handleLandingKeyboardOffMode(Ljava/lang/String;)V
-    .locals 7
-
-    const/4 v6, 0x0
-
-    const-string v0, "isLandingKeyboardOffMode"
-
-    :try_start_0
-    new-instance v2, Lorg/json/JSONObject;
-
-    invoke-direct {v2, p1}, Lorg/json/JSONObject;-><init>(Ljava/lang/String;)V
-
-    const-string v3, "isLandingKeyboardOffMode"
-
-    invoke-virtual {v2, v3}, Lorg/json/JSONObject;->has(Ljava/lang/String;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    const-string v3, "isLandingKeyboardOffMode"
-
-    invoke-virtual {v2, v3}, Lorg/json/JSONObject;->getBoolean(Ljava/lang/String;)Z
-
-    move-result v3
-
-    invoke-virtual {p0, v3}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setLandingKeyboardOffMode(Z)V
-
-    :goto_0
-    return-void
-
-    :cond_0
-    const/4 v3, 0x0
-
-    invoke-virtual {p0, v3}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setLandingKeyboardOffMode(Z)V
-    :try_end_0
-    .catch Lorg/json/JSONException; {:try_start_0 .. :try_end_0} :catch_0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v1
-
-    sget-object v3, Lcom/samsung/android/sdk/bixby/BixbyApi;->TAG:Ljava/lang/String;
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v5, "Failed to get isLandingKeyboardOffMode:"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v1}, Lorg/json/JSONException;->getMessage()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {p0, v6}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setLandingKeyboardOffMode(Z)V
 
     goto :goto_0
 .end method
@@ -2261,6 +2116,21 @@
     return-void
 .end method
 
+.method public requestConfirm(Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmMode;Lcom/samsung/android/sdk/bixby/BixbyApi$OnConfirmResultListener;)V
+    .locals 1
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/IllegalArgumentException;
+        }
+    .end annotation
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, p1, p2, v0, p3}, Lcom/samsung/android/sdk/bixby/BixbyApi;->requestConfirm(Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmMode;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$OnConfirmResultListener;)V
+
+    return-void
+.end method
+
 .method public requestConfirm(Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmMode;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmResultListener;)V
     .locals 7
     .annotation system Ldalvik/annotation/Throws;
@@ -2374,7 +2244,156 @@
 
     move-result-object v0
 
-    iput-object p4, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mConfirmResultListener:Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmResultListener;
+    invoke-direct {p0, p4}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setConfirmResultListener(Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmResultListener;)V
+
+    const-string v3, "esem_request_nlg"
+
+    invoke-direct {p0, v3, v0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendCommandToBa(Ljava/lang/String;Ljava/lang/String;)V
+
+    return-void
+
+    :cond_2
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, ",\"nextRuleId\":\""
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string v4, "\""
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    goto :goto_0
+.end method
+
+.method public requestConfirm(Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmMode;Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$OnConfirmResultListener;)V
+    .locals 7
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/IllegalArgumentException;
+        }
+    .end annotation
+
+    if-nez p1, :cond_0
+
+    new-instance v3, Ljava/lang/IllegalArgumentException;
+
+    const-string v4, "NlgRequestInfo cannot be null."
+
+    invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v3
+
+    :cond_0
+    if-nez p4, :cond_1
+
+    new-instance v3, Ljava/lang/IllegalArgumentException;
+
+    const-string v4, "ConfirmResultListener cannot be null."
+
+    invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v3
+
+    :cond_1
+    if-nez p3, :cond_2
+
+    const-string v1, ""
+
+    :goto_0
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "\"currentStateIds\":\""
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-direct {p0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->getNlgStateInfo()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    const-string v4, "\""
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v3, "\"requestedAppName\":\"%s\",%s,%s,%s,%s%s"
+
+    const/4 v4, 0x6
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    const/4 v5, 0x0
+
+    iget-object v6, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mActiveAppName:Ljava/lang/String;
+
+    aput-object v6, v4, v5
+
+    const/4 v5, 0x1
+
+    invoke-virtual {p1}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    aput-object v6, v4, v5
+
+    const/4 v5, 0x2
+
+    aput-object v2, v4, v5
+
+    const/4 v5, 0x3
+
+    sget-object v6, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->CONFIRM:Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;
+
+    invoke-virtual {v6}, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    aput-object v6, v4, v5
+
+    const/4 v5, 0x4
+
+    invoke-virtual {p2}, Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmMode;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    aput-object v6, v4, v5
+
+    const/4 v5, 0x5
+
+    aput-object v1, v4, v5
+
+    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-direct {p0, p4}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setOnConfirmResultListener(Lcom/samsung/android/sdk/bixby/BixbyApi$OnConfirmResultListener;)V
 
     const-string v3, "esem_request_nlg"
 
@@ -2678,95 +2697,88 @@
 .end method
 
 .method public requestNlg(Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;)V
-    .locals 6
+    .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;
         }
     .end annotation
 
+    const/4 v1, 0x0
+
     if-nez p1, :cond_0
 
-    new-instance v2, Ljava/lang/IllegalArgumentException;
+    new-instance v1, Ljava/lang/IllegalArgumentException;
 
-    const-string v3, "NlgRequestInfo cannot be null."
+    const-string v2, "NlgRequestInfo cannot be null."
 
-    invoke-direct {v2, v3}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
-    throw v2
+    throw v1
 
     :cond_0
-    new-instance v2, Ljava/lang/StringBuilder;
+    invoke-direct {p0, v1}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setOnNlgEndListener(Lcom/samsung/android/sdk/bixby/BixbyApi$OnNlgEndListener;)V
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {p0, v1}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setConfirmResultListener(Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmResultListener;)V
 
-    const-string v3, "\"currentStateIds\":\""
+    invoke-direct {p0, v1}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setOnConfirmResultListener(Lcom/samsung/android/sdk/bixby/BixbyApi$OnConfirmResultListener;)V
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-direct {p0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->getNlgStateInfo()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, "\""
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string v2, "\"requestedAppName\":\"%s\",%s,%s,%s"
-
-    const/4 v3, 0x4
-
-    new-array v3, v3, [Ljava/lang/Object;
-
-    const/4 v4, 0x0
-
-    iget-object v5, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mActiveAppName:Ljava/lang/String;
-
-    aput-object v5, v3, v4
-
-    const/4 v4, 0x1
-
-    invoke-virtual {p1}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    aput-object v5, v3, v4
-
-    const/4 v4, 0x2
-
-    aput-object v1, v3, v4
-
-    const/4 v4, 0x3
-
-    invoke-virtual {p2}, Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    aput-object v5, v3, v4
-
-    invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-direct {p0, p1, p2, v1}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setNlgData(Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;Lcom/samsung/android/sdk/bixby/BixbyApi$OnNlgEndListener;)Ljava/lang/String;
 
     move-result-object v0
 
-    const/4 v2, 0x0
+    const-string v1, "esem_request_nlg"
 
-    invoke-direct {p0, v2}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setConfirmResultListener(Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmResultListener;)V
+    invoke-direct {p0, v1, v0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendCommandToBa(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string v2, "esem_request_nlg"
+    return-void
+.end method
 
-    invoke-direct {p0, v2, v0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendCommandToBa(Ljava/lang/String;Ljava/lang/String;)V
+.method public requestNlg(Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;Lcom/samsung/android/sdk/bixby/BixbyApi$OnNlgEndListener;)V
+    .locals 3
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/IllegalArgumentException;
+        }
+    .end annotation
+
+    const/4 v1, 0x0
+
+    if-nez p1, :cond_0
+
+    new-instance v1, Ljava/lang/IllegalArgumentException;
+
+    const-string v2, "NlgRequestInfo cannot be null."
+
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    :cond_0
+    if-nez p3, :cond_1
+
+    new-instance v1, Ljava/lang/IllegalArgumentException;
+
+    const-string v2, "Listener cannot be null."
+
+    invoke-direct {v1, v2}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v1
+
+    :cond_1
+    invoke-direct {p0, p3}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setOnNlgEndListener(Lcom/samsung/android/sdk/bixby/BixbyApi$OnNlgEndListener;)V
+
+    invoke-direct {p0, v1}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setConfirmResultListener(Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmResultListener;)V
+
+    invoke-direct {p0, v1}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setOnConfirmResultListener(Lcom/samsung/android/sdk/bixby/BixbyApi$OnConfirmResultListener;)V
+
+    invoke-direct {p0, p1, p2, p3}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setNlgData(Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;Lcom/samsung/android/sdk/bixby/BixbyApi$NlgParamMode;Lcom/samsung/android/sdk/bixby/BixbyApi$OnNlgEndListener;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "esem_request_nlg"
+
+    invoke-direct {p0, v1, v0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendCommandToBa(Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
 .end method
@@ -3041,6 +3053,40 @@
     goto :goto_1
 .end method
 
+.method sendNlgEnd()V
+    .locals 2
+
+    sget-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi;->TAG:Ljava/lang/String;
+
+    const-string v1, "sendNlgEnd"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mOnNlgEndListener:Lcom/samsung/android/sdk/bixby/BixbyApi$OnNlgEndListener;
+
+    if-nez v0, :cond_0
+
+    sget-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi;->TAG:Ljava/lang/String;
+
+    const-string v1, "unexpected NLG End result. Ignored."
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_0
+    return-void
+
+    :cond_0
+    iget-object v0, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mOnNlgEndListener:Lcom/samsung/android/sdk/bixby/BixbyApi$OnNlgEndListener;
+
+    invoke-interface {v0}, Lcom/samsung/android/sdk/bixby/BixbyApi$OnNlgEndListener;->onNlgEnd()V
+
+    const/4 v0, 0x0
+
+    invoke-direct {p0, v0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setOnNlgEndListener(Lcom/samsung/android/sdk/bixby/BixbyApi$OnNlgEndListener;)V
+
+    goto :goto_0
+.end method
+
 .method sendParamFilling(Lcom/samsung/android/sdk/bixby/data/ParamFilling;)V
     .locals 3
 
@@ -3170,8 +3216,6 @@
 
     invoke-direct {p0, v2}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setTestRunning(Z)V
 
-    invoke-direct {p0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->hideKeyboard()Z
-
     :cond_5
     invoke-virtual {p0, v2}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setPartiallyLanded(Z)V
 
@@ -3192,15 +3236,11 @@
 .end method
 
 .method sendState(Ljava/lang/String;)V
-    .locals 5
+    .locals 4
 
-    const/4 v4, 0x0
+    const/4 v3, 0x1
 
-    const/4 v2, 0x1
-
-    const/4 v3, 0x0
-
-    invoke-direct {p0, v2}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setRuleRunning(Z)V
+    invoke-direct {p0, v3}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setRuleRunning(Z)V
 
     invoke-static {p1}, Lcom/samsung/android/sdk/bixby/StateReader;->read(Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/State;
 
@@ -3216,17 +3256,31 @@
 
     move-result v1
 
+    const/4 v2, -0x1
+
+    if-ne v1, v2, :cond_0
+
+    invoke-direct {p0, v0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->handleRuleCancel(Lcom/samsung/android/sdk/bixby/data/State;)V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    invoke-direct {p0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->clearListeners()V
+
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/bixby/data/State;->getSeqNum()Ljava/lang/Integer;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
+
+    move-result v1
+
     if-nez v1, :cond_1
 
     invoke-direct {p0, p1}, Lcom/samsung/android/sdk/bixby/BixbyApi;->handleTestState(Ljava/lang/String;)V
 
-    :cond_0
-    :goto_0
-    invoke-direct {p0, v4}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setConfirmResultListener(Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmResultListener;)V
-
-    invoke-direct {p0, v4}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setOnTtsResultListener(Lcom/samsung/android/sdk/bixby/BixbyApi$OnTtsResultListener;)V
-
-    return-void
+    goto :goto_0
 
     :cond_1
     invoke-virtual {v0}, Lcom/samsung/android/sdk/bixby/data/State;->getSeqNum()Ljava/lang/Integer;
@@ -3237,72 +3291,14 @@
 
     move-result v1
 
-    if-ne v1, v2, :cond_2
+    if-ne v1, v3, :cond_2
 
     invoke-direct {p0, v0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->handleFirstState(Lcom/samsung/android/sdk/bixby/data/State;)V
 
     goto :goto_0
 
     :cond_2
-    invoke-virtual {v0}, Lcom/samsung/android/sdk/bixby/data/State;->getSeqNum()Ljava/lang/Integer;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
-
-    move-result v1
-
-    const/4 v2, -0x1
-
-    if-ne v1, v2, :cond_3
-
-    invoke-direct {p0, v0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->handleRuleCancel(Lcom/samsung/android/sdk/bixby/data/State;)V
-
-    goto :goto_0
-
-    :cond_3
-    iget-object v1, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mSendStateRunnable:Ljava/lang/Runnable;
-
-    if-eqz v1, :cond_4
-
-    sget-object v1, Lcom/samsung/android/sdk/bixby/BixbyApi;->TAG:Ljava/lang/String;
-
-    const-string v2, "sendState: Remove pending state."
-
-    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v1, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mHandler:Landroid/os/Handler;
-
-    iget-object v2, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mSendStateRunnable:Ljava/lang/Runnable;
-
-    invoke-virtual {v1, v2}, Landroid/os/Handler;->removeCallbacks(Ljava/lang/Runnable;)V
-
-    :cond_4
-    iput v3, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mSendStateRetryCount:I
-
-    new-instance v1, Lcom/samsung/android/sdk/bixby/BixbyApi$1;
-
-    invoke-direct {v1, p0, v0}, Lcom/samsung/android/sdk/bixby/BixbyApi$1;-><init>(Lcom/samsung/android/sdk/bixby/BixbyApi;Lcom/samsung/android/sdk/bixby/data/State;)V
-
-    iput-object v1, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mSendStateRunnable:Ljava/lang/Runnable;
-
-    iget-object v1, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mHandler:Landroid/os/Handler;
-
-    iget-object v2, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mSendStateRunnable:Ljava/lang/Runnable;
-
-    invoke-virtual {v1, v2}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
-
-    invoke-virtual {v0}, Lcom/samsung/android/sdk/bixby/data/State;->isLastState()Ljava/lang/Boolean;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    iput-boolean v3, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mIsTestMode:Z
+    invoke-direct {p0, v0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->handleStates(Lcom/samsung/android/sdk/bixby/data/State;)V
 
     goto :goto_0
 .end method
@@ -3340,7 +3336,9 @@
 .end method
 
 .method sendUserConfirm(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 7
+    .locals 8
+
+    const/4 v7, 0x0
 
     const/4 v1, 0x0
 
@@ -3348,19 +3346,18 @@
 
     move-result-object v0
 
+    iget-object v3, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mOnConfirmResultListener:Lcom/samsung/android/sdk/bixby/BixbyApi$OnConfirmResultListener;
+
+    if-nez v3, :cond_0
+
     iget-object v3, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mConfirmResultListener:Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmResultListener;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_4
 
+    :cond_0
     sget-object v3, Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmResult;->UNKNOWN:Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmResult;
 
-    if-eq v0, v3, :cond_1
-
-    sget-object v3, Lcom/samsung/android/sdk/bixby/BixbyApi;->TAG:Ljava/lang/String;
-
-    const-string v4, "ConfirmResultListener.onResult called"
-
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    if-eq v0, v3, :cond_3
 
     const/4 v1, 0x1
 
@@ -3377,7 +3374,7 @@
 
     const/4 v6, 0x1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_5
 
     const-string v3, "success"
 
@@ -3392,20 +3389,48 @@
 
     invoke-direct {p0, v3, v2}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendCommandToBa(Ljava/lang/String;Ljava/lang/String;)V
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2
 
-    iget-object v3, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mConfirmResultListener:Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmResultListener;
+    iget-object v3, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mOnConfirmResultListener:Lcom/samsung/android/sdk/bixby/BixbyApi$OnConfirmResultListener;
 
-    invoke-interface {v3, v0}, Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmResultListener;->onResult(Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmResult;)V
+    if-eqz v3, :cond_6
 
-    const/4 v3, 0x0
+    iget-object v3, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mOnConfirmResultListener:Lcom/samsung/android/sdk/bixby/BixbyApi$OnConfirmResultListener;
 
-    invoke-direct {p0, v3}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setConfirmResultListener(Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmResultListener;)V
-
-    :cond_0
-    return-void
+    invoke-interface {v3, v0}, Lcom/samsung/android/sdk/bixby/BixbyApi$OnConfirmResultListener;->onConfirmResult(Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmResult;)V
 
     :cond_1
+    :goto_2
+    sget-object v3, Lcom/samsung/android/sdk/bixby/BixbyApi;->TAG:Ljava/lang/String;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "Confirmation Result called: "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-direct {p0, v7}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setConfirmResultListener(Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmResultListener;)V
+
+    invoke-direct {p0, v7}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setOnConfirmResultListener(Lcom/samsung/android/sdk/bixby/BixbyApi$OnConfirmResultListener;)V
+
+    :cond_2
+    return-void
+
+    :cond_3
     sget-object v3, Lcom/samsung/android/sdk/bixby/BixbyApi;->TAG:Ljava/lang/String;
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -3436,19 +3461,30 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_4
     sget-object v3, Lcom/samsung/android/sdk/bixby/BixbyApi;->TAG:Ljava/lang/String;
 
-    const-string v4, "mConfirmResultListener null. Ignored."
+    const-string v4, "Confirm Result Listener null. Ignored."
 
     invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_0
 
-    :cond_3
+    :cond_5
     const-string v3, "failure"
 
     goto :goto_1
+
+    :cond_6
+    iget-object v3, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mConfirmResultListener:Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmResultListener;
+
+    if-eqz v3, :cond_1
+
+    iget-object v3, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mConfirmResultListener:Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmResultListener;
+
+    invoke-interface {v3, v0}, Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmResultListener;->onResult(Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmResult;)V
+
+    goto :goto_2
 .end method
 
 .method public setAbstractEventMonitor(Lcom/samsung/android/sdk/bixby/BixbyApi$AbstractEventMonitor;)V
@@ -3606,38 +3642,6 @@
     return-void
 .end method
 
-.method setLandingKeyboardOffMode(Z)V
-    .locals 3
-
-    iput-boolean p1, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mIsLandingKeyboardOffMode:Z
-
-    sget-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi;->TAG:Ljava/lang/String;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "isLandingKeyboardOffMode:"
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-boolean v2, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mIsLandingKeyboardOffMode:Z
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return-void
-.end method
-
 .method public setMultiPathRuleListener(Lcom/samsung/android/sdk/bixby/BixbyApi$MultiPathRuleListener;)V
     .locals 0
 
@@ -3651,11 +3655,6 @@
 
     iput-boolean p1, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mIsPartiallyLanded:Z
 
-    if-eqz p1, :cond_0
-
-    invoke-direct {p0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->hideKeyboard()Z
-
-    :cond_0
     return-void
 .end method
 

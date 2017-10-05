@@ -41,7 +41,7 @@
 
     move-result-object v2
 
-    check-cast v2, Lcom/android/launcher3/appssearch/ItemDetails;
+    check-cast v2, Lcom/android/launcher3/allapps/ItemDetails;
 
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -53,7 +53,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v2}, Lcom/android/launcher3/appssearch/ItemDetails;->getPkgName()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/android/launcher3/allapps/ItemDetails;->getPkgName()Ljava/lang/String;
 
     move-result-object v5
 

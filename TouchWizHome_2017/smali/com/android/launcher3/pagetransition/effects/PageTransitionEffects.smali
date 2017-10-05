@@ -95,7 +95,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0003
+    const v1, 0x7f0d0002
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -109,7 +109,7 @@
 
     iput v1, p0, Lcom/android/launcher3/pagetransition/effects/PageTransitionEffects;->mEditModeShrinkFactor:F
 
-    const v1, 0x7f0e000c
+    const v1, 0x7f10000e
 
     invoke-virtual {v0, v1, v3, v3}, Landroid/content/res/Resources;->getFraction(III)F
 
@@ -117,7 +117,7 @@
 
     iput v1, p0, Lcom/android/launcher3/pagetransition/effects/PageTransitionEffects;->mNormalScrollDrawInward:F
 
-    const v1, 0x7f0e000b
+    const v1, 0x7f10000d
 
     invoke-virtual {v0, v1, v3, v3}, Landroid/content/res/Resources;->getFraction(III)F
 
@@ -125,7 +125,7 @@
 
     iput v1, p0, Lcom/android/launcher3/pagetransition/effects/PageTransitionEffects;->mDragScrollDrawInward:F
 
-    const v1, 0x7f0b0049
+    const v1, 0x7f0d0055
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -135,7 +135,7 @@
 
     sput v1, Lcom/android/launcher3/pagetransition/effects/PageTransitionEffects;->transition_rotation_max:F
 
-    const v1, 0x7f0900e6
+    const v1, 0x7f0a013c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -143,7 +143,7 @@
 
     iput v1, p0, Lcom/android/launcher3/pagetransition/effects/PageTransitionEffects;->mDragBarSize:I
 
-    const v1, 0x7f090166
+    const v1, 0x7f0a01a9
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -151,7 +151,7 @@
 
     iput v1, p0, Lcom/android/launcher3/pagetransition/effects/PageTransitionEffects;->mEditModePanel_left_Adjust:I
 
-    const v1, 0x7f090167
+    const v1, 0x7f0a01aa
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

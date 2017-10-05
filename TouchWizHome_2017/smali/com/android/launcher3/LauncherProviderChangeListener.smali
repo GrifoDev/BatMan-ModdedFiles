@@ -9,3 +9,6 @@
 
 .method public abstract onSettingsChanged(Ljava/lang/String;Z)V
 .end method
+
+.method public abstract onZeroPageActiveChanged(Z)V
+.end method

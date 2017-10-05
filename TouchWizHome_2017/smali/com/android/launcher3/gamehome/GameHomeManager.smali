@@ -45,6 +45,8 @@
 
 .field private final mGameHomeSettingProviderObserver:Landroid/database/ContentObserver;
 
+.field private final mHandler:Landroid/os/Handler;
+
 .field private mLauncher:Lcom/android/launcher3/Launcher;
 
 
@@ -76,6 +78,16 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
+    new-instance v0, Landroid/os/Handler;
+
+    invoke-static {}, Landroid/os/Looper;->getMainLooper()Landroid/os/Looper;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Landroid/os/Handler;-><init>(Landroid/os/Looper;)V
+
+    iput-object v0, p0, Lcom/android/launcher3/gamehome/GameHomeManager;->mHandler:Landroid/os/Handler;
+
     new-instance v0, Lcom/android/launcher3/gamehome/GameHomeManager$BindGameAppRunnable;
 
     const/4 v1, 0x0
@@ -83,16 +95,6 @@
     invoke-direct {v0, p0, v1}, Lcom/android/launcher3/gamehome/GameHomeManager$BindGameAppRunnable;-><init>(Lcom/android/launcher3/gamehome/GameHomeManager;Lcom/android/launcher3/gamehome/GameHomeManager$1;)V
 
     iput-object v0, p0, Lcom/android/launcher3/gamehome/GameHomeManager;->mBindGameAppRunnable:Lcom/android/launcher3/gamehome/GameHomeManager$BindGameAppRunnable;
-
-    new-instance v0, Lcom/android/launcher3/gamehome/GameHomeManager$1;
-
-    new-instance v1, Landroid/os/Handler;
-
-    invoke-direct {v1}, Landroid/os/Handler;-><init>()V
-
-    invoke-direct {v0, p0, v1}, Lcom/android/launcher3/gamehome/GameHomeManager$1;-><init>(Lcom/android/launcher3/gamehome/GameHomeManager;Landroid/os/Handler;)V
-
-    iput-object v0, p0, Lcom/android/launcher3/gamehome/GameHomeManager;->mGameHomeProviderObserver:Landroid/database/ContentObserver;
 
     new-instance v0, Lcom/android/launcher3/gamehome/GameHomeManager$2;
 
@@ -102,7 +104,7 @@
 
     invoke-direct {v0, p0, v1}, Lcom/android/launcher3/gamehome/GameHomeManager$2;-><init>(Lcom/android/launcher3/gamehome/GameHomeManager;Landroid/os/Handler;)V
 
-    iput-object v0, p0, Lcom/android/launcher3/gamehome/GameHomeManager;->mGameHomeSettingProviderObserver:Landroid/database/ContentObserver;
+    iput-object v0, p0, Lcom/android/launcher3/gamehome/GameHomeManager;->mGameHomeProviderObserver:Landroid/database/ContentObserver;
 
     new-instance v0, Lcom/android/launcher3/gamehome/GameHomeManager$3;
 
@@ -111,6 +113,16 @@
     invoke-direct {v1}, Landroid/os/Handler;-><init>()V
 
     invoke-direct {v0, p0, v1}, Lcom/android/launcher3/gamehome/GameHomeManager$3;-><init>(Lcom/android/launcher3/gamehome/GameHomeManager;Landroid/os/Handler;)V
+
+    iput-object v0, p0, Lcom/android/launcher3/gamehome/GameHomeManager;->mGameHomeSettingProviderObserver:Landroid/database/ContentObserver;
+
+    new-instance v0, Lcom/android/launcher3/gamehome/GameHomeManager$4;
+
+    new-instance v1, Landroid/os/Handler;
+
+    invoke-direct {v1}, Landroid/os/Handler;-><init>()V
+
+    invoke-direct {v0, p0, v1}, Lcom/android/launcher3/gamehome/GameHomeManager$4;-><init>(Lcom/android/launcher3/gamehome/GameHomeManager;Landroid/os/Handler;)V
 
     iput-object v0, p0, Lcom/android/launcher3/gamehome/GameHomeManager;->mGameAppHideenSettingProviderObserver:Landroid/database/ContentObserver;
 
@@ -121,7 +133,15 @@
     return-void
 .end method
 
-.method static synthetic access$200()Ljava/lang/String;
+.method static synthetic access$200(Lcom/android/launcher3/gamehome/GameHomeManager;)Lcom/android/launcher3/Launcher;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/gamehome/GameHomeManager;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    return-object v0
+.end method
+
+.method static synthetic access$300()Ljava/lang/String;
     .locals 1
 
     sget-object v0, Lcom/android/launcher3/gamehome/GameHomeManager;->TAG:Ljava/lang/String;
@@ -295,11 +315,24 @@
 
     const/4 v6, 0x0
 
+    if-nez v3, :cond_1
+
+    sget-object v13, Lcom/android/launcher3/gamehome/GameHomeManager;->TAG:Ljava/lang/String;
+
+    const-string v14, "bindGameAppsVisibility game provider not exist yet"
+
+    invoke-static {v13, v14}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
     invoke-virtual {v3}, Ljava/util/HashMap;->isEmpty()Z
 
     move-result v13
 
-    if-eqz v13, :cond_0
+    if-eqz v13, :cond_2
 
     sget-object v13, Lcom/android/launcher3/gamehome/GameHomeManager;->TAG:Ljava/lang/String;
 
@@ -307,7 +340,7 @@
 
     invoke-static {v13, v14}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_0
+    :cond_2
     invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
     move-result-object v13
@@ -330,7 +363,7 @@
 
     invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v15, "Game Home Hidden setting before binding : "
+    const-string v15, "Game Home Hidden setting before binding(0/2:off, 1:on) : "
 
     invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -348,11 +381,11 @@
 
     const/4 v13, 0x1
 
-    if-ne v4, v13, :cond_1
+    if-ne v4, v13, :cond_3
 
     const/4 v6, 0x4
 
-    :cond_1
+    :cond_3
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/android/launcher3/gamehome/GameHomeManager;->mLauncher:Lcom/android/launcher3/Launcher;
@@ -361,7 +394,7 @@
 
     move-result-object v8
 
-    if-eqz v7, :cond_3
+    if-eqz v7, :cond_5
 
     invoke-virtual {v8}, Lcom/android/launcher3/LauncherModel;->getHomeLoader()Lcom/android/launcher3/home/HomeLoader;
 
@@ -371,7 +404,7 @@
 
     move-result-object v2
 
-    :goto_0
+    :goto_1
     new-instance v5, Ljava/util/ArrayList;
 
     invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
@@ -384,17 +417,39 @@
 
     invoke-direct {v12}, Ljava/util/ArrayList;-><init>()V
 
+    sget-object v13, Lcom/android/launcher3/gamehome/GameHomeManager;->TAG:Ljava/lang/String;
+
+    new-instance v14, Ljava/lang/StringBuilder;
+
+    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v15, "bindGameAppsVisibility hiddenFlag = "
+
+    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v14
+
+    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v14
+
+    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     invoke-virtual {v2}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v13
 
-    :cond_2
-    :goto_1
+    :cond_4
+    :goto_2
     invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v14
 
-    if-eqz v14, :cond_b
+    if-eqz v14, :cond_d
 
     invoke-interface {v13}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -406,7 +461,7 @@
 
     move-result-object v14
 
-    if-eqz v14, :cond_4
+    if-eqz v14, :cond_6
 
     invoke-virtual {v1}, Lcom/android/launcher3/common/base/item/ItemInfo;->getIntent()Landroid/content/Intent;
 
@@ -416,7 +471,7 @@
 
     move-result-object v14
 
-    if-eqz v14, :cond_4
+    if-eqz v14, :cond_6
 
     invoke-virtual {v1}, Lcom/android/launcher3/common/base/item/ItemInfo;->getIntent()Landroid/content/Intent;
 
@@ -430,7 +485,7 @@
 
     move-result-object v14
 
-    if-eqz v14, :cond_4
+    if-eqz v14, :cond_6
 
     invoke-virtual {v1}, Lcom/android/launcher3/common/base/item/ItemInfo;->getIntent()Landroid/content/Intent;
 
@@ -444,38 +499,16 @@
 
     move-result-object v9
 
-    :goto_2
+    :goto_3
     invoke-virtual {v3, v9}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
     move-result v14
 
-    if-eqz v14, :cond_8
+    if-eqz v14, :cond_a
 
     const/4 v14, 0x1
 
     invoke-virtual {v1, v14}, Lcom/android/launcher3/common/base/item/ItemInfo;->setGameApp(Z)V
-
-    sget-object v14, Lcom/android/launcher3/gamehome/GameHomeManager;->TAG:Ljava/lang/String;
-
-    new-instance v15, Ljava/lang/StringBuilder;
-
-    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v16, "bindGameAppsVisibility hiddenFlag = "
-
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v15
-
-    invoke-virtual {v15, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v15
-
-    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v15
-
-    invoke-static {v14, v15}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     sget-object v14, Lcom/android/launcher3/gamehome/GameHomeManager;->TAG:Ljava/lang/String;
 
@@ -519,14 +552,14 @@
 
     sparse-switch v6, :sswitch_data_0
 
-    goto/16 :goto_1
+    goto :goto_2
 
     :sswitch_0
     invoke-virtual {v1}, Lcom/android/launcher3/common/base/item/ItemInfo;->isHiddenByUser()Z
 
     move-result v14
 
-    if-eqz v14, :cond_7
+    if-eqz v14, :cond_9
 
     sget-object v14, Lcom/android/launcher3/gamehome/GameHomeManager;->TAG:Ljava/lang/String;
 
@@ -566,30 +599,30 @@
 
     invoke-virtual {v12, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    :cond_3
-    invoke-virtual {v8}, Lcom/android/launcher3/LauncherModel;->getAppsLoader()Lcom/android/launcher3/allapps/model/AppsLoader;
+    :cond_5
+    invoke-virtual {v8}, Lcom/android/launcher3/LauncherModel;->getAppsModel()Lcom/android/launcher3/allapps/model/AppsModel;
 
     move-result-object v13
 
-    invoke-virtual {v13}, Lcom/android/launcher3/allapps/model/AppsLoader;->getAllAppItemInApps()Ljava/util/ArrayList;
+    invoke-virtual {v13}, Lcom/android/launcher3/allapps/model/AppsModel;->getAllAppItemInApps()Ljava/util/ArrayList;
 
     move-result-object v2
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 
-    :cond_4
+    :cond_6
     const/4 v9, 0x0
 
-    goto/16 :goto_2
+    goto :goto_3
 
     :sswitch_1
     invoke-virtual {v1}, Lcom/android/launcher3/common/base/item/ItemInfo;->isHiddenByUser()Z
 
     move-result v14
 
-    if-eqz v14, :cond_5
+    if-eqz v14, :cond_7
 
     sget-object v14, Lcom/android/launcher3/gamehome/GameHomeManager;->TAG:Ljava/lang/String;
 
@@ -629,20 +662,20 @@
 
     invoke-virtual {v12, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    :cond_5
+    :cond_7
     invoke-virtual {v1}, Lcom/android/launcher3/common/base/item/ItemInfo;->isHiddenByGame()Z
 
     move-result v14
 
-    if-nez v14, :cond_2
+    if-nez v14, :cond_4
 
     invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportHomeModeChange()Z
 
     move-result v14
 
-    if-eqz v14, :cond_6
+    if-eqz v14, :cond_8
 
     invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
@@ -652,7 +685,7 @@
 
     move-result v14
 
-    if-eqz v14, :cond_6
+    if-eqz v14, :cond_8
 
     sget-object v14, Lcom/android/launcher3/gamehome/GameHomeManager;->TAG:Ljava/lang/String;
 
@@ -686,9 +719,9 @@
 
     invoke-static {v14, v15}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    :cond_6
+    :cond_8
     sget-object v14, Lcom/android/launcher3/gamehome/GameHomeManager;->TAG:Ljava/lang/String;
 
     new-instance v15, Ljava/lang/StringBuilder;
@@ -723,14 +756,14 @@
 
     invoke-virtual {v5, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    :cond_7
+    :cond_9
     invoke-virtual {v1}, Lcom/android/launcher3/common/base/item/ItemInfo;->isHiddenByGame()Z
 
     move-result v14
 
-    if-eqz v14, :cond_2
+    if-eqz v14, :cond_4
 
     sget-object v14, Lcom/android/launcher3/gamehome/GameHomeManager;->TAG:Ljava/lang/String;
 
@@ -766,20 +799,20 @@
 
     invoke-virtual {v11, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    :cond_8
+    :cond_a
     invoke-virtual {v1}, Lcom/android/launcher3/common/base/item/ItemInfo;->isHiddenByUser()Z
 
     move-result v14
 
-    if-eqz v14, :cond_a
+    if-eqz v14, :cond_c
 
     invoke-virtual {v1}, Lcom/android/launcher3/common/base/item/ItemInfo;->isGameApp()Z
 
     move-result v14
 
-    if-eqz v14, :cond_a
+    if-eqz v14, :cond_c
 
     sget-object v14, Lcom/android/launcher3/gamehome/GameHomeManager;->TAG:Ljava/lang/String;
 
@@ -819,26 +852,26 @@
 
     invoke-virtual {v12, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_9
-    :goto_3
+    :cond_b
+    :goto_4
     const/4 v14, 0x0
 
     invoke-virtual {v1, v14}, Lcom/android/launcher3/common/base/item/ItemInfo;->setGameApp(Z)V
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    :cond_a
+    :cond_c
     invoke-virtual {v1}, Lcom/android/launcher3/common/base/item/ItemInfo;->isHiddenByUser()Z
 
     move-result v14
 
-    if-nez v14, :cond_9
+    if-nez v14, :cond_b
 
     invoke-virtual {v1}, Lcom/android/launcher3/common/base/item/ItemInfo;->isHiddenByGame()Z
 
     move-result v14
 
-    if-eqz v14, :cond_9
+    if-eqz v14, :cond_b
 
     sget-object v14, Lcom/android/launcher3/gamehome/GameHomeManager;->TAG:Ljava/lang/String;
 
@@ -874,30 +907,28 @@
 
     invoke-virtual {v11, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    goto :goto_3
+    goto :goto_4
 
-    :cond_b
+    :cond_d
     invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
 
     move-result v13
 
-    if-lez v13, :cond_c
+    if-lez v13, :cond_e
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/launcher3/gamehome/GameHomeManager;->mLauncher:Lcom/android/launcher3/Launcher;
+    iget-object v13, v0, Lcom/android/launcher3/gamehome/GameHomeManager;->mHandler:Landroid/os/Handler;
 
-    const v14, 0x7f0800a5
+    new-instance v14, Lcom/android/launcher3/gamehome/GameHomeManager$1;
 
-    const/4 v15, 0x0
+    move-object/from16 v0, p0
 
-    invoke-static {v13, v14, v15}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
+    invoke-direct {v14, v0}, Lcom/android/launcher3/gamehome/GameHomeManager$1;-><init>(Lcom/android/launcher3/gamehome/GameHomeManager;)V
 
-    move-result-object v13
+    invoke-virtual {v13, v14}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
-    invoke-virtual {v13}, Landroid/widget/Toast;->show()V
-
-    :cond_c
+    :cond_e
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/android/launcher3/gamehome/GameHomeManager;->mLauncher:Lcom/android/launcher3/Launcher;
@@ -910,7 +941,7 @@
 
     move-result v13
 
-    if-nez v13, :cond_d
+    if-nez v13, :cond_0
 
     sget-object v13, Lcom/android/launcher3/gamehome/GameHomeManager;->TAG:Ljava/lang/String;
 
@@ -948,8 +979,7 @@
 
     invoke-virtual {v13, v12}, Lcom/android/launcher3/LauncherModel;->updateAppsOnlyDB(Ljava/util/ArrayList;)V
 
-    :cond_d
-    return-void
+    goto/16 :goto_0
 
     :sswitch_data_0
     .sparse-switch
@@ -1218,7 +1248,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v3, "game_home_hidden_games init value : "
+    const-string v3, "game_home_hidden_games(0/2:off, 1:on) initial value : "
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1324,7 +1354,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "isGameHomeHidden hidden setting value = "
+    const-string v5, "hidden setting (0/2:off, 1:on) = "
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1680,7 +1710,7 @@
 
     move-result-object v3
 
-    const-string v4, " , game app is disabled"
+    const-string v4, " , GameLauncher is disabled"
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

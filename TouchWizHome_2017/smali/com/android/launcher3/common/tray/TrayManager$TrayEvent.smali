@@ -19,9 +19,13 @@
 
 .field public static final EVENT_CHANGE_STAGE:I = 0xa
 
-.field public static final EVENT_MOVE_END:I = 0x3
+.field public static final EVENT_MOVE_END:I = 0x5
+
+.field public static final EVENT_MOVE_START:I = 0x4
 
 .field public static final EVENT_SET_Y_OFFSET:I = 0x1
+
+.field public static final EVENT_TOUCH_UP:I = 0x3
 
 
 # instance fields

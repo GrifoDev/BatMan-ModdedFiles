@@ -20,20 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
 
-.field final synthetic val$apps:Ljava/util/List;
-
-.field final synthetic val$heuristic:Lcom/android/launcher3/home/ManagedProfileHeuristic;
+.field final synthetic val$r:Ljava/lang/Runnable;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/allapps/model/AppsLoader;Lcom/android/launcher3/home/ManagedProfileHeuristic;Ljava/util/List;)V
+.method constructor <init>(Lcom/android/launcher3/allapps/model/AppsLoader;Ljava/lang/Runnable;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/allapps/model/AppsLoader$4;->this$0:Lcom/android/launcher3/allapps/model/AppsLoader;
 
-    iput-object p2, p0, Lcom/android/launcher3/allapps/model/AppsLoader$4;->val$heuristic:Lcom/android/launcher3/home/ManagedProfileHeuristic;
-
-    iput-object p3, p0, Lcom/android/launcher3/allapps/model/AppsLoader$4;->val$apps:Ljava/util/List;
+    iput-object p2, p0, Lcom/android/launcher3/allapps/model/AppsLoader$4;->val$r:Ljava/lang/Runnable;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,13 +39,47 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 3
 
-    iget-object v0, p0, Lcom/android/launcher3/allapps/model/AppsLoader$4;->val$heuristic:Lcom/android/launcher3/home/ManagedProfileHeuristic;
+    invoke-static {}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$800()Z
 
-    iget-object v1, p0, Lcom/android/launcher3/allapps/model/AppsLoader$4;->val$apps:Ljava/util/List;
+    move-result v0
 
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/home/ManagedProfileHeuristic;->processUserApps(Ljava/util/List;)V
+    if-eqz v0, :cond_0
 
+    invoke-static {}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$900()Ljava/util/ArrayList;
+
+    move-result-object v1
+
+    monitor-enter v1
+
+    :try_start_0
+    invoke-static {}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$1000()Ljava/util/ArrayList;
+
+    move-result-object v0
+
+    iget-object v2, p0, Lcom/android/launcher3/allapps/model/AppsLoader$4;->val$r:Ljava/lang/Runnable;
+
+    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    monitor-exit v1
+
+    :goto_0
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v0
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/launcher3/allapps/model/AppsLoader$4;->val$r:Ljava/lang/Runnable;
+
+    invoke-static {v0}, Lcom/android/launcher3/allapps/model/AppsLoader;->access$1100(Ljava/lang/Runnable;)V
+
+    goto :goto_0
 .end method

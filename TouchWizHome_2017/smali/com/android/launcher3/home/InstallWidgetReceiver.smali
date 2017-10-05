@@ -45,7 +45,9 @@
 .end method
 
 .method private bindWidget(Landroid/content/Context;Lcom/android/launcher3/home/InstallWidgetReceiver$PendingInstallWidgetInfo;)Z
-    .locals 6
+    .locals 8
+
+    const/4 v7, 0x0
 
     iget-object v3, p2, Lcom/android/launcher3/home/InstallWidgetReceiver$PendingInstallWidgetInfo;->componentName:Landroid/content/ComponentName;
 
@@ -67,18 +69,37 @@
 
     iput v3, p2, Lcom/android/launcher3/home/InstallWidgetReceiver$PendingInstallWidgetInfo;->appWidgetId:I
 
-    invoke-static {p1}, Lcom/android/launcher3/common/compat/AppWidgetManagerCompat;->getInstance(Landroid/content/Context;)Lcom/android/launcher3/common/compat/AppWidgetManagerCompat;
+    if-nez v1, :cond_1
+
+    iget-object v3, p2, Lcom/android/launcher3/home/InstallWidgetReceiver$PendingInstallWidgetInfo;->componentName:Landroid/content/ComponentName;
+
+    invoke-static {p1, v3}, Lcom/android/launcher3/home/HomeLoader;->checkHiddenWidget(Landroid/content/Context;Landroid/content/ComponentName;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    invoke-static {p1}, Landroid/appwidget/AppWidgetManager;->getInstance(Landroid/content/Context;)Landroid/appwidget/AppWidgetManager;
 
     move-result-object v3
 
     iget v4, p2, Lcom/android/launcher3/home/InstallWidgetReceiver$PendingInstallWidgetInfo;->appWidgetId:I
 
-    const/4 v5, 0x0
+    invoke-static {}, Lcom/android/launcher3/common/compat/UserHandleCompat;->myUserHandle()Lcom/android/launcher3/common/compat/UserHandleCompat;
 
-    invoke-virtual {v3, v4, v1, v5}, Lcom/android/launcher3/common/compat/AppWidgetManagerCompat;->bindAppWidgetIdIfAllowed(ILandroid/appwidget/AppWidgetProviderInfo;Landroid/os/Bundle;)Z
+    move-result-object v5
+
+    invoke-virtual {v5}, Lcom/android/launcher3/common/compat/UserHandleCompat;->getUser()Landroid/os/UserHandle;
+
+    move-result-object v5
+
+    iget-object v6, p2, Lcom/android/launcher3/home/InstallWidgetReceiver$PendingInstallWidgetInfo;->componentName:Landroid/content/ComponentName;
+
+    invoke-virtual {v3, v4, v5, v6, v7}, Landroid/appwidget/AppWidgetManager;->bindAppWidgetIdIfAllowed(ILandroid/os/UserHandle;Landroid/content/ComponentName;Landroid/os/Bundle;)Z
 
     move-result v2
 
+    :goto_0
     if-nez v2, :cond_0
 
     iget v3, p2, Lcom/android/launcher3/home/InstallWidgetReceiver$PendingInstallWidgetInfo;->appWidgetId:I
@@ -87,6 +108,19 @@
 
     :cond_0
     return v2
+
+    :cond_1
+    invoke-static {p1}, Lcom/android/launcher3/common/compat/AppWidgetManagerCompat;->getInstance(Landroid/content/Context;)Lcom/android/launcher3/common/compat/AppWidgetManagerCompat;
+
+    move-result-object v3
+
+    iget v4, p2, Lcom/android/launcher3/home/InstallWidgetReceiver$PendingInstallWidgetInfo;->appWidgetId:I
+
+    invoke-virtual {v3, v4, v1, v7}, Lcom/android/launcher3/common/compat/AppWidgetManagerCompat;->bindAppWidgetIdIfAllowed(ILandroid/appwidget/AppWidgetProviderInfo;Landroid/os/Bundle;)Z
+
+    move-result v2
+
+    goto :goto_0
 .end method
 
 .method static decode(Ljava/lang/String;Landroid/content/Context;)Lcom/android/launcher3/home/InstallWidgetReceiver$PendingInstallWidgetInfo;

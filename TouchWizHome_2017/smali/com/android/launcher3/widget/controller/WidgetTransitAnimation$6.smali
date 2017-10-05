@@ -53,14 +53,6 @@
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/animation/Animator;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/android/launcher3/widget/controller/WidgetTransitAnimation$6;->animationComplete()V
-
-    return-void
-.end method
-
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 0
 

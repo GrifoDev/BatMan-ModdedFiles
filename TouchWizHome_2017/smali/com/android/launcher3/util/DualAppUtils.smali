@@ -166,6 +166,18 @@
 .method public static isDualAppId(Lcom/android/launcher3/common/compat/UserHandleCompat;)Z
     .locals 1
 
+    invoke-static {}, Lcom/android/launcher3/util/TestHelper;->isRoboUnitTest()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+
+    :cond_0
     invoke-virtual {p0}, Lcom/android/launcher3/common/compat/UserHandleCompat;->getUser()Landroid/os/UserHandle;
 
     move-result-object v0
@@ -178,7 +190,7 @@
 
     move-result v0
 
-    return v0
+    goto :goto_0
 .end method
 
 .method public static isPackageInDualAppList(Landroid/content/Context;Ljava/lang/String;)Z

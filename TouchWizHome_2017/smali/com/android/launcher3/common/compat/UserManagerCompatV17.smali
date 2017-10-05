@@ -118,9 +118,9 @@
 .method public getSerialNumberForUser(Lcom/android/launcher3/common/compat/UserHandleCompat;)J
     .locals 4
 
-    if-nez p1, :cond_0
-
     const-wide/16 v2, 0x0
+
+    if-nez p1, :cond_0
 
     :goto_0
     return-wide v2
@@ -143,37 +143,7 @@
 
     if-nez v0, :cond_1
 
-    iget-object v1, p0, Lcom/android/launcher3/common/compat/UserManagerCompatV17;->mUserManager:Landroid/os/UserManager;
-
-    invoke-virtual {p1}, Lcom/android/launcher3/common/compat/UserHandleCompat;->getUser()Landroid/os/UserHandle;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Landroid/os/UserManager;->getSerialNumberForUser(Landroid/os/UserHandle;)J
-
-    move-result-wide v2
-
-    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/launcher3/common/compat/UserManagerCompatV17;->mUsers:Lcom/android/launcher3/util/LongArrayMap;
-
-    invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
-
-    move-result-wide v2
-
-    invoke-virtual {v1, v2, v3, p1}, Lcom/android/launcher3/util/LongArrayMap;->put(JLjava/lang/Object;)V
-
-    iget-object v1, p0, Lcom/android/launcher3/common/compat/UserManagerCompatV17;->mUserToSerialMap:Ljava/util/HashMap;
-
-    invoke-virtual {v1, p1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    :cond_1
-    invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
-
-    move-result-wide v2
-
+    :goto_1
     monitor-exit p0
 
     goto :goto_0
@@ -187,8 +157,15 @@
 
     throw v1
 
-    :cond_2
+    :cond_1
     :try_start_1
+    invoke-virtual {v0}, Ljava/lang/Long;->longValue()J
+
+    move-result-wide v2
+
+    goto :goto_1
+
+    :cond_2
     monitor-exit p0
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0

@@ -74,7 +74,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/executor/HomeSingleAppClearBadgeStateHandler;->mAppInfo:Lcom/android/launcher3/executor/StateAppInfo;
 
-    invoke-virtual {v1, v2}, Lcom/android/launcher3/proxy/LauncherProxy;->hasItemInApps(Lcom/android/launcher3/proxy/LauncherProxy$AppInfo;)Z
+    invoke-virtual {v1, v2}, Lcom/android/launcher3/proxy/LauncherProxy;->hasItemInHome(Lcom/android/launcher3/proxy/LauncherProxy$AppInfo;)Z
 
     move-result v1
 

@@ -11,7 +11,9 @@
 # static fields
 .field private static final EXTRA_WAKE_LOCK_ID:Ljava/lang/String; = "android.support.content.wakelockid"
 
-.field private static final mActiveWakeLocks:Landroid/util/SparseArray;
+.field private static mNextId:I
+
+.field private static final sActiveWakeLocks:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "Landroid/util/SparseArray",
@@ -22,8 +24,6 @@
     .end annotation
 .end field
 
-.field private static mNextId:I
-
 
 # direct methods
 .method static constructor <clinit>()V
@@ -33,7 +33,7 @@
 
     invoke-direct {v0}, Landroid/util/SparseArray;-><init>()V
 
-    sput-object v0, Landroid/support/v4/content/WakefulBroadcastReceiver;->mActiveWakeLocks:Landroid/util/SparseArray;
+    sput-object v0, Landroid/support/v4/content/WakefulBroadcastReceiver;->sActiveWakeLocks:Landroid/util/SparseArray;
 
     const/4 v0, 0x1
 
@@ -69,12 +69,12 @@
     return v2
 
     :cond_0
-    sget-object v4, Landroid/support/v4/content/WakefulBroadcastReceiver;->mActiveWakeLocks:Landroid/util/SparseArray;
+    sget-object v4, Landroid/support/v4/content/WakefulBroadcastReceiver;->sActiveWakeLocks:Landroid/util/SparseArray;
 
     monitor-enter v4
 
     :try_start_0
-    sget-object v2, Landroid/support/v4/content/WakefulBroadcastReceiver;->mActiveWakeLocks:Landroid/util/SparseArray;
+    sget-object v2, Landroid/support/v4/content/WakefulBroadcastReceiver;->sActiveWakeLocks:Landroid/util/SparseArray;
 
     invoke-virtual {v2, v0}, Landroid/util/SparseArray;->get(I)Ljava/lang/Object;
 
@@ -86,7 +86,7 @@
 
     invoke-virtual {v1}, Landroid/os/PowerManager$WakeLock;->release()V
 
-    sget-object v2, Landroid/support/v4/content/WakefulBroadcastReceiver;->mActiveWakeLocks:Landroid/util/SparseArray;
+    sget-object v2, Landroid/support/v4/content/WakefulBroadcastReceiver;->sActiveWakeLocks:Landroid/util/SparseArray;
 
     invoke-virtual {v2, v0}, Landroid/util/SparseArray;->remove(I)V
 
@@ -97,7 +97,7 @@
     goto :goto_0
 
     :cond_1
-    const-string v2, "WakefulBroadcastReceiver"
+    const-string v2, "WakefulBroadcastReceiv."
 
     new-instance v5, Ljava/lang/StringBuilder;
 
@@ -138,7 +138,7 @@
 .method public static startWakefulService(Landroid/content/Context;Landroid/content/Intent;)Landroid/content/ComponentName;
     .locals 8
 
-    sget-object v5, Landroid/support/v4/content/WakefulBroadcastReceiver;->mActiveWakeLocks:Landroid/util/SparseArray;
+    sget-object v5, Landroid/support/v4/content/WakefulBroadcastReceiver;->sActiveWakeLocks:Landroid/util/SparseArray;
 
     monitor-enter v5
 
@@ -222,7 +222,7 @@
 
     invoke-virtual {v3, v6, v7}, Landroid/os/PowerManager$WakeLock;->acquire(J)V
 
-    sget-object v4, Landroid/support/v4/content/WakefulBroadcastReceiver;->mActiveWakeLocks:Landroid/util/SparseArray;
+    sget-object v4, Landroid/support/v4/content/WakefulBroadcastReceiver;->sActiveWakeLocks:Landroid/util/SparseArray;
 
     invoke-virtual {v4, v1, v3}, Landroid/util/SparseArray;->put(ILjava/lang/Object;)V
 

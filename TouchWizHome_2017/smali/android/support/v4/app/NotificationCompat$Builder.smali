@@ -561,32 +561,6 @@
     goto :goto_0
 .end method
 
-.method protected resolveText()Ljava/lang/CharSequence;
-    .locals 1
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
-
-    iget-object v0, p0, Landroid/support/v4/app/NotificationCompat$Builder;->mContentText:Ljava/lang/CharSequence;
-
-    return-object v0
-.end method
-
-.method protected resolveTitle()Ljava/lang/CharSequence;
-    .locals 1
-    .annotation build Landroid/support/annotation/RestrictTo;
-        value = {
-            .enum Landroid/support/annotation/RestrictTo$Scope;->LIBRARY_GROUP:Landroid/support/annotation/RestrictTo$Scope;
-        }
-    .end annotation
-
-    iget-object v0, p0, Landroid/support/v4/app/NotificationCompat$Builder;->mContentTitle:Ljava/lang/CharSequence;
-
-    return-object v0
-.end method
-
 .method public setAutoCancel(Z)Landroid/support/v4/app/NotificationCompat$Builder;
     .locals 1
 
@@ -611,22 +585,6 @@
     iput-object p1, p0, Landroid/support/v4/app/NotificationCompat$Builder;->mCategory:Ljava/lang/String;
 
     return-object p0
-.end method
-
-.method public setChannel(Ljava/lang/String;)Landroid/support/v4/app/NotificationCompat$Builder;
-    .locals 1
-    .param p1    # Ljava/lang/String;
-        .annotation build Landroid/support/annotation/NonNull;
-        .end annotation
-    .end param
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-
-    invoke-virtual {p0, p1}, Landroid/support/v4/app/NotificationCompat$Builder;->setChannelId(Ljava/lang/String;)Landroid/support/v4/app/NotificationCompat$Builder;
-
-    move-result-object v0
-
-    return-object v0
 .end method
 
 .method public setChannelId(Ljava/lang/String;)Landroid/support/v4/app/NotificationCompat$Builder;
@@ -1105,18 +1063,6 @@
     iput-object p2, p0, Landroid/support/v4/app/NotificationCompat$Builder;->mTickerView:Landroid/widget/RemoteViews;
 
     return-object p0
-.end method
-
-.method public setTimeout(J)Landroid/support/v4/app/NotificationCompat$Builder;
-    .locals 1
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-
-    invoke-virtual {p0, p1, p2}, Landroid/support/v4/app/NotificationCompat$Builder;->setTimeoutAfter(J)Landroid/support/v4/app/NotificationCompat$Builder;
-
-    move-result-object v0
-
-    return-object v0
 .end method
 
 .method public setTimeoutAfter(J)Landroid/support/v4/app/NotificationCompat$Builder;

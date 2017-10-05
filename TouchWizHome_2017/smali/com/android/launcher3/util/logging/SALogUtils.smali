@@ -262,6 +262,164 @@
     throw v0
 .end method
 
+.method private static getDefaultScreenId(Landroid/content/Context;)J
+    .locals 11
+
+    const/4 v5, 0x1
+
+    const/4 v1, 0x0
+
+    const-wide/16 v8, -0x1
+
+    invoke-static {p0}, Lcom/android/launcher3/Utilities;->getHomeDefaultPageKey(Landroid/content/Context;)I
+
+    move-result v7
+
+    new-array v2, v5, [Ljava/lang/String;
+
+    const-string v0, "_id"
+
+    aput-object v0, v2, v1
+
+    const-string v3, "screenRank=?"
+
+    new-array v4, v5, [Ljava/lang/String;
+
+    invoke-static {v7}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    aput-object v0, v4, v1
+
+    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/android/launcher3/common/model/LauncherSettings$WorkspaceScreens;->CONTENT_URI:Landroid/net/Uri;
+
+    const/4 v5, 0x0
+
+    invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+
+    move-result-object v6
+
+    if-eqz v6, :cond_1
+
+    :try_start_0
+    invoke-interface {v6}, Landroid/database/Cursor;->moveToNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x0
+
+    invoke-interface {v6, v0}, Landroid/database/Cursor;->getLong(I)J
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-wide v8
+
+    :cond_0
+    invoke-interface {v6}, Landroid/database/Cursor;->isClosed()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+
+    :cond_1
+    :goto_0
+    const-wide/16 v0, -0x1
+
+    cmp-long v0, v8, v0
+
+    if-nez v0, :cond_2
+
+    const-string v0, "Launcher.SALogUtils"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "getDefaultScreenId : defaultPageId = "
+
+    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v8, v9}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_2
+    return-wide v8
+
+    :catch_0
+    move-exception v10
+
+    :try_start_1
+    const-string v0, "Launcher.SALogUtils"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "Exception : "
+
+    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v10}, Ljava/lang/Exception;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    invoke-interface {v6}, Landroid/database/Cursor;->isClosed()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+
+    goto :goto_0
+
+    :catchall_0
+    move-exception v0
+
+    invoke-interface {v6}, Landroid/database/Cursor;->isClosed()Z
+
+    move-result v1
+
+    if-nez v1, :cond_3
+
+    invoke-interface {v6}, Landroid/database/Cursor;->close()V
+
+    :cond_3
+    throw v0
+.end method
+
 .method static getFolderCountInHome(Landroid/content/Context;)I
     .locals 10
 
@@ -1093,7 +1251,7 @@
 .end method
 
 .method static getHomeApps(Landroid/content/Context;Z)Lcom/android/launcher3/util/logging/SALogUtils$Items;
-    .locals 15
+    .locals 16
 
     const/4 v0, 0x1
 
@@ -1105,13 +1263,13 @@
 
     aput-object v1, v2, v0
 
-    const-string v13, "(itemType is 0 or itemType is 1)"
+    const-string v15, "(itemType is 0 or itemType is 1)"
 
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
@@ -1151,9 +1309,9 @@
 
     if-eqz p1, :cond_0
 
-    invoke-static {p0}, Lcom/android/launcher3/Utilities;->getHomeDefaultPageKey(Landroid/content/Context;)I
+    invoke-static/range {p0 .. p0}, Lcom/android/launcher3/util/logging/SALogUtils;->getDefaultScreenId(Landroid/content/Context;)J
 
-    move-result v9
+    move-result-wide v10
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -1181,7 +1339,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v10, v11}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
@@ -1194,7 +1352,7 @@
 
     const/4 v7, 0x0
 
-    invoke-virtual {p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+    invoke-virtual/range {p0 .. p0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -1215,7 +1373,7 @@
 
     invoke-interface {v8, v0}, Landroid/database/Cursor;->getColumnIndexOrThrow(Ljava/lang/String;)I
 
-    move-result v11
+    move-result v12
 
     :cond_1
     :goto_0
@@ -1225,7 +1383,7 @@
 
     if-eqz v0, :cond_2
 
-    invoke-interface {v8, v11}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    invoke-interface {v8, v12}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v14
 
@@ -1235,11 +1393,11 @@
 
     invoke-static {v14, v0}, Landroid/content/Intent;->parseUri(Ljava/lang/String;I)Landroid/content/Intent;
 
-    move-result-object v12
+    move-result-object v13
 
-    if-eqz v12, :cond_1
+    if-eqz v13, :cond_1
 
-    invoke-virtual {v12}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+    invoke-virtual {v13}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
     move-result-object v0
 
@@ -1253,7 +1411,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v12}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+    invoke-virtual {v13}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
     move-result-object v1
 
@@ -1295,10 +1453,10 @@
     return-object v0
 
     :catch_0
-    move-exception v10
+    move-exception v9
 
     :try_start_1
-    invoke-virtual {v10}, Ljava/net/URISyntaxException;->printStackTrace()V
+    invoke-virtual {v9}, Ljava/net/URISyntaxException;->printStackTrace()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
@@ -1307,7 +1465,7 @@
     goto :goto_1
 
     :catch_1
-    move-exception v10
+    move-exception v9
 
     :try_start_2
     const-string v0, "Launcher.SALogUtils"
@@ -1322,7 +1480,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v10}, Ljava/lang/Exception;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/Exception;->toString()Ljava/lang/String;
 
     move-result-object v4
 
@@ -1351,9 +1509,9 @@
 .end method
 
 .method static getHomeWidgetList(Landroid/content/Context;Z)Lcom/android/launcher3/util/logging/SALogUtils$Items;
-    .locals 14
+    .locals 15
 
-    const-string v12, ""
+    const-string v13, ""
 
     const/4 v0, 0x1
 
@@ -1371,9 +1529,9 @@
 
     if-eqz p1, :cond_0
 
-    invoke-static {p0}, Lcom/android/launcher3/Utilities;->getHomeDefaultPageKey(Landroid/content/Context;)I
+    invoke-static {p0}, Lcom/android/launcher3/util/logging/SALogUtils;->getDefaultScreenId(Landroid/content/Context;)J
 
-    move-result v9
+    move-result-wide v10
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -1401,7 +1559,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v10, v11}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
@@ -1443,23 +1601,23 @@
 
     invoke-interface {v8, v6}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v14
 
-    if-eqz v13, :cond_1
+    if-eqz v14, :cond_1
 
-    invoke-static {v13}, Landroid/content/ComponentName;->unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
+    invoke-static {v14}, Landroid/content/ComponentName;->unflattenFromString(Ljava/lang/String;)Landroid/content/ComponentName;
 
-    move-result-object v11
+    move-result-object v12
 
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v0
 
-    invoke-virtual {v11}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+    invoke-virtual {v12}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object v1
 
@@ -1478,7 +1636,7 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    move-result-object v12
+    move-result-object v13
 
     add-int/lit8 v7, v7, 0x1
 
@@ -1491,12 +1649,12 @@
     :goto_1
     new-instance v0, Lcom/android/launcher3/util/logging/SALogUtils$Items;
 
-    invoke-direct {v0, v7, v12}, Lcom/android/launcher3/util/logging/SALogUtils$Items;-><init>(ILjava/lang/String;)V
+    invoke-direct {v0, v7, v13}, Lcom/android/launcher3/util/logging/SALogUtils$Items;-><init>(ILjava/lang/String;)V
 
     return-object v0
 
     :catch_0
-    move-exception v10
+    move-exception v9
 
     :try_start_1
     const-string v0, "Launcher.SALogUtils"
@@ -1511,7 +1669,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v10}, Ljava/lang/Exception;->toString()Ljava/lang/String;
+    invoke-virtual {v9}, Ljava/lang/Exception;->toString()Ljava/lang/String;
 
     move-result-object v4
 
@@ -1553,13 +1711,15 @@
         }
     .end annotation
 
-    invoke-virtual/range {p0 .. p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
     move-result-object v1
 
-    const v2, 0x7f0b003f
+    invoke-virtual {v1}, Lcom/android/launcher3/LauncherAppState;->getDeviceProfile()Lcom/android/launcher3/common/deviceprofile/DeviceProfile;
 
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->getMaxHotseatCount()I
 
     move-result v14
 
@@ -1720,7 +1880,7 @@
     if-eqz v1, :cond_0
 
     :cond_3
-    const-string v17, "FOLDER"
+    const-string v17, "Folder"
 
     goto :goto_1
 

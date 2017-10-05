@@ -115,6 +115,14 @@
     return-object v0
 .end method
 
+.method static synthetic access$402(Lcom/android/launcher3/util/capture/CapturePreview;Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/launcher3/util/capture/CapturePreview;->mExternalCacheDirPath:Ljava/lang/String;
+
+    return-object p1
+.end method
+
 .method private cancelCompressTask()V
     .locals 2
 

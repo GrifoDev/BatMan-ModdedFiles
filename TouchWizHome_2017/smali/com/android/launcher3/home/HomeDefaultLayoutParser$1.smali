@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/HomeDefaultLayoutParser;->changeScreenGrid()V
+    value = Lcom/android/launcher3/home/HomeDefaultLayoutParser;->changeGridAndLayout(II)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

@@ -110,7 +110,7 @@
 
     const/4 v1, 0x0
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_3
 
     invoke-virtual {p0, p1}, Landroid/content/res/Resources;->obtainTypedArray(I)Landroid/content/res/TypedArray;
 
@@ -181,12 +181,15 @@
     invoke-interface {v1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     :cond_2
-    if-eqz v1, :cond_3
+    invoke-virtual {v6}, Landroid/content/res/TypedArray;->recycle()V
+
+    :cond_3
+    if-eqz v1, :cond_4
 
     :goto_2
     return-object v1
 
-    :cond_3
+    :cond_4
     invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
 
     move-result-object v1
@@ -420,7 +423,7 @@
 .end method
 
 .method private static readFont(Lorg/xmlpull/v1/XmlPullParser;Landroid/content/res/Resources;)Landroid/support/v4/content/res/FontResourcesParserCompat$FontFileResourceEntry;
-    .locals 8
+    .locals 9
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Lorg/xmlpull/v1/XmlPullParserException;,
@@ -428,69 +431,75 @@
         }
     .end annotation
 
-    const/4 v2, 0x1
+    const/4 v3, 0x1
 
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
     invoke-static {p0}, Landroid/util/Xml;->asAttributeSet(Lorg/xmlpull/v1/XmlPullParser;)Landroid/util/AttributeSet;
 
     move-result-object v1
 
-    sget-object v6, Landroid/support/compat/R$styleable;->FontFamilyFont:[I
+    sget-object v7, Landroid/support/compat/R$styleable;->FontFamilyFont:[I
 
-    invoke-virtual {p1, v1, v6}, Landroid/content/res/Resources;->obtainAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
+    invoke-virtual {p1, v1, v7}, Landroid/content/res/Resources;->obtainAttributes(Landroid/util/AttributeSet;[I)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
-    sget v6, Landroid/support/compat/R$styleable;->FontFamilyFont_fontWeight:I
+    sget v7, Landroid/support/compat/R$styleable;->FontFamilyFont_fontWeight:I
 
-    const/16 v7, 0x190
+    const/16 v8, 0x190
 
-    invoke-virtual {v0, v6, v7}, Landroid/content/res/TypedArray;->getInt(II)I
+    invoke-virtual {v0, v7, v8}, Landroid/content/res/TypedArray;->getInt(II)I
+
+    move-result v5
+
+    sget v7, Landroid/support/compat/R$styleable;->FontFamilyFont_fontStyle:I
+
+    invoke-virtual {v0, v7, v6}, Landroid/content/res/TypedArray;->getInt(II)I
+
+    move-result v7
+
+    if-ne v3, v7, :cond_0
+
+    :goto_0
+    sget v7, Landroid/support/compat/R$styleable;->FontFamilyFont_font:I
+
+    invoke-virtual {v0, v7, v6}, Landroid/content/res/TypedArray;->getResourceId(II)I
 
     move-result v4
 
-    sget v6, Landroid/support/compat/R$styleable;->FontFamilyFont_fontStyle:I
-
-    invoke-virtual {v0, v6, v5}, Landroid/content/res/TypedArray;->getInt(II)I
-
-    move-result v6
-
-    if-ne v2, v6, :cond_0
-
-    :goto_0
     sget v6, Landroid/support/compat/R$styleable;->FontFamilyFont_font:I
 
-    invoke-virtual {v0, v6, v5}, Landroid/content/res/TypedArray;->getResourceId(II)I
+    invoke-virtual {v0, v6}, Landroid/content/res/TypedArray;->getString(I)Ljava/lang/String;
 
-    move-result v3
+    move-result-object v2
 
     invoke-virtual {v0}, Landroid/content/res/TypedArray;->recycle()V
 
     :goto_1
     invoke-interface {p0}, Lorg/xmlpull/v1/XmlPullParser;->next()I
 
-    move-result v5
+    move-result v6
 
-    const/4 v6, 0x3
+    const/4 v7, 0x3
 
-    if-eq v5, v6, :cond_1
+    if-eq v6, v7, :cond_1
 
     invoke-static {p0}, Landroid/support/v4/content/res/FontResourcesParserCompat;->skip(Lorg/xmlpull/v1/XmlPullParser;)V
 
     goto :goto_1
 
     :cond_0
-    move v2, v5
+    move v3, v6
 
     goto :goto_0
 
     :cond_1
-    new-instance v5, Landroid/support/v4/content/res/FontResourcesParserCompat$FontFileResourceEntry;
+    new-instance v6, Landroid/support/v4/content/res/FontResourcesParserCompat$FontFileResourceEntry;
 
-    invoke-direct {v5, v4, v2, v3}, Landroid/support/v4/content/res/FontResourcesParserCompat$FontFileResourceEntry;-><init>(IZI)V
+    invoke-direct {v6, v2, v5, v3, v4}, Landroid/support/v4/content/res/FontResourcesParserCompat$FontFileResourceEntry;-><init>(Ljava/lang/String;IZI)V
 
-    return-object v5
+    return-object v6
 .end method
 
 .method private static skip(Lorg/xmlpull/v1/XmlPullParser;)V

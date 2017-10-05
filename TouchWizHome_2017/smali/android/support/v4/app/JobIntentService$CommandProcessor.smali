@@ -84,6 +84,26 @@
     return-object v1
 .end method
 
+.method protected bridge synthetic onCancelled(Ljava/lang/Object;)V
+    .locals 0
+
+    check-cast p1, Ljava/lang/Void;
+
+    invoke-virtual {p0, p1}, Landroid/support/v4/app/JobIntentService$CommandProcessor;->onCancelled(Ljava/lang/Void;)V
+
+    return-void
+.end method
+
+.method protected onCancelled(Ljava/lang/Void;)V
+    .locals 1
+
+    iget-object v0, p0, Landroid/support/v4/app/JobIntentService$CommandProcessor;->this$0:Landroid/support/v4/app/JobIntentService;
+
+    invoke-virtual {v0}, Landroid/support/v4/app/JobIntentService;->processorFinished()V
+
+    return-void
+.end method
+
 .method protected bridge synthetic onPostExecute(Ljava/lang/Object;)V
     .locals 0
 
@@ -95,42 +115,11 @@
 .end method
 
 .method protected onPostExecute(Ljava/lang/Void;)V
-    .locals 3
+    .locals 1
 
     iget-object v0, p0, Landroid/support/v4/app/JobIntentService$CommandProcessor;->this$0:Landroid/support/v4/app/JobIntentService;
 
-    iget-object v0, v0, Landroid/support/v4/app/JobIntentService;->mCompatQueue:Ljava/util/ArrayList;
+    invoke-virtual {v0}, Landroid/support/v4/app/JobIntentService;->processorFinished()V
 
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Landroid/support/v4/app/JobIntentService$CommandProcessor;->this$0:Landroid/support/v4/app/JobIntentService;
-
-    iget-object v1, v0, Landroid/support/v4/app/JobIntentService;->mCompatQueue:Ljava/util/ArrayList;
-
-    monitor-enter v1
-
-    :try_start_0
-    iget-object v0, p0, Landroid/support/v4/app/JobIntentService$CommandProcessor;->this$0:Landroid/support/v4/app/JobIntentService;
-
-    const/4 v2, 0x0
-
-    iput-object v2, v0, Landroid/support/v4/app/JobIntentService;->mCurProcessor:Landroid/support/v4/app/JobIntentService$CommandProcessor;
-
-    iget-object v0, p0, Landroid/support/v4/app/JobIntentService$CommandProcessor;->this$0:Landroid/support/v4/app/JobIntentService;
-
-    invoke-virtual {v0}, Landroid/support/v4/app/JobIntentService;->checkForMoreCompatWorkLocked()V
-
-    monitor-exit v1
-
-    :cond_0
     return-void
-
-    :catchall_0
-    move-exception v0
-
-    monitor-exit v1
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    throw v0
 .end method

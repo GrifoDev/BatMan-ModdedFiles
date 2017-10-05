@@ -69,7 +69,7 @@
 
     move-result v1
 
-    invoke-static {v0, v1}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$1202(Lcom/android/launcher3/home/HomeRestoreLayoutParser;I)I
+    invoke-static {v0, v1}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$1302(Lcom/android/launcher3/home/HomeRestoreLayoutParser;I)I
 
     const-string v0, "Launcher.HomeRestore"
 
@@ -85,7 +85,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/HomeRestoreLayoutParser$RowsParser;->this$0:Lcom/android/launcher3/home/HomeRestoreLayoutParser;
 
-    invoke-static {v2}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$1200(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)I
+    invoke-static {v2}, Lcom/android/launcher3/home/HomeRestoreLayoutParser;->access$1300(Lcom/android/launcher3/home/HomeRestoreLayoutParser;)I
 
     move-result v2
 

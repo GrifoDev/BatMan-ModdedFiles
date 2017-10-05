@@ -149,25 +149,40 @@
 
 
 # virtual methods
+.method public onCancel(Landroid/content/DialogInterface;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/allapps/AppsViewTypeDialog;->onViewTypeChagnedListener:Lcom/android/launcher3/allapps/AppsViewTypeDialog$OnViewTypeChagnedListener;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/allapps/AppsViewTypeDialog;->onViewTypeChagnedListener:Lcom/android/launcher3/allapps/AppsViewTypeDialog$OnViewTypeChagnedListener;
+
+    invoke-interface {v0}, Lcom/android/launcher3/allapps/AppsViewTypeDialog$OnViewTypeChagnedListener;->onDismiss()V
+
+    :cond_0
+    return-void
+.end method
+
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 5
+    .locals 6
 
-    const/4 v1, -0x2
+    const/4 v2, -0x2
 
-    if-eq p2, v1, :cond_1
+    if-eq p2, v2, :cond_1
 
     packed-switch p2, :pswitch_data_0
 
-    sget-object v0, Lcom/android/launcher3/allapps/controller/AppsController$ViewType;->CUSTOM_GRID:Lcom/android/launcher3/allapps/controller/AppsController$ViewType;
+    sget-object v1, Lcom/android/launcher3/allapps/controller/AppsController$ViewType;->CUSTOM_GRID:Lcom/android/launcher3/allapps/controller/AppsController$ViewType;
 
     :goto_0
-    iget-object v1, p0, Lcom/android/launcher3/allapps/AppsViewTypeDialog;->onViewTypeChagnedListener:Lcom/android/launcher3/allapps/AppsViewTypeDialog$OnViewTypeChagnedListener;
+    iget-object v2, p0, Lcom/android/launcher3/allapps/AppsViewTypeDialog;->onViewTypeChagnedListener:Lcom/android/launcher3/allapps/AppsViewTypeDialog$OnViewTypeChagnedListener;
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
-    iget-object v1, p0, Lcom/android/launcher3/allapps/AppsViewTypeDialog;->onViewTypeChagnedListener:Lcom/android/launcher3/allapps/AppsViewTypeDialog$OnViewTypeChagnedListener;
+    iget-object v2, p0, Lcom/android/launcher3/allapps/AppsViewTypeDialog;->onViewTypeChagnedListener:Lcom/android/launcher3/allapps/AppsViewTypeDialog$OnViewTypeChagnedListener;
 
-    invoke-interface {v1, v0}, Lcom/android/launcher3/allapps/AppsViewTypeDialog$OnViewTypeChagnedListener;->onResult(Lcom/android/launcher3/allapps/controller/AppsController$ViewType;)V
+    invoke-interface {v2, v1}, Lcom/android/launcher3/allapps/AppsViewTypeDialog$OnViewTypeChagnedListener;->onResult(Lcom/android/launcher3/allapps/controller/AppsController$ViewType;)V
 
     :cond_0
     invoke-interface {p1}, Landroid/content/DialogInterface;->dismiss()V
@@ -176,22 +191,22 @@
     return-void
 
     :pswitch_0
-    sget-object v0, Lcom/android/launcher3/allapps/controller/AppsController$ViewType;->ALPHABETIC_GRID:Lcom/android/launcher3/allapps/controller/AppsController$ViewType;
+    sget-object v1, Lcom/android/launcher3/allapps/controller/AppsController$ViewType;->ALPHABETIC_GRID:Lcom/android/launcher3/allapps/controller/AppsController$ViewType;
 
     goto :goto_0
 
     :cond_1
+    iget-object v2, p0, Lcom/android/launcher3/allapps/AppsViewTypeDialog;->onViewTypeChagnedListener:Lcom/android/launcher3/allapps/AppsViewTypeDialog$OnViewTypeChagnedListener;
+
+    if-eqz v2, :cond_2
+
+    iget-object v2, p0, Lcom/android/launcher3/allapps/AppsViewTypeDialog;->onViewTypeChagnedListener:Lcom/android/launcher3/allapps/AppsViewTypeDialog$OnViewTypeChagnedListener;
+
+    invoke-interface {v2}, Lcom/android/launcher3/allapps/AppsViewTypeDialog$OnViewTypeChagnedListener;->onDismiss()V
+
+    :cond_2
+    :try_start_0
     invoke-static {}, Lcom/android/launcher3/util/logging/SALogging;->getInstance()Lcom/android/launcher3/util/logging/SALogging;
-
-    move-result-object v1
-
-    invoke-virtual {p0}, Lcom/android/launcher3/allapps/AppsViewTypeDialog;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    const v3, 0x7f08018c
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -199,13 +214,32 @@
 
     move-result-object v3
 
-    const v4, 0x7f0800ff
+    const v4, 0x7f0901ac
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {v1, v2, v3}, Lcom/android/launcher3/util/logging/SALogging;->insertEventLog(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0}, Lcom/android/launcher3/allapps/AppsViewTypeDialog;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v4
+
+    const v5, 0x7f09011a
+
+    invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v2, v3, v4}, Lcom/android/launcher3/util/logging/SALogging;->insertEventLog(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_0
+    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_1
+
+    :catch_0
+    move-exception v0
+
+    invoke-virtual {v0}, Ljava/lang/IllegalStateException;->printStackTrace()V
 
     goto :goto_1
 
@@ -228,7 +262,7 @@
 
     const/4 v2, 0x0
 
-    const v3, 0x7f0800c6
+    const v3, 0x7f0900e0
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -240,7 +274,7 @@
 
     const/4 v2, 0x1
 
-    const v3, 0x7f0800c5
+    const v3, 0x7f0900df
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -298,7 +332,7 @@
 
     invoke-direct {v4, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v5, 0x7f080079
+    const v5, 0x7f090085
 
     invoke-virtual {v4, v5}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -310,7 +344,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f080056
+    const v5, 0x7f09005d
 
     invoke-virtual {v4, v5, p0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

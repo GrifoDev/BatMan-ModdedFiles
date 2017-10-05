@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/allapps/AppsTransitionAnimation;->getSelectAnimation(ZLjava/util/HashMap;Z)Landroid/animation/AnimatorSet;
+    value = Lcom/android/launcher3/allapps/AppsTransitionAnimation;->getDragAnimation(ZLjava/util/HashMap;ZZ)Landroid/animation/AnimatorSet;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -19,18 +19,22 @@
 
 .field final synthetic val$enter:Z
 
-.field final synthetic val$multiSelectPanel:Lcom/android/launcher3/common/multiselect/MultiSelectPanel;
+.field final synthetic val$searchBarAlphaValue:F
+
+.field final synthetic val$topLayout:Landroid/view/View;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/allapps/AppsTransitionAnimation;ZLcom/android/launcher3/common/multiselect/MultiSelectPanel;)V
+.method constructor <init>(Lcom/android/launcher3/allapps/AppsTransitionAnimation;Landroid/view/View;ZF)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$10;->this$0:Lcom/android/launcher3/allapps/AppsTransitionAnimation;
 
-    iput-boolean p2, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$10;->val$enter:Z
+    iput-object p2, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$10;->val$topLayout:Landroid/view/View;
 
-    iput-object p3, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$10;->val$multiSelectPanel:Lcom/android/launcher3/common/multiselect/MultiSelectPanel;
+    iput-boolean p3, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$10;->val$enter:Z
+
+    iput p4, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$10;->val$searchBarAlphaValue:F
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
 
@@ -39,6 +43,18 @@
 
 
 # virtual methods
+.method public onAnimationCancel(Landroid/animation/Animator;)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$10;->val$topLayout:Landroid/view/View;
+
+    iget v1, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$10;->val$searchBarAlphaValue:F
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
+
+    return-void
+.end method
+
 .method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
 
@@ -46,48 +62,23 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->access$302(Lcom/android/launcher3/allapps/AppsTransitionAnimation;Landroid/animation/AnimatorSet;)Landroid/animation/AnimatorSet;
+    invoke-static {v0, v1}, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->access$402(Lcom/android/launcher3/allapps/AppsTransitionAnimation;Landroid/animation/AnimatorSet;)Landroid/animation/AnimatorSet;
 
-    iget-boolean v0, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$10;->val$enter:Z
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$10;->val$multiSelectPanel:Lcom/android/launcher3/common/multiselect/MultiSelectPanel;
-
-    const/16 v1, 0x8
-
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->setVisibility(I)V
-
-    :goto_0
-    return-void
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$10;->val$multiSelectPanel:Lcom/android/launcher3/common/multiselect/MultiSelectPanel;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->setVisibility(I)V
-
-    goto :goto_0
-.end method
-
-.method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 2
+    iget-object v1, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$10;->val$topLayout:Landroid/view/View;
 
     iget-boolean v0, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$10;->val$enter:Z
 
     if-eqz v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$10;->val$multiSelectPanel:Lcom/android/launcher3/common/multiselect/MultiSelectPanel;
+    const/16 v0, 0x8
 
-    const/4 v1, 0x0
+    :goto_0
+    invoke-virtual {v1, v0}, Landroid/view/View;->setVisibility(I)V
 
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->setVisibility(I)V
-
-    iget-object v0, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation$10;->val$multiSelectPanel:Lcom/android/launcher3/common/multiselect/MultiSelectPanel;
-
-    invoke-virtual {v0}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->bringToFront()V
+    return-void
 
     :cond_0
-    return-void
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method

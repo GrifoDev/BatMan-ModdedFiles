@@ -17,7 +17,7 @@
 
     move-result-object v0
 
-    const-string v1, "HomeSingleAppLock"
+    const-string v1, "HomeSingleAppUnlock"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -25,7 +25,7 @@
 
     if-eqz v0, :cond_0
 
-    const-string v0, "HomeSingleAppLock"
+    const-string v0, "HomeSingleAppUnlock"
 
     iput-object v0, p0, Lcom/android/launcher3/executor/HomeSingleAppUnlockStateHandler;->mNlgTargetState:Ljava/lang/String;
 
@@ -64,120 +64,190 @@
 
 # virtual methods
 .method public execute(Lcom/android/launcher3/executor/StateExecutionCallback;)V
-    .locals 6
+    .locals 7
 
-    const/4 v1, 0x0
+    const/4 v5, 0x0
 
-    iget-object v2, p0, Lcom/android/launcher3/executor/HomeSingleAppUnlockStateHandler;->mNlgTargetState:Ljava/lang/String;
+    const/4 v2, 0x0
 
-    const-string v3, "HomeSingleAppLock"
+    iget-object v3, p0, Lcom/android/launcher3/executor/HomeSingleAppUnlockStateHandler;->mNlgTargetState:Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const-string v4, "HomeSingleAppUnlock"
 
-    move-result v2
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-eqz v2, :cond_1
+    move-result v3
+
+    if-eqz v3, :cond_1
 
     invoke-virtual {p0}, Lcom/android/launcher3/executor/HomeSingleAppUnlockStateHandler;->getLauncherProxy()Lcom/android/launcher3/proxy/LauncherProxy;
 
-    move-result-object v2
+    move-result-object v3
 
-    iget-object v3, p0, Lcom/android/launcher3/executor/HomeSingleAppUnlockStateHandler;->mAppInfo:Lcom/android/launcher3/executor/StateAppInfo;
+    iget-object v4, p0, Lcom/android/launcher3/executor/HomeSingleAppUnlockStateHandler;->mAppInfo:Lcom/android/launcher3/executor/StateAppInfo;
 
-    invoke-virtual {v2, v3}, Lcom/android/launcher3/proxy/LauncherProxy;->getHomeItemInfoByStateAppInfo(Lcom/android/launcher3/proxy/LauncherProxy$AppInfo;)Ljava/util/List;
+    invoke-virtual {v3, v4}, Lcom/android/launcher3/proxy/LauncherProxy;->getHomeItemInfoByStateAppInfo(Lcom/android/launcher3/proxy/LauncherProxy$AppInfo;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object v1
 
     :goto_0
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    invoke-interface {v0}, Ljava/util/List;->size()I
+    invoke-interface {v1}, Ljava/util/List;->size()I
 
-    move-result v2
+    move-result v3
 
-    const/4 v3, 0x1
+    const/4 v4, 0x1
 
-    if-eq v2, v3, :cond_2
+    if-eq v3, v4, :cond_2
 
     :cond_0
-    new-instance v2, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+    new-instance v3, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
 
-    iget-object v3, p0, Lcom/android/launcher3/executor/HomeSingleAppUnlockStateHandler;->mStateId:Lcom/android/launcher3/executor/ExecutorState;
+    iget-object v4, p0, Lcom/android/launcher3/executor/HomeSingleAppUnlockStateHandler;->mStateId:Lcom/android/launcher3/executor/ExecutorState;
 
-    invoke-virtual {v3}, Lcom/android/launcher3/executor/ExecutorState;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Lcom/android/launcher3/executor/ExecutorState;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-direct {v3, v4}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;-><init>(Ljava/lang/String;)V
+
+    const-string v4, "SingleApp"
+
+    const-string v5, "Match"
+
+    const-string v6, "no"
+
+    invoke-virtual {v3, v4, v5, v6}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
 
     move-result-object v3
 
-    invoke-direct {v2, v3}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;-><init>(Ljava/lang/String;)V
+    iput-object v3, p0, Lcom/android/launcher3/executor/HomeSingleAppUnlockStateHandler;->mNlgRequestInfo:Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
 
-    const-string v3, "SingleApp"
-
-    const-string v4, "Match"
-
-    const-string v5, "no"
-
-    invoke-virtual {v2, v3, v4, v5}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
-
-    move-result-object v2
-
-    iput-object v2, p0, Lcom/android/launcher3/executor/HomeSingleAppUnlockStateHandler;->mNlgRequestInfo:Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
-
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
     :goto_1
-    invoke-virtual {p0, p1, v1}, Lcom/android/launcher3/executor/HomeSingleAppUnlockStateHandler;->completeExecuteRequest(Lcom/android/launcher3/executor/StateExecutionCallback;I)V
+    invoke-virtual {p0, p1, v2}, Lcom/android/launcher3/executor/HomeSingleAppUnlockStateHandler;->completeExecuteRequest(Lcom/android/launcher3/executor/StateExecutionCallback;I)V
 
     return-void
 
     :cond_1
     invoke-virtual {p0}, Lcom/android/launcher3/executor/HomeSingleAppUnlockStateHandler;->getLauncherProxy()Lcom/android/launcher3/proxy/LauncherProxy;
 
-    move-result-object v2
+    move-result-object v3
 
-    iget-object v3, p0, Lcom/android/launcher3/executor/HomeSingleAppUnlockStateHandler;->mAppInfo:Lcom/android/launcher3/executor/StateAppInfo;
+    iget-object v4, p0, Lcom/android/launcher3/executor/HomeSingleAppUnlockStateHandler;->mAppInfo:Lcom/android/launcher3/executor/StateAppInfo;
 
-    invoke-virtual {v2, v3}, Lcom/android/launcher3/proxy/LauncherProxy;->getAppsItemInfo(Lcom/android/launcher3/proxy/LauncherProxy$AppInfo;)Ljava/util/List;
+    invoke-virtual {v3, v4}, Lcom/android/launcher3/proxy/LauncherProxy;->getAppsItemInfo(Lcom/android/launcher3/proxy/LauncherProxy$AppInfo;)Ljava/util/List;
 
-    move-result-object v0
+    move-result-object v1
 
     goto :goto_0
 
     :cond_2
+    invoke-static {}, Lcom/android/launcher3/folder/folderlock/FolderLock;->getInstance()Lcom/android/launcher3/folder/folderlock/FolderLock;
+
+    move-result-object v0
+
+    invoke-interface {v1, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    instance-of v3, v3, Lcom/android/launcher3/common/base/item/IconInfo;
+
+    if-eqz v3, :cond_4
+
+    invoke-interface {v1, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Lcom/android/launcher3/common/base/item/IconInfo;
+
+    invoke-virtual {v0, v3}, Lcom/android/launcher3/folder/folderlock/FolderLock;->isLockedApp(Lcom/android/launcher3/common/base/item/IconInfo;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_3
+
     invoke-virtual {p0}, Lcom/android/launcher3/executor/HomeSingleAppUnlockStateHandler;->getLauncherProxy()Lcom/android/launcher3/proxy/LauncherProxy;
 
-    move-result-object v3
+    move-result-object v4
 
-    const/4 v2, 0x0
-
-    invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/launcher3/common/base/item/ItemInfo;
-
-    invoke-virtual {v3, v2}, Lcom/android/launcher3/proxy/LauncherProxy;->unlockSingleApp(Lcom/android/launcher3/common/base/item/ItemInfo;)I
-
-    new-instance v2, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
-
-    iget-object v3, p0, Lcom/android/launcher3/executor/HomeSingleAppUnlockStateHandler;->mStateId:Lcom/android/launcher3/executor/ExecutorState;
-
-    invoke-virtual {v3}, Lcom/android/launcher3/executor/ExecutorState;->toString()Ljava/lang/String;
+    invoke-interface {v1, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v3
 
-    invoke-direct {v2, v3}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;-><init>(Ljava/lang/String;)V
+    check-cast v3, Lcom/android/launcher3/common/base/item/ItemInfo;
 
-    const-string v3, "SingleApp"
+    invoke-virtual {v4, v3}, Lcom/android/launcher3/proxy/LauncherProxy;->unlockSingleApp(Lcom/android/launcher3/common/base/item/ItemInfo;)I
 
-    const-string v4, "Match"
+    new-instance v3, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
 
-    const-string v5, "yes"
+    iget-object v4, p0, Lcom/android/launcher3/executor/HomeSingleAppUnlockStateHandler;->mStateId:Lcom/android/launcher3/executor/ExecutorState;
 
-    invoke-virtual {v2, v3, v4, v5}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+    invoke-virtual {v4}, Lcom/android/launcher3/executor/ExecutorState;->toString()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v4
 
-    iput-object v2, p0, Lcom/android/launcher3/executor/HomeSingleAppUnlockStateHandler;->mNlgRequestInfo:Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+    invoke-direct {v3, v4}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;-><init>(Ljava/lang/String;)V
+
+    const-string v4, "SingleApp"
+
+    const-string v5, "Already unlocked"
+
+    const-string v6, "no"
+
+    invoke-virtual {v3, v4, v5, v6}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+
+    move-result-object v3
+
+    iput-object v3, p0, Lcom/android/launcher3/executor/HomeSingleAppUnlockStateHandler;->mNlgRequestInfo:Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+
+    goto :goto_1
+
+    :cond_3
+    new-instance v3, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+
+    iget-object v4, p0, Lcom/android/launcher3/executor/HomeSingleAppUnlockStateHandler;->mStateId:Lcom/android/launcher3/executor/ExecutorState;
+
+    invoke-virtual {v4}, Lcom/android/launcher3/executor/ExecutorState;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-direct {v3, v4}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;-><init>(Ljava/lang/String;)V
+
+    const-string v4, "SingleApp"
+
+    const-string v5, "Already unlocked"
+
+    const-string v6, "yes"
+
+    invoke-virtual {v3, v4, v5, v6}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+
+    move-result-object v3
+
+    iput-object v3, p0, Lcom/android/launcher3/executor/HomeSingleAppUnlockStateHandler;->mNlgRequestInfo:Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+
+    goto :goto_1
+
+    :cond_4
+    new-instance v3, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+
+    const-string v4, "Home"
+
+    invoke-direct {v3, v4}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;-><init>(Ljava/lang/String;)V
+
+    const-string v4, "SingleApp"
+
+    const-string v5, "Match"
+
+    const-string v6, "no"
+
+    invoke-virtual {v3, v4, v5, v6}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+
+    move-result-object v3
+
+    iput-object v3, p0, Lcom/android/launcher3/executor/HomeSingleAppUnlockStateHandler;->mNlgRequestInfo:Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
 
     goto :goto_1
 .end method

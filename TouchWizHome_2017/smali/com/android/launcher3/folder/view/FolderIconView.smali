@@ -24,6 +24,10 @@
 
 .field private static final FINAL_ITEM_ANIMATION_DURATION:I = 0xc8
 
+.field private static final IMPROVE_PREVIEW_DENSITY_THRESHOLD:I = 0x190
+
+.field private static final IMPROVE_PREVIEW_ENLARGE_RATIO:I = 0x2
+
 .field private static final INITIAL_ITEM_ANIMATION_DURATION:I = 0x122
 
 .field private static final INNER_RING_GROWTH_FACTOR:F = 0.15f
@@ -33,6 +37,8 @@
 .field public static final NUM_ITEMS_IN_PREVIEW:I = 0x9
 
 .field private static final TAG:Ljava/lang/String; = "FolderIconView"
+
+.field private static sNeedToImprovePreviewImage:Z
 
 .field private static sSharedIconBgBitmap:[Landroid/graphics/Bitmap;
 
@@ -77,7 +83,7 @@
 
 .field private mMiniIconCol:I
 
-.field private mMiniIconGap:I
+.field private mMiniIconGap:F
 
 .field private mOldBounds:Landroid/graphics/Rect;
 
@@ -97,7 +103,7 @@
 
 .field private mPreviewOffsetY:I
 
-.field private mPreviewPadding:I
+.field private mPreviewPaddingRatio:F
 
 .field private mShadow:Landroid/widget/ImageView;
 
@@ -119,6 +125,10 @@
     const/4 v0, 0x0
 
     sput-object v0, Lcom/android/launcher3/folder/view/FolderIconView;->sSharedIconBgBitmap:[Landroid/graphics/Bitmap;
+
+    const/4 v0, 0x0
+
+    sput-boolean v0, Lcom/android/launcher3/folder/view/FolderIconView;->sNeedToImprovePreviewImage:Z
 
     return-void
 .end method
@@ -435,7 +445,15 @@
 
     iget v6, v8, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    iget v5, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mPreviewPadding:I
+    iget v8, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mPreviewPaddingRatio:F
+
+    int-to-float v9, v6
+
+    mul-float/2addr v8, v9
+
+    invoke-static {v8}, Ljava/lang/Math;->round(F)I
+
+    move-result v5
 
     mul-int/lit8 v8, v5, 0x2
 
@@ -478,13 +496,13 @@
 
     move-result-object v1
 
-    const v2, 0x7f0900d5
+    const v2, 0x7f0a012d
 
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
     move-result v1
 
-    iput v1, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mMiniIconGap:I
+    iput v1, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mMiniIconGap:F
 
     :goto_0
     iget v1, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mMiniIconCol:I
@@ -507,13 +525,13 @@
 
     move-result-object v1
 
-    const v2, 0x7f0900d4
+    const v2, 0x7f0a012c
 
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
     move-result v1
 
-    iput v1, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mMiniIconGap:I
+    iput v1, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mMiniIconGap:F
 
     goto :goto_0
 .end method
@@ -562,7 +580,15 @@
 
     iget v2, v3, Landroid/view/ViewGroup$LayoutParams;->height:I
 
-    iget v0, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mPreviewPadding:I
+    iget v3, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mPreviewPaddingRatio:F
+
+    int-to-float v4, v2
+
+    mul-float/2addr v3, v4
+
+    invoke-static {v3}, Ljava/lang/Math;->round(F)I
+
+    move-result v0
 
     mul-int/lit8 v3, v0, 0x2
 
@@ -572,19 +598,27 @@
 
     iget v3, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mAvailableSpaceInPreview:I
 
+    int-to-float v3, v3
+
     iget v4, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mMiniIconCol:I
 
     add-int/lit8 v4, v4, -0x1
 
-    iget v5, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mMiniIconGap:I
+    int-to-float v4, v4
 
-    mul-int/2addr v4, v5
+    iget v5, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mMiniIconGap:F
 
-    sub-int/2addr v3, v4
+    mul-float/2addr v4, v5
+
+    sub-float/2addr v3, v4
 
     iget v4, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mMiniIconCol:I
 
-    div-int/2addr v3, v4
+    int-to-float v4, v4
+
+    div-float/2addr v3, v4
+
+    float-to-int v3, v3
 
     iput v3, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mBaselineIconSize:I
 
@@ -668,23 +702,27 @@
 
     iget v6, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mBaselineIconSize:I
 
-    iget v7, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mMiniIconGap:I
+    int-to-float v6, v6
 
-    add-int/2addr v6, v7
+    iget v7, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mMiniIconGap:F
 
-    mul-int/2addr v6, v1
+    add-float/2addr v6, v7
 
-    int-to-float v4, v6
+    int-to-float v7, v1
+
+    mul-float v4, v6, v7
 
     iget v6, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mBaselineIconSize:I
 
-    iget v7, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mMiniIconGap:I
+    int-to-float v6, v6
 
-    add-int/2addr v6, v7
+    iget v7, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mMiniIconGap:F
 
-    mul-int/2addr v6, v2
+    add-float/2addr v6, v7
 
-    int-to-float v5, v6
+    int-to-float v7, v2
+
+    mul-float v5, v6, v7
 
     iget v3, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mBaselineIconScale:F
 
@@ -719,55 +757,96 @@
 .end method
 
 .method private drawPreviewItem(Landroid/graphics/Canvas;Lcom/android/launcher3/folder/view/FolderIconView$PreviewItemDrawingParams;)V
-    .locals 9
+    .locals 13
 
-    const/16 v8, 0xff
+    const/4 v12, 0x0
+
+    const/4 v11, 0x0
+
+    const/16 v10, 0xff
+
+    const/high16 v9, 0x40000000    # 2.0f
 
     invoke-virtual {p1}, Landroid/graphics/Canvas;->save()I
 
-    iget-object v0, p2, Lcom/android/launcher3/folder/view/FolderIconView$PreviewItemDrawingParams;->drawable:Landroid/graphics/drawable/Drawable;
+    iget-object v1, p2, Lcom/android/launcher3/folder/view/FolderIconView$PreviewItemDrawingParams;->drawable:Landroid/graphics/drawable/Drawable;
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_0
 
-    iget-object v5, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mOldBounds:Landroid/graphics/Rect;
+    iget v6, p2, Lcom/android/launcher3/folder/view/FolderIconView$PreviewItemDrawingParams;->transX:F
 
-    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
+    float-to-int v6, v6
+
+    iget v7, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mPreviewLocalOffsetX:I
+
+    add-int v3, v6, v7
+
+    iget v6, p2, Lcom/android/launcher3/folder/view/FolderIconView$PreviewItemDrawingParams;->transY:F
+
+    float-to-int v6, v6
+
+    iget v7, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mPreviewLocalOffsetY:I
+
+    add-int v5, v6, v7
+
+    sget-boolean v6, Lcom/android/launcher3/folder/view/FolderIconView;->sNeedToImprovePreviewImage:Z
+
+    if-eqz v6, :cond_1
+
+    invoke-virtual {p1, v9, v9}, Landroid/graphics/Canvas;->scale(FF)V
+
+    invoke-virtual {p0}, Lcom/android/launcher3/folder/view/FolderIconView;->getContext()Landroid/content/Context;
 
     move-result-object v6
 
-    invoke-virtual {v5, v6}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
+    invoke-virtual {v1}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
-    iget v5, p2, Lcom/android/launcher3/folder/view/FolderIconView$PreviewItemDrawingParams;->transX:F
+    move-result v7
 
-    float-to-int v5, v5
+    invoke-virtual {v1}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
-    iget v6, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mPreviewLocalOffsetX:I
+    move-result v8
 
-    add-int v2, v5, v6
+    invoke-static {v1, v6, v7, v8}, Lcom/android/launcher3/util/BitmapUtils;->createIconBitmap(Landroid/graphics/drawable/Drawable;Landroid/content/Context;II)Landroid/graphics/Bitmap;
 
-    iget v5, p2, Lcom/android/launcher3/folder/view/FolderIconView$PreviewItemDrawingParams;->transY:F
+    move-result-object v0
 
-    float-to-int v5, v5
+    invoke-virtual {p1, v12}, Landroid/graphics/Canvas;->setMatrix(Landroid/graphics/Matrix;)V
 
-    iget v6, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mPreviewLocalOffsetY:I
+    invoke-virtual {p1, v9, v9}, Landroid/graphics/Canvas;->scale(FF)V
 
-    add-int v4, v5, v6
+    int-to-float v6, v3
 
-    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
+    int-to-float v7, v5
 
-    move-result v5
-
-    int-to-float v5, v5
+    invoke-virtual {p1, v6, v7}, Landroid/graphics/Canvas;->translate(FF)V
 
     iget v6, p2, Lcom/android/launcher3/folder/view/FolderIconView$PreviewItemDrawingParams;->scale:F
 
-    mul-float/2addr v5, v6
+    iget v7, p2, Lcom/android/launcher3/folder/view/FolderIconView$PreviewItemDrawingParams;->scale:F
 
-    float-to-int v5, v5
+    invoke-virtual {p1, v6, v7}, Landroid/graphics/Canvas;->scale(FF)V
 
-    add-int/2addr v5, v2
+    invoke-virtual {p1, v0, v11, v11, v12}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
 
-    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
+    invoke-virtual {v0}, Landroid/graphics/Bitmap;->recycle()V
+
+    :cond_0
+    :goto_0
+    invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
+
+    return-void
+
+    :cond_1
+    iget-object v6, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mOldBounds:Landroid/graphics/Rect;
+
+    invoke-virtual {v1}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Landroid/graphics/Rect;->set(Landroid/graphics/Rect;)V
+
+    invoke-virtual {v1}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
     move-result v6
 
@@ -779,68 +858,79 @@
 
     float-to-int v6, v6
 
-    add-int/2addr v6, v4
+    add-int/2addr v6, v3
 
-    invoke-virtual {v0, v2, v4, v5, v6}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
+    invoke-virtual {v1}, Landroid/graphics/drawable/Drawable;->getIntrinsicHeight()I
 
-    instance-of v5, v0, Lcom/android/launcher3/common/drawable/FastBitmapDrawable;
+    move-result v7
 
-    if-eqz v5, :cond_1
+    int-to-float v7, v7
 
-    move-object v1, v0
+    iget v8, p2, Lcom/android/launcher3/folder/view/FolderIconView$PreviewItemDrawingParams;->scale:F
 
-    check-cast v1, Lcom/android/launcher3/common/drawable/FastBitmapDrawable;
+    mul-float/2addr v7, v8
 
-    invoke-virtual {v1}, Lcom/android/launcher3/common/drawable/FastBitmapDrawable;->getBrightness()I
+    float-to-int v7, v7
 
-    move-result v3
+    add-int/2addr v7, v5
 
-    iget v5, p2, Lcom/android/launcher3/folder/view/FolderIconView$PreviewItemDrawingParams;->overlayAlpha:I
+    invoke-virtual {v1, v3, v5, v6, v7}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
 
-    invoke-virtual {v1, v5}, Lcom/android/launcher3/common/drawable/FastBitmapDrawable;->setBrightness(I)V
+    instance-of v6, v1, Lcom/android/launcher3/common/drawable/FastBitmapDrawable;
 
-    invoke-virtual {v1, p1}, Lcom/android/launcher3/common/drawable/FastBitmapDrawable;->draw(Landroid/graphics/Canvas;)V
+    if-eqz v6, :cond_2
 
-    invoke-virtual {v1, v3}, Lcom/android/launcher3/common/drawable/FastBitmapDrawable;->setBrightness(I)V
+    move-object v2, v1
 
-    :goto_0
-    iget-object v5, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mOldBounds:Landroid/graphics/Rect;
+    check-cast v2, Lcom/android/launcher3/common/drawable/FastBitmapDrawable;
 
-    invoke-virtual {v0, v5}, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
+    invoke-virtual {v2}, Lcom/android/launcher3/common/drawable/FastBitmapDrawable;->getBrightness()I
 
-    :cond_0
-    invoke-virtual {p1}, Landroid/graphics/Canvas;->restore()V
+    move-result v4
 
-    return-void
+    iget v6, p2, Lcom/android/launcher3/folder/view/FolderIconView$PreviewItemDrawingParams;->overlayAlpha:I
 
-    :cond_1
-    iget v5, p2, Lcom/android/launcher3/folder/view/FolderIconView$PreviewItemDrawingParams;->overlayAlpha:I
+    invoke-virtual {v2, v6}, Lcom/android/launcher3/common/drawable/FastBitmapDrawable;->setBrightness(I)V
 
-    invoke-static {v5, v8, v8, v8}, Landroid/graphics/Color;->argb(IIII)I
+    invoke-virtual {v2, p1}, Lcom/android/launcher3/common/drawable/FastBitmapDrawable;->draw(Landroid/graphics/Canvas;)V
 
-    move-result v5
+    invoke-virtual {v2, v4}, Lcom/android/launcher3/common/drawable/FastBitmapDrawable;->setBrightness(I)V
 
-    sget-object v6, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
+    :goto_1
+    iget-object v6, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mOldBounds:Landroid/graphics/Rect;
 
-    invoke-virtual {v0, v5, v6}, Landroid/graphics/drawable/Drawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
-
-    invoke-virtual {v0, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
-
-    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->clearColorFilter()V
+    invoke-virtual {v1, v6}, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
 
     goto :goto_0
+
+    :cond_2
+    iget v6, p2, Lcom/android/launcher3/folder/view/FolderIconView$PreviewItemDrawingParams;->overlayAlpha:I
+
+    invoke-static {v6, v10, v10, v10}, Landroid/graphics/Color;->argb(IIII)I
+
+    move-result v6
+
+    sget-object v7, Landroid/graphics/PorterDuff$Mode;->SRC_ATOP:Landroid/graphics/PorterDuff$Mode;
+
+    invoke-virtual {v1, v6, v7}, Landroid/graphics/drawable/Drawable;->setColorFilter(ILandroid/graphics/PorterDuff$Mode;)V
+
+    invoke-virtual {v1, p1}, Landroid/graphics/drawable/Drawable;->draw(Landroid/graphics/Canvas;)V
+
+    invoke-virtual {v1}, Landroid/graphics/drawable/Drawable;->clearColorFilter()V
+
+    goto :goto_1
 .end method
 
 .method private drawPreviews()V
-    .locals 21
+    .locals 23
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mFolderView:Lcom/android/launcher3/folder/view/FolderView;
 
-    move-object/from16 v18, v0
+    move-object/from16 v20, v0
 
-    if-nez v18, :cond_0
+    if-nez v20, :cond_0
 
     :goto_0
     return-void
@@ -848,39 +938,59 @@
     :cond_0
     move-object/from16 v0, p0
 
-    iget v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mIconSize:I
+    iget-object v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mFolderIconBitmap:Landroid/graphics/Bitmap;
 
-    move/from16 v18, v0
+    move-object/from16 v20, v0
 
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mIconSize:I
-
-    move/from16 v19, v0
-
-    sget-object v20, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
-
-    invoke-static/range {v18 .. v20}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Lcom/android/launcher3/folder/view/FolderIconView;->mFolderIconBitmap:Landroid/graphics/Bitmap;
-
-    new-instance v16, Landroid/graphics/Canvas;
+    if-eqz v20, :cond_1
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mFolderIconBitmap:Landroid/graphics/Bitmap;
 
-    move-object/from16 v18, v0
+    move-object/from16 v20, v0
 
-    move-object/from16 v0, v16
+    invoke-virtual/range {v20 .. v20}, Landroid/graphics/Bitmap;->recycle()V
 
-    move-object/from16 v1, v18
+    :cond_1
+    sget-boolean v20, Lcom/android/launcher3/folder/view/FolderIconView;->sNeedToImprovePreviewImage:Z
+
+    if-eqz v20, :cond_6
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mIconSize:I
+
+    move/from16 v20, v0
+
+    mul-int/lit8 v5, v20, 0x2
+
+    :goto_1
+    sget-object v20, Landroid/graphics/Bitmap$Config;->ARGB_8888:Landroid/graphics/Bitmap$Config;
+
+    move-object/from16 v0, v20
+
+    invoke-static {v5, v5, v0}, Landroid/graphics/Bitmap;->createBitmap(IILandroid/graphics/Bitmap$Config;)Landroid/graphics/Bitmap;
+
+    move-result-object v20
+
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/android/launcher3/folder/view/FolderIconView;->mFolderIconBitmap:Landroid/graphics/Bitmap;
+
+    new-instance v18, Landroid/graphics/Canvas;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mFolderIconBitmap:Landroid/graphics/Bitmap;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v20
 
     invoke-direct {v0, v1}, Landroid/graphics/Canvas;-><init>(Landroid/graphics/Bitmap;)V
 
@@ -888,398 +998,407 @@
 
     iget-object v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mFolderView:Lcom/android/launcher3/folder/view/FolderView;
 
-    move-object/from16 v18, v0
+    move-object/from16 v20, v0
 
-    invoke-virtual/range {v18 .. v18}, Lcom/android/launcher3/folder/view/FolderView;->getItemsInReadingOrder()Ljava/util/ArrayList;
+    invoke-virtual/range {v20 .. v20}, Lcom/android/launcher3/folder/view/FolderView;->getItemsInReadingOrder()Ljava/util/ArrayList;
 
-    move-result-object v12
+    move-result-object v14
 
-    invoke-virtual {v12}, Ljava/util/ArrayList;->size()I
+    invoke-virtual {v14}, Ljava/util/ArrayList;->size()I
 
-    move-result v18
+    move-result v20
 
-    if-lez v18, :cond_2
-
-    const/16 v18, 0x0
-
-    move/from16 v0, v18
-
-    invoke-virtual {v12, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v17
-
-    check-cast v17, Lcom/android/launcher3/common/view/IconView;
-
-    invoke-virtual/range {v17 .. v17}, Lcom/android/launcher3/common/view/IconView;->getTag()Ljava/lang/Object;
-
-    move-result-object v7
-
-    check-cast v7, Lcom/android/launcher3/common/base/item/IconInfo;
-
-    const/4 v15, 0x0
-
-    if-eqz v7, :cond_1
-
-    iget-object v0, v7, Lcom/android/launcher3/common/base/item/IconInfo;->intent:Landroid/content/Intent;
-
-    move-object/from16 v18, v0
-
-    invoke-virtual/range {v18 .. v18}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
-
-    move-result-object v18
-
-    if-eqz v18, :cond_1
-
-    iget-object v0, v7, Lcom/android/launcher3/common/base/item/IconInfo;->intent:Landroid/content/Intent;
-
-    move-object/from16 v18, v0
-
-    invoke-virtual/range {v18 .. v18}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
-
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
-
-    move-result-object v15
-
-    :cond_1
-    if-eqz v7, :cond_8
-
-    if-eqz v15, :cond_7
-
-    invoke-static {v15}, Lcom/android/launcher3/common/view/LiveIconManager;->isCalendarPackage(Ljava/lang/String;)Z
-
-    move-result v18
-
-    if-eqz v18, :cond_7
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v7}, Lcom/android/launcher3/folder/view/FolderIconView;->applyKnoxLiveIcon(Lcom/android/launcher3/common/base/item/IconInfo;)Z
-
-    move-result v18
-
-    if-eqz v18, :cond_5
-
-    new-instance v5, Landroid/graphics/drawable/BitmapDrawable;
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/folder/view/FolderIconView;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v18
-
-    iget-object v0, v7, Lcom/android/launcher3/common/base/item/IconInfo;->mIcon:Landroid/graphics/Bitmap;
-
-    move-object/from16 v19, v0
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, v19
-
-    invoke-direct {v5, v0, v1}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
-
-    :goto_1
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v5}, Lcom/android/launcher3/folder/view/FolderIconView;->computePreviewDrawingParams(Landroid/graphics/drawable/Drawable;)V
-
-    :cond_2
-    :goto_2
-    const/4 v6, 0x0
-
-    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportFolderLock()Z
-
-    move-result v18
-
-    if-eqz v18, :cond_3
-
-    invoke-static {}, Lcom/android/launcher3/folder/folderlock/FolderLock;->getInstance()Lcom/android/launcher3/folder/folderlock/FolderLock;
-
-    move-result-object v8
-
-    if-eqz v8, :cond_3
-
-    invoke-virtual {v8}, Lcom/android/launcher3/folder/folderlock/FolderLock;->isFolderLockEnabled()Z
-
-    move-result v18
-
-    if-eqz v18, :cond_3
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mInfo:Lcom/android/launcher3/folder/FolderInfo;
-
-    move-object/from16 v18, v0
-
-    invoke-virtual/range {v18 .. v18}, Lcom/android/launcher3/folder/FolderInfo;->isLocked()Z
-
-    move-result v18
-
-    if-eqz v18, :cond_3
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mInfo:Lcom/android/launcher3/folder/FolderInfo;
-
-    move-object/from16 v18, v0
-
-    invoke-virtual/range {v18 .. v18}, Lcom/android/launcher3/folder/FolderInfo;->isLockedFolderOpenedOnce()Z
-
-    move-result v18
-
-    if-nez v18, :cond_3
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/folder/view/FolderIconView;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v18
-
-    const v19, 0x7f0200fb
+    if-lez v20, :cond_3
 
     const/16 v20, 0x0
 
-    invoke-virtual/range {v18 .. v20}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
+    move/from16 v0, v20
 
-    move-result-object v13
+    invoke-virtual {v14, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-object/from16 v0, p0
+    move-result-object v20
 
-    invoke-direct {v0, v13}, Lcom/android/launcher3/folder/view/FolderIconView;->computeLockedPreviewDrawingParams(Landroid/graphics/drawable/Drawable;)Lcom/android/launcher3/folder/view/FolderIconView$PreviewItemDrawingParams;
+    check-cast v20, Landroid/view/View;
 
-    move-result-object v18
+    invoke-virtual/range {v20 .. v20}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
-    move-object/from16 v0, p0
+    move-result-object v8
 
-    move-object/from16 v1, v16
+    check-cast v8, Lcom/android/launcher3/common/base/item/IconInfo;
 
-    move-object/from16 v2, v18
+    const/16 v17, 0x0
 
-    invoke-direct {v0, v1, v2}, Lcom/android/launcher3/folder/view/FolderIconView;->drawPreviewItem(Landroid/graphics/Canvas;Lcom/android/launcher3/folder/view/FolderIconView$PreviewItemDrawingParams;)V
+    if-eqz v8, :cond_2
 
-    const/4 v6, 0x1
+    iget-object v0, v8, Lcom/android/launcher3/common/base/item/IconInfo;->intent:Landroid/content/Intent;
 
-    :cond_3
-    if-nez v6, :cond_11
+    move-object/from16 v20, v0
 
-    invoke-virtual {v12}, Ljava/util/ArrayList;->size()I
+    invoke-virtual/range {v20 .. v20}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
-    move-result v18
+    move-result-object v20
 
-    const/16 v19, 0x9
+    if-eqz v20, :cond_2
 
-    invoke-static/range {v18 .. v19}, Ljava/lang/Math;->min(II)I
+    iget-object v0, v8, Lcom/android/launcher3/common/base/item/IconInfo;->intent:Landroid/content/Intent;
 
-    move-result v14
+    move-object/from16 v20, v0
 
-    add-int/lit8 v9, v14, -0x1
+    invoke-virtual/range {v20 .. v20}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
-    :goto_3
-    if-ltz v9, :cond_11
+    move-result-object v20
 
-    invoke-virtual {v12, v9}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    instance-of v0, v0, Lcom/android/launcher3/common/view/IconView;
-
-    move/from16 v18, v0
-
-    if-eqz v18, :cond_4
-
-    invoke-virtual {v12, v9}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual/range {v20 .. v20}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object v17
 
-    check-cast v17, Lcom/android/launcher3/common/view/IconView;
+    :cond_2
+    if-eqz v8, :cond_a
 
-    invoke-virtual/range {v17 .. v17}, Lcom/android/launcher3/common/view/IconView;->getTag()Ljava/lang/Object;
+    if-eqz v17, :cond_9
 
-    move-result-object v7
+    invoke-static/range {v17 .. v17}, Lcom/android/launcher3/common/view/LiveIconManager;->isCalendarPackage(Ljava/lang/String;)Z
 
-    check-cast v7, Lcom/android/launcher3/common/base/item/IconInfo;
+    move-result v20
 
-    if-nez v7, :cond_9
+    if-eqz v20, :cond_9
 
-    const-string v18, "FolderIconView"
+    move-object/from16 v0, p0
 
-    const-string v19, "ignore drawPreviewItem because IconInfo is null"
+    invoke-virtual {v0, v8}, Lcom/android/launcher3/folder/view/FolderIconView;->applyKnoxLiveIcon(Lcom/android/launcher3/common/base/item/IconInfo;)Z
 
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    move-result v20
 
-    :cond_4
-    :goto_4
-    add-int/lit8 v9, v9, -0x1
+    if-eqz v20, :cond_7
 
-    goto :goto_3
+    new-instance v6, Landroid/graphics/drawable/BitmapDrawable;
 
-    :cond_5
-    invoke-static {v15}, Lcom/android/launcher3/common/view/LiveIconManager;->isCalendarPackage(Ljava/lang/String;)Z
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/folder/view/FolderIconView;->getResources()Landroid/content/res/Resources;
 
-    move-result v18
+    move-result-object v20
 
-    if-eqz v18, :cond_6
+    iget-object v0, v8, Lcom/android/launcher3/common/base/item/IconInfo;->mIcon:Landroid/graphics/Bitmap;
 
-    iget-object v0, v7, Lcom/android/launcher3/common/base/item/IconInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+    move-object/from16 v21, v0
 
-    move-object/from16 v18, v0
+    move-object/from16 v0, v20
+
+    move-object/from16 v1, v21
+
+    invoke-direct {v6, v0, v1}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
+
+    :goto_2
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v6}, Lcom/android/launcher3/folder/view/FolderIconView;->computePreviewDrawingParams(Landroid/graphics/drawable/Drawable;)V
+
+    :cond_3
+    :goto_3
+    const/4 v7, 0x0
+
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportFolderLock()Z
+
+    move-result v20
+
+    if-eqz v20, :cond_4
+
+    invoke-static {}, Lcom/android/launcher3/folder/folderlock/FolderLock;->getInstance()Lcom/android/launcher3/folder/folderlock/FolderLock;
+
+    move-result-object v9
+
+    if-eqz v9, :cond_4
+
+    invoke-virtual {v9}, Lcom/android/launcher3/folder/folderlock/FolderLock;->isFolderLockEnabled()Z
+
+    move-result v20
+
+    if-eqz v20, :cond_4
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mInfo:Lcom/android/launcher3/folder/FolderInfo;
+
+    move-object/from16 v20, v0
+
+    invoke-virtual/range {v20 .. v20}, Lcom/android/launcher3/folder/FolderInfo;->isLocked()Z
+
+    move-result v20
+
+    if-eqz v20, :cond_4
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mInfo:Lcom/android/launcher3/folder/FolderInfo;
+
+    move-object/from16 v20, v0
+
+    invoke-virtual/range {v20 .. v20}, Lcom/android/launcher3/folder/FolderInfo;->isLockedFolderOpenedOnce()Z
+
+    move-result v20
+
+    if-nez v20, :cond_4
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/folder/view/FolderIconView;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v20
+
+    const v21, 0x7f0200fb
+
+    const/16 v22, 0x0
+
+    invoke-virtual/range {v20 .. v22}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v15
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v15}, Lcom/android/launcher3/folder/view/FolderIconView;->computeLockedPreviewDrawingParams(Landroid/graphics/drawable/Drawable;)Lcom/android/launcher3/folder/view/FolderIconView$PreviewItemDrawingParams;
+
+    move-result-object v20
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, v18
 
-    invoke-direct {v0, v15, v1}, Lcom/android/launcher3/folder/view/FolderIconView;->getLiveIconDrawable(Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;)Lcom/android/launcher3/common/drawable/FastBitmapDrawable;
+    move-object/from16 v2, v20
 
-    move-result-object v5
+    invoke-direct {v0, v1, v2}, Lcom/android/launcher3/folder/view/FolderIconView;->drawPreviewItem(Landroid/graphics/Canvas;Lcom/android/launcher3/folder/view/FolderIconView$PreviewItemDrawingParams;)V
 
-    goto/16 :goto_1
+    const/4 v7, 0x1
+
+    :cond_4
+    if-nez v7, :cond_13
+
+    invoke-virtual {v14}, Ljava/util/ArrayList;->size()I
+
+    move-result v20
+
+    const/16 v21, 0x9
+
+    invoke-static/range {v20 .. v21}, Ljava/lang/Math;->min(II)I
+
+    move-result v16
+
+    add-int/lit8 v10, v16, -0x1
+
+    :goto_4
+    if-ltz v10, :cond_13
+
+    invoke-virtual {v14, v10}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v20
+
+    move-object/from16 v0, v20
+
+    instance-of v0, v0, Lcom/android/launcher3/common/view/IconView;
+
+    move/from16 v20, v0
+
+    if-eqz v20, :cond_5
+
+    invoke-virtual {v14, v10}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v19
+
+    check-cast v19, Lcom/android/launcher3/common/view/IconView;
+
+    invoke-virtual/range {v19 .. v19}, Lcom/android/launcher3/common/view/IconView;->getTag()Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, Lcom/android/launcher3/common/base/item/IconInfo;
+
+    if-nez v8, :cond_b
+
+    const-string v20, "FolderIconView"
+
+    const-string v21, "ignore drawPreviewItem because IconInfo is null"
+
+    invoke-static/range {v20 .. v21}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_5
+    :goto_5
+    add-int/lit8 v10, v10, -0x1
+
+    goto :goto_4
 
     :cond_6
-    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
+    move-object/from16 v0, p0
 
-    move-result-object v18
-
-    invoke-virtual/range {v18 .. v18}, Lcom/android/launcher3/LauncherAppState;->getIconCache()Lcom/android/launcher3/common/model/IconCache;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    invoke-virtual {v7, v0}, Lcom/android/launcher3/common/base/item/IconInfo;->getIcon(Lcom/android/launcher3/common/model/IconCache;)Landroid/graphics/Bitmap;
-
-    move-result-object v10
-
-    new-instance v5, Landroid/graphics/drawable/BitmapDrawable;
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/folder/view/FolderIconView;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v18
-
-    move-object/from16 v0, v18
-
-    invoke-direct {v5, v0, v10}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
+    iget v5, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mIconSize:I
 
     goto/16 :goto_1
 
     :cond_7
+    invoke-static/range {v17 .. v17}, Lcom/android/launcher3/common/view/LiveIconManager;->isCalendarPackage(Ljava/lang/String;)Z
+
+    move-result v20
+
+    if-eqz v20, :cond_8
+
+    iget-object v0, v8, Lcom/android/launcher3/common/base/item/IconInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v17
+
+    move-object/from16 v2, v20
+
+    invoke-direct {v0, v1, v2}, Lcom/android/launcher3/folder/view/FolderIconView;->getLiveIconDrawable(Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;)Lcom/android/launcher3/common/drawable/FastBitmapDrawable;
+
+    move-result-object v6
+
+    goto/16 :goto_2
+
+    :cond_8
     invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
-    move-result-object v18
+    move-result-object v20
 
-    invoke-virtual/range {v18 .. v18}, Lcom/android/launcher3/LauncherAppState;->getIconCache()Lcom/android/launcher3/common/model/IconCache;
+    invoke-virtual/range {v20 .. v20}, Lcom/android/launcher3/LauncherAppState;->getIconCache()Lcom/android/launcher3/common/model/IconCache;
 
-    move-result-object v18
+    move-result-object v20
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v20
 
-    invoke-virtual {v7, v0}, Lcom/android/launcher3/common/base/item/IconInfo;->getIcon(Lcom/android/launcher3/common/model/IconCache;)Landroid/graphics/Bitmap;
+    invoke-virtual {v8, v0}, Lcom/android/launcher3/common/base/item/IconInfo;->getIcon(Lcom/android/launcher3/common/model/IconCache;)Landroid/graphics/Bitmap;
 
-    move-result-object v10
+    move-result-object v11
 
-    new-instance v5, Landroid/graphics/drawable/BitmapDrawable;
+    new-instance v6, Landroid/graphics/drawable/BitmapDrawable;
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/folder/view/FolderIconView;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v18
+    move-result-object v20
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v20
 
-    invoke-direct {v5, v0, v10}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
-
-    goto/16 :goto_1
-
-    :cond_8
-    const-string v18, "FolderIconView"
-
-    const-string v19, "ignore computePreviewDrawingParams because IconInfo is null"
-
-    invoke-static/range {v18 .. v19}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {v6, v0, v11}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
 
     goto/16 :goto_2
 
     :cond_9
-    const/4 v15, 0x0
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
-    iget-object v0, v7, Lcom/android/launcher3/common/base/item/IconInfo;->intent:Landroid/content/Intent;
+    move-result-object v20
 
-    move-object/from16 v18, v0
+    invoke-virtual/range {v20 .. v20}, Lcom/android/launcher3/LauncherAppState;->getIconCache()Lcom/android/launcher3/common/model/IconCache;
 
-    invoke-virtual/range {v18 .. v18}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+    move-result-object v20
 
-    move-result-object v18
+    move-object/from16 v0, v20
 
-    if-eqz v18, :cond_a
+    invoke-virtual {v8, v0}, Lcom/android/launcher3/common/base/item/IconInfo;->getIcon(Lcom/android/launcher3/common/model/IconCache;)Landroid/graphics/Bitmap;
 
-    iget-object v0, v7, Lcom/android/launcher3/common/base/item/IconInfo;->intent:Landroid/content/Intent;
+    move-result-object v11
 
-    move-object/from16 v18, v0
+    new-instance v6, Landroid/graphics/drawable/BitmapDrawable;
 
-    invoke-virtual/range {v18 .. v18}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/folder/view/FolderIconView;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v18
+    move-result-object v20
 
-    invoke-virtual/range {v18 .. v18}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+    move-object/from16 v0, v20
 
-    move-result-object v15
+    invoke-direct {v6, v0, v11}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
+
+    goto/16 :goto_2
 
     :cond_a
+    const-string v20, "FolderIconView"
+
+    const-string v21, "ignore computePreviewDrawingParams because IconInfo is null"
+
+    invoke-static/range {v20 .. v21}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_3
+
+    :cond_b
+    const/16 v17, 0x0
+
+    iget-object v0, v8, Lcom/android/launcher3/common/base/item/IconInfo;->intent:Landroid/content/Intent;
+
+    move-object/from16 v20, v0
+
+    invoke-virtual/range {v20 .. v20}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v20
+
+    if-eqz v20, :cond_c
+
+    iget-object v0, v8, Lcom/android/launcher3/common/base/item/IconInfo;->intent:Landroid/content/Intent;
+
+    move-object/from16 v20, v0
+
+    invoke-virtual/range {v20 .. v20}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v20
+
+    invoke-virtual/range {v20 .. v20}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v17
+
+    :cond_c
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mHiddenItems:Ljava/util/ArrayList;
 
-    move-object/from16 v18, v0
+    move-object/from16 v20, v0
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v20
 
-    invoke-virtual {v0, v7}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v8}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
-    move-result v18
+    move-result v20
 
-    if-nez v18, :cond_4
+    if-nez v20, :cond_5
 
-    if-eqz v15, :cond_10
+    if-eqz v17, :cond_12
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v7}, Lcom/android/launcher3/folder/view/FolderIconView;->applyKnoxLiveIcon(Lcom/android/launcher3/common/base/item/IconInfo;)Z
+    invoke-virtual {v0, v8}, Lcom/android/launcher3/folder/view/FolderIconView;->applyKnoxLiveIcon(Lcom/android/launcher3/common/base/item/IconInfo;)Z
 
-    move-result v18
+    move-result v20
 
-    if-eqz v18, :cond_c
+    if-eqz v20, :cond_e
 
-    new-instance v5, Landroid/graphics/drawable/BitmapDrawable;
+    new-instance v6, Landroid/graphics/drawable/BitmapDrawable;
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/folder/view/FolderIconView;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v18
+    move-result-object v20
 
-    iget-object v0, v7, Lcom/android/launcher3/common/base/item/IconInfo;->mIcon:Landroid/graphics/Bitmap;
+    iget-object v0, v8, Lcom/android/launcher3/common/base/item/IconInfo;->mIcon:Landroid/graphics/Bitmap;
 
-    move-object/from16 v19, v0
+    move-object/from16 v21, v0
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v20
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v21
 
-    invoke-direct {v5, v0, v1}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
+    invoke-direct {v6, v0, v1}, Landroid/graphics/drawable/BitmapDrawable;-><init>(Landroid/content/res/Resources;Landroid/graphics/Bitmap;)V
 
-    :goto_5
+    :goto_6
     const/4 v4, 0x0
 
-    invoke-virtual {v5}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
+    invoke-virtual {v6}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
-    move-result v18
+    move-result v20
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mIntrinsicIconSize:I
 
-    move/from16 v19, v0
+    move/from16 v21, v0
 
-    move/from16 v0, v18
+    move/from16 v0, v20
 
-    move/from16 v1, v19
+    move/from16 v1, v21
 
-    if-eq v0, v1, :cond_b
+    if-eq v0, v1, :cond_d
 
     move-object/from16 v0, p0
 
@@ -1289,48 +1408,48 @@
 
     iget v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mBaselineIconSize:I
 
-    move/from16 v18, v0
+    move/from16 v20, v0
 
-    move/from16 v0, v18
-
-    int-to-float v0, v0
-
-    move/from16 v18, v0
-
-    invoke-virtual {v5}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
-
-    move-result v19
-
-    move/from16 v0, v19
+    move/from16 v0, v20
 
     int-to-float v0, v0
 
-    move/from16 v19, v0
+    move/from16 v20, v0
 
-    div-float v18, v18, v19
+    invoke-virtual {v6}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
 
-    move/from16 v0, v18
+    move-result v21
+
+    move/from16 v0, v21
+
+    int-to-float v0, v0
+
+    move/from16 v21, v0
+
+    div-float v20, v20, v21
+
+    move/from16 v0, v20
 
     move-object/from16 v1, p0
 
     iput v0, v1, Lcom/android/launcher3/folder/view/FolderIconView;->mBaselineIconScale:F
 
-    :cond_b
+    :cond_d
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mParams:Lcom/android/launcher3/folder/view/FolderIconView$PreviewItemDrawingParams;
 
-    move-object/from16 v18, v0
+    move-object/from16 v20, v0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v18
+    move-object/from16 v1, v20
 
-    invoke-direct {v0, v9, v1}, Lcom/android/launcher3/folder/view/FolderIconView;->computePreviewItemDrawingParams(ILcom/android/launcher3/folder/view/FolderIconView$PreviewItemDrawingParams;)Lcom/android/launcher3/folder/view/FolderIconView$PreviewItemDrawingParams;
+    invoke-direct {v0, v10, v1}, Lcom/android/launcher3/folder/view/FolderIconView;->computePreviewItemDrawingParams(ILcom/android/launcher3/folder/view/FolderIconView$PreviewItemDrawingParams;)Lcom/android/launcher3/folder/view/FolderIconView$PreviewItemDrawingParams;
 
-    move-result-object v18
+    move-result-object v20
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v20
 
     move-object/from16 v1, p0
 
@@ -1340,191 +1459,223 @@
 
     iget-object v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mParams:Lcom/android/launcher3/folder/view/FolderIconView$PreviewItemDrawingParams;
 
-    move-object/from16 v18, v0
+    move-object/from16 v20, v0
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v20
 
-    iput-object v5, v0, Lcom/android/launcher3/folder/view/FolderIconView$PreviewItemDrawingParams;->drawable:Landroid/graphics/drawable/Drawable;
+    iput-object v6, v0, Lcom/android/launcher3/folder/view/FolderIconView$PreviewItemDrawingParams;->drawable:Landroid/graphics/drawable/Drawable;
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mParams:Lcom/android/launcher3/folder/view/FolderIconView$PreviewItemDrawingParams;
 
-    move-object/from16 v18, v0
+    move-object/from16 v20, v0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v16
+    move-object/from16 v1, v18
 
-    move-object/from16 v2, v18
+    move-object/from16 v2, v20
 
     invoke-direct {v0, v1, v2}, Lcom/android/launcher3/folder/view/FolderIconView;->drawPreviewItem(Landroid/graphics/Canvas;Lcom/android/launcher3/folder/view/FolderIconView$PreviewItemDrawingParams;)V
 
-    const/16 v18, 0x0
+    const/16 v20, 0x0
 
-    cmpl-float v18, v4, v18
+    cmpl-float v20, v4, v20
 
-    if-lez v18, :cond_4
+    if-lez v20, :cond_5
 
     move-object/from16 v0, p0
 
     iput v4, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mBaselineIconScale:F
 
-    goto/16 :goto_4
-
-    :cond_c
-    invoke-static {v15}, Lcom/android/launcher3/common/view/LiveIconManager;->isCalendarPackage(Ljava/lang/String;)Z
-
-    move-result v18
-
-    if-eqz v18, :cond_f
-
-    iget-object v0, v7, Lcom/android/launcher3/common/base/item/IconInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
-
-    move-object/from16 v18, v0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v18
-
-    invoke-direct {v0, v15, v1}, Lcom/android/launcher3/folder/view/FolderIconView;->getLiveIconDrawable(Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;)Lcom/android/launcher3/common/drawable/FastBitmapDrawable;
-
-    move-result-object v11
-
-    invoke-virtual {v7}, Lcom/android/launcher3/common/base/item/IconInfo;->isPromise()Z
-
-    move-result v18
-
-    if-nez v18, :cond_d
-
-    iget v0, v7, Lcom/android/launcher3/common/base/item/IconInfo;->isDisabled:I
-
-    move/from16 v18, v0
-
-    if-eqz v18, :cond_e
-
-    :cond_d
-    const/16 v18, 0x1
-
-    :goto_6
-    move/from16 v0, v18
-
-    invoke-virtual {v11, v0}, Lcom/android/launcher3/common/drawable/FastBitmapDrawable;->setGhostModeEnabled(Z)V
-
-    move-object v5, v11
-
     goto/16 :goto_5
 
     :cond_e
-    const/16 v18, 0x0
+    invoke-static/range {v17 .. v17}, Lcom/android/launcher3/common/view/LiveIconManager;->isCalendarPackage(Ljava/lang/String;)Z
 
-    goto :goto_6
+    move-result v20
+
+    if-eqz v20, :cond_11
+
+    iget-object v0, v8, Lcom/android/launcher3/common/base/item/IconInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v17
+
+    move-object/from16 v2, v20
+
+    invoke-direct {v0, v1, v2}, Lcom/android/launcher3/folder/view/FolderIconView;->getLiveIconDrawable(Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;)Lcom/android/launcher3/common/drawable/FastBitmapDrawable;
+
+    move-result-object v12
+
+    invoke-virtual {v8}, Lcom/android/launcher3/common/base/item/IconInfo;->isPromise()Z
+
+    move-result v20
+
+    if-nez v20, :cond_f
+
+    iget v0, v8, Lcom/android/launcher3/common/base/item/IconInfo;->isDisabled:I
+
+    move/from16 v20, v0
+
+    if-eqz v20, :cond_10
 
     :cond_f
-    move-object/from16 v0, p0
+    const/16 v20, 0x1
 
-    move-object/from16 v1, v17
+    :goto_7
+    move/from16 v0, v20
 
-    invoke-direct {v0, v1}, Lcom/android/launcher3/folder/view/FolderIconView;->getTopDrawable(Lcom/android/launcher3/common/view/IconView;)Landroid/graphics/drawable/Drawable;
+    invoke-virtual {v12, v0}, Lcom/android/launcher3/common/drawable/FastBitmapDrawable;->setGhostModeEnabled(Z)V
 
-    move-result-object v5
+    move-object v6, v12
 
-    goto/16 :goto_5
+    goto/16 :goto_6
 
     :cond_10
+    const/16 v20, 0x0
+
+    goto :goto_7
+
+    :cond_11
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v17
+    move-object/from16 v1, v19
 
     invoke-direct {v0, v1}, Lcom/android/launcher3/folder/view/FolderIconView;->getTopDrawable(Lcom/android/launcher3/common/view/IconView;)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v5
+    move-result-object v6
 
-    goto/16 :goto_5
+    goto/16 :goto_6
 
-    :cond_11
-    sget-object v18, Lcom/android/launcher3/folder/view/FolderIconView;->sSharedIconBgBitmap:[Landroid/graphics/Bitmap;
+    :cond_12
+    move-object/from16 v0, p0
 
-    if-eqz v18, :cond_12
+    move-object/from16 v1, v19
+
+    invoke-direct {v0, v1}, Lcom/android/launcher3/folder/view/FolderIconView;->getTopDrawable(Lcom/android/launcher3/common/view/IconView;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v6
+
+    goto/16 :goto_6
+
+    :cond_13
+    sget-object v20, Lcom/android/launcher3/folder/view/FolderIconView;->sSharedIconBgBitmap:[Landroid/graphics/Bitmap;
+
+    if-eqz v20, :cond_14
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mInfo:Lcom/android/launcher3/folder/FolderInfo;
 
-    move-object/from16 v18, v0
+    move-object/from16 v20, v0
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v20
 
     iget v0, v0, Lcom/android/launcher3/folder/FolderInfo;->color:I
 
-    move/from16 v18, v0
+    move/from16 v20, v0
 
-    const/16 v19, -0x1
+    sget-object v21, Lcom/android/launcher3/folder/view/FolderIconView;->sSharedIconBgBitmap:[Landroid/graphics/Bitmap;
 
-    move/from16 v0, v18
+    move-object/from16 v0, v21
 
-    move/from16 v1, v19
+    array-length v0, v0
 
-    if-eq v0, v1, :cond_12
+    move/from16 v21, v0
 
-    sget-object v18, Lcom/android/launcher3/folder/view/FolderIconView;->sSharedIconBgBitmap:[Landroid/graphics/Bitmap;
+    move/from16 v0, v20
+
+    move/from16 v1, v21
+
+    if-ge v0, v1, :cond_14
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mInfo:Lcom/android/launcher3/folder/FolderInfo;
 
-    move-object/from16 v19, v0
+    move-object/from16 v20, v0
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v20
 
     iget v0, v0, Lcom/android/launcher3/folder/FolderInfo;->color:I
 
-    move/from16 v19, v0
+    move/from16 v20, v0
 
-    aget-object v3, v18, v19
+    const/16 v21, -0x1
+
+    move/from16 v0, v20
+
+    move/from16 v1, v21
+
+    if-ne v0, v1, :cond_15
+
+    const/4 v13, 0x0
+
+    :goto_8
+    sget-object v20, Lcom/android/launcher3/folder/view/FolderIconView;->sSharedIconBgBitmap:[Landroid/graphics/Bitmap;
+
+    aget-object v3, v20, v13
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mFolderIconBitmap:Landroid/graphics/Bitmap;
 
-    move-object/from16 v18, v0
+    move-object/from16 v20, v0
 
-    const/16 v19, 0x1
+    const/16 v21, 0x1
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v18
+    move-object/from16 v1, v20
 
-    move/from16 v2, v19
+    move/from16 v2, v21
 
     invoke-direct {v0, v3, v1, v2}, Lcom/android/launcher3/folder/view/FolderIconView;->getMaskedIcon(Landroid/graphics/Bitmap;Landroid/graphics/Bitmap;Z)Landroid/graphics/Bitmap;
 
-    move-result-object v18
+    move-result-object v20
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v20
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/launcher3/folder/view/FolderIconView;->mFolderIconBitmap:Landroid/graphics/Bitmap;
 
-    :cond_12
+    :cond_14
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mPreviewIcons:Landroid/widget/ImageView;
 
-    move-object/from16 v18, v0
+    move-object/from16 v20, v0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mFolderIconBitmap:Landroid/graphics/Bitmap;
 
-    move-object/from16 v19, v0
+    move-object/from16 v21, v0
 
-    invoke-virtual/range {v18 .. v19}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
+    invoke-virtual/range {v20 .. v21}, Landroid/widget/ImageView;->setImageBitmap(Landroid/graphics/Bitmap;)V
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/folder/view/FolderIconView;->setShadow()V
 
     goto/16 :goto_0
+
+    :cond_15
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mInfo:Lcom/android/launcher3/folder/FolderInfo;
+
+    move-object/from16 v20, v0
+
+    move-object/from16 v0, v20
+
+    iget v13, v0, Lcom/android/launcher3/folder/FolderInfo;->color:I
+
+    goto :goto_8
 .end method
 
 .method public static fromXml(Lcom/android/launcher3/Launcher;Landroid/view/ViewGroup;Lcom/android/launcher3/folder/FolderInfo;Lcom/android/launcher3/common/base/controller/ControllerBase;Landroid/view/View$OnClickListener;Landroid/view/View$OnLongClickListener;I)Lcom/android/launcher3/folder/view/FolderIconView;
@@ -1631,7 +1782,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f030025
+    const v8, 0x7f040028
 
     const/4 v9, 0x0
 
@@ -1651,7 +1802,7 @@
 
     invoke-virtual {v4, v7}, Lcom/android/launcher3/folder/view/FolderIconView;->setClipToPadding(Z)V
 
-    const v7, 0x7f0f0018
+    const v7, 0x7f11001e
 
     invoke-virtual {v4, v7}, Lcom/android/launcher3/folder/view/FolderIconView;->findViewById(I)Landroid/view/View;
 
@@ -1665,7 +1816,7 @@
 
     invoke-virtual {v4, v7}, Lcom/android/launcher3/folder/view/FolderIconView;->setText(Ljava/lang/CharSequence;)V
 
-    const v7, 0x7f0f0017
+    const v7, 0x7f11001d
 
     invoke-virtual {v4, v7}, Lcom/android/launcher3/folder/view/FolderIconView;->findViewById(I)Landroid/view/View;
 
@@ -1675,7 +1826,7 @@
 
     iput-object v7, v4, Lcom/android/launcher3/folder/view/FolderIconView;->mPreviewBackground:Landroid/widget/ImageView;
 
-    const v7, 0x7f0f0082
+    const v7, 0x7f11008e
 
     invoke-virtual {v4, v7}, Lcom/android/launcher3/folder/view/FolderIconView;->findViewById(I)Landroid/view/View;
 
@@ -1685,7 +1836,7 @@
 
     iput-object v7, v4, Lcom/android/launcher3/folder/view/FolderIconView;->mPreviewIcons:Landroid/widget/ImageView;
 
-    const v7, 0x7f0f0081
+    const v7, 0x7f11008d
 
     invoke-virtual {v4, v7}, Lcom/android/launcher3/folder/view/FolderIconView;->findViewById(I)Landroid/view/View;
 
@@ -1741,7 +1892,7 @@
 
     iput-object p2, v4, Lcom/android/launcher3/folder/view/FolderIconView;->mInfo:Lcom/android/launcher3/folder/FolderInfo;
 
-    const v7, 0x7f08003c
+    const v7, 0x7f090043
 
     invoke-virtual {p0, v7}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -1799,7 +1950,7 @@
 
     invoke-virtual {p2, v4}, Lcom/android/launcher3/folder/FolderInfo;->addListener(Lcom/android/launcher3/folder/FolderEventListener;)V
 
-    const v7, 0x7f0f0085
+    const v7, 0x7f110091
 
     invoke-virtual {v4, v7}, Lcom/android/launcher3/folder/view/FolderIconView;->findViewById(I)Landroid/view/View;
 
@@ -2142,9 +2293,9 @@
 
     const/4 v5, 0x2
 
-    const/4 v4, 0x1
+    const/4 v4, 0x0
 
-    const/4 v3, 0x0
+    const/4 v3, 0x1
 
     sget-boolean v1, Lcom/android/launcher3/folder/view/FolderIconView;->sStaticValuesDirty:Z
 
@@ -2152,7 +2303,7 @@
 
     sget-object v1, Lcom/android/launcher3/folder/view/FolderIconView;->sSharedIconBgBitmap:[Landroid/graphics/Bitmap;
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_2
 
     :cond_0
     invoke-static {}, Lcom/android/launcher3/theme/OpenThemeManager;->getInstance()Lcom/android/launcher3/theme/OpenThemeManager;
@@ -2173,19 +2324,19 @@
 
     sget-object v1, Lcom/android/launcher3/folder/view/FolderIconView;->sSharedIconBgBitmap:[Landroid/graphics/Bitmap;
 
-    invoke-virtual {v0, v3}, Lcom/android/launcher3/theme/OpenThemeManager$FolderStyle;->getCloseFolderImage(I)Landroid/graphics/Bitmap;
-
-    move-result-object v2
-
-    aput-object v2, v1, v3
-
-    sget-object v1, Lcom/android/launcher3/folder/view/FolderIconView;->sSharedIconBgBitmap:[Landroid/graphics/Bitmap;
-
     invoke-virtual {v0, v4}, Lcom/android/launcher3/theme/OpenThemeManager$FolderStyle;->getCloseFolderImage(I)Landroid/graphics/Bitmap;
 
     move-result-object v2
 
     aput-object v2, v1, v4
+
+    sget-object v1, Lcom/android/launcher3/folder/view/FolderIconView;->sSharedIconBgBitmap:[Landroid/graphics/Bitmap;
+
+    invoke-virtual {v0, v3}, Lcom/android/launcher3/theme/OpenThemeManager$FolderStyle;->getCloseFolderImage(I)Landroid/graphics/Bitmap;
+
+    move-result-object v2
+
+    aput-object v2, v1, v3
 
     sget-object v1, Lcom/android/launcher3/folder/view/FolderIconView;->sSharedIconBgBitmap:[Landroid/graphics/Bitmap;
 
@@ -2212,6 +2363,23 @@
     aput-object v2, v1, v7
 
     :cond_1
+    invoke-virtual {p0}, Lcom/android/launcher3/folder/view/FolderIconView;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    move-result-object v1
+
+    iget v1, v1, Landroid/content/res/Configuration;->densityDpi:I
+
+    const/16 v2, 0x190
+
+    if-ge v1, v2, :cond_2
+
+    sput-boolean v3, Lcom/android/launcher3/folder/view/FolderIconView;->sNeedToImprovePreviewImage:Z
+
+    :cond_2
     new-instance v1, Lcom/android/launcher3/util/event/CheckLongPressHelper;
 
     invoke-direct {v1, p0}, Lcom/android/launcher3/util/event/CheckLongPressHelper;-><init>(Landroid/view/View;)V
@@ -2228,13 +2396,13 @@
 
     move-result-object v1
 
-    const v2, 0x7f0900d6
+    const v2, 0x7f100005
 
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v1, v2, v3, v3}, Landroid/content/res/Resources;->getFraction(III)F
 
     move-result v1
 
-    iput v1, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mPreviewPadding:I
+    iput v1, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mPreviewPaddingRatio:F
 
     return-void
 .end method
@@ -2752,6 +2920,10 @@
 
     sput-boolean v0, Lcom/android/launcher3/folder/view/FolderIconView;->sStaticValuesDirty:Z
 
+    const/4 v0, 0x0
+
+    sput-boolean v0, Lcom/android/launcher3/folder/view/FolderIconView;->sNeedToImprovePreviewImage:Z
+
     return-void
 .end method
 
@@ -2775,6 +2947,10 @@
     if-eqz v0, :cond_0
 
     if-eq v0, v1, :cond_0
+
+    const/4 v2, 0x6
+
+    if-eq v0, v2, :cond_0
 
     iget-object v2, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mLauncher:Lcom/android/launcher3/Launcher;
 
@@ -2863,7 +3039,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0800b8
+    const v2, 0x7f0900d2
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2964,6 +3140,16 @@
 .end method
 
 .method public applyStyle()V
+    .locals 1
+
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v0}, Lcom/android/launcher3/folder/view/FolderIconView;->applyStyle(Z)V
+
+    return-void
+.end method
+
+.method public applyStyle(Z)V
     .locals 4
 
     invoke-super {p0}, Lcom/android/launcher3/common/view/IconView;->applyStyle()V
@@ -3022,8 +3208,11 @@
     iput v1, v0, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I
 
     :cond_1
+    if-eqz p1, :cond_2
+
     invoke-direct {p0}, Lcom/android/launcher3/folder/view/FolderIconView;->drawPreviews()V
 
+    :cond_2
     return-void
 .end method
 
@@ -3073,7 +3262,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0200a1
+    const v10, 0x7f030001
 
     iget-object v11, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mLauncher:Lcom/android/launcher3/Launcher;
 
@@ -3173,15 +3362,43 @@
 .end method
 
 .method public getIcon()Landroid/graphics/drawable/Drawable;
-    .locals 1
+    .locals 5
 
-    iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mPreviewIcons:Landroid/widget/ImageView;
+    const/4 v4, 0x0
 
-    invoke-virtual {v0}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
+    sget-boolean v1, Lcom/android/launcher3/folder/view/FolderIconView;->sNeedToImprovePreviewImage:Z
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mFolderIconBitmap:Landroid/graphics/Bitmap;
+
+    iget v2, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mIconSize:I
+
+    invoke-static {v1, v2}, Lcom/android/launcher3/util/BitmapUtils;->createIconDrawable(Landroid/graphics/Bitmap;I)Lcom/android/launcher3/common/drawable/FastBitmapDrawable;
 
     move-result-object v0
 
+    new-instance v1, Landroid/graphics/Rect;
+
+    iget v2, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mIconSize:I
+
+    iget v3, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mIconSize:I
+
+    invoke-direct {v1, v4, v4, v2, v3}, Landroid/graphics/Rect;-><init>(IIII)V
+
+    invoke-virtual {v0, v1}, Landroid/graphics/drawable/Drawable;->setBounds(Landroid/graphics/Rect;)V
+
+    :goto_0
     return-object v0
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/launcher3/folder/view/FolderIconView;->mPreviewIcons:Landroid/widget/ImageView;
+
+    invoke-virtual {v1}, Landroid/widget/ImageView;->getDrawable()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v0
+
+    goto :goto_0
 .end method
 
 .method public getIconBackground()Landroid/graphics/drawable/Drawable;
@@ -3194,6 +3411,67 @@
     move-result-object v0
 
     return-object v0
+.end method
+
+.method public isGreyIcon()Z
+    .locals 6
+
+    invoke-virtual {p0}, Lcom/android/launcher3/folder/view/FolderIconView;->getTag()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/launcher3/folder/FolderInfo;
+
+    invoke-virtual {p0}, Lcom/android/launcher3/folder/view/FolderIconView;->getContext()Landroid/content/Context;
+
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/android/launcher3/common/compat/UserManagerCompat;->getInstance(Landroid/content/Context;)Lcom/android/launcher3/common/compat/UserManagerCompat;
+
+    move-result-object v3
+
+    iget-object v0, v2, Lcom/android/launcher3/folder/FolderInfo;->contents:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    :cond_0
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/launcher3/common/base/item/IconInfo;
+
+    instance-of v5, v1, Lcom/android/launcher3/common/base/item/IconInfo;
+
+    if-eqz v5, :cond_0
+
+    invoke-virtual {v1}, Lcom/android/launcher3/common/base/item/IconInfo;->getUserHandle()Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    move-result-object v5
+
+    invoke-virtual {v3, v5}, Lcom/android/launcher3/common/compat/UserManagerCompat;->isQuietModeEnabled(Lcom/android/launcher3/common/compat/UserHandleCompat;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_0
+
+    const/4 v4, 0x0
+
+    :goto_0
+    return v4
+
+    :cond_1
+    const/4 v4, 0x1
+
+    goto :goto_0
 .end method
 
 .method protected onAttachedToWindow()V
@@ -3765,7 +4043,7 @@
 .method public onTitleChanged(Ljava/lang/CharSequence;)V
     .locals 7
 
-    const v4, 0x7f08003c
+    const v4, 0x7f090043
 
     const/4 v6, 0x0
 
@@ -3825,7 +4103,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f08006e
+    const v4, 0x7f090076
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3894,7 +4172,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f08006d
+    const v4, 0x7f090075
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4154,637 +4432,703 @@
 .end method
 
 .method public refreshBadge()V
-    .locals 27
+    .locals 29
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mFolderView:Lcom/android/launcher3/folder/view/FolderView;
 
-    move-object/from16 v22, v0
+    move-object/from16 v24, v0
 
-    if-eqz v22, :cond_1
+    if-eqz v24, :cond_1
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mFolderView:Lcom/android/launcher3/folder/view/FolderView;
 
-    move-object/from16 v22, v0
+    move-object/from16 v24, v0
 
-    invoke-virtual/range {v22 .. v22}, Lcom/android/launcher3/folder/view/FolderView;->getItemsInReadingOrder()Ljava/util/ArrayList;
+    invoke-virtual/range {v24 .. v24}, Lcom/android/launcher3/folder/view/FolderView;->getItemsInReadingOrder()Ljava/util/ArrayList;
 
-    move-result-object v15
+    move-result-object v16
 
-    invoke-virtual {v15}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+    invoke-virtual/range {v16 .. v16}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    move-result-object v22
+    move-result-object v24
 
     :cond_0
     :goto_0
-    invoke-interface/range {v22 .. v22}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface/range {v24 .. v24}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v23
+    move-result v25
 
-    if-eqz v23, :cond_1
+    if-eqz v25, :cond_1
 
-    invoke-interface/range {v22 .. v22}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface/range {v24 .. v24}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v10
+    move-result-object v11
 
-    check-cast v10, Landroid/view/View;
+    check-cast v11, Landroid/view/View;
 
-    instance-of v0, v10, Lcom/android/launcher3/common/view/IconView;
+    instance-of v0, v11, Lcom/android/launcher3/common/view/IconView;
 
-    move/from16 v23, v0
+    move/from16 v25, v0
 
-    if-eqz v23, :cond_0
+    if-eqz v25, :cond_0
 
-    check-cast v10, Lcom/android/launcher3/common/view/IconView;
+    check-cast v11, Lcom/android/launcher3/common/view/IconView;
 
-    invoke-virtual {v10}, Lcom/android/launcher3/common/view/IconView;->refreshBadge()V
+    invoke-virtual {v11}, Lcom/android/launcher3/common/view/IconView;->refreshBadge()V
 
     goto :goto_0
 
     :cond_1
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/folder/view/FolderIconView;->getTag()Ljava/lang/Object;
 
-    move-result-object v21
+    move-result-object v22
 
-    const/16 v20, 0x0
+    const/16 v21, 0x0
 
-    if-eqz v21, :cond_5
+    if-eqz v22, :cond_4
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v22
 
     instance-of v0, v0, Lcom/android/launcher3/folder/FolderInfo;
 
-    move/from16 v22, v0
+    move/from16 v24, v0
 
-    if-eqz v22, :cond_5
+    if-eqz v24, :cond_4
 
-    move-object/from16 v14, v21
+    move-object/from16 v15, v22
 
-    check-cast v14, Lcom/android/launcher3/folder/FolderInfo;
+    check-cast v15, Lcom/android/launcher3/folder/FolderInfo;
 
-    const/4 v5, 0x0
+    new-instance v7, Ljava/util/ArrayList;
 
-    new-instance v6, Ljava/util/ArrayList;
+    invoke-direct {v7}, Ljava/util/ArrayList;-><init>()V
 
-    invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
+    iget-object v0, v15, Lcom/android/launcher3/folder/FolderInfo;->contents:Ljava/util/ArrayList;
 
-    iget-object v0, v14, Lcom/android/launcher3/folder/FolderInfo;->contents:Ljava/util/ArrayList;
+    move-object/from16 v24, v0
 
-    move-object/from16 v22, v0
+    invoke-virtual/range {v24 .. v24}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    invoke-virtual/range {v22 .. v22}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v22
+    move-result-object v24
 
     :cond_2
     :goto_1
-    invoke-interface/range {v22 .. v22}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface/range {v24 .. v24}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v23
+    move-result v25
 
-    if-eqz v23, :cond_4
+    if-eqz v25, :cond_3
 
-    invoke-interface/range {v22 .. v22}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface/range {v24 .. v24}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-result-object v11
+    move-result-object v12
 
-    check-cast v11, Lcom/android/launcher3/common/base/item/IconInfo;
+    check-cast v12, Lcom/android/launcher3/common/base/item/IconInfo;
 
-    iget-object v0, v11, Lcom/android/launcher3/common/base/item/IconInfo;->intent:Landroid/content/Intent;
+    invoke-virtual {v12}, Lcom/android/launcher3/common/base/item/IconInfo;->getTargetComponent()Landroid/content/ComponentName;
 
-    move-object/from16 v23, v0
+    move-result-object v6
 
-    if-eqz v23, :cond_3
-
-    iget-object v0, v11, Lcom/android/launcher3/common/base/item/IconInfo;->intent:Landroid/content/Intent;
+    iget-object v0, v12, Lcom/android/launcher3/common/base/item/IconInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
     move-object/from16 v23, v0
 
-    invoke-virtual/range {v23 .. v23}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
-
-    move-result-object v5
-
-    :cond_3
-    if-eqz v5, :cond_2
-
-    invoke-virtual {v5}, Landroid/content/ComponentName;->toString()Ljava/lang/String;
-
-    move-result-object v23
+    new-instance v5, Lcom/android/launcher3/common/model/BadgeCache$CacheKey;
 
     move-object/from16 v0, v23
 
-    invoke-virtual {v6, v0}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+    invoke-direct {v5, v6, v0}, Lcom/android/launcher3/common/model/BadgeCache$CacheKey;-><init>(Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
 
-    move-result v23
+    if-eqz v6, :cond_2
 
-    if-nez v23, :cond_2
+    if-eqz v23, :cond_2
 
-    iget v0, v11, Lcom/android/launcher3/common/base/item/IconInfo;->mBadgeCount:I
+    invoke-virtual {v7, v5}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
 
-    move/from16 v23, v0
+    move-result v25
 
-    add-int v20, v20, v23
+    if-nez v25, :cond_2
 
-    invoke-virtual {v5}, Landroid/content/ComponentName;->toString()Ljava/lang/String;
+    iget v0, v12, Lcom/android/launcher3/common/base/item/IconInfo;->mBadgeCount:I
 
-    move-result-object v23
+    move/from16 v25, v0
 
-    move-object/from16 v0, v23
+    add-int v21, v21, v25
 
-    invoke-virtual {v6, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-virtual {v7, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 
-    :cond_4
-    move/from16 v0, v20
+    :cond_3
+    move/from16 v0, v21
 
-    iput v0, v14, Lcom/android/launcher3/folder/FolderInfo;->mBadgeCount:I
+    iput v0, v15, Lcom/android/launcher3/folder/FolderInfo;->mBadgeCount:I
+
+    :cond_4
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mBadgeView:Landroid/widget/TextView;
+
+    move-object/from16 v24, v0
+
+    if-eqz v24, :cond_a
+
+    const/16 v20, 0x0
+
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportFolderLock()Z
+
+    move-result v24
+
+    if-eqz v24, :cond_5
+
+    invoke-static {}, Lcom/android/launcher3/folder/folderlock/FolderLock;->getInstance()Lcom/android/launcher3/folder/folderlock/FolderLock;
+
+    move-result-object v10
+
+    if-eqz v10, :cond_5
+
+    invoke-virtual {v10}, Lcom/android/launcher3/folder/folderlock/FolderLock;->isFolderLockEnabled()Z
+
+    move-result v24
+
+    if-eqz v24, :cond_5
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mInfo:Lcom/android/launcher3/folder/FolderInfo;
+
+    move-object/from16 v24, v0
+
+    invoke-virtual/range {v24 .. v24}, Lcom/android/launcher3/folder/FolderInfo;->isLocked()Z
+
+    move-result v24
+
+    if-eqz v24, :cond_5
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mInfo:Lcom/android/launcher3/folder/FolderInfo;
+
+    move-object/from16 v24, v0
+
+    invoke-virtual/range {v24 .. v24}, Lcom/android/launcher3/folder/FolderInfo;->isLockedFolderOpenedOnce()Z
+
+    move-result v24
+
+    if-nez v24, :cond_5
+
+    const/16 v20, 0x1
 
     :cond_5
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mBadgeView:Landroid/widget/TextView;
-
-    move-object/from16 v22, v0
-
-    if-eqz v22, :cond_b
-
-    const/16 v19, 0x0
-
-    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportFolderLock()Z
-
-    move-result v22
-
-    if-eqz v22, :cond_6
-
-    invoke-static {}, Lcom/android/launcher3/folder/folderlock/FolderLock;->getInstance()Lcom/android/launcher3/folder/folderlock/FolderLock;
-
-    move-result-object v9
-
-    if-eqz v9, :cond_6
-
-    invoke-virtual {v9}, Lcom/android/launcher3/folder/folderlock/FolderLock;->isFolderLockEnabled()Z
-
-    move-result v22
-
-    if-eqz v22, :cond_6
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mInfo:Lcom/android/launcher3/folder/FolderInfo;
-
-    move-object/from16 v22, v0
-
-    invoke-virtual/range {v22 .. v22}, Lcom/android/launcher3/folder/FolderInfo;->isLocked()Z
-
-    move-result v22
-
-    if-eqz v22, :cond_6
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mInfo:Lcom/android/launcher3/folder/FolderInfo;
-
-    move-object/from16 v22, v0
-
-    invoke-virtual/range {v22 .. v22}, Lcom/android/launcher3/folder/FolderInfo;->isLockedFolderOpenedOnce()Z
-
-    move-result v22
-
-    if-nez v22, :cond_6
-
-    const/16 v19, 0x1
-
-    :cond_6
-    move-object/from16 v0, p0
-
     iget-object v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    move-object/from16 v22, v0
+    move-object/from16 v24, v0
 
-    invoke-virtual/range {v22 .. v22}, Lcom/android/launcher3/Launcher;->getMultiSelectManager()Lcom/android/launcher3/common/multiselect/MultiSelectManager;
+    invoke-virtual/range {v24 .. v24}, Lcom/android/launcher3/Launcher;->getMultiSelectManager()Lcom/android/launcher3/common/multiselect/MultiSelectManager;
 
-    move-result-object v16
+    move-result-object v17
 
-    if-eqz v16, :cond_c
+    if-eqz v17, :cond_b
 
-    invoke-virtual/range {v16 .. v16}, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->isMultiSelectMode()Z
+    invoke-virtual/range {v17 .. v17}, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->isMultiSelectMode()Z
 
-    move-result v22
+    move-result v24
 
-    if-eqz v22, :cond_c
+    if-eqz v24, :cond_b
 
-    const/16 v17, 0x1
+    const/16 v18, 0x1
 
     :goto_2
-    if-nez v17, :cond_f
+    if-nez v18, :cond_e
 
-    if-eqz v20, :cond_f
+    if-eqz v21, :cond_e
 
-    if-nez v19, :cond_f
+    if-nez v20, :cond_e
 
-    invoke-static {}, Lcom/android/launcher3/theme/OpenThemeManager;->getInstance()Lcom/android/launcher3/theme/OpenThemeManager;
-
-    move-result-object v22
-
-    invoke-virtual/range {v22 .. v22}, Lcom/android/launcher3/theme/OpenThemeManager;->isDefaultTheme()Z
-
-    move-result v22
-
-    if-nez v22, :cond_7
-
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mIsSetThemeBadgeBg:Z
-
-    move/from16 v22, v0
-
-    if-nez v22, :cond_7
-
-    invoke-static {}, Lcom/android/launcher3/theme/OpenThemeManager;->getInstance()Lcom/android/launcher3/theme/OpenThemeManager;
-
-    move-result-object v22
-
-    invoke-virtual/range {v22 .. v22}, Lcom/android/launcher3/theme/OpenThemeManager;->preloadBadgeDrawable()Landroid/graphics/drawable/Drawable;
-
-    move-result-object v4
-
-    if-eqz v4, :cond_7
-
-    const/16 v22, 0x1
-
-    move/from16 v0, v22
-
-    move-object/from16 v1, p0
-
-    iput-boolean v0, v1, Lcom/android/launcher3/folder/view/FolderIconView;->mIsSetThemeBadgeBg:Z
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mBadgeView:Landroid/widget/TextView;
-
-    move-object/from16 v22, v0
-
-    move-object/from16 v0, v22
-
-    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setBackground(Landroid/graphics/drawable/Drawable;)V
-
-    :cond_7
-    const/4 v13, 0x0
+    const/4 v14, 0x0
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/folder/view/FolderIconView;->getTag()Ljava/lang/Object;
 
-    move-result-object v8
+    move-result-object v9
 
-    check-cast v8, Lcom/android/launcher3/folder/FolderInfo;
+    check-cast v9, Lcom/android/launcher3/folder/FolderInfo;
 
-    iget v2, v8, Lcom/android/launcher3/folder/FolderInfo;->mBadgeCount:I
+    iget v2, v9, Lcom/android/launcher3/folder/FolderInfo;->mBadgeCount:I
 
-    const/16 v22, 0x3e8
+    const/16 v24, 0x3e8
 
-    move/from16 v0, v22
+    move/from16 v0, v24
 
-    if-lt v2, v0, :cond_8
+    if-lt v2, v0, :cond_6
 
-    const/4 v13, 0x1
+    const/4 v14, 0x1
 
     const/16 v2, 0x3e7
 
-    :cond_8
-    const/16 v22, 0x1
-
-    move/from16 v0, v22
-
-    if-ne v2, v0, :cond_d
-
-    new-instance v22, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/folder/view/FolderIconView;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v23
-
-    const v24, 0x7f08003c
-
-    invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v23
-
+    :cond_6
     const/16 v24, 0x1
 
     move/from16 v0, v24
 
-    new-array v0, v0, [Ljava/lang/Object;
+    if-ne v2, v0, :cond_c
 
-    move-object/from16 v24, v0
+    new-instance v24, Ljava/lang/StringBuilder;
 
-    const/16 v25, 0x0
-
-    iget-object v0, v8, Lcom/android/launcher3/folder/FolderInfo;->title:Ljava/lang/CharSequence;
-
-    move-object/from16 v26, v0
-
-    aput-object v26, v24, v25
-
-    invoke-static/range {v23 .. v24}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v23
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
-
-    const-string v23, ", "
-
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v22
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/folder/view/FolderIconView;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v23
+    move-result-object v25
 
-    const v24, 0x7f08006d
+    const v26, 0x7f090043
 
-    invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual/range {v25 .. v26}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object v23
+    move-result-object v25
 
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const/16 v26, 0x1
 
-    move-result-object v22
+    move/from16 v0, v26
 
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    new-array v0, v0, [Ljava/lang/Object;
 
-    move-result-object v22
+    move-object/from16 v26, v0
+
+    const/16 v27, 0x0
+
+    iget-object v0, v9, Lcom/android/launcher3/folder/FolderInfo;->title:Ljava/lang/CharSequence;
+
+    move-object/from16 v28, v0
+
+    aput-object v28, v26, v27
+
+    invoke-static/range {v25 .. v26}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v25
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    const-string v25, ", "
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/folder/view/FolderIconView;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v25
+
+    const v26, 0x7f090075
+
+    invoke-virtual/range {v25 .. v26}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v25
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v24
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v22
+    move-object/from16 v1, v24
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/folder/view/FolderIconView;->setContentDescription(Ljava/lang/CharSequence;)V
 
     :goto_3
     invoke-static {v2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    move-object/from16 v22, v0
+    move-object/from16 v24, v0
 
-    invoke-static/range {v22 .. v22}, Lcom/android/launcher3/Utilities;->getLocale(Landroid/content/Context;)Ljava/util/Locale;
+    invoke-static/range {v24 .. v24}, Lcom/android/launcher3/Utilities;->getLocale(Landroid/content/Context;)Ljava/util/Locale;
 
-    move-result-object v22
+    move-result-object v24
 
-    invoke-virtual/range {v22 .. v22}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
+    invoke-virtual/range {v24 .. v24}, Ljava/util/Locale;->getLanguage()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v8
 
-    const-string v22, "ar"
+    const-string v24, "ar"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v24
 
-    invoke-virtual {v0, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v22
+    move-result v24
 
-    if-nez v22, :cond_9
+    if-nez v24, :cond_7
 
-    const-string v22, "fa"
+    const-string v24, "fa"
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v24
 
-    invoke-virtual {v0, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v22
+    move-result v24
 
-    if-eqz v22, :cond_e
+    if-eqz v24, :cond_d
 
-    :cond_9
-    invoke-static {v3, v7}, Lcom/android/launcher3/Utilities;->toArabicDigits(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    :cond_7
+    invoke-static {v4, v8}, Lcom/android/launcher3/Utilities;->toArabicDigits(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
     :goto_4
-    if-eqz v13, :cond_a
+    if-eqz v14, :cond_8
 
-    new-instance v18, Ljava/lang/StringBuffer;
+    new-instance v19, Ljava/lang/StringBuffer;
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    invoke-direct {v0, v3}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0, v4}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
 
-    const/16 v22, 0x2b
+    const/16 v24, 0x2b
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v19
 
-    move/from16 v1, v22
+    move/from16 v1, v24
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuffer;->append(C)Ljava/lang/StringBuffer;
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    :cond_a
+    :cond_8
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mBadgeView:Landroid/widget/TextView;
 
-    move-object/from16 v22, v0
+    move-object/from16 v24, v0
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v24
 
-    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    invoke-virtual {v0, v4}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/folder/view/FolderIconView;->getBadgeBgDrawable()Landroid/graphics/drawable/Drawable;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_9
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mBadgeView:Landroid/widget/TextView;
+
+    move-object/from16 v24, v0
+
+    move-object/from16 v0, v24
+
+    invoke-virtual {v0, v3}, Landroid/widget/TextView;->setBackground(Landroid/graphics/drawable/Drawable;)V
+
+    :cond_9
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/folder/view/FolderIconView;->updateBadgeLayout()V
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mBadgeView:Landroid/widget/TextView;
 
-    move-object/from16 v22, v0
+    move-object/from16 v24, v0
 
-    const/16 v23, 0x0
+    const/16 v25, 0x0
 
-    invoke-virtual/range {v22 .. v23}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual/range {v24 .. v25}, Landroid/widget/TextView;->setVisibility(I)V
 
-    :cond_b
+    :cond_a
     :goto_5
     return-void
 
-    :cond_c
-    const/16 v17, 0x0
+    :cond_b
+    const/16 v18, 0x0
 
     goto/16 :goto_2
 
-    :cond_d
-    new-instance v22, Ljava/lang/StringBuilder;
+    :cond_c
+    new-instance v24, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/folder/view/FolderIconView;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v23
+    move-result-object v25
 
-    const v24, 0x7f08003c
+    const v26, 0x7f090043
 
-    invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual/range {v25 .. v26}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object v23
+    move-result-object v25
 
-    const/16 v24, 0x1
+    const/16 v26, 0x1
 
-    move/from16 v0, v24
+    move/from16 v0, v26
 
     new-array v0, v0, [Ljava/lang/Object;
-
-    move-object/from16 v24, v0
-
-    const/16 v25, 0x0
-
-    iget-object v0, v8, Lcom/android/launcher3/folder/FolderInfo;->title:Ljava/lang/CharSequence;
 
     move-object/from16 v26, v0
 
-    aput-object v26, v24, v25
+    const/16 v27, 0x0
 
-    invoke-static/range {v23 .. v24}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    iget-object v0, v9, Lcom/android/launcher3/folder/FolderInfo;->title:Ljava/lang/CharSequence;
 
-    move-result-object v23
+    move-object/from16 v28, v0
 
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    aput-object v28, v26, v27
 
-    move-result-object v22
+    invoke-static/range {v25 .. v26}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    const-string v23, ", "
+    move-result-object v25
 
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v22
+    move-result-object v24
+
+    const-string v25, ", "
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/folder/view/FolderIconView;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v23
+    move-result-object v25
 
-    const v24, 0x7f08006e
+    const v26, 0x7f090076
 
-    invoke-virtual/range {v23 .. v24}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual/range {v25 .. v26}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object v23
+    move-result-object v25
 
-    const/16 v24, 0x1
+    const/16 v26, 0x1
 
-    move/from16 v0, v24
+    move/from16 v0, v26
 
     new-array v0, v0, [Ljava/lang/Object;
 
-    move-object/from16 v24, v0
+    move-object/from16 v26, v0
 
-    const/16 v25, 0x0
+    const/16 v27, 0x0
 
     invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v26
+    move-result-object v28
 
-    aput-object v26, v24, v25
+    aput-object v28, v26, v27
 
-    invoke-static/range {v23 .. v24}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static/range {v25 .. v26}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v23
+    move-result-object v25
 
-    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v22
+    move-result-object v24
 
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v22
+    move-result-object v24
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v22
+    move-object/from16 v1, v24
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/folder/view/FolderIconView;->setContentDescription(Ljava/lang/CharSequence;)V
 
     goto/16 :goto_3
 
-    :cond_e
-    invoke-static {v3}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+    :cond_d
+    invoke-static {v4}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
     goto/16 :goto_4
 
-    :cond_f
+    :cond_e
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/launcher3/folder/view/FolderIconView;->mBadgeView:Landroid/widget/TextView;
 
-    move-object/from16 v22, v0
+    move-object/from16 v24, v0
 
-    const/16 v23, 0x4
+    const/16 v25, 0x4
 
-    invoke-virtual/range {v22 .. v23}, Landroid/widget/TextView;->setVisibility(I)V
+    invoke-virtual/range {v24 .. v25}, Landroid/widget/TextView;->setVisibility(I)V
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/folder/view/FolderIconView;->getTag()Ljava/lang/Object;
 
-    move-result-object v22
+    move-result-object v24
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v24
 
     instance-of v0, v0, Lcom/android/launcher3/folder/FolderInfo;
 
-    move/from16 v22, v0
+    move/from16 v24, v0
 
-    if-eqz v22, :cond_b
+    if-eqz v24, :cond_a
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/folder/view/FolderIconView;->getTag()Ljava/lang/Object;
 
-    move-result-object v12
+    move-result-object v13
 
-    check-cast v12, Lcom/android/launcher3/folder/FolderInfo;
+    check-cast v13, Lcom/android/launcher3/folder/FolderInfo;
+
+    if-eqz v18, :cond_10
+
+    new-instance v24, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/folder/view/FolderIconView;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v22
+    move-result-object v25
 
-    const v23, 0x7f08003c
+    const v26, 0x7f090043
 
-    invoke-virtual/range {v22 .. v23}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    invoke-virtual/range {v25 .. v26}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    move-result-object v22
+    move-result-object v25
 
-    const/16 v23, 0x1
+    const/16 v26, 0x1
 
-    move/from16 v0, v23
+    move/from16 v0, v26
 
     new-array v0, v0, [Ljava/lang/Object;
 
-    move-object/from16 v23, v0
+    move-object/from16 v26, v0
 
-    const/16 v24, 0x0
+    const/16 v27, 0x0
 
-    iget-object v0, v12, Lcom/android/launcher3/folder/FolderInfo;->title:Ljava/lang/CharSequence;
+    iget-object v0, v13, Lcom/android/launcher3/folder/FolderInfo;->title:Ljava/lang/CharSequence;
 
-    move-object/from16 v25, v0
+    move-object/from16 v28, v0
 
-    aput-object v25, v23, v24
+    aput-object v28, v26, v27
 
-    invoke-static/range {v22 .. v23}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-static/range {v25 .. v26}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v22
+    move-result-object v25
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    const-string v25, ", "
+
+    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v25
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/folder/view/FolderIconView;->getCheckBox()Landroid/widget/CheckBox;
+
+    move-result-object v24
+
+    invoke-virtual/range {v24 .. v24}, Landroid/widget/CheckBox;->isChecked()Z
+
+    move-result v24
+
+    if-eqz v24, :cond_f
+
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/folder/view/FolderIconView;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v24
+
+    const v26, 0x7f0900af
+
+    move-object/from16 v0, v24
+
+    move/from16 v1, v26
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v24
+
+    :goto_6
+    move-object/from16 v0, v25
+
+    move-object/from16 v1, v24
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v24
+
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v24
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v22
+    move-object/from16 v1, v24
+
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/folder/view/FolderIconView;->setContentDescription(Ljava/lang/CharSequence;)V
+
+    goto/16 :goto_5
+
+    :cond_f
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/folder/view/FolderIconView;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v24
+
+    const v26, 0x7f09007b
+
+    move-object/from16 v0, v24
+
+    move/from16 v1, v26
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v24
+
+    goto :goto_6
+
+    :cond_10
+    invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/folder/view/FolderIconView;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v24
+
+    const v25, 0x7f090043
+
+    invoke-virtual/range {v24 .. v25}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v24
+
+    const/16 v25, 0x1
+
+    move/from16 v0, v25
+
+    new-array v0, v0, [Ljava/lang/Object;
+
+    move-object/from16 v25, v0
+
+    const/16 v26, 0x0
+
+    iget-object v0, v13, Lcom/android/launcher3/folder/FolderInfo;->title:Ljava/lang/CharSequence;
+
+    move-object/from16 v27, v0
+
+    aput-object v27, v25, v26
+
+    invoke-static/range {v24 .. v25}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v24
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v24
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/folder/view/FolderIconView;->setContentDescription(Ljava/lang/CharSequence;)V
 

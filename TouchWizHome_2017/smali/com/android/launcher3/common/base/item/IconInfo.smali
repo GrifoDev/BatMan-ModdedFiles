@@ -10,6 +10,8 @@
 
 .field public static final FLAG_AUTOINTALL_ICON:I = 0x2
 
+.field public static final FLAG_DISABLED_BY_PUBLISHER:I = 0x40
+
 .field public static final FLAG_DISABLED_EXTERNAL_STORAGE:I = 0x20
 
 .field public static final FLAG_DISABLED_NOT_AVAILABLE:I = 0x2
@@ -36,6 +38,8 @@
 # instance fields
 .field public customIcon:Z
 
+.field public disabledMessage:Ljava/lang/CharSequence;
+
 .field public firstInstallTime:J
 
 .field public flags:I
@@ -43,6 +47,8 @@
 .field public iconResource:Landroid/content/Intent$ShortcutIconResource;
 
 .field public intent:Landroid/content/Intent;
+
+.field public isAppShortcut:Z
 
 .field public isAppsButton:Z
 
@@ -77,6 +83,8 @@
 
     iput-boolean v0, p0, Lcom/android/launcher3/common/base/item/IconInfo;->isAppsButton:Z
 
+    iput-boolean v0, p0, Lcom/android/launcher3/common/base/item/IconInfo;->isAppShortcut:Z
+
     return-void
 .end method
 
@@ -92,6 +100,8 @@
     iput v0, p0, Lcom/android/launcher3/common/base/item/IconInfo;->flags:I
 
     iput-boolean v0, p0, Lcom/android/launcher3/common/base/item/IconInfo;->isAppsButton:Z
+
+    iput-boolean v0, p0, Lcom/android/launcher3/common/base/item/IconInfo;->isAppShortcut:Z
 
     iput-wide p1, p0, Lcom/android/launcher3/common/base/item/IconInfo;->id:J
 
@@ -144,6 +154,8 @@
     iput v0, p0, Lcom/android/launcher3/common/base/item/IconInfo;->flags:I
 
     iput-boolean v0, p0, Lcom/android/launcher3/common/base/item/IconInfo;->isAppsButton:Z
+
+    iput-boolean v0, p0, Lcom/android/launcher3/common/base/item/IconInfo;->isAppShortcut:Z
 
     iget-object v0, p2, Lcom/android/launcher3/common/base/item/IconInfo;->title:Ljava/lang/CharSequence;
 
@@ -228,6 +240,8 @@
 
     iput-boolean v1, p0, Lcom/android/launcher3/common/base/item/IconInfo;->isAppsButton:Z
 
+    iput-boolean v1, p0, Lcom/android/launcher3/common/base/item/IconInfo;->isAppShortcut:Z
+
     invoke-virtual {p2}, Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;->getComponentName()Landroid/content/ComponentName;
 
     move-result-object v1
@@ -296,6 +310,8 @@
     iput v2, p0, Lcom/android/launcher3/common/base/item/IconInfo;->flags:I
 
     iput-boolean v2, p0, Lcom/android/launcher3/common/base/item/IconInfo;->isAppsButton:Z
+
+    iput-boolean v2, p0, Lcom/android/launcher3/common/base/item/IconInfo;->isAppShortcut:Z
 
     invoke-virtual {p2}, Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;->getComponentName()Landroid/content/ComponentName;
 
@@ -376,6 +392,41 @@
     iput-object p4, p0, Lcom/android/launcher3/common/base/item/IconInfo;->mIcon:Landroid/graphics/Bitmap;
 
     iput-object p5, p0, Lcom/android/launcher3/common/base/item/IconInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    return-void
+.end method
+
+.method public constructor <init>(Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutInfoCompat;Landroid/content/Context;)V
+    .locals 2
+    .annotation build Landroid/annotation/TargetApi;
+        value = 0x19
+    .end annotation
+
+    const/4 v1, 0x0
+
+    invoke-direct {p0}, Lcom/android/launcher3/common/base/item/ItemInfo;-><init>()V
+
+    iput v1, p0, Lcom/android/launcher3/common/base/item/IconInfo;->isDisabled:I
+
+    iput v1, p0, Lcom/android/launcher3/common/base/item/IconInfo;->flags:I
+
+    iput-boolean v1, p0, Lcom/android/launcher3/common/base/item/IconInfo;->isAppsButton:Z
+
+    iput-boolean v1, p0, Lcom/android/launcher3/common/base/item/IconInfo;->isAppShortcut:Z
+
+    invoke-virtual {p1}, Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutInfoCompat;->getUserHandle()Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/launcher3/common/base/item/IconInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    const/4 v0, 0x6
+
+    iput v0, p0, Lcom/android/launcher3/common/base/item/IconInfo;->itemType:I
+
+    iput v1, p0, Lcom/android/launcher3/common/base/item/IconInfo;->flags:I
+
+    invoke-virtual {p0, p1, p2}, Lcom/android/launcher3/common/base/item/IconInfo;->updateFromDeepShortcutInfo(Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutInfoCompat;Landroid/content/Context;)V
 
     return-void
 .end method
@@ -758,6 +809,83 @@
 
 
 # virtual methods
+.method protected getBadgedIcon(Landroid/graphics/Bitmap;Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutInfoCompat;Lcom/android/launcher3/common/model/IconCache;Landroid/content/Context;)Landroid/graphics/Bitmap;
+    .locals 4
+
+    new-instance v0, Lcom/android/launcher3/common/base/item/IconInfo;
+
+    invoke-direct {v0}, Lcom/android/launcher3/common/base/item/IconInfo;-><init>()V
+
+    iget-object v2, p0, Lcom/android/launcher3/common/base/item/IconInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    iput-object v2, v0, Lcom/android/launcher3/common/base/item/IconInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    invoke-virtual {p2}, Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutInfoCompat;->getActivity()Landroid/content/ComponentName;
+
+    move-result-object v2
+
+    iput-object v2, v0, Lcom/android/launcher3/common/base/item/IconInfo;->componentName:Landroid/content/ComponentName;
+
+    :try_start_0
+    invoke-virtual {p2, p4}, Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutInfoCompat;->getActivityInfo(Landroid/content/Context;)Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;
+
+    move-result-object v2
+
+    const/4 v3, 0x0
+
+    invoke-virtual {p3, v0, v2, v3}, Lcom/android/launcher3/common/model/IconCache;->getTitleAndIcon(Lcom/android/launcher3/common/base/item/IconInfo;Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Z)V
+    :try_end_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
+
+    iget-object v2, v0, Lcom/android/launcher3/common/base/item/IconInfo;->mIcon:Landroid/graphics/Bitmap;
+
+    invoke-static {p1, v2, p4}, Lcom/android/launcher3/util/BitmapUtils;->badgeWithBitmap(Landroid/graphics/Bitmap;Landroid/graphics/Bitmap;Landroid/content/Context;)Landroid/graphics/Bitmap;
+
+    move-result-object v2
+
+    :goto_0
+    return-object v2
+
+    :catch_0
+    move-exception v1
+
+    iget-object v2, p0, Lcom/android/launcher3/common/base/item/IconInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    invoke-static {p1, v2, p4}, Lcom/android/launcher3/util/BitmapUtils;->badgeIconForUser(Landroid/graphics/Bitmap;Lcom/android/launcher3/common/compat/UserHandleCompat;Landroid/content/Context;)Landroid/graphics/Bitmap;
+
+    move-result-object v2
+
+    goto :goto_0
+.end method
+
+.method public getDeepShortcutId()Ljava/lang/String;
+    .locals 2
+
+    iget v0, p0, Lcom/android/launcher3/common/base/item/IconInfo;->itemType:I
+
+    const/4 v1, 0x6
+
+    if-ne v0, v1, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/launcher3/common/base/item/IconInfo;->getPromisedIntent()Landroid/content/Intent;
+
+    move-result-object v0
+
+    const-string v1, "shortcut_id"
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
 .method public getIcon(Lcom/android/launcher3/common/model/IconCache;)Landroid/graphics/Bitmap;
     .locals 2
 
@@ -803,6 +931,24 @@
     iget-object v0, p0, Lcom/android/launcher3/common/base/item/IconInfo;->mOriginalIcon:Landroid/graphics/Bitmap;
 
     return-object v0
+.end method
+
+.method public getPromisedIntent()Landroid/content/Intent;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/common/base/item/IconInfo;->promisedIntent:Landroid/content/Intent;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/common/base/item/IconInfo;->promisedIntent:Landroid/content/Intent;
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/launcher3/common/base/item/IconInfo;->intent:Landroid/content/Intent;
+
+    goto :goto_0
 .end method
 
 .method public getTargetComponent()Landroid/content/ComponentName;
@@ -949,7 +1095,7 @@
 
     iget-object v3, p0, Lcom/android/launcher3/common/base/item/IconInfo;->title:Ljava/lang/CharSequence;
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_2
 
     iget-object v3, p0, Lcom/android/launcher3/common/base/item/IconInfo;->title:Ljava/lang/CharSequence;
 
@@ -964,7 +1110,7 @@
 
     iget-object v3, p0, Lcom/android/launcher3/common/base/item/IconInfo;->promisedIntent:Landroid/content/Intent;
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3
 
     iget-object v3, p0, Lcom/android/launcher3/common/base/item/IconInfo;->promisedIntent:Landroid/content/Intent;
 
@@ -989,7 +1135,7 @@
 
     iget-object v3, p0, Lcom/android/launcher3/common/base/item/IconInfo;->iconResource:Landroid/content/Intent$ShortcutIconResource;
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_5
 
     const-string v3, "iconType"
 
@@ -1004,29 +1150,34 @@
     :goto_2
     iget-boolean v3, p0, Lcom/android/launcher3/common/base/item/IconInfo;->customIcon:Z
 
-    if-eqz v3, :cond_6
+    if-nez v3, :cond_0
 
+    iget-boolean v3, p0, Lcom/android/launcher3/common/base/item/IconInfo;->isAppShortcut:Z
+
+    if-eqz v3, :cond_7
+
+    :cond_0
     iget-object v2, p0, Lcom/android/launcher3/common/base/item/IconInfo;->mOriginalIcon:Landroid/graphics/Bitmap;
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_6
 
     iget-object v2, p0, Lcom/android/launcher3/common/base/item/IconInfo;->mOriginalIcon:Landroid/graphics/Bitmap;
 
     invoke-static {p2, v2}, Lcom/android/launcher3/common/base/item/IconInfo;->writeBitmap(Landroid/content/ContentValues;Landroid/graphics/Bitmap;)V
 
-    :cond_0
+    :cond_1
     :goto_3
     return-void
 
-    :cond_1
+    :cond_2
     move-object v0, v2
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     iget-object v3, p0, Lcom/android/launcher3/common/base/item/IconInfo;->intent:Landroid/content/Intent;
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4
 
     iget-object v3, p0, Lcom/android/launcher3/common/base/item/IconInfo;->intent:Landroid/content/Intent;
 
@@ -1036,12 +1187,12 @@
 
     goto :goto_1
 
-    :cond_3
+    :cond_4
     move-object v1, v2
 
     goto :goto_1
 
-    :cond_4
+    :cond_5
     const-string v3, "iconType"
 
     invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
@@ -1068,17 +1219,17 @@
 
     goto :goto_2
 
-    :cond_5
+    :cond_6
     iget-object v2, p0, Lcom/android/launcher3/common/base/item/IconInfo;->mIcon:Landroid/graphics/Bitmap;
 
     invoke-static {p2, v2}, Lcom/android/launcher3/common/base/item/IconInfo;->writeBitmap(Landroid/content/ContentValues;Landroid/graphics/Bitmap;)V
 
     goto :goto_3
 
-    :cond_6
+    :cond_7
     iget v3, p0, Lcom/android/launcher3/common/base/item/IconInfo;->itemType:I
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1
 
     const-string v3, "icon"
 
@@ -1355,6 +1506,119 @@
     move-result-object v0
 
     return-object v0
+.end method
+
+.method public updateFromDeepShortcutInfo(Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutInfoCompat;Landroid/content/Context;)V
+    .locals 7
+
+    invoke-virtual {p1, p2}, Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutInfoCompat;->makeIntent(Landroid/content/Context;)Landroid/content/Intent;
+
+    move-result-object v5
+
+    iput-object v5, p0, Lcom/android/launcher3/common/base/item/IconInfo;->intent:Landroid/content/Intent;
+
+    invoke-virtual {p1}, Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutInfoCompat;->getShortLabel()Ljava/lang/CharSequence;
+
+    move-result-object v5
+
+    iput-object v5, p0, Lcom/android/launcher3/common/base/item/IconInfo;->title:Ljava/lang/CharSequence;
+
+    invoke-virtual {p1}, Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutInfoCompat;->getLongLabel()Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    invoke-virtual {p1}, Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutInfoCompat;->getShortLabel()Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    :cond_0
+    invoke-static {p2}, Lcom/android/launcher3/common/compat/UserManagerCompat;->getInstance(Landroid/content/Context;)Lcom/android/launcher3/common/compat/UserManagerCompat;
+
+    move-result-object v5
+
+    iget-object v6, p0, Lcom/android/launcher3/common/base/item/IconInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    invoke-virtual {v5, v1, v6}, Lcom/android/launcher3/common/compat/UserManagerCompat;->getBadgedLabelForUser(Ljava/lang/CharSequence;Lcom/android/launcher3/common/compat/UserHandleCompat;)Ljava/lang/CharSequence;
+
+    move-result-object v5
+
+    iput-object v5, p0, Lcom/android/launcher3/common/base/item/IconInfo;->contentDescription:Ljava/lang/CharSequence;
+
+    invoke-virtual {p1}, Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutInfoCompat;->isEnabled()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    iget v5, p0, Lcom/android/launcher3/common/base/item/IconInfo;->isDisabled:I
+
+    and-int/lit8 v5, v5, -0x41
+
+    iput v5, p0, Lcom/android/launcher3/common/base/item/IconInfo;->isDisabled:I
+
+    :goto_0
+    invoke-virtual {p1}, Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutInfoCompat;->getDisabledMessage()Ljava/lang/CharSequence;
+
+    move-result-object v5
+
+    iput-object v5, p0, Lcom/android/launcher3/common/base/item/IconInfo;->disabledMessage:Ljava/lang/CharSequence;
+
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/launcher3/LauncherAppState;->getShortcutManager()Lcom/android/launcher3/common/quickoption/shortcuts/DeepShortcutManager;
+
+    move-result-object v5
+
+    invoke-virtual {v5, p1}, Lcom/android/launcher3/common/quickoption/shortcuts/DeepShortcutManager;->getShortcutIconDrawable(Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutInfoCompat;)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v4
+
+    invoke-virtual {v2}, Lcom/android/launcher3/LauncherAppState;->getIconCache()Lcom/android/launcher3/common/model/IconCache;
+
+    move-result-object v0
+
+    if-nez v4, :cond_2
+
+    invoke-static {}, Lcom/android/launcher3/common/compat/UserHandleCompat;->myUserHandle()Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    move-result-object v5
+
+    invoke-virtual {v0, v5}, Lcom/android/launcher3/common/model/IconCache;->getDefaultIcon(Lcom/android/launcher3/common/compat/UserHandleCompat;)Landroid/graphics/Bitmap;
+
+    move-result-object v3
+
+    :goto_1
+    invoke-virtual {p0, v3, p1, v0, p2}, Lcom/android/launcher3/common/base/item/IconInfo;->getBadgedIcon(Landroid/graphics/Bitmap;Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutInfoCompat;Lcom/android/launcher3/common/model/IconCache;Landroid/content/Context;)Landroid/graphics/Bitmap;
+
+    move-result-object v5
+
+    invoke-virtual {p0, v5}, Lcom/android/launcher3/common/base/item/IconInfo;->setIcon(Landroid/graphics/Bitmap;)V
+
+    return-void
+
+    :cond_1
+    iget v5, p0, Lcom/android/launcher3/common/base/item/IconInfo;->isDisabled:I
+
+    or-int/lit8 v5, v5, 0x40
+
+    iput v5, p0, Lcom/android/launcher3/common/base/item/IconInfo;->isDisabled:I
+
+    goto :goto_0
+
+    :cond_2
+    invoke-static {v4, p2}, Lcom/android/launcher3/util/BitmapUtils;->createIconBitmap(Landroid/graphics/drawable/Drawable;Landroid/content/Context;)Landroid/graphics/Bitmap;
+
+    move-result-object v3
+
+    goto :goto_1
 .end method
 
 .method public updateIcon(Lcom/android/launcher3/common/model/IconCache;)V

@@ -12,11 +12,21 @@
 
 .field private static final T_DIALER_PACKAGE_NAME:Ljava/lang/String; = "com.skt.prod.dialer"
 
+.field private static mSupportFolderLock:Z
+
+.field private static mSupportSSecure:Z
+
 .field private static sBuildFlavor:Ljava/lang/String;
 
 .field private static sCountryCode:Ljava/lang/String;
 
+.field private static sCscClockPackageName:Ljava/lang/String;
+
 .field private static sDisableFullyHideKeypad:Z
+
+.field private static sEnableStartActivityTouchDown:Z
+
+.field private static sFloatingClockPackageName:Ljava/lang/String;
 
 .field private static sHomeAppsStructureFeature:Ljava/lang/String;
 
@@ -34,6 +44,8 @@
 
 .field private static sIsSPR:Z
 
+.field private static sIsTabAOSupProject:Z
+
 .field private static sIsTablet:Z
 
 .field private static sIsVZW:Z
@@ -44,6 +56,8 @@
 
 .field private static sSalesCode:Ljava/lang/String;
 
+.field private static sSupportAboutPage:Z
+
 .field private static sSupportAppsSearch:Z
 
 .field private static sSupportBackgroundBlurByWindow:Z
@@ -53,6 +67,8 @@
 .field private static sSupportContextServiceSurveyMode:Z
 
 .field private static sSupportCustomerDialerChange:Z
+
+.field private static sSupportDeepShortcut:Z
 
 .field private static sSupportEasyModeChange:Z
 
@@ -90,9 +106,15 @@
 
 .field private static sSupportNfcHwKeyboard:Z
 
+.field private static sSupportNotificationPanelExpansion:Z
+
+.field private static sSupportNotificationPanelExpansionWithHomeMoving:Z
+
 .field private static sSupportQuickOption:Z
 
 .field private static sSupportRotate:Z
+
+.field private static sSupportSetToZeroPage:Z
 
 .field private static sSupportTransitionEffect:Z
 
@@ -161,6 +183,8 @@
 
     sput-boolean v2, Lcom/android/launcher3/LauncherFeature;->sSupportQuickOption:Z
 
+    sput-boolean v1, Lcom/android/launcher3/LauncherFeature;->sSupportDeepShortcut:Z
+
     sput-boolean v2, Lcom/android/launcher3/LauncherFeature;->sSupportTraySwipeInteraction:Z
 
     sput-boolean v2, Lcom/android/launcher3/LauncherFeature;->sSupportMoveToHomeAppsByDragging:Z
@@ -191,6 +215,12 @@
 
     sput-boolean v1, Lcom/android/launcher3/LauncherFeature;->sSupportNfcHwKeyboard:Z
 
+    sput-boolean v2, Lcom/android/launcher3/LauncherFeature;->sSupportNotificationPanelExpansion:Z
+
+    sput-boolean v1, Lcom/android/launcher3/LauncherFeature;->sSupportNotificationPanelExpansionWithHomeMoving:Z
+
+    sput-boolean v2, Lcom/android/launcher3/LauncherFeature;->sSupportAboutPage:Z
+
     sput-boolean v1, Lcom/android/launcher3/LauncherFeature;->sSupportZeroPageHome:Z
 
     sput-boolean v2, Lcom/android/launcher3/LauncherFeature;->sSupportZeroPageSwitch:Z
@@ -198,6 +228,10 @@
     sput-boolean v1, Lcom/android/launcher3/LauncherFeature;->sSupportZeroPageBezelSwipe:Z
 
     sput-boolean v1, Lcom/android/launcher3/LauncherFeature;->sSupportFolderLock:Z
+
+    sput-boolean v1, Lcom/android/launcher3/LauncherFeature;->mSupportSSecure:Z
+
+    sput-boolean v1, Lcom/android/launcher3/LauncherFeature;->mSupportFolderLock:Z
 
     sput-boolean v2, Lcom/android/launcher3/LauncherFeature;->sSupportTransitionEffect:Z
 
@@ -218,6 +252,16 @@
     sput-boolean v1, Lcom/android/launcher3/LauncherFeature;->sIsDreamProject:Z
 
     sput-boolean v1, Lcom/android/launcher3/LauncherFeature;->sIsCruiserProject:Z
+
+    sput-boolean v1, Lcom/android/launcher3/LauncherFeature;->sIsTabAOSupProject:Z
+
+    sput-boolean v1, Lcom/android/launcher3/LauncherFeature;->sEnableStartActivityTouchDown:Z
+
+    sput-boolean v1, Lcom/android/launcher3/LauncherFeature;->sSupportSetToZeroPage:Z
+
+    sput-object v3, Lcom/android/launcher3/LauncherFeature;->sFloatingClockPackageName:Ljava/lang/String;
+
+    sput-object v3, Lcom/android/launcher3/LauncherFeature;->sCscClockPackageName:Ljava/lang/String;
 
     return-void
 .end method
@@ -314,6 +358,34 @@
     return v0
 .end method
 
+.method public static enableStartActivityTouchDown()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/launcher3/LauncherFeature;->sEnableStartActivityTouchDown:Z
+
+    return v0
+.end method
+
+.method public static final getCscClockPackageName()Ljava/lang/String;
+    .locals 1
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
+    sget-object v0, Lcom/android/launcher3/LauncherFeature;->sCscClockPackageName:Ljava/lang/String;
+
+    if-nez v0, :cond_0
+
+    const-string v0, "com.sec.android.app.clockpackage"
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    sget-object v0, Lcom/android/launcher3/LauncherFeature;->sCscClockPackageName:Ljava/lang/String;
+
+    goto :goto_0
+.end method
+
 .method public static getCustomerDialerClassName()Ljava/lang/String;
     .locals 1
 
@@ -328,6 +400,26 @@
     const-string v0, "com.skt.prod.dialer"
 
     return-object v0
+.end method
+
+.method public static final getFloatingClockPackageName()Ljava/lang/String;
+    .locals 1
+    .annotation build Landroid/support/annotation/NonNull;
+    .end annotation
+
+    sget-object v0, Lcom/android/launcher3/LauncherFeature;->sFloatingClockPackageName:Ljava/lang/String;
+
+    if-nez v0, :cond_0
+
+    const-string v0, "com.sec.android.app.clockpackage"
+
+    :goto_0
+    return-object v0
+
+    :cond_0
+    sget-object v0, Lcom/android/launcher3/LauncherFeature;->sFloatingClockPackageName:Ljava/lang/String;
+
+    goto :goto_0
 .end method
 
 .method public static getOemDialerClassName()Ljava/lang/String;
@@ -628,6 +720,14 @@
     return v0
 .end method
 
+.method public static isSSecureSupported()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/launcher3/LauncherFeature;->mSupportSSecure:Z
+
+    return v0
+.end method
+
 .method public static isSupportBadgeManage()Z
     .locals 1
 
@@ -636,6 +736,110 @@
     move-result v0
 
     return v0
+.end method
+
+.method public static isTabAOSupProject()Z
+    .locals 2
+
+    sget-object v0, Lcom/android/launcher3/LauncherFeature;->sProductName:Ljava/lang/String;
+
+    if-eqz v0, :cond_1
+
+    sget-object v0, Lcom/android/launcher3/LauncherFeature;->sProductName:Ljava/lang/String;
+
+    const-string v1, "gt58"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    sget-object v0, Lcom/android/launcher3/LauncherFeature;->sBuildFlavor:Ljava/lang/String;
+
+    const-string v1, "gt58"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    sget-object v0, Lcom/android/launcher3/LauncherFeature;->sProductName:Ljava/lang/String;
+
+    const-string v1, "gt510"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    sget-object v0, Lcom/android/launcher3/LauncherFeature;->sBuildFlavor:Ljava/lang/String;
+
+    const-string v1, "gt510"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    sget-object v0, Lcom/android/launcher3/LauncherFeature;->sProductName:Ljava/lang/String;
+
+    const-string v1, "gt5note8"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    sget-object v0, Lcom/android/launcher3/LauncherFeature;->sBuildFlavor:Ljava/lang/String;
+
+    const-string v1, "gt5note8"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    sget-object v0, Lcom/android/launcher3/LauncherFeature;->sProductName:Ljava/lang/String;
+
+    const-string v1, "gt5note10"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    sget-object v0, Lcom/android/launcher3/LauncherFeature;->sBuildFlavor:Ljava/lang/String;
+
+    const-string v1, "gt5note10"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    :cond_0
+    const/4 v0, 0x1
+
+    :goto_0
+    sput-boolean v0, Lcom/android/launcher3/LauncherFeature;->sIsTabAOSupProject:Z
+
+    :cond_1
+    sget-boolean v0, Lcom/android/launcher3/LauncherFeature;->sIsTabAOSupProject:Z
+
+    return v0
+
+    :cond_2
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public static isTablet()Z
@@ -747,41 +951,59 @@
 .end method
 
 .method private static readConfigValue(Landroid/content/Context;)V
-    .locals 2
+    .locals 3
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
+    move-result-object v1
+
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
     move-result-object v0
 
-    const/high16 v1, 0x7f0c0000
+    if-eqz v0, :cond_0
 
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
+    const-string v2, "com.samsung.feature.device_category_tablet"
 
-    move-result v1
+    invoke-virtual {v0, v2}, Landroid/content/pm/PackageManager;->hasSystemFeature(Ljava/lang/String;)Z
 
-    sput-boolean v1, Lcom/android/launcher3/LauncherFeature;->sSupportRotate:Z
+    move-result v2
 
-    const v1, 0x7f0c0006
+    if-eqz v2, :cond_0
 
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
+    const/4 v2, 0x1
 
-    move-result v1
+    :goto_0
+    sput-boolean v2, Lcom/android/launcher3/LauncherFeature;->sIsTablet:Z
 
-    sput-boolean v1, Lcom/android/launcher3/LauncherFeature;->sIsTablet:Z
+    sput-boolean v2, Lcom/android/launcher3/LauncherFeature;->sSupportRotate:Z
 
-    const v1, 0x7f0c0005
+    const v2, 0x7f0b0006
 
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getBoolean(I)Z
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
-    move-result v1
+    move-result v2
 
-    sput-boolean v1, Lcom/android/launcher3/LauncherFeature;->sIsLargeTablet:Z
+    sput-boolean v2, Lcom/android/launcher3/LauncherFeature;->sIsLargeTablet:Z
+
+    const v2, 0x7f0b0001
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
+
+    move-result v2
+
+    sput-boolean v2, Lcom/android/launcher3/LauncherFeature;->sSupportFlexibleGrid:Z
 
     return-void
+
+    :cond_0
+    const/4 v2, 0x0
+
+    goto :goto_0
 .end method
 
 .method private static readFloatingFeature()V
-    .locals 1
+    .locals 2
 
     const-string v0, "SEC_FLOATING_FEATURE_COMMON_SUPPORT_NFC_HW_KEYBOARD"
 
@@ -806,6 +1028,34 @@
     move-result v0
 
     sput-boolean v0, Lcom/android/launcher3/LauncherFeature;->sSupportHomeModeChangeFeature:Z
+
+    const-string v0, "SEC_FLOATING_FEATURE_GRAPHICS_SUPPORT_3D_SURFACE_TRANSITION_FLAG"
+
+    invoke-static {v0}, Lcom/android/launcher3/features/FloatingFeature;->getBoolean(Ljava/lang/String;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/launcher3/LauncherFeature;->sSupportBackgroundBlurByWindow:Z
+
+    const-string v0, "SEC_FLOATING_FEATURE_CLOCK_CONFIG_PACKAGE_NAME"
+
+    const-string v1, "com.sec.android.app.clockpackage"
+
+    invoke-static {v0, v1}, Lcom/android/launcher3/features/FloatingFeature;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/android/launcher3/LauncherFeature;->sFloatingClockPackageName:Ljava/lang/String;
+
+    const-string v0, "CscFeature_Clock_ConfigReplacePackage"
+
+    const-string v1, "com.sec.android.app.clockpackage"
+
+    invoke-static {v0, v1}, Lcom/android/launcher3/features/FloatingFeature;->getString(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/android/launcher3/LauncherFeature;->sCscClockPackageName:Ljava/lang/String;
 
     return-void
 .end method
@@ -909,6 +1159,20 @@
 
     :cond_4
     sput-object v3, Lcom/android/launcher3/LauncherFeature;->sCountryCode:Ljava/lang/String;
+
+    const-string v5, "true"
+
+    const-string v6, "sys.config.activelaunch_enable"
+
+    invoke-static {v6}, Landroid/os/SemSystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v5
+
+    sput-boolean v5, Lcom/android/launcher3/LauncherFeature;->sEnableStartActivityTouchDown:Z
 
     sget-boolean v5, Lcom/android/launcher3/LauncherFeature;->sSupportHotword:Z
 
@@ -1061,12 +1325,22 @@
 
     invoke-static {}, Lcom/android/launcher3/LauncherFeature;->setSupportFolderLock()V
 
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->setSupportSSecure()V
+
     return-void
 
     :cond_2
     const/4 v0, 0x0
 
     goto :goto_0
+.end method
+
+.method public static setSupportFlexibleGrid(Z)V
+    .locals 0
+
+    sput-boolean p0, Lcom/android/launcher3/LauncherFeature;->sSupportFlexibleGrid:Z
+
+    return-void
 .end method
 
 .method private static setSupportFolderLock()V
@@ -1145,12 +1419,131 @@
     return-void
 .end method
 
+.method public static setSupportSSecure()V
+    .locals 4
+
+    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+
+    move-result-object v1
+
+    const-string v2, "CscFeature_Common_ConfigYuva"
+
+    invoke-virtual {v1, v2}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const-string v1, "sprotect"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const/4 v1, 0x1
+
+    sput-boolean v1, Lcom/android/launcher3/LauncherFeature;->mSupportSSecure:Z
+
+    :goto_0
+    sget-object v1, Lcom/android/launcher3/LauncherFeature;->TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "setSupportSSecure supportSSecure = "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    sget-boolean v3, Lcom/android/launcher3/LauncherFeature;->mSupportSSecure:Z
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, ", mSupportFolderLock = "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    sget-boolean v3, Lcom/android/launcher3/LauncherFeature;->mSupportFolderLock:Z
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
+    const/4 v1, 0x0
+
+    sput-boolean v1, Lcom/android/launcher3/LauncherFeature;->mSupportSSecure:Z
+
+    goto :goto_0
+.end method
+
+.method public static setSupportSetToZeroPage(Z)V
+    .locals 0
+
+    sput-boolean p0, Lcom/android/launcher3/LauncherFeature;->sSupportSetToZeroPage:Z
+
+    return-void
+.end method
+
 .method static setSupportWallpaperTilt(Z)V
     .locals 0
 
     sput-boolean p0, Lcom/android/launcher3/LauncherFeature;->sSupportWallpaperTilt:Z
 
     return-void
+.end method
+
+.method public static supportAboutPage()Z
+    .locals 2
+
+    sget-object v0, Lcom/android/launcher3/LauncherFeature;->sProductName:Ljava/lang/String;
+
+    if-eqz v0, :cond_0
+
+    sget-object v0, Lcom/android/launcher3/LauncherFeature;->sProductName:Ljava/lang/String;
+
+    const-string v1, "j3y17qltez"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    const/4 v0, 0x1
+
+    :goto_0
+    sput-boolean v0, Lcom/android/launcher3/LauncherFeature;->sSupportAboutPage:Z
+
+    :cond_0
+    sget-boolean v0, Lcom/android/launcher3/LauncherFeature;->sSupportAboutPage:Z
+
+    return v0
+
+    :cond_1
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public static supportAppsSearch()Z
@@ -1199,6 +1592,14 @@
     .locals 1
 
     sget-boolean v0, Lcom/android/launcher3/LauncherFeature;->sSupportCustomerDialerChange:Z
+
+    return v0
+.end method
+
+.method public static supportDeepShortcut()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/launcher3/LauncherFeature;->sSupportDeepShortcut:Z
 
     return v0
 .end method
@@ -1271,6 +1672,46 @@
     sget-object v0, Lcom/android/launcher3/LauncherFeature;->sBuildFlavor:Ljava/lang/String;
 
     const-string v1, "dream"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    sget-object v0, Lcom/android/launcher3/LauncherFeature;->sProductName:Ljava/lang/String;
+
+    const-string v1, "gracer"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    sget-object v0, Lcom/android/launcher3/LauncherFeature;->sBuildFlavor:Ljava/lang/String;
+
+    const-string v1, "gracer"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    sget-object v0, Lcom/android/launcher3/LauncherFeature;->sProductName:Ljava/lang/String;
+
+    const-string v1, "great"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    sget-object v0, Lcom/android/launcher3/LauncherFeature;->sBuildFlavor:Ljava/lang/String;
+
+    const-string v1, "great"
 
     invoke-virtual {v0, v1}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
@@ -1407,6 +1848,28 @@
     return v0
 .end method
 
+.method public static supportMultiSelectSlideVI()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/launcher3/LauncherFeature;->sSupportNavigationBar:Z
+
+    if-nez v0, :cond_0
+
+    sget-boolean v0, Lcom/android/launcher3/LauncherFeature;->sIsTablet:Z
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
 .method public static supportNavigationBar()Z
     .locals 1
 
@@ -1423,6 +1886,36 @@
     return v0
 .end method
 
+.method public static supportNotificationPanelExpansion()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/launcher3/LauncherFeature;->sSupportNotificationPanelExpansion:Z
+
+    return v0
+.end method
+
+.method public static supportNotificationPanelExpansionWithHomeMoving()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/launcher3/LauncherFeature;->sSupportNotificationPanelExpansion:Z
+
+    if-eqz v0, :cond_0
+
+    sget-boolean v0, Lcom/android/launcher3/LauncherFeature;->sSupportNotificationPanelExpansionWithHomeMoving:Z
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
 .method public static supportQuickOption()Z
     .locals 1
 
@@ -1431,10 +1924,18 @@
     return v0
 .end method
 
-.method static supportRotate()Z
+.method public static supportRotate()Z
     .locals 1
 
     sget-boolean v0, Lcom/android/launcher3/LauncherFeature;->sSupportRotate:Z
+
+    return v0
+.end method
+
+.method public static supportSetToZeroPage()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/launcher3/LauncherFeature;->sSupportSetToZeroPage:Z
 
     return v0
 .end method

@@ -433,15 +433,20 @@
 
     invoke-super {p0, p1, p2}, Lcom/android/launcher3/common/base/item/ItemInfo;->onAddToDatabase(Landroid/content/Context;Landroid/content/ContentValues;)V
 
-    const-string v0, "title"
+    const-string v1, "title"
 
-    iget-object v1, p0, Lcom/android/launcher3/folder/FolderInfo;->title:Ljava/lang/CharSequence;
+    iget-object v0, p0, Lcom/android/launcher3/folder/FolderInfo;->title:Ljava/lang/CharSequence;
 
-    invoke-interface {v1}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+    if-eqz v0, :cond_0
 
-    move-result-object v1
+    iget-object v0, p0, Lcom/android/launcher3/folder/FolderInfo;->title:Ljava/lang/CharSequence;
 
-    invoke-virtual {p2, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    :goto_0
+    invoke-virtual {p2, v1, v0}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     const-string v0, "options"
 
@@ -464,6 +469,11 @@
     invoke-virtual {p2, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
     return-void
+
+    :cond_0
+    const-string v0, ""
+
+    goto :goto_0
 .end method
 
 .method public remove(Lcom/android/launcher3/common/base/item/IconInfo;)V
@@ -566,33 +576,39 @@
     return-void
 .end method
 
-.method public setAlphabeticalOrder(ZLandroid/content/Context;)V
+.method public setAlphabeticalOrder(ZZLandroid/content/Context;)V
     .locals 3
 
     iget-boolean v1, p0, Lcom/android/launcher3/folder/FolderInfo;->mAlphabeticalOrder:Z
 
-    if-eq v1, p1, :cond_3
+    if-ne v1, p1, :cond_0
 
-    iput-boolean p1, p0, Lcom/android/launcher3/folder/FolderInfo;->mAlphabeticalOrder:Z
-
-    if-eqz p1, :cond_2
-
-    sget-object v1, Lcom/android/launcher3/folder/FolderInfo;->mAppNameComparator:Lcom/android/launcher3/common/model/AppNameComparator;
-
-    if-nez v1, :cond_0
-
-    if-eqz p2, :cond_0
-
-    new-instance v1, Lcom/android/launcher3/common/model/AppNameComparator;
-
-    invoke-direct {v1, p2}, Lcom/android/launcher3/common/model/AppNameComparator;-><init>(Landroid/content/Context;)V
-
-    sput-object v1, Lcom/android/launcher3/folder/FolderInfo;->mAppNameComparator:Lcom/android/launcher3/common/model/AppNameComparator;
+    if-eqz p2, :cond_5
 
     :cond_0
+    iput-boolean p1, p0, Lcom/android/launcher3/folder/FolderInfo;->mAlphabeticalOrder:Z
+
+    if-eqz p1, :cond_4
+
     sget-object v1, Lcom/android/launcher3/folder/FolderInfo;->mAppNameComparator:Lcom/android/launcher3/common/model/AppNameComparator;
 
     if-eqz v1, :cond_1
+
+    if-eqz p2, :cond_2
+
+    :cond_1
+    if-eqz p3, :cond_2
+
+    new-instance v1, Lcom/android/launcher3/common/model/AppNameComparator;
+
+    invoke-direct {v1, p3}, Lcom/android/launcher3/common/model/AppNameComparator;-><init>(Landroid/content/Context;)V
+
+    sput-object v1, Lcom/android/launcher3/folder/FolderInfo;->mAppNameComparator:Lcom/android/launcher3/common/model/AppNameComparator;
+
+    :cond_2
+    sget-object v1, Lcom/android/launcher3/folder/FolderInfo;->mAppNameComparator:Lcom/android/launcher3/common/model/AppNameComparator;
+
+    if-eqz v1, :cond_3
 
     sget-object v1, Lcom/android/launcher3/folder/FolderInfo;->mAppNameComparator:Lcom/android/launcher3/common/model/AppNameComparator;
 
@@ -602,7 +618,7 @@
 
     iput-object v1, p0, Lcom/android/launcher3/folder/FolderInfo;->mCurrentComparator:Ljava/util/Comparator;
 
-    :cond_1
+    :cond_3
     :goto_0
     iget-object v1, p0, Lcom/android/launcher3/folder/FolderInfo;->contents:Ljava/util/ArrayList;
 
@@ -619,7 +635,7 @@
 
     move-result v1
 
-    if-ge v0, v1, :cond_3
+    if-ge v0, v1, :cond_5
 
     iget-object v1, p0, Lcom/android/launcher3/folder/FolderInfo;->listeners:Ljava/util/ArrayList;
 
@@ -635,14 +651,14 @@
 
     goto :goto_1
 
-    :cond_2
+    :cond_4
     sget-object v1, Lcom/android/launcher3/folder/FolderInfo;->ITEM_POS_COMPARATOR:Ljava/util/Comparator;
 
     iput-object v1, p0, Lcom/android/launcher3/folder/FolderInfo;->mCurrentComparator:Ljava/util/Comparator;
 
     goto :goto_0
 
-    :cond_3
+    :cond_5
     return-void
 .end method
 

@@ -22,19 +22,25 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/home/HomeLoader;Z)V
+.method private constructor <init>(Lcom/android/launcher3/home/HomeLoader;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
     invoke-direct {p0, p1}, Lcom/android/launcher3/common/model/DataLoader$PageLoaderTask;-><init>(Lcom/android/launcher3/common/model/DataLoader;)V
 
-    iput-boolean p2, p0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->mStopped:Z
+    return-void
+.end method
+
+.method synthetic constructor <init>(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/home/HomeLoader$1;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;-><init>(Lcom/android/launcher3/home/HomeLoader;)V
 
     return-void
 .end method
 
-.method static synthetic access$3200(Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;)Z
+.method static synthetic access$3900(Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->mStopped:Z
@@ -42,7 +48,15 @@
     return v0
 .end method
 
-.method static synthetic access$3500(Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;)Z
+.method static synthetic access$4200(Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->mStopped:Z
+
+    return v0
+.end method
+
+.method static synthetic access$4500(Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->mStopped:Z
@@ -140,7 +154,7 @@
 
     iget-object v8, p0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    invoke-static {v8}, Lcom/android/launcher3/home/HomeLoader;->access$600(Lcom/android/launcher3/home/HomeLoader;)Lcom/android/launcher3/common/model/FavoritesUpdater;
+    invoke-static {v8}, Lcom/android/launcher3/home/HomeLoader;->access$1000(Lcom/android/launcher3/home/HomeLoader;)Lcom/android/launcher3/common/model/FavoritesUpdater;
 
     move-result-object v8
 
@@ -148,7 +162,7 @@
 
     iget-object v8, p0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    invoke-static {v8}, Lcom/android/launcher3/home/HomeLoader;->access$700(Lcom/android/launcher3/home/HomeLoader;)Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
+    invoke-static {v8}, Lcom/android/launcher3/home/HomeLoader;->access$1100(Lcom/android/launcher3/home/HomeLoader;)Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
 
     move-result-object v0
 
@@ -158,46 +172,46 @@
 
     invoke-direct {v9, p0, v0, v2}, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask$1;-><init>(Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;Ljava/util/ArrayList;)V
 
-    invoke-static {v8, v9}, Lcom/android/launcher3/home/HomeLoader;->access$800(Lcom/android/launcher3/home/HomeLoader;Ljava/lang/Runnable;)V
+    invoke-static {v8, v9}, Lcom/android/launcher3/home/HomeLoader;->access$1200(Lcom/android/launcher3/home/HomeLoader;Ljava/lang/Runnable;)V
 
     :cond_4
     return-void
 .end method
 
 .method private finishBind()V
-    .locals 7
+    .locals 9
 
-    const-string v4, "HomeLoader"
+    const-string v6, "HomeLoader"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "finishBind, task : "
+    const-string v8, "finishBind, task : "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v5, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v7, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-static {v4, v5}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget-boolean v4, p0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->mStopped:Z
+    iget-boolean v6, p0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->mStopped:Z
 
-    if-eqz v4, :cond_0
+    if-eqz v6, :cond_0
 
-    const-string v4, "HomeLoader"
+    const-string v6, "HomeLoader"
 
-    const-string v5, "finishBind pageLoaderTask is stopped"
+    const-string v7, "finishBind pageLoaderTask is stopped"
 
-    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v6, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_0
     return-void
@@ -207,19 +221,19 @@
 
     invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportHomeModeChange()Z
 
-    move-result v4
+    move-result v6
 
-    if-eqz v4, :cond_1
+    if-eqz v6, :cond_1
 
     invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-virtual {v4}, Lcom/android/launcher3/LauncherAppState;->isHomeOnlyModeEnabled()Z
+    invoke-virtual {v6}, Lcom/android/launcher3/LauncherAppState;->isHomeOnlyModeEnabled()Z
 
-    move-result v4
+    move-result v6
 
-    if-eqz v4, :cond_1
+    if-eqz v6, :cond_1
 
     invoke-direct {p0}, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->loadHiddenApps()V
 
@@ -228,128 +242,184 @@
     invoke-direct {p0}, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->finalCheckForDuplicateInfo()V
 
     :cond_1
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$2600()Ljava/lang/Object;
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$3000()Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v7
 
-    monitor-enter v5
+    monitor-enter v7
 
     :try_start_0
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$2700()Lcom/android/launcher3/util/LongArrayMap;
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$3100()Lcom/android/launcher3/util/LongArrayMap;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-virtual {v4}, Lcom/android/launcher3/util/LongArrayMap;->isEmpty()Z
+    invoke-virtual {v6}, Lcom/android/launcher3/util/LongArrayMap;->isEmpty()Z
 
-    move-result v4
+    move-result v6
 
-    if-nez v4, :cond_2
+    if-nez v6, :cond_2
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
     :goto_1
-    monitor-exit v5
+    monitor-exit v7
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    iget-object v4, p0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->this$0:Lcom/android/launcher3/home/HomeLoader;
+    iget-object v6, p0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    invoke-static {v4}, Lcom/android/launcher3/home/HomeLoader;->access$2800(Lcom/android/launcher3/home/HomeLoader;)Z
+    invoke-static {v6}, Lcom/android/launcher3/home/HomeLoader;->access$3200(Lcom/android/launcher3/home/HomeLoader;)Z
 
-    move-result v4
+    move-result v6
 
-    if-eqz v4, :cond_3
+    if-eqz v6, :cond_3
 
-    if-eqz v1, :cond_3
+    if-eqz v2, :cond_3
 
-    iget-object v4, p0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->this$0:Lcom/android/launcher3/home/HomeLoader;
+    iget-object v6, p0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    invoke-static {v4}, Lcom/android/launcher3/home/HomeLoader;->access$2900(Lcom/android/launcher3/home/HomeLoader;)Ljava/util/ArrayList;
+    invoke-static {v6}, Lcom/android/launcher3/home/HomeLoader;->access$3300(Lcom/android/launcher3/home/HomeLoader;)Ljava/util/ArrayList;
 
-    move-result-object v4
+    move-result-object v6
 
-    invoke-virtual {v4}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v6}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    move-result-object v4
+    move-result-object v6
 
     :goto_2
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v5
+    move-result v7
 
-    if-eqz v5, :cond_3
+    if-eqz v7, :cond_3
 
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/launcher3/home/LauncherAppWidgetInfo;
 
-    iget-object v5, p0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->this$0:Lcom/android/launcher3/home/HomeLoader;
+    iget-object v7, p0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    invoke-static {v5, v0}, Lcom/android/launcher3/home/HomeLoader;->access$3000(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/home/LauncherAppWidgetInfo;)V
+    invoke-static {v7, v0}, Lcom/android/launcher3/home/HomeLoader;->access$3400(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/home/LauncherAppWidgetInfo;)V
 
     goto :goto_2
 
     :cond_2
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
     goto :goto_1
 
     :catchall_0
-    move-exception v4
+    move-exception v6
 
     :try_start_1
-    monitor-exit v5
+    monitor-exit v7
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    throw v4
+    throw v6
 
     :cond_3
     invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportFestivalPage()Z
 
-    move-result v4
+    move-result v6
 
-    if-eqz v4, :cond_4
+    if-eqz v6, :cond_4
 
-    iget-object v4, p0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->this$0:Lcom/android/launcher3/home/HomeLoader;
+    iget-object v6, p0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    invoke-static {v4, p0}, Lcom/android/launcher3/home/HomeLoader;->access$3100(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)V
+    invoke-static {v6, p0}, Lcom/android/launcher3/home/HomeLoader;->access$3500(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)V
 
     :cond_4
-    new-instance v4, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask$2;
+    iget-object v6, p0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    invoke-direct {v4, p0}, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask$2;-><init>(Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;)V
+    invoke-static {v6}, Lcom/android/launcher3/home/HomeLoader;->access$3600(Lcom/android/launcher3/home/HomeLoader;)Ljava/util/Map;
 
-    invoke-static {v4}, Lcom/android/launcher3/home/HomeLoader;->access$4100(Ljava/lang/Runnable;)V
+    move-result-object v6
 
-    iget-object v4, p0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->this$0:Lcom/android/launcher3/home/HomeLoader;
+    invoke-interface {v6}, Ljava/util/Map;->keySet()Ljava/util/Set;
 
-    invoke-static {v4}, Lcom/android/launcher3/home/HomeLoader;->access$700(Lcom/android/launcher3/home/HomeLoader;)Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
+    move-result-object v6
 
-    move-result-object v2
+    invoke-interface {v6}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    if-nez v2, :cond_5
-
-    const-string v4, "HomeLoader"
-
-    const-string v5, "finishBind running with no launcher"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
+    move-result-object v6
 
     :cond_5
-    move-object v3, p0
+    :goto_3
+    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
 
-    iget-object v4, p0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->this$0:Lcom/android/launcher3/home/HomeLoader;
+    move-result v7
 
-    new-instance v5, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask$3;
+    if-eqz v7, :cond_7
 
-    invoke-direct {v5, p0, v2, v3}, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask$3;-><init>(Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)V
+    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    invoke-static {v4, v5}, Lcom/android/launcher3/home/HomeLoader;->access$4600(Lcom/android/launcher3/home/HomeLoader;Ljava/lang/Runnable;)V
+    move-result-object v1
+
+    check-cast v1, Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutKey;
+
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$3700()Ljava/util/Map;
+
+    move-result-object v7
+
+    invoke-interface {v7, v1}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Landroid/util/MutableInt;
+
+    if-eqz v3, :cond_6
+
+    iget v7, v3, Landroid/util/MutableInt;->value:I
+
+    if-nez v7, :cond_5
+
+    :cond_6
+    iget-object v7, p0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->this$0:Lcom/android/launcher3/home/HomeLoader;
+
+    invoke-static {v7}, Lcom/android/launcher3/home/HomeLoader;->access$3800(Lcom/android/launcher3/home/HomeLoader;)Lcom/android/launcher3/common/quickoption/shortcuts/DeepShortcutManager;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v1}, Lcom/android/launcher3/common/quickoption/shortcuts/DeepShortcutManager;->unpinShortcut(Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutKey;)V
+
+    goto :goto_3
+
+    :cond_7
+    new-instance v6, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask$2;
+
+    invoke-direct {v6, p0}, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask$2;-><init>(Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;)V
+
+    invoke-static {v6}, Lcom/android/launcher3/home/HomeLoader;->access$5100(Ljava/lang/Runnable;)V
+
+    iget-object v6, p0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->this$0:Lcom/android/launcher3/home/HomeLoader;
+
+    invoke-static {v6}, Lcom/android/launcher3/home/HomeLoader;->access$1100(Lcom/android/launcher3/home/HomeLoader;)Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
+
+    move-result-object v4
+
+    if-nez v4, :cond_8
+
+    const-string v6, "HomeLoader"
+
+    const-string v7, "finishBind running with no launcher"
+
+    invoke-static {v6, v7}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_0
+
+    :cond_8
+    move-object v5, p0
+
+    iget-object v6, p0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->this$0:Lcom/android/launcher3/home/HomeLoader;
+
+    new-instance v7, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask$3;
+
+    invoke-direct {v7, p0, v4, v5}, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask$3;-><init>(Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;Lcom/android/launcher3/common/model/DataLoader$DataLoaderState;)V
+
+    invoke-static {v6, v7}, Lcom/android/launcher3/home/HomeLoader;->access$5600(Lcom/android/launcher3/home/HomeLoader;Ljava/lang/Runnable;)V
 
     goto/16 :goto_0
 .end method
@@ -361,7 +431,7 @@
 
     iget-object v13, v0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    invoke-static {v13}, Lcom/android/launcher3/home/HomeLoader;->access$2100(Lcom/android/launcher3/home/HomeLoader;)Ljava/util/HashMap;
+    invoke-static {v13}, Lcom/android/launcher3/home/HomeLoader;->access$2500(Lcom/android/launcher3/home/HomeLoader;)Ljava/util/HashMap;
 
     move-result-object v13
 
@@ -386,7 +456,7 @@
 
     iget-object v13, v0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    invoke-static {v13}, Lcom/android/launcher3/home/HomeLoader;->access$2100(Lcom/android/launcher3/home/HomeLoader;)Ljava/util/HashMap;
+    invoke-static {v13}, Lcom/android/launcher3/home/HomeLoader;->access$2500(Lcom/android/launcher3/home/HomeLoader;)Ljava/util/HashMap;
 
     move-result-object v13
 
@@ -419,7 +489,7 @@
 
     iget-object v13, v0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    invoke-static {v13}, Lcom/android/launcher3/home/HomeLoader;->access$2100(Lcom/android/launcher3/home/HomeLoader;)Ljava/util/HashMap;
+    invoke-static {v13}, Lcom/android/launcher3/home/HomeLoader;->access$2500(Lcom/android/launcher3/home/HomeLoader;)Ljava/util/HashMap;
 
     move-result-object v13
 
@@ -477,7 +547,7 @@
 
     iget-object v13, v0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    invoke-static {v13}, Lcom/android/launcher3/home/HomeLoader;->access$2300(Lcom/android/launcher3/home/HomeLoader;)Ljava/util/ArrayList;
+    invoke-static {v13}, Lcom/android/launcher3/home/HomeLoader;->access$2700(Lcom/android/launcher3/home/HomeLoader;)Ljava/util/ArrayList;
 
     move-result-object v15
 
@@ -485,7 +555,7 @@
 
     iget-object v13, v0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    invoke-static {v13}, Lcom/android/launcher3/home/HomeLoader;->access$2200(Lcom/android/launcher3/home/HomeLoader;)Ljava/util/HashMap;
+    invoke-static {v13}, Lcom/android/launcher3/home/HomeLoader;->access$2600(Lcom/android/launcher3/home/HomeLoader;)Ljava/util/HashMap;
 
     move-result-object v13
 
@@ -517,7 +587,7 @@
 
     iget-object v13, v0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    invoke-static {v13}, Lcom/android/launcher3/home/HomeLoader;->access$2200(Lcom/android/launcher3/home/HomeLoader;)Ljava/util/HashMap;
+    invoke-static {v13}, Lcom/android/launcher3/home/HomeLoader;->access$2600(Lcom/android/launcher3/home/HomeLoader;)Ljava/util/HashMap;
 
     move-result-object v13
 
@@ -541,7 +611,7 @@
 
     iget-object v13, v0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$2400()Landroid/content/Context;
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$2800()Landroid/content/Context;
 
     move-result-object v15
 
@@ -712,11 +782,11 @@
 
     :cond_4
     :try_start_0
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$2500()Landroid/content/ContentResolver;
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$2900()Landroid/content/ContentResolver;
 
     move-result-object v13
 
-    sget-object v15, Lcom/android/launcher3/LauncherProvider;->AUTHORITY:Ljava/lang/String;
+    const-string v15, "com.sec.android.app.launcher.settings"
 
     invoke-virtual {v13, v15, v8}, Landroid/content/ContentResolver;->applyBatch(Ljava/lang/String;Ljava/util/ArrayList;)[Landroid/content/ContentProviderResult;
     :try_end_0
@@ -898,7 +968,7 @@
 
     const-wide/16 v4, 0x0
 
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$1700()Lcom/android/launcher3/common/deviceprofile/DeviceProfile;
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$2100()Lcom/android/launcher3/common/deviceprofile/DeviceProfile;
 
     move-result-object v0
 
@@ -910,7 +980,7 @@
 
     add-int/lit8 v0, v0, 0x1
 
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$1800()Lcom/android/launcher3/common/deviceprofile/DeviceProfile;
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$2200()Lcom/android/launcher3/common/deviceprofile/DeviceProfile;
 
     move-result-object v12
 
@@ -940,7 +1010,7 @@
 
     const-string v3, "container=-100 AND itemType=0 AND screen=-1 AND (hidden!=0)"
 
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$1900()Landroid/content/ContentResolver;
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$2300()Landroid/content/ContentResolver;
 
     move-result-object v0
 
@@ -1050,7 +1120,7 @@
     :cond_3
     iget-object v0, p0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    invoke-static {v0, v9, v11}, Lcom/android/launcher3/home/HomeLoader;->access$2000(Lcom/android/launcher3/home/HomeLoader;Ljava/util/HashMap;Ljava/util/ArrayList;)V
+    invoke-static {v0, v9, v11}, Lcom/android/launcher3/home/HomeLoader;->access$2400(Lcom/android/launcher3/home/HomeLoader;Ljava/util/HashMap;Ljava/util/ArrayList;)V
 
     goto :goto_0
 .end method
@@ -1072,7 +1142,7 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$900()Landroid/content/Context;
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$1300()Landroid/content/Context;
 
     move-result-object v10
 
@@ -1102,7 +1172,7 @@
 
     check-cast v7, Lcom/android/launcher3/common/compat/UserHandleCompat;
 
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$1000()Lcom/android/launcher3/common/compat/LauncherAppsCompat;
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$1400()Lcom/android/launcher3/common/compat/LauncherAppsCompat;
 
     move-result-object v11
 
@@ -1176,7 +1246,7 @@
     goto :goto_1
 
     :cond_3
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$1100()Landroid/content/Context;
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$1500()Landroid/content/Context;
 
     move-result-object v11
 
@@ -1191,7 +1261,7 @@
     goto :goto_0
 
     :cond_4
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$1200()Landroid/content/Context;
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$1600()Landroid/content/Context;
 
     move-result-object v10
 
@@ -1199,7 +1269,7 @@
 
     iget-object v10, p0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    invoke-static {v10}, Lcom/android/launcher3/home/HomeLoader;->access$1300(Lcom/android/launcher3/home/HomeLoader;)Ljava/util/ArrayList;
+    invoke-static {v10}, Lcom/android/launcher3/home/HomeLoader;->access$1700(Lcom/android/launcher3/home/HomeLoader;)Ljava/util/ArrayList;
 
     move-result-object v10
 
@@ -1312,7 +1382,7 @@
 
     invoke-static {v11, v12}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$1400()Landroid/content/Context;
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$1800()Landroid/content/Context;
 
     move-result-object v11
 
@@ -1327,11 +1397,11 @@
     :cond_6
     iget-object v10, p0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    invoke-static {v10, v0}, Lcom/android/launcher3/home/HomeLoader;->access$1500(Lcom/android/launcher3/home/HomeLoader;Ljava/util/ArrayList;)V
+    invoke-static {v10, v0}, Lcom/android/launcher3/home/HomeLoader;->access$1900(Lcom/android/launcher3/home/HomeLoader;Ljava/util/ArrayList;)V
 
     iget-object v10, p0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$1600()Landroid/content/Context;
+    invoke-static {}, Lcom/android/launcher3/home/HomeLoader;->access$2000()Landroid/content/Context;
 
     move-result-object v11
 
@@ -1361,7 +1431,7 @@
 
     aget-object v3, p1, v3
 
-    invoke-static {v2, v3}, Lcom/android/launcher3/home/HomeLoader;->access$102(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/common/model/DataLoader$DataLoaderCallback;)Lcom/android/launcher3/common/model/DataLoader$DataLoaderCallback;
+    invoke-static {v2, v3}, Lcom/android/launcher3/home/HomeLoader;->access$502(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/common/model/DataLoader$DataLoaderCallback;)Lcom/android/launcher3/common/model/DataLoader$DataLoaderCallback;
 
     :cond_0
     const/4 v1, 0x0
@@ -1375,7 +1445,7 @@
     :goto_0
     iget-object v2, p0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    invoke-static {v2}, Lcom/android/launcher3/home/HomeLoader;->access$200(Lcom/android/launcher3/home/HomeLoader;)[Z
+    invoke-static {v2}, Lcom/android/launcher3/home/HomeLoader;->access$600(Lcom/android/launcher3/home/HomeLoader;)[Z
 
     move-result-object v2
 
@@ -1385,7 +1455,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    invoke-static {v2}, Lcom/android/launcher3/home/HomeLoader;->access$300(Lcom/android/launcher3/home/HomeLoader;)[Z
+    invoke-static {v2}, Lcom/android/launcher3/home/HomeLoader;->access$700(Lcom/android/launcher3/home/HomeLoader;)[Z
 
     move-result-object v2
 
@@ -1446,9 +1516,7 @@
 .end method
 
 .method protected onPostExecute(Ljava/lang/Boolean;)V
-    .locals 4
-
-    const/4 v3, 0x0
+    .locals 3
 
     invoke-virtual {p1}, Ljava/lang/Boolean;->booleanValue()Z
 
@@ -1500,19 +1568,21 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    invoke-direct {v1, v2, v3}, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;-><init>(Lcom/android/launcher3/home/HomeLoader;Z)V
+    invoke-direct {v1, v2}, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;-><init>(Lcom/android/launcher3/home/HomeLoader;)V
 
-    invoke-static {v0, v1}, Lcom/android/launcher3/home/HomeLoader;->access$402(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/common/model/DataLoader$PageLoaderTask;)Lcom/android/launcher3/common/model/DataLoader$PageLoaderTask;
+    invoke-static {v0, v1}, Lcom/android/launcher3/home/HomeLoader;->access$802(Lcom/android/launcher3/home/HomeLoader;Lcom/android/launcher3/common/model/DataLoader$PageLoaderTask;)Lcom/android/launcher3/common/model/DataLoader$PageLoaderTask;
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeLoader$HomeLoaderTask;->this$0:Lcom/android/launcher3/home/HomeLoader;
 
-    invoke-static {v0}, Lcom/android/launcher3/home/HomeLoader;->access$500(Lcom/android/launcher3/home/HomeLoader;)Lcom/android/launcher3/common/model/DataLoader$PageLoaderTask;
+    invoke-static {v0}, Lcom/android/launcher3/home/HomeLoader;->access$900(Lcom/android/launcher3/home/HomeLoader;)Lcom/android/launcher3/common/model/DataLoader$PageLoaderTask;
 
     move-result-object v0
 
     sget-object v1, Lcom/android/launcher3/Utilities;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
 
-    new-array v2, v3, [Lcom/android/launcher3/common/model/DataLoader$DataLoaderCallback;
+    const/4 v2, 0x0
+
+    new-array v2, v2, [Lcom/android/launcher3/common/model/DataLoader$DataLoaderCallback;
 
     invoke-virtual {v0, v1, v2}, Lcom/android/launcher3/common/model/DataLoader$PageLoaderTask;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
 

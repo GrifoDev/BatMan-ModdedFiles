@@ -104,7 +104,7 @@
     return v2
 
     :cond_1
-    invoke-virtual {p0, p1}, Landroid/support/v7/widget/SnapHelper;->createSnapScroller(Landroid/support/v7/widget/RecyclerView$LayoutManager;)Landroid/support/v7/widget/LinearSmoothScroller;
+    invoke-virtual {p0, p1}, Landroid/support/v7/widget/SnapHelper;->createScroller(Landroid/support/v7/widget/RecyclerView$LayoutManager;)Landroid/support/v7/widget/RecyclerView$SmoothScroller;
 
     move-result-object v0
 
@@ -247,9 +247,24 @@
     return-object v9
 .end method
 
+.method protected createScroller(Landroid/support/v7/widget/RecyclerView$LayoutManager;)Landroid/support/v7/widget/RecyclerView$SmoothScroller;
+    .locals 1
+    .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
+    invoke-virtual {p0, p1}, Landroid/support/v7/widget/SnapHelper;->createSnapScroller(Landroid/support/v7/widget/RecyclerView$LayoutManager;)Landroid/support/v7/widget/LinearSmoothScroller;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method protected createSnapScroller(Landroid/support/v7/widget/RecyclerView$LayoutManager;)Landroid/support/v7/widget/LinearSmoothScroller;
     .locals 2
     .annotation build Landroid/support/annotation/Nullable;
+    .end annotation
+
+    .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     instance-of v0, p1, Landroid/support/v7/widget/RecyclerView$SmoothScroller$ScrollVectorProvider;

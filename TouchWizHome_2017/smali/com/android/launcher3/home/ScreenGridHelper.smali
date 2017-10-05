@@ -1357,6 +1357,28 @@
 
     iget-object v3, v0, Lcom/android/launcher3/home/ScreenGridHelper;->mLauncher:Lcom/android/launcher3/Launcher;
 
+    move-object/from16 v0, v18
+
+    iget-object v4, v0, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->homeGrid:Lcom/android/launcher3/common/deviceprofile/GridInfo;
+
+    invoke-virtual {v4}, Lcom/android/launcher3/common/deviceprofile/GridInfo;->getCellCountX()I
+
+    move-result v4
+
+    move-object/from16 v0, v18
+
+    iget-object v6, v0, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->homeGrid:Lcom/android/launcher3/common/deviceprofile/GridInfo;
+
+    invoke-virtual {v6}, Lcom/android/launcher3/common/deviceprofile/GridInfo;->getCellCountY()I
+
+    move-result v6
+
+    invoke-static {v3, v4, v6}, Lcom/android/launcher3/util/ScreenGridUtilities;->storeCurrentScreenGridSetting(Landroid/content/Context;II)V
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/launcher3/home/ScreenGridHelper;->mLauncher:Lcom/android/launcher3/Launcher;
+
     invoke-static {v3}, Lcom/android/launcher3/util/ScreenGridUtilities;->storeChangeGridValue(Landroid/content/Context;)V
 
     move-object/from16 v0, p0
