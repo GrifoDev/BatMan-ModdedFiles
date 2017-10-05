@@ -2390,7 +2390,7 @@ Turn on Airplane mode?"</string>
     <string name="usb_blocked_by_maximum_power_saving_mode">לא ניתן להשתמש בפונקציות הקשורות בהתקן ה-USB המחובר כאשר מצב חיסכון מרבי בחשמל מופעל.</string>
     <string name="usb_blocked_by_emergency_mode">לא ניתן להשתמש בפונקציות הקשורות במכשיר ה-USB המחובר כל עוד מצב חירום מופעל.</string>
     <string name="usb_water_notification_title">בדוק יציאה</string>
-    <string name="usb_water_notification_message">זוהתה לחות ביציאת המטען/USB במכשיר. ודא שהפתח יבש לגמרי לפני שאתה טוען את המכשיר. ייבוש הפתח עשוי להימשך זמן מה.</string>
+    <string name="usb_water_notification_message">זוהתה לחות בשקע המטען/USB במכשיר. ודא שהשקע יבש לגמרי לפני שאתה טוען את המכשיר. ייבוש השקע עשוי להימשך זמן מה.</string>
     <string name="usb_blocked_by_maximum_power_saving_mode_all">"טוען…
 תיתכן הגבלה ביישומי ה-USB כאשר מצב חיסכון מרבי בחשמל מופעל."</string>
     <string name="extmedia_format_title">‏לפרמט את כרטיס ה-SD?</string>

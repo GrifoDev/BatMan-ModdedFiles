@@ -1,5 +1,6 @@
 Signature-Version: 1.0
-SHA-256-Digest-Manifest: BpxO6/kwRR1Z/ZMNEYx3+OFkw+QjnhJqtmikTU07bEs=
+X-Android-APK-Signed: 2
+SHA-256-Digest-Manifest: qtoi0Q8TpJ8QOadZB2QggClip5prPn+ScK56nN7v0BM=
 Created-By: 1.0 (Android SignApk)
 
 Name: res/drawable-xxhdpi-v4/btn_radio_on_holo.png
@@ -732,7 +733,7 @@ Name: res/drawable-xhdpi-v4/btn_erase_default.9.png
 SHA-256-Digest: BNoKMZlYlQ1yZflFJzmBU2JIyI0pBidi3FFmv/dp/+s=
 
 Name: res/layout-land/ssl_certificate.xml
-SHA-256-Digest: BuCpWI4uqSoTKdtmHF+zxd3u5z3fTiXd9/RoXKmNuiY=
+SHA-256-Digest: KzOTLUtobW0DlxjhX8z54A/oTWG3XHuf/wXF0x1cE3Q=
 
 Name: res/drawable-xxhdpi-v4/sem_pointer_vertical_text_large.png
 SHA-256-Digest: jEwquV10GseabaOnvhRNLtwGviBJ2w+fsCrK3z2nysk=
@@ -886,7 +887,7 @@ Name: res/drawable-xxhdpi-v4/textfield_focused_holo_dark.9.png
 SHA-256-Digest: sLzO8Bbtp07iziwqC456lxwdTSSw6saeAbw98x+07ZE=
 
 Name: AndroidManifest.xml
-SHA-256-Digest: pGki88c/ZJz4jLXtdXMBhDPiObA7hiGbicbzmLOBE1Q=
+SHA-256-Digest: mMvrILJ3s7cc4C2gedlI4BpDwE004LMn1JeXMGXcMiE=
 
 Name: res/drawable-xxhdpi-v4/ic_media_pause.png
 SHA-256-Digest: RisQ8JfMxFY2Q9lK0tAV7A+URtY+d9StkwiFbmhbPXo=
@@ -2766,7 +2767,7 @@ Name: res/layout/sem_resolver_profile_button.xml
 SHA-256-Digest: 0A4382FUKAV4iTxz3rIRjYm5ZUZuC/yTT4P+tg9niXY=
 
 Name: res/xml/enterprisedata.xml
-SHA-256-Digest: Gl6zgPnGYB0xnQ0rtCVrAQFJFqQpA2f5LONBQuA/uTw=
+SHA-256-Digest: tgfNKIxWz/sFHriCnKwz9unfMAf9Wo7K8IQGnB0LtDA=
 
 Name: res/drawable/ic_menu_moreoverflow_holo_light.xml
 SHA-256-Digest: MARD3FSt1thdiXxiuJIShRydOpVehm+lpkA32B+c/+g=
@@ -2821,7 +2822,7 @@ Name: res/drawable-xhdpi-v4/menuitem_checkbox_on.png
 SHA-256-Digest: o3sNwBRJoI6avtfl9MPHcFh32NHMTNT+yBEJpLeyHY4=
 
 Name: res/layout/ssl_certificate.xml
-SHA-256-Digest: tVg51onP2P6mqKkhmdo9aboHrX8is8yC4BPzWPL/OpE=
+SHA-256-Digest: YaKq0ZzqhiFSQiS+13nmIe6opWO6khriP79yoB87u6E=
 
 Name: res/drawable-xxhdpi-v4/list_section_divider_mtrl_alpha.9.png
 SHA-256-Digest: ISWBgRvwkQB6twqt+Uc0tN8LNvvsesBqFQf0LaOMt3U=
@@ -5020,7 +5021,7 @@ Name: res/drawable/tw_vertical_bar_mtrl_alpha.png
 SHA-256-Digest: mjS9oKCvyAPCagQ3Lwj5Bv97jyXfjQBwZ5kRFVgWwYo=
 
 Name: resources.arsc
-SHA-256-Digest: R6zfeXg49OK9m8RukAfsQvG/jB1/WCePO9H1hpFZiDQ=
+SHA-256-Digest: 3hOHd/r5v3c3IzzAjv3AVy/S2FgtYYu9Eu4CmGMktmY=
 
 Name: res/drawable-xhdpi-v4/checkbox_off_background.png
 SHA-256-Digest: dmYkQIiWGUBc8nh2exu4JpIIW/6inZdVDW9toPS02CQ=
@@ -5199,7 +5200,7 @@ Name: res/drawable-mdpi-v4/tw_btn_radio_to_on_mtrl_011.png
 SHA-256-Digest: 0gJT9cNz+r71VJFm1zpggBuWRGB9K0fOKjsJUi28sXY=
 
 Name: SEC-INF/buildinfo.xml
-SHA-256-Digest: bvBrcTT/RwbchCqCk+skSlRgDrTyQmIOhhttZuVSzSk=
+SHA-256-Digest: cV5HrJ9Yrtno2FNSG9Av3J8445NsXY9ZLVRRD4ZcJ2E=
 
 Name: res/drawable-xxhdpi-v4/rate_star_med_off_holo_dark.png
 SHA-256-Digest: iSgH0YilDyWilLB+ihq83xPOoDG63dnHSP2ef9035vs=
@@ -11831,7 +11832,7 @@ Name: res/drawable-xhdpi-v4/btn_keyboard_key_normal_off.9.png
 SHA-256-Digest: FKmWVJNosaW+LX9LHNQKaekqGRGyQriAln3i2sw1sxg=
 
 Name: res/layout/tw_search_view.xml
-SHA-256-Digest: TteoIRW15cIgdnVzn8r9xNggt2ww+bU0ZNQXyJw6I90=
+SHA-256-Digest: Ddw3cUpMBSDg2eg7Wk4Qt74OwBe4tT3Uc+62zF+8/ns=
 
 Name: res/layout/list_menu_item_layout.xml
 SHA-256-Digest: 4j0+INGo7Rvp/QIXjkfwky1e9th8p2bw6WpdI5ivBuA=

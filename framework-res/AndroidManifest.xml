@@ -212,6 +212,7 @@
     <protected-broadcast android:name="com.samsung.bluetooth.action.GEAR_CONNECTION_STATE_CHANGED"/>
     <protected-broadcast android:name="com.samsung.bluetooth.device.action.MANUFACTURER_CHANGED"/>
     <protected-broadcast android:name="com.samsung.bluetooth.pan.inactivenap.ASK_CONFIRM"/>
+    <protected-broadcast android:name="com.samsung.bluetooth.pan.reverse_conn.ASK_CONFIRM"/>
     <protected-broadcast android:name="android.net.BT_TETHER_STATE_CHANGED"/>
     <protected-broadcast android:name="com.samsung.intent.action.FOUND_BLACK_BAR"/>
     <protected-broadcast android:name="com.samsung.intent.action.SHOW_BUTTON"/>
@@ -872,10 +873,12 @@
     <protected-broadcast android:name="com.samsung.settings.wifi.PLUG_STATE_CHANGED"/>
     <protected-broadcast android:name="com.samsung.android.net.wifi.WIFI_EXTENDER_STATE_CHANGED"/>
     <protected-broadcast android:name="android.net.wifi.WIFI_AP_STA_ASSOCIATED_ACTION"/>
+    <protected-broadcast android:name="android.net.wifi.ERROR"/>
     <protected-broadcast android:name="com.samsung.android.intent.action.WIFI_ENABLE_WARNING"/>
     <protected-broadcast android:name="com.samsung.android.net.wifi.SEC_NOTIFICATION_CANCEL"/>
     <protected-broadcast android:name="com.samsung.android.net.wifi.SHOW_INFO_MESSAGE"/>
     <protected-broadcast android:name="com.samsung.android.net.wifi.SHOW_NOTI_MESSAGE"/>
+    <protected-broadcast android:name="com.samsung.android.net.wifi.SHOW_SCC_DIALOG"/>
     <protected-broadcast android:name="com.sec.android.intent.action.RESPONSE_BACKUP_WIFIWPACONF"/>
     <protected-broadcast android:name="com.sec.android.intent.action.RESPONSE_RESTORE_WIFIWPACONF"/>
     <protected-broadcast android:name="com.samsung.android.net.wifi.SEC_NETWORK_STATE_CHANGED"/>
@@ -1842,6 +1845,7 @@
     <permission android:name="android.permission.UPDATE_APP_OPS_STATS" android:protectionLevel="system|installer|signature"/>
     <permission android:name="android.permission.MANAGE_APP_OPS_RESTRICTIONS" android:protectionLevel="installer|signature"/>
     <permission android:name="android.permission.INTERNAL_SYSTEM_WINDOW" android:protectionLevel="signature"/>
+    <permission android:name="android.permission.HIDE_NON_SYSTEM_OVERLAY_WINDOWS" android:protectionLevel="installer|signature"/>
     <permission android:name="android.permission.MANAGE_APP_TOKENS" android:protectionLevel="signature"/>
     <permission android:name="android.permission.REGISTER_WINDOW_MANAGER_LISTENERS" android:protectionLevel="signature"/>
     <permission android:name="android.permission.FREEZE_SCREEN" android:protectionLevel="signature"/>
