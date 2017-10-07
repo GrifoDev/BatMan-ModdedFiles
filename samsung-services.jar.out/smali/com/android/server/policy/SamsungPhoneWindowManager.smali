@@ -9901,7 +9901,7 @@
 
     iget-boolean v9, v9, Lcom/samsung/android/cover/CoverState;->switchState:Z
 
-    if-nez v9, :cond_7
+    if-nez v9, :cond_8
 
     iget-object v9, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mCoverState:Lcom/samsung/android/cover/CoverState;
 
@@ -9909,19 +9909,19 @@
 
     const/16 v10, 0xff
 
-    if-eq v9, v10, :cond_7
+    if-eq v9, v10, :cond_8
 
     invoke-virtual {p0}, Lcom/android/server/policy/SamsungPhoneWindowManager;->isRingingOrOffhook()Z
 
     move-result v9
 
-    if-eqz v9, :cond_7
+    if-eqz v9, :cond_8
 
     invoke-virtual {p0}, Lcom/android/server/policy/SamsungPhoneWindowManager;->isTphoneRelaxMode()Z
 
     move-result v9
 
-    if-eqz v9, :cond_7
+    if-eqz v9, :cond_8
 
     :cond_1
     :try_start_0
@@ -9961,7 +9961,7 @@
 
     iget-object v9, v9, Lcom/android/server/policy/PhoneWindowManager;->mTopFullscreenOpaqueWindowState:Landroid/view/WindowManagerPolicy$WindowState;
 
-    if-eqz v9, :cond_6
+    if-eqz v9, :cond_7
 
     const/4 v6, 0x0
 
@@ -9987,11 +9987,11 @@
 
     invoke-virtual {v9, v2}, Landroid/view/Display;->getRealSize(Landroid/graphics/Point;)V
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_b
 
     iget v9, v0, Landroid/graphics/Rect;->top:I
 
-    if-nez v9, :cond_a
+    if-nez v9, :cond_b
 
     iget v9, v0, Landroid/graphics/Rect;->left:I
 
@@ -10001,14 +10001,20 @@
 
     iget v10, v2, Landroid/graphics/Point;->x:I
 
-    if-ne v9, v10, :cond_9
+    if-ne v9, v10, :cond_a
 
     :cond_4
     :goto_2
     move v4, v7
 
     :goto_3
-    if-eqz v4, :cond_b
+    if-eqz v4, :cond_c
+
+    iget-object v7, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
+
+    iget-object v7, v7, Lcom/android/server/policy/PhoneWindowManager;->mNavigationBar:Landroid/view/WindowManagerPolicy$WindowState;
+
+    if-eqz v7, :cond_5
 
     iget-object v7, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
 
@@ -10016,6 +10022,7 @@
 
     packed-switch v7, :pswitch_data_0
 
+    :cond_5
     :goto_4
     iget-object v7, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mSWM:Lcom/android/server/wm/IWindowManagerServiceBridge;
 
@@ -10047,7 +10054,7 @@
 
     iget v8, v8, Lcom/android/server/policy/PhoneWindowManager;->mNavigationBarPosition:I
 
-    if-eq v7, v8, :cond_5
+    if-eq v7, v8, :cond_6
 
     iget-object v7, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mPWM:Lcom/android/server/policy/PhoneWindowManager;
 
@@ -10057,17 +10064,17 @@
 
     or-int/lit8 p1, p1, 0x1
 
-    :cond_5
+    :cond_6
     :goto_5
     iget v7, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mChangeRatioBarSize:I
 
-    if-eq v7, v6, :cond_6
+    if-eq v7, v6, :cond_7
 
     iput v6, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mChangeRatioBarSize:I
 
     or-int/lit8 p1, p1, 0x1
 
-    :cond_6
+    :cond_7
     return p1
 
     :catch_0
@@ -10077,11 +10084,11 @@
 
     goto :goto_0
 
-    :cond_7
+    :cond_8
     :try_start_1
     iget-boolean v9, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mLastCoverAppCovered:Z
 
-    if-eqz v9, :cond_8
+    if-eqz v9, :cond_9
 
     const/4 v9, 0x0
 
@@ -10091,7 +10098,7 @@
 
     and-int/lit8 v9, v5, 0x20
 
-    if-eqz v9, :cond_8
+    if-eqz v9, :cond_9
 
     const/4 v9, 0x0
 
@@ -10099,7 +10106,7 @@
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
 
-    :cond_8
+    :cond_9
     :goto_6
     invoke-virtual {p0, v5}, Lcom/android/server/policy/SamsungPhoneWindowManager;->processSViewCoverSetHiddenResultLw(I)Z
 
@@ -10118,12 +10125,12 @@
 
     goto :goto_6
 
-    :cond_9
+    :cond_a
     move v7, v8
 
     goto :goto_2
 
-    :cond_a
+    :cond_b
     move v4, v8
 
     goto :goto_3
@@ -10179,7 +10186,7 @@
 
     goto/16 :goto_4
 
-    :cond_b
+    :cond_c
     iget-object v7, p0, Lcom/android/server/policy/SamsungPhoneWindowManager;->mSWM:Lcom/android/server/wm/IWindowManagerServiceBridge;
 
     invoke-interface {v7}, Lcom/android/server/wm/IWindowManagerServiceBridge;->hideConventionalModeChangeRatioButton()V
