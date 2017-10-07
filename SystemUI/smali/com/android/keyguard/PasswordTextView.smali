@@ -7,6 +7,7 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/android/keyguard/PasswordTextView$CharState;,
+        Lcom/android/keyguard/PasswordTextView$QuickUnlockListener;,
         Lcom/android/keyguard/PasswordTextView$UserActivityListener;
     }
 .end annotation
@@ -41,6 +42,8 @@
 .field private mMaxLength:I
 
 .field private mPM:Landroid/os/PowerManager;
+
+.field protected mQuickUnlockListener:Lcom/android/keyguard/PasswordTextView$QuickUnlockListener;
 
 .field private mShowPassword:Z
 
@@ -667,7 +670,7 @@
 
     move-result v1
 
-    if-le v1, v4, :cond_2
+    if-le v1, v4, :cond_3
 
     invoke-direct {p0, p1}, Lcom/android/keyguard/PasswordTextView;->obtainCharState(C)Lcom/android/keyguard/PasswordTextView$CharState;
 
@@ -709,9 +712,20 @@
 
     invoke-virtual {p0, v3, v5, v6, v7}, Lcom/android/keyguard/PasswordTextView;->sendAccessibilityEventTypeViewTextChanged(Ljava/lang/String;III)V
 
-    return-void
+    iget-object v5, p0, Lcom/android/keyguard/PasswordTextView;->mQuickUnlockListener:Lcom/android/keyguard/PasswordTextView$QuickUnlockListener;
+
+    if-eqz v5, :cond_2
+
+    iget-object v5, p0, Lcom/android/keyguard/PasswordTextView;->mQuickUnlockListener:Lcom/android/keyguard/PasswordTextView$QuickUnlockListener;
+
+    iget-object v6, p0, Lcom/android/keyguard/PasswordTextView;->mText:Ljava/lang/String;
+
+    invoke-interface {v5, v6}, Lcom/android/keyguard/PasswordTextView$QuickUnlockListener;->onValidateQuickUnlock(Ljava/lang/String;)V
 
     :cond_2
+    return-void
+
+    :cond_3
     iget-object v5, p0, Lcom/android/keyguard/PasswordTextView;->mTextChars:Ljava/util/ArrayList;
 
     add-int/lit8 v6, v1, -0x1
@@ -1431,6 +1445,14 @@
     aput-object v1, v0, v2
 
     invoke-virtual {p0, v0}, Lcom/android/keyguard/PasswordTextView;->setFilters([Landroid/text/InputFilter;)V
+
+    return-void
+.end method
+
+.method public setQuickUnlockListener(Lcom/android/keyguard/PasswordTextView$QuickUnlockListener;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/keyguard/PasswordTextView;->mQuickUnlockListener:Lcom/android/keyguard/PasswordTextView$QuickUnlockListener;
 
     return-void
 .end method

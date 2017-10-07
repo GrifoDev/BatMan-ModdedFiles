@@ -46,6 +46,10 @@
 
 .field private mUpdateMonitorCallbacks:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 
+.field private final quickUnlock:Z
+
+.field private final userId:I
+
 .field final watcher:Landroid/text/SpanWatcher;
 
 
@@ -135,7 +139,7 @@
 .end method
 
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
-    .locals 2
+    .locals 4
 
     invoke-direct {p0, p1, p2}, Lcom/android/keyguard/KeyguardAbsKeyInputView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;)V
 
@@ -198,6 +202,35 @@
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/keyguard/KeyguardPasswordView;->mFastOutLinearInInterpolator:Landroid/view/animation/Interpolator;
+
+    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "quick_unlock"
+
+    const v2, 0x0
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    invoke-virtual {p0, v2}, Lcom/android/keyguard/KeyguardPasswordView;->update_quick_unlock_params(I)V
+
+    const/4 v0, 0x0
+
+    if-eqz v2, :cond_0
+
+    const/4 v0, 0x1
+
+    :cond_0
+    iput-boolean v0, p0, Lcom/android/keyguard/KeyguardPasswordView;->quickUnlock:Z
+
+    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
+
+    move-result v0
+
+    iput v0, p0, Lcom/android/keyguard/KeyguardPasswordView;->userId:I
 
     return-void
 .end method
@@ -398,15 +431,41 @@
 
 # virtual methods
 .method public afterTextChanged(Landroid/text/Editable;)V
-    .locals 1
+    .locals 5
+
+    const/4 v4, 0x1
 
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v0
+    move-result v1
 
-    if-nez v0, :cond_0
+    if-nez v1, :cond_0
 
     invoke-virtual {p0}, Lcom/android/keyguard/KeyguardPasswordView;->onUserInput()V
+
+    iget-boolean v1, p0, Lcom/android/keyguard/KeyguardPasswordView;->quickUnlock:Z
+
+    if-eqz v1, :cond_0
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardPasswordView;->mPasswordEntry:Landroid/widget/TextView;
+
+    invoke-virtual {v0}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
+
+    move-result v1
+
+    const/4 v2, 0x3
+
+    if-le v1, v2, :cond_0
+
+    invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardPasswordView;->verify_quick_unlock(Ljava/lang/String;)V
 
     :cond_0
     return-void

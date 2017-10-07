@@ -1,4 +1,4 @@
-.class Lcom/android/keyguard/KeyguardAbsKeyInputView$4;
+.class Lcom/android/keyguard/KeyguardAbsKeyInputView$CheckPinPass;
 .super Ljava/lang/Object;
 .source "KeyguardAbsKeyInputView.java"
 
@@ -27,9 +27,9 @@
 .method constructor <init>(Lcom/android/keyguard/KeyguardAbsKeyInputView;I)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView$4;->this$0:Lcom/android/keyguard/KeyguardAbsKeyInputView;
+    iput-object p1, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView$CheckPinPass;->this$0:Lcom/android/keyguard/KeyguardAbsKeyInputView;
 
-    iput p2, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView$4;->val$userId:I
+    iput p2, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView$CheckPinPass;->val$userId:I
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,7 +43,7 @@
 
     const/4 v2, 0x1
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView$4;->this$0:Lcom/android/keyguard/KeyguardAbsKeyInputView;
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView$CheckPinPass;->this$0:Lcom/android/keyguard/KeyguardAbsKeyInputView;
 
     if-eqz p1, :cond_0
 
@@ -51,25 +51,23 @@
 
     invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardAbsKeyInputView;->set_failed_unlock_times(I)V
 
-    :goto_0
+    :cond_0
     invoke-virtual {v0, v2}, Lcom/android/keyguard/KeyguardAbsKeyInputView;->setPasswordEntryInputEnabled(Z)V
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView$4;->this$0:Lcom/android/keyguard/KeyguardAbsKeyInputView;
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView$CheckPinPass;->this$0:Lcom/android/keyguard/KeyguardAbsKeyInputView;
 
     const/4 v1, 0x0
 
     iput-object v1, v0, Lcom/android/keyguard/KeyguardAbsKeyInputView;->mPendingLockCheck:Landroid/os/AsyncTask;
 
-    iget-object v0, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView$4;->this$0:Lcom/android/keyguard/KeyguardAbsKeyInputView;
+    if-eqz p1, :cond_1
 
-    iget v1, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView$4;->val$userId:I
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView$CheckPinPass;->this$0:Lcom/android/keyguard/KeyguardAbsKeyInputView;
 
-    invoke-virtual {v0, v1, p1, p2, v2}, Lcom/android/keyguard/KeyguardAbsKeyInputView;->onPasswordChecked(IZIZ)V
+    iget v1, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView$CheckPinPass;->val$userId:I
 
+    invoke-virtual {v0, v1}, Lcom/android/keyguard/KeyguardAbsKeyInputView;->try_to_unlock(I)V
+
+    :cond_1
     return-void
-
-    :cond_0
-    invoke-virtual {v0}, Lcom/android/keyguard/KeyguardAbsKeyInputView;->add_failed_unlock()V
-
-    goto :goto_0
 .end method

@@ -323,6 +323,8 @@
     invoke-virtual {p0, v5}, Lcom/android/keyguard/NumPadKey;->setContentDescription(Ljava/lang/CharSequence;)V
 
     :goto_2
+    invoke-direct {p0}, Lcom/android/keyguard/NumPadKey;->updateText()V
+
     if-eqz v2, :cond_7
 
     iget-object v5, p0, Lcom/android/keyguard/NumPadKey;->mContext:Landroid/content/Context;
@@ -564,8 +566,6 @@
 
     goto/16 :goto_3
 
-    nop
-
     :pswitch_data_0
     .packed-switch 0x0
         :pswitch_9
@@ -638,6 +638,88 @@
 
     :cond_0
     return-void
+.end method
+
+.method private updateText()V
+    .locals 4
+
+    iget v2, p0, Lcom/android/keyguard/NumPadKey;->mDigit:I
+
+    if-ltz v2, :cond_1
+
+    iget-object v2, p0, Lcom/android/keyguard/NumPadKey;->mDigitText:Landroid/widget/TextView;
+
+    if-eqz v2, :cond_1
+
+    iget v3, p0, Lcom/android/keyguard/NumPadKey;->mDigit:I
+
+    invoke-static {v3}, Ljava/lang/Integer;->toString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    sget-object v2, Lcom/android/keyguard/NumPadKey;->sKlondike:[Ljava/lang/String;
+
+    if-nez v2, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/keyguard/NumPadKey;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    sget v3, Lcom/android/keyguard/R$array;->lockscreen_num_pad_klondike:I
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getStringArray(I)[Ljava/lang/String;
+
+    move-result-object v2
+
+    sput-object v2, Lcom/android/keyguard/NumPadKey;->sKlondike:[Ljava/lang/String;
+
+    :cond_0
+    sget-object v2, Lcom/android/keyguard/NumPadKey;->sKlondike:[Ljava/lang/String;
+
+    if-eqz v2, :cond_1
+
+    sget-object v2, Lcom/android/keyguard/NumPadKey;->sKlondike:[Ljava/lang/String;
+
+    array-length v2, v2
+
+    iget v3, p0, Lcom/android/keyguard/NumPadKey;->mDigit:I
+
+    if-le v2, v3, :cond_1
+
+    sget-object v2, Lcom/android/keyguard/NumPadKey;->sKlondike:[Ljava/lang/String;
+
+    iget v3, p0, Lcom/android/keyguard/NumPadKey;->mDigit:I
+
+    aget-object v0, v2, v3
+
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
+
+    move-result v1
+
+    if-lez v1, :cond_2
+
+    iget-object v2, p0, Lcom/android/keyguard/NumPadKey;->mKlondikeText:Landroid/widget/TextView;
+
+    if-eqz v2, :cond_1
+
+    invoke-virtual {v2, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+
+    :cond_1
+    :goto_0
+    return-void
+
+    :cond_2
+    iget-object v2, p0, Lcom/android/keyguard/NumPadKey;->mKlondikeText:Landroid/widget/TextView;
+
+    if-eqz v2, :cond_1
+
+    const/4 v3, 0x4
+
+    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setVisibility(I)V
+
+    goto :goto_0
 .end method
 
 
@@ -845,6 +927,16 @@
     move-result v1
 
     invoke-direct {p0, v0, v1}, Lcom/android/keyguard/NumPadKey;->updateRippleSize(II)V
+
+    return-void
+.end method
+
+.method public setDigit(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/android/keyguard/NumPadKey;->mDigit:I
+
+    invoke-direct {p0}, Lcom/android/keyguard/NumPadKey;->updateText()V
 
     return-void
 .end method

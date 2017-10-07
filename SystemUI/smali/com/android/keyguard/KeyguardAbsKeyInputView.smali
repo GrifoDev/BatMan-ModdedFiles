@@ -48,6 +48,12 @@
 
 .field private mForgotPatternButton:Landroid/widget/Button;
 
+.field private mGrxFailedUnlockTimes:I
+
+.field private mGrxIsQuickUnlock:I
+
+.field private mGrxLockOutTime:I
+
 .field private mIsAccountExist:Z
 
 .field protected mIsFingeprintEnabled:Z
@@ -345,6 +351,10 @@
     iput-object v0, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView;->mKnoxStateCallback:Lcom/android/keyguard/KnoxStateMonitorCallback;
 
     iput-object v1, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView;->mEntry:Ljava/lang/String;
+
+    const v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardAbsKeyInputView;->update_quick_unlock_params(I)V
 
     return-void
 .end method
@@ -874,6 +884,25 @@
 
 
 # virtual methods
+.method public add_failed_unlock()V
+    .locals 3
+
+    iget v0, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView;->mGrxFailedUnlockTimes:I
+
+    const v1, 0xf
+
+    if-ge v0, v1, :cond_0
+
+    const v1, 0x1
+
+    add-int v0, v0, v1
+
+    invoke-virtual {p0, v0}, Lcom/android/keyguard/KeyguardAbsKeyInputView;->set_failed_unlock_times(I)V
+
+    :cond_0
+    return-void
+.end method
+
 .method protected displayDefaultSecurityMessage()V
     .locals 0
 
@@ -1002,6 +1031,22 @@
     sget v0, Lcom/android/keyguard/R$string;->kg_wrong_password:I
 
     return v0
+.end method
+
+.method public grx_chivato(Ljava/lang/String;)V
+    .locals 5
+
+    const/4 v2, 0x1
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView;->mContext:Landroid/content/Context;
+
+    invoke-static {v0, p1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/widget/Toast;->show()V
+
+    return-void
 .end method
 
 .method protected handleAttemptLockout(J)V
@@ -1474,66 +1519,6 @@
 .method protected onPasswordChecked(IZIZ)V
     .locals 20
 
-    const-string/jumbo v13, "KeyguardAbsKeyInputView"
-
-    new-instance v14, Ljava/lang/StringBuilder;
-
-    invoke-direct {v14}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v15, "onPasswordChecked "
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    move/from16 v0, p2
-
-    invoke-virtual {v14, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    const-string/jumbo v15, " / "
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    move/from16 v0, p3
-
-    invoke-virtual {v14, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    const-string/jumbo v15, " / "
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    move/from16 v0, p4
-
-    invoke-virtual {v14, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    const-string/jumbo v15, " / "
-
-    invoke-virtual {v14, v15}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    move/from16 v0, p1
-
-    invoke-virtual {v14, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v14
-
-    invoke-virtual {v14}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-static {v13, v14}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
     invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
 
     move-result v13
@@ -1728,7 +1713,7 @@
     invoke-virtual {v13}, Ljava/lang/String;->clear()V
 
     :cond_3
-    if-eqz p2, :cond_a
+    if-eqz p2, :cond_b
 
     const/4 v13, 0x0
 
@@ -1863,7 +1848,7 @@
 
     move-result-object v11
 
-    if-lez v7, :cond_9
+    if-lez v7, :cond_a
 
     move-object/from16 v0, p0
 
@@ -1945,12 +1930,25 @@
     goto/16 :goto_2
 
     :cond_8
-    if-lez p3, :cond_7
-
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/android/keyguard/KeyguardAbsKeyInputView;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
 
+    move-object/from16 v0, p0
+
+    iget v14, v0, Lcom/android/keyguard/KeyguardAbsKeyInputView;->mGrxFailedUnlockTimes:I
+
+    if-nez v14, :cond_9
+
+    if-lez p3, :cond_7
+
+    move/from16 v0, p3
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/keyguard/KeyguardAbsKeyInputView;->mGrxLockOutTime:I
+
+    :goto_6
     invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
 
     move-result v14
@@ -1980,6 +1978,13 @@
     :cond_9
     move-object/from16 v0, p0
 
+    iget v0, v0, Lcom/android/keyguard/KeyguardAbsKeyInputView;->mGrxLockOutTime:I
+
+    goto :goto_6
+
+    :cond_a
+    move-object/from16 v0, p0
+
     iget-object v13, v0, Lcom/android/keyguard/KeyguardAbsKeyInputView;->mSecurityMessageDisplay:Lcom/android/keyguard/SecurityMessageDisplay;
 
     const/4 v14, 0x1
@@ -1988,7 +1993,7 @@
 
     goto :goto_5
 
-    :cond_a
+    :cond_b
     const/4 v13, 0x1
 
     goto/16 :goto_3
@@ -2277,6 +2282,28 @@
     goto :goto_0
 .end method
 
+.method public set_failed_unlock_times(I)V
+    .locals 4
+
+    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardAbsKeyInputView;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "b_failed_unlock_times"
+
+    invoke-static {v0, v1, p1}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    iput p1, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView;->mGrxFailedUnlockTimes:I
+
+    invoke-virtual {p0, p1}, Lcom/android/keyguard/KeyguardAbsKeyInputView;->update_lockout_time(I)V
+
+    return-void
+.end method
+
 .method protected shouldLockout(J)Z
     .locals 3
 
@@ -2398,8 +2425,184 @@
     return v0
 .end method
 
+.method public try_to_unlock(I)V
+    .locals 4
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView;->mCallback:Lcom/android/keyguard/KeyguardSecurityCallback;
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
+
+    invoke-interface {v0, p1, v1, v2}, Lcom/android/keyguard/KeyguardSecurityCallback;->reportUnlockAttempt(IZI)V
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView;->mCallback:Lcom/android/keyguard/KeyguardSecurityCallback;
+
+    iput-boolean v1, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView;->mDismissing:Z
+
+    invoke-interface {v0, v1}, Lcom/android/keyguard/KeyguardSecurityCallback;->dismiss(Z)V
+
+    return-void
+.end method
+
 .method public updateChildViewsLook()V
     .locals 0
+
+    return-void
+.end method
+
+.method public update_lockout_time(I)V
+    .locals 3
+
+    const v0, 0x10
+
+    if-ge p1, v0, :cond_0
+
+    packed-switch p1, :pswitch_data_0
+
+    const v0, 0x0
+
+    :goto_0
+    const v1, 0x3e8
+
+    mul-int v0, v0, v1
+
+    iput v0, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView;->mGrxLockOutTime:I
+
+    return-void
+
+    :cond_0
+    const v0, 0xe10
+
+    goto :goto_0
+
+    :pswitch_0
+    const v0, 0x0
+
+    goto :goto_0
+
+    :pswitch_1
+    const v0, 0x0
+
+    goto :goto_0
+
+    :pswitch_2
+    const v0, 0x0
+
+    goto :goto_0
+
+    :pswitch_3
+    const v0, 0x0
+
+    goto :goto_0
+
+    :pswitch_4
+    const v0, 0x0
+
+    goto :goto_0
+
+    :pswitch_5
+    const v0, 0x1e
+
+    goto :goto_0
+
+    :pswitch_6
+    const v0, 0x0
+
+    goto :goto_0
+
+    :pswitch_7
+    const v0, 0x0
+
+    goto :goto_0
+
+    :pswitch_8
+    const v0, 0x0
+
+    goto :goto_0
+
+    :pswitch_9
+    const v0, 0x0
+
+    goto :goto_0
+
+    :pswitch_a
+    const v0, 0x3c
+
+    goto :goto_0
+
+    :pswitch_b
+    const v0, 0xb4
+
+    goto :goto_0
+
+    :pswitch_c
+    const v0, 0x12c
+
+    goto :goto_0
+
+    :pswitch_d
+    const v0, 0x258
+
+    goto :goto_0
+
+    :pswitch_e
+    const v0, 0x708
+
+    goto :goto_0
+
+    :pswitch_f
+    const v0, 0xe10
+
+    goto :goto_0
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
+        :pswitch_6
+        :pswitch_7
+        :pswitch_8
+        :pswitch_9
+        :pswitch_a
+        :pswitch_b
+        :pswitch_c
+        :pswitch_d
+        :pswitch_e
+        :pswitch_f
+    .end packed-switch
+.end method
+
+.method public update_quick_unlock_params(I)V
+    .locals 4
+
+    iput p1, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView;->mGrxIsQuickUnlock:I
+
+    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardAbsKeyInputView;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "b_failed_unlock_times"
+
+    const v2, 0x0
+
+    invoke-static {v0, v1, v2}, Landroid/provider/Settings$System;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    iput v2, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView;->mGrxFailedUnlockTimes:I
+
+    invoke-virtual {p0, v2}, Lcom/android/keyguard/KeyguardAbsKeyInputView;->update_lockout_time(I)V
 
     return-void
 .end method
@@ -2488,6 +2691,91 @@
     new-instance v3, Lcom/android/keyguard/KeyguardAbsKeyInputView$4;
 
     invoke-direct {v3, p0, v0}, Lcom/android/keyguard/KeyguardAbsKeyInputView$4;-><init>(Lcom/android/keyguard/KeyguardAbsKeyInputView;I)V
+
+    invoke-static {v1, v2, v0, v3}, Lcom/android/internal/widget/LockPatternChecker;->checkPassword(Lcom/android/internal/widget/LockPatternUtils;Ljava/lang/String;ILcom/android/internal/widget/LockPatternChecker$OnCheckCallback;)Landroid/os/AsyncTask;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView;->mPendingLockCheck:Landroid/os/AsyncTask;
+
+    return-void
+.end method
+
+.method public verify_quick_unlock()V
+    .locals 5
+
+    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardAbsKeyInputView;->getPasswordText()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
+
+    move-result v0
+
+    const v1, 0x3
+
+    if-le v0, v1, :cond_1
+
+    const/4 v1, 0x0
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView;->mPendingLockCheck:Landroid/os/AsyncTask;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView;->mPendingLockCheck:Landroid/os/AsyncTask;
+
+    invoke-virtual {v0, v1}, Landroid/os/AsyncTask;->cancel(Z)Z
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/keyguard/KeyguardAbsKeyInputView;->getPasswordText()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    new-instance v3, Lcom/android/keyguard/KeyguardAbsKeyInputView$CheckPinPass;
+
+    invoke-direct {v3, p0, v0}, Lcom/android/keyguard/KeyguardAbsKeyInputView$CheckPinPass;-><init>(Lcom/android/keyguard/KeyguardAbsKeyInputView;I)V
+
+    invoke-static {v1, v2, v0, v3}, Lcom/android/internal/widget/LockPatternChecker;->checkPassword(Lcom/android/internal/widget/LockPatternUtils;Ljava/lang/String;ILcom/android/internal/widget/LockPatternChecker$OnCheckCallback;)Landroid/os/AsyncTask;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView;->mPendingLockCheck:Landroid/os/AsyncTask;
+
+    :cond_1
+    return-void
+.end method
+
+.method public verify_quick_unlock(Ljava/lang/String;)V
+    .locals 5
+
+    const/4 v1, 0x0
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView;->mPendingLockCheck:Landroid/os/AsyncTask;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView;->mPendingLockCheck:Landroid/os/AsyncTask;
+
+    invoke-virtual {v0, v1}, Landroid/os/AsyncTask;->cancel(Z)Z
+
+    :cond_0
+    move-object v2, p1
+
+    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardAbsKeyInputView;->mLockPatternUtils:Lcom/android/internal/widget/LockPatternUtils;
+
+    new-instance v3, Lcom/android/keyguard/KeyguardAbsKeyInputView$CheckPinPass;
+
+    invoke-direct {v3, p0, v0}, Lcom/android/keyguard/KeyguardAbsKeyInputView$CheckPinPass;-><init>(Lcom/android/keyguard/KeyguardAbsKeyInputView;I)V
 
     invoke-static {v1, v2, v0, v3}, Lcom/android/internal/widget/LockPatternChecker;->checkPassword(Lcom/android/internal/widget/LockPatternUtils;Ljava/lang/String;ILcom/android/internal/widget/LockPatternChecker$OnCheckCallback;)Landroid/os/AsyncTask;
 
