@@ -396,7 +396,7 @@
 
     iget-object v3, p0, Lcom/android/systemui/qs/tiles/WifiCallingTile$WifiCallingDetailAdapter;->mWfcHelpIcon:Landroid/widget/ImageView;
 
-    const v4, 0x7f0207f3
+    const v4, 0x7f0207f5
 
     invoke-virtual {v3, v4}, Landroid/widget/ImageView;->setImageResource(I)V
 

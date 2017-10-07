@@ -105,8 +105,6 @@
 
 .field private final mProfileController:Lcom/android/systemui/statusbar/phone/ManagedProfileController;
 
-.field private mReloadTiles:Z
-
 .field private final mRotation:Lcom/android/systemui/statusbar/policy/RotationLockController;
 
 .field private mScreenGridDialog:Lcom/android/systemui/qs/QSScreenGridDialog;
@@ -222,10 +220,6 @@
     .locals 7
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    const/4 v3, 0x0
-
-    iput-boolean v3, p0, Lcom/android/systemui/statusbar/phone/QSTileHost;->mReloadTiles:Z
 
     new-instance v3, Ljava/util/LinkedHashMap;
 
@@ -3904,10 +3898,6 @@
 
     move-result v10
 
-    iget-boolean v12, p0, Lcom/android/systemui/statusbar/phone/QSTileHost;->mReloadTiles:Z
-
-    if-nez v12, :cond_5
-
     if-eqz v10, :cond_5
 
     iget v10, p0, Lcom/android/systemui/statusbar/phone/QSTileHost;->mCurrentUser:I
@@ -4629,34 +4619,6 @@
     goto :goto_3
 
     :cond_c
-    return-void
-.end method
-
-.method public reloadTiles()V
-    .locals 3
-
-    const/4 v0, 0x1
-
-    iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/QSTileHost;->mReloadTiles:Z
-
-    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/QSTileHost;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v2
-
-    const-string v1, "sysui_qs_tiles"
-
-    invoke-static {v2, v1}, Landroid/provider/Settings$Secure;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p0, v1, v2}, Lcom/android/systemui/statusbar/phone/QSTileHost;->onTuningChanged(Ljava/lang/String;Ljava/lang/String;)V
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/systemui/statusbar/phone/QSTileHost;->mReloadTiles:Z
-
     return-void
 .end method
 

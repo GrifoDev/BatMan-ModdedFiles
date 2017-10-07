@@ -276,7 +276,7 @@
 
     check-cast v15, Landroid/widget/TextView;
 
-    const v1, 0x7f02064c
+    const v1, 0x7f02064e
 
     const/4 v3, 0x0
 

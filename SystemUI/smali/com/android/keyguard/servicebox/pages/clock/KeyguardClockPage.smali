@@ -1287,86 +1287,71 @@
 .end method
 
 .method protected getContentsView(I)Landroid/view/View;
-    .locals 3
+    .locals 4
 
-    const/4 v2, 0x0
+    sget v0, Lcom/android/keyguard/R$layout;->keyguard_single_clock_view:I
 
     invoke-static {}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->-getcom-android-keyguard-servicebox-pages-clock-KeyguardClockPage$ClockTypeSwitchesValues()[I
 
-    move-result-object v0
+    move-result-object v1
 
-    iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mType:Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage$ClockType;
+    iget-object v2, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mType:Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage$ClockType;
 
-    invoke-virtual {v1}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage$ClockType;->ordinal()I
+    invoke-virtual {v2}, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage$ClockType;->ordinal()I
 
-    move-result v1
+    move-result v2
 
-    aget v0, v0, v1
+    aget v1, v1, v2
 
-    packed-switch v0, :pswitch_data_0
+    packed-switch v1, :pswitch_data_0
 
-    const-string/jumbo v0, "KeyguardClockPage"
+    const-string/jumbo v1, "KeyguardClockPage"
 
-    const-string/jumbo v1, "Lockscreen doesn\'t need to show clock."
+    const-string/jumbo v2, "Lockscreen doesn\'t need to show clock."
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    return-object v2
+    :goto_0
+    iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mContext:Landroid/content/Context;
+
+    invoke-static {v1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mClockHolder:Landroid/widget/FrameLayout;
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v1, v0, v2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
+
+    move-result-object v1
+
+    return-object v1
 
     :pswitch_0
-    iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mContext:Landroid/content/Context;
+    sget v0, Lcom/android/keyguard/R$layout;->keyguard_dual_image_clock_view:I
 
-    sget v1, Lcom/android/keyguard/R$layout;->keyguard_dual_image_clock_view:I
-
-    invoke-static {v0, v1, v2}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v0
-
-    return-object v0
+    goto :goto_0
 
     :pswitch_1
-    iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mContext:Landroid/content/Context;
+    sget v0, Lcom/android/keyguard/R$layout;->keyguard_single_image_clock_view:I
 
-    sget v1, Lcom/android/keyguard/R$layout;->keyguard_single_image_clock_view:I
-
-    invoke-static {v0, v1, v2}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v0
-
-    return-object v0
+    goto :goto_0
 
     :pswitch_2
-    iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mContext:Landroid/content/Context;
+    sget v0, Lcom/android/keyguard/R$layout;->keyguard_dual_clock_view:I
 
-    sget v1, Lcom/android/keyguard/R$layout;->keyguard_dual_clock_view:I
-
-    invoke-static {v0, v1, v2}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v0
-
-    return-object v0
+    goto :goto_0
 
     :pswitch_3
-    iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mContext:Landroid/content/Context;
+    sget v0, Lcom/android/keyguard/R$layout;->keyguard_single_vertical_clock_view:I
 
-    sget v1, Lcom/android/keyguard/R$layout;->keyguard_single_vertical_clock_view:I
-
-    invoke-static {v0, v1, v2}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v0
-
-    return-object v0
+    goto :goto_0
 
     :pswitch_4
-    iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/clock/KeyguardClockPage;->mContext:Landroid/content/Context;
+    sget v0, Lcom/android/keyguard/R$layout;->keyguard_single_clock_view:I
 
-    sget v1, Lcom/android/keyguard/R$layout;->keyguard_single_clock_view:I
-
-    invoke-static {v0, v1, v2}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v0
-
-    return-object v0
+    goto :goto_0
 
     nop
 

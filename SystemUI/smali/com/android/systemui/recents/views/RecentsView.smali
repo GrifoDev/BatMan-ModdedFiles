@@ -799,7 +799,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/recents/views/RecentsView;->mRecentsCloseAllButton:Landroid/widget/Button;
 
-    const v2, 0x7f020486
+    const v2, 0x7f020488
 
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setBackgroundResource(I)V
 
@@ -814,7 +814,7 @@
     :cond_1
     iget-object v1, p0, Lcom/android/systemui/recents/views/RecentsView;->mRecentsCloseAllButton:Landroid/widget/Button;
 
-    const v2, 0x7f020485
+    const v2, 0x7f020487
 
     invoke-virtual {v1, v2}, Landroid/widget/Button;->setBackgroundResource(I)V
 
@@ -3982,7 +3982,7 @@
 
     const/4 v0, 0x1
 
-    const v5, 0x7f020483
+    const v5, 0x7f020485
 
     iput-object p2, p0, Lcom/android/systemui/recents/views/RecentsView;->mRecentsCloseAllContainer:Landroid/view/ViewGroup;
 

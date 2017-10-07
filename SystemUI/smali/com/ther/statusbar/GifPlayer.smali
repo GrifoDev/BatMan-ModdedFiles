@@ -735,6 +735,7 @@
     move-result v6
 
     goto/16 :goto_0
+
     :cond_23
     const-string v4, "BMLogoBlack"
 

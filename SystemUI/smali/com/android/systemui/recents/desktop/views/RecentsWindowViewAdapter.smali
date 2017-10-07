@@ -117,7 +117,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0204b7
+    const v1, 0x7f0204b9
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

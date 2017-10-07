@@ -217,16 +217,20 @@
 
     if-eq v8, v9, :cond_f
 
+    const v9, 0x12
+
+    if-eq v8, v9, :cond_lg
+
     :cond_0
-    const v1, 0x7f020891
+    const v1, 0x7f020896
 
-    const v2, 0x7f0208af
+    const v2, 0x7f0208b6
 
-    const v3, 0x7f0208cd
+    const v3, 0x7f0208d6
 
-    const v4, 0x7f0208eb
+    const v4, 0x7f0208f6
 
-    const v5, 0x7f020909
+    const v5, 0x7f020916
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -236,28 +240,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f020891
+    const v1, 0x7f020896
 
-    const v2, 0x7f0208af
+    const v2, 0x7f0208b6
 
-    const v3, 0x7f0208cd
+    const v3, 0x7f0208d6
 
-    const v4, 0x7f0208eb
+    const v4, 0x7f0208f6
 
-    const v5, 0x7f020909
+    const v5, 0x7f020916
 
     goto/16 :goto_0
 
     :cond_1
-    const v1, 0x7f020893
+    const v1, 0x7f020898
 
-    const v2, 0x7f0208b1
+    const v2, 0x7f0208b8
 
-    const v3, 0x7f0208cf
+    const v3, 0x7f0208d8
 
-    const v4, 0x7f0208ed
+    const v4, 0x7f0208f8
 
-    const v5, 0x7f02090b
+    const v5, 0x7f020918
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -267,28 +271,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f020893
+    const v1, 0x7f020898
 
-    const v2, 0x7f0208b1
+    const v2, 0x7f0208b8
 
-    const v3, 0x7f0208cf
+    const v3, 0x7f0208d8
 
-    const v4, 0x7f0208ed
+    const v4, 0x7f0208f8
 
-    const v5, 0x7f02090b
+    const v5, 0x7f020918
 
     goto/16 :goto_0
 
     :cond_2
-    const v1, 0x7f020895
+    const v1, 0x7f02089a
 
-    const v2, 0x7f0208b3
+    const v2, 0x7f0208ba
 
-    const v3, 0x7f0208d1
+    const v3, 0x7f0208da
 
-    const v4, 0x7f0208ef
+    const v4, 0x7f0208fa
 
-    const v5, 0x7f02090d
+    const v5, 0x7f02091a
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -298,28 +302,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f020895
+    const v1, 0x7f02089a
 
-    const v2, 0x7f0208b3
+    const v2, 0x7f0208ba
 
-    const v3, 0x7f0208d1
+    const v3, 0x7f0208da
 
-    const v4, 0x7f0208ef
+    const v4, 0x7f0208fa
 
-    const v5, 0x7f02090d
+    const v5, 0x7f02091a
 
     goto/16 :goto_0
 
     :cond_3
-    const v1, 0x7f020897
+    const v1, 0x7f02089c
 
-    const v2, 0x7f0208b5
+    const v2, 0x7f0208bc
 
-    const v3, 0x7f0208d3
+    const v3, 0x7f0208dc
 
-    const v4, 0x7f0208f1
+    const v4, 0x7f0208fc
 
-    const v5, 0x7f02090f
+    const v5, 0x7f02091c
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -329,28 +333,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f020897
+    const v1, 0x7f02089c
 
-    const v2, 0x7f0208b5
+    const v2, 0x7f0208bc
 
-    const v3, 0x7f0208d3
+    const v3, 0x7f0208dc
 
-    const v4, 0x7f0208f1
+    const v4, 0x7f0208fc
 
-    const v5, 0x7f02090f
+    const v5, 0x7f02091c
 
     goto/16 :goto_0
 
     :cond_4
-    const v1, 0x7f020899
+    const v1, 0x7f02089e
 
-    const v2, 0x7f0208b7
+    const v2, 0x7f0208be
 
-    const v3, 0x7f0208d5
+    const v3, 0x7f0208de
 
-    const v4, 0x7f0208f3
+    const v4, 0x7f0208fe
 
-    const v5, 0x7f020911
+    const v5, 0x7f02091e
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -360,28 +364,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f020899
+    const v1, 0x7f02089e
 
-    const v2, 0x7f0208b7
+    const v2, 0x7f0208be
 
-    const v3, 0x7f0208d5
+    const v3, 0x7f0208de
 
-    const v4, 0x7f0208f3
+    const v4, 0x7f0208fe
 
-    const v5, 0x7f020911
+    const v5, 0x7f02091e
 
     goto/16 :goto_0
 
     :cond_5
-    const v1, 0x7f02089b
+    const v1, 0x7f0208a0
 
-    const v2, 0x7f0208b9
+    const v2, 0x7f0208c0
 
-    const v3, 0x7f0208d7
+    const v3, 0x7f0208e0
 
-    const v4, 0x7f0208f5
+    const v4, 0x7f020900
 
-    const v5, 0x7f020913
+    const v5, 0x7f020920
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -391,28 +395,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f02089b
+    const v1, 0x7f0208a0
 
-    const v2, 0x7f0208b9
+    const v2, 0x7f0208c0
 
-    const v3, 0x7f0208d7
+    const v3, 0x7f0208e0
 
-    const v4, 0x7f0208f5
+    const v4, 0x7f020900
 
-    const v5, 0x7f020913
+    const v5, 0x7f020920
 
     goto/16 :goto_0
 
     :cond_6
-    const v1, 0x7f02089d
+    const v1, 0x7f0208a2
 
-    const v2, 0x7f0208bb
+    const v2, 0x7f0208c2
 
-    const v3, 0x7f0208d9
+    const v3, 0x7f0208e2
 
-    const v4, 0x7f0208f7
+    const v4, 0x7f020902
 
-    const v5, 0x7f020915
+    const v5, 0x7f020922
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -422,28 +426,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f02089d
+    const v1, 0x7f0208a2
 
-    const v2, 0x7f0208bb
+    const v2, 0x7f0208c2
 
-    const v3, 0x7f0208d9
+    const v3, 0x7f0208e2
 
-    const v4, 0x7f0208f7
+    const v4, 0x7f020902
 
-    const v5, 0x7f020915
+    const v5, 0x7f020922
 
     goto/16 :goto_0
 
     :cond_7
-    const v1, 0x7f02089f
+    const v1, 0x7f0208a4
 
-    const v2, 0x7f0208bd
+    const v2, 0x7f0208c4
 
-    const v3, 0x7f0208db
+    const v3, 0x7f0208e4
 
-    const v4, 0x7f0208f9
+    const v4, 0x7f020904
 
-    const v5, 0x7f020917
+    const v5, 0x7f020924
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -453,28 +457,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f02089f
+    const v1, 0x7f0208a4
 
-    const v2, 0x7f0208bd
+    const v2, 0x7f0208c4
 
-    const v3, 0x7f0208db
+    const v3, 0x7f0208e4
 
-    const v4, 0x7f0208f9
+    const v4, 0x7f020904
 
-    const v5, 0x7f020917
+    const v5, 0x7f020924
 
     goto/16 :goto_0
 
     :cond_8
-    const v1, 0x7f020883
+    const v1, 0x7f020886
 
-    const v2, 0x7f0208a1
+    const v2, 0x7f0208a6
 
-    const v3, 0x7f0208bf
+    const v3, 0x7f0208c6
 
-    const v4, 0x7f0208dd
+    const v4, 0x7f0208e6
 
-    const v5, 0x7f0208fb
+    const v5, 0x7f020906
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -484,28 +488,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f020883
+    const v1, 0x7f020886
 
-    const v2, 0x7f0208a1
+    const v2, 0x7f0208a6
 
-    const v3, 0x7f0208bf
+    const v3, 0x7f0208c6
 
-    const v4, 0x7f0208dd
+    const v4, 0x7f0208e6
 
-    const v5, 0x7f0208fb
+    const v5, 0x7f020906
 
     goto/16 :goto_0
 
     :cond_9
-    const v1, 0x7f020885
+    const v1, 0x7f020888
 
-    const v2, 0x7f0208a3
+    const v2, 0x7f0208a8
 
-    const v3, 0x7f0208c1
+    const v3, 0x7f0208c8
 
-    const v4, 0x7f0208df
+    const v4, 0x7f0208e8
 
-    const v5, 0x7f0208fd
+    const v5, 0x7f020908
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -515,28 +519,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f020885
+    const v1, 0x7f020888
 
-    const v2, 0x7f0208a3
+    const v2, 0x7f0208a8
 
-    const v3, 0x7f0208c1
+    const v3, 0x7f0208c8
 
-    const v4, 0x7f0208df
+    const v4, 0x7f0208e8
 
-    const v5, 0x7f0208fd
+    const v5, 0x7f020908
 
     goto/16 :goto_0
 
     :cond_a
-    const v1, 0x7f020887
+    const v1, 0x7f02088a
 
-    const v2, 0x7f0208a5
+    const v2, 0x7f0208aa
 
-    const v3, 0x7f0208c3
+    const v3, 0x7f0208ca
 
-    const v4, 0x7f0208e1
+    const v4, 0x7f0208ea
 
-    const v5, 0x7f0208ff
+    const v5, 0x7f02090a
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -546,28 +550,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f020887
+    const v1, 0x7f02088a
 
-    const v2, 0x7f0208a5
+    const v2, 0x7f0208aa
 
-    const v3, 0x7f0208c3
+    const v3, 0x7f0208ca
 
-    const v4, 0x7f0208e1
+    const v4, 0x7f0208ea
 
-    const v5, 0x7f0208ff
+    const v5, 0x7f02090a
 
     goto/16 :goto_0
 
     :cond_b
-    const v1, 0x7f020889
+    const v1, 0x7f02088c
 
-    const v2, 0x7f0208a7
+    const v2, 0x7f0208ac
 
-    const v3, 0x7f0208c5
+    const v3, 0x7f0208cc
 
-    const v4, 0x7f0208e3
+    const v4, 0x7f0208ec
 
-    const v5, 0x7f020901
+    const v5, 0x7f02090c
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -577,28 +581,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f020889
+    const v1, 0x7f02088c
 
-    const v2, 0x7f0208a7
+    const v2, 0x7f0208ac
 
-    const v3, 0x7f0208c5
+    const v3, 0x7f0208cc
 
-    const v4, 0x7f0208e3
+    const v4, 0x7f0208ec
 
-    const v5, 0x7f020901
+    const v5, 0x7f02090c
 
     goto/16 :goto_0
 
     :cond_c
-    const v1, 0x7f02088b
+    const v1, 0x7f02088e
 
-    const v2, 0x7f0208a9
+    const v2, 0x7f0208ae
 
-    const v3, 0x7f0208c7
+    const v3, 0x7f0208ce
 
-    const v4, 0x7f0208e5
+    const v4, 0x7f0208ee
 
-    const v5, 0x7f020903
+    const v5, 0x7f02090e
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -608,28 +612,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f02088b
+    const v1, 0x7f02088e
 
-    const v2, 0x7f0208a9
+    const v2, 0x7f0208ae
 
-    const v3, 0x7f0208c7
+    const v3, 0x7f0208ce
 
-    const v4, 0x7f0208e5
+    const v4, 0x7f0208ee
 
-    const v5, 0x7f020903
+    const v5, 0x7f02090e
 
     goto/16 :goto_0
 
     :cond_d
-    const v1, 0x7f02088d
+    const v1, 0x7f020890
 
-    const v2, 0x7f0208ab
+    const v2, 0x7f0208b0
 
-    const v3, 0x7f0208c9
+    const v3, 0x7f0208d0
 
-    const v4, 0x7f0208e7
+    const v4, 0x7f0208f0
 
-    const v5, 0x7f020905
+    const v5, 0x7f020910
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -639,28 +643,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f02088d
+    const v1, 0x7f020890
 
-    const v2, 0x7f0208ab
+    const v2, 0x7f0208b0
 
-    const v3, 0x7f0208c9
+    const v3, 0x7f0208d0
 
-    const v4, 0x7f0208e7
+    const v4, 0x7f0208f0
 
-    const v5, 0x7f020905
+    const v5, 0x7f020910
 
     goto :goto_0
 
     :cond_e
-    const v1, 0x7f02088f
+    const v1, 0x7f020892
 
-    const v2, 0x7f0208ad
+    const v2, 0x7f0208b2
 
-    const v3, 0x7f0208cb
+    const v3, 0x7f0208d2
 
-    const v4, 0x7f0208e9
+    const v4, 0x7f0208f2
 
-    const v5, 0x7f020907
+    const v5, 0x7f020912
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -670,28 +674,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f02088f
+    const v1, 0x7f020892
 
-    const v2, 0x7f0208ad
+    const v2, 0x7f0208b2
 
-    const v3, 0x7f0208cb
+    const v3, 0x7f0208d2
 
-    const v4, 0x7f0208e9
+    const v4, 0x7f0208f2
 
-    const v5, 0x7f020907
+    const v5, 0x7f020912
 
     goto :goto_0
 
     :cond_f
-    const v1, 0x7f02099c
+    const v1, 0x7f020894
 
-    const v2, 0x7f02099e
+    const v2, 0x7f0208b4
 
-    const v3, 0x7f0209a0
+    const v3, 0x7f0208d4
 
-    const v4, 0x7f0209a2
+    const v4, 0x7f0208f4
 
-    const v5, 0x7f0209a4
+    const v5, 0x7f020914
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -701,28 +705,59 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f02099c
+    const v1, 0x7f020894
 
-    const v2, 0x7f02099e
+    const v2, 0x7f0208b4
 
-    const v3, 0x7f0209a0
+    const v3, 0x7f0208d4
 
-    const v4, 0x7f0209a2
+    const v4, 0x7f0208f4
 
-    const v5, 0x7f0209a4
+    const v5, 0x7f020914
+
+    goto :goto_0
+
+    :cond_lg
+    const v1, 0x7f0209a9
+
+    const v2, 0x7f0209ab
+
+    const v3, 0x7f0209ad
+
+    const v4, 0x7f0209af
+
+    const v5, 0x7f0209b1
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f0209a9
+
+    const v2, 0x7f0209ab
+
+    const v3, 0x7f0209ad
+
+    const v4, 0x7f0209af
+
+    const v5, 0x7f0209b1
 
     goto :goto_0
 
     :cond_10
-    const v1, 0x7f02068e
+    const v1, 0x7f020690
 
-    const v2, 0x7f020691
+    const v2, 0x7f020693
 
-    const v3, 0x7f020694
+    const v3, 0x7f020696
 
-    const v4, 0x7f020697
+    const v4, 0x7f020699
 
-    const v5, 0x7f02069a
+    const v5, 0x7f02069c
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -732,15 +767,15 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f02068e
+    const v1, 0x7f020690
 
-    const v2, 0x7f020691
+    const v2, 0x7f020693
 
-    const v3, 0x7f020694
+    const v3, 0x7f020696
 
-    const v4, 0x7f020697
+    const v4, 0x7f020699
 
-    const v5, 0x7f02069a
+    const v5, 0x7f02069c
 
     :goto_0
     filled-new-array {v1, v2, v3, v4, v5}, [I
@@ -861,16 +896,20 @@
 
     if-eq v8, v9, :cond_20
 
+    const v9, 0x12
+
+    if-eq v8, v9, :cond_lg2
+
     :cond_11
-    const v1, 0x7f020891
+    const v1, 0x7f020896
 
-    const v2, 0x7f0208af
+    const v2, 0x7f0208b6
 
-    const v3, 0x7f0208cd
+    const v3, 0x7f0208d6
 
-    const v4, 0x7f0208eb
+    const v4, 0x7f0208f6
 
-    const v5, 0x7f020909
+    const v5, 0x7f020916
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -880,28 +919,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f020891
+    const v1, 0x7f020896
 
-    const v2, 0x7f0208af
+    const v2, 0x7f0208b6
 
-    const v3, 0x7f0208cd
+    const v3, 0x7f0208d6
 
-    const v4, 0x7f0208eb
+    const v4, 0x7f0208f6
 
-    const v5, 0x7f020909
+    const v5, 0x7f020916
 
     goto/16 :goto_1
 
     :cond_12
-    const v1, 0x7f020893
+    const v1, 0x7f020898
 
-    const v2, 0x7f0208b1
+    const v2, 0x7f0208b8
 
-    const v3, 0x7f0208cf
+    const v3, 0x7f0208d8
 
-    const v4, 0x7f0208ed
+    const v4, 0x7f0208f8
 
-    const v5, 0x7f02090b
+    const v5, 0x7f020918
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -911,28 +950,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f020893
+    const v1, 0x7f020898
 
-    const v2, 0x7f0208b1
+    const v2, 0x7f0208b8
 
-    const v3, 0x7f0208cf
+    const v3, 0x7f0208d8
 
-    const v4, 0x7f0208ed
+    const v4, 0x7f0208f8
 
-    const v5, 0x7f02090b
+    const v5, 0x7f020918
 
     goto/16 :goto_1
 
     :cond_13
-    const v1, 0x7f020895
+    const v1, 0x7f02089a
 
-    const v2, 0x7f0208b3
+    const v2, 0x7f0208ba
 
-    const v3, 0x7f0208d1
+    const v3, 0x7f0208da
 
-    const v4, 0x7f0208ef
+    const v4, 0x7f0208fa
 
-    const v5, 0x7f02090d
+    const v5, 0x7f02091a
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -942,28 +981,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f020895
+    const v1, 0x7f02089a
 
-    const v2, 0x7f0208b3
+    const v2, 0x7f0208ba
 
-    const v3, 0x7f0208d1
+    const v3, 0x7f0208da
 
-    const v4, 0x7f0208ef
+    const v4, 0x7f0208fa
 
-    const v5, 0x7f02090d
+    const v5, 0x7f02091a
 
     goto/16 :goto_1
 
     :cond_14
-    const v1, 0x7f020897
+    const v1, 0x7f02089c
 
-    const v2, 0x7f0208b5
+    const v2, 0x7f0208bc
 
-    const v3, 0x7f0208d3
+    const v3, 0x7f0208dc
 
-    const v4, 0x7f0208f1
+    const v4, 0x7f0208fc
 
-    const v5, 0x7f02090f
+    const v5, 0x7f02091c
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -973,28 +1012,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f020897
+    const v1, 0x7f02089c
 
-    const v2, 0x7f0208b5
+    const v2, 0x7f0208bc
 
-    const v3, 0x7f0208d3
+    const v3, 0x7f0208dc
 
-    const v4, 0x7f0208f1
+    const v4, 0x7f0208fc
 
-    const v5, 0x7f02090f
+    const v5, 0x7f02091c
 
     goto/16 :goto_1
 
     :cond_15
-    const v1, 0x7f020899
+    const v1, 0x7f02089e
 
-    const v2, 0x7f0208b7
+    const v2, 0x7f0208be
 
-    const v3, 0x7f0208d5
+    const v3, 0x7f0208de
 
-    const v4, 0x7f0208f3
+    const v4, 0x7f0208fe
 
-    const v5, 0x7f020911
+    const v5, 0x7f02091e
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -1004,28 +1043,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f020899
+    const v1, 0x7f02089e
 
-    const v2, 0x7f0208b7
+    const v2, 0x7f0208be
 
-    const v3, 0x7f0208d5
+    const v3, 0x7f0208de
 
-    const v4, 0x7f0208f3
+    const v4, 0x7f0208fe
 
-    const v5, 0x7f020911
+    const v5, 0x7f02091e
 
     goto/16 :goto_1
 
     :cond_16
-    const v1, 0x7f02089b
+    const v1, 0x7f0208a0
 
-    const v2, 0x7f0208b9
+    const v2, 0x7f0208c0
 
-    const v3, 0x7f0208d7
+    const v3, 0x7f0208e0
 
-    const v4, 0x7f0208f5
+    const v4, 0x7f020900
 
-    const v5, 0x7f020913
+    const v5, 0x7f020920
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -1035,28 +1074,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f02089b
+    const v1, 0x7f0208a0
 
-    const v2, 0x7f0208b9
+    const v2, 0x7f0208c0
 
-    const v3, 0x7f0208d7
+    const v3, 0x7f0208e0
 
-    const v4, 0x7f0208f5
+    const v4, 0x7f020900
 
-    const v5, 0x7f020913
+    const v5, 0x7f020920
 
     goto/16 :goto_1
 
     :cond_17
-    const v1, 0x7f02089d
+    const v1, 0x7f0208a2
 
-    const v2, 0x7f0208bb
+    const v2, 0x7f0208c2
 
-    const v3, 0x7f0208d9
+    const v3, 0x7f0208e2
 
-    const v4, 0x7f0208f7
+    const v4, 0x7f020902
 
-    const v5, 0x7f020915
+    const v5, 0x7f020922
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -1066,28 +1105,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f02089d
+    const v1, 0x7f0208a2
 
-    const v2, 0x7f0208bb
+    const v2, 0x7f0208c2
 
-    const v3, 0x7f0208d9
+    const v3, 0x7f0208e2
 
-    const v4, 0x7f0208f7
+    const v4, 0x7f020902
 
-    const v5, 0x7f020915
+    const v5, 0x7f020922
 
     goto/16 :goto_1
 
     :cond_18
-    const v1, 0x7f02089f
+    const v1, 0x7f0208a4
 
-    const v2, 0x7f0208bd
+    const v2, 0x7f0208c4
 
-    const v3, 0x7f0208db
+    const v3, 0x7f0208e4
 
-    const v4, 0x7f0208f9
+    const v4, 0x7f020904
 
-    const v5, 0x7f020917
+    const v5, 0x7f020924
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -1097,28 +1136,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f02089f
+    const v1, 0x7f0208a4
 
-    const v2, 0x7f0208bd
+    const v2, 0x7f0208c4
 
-    const v3, 0x7f0208db
+    const v3, 0x7f0208e4
 
-    const v4, 0x7f0208f9
+    const v4, 0x7f020904
 
-    const v5, 0x7f020917
+    const v5, 0x7f020924
 
     goto/16 :goto_1
 
     :cond_19
-    const v1, 0x7f020883
+    const v1, 0x7f020886
 
-    const v2, 0x7f0208a1
+    const v2, 0x7f0208a6
 
-    const v3, 0x7f0208bf
+    const v3, 0x7f0208c6
 
-    const v4, 0x7f0208dd
+    const v4, 0x7f0208e6
 
-    const v5, 0x7f0208fb
+    const v5, 0x7f020906
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -1128,28 +1167,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f020883
+    const v1, 0x7f020886
 
-    const v2, 0x7f0208a1
+    const v2, 0x7f0208a6
 
-    const v3, 0x7f0208bf
+    const v3, 0x7f0208c6
 
-    const v4, 0x7f0208dd
+    const v4, 0x7f0208e6
 
-    const v5, 0x7f0208fb
+    const v5, 0x7f020906
 
     goto/16 :goto_1
 
     :cond_1a
-    const v1, 0x7f020885
+    const v1, 0x7f020888
 
-    const v2, 0x7f0208a3
+    const v2, 0x7f0208a8
 
-    const v3, 0x7f0208c1
+    const v3, 0x7f0208c8
 
-    const v4, 0x7f0208df
+    const v4, 0x7f0208e8
 
-    const v5, 0x7f0208fd
+    const v5, 0x7f020908
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -1159,28 +1198,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f020885
+    const v1, 0x7f020888
 
-    const v2, 0x7f0208a3
+    const v2, 0x7f0208a8
 
-    const v3, 0x7f0208c1
+    const v3, 0x7f0208c8
 
-    const v4, 0x7f0208df
+    const v4, 0x7f0208e8
 
-    const v5, 0x7f0208fd
+    const v5, 0x7f020908
 
     goto/16 :goto_1
 
     :cond_1b
-    const v1, 0x7f020887
+    const v1, 0x7f02088a
 
-    const v2, 0x7f0208a5
+    const v2, 0x7f0208aa
 
-    const v3, 0x7f0208c3
+    const v3, 0x7f0208ca
 
-    const v4, 0x7f0208e1
+    const v4, 0x7f0208ea
 
-    const v5, 0x7f0208ff
+    const v5, 0x7f02090a
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -1190,28 +1229,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f020887
+    const v1, 0x7f02088a
 
-    const v2, 0x7f0208a5
+    const v2, 0x7f0208aa
 
-    const v3, 0x7f0208c3
+    const v3, 0x7f0208ca
 
-    const v4, 0x7f0208e1
+    const v4, 0x7f0208ea
 
-    const v5, 0x7f0208ff
+    const v5, 0x7f02090a
 
     goto/16 :goto_1
 
     :cond_1c
-    const v1, 0x7f020889
+    const v1, 0x7f02088c
 
-    const v2, 0x7f0208a7
+    const v2, 0x7f0208ac
 
-    const v3, 0x7f0208c5
+    const v3, 0x7f0208cc
 
-    const v4, 0x7f0208e3
+    const v4, 0x7f0208ec
 
-    const v5, 0x7f020901
+    const v5, 0x7f02090c
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -1221,28 +1260,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f020889
+    const v1, 0x7f02088c
 
-    const v2, 0x7f0208a7
+    const v2, 0x7f0208ac
 
-    const v3, 0x7f0208c5
+    const v3, 0x7f0208cc
 
-    const v4, 0x7f0208e3
+    const v4, 0x7f0208ec
 
-    const v5, 0x7f020901
+    const v5, 0x7f02090c
 
     goto/16 :goto_1
 
     :cond_1d
-    const v1, 0x7f02088b
+    const v1, 0x7f02088e
 
-    const v2, 0x7f0208a9
+    const v2, 0x7f0208ae
 
-    const v3, 0x7f0208c7
+    const v3, 0x7f0208ce
 
-    const v4, 0x7f0208e5
+    const v4, 0x7f0208ee
 
-    const v5, 0x7f020903
+    const v5, 0x7f02090e
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -1252,28 +1291,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f02088b
+    const v1, 0x7f02088e
 
-    const v2, 0x7f0208a9
+    const v2, 0x7f0208ae
 
-    const v3, 0x7f0208c7
+    const v3, 0x7f0208ce
 
-    const v4, 0x7f0208e5
+    const v4, 0x7f0208ee
 
-    const v5, 0x7f020903
+    const v5, 0x7f02090e
 
     goto/16 :goto_1
 
     :cond_1e
-    const v1, 0x7f02088d
+    const v1, 0x7f020890
 
-    const v2, 0x7f0208ab
+    const v2, 0x7f0208b0
 
-    const v3, 0x7f0208c9
+    const v3, 0x7f0208d0
 
-    const v4, 0x7f0208e7
+    const v4, 0x7f0208f0
 
-    const v5, 0x7f020905
+    const v5, 0x7f020910
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -1283,28 +1322,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f02088d
+    const v1, 0x7f020890
 
-    const v2, 0x7f0208ab
+    const v2, 0x7f0208b0
 
-    const v3, 0x7f0208c9
+    const v3, 0x7f0208d0
 
-    const v4, 0x7f0208e7
+    const v4, 0x7f0208f0
 
-    const v5, 0x7f020905
+    const v5, 0x7f020910
 
     goto :goto_1
 
     :cond_1f
-    const v1, 0x7f02088f
+    const v1, 0x7f020892
 
-    const v2, 0x7f0208ad
+    const v2, 0x7f0208b2
 
-    const v3, 0x7f0208cb
+    const v3, 0x7f0208d2
 
-    const v4, 0x7f0208e9
+    const v4, 0x7f0208f2
 
-    const v5, 0x7f020907
+    const v5, 0x7f020912
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -1314,28 +1353,28 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f02088f
+    const v1, 0x7f020892
 
-    const v2, 0x7f0208ad
+    const v2, 0x7f0208b2
 
-    const v3, 0x7f0208cb
+    const v3, 0x7f0208d2
 
-    const v4, 0x7f0208e9
+    const v4, 0x7f0208f2
 
-    const v5, 0x7f020907
+    const v5, 0x7f020912
 
     goto :goto_1
 
     :cond_20
-    const v1, 0x7f02099c
+    const v1, 0x7f020894
 
-    const v2, 0x7f02099e
+    const v2, 0x7f0208b4
 
-    const v3, 0x7f0209a0
+    const v3, 0x7f0208d4
 
-    const v4, 0x7f0209a2
+    const v4, 0x7f0208f4
 
-    const v5, 0x7f0209a4
+    const v5, 0x7f020914
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -1345,28 +1384,59 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f02099c
+    const v1, 0x7f020894
 
-    const v2, 0x7f02099e
+    const v2, 0x7f0208b4
 
-    const v3, 0x7f0209a0
+    const v3, 0x7f0208d4
 
-    const v4, 0x7f0209a2
+    const v4, 0x7f0208f4
 
-    const v5, 0x7f0209a4
+    const v5, 0x7f020914
+
+    goto :goto_1
+
+    :cond_lg2
+    const v1, 0x7f0209a9
+
+    const v2, 0x7f0209ab
+
+    const v3, 0x7f0209ad
+
+    const v4, 0x7f0209af
+
+    const v5, 0x7f0209b1
+
+    filled-new-array {v1, v2, v3, v4, v5}, [I
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    aput-object v1, v0, v2
+
+    const v1, 0x7f0209a9
+
+    const v2, 0x7f0209ab
+
+    const v3, 0x7f0209ad
+
+    const v4, 0x7f0209af
+
+    const v5, 0x7f0209b1
 
     goto :goto_1
 
     :cond_21
-    const v1, 0x7f02068e
+    const v1, 0x7f020690
 
-    const v2, 0x7f020691
+    const v2, 0x7f020693
 
-    const v3, 0x7f020694
+    const v3, 0x7f020696
 
-    const v4, 0x7f020697
+    const v4, 0x7f020699
 
-    const v5, 0x7f02069a
+    const v5, 0x7f02069c
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -1376,15 +1446,15 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f02068e
+    const v1, 0x7f020690
 
-    const v2, 0x7f020691
+    const v2, 0x7f020693
 
-    const v3, 0x7f020694
+    const v3, 0x7f020696
 
-    const v4, 0x7f020697
+    const v4, 0x7f020699
 
-    const v5, 0x7f02069a
+    const v5, 0x7f02069c
 
     :goto_1
     filled-new-array {v1, v2, v3, v4, v5}, [I
@@ -1427,15 +1497,15 @@
 
     new-array v0, v0, [[I
 
-    const v1, 0x7f020735
+    const v1, 0x7f020737
 
-    const v2, 0x7f020737
+    const v2, 0x7f020739
 
-    const v3, 0x7f020739
+    const v3, 0x7f02073b
 
-    const v4, 0x7f02073b
+    const v4, 0x7f02073d
 
-    const v5, 0x7f02073d
+    const v5, 0x7f02073f
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -1445,15 +1515,15 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f020729
+    const v1, 0x7f02072b
 
-    const v2, 0x7f02072b
+    const v2, 0x7f02072d
 
-    const v3, 0x7f02072d
+    const v3, 0x7f02072f
 
-    const v4, 0x7f02072f
+    const v4, 0x7f020731
 
-    const v5, 0x7f020731
+    const v5, 0x7f020733
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -1465,15 +1535,15 @@
 
     sput-object v0, Lcom/android/systemui/statusbar/policy/TelephonyIcons;->TELEPHONY_PURE_SIGNAL_STRENGTH:[[I
 
-    const v0, 0x7f0206aa
+    const v0, 0x7f0206ac
 
-    const v1, 0x7f0206ab
+    const v1, 0x7f0206ad
 
-    const v2, 0x7f0206ac
+    const v2, 0x7f0206ae
 
-    const v3, 0x7f0206ad
+    const v3, 0x7f0206af
 
-    const v4, 0x7f0206ae
+    const v4, 0x7f0206b0
 
     filled-new-array {v0, v1, v2, v3, v4}, [I
 
@@ -1551,15 +1621,15 @@
 
     new-array v0, v0, [[I
 
-    const v1, 0x7f02068e
+    const v1, 0x7f020690
 
-    const v2, 0x7f020691
+    const v2, 0x7f020693
 
-    const v3, 0x7f020694
+    const v3, 0x7f020696
 
-    const v4, 0x7f020697
+    const v4, 0x7f020699
 
-    const v5, 0x7f02069a
+    const v5, 0x7f02069c
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -1569,15 +1639,15 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f02068e
+    const v1, 0x7f020690
 
-    const v2, 0x7f020691
+    const v2, 0x7f020693
 
-    const v3, 0x7f020694
+    const v3, 0x7f020696
 
-    const v4, 0x7f020697
+    const v4, 0x7f020699
 
-    const v5, 0x7f02069a
+    const v5, 0x7f02069c
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -1593,15 +1663,15 @@
 
     new-array v0, v0, [[I
 
-    const v1, 0x7f0206a9
+    const v1, 0x7f0206ab
 
-    const v2, 0x7f0206a9
+    const v2, 0x7f0206ab
 
-    const v3, 0x7f0206a9
+    const v3, 0x7f0206ab
 
-    const v4, 0x7f0206a9
+    const v4, 0x7f0206ab
 
-    const v5, 0x7f0206a9
+    const v5, 0x7f0206ab
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -1611,15 +1681,15 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f0206a9
+    const v1, 0x7f0206ab
 
-    const v2, 0x7f0206a9
+    const v2, 0x7f0206ab
 
-    const v3, 0x7f0206a9
+    const v3, 0x7f0206ab
 
-    const v4, 0x7f0206a9
+    const v4, 0x7f0206ab
 
-    const v5, 0x7f0206a9
+    const v5, 0x7f0206ab
 
     filled-new-array {v1, v2, v3, v4, v5}, [I
 
@@ -1677,13 +1747,13 @@
 
     new-array v0, v0, [[I
 
-    const v1, 0x7f020638
+    const v1, 0x7f02063a
 
-    const v2, 0x7f020638
+    const v2, 0x7f02063a
 
-    const v3, 0x7f020638
+    const v3, 0x7f02063a
 
-    const v4, 0x7f020638
+    const v4, 0x7f02063a
 
     filled-new-array {v1, v2, v3, v4}, [I
 
@@ -1693,13 +1763,13 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f020638
+    const v1, 0x7f02063a
 
-    const v2, 0x7f020638
+    const v2, 0x7f02063a
 
-    const v3, 0x7f020638
+    const v3, 0x7f02063a
 
-    const v4, 0x7f020638
+    const v4, 0x7f02063a
 
     filled-new-array {v1, v2, v3, v4}, [I
 
@@ -1715,13 +1785,13 @@
 
     new-array v0, v0, [[I
 
-    const v1, 0x7f02062a
+    const v1, 0x7f02062c
 
-    const v2, 0x7f02062a
+    const v2, 0x7f02062c
 
-    const v3, 0x7f02062a
+    const v3, 0x7f02062c
 
-    const v4, 0x7f02062a
+    const v4, 0x7f02062c
 
     filled-new-array {v1, v2, v3, v4}, [I
 
@@ -1731,13 +1801,13 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f02062a
+    const v1, 0x7f02062c
 
-    const v2, 0x7f02062a
+    const v2, 0x7f02062c
 
-    const v3, 0x7f02062a
+    const v3, 0x7f02062c
 
-    const v4, 0x7f02062a
+    const v4, 0x7f02062c
 
     filled-new-array {v1, v2, v3, v4}, [I
 
@@ -1753,13 +1823,13 @@
 
     new-array v0, v0, [[I
 
-    const v1, 0x7f020637
+    const v1, 0x7f020639
 
-    const v2, 0x7f020637
+    const v2, 0x7f020639
 
-    const v3, 0x7f020637
+    const v3, 0x7f020639
 
-    const v4, 0x7f020637
+    const v4, 0x7f020639
 
     filled-new-array {v1, v2, v3, v4}, [I
 
@@ -1769,13 +1839,13 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f020637
+    const v1, 0x7f020639
 
-    const v2, 0x7f020637
+    const v2, 0x7f020639
 
-    const v3, 0x7f020637
+    const v3, 0x7f020639
 
-    const v4, 0x7f020637
+    const v4, 0x7f020639
 
     filled-new-array {v1, v2, v3, v4}, [I
 
@@ -1791,13 +1861,13 @@
 
     new-array v0, v0, [[I
 
-    const v1, 0x7f020639
+    const v1, 0x7f02063b
 
-    const v2, 0x7f020639
+    const v2, 0x7f02063b
 
-    const v3, 0x7f020639
+    const v3, 0x7f02063b
 
-    const v4, 0x7f020639
+    const v4, 0x7f02063b
 
     filled-new-array {v1, v2, v3, v4}, [I
 
@@ -1807,13 +1877,13 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f020639
+    const v1, 0x7f02063b
 
-    const v2, 0x7f020639
+    const v2, 0x7f02063b
 
-    const v3, 0x7f020639
+    const v3, 0x7f02063b
 
-    const v4, 0x7f020639
+    const v4, 0x7f02063b
 
     filled-new-array {v1, v2, v3, v4}, [I
 
@@ -1829,13 +1899,13 @@
 
     new-array v0, v0, [[I
 
-    const v1, 0x7f020627
+    const v1, 0x7f020629
 
-    const v2, 0x7f020627
+    const v2, 0x7f020629
 
-    const v3, 0x7f020627
+    const v3, 0x7f020629
 
-    const v4, 0x7f020627
+    const v4, 0x7f020629
 
     filled-new-array {v1, v2, v3, v4}, [I
 
@@ -1845,13 +1915,13 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f020627
+    const v1, 0x7f020629
 
-    const v2, 0x7f020627
+    const v2, 0x7f020629
 
-    const v3, 0x7f020627
+    const v3, 0x7f020629
 
-    const v4, 0x7f020627
+    const v4, 0x7f020629
 
     filled-new-array {v1, v2, v3, v4}, [I
 
@@ -1867,13 +1937,13 @@
 
     new-array v0, v0, [[I
 
-    const v1, 0x7f02062f
+    const v1, 0x7f020631
 
-    const v2, 0x7f02062f
+    const v2, 0x7f020631
 
-    const v3, 0x7f02062f
+    const v3, 0x7f020631
 
-    const v4, 0x7f02062f
+    const v4, 0x7f020631
 
     filled-new-array {v1, v2, v3, v4}, [I
 
@@ -1883,13 +1953,13 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f02062f
+    const v1, 0x7f020631
 
-    const v2, 0x7f02062f
+    const v2, 0x7f020631
 
-    const v3, 0x7f02062f
+    const v3, 0x7f020631
 
-    const v4, 0x7f02062f
+    const v4, 0x7f020631
 
     filled-new-array {v1, v2, v3, v4}, [I
 
@@ -1905,13 +1975,13 @@
 
     new-array v0, v0, [[I
 
-    const v1, 0x7f020632
+    const v1, 0x7f020634
 
-    const v2, 0x7f020632
+    const v2, 0x7f020634
 
-    const v3, 0x7f020632
+    const v3, 0x7f020634
 
-    const v4, 0x7f020632
+    const v4, 0x7f020634
 
     filled-new-array {v1, v2, v3, v4}, [I
 
@@ -1921,13 +1991,13 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f020632
+    const v1, 0x7f020634
 
-    const v2, 0x7f020632
+    const v2, 0x7f020634
 
-    const v3, 0x7f020632
+    const v3, 0x7f020634
 
-    const v4, 0x7f020632
+    const v4, 0x7f020634
 
     filled-new-array {v1, v2, v3, v4}, [I
 
@@ -1943,13 +2013,13 @@
 
     new-array v0, v0, [[I
 
-    const v1, 0x7f02063b
+    const v1, 0x7f02063d
 
-    const v2, 0x7f02063b
+    const v2, 0x7f02063d
 
-    const v3, 0x7f02063b
+    const v3, 0x7f02063d
 
-    const v4, 0x7f02063b
+    const v4, 0x7f02063d
 
     filled-new-array {v1, v2, v3, v4}, [I
 
@@ -1959,13 +2029,13 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f02063b
+    const v1, 0x7f02063d
 
-    const v2, 0x7f02063b
+    const v2, 0x7f02063d
 
-    const v3, 0x7f02063b
+    const v3, 0x7f02063d
 
-    const v4, 0x7f02063b
+    const v4, 0x7f02063d
 
     filled-new-array {v1, v2, v3, v4}, [I
 
@@ -1997,7 +2067,7 @@
 
     const/4 v6, 0x0
 
-    const v7, 0x7f0206a9
+    const v7, 0x7f0206ab
 
     const v8, 0x7f020207
 
@@ -2043,13 +2113,13 @@
 
     const v10, 0x7f0f0353
 
-    const v11, 0x7f02062a
+    const v11, 0x7f02062c
 
     const/4 v12, 0x1
 
     const v13, 0x7f020202
 
-    const v14, 0x7f02066b
+    const v14, 0x7f02066d
 
     invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIIIZII)V
 
@@ -2131,7 +2201,7 @@
 
     const/4 v13, 0x0
 
-    const v14, 0x7f020678
+    const v14, 0x7f02067a
 
     invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIIIZII)V
 
@@ -2167,13 +2237,13 @@
 
     const v10, 0x7f0f035a
 
-    const v11, 0x7f020637
+    const v11, 0x7f020639
 
     const/4 v12, 0x0
 
     const v13, 0x7f020209
 
-    const v14, 0x7f020671
+    const v14, 0x7f020673
 
     invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIIIZII)V
 
@@ -2209,13 +2279,13 @@
 
     const v10, 0x7f0f0358
 
-    const v11, 0x7f020627
+    const v11, 0x7f020629
 
     const/4 v12, 0x1
 
     const v13, 0x7f0201ff
 
-    const v14, 0x7f020669
+    const v14, 0x7f02066b
 
     invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIIIZII)V
 
@@ -2251,13 +2321,13 @@
 
     const v10, 0x7f0f0350
 
-    const v11, 0x7f020638
+    const v11, 0x7f02063a
 
     const/4 v12, 0x0
 
     const v13, 0x7f02020f
 
-    const v14, 0x7f020672
+    const v14, 0x7f020674
 
     invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIIIZII)V
 
@@ -2293,13 +2363,13 @@
 
     const v10, 0x7f0f0354
 
-    const v11, 0x7f020639
+    const v11, 0x7f02063b
 
     const/4 v12, 0x0
 
     const v13, 0x7f020210
 
-    const v14, 0x7f020673
+    const v14, 0x7f020675
 
     invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIIIZII)V
 
@@ -2335,13 +2405,13 @@
 
     const v10, 0x7f0f0355
 
-    const v11, 0x7f02062f
+    const v11, 0x7f020631
 
     const/4 v12, 0x1
 
     const v13, 0x7f020204
 
-    const v14, 0x7f02066e
+    const v14, 0x7f020670
 
     invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIIIZII)V
 
@@ -2377,13 +2447,13 @@
 
     const v10, 0x7f0f0356
 
-    const v11, 0x7f020632
+    const v11, 0x7f020634
 
     const/4 v12, 0x1
 
     const v13, 0x7f020205
 
-    const v14, 0x7f02066f
+    const v14, 0x7f020671
 
     invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIIIZII)V
 
@@ -2419,13 +2489,13 @@
 
     const v10, 0x7f0f0357
 
-    const v11, 0x7f02063b
+    const v11, 0x7f02063d
 
     const/4 v12, 0x1
 
     const v13, 0x7f020212
 
-    const v14, 0x7f020675
+    const v14, 0x7f020677
 
     invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIIIZII)V
 
@@ -2457,7 +2527,7 @@
 
     const v10, 0x7f0f0359
 
-    const v11, 0x7f020641
+    const v11, 0x7f020643
 
     const/4 v12, 0x0
 
@@ -2493,7 +2563,7 @@
 
     const v10, 0x7f0f035f
 
-    const v11, 0x7f020616
+    const v11, 0x7f020618
 
     const/4 v12, 0x0
 
@@ -2533,13 +2603,13 @@
 
     const v10, 0x7f0f0354
 
-    const v11, 0x7f02063a
+    const v11, 0x7f02063c
 
     const/4 v12, 0x0
 
     const v13, 0x7f020210
 
-    const v14, 0x7f020674
+    const v14, 0x7f020676
 
     invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIIIZII)V
 
@@ -2575,13 +2645,13 @@
 
     const v10, 0x7f0f0354
 
-    const v11, 0x7f020636
+    const v11, 0x7f020638
 
     const/4 v12, 0x0
 
     const v13, 0x7f020210
 
-    const v14, 0x7f020670
+    const v14, 0x7f020672
 
     invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIIIZII)V
 
@@ -2617,13 +2687,13 @@
 
     const v10, 0x7f0f0357
 
-    const v11, 0x7f020603
+    const v11, 0x7f020605
 
     const/4 v12, 0x0
 
     const v13, 0x7f020210
 
-    const v14, 0x7f020642
+    const v14, 0x7f020644
 
     invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIIIZII)V
 
@@ -2659,13 +2729,13 @@
 
     const v10, 0x7f0f0355
 
-    const v11, 0x7f020630
+    const v11, 0x7f020632
 
     const/4 v12, 0x0
 
     const v13, 0x7f020210
 
-    const v14, 0x7f02066e
+    const v14, 0x7f020670
 
     invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIIIZII)V
 
@@ -2701,13 +2771,13 @@
 
     const v10, 0x7f0f0357
 
-    const v11, 0x7f02063c
+    const v11, 0x7f02063e
 
     const/4 v12, 0x0
 
     const v13, 0x7f020210
 
-    const v14, 0x7f020675
+    const v14, 0x7f020677
 
     invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIIIZII)V
 
@@ -2743,13 +2813,13 @@
 
     const v10, 0x7f0f0353
 
-    const v11, 0x7f02062d
+    const v11, 0x7f02062f
 
     const/4 v12, 0x0
 
     const v13, 0x7f020210
 
-    const v14, 0x7f02066b
+    const v14, 0x7f02066d
 
     invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIIIZII)V
 
@@ -2785,13 +2855,13 @@
 
     const v10, 0x7f0f0355
 
-    const v11, 0x7f020633
+    const v11, 0x7f020635
 
     const/4 v12, 0x0
 
     const v13, 0x7f020210
 
-    const v14, 0x7f02066e
+    const v14, 0x7f020670
 
     invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIIIZII)V
 
@@ -2827,13 +2897,13 @@
 
     const v10, 0x7f0f0357
 
-    const v11, 0x7f020640
+    const v11, 0x7f020642
 
     const/4 v12, 0x0
 
     const v13, 0x7f020210
 
-    const v14, 0x7f020675
+    const v14, 0x7f020677
 
     invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIIIZII)V
 
@@ -2869,13 +2939,13 @@
 
     const v10, 0x7f0f0355
 
-    const v11, 0x7f020635
+    const v11, 0x7f020637
 
     const/4 v12, 0x0
 
     const v13, 0x7f020210
 
-    const v14, 0x7f02066e
+    const v14, 0x7f020670
 
     invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIIIZII)V
 
@@ -2911,13 +2981,13 @@
 
     const v10, 0x7f0f0355
 
-    const v11, 0x7f020634
+    const v11, 0x7f020636
 
     const/4 v12, 0x0
 
     const v13, 0x7f020210
 
-    const v14, 0x7f02066e
+    const v14, 0x7f020670
 
     invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIIIZII)V
 
@@ -2953,13 +3023,13 @@
 
     const v10, 0x7f0f0353
 
-    const v11, 0x7f02062c
+    const v11, 0x7f02062e
 
     const/4 v12, 0x0
 
     const v13, 0x7f020210
 
-    const v14, 0x7f02066c
+    const v14, 0x7f02066e
 
     invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIIIZII)V
 
@@ -2995,13 +3065,13 @@
 
     const v10, 0x7f0f0358
 
-    const v11, 0x7f020628
+    const v11, 0x7f02062a
 
     const/4 v12, 0x0
 
     const v13, 0x7f020210
 
-    const v14, 0x7f020669
+    const v14, 0x7f02066b
 
     invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIIIZII)V
 
@@ -3037,13 +3107,13 @@
 
     const v10, 0x7f0f0355
 
-    const v11, 0x7f020631
+    const v11, 0x7f020633
 
     const/4 v12, 0x0
 
     const v13, 0x7f020210
 
-    const v14, 0x7f02066e
+    const v14, 0x7f020670
 
     invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIIIZII)V
 
@@ -3079,13 +3149,13 @@
 
     const v10, 0x7f0f0357
 
-    const v11, 0x7f02063e
+    const v11, 0x7f020640
 
     const/4 v12, 0x1
 
     const v13, 0x7f020212
 
-    const v14, 0x7f020677
+    const v14, 0x7f020679
 
     invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIIIZII)V
 
@@ -3117,13 +3187,13 @@
 
     const v10, 0x7f0f0350
 
-    const v11, 0x7f020629
+    const v11, 0x7f02062b
 
     const/4 v12, 0x0
 
     const v13, 0x7f02020f
 
-    const v14, 0x7f020672
+    const v14, 0x7f020674
 
     invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIIIZII)V
 
@@ -3155,13 +3225,13 @@
 
     const v10, 0x7f0f0353
 
-    const v11, 0x7f02062b
+    const v11, 0x7f02062d
 
     const/4 v12, 0x0
 
     const v13, 0x7f020210
 
-    const v14, 0x7f02066b
+    const v14, 0x7f02066d
 
     invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIIIZII)V
 
@@ -3193,13 +3263,13 @@
 
     const v10, 0x7f0f0357
 
-    const v11, 0x7f02063d
+    const v11, 0x7f02063f
 
     const/4 v12, 0x0
 
     const v13, 0x7f020212
 
-    const v14, 0x7f020675
+    const v14, 0x7f020677
 
     invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIIIZII)V
 
@@ -3231,13 +3301,13 @@
 
     const v10, 0x7f0f0357
 
-    const v11, 0x7f02063f
+    const v11, 0x7f020641
 
     const/4 v12, 0x1
 
     const v13, 0x7f020212
 
-    const v14, 0x7f020677
+    const v14, 0x7f020679
 
     invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIIIZII)V
 
@@ -3273,25 +3343,25 @@
 
     const v10, 0x7f0f0355
 
-    const v11, 0x7f02062e
+    const v11, 0x7f020630
 
     const/4 v12, 0x1
 
     const v13, 0x7f020204
 
-    const v14, 0x7f02066d
+    const v14, 0x7f02066f
 
     invoke-direct/range {v0 .. v14}, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileIconGroup;-><init>(Ljava/lang/String;[[I[[I[IIIIIIIIZII)V
 
     sput-object v0, Lcom/android/systemui/statusbar/policy/TelephonyIcons;->FOUR_HALF_G:Lcom/android/systemui/statusbar/policy/MobileSignalController$MobileIconGroup;
 
-    const v0, 0x7f020719
+    const v0, 0x7f02071b
 
-    const v1, 0x7f02070b
+    const v1, 0x7f02070d
 
-    const v2, 0x7f020720
+    const v2, 0x7f020722
 
-    const v3, 0x7f020713
+    const v3, 0x7f020715
 
     filled-new-array {v0, v1, v2, v3}, [I
 
@@ -3301,17 +3371,31 @@
 
     const/4 v0, 0x0
 
-    const v1, 0x7f02070c
+    const v1, 0x7f02070e
 
-    const v2, 0x7f020721
+    const v2, 0x7f020723
 
-    const v3, 0x7f020714
+    const v3, 0x7f020716
 
     filled-new-array {v0, v1, v2, v3}, [I
 
     move-result-object v0
 
     sput-object v0, Lcom/android/systemui/statusbar/policy/TelephonyIcons;->DATA_ACTIVITY_ATT:[I
+
+    const v0, 0x7f02071e
+
+    const v1, 0x7f020714
+
+    const v2, 0x7f020729
+
+    const v3, 0x7f020719
+
+    filled-new-array {v0, v1, v2, v3}, [I
+
+    move-result-object v0
+
+    sput-object v0, Lcom/android/systemui/statusbar/policy/TelephonyIcons;->DATA_ACTIVITY_TMO:[I
 
     const v0, 0x7f02071c
 
@@ -3325,29 +3409,15 @@
 
     move-result-object v0
 
-    sput-object v0, Lcom/android/systemui/statusbar/policy/TelephonyIcons;->DATA_ACTIVITY_TMO:[I
-
-    const v0, 0x7f02071a
-
-    const v1, 0x7f020710
-
-    const v2, 0x7f020725
-
-    const v3, 0x7f020715
-
-    filled-new-array {v0, v1, v2, v3}, [I
-
-    move-result-object v0
-
     sput-object v0, Lcom/android/systemui/statusbar/policy/TelephonyIcons;->DATA_ACTIVITY_LTE_PLUS:[I
 
-    const v0, 0x7f02071b
+    const v0, 0x7f02071d
 
-    const v1, 0x7f020711
+    const v1, 0x7f020713
 
-    const v2, 0x7f020726
+    const v2, 0x7f020728
 
-    const v3, 0x7f020716
+    const v3, 0x7f020718
 
     filled-new-array {v0, v1, v2, v3}, [I
 
@@ -3369,58 +3439,56 @@
 
     :array_0
     .array-data 4
-        0x7f02069d
         0x7f02069f
         0x7f0206a1
         0x7f0206a3
         0x7f0206a5
         0x7f0206a7
+        0x7f0206a9
     .end array-data
 
     :array_1
     .array-data 4
-        0x7f02069d
         0x7f02069f
         0x7f0206a1
         0x7f0206a3
         0x7f0206a5
         0x7f0206a7
+        0x7f0206a9
     .end array-data
 
     :array_2
     .array-data 4
-        0x7f0206fd
         0x7f0206ff
         0x7f020701
         0x7f020703
         0x7f020705
         0x7f020707
+        0x7f020709
     .end array-data
 
     :array_3
     .array-data 4
-        0x7f0206fd
         0x7f0206ff
         0x7f020701
         0x7f020703
         0x7f020705
         0x7f020707
+        0x7f020709
     .end array-data
 
     :array_4
     .array-data 4
-        0x7f0206af
-        0x7f0206b0
         0x7f0206b1
         0x7f0206b2
         0x7f0206b3
         0x7f0206b4
+        0x7f0206b5
+        0x7f0206b6
     .end array-data
 
     :array_5
     .array-data 4
-        0x7f0206b5
-        0x7f0206b6
         0x7f0206b7
         0x7f0206b8
         0x7f0206b9
@@ -3444,12 +3512,12 @@
         0x7f0206cb
         0x7f0206cc
         0x7f0206cd
+        0x7f0206ce
+        0x7f0206cf
     .end array-data
 
     :array_6
     .array-data 4
-        0x7f0206ce
-        0x7f0206cf
         0x7f0206d0
         0x7f0206d1
         0x7f0206d2
@@ -3484,19 +3552,21 @@
         0x7f0206ef
         0x7f0206f0
         0x7f0206f1
+        0x7f0206f2
+        0x7f0206f3
     .end array-data
 
     :array_7
     .array-data 4
-        0x7f020680
-        0x7f020681
+        0x7f020682
         0x7f020683
-        0x7f020687
-        0x7f020687
-        0x7f020686
         0x7f020685
+        0x7f020689
+        0x7f020689
         0x7f020688
-        0x7f020684
+        0x7f020687
+        0x7f02068a
+        0x7f020686
     .end array-data
 .end method
 
@@ -3515,7 +3585,7 @@
 
     if-eqz v1, :cond_0
 
-    const v0, 0x7f020733
+    const v0, 0x7f020735
 
     :goto_0
     return v0
@@ -3531,7 +3601,7 @@
 
     if-eqz v1, :cond_1
 
-    const v0, 0x7f02071f
+    const v0, 0x7f020721
 
     goto :goto_0
 
@@ -3557,12 +3627,12 @@
     if-eqz v1, :cond_3
 
     :cond_2
-    const v0, 0x7f02071e
+    const v0, 0x7f020720
 
     goto :goto_0
 
     :cond_3
-    const v0, 0x7f02071d
+    const v0, 0x7f02071f
 
     goto :goto_0
 .end method
@@ -3623,12 +3693,12 @@
 
     if-ne v0, v1, :cond_0
 
-    const v0, 0x7f020708
+    const v0, 0x7f02070a
 
     return v0
 
     :cond_0
-    const v0, 0x7f020709
+    const v0, 0x7f02070b
 
     return v0
 .end method

@@ -176,7 +176,7 @@
 
     const-string/jumbo v4, "vowifi"
 
-    const v5, 0x7f02078b
+    const v5, 0x7f02078d
 
     invoke-virtual {v3, v4, v5, v6, v7}, Landroid/app/StatusBarManager;->setIcon(Ljava/lang/String;IILjava/lang/String;)V
 
@@ -1148,7 +1148,7 @@
 
     if-eqz v4, :cond_5
 
-    const v3, 0x7f020749
+    const v3, 0x7f02074b
 
     :goto_0
     const-string/jumbo v0, "VoWiFi Rove In"
@@ -1182,7 +1182,7 @@
     return-void
 
     :cond_5
-    const v3, 0x7f02078a
+    const v3, 0x7f02078c
 
     goto :goto_0
 
@@ -1208,7 +1208,7 @@
     :cond_7
     const/4 v2, 0x1
 
-    const v3, 0x7f02078b
+    const v3, 0x7f02078d
 
     const-string/jumbo v0, "VoWiFi Rove Out"
 

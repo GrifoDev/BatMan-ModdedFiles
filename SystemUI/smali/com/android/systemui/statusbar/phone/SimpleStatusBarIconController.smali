@@ -244,7 +244,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/SimpleStatusBarIconController;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0205e7
+    const v5, 0x7f0205e9
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

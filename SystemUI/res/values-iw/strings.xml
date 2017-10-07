@@ -1821,8 +1821,8 @@ Please note that in order to enable your emergency calls (e.g., such as 112 call
     <string name="force_immersive_guide_dialog_guide_path">"כדי להסתיר לחצן זה, עבור אל 'הגדרות' > 'תצוגה' > 'פס הניווט'."</string>
     <string name="force_immersive_guide_dialog_setting">הגדרות</string>
     <string name="force_immersive_guide_dialog_ok">אישור</string>
-    <string name="force_immersive_guide_toast_hide">הקש הקשה כפולה כדי להסתיר את סרגל הניווט.</string>
-    <string name="force_immersive_guide_toast_show">הקש הקשה כפולה כדי לנעול את סרגל הניווט.</string>
+    <string name="force_immersive_guide_toast_hide">הקש הקשה כפולה כדי להסתיר את פס הניווט.</string>
+    <string name="force_immersive_guide_toast_show">הקש הקשה כפולה כדי לנעול את פס הניווט.</string>
     <string name="car_lockscreen_disclaimer_title">נסיעה בטוחה</string>
     <string name="car_lockscreen_disclaimer_text">‏שמור על עירנות לתנאי הנסיעה וציית תמיד לכללים והחוקים. ייתכן שהמסלול לא מדויק, לא שלם, מסוכן, לא מתאים, אסור למעבר או כרוך בחציית אזורים מנהליים. ייתכן גם שחלק מהמידע העסקי לא מדויק או לא שלם. הנתונים אינם מדווחים בזמן אמת ולא ניתן להבטיח דיוק במיקום. אל תתעסק במכשיר הנייד ואל תשתמש באפליקציות שאינן מיועדות ל-Android Auto בזמן הנהיגה.</string>
     <string name="pip_close">‏סגור PIP</string>

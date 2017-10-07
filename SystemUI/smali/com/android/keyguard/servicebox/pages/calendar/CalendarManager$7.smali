@@ -32,29 +32,19 @@
 
 # virtual methods
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 3
+    .locals 2
 
-    invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
+    invoke-virtual {p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v0
 
-    const/4 v2, 0x5
+    const-string/jumbo v1, "com.sec.android.intent.CHANGE_SHARE"
 
-    invoke-virtual {v1, v2}, Ljava/util/Calendar;->get(I)I
-
-    move-result v0
-
-    iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$7;->this$0:Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;
-
-    invoke-static {v1}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->-get2(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;)I
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eq v1, v0, :cond_0
-
-    iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$7;->this$0:Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;
-
-    invoke-static {v1, v0}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->-set0(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;I)I
+    if-eqz v1, :cond_0
 
     iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$7;->this$0:Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;
 

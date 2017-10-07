@@ -1801,7 +1801,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0205fb
+    const v8, 0x7f0205fd
 
     const/4 v9, 0x0
 
@@ -2207,7 +2207,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0205fc
+    const v8, 0x7f0205fe
 
     const/4 v9, 0x0
 

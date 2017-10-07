@@ -6,6 +6,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$10;,
         Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$1;,
         Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$2;,
         Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$3;,
@@ -29,6 +30,8 @@
 
 # instance fields
 .field private mAlarmManager:Landroid/app/AlarmManager;
+
+.field private mBootUpDataReloadTryCnt:I
 
 .field private mCalendarChangeReceiver:Landroid/content/BroadcastReceiver;
 
@@ -86,6 +89,8 @@
 
 .field private mTimeTickReceiver:Landroid/content/BroadcastReceiver;
 
+.field private mUpdateCalendarRunnable:Ljava/lang/Runnable;
+
 
 # direct methods
 .method static synthetic -get0()[Landroid/net/Uri;
@@ -96,7 +101,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get1(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;)Landroid/content/Context;
+.method static synthetic -get1(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->mBootUpDataReloadTryCnt:I
+
+    return v0
+.end method
+
+.method static synthetic -get2(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;)Landroid/content/Context;
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->mContext:Landroid/content/Context;
@@ -104,7 +117,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get2(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;)I
+.method static synthetic -get3(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;)I
     .locals 1
 
     iget v0, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->mCurDayOfMonth:I
@@ -112,7 +125,7 @@
     return v0
 .end method
 
-.method static synthetic -get3(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;)Ljava/util/ArrayList;
+.method static synthetic -get4(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;)Ljava/util/ArrayList;
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->mDataList:Ljava/util/ArrayList;
@@ -120,7 +133,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get4(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;)Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$LoadEventListCompletedListener;
+.method static synthetic -get5(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;)Landroid/os/Handler;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->mHandler:Landroid/os/Handler;
+
+    return-object v0
+.end method
+
+.method static synthetic -get6(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;)Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$LoadEventListCompletedListener;
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->mLoadTodayEventsCompletedListener:Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$LoadEventListCompletedListener;
@@ -128,7 +149,23 @@
     return-object v0
 .end method
 
+.method static synthetic -get7(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;)Ljava/lang/Runnable;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->mUpdateCalendarRunnable:Ljava/lang/Runnable;
+
+    return-object v0
+.end method
+
 .method static synthetic -set0(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;I)I
+    .locals 0
+
+    iput p1, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->mBootUpDataReloadTryCnt:I
+
+    return p1
+.end method
+
+.method static synthetic -set1(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;I)I
     .locals 0
 
     iput p1, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->mCurDayOfMonth:I
@@ -136,7 +173,7 @@
     return p1
 .end method
 
-.method static synthetic -set1(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;Ljava/util/ArrayList;)Ljava/util/ArrayList;
+.method static synthetic -set2(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;Ljava/util/ArrayList;)Ljava/util/ArrayList;
     .locals 0
 
     iput-object p1, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->mDataList:Ljava/util/ArrayList;
@@ -144,7 +181,7 @@
     return-object p1
 .end method
 
-.method static synthetic -set2(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;Z)Z
+.method static synthetic -set3(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->mIs24HourMode:Z
@@ -265,6 +302,8 @@
 
     iput-boolean v3, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->mIsCalendarDataServiceBound:Z
 
+    iput v3, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->mBootUpDataReloadTryCnt:I
+
     new-instance v1, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$1;
 
     invoke-direct {v1, p0}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$1;-><init>(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;)V
@@ -275,6 +314,12 @@
 
     invoke-direct {v1, p0}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$2;-><init>(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;)V
 
+    iput-object v1, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->mUpdateCalendarRunnable:Ljava/lang/Runnable;
+
+    new-instance v1, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$3;
+
+    invoke-direct {v1, p0}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$3;-><init>(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;)V
+
     iput-object v1, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->mKeyguardUpdateCallback:Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
 
     new-instance v1, Landroid/os/Handler;
@@ -283,45 +328,45 @@
 
     iput-object v1, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->mHandler:Landroid/os/Handler;
 
-    new-instance v1, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$3;
-
-    invoke-direct {v1, p0}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$3;-><init>(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;)V
-
-    iput-object v1, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->mLoadTodayEventsRunnable:Ljava/lang/Runnable;
-
     new-instance v1, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$4;
 
     invoke-direct {v1, p0}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$4;-><init>(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;)V
 
-    iput-object v1, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->mLoadTodayEventsCompletedListener:Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$LoadEventListCompletedListener;
+    iput-object v1, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->mLoadTodayEventsRunnable:Ljava/lang/Runnable;
 
     new-instance v1, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$5;
 
     invoke-direct {v1, p0}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$5;-><init>(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;)V
 
-    iput-object v1, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->mCalendarChangeReceiver:Landroid/content/BroadcastReceiver;
+    iput-object v1, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->mLoadTodayEventsCompletedListener:Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$LoadEventListCompletedListener;
 
     new-instance v1, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$6;
 
     invoke-direct {v1, p0}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$6;-><init>(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;)V
 
-    iput-object v1, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->mCalendarSettingChangeReceiver:Landroid/content/BroadcastReceiver;
+    iput-object v1, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->mCalendarChangeReceiver:Landroid/content/BroadcastReceiver;
 
     new-instance v1, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$7;
 
     invoke-direct {v1, p0}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$7;-><init>(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;)V
 
-    iput-object v1, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->mTimeTickReceiver:Landroid/content/BroadcastReceiver;
+    iput-object v1, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->mCalendarSettingChangeReceiver:Landroid/content/BroadcastReceiver;
 
     new-instance v1, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$8;
 
     invoke-direct {v1, p0}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$8;-><init>(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;)V
 
-    iput-object v1, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->mSettingsListener:Lcom/android/keyguard/util/SettingsHelper$OnChangedCallback;
+    iput-object v1, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->mTimeTickReceiver:Landroid/content/BroadcastReceiver;
 
     new-instance v1, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$9;
 
     invoke-direct {v1, p0}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$9;-><init>(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;)V
+
+    iput-object v1, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->mSettingsListener:Lcom/android/keyguard/util/SettingsHelper$OnChangedCallback;
+
+    new-instance v1, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$10;
+
+    invoke-direct {v1, p0}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$10;-><init>(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;)V
 
     iput-object v1, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->mEventChangedListener:Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$EventChangedListener;
 
@@ -487,6 +532,15 @@
 
     move-result-object v11
 
+    if-nez v13, :cond_0
+
+    if-nez v11, :cond_0
+
+    const/4 v4, 0x0
+
+    return-object v4
+
+    :cond_0
     new-instance v15, Lcom/android/keyguard/servicebox/pages/calendar/CalendarDataContainer;
 
     invoke-direct {v15}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarDataContainer;-><init>()V
@@ -793,9 +847,9 @@
 
     invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
-    move-result-object v8
+    move-result-object v9
 
-    if-nez v8, :cond_0
+    if-nez v9, :cond_0
 
     const/4 v1, 0x0
 
@@ -805,25 +859,23 @@
     :try_start_0
     new-instance v1, Lcom/android/keyguard/servicebox/pages/calendar/CalendarDataContainer;
 
-    invoke-direct {v1, p1, v8}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarDataContainer;-><init>(ILandroid/database/Cursor;)V
+    invoke-direct {v1, p1, v9}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarDataContainer;-><init>(ILandroid/database/Cursor;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    invoke-interface {v8}, Landroid/database/Cursor;->close()V
+    invoke-interface {v9}, Landroid/database/Cursor;->close()V
 
     return-object v1
 
     :catchall_0
     move-exception v1
 
-    invoke-interface {v8}, Landroid/database/Cursor;->close()V
+    invoke-interface {v9}, Landroid/database/Cursor;->close()V
 
     throw v1
 
     :cond_1
     :try_start_1
-    new-instance v10, Lcom/android/keyguard/servicebox/pages/calendar/CalendarDataContainer;
-
     iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->mCalendarDataService:Lcom/android/keyguard/servicebox/pages/calendar/CalendarDataServiceWrapper;
 
     move v2, p1
@@ -840,18 +892,27 @@
 
     invoke-virtual/range {v1 .. v7}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarDataServiceWrapper;->getCalendarData(ILandroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Ljava/util/List;
 
-    move-result-object v1
+    move-result-object v8
 
-    invoke-direct {v10, v1}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarDataContainer;-><init>(Ljava/util/List;)V
+    if-nez v8, :cond_2
+
+    const/4 v1, 0x0
+
+    return-object v1
+
+    :cond_2
+    new-instance v1, Lcom/android/keyguard/servicebox/pages/calendar/CalendarDataContainer;
+
+    invoke-direct {v1, v8}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarDataContainer;-><init>(Ljava/util/List;)V
     :try_end_1
     .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
 
-    return-object v10
+    return-object v1
 
     :catch_0
-    move-exception v9
+    move-exception v10
 
-    invoke-virtual {v9}, Landroid/os/RemoteException;->printStackTrace()V
+    invoke-virtual {v10}, Landroid/os/RemoteException;->printStackTrace()V
 
     const/4 v1, 0x0
 
@@ -1093,9 +1154,9 @@
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->mHandler:Landroid/os/Handler;
 
-    new-instance v1, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$11;
+    new-instance v1, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$12;
 
-    invoke-direct {v1, p0}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$11;-><init>(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;)V
+    invoke-direct {v1, p0}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$12;-><init>(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
@@ -1394,13 +1455,13 @@
 
     move-result-wide v10
 
-    new-instance v4, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$10;
+    new-instance v4, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$11;
 
     move-object/from16 v5, p0
 
     move-object/from16 v12, p1
 
-    invoke-direct/range {v4 .. v12}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$10;-><init>(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;JJJLcom/android/keyguard/servicebox/pages/calendar/CalendarManager$LoadEventListCompletedListener;)V
+    invoke-direct/range {v4 .. v12}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$11;-><init>(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;JJJLcom/android/keyguard/servicebox/pages/calendar/CalendarManager$LoadEventListCompletedListener;)V
 
     sget-object v3, Landroid/os/AsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
 
@@ -1408,7 +1469,7 @@
 
     new-array v5, v5, [Ljava/lang/Void;
 
-    invoke-virtual {v4, v3, v5}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$10;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
+    invoke-virtual {v4, v3, v5}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$11;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
 
     move-result-object v13
 

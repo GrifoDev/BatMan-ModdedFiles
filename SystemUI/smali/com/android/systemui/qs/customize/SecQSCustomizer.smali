@@ -2360,7 +2360,7 @@
 
     if-eqz v0, :cond_3
 
-    const v2, 0x7f0205d2
+    const v2, 0x7f0205d4
 
     :goto_2
     invoke-virtual {v4, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -2410,7 +2410,7 @@
     goto :goto_3
 
     :cond_3
-    const v2, 0x7f0205d0
+    const v2, 0x7f0205d2
 
     goto :goto_2
 .end method

@@ -6,41 +6,41 @@
 # static fields
 .field public static final alarm_status:I = 0x7f13029d
 
-.field public static final analog_clock_lockscreen:I = 0x7f13054c
+.field public static final analog_clock_lockscreen:I = 0x7f0401bf
 
-.field public static final analog_clock_lockscreen1:I = 0x7f13054f
+.field public static final analog_clock_lockscreen1:I = 0x7f0401c0
 
-.field public static final analog_clock_lockscreen10:I = 0x7f130558
+.field public static final analog_clock_lockscreen10:I = 0x7f0401c1
 
-.field public static final analog_clock_lockscreen11:I = 0x7f130559
+.field public static final analog_clock_lockscreen11:I = 0x7f0401c2
 
-.field public static final analog_clock_lockscreen12:I = 0x7f13055f
+.field public static final analog_clock_lockscreen12:I = 0x7f0401c3
 
-.field public static final analog_clock_lockscreen13:I = 0x7f130560
+.field public static final analog_clock_lockscreen13:I = 0x7f0401c4
 
-.field public static final analog_clock_lockscreen14:I = 0x7f130561
+.field public static final analog_clock_lockscreen14:I = 0x7f0401c5
 
-.field public static final analog_clock_lockscreen15:I = 0x7f130562
+.field public static final analog_clock_lockscreen15:I = 0x7f0401c6
 
-.field public static final analog_clock_lockscreen16:I = 0x7f130563
+.field public static final analog_clock_lockscreen16:I = 0x7f0401c7
 
-.field public static final analog_clock_lockscreen17:I = 0x7f130564
+.field public static final analog_clock_lockscreen17:I = 0x7f0401c8
 
-.field public static final analog_clock_lockscreen2:I = 0x7f130550
+.field public static final analog_clock_lockscreen2:I = 0x7f0401c9
 
-.field public static final analog_clock_lockscreen3:I = 0x7f130551
+.field public static final analog_clock_lockscreen3:I = 0x7f0401ca
 
-.field public static final analog_clock_lockscreen4:I = 0x7f130552
+.field public static final analog_clock_lockscreen4:I = 0x7f0401cb
 
-.field public static final analog_clock_lockscreen5:I = 0x7f130553
+.field public static final analog_clock_lockscreen5:I = 0x7f0401cc
 
-.field public static final analog_clock_lockscreen6:I = 0x7f130554
+.field public static final analog_clock_lockscreen6:I = 0x7f0401cd
 
-.field public static final analog_clock_lockscreen7:I = 0x7f130555
+.field public static final analog_clock_lockscreen7:I = 0x7f0401ce
 
-.field public static final analog_clock_lockscreen8:I = 0x7f130556
+.field public static final analog_clock_lockscreen8:I = 0x7f0401cf
 
-.field public static final analog_clock_lockscreen9:I = 0x7f130557
+.field public static final analog_clock_lockscreen9:I = 0x7f0401d0
 
 .field public static final aod_captured_view:I = 0x7f130253
 
@@ -54,7 +54,7 @@
 
 .field public static final background_view:I = 0x7f13024d
 
-.field public static final barometr:I = 0x7f13054e
+.field public static final barometr:I = 0x7f130558
 
 .field public static final biometric_timeout_message:I = 0x7f13020d
 
@@ -296,9 +296,9 @@
 
 .field public static final keyguard_single_time_min_view:I = 0x7f13028c
 
-.field public static final keyguard_single_time_minute_view:I = 0x7f130549
+.field public static final keyguard_single_time_minute_view:I = 0x7f130553
 
-.field public static final keyguard_single_time_seconds_view:I = 0x7f13054a
+.field public static final keyguard_single_time_seconds_view:I = 0x7f130554
 
 .field public static final keyguard_single_time_set:I = 0x7f130289
 
@@ -328,9 +328,9 @@
 
 .field public static final lock_captured_view:I = 0x7f130254
 
-.field public static final lockweather:I = 0x7f13055a
+.field public static final lockweather:I = 0x7f130564
 
-.field public static final lockweather1:I = 0x7f13055b
+.field public static final lockweather1:I = 0x7f130565
 
 .field public static final login:I = 0x7f1301e0
 
@@ -344,7 +344,7 @@
 
 .field public static final password_entry_box:I = 0x7f130204
 
-.field public static final pedometr:I = 0x7f13054b
+.field public static final pedometr:I = 0x7f130555
 
 .field public static final pinEntry:I = 0x7f130268
 

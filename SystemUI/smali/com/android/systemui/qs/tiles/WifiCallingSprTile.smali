@@ -970,7 +970,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f020450
+    const v0, 0x7f020452
 
     invoke-static {v0}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -986,7 +986,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f02045a
+    const v0, 0x7f02045c
 
     invoke-static {v0}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 

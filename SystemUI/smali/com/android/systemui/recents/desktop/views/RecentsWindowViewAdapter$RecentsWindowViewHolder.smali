@@ -497,7 +497,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/recents/desktop/views/RecentsWindowViewAdapter$RecentsWindowViewHolder;->focusView:Landroid/view/View;
 
-    const v1, 0x7f0204b6
+    const v1, 0x7f0204b8
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 

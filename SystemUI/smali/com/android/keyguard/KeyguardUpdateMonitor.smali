@@ -15511,7 +15511,9 @@
 .end method
 
 .method public stopListeningForFingerprint()V
-    .locals 2
+    .locals 3
+
+    const/4 v2, 0x0
 
     const-string/jumbo v0, "KeyguardFingerPrint"
 
@@ -15519,19 +15521,15 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    iget v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFingerprintRunningState:I
+    iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFingerprintCancelSignal:Landroid/os/CancellationSignal;
 
-    const/4 v1, 0x1
-
-    if-ne v0, v1, :cond_0
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFingerprintCancelSignal:Landroid/os/CancellationSignal;
 
     invoke-virtual {v0}, Landroid/os/CancellationSignal;->cancel()V
 
-    const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFingerprintCancelSignal:Landroid/os/CancellationSignal;
+    iput-object v2, p0, Lcom/android/keyguard/KeyguardUpdateMonitor;->mFingerprintCancelSignal:Landroid/os/CancellationSignal;
 
     const/4 v0, 0x0
 

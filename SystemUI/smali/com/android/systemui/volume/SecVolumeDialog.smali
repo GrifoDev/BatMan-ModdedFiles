@@ -3827,9 +3827,9 @@
 
     const/16 v0, 0xa
 
-    const v1, 0x7f0207a8
+    const v1, 0x7f0207aa
 
-    const v2, 0x7f0207aa
+    const v2, 0x7f0207ac
 
     invoke-direct {p0, v0, v1, v2, v10}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
 
@@ -3837,17 +3837,17 @@
 
     invoke-direct {p0, v0, v13, v12, v10}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
 
-    const v0, 0x7f0207b0
+    const v0, 0x7f0207b2
 
-    const v1, 0x7f0207ac
+    const v1, 0x7f0207ae
 
     invoke-direct {p0, v14, v0, v1, v11}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow_lockscreen(IIIZ)V
 
     const/16 v0, 0xb
 
-    const v1, 0x7f0207b0
+    const v1, 0x7f0207b2
 
-    const v2, 0x7f0207ac
+    const v2, 0x7f0207ae
 
     invoke-direct {p0, v0, v1, v2, v11}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow_lockscreen(IIIZ)V
 
@@ -4024,9 +4024,9 @@
 
     const/16 v0, 0xa
 
-    const v1, 0x7f0207a8
+    const v1, 0x7f0207aa
 
-    const v2, 0x7f0207aa
+    const v2, 0x7f0207ac
 
     invoke-direct {p0, v0, v1, v2, v10}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
 
@@ -4034,17 +4034,17 @@
 
     invoke-direct {p0, v0, v13, v12, v10}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow(IIIZ)V
 
-    const v0, 0x7f0207b0
+    const v0, 0x7f0207b2
 
-    const v1, 0x7f0207ac
+    const v1, 0x7f0207ae
 
     invoke-direct {p0, v14, v0, v1, v11}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow_lockscreen(IIIZ)V
 
     const/16 v0, 0xb
 
-    const v1, 0x7f0207b0
+    const v1, 0x7f0207b2
 
-    const v2, 0x7f0207ac
+    const v2, 0x7f0207ae
 
     invoke-direct {p0, v0, v1, v2, v11}, Lcom/android/systemui/volume/SecVolumeDialog;->addRow_lockscreen(IIIZ)V
 

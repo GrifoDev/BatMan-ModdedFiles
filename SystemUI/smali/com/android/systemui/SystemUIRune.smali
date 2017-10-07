@@ -16,6 +16,8 @@
 
 .field public static final DISPLAY_4G_PLUS_INSTEAD_OF_4G_ICON:Z
 
+.field public static final DISPLAY_4_HALF_G_INSTEAD_OF_4G_PLUS:Z
+
 .field public static final DISPLAY_LTE_INSTEAD_OF_4G_ICON:Z
 
 .field public static final DISPLAY_NETWORK_BOOSTER_ICON_AS_SIMPLE_TYPE:Z
@@ -932,6 +934,16 @@
 
     :goto_8
     sput-boolean v0, Lcom/android/systemui/SystemUIRune;->SUPPORT_LTE_WIDE_BAND:Z
+
+    const-string/jumbo v0, "THR"
+
+    sget-object v3, Lcom/android/systemui/SystemUIRune;->STATUSBAR_ICON_BRANDING:Ljava/lang/String;
+
+    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/systemui/SystemUIRune;->DISPLAY_4_HALF_G_INSTEAD_OF_4G_PLUS:Z
 
     const-string/jumbo v0, "KTT"
 

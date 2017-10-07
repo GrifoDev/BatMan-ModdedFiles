@@ -1780,7 +1780,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f020452
+    const v0, 0x7f020454
 
     invoke-static {v0}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -1820,7 +1820,7 @@
 
     if-eqz v0, :cond_2
 
-    const v0, 0x7f0203f5
+    const v0, 0x7f0203f7
 
     invoke-static {v0}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -1835,7 +1835,7 @@
 
     if-eqz v0, :cond_3
 
-    const v0, 0x7f020459
+    const v0, 0x7f02045b
 
     invoke-static {v0}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -1846,7 +1846,7 @@
     goto :goto_1
 
     :cond_3
-    const v0, 0x7f02045a
+    const v0, 0x7f02045c
 
     invoke-static {v0}, Lcom/android/systemui/qs/QSTile$ResourceIcon;->get(I)Lcom/android/systemui/qs/QSTile$Icon;
 
@@ -1937,12 +1937,12 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4
 
     :cond_2
     sget-boolean v3, Lcom/android/systemui/SystemUIRune;->SUPPORT_QS_WFC_REFRESH_BY_SIM:Z
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_8
 
     invoke-direct {p0}, Lcom/android/systemui/qs/tiles/WifiCallingTile;->getOperatorNumeric()Ljava/lang/String;
 
@@ -1950,9 +1950,9 @@
 
     sget-boolean v3, Lcom/android/systemui/SystemUIRune;->IS_SER_POPUP:Z
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_5
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
     const-string/jumbo v3, "25001"
 
@@ -1960,19 +1960,28 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-nez v3, :cond_3
 
-    return v6
+    const-string/jumbo v3, "25002"
+
+    invoke-virtual {v3, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_5
 
     :cond_3
-    return v5
+    return v6
 
     :cond_4
+    return v5
+
+    :cond_5
     sget-boolean v3, Lcom/android/systemui/SystemUIRune;->IS_XSA_POPUP:Z
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_7
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_7
 
     const-string/jumbo v3, "50501"
 
@@ -1980,7 +1989,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_5
+    if-nez v3, :cond_6
 
     const-string/jumbo v3, "50502"
 
@@ -1988,15 +1997,15 @@
 
     move-result v3
 
-    if-eqz v3, :cond_6
-
-    :cond_5
-    return v6
+    if-eqz v3, :cond_7
 
     :cond_6
-    return v5
+    return v6
 
     :cond_7
+    return v5
+
+    :cond_8
     sget-boolean v3, Lcom/android/systemui/SystemUIRune;->SUPPORT_QS_WIFICALLING:Z
 
     return v3

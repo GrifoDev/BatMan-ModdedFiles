@@ -1,9 +1,6 @@
 .class Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$8;
-.super Ljava/lang/Object;
+.super Landroid/content/BroadcastReceiver;
 .source "CalendarManager.java"
-
-# interfaces
-.implements Lcom/android/keyguard/util/SettingsHelper$OnChangedCallback;
 
 
 # annotations
@@ -27,51 +24,41 @@
 
     iput-object p1, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$8;->this$0:Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/content/BroadcastReceiver;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onChanged(Landroid/net/Uri;)V
-    .locals 2
+.method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
+    .locals 3
 
-    invoke-static {}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->-get0()[Landroid/net/Uri;
+    invoke-static {}, Ljava/util/Calendar;->getInstance()Ljava/util/Calendar;
 
-    move-result-object v0
+    move-result-object v1
 
-    const/4 v1, 0x0
+    const/4 v2, 0x5
 
-    aget-object v0, v0, v1
-
-    invoke-virtual {p1, v0}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/util/Calendar;->get(I)I
 
     move-result v0
 
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$8;->this$0:Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;
-
     iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$8;->this$0:Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;
 
-    invoke-static {v1}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->-get1(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;)Landroid/content/Context;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/keyguard/util/SettingsHelper;->is24HourModeEnabled()Z
+    invoke-static {v1}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->-get3(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;)I
 
     move-result v1
 
-    invoke-static {v0, v1}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->-set2(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;Z)Z
+    if-eq v1, v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$8;->this$0:Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;
+    iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$8;->this$0:Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;
 
-    invoke-virtual {v0}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->notifyEventChanged()V
+    invoke-static {v1, v0}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->-set1(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;I)I
+
+    iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$8;->this$0:Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;
+
+    invoke-static {v1}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->-wrap3(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;)V
 
     :cond_0
     return-void

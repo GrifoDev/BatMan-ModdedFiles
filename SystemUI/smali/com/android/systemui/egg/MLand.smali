@@ -3173,7 +3173,7 @@
 
     invoke-direct {v0, v1, v2}, Lcom/android/systemui/egg/MLand$Star;-><init>(Lcom/android/systemui/egg/MLand;Landroid/content/Context;)V
 
-    const v25, 0x7f020785
+    const v25, 0x7f020787
 
     move-object/from16 v0, v22
 

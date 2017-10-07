@@ -3,7 +3,7 @@
 .source "CalendarManager.java"
 
 # interfaces
-.implements Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$EventChangedListener;
+.implements Lcom/android/keyguard/util/SettingsHelper$OnChangedCallback;
 
 
 # annotations
@@ -34,21 +34,45 @@
 
 
 # virtual methods
-.method public onChanged(Ljava/util/ArrayList;)V
-    .locals 1
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Ljava/util/ArrayList",
-            "<",
-            "Lcom/android/keyguard/servicebox/pages/calendar/CalendarData;",
-            ">;)V"
-        }
-    .end annotation
+.method public onChanged(Landroid/net/Uri;)V
+    .locals 2
+
+    invoke-static {}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->-get0()[Landroid/net/Uri;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    aget-object v0, v0, v1
+
+    invoke-virtual {p1, v0}, Landroid/net/Uri;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$9;->this$0:Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;
 
-    invoke-static {v0}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->-wrap6(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;)V
+    iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$9;->this$0:Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;
 
+    invoke-static {v1}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->-get2(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;)Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/keyguard/util/SettingsHelper;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/util/SettingsHelper;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/keyguard/util/SettingsHelper;->is24HourModeEnabled()Z
+
+    move-result v1
+
+    invoke-static {v0, v1}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->-set3(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;Z)Z
+
+    iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$9;->this$0:Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;
+
+    invoke-virtual {v0}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->notifyEventChanged()V
+
+    :cond_0
     return-void
 .end method

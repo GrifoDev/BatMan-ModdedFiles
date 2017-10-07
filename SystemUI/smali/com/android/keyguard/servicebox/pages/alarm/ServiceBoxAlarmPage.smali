@@ -556,7 +556,7 @@
 
 # virtual methods
 .method protected getContentsView(I)Landroid/view/View;
-    .locals 3
+    .locals 4
 
     sget v0, Lcom/android/keyguard/R$layout;->servicebox_alarm_page_small:I
 
@@ -565,9 +565,15 @@
     :goto_0
     iget-object v1, p0, Lcom/android/keyguard/servicebox/pages/alarm/ServiceBoxAlarmPage;->mContext:Landroid/content/Context;
 
-    const/4 v2, 0x0
+    invoke-static {v1}, Landroid/view/LayoutInflater;->from(Landroid/content/Context;)Landroid/view/LayoutInflater;
 
-    invoke-static {v1, v0, v2}, Landroid/view/View;->inflate(Landroid/content/Context;ILandroid/view/ViewGroup;)Landroid/view/View;
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/keyguard/servicebox/pages/alarm/ServiceBoxAlarmPage;->mAlarmHolder:Landroid/widget/FrameLayout;
+
+    const/4 v3, 0x0
+
+    invoke-virtual {v1, v0, v2, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v1
 

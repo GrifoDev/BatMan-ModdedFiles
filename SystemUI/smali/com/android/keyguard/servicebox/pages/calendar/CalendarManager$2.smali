@@ -1,6 +1,9 @@
 .class Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$2;
-.super Lcom/android/keyguard/KeyguardUpdateMonitorCallback;
+.super Ljava/lang/Object;
 .source "CalendarManager.java"
+
+# interfaces
+.implements Ljava/lang/Runnable;
 
 
 # annotations
@@ -24,19 +27,19 @@
 
     iput-object p1, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$2;->this$0:Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;
 
-    invoke-direct {p0}, Lcom/android/keyguard/KeyguardUpdateMonitorCallback;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onUserSwitchComplete(I)V
+.method public run()V
     .locals 1
 
     iget-object v0, p0, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager$2;->this$0:Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;
 
-    invoke-virtual {v0, p1}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->controlCalendarDataServiceConnection(I)V
+    invoke-static {v0}, Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;->-wrap3(Lcom/android/keyguard/servicebox/pages/calendar/CalendarManager;)V
 
     return-void
 .end method

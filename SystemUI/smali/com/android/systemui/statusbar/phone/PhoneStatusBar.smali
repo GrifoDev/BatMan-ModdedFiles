@@ -3557,7 +3557,7 @@
 .end method
 
 .method private dismissKeyguardForCover(Z)Z
-    .locals 2
+    .locals 3
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mStatusBarKeyguardViewManager:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
 
@@ -3591,17 +3591,17 @@
 
     if-eqz v1, :cond_0
 
-    sget-boolean v1, Lcom/android/keyguard/KeyguardRune;->SUPPORT_ATT_LOCK_TIMEOUT:Z
-
-    if-eqz v1, :cond_2
-
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mContext:Landroid/content/Context;
 
     invoke-static {v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
 
     move-result-object v1
 
-    invoke-virtual {v1}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getSwipeLockBeforeTimeout()Z
+    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getUserCanSkipBouncer(I)Z
 
     move-result v1
 
@@ -4906,53 +4906,21 @@
 .end method
 
 .method private static isSIMandOperatorMatched()Z
-    .locals 11
+    .locals 10
 
-    const/4 v10, 0x1
+    const/4 v9, 0x1
 
-    const/4 v9, 0x3
+    const/4 v8, 0x3
 
-    const/4 v8, 0x0
+    const/4 v7, 0x0
 
-    invoke-static {v8}, Lcom/android/systemui/statusbar/DeviceState;->getOperatorNumeric(I)Ljava/lang/String;
+    invoke-static {v7}, Lcom/android/systemui/statusbar/DeviceState;->getOperatorNumeric(I)Ljava/lang/String;
 
     move-result-object v4
 
-    invoke-static {v8}, Lcom/android/systemui/statusbar/DeviceState;->getNetworkCurrentLocation(I)Ljava/lang/String;
+    invoke-static {v7}, Lcom/android/systemui/statusbar/DeviceState;->getNetworkCurrentLocation(I)Ljava/lang/String;
 
     move-result-object v0
-
-    const-string/jumbo v5, "PhoneStatusBar"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v7, "isSIMandOperatorMatched  simNumeric = "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    const-string/jumbo v7, " currentLocation = "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     const-string/jumbo v5, "ORANGE"
 
@@ -4981,7 +4949,7 @@
     if-eqz v5, :cond_9
 
     :cond_0
-    invoke-static {v8}, Lcom/android/systemui/statusbar/DeviceState;->getNetworkOperatorNumeric(I)Ljava/lang/String;
+    invoke-static {v7}, Lcom/android/systemui/statusbar/DeviceState;->getNetworkOperatorNumeric(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -4997,11 +4965,11 @@
 
     if-eqz v5, :cond_9
 
-    invoke-virtual {v4, v8, v9}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {v4, v7, v8}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {v2, v8, v9}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {v2, v7, v8}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v1
 
@@ -5011,10 +4979,10 @@
 
     if-eqz v5, :cond_1
 
-    return v10
+    return v9
 
     :cond_1
-    return v8
+    return v7
 
     :cond_2
     const-string/jumbo v5, "SIN"
@@ -5044,7 +5012,7 @@
     if-eqz v5, :cond_9
 
     :cond_3
-    invoke-static {v8}, Lcom/android/systemui/statusbar/DeviceState;->getNetworkOperatorNumeric(I)Ljava/lang/String;
+    invoke-static {v7}, Lcom/android/systemui/statusbar/DeviceState;->getNetworkOperatorNumeric(I)Ljava/lang/String;
 
     move-result-object v2
 
@@ -5060,11 +5028,11 @@
 
     if-eqz v5, :cond_9
 
-    invoke-virtual {v4, v8, v9}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {v4, v7, v8}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v3
 
-    invoke-virtual {v2, v8, v9}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    invoke-virtual {v2, v7, v8}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
     move-result-object v1
 
@@ -5074,10 +5042,10 @@
 
     if-eqz v5, :cond_4
 
-    return v10
+    return v9
 
     :cond_4
-    return v8
+    return v7
 
     :cond_5
     if-eqz v4, :cond_6
@@ -5085,7 +5053,7 @@
     if-nez v0, :cond_7
 
     :cond_6
-    return v8
+    return v7
 
     :cond_7
     invoke-static {}, Lcom/android/systemui/SystemUIRune;->getOperatorMccMnc()Ljava/lang/String;
@@ -5106,13 +5074,13 @@
 
     if-eqz v5, :cond_8
 
-    return v10
+    return v9
 
     :cond_8
-    return v8
+    return v7
 
     :cond_9
-    return v8
+    return v7
 .end method
 
 .method private isSupportNotificationOnCover()Z
@@ -7060,33 +7028,9 @@
 .end method
 
 .method public static setIsNetworkAvailable(Z)V
-    .locals 3
+    .locals 0
 
     sput-boolean p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mIsNetworkAvailable:Z
-
-    const-string/jumbo v0, "PhoneStatusBar"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v2, "setIsNetworkAvailable = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    sget-boolean v2, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mIsNetworkAvailable:Z
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     return-void
 .end method
@@ -8164,7 +8108,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f020790
+    const v4, 0x7f020792
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -20537,7 +20481,7 @@
 
     iget-object v3, v0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mOperatorLogoIcon:Landroid/widget/ImageView;
 
-    const v4, 0x7f0205f1
+    const v4, 0x7f0205f3
 
     invoke-virtual {v3, v4}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -21315,7 +21259,7 @@
 
     iget-object v3, v0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mOperatorLogoIcon:Landroid/widget/ImageView;
 
-    const v4, 0x7f0205ef
+    const v4, 0x7f0205f1
 
     invoke-virtual {v3, v4}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -21336,7 +21280,7 @@
 
     iget-object v3, v0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mOperatorLogoIcon:Landroid/widget/ImageView;
 
-    const v4, 0x7f0205f0
+    const v4, 0x7f0205f2
 
     invoke-virtual {v3, v4}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -21357,7 +21301,7 @@
 
     iget-object v3, v0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mOperatorLogoIcon:Landroid/widget/ImageView;
 
-    const v4, 0x7f0205f3
+    const v4, 0x7f0205f5
 
     invoke-virtual {v3, v4}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -21378,7 +21322,7 @@
 
     iget-object v3, v0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mOperatorLogoIcon:Landroid/widget/ImageView;
 
-    const v4, 0x7f0205f2
+    const v4, 0x7f0205f4
 
     invoke-virtual {v3, v4}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -33272,7 +33216,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v2, 0x7f020747
+    const v2, 0x7f020749
 
     if-eqz v0, :cond_1
 
@@ -33289,7 +33233,7 @@
 
     if-eqz v3, :cond_5
 
-    const v2, 0x7f020745
+    const v2, 0x7f020747
 
     :cond_1
     :goto_0
@@ -33327,7 +33271,7 @@
     return-void
 
     :cond_5
-    const v2, 0x7f020746
+    const v2, 0x7f020748
 
     goto :goto_0
 .end method

@@ -1323,9 +1323,9 @@
 .method public updateShowButtonBackground()V
     .locals 6
 
-    const v2, 0x7f0205d2
+    const v2, 0x7f0205d4
 
-    const v3, 0x7f0205d0
+    const v3, 0x7f0205d2
 
     iget-object v1, p0, Lcom/android/systemui/qs/QSDetail;->mContext:Landroid/content/Context;
 

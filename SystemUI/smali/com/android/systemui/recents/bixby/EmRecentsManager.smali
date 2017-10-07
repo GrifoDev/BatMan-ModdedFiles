@@ -797,7 +797,7 @@
 
     invoke-direct/range {v18 .. v18}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v19, "Failed in LaunchAppDirect: \'"
+    const-string/jumbo v19, "Failed in LaunchAppDirect:\'"
 
     invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -811,7 +811,7 @@
 
     move-result-object v18
 
-    const-string/jumbo v19, "\' with multiwindowMode: "
+    const-string/jumbo v19, "\' with multiwindowMode:"
 
     invoke-virtual/range {v18 .. v19}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -928,101 +928,6 @@
     .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_0
 
     goto/16 :goto_4
-.end method
-
-.method public static makeComponentName(Ljava/lang/String;)Landroid/content/ComponentName;
-    .locals 6
-    .annotation system Ldalvik/annotation/Throws;
-        value = {
-            Ljava/lang/IllegalArgumentException;
-        }
-    .end annotation
-
-    if-nez p0, :cond_0
-
-    new-instance v3, Ljava/lang/IllegalArgumentException;
-
-    const-string/jumbo v4, "package name is null."
-
-    invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v3
-
-    :cond_0
-    const-string/jumbo v3, "_"
-
-    invoke-virtual {p0, v3}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
-
-    move-result-object v1
-
-    array-length v3, v1
-
-    const/4 v4, 0x2
-
-    if-eq v3, v4, :cond_1
-
-    sget-object v3, Lcom/android/systemui/recents/bixby/EmRecentsManager;->TAG:Ljava/lang/String;
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v5, "Incorrect package info parameter\'. num: "
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    array-length v5, v1
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-static {v3, v4}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    new-instance v3, Ljava/lang/IllegalArgumentException;
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v4, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    const-string/jumbo v5, " cannot be parsed to ComponentName."
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v3
-
-    :cond_1
-    const/4 v3, 0x0
-
-    aget-object v0, v1, v3
-
-    const/4 v3, 0x1
-
-    aget-object v2, v1, v3
-
-    new-instance v3, Landroid/content/ComponentName;
-
-    invoke-direct {v3, v2, v0}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
-
-    return-object v3
 .end method
 
 .method private onCloseAllApps(Lcom/samsung/android/sdk/bixby/data/State;)Lcom/android/systemui/recents/bixby/EmRecentsManager$Response;
@@ -1405,342 +1310,310 @@
 .end method
 
 .method private onLaunchAppDirect(Lcom/samsung/android/sdk/bixby/data/State;)Lcom/android/systemui/recents/bixby/EmRecentsManager$Response;
-    .locals 17
+    .locals 15
 
     invoke-virtual/range {p1 .. p1}, Lcom/samsung/android/sdk/bixby/data/State;->getParamMap()Ljava/util/Map;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "AppName"
-
-    invoke-interface {v13, v14}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Lcom/samsung/android/sdk/bixby/data/Parameter;
-
-    const/4 v2, 0x0
-
-    if-eqz v3, :cond_0
-
-    invoke-virtual {v3}, Lcom/samsung/android/sdk/bixby/data/Parameter;->getSlotValue()Ljava/lang/String;
-
-    move-result-object v2
-
-    :cond_0
-    if-eqz v3, :cond_1
-
-    if-nez v2, :cond_2
-
-    :cond_1
-    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/recents/bixby/EmRecentsManager;->getNlgBuilder()Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "AppName"
-
-    const-string/jumbo v15, "Exist"
-
-    const-string/jumbo v16, "no"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;->send()V
-
-    sget-object v13, Lcom/android/systemui/recents/bixby/EmRecentsManager$Response;->FAILURE:Lcom/android/systemui/recents/bixby/EmRecentsManager$Response;
-
-    return-object v13
-
-    :cond_2
-    invoke-virtual {v2}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v13
-
-    if-nez v13, :cond_1
-
-    const-string/jumbo v13, "AppName_value"
-
-    invoke-virtual {v13, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v13
-
-    if-nez v13, :cond_1
-
-    const/4 v12, 0x0
-
-    invoke-virtual {v3}, Lcom/samsung/android/sdk/bixby/data/Parameter;->getCHObjects()Ljava/util/List;
-
-    move-result-object v7
-
-    if-eqz v7, :cond_4
-
-    invoke-interface {v7}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
-
-    move-result-object v6
-
-    :cond_3
-    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v13
-
-    if-eqz v13, :cond_4
-
-    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Lcom/samsung/android/sdk/bixby/data/CHObject;
-
-    const-string/jumbo v13, "packageName"
-
-    invoke-virtual {v5}, Lcom/samsung/android/sdk/bixby/data/CHObject;->getCHType()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-virtual {v13, v14}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_3
-
-    invoke-virtual {v5}, Lcom/samsung/android/sdk/bixby/data/CHObject;->getCHValue()Ljava/lang/String;
-
-    move-result-object v12
-
-    :cond_4
-    const/4 v8, 0x0
-
-    const/4 v1, 0x0
-
-    :try_start_0
-    invoke-static {v12}, Lcom/android/systemui/recents/bixby/EmRecentsManager;->makeComponentName(Ljava/lang/String;)Landroid/content/ComponentName;
-
-    move-result-object v8
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/systemui/recents/bixby/EmRecentsManager;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v13}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v13
-
-    const/16 v14, 0x80
-
-    invoke-virtual {v13, v8, v14}, Landroid/content/pm/PackageManager;->getActivityInfo(Landroid/content/ComponentName;I)Landroid/content/pm/ActivityInfo;
-    :try_end_0
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v1
-
-    :goto_0
-    if-eqz v12, :cond_5
-
-    const-string/jumbo v13, "packageName_value"
-
-    invoke-virtual {v13, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_6
-
-    :cond_5
-    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/recents/bixby/EmRecentsManager;->getNlgBuilder()Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "AppName"
-
-    const-string/jumbo v15, "Match"
-
-    const-string/jumbo v16, "no"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "AppName"
-
-    invoke-virtual {v13, v14, v2}, Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;->addResultParam(Ljava/lang/String;Ljava/lang/String;)Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;->send()V
-
-    sget-object v13, Lcom/android/systemui/recents/bixby/EmRecentsManager$Response;->FAILURE:Lcom/android/systemui/recents/bixby/EmRecentsManager$Response;
-
-    return-object v13
-
-    :catch_0
-    move-exception v9
-
-    sget-object v13, Lcom/android/systemui/recents/bixby/EmRecentsManager;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v14, "Failed to parse package name."
-
-    invoke-static {v13, v14, v9}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-
-    const/4 v12, 0x0
-
-    goto :goto_0
-
-    :cond_6
-    const/4 v10, 0x0
-
-    invoke-virtual/range {p1 .. p1}, Lcom/samsung/android/sdk/bixby/data/State;->getParamMap()Ljava/util/Map;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "MultiwindowMode"
-
-    invoke-interface {v13, v14}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v11
 
-    check-cast v11, Lcom/samsung/android/sdk/bixby/data/Parameter;
+    const-string/jumbo v12, "AppName"
 
-    if-eqz v11, :cond_7
+    invoke-interface {v11, v12}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    invoke-virtual {v11}, Lcom/samsung/android/sdk/bixby/data/Parameter;->getSlotValue()Ljava/lang/String;
+    move-result-object v2
+
+    check-cast v2, Lcom/samsung/android/sdk/bixby/data/Parameter;
+
+    const/4 v1, 0x0
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {v2}, Lcom/samsung/android/sdk/bixby/data/Parameter;->getSlotValue()Ljava/lang/String;
+
+    move-result-object v1
+
+    :cond_0
+    if-eqz v2, :cond_1
+
+    if-nez v1, :cond_2
+
+    :cond_1
+    invoke-virtual {p0}, Lcom/android/systemui/recents/bixby/EmRecentsManager;->getNlgBuilder()Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;
+
+    move-result-object v11
+
+    const-string/jumbo v12, "AppName"
+
+    const-string/jumbo v13, "Exist"
+
+    const-string/jumbo v14, "no"
+
+    invoke-virtual {v11, v12, v13, v14}, Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;->send()V
+
+    sget-object v11, Lcom/android/systemui/recents/bixby/EmRecentsManager$Response;->FAILURE:Lcom/android/systemui/recents/bixby/EmRecentsManager$Response;
+
+    return-object v11
+
+    :cond_2
+    invoke-virtual {v1}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v11
+
+    if-nez v11, :cond_1
+
+    const-string/jumbo v11, "AppName_value"
+
+    invoke-virtual {v11, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v11
+
+    if-nez v11, :cond_1
+
+    invoke-virtual {v2}, Lcom/samsung/android/sdk/bixby/data/Parameter;->getCHObjects()Ljava/util/List;
+
+    move-result-object v6
+
+    const/4 v0, 0x0
+
+    if-eqz v6, :cond_4
+
+    invoke-interface {v6}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v5
+
+    :cond_3
+    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v11
+
+    if-eqz v11, :cond_4
+
+    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Lcom/samsung/android/sdk/bixby/data/CHObject;
+
+    const-string/jumbo v11, "packageName"
+
+    invoke-virtual {v4}, Lcom/samsung/android/sdk/bixby/data/CHObject;->getCHType()Ljava/lang/String;
+
+    move-result-object v12
+
+    invoke-virtual {v11, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_3
+
+    :try_start_0
+    invoke-virtual {v4}, Lcom/samsung/android/sdk/bixby/data/CHObject;->getCHValue()Ljava/lang/String;
 
     move-result-object v10
 
+    invoke-virtual {p0, v10}, Lcom/android/systemui/recents/bixby/EmRecentsManager;->getActivityInfo(Ljava/lang/String;)Landroid/content/pm/ActivityInfo;
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v0
+
+    :cond_4
+    :goto_0
+    if-nez v0, :cond_5
+
+    invoke-virtual {p0}, Lcom/android/systemui/recents/bixby/EmRecentsManager;->getNlgBuilder()Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;
+
+    move-result-object v11
+
+    const-string/jumbo v12, "AppName"
+
+    const-string/jumbo v13, "Match"
+
+    const-string/jumbo v14, "no"
+
+    invoke-virtual {v11, v12, v13, v14}, Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;
+
+    move-result-object v11
+
+    const-string/jumbo v12, "AppName"
+
+    invoke-virtual {v11, v12, v1}, Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;->addResultParam(Ljava/lang/String;Ljava/lang/String;)Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;->send()V
+
+    sget-object v11, Lcom/android/systemui/recents/bixby/EmRecentsManager$Response;->FAILURE:Lcom/android/systemui/recents/bixby/EmRecentsManager$Response;
+
+    return-object v11
+
+    :catch_0
+    move-exception v7
+
+    sget-object v11, Lcom/android/systemui/recents/bixby/EmRecentsManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v12, "Failed to parse the package name."
+
+    invoke-static {v11, v12, v7}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_0
+
+    :cond_5
+    const/4 v8, 0x0
+
+    invoke-virtual/range {p1 .. p1}, Lcom/samsung/android/sdk/bixby/data/State;->getParamMap()Ljava/util/Map;
+
+    move-result-object v11
+
+    const-string/jumbo v12, "MultiwindowMode"
+
+    invoke-interface {v11, v12}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v9
+
+    check-cast v9, Lcom/samsung/android/sdk/bixby/data/Parameter;
+
+    if-eqz v9, :cond_6
+
+    invoke-virtual {v9}, Lcom/samsung/android/sdk/bixby/data/Parameter;->getSlotValue()Ljava/lang/String;
+
+    move-result-object v8
+
+    :cond_6
+    if-eqz v8, :cond_7
+
+    invoke-virtual {v8}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v11
+
+    if-nez v11, :cond_7
+
+    const-string/jumbo v11, "modeName_value"
+
+    invoke-virtual {v11, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_8
+
     :cond_7
-    if-eqz v10, :cond_8
-
-    invoke-virtual {v10}, Ljava/lang/String;->isEmpty()Z
-
-    move-result v13
-
-    if-nez v13, :cond_8
-
-    const-string/jumbo v13, "modeName_value"
-
-    invoke-virtual {v13, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_9
+    const-string/jumbo v8, "current"
 
     :cond_8
-    const-string/jumbo v10, "current"
+    const-string/jumbo v3, "yes"
+
+    const-string/jumbo v11, "normal"
+
+    invoke-virtual {v8, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v11
+
+    if-eqz v11, :cond_9
+
+    iget-object v11, p0, Lcom/android/systemui/recents/bixby/EmRecentsManager;->mSystemService:Lcom/android/systemui/recents/misc/SystemServicesProxy;
+
+    invoke-virtual {v11}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->hasDockedTask()Z
+
+    move-result v11
+
+    if-eqz v11, :cond_a
 
     :cond_9
-    const-string/jumbo v4, "yes"
+    iget v11, v0, Landroid/content/pm/ActivityInfo;->resizeMode:I
 
-    const-string/jumbo v13, "normal"
+    invoke-static {v11}, Landroid/content/pm/ActivityInfo;->isResizeableMode(I)Z
 
-    invoke-virtual {v10, v13}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result v11
 
-    move-result v13
-
-    if-eqz v13, :cond_a
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/systemui/recents/bixby/EmRecentsManager;->mSystemService:Lcom/android/systemui/recents/misc/SystemServicesProxy;
-
-    invoke-virtual {v13}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->hasDockedTask()Z
-
-    move-result v13
-
-    if-eqz v13, :cond_b
-
-    :cond_a
-    iget v13, v1, Landroid/content/pm/ActivityInfo;->resizeMode:I
-
-    invoke-static {v13}, Landroid/content/pm/ActivityInfo;->isResizeableMode(I)Z
-
-    move-result v13
-
-    if-nez v13, :cond_b
+    if-nez v11, :cond_a
 
     invoke-static {}, Lcom/android/systemui/recents/Recents;->getSystemServices()Lcom/android/systemui/recents/misc/SystemServicesProxy;
 
-    move-result-object v13
+    move-result-object v11
 
-    invoke-virtual {v13, v1}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->isForceResizable(Landroid/content/pm/ActivityInfo;)Z
+    invoke-virtual {v11, v0}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->isForceResizable(Landroid/content/pm/ActivityInfo;)Z
 
-    move-result v13
+    move-result v11
 
-    if-eqz v13, :cond_c
+    if-eqz v11, :cond_b
+
+    :cond_a
+    :goto_1
+    invoke-virtual {v0}, Landroid/content/pm/ActivityInfo;->getComponentName()Landroid/content/ComponentName;
+
+    move-result-object v11
+
+    invoke-direct {p0, v11, v8}, Lcom/android/systemui/recents/bixby/EmRecentsManager;->launchAppDirect(Landroid/content/ComponentName;Ljava/lang/String;)Z
+
+    move-result v11
+
+    if-nez v11, :cond_c
+
+    invoke-virtual {p0}, Lcom/android/systemui/recents/bixby/EmRecentsManager;->getNlgBuilder()Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;
+
+    move-result-object v11
+
+    const-string/jumbo v12, "AppName"
+
+    const-string/jumbo v13, "Match"
+
+    const-string/jumbo v14, "no"
+
+    invoke-virtual {v11, v12, v13, v14}, Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;->send()V
+
+    sget-object v11, Lcom/android/systemui/recents/bixby/EmRecentsManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v12, "Error on launchAppDirect(). Return false"
+
+    invoke-static {v11, v12}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget-object v11, Lcom/android/systemui/recents/bixby/EmRecentsManager$Response;->FAILURE:Lcom/android/systemui/recents/bixby/EmRecentsManager$Response;
+
+    return-object v11
 
     :cond_b
-    :goto_1
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v8, v10}, Lcom/android/systemui/recents/bixby/EmRecentsManager;->launchAppDirect(Landroid/content/ComponentName;Ljava/lang/String;)Z
-
-    move-result v13
-
-    if-nez v13, :cond_d
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/recents/bixby/EmRecentsManager;->getNlgBuilder()Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;
-
-    move-result-object v13
-
-    const-string/jumbo v14, "AppName"
-
-    const-string/jumbo v15, "Match"
-
-    const-string/jumbo v16, "no"
-
-    invoke-virtual/range {v13 .. v16}, Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;->send()V
-
-    sget-object v13, Lcom/android/systemui/recents/bixby/EmRecentsManager;->TAG:Ljava/lang/String;
-
-    const-string/jumbo v14, "Error on launchAppDirect(). Return false"
-
-    invoke-static {v13, v14}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    sget-object v13, Lcom/android/systemui/recents/bixby/EmRecentsManager$Response;->FAILURE:Lcom/android/systemui/recents/bixby/EmRecentsManager$Response;
-
-    return-object v13
-
-    :cond_c
-    const-string/jumbo v4, "no"
+    const-string/jumbo v3, "no"
 
     goto :goto_1
 
-    :cond_d
+    :cond_c
     invoke-virtual/range {p1 .. p1}, Lcom/samsung/android/sdk/bixby/data/State;->getStateId()Ljava/lang/String;
 
-    move-result-object v13
+    move-result-object v11
 
-    move-object/from16 v0, p0
+    invoke-direct {p0, v11}, Lcom/android/systemui/recents/bixby/EmRecentsManager;->updateLastScreenState(Ljava/lang/String;)V
 
-    invoke-direct {v0, v13}, Lcom/android/systemui/recents/bixby/EmRecentsManager;->updateLastScreenState(Ljava/lang/String;)V
+    invoke-virtual {p0}, Lcom/android/systemui/recents/bixby/EmRecentsManager;->getNlgBuilder()Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/recents/bixby/EmRecentsManager;->getNlgBuilder()Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;
+    move-result-object v11
 
-    move-result-object v13
+    const-string/jumbo v12, "Multiwindow"
 
-    const-string/jumbo v14, "Multiwindow"
+    const-string/jumbo v13, "Available"
 
-    const-string/jumbo v15, "Available"
+    invoke-virtual {v11, v12, v13, v3}, Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;
 
-    invoke-virtual {v13, v14, v15, v4}, Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;
+    move-result-object v11
 
-    move-result-object v13
+    const-string/jumbo v12, "AppName"
 
-    const-string/jumbo v14, "AppName"
+    invoke-virtual {v11, v12, v1}, Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;->addResultParam(Ljava/lang/String;Ljava/lang/String;)Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;
 
-    invoke-virtual {v13, v14, v2}, Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;->addResultParam(Ljava/lang/String;Ljava/lang/String;)Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;
+    move-result-object v11
 
-    move-result-object v13
+    invoke-virtual {v11}, Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;->send()V
 
-    invoke-virtual {v13}, Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;->send()V
+    sget-object v11, Lcom/android/systemui/recents/bixby/EmRecentsManager$Response;->SUCCESS:Lcom/android/systemui/recents/bixby/EmRecentsManager$Response;
 
-    sget-object v13, Lcom/android/systemui/recents/bixby/EmRecentsManager$Response;->SUCCESS:Lcom/android/systemui/recents/bixby/EmRecentsManager$Response;
-
-    return-object v13
+    return-object v11
 .end method
 
 .method private onLockApp(Lcom/samsung/android/sdk/bixby/data/State;Z)Lcom/android/systemui/recents/bixby/EmRecentsManager$Response;
@@ -2248,7 +2121,11 @@
     invoke-static {v10, v11}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :try_start_0
-    invoke-static {v9}, Lcom/android/systemui/recents/bixby/EmRecentsManager;->makeComponentName(Ljava/lang/String;)Landroid/content/ComponentName;
+    invoke-virtual {p0, v9}, Lcom/android/systemui/recents/bixby/EmRecentsManager;->getActivityInfo(Ljava/lang/String;)Landroid/content/pm/ActivityInfo;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Landroid/content/pm/ActivityInfo;->getComponentName()Landroid/content/ComponentName;
 
     move-result-object v7
 
@@ -2905,6 +2782,117 @@
     return-void
 .end method
 
+.method public closeAppFromExternal(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
+    .locals 8
+
+    const/4 v7, 0x2
+
+    const/4 v6, 0x1
+
+    const/4 v5, 0x0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/systemui/recents/bixby/EmRecentsManager;->mBixbyRecentsViewHandler:Lcom/android/systemui/recents/bixby/IBixbyRecentsViewHandler;
+
+    invoke-interface {v1, p3}, Lcom/android/systemui/recents/bixby/IBixbyRecentsViewHandler;->focusByAppName(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/systemui/recents/bixby/EmRecentsManager;->mBixbyRecentsViewHandler:Lcom/android/systemui/recents/bixby/IBixbyRecentsViewHandler;
+
+    invoke-virtual {p0, p1}, Lcom/android/systemui/recents/bixby/EmRecentsManager;->getActivityInfo(Ljava/lang/String;)Landroid/content/pm/ActivityInfo;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Landroid/content/pm/ActivityInfo;->getComponentName()Landroid/content/ComponentName;
+
+    move-result-object v2
+
+    invoke-interface {v1, v2}, Lcom/android/systemui/recents/bixby/IBixbyRecentsViewHandler;->focusByComponentName(Landroid/content/ComponentName;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    invoke-virtual {p3, p2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/systemui/recents/bixby/EmRecentsManager;->mBixbyRecentsViewHandler:Lcom/android/systemui/recents/bixby/IBixbyRecentsViewHandler;
+
+    invoke-interface {v1, p2}, Lcom/android/systemui/recents/bixby/IBixbyRecentsViewHandler;->focusByAppName(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    :cond_0
+    sget-object v1, Lcom/android/systemui/recents/bixby/EmRecentsManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v2, "Close the app by Recents. (%s,%s,%s)"
+
+    const/4 v3, 0x3
+
+    new-array v3, v3, [Ljava/lang/Object;
+
+    const/4 v4, 0x0
+
+    aput-object p1, v3, v4
+
+    const/4 v4, 0x1
+
+    aput-object p2, v3, v4
+
+    const/4 v4, 0x2
+
+    aput-object p3, v3, v4
+
+    invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v1, p0, Lcom/android/systemui/recents/bixby/EmRecentsManager;->mBixbyRecentsViewHandler:Lcom/android/systemui/recents/bixby/IBixbyRecentsViewHandler;
+
+    invoke-interface {v1}, Lcom/android/systemui/recents/bixby/IBixbyRecentsViewHandler;->closeFocusedTask()Z
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result v1
+
+    return v1
+
+    :cond_1
+    return v5
+
+    :catch_0
+    move-exception v0
+
+    sget-object v1, Lcom/android/systemui/recents/bixby/EmRecentsManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v2, "Fail to close App in closeAppFromExternal():%s,%s"
+
+    new-array v3, v7, [Ljava/lang/Object;
+
+    aput-object p1, v3, v5
+
+    aput-object p2, v3, v6
+
+    invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2, v0}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    return v5
+.end method
+
 .method public createInterimStateListener()V
     .locals 2
 
@@ -2989,6 +2977,245 @@
     iput-boolean v0, p0, Lcom/android/systemui/recents/bixby/EmRecentsManager;->mRecentsLaunchedByBixby:Z
 
     return-void
+.end method
+
+.method public getActivityInfo(Ljava/lang/String;)Landroid/content/pm/ActivityInfo;
+    .locals 12
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Ljava/lang/IllegalArgumentException;
+        }
+    .end annotation
+
+    const/16 v11, 0x80
+
+    const/4 v10, 0x2
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p1}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v9
+
+    if-nez v9, :cond_0
+
+    const-string/jumbo v9, "packageName_value"
+
+    invoke-virtual {v9, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_1
+
+    :cond_0
+    new-instance v9, Ljava/lang/IllegalArgumentException;
+
+    const-string/jumbo v10, "Empty package name."
+
+    invoke-direct {v9, v10}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v9
+
+    :cond_1
+    const-string/jumbo v9, "_"
+
+    invoke-virtual {p1, v9}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v5
+
+    array-length v9, v5
+
+    if-ge v9, v10, :cond_2
+
+    sget-object v9, Lcom/android/systemui/recents/bixby/EmRecentsManager;->TAG:Ljava/lang/String;
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "Incorrect package info. Parsed count:"
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    array-length v11, v5
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-static {v9, v10}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v9, Ljava/lang/IllegalArgumentException;
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v10, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string/jumbo v11, " cannot be parsed to ComponentName."
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-direct {v9, v10}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v9
+
+    :cond_2
+    array-length v9, v5
+
+    if-ne v9, v10, :cond_4
+
+    :try_start_0
+    new-instance v3, Landroid/content/ComponentName;
+
+    const/4 v9, 0x1
+
+    aget-object v9, v5, v9
+
+    const/4 v10, 0x0
+
+    aget-object v10, v5, v10
+
+    invoke-direct {v3, v9, v10}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v9, p0, Lcom/android/systemui/recents/bixby/EmRecentsManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v9}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v9
+
+    const/16 v10, 0x80
+
+    invoke-virtual {v9, v3, v10}, Landroid/content/pm/PackageManager;->getActivityInfo(Landroid/content/ComponentName;I)Landroid/content/pm/ActivityInfo;
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v9
+
+    return-object v9
+
+    :catch_0
+    move-exception v4
+
+    sget-object v9, Lcom/android/systemui/recents/bixby/EmRecentsManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v10, "Failed to get activity info."
+
+    invoke-static {v9, v10, v4}, Landroid/util/Slog;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    :cond_3
+    new-instance v9, Ljava/lang/IllegalArgumentException;
+
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v11, "Failed to find the package. name:"
+
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v10
+
+    invoke-direct {v9, v10}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v9
+
+    :cond_4
+    new-instance v1, Landroid/content/Intent;
+
+    const-string/jumbo v9, "android.intent.action.MAIN"
+
+    invoke-direct {v1, v9}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v9, "android.intent.category.LAUNCHER"
+
+    invoke-virtual {v1, v9}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
+
+    iget-object v9, p0, Lcom/android/systemui/recents/bixby/EmRecentsManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v9}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v9
+
+    invoke-virtual {v9, v1, v11}, Landroid/content/pm/PackageManager;->queryIntentActivities(Landroid/content/Intent;I)Ljava/util/List;
+
+    move-result-object v8
+
+    invoke-interface {v8}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v7
+
+    :cond_5
+    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v9
+
+    if-eqz v9, :cond_3
+
+    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/content/pm/ResolveInfo;
+
+    iget-object v0, v6, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v10, v0, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    const-string/jumbo v10, "_"
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    iget-object v10, v0, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_5
+
+    return-object v0
 .end method
 
 .method getNlgBuilder()Lcom/android/systemui/recents/bixby/EmRecentsManager$NlgBuilder;
@@ -3104,7 +3331,7 @@
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v7, "Failed to handle the state : "
+    const-string/jumbo v7, "Failed to handle the state :"
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

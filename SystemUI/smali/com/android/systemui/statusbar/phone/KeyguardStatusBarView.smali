@@ -1270,7 +1270,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mOperatorLogoView:Landroid/widget/ImageView;
 
-    const v7, 0x7f0205f1
+    const v7, 0x7f0205f3
 
     invoke-virtual {v6, v7}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -1380,7 +1380,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mOperatorLogoView:Landroid/widget/ImageView;
 
-    const v7, 0x7f0205ef
+    const v7, 0x7f0205f1
 
     invoke-virtual {v6, v7}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -1399,7 +1399,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mOperatorLogoView:Landroid/widget/ImageView;
 
-    const v7, 0x7f0205f0
+    const v7, 0x7f0205f2
 
     invoke-virtual {v6, v7}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -1418,7 +1418,7 @@
 
     iget-object v6, p0, Lcom/android/systemui/statusbar/phone/KeyguardStatusBarView;->mOperatorLogoView:Landroid/widget/ImageView;
 
-    const v7, 0x7f0205f3
+    const v7, 0x7f0205f5
 
     invoke-virtual {v6, v7}, Landroid/widget/ImageView;->setImageResource(I)V
 

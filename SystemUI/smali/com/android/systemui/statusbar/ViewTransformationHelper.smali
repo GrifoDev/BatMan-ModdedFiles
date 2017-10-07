@@ -525,7 +525,7 @@
 
     move-result v5
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_5
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -564,6 +564,10 @@
     goto :goto_0
 
     :cond_1
+    const/4 v1, 0x0
+
+    if-eqz p1, :cond_2
+
     invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
 
     move-result v5
@@ -572,7 +576,8 @@
 
     move-result-object v1
 
-    if-eqz v1, :cond_2
+    :cond_2
+    if-eqz v1, :cond_3
 
     invoke-virtual {v2, v1, p2}, Lcom/android/systemui/statusbar/notification/TransformState;->transformViewFrom(Lcom/android/systemui/statusbar/notification/TransformState;F)V
 
@@ -583,16 +588,16 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     const/4 v5, 0x0
 
     cmpl-float v5, p2, v5
 
-    if-nez v5, :cond_3
+    if-nez v5, :cond_4
 
     invoke-virtual {v2}, Lcom/android/systemui/statusbar/notification/TransformState;->prepareFadeIn()V
 
-    :cond_3
+    :cond_4
     iget-object v5, p0, Lcom/android/systemui/statusbar/ViewTransformationHelper;->mTransformedViews:Landroid/util/ArrayMap;
 
     invoke-virtual {v5, v3}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
@@ -605,7 +610,7 @@
 
     goto :goto_1
 
-    :cond_4
+    :cond_5
     return-void
 .end method
 

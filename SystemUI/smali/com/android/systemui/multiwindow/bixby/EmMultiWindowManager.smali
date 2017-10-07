@@ -11,6 +11,10 @@
 .end annotation
 
 
+# static fields
+.field private static final DEBUG:Z
+
+
 # instance fields
 .field mAm:Landroid/app/ActivityManager;
 
@@ -30,7 +34,15 @@
 
 
 # direct methods
-.method static synthetic -get0(Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;)Landroid/content/Context;
+.method static synthetic -get0()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->DEBUG:Z
+
+    return v0
+.end method
+
+.method static synthetic -get1(Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;)Landroid/content/Context;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->mContext:Landroid/content/Context;
@@ -38,7 +50,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get1(Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;)Lcom/samsung/android/multiwindow/MultiWindowManager;
+.method static synthetic -get2(Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;)Lcom/samsung/android/multiwindow/MultiWindowManager;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->mMultiWindowManager:Lcom/samsung/android/multiwindow/MultiWindowManager;
@@ -46,7 +58,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get2(Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;)Ljava/lang/String;
+.method static synthetic -get3(Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;)Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->mScreenState:Ljava/lang/String;
@@ -54,7 +66,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get3(Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;)Lcom/android/systemui/stackdivider/WindowManagerProxy;
+.method static synthetic -get4(Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;)Lcom/android/systemui/stackdivider/WindowManagerProxy;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->mWindowManagerProxy:Lcom/android/systemui/stackdivider/WindowManagerProxy;
@@ -70,10 +82,10 @@
     return-object p1
 .end method
 
-.method static synthetic -wrap0(Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;Ljava/lang/String;Z)Z
+.method static synthetic -wrap0(Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Z
     .locals 1
 
-    invoke-direct {p0, p1, p2}, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->closeAppByAppName(Ljava/lang/String;Z)Z
+    invoke-direct {p0, p1, p2, p3, p4}, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->closeAppByAppName(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Z
 
     move-result v0
 
@@ -114,6 +126,23 @@
     .locals 0
 
     invoke-direct/range {p0 .. p6}, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->sendNlgRequest(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
+
+    return-void
+.end method
+
+.method static constructor <clinit>()V
+    .locals 2
+
+    const/4 v1, 0x1
+
+    invoke-static {}, Landroid/os/Debug;->semIsProductDev()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    :cond_0
+    sput-boolean v1, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->DEBUG:Z
 
     return-void
 .end method
@@ -209,129 +238,121 @@
     goto :goto_0
 .end method
 
-.method private closeAppByAppName(Ljava/lang/String;Z)Z
-    .locals 9
+.method private closeAppByAppName(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)Z
+    .locals 7
 
-    const/4 v8, 0x1
+    const/4 v6, 0x1
 
-    const/4 v7, 0x0
+    const/4 v5, 0x0
 
-    const/4 v1, 0x0
+    sget-boolean v2, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->DEBUG:Z
 
-    const-string/jumbo v4, "EmMultiWindowManager"
+    if-eqz v2, :cond_0
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    const-string/jumbo v2, "EmMultiWindowManager"
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    const-string/jumbo v6, "closeAppByAppName() packageFullName = "
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string/jumbo v4, "closeAppByAppName() packageFullName="
 
-    move-result-object v5
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    move-result-object v5
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v3
 
-    move-result-object v5
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v3
 
-    if-nez p1, :cond_0
-
-    const-string/jumbo v4, "EmMultiWindowManager"
-
-    const-string/jumbo v5, "closeAppByAppName() packageFullName is null!"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v7
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    const-string/jumbo v4, "_"
-
-    invoke-virtual {p1, v4}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-static {}, Lcom/android/systemui/recents/Recents;->getSystemServices()Lcom/android/systemui/recents/misc/SystemServicesProxy;
 
     move-result-object v2
 
-    array-length v4, v2
+    invoke-virtual {v2}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->isRecentsActivityVisible()Z
 
-    const/4 v5, 0x2
+    move-result v2
 
-    if-eq v4, v5, :cond_1
+    if-eqz v2, :cond_2
 
-    const-string/jumbo v4, "EmMultiWindowManager"
+    invoke-static {}, Lcom/android/systemui/recents/bixby/EmRecentsManager;->getInstance()Lcom/android/systemui/recents/bixby/EmRecentsManager;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v2, p1, p2, p3}, Lcom/android/systemui/recents/bixby/EmRecentsManager;->closeAppFromExternal(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
 
-    const-string/jumbo v6, "Incorrect package info in LaunchAppDirect. length: "
+    move-result v2
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-eqz v2, :cond_1
 
-    move-result-object v5
-
-    array-length v6, v2
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v7
+    return v6
 
     :cond_1
-    aget-object v0, v2, v7
+    if-nez p4, :cond_2
 
-    aget-object v3, v2, v8
-
-    iget-object v4, p0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->mMultiWindowManager:Lcom/samsung/android/multiwindow/MultiWindowManager;
-
-    invoke-virtual {v4, v3}, Lcom/samsung/android/multiwindow/MultiWindowManager;->removeSearchedTask(Ljava/lang/String;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_2
-
-    const-string/jumbo v4, "EmMultiWindowManager"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v6, "removeTask : "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    return v8
+    return v5
 
     :cond_2
-    return v7
+    invoke-direct {p0, p1}, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->getPackageInfo(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v0
+
+    if-nez v0, :cond_3
+
+    return v5
+
+    :cond_3
+    aget-object v1, v0, v6
+
+    iget-object v2, p0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->mMultiWindowManager:Lcom/samsung/android/multiwindow/MultiWindowManager;
+
+    invoke-virtual {v2, v1}, Lcom/samsung/android/multiwindow/MultiWindowManager;->removeSearchedTask(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_4
+
+    const-string/jumbo v2, "EmMultiWindowManager"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "removeTask : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v6
+
+    :cond_4
+    return v5
 .end method
 
 .method private closeAppByDirection(Ljava/lang/String;)Z
-    .locals 11
+    .locals 12
+
+    const/4 v11, 0x0
+
+    const/4 v10, 0x1
 
     const/4 v4, 0x0
 
@@ -351,7 +372,7 @@
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v9, "closeAppByDirection() appDirection = "
+    const-string/jumbo v9, "closeAppByDirection() appDirection="
 
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -375,9 +396,7 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v7, 0x0
-
-    return v7
+    return v11
 
     :cond_0
     :try_start_0
@@ -430,7 +449,7 @@
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v9, "fullScreenStackInfo = "
+    const-string/jumbo v9, "fullScreenStackInfo="
 
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -440,7 +459,7 @@
 
     move-result-object v8
 
-    const-string/jumbo v9, ",  Docked topPackage = "
+    const-string/jumbo v9, ", Docked topPackage="
 
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -458,20 +477,9 @@
 
     if-eqz v2, :cond_7
 
-    :try_start_1
-    iget-object v7, p0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->mIam:Landroid/app/IActivityManager;
-
-    const/4 v8, 0x1
-
-    invoke-interface {v7, v8}, Landroid/app/IActivityManager;->setFocusedStack(I)V
-
     iget-object v7, p0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->mMultiWindowManager:Lcom/samsung/android/multiwindow/MultiWindowManager;
 
-    const/4 v8, 0x1
-
-    invoke-virtual {v7, v8}, Lcom/samsung/android/multiwindow/MultiWindowManager;->maximizeStackByDivider(Z)V
-    :try_end_1
-    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_2
+    invoke-virtual {v7, v11}, Lcom/samsung/android/multiwindow/MultiWindowManager;->maximizeStackByDivider(Z)V
 
     :cond_3
     :goto_1
@@ -506,47 +514,9 @@
 
     if-eqz v2, :cond_9
 
-    :try_start_2
-    iget-object v7, p0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->mIam:Landroid/app/IActivityManager;
-
-    const/4 v8, 0x3
-
-    invoke-interface {v7, v8}, Landroid/app/IActivityManager;->setFocusedStack(I)V
-
     iget-object v7, p0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->mMultiWindowManager:Lcom/samsung/android/multiwindow/MultiWindowManager;
 
-    const/4 v8, 0x1
-
-    invoke-virtual {v7, v8}, Lcom/samsung/android/multiwindow/MultiWindowManager;->maximizeStackByDivider(Z)V
-    :try_end_2
-    .catch Landroid/os/RemoteException; {:try_start_2 .. :try_end_2} :catch_1
-
-    goto :goto_1
-
-    :catch_1
-    move-exception v1
-
-    const-string/jumbo v7, "EmMultiWindowManager"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "Failed to maximizeStackByDivider: "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v7, v10}, Lcom/samsung/android/multiwindow/MultiWindowManager;->maximizeStackByDivider(Z)V
 
     goto :goto_1
 
@@ -560,33 +530,6 @@
     if-nez v7, :cond_5
 
     const/4 v4, 0x0
-
-    goto :goto_1
-
-    :catch_2
-    move-exception v1
-
-    const-string/jumbo v7, "EmMultiWindowManager"
-
-    new-instance v8, Ljava/lang/StringBuilder;
-
-    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string/jumbo v9, "Failed to maximizeStackByDivider: "
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v8
-
-    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     goto :goto_1
 
@@ -621,12 +564,12 @@
 
     invoke-static {v7, v8}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto/16 :goto_1
+    goto :goto_1
 
     :cond_8
     const/4 v4, 0x0
 
-    goto/16 :goto_1
+    goto :goto_1
 
     :cond_9
     invoke-virtual {v5}, Lcom/android/systemui/recents/misc/SystemServicesProxy;->isRecentsActivityVisible()Z
@@ -650,14 +593,14 @@
 
     if-ge v3, v7, :cond_3
 
-    :try_start_3
+    :try_start_1
     const-string/jumbo v7, "EmMultiWindowManager"
 
     new-instance v8, Ljava/lang/StringBuilder;
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string/jumbo v9, "moveTask To FullScreenStack   taskid = "
+    const-string/jumbo v9, "moveTask To FullScreenStack, taskid="
 
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -688,15 +631,15 @@
     const/4 v10, 0x1
 
     invoke-interface {v7, v8, v9, v10}, Landroid/app/IActivityManager;->moveTaskToStack(IIZ)V
-    :try_end_3
-    .catch Landroid/os/RemoteException; {:try_start_3 .. :try_end_3} :catch_3
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_1
 
     :goto_3
     add-int/lit8 v3, v3, 0x1
 
     goto :goto_2
 
-    :catch_3
+    :catch_1
     move-exception v1
 
     const/4 v4, 0x0
@@ -848,6 +791,192 @@
     const-string/jumbo v0, "OtherApp"
 
     goto :goto_0
+.end method
+
+.method private getPackageInfo(Ljava/lang/String;)[Ljava/lang/String;
+    .locals 13
+
+    const/4 v12, 0x2
+
+    const/4 v10, 0x0
+
+    const/4 v11, 0x0
+
+    if-nez p1, :cond_1
+
+    sget-boolean v8, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->DEBUG:Z
+
+    if-eqz v8, :cond_0
+
+    const-string/jumbo v8, "EmMultiWindowManager"
+
+    const-string/jumbo v9, "getPackageInfo() packageFullName is null!"
+
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    return-object v11
+
+    :cond_1
+    const-string/jumbo v8, "_"
+
+    invoke-virtual {p1, v8}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v4
+
+    if-nez v4, :cond_3
+
+    sget-boolean v8, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->DEBUG:Z
+
+    if-eqz v8, :cond_2
+
+    const-string/jumbo v8, "EmMultiWindowManager"
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v10, "getPackageInfo() Incorrect package info in LaunchAppDirect. packageInfo="
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_2
+    return-object v11
+
+    :cond_3
+    array-length v8, v4
+
+    if-eq v8, v12, :cond_7
+
+    new-instance v1, Landroid/content/Intent;
+
+    const-string/jumbo v8, "android.intent.action.MAIN"
+
+    invoke-direct {v1, v8}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+
+    const-string/jumbo v8, "android.intent.category.LAUNCHER"
+
+    invoke-virtual {v1, v8}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
+
+    iget-object v8, p0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v8}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v1, v10}, Landroid/content/pm/PackageManager;->queryIntentActivities(Landroid/content/Intent;I)Ljava/util/List;
+
+    move-result-object v7
+
+    invoke-interface {v7}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
+
+    move-result-object v6
+
+    :cond_4
+    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_5
+
+    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/content/pm/ResolveInfo;
+
+    iget-object v0, v5, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    iget-object v9, v0, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    const-string/jumbo v9, "_"
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    iget-object v9, v0, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v8
+
+    if-eqz v8, :cond_4
+
+    new-array v3, v12, [Ljava/lang/String;
+
+    iget-object v8, v0, Landroid/content/pm/ActivityInfo;->name:Ljava/lang/String;
+
+    aput-object v8, v3, v10
+
+    iget-object v8, v0, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+
+    const/4 v9, 0x1
+
+    aput-object v8, v3, v9
+
+    return-object v3
+
+    :cond_5
+    sget-boolean v8, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->DEBUG:Z
+
+    if-eqz v8, :cond_6
+
+    const-string/jumbo v8, "EmMultiWindowManager"
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v10, "getPackageInfo() the packageInfo isn\'t found from packageManager. packageInfo="
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_6
+    return-object v11
+
+    :cond_7
+    return-object v4
 .end method
 
 .method private sendNlgRequest(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
@@ -1030,7 +1159,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->mMultiWindowManager:Lcom/samsung/android/multiwindow/MultiWindowManager;
 
@@ -1038,7 +1167,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     const-string/jumbo v2, "FreeformView"
 
@@ -1060,6 +1189,10 @@
 
     :cond_0
     :goto_0
+    sget-boolean v0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->DEBUG:Z
+
+    if-eqz v0, :cond_1
+
     const-string/jumbo v0, "EmMultiWindowManager"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -1088,57 +1221,21 @@
 
     invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    :cond_1
     return-void
 
-    :cond_1
+    :cond_2
     const-string/jumbo v0, "MultiWindow_2"
 
     invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     iget-object v0, p0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->mMultiWindowManager:Lcom/samsung/android/multiwindow/MultiWindowManager;
 
     invoke-virtual {v0}, Lcom/samsung/android/multiwindow/MultiWindowManager;->minimizeTopTask()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    const-string/jumbo v2, "PopupView"
-
-    const-string/jumbo v3, "Exist"
-
-    const-string/jumbo v4, "yes"
-
-    const/4 v5, 0x0
-
-    const/4 v6, 0x1
-
-    move-object v0, p0
-
-    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->sendNlgRequest(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
-
-    const-string/jumbo v0, "OtherApp"
-
-    invoke-virtual {p0, v0}, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->setScreenState(Ljava/lang/String;)V
-
-    goto :goto_0
-
-    :cond_2
-    const-string/jumbo v0, "MultiWindow_3"
-
-    invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->mMultiWindowManager:Lcom/samsung/android/multiwindow/MultiWindowManager;
-
-    invoke-virtual {v0}, Lcom/samsung/android/multiwindow/MultiWindowManager;->maximizeTopTask()Z
 
     move-result v0
 
@@ -1165,6 +1262,43 @@
     goto :goto_0
 
     :cond_3
+    const-string/jumbo v0, "MultiWindow_3"
+
+    invoke-virtual {v9, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->mMultiWindowManager:Lcom/samsung/android/multiwindow/MultiWindowManager;
+
+    invoke-virtual {v0}, Lcom/samsung/android/multiwindow/MultiWindowManager;->maximizeTopTask()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_6
+
+    const-string/jumbo v2, "PopupView"
+
+    const-string/jumbo v3, "Exist"
+
+    const-string/jumbo v4, "yes"
+
+    const/4 v5, 0x0
+
+    const/4 v6, 0x1
+
+    move-object v0, p0
+
+    invoke-direct/range {v0 .. v6}, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->sendNlgRequest(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Z)V
+
+    const-string/jumbo v0, "OtherApp"
+
+    invoke-virtual {p0, v0}, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->setScreenState(Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_4
     const-string/jumbo v3, "OtherApp"
 
     const-string/jumbo v4, "FreeformView"
@@ -1187,7 +1321,7 @@
 
     goto/16 :goto_0
 
-    :cond_4
+    :cond_5
     const-string/jumbo v3, "Root"
 
     const-string/jumbo v4, "PopupView"
@@ -1210,7 +1344,7 @@
 
     goto/16 :goto_0
 
-    :cond_5
+    :cond_6
     const-string/jumbo v3, "Root"
 
     const-string/jumbo v4, "PopupView"

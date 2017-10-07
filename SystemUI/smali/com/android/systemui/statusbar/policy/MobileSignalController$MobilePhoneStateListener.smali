@@ -522,6 +522,16 @@
 
     invoke-direct {v0, v1}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
+    const-string/jumbo v1, "phone"
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobilePhoneStateListener;->this$0:Lcom/android/systemui/statusbar/policy/MobileSignalController;
+
+    invoke-static {v2}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->-get13(Lcom/android/systemui/statusbar/policy/MobileSignalController;)I
+
+    move-result v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+
     iget-object v1, p0, Lcom/android/systemui/statusbar/policy/MobileSignalController$MobilePhoneStateListener;->this$0:Lcom/android/systemui/statusbar/policy/MobileSignalController;
 
     invoke-static {v1}, Lcom/android/systemui/statusbar/policy/MobileSignalController;->-get2(Lcom/android/systemui/statusbar/policy/MobileSignalController;)Landroid/content/Context;

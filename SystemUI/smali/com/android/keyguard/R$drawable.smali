@@ -66,11 +66,11 @@
 
 .field public static final ic_wallpapers_motion:I = 0x7f02026b
 
-.field public static final indicator_code_lock_point_area_default_holo:I = 0x7f020816
+.field public static final indicator_code_lock_point_area_default_holo:I = 0x7f020818
 
-.field public static final indicator_code_lock_point_area_green_holo:I = 0x7f020817
+.field public static final indicator_code_lock_point_area_green_holo:I = 0x7f020819
 
-.field public static final indicator_code_lock_point_area_red_holo:I = 0x7f020818
+.field public static final indicator_code_lock_point_area_red_holo:I = 0x7f02081a
 
 .field public static final iris_ic_cancel:I = 0x7f02029b
 
@@ -116,59 +116,59 @@
 
 .field public static final pin_lock_btn_back_whitebg:I = 0x7f020392
 
-.field public static final pin_number_image_0:I = 0x7f02080c
+.field public static final pin_number_image_0:I = 0x7f02080e
 
-.field public static final pin_number_image_1:I = 0x7f02080d
+.field public static final pin_number_image_1:I = 0x7f02080f
 
-.field public static final pin_number_image_2:I = 0x7f02080e
+.field public static final pin_number_image_2:I = 0x7f020810
 
-.field public static final pin_number_image_3:I = 0x7f02080f
+.field public static final pin_number_image_3:I = 0x7f020811
 
-.field public static final pin_number_image_4:I = 0x7f020810
+.field public static final pin_number_image_4:I = 0x7f020812
 
-.field public static final pin_number_image_5:I = 0x7f020811
+.field public static final pin_number_image_5:I = 0x7f020813
 
-.field public static final pin_number_image_6:I = 0x7f020812
+.field public static final pin_number_image_6:I = 0x7f020814
 
-.field public static final pin_number_image_7:I = 0x7f020813
+.field public static final pin_number_image_7:I = 0x7f020815
 
-.field public static final pin_number_image_8:I = 0x7f020814
+.field public static final pin_number_image_8:I = 0x7f020816
 
-.field public static final pin_number_image_9:I = 0x7f020815
+.field public static final pin_number_image_9:I = 0x7f020817
 
-.field public static final rainline:I = 0x7f02047c
+.field public static final rainline:I = 0x7f02047e
 
-.field public static final ripple_drawable:I = 0x7f0205ae
+.field public static final ripple_drawable:I = 0x7f0205b0
 
-.field public static final ripple_drawable_dark_oval:I = 0x7f0205b0
+.field public static final ripple_drawable_dark_oval:I = 0x7f0205b2
 
-.field public static final ripple_drawable_dark_rect:I = 0x7f0205b1
+.field public static final ripple_drawable_dark_rect:I = 0x7f0205b3
 
-.field public static final ripple_drawable_oval:I = 0x7f0205b2
+.field public static final ripple_drawable_oval:I = 0x7f0205b4
 
-.field public static final ripple_drawable_rect:I = 0x7f0205b3
+.field public static final ripple_drawable_rect:I = 0x7f0205b5
 
-.field public static final ripple_effect_transparent_black_button_drawable:I = 0x7f0205b4
+.field public static final ripple_effect_transparent_black_button_drawable:I = 0x7f0205b6
 
-.field public static final ripple_effect_transparent_button_drawable:I = 0x7f0205b5
+.field public static final ripple_effect_transparent_button_drawable:I = 0x7f0205b7
 
-.field public static final servicebox_today_event_icon:I = 0x7f0205c7
+.field public static final servicebox_today_event_icon:I = 0x7f0205c9
 
-.field public static final servicebox_today_event_icon_big:I = 0x7f0205c8
+.field public static final servicebox_today_event_icon_big:I = 0x7f0205ca
 
-.field public static final servicebox_today_event_icon_white:I = 0x7f0205c9
+.field public static final servicebox_today_event_icon_white:I = 0x7f0205cb
 
-.field public static final servicebox_today_event_icon_white_big:I = 0x7f0205ca
+.field public static final servicebox_today_event_icon_white_big:I = 0x7f0205cc
 
-.field public static final servicebox_today_event_ripple:I = 0x7f0205cb
+.field public static final servicebox_today_event_ripple:I = 0x7f0205cd
 
-.field public static final servicebox_today_event_ripple_dark:I = 0x7f0205cc
+.field public static final servicebox_today_event_ripple_dark:I = 0x7f0205ce
 
-.field public static final servicebox_today_no_event_ripple:I = 0x7f0205cd
+.field public static final servicebox_today_no_event_ripple:I = 0x7f0205cf
 
-.field public static final servicebox_today_no_event_ripple_dark:I = 0x7f0205ce
+.field public static final servicebox_today_no_event_ripple_dark:I = 0x7f0205d0
 
-.field public static final theme_textclock_bg_image:I = 0x7f020798
+.field public static final theme_textclock_bg_image:I = 0x7f02079a
 
 
 # direct methods

@@ -275,10 +275,17 @@
 .end method
 
 .method public focusByAppName(Ljava/lang/String;)Z
-    .locals 10
+    .locals 11
 
-    const/4 v9, 0x1
+    const/4 v10, 0x1
 
+    const/4 v9, 0x0
+
+    if-nez p1, :cond_0
+
+    return v9
+
+    :cond_0
     iget-object v6, p0, Lcom/android/systemui/recents/views/RecentsView$BixbyRecentsViewHandler;->this$0:Lcom/android/systemui/recents/views/RecentsView;
 
     iget-object v6, v6, Lcom/android/systemui/recents/views/RecentsView;->mTaskStackView:Lcom/android/systemui/recents/views/TaskStackView;
@@ -329,10 +336,19 @@
 
     invoke-static {v6, v7}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    invoke-virtual {v1}, Ljava/lang/String;->isEmpty()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_1
+
+    return v9
+
+    :cond_1
     const/4 v0, 0x0
 
     :goto_0
-    if-ge v0, v4, :cond_1
+    if-ge v0, v4, :cond_3
 
     invoke-interface {v5, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -342,7 +358,7 @@
 
     iget-object v6, v3, Lcom/android/systemui/recents/model/Task;->title:Ljava/lang/String;
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_2
 
     iget-object v6, v3, Lcom/android/systemui/recents/model/Task;->title:Ljava/lang/String;
 
@@ -362,32 +378,37 @@
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_2
 
     iget-object v6, p0, Lcom/android/systemui/recents/views/RecentsView$BixbyRecentsViewHandler;->this$0:Lcom/android/systemui/recents/views/RecentsView;
 
     iget-object v6, v6, Lcom/android/systemui/recents/views/RecentsView;->mTaskStackView:Lcom/android/systemui/recents/views/TaskStackView;
 
-    invoke-virtual {v6, v0, v9}, Lcom/android/systemui/recents/views/TaskStackView;->setFocusedTask(IZ)Z
+    invoke-virtual {v6, v0, v10}, Lcom/android/systemui/recents/views/TaskStackView;->setFocusedTask(IZ)Z
 
-    return v9
+    return v10
 
-    :cond_0
+    :cond_2
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    :cond_1
-    const/4 v6, 0x0
-
-    return v6
+    :cond_3
+    return v9
 .end method
 
 .method public focusByComponentName(Landroid/content/ComponentName;)Z
-    .locals 6
+    .locals 7
 
-    const/4 v5, 0x1
+    const/4 v6, 0x1
 
+    const/4 v5, 0x0
+
+    if-nez p1, :cond_0
+
+    return v5
+
+    :cond_0
     iget-object v4, p0, Lcom/android/systemui/recents/views/RecentsView$BixbyRecentsViewHandler;->this$0:Lcom/android/systemui/recents/views/RecentsView;
 
     iget-object v4, v4, Lcom/android/systemui/recents/views/RecentsView;->mTaskStackView:Lcom/android/systemui/recents/views/TaskStackView;
@@ -407,7 +428,7 @@
     const/4 v0, 0x0
 
     :goto_0
-    if-ge v0, v2, :cond_1
+    if-ge v0, v2, :cond_2
 
     invoke-interface {v3, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -425,25 +446,23 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1
 
     iget-object v4, p0, Lcom/android/systemui/recents/views/RecentsView$BixbyRecentsViewHandler;->this$0:Lcom/android/systemui/recents/views/RecentsView;
 
     iget-object v4, v4, Lcom/android/systemui/recents/views/RecentsView;->mTaskStackView:Lcom/android/systemui/recents/views/TaskStackView;
 
-    invoke-virtual {v4, v0, v5}, Lcom/android/systemui/recents/views/TaskStackView;->setFocusedTask(IZ)Z
+    invoke-virtual {v4, v0, v6}, Lcom/android/systemui/recents/views/TaskStackView;->setFocusedTask(IZ)Z
 
-    return v5
+    return v6
 
-    :cond_0
+    :cond_1
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_0
 
-    :cond_1
-    const/4 v4, 0x0
-
-    return v4
+    :cond_2
+    return v5
 .end method
 
 .method public focusByIndex(I)Z
