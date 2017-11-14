@@ -10963,6 +10963,7 @@
     <public type="id" name="killer_clean_button" id="0x7f130582" />
     <public type="id" name="clock2" id="0x7f130583" />
     <public type="id" name="APKTOOL_DUMMY_55e" id="0x7f130584" />
+    <public type="id" name="CustomBg" id="0x7f130585" />
     <public type="plurals" name="status_bar_accessibility_recent_apps" id="0x7f140000" />
     <public type="plurals" name="notification_group_overflow_description" id="0x7f140001" />
     <public type="plurals" name="kg_password_wrong_pin_code" id="0x7f140002" />
