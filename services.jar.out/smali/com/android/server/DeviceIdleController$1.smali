@@ -124,7 +124,7 @@
 
     iget-object v3, p0, Lcom/android/server/DeviceIdleController$1;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-static {v3, v2}, Lcom/android/server/DeviceIdleController;->-wrap1(Lcom/android/server/DeviceIdleController;Ljava/lang/String;)Z
+    invoke-static {v3, v2}, Lcom/android/server/DeviceIdleController;->-wrap3(Lcom/android/server/DeviceIdleController;Ljava/lang/String;)Z
 
     move-result v3
 

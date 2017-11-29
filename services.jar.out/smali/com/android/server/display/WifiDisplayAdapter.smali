@@ -1838,7 +1838,7 @@
 
     const/4 v6, 0x0
 
-    const v7, 0x1040731
+    const v7, 0x1040733
 
     invoke-virtual {v3, v6, v7, v5}, Landroid/app/NotificationManager;->cancelAsUser(Ljava/lang/String;ILandroid/os/UserHandle;)V
 
@@ -1982,7 +1982,7 @@
 
     :cond_6
     :goto_3
-    const v3, 0x1040731
+    const v3, 0x1040733
 
     move-object/from16 v0, v16
 
@@ -1990,7 +1990,7 @@
 
     move-result-object v9
 
-    const v3, 0x1040733
+    const v3, 0x1040735
 
     move-object/from16 v0, v16
 
@@ -2006,7 +2006,7 @@
 
     aput-object v8, v3, v5
 
-    const v5, 0x1040734
+    const v5, 0x1040736
 
     invoke-virtual {v2, v5, v3}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2082,7 +2082,7 @@
 
     const/4 v6, 0x0
 
-    const v7, 0x1040731
+    const v7, 0x1040733
 
     invoke-virtual {v3, v6, v7, v14, v5}, Landroid/app/NotificationManager;->notifyAsUser(Ljava/lang/String;ILandroid/app/Notification;Landroid/os/UserHandle;)V
 

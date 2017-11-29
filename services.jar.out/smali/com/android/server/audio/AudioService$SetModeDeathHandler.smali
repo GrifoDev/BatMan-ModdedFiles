@@ -63,7 +63,7 @@
 
     iget-object v4, p0, Lcom/android/server/audio/AudioService$SetModeDeathHandler;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v4}, Lcom/android/server/audio/AudioService;->-get65(Lcom/android/server/audio/AudioService;)Ljava/util/ArrayList;
+    invoke-static {v4}, Lcom/android/server/audio/AudioService;->-get64(Lcom/android/server/audio/AudioService;)Ljava/util/ArrayList;
 
     move-result-object v5
 
@@ -78,7 +78,7 @@
 
     iget-object v4, p0, Lcom/android/server/audio/AudioService$SetModeDeathHandler;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v4}, Lcom/android/server/audio/AudioService;->-get65(Lcom/android/server/audio/AudioService;)Ljava/util/ArrayList;
+    invoke-static {v4}, Lcom/android/server/audio/AudioService;->-get64(Lcom/android/server/audio/AudioService;)Ljava/util/ArrayList;
 
     move-result-object v4
 

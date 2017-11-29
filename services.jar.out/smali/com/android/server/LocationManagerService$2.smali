@@ -36,7 +36,7 @@
 
     iget-object v4, p0, Lcom/android/server/LocationManagerService$2;->this$0:Lcom/android/server/LocationManagerService;
 
-    invoke-static {v4}, Lcom/android/server/LocationManagerService;->-get4(Lcom/android/server/LocationManagerService;)Ljava/lang/Object;
+    invoke-static {v4}, Lcom/android/server/LocationManagerService;->-get5(Lcom/android/server/LocationManagerService;)Ljava/lang/Object;
 
     move-result-object v5
 
@@ -47,7 +47,7 @@
     :try_start_0
     iget-object v4, p0, Lcom/android/server/LocationManagerService$2;->this$0:Lcom/android/server/LocationManagerService;
 
-    invoke-static {v4}, Lcom/android/server/LocationManagerService;->-get7(Lcom/android/server/LocationManagerService;)Ljava/util/HashMap;
+    invoke-static {v4}, Lcom/android/server/LocationManagerService;->-get8(Lcom/android/server/LocationManagerService;)Ljava/util/HashMap;
 
     move-result-object v4
 

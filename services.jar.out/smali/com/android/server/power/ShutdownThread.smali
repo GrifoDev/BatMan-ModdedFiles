@@ -1505,7 +1505,7 @@
 
     if-eqz v10, :cond_2
 
-    const v9, 0x1040710
+    const v9, 0x1040712
 
     :goto_0
     invoke-static {p0}, Lcom/android/server/power/ShutdownThread;->getDescriptionText(Landroid/content/Context;)I
@@ -2029,7 +2029,7 @@
     if-eqz v2, :cond_2
 
     :cond_1
-    const v0, 0x1040804
+    const v0, 0x1040806
 
     :goto_0
     return v0
@@ -2052,12 +2052,12 @@
 
     if-eqz v2, :cond_4
 
-    const v0, 0x1040801
+    const v0, 0x1040803
 
     goto :goto_0
 
     :cond_4
-    const v0, 0x10407ff
+    const v0, 0x1040801
 
     goto :goto_0
 
@@ -2079,7 +2079,7 @@
 
     if-ne v1, v5, :cond_8
 
-    const v0, 0x1040711
+    const v0, 0x1040713
 
     goto :goto_0
 
@@ -2096,12 +2096,12 @@
 
     if-eqz v2, :cond_6
 
-    const v0, 0x10408b3
+    const v0, 0x10408b5
 
     goto :goto_0
 
     :cond_8
-    const v0, 0x10406f9
+    const v0, 0x10406fb
 
     goto :goto_0
 
@@ -2460,7 +2460,7 @@
     if-eqz v1, :cond_2
 
     :cond_1
-    const v0, 0x1040803
+    const v0, 0x1040805
 
     :goto_0
     return v0
@@ -2479,7 +2479,7 @@
 
     if-eqz v1, :cond_4
 
-    const v0, 0x1040710
+    const v0, 0x1040712
 
     goto :goto_0
 
@@ -2677,7 +2677,7 @@
     if-eqz v6, :cond_8
 
     :cond_6
-    const v6, 0x10407c8
+    const v6, 0x10407ca
 
     invoke-virtual {p0, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2693,7 +2693,7 @@
     return v8
 
     :cond_7
-    const v6, 0x10407c4
+    const v6, 0x10407c6
 
     invoke-virtual {p0, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2708,7 +2708,7 @@
     return v8
 
     :cond_8
-    const v6, 0x10407c7
+    const v6, 0x10407c9
 
     invoke-virtual {p0, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

@@ -42,7 +42,7 @@
 
     iput-object p4, p0, Lcom/android/server/LocationManagerService$UpdateRecord;->mReceiver:Lcom/android/server/LocationManagerService$Receiver;
 
-    invoke-static {p1}, Lcom/android/server/LocationManagerService;->-get8(Lcom/android/server/LocationManagerService;)Ljava/util/HashMap;
+    invoke-static {p1}, Lcom/android/server/LocationManagerService;->-get9(Lcom/android/server/LocationManagerService;)Ljava/util/HashMap;
 
     move-result-object v1
 
@@ -58,7 +58,7 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    invoke-static {p1}, Lcom/android/server/LocationManagerService;->-get8(Lcom/android/server/LocationManagerService;)Ljava/util/HashMap;
+    invoke-static {p1}, Lcom/android/server/LocationManagerService;->-get9(Lcom/android/server/LocationManagerService;)Ljava/util/HashMap;
 
     move-result-object v1
 
@@ -74,7 +74,7 @@
     invoke-virtual {v0, p0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     :cond_1
-    invoke-static {p1}, Lcom/android/server/LocationManagerService;->-get9(Lcom/android/server/LocationManagerService;)Lcom/android/server/location/LocationRequestStatistics;
+    invoke-static {p1}, Lcom/android/server/LocationManagerService;->-get10(Lcom/android/server/LocationManagerService;)Lcom/android/server/location/LocationRequestStatistics;
 
     move-result-object v1
 
@@ -98,7 +98,7 @@
 
     iget-object v2, p0, Lcom/android/server/LocationManagerService$UpdateRecord;->this$0:Lcom/android/server/LocationManagerService;
 
-    invoke-static {v2}, Lcom/android/server/LocationManagerService;->-get9(Lcom/android/server/LocationManagerService;)Lcom/android/server/location/LocationRequestStatistics;
+    invoke-static {v2}, Lcom/android/server/LocationManagerService;->-get10(Lcom/android/server/LocationManagerService;)Lcom/android/server/location/LocationRequestStatistics;
 
     move-result-object v2
 
@@ -112,7 +112,7 @@
 
     iget-object v2, p0, Lcom/android/server/LocationManagerService$UpdateRecord;->this$0:Lcom/android/server/LocationManagerService;
 
-    invoke-static {v2}, Lcom/android/server/LocationManagerService;->-get8(Lcom/android/server/LocationManagerService;)Ljava/util/HashMap;
+    invoke-static {v2}, Lcom/android/server/LocationManagerService;->-get9(Lcom/android/server/LocationManagerService;)Ljava/util/HashMap;
 
     move-result-object v2
 

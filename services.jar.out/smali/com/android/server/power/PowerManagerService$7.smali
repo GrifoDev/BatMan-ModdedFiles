@@ -114,7 +114,7 @@
 
     iget-object v4, p0, Lcom/android/server/power/PowerManagerService$7;->this$0:Lcom/android/server/power/PowerManagerService;
 
-    invoke-static {v4, v2, v3}, Lcom/android/server/power/PowerManagerService;->-set34(Lcom/android/server/power/PowerManagerService;J)J
+    invoke-static {v4, v2, v3}, Lcom/android/server/power/PowerManagerService;->-set35(Lcom/android/server/power/PowerManagerService;J)J
 
     iget-object v4, p0, Lcom/android/server/power/PowerManagerService$7;->this$0:Lcom/android/server/power/PowerManagerService;
 
@@ -142,7 +142,7 @@
 
     move-result-object v5
 
-    invoke-static {v4, v5}, Lcom/android/server/power/PowerManagerService;->-set37(Lcom/android/server/power/PowerManagerService;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v4, v5}, Lcom/android/server/power/PowerManagerService;->-set38(Lcom/android/server/power/PowerManagerService;Ljava/lang/String;)Ljava/lang/String;
 
     :cond_1
     return-void

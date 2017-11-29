@@ -39,7 +39,7 @@
 
     const-string/jumbo v1, "CHN"
 
-    invoke-static {}, Lcom/android/server/LocationManagerService;->-get10()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/LocationManagerService;->-get11()Ljava/lang/String;
 
     move-result-object v2
 
@@ -51,7 +51,7 @@
 
     const-string/jumbo v1, "CHC"
 
-    invoke-static {}, Lcom/android/server/LocationManagerService;->-get10()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/LocationManagerService;->-get11()Ljava/lang/String;
 
     move-result-object v2
 
@@ -63,7 +63,7 @@
 
     const-string/jumbo v1, "CHU"
 
-    invoke-static {}, Lcom/android/server/LocationManagerService;->-get10()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/LocationManagerService;->-get11()Ljava/lang/String;
 
     move-result-object v2
 
@@ -75,7 +75,7 @@
 
     const-string/jumbo v1, "CTC"
 
-    invoke-static {}, Lcom/android/server/LocationManagerService;->-get10()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/LocationManagerService;->-get11()Ljava/lang/String;
 
     move-result-object v2
 
@@ -87,7 +87,7 @@
 
     const-string/jumbo v1, "CHM"
 
-    invoke-static {}, Lcom/android/server/LocationManagerService;->-get10()Ljava/lang/String;
+    invoke-static {}, Lcom/android/server/LocationManagerService;->-get11()Ljava/lang/String;
 
     move-result-object v2
 

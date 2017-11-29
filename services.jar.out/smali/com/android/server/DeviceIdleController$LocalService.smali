@@ -115,7 +115,7 @@
 
     iget-object v5, p0, Lcom/android/server/DeviceIdleController$LocalService;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-static {v5}, Lcom/android/server/DeviceIdleController;->-get4(Lcom/android/server/DeviceIdleController;)Landroid/util/ArrayMap;
+    invoke-static {v5}, Lcom/android/server/DeviceIdleController;->-get6(Lcom/android/server/DeviceIdleController;)Landroid/util/ArrayMap;
 
     move-result-object v5
 
@@ -150,11 +150,11 @@
     :try_start_2
     iget-object v5, p0, Lcom/android/server/DeviceIdleController$LocalService;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-static {v5}, Lcom/android/server/DeviceIdleController;->-wrap3(Lcom/android/server/DeviceIdleController;)V
+    invoke-static {v5}, Lcom/android/server/DeviceIdleController;->-wrap6(Lcom/android/server/DeviceIdleController;)V
 
     iget-object v5, p0, Lcom/android/server/DeviceIdleController$LocalService;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-static {v5}, Lcom/android/server/DeviceIdleController;->-wrap2(Lcom/android/server/DeviceIdleController;)V
+    invoke-static {v5}, Lcom/android/server/DeviceIdleController;->-wrap5(Lcom/android/server/DeviceIdleController;)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
@@ -289,7 +289,7 @@
 
     iget-object v3, p0, Lcom/android/server/DeviceIdleController$LocalService;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-static {v3}, Lcom/android/server/DeviceIdleController;->-get4(Lcom/android/server/DeviceIdleController;)Landroid/util/ArrayMap;
+    invoke-static {v3}, Lcom/android/server/DeviceIdleController;->-get6(Lcom/android/server/DeviceIdleController;)Landroid/util/ArrayMap;
 
     move-result-object v3
 
@@ -311,11 +311,11 @@
 
     iget-object v3, p0, Lcom/android/server/DeviceIdleController$LocalService;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-static {v3}, Lcom/android/server/DeviceIdleController;->-wrap3(Lcom/android/server/DeviceIdleController;)V
+    invoke-static {v3}, Lcom/android/server/DeviceIdleController;->-wrap6(Lcom/android/server/DeviceIdleController;)V
 
     iget-object v3, p0, Lcom/android/server/DeviceIdleController$LocalService;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-static {v3}, Lcom/android/server/DeviceIdleController;->-wrap2(Lcom/android/server/DeviceIdleController;)V
+    invoke-static {v3}, Lcom/android/server/DeviceIdleController;->-wrap5(Lcom/android/server/DeviceIdleController;)V
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 

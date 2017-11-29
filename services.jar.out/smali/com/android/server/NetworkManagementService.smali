@@ -16557,17 +16557,17 @@
 
     if-eqz p2, :cond_0
 
-    const-string/jumbo v2, "wlan"
+    const-string/jumbo v2, "rmnet"
 
-    invoke-virtual {p2, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {p2, v2}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-eqz v2, :cond_0
 
     const-string/jumbo v2, "NetworkManagement"
 
-    const-string/jumbo v3, "setTCRule - interface name is not starts with wlan"
+    const-string/jumbo v3, "setTCRule - Don\'t allow TC Control due to interface name has rmnet"
 
     invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
@@ -17257,7 +17257,7 @@
 
     move-result-object v0
 
-    const v3, 0x1040ad7
+    const v3, 0x1040ad9
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -17269,7 +17269,7 @@
 
     move-result-object v0
 
-    const v3, 0x1040ad8
+    const v3, 0x1040ada
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

@@ -2730,7 +2730,7 @@
     :goto_0
     if-nez v0, :cond_3
 
-    const v1, 0x1040a0f
+    const v1, 0x1040a11
 
     invoke-static {v1}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -5648,7 +5648,7 @@
     goto :goto_0
 
     :cond_2
-    const v2, 0x1040a49
+    const v2, 0x1040a4b
 
     invoke-static {v2}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -5703,7 +5703,7 @@
     goto :goto_0
 
     :cond_2
-    const v2, 0x1040a48
+    const v2, 0x1040a4a
 
     invoke-static {v2}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -5758,7 +5758,7 @@
     goto :goto_0
 
     :cond_2
-    const v2, 0x1040a47
+    const v2, 0x1040a49
 
     invoke-static {v2}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 

@@ -723,6 +723,8 @@
 
 .field private mUltraPowerSavingModeEnabled:Z
 
+.field private mUpdateAutoBrightnessImmediately:Z
+
 .field private mUserActivityIntent:Landroid/content/Intent;
 
 .field private mUserActivityIntentLegacy:Landroid/content/Intent;
@@ -1539,12 +1541,20 @@
 .method static synthetic -set33(Lcom/android/server/power/PowerManagerService;Z)Z
     .locals 0
 
+    iput-boolean p1, p0, Lcom/android/server/power/PowerManagerService;->mUpdateAutoBrightnessImmediately:Z
+
+    return p1
+.end method
+
+.method static synthetic -set34(Lcom/android/server/power/PowerManagerService;Z)Z
+    .locals 0
+
     iput-boolean p1, p0, Lcom/android/server/power/PowerManagerService;->mUserSwitched:Z
 
     return p1
 .end method
 
-.method static synthetic -set34(Lcom/android/server/power/PowerManagerService;J)J
+.method static synthetic -set35(Lcom/android/server/power/PowerManagerService;J)J
     .locals 1
 
     iput-wide p1, p0, Lcom/android/server/power/PowerManagerService;->mlastSetCoverTypeTime:J
@@ -1552,7 +1562,7 @@
     return-wide p1
 .end method
 
-.method static synthetic -set35(Lcom/android/server/power/PowerManagerService;Ljava/lang/String;)Ljava/lang/String;
+.method static synthetic -set36(Lcom/android/server/power/PowerManagerService;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/power/PowerManagerService;->mlastUpdateCoverStateReason:Ljava/lang/String;
@@ -1560,7 +1570,7 @@
     return-object p1
 .end method
 
-.method static synthetic -set36(Lcom/android/server/power/PowerManagerService;J)J
+.method static synthetic -set37(Lcom/android/server/power/PowerManagerService;J)J
     .locals 1
 
     iput-wide p1, p0, Lcom/android/server/power/PowerManagerService;->mlastUpdateCoverStateTime:J
@@ -1568,7 +1578,7 @@
     return-wide p1
 .end method
 
-.method static synthetic -set37(Lcom/android/server/power/PowerManagerService;Ljava/lang/String;)Ljava/lang/String;
+.method static synthetic -set38(Lcom/android/server/power/PowerManagerService;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
 
     iput-object p1, p0, Lcom/android/server/power/PowerManagerService;->mlastUpdateCoverTypeReason:Ljava/lang/String;
@@ -16317,6 +16327,12 @@
 
     iput-boolean v11, v10, Landroid/hardware/display/DisplayManagerInternal$DisplayPowerRequest;->resetPersonalAutoBrightnessData:Z
 
+    iget-object v10, p0, Lcom/android/server/power/PowerManagerService;->mDisplayPowerRequest:Landroid/hardware/display/DisplayManagerInternal$DisplayPowerRequest;
+
+    iget-boolean v11, p0, Lcom/android/server/power/PowerManagerService;->mUpdateAutoBrightnessImmediately:Z
+
+    iput-boolean v11, v10, Landroid/hardware/display/DisplayManagerInternal$DisplayPowerRequest;->updateAutoBrightnessImmediately:Z
+
     iget-object v10, p0, Lcom/android/server/power/PowerManagerService;->mDisplayManagerInternal:Landroid/hardware/display/DisplayManagerInternal;
 
     iget-object v11, p0, Lcom/android/server/power/PowerManagerService;->mDisplayPowerRequest:Landroid/hardware/display/DisplayManagerInternal$DisplayPowerRequest;
@@ -16397,6 +16413,10 @@
     const/4 v10, 0x0
 
     iput-boolean v10, p0, Lcom/android/server/power/PowerManagerService;->mResetPersonalAutoBrightnessData:Z
+
+    const/4 v10, 0x0
+
+    iput-boolean v10, p0, Lcom/android/server/power/PowerManagerService;->mUpdateAutoBrightnessImmediately:Z
 
     :cond_f
     iget-boolean v10, p0, Lcom/android/server/power/PowerManagerService;->mDisplayReady:Z

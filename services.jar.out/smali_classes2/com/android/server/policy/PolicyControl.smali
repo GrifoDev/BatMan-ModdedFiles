@@ -408,7 +408,7 @@
     return v0
 .end method
 
-.method private static isNonImmersiveWindow(Landroid/view/WindowManagerPolicy$WindowState;)Z
+.method public static isNonImmersiveWindow(Landroid/view/WindowManagerPolicy$WindowState;)Z
     .locals 3
 
     const/4 v2, 0x1

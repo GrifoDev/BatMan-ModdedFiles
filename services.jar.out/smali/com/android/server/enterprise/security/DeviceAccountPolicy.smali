@@ -24,6 +24,8 @@
 
 .field public static final ACCOUNT_TYPE_GOOGLE_POP3:Ljava/lang/String; = "com.google.android.gm.pop3"
 
+.field public static final ACCOUNT_TYPE_GOOGLE_WORK:Ljava/lang/String; = "com.google.work"
+
 .field public static final ACCOUNT_TYPE_LDAP:Ljava/lang/String; = "com.samsung.android.ldap"
 
 .field public static final ACCOUNT_TYPE_LDAP_OLD:Ljava/lang/String; = "com.android.ldap"
@@ -109,7 +111,7 @@
     return-void
 
     :cond_0
-    const/16 v0, 0x8
+    const/16 v0, 0x9
 
     new-array v0, v0, [Ljava/lang/String;
 
@@ -148,6 +150,12 @@
     const-string/jumbo v1, "com.google.android.gm.exchange"
 
     const/4 v2, 0x7
+
+    aput-object v1, v0, v2
+
+    const-string/jumbo v1, "com.google.work"
+
+    const/16 v2, 0x8
 
     aput-object v1, v0, v2
 
@@ -2625,7 +2633,7 @@
 
     if-eqz p3, :cond_3
 
-    const v7, 0x10409ff
+    const v7, 0x1040a01
 
     invoke-static {v7}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 
@@ -2777,7 +2785,7 @@
 
     if-eqz p3, :cond_3
 
-    const v5, 0x10409fe
+    const v5, 0x1040a00
 
     invoke-static {v5}, Lcom/android/server/enterprise/RestrictionToastManager;->show(I)V
 

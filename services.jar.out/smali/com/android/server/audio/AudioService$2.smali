@@ -54,7 +54,7 @@
 
     iget-object v2, p0, Lcom/android/server/audio/AudioService$2;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v2}, Lcom/android/server/audio/AudioService;->-get41(Lcom/android/server/audio/AudioService;)I
+    invoke-static {v2}, Lcom/android/server/audio/AudioService;->-get40(Lcom/android/server/audio/AudioService;)I
 
     move-result v2
 
@@ -72,7 +72,7 @@
 
     iget-object v3, p0, Lcom/android/server/audio/AudioService$2;->this$0:Lcom/android/server/audio/AudioService;
 
-    invoke-static {v3}, Lcom/android/server/audio/AudioService;->-get41(Lcom/android/server/audio/AudioService;)I
+    invoke-static {v3}, Lcom/android/server/audio/AudioService;->-get40(Lcom/android/server/audio/AudioService;)I
 
     move-result v3
 

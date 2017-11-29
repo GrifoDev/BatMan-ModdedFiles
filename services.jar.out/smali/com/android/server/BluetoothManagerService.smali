@@ -221,6 +221,8 @@
 
 .field private final mHandler:Lcom/android/server/BluetoothManagerService$BluetoothHandler;
 
+.field private mIsBootCompleted:Z
+
 .field private mName:Ljava/lang/String;
 
 .field private final mProfileServices:Ljava/util/Map;
@@ -375,20 +377,20 @@
     return-object v0
 .end method
 
-.method static synthetic -get18()I
+.method static synthetic -get18(Lcom/android/server/BluetoothManagerService;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/server/BluetoothManagerService;->mIsBootCompleted:Z
+
+    return v0
+.end method
+
+.method static synthetic -get19()I
     .locals 1
 
     sget v0, Lcom/android/server/BluetoothManagerService;->mPolicy:I
 
     return v0
-.end method
-
-.method static synthetic -get19(Lcom/android/server/BluetoothManagerService;)Ljava/util/Map;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/BluetoothManagerService;->mProfileServices:Ljava/util/Map;
-
-    return-object v0
 .end method
 
 .method static synthetic -get2(Lcom/android/server/BluetoothManagerService;)Landroid/app/AlertDialog;
@@ -399,7 +401,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get20(Lcom/android/server/BluetoothManagerService;)Z
+.method static synthetic -get20(Lcom/android/server/BluetoothManagerService;)Ljava/util/Map;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/BluetoothManagerService;->mProfileServices:Ljava/util/Map;
+
+    return-object v0
+.end method
+
+.method static synthetic -get21(Lcom/android/server/BluetoothManagerService;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/server/BluetoothManagerService;->mQuietEnable:Z
@@ -407,7 +417,7 @@
     return v0
 .end method
 
-.method static synthetic -get21(Lcom/android/server/BluetoothManagerService;)Landroid/content/BroadcastReceiver;
+.method static synthetic -get22(Lcom/android/server/BluetoothManagerService;)Landroid/content/BroadcastReceiver;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/BluetoothManagerService;->mReceiver:Landroid/content/BroadcastReceiver;
@@ -415,7 +425,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get22(Lcom/android/server/BluetoothManagerService;)I
+.method static synthetic -get23(Lcom/android/server/BluetoothManagerService;)I
     .locals 1
 
     iget v0, p0, Lcom/android/server/BluetoothManagerService;->mSamsugBleState:I
@@ -423,7 +433,7 @@
     return v0
 .end method
 
-.method static synthetic -get23()I
+.method static synthetic -get24()I
     .locals 1
 
     sget v0, Lcom/android/server/BluetoothManagerService;->mSamsungBleAppCount:I
@@ -431,7 +441,7 @@
     return v0
 .end method
 
-.method static synthetic -get24(Lcom/android/server/BluetoothManagerService;)Landroid/os/RemoteCallbackList;
+.method static synthetic -get25(Lcom/android/server/BluetoothManagerService;)Landroid/os/RemoteCallbackList;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/BluetoothManagerService;->mSinkServiceChangeCallback:Landroid/os/RemoteCallbackList;
@@ -439,7 +449,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get25(Lcom/android/server/BluetoothManagerService;)I
+.method static synthetic -get26(Lcom/android/server/BluetoothManagerService;)I
     .locals 1
 
     iget v0, p0, Lcom/android/server/BluetoothManagerService;->mState:I
@@ -447,7 +457,7 @@
     return v0
 .end method
 
-.method static synthetic -get26(Lcom/android/server/BluetoothManagerService;)Landroid/os/RemoteCallbackList;
+.method static synthetic -get27(Lcom/android/server/BluetoothManagerService;)Landroid/os/RemoteCallbackList;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/BluetoothManagerService;->mStateChangeCallbacks:Landroid/os/RemoteCallbackList;
@@ -538,7 +548,7 @@
 .method static synthetic -set11(Lcom/android/server/BluetoothManagerService;Z)Z
     .locals 0
 
-    iput-boolean p1, p0, Lcom/android/server/BluetoothManagerService;->mQuietEnable:Z
+    iput-boolean p1, p0, Lcom/android/server/BluetoothManagerService;->mIsBootCompleted:Z
 
     return p1
 .end method
@@ -546,12 +556,20 @@
 .method static synthetic -set12(Lcom/android/server/BluetoothManagerService;Z)Z
     .locals 0
 
+    iput-boolean p1, p0, Lcom/android/server/BluetoothManagerService;->mQuietEnable:Z
+
+    return p1
+.end method
+
+.method static synthetic -set13(Lcom/android/server/BluetoothManagerService;Z)Z
+    .locals 0
+
     iput-boolean p1, p0, Lcom/android/server/BluetoothManagerService;->mRpaGeneration:Z
 
     return p1
 .end method
 
-.method static synthetic -set13(Lcom/android/server/BluetoothManagerService;I)I
+.method static synthetic -set14(Lcom/android/server/BluetoothManagerService;I)I
     .locals 0
 
     iput p1, p0, Lcom/android/server/BluetoothManagerService;->mSamsugBleState:I
@@ -559,7 +577,7 @@
     return p1
 .end method
 
-.method static synthetic -set14(I)I
+.method static synthetic -set15(I)I
     .locals 0
 
     sput p0, Lcom/android/server/BluetoothManagerService;->mSamsungBleAppCount:I
@@ -567,7 +585,7 @@
     return p0
 .end method
 
-.method static synthetic -set15(Lcom/android/server/BluetoothManagerService;I)I
+.method static synthetic -set16(Lcom/android/server/BluetoothManagerService;I)I
     .locals 0
 
     iput p1, p0, Lcom/android/server/BluetoothManagerService;->mState:I
@@ -575,7 +593,7 @@
     return p1
 .end method
 
-.method static synthetic -set16(Lcom/android/server/BluetoothManagerService;Z)Z
+.method static synthetic -set17(Lcom/android/server/BluetoothManagerService;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/server/BluetoothManagerService;->mUnbinding:Z
@@ -966,6 +984,8 @@
 
     iput v5, p0, Lcom/android/server/BluetoothManagerService;->mGoogleBleState:I
 
+    iput-boolean v5, p0, Lcom/android/server/BluetoothManagerService;->mIsBootCompleted:Z
+
     new-instance v3, Ljava/util/HashMap;
 
     invoke-direct {v3}, Ljava/util/HashMap;-><init>()V
@@ -1107,6 +1127,10 @@
     invoke-virtual {v1, v3}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
     const-string/jumbo v3, "android.intent.action.CLOSE_SYSTEM_DIALOGS"
+
+    invoke-virtual {v1, v3}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    const-string/jumbo v3, "android.intent.action.BOOT_COMPLETED"
 
     invoke-virtual {v1, v3}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
 
@@ -3162,7 +3186,7 @@
 
     iget-object v6, p0, Lcom/android/server/BluetoothManagerService;->mContext:Landroid/content/Context;
 
-    const v7, 0x1040845
+    const v7, 0x1040847
 
     invoke-virtual {v6, v7}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3186,7 +3210,7 @@
 
     iget-object v8, p0, Lcom/android/server/BluetoothManagerService;->mContext:Landroid/content/Context;
 
-    const v9, 0x1040848
+    const v9, 0x104084a
 
     invoke-virtual {v8, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3194,7 +3218,7 @@
 
     aput-object v8, v7, v10
 
-    const v8, 0x1040847
+    const v8, 0x1040849
 
     invoke-virtual {v6, v8, v7}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

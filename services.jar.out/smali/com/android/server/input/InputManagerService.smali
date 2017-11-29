@@ -4420,7 +4420,7 @@
 
     sget-object v1, Landroid/os/UserHandle;->ALL:Landroid/os/UserHandle;
 
-    const v2, 0x10408ba
+    const v2, 0x10408bc
 
     invoke-virtual {v0, v3, v2, v1}, Landroid/app/NotificationManager;->cancelAsUser(Ljava/lang/String;ILandroid/os/UserHandle;)V
 
@@ -4930,6 +4930,9 @@
 .end method
 
 .method private static native nativeGetKeyCodeState(JIII)I
+.end method
+
+.method private static native nativeGetNoMotionInputMillisFromWake(J)J
 .end method
 
 .method private static native nativeGetScanCodeState(JIII)I
@@ -6943,9 +6946,9 @@
 .method private showMissingKeyboardLayoutNotification(Landroid/view/InputDevice;)V
     .locals 11
 
-    const v10, 0x10408bb
+    const v10, 0x10408bd
 
-    const v9, 0x10408ba
+    const v9, 0x10408bc
 
     const/4 v1, 0x0
 
@@ -7093,7 +7096,7 @@
 
     if-ne p1, v2, :cond_1
 
-    const v2, 0x10408b8
+    const v2, 0x10408ba
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -7128,7 +7131,7 @@
     return-void
 
     :cond_1
-    const v2, 0x10408b9
+    const v2, 0x10408bb
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -9598,6 +9601,18 @@
 
     :cond_0
     return-object v8
+.end method
+
+.method public getNoMotionInputTimeMillisFromWake()J
+    .locals 2
+
+    iget-wide v0, p0, Lcom/android/server/input/InputManagerService;->mPtr:J
+
+    invoke-static {v0, v1}, Lcom/android/server/input/InputManagerService;->nativeGetNoMotionInputMillisFromWake(J)J
+
+    move-result-wide v0
+
+    return-wide v0
 .end method
 
 .method public getScanCodeState(III)I

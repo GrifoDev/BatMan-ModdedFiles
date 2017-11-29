@@ -477,7 +477,7 @@
 
     move-object/from16 v27, v0
 
-    invoke-static/range {v27 .. v27}, Lcom/android/server/BluetoothManagerService;->-get21(Lcom/android/server/BluetoothManagerService;)Landroid/content/BroadcastReceiver;
+    invoke-static/range {v27 .. v27}, Lcom/android/server/BluetoothManagerService;->-get22(Lcom/android/server/BluetoothManagerService;)Landroid/content/BroadcastReceiver;
 
     move-result-object v28
 
@@ -494,13 +494,13 @@
 
     invoke-static/range {v27 .. v27}, Lcom/android/server/BluetoothManagerService;->-set2(I)I
 
-    invoke-static {}, Lcom/android/server/BluetoothManagerService;->-get23()I
+    invoke-static {}, Lcom/android/server/BluetoothManagerService;->-get24()I
 
     move-result v27
 
     add-int/lit8 v27, v27, 0x1
 
-    invoke-static/range {v27 .. v27}, Lcom/android/server/BluetoothManagerService;->-set14(I)I
+    invoke-static/range {v27 .. v27}, Lcom/android/server/BluetoothManagerService;->-set15(I)I
 
     move-object/from16 v0, p0
 
@@ -514,7 +514,7 @@
 
     move/from16 v1, v29
 
-    invoke-static {v0, v1}, Lcom/android/server/BluetoothManagerService;->-set13(Lcom/android/server/BluetoothManagerService;I)I
+    invoke-static {v0, v1}, Lcom/android/server/BluetoothManagerService;->-set14(Lcom/android/server/BluetoothManagerService;I)I
 
     move-object/from16 v0, p0
 
@@ -757,7 +757,7 @@
 
     move/from16 v1, v27
 
-    invoke-static {v0, v1}, Lcom/android/server/BluetoothManagerService;->-set11(Lcom/android/server/BluetoothManagerService;Z)Z
+    invoke-static {v0, v1}, Lcom/android/server/BluetoothManagerService;->-set12(Lcom/android/server/BluetoothManagerService;Z)Z
 
     move-object/from16 v0, p0
 
@@ -783,7 +783,7 @@
 
     move-object/from16 v28, v0
 
-    invoke-static/range {v28 .. v28}, Lcom/android/server/BluetoothManagerService;->-get20(Lcom/android/server/BluetoothManagerService;)Z
+    invoke-static/range {v28 .. v28}, Lcom/android/server/BluetoothManagerService;->-get21(Lcom/android/server/BluetoothManagerService;)Z
 
     move-result v28
 
@@ -1084,7 +1084,7 @@
 
     move-object/from16 v27, v0
 
-    invoke-static/range {v27 .. v27}, Lcom/android/server/BluetoothManagerService;->-get26(Lcom/android/server/BluetoothManagerService;)Landroid/os/RemoteCallbackList;
+    invoke-static/range {v27 .. v27}, Lcom/android/server/BluetoothManagerService;->-get27(Lcom/android/server/BluetoothManagerService;)Landroid/os/RemoteCallbackList;
 
     move-result-object v27
 
@@ -1109,7 +1109,7 @@
 
     move-object/from16 v27, v0
 
-    invoke-static/range {v27 .. v27}, Lcom/android/server/BluetoothManagerService;->-get26(Lcom/android/server/BluetoothManagerService;)Landroid/os/RemoteCallbackList;
+    invoke-static/range {v27 .. v27}, Lcom/android/server/BluetoothManagerService;->-get27(Lcom/android/server/BluetoothManagerService;)Landroid/os/RemoteCallbackList;
 
     move-result-object v27
 
@@ -1184,7 +1184,7 @@
 
     move-object/from16 v27, v0
 
-    invoke-static/range {v27 .. v27}, Lcom/android/server/BluetoothManagerService;->-get24(Lcom/android/server/BluetoothManagerService;)Landroid/os/RemoteCallbackList;
+    invoke-static/range {v27 .. v27}, Lcom/android/server/BluetoothManagerService;->-get25(Lcom/android/server/BluetoothManagerService;)Landroid/os/RemoteCallbackList;
 
     move-result-object v27
 
@@ -1209,7 +1209,7 @@
 
     move-object/from16 v27, v0
 
-    invoke-static/range {v27 .. v27}, Lcom/android/server/BluetoothManagerService;->-get24(Lcom/android/server/BluetoothManagerService;)Landroid/os/RemoteCallbackList;
+    invoke-static/range {v27 .. v27}, Lcom/android/server/BluetoothManagerService;->-get25(Lcom/android/server/BluetoothManagerService;)Landroid/os/RemoteCallbackList;
 
     move-result-object v27
 
@@ -1226,7 +1226,7 @@
 
     move-object/from16 v27, v0
 
-    invoke-static/range {v27 .. v27}, Lcom/android/server/BluetoothManagerService;->-get19(Lcom/android/server/BluetoothManagerService;)Ljava/util/Map;
+    invoke-static/range {v27 .. v27}, Lcom/android/server/BluetoothManagerService;->-get20(Lcom/android/server/BluetoothManagerService;)Ljava/util/Map;
 
     move-result-object v27
 
@@ -1635,6 +1635,28 @@
     move-result-object v28
 
     invoke-interface/range {v27 .. v28}, Landroid/bluetooth/IBluetooth;->registerCallback(Landroid/bluetooth/IBluetoothCallback;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/BluetoothManagerService$BluetoothHandler;->this$0:Lcom/android/server/BluetoothManagerService;
+
+    move-object/from16 v27, v0
+
+    invoke-static/range {v27 .. v27}, Lcom/android/server/BluetoothManagerService;->-get5(Lcom/android/server/BluetoothManagerService;)Landroid/bluetooth/IBluetooth;
+
+    move-result-object v27
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/server/BluetoothManagerService$BluetoothHandler;->this$0:Lcom/android/server/BluetoothManagerService;
+
+    move-object/from16 v28, v0
+
+    invoke-static/range {v28 .. v28}, Lcom/android/server/BluetoothManagerService;->-get18(Lcom/android/server/BluetoothManagerService;)Z
+
+    move-result v28
+
+    invoke-interface/range {v27 .. v28}, Landroid/bluetooth/IBluetooth;->setBootState(Z)V
     :try_end_c
     .catch Landroid/os/RemoteException; {:try_start_c .. :try_end_c} :catch_3
     .catchall {:try_start_c .. :try_end_c} :catchall_3
@@ -1658,7 +1680,7 @@
 
     move-object/from16 v27, v0
 
-    invoke-static/range {v27 .. v27}, Lcom/android/server/BluetoothManagerService;->-get20(Lcom/android/server/BluetoothManagerService;)Z
+    invoke-static/range {v27 .. v27}, Lcom/android/server/BluetoothManagerService;->-get21(Lcom/android/server/BluetoothManagerService;)Z
 
     move-result v27
 
@@ -1711,7 +1733,7 @@
     :cond_18
     const/4 v11, 0x0
 
-    goto :goto_7
+    goto/16 :goto_7
 
     :catch_2
     move-exception v10
@@ -1782,7 +1804,7 @@
 
     const/16 v28, 0x1
 
-    invoke-static/range {v27 .. v28}, Lcom/android/server/BluetoothManagerService;->-set12(Lcom/android/server/BluetoothManagerService;Z)Z
+    invoke-static/range {v27 .. v28}, Lcom/android/server/BluetoothManagerService;->-set13(Lcom/android/server/BluetoothManagerService;Z)Z
     :try_end_11
     .catch Landroid/os/RemoteException; {:try_start_11 .. :try_end_11} :catch_4
     .catchall {:try_start_11 .. :try_end_11} :catchall_3
@@ -1842,7 +1864,7 @@
 
     const/16 v28, 0x1
 
-    invoke-static/range {v27 .. v28}, Lcom/android/server/BluetoothManagerService;->-set12(Lcom/android/server/BluetoothManagerService;Z)Z
+    invoke-static/range {v27 .. v28}, Lcom/android/server/BluetoothManagerService;->-set13(Lcom/android/server/BluetoothManagerService;Z)Z
     :try_end_13
     .catch Landroid/os/RemoteException; {:try_start_13 .. :try_end_13} :catch_4
     .catchall {:try_start_13 .. :try_end_13} :catchall_3
@@ -1964,7 +1986,7 @@
 
     move-object/from16 v0, v27
 
-    invoke-static {v0, v15}, Lcom/android/server/BluetoothManagerService;->-set15(Lcom/android/server/BluetoothManagerService;I)I
+    invoke-static {v0, v15}, Lcom/android/server/BluetoothManagerService;->-set16(Lcom/android/server/BluetoothManagerService;I)I
 
     move-object/from16 v0, p0
 
@@ -2572,7 +2594,7 @@
 
     move-object/from16 v27, v0
 
-    invoke-static/range {v27 .. v27}, Lcom/android/server/BluetoothManagerService;->-get25(Lcom/android/server/BluetoothManagerService;)I
+    invoke-static/range {v27 .. v27}, Lcom/android/server/BluetoothManagerService;->-get26(Lcom/android/server/BluetoothManagerService;)I
 
     move-result v27
 
@@ -2590,7 +2612,7 @@
 
     move-object/from16 v27, v0
 
-    invoke-static/range {v27 .. v27}, Lcom/android/server/BluetoothManagerService;->-get25(Lcom/android/server/BluetoothManagerService;)I
+    invoke-static/range {v27 .. v27}, Lcom/android/server/BluetoothManagerService;->-get26(Lcom/android/server/BluetoothManagerService;)I
 
     move-result v27
 
@@ -2623,7 +2645,7 @@
 
     const/16 v28, 0xd
 
-    invoke-static/range {v27 .. v28}, Lcom/android/server/BluetoothManagerService;->-set15(Lcom/android/server/BluetoothManagerService;I)I
+    invoke-static/range {v27 .. v28}, Lcom/android/server/BluetoothManagerService;->-set16(Lcom/android/server/BluetoothManagerService;I)I
 
     :cond_27
     move-object/from16 v0, p0
@@ -2632,7 +2654,7 @@
 
     move-object/from16 v27, v0
 
-    invoke-static/range {v27 .. v27}, Lcom/android/server/BluetoothManagerService;->-get25(Lcom/android/server/BluetoothManagerService;)I
+    invoke-static/range {v27 .. v27}, Lcom/android/server/BluetoothManagerService;->-get26(Lcom/android/server/BluetoothManagerService;)I
 
     move-result v27
 
@@ -2679,7 +2701,7 @@
 
     const/16 v28, 0xa
 
-    invoke-static/range {v27 .. v28}, Lcom/android/server/BluetoothManagerService;->-set15(Lcom/android/server/BluetoothManagerService;I)I
+    invoke-static/range {v27 .. v28}, Lcom/android/server/BluetoothManagerService;->-set16(Lcom/android/server/BluetoothManagerService;I)I
 
     goto/16 :goto_0
 
@@ -2819,7 +2841,7 @@
 
     move-object/from16 v28, v0
 
-    invoke-static/range {v28 .. v28}, Lcom/android/server/BluetoothManagerService;->-get20(Lcom/android/server/BluetoothManagerService;)Z
+    invoke-static/range {v28 .. v28}, Lcom/android/server/BluetoothManagerService;->-get21(Lcom/android/server/BluetoothManagerService;)Z
 
     move-result v28
 
@@ -2858,7 +2880,7 @@
 
     const/16 v28, 0x0
 
-    invoke-static/range {v27 .. v28}, Lcom/android/server/BluetoothManagerService;->-set16(Lcom/android/server/BluetoothManagerService;Z)Z
+    invoke-static/range {v27 .. v28}, Lcom/android/server/BluetoothManagerService;->-set17(Lcom/android/server/BluetoothManagerService;Z)Z
 
     move-object/from16 v0, p0
 
@@ -3418,7 +3440,7 @@
 
     const/16 v28, 0xa
 
-    invoke-static/range {v27 .. v28}, Lcom/android/server/BluetoothManagerService;->-set15(Lcom/android/server/BluetoothManagerService;I)I
+    invoke-static/range {v27 .. v28}, Lcom/android/server/BluetoothManagerService;->-set16(Lcom/android/server/BluetoothManagerService;I)I
 
     move-object/from16 v0, p0
 
@@ -3432,7 +3454,7 @@
 
     move-object/from16 v28, v0
 
-    invoke-static/range {v28 .. v28}, Lcom/android/server/BluetoothManagerService;->-get20(Lcom/android/server/BluetoothManagerService;)Z
+    invoke-static/range {v28 .. v28}, Lcom/android/server/BluetoothManagerService;->-get21(Lcom/android/server/BluetoothManagerService;)Z
 
     move-result v28
 
@@ -3771,7 +3793,7 @@
 
     move-object/from16 v28, v0
 
-    invoke-static/range {v28 .. v28}, Lcom/android/server/BluetoothManagerService;->-get20(Lcom/android/server/BluetoothManagerService;)Z
+    invoke-static/range {v28 .. v28}, Lcom/android/server/BluetoothManagerService;->-get21(Lcom/android/server/BluetoothManagerService;)Z
 
     move-result v28
 
@@ -3780,7 +3802,7 @@
     goto/16 :goto_0
 
     :sswitch_17
-    invoke-static {}, Lcom/android/server/BluetoothManagerService;->-get18()I
+    invoke-static {}, Lcom/android/server/BluetoothManagerService;->-get19()I
 
     move-result v27
 
@@ -3871,7 +3893,7 @@
     goto/16 :goto_0
 
     :cond_3c
-    invoke-static {}, Lcom/android/server/BluetoothManagerService;->-get18()I
+    invoke-static {}, Lcom/android/server/BluetoothManagerService;->-get19()I
 
     move-result v27
 

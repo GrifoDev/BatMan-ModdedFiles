@@ -99,7 +99,7 @@
 
     const/4 v2, 0x1
 
-    invoke-static {v0, v2}, Lcom/android/server/power/PowerManagerService;->-set33(Lcom/android/server/power/PowerManagerService;Z)Z
+    invoke-static {v0, v2}, Lcom/android/server/power/PowerManagerService;->-set34(Lcom/android/server/power/PowerManagerService;Z)Z
 
     iget-object v0, p0, Lcom/android/server/power/PowerManagerService$UserSwitchedReceiver;->this$0:Lcom/android/server/power/PowerManagerService;
 

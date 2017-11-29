@@ -3836,13 +3836,24 @@
 
     const/4 v12, 0x2
 
+    if-nez p1, :cond_0
+
+    const-string/jumbo v8, "MediaFocusControl"
+
+    const-string/jumbo v9, "incorrect parameter"
+
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+
+    :cond_0
     sget-object v9, Lcom/android/server/audio/MediaFocusControl;->mAudioFocusLock:Ljava/lang/Object;
 
     monitor-enter v9
 
     and-int/lit8 v8, p1, 0xd
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_2
 
     :try_start_0
     const-string/jumbo v8, "MediaFocusControl"
@@ -3881,13 +3892,13 @@
 
     const/4 p1, 0x2
 
-    :cond_0
+    :cond_1
     :goto_0
     iget v6, p0, Lcom/android/server/audio/MediaFocusControl;->mDevice:I
 
     move v5, p1
 
-    if-ne v6, p1, :cond_2
+    if-ne v6, p1, :cond_3
 
     const-string/jumbo v8, "MediaFocusControl"
 
@@ -3901,16 +3912,16 @@
 
     return-void
 
-    :cond_1
+    :cond_2
     and-int/lit16 v8, p1, 0x3f0
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_1
 
     const/16 p1, 0x80
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     :try_start_1
     const-string/jumbo v8, "MediaFocusControl"
 
@@ -3986,13 +3997,13 @@
 
     move-result-object v7
 
-    :cond_3
+    :cond_4
     :goto_1
     invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v8
 
-    if-eqz v8, :cond_4
+    if-eqz v8, :cond_5
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4014,7 +4025,7 @@
 
     move-result v8
 
-    if-ne v8, v6, :cond_3
+    if-ne v8, v6, :cond_4
 
     invoke-interface {v7}, Ljava/util/Iterator;->remove()V
 
@@ -4031,7 +4042,7 @@
 
     throw v8
 
-    :cond_4
+    :cond_5
     :try_start_2
     const-string/jumbo v8, "MediaFocusControl"
 
@@ -4079,7 +4090,7 @@
 
     move-result v8
 
-    if-nez v8, :cond_5
+    if-nez v8, :cond_6
 
     new-instance v8, Ljava/lang/StringBuilder;
 
@@ -4115,7 +4126,7 @@
 
     move-result-object v4
 
-    :cond_5
+    :cond_6
     const/4 v3, 0x0
 
     const-string/jumbo v8, "TRUE"
@@ -4124,7 +4135,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_7
+    if-eqz v8, :cond_8
 
     iget-object v8, p0, Lcom/android/server/audio/MediaFocusControl;->mFocusStack:Ljava/util/Stack;
 
@@ -4134,7 +4145,7 @@
 
     check-cast v3, Lcom/android/server/audio/FocusRequester;
 
-    :cond_6
+    :cond_7
     :goto_2
     invoke-virtual {v1}, Ljava/util/Stack;->iterator()Ljava/util/Iterator;
 
@@ -4145,7 +4156,7 @@
 
     move-result v8
 
-    if-eqz v8, :cond_8
+    if-eqz v8, :cond_9
 
     invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -4161,12 +4172,12 @@
 
     goto :goto_3
 
-    :cond_7
+    :cond_8
     invoke-virtual {v1}, Ljava/util/Stack;->isEmpty()Z
 
     move-result v8
 
-    if-nez v8, :cond_6
+    if-nez v8, :cond_7
 
     const/4 v8, 0x1
 
@@ -4174,25 +4185,25 @@
 
     goto :goto_2
 
-    :cond_8
-    if-eqz v3, :cond_a
+    :cond_9
+    if-eqz v3, :cond_b
 
     invoke-virtual {v3}, Lcom/android/server/audio/FocusRequester;->getGainRequest()I
 
     move-result v8
 
-    if-eq v8, v12, :cond_9
+    if-eq v8, v12, :cond_a
 
     const/4 v8, 0x1
 
     invoke-direct {p0, v8}, Lcom/android/server/audio/MediaFocusControl;->propagateFocusLossFromGain_syncAf(I)V
 
-    :cond_9
+    :cond_a
     iget-object v8, p0, Lcom/android/server/audio/MediaFocusControl;->mFocusStack:Ljava/util/Stack;
 
     invoke-virtual {v8, v3}, Ljava/util/Stack;->push(Ljava/lang/Object;)Ljava/lang/Object;
 
-    :cond_a
+    :cond_b
     iput p1, p0, Lcom/android/server/audio/MediaFocusControl;->mDevice:I
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0

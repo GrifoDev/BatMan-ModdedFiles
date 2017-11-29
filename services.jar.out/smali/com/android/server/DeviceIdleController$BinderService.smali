@@ -223,7 +223,7 @@
 
     iget-object v9, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-static {v9}, Lcom/android/server/DeviceIdleController;->-get15(Lcom/android/server/DeviceIdleController;)Landroid/util/ArrayMap;
+    invoke-static {v9}, Lcom/android/server/DeviceIdleController;->-get17(Lcom/android/server/DeviceIdleController;)Landroid/util/ArrayMap;
 
     move-result-object v9
 
@@ -237,7 +237,7 @@
 
     iget-object v9, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-static {v9}, Lcom/android/server/DeviceIdleController;->-get17(Lcom/android/server/DeviceIdleController;)Landroid/util/SparseBooleanArray;
+    invoke-static {v9}, Lcom/android/server/DeviceIdleController;->-get19(Lcom/android/server/DeviceIdleController;)Landroid/util/SparseBooleanArray;
 
     move-result-object v9
 
@@ -253,7 +253,7 @@
 
     iget-object v9, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-static {v9}, Lcom/android/server/DeviceIdleController;->-get13(Lcom/android/server/DeviceIdleController;)Landroid/util/ArrayMap;
+    invoke-static {v9}, Lcom/android/server/DeviceIdleController;->-get15(Lcom/android/server/DeviceIdleController;)Landroid/util/ArrayMap;
 
     move-result-object v9
 
@@ -327,7 +327,7 @@
 
     iget-object v9, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-static {v9}, Lcom/android/server/DeviceIdleController;->-get13(Lcom/android/server/DeviceIdleController;)Landroid/util/ArrayMap;
+    invoke-static {v9}, Lcom/android/server/DeviceIdleController;->-get15(Lcom/android/server/DeviceIdleController;)Landroid/util/ArrayMap;
 
     move-result-object v9
 
@@ -348,11 +348,11 @@
 
     iget-object v6, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-static {v6}, Lcom/android/server/DeviceIdleController;->-wrap3(Lcom/android/server/DeviceIdleController;)V
+    invoke-static {v6}, Lcom/android/server/DeviceIdleController;->-wrap6(Lcom/android/server/DeviceIdleController;)V
 
     iget-object v6, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-static {v6}, Lcom/android/server/DeviceIdleController;->-wrap2(Lcom/android/server/DeviceIdleController;)V
+    invoke-static {v6}, Lcom/android/server/DeviceIdleController;->-wrap5(Lcom/android/server/DeviceIdleController;)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
@@ -434,7 +434,7 @@
 
     iget-object v9, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-static {v9}, Lcom/android/server/DeviceIdleController;->-get15(Lcom/android/server/DeviceIdleController;)Landroid/util/ArrayMap;
+    invoke-static {v9}, Lcom/android/server/DeviceIdleController;->-get17(Lcom/android/server/DeviceIdleController;)Landroid/util/ArrayMap;
 
     move-result-object v9
 
@@ -448,7 +448,7 @@
 
     iget-object v9, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-static {v9}, Lcom/android/server/DeviceIdleController;->-get17(Lcom/android/server/DeviceIdleController;)Landroid/util/SparseBooleanArray;
+    invoke-static {v9}, Lcom/android/server/DeviceIdleController;->-get19(Lcom/android/server/DeviceIdleController;)Landroid/util/SparseBooleanArray;
 
     move-result-object v9
 
@@ -458,7 +458,7 @@
 
     iget-object v9, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-static {v9}, Lcom/android/server/DeviceIdleController;->-get14(Lcom/android/server/DeviceIdleController;)Landroid/util/ArrayMap;
+    invoke-static {v9}, Lcom/android/server/DeviceIdleController;->-get16(Lcom/android/server/DeviceIdleController;)Landroid/util/ArrayMap;
 
     move-result-object v9
 
@@ -472,7 +472,7 @@
 
     iget-object v9, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-static {v9}, Lcom/android/server/DeviceIdleController;->-get16(Lcom/android/server/DeviceIdleController;)Landroid/util/SparseBooleanArray;
+    invoke-static {v9}, Lcom/android/server/DeviceIdleController;->-get18(Lcom/android/server/DeviceIdleController;)Landroid/util/SparseBooleanArray;
 
     move-result-object v9
 
@@ -488,7 +488,7 @@
 
     iget-object v9, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-static {v9}, Lcom/android/server/DeviceIdleController;->-get12(Lcom/android/server/DeviceIdleController;)Landroid/util/ArrayMap;
+    invoke-static {v9}, Lcom/android/server/DeviceIdleController;->-get14(Lcom/android/server/DeviceIdleController;)Landroid/util/ArrayMap;
 
     move-result-object v9
 
@@ -562,7 +562,7 @@
 
     iget-object v9, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-static {v9}, Lcom/android/server/DeviceIdleController;->-get12(Lcom/android/server/DeviceIdleController;)Landroid/util/ArrayMap;
+    invoke-static {v9}, Lcom/android/server/DeviceIdleController;->-get14(Lcom/android/server/DeviceIdleController;)Landroid/util/ArrayMap;
 
     move-result-object v9
 
@@ -583,11 +583,11 @@
 
     iget-object v6, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-static {v6}, Lcom/android/server/DeviceIdleController;->-wrap3(Lcom/android/server/DeviceIdleController;)V
+    invoke-static {v6}, Lcom/android/server/DeviceIdleController;->-wrap6(Lcom/android/server/DeviceIdleController;)V
 
     iget-object v6, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-static {v6}, Lcom/android/server/DeviceIdleController;->-wrap2(Lcom/android/server/DeviceIdleController;)V
+    invoke-static {v6}, Lcom/android/server/DeviceIdleController;->-wrap5(Lcom/android/server/DeviceIdleController;)V
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
@@ -741,7 +741,7 @@
 
     iget-object v0, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-static {v0}, Lcom/android/server/DeviceIdleController;->-get19(Lcom/android/server/DeviceIdleController;)I
+    invoke-static {v0}, Lcom/android/server/DeviceIdleController;->-get21(Lcom/android/server/DeviceIdleController;)I
 
     move-result v0
 
@@ -765,7 +765,7 @@
 
     iget-object v0, p0, Lcom/android/server/DeviceIdleController$BinderService;->this$0:Lcom/android/server/DeviceIdleController;
 
-    invoke-static {v0}, Lcom/android/server/DeviceIdleController;->-get6(Lcom/android/server/DeviceIdleController;)I
+    invoke-static {v0}, Lcom/android/server/DeviceIdleController;->-get8(Lcom/android/server/DeviceIdleController;)I
 
     move-result v0
 

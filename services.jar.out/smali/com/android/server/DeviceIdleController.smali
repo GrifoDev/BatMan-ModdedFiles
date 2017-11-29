@@ -28,6 +28,8 @@
 
 
 # static fields
+.field private static final ACTION_SIM_STATE_CHANGED:Ljava/lang/String; = "android.intent.action.SIM_STATE_CHANGED"
+
 .field private static final COMPRESS_TIME:Z = false
 
 .field private static final DEBUG:Z = false
@@ -145,6 +147,8 @@
 .field private mHasGps:Z
 
 .field private mHasNetworkLocation:Z
+
+.field private mHkPolicy:Z
 
 .field private mIdleIntent:Landroid/content/Intent;
 
@@ -355,135 +359,7 @@
     return-object v0
 .end method
 
-.method static synthetic -get10(Lcom/android/server/DeviceIdleController;)Landroid/hardware/Sensor;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/DeviceIdleController;->mMotionSensor:Landroid/hardware/Sensor;
-
-    return-object v0
-.end method
-
-.method static synthetic -get11(Lcom/android/server/DeviceIdleController;)Landroid/net/INetworkPolicyManager;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/DeviceIdleController;->mNetworkPolicyManager:Landroid/net/INetworkPolicyManager;
-
-    return-object v0
-.end method
-
-.method static synthetic -get12(Lcom/android/server/DeviceIdleController;)Landroid/util/ArrayMap;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelist3rdPartyApps:Landroid/util/ArrayMap;
-
-    return-object v0
-.end method
-
-.method static synthetic -get13(Lcom/android/server/DeviceIdleController;)Landroid/util/ArrayMap;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelist3rdPartyAppsExceptIdle:Landroid/util/ArrayMap;
-
-    return-object v0
-.end method
-
-.method static synthetic -get14(Lcom/android/server/DeviceIdleController;)Landroid/util/ArrayMap;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistApps:Landroid/util/ArrayMap;
-
-    return-object v0
-.end method
-
-.method static synthetic -get15(Lcom/android/server/DeviceIdleController;)Landroid/util/ArrayMap;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistAppsExceptIdle:Landroid/util/ArrayMap;
-
-    return-object v0
-.end method
-
-.method static synthetic -get16(Lcom/android/server/DeviceIdleController;)Landroid/util/SparseBooleanArray;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistSystemAppIds:Landroid/util/SparseBooleanArray;
-
-    return-object v0
-.end method
-
-.method static synthetic -get17(Lcom/android/server/DeviceIdleController;)Landroid/util/SparseBooleanArray;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistSystemAppIdsExceptIdle:Landroid/util/SparseBooleanArray;
-
-    return-object v0
-.end method
-
-.method static synthetic -get18(Lcom/android/server/DeviceIdleController;)Landroid/hardware/SensorManager;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/DeviceIdleController;->mSensorManager:Landroid/hardware/SensorManager;
-
-    return-object v0
-.end method
-
-.method static synthetic -get19(Lcom/android/server/DeviceIdleController;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/DeviceIdleController;->mState:I
-
-    return v0
-.end method
-
-.method static synthetic -get2(Lcom/android/server/DeviceIdleController;)Landroid/content/Intent;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/DeviceIdleController;->mIdleIntent:Landroid/content/Intent;
-
-    return-object v0
-.end method
-
-.method static synthetic -get3(Lcom/android/server/DeviceIdleController;)Landroid/content/BroadcastReceiver;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/DeviceIdleController;->mIdleStartedDoneReceiver:Landroid/content/BroadcastReceiver;
-
-    return-object v0
-.end method
-
-.method static synthetic -get4(Lcom/android/server/DeviceIdleController;)Landroid/util/ArrayMap;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/DeviceIdleController;->mInternalWhitelistAppsExceptIdle:Landroid/util/ArrayMap;
-
-    return-object v0
-.end method
-
-.method static synthetic -get5(Lcom/android/server/DeviceIdleController;)Landroid/content/Intent;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/DeviceIdleController;->mLightIdleIntent:Landroid/content/Intent;
-
-    return-object v0
-.end method
-
-.method static synthetic -get6(Lcom/android/server/DeviceIdleController;)I
-    .locals 1
-
-    iget v0, p0, Lcom/android/server/DeviceIdleController;->mLightState:I
-
-    return v0
-.end method
-
-.method static synthetic -get7(Lcom/android/server/DeviceIdleController;)Landroid/os/PowerManagerInternal;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/server/DeviceIdleController;->mLocalPowerManager:Landroid/os/PowerManagerInternal;
-
-    return-object v0
-.end method
-
-.method static synthetic -get8(Lcom/android/server/DeviceIdleController;)Landroid/os/RemoteCallbackList;
+.method static synthetic -get10(Lcom/android/server/DeviceIdleController;)Landroid/os/RemoteCallbackList;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/DeviceIdleController;->mMaintenanceActivityListeners:Landroid/os/RemoteCallbackList;
@@ -491,12 +367,164 @@
     return-object v0
 .end method
 
-.method static synthetic -get9(Lcom/android/server/DeviceIdleController;)Lcom/android/server/DeviceIdleController$MotionListener;
+.method static synthetic -get11(Lcom/android/server/DeviceIdleController;)Lcom/android/server/DeviceIdleController$MotionListener;
     .locals 1
 
     iget-object v0, p0, Lcom/android/server/DeviceIdleController;->mMotionListener:Lcom/android/server/DeviceIdleController$MotionListener;
 
     return-object v0
+.end method
+
+.method static synthetic -get12(Lcom/android/server/DeviceIdleController;)Landroid/hardware/Sensor;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/DeviceIdleController;->mMotionSensor:Landroid/hardware/Sensor;
+
+    return-object v0
+.end method
+
+.method static synthetic -get13(Lcom/android/server/DeviceIdleController;)Landroid/net/INetworkPolicyManager;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/DeviceIdleController;->mNetworkPolicyManager:Landroid/net/INetworkPolicyManager;
+
+    return-object v0
+.end method
+
+.method static synthetic -get14(Lcom/android/server/DeviceIdleController;)Landroid/util/ArrayMap;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelist3rdPartyApps:Landroid/util/ArrayMap;
+
+    return-object v0
+.end method
+
+.method static synthetic -get15(Lcom/android/server/DeviceIdleController;)Landroid/util/ArrayMap;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelist3rdPartyAppsExceptIdle:Landroid/util/ArrayMap;
+
+    return-object v0
+.end method
+
+.method static synthetic -get16(Lcom/android/server/DeviceIdleController;)Landroid/util/ArrayMap;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistApps:Landroid/util/ArrayMap;
+
+    return-object v0
+.end method
+
+.method static synthetic -get17(Lcom/android/server/DeviceIdleController;)Landroid/util/ArrayMap;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistAppsExceptIdle:Landroid/util/ArrayMap;
+
+    return-object v0
+.end method
+
+.method static synthetic -get18(Lcom/android/server/DeviceIdleController;)Landroid/util/SparseBooleanArray;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistSystemAppIds:Landroid/util/SparseBooleanArray;
+
+    return-object v0
+.end method
+
+.method static synthetic -get19(Lcom/android/server/DeviceIdleController;)Landroid/util/SparseBooleanArray;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistSystemAppIdsExceptIdle:Landroid/util/SparseBooleanArray;
+
+    return-object v0
+.end method
+
+.method static synthetic -get2(Lcom/android/server/DeviceIdleController;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/server/DeviceIdleController;->mCscWhitelistPolicy:Z
+
+    return v0
+.end method
+
+.method static synthetic -get20(Lcom/android/server/DeviceIdleController;)Landroid/hardware/SensorManager;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/DeviceIdleController;->mSensorManager:Landroid/hardware/SensorManager;
+
+    return-object v0
+.end method
+
+.method static synthetic -get21(Lcom/android/server/DeviceIdleController;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/DeviceIdleController;->mState:I
+
+    return v0
+.end method
+
+.method static synthetic -get3(Lcom/android/server/DeviceIdleController;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/server/DeviceIdleController;->mHkPolicy:Z
+
+    return v0
+.end method
+
+.method static synthetic -get4(Lcom/android/server/DeviceIdleController;)Landroid/content/Intent;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/DeviceIdleController;->mIdleIntent:Landroid/content/Intent;
+
+    return-object v0
+.end method
+
+.method static synthetic -get5(Lcom/android/server/DeviceIdleController;)Landroid/content/BroadcastReceiver;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/DeviceIdleController;->mIdleStartedDoneReceiver:Landroid/content/BroadcastReceiver;
+
+    return-object v0
+.end method
+
+.method static synthetic -get6(Lcom/android/server/DeviceIdleController;)Landroid/util/ArrayMap;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/DeviceIdleController;->mInternalWhitelistAppsExceptIdle:Landroid/util/ArrayMap;
+
+    return-object v0
+.end method
+
+.method static synthetic -get7(Lcom/android/server/DeviceIdleController;)Landroid/content/Intent;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/DeviceIdleController;->mLightIdleIntent:Landroid/content/Intent;
+
+    return-object v0
+.end method
+
+.method static synthetic -get8(Lcom/android/server/DeviceIdleController;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/server/DeviceIdleController;->mLightState:I
+
+    return v0
+.end method
+
+.method static synthetic -get9(Lcom/android/server/DeviceIdleController;)Landroid/os/PowerManagerInternal;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/server/DeviceIdleController;->mLocalPowerManager:Landroid/os/PowerManagerInternal;
+
+    return-object v0
+.end method
+
+.method static synthetic -set0(Lcom/android/server/DeviceIdleController;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/server/DeviceIdleController;->mCscWhitelistPolicy:Z
+
+    return p1
 .end method
 
 .method static synthetic -wrap0(Lcom/android/server/DeviceIdleController;Ljava/lang/String;I)Z
@@ -509,7 +537,27 @@
     return v0
 .end method
 
-.method static synthetic -wrap1(Lcom/android/server/DeviceIdleController;Ljava/lang/String;)Z
+.method static synthetic -wrap1(Lcom/android/server/DeviceIdleController;)Z
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/server/DeviceIdleController;->getHkCscWhitelistPolicy()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic -wrap2(Lcom/android/server/DeviceIdleController;)Z
+    .locals 1
+
+    invoke-direct {p0}, Lcom/android/server/DeviceIdleController;->removeAllPowerSaveWhitelist3rdPartyApps()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic -wrap3(Lcom/android/server/DeviceIdleController;Ljava/lang/String;)Z
     .locals 1
 
     invoke-direct {p0, p1}, Lcom/android/server/DeviceIdleController;->removeInternalWhitelistAppExceptIdle(Ljava/lang/String;)Z
@@ -519,7 +567,15 @@
     return v0
 .end method
 
-.method static synthetic -wrap2(Lcom/android/server/DeviceIdleController;)V
+.method static synthetic -wrap4(Lcom/android/server/DeviceIdleController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/server/DeviceIdleController;->loadPowerSaveWhitelistFromCsc()V
+
+    return-void
+.end method
+
+.method static synthetic -wrap5(Lcom/android/server/DeviceIdleController;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/DeviceIdleController;->reportPowerSaveWhitelistChangedLocked()V
@@ -527,7 +583,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap3(Lcom/android/server/DeviceIdleController;)V
+.method static synthetic -wrap6(Lcom/android/server/DeviceIdleController;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/server/DeviceIdleController;->updateWhitelistAppIdsLocked()V
@@ -1419,7 +1475,7 @@
 
     const-string/jumbo v4, "JP"
 
-    invoke-virtual {v1, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {v4, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v4
 
@@ -1427,7 +1483,7 @@
 
     const-string/jumbo v4, "DCM"
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {v4, v3}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v4
 
@@ -1459,11 +1515,11 @@
     :cond_2
     const-string/jumbo v4, "China"
 
-    invoke-virtual {v1, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+    invoke-virtual {v4, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_3
 
     const-string/jumbo v4, "DeviceIdleController"
 
@@ -1474,6 +1530,52 @@
     const/4 v0, 0x1
 
     goto :goto_0
+
+    :cond_3
+    const-string/jumbo v4, "KOREA"
+
+    invoke-virtual {v4, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    const-string/jumbo v4, "DeviceIdleController"
+
+    const-string/jumbo v5, "KOREA - mCscWhitelistPolicy: enable"
+
+    invoke-static {v4, v5}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+.end method
+
+.method private getHkCscWhitelistPolicy()Z
+    .locals 3
+
+    const/4 v0, 0x0
+
+    iget-boolean v1, p0, Lcom/android/server/DeviceIdleController;->mHkPolicy:Z
+
+    if-eqz v1, :cond_0
+
+    invoke-direct {p0}, Lcom/android/server/DeviceIdleController;->isChnSim()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const-string/jumbo v1, "DeviceIdleController"
+
+    const-string/jumbo v2, "HK/CHN network - mCscWhitelistPolicy: enable"
+
+    invoke-static {v1, v2}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v0, 0x1
+
+    :cond_0
+    return v0
 .end method
 
 .method private static getSystemDir()Ljava/io/File;
@@ -1507,6 +1609,108 @@
 
     :cond_0
     return-void
+.end method
+
+.method private isChnSim()Z
+    .locals 6
+
+    const/4 v5, 0x0
+
+    invoke-virtual {p0}, Lcom/android/server/DeviceIdleController;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    const-string/jumbo v3, "phone"
+
+    invoke-virtual {v2, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/telephony/TelephonyManager;
+
+    if-eqz v1, :cond_2
+
+    invoke-virtual {v1}, Landroid/telephony/TelephonyManager;->getSimSerialNumber()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string/jumbo v2, "DeviceIdleController"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "iccid ---- "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-nez v0, :cond_0
+
+    return v5
+
+    :cond_0
+    const-string/jumbo v2, "8986"
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_1
+
+    const-string/jumbo v2, "8985"
+
+    invoke-virtual {v0, v2}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    :cond_1
+    const/4 v2, 0x1
+
+    return v2
+
+    :cond_2
+    return v5
+.end method
+
+.method private isHongKong()Z
+    .locals 2
+
+    const-string/jumbo v1, "ro.csc.country_code"
+
+    invoke-static {v1}, Landroid/os/SystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "Hong Kong"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const/4 v1, 0x1
+
+    return v1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    return v1
 .end method
 
 .method private static lightStateToString(I)Ljava/lang/String;
@@ -1567,6 +1771,216 @@
         :pswitch_6
         :pswitch_7
     .end packed-switch
+.end method
+
+.method private loadPowerSaveWhitelistFromCsc()V
+    .locals 12
+
+    invoke-virtual {p0}, Lcom/android/server/DeviceIdleController;->getContext()Landroid/content/Context;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v8
+
+    const/4 v2, 0x0
+
+    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+
+    move-result-object v9
+
+    const-string/jumbo v10, "CscFeature_Common_ConfigAllowedPackagesDuringPowerSaving"
+
+    invoke-virtual {v9, v10}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_5
+
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
+
+    move-result v9
+
+    if-lez v9, :cond_5
+
+    const-string/jumbo v9, ","
+
+    invoke-virtual {v2, v9}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v6
+
+    const/4 v4, 0x0
+
+    :goto_0
+    array-length v9, v6
+
+    if-ge v4, v9, :cond_5
+
+    aget-object v9, v6, v4
+
+    invoke-virtual {v9}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v7
+
+    const/4 v5, 0x0
+
+    const/4 v1, -0x1
+
+    const/4 v9, 0x0
+
+    :try_start_0
+    invoke-virtual {v8, v7, v9}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v0
+
+    iget-boolean v9, p0, Lcom/android/server/DeviceIdleController;->mCscWhitelistPolicy:Z
+
+    if-eqz v9, :cond_3
+
+    iget v9, v0, Landroid/content/pm/ApplicationInfo;->flags:I
+
+    and-int/lit8 v9, v9, 0x1
+
+    if-eqz v9, :cond_0
+
+    const/4 v5, 0x1
+
+    :cond_0
+    iget v9, v0, Landroid/content/pm/ApplicationInfo;->uid:I
+
+    invoke-static {v9}, Landroid/os/UserHandle;->getAppId(I)I
+
+    move-result v1
+
+    iget-object v9, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistAppsExceptIdle:Landroid/util/ArrayMap;
+
+    iget-object v10, v0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v11
+
+    invoke-virtual {v9, v10, v11}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v9, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistSystemAppIdsExceptIdle:Landroid/util/SparseBooleanArray;
+
+    const/4 v10, 0x1
+
+    invoke-virtual {v9, v1, v10}, Landroid/util/SparseBooleanArray;->put(IZ)V
+
+    iget-object v9, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistApps:Landroid/util/ArrayMap;
+
+    iget-object v10, v0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v11
+
+    invoke-virtual {v9, v10, v11}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v9, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistSystemAppIds:Landroid/util/SparseBooleanArray;
+
+    const/4 v10, 0x1
+
+    invoke-virtual {v9, v1, v10}, Landroid/util/SparseBooleanArray;->put(IZ)V
+
+    if-nez v5, :cond_1
+
+    iget-object v9, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelist3rdPartyApps:Landroid/util/ArrayMap;
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v7, v10}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :cond_1
+    :goto_1
+    iget-boolean v9, p0, Lcom/android/server/DeviceIdleController;->mCscWhitelistPolicy:Z
+
+    if-eqz v9, :cond_2
+
+    if-eqz v5, :cond_4
+
+    :cond_2
+    :goto_2
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_0
+
+    :cond_3
+    :try_start_1
+    iget v9, v0, Landroid/content/pm/ApplicationInfo;->flags:I
+
+    and-int/lit8 v9, v9, 0x1
+
+    if-eqz v9, :cond_1
+
+    const/4 v5, 0x1
+
+    iget v9, v0, Landroid/content/pm/ApplicationInfo;->uid:I
+
+    invoke-static {v9}, Landroid/os/UserHandle;->getAppId(I)I
+
+    move-result v1
+
+    iget-object v9, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistAppsExceptIdle:Landroid/util/ArrayMap;
+
+    iget-object v10, v0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v11
+
+    invoke-virtual {v9, v10, v11}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v9, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistSystemAppIdsExceptIdle:Landroid/util/SparseBooleanArray;
+
+    const/4 v10, 0x1
+
+    invoke-virtual {v9, v1, v10}, Landroid/util/SparseBooleanArray;->put(IZ)V
+
+    iget-object v9, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistApps:Landroid/util/ArrayMap;
+
+    iget-object v10, v0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v11
+
+    invoke-virtual {v9, v10, v11}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v9, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistSystemAppIds:Landroid/util/SparseBooleanArray;
+
+    const/4 v10, 0x1
+
+    invoke-virtual {v9, v1, v10}, Landroid/util/SparseBooleanArray;->put(IZ)V
+    :try_end_1
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
+
+    goto :goto_1
+
+    :catch_0
+    move-exception v3
+
+    goto :goto_1
+
+    :cond_4
+    iget-object v9, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelist3rdPartyApps:Landroid/util/ArrayMap;
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v10
+
+    invoke-virtual {v9, v7, v10}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    goto :goto_2
+
+    :cond_5
+    return-void
 .end method
 
 .method private postTempActiveTimeoutMessage(IJ)V
@@ -1944,6 +2358,130 @@
     invoke-static {v14, v15}, Landroid/util/Slog;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     goto/16 :goto_0
+.end method
+
+.method private removeAllPowerSaveWhitelist3rdPartyApps()Z
+    .locals 9
+
+    iget-boolean v6, p0, Lcom/android/server/DeviceIdleController;->mSubEnable:Z
+
+    if-nez v6, :cond_0
+
+    const/4 v6, 0x0
+
+    return v6
+
+    :cond_0
+    const/4 v3, 0x0
+
+    iget-object v6, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelist3rdPartyApps:Landroid/util/ArrayMap;
+
+    invoke-virtual {v6}, Landroid/util/ArrayMap;->size()I
+
+    move-result v4
+
+    const/4 v0, 0x0
+
+    :goto_0
+    if-ge v0, v4, :cond_2
+
+    iget-object v6, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelist3rdPartyApps:Landroid/util/ArrayMap;
+
+    invoke-virtual {v6, v0}, Landroid/util/ArrayMap;->keyAt(I)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    iget-object v6, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelist3rdPartyApps:Landroid/util/ArrayMap;
+
+    invoke-virtual {v6, v0}, Landroid/util/ArrayMap;->valueAt(I)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Ljava/lang/Integer;
+
+    invoke-virtual {v6}, Ljava/lang/Integer;->intValue()I
+
+    move-result v5
+
+    const/16 v6, 0x2710
+
+    if-lt v5, v6, :cond_1
+
+    iget-object v6, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistAppsExceptIdle:Landroid/util/ArrayMap;
+
+    invoke-virtual {v6, v2}, Landroid/util/ArrayMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Ljava/lang/Integer;
+
+    invoke-virtual {v6}, Ljava/lang/Integer;->intValue()I
+
+    move-result v1
+
+    iget-object v6, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistAppsExceptIdle:Landroid/util/ArrayMap;
+
+    invoke-virtual {v6, v2}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v6, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistSystemAppIdsExceptIdle:Landroid/util/SparseBooleanArray;
+
+    invoke-virtual {v6, v1}, Landroid/util/SparseBooleanArray;->delete(I)V
+
+    iget-object v6, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistApps:Landroid/util/ArrayMap;
+
+    invoke-virtual {v6, v2}, Landroid/util/ArrayMap;->remove(Ljava/lang/Object;)Ljava/lang/Object;
+
+    iget-object v6, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistSystemAppIds:Landroid/util/SparseBooleanArray;
+
+    invoke-virtual {v6, v1}, Landroid/util/SparseBooleanArray;->delete(I)V
+
+    iget-object v6, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelist3rdPartyApps:Landroid/util/ArrayMap;
+
+    const/4 v7, -0x1
+
+    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v0, v7}, Landroid/util/ArrayMap;->setValueAt(ILjava/lang/Object;)Ljava/lang/Object;
+
+    const-string/jumbo v6, "DeviceIdleController"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v8, "removing 3rd party App from PowerSave whitelist:"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Slog;->v(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v3, 0x1
+
+    :cond_1
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    iget-object v6, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelist3rdPartyApps:Landroid/util/ArrayMap;
+
+    invoke-virtual {v6}, Landroid/util/ArrayMap;->clear()V
+
+    return v3
 .end method
 
 .method private removeInternalWhitelistAppExceptIdle(Ljava/lang/String;)Z
@@ -5937,13 +6475,13 @@
 .end method
 
 .method public onBootPhase(I)V
-    .locals 10
+    .locals 11
 
-    const/4 v9, 0x0
+    const/4 v10, 0x0
 
     const/16 v0, 0x1f4
 
-    if-ne p1, v0, :cond_4
+    if-ne p1, v0, :cond_5
 
     monitor-enter p0
 
@@ -6336,6 +6874,33 @@
 
     invoke-virtual {v0, v1, v7}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
 
+    invoke-direct {p0}, Lcom/android/server/DeviceIdleController;->isHongKong()Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/android/server/DeviceIdleController;->mHkPolicy:Z
+
+    iget-boolean v0, p0, Lcom/android/server/DeviceIdleController;->mHkPolicy:Z
+
+    if-eqz v0, :cond_4
+
+    new-instance v9, Landroid/content/IntentFilter;
+
+    invoke-direct {v9}, Landroid/content/IntentFilter;-><init>()V
+
+    const-string/jumbo v0, "android.intent.action.SIM_STATE_CHANGED"
+
+    invoke-virtual {v9, v0}, Landroid/content/IntentFilter;->addAction(Ljava/lang/String;)V
+
+    invoke-virtual {p0}, Lcom/android/server/DeviceIdleController;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/server/DeviceIdleController;->mPackageReceiver:Landroid/content/BroadcastReceiver;
+
+    invoke-virtual {v0, v1, v9}, Landroid/content/Context;->registerReceiver(Landroid/content/BroadcastReceiver;Landroid/content/IntentFilter;)Landroid/content/Intent;
+
+    :cond_4
     new-instance v6, Landroid/content/IntentFilter;
 
     invoke-direct {v6}, Landroid/content/IntentFilter;-><init>()V
@@ -6378,9 +6943,9 @@
 
     monitor-exit p0
 
-    invoke-virtual {p0, v9}, Lcom/android/server/DeviceIdleController;->updateConnectivityState(Landroid/content/Intent;)V
+    invoke-virtual {p0, v10}, Lcom/android/server/DeviceIdleController;->updateConnectivityState(Landroid/content/Intent;)V
 
-    :cond_4
+    :cond_5
     return-void
 
     :catchall_0
@@ -8462,862 +9027,372 @@
 .end method
 
 .method public onStart()V
-    .locals 20
+    .locals 13
 
-    invoke-virtual/range {p0 .. p0}, Lcom/android/server/DeviceIdleController;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/android/server/DeviceIdleController;->getContext()Landroid/content/Context;
 
-    move-result-object v17
+    move-result-object v10
 
-    invoke-virtual/range {v17 .. v17}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {v10}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v15
+    move-result-object v8
 
     monitor-enter p0
 
     :try_start_0
-    invoke-virtual/range {p0 .. p0}, Lcom/android/server/DeviceIdleController;->getContext()Landroid/content/Context;
+    invoke-virtual {p0}, Lcom/android/server/DeviceIdleController;->getContext()Landroid/content/Context;
 
-    move-result-object v17
+    move-result-object v10
 
-    invoke-virtual/range {v17 .. v17}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v10}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v17
+    move-result-object v10
 
-    const v18, 0x1120013
+    const v11, 0x1120013
 
-    invoke-virtual/range {v17 .. v18}, Landroid/content/res/Resources;->getBoolean(I)Z
+    invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getBoolean(I)Z
 
-    move-result v17
+    move-result v10
 
-    move/from16 v0, v17
+    iput-boolean v10, p0, Lcom/android/server/DeviceIdleController;->mDeepEnabled:Z
 
-    move-object/from16 v1, p0
+    iput-boolean v10, p0, Lcom/android/server/DeviceIdleController;->mLightEnabled:Z
 
-    iput-boolean v0, v1, Lcom/android/server/DeviceIdleController;->mDeepEnabled:Z
+    const/4 v10, 0x1
 
-    move/from16 v0, v17
+    iput-boolean v10, p0, Lcom/android/server/DeviceIdleController;->mSubEnable:Z
 
-    move-object/from16 v1, p0
+    invoke-direct {p0}, Lcom/android/server/DeviceIdleController;->getCscWhitelistPolicy()Z
 
-    iput-boolean v0, v1, Lcom/android/server/DeviceIdleController;->mLightEnabled:Z
+    move-result v10
 
-    const/16 v17, 0x1
-
-    move/from16 v0, v17
-
-    move-object/from16 v1, p0
-
-    iput-boolean v0, v1, Lcom/android/server/DeviceIdleController;->mSubEnable:Z
-
-    invoke-direct/range {p0 .. p0}, Lcom/android/server/DeviceIdleController;->getCscWhitelistPolicy()Z
-
-    move-result v17
-
-    move/from16 v0, v17
-
-    move-object/from16 v1, p0
-
-    iput-boolean v0, v1, Lcom/android/server/DeviceIdleController;->mCscWhitelistPolicy:Z
+    iput-boolean v10, p0, Lcom/android/server/DeviceIdleController;->mCscWhitelistPolicy:Z
 
     invoke-static {}, Lcom/android/server/SystemConfig;->getInstance()Lcom/android/server/SystemConfig;
 
-    move-result-object v16
+    move-result-object v9
 
-    invoke-virtual/range {v16 .. v16}, Lcom/android/server/SystemConfig;->getAllowInPowerSaveExceptIdle()Landroid/util/ArraySet;
+    invoke-virtual {v9}, Lcom/android/server/SystemConfig;->getAllowInPowerSaveExceptIdle()Landroid/util/ArraySet;
 
-    move-result-object v6
+    move-result-object v2
 
-    const/4 v11, 0x0
+    const/4 v6, 0x0
 
     :goto_0
-    invoke-virtual {v6}, Landroid/util/ArraySet;->size()I
+    invoke-virtual {v2}, Landroid/util/ArraySet;->size()I
 
-    move-result v17
+    move-result v10
 
-    move/from16 v0, v17
+    if-ge v6, v10, :cond_0
 
-    if-ge v11, v0, :cond_0
+    invoke-virtual {v2, v6}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
-    invoke-virtual {v6, v11}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+    move-result-object v7
 
-    move-result-object v14
-
-    check-cast v14, Ljava/lang/String;
+    check-cast v7, Ljava/lang/String;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    const/high16 v17, 0x100000
+    const/high16 v10, 0x100000
 
     :try_start_1
-    move/from16 v0, v17
+    invoke-virtual {v8, v7, v10}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
 
-    invoke-virtual {v15, v14, v0}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+    move-result-object v0
 
-    move-result-object v4
+    iget v10, v0, Landroid/content/pm/ApplicationInfo;->uid:I
 
-    iget v0, v4, Landroid/content/pm/ApplicationInfo;->uid:I
+    invoke-static {v10}, Landroid/os/UserHandle;->getAppId(I)I
 
-    move/from16 v17, v0
+    move-result v4
 
-    invoke-static/range {v17 .. v17}, Landroid/os/UserHandle;->getAppId(I)I
+    iget-object v10, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistAppsExceptIdle:Landroid/util/ArrayMap;
 
-    move-result v8
+    iget-object v11, v0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    move-object/from16 v0, p0
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    iget-object v0, v0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistAppsExceptIdle:Landroid/util/ArrayMap;
+    move-result-object v12
 
-    move-object/from16 v17, v0
+    invoke-virtual {v10, v11, v12}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, v4, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    iget-object v10, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistSystemAppIdsExceptIdle:Landroid/util/SparseBooleanArray;
 
-    move-object/from16 v18, v0
+    const/4 v11, 0x1
 
-    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v19
-
-    invoke-virtual/range {v17 .. v19}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistSystemAppIdsExceptIdle:Landroid/util/SparseBooleanArray;
-
-    move-object/from16 v17, v0
-
-    const/16 v18, 0x1
-
-    move-object/from16 v0, v17
-
-    move/from16 v1, v18
-
-    invoke-virtual {v0, v8, v1}, Landroid/util/SparseBooleanArray;->put(IZ)V
+    invoke-virtual {v10, v4, v11}, Landroid/util/SparseBooleanArray;->put(IZ)V
     :try_end_1
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_3
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_2
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :goto_1
-    add-int/lit8 v11, v11, 0x1
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_0
 
     :cond_0
     :try_start_2
-    invoke-virtual/range {v16 .. v16}, Lcom/android/server/SystemConfig;->getAllowInPowerSave()Landroid/util/ArraySet;
+    invoke-virtual {v9}, Lcom/android/server/SystemConfig;->getAllowInPowerSave()Landroid/util/ArraySet;
 
-    move-result-object v5
+    move-result-object v1
 
-    const/4 v11, 0x0
+    const/4 v6, 0x0
 
     :goto_2
-    invoke-virtual {v5}, Landroid/util/ArraySet;->size()I
+    invoke-virtual {v1}, Landroid/util/ArraySet;->size()I
 
-    move-result v17
+    move-result v10
 
-    move/from16 v0, v17
+    if-ge v6, v10, :cond_1
 
-    if-ge v11, v0, :cond_1
+    invoke-virtual {v1, v6}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
-    invoke-virtual {v5, v11}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
+    move-result-object v7
 
-    move-result-object v14
-
-    check-cast v14, Ljava/lang/String;
+    check-cast v7, Ljava/lang/String;
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    const/high16 v17, 0x100000
+    const/high16 v10, 0x100000
 
     :try_start_3
-    move/from16 v0, v17
+    invoke-virtual {v8, v7, v10}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
 
-    invoke-virtual {v15, v14, v0}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+    move-result-object v0
 
-    move-result-object v4
+    iget v10, v0, Landroid/content/pm/ApplicationInfo;->uid:I
 
-    iget v0, v4, Landroid/content/pm/ApplicationInfo;->uid:I
+    invoke-static {v10}, Landroid/os/UserHandle;->getAppId(I)I
 
-    move/from16 v17, v0
+    move-result v4
 
-    invoke-static/range {v17 .. v17}, Landroid/os/UserHandle;->getAppId(I)I
+    iget-object v10, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistAppsExceptIdle:Landroid/util/ArrayMap;
 
-    move-result v8
+    iget-object v11, v0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    move-object/from16 v0, p0
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    iget-object v0, v0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistAppsExceptIdle:Landroid/util/ArrayMap;
+    move-result-object v12
 
-    move-object/from16 v17, v0
+    invoke-virtual {v10, v11, v12}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, v4, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
+    iget-object v10, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistSystemAppIdsExceptIdle:Landroid/util/SparseBooleanArray;
 
-    move-object/from16 v18, v0
+    const/4 v11, 0x1
 
-    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-virtual {v10, v4, v11}, Landroid/util/SparseBooleanArray;->put(IZ)V
 
-    move-result-object v19
+    iget-object v10, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistApps:Landroid/util/ArrayMap;
 
-    invoke-virtual/range {v17 .. v19}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    iget-object v11, v0, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
 
-    move-object/from16 v0, p0
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    iget-object v0, v0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistSystemAppIdsExceptIdle:Landroid/util/SparseBooleanArray;
+    move-result-object v12
 
-    move-object/from16 v17, v0
+    invoke-virtual {v10, v11, v12}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    const/16 v18, 0x1
+    iget-object v10, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistSystemAppIds:Landroid/util/SparseBooleanArray;
 
-    move-object/from16 v0, v17
+    const/4 v11, 0x1
 
-    move/from16 v1, v18
-
-    invoke-virtual {v0, v8, v1}, Landroid/util/SparseBooleanArray;->put(IZ)V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistApps:Landroid/util/ArrayMap;
-
-    move-object/from16 v17, v0
-
-    iget-object v0, v4, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
-
-    move-object/from16 v18, v0
-
-    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v19
-
-    invoke-virtual/range {v17 .. v19}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistSystemAppIds:Landroid/util/SparseBooleanArray;
-
-    move-object/from16 v17, v0
-
-    const/16 v18, 0x1
-
-    move-object/from16 v0, v17
-
-    move/from16 v1, v18
-
-    invoke-virtual {v0, v8, v1}, Landroid/util/SparseBooleanArray;->put(IZ)V
+    invoke-virtual {v10, v4, v11}, Landroid/util/SparseBooleanArray;->put(IZ)V
     :try_end_3
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_3 .. :try_end_3} :catch_2
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_3 .. :try_end_3} :catch_1
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     :goto_3
-    add-int/lit8 v11, v11, 0x1
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_2
 
     :cond_1
     :try_start_4
-    move-object/from16 v0, p0
+    iget-boolean v10, p0, Lcom/android/server/DeviceIdleController;->mSubEnable:Z
 
-    iget-boolean v0, v0, Lcom/android/server/DeviceIdleController;->mSubEnable:Z
+    if-eqz v10, :cond_3
 
-    move/from16 v17, v0
+    invoke-virtual {v9}, Lcom/android/server/SystemConfig;->getAllowInPowerSaveUserAppExceptIdle()Landroid/util/ArraySet;
 
-    if-eqz v17, :cond_3
+    move-result-object v3
 
-    invoke-virtual/range {v16 .. v16}, Lcom/android/server/SystemConfig;->getAllowInPowerSaveUserAppExceptIdle()Landroid/util/ArraySet;
+    const/4 v6, 0x0
+
+    :goto_4
+    invoke-virtual {v3}, Landroid/util/ArraySet;->size()I
+
+    move-result v10
+
+    if-ge v6, v10, :cond_3
+
+    invoke-virtual {v3, v6}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
 
     move-result-object v7
 
-    const/4 v11, 0x0
-
-    :goto_4
-    invoke-virtual {v7}, Landroid/util/ArraySet;->size()I
-
-    move-result v17
-
-    move/from16 v0, v17
-
-    if-ge v11, v0, :cond_3
-
-    invoke-virtual {v7, v11}, Landroid/util/ArraySet;->valueAt(I)Ljava/lang/Object;
-
-    move-result-object v14
-
-    check-cast v14, Ljava/lang/String;
+    check-cast v7, Ljava/lang/String;
     :try_end_4
     .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    const v17, 0xa200
+    const v10, 0xa200
 
     :try_start_5
-    move/from16 v0, v17
+    invoke-virtual {v8, v7, v10}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
 
-    invoke-virtual {v15, v14, v0}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
+    move-result-object v0
 
-    move-result-object v4
+    iget v10, v0, Landroid/content/pm/ApplicationInfo;->flags:I
 
-    iget v0, v4, Landroid/content/pm/ApplicationInfo;->flags:I
+    and-int/lit8 v10, v10, 0x1
 
-    move/from16 v17, v0
+    if-nez v10, :cond_2
 
-    and-int/lit8 v17, v17, 0x1
+    iget v10, v0, Landroid/content/pm/ApplicationInfo;->uid:I
 
-    if-nez v17, :cond_2
+    invoke-static {v10}, Landroid/os/UserHandle;->getAppId(I)I
 
-    iget v0, v4, Landroid/content/pm/ApplicationInfo;->uid:I
+    move-result v4
 
-    move/from16 v17, v0
+    iget-object v10, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistAppsExceptIdle:Landroid/util/ArrayMap;
 
-    invoke-static/range {v17 .. v17}, Landroid/os/UserHandle;->getAppId(I)I
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result v8
+    move-result-object v11
 
-    move-object/from16 v0, p0
+    invoke-virtual {v10, v7, v11}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
-    iget-object v0, v0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistAppsExceptIdle:Landroid/util/ArrayMap;
+    iget-object v10, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistSystemAppIdsExceptIdle:Landroid/util/SparseBooleanArray;
 
-    move-object/from16 v17, v0
+    const/4 v11, 0x1
 
-    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-virtual {v10, v4, v11}, Landroid/util/SparseBooleanArray;->put(IZ)V
 
-    move-result-object v18
+    iget-object v10, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelist3rdPartyAppsExceptIdle:Landroid/util/ArrayMap;
 
-    move-object/from16 v0, v17
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-object/from16 v1, v18
+    move-result-object v11
 
-    invoke-virtual {v0, v14, v1}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistSystemAppIdsExceptIdle:Landroid/util/SparseBooleanArray;
-
-    move-object/from16 v17, v0
-
-    const/16 v18, 0x1
-
-    move-object/from16 v0, v17
-
-    move/from16 v1, v18
-
-    invoke-virtual {v0, v8, v1}, Landroid/util/SparseBooleanArray;->put(IZ)V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelist3rdPartyAppsExceptIdle:Landroid/util/ArrayMap;
-
-    move-object/from16 v17, v0
-
-    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v18
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v18
-
-    invoke-virtual {v0, v14, v1}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v10, v7, v11}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_5
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_5 .. :try_end_5} :catch_0
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
     :cond_2
     :goto_5
-    add-int/lit8 v11, v11, 0x1
+    add-int/lit8 v6, v6, 0x1
 
     goto :goto_4
 
     :catch_0
-    move-exception v10
+    move-exception v5
 
     :try_start_6
-    move-object/from16 v0, p0
+    iget-object v10, p0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelist3rdPartyAppsExceptIdle:Landroid/util/ArrayMap;
 
-    iget-object v0, v0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelist3rdPartyAppsExceptIdle:Landroid/util/ArrayMap;
+    const/4 v11, -0x1
 
-    move-object/from16 v17, v0
+    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const/16 v18, -0x1
+    move-result-object v11
 
-    invoke-static/range {v18 .. v18}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v18
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v18
-
-    invoke-virtual {v0, v14, v1}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v10, v7, v11}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
     goto :goto_5
 
     :catchall_0
-    move-exception v17
+    move-exception v10
 
     monitor-exit p0
 
-    throw v17
+    throw v10
 
     :cond_3
-    const/4 v9, 0x0
-
     :try_start_7
-    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+    invoke-direct {p0}, Lcom/android/server/DeviceIdleController;->loadPowerSaveWhitelistFromCsc()V
 
-    move-result-object v17
+    new-instance v10, Lcom/android/server/DeviceIdleController$Constants;
 
-    const-string/jumbo v18, "CscFeature_Common_ConfigAllowedPackagesDuringPowerSaving"
+    iget-object v11, p0, Lcom/android/server/DeviceIdleController;->mHandler:Lcom/android/server/DeviceIdleController$MyHandler;
 
-    invoke-virtual/range {v17 .. v18}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/android/server/DeviceIdleController;->getContext()Landroid/content/Context;
 
-    move-result-object v9
+    move-result-object v12
 
-    if-eqz v9, :cond_9
+    invoke-virtual {v12}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
-    invoke-virtual {v9}, Ljava/lang/String;->length()I
+    move-result-object v12
 
-    move-result v17
+    invoke-direct {v10, p0, v11, v12}, Lcom/android/server/DeviceIdleController$Constants;-><init>(Lcom/android/server/DeviceIdleController;Landroid/os/Handler;Landroid/content/ContentResolver;)V
 
-    if-lez v17, :cond_9
+    iput-object v10, p0, Lcom/android/server/DeviceIdleController;->mConstants:Lcom/android/server/DeviceIdleController$Constants;
 
-    const-string/jumbo v17, ","
+    invoke-virtual {p0}, Lcom/android/server/DeviceIdleController;->readConfigFileLocked()V
 
-    move-object/from16 v0, v17
+    invoke-direct {p0}, Lcom/android/server/DeviceIdleController;->updateWhitelistAppIdsLocked()V
 
-    invoke-virtual {v9, v0}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    const/4 v10, 0x1
 
-    move-result-object v13
+    iput-boolean v10, p0, Lcom/android/server/DeviceIdleController;->mNetworkConnected:Z
 
-    const/4 v11, 0x0
+    const/4 v10, 0x1
 
-    :goto_6
-    array-length v0, v13
+    iput-boolean v10, p0, Lcom/android/server/DeviceIdleController;->mScreenOn:Z
 
-    move/from16 v17, v0
+    const/4 v10, 0x1
 
-    move/from16 v0, v17
+    iput-boolean v10, p0, Lcom/android/server/DeviceIdleController;->mCharging:Z
 
-    if-ge v11, v0, :cond_9
+    const/4 v10, 0x0
 
-    aget-object v17, v13, v11
+    iput v10, p0, Lcom/android/server/DeviceIdleController;->mState:I
 
-    invoke-virtual/range {v17 .. v17}, Ljava/lang/String;->trim()Ljava/lang/String;
+    const/4 v10, 0x0
+
+    iput v10, p0, Lcom/android/server/DeviceIdleController;->mLightState:I
+
+    iget-object v10, p0, Lcom/android/server/DeviceIdleController;->mConstants:Lcom/android/server/DeviceIdleController$Constants;
+
+    iget-wide v10, v10, Lcom/android/server/DeviceIdleController$Constants;->INACTIVE_TIMEOUT:J
+
+    iput-wide v10, p0, Lcom/android/server/DeviceIdleController;->mInactiveTimeout:J
     :try_end_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_0
 
-    move-result-object v14
-
-    const/4 v12, 0x0
-
-    const/4 v8, -0x1
-
-    const/16 v17, 0x0
-
-    :try_start_8
-    move/from16 v0, v17
-
-    invoke-virtual {v15, v14, v0}, Landroid/content/pm/PackageManager;->getApplicationInfo(Ljava/lang/String;I)Landroid/content/pm/ApplicationInfo;
-
-    move-result-object v4
-
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Lcom/android/server/DeviceIdleController;->mCscWhitelistPolicy:Z
-
-    move/from16 v17, v0
-
-    if-eqz v17, :cond_7
-
-    iget v0, v4, Landroid/content/pm/ApplicationInfo;->flags:I
-
-    move/from16 v17, v0
-
-    and-int/lit8 v17, v17, 0x1
-
-    if-eqz v17, :cond_4
-
-    const/4 v12, 0x1
-
-    :cond_4
-    iget v0, v4, Landroid/content/pm/ApplicationInfo;->uid:I
-
-    move/from16 v17, v0
-
-    invoke-static/range {v17 .. v17}, Landroid/os/UserHandle;->getAppId(I)I
-
-    move-result v8
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistAppsExceptIdle:Landroid/util/ArrayMap;
-
-    move-object/from16 v17, v0
-
-    iget-object v0, v4, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
-
-    move-object/from16 v18, v0
-
-    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v19
-
-    invoke-virtual/range {v17 .. v19}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistSystemAppIdsExceptIdle:Landroid/util/SparseBooleanArray;
-
-    move-object/from16 v17, v0
-
-    const/16 v18, 0x1
-
-    move-object/from16 v0, v17
-
-    move/from16 v1, v18
-
-    invoke-virtual {v0, v8, v1}, Landroid/util/SparseBooleanArray;->put(IZ)V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistApps:Landroid/util/ArrayMap;
-
-    move-object/from16 v17, v0
-
-    iget-object v0, v4, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
-
-    move-object/from16 v18, v0
-
-    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v19
-
-    invoke-virtual/range {v17 .. v19}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistSystemAppIds:Landroid/util/SparseBooleanArray;
-
-    move-object/from16 v17, v0
-
-    const/16 v18, 0x1
-
-    move-object/from16 v0, v17
-
-    move/from16 v1, v18
-
-    invoke-virtual {v0, v8, v1}, Landroid/util/SparseBooleanArray;->put(IZ)V
-
-    if-nez v12, :cond_5
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelist3rdPartyApps:Landroid/util/ArrayMap;
-
-    move-object/from16 v17, v0
-
-    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v18
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v18
-
-    invoke-virtual {v0, v14, v1}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-    :try_end_8
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_8 .. :try_end_8} :catch_1
-    .catchall {:try_start_8 .. :try_end_8} :catchall_0
-
-    :cond_5
-    :goto_7
-    :try_start_9
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Lcom/android/server/DeviceIdleController;->mCscWhitelistPolicy:Z
-
-    move/from16 v17, v0
-    :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_0
-
-    if-eqz v17, :cond_6
-
-    if-eqz v12, :cond_8
-
-    :cond_6
-    :goto_8
-    add-int/lit8 v11, v11, 0x1
-
-    goto/16 :goto_6
-
-    :cond_7
-    :try_start_a
-    iget v0, v4, Landroid/content/pm/ApplicationInfo;->flags:I
-
-    move/from16 v17, v0
-
-    and-int/lit8 v17, v17, 0x1
-
-    if-eqz v17, :cond_5
-
-    const/4 v12, 0x1
-
-    iget v0, v4, Landroid/content/pm/ApplicationInfo;->uid:I
-
-    move/from16 v17, v0
-
-    invoke-static/range {v17 .. v17}, Landroid/os/UserHandle;->getAppId(I)I
-
-    move-result v8
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistAppsExceptIdle:Landroid/util/ArrayMap;
-
-    move-object/from16 v17, v0
-
-    iget-object v0, v4, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
-
-    move-object/from16 v18, v0
-
-    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v19
-
-    invoke-virtual/range {v17 .. v19}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistSystemAppIdsExceptIdle:Landroid/util/SparseBooleanArray;
-
-    move-object/from16 v17, v0
-
-    const/16 v18, 0x1
-
-    move-object/from16 v0, v17
-
-    move/from16 v1, v18
-
-    invoke-virtual {v0, v8, v1}, Landroid/util/SparseBooleanArray;->put(IZ)V
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistApps:Landroid/util/ArrayMap;
-
-    move-object/from16 v17, v0
-
-    iget-object v0, v4, Landroid/content/pm/ApplicationInfo;->packageName:Ljava/lang/String;
-
-    move-object/from16 v18, v0
-
-    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v19
-
-    invoke-virtual/range {v17 .. v19}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelistSystemAppIds:Landroid/util/SparseBooleanArray;
-
-    move-object/from16 v17, v0
-
-    const/16 v18, 0x1
-
-    move-object/from16 v0, v17
-
-    move/from16 v1, v18
-
-    invoke-virtual {v0, v8, v1}, Landroid/util/SparseBooleanArray;->put(IZ)V
-    :try_end_a
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_a .. :try_end_a} :catch_1
-    .catchall {:try_start_a .. :try_end_a} :catchall_0
-
-    goto :goto_7
-
-    :catch_1
-    move-exception v10
-
-    goto :goto_7
-
-    :cond_8
-    :try_start_b
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/DeviceIdleController;->mPowerSaveWhitelist3rdPartyApps:Landroid/util/ArrayMap;
-
-    move-object/from16 v17, v0
-
-    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v18
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, v18
-
-    invoke-virtual {v0, v14, v1}, Landroid/util/ArrayMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    goto :goto_8
-
-    :cond_9
-    new-instance v17, Lcom/android/server/DeviceIdleController$Constants;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/DeviceIdleController;->mHandler:Lcom/android/server/DeviceIdleController$MyHandler;
-
-    move-object/from16 v18, v0
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/server/DeviceIdleController;->getContext()Landroid/content/Context;
-
-    move-result-object v19
-
-    invoke-virtual/range {v19 .. v19}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v19
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, p0
-
-    move-object/from16 v2, v18
-
-    move-object/from16 v3, v19
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/android/server/DeviceIdleController$Constants;-><init>(Lcom/android/server/DeviceIdleController;Landroid/os/Handler;Landroid/content/ContentResolver;)V
-
-    move-object/from16 v0, v17
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Lcom/android/server/DeviceIdleController;->mConstants:Lcom/android/server/DeviceIdleController$Constants;
-
-    invoke-virtual/range {p0 .. p0}, Lcom/android/server/DeviceIdleController;->readConfigFileLocked()V
-
-    invoke-direct/range {p0 .. p0}, Lcom/android/server/DeviceIdleController;->updateWhitelistAppIdsLocked()V
-
-    const/16 v17, 0x1
-
-    move/from16 v0, v17
-
-    move-object/from16 v1, p0
-
-    iput-boolean v0, v1, Lcom/android/server/DeviceIdleController;->mNetworkConnected:Z
-
-    const/16 v17, 0x1
-
-    move/from16 v0, v17
-
-    move-object/from16 v1, p0
-
-    iput-boolean v0, v1, Lcom/android/server/DeviceIdleController;->mScreenOn:Z
-
-    const/16 v17, 0x1
-
-    move/from16 v0, v17
-
-    move-object/from16 v1, p0
-
-    iput-boolean v0, v1, Lcom/android/server/DeviceIdleController;->mCharging:Z
-
-    const/16 v17, 0x0
-
-    move/from16 v0, v17
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Lcom/android/server/DeviceIdleController;->mState:I
-
-    const/16 v17, 0x0
-
-    move/from16 v0, v17
-
-    move-object/from16 v1, p0
-
-    iput v0, v1, Lcom/android/server/DeviceIdleController;->mLightState:I
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/DeviceIdleController;->mConstants:Lcom/android/server/DeviceIdleController$Constants;
-
-    move-object/from16 v17, v0
-
-    move-object/from16 v0, v17
-
-    iget-wide v0, v0, Lcom/android/server/DeviceIdleController$Constants;->INACTIVE_TIMEOUT:J
-
-    move-wide/from16 v18, v0
-
-    move-wide/from16 v0, v18
-
-    move-object/from16 v2, p0
-
-    iput-wide v0, v2, Lcom/android/server/DeviceIdleController;->mInactiveTimeout:J
-    :try_end_b
-    .catchall {:try_start_b .. :try_end_b} :catchall_0
-
     monitor-exit p0
 
-    new-instance v17, Lcom/android/server/DeviceIdleController$BinderService;
+    new-instance v10, Lcom/android/server/DeviceIdleController$BinderService;
 
-    const/16 v18, 0x0
+    const/4 v11, 0x0
 
-    move-object/from16 v0, v17
+    invoke-direct {v10, p0, v11}, Lcom/android/server/DeviceIdleController$BinderService;-><init>(Lcom/android/server/DeviceIdleController;Lcom/android/server/DeviceIdleController$BinderService;)V
 
-    move-object/from16 v1, p0
+    iput-object v10, p0, Lcom/android/server/DeviceIdleController;->mBinderService:Lcom/android/server/DeviceIdleController$BinderService;
 
-    move-object/from16 v2, v18
+    const-string/jumbo v10, "deviceidle"
 
-    invoke-direct {v0, v1, v2}, Lcom/android/server/DeviceIdleController$BinderService;-><init>(Lcom/android/server/DeviceIdleController;Lcom/android/server/DeviceIdleController$BinderService;)V
+    iget-object v11, p0, Lcom/android/server/DeviceIdleController;->mBinderService:Lcom/android/server/DeviceIdleController$BinderService;
 
-    move-object/from16 v0, v17
+    invoke-virtual {p0, v10, v11}, Lcom/android/server/DeviceIdleController;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
 
-    move-object/from16 v1, p0
+    const-class v10, Lcom/android/server/DeviceIdleController$LocalService;
 
-    iput-object v0, v1, Lcom/android/server/DeviceIdleController;->mBinderService:Lcom/android/server/DeviceIdleController$BinderService;
+    new-instance v11, Lcom/android/server/DeviceIdleController$LocalService;
 
-    const-string/jumbo v17, "deviceidle"
+    invoke-direct {v11, p0}, Lcom/android/server/DeviceIdleController$LocalService;-><init>(Lcom/android/server/DeviceIdleController;)V
 
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/server/DeviceIdleController;->mBinderService:Lcom/android/server/DeviceIdleController$BinderService;
-
-    move-object/from16 v18, v0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v17
-
-    move-object/from16 v2, v18
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/DeviceIdleController;->publishBinderService(Ljava/lang/String;Landroid/os/IBinder;)V
-
-    const-class v17, Lcom/android/server/DeviceIdleController$LocalService;
-
-    new-instance v18, Lcom/android/server/DeviceIdleController$LocalService;
-
-    move-object/from16 v0, v18
-
-    move-object/from16 v1, p0
-
-    invoke-direct {v0, v1}, Lcom/android/server/DeviceIdleController$LocalService;-><init>(Lcom/android/server/DeviceIdleController;)V
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v17
-
-    move-object/from16 v2, v18
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/server/DeviceIdleController;->publishLocalService(Ljava/lang/Class;Ljava/lang/Object;)V
+    invoke-virtual {p0, v10, v11}, Lcom/android/server/DeviceIdleController;->publishLocalService(Ljava/lang/Class;Ljava/lang/Object;)V
 
     return-void
 
-    :catch_2
-    move-exception v10
+    :catch_1
+    move-exception v5
 
     goto/16 :goto_3
 
-    :catch_3
-    move-exception v10
+    :catch_2
+    move-exception v5
 
     goto/16 :goto_1
 .end method
