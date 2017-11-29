@@ -687,7 +687,7 @@
 
     sput-boolean v0, Lcom/android/server/power/PowerManagerUtil;->SEC_FEATURE_HALF_BRIGHTNESS_LOW_BATTERY:Z
 
-    sget-boolean v5, Landroid/os/Build;->renovateHeroDevice:Z
+    sget-boolean v5, Landroid/os/Build;->renovateHeroSeries:Z
 
     if-nez v5, :cond_2
 
