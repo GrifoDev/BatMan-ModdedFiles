@@ -334,7 +334,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0394
+    const v3, 0x7f0d0399
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -346,7 +346,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0395
+    const v3, 0x7f0d039a
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -358,7 +358,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0112
+    const v3, 0x7f0b0114
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -775,9 +775,9 @@
 .method private updateRecentsButtonsColor()V
     .locals 5
 
-    const v4, 0x7f0b0111
+    const v4, 0x7f0b0113
 
-    const v3, 0x7f0b0110
+    const v3, 0x7f0b0112
 
     invoke-static {}, Lcom/android/systemui/recents/Recents;->getSettingHelper()Lcom/android/systemui/recents/model/RecentsSettingHelper;
 
@@ -4282,7 +4282,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0110
+    const v3, 0x7f0b0112
 
     invoke-virtual {v2, v3, v6}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -4310,7 +4310,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0111
+    const v3, 0x7f0b0113
 
     invoke-virtual {v2, v3, v6}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 

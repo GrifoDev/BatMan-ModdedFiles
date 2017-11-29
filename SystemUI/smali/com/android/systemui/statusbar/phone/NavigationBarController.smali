@@ -179,7 +179,7 @@
     :cond_0
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b016b
+    const v3, 0x7f0b016d
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getColor(I)I
 
@@ -196,7 +196,7 @@
     :cond_1
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b016a
+    const v3, 0x7f0b016c
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getColor(I)I
 
@@ -249,7 +249,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b0177
+    const v3, 0x7f0b0179
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getColor(I)I
 
@@ -272,7 +272,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b017a
+    const v3, 0x7f0b017c
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getColor(I)I
 
@@ -337,7 +337,7 @@
     :cond_7
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b0178
+    const v3, 0x7f0b017a
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getColor(I)I
 
@@ -404,7 +404,7 @@
     :cond_a
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b0179
+    const v3, 0x7f0b017b
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getColor(I)I
 
@@ -450,7 +450,7 @@
     :cond_c
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b0178
+    const v3, 0x7f0b017a
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getColor(I)I
 
@@ -507,7 +507,7 @@
     :cond_f
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b0179
+    const v3, 0x7f0b017b
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getColor(I)I
 
@@ -554,7 +554,7 @@
     :cond_11
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b0178
+    const v3, 0x7f0b017a
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getColor(I)I
 
@@ -640,7 +640,7 @@
     :cond_15
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b0179
+    const v3, 0x7f0b017b
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getColor(I)I
 
@@ -797,13 +797,13 @@
 .method public getIconColor(ZI)I
     .locals 13
 
-    const v12, 0x7f0b016c
+    const v12, 0x7f0b016e
 
     const/4 v11, 0x7
 
     const/4 v10, 0x2
 
-    const v9, 0x7f0b016a
+    const v9, 0x7f0b016c
 
     const/4 v8, 0x0
 
@@ -1035,7 +1035,7 @@
     :cond_b
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0b016d
+    const v5, 0x7f0b016f
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getColor(I)I
 
@@ -1135,7 +1135,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0b016d
+    const v5, 0x7f0b016f
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getColor(I)I
 
@@ -1178,7 +1178,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NavigationBarController;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0b0168
+    const v5, 0x7f0b016a
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getColor(I)I
 

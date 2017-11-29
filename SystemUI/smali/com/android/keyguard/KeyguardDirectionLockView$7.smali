@@ -1,11 +1,14 @@
 .class Lcom/android/keyguard/KeyguardDirectionLockView$7;
-.super Landroid/os/Handler;
+.super Ljava/lang/Object;
 .source "KeyguardDirectionLockView.java"
+
+# interfaces
+.implements Lcom/android/internal/widget/LockPatternChecker$OnCheckCallback;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/keyguard/KeyguardDirectionLockView;->onFinishInflate()V
+    value = Lcom/android/keyguard/KeyguardDirectionLockView;->checkPasswordAndHandle()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -24,342 +27,75 @@
 
     iput-object p1, p0, Lcom/android/keyguard/KeyguardDirectionLockView$7;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
 
-    invoke-direct {p0}, Landroid/os/Handler;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public handleMessage(Landroid/os/Message;)V
-    .locals 10
+.method public onChecked(ZI)V
+    .locals 4
 
-    const/4 v9, 0x1
+    const-string/jumbo v1, "KeyguardDirectionLockView"
 
-    const/4 v8, 0x0
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    iget v4, p1, Landroid/os/Message;->arg1:I
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardDirectionLockView$7;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
+    const-string/jumbo v3, "onChecked "
 
-    invoke-static {v5}, Lcom/android/keyguard/KeyguardDirectionLockView;->-wrap3(Lcom/android/keyguard/KeyguardDirectionLockView;)V
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v5, p1, Landroid/os/Message;->what:I
+    move-result-object v2
 
-    const/16 v6, 0x23
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    if-ne v5, v6, :cond_7
+    move-result-object v2
 
-    const-string/jumbo v5, "KeyguardDirectionLockView"
+    const-string/jumbo v3, " / "
 
-    const-string/jumbo v6, "In handleMessage()"
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v5, v6}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v2
 
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardDirectionLockView$7;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    invoke-static {v5, v8}, Lcom/android/keyguard/KeyguardDirectionLockView;->-set4(Lcom/android/keyguard/KeyguardDirectionLockView;Z)Z
+    move-result-object v2
 
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardDirectionLockView$7;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-static {v5}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get8(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/internal/widget/DirectionLockView;
+    move-result-object v2
 
-    move-result-object v5
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v5}, Lcom/android/internal/widget/DirectionLockView;->getCurrentPassword()Ljava/lang/String;
+    invoke-static {}, Landroid/os/Message;->obtain()Landroid/os/Message;
 
-    move-result-object v5
+    move-result-object v0
 
-    invoke-virtual {v5}, Ljava/lang/String;->length()I
+    iput p2, v0, Landroid/os/Message;->arg1:I
 
-    move-result v1
+    if-eqz p1, :cond_0
 
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardDirectionLockView$7;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
+    const/16 v1, 0x25
 
-    invoke-static {v5}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get8(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/internal/widget/DirectionLockView;
+    iput v1, v0, Landroid/os/Message;->what:I
 
-    move-result-object v5
-
-    invoke-virtual {v5}, Lcom/android/internal/widget/DirectionLockView;->clearScreen()V
-
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardDirectionLockView$7;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
-
-    invoke-static {v5}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get8(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/internal/widget/DirectionLockView;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Lcom/android/internal/widget/DirectionLockView;->resetPassword()V
-
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardDirectionLockView$7;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
-
-    invoke-static {v5}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get0(Lcom/android/keyguard/KeyguardDirectionLockView;)I
-
-    move-result v5
-
-    if-lt v1, v5, :cond_0
-
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardDirectionLockView$7;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
-
-    invoke-static {v5}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get26(Lcom/android/keyguard/KeyguardDirectionLockView;)I
-
-    move-result v6
-
-    add-int/lit8 v6, v6, 0x1
-
-    invoke-static {v5, v6}, Lcom/android/keyguard/KeyguardDirectionLockView;->-set8(Lcom/android/keyguard/KeyguardDirectionLockView;I)I
-
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardDirectionLockView$7;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
-
-    invoke-static {v5}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get4(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/keyguard/KeyguardSecurityCallback;
-
-    move-result-object v5
-
-    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
-
-    move-result v6
-
-    invoke-interface {v5, v6, v8, v4}, Lcom/android/keyguard/KeyguardSecurityCallback;->reportUnlockAttempt(IZI)V
-
-    :cond_0
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardDirectionLockView$7;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
-
-    invoke-static {v5}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get5(Lcom/android/keyguard/KeyguardDirectionLockView;)Landroid/content/Context;
-
-    move-result-object v5
-
-    invoke-static {v5}, Lcom/android/keyguard/KnoxStateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KnoxStateMonitor;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Lcom/android/keyguard/KnoxStateMonitor;->isDeviceDisabledForMaxFailedAttempt()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_2
-
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardDirectionLockView$7;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
-
-    invoke-static {v5}, Lcom/android/keyguard/KeyguardDirectionLockView;->-wrap4(Lcom/android/keyguard/KeyguardDirectionLockView;)V
-
-    :cond_1
     :goto_0
+    iget-object v1, p0, Lcom/android/keyguard/KeyguardDirectionLockView$7;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
+
+    invoke-static {v1}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get7(Lcom/android/keyguard/KeyguardDirectionLockView;)Landroid/os/Handler;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Landroid/os/Handler;->dispatchMessage(Landroid/os/Message;)V
+
     return-void
 
-    :cond_2
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardDirectionLockView$7;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
+    :cond_0
+    const/16 v1, 0x23
 
-    invoke-static {v5}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get5(Lcom/android/keyguard/KeyguardDirectionLockView;)Landroid/content/Context;
-
-    move-result-object v5
-
-    invoke-static {v5}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    move-result-object v5
-
-    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
-
-    move-result v6
-
-    invoke-virtual {v5, v6}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getFailedUnlockAttempts(I)I
-
-    move-result v0
-
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardDirectionLockView$7;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
-
-    iget-object v6, p0, Lcom/android/keyguard/KeyguardDirectionLockView$7;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
-
-    invoke-static {v6, v0}, Lcom/android/keyguard/KeyguardDirectionLockView;->-wrap1(Lcom/android/keyguard/KeyguardDirectionLockView;I)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Lcom/android/keyguard/KeyguardDirectionLockView;->-set2(Lcom/android/keyguard/KeyguardDirectionLockView;Ljava/lang/String;)Ljava/lang/String;
-
-    if-lez v4, :cond_4
-
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardDirectionLockView$7;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
-
-    invoke-static {v5}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get0(Lcom/android/keyguard/KeyguardDirectionLockView;)I
-
-    move-result v5
-
-    if-lt v1, v5, :cond_3
-
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardDirectionLockView$7;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
-
-    invoke-static {v5}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get20(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/internal/widget/LockPatternUtils;
-
-    move-result-object v5
-
-    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
-
-    move-result v6
-
-    invoke-virtual {v5, v6, v4}, Lcom/android/internal/widget/LockPatternUtils;->setLockoutAttemptDeadline(II)J
-
-    move-result-wide v2
-
-    :goto_1
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardDirectionLockView$7;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
-
-    invoke-static {v5}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get5(Lcom/android/keyguard/KeyguardDirectionLockView;)Landroid/content/Context;
-
-    move-result-object v5
-
-    invoke-static {v5}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getInstance(Landroid/content/Context;)Lcom/android/keyguard/KeyguardUpdateMonitor;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Lcom/android/keyguard/KeyguardUpdateMonitor;->updateAllBiometricsListeningState()V
-
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardDirectionLockView$7;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
-
-    invoke-static {v5, v2, v3}, Lcom/android/keyguard/KeyguardDirectionLockView;->-wrap7(Lcom/android/keyguard/KeyguardDirectionLockView;J)V
-
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardDirectionLockView$7;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
-
-    invoke-virtual {v5}, Lcom/android/keyguard/KeyguardDirectionLockView;->reset()V
+    iput v1, v0, Landroid/os/Message;->what:I
 
     goto :goto_0
-
-    :cond_3
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardDirectionLockView$7;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
-
-    invoke-static {v5}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get20(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/internal/widget/LockPatternUtils;
-
-    move-result-object v5
-
-    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
-
-    move-result v6
-
-    invoke-virtual {v5, v6}, Lcom/android/internal/widget/LockPatternUtils;->getLockoutAttemptDeadline(I)J
-
-    move-result-wide v2
-
-    goto :goto_1
-
-    :cond_4
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardDirectionLockView$7;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
-
-    invoke-static {v5}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get22(Lcom/android/keyguard/KeyguardDirectionLockView;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_5
-
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardDirectionLockView$7;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
-
-    invoke-static {v5}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get1(Lcom/android/keyguard/KeyguardDirectionLockView;)Landroid/view/accessibility/AccessibilityManager;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Landroid/view/accessibility/AccessibilityManager;->isTouchExplorationEnabled()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_6
-
-    :cond_5
-    :goto_2
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardDirectionLockView$7;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
-
-    invoke-static {v5}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get23(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/keyguard/KeyguardMessageArea;
-
-    move-result-object v5
-
-    iget-object v6, p0, Lcom/android/keyguard/KeyguardDirectionLockView$7;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
-
-    invoke-static {v6}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get13(Lcom/android/keyguard/KeyguardDirectionLockView;)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6, v9}, Lcom/android/keyguard/KeyguardMessageArea;->setMessage(Ljava/lang/CharSequence;Z)V
-
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardDirectionLockView$7;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
-
-    invoke-static {v5}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get23(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/keyguard/KeyguardMessageArea;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Lcom/android/keyguard/KeyguardMessageArea;->displayFailedAnimation()V
-
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardDirectionLockView$7;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
-
-    invoke-static {v5}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get27(Lcom/android/keyguard/KeyguardDirectionLockView;)Landroid/os/Vibrator;
-
-    move-result-object v5
-
-    sget-object v6, Landroid/os/Vibrator$SemMagnitudeTypes;->TYPE_NOTIFICATION:Landroid/os/Vibrator$SemMagnitudeTypes;
-
-    const v7, 0xc371
-
-    const/4 v8, -0x1
-
-    const/4 v9, 0x0
-
-    invoke-virtual {v5, v7, v8, v9, v6}, Landroid/os/Vibrator;->semVibrate(IILandroid/media/AudioAttributes;Landroid/os/Vibrator$SemMagnitudeTypes;)V
-
-    goto/16 :goto_0
-
-    :cond_6
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardDirectionLockView$7;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
-
-    invoke-static {v5}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get24(Lcom/android/keyguard/KeyguardDirectionLockView;)Landroid/speech/tts/TextToSpeech;
-
-    move-result-object v5
-
-    iget-object v6, p0, Lcom/android/keyguard/KeyguardDirectionLockView$7;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
-
-    invoke-static {v6}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get13(Lcom/android/keyguard/KeyguardDirectionLockView;)Ljava/lang/String;
-
-    move-result-object v6
-
-    iget-object v7, p0, Lcom/android/keyguard/KeyguardDirectionLockView$7;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
-
-    invoke-static {v7}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get14(Lcom/android/keyguard/KeyguardDirectionLockView;)Ljava/util/HashMap;
-
-    move-result-object v7
-
-    invoke-virtual {v5, v6, v8, v7}, Landroid/speech/tts/TextToSpeech;->speak(Ljava/lang/String;ILjava/util/HashMap;)I
-
-    goto :goto_2
-
-    :cond_7
-    iget v5, p1, Landroid/os/Message;->what:I
-
-    const/16 v6, 0x25
-
-    if-ne v5, v6, :cond_1
-
-    const-string/jumbo v5, "KeyguardDirectionLockView"
-
-    const-string/jumbo v6, "verifyPasswordAndUnlock"
-
-    invoke-static {v5, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardDirectionLockView$7;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
-
-    invoke-static {v5}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get4(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/keyguard/KeyguardSecurityCallback;
-
-    move-result-object v5
-
-    invoke-static {}, Lcom/android/keyguard/KeyguardUpdateMonitor;->getCurrentUser()I
-
-    move-result v6
-
-    invoke-interface {v5, v6, v9, v8}, Lcom/android/keyguard/KeyguardSecurityCallback;->reportUnlockAttempt(IZI)V
-
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardDirectionLockView$7;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
-
-    invoke-static {v5, v8}, Lcom/android/keyguard/KeyguardDirectionLockView;->-set8(Lcom/android/keyguard/KeyguardDirectionLockView;I)I
-
-    iget-object v5, p0, Lcom/android/keyguard/KeyguardDirectionLockView$7;->this$0:Lcom/android/keyguard/KeyguardDirectionLockView;
-
-    invoke-static {v5}, Lcom/android/keyguard/KeyguardDirectionLockView;->-get4(Lcom/android/keyguard/KeyguardDirectionLockView;)Lcom/android/keyguard/KeyguardSecurityCallback;
-
-    move-result-object v5
-
-    invoke-interface {v5, v9}, Lcom/android/keyguard/KeyguardSecurityCallback;->dismiss(Z)V
-
-    goto/16 :goto_0
 .end method

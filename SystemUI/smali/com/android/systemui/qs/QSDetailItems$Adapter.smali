@@ -256,7 +256,7 @@
 
     if-eqz v6, :cond_7
 
-    const v6, 0x7f0b0130
+    const v6, 0x7f0b0132
 
     :goto_3
     invoke-virtual {v7, v6}, Landroid/content/res/Resources;->getColor(I)I
@@ -357,7 +357,7 @@
     goto :goto_2
 
     :cond_7
-    const v6, 0x7f0b012f
+    const v6, 0x7f0b0131
 
     goto :goto_3
 

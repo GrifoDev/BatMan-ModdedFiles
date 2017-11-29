@@ -240,7 +240,7 @@
 
     const/4 v1, 0x0
 
-    const v2, 0x7f0b01e8
+    const v2, 0x7f0b01ea
 
     iget-boolean v0, p0, Lcom/android/systemui/statusbar/NotificationMoreCue;->mIsWhiteWallpaper:Z
 

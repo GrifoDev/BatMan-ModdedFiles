@@ -367,7 +367,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d047e
+    const v3, 0x7f0d0483
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -381,7 +381,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d047f
+    const v3, 0x7f0d0484
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -1214,7 +1214,7 @@
 .method private updateBatteryLevelDensity()V
     .locals 2
 
-    const v1, 0x7f0d03ff
+    const v1, 0x7f0d0404
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarIconController;->mBatteryText:Landroid/widget/TextView;
 
@@ -3357,7 +3357,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d03ff
+    const v2, 0x7f0d0404
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

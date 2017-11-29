@@ -756,7 +756,7 @@
 
     iput-object v10, v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintText:Ljava/lang/String;
 
-    const v10, 0x7f0d038b
+    const v10, 0x7f0d0390
 
     invoke-virtual {v6, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -787,7 +787,7 @@
 
     invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setTextSize(F)V
 
-    const v10, 0x7f0d038c
+    const v10, 0x7f0d0391
 
     invoke-virtual {v6, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -893,7 +893,7 @@
 
     iget-object v10, v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintTextPaint:Landroid/graphics/Paint;
 
-    const v11, 0x7f0b0110
+    const v11, 0x7f0b0112
 
     invoke-virtual {v6, v11}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -911,7 +911,7 @@
 
     const/high16 v13, 0x3f800000    # 1.0f
 
-    const v14, 0x7f0b0112
+    const v14, 0x7f0b0114
 
     invoke-virtual {v6, v14}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -923,7 +923,7 @@
 
     iget-object v10, v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintStrokePaint:Landroid/graphics/Paint;
 
-    const v11, 0x7f0d036c
+    const v11, 0x7f0d0371
 
     invoke-virtual {v6, v11}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -933,7 +933,7 @@
 
     invoke-virtual {v10, v11}, Landroid/graphics/Paint;->setStrokeWidth(F)V
 
-    const v10, 0x7f0d036d
+    const v10, 0x7f0d0372
 
     invoke-virtual {v6, v10}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -945,7 +945,7 @@
 
     iput v10, v0, Lcom/android/systemui/recents/model/TaskStack$FreeformState$ViewState;->mHintAreaRadius:F
 
-    const v10, 0x7f0d0369
+    const v10, 0x7f0d036e
 
     invoke-virtual {v6, v10}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 

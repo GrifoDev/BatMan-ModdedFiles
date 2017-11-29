@@ -265,6 +265,8 @@
     <color name="ksh_keyword_color">#d9000000</color>
     <color name="ksh_key_item_color">@color/material_grey_600</color>
     <color name="ksh_key_item_background">#ffebebeb</color>
+    <color name="ksh_help_tint_pressed">#ff56c0e5</color>
+    <color name="ksh_help_tint_normal">#ff575757</color>
     <color name="qs_edit_overflow_bg">#ff455a64</color>
     <color name="recents_close_all_button_text_color">#fffafafa</color>
     <color name="recents_close_all_button_bg">#5a000000</color>

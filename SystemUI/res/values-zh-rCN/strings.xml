@@ -1488,7 +1488,7 @@ P2P"</string>
     <string name="recents_help_dlg_split_page1">选择一个最近使用的应用程序即可在屏幕下半部分打开，或进入主屏幕并在分屏视图中打开新应用程序。</string>
     <string name="recents_help_dlg_split_page2_hardkey">请按下主屏幕键来最小化分屏视图中在屏幕上半部分显示的应用程序。如果您有最小化的应用程序，当从主屏幕打开其他应用程序时，它将在分屏视图的下半部分打开。</string>
     <string name="recents_help_dlg_split_page2_softkey">请点击主屏幕按钮来最小化分屏视图中在屏幕上半部分显示的应用程序。如果您有最小化的应用程序，当从主屏幕打开其他应用程序时，它将在分屏视图的下半部分打开。</string>
-    <string name="recents_help_dlg_lock_task_page1">点击应用程序窗口标题栏上的 %1$s 来锁定应用程序。即使您点击【关闭所有】，也不会移除已锁定的应用程序。若要解锁，请点击 %2$s。</string>
+    <string name="recents_help_dlg_lock_task_page1">点击应用程序窗口标题栏上的 %1$s 来锁定应用程序。即使您点击【关闭全部】，也不会移除已锁定的应用程序。若要解锁，请点击 %2$s。</string>
     <string name="recents_help_dlg_lock_task_page1_desc">点击应用程序窗口标题栏上的锁定图标来锁定应用程序。即使您点击【关闭所有】，也不会移除已锁定的应用程序。若要解锁，请点击解锁图标。</string>
     <string name="recents_app_list_more_apps">更多应用程序</string>
     <string name="recents_app_list_recommendations">常用应用程序</string>

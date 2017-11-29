@@ -1394,7 +1394,7 @@
 .method private reloadResources()V
     .locals 8
 
-    const v4, 0x7f0d0371
+    const v4, 0x7f0d0376
 
     iget-object v0, p0, Lcom/android/systemui/recents/RecentsImpl;->mContext:Landroid/content/Context;
 
@@ -1430,7 +1430,7 @@
 
     if-eqz v0, :cond_0
 
-    const v1, 0x7f0d0376
+    const v1, 0x7f0d037b
 
     :goto_0
     iget-object v0, p0, Lcom/android/systemui/recents/RecentsImpl;->mContext:Landroid/content/Context;
@@ -1452,7 +1452,7 @@
     return-void
 
     :cond_0
-    const v1, 0x7f0d0370
+    const v1, 0x7f0d0375
 
     goto :goto_0
 .end method

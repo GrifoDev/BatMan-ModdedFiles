@@ -75,7 +75,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts$2;->this$0:Lcom/android/systemui/statusbar/KeyboardShortcuts;
 
-    invoke-static {v5}, Lcom/android/systemui/statusbar/KeyboardShortcuts;->-get1(Lcom/android/systemui/statusbar/KeyboardShortcuts;)Landroid/app/Dialog;
+    invoke-static {v5}, Lcom/android/systemui/statusbar/KeyboardShortcuts;->-get2(Lcom/android/systemui/statusbar/KeyboardShortcuts;)Landroid/app/Dialog;
 
     move-result-object v5
 

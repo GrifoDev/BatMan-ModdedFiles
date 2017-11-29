@@ -160,7 +160,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController$AddUserDialog;->this$0:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
-    invoke-static {v2, v0}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->-wrap6(Lcom/android/systemui/statusbar/policy/UserSwitcherController;I)V
+    invoke-static {v2, v0}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->-wrap7(Lcom/android/systemui/statusbar/policy/UserSwitcherController;I)V
 
     goto :goto_0
 .end method

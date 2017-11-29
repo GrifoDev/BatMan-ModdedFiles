@@ -759,7 +759,7 @@
 .method private prepareDeskUI()V
     .locals 11
 
-    const v10, 0x7f0d0473
+    const v10, 0x7f0d0478
 
     const/4 v9, 0x0
 
@@ -797,7 +797,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0d0452
+    const v7, 0x7f0d0457
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -837,7 +837,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0d0474
+    const v7, 0x7f0d0479
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -859,7 +859,7 @@
 
     move-result-object v2
 
-    const v6, 0x7f0b0185
+    const v6, 0x7f0b0187
 
     invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getColor(I)I
 

@@ -209,7 +209,7 @@
 
     iput-object v1, p0, Lcom/android/systemui/recents/views/RecentsSlidingView;->mStrMoreApps:Ljava/lang/String;
 
-    const v1, 0x7f0d042f
+    const v1, 0x7f0d0434
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

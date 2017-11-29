@@ -39,17 +39,7 @@
 
     iget-object v0, p0, Lcom/altamirasoft/glanimationutil/GLAnimatorManager$1;->this$0:Lcom/altamirasoft/glanimationutil/GLAnimatorManager;
 
-    iget-boolean v0, v0, Lcom/altamirasoft/glanimationutil/GLAnimatorManager;->visible:Z
-
-    if-nez v0, :cond_0
-
-    :goto_0
-    return-void
-
-    :cond_0
-    iget-object v0, p0, Lcom/altamirasoft/glanimationutil/GLAnimatorManager$1;->this$0:Lcom/altamirasoft/glanimationutil/GLAnimatorManager;
-
     invoke-virtual {v0}, Lcom/altamirasoft/glanimationutil/GLAnimatorManager;->doFrame()V
 
-    goto :goto_0
+    return-void
 .end method

@@ -368,7 +368,7 @@
 
     new-instance v2, Lcom/android/systemui/recents/views/AnimateableViewBounds;
 
-    const v3, 0x7f0d0381
+    const v3, 0x7f0d0386
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -403,7 +403,7 @@
     :cond_1
     new-instance v2, Lcom/android/systemui/recents/views/AnimateableViewBounds;
 
-    const v3, 0x7f0d037f
+    const v3, 0x7f0d0384
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

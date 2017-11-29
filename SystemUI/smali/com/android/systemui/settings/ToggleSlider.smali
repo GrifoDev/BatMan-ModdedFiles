@@ -367,7 +367,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b015d
+    const v5, 0x7f0b015f
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -685,7 +685,7 @@
 
     iput v2, p0, Lcom/android/systemui/settings/ToggleSlider;->mStrainPopupThreshold:I
 
-    const v2, 0x7f0b015a
+    const v2, 0x7f0b015c
 
     invoke-virtual {v1, v2, v6}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -706,7 +706,7 @@
 
     iput-object v2, p0, Lcom/android/systemui/settings/ToggleSlider;->defatultThumbColor:Landroid/content/res/ColorStateList;
 
-    const v2, 0x7f0b015d
+    const v2, 0x7f0b015f
 
     invoke-virtual {v1, v2, v6}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -725,7 +725,7 @@
 
     iput-object v2, p0, Lcom/android/systemui/settings/ToggleSlider;->defaultProgressbarColor:Landroid/content/res/ColorStateList;
 
-    const v2, 0x7f0b015f
+    const v2, 0x7f0b0161
 
     invoke-virtual {v1, v2, v6}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -763,13 +763,13 @@
 
     iget-object v2, p1, Lcom/android/systemui/settings/ToggleSlider;->mSlider:Lcom/android/systemui/settings/ToggleSeekBar;
 
-    const v3, 0x7f0b014d
+    const v3, 0x7f0b014f
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getColor(I)I
 
     move-result v3
 
-    const v4, 0x7f0b014e
+    const v4, 0x7f0b0150
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -974,7 +974,7 @@
 .method public setMirror(Lcom/android/systemui/settings/ToggleSlider;)V
     .locals 6
 
-    const v5, 0x7f0b015d
+    const v5, 0x7f0b015f
 
     const/4 v4, 0x1
 

@@ -451,7 +451,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0b016e
+    const v4, 0x7f0b0170
 
     invoke-virtual {v2, v4}, Landroid/content/Context;->getColor(I)I
 
@@ -664,7 +664,7 @@
     :cond_7
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0b016c
+    const v4, 0x7f0b016e
 
     invoke-virtual {v2, v4}, Landroid/content/Context;->getColor(I)I
 
@@ -1208,7 +1208,7 @@
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0b016e
+    const v2, 0x7f0b0170
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getColor(I)I
 
@@ -1314,7 +1314,7 @@
     :cond_5
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/StatusBarWindowManager;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0b016c
+    const v2, 0x7f0b016e
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getColor(I)I
 

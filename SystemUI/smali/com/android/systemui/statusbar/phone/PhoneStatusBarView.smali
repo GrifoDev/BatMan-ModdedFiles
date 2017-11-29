@@ -109,7 +109,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d0447
+    const v2, 0x7f0d044c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -147,7 +147,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d0406
+    const v4, 0x7f0d040b
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -161,7 +161,7 @@
 
     iput v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;->mSViewCoverMargin:I
 
-    const v1, 0x7f0d0404
+    const v1, 0x7f0d0409
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -221,7 +221,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d0406
+    const v4, 0x7f0d040b
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -235,7 +235,7 @@
 
     iput v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBarView;->mSViewCoverMargin:I
 
-    const v1, 0x7f0d0404
+    const v1, 0x7f0d0409
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -318,7 +318,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d045c
+    const v4, 0x7f0d0461
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -332,7 +332,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d045d
+    const v4, 0x7f0d0462
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -505,7 +505,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d04c0
+    const v2, 0x7f0d04c5
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -571,7 +571,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d045c
+    const v4, 0x7f0d0461
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -585,7 +585,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d045d
+    const v4, 0x7f0d0462
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

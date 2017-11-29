@@ -449,7 +449,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0b0168
+    const v2, 0x7f0b016a
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getColor(I)I
 
@@ -615,7 +615,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0d0482
+    const v12, 0x7f0d0487
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -1672,7 +1672,7 @@
 .method private updateNavigationBarColor(Z)V
     .locals 5
 
-    const v4, 0x7f0b0168
+    const v4, 0x7f0b016a
 
     const/4 v3, 0x0
 
@@ -1680,7 +1680,7 @@
 
     iget-object v1, p0, Lcom/android/systemui/statusbar/phone/SecNavigationBarView;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0b0169
+    const v2, 0x7f0b016b
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getColor(I)I
 

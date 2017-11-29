@@ -515,7 +515,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mBackgroundView:Landroid/widget/ImageView;
 
-    const v5, 0x7f0b0126
+    const v5, 0x7f0b0128
 
     invoke-virtual {v4, v5}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -1965,7 +1965,7 @@
 
     iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040843
+    const v4, 0x1040845
 
     invoke-static {v3, v4}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
 
@@ -1984,7 +1984,7 @@
 
     iget-object v3, v0, Lcom/android/systemui/screenshot/GlobalScreenshot;->mContext:Landroid/content/Context;
 
-    const v4, 0x1040842
+    const v4, 0x1040844
 
     invoke-static {v3, v4}, Lcom/android/systemui/screenshot/ScreenshotUtils;->showToast(Landroid/content/Context;I)V
 

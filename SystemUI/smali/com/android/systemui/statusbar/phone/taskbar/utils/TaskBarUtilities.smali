@@ -800,7 +800,7 @@
 
     move-result v17
 
-    const v25, 0x7f0d064c
+    const v25, 0x7f0d0651
 
     move-object/from16 v0, v21
 
@@ -810,7 +810,7 @@
 
     move-result v18
 
-    const v25, 0x7f0d064e
+    const v25, 0x7f0d0653
 
     move-object/from16 v0, v21
 
@@ -820,7 +820,7 @@
 
     move-result v19
 
-    const v25, 0x7f0d064d
+    const v25, 0x7f0d0652
 
     move-object/from16 v0, v21
 
@@ -997,7 +997,7 @@
 
     move-result v12
 
-    const v25, 0x7f0d05db
+    const v25, 0x7f0d05e0
 
     move-object/from16 v0, v21
 
@@ -1013,7 +1013,7 @@
 
     if-ge v12, v0, :cond_8
 
-    const v25, 0x7f0d05db
+    const v25, 0x7f0d05e0
 
     move-object/from16 v0, v21
 
@@ -1030,7 +1030,7 @@
 
     if-ge v12, v0, :cond_9
 
-    const v25, 0x7f0d05e2
+    const v25, 0x7f0d05e7
 
     move-object/from16 v0, v21
 
@@ -1041,7 +1041,7 @@
     move-result v5
 
     :goto_2
-    const v25, 0x7f0d05e4
+    const v25, 0x7f0d05e9
 
     move-object/from16 v0, v21
 
@@ -1061,7 +1061,7 @@
 
     invoke-virtual {v8, v0}, Landroid/graphics/Paint;->setAntiAlias(Z)V
 
-    const v25, 0x7f0d05de
+    const v25, 0x7f0d05e3
 
     move-object/from16 v0, v21
 
@@ -1193,7 +1193,7 @@
 
     add-int v29, v29, v6
 
-    const v30, 0x7f0d05df
+    const v30, 0x7f0d05e4
 
     move-object/from16 v0, v21
 
@@ -1239,7 +1239,7 @@
     return-object v9
 
     :cond_8
-    const v25, 0x7f0d05dc
+    const v25, 0x7f0d05e1
 
     :try_start_3
     move-object/from16 v0, v21
@@ -1253,7 +1253,7 @@
     goto/16 :goto_1
 
     :cond_9
-    const v25, 0x7f0d05e3
+    const v25, 0x7f0d05e8
 
     move-object/from16 v0, v21
 
@@ -2059,7 +2059,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d05d5
+    const v1, 0x7f0d05da
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 

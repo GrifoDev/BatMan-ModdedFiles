@@ -22,6 +22,8 @@
 
 .field private mContext:Landroid/content/Context;
 
+.field private mEmSystemUIManager:Lcom/android/systemui/EmSystemUIManager;
+
 .field mIam:Landroid/app/IActivityManager;
 
 .field private mInterimStateListener:Lcom/samsung/android/sdk/bixby/BixbyApi$InterimStateListener;
@@ -147,7 +149,7 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;)V
+.method public constructor <init>(Landroid/content/Context;Lcom/android/systemui/EmSystemUIManager;)V
     .locals 4
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -165,6 +167,8 @@
     iput-object v1, p0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->mInterimStateListener:Lcom/samsung/android/sdk/bixby/BixbyApi$InterimStateListener;
 
     iput-object p1, p0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->mContext:Landroid/content/Context;
+
+    iput-object p2, p0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->mEmSystemUIManager:Lcom/android/systemui/EmSystemUIManager;
 
     const-string/jumbo v1, "activity"
 
@@ -1082,6 +1086,28 @@
 
 
 # virtual methods
+.method public clearInterimStateListener()V
+    .locals 2
+
+    const-string/jumbo v0, "EmMultiWindowManager"
+
+    const-string/jumbo v1, "clearInterimStateListener"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
+
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->clearInterimStateListener()V
+
+    iget-object v0, p0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->mEmSystemUIManager:Lcom/android/systemui/EmSystemUIManager;
+
+    iget-object v0, v0, Lcom/android/systemui/EmSystemUIManager;->mBixbyCallback:Lcom/android/systemui/EmSystemUIManager$BixbySystemUICallback;
+
+    invoke-interface {v0}, Lcom/android/systemui/EmSystemUIManager$BixbySystemUICallback;->callNotificationManager()V
+
+    return-void
+.end method
+
 .method public createInterimStateListener()V
     .locals 2
 
@@ -1091,9 +1117,11 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string/jumbo v0, "Split"
+    iget-object v0, p0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
 
-    iput-object v0, p0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->mScreenState:Ljava/lang/String;
+    const-string/jumbo v1, "MultiWindow"
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setActiveApp(Ljava/lang/String;)V
 
     iget-object v0, p0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->mBixbyApi:Lcom/samsung/android/sdk/bixby/BixbyApi;
 
@@ -1189,6 +1217,8 @@
 
     :cond_0
     :goto_0
+    invoke-virtual {p0}, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->clearInterimStateListener()V
+
     sget-boolean v0, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;->DEBUG:Z
 
     if-eqz v0, :cond_1

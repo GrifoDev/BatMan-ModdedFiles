@@ -817,7 +817,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0d0662
+    const v7, 0x7f0d0667
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -829,7 +829,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0d0663
+    const v7, 0x7f0d0668
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -853,7 +853,7 @@
     invoke-virtual {p0}, Lcom/android/systemui/BatteryMeterDrawable;->update_battery_colors()V
 
     :goto_0
-    const v6, 0x7f0b0187
+    const v6, 0x7f0b0189
 
     const/4 v7, 0x0
 
@@ -863,7 +863,7 @@
 
     iput v6, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryFrameLightColor:I
 
-    const v6, 0x7f0b0186
+    const v6, 0x7f0b0188
 
     const/4 v7, 0x0
 
@@ -877,7 +877,7 @@
 
     iput v6, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryLevelColor:I
 
-    const v6, 0x7f0b0189
+    const v6, 0x7f0b018b
 
     const/4 v7, 0x0
 
@@ -887,7 +887,7 @@
 
     iput v6, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryLevelBackgroundLightColor:I
 
-    const v6, 0x7f0b0188
+    const v6, 0x7f0b018a
 
     const/4 v7, 0x0
 
@@ -897,7 +897,7 @@
 
     iput v6, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryLevelBackgroundDarkColor:I
 
-    const v6, 0x7f0b018b
+    const v6, 0x7f0b018d
 
     const/4 v7, 0x0
 
@@ -907,7 +907,7 @@
 
     iput v6, p0, Lcom/android/systemui/BatteryMeterDrawable;->mBatteryLightningBoltLightColor:I
 
-    const v6, 0x7f0b018a
+    const v6, 0x7f0b018c
 
     const/4 v7, 0x0
 
@@ -4400,7 +4400,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0662
+    const v1, 0x7f0d0667
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4414,7 +4414,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0663
+    const v1, 0x7f0d0668
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4512,7 +4512,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0480
+    const v3, 0x7f0d0485
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getFloat(I)F
 

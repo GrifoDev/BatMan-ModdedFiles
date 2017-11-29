@@ -3713,7 +3713,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d040b
+    const v2, 0x7f0d0410
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -3725,7 +3725,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d040a
+    const v2, 0x7f0d040f
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -3747,7 +3747,7 @@
 
     if-nez v8, :cond_0
 
-    const v2, 0x7f0b017f
+    const v2, 0x7f0b0181
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -3777,7 +3777,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0180
+    const v2, 0x7f0b0182
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -13846,7 +13846,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d05d1
+    const v6, 0x7f0d05d6
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 

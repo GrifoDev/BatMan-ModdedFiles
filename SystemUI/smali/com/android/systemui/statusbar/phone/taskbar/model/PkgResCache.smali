@@ -149,7 +149,7 @@
 
     move-result-object v5
 
-    const v7, 0x7f0d05d5
+    const v7, 0x7f0d05da
 
     invoke-virtual {v0, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -157,7 +157,7 @@
 
     iput v7, p0, Lcom/android/systemui/statusbar/phone/taskbar/model/PkgResCache;->mAppIconSize:I
 
-    const v7, 0x7f0d05d6
+    const v7, 0x7f0d05db
 
     invoke-virtual {v0, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -175,7 +175,7 @@
 
     move-result v4
 
-    const v7, 0x7f0d05d9
+    const v7, 0x7f0d05de
 
     invoke-virtual {v0, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

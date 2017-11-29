@@ -3039,7 +3039,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d05d4
+    const v2, 0x7f0d05d9
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -5477,67 +5477,106 @@
 .end method
 
 .method public canCameraGestureBeLaunched(Z)Z
-    .locals 4
+    .locals 6
+
+    const/4 v3, 0x1
 
     const/4 v2, 0x0
 
     const/4 v0, 0x0
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mKeyguardBottomArea:Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mStatusBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
 
-    if-eqz v3, :cond_2
+    invoke-virtual {v4}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->isCameraAllowedByAdmin()Z
 
-    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mKeyguardBottomArea:Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;
+    move-result v4
 
-    invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->resolveCameraIntent()Landroid/content/pm/ResolveInfo;
+    if-nez v4, :cond_0
+
+    const/4 v4, 0x3
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    const-string/jumbo v5, "63787722"
+
+    aput-object v5, v4, v2
+
+    const/4 v5, -0x1
+
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    aput-object v5, v4, v3
+
+    const-string/jumbo v3, ""
+
+    const/4 v5, 0x2
+
+    aput-object v3, v4, v5
+
+    const v3, 0x534e4554
+
+    invoke-static {v3, v4}, Landroid/util/EventLog;->writeEvent(I[Ljava/lang/Object;)I
+
+    return v2
+
+    :cond_0
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mKeyguardBottomArea:Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;
+
+    if-eqz v4, :cond_3
+
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mKeyguardBottomArea:Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;
+
+    invoke-virtual {v4}, Lcom/android/systemui/statusbar/phone/KeyguardBottomAreaView;->resolveCameraIntent()Landroid/content/pm/ResolveInfo;
 
     move-result-object v1
 
     :goto_0
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
-    iget-object v3, v1, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+    iget-object v4, v1, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    if-nez v3, :cond_3
+    if-nez v4, :cond_4
 
-    :cond_0
+    :cond_1
     :goto_1
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
-    if-nez p1, :cond_4
+    if-nez p1, :cond_5
 
     invoke-direct {p0, v0}, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->isForegroundApp(Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_4
+    if-eqz v4, :cond_5
 
-    :cond_1
+    :cond_2
     :goto_2
     return v2
 
-    :cond_2
+    :cond_3
     move-object v1, v0
 
     goto :goto_0
 
-    :cond_3
-    iget-object v3, v1, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
+    :cond_4
+    iget-object v4, v1, Landroid/content/pm/ResolveInfo;->activityInfo:Landroid/content/pm/ActivityInfo;
 
-    iget-object v0, v3, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
+    iget-object v0, v4, Landroid/content/pm/ActivityInfo;->packageName:Ljava/lang/String;
 
     goto :goto_1
 
-    :cond_4
-    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mAfforanceHelper:Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;
+    :cond_5
+    iget-object v4, p0, Lcom/android/systemui/statusbar/phone/NotificationPanelView;->mAfforanceHelper:Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;
 
-    invoke-virtual {v3}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->isSwipingInProgress()Z
+    invoke-virtual {v4}, Lcom/android/systemui/statusbar/phone/KeyguardAffordanceHelper;->isSwipingInProgress()Z
 
-    move-result v3
+    move-result v4
 
-    if-nez v3, :cond_1
+    if-nez v4, :cond_2
 
-    const/4 v2, 0x1
+    move v2, v3
 
     goto :goto_2
 .end method
@@ -7831,7 +7870,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d040a
+    const v1, 0x7f0d040f
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -7843,7 +7882,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d040b
+    const v1, 0x7f0d0410
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -8343,7 +8382,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d0456
+    const v4, 0x7f0d045b
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -8375,7 +8414,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0d0455
+    const v4, 0x7f0d045a
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -9068,7 +9107,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0d046b
+    const v8, 0x7f0d0470
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -11598,7 +11637,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0455
+    const v3, 0x7f0d045a
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -12880,7 +12919,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0d045a
+    const v12, 0x7f0d045f
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -12894,7 +12933,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0d045b
+    const v12, 0x7f0d0460
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -12918,7 +12957,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0d0408
+    const v13, 0x7f0d040d
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -12938,7 +12977,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0d0407
+    const v13, 0x7f0d040c
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -12954,7 +12993,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0d0409
+    const v12, 0x7f0d040e
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getFloat(I)F
 
@@ -12983,7 +13022,7 @@
 
     move-result-object v12
 
-    const v13, 0x7f0d0406
+    const v13, 0x7f0d040b
 
     invoke-virtual {v12, v13}, Landroid/content/res/Resources;->getFloat(I)F
 

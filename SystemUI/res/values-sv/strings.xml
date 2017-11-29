@@ -1496,7 +1496,7 @@ Kontakta administratören för mer information."</string>
     <string name="recents_help_dlg_split_page1">Välj ett av de senaste programmen för visning på den nedre halvan av skärmen eller gå till hemskärmen och öppna ett nytt program i delat skärmläge.</string>
     <string name="recents_help_dlg_split_page2_hardkey">Tryck på hemknappen om du vill minimera programmet som visas på den övre halvan av skärmen när skärmen är delad. Om du öppnar ett annat program från hemskärmen när programmet är minimerat öppnas det på den nedre halvan av skärmen.</string>
     <string name="recents_help_dlg_split_page2_softkey">Tryck på hemknappen om du vill minimera programmet som visas på den övre halvan av skärmen när skärmen är delad. Om du öppnar ett annat program från hemskärmen när programmet är minimerat öppnas det på den nedre halvan av skärmen.</string>
-    <string name="recents_help_dlg_lock_task_page1">Tryck på %1$s på programfönstrets rubrikfält om du vill låsa programmet. Låsta program tas inte bort när du trycker på STÄNG ALLA. Lås upp genom att trycka på %2$s.</string>
+    <string name="recents_help_dlg_lock_task_page1">Tryck på %1$s på appfönstrets rubrikfält om du vill låsa appen. Låsta appar tas inte bort när du trycker på STÄNG ALLA. Lås upp genom att trycka på %2$s.</string>
     <string name="recents_help_dlg_lock_task_page1_desc">Tryck på låsikonen på programfönstrets rubrikfält om du vill låsa programmet. Låsta program tas inte bort när du trycker på STÄNG ALLA. Lås upp genom att trycka på upplåsningsikonen.</string>
     <string name="recents_app_list_more_apps">Fler prog.</string>
     <string name="recents_app_list_recommendations">Ofta använda program</string>

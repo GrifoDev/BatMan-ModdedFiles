@@ -854,9 +854,9 @@
 .method protected onFinishInflate()V
     .locals 11
 
-    const v4, 0x7f0d03f7
+    const v4, 0x7f0d03fc
 
-    const v5, 0x7f0d03f6
+    const v5, 0x7f0d03fb
 
     const v10, 0x7f0d0219
 
@@ -1053,7 +1053,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/qs/QSContainer;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0b012f
+    const v6, 0x7f0b0131
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getColor(I)I
 
@@ -1075,7 +1075,7 @@
 
     iget-object v5, p0, Lcom/android/systemui/qs/QSContainer;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0b0132
+    const v6, 0x7f0b0134
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getColor(I)I
 

@@ -846,6 +846,11 @@
     <dimen name="ksh_item_text_size">14.0sp</dimen>
     <dimen name="ksh_item_padding">4.0dip</dimen>
     <dimen name="ksh_item_margin_start">8.0dip</dimen>
+    <dimen name="ksh_scrollbar_width">3.0dip</dimen>
+    <dimen name="ksh_scrollbar_padding_end">3.0dip</dimen>
+    <dimen name="help_popup_height">90.0dip</dimen>
+    <dimen name="help_popup_font_size">15.0dip</dimen>
+    <dimen name="help_popup_padding">18.0dip</dimen>
     <dimen name="recents_layout_min_margin">16.0dip</dimen>
     <dimen name="recents_layout_top_margin_phone">16.0dip</dimen>
     <dimen name="recents_layout_top_margin_tablet">32.0dip</dimen>

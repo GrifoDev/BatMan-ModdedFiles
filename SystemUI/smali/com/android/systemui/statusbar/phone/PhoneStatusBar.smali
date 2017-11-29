@@ -3748,7 +3748,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b0135
+    const v3, 0x7f0b0137
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getColor(I)I
 
@@ -6902,7 +6902,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0476
+    const v3, 0x7f0d047b
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -6926,7 +6926,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d0475
+    const v2, 0x7f0d047a
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -7474,7 +7474,9 @@
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mContext:Landroid/content/Context;
 
-    invoke-direct {v1, v2}, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;-><init>(Landroid/content/Context;)V
+    iget-object v3, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mEmSystemUIManager:Lcom/android/systemui/EmSystemUIManager;
+
+    invoke-direct {v1, v2, v3}, Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;-><init>(Landroid/content/Context;Lcom/android/systemui/EmSystemUIManager;)V
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mEmMultiWindowManager:Lcom/android/systemui/multiwindow/bixby/EmMultiWindowManager;
 
@@ -15020,7 +15022,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b013f
+    const v4, 0x7f0b0141
 
     invoke-virtual {v3, v4, v6}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -16511,7 +16513,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0479
+    const v3, 0x7f0d047e
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -16525,7 +16527,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d047a
+    const v3, 0x7f0d047f
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -20236,6 +20238,14 @@
 
     iput-object v3, v0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mUserSwitcherController:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->mUserSwitcherController:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v3, v0}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->setBar(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;)V
+
     invoke-virtual/range {p0 .. p0}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->createUserSwitcher()V
 
     :cond_c
@@ -20580,7 +20590,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d045e
+    const v5, 0x7f0d0463
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -26511,7 +26521,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d0479
+    const v2, 0x7f0d047e
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

@@ -40,6 +40,8 @@
 
 .field private mAddUsersWhenLocked:Z
 
+.field private mBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+
 .field private final mCallback:Lcom/android/systemui/statusbar/policy/KeyguardMonitor$Callback;
 
 .field private mCalling:Z
@@ -259,7 +261,15 @@
     return-void
 .end method
 
-.method static synthetic -wrap1(Lcom/android/systemui/statusbar/policy/UserSwitcherController;I)V
+.method static synthetic -wrap1(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->dismissUserSwitchingDialog()V
+
+    return-void
+.end method
+
+.method static synthetic -wrap2(Lcom/android/systemui/statusbar/policy/UserSwitcherController;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->exitGuest(I)V
@@ -267,7 +277,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap2(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)V
+.method static synthetic -wrap3(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->notifyAdapters()V
@@ -275,7 +285,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap3(Lcom/android/systemui/statusbar/policy/UserSwitcherController;I)V
+.method static synthetic -wrap4(Lcom/android/systemui/statusbar/policy/UserSwitcherController;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->refreshUsers(I)V
@@ -283,7 +293,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap4(Lcom/android/systemui/statusbar/policy/UserSwitcherController;I)V
+.method static synthetic -wrap5(Lcom/android/systemui/statusbar/policy/UserSwitcherController;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->showExitGuestDialog(I)V
@@ -291,7 +301,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap5(Lcom/android/systemui/statusbar/policy/UserSwitcherController;I)V
+.method static synthetic -wrap6(Lcom/android/systemui/statusbar/policy/UserSwitcherController;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->showGuestNotification(I)V
@@ -299,7 +309,7 @@
     return-void
 .end method
 
-.method static synthetic -wrap6(Lcom/android/systemui/statusbar/policy/UserSwitcherController;I)V
+.method static synthetic -wrap7(Lcom/android/systemui/statusbar/policy/UserSwitcherController;I)V
     .locals 0
 
     invoke-direct {p0, p1}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->switchToUserId(I)V
@@ -604,6 +614,77 @@
     iput-object v0, p1, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->enforcedAdmin:Lcom/android/settingslib/RestrictedLockUtils$EnforcedAdmin;
 
     goto :goto_0
+.end method
+
+.method private dismissUserSwitchingDialog()V
+    .locals 6
+
+    :try_start_0
+    invoke-static {}, Landroid/app/ActivityManagerNative;->getDefault()Landroid/app/IActivityManager;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v3, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mContext:Landroid/content/Context;
+
+    const-string/jumbo v4, "power"
+
+    invoke-virtual {v3, v4}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Landroid/os/PowerManager;
+
+    if-eqz v2, :cond_0
+
+    invoke-static {}, Landroid/os/SystemClock;->uptimeMillis()J
+
+    move-result-wide v4
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v2, v4, v5, v3}, Landroid/os/PowerManager;->userActivity(JZ)V
+
+    :goto_0
+    invoke-interface {v0}, Landroid/app/IActivityManager;->dismissUserSwitchingDialog()V
+
+    :goto_1
+    return-void
+
+    :cond_0
+    const-string/jumbo v3, "UserSwitcherController"
+
+    const-string/jumbo v4, "dismissUserSwitchingDialog(), powerManager is null"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v1
+
+    const-string/jumbo v3, "UserSwitcherController"
+
+    const-string/jumbo v4, "exception occured on closeUserSwitchDialog()"
+
+    invoke-static {v3, v4, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+
+    goto :goto_1
+
+    :cond_1
+    :try_start_1
+    const-string/jumbo v3, "UserSwitcherController"
+
+    const-string/jumbo v4, "dismissUserSwitchingDialog(), activityManager is null"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catch Landroid/os/RemoteException; {:try_start_1 .. :try_end_1} :catch_0
+
+    goto :goto_1
 .end method
 
 .method private exitGuest(I)V
@@ -1390,6 +1471,14 @@
     return-void
 .end method
 
+.method public setBar(Lcom/android/systemui/statusbar/phone/PhoneStatusBar;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+
+    return-void
+.end method
+
 .method public startActivity(Landroid/content/Intent;)V
     .locals 2
 
@@ -1403,9 +1492,11 @@
 .end method
 
 .method public switchTo(Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;)V
-    .locals 7
+    .locals 8
 
-    const/4 v6, 0x1
+    const/4 v7, 0x1
+
+    const/4 v6, 0x0
 
     iget-boolean v2, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mCalling:Z
 
@@ -1459,7 +1550,7 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3, v6}, Lcom/android/systemui/SysUIToast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    invoke-static {v2, v3, v7}, Lcom/android/systemui/SysUIToast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
     move-result-object v2
 
@@ -1475,15 +1566,15 @@
 
     move-result v2
 
-    if-ne v2, v1, :cond_8
+    if-ne v2, v1, :cond_9
 
     iget-boolean v2, p1, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->isGuest:Z
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_8
 
     iget-boolean v2, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mCalling:Z
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_7
 
     iget-object v2, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mContext:Landroid/content/Context;
 
@@ -1495,7 +1586,7 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3, v6}, Lcom/android/systemui/SysUIToast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    invoke-static {v2, v3, v7}, Lcom/android/systemui/SysUIToast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
     move-result-object v2
 
@@ -1506,7 +1597,7 @@
     :cond_3
     iget-boolean v2, p1, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->isAddUser:Z
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_6
 
     iget-boolean v2, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mCalling:Z
 
@@ -1522,7 +1613,7 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3, v6}, Lcom/android/systemui/SysUIToast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    invoke-static {v2, v3, v7}, Lcom/android/systemui/SysUIToast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
     move-result-object v2
 
@@ -1531,24 +1622,46 @@
     return-void
 
     :cond_4
+    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+
+    if-eqz v2, :cond_5
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+
+    const/high16 v3, 0x3f800000    # 1.0f
+
+    invoke-virtual {v2, v6, v6, v6, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->animateCollapsePanels(IZZF)V
+
+    :cond_5
     invoke-direct {p0}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->showAddUserDialog()V
 
     return-void
 
-    :cond_5
+    :cond_6
     iget-object v2, p1, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->info:Landroid/content/pm/UserInfo;
 
     iget v1, v2, Landroid/content/pm/UserInfo;->id:I
 
     goto :goto_0
 
-    :cond_6
+    :cond_7
     invoke-direct {p0, v1}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->showExitGuestDialog(I)V
 
-    :cond_7
+    :cond_8
     return-void
 
-    :cond_8
+    :cond_9
+    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+
+    if-eqz v2, :cond_a
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->mBar:Lcom/android/systemui/statusbar/phone/PhoneStatusBar;
+
+    const v3, 0x3fe66666    # 1.8f
+
+    invoke-virtual {v2, v6, v6, v6, v3}, Lcom/android/systemui/statusbar/phone/PhoneStatusBar;->animateCollapsePanels(IZZF)V
+
+    :cond_a
     invoke-direct {p0, v1}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->switchToUserId(I)V
 
     return-void

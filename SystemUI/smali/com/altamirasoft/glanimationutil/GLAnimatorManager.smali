@@ -13,6 +13,8 @@
 
 
 # instance fields
+.field TAG:Ljava/lang/String;
+
 .field anim:Landroid/animation/ValueAnimator;
 
 .field calculateAnimatorList:Ljava/util/ArrayList;
@@ -64,6 +66,16 @@
     const/4 v1, 0x0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    invoke-virtual {p0}, Ljava/lang/Object;->getClass()Ljava/lang/Class;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/Class;->getSimpleName()Ljava/lang/String;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/altamirasoft/glanimationutil/GLAnimatorManager;->TAG:Ljava/lang/String;
 
     iput-boolean v1, p0, Lcom/altamirasoft/glanimationutil/GLAnimatorManager;->visible:Z
 
@@ -245,7 +257,13 @@
 .end method
 
 .method public doFrame()V
-    .locals 2
+    .locals 3
+
+    iget-object v1, p0, Lcom/altamirasoft/glanimationutil/GLAnimatorManager;->TAG:Ljava/lang/String;
+
+    const-string/jumbo v2, "doFrame"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     const/4 v0, 0x0
 
@@ -577,7 +595,7 @@
 .end method
 
 .method public stopIfNoNeedUpdate()V
-    .locals 3
+    .locals 5
 
     iget-object v2, p0, Lcom/altamirasoft/glanimationutil/GLAnimatorManager;->anim:Landroid/animation/ValueAnimator;
 
@@ -588,6 +606,30 @@
     return-void
 
     :cond_1
+    iget-object v2, p0, Lcom/altamirasoft/glanimationutil/GLAnimatorManager;->TAG:Ljava/lang/String;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "needKeepUpdate = "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget-boolean v4, p0, Lcom/altamirasoft/glanimationutil/GLAnimatorManager;->needKeepUpdate:Z
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     iget-boolean v2, p0, Lcom/altamirasoft/glanimationutil/GLAnimatorManager;->needKeepUpdate:Z
 
     if-nez v2, :cond_2
@@ -614,6 +656,28 @@
     if-lt v0, v2, :cond_4
 
     :goto_2
+    iget-object v2, p0, Lcom/altamirasoft/glanimationutil/GLAnimatorManager;->TAG:Ljava/lang/String;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v4, "needStop = "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     if-eqz v1, :cond_0
 
     iget-object v2, p0, Lcom/altamirasoft/glanimationutil/GLAnimatorManager;->anim:Landroid/animation/ValueAnimator;

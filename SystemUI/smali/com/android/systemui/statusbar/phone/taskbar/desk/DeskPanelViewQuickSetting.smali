@@ -219,7 +219,7 @@
 .method private getDeskQuickSettingViewCollapseTo()F
     .locals 3
 
-    const v2, 0x7f0d0657
+    const v2, 0x7f0d065c
 
     const/4 v1, 0x0
 
@@ -291,7 +291,7 @@
 .method private getDeskQuickSettingViewExpandFrom()F
     .locals 3
 
-    const v2, 0x7f0d0657
+    const v2, 0x7f0d065c
 
     const/4 v1, 0x0
 

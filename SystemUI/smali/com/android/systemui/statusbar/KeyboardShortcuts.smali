@@ -42,6 +42,8 @@
 
 .field private final mHandler:Landroid/os/Handler;
 
+.field private mHelpImage:Landroid/widget/ImageButton;
+
 .field private mKeyCharacterMap:Landroid/view/KeyCharacterMap;
 
 .field private mKeyFontType:Landroid/graphics/Typeface;
@@ -106,7 +108,15 @@
     return-object v0
 .end method
 
-.method static synthetic -get1(Lcom/android/systemui/statusbar/KeyboardShortcuts;)Landroid/app/Dialog;
+.method static synthetic -get1(Lcom/android/systemui/statusbar/KeyboardShortcuts;)Landroid/widget/ImageButton;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts;->mHelpImage:Landroid/widget/ImageButton;
+
+    return-object v0
+.end method
+
+.method static synthetic -get2(Lcom/android/systemui/statusbar/KeyboardShortcuts;)Landroid/app/Dialog;
     .locals 1
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts;->mKeyboardShortcutsDialog:Landroid/app/Dialog;
@@ -1139,7 +1149,7 @@
 .end method
 
 .method private handleShowKeyboardShortcuts(Ljava/util/List;)V
-    .locals 8
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1152,102 +1162,116 @@
 
     new-instance v0, Landroid/app/AlertDialog$Builder;
 
-    iget-object v6, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts;->mContext:Landroid/content/Context;
+    iget-object v5, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts;->mContext:Landroid/content/Context;
 
-    const v7, 0x10302d2
+    const v6, 0x10302d2
 
-    invoke-direct {v0, v6, v7}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
+    invoke-direct {v0, v5, v6}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
 
-    iget-object v6, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts;->mContext:Landroid/content/Context;
+    iget-object v5, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts;->mContext:Landroid/content/Context;
 
-    const-string/jumbo v7, "layout_inflater"
+    const-string/jumbo v6, "layout_inflater"
 
-    invoke-virtual {v6, v7}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v5, v6}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v1
 
     check-cast v1, Landroid/view/LayoutInflater;
 
-    const v6, 0x7f04006a
+    const v5, 0x7f04006a
 
-    const/4 v7, 0x0
+    const/4 v6, 0x0
 
-    invoke-virtual {v1, v6, v7}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
-
-    move-result-object v3
-
-    const v6, 0x7f1301da
-
-    invoke-virtual {v3, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v6
-
-    check-cast v6, Landroid/widget/LinearLayout;
-
-    invoke-direct {p0, v6, p1}, Lcom/android/systemui/statusbar/KeyboardShortcuts;->populateKeyboardShortcuts(Landroid/widget/LinearLayout;Ljava/util/List;)V
-
-    invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
-
-    const v6, 0x7f1301db
-
-    invoke-virtual {v3, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/widget/Button;
-
-    const v6, 0x7f130060
-
-    invoke-virtual {v3, v6}, Landroid/view/View;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v1, v5, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v2
 
-    check-cast v2, Landroid/widget/ImageView;
+    const v5, 0x7f1301da
 
-    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyboardShortcuts;->isRTL()Z
+    invoke-virtual {v2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result v6
+    move-result-object v5
 
-    if-eqz v6, :cond_0
+    check-cast v5, Landroid/widget/LinearLayout;
 
-    const v6, 0x7f020067
+    invoke-direct {p0, v5, p1}, Lcom/android/systemui/statusbar/KeyboardShortcuts;->populateKeyboardShortcuts(Landroid/widget/LinearLayout;Ljava/util/List;)V
 
-    invoke-virtual {v2, v6}, Landroid/widget/ImageView;->setImageResource(I)V
+    invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    :cond_0
-    iget-object v6, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts;->mDialogCloseListener:Landroid/view/View$OnClickListener;
+    const v5, 0x7f1301db
 
-    invoke-virtual {v5, v6}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    iget-object v6, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts;->mShowHelpPopup:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v2, v6}, Landroid/widget/ImageView;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
-
-    move-result-object v6
-
-    iput-object v6, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts;->mKeyboardShortcutsDialog:Landroid/app/Dialog;
-
-    iget-object v6, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts;->mKeyboardShortcutsDialog:Landroid/app/Dialog;
-
-    const/4 v7, 0x1
-
-    invoke-virtual {v6, v7}, Landroid/app/Dialog;->setCanceledOnTouchOutside(Z)V
-
-    iget-object v6, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts;->mKeyboardShortcutsDialog:Landroid/app/Dialog;
-
-    invoke-virtual {v6}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
+    invoke-virtual {v2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
     move-result-object v4
 
-    const/16 v6, 0x7d8
+    check-cast v4, Landroid/widget/Button;
 
-    invoke-virtual {v4, v6}, Landroid/view/Window;->setType(I)V
+    const v5, 0x7f130060
 
-    iget-object v6, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts;->mKeyboardShortcutsDialog:Landroid/app/Dialog;
+    invoke-virtual {v2, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    invoke-virtual {v6}, Landroid/app/Dialog;->show()V
+    move-result-object v5
+
+    check-cast v5, Landroid/widget/ImageButton;
+
+    iput-object v5, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts;->mHelpImage:Landroid/widget/ImageButton;
+
+    invoke-direct {p0}, Lcom/android/systemui/statusbar/KeyboardShortcuts;->isRTL()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts;->mHelpImage:Landroid/widget/ImageButton;
+
+    const v6, 0x7f020067
+
+    invoke-virtual {v5, v6}, Landroid/widget/ImageButton;->setImageResource(I)V
+
+    :cond_0
+    iget-object v5, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts;->mDialogCloseListener:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v4, v5}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts;->mHelpImage:Landroid/widget/ImageButton;
+
+    iget-object v6, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts;->mShowHelpPopup:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v5, v6}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts;->mHelpImage:Landroid/widget/ImageButton;
+
+    new-instance v6, Lcom/android/systemui/statusbar/KeyboardShortcuts$6;
+
+    invoke-direct {v6, p0}, Lcom/android/systemui/statusbar/KeyboardShortcuts$6;-><init>(Lcom/android/systemui/statusbar/KeyboardShortcuts;)V
+
+    invoke-virtual {v5, v6}, Landroid/widget/ImageButton;->setOnTouchListener(Landroid/view/View$OnTouchListener;)V
+
+    invoke-virtual {v0}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+
+    move-result-object v5
+
+    iput-object v5, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts;->mKeyboardShortcutsDialog:Landroid/app/Dialog;
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts;->mKeyboardShortcutsDialog:Landroid/app/Dialog;
+
+    const/4 v6, 0x1
+
+    invoke-virtual {v5, v6}, Landroid/app/Dialog;->setCanceledOnTouchOutside(Z)V
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts;->mKeyboardShortcutsDialog:Landroid/app/Dialog;
+
+    invoke-virtual {v5}, Landroid/app/Dialog;->getWindow()Landroid/view/Window;
+
+    move-result-object v3
+
+    const/16 v5, 0x7d8
+
+    invoke-virtual {v3, v5}, Landroid/view/Window;->setType(I)V
+
+    iget-object v5, p0, Lcom/android/systemui/statusbar/KeyboardShortcuts;->mKeyboardShortcutsDialog:Landroid/app/Dialog;
+
+    invoke-virtual {v5}, Landroid/app/Dialog;->show()V
 
     return-void
 .end method

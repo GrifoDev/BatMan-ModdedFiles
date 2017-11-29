@@ -93,7 +93,7 @@
     iput v3, p0, Lcom/android/systemui/recents/tv/animations/ViewFocusAnimator;->mSelectedScaleDelta:F
 
     :goto_0
-    const v3, 0x7f0d04b5
+    const v3, 0x7f0d04ba
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -103,7 +103,7 @@
 
     iput v3, p0, Lcom/android/systemui/recents/tv/animations/ViewFocusAnimator;->mUnselectedZ:F
 
-    const v3, 0x7f0d04b6
+    const v3, 0x7f0d04bb
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -119,7 +119,7 @@
 
     if-nez v3, :cond_1
 
-    const v3, 0x7f0d03ab
+    const v3, 0x7f0d03b0
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -129,7 +129,7 @@
 
     iput v3, p0, Lcom/android/systemui/recents/tv/animations/ViewFocusAnimator;->mUnselectedSpacing:F
 
-    const v3, 0x7f0d03ac
+    const v3, 0x7f0d03b1
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -248,7 +248,7 @@
     goto/16 :goto_0
 
     :cond_1
-    const v3, 0x7f0d04b3
+    const v3, 0x7f0d04b8
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -258,7 +258,7 @@
 
     iput v3, p0, Lcom/android/systemui/recents/tv/animations/ViewFocusAnimator;->mUnselectedSpacing:F
 
-    const v3, 0x7f0d04b4
+    const v3, 0x7f0d04b9
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 

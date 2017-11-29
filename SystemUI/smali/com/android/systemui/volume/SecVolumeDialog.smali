@@ -1858,7 +1858,7 @@
 
     iput-object v12, v0, Lcom/android/systemui/volume/SecVolumeDialog;->mInactiveSliderTint:Landroid/content/res/ColorStateList;
 
-    const v12, 0x7f0b011e
+    const v12, 0x7f0b0120
 
     move-object/from16 v0, p0
 
@@ -1921,7 +1921,7 @@
     iput v12, v6, Landroid/view/WindowManager$LayoutParams;->gravity:I
 
     :goto_2
-    const v12, 0x7f0d03b9
+    const v12, 0x7f0d03be
 
     invoke-virtual {v7, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1929,7 +1929,7 @@
 
     iput v12, v6, Landroid/view/WindowManager$LayoutParams;->y:I
 
-    const v12, 0x7f0d03ba
+    const v12, 0x7f0d03bf
 
     invoke-virtual {v7, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -9766,7 +9766,7 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v3, 0x7f0b0119
+    const v3, 0x7f0b011b
 
     invoke-virtual {v0, v3, v5}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -9778,7 +9778,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/volume/SecVolumeDialog;->mIconActiveColor:Landroid/content/res/ColorStateList;
 
-    const v3, 0x7f0b011f
+    const v3, 0x7f0b0121
 
     invoke-virtual {v0, v3, v5}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -9790,7 +9790,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/volume/SecVolumeDialog;->mVolumeTitleColor:Landroid/content/res/ColorStateList;
 
-    const v3, 0x7f0b0120
+    const v3, 0x7f0b0122
 
     invoke-virtual {v0, v3, v5}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -9850,7 +9850,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/volume/SecVolumeDialog;->mProgressBgColor:Landroid/content/res/ColorStateList;
 
-    const v3, 0x7f0b011a
+    const v3, 0x7f0b011c
 
     invoke-virtual {v0, v3, v5}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -9862,7 +9862,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/volume/SecVolumeDialog;->mIconMutedColor:Landroid/content/res/ColorStateList;
 
-    const v3, 0x7f0b011b
+    const v3, 0x7f0b011d
 
     invoke-virtual {v0, v3, v5}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -9874,7 +9874,7 @@
 
     iput-object v3, p0, Lcom/android/systemui/volume/SecVolumeDialog;->mIconEarShockColor:Landroid/content/res/ColorStateList;
 
-    const v3, 0x7f0b011c
+    const v3, 0x7f0b011e
 
     invoke-virtual {v0, v3, v5}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -12697,7 +12697,7 @@
 .method private updateWindowWidthH()V
     .locals 7
 
-    const v6, 0x7f0d03b0
+    const v6, 0x7f0d03b5
 
     iget-object v4, p0, Lcom/android/systemui/volume/SecVolumeDialog;->mDialogView:Landroid/view/ViewGroup;
 
@@ -12744,7 +12744,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d03af
+    const v5, 0x7f0d03b4
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -12895,7 +12895,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d03b1
+    const v5, 0x7f0d03b6
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -12916,7 +12916,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d03b2
+    const v5, 0x7f0d03b7
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 

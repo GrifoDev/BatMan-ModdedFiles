@@ -2751,7 +2751,7 @@
 
     iget-object v4, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0b0176
+    const v5, 0x7f0b0178
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getColor(I)I
 
@@ -5048,6 +5048,64 @@
     return v0
 .end method
 
+.method public isCameraAllowedByAdmin()Z
+    .locals 5
+
+    const/4 v4, 0x0
+
+    const/4 v0, 0x1
+
+    const/4 v1, 0x0
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
+
+    iget v3, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mCurrentUserId:I
+
+    invoke-virtual {v2, v4, v3}, Landroid/app/admin/DevicePolicyManager;->getCameraDisabled(Landroid/content/ComponentName;I)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    return v1
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/BaseStatusBar;->isKeyguardShowing()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/BaseStatusBar;->isKeyguardSecure()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    iget-object v2, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mDevicePolicyManager:Landroid/app/admin/DevicePolicyManager;
+
+    iget v3, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mCurrentUserId:I
+
+    invoke-virtual {v2, v4, v3}, Landroid/app/admin/DevicePolicyManager;->getKeyguardDisabledFeatures(Landroid/content/ComponentName;I)I
+
+    move-result v2
+
+    and-int/lit8 v2, v2, 0x2
+
+    if-nez v2, :cond_1
+
+    :goto_0
+    return v0
+
+    :cond_1
+    move v0, v1
+
+    goto :goto_0
+
+    :cond_2
+    return v0
+.end method
+
 .method public isCollapsing()Z
     .locals 1
 
@@ -5174,6 +5232,33 @@
     iget-object v0, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mStatusBarKeyguardViewManager:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
 
     invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->isSecure()Z
+
+    move-result v0
+
+    return v0
+.end method
+
+.method public isKeyguardShowing()Z
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mStatusBarKeyguardViewManager:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
+
+    if-nez v0, :cond_0
+
+    const-string/jumbo v0, "StatusBar"
+
+    const-string/jumbo v1, "isKeyguardShowing() called before startKeyguard(), returning true"
+
+    invoke-static {v0, v1}, Landroid/util/Slog;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v0, 0x1
+
+    return v0
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/systemui/statusbar/BaseStatusBar;->mStatusBarKeyguardViewManager:Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;
+
+    invoke-virtual {v0}, Lcom/android/systemui/statusbar/phone/StatusBarKeyguardViewManager;->isShowing()Z
 
     move-result v0
 

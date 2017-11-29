@@ -423,7 +423,7 @@
     iput-object v5, p0, Lcom/android/systemui/recents/misc/SystemServicesProxy;->mDesktopModeManager:Lcom/samsung/android/desktopmode/SemDesktopModeManager;
 
     :cond_0
-    const v5, 0x7f0d03ae
+    const v5, 0x7f0d03b3
 
     invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -505,7 +505,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0173
+    const v6, 0x7f0b0175
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -553,7 +553,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d046d
+    const v6, 0x7f0d0472
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -567,7 +567,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d046e
+    const v6, 0x7f0d0473
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -579,7 +579,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b0174
+    const v6, 0x7f0b0176
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getColor(I)I
 

@@ -889,9 +889,13 @@
 .end method
 
 .method private saveCurrentDataToDB()V
-    .locals 7
+    .locals 9
 
-    const/4 v6, -0x2
+    const/4 v8, 0x0
+
+    const/4 v7, -0x2
+
+    const/16 v6, 0xc8
 
     iget-object v3, p0, Lcom/android/keyguard/servicebox/pages/music/MusicController;->mMonitor:Lcom/android/keyguard/servicebox/pages/music/PlaybackStateMonitor;
 
@@ -921,22 +925,48 @@
 
     invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_2
 
     iget-object v3, p0, Lcom/android/keyguard/servicebox/pages/music/MusicController;->mLastMediaMetadata:Landroid/media/MediaMetadata;
 
-    if-nez v3, :cond_1
+    if-nez v3, :cond_3
 
     const-string/jumbo v2, ""
 
     :goto_0
     iget-object v3, p0, Lcom/android/keyguard/servicebox/pages/music/MusicController;->mLastMediaMetadata:Landroid/media/MediaMetadata;
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_4
 
     const-string/jumbo v0, ""
 
     :goto_1
+    if-eqz v2, :cond_0
+
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
+
+    move-result v3
+
+    if-lt v3, v6, :cond_0
+
+    invoke-virtual {v2, v8, v6}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v2
+
+    :cond_0
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0}, Ljava/lang/String;->length()I
+
+    move-result v3
+
+    if-lt v3, v6, :cond_1
+
+    invoke-virtual {v0, v8, v6}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v0
+
+    :cond_1
     iget-object v3, p0, Lcom/android/keyguard/servicebox/pages/music/MusicController;->mContext:Landroid/content/Context;
 
     invoke-virtual {v3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
@@ -945,7 +975,7 @@
 
     const-string/jumbo v4, "servicebox_music_last_title"
 
-    invoke-static {v3, v4, v2, v6}, Landroid/provider/Settings$System;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
+    invoke-static {v3, v4, v2, v7}, Landroid/provider/Settings$System;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
 
     iget-object v3, p0, Lcom/android/keyguard/servicebox/pages/music/MusicController;->mContext:Landroid/content/Context;
 
@@ -955,7 +985,7 @@
 
     const-string/jumbo v4, "servicebox_music_last_artist"
 
-    invoke-static {v3, v4, v0, v6}, Landroid/provider/Settings$System;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
+    invoke-static {v3, v4, v0, v7}, Landroid/provider/Settings$System;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
 
     iget-object v3, p0, Lcom/android/keyguard/servicebox/pages/music/MusicController;->mContext:Landroid/content/Context;
 
@@ -967,12 +997,12 @@
 
     iget-object v5, p0, Lcom/android/keyguard/servicebox/pages/music/MusicController;->mLastPackageName:Ljava/lang/String;
 
-    invoke-static {v3, v4, v5, v6}, Landroid/provider/Settings$System;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
+    invoke-static {v3, v4, v5, v7}, Landroid/provider/Settings$System;->putStringForUser(Landroid/content/ContentResolver;Ljava/lang/String;Ljava/lang/String;I)Z
 
-    :cond_0
+    :cond_2
     return-void
 
-    :cond_1
+    :cond_3
     iget-object v3, p0, Lcom/android/keyguard/servicebox/pages/music/MusicController;->mLastMediaMetadata:Landroid/media/MediaMetadata;
 
     const-string/jumbo v4, "android.media.metadata.TITLE"
@@ -983,7 +1013,7 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_4
     iget-object v3, p0, Lcom/android/keyguard/servicebox/pages/music/MusicController;->mLastMediaMetadata:Landroid/media/MediaMetadata;
 
     const-string/jumbo v4, "android.media.metadata.ARTIST"

@@ -508,7 +508,7 @@
 
     check-cast v2, Landroid/widget/SeekBar;
 
-    const v3, 0x7f0b015d
+    const v3, 0x7f0b015f
 
     invoke-virtual {v1, v3, v4}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -526,7 +526,7 @@
 
     check-cast v2, Landroid/widget/ImageView;
 
-    const v3, 0x7f0b0156
+    const v3, 0x7f0b0158
 
     invoke-virtual {v1, v3, v4}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 

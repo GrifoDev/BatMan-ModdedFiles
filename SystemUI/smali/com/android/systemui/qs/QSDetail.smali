@@ -941,7 +941,7 @@
 
     iget-object v2, p0, Lcom/android/systemui/qs/QSDetail;->mContext:Landroid/content/Context;
 
-    const v3, 0x1040a08
+    const v3, 0x1040a0a
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

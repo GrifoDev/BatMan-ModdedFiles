@@ -131,7 +131,7 @@
 
     invoke-virtual {v0, v2}, Landroid/graphics/Paint;->setDither(Z)V
 
-    const v0, 0x7f0d037e
+    const v0, 0x7f0d0383
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

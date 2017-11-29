@@ -212,7 +212,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d061b
+    const v6, 0x7f0d0620
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -310,7 +310,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0d061b
+    const v6, 0x7f0d0620
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -582,7 +582,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d05ff
+    const v2, 0x7f0d0604
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -1732,7 +1732,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d0645
+    const v5, 0x7f0d064a
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1744,7 +1744,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0d0646
+    const v5, 0x7f0d064b
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2465,7 +2465,7 @@
 .method public onDensityOrFontScaleChanged()V
     .locals 3
 
-    const v2, 0x7f0d0607
+    const v2, 0x7f0d060c
 
     iget-object v0, p0, Lcom/android/systemui/statusbar/phone/taskbar/views/TaskBarView;->mClockView:Lcom/android/systemui/statusbar/policy/Clock;
 
@@ -3941,7 +3941,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0653
+    const v3, 0x7f0d0658
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4113,7 +4113,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0653
+    const v3, 0x7f0d0658
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

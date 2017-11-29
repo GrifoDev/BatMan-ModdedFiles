@@ -518,7 +518,7 @@
 
     iput v0, p0, Lcom/android/systemui/statusbar/phone/KeyguardClockPositionAlgorithm;->mDensity:F
 
-    const v0, 0x7f0d04ee
+    const v0, 0x7f0d04f3
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

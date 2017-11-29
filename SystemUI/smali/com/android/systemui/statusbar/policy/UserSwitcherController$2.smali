@@ -13,6 +13,13 @@
     name = null
 .end annotation
 
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/android/systemui/statusbar/policy/UserSwitcherController$2$-void_onReceive_android_content_Context_context_android_content_Intent_intent_LambdaImpl0;,
+        Lcom/android/systemui/statusbar/policy/UserSwitcherController$2$-void_onReceive_android_content_Context_context_android_content_Intent_intent_LambdaImpl1;
+    }
+.end annotation
+
 
 # instance fields
 .field final synthetic this$0:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
@@ -227,12 +234,82 @@
 
 
 # virtual methods
+.method synthetic -com_android_systemui_statusbar_policy_UserSwitcherController$2_lambda$1()V
+    .locals 2
+
+    const-string/jumbo v0, "UserSwitcherController"
+
+    const-string/jumbo v1, "twophone_change -    before dismissUserSwitchingDialog in handler"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController$2;->this$0:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
+
+    invoke-static {v0}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->-wrap1(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)V
+
+    const-string/jumbo v0, "UserSwitcherController"
+
+    const-string/jumbo v1, "twophone_change -    after dismissUserSwitchingDialog  in handler"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    return-void
+.end method
+
+.method synthetic -com_android_systemui_statusbar_policy_UserSwitcherController$2_lambda$2(I)V
+    .locals 4
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/policy/UserSwitcherController$2;->this$0:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
+
+    invoke-static {v1}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->-get2(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)Landroid/content/Context;
+
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    const/16 v3, 0x3e8
+
+    invoke-static {v1, v2, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+
+    move-result-object v0
+
+    if-lez p1, :cond_0
+
+    const/16 v1, 0x64
+
+    if-ge p1, v1, :cond_0
+
+    const v1, 0x7f0f0459
+
+    invoke-virtual {v0, v1}, Landroid/widget/Toast;->setText(I)V
+
+    :goto_0
+    invoke-virtual {v0}, Landroid/widget/Toast;->setShowForAllUsers()V
+
+    const-string/jumbo v1, "UserSwitcherController"
+
+    const-string/jumbo v2, "twophone_change -    post toast in handler"
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
+
+    return-void
+
+    :cond_0
+    const v1, 0x7f0f0458
+
+    invoke-virtual {v0, v1}, Landroid/widget/Toast;->setText(I)V
+
+    goto :goto_0
+.end method
+
 .method public onReceive(Landroid/content/Context;Landroid/content/Intent;)V
-    .locals 16
+    .locals 18
 
     const/4 v10, 0x0
 
-    const/16 v4, -0x2710
+    const/16 v5, -0x2710
 
     const-string/jumbo v13, "com.android.systemui.REMOVE_GUEST"
 
@@ -248,7 +325,7 @@
 
     invoke-static {}, Landroid/app/ActivityManager;->getCurrentUser()I
 
-    move-result v3
+    move-result v4
 
     move-object/from16 v0, p0
 
@@ -258,7 +335,7 @@
 
     move-result-object v13
 
-    invoke-virtual {v13, v3}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
+    invoke-virtual {v13, v4}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
 
     move-result-object v12
 
@@ -317,7 +394,7 @@
 
     iget-object v13, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController$2;->this$0:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
-    invoke-static {v13, v3}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->-wrap4(Lcom/android/systemui/statusbar/policy/UserSwitcherController;I)V
+    invoke-static {v13, v4}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->-wrap5(Lcom/android/systemui/statusbar/policy/UserSwitcherController;I)V
 
     :cond_1
     return-void
@@ -347,7 +424,7 @@
 
     iget-object v13, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController$2;->this$0:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
-    invoke-static {v13, v4}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->-wrap3(Lcom/android/systemui/statusbar/policy/UserSwitcherController;I)V
+    invoke-static {v13, v5}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->-wrap4(Lcom/android/systemui/statusbar/policy/UserSwitcherController;I)V
 
     if-eqz v10, :cond_4
 
@@ -375,7 +452,7 @@
 
     move-result v13
 
-    if-eqz v13, :cond_19
+    if-eqz v13, :cond_18
 
     move-object/from16 v0, p0
 
@@ -420,7 +497,7 @@
     invoke-static {v13, v14}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->-set2(Lcom/android/systemui/statusbar/policy/UserSwitcherController;Landroid/app/Dialog;)Landroid/app/Dialog;
 
     :cond_6
-    const/4 v5, 0x0
+    const/4 v6, 0x0
 
     const-string/jumbo v13, "android.intent.extra.user_handle"
 
@@ -430,7 +507,7 @@
 
     invoke-virtual {v0, v13, v14}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v2
+    move-result v3
 
     move-object/from16 v0, p0
 
@@ -440,7 +517,7 @@
 
     move-result-object v13
 
-    invoke-virtual {v13, v2}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
+    invoke-virtual {v13, v3}, Landroid/os/UserManager;->getUserInfo(I)Landroid/content/pm/UserInfo;
 
     move-result-object v12
 
@@ -454,12 +531,12 @@
 
     invoke-virtual {v13}, Ljava/util/ArrayList;->size()I
 
-    move-result v1
+    move-result v2
 
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
     :goto_1
-    if-ge v6, v1, :cond_f
+    if-ge v7, v2, :cond_f
 
     move-object/from16 v0, p0
 
@@ -469,19 +546,19 @@
 
     move-result-object v13
 
-    invoke-virtual {v13, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+    invoke-virtual {v13, v7}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
 
-    move-result-object v7
+    move-result-object v8
 
-    check-cast v7, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;
+    check-cast v8, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;
 
-    iget-object v13, v7, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->info:Landroid/content/pm/UserInfo;
+    iget-object v13, v8, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->info:Landroid/content/pm/UserInfo;
 
     if-nez v13, :cond_8
 
     :cond_7
     :goto_2
-    add-int/lit8 v6, v6, 0x1
+    add-int/lit8 v7, v7, 0x1
 
     goto :goto_1
 
@@ -490,7 +567,7 @@
 
     if-eqz v13, :cond_9
 
-    iget-object v13, v7, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->info:Landroid/content/pm/UserInfo;
+    iget-object v13, v8, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->info:Landroid/content/pm/UserInfo;
 
     invoke-virtual {v13}, Landroid/content/pm/UserInfo;->isBMode()Z
 
@@ -498,21 +575,21 @@
 
     if-eqz v13, :cond_9
 
-    const/4 v5, 0x1
+    const/4 v6, 0x1
 
     :cond_9
-    iget-object v13, v7, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->info:Landroid/content/pm/UserInfo;
+    iget-object v13, v8, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->info:Landroid/content/pm/UserInfo;
 
     iget v13, v13, Landroid/content/pm/UserInfo;->id:I
 
-    if-ne v13, v2, :cond_d
+    if-ne v13, v3, :cond_d
 
-    const/4 v8, 0x1
+    const/4 v9, 0x1
 
     :goto_3
-    iget-boolean v13, v7, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->isCurrent:Z
+    iget-boolean v13, v8, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->isCurrent:Z
 
-    if-eq v13, v8, :cond_a
+    if-eq v13, v9, :cond_a
 
     move-object/from16 v0, p0
 
@@ -522,16 +599,16 @@
 
     move-result-object v13
 
-    invoke-virtual {v7, v8}, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->copyWithIsCurrent(Z)Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;
+    invoke-virtual {v8, v9}, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->copyWithIsCurrent(Z)Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;
 
     move-result-object v14
 
-    invoke-virtual {v13, v6, v14}, Ljava/util/ArrayList;->set(ILjava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v13, v7, v14}, Ljava/util/ArrayList;->set(ILjava/lang/Object;)Ljava/lang/Object;
 
     :cond_a
-    if-eqz v8, :cond_b
+    if-eqz v9, :cond_b
 
-    iget-boolean v13, v7, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->isGuest:Z
+    iget-boolean v13, v8, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->isGuest:Z
 
     if-eqz v13, :cond_e
 
@@ -546,7 +623,7 @@
     if-nez v13, :cond_7
 
     :cond_c
-    iget-boolean v13, v7, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->isRestricted:Z
+    iget-boolean v13, v8, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->isRestricted:Z
 
     if-eqz v13, :cond_7
 
@@ -558,14 +635,14 @@
 
     move-result-object v13
 
-    invoke-virtual {v13, v6}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
+    invoke-virtual {v13, v7}, Ljava/util/ArrayList;->remove(I)Ljava/lang/Object;
 
-    add-int/lit8 v6, v6, -0x1
+    add-int/lit8 v7, v7, -0x1
 
     goto :goto_2
 
     :cond_d
-    const/4 v8, 0x0
+    const/4 v9, 0x0
 
     goto :goto_3
 
@@ -574,7 +651,7 @@
 
     iget-object v13, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController$2;->this$0:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
-    iget-object v14, v7, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->info:Landroid/content/pm/UserInfo;
+    iget-object v14, v8, Lcom/android/systemui/statusbar/policy/UserSwitcherController$UserRecord;->info:Landroid/content/pm/UserInfo;
 
     iget v14, v14, Landroid/content/pm/UserInfo;->id:I
 
@@ -603,14 +680,14 @@
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v2}, Lcom/android/systemui/statusbar/policy/UserSwitcherController$2;->handleVzwUserChange(I)V
+    invoke-direct {v0, v3}, Lcom/android/systemui/statusbar/policy/UserSwitcherController$2;->handleVzwUserChange(I)V
 
     :cond_10
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController$2;->this$0:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
-    invoke-static {v13}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->-wrap2(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)V
+    invoke-static {v13}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->-wrap3(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)V
 
     move-object/from16 v0, p0
 
@@ -695,45 +772,72 @@
 
     iget-object v13, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController$2;->this$0:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
-    invoke-static {v13, v2}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->-wrap5(Lcom/android/systemui/statusbar/policy/UserSwitcherController;I)V
+    invoke-static {v13, v3}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->-wrap6(Lcom/android/systemui/statusbar/policy/UserSwitcherController;I)V
 
     :cond_14
     sget-boolean v13, Lcom/android/systemui/SystemUIRune;->SUPPORT_TWO_PHONE:Z
 
     if-eqz v13, :cond_15
 
-    if-eqz v5, :cond_15
+    if-eqz v6, :cond_15
+
+    const-string/jumbo v13, "UserSwitcherController"
+
+    const-string/jumbo v14, "twophone_change - before post dismissUserSwitchingDialog"
+
+    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController$2;->this$0:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
 
-    invoke-static {v13}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->-get2(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)Landroid/content/Context;
+    invoke-static {v13}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->-get4(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)Landroid/os/Handler;
 
     move-result-object v13
 
-    const/4 v14, 0x0
+    new-instance v14, Lcom/android/systemui/statusbar/policy/UserSwitcherController$2$-void_onReceive_android_content_Context_context_android_content_Intent_intent_LambdaImpl0;
 
-    const/16 v15, 0x3e8
+    move-object/from16 v0, p0
 
-    invoke-static {v13, v14, v15}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
+    invoke-direct {v14, v0}, Lcom/android/systemui/statusbar/policy/UserSwitcherController$2$-void_onReceive_android_content_Context_context_android_content_Intent_intent_LambdaImpl0;-><init>(Lcom/android/systemui/statusbar/policy/UserSwitcherController$2;)V
 
-    move-result-object v9
+    const-wide/16 v16, 0x1388
 
-    if-lez v2, :cond_18
+    move-wide/from16 v0, v16
 
-    const/16 v13, 0x64
+    invoke-virtual {v13, v14, v0, v1}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
-    if-ge v2, v13, :cond_18
+    const-string/jumbo v13, "UserSwitcherController"
 
-    const v13, 0x7f0f0459
+    const-string/jumbo v14, "twophone_change - after post dismissUserSwitchingDialog, before post toast"
 
-    invoke-virtual {v9, v13}, Landroid/widget/Toast;->setText(I)V
+    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :goto_7
-    invoke-virtual {v9}, Landroid/widget/Toast;->setShowForAllUsers()V
+    move-object/from16 v0, p0
 
-    invoke-virtual {v9}, Landroid/widget/Toast;->show()V
+    iget-object v13, v0, Lcom/android/systemui/statusbar/policy/UserSwitcherController$2;->this$0:Lcom/android/systemui/statusbar/policy/UserSwitcherController;
+
+    invoke-static {v13}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->-get4(Lcom/android/systemui/statusbar/policy/UserSwitcherController;)Landroid/os/Handler;
+
+    move-result-object v13
+
+    new-instance v14, Lcom/android/systemui/statusbar/policy/UserSwitcherController$2$-void_onReceive_android_content_Context_context_android_content_Intent_intent_LambdaImpl1;
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v14, v0, v3}, Lcom/android/systemui/statusbar/policy/UserSwitcherController$2$-void_onReceive_android_content_Context_context_android_content_Intent_intent_LambdaImpl1;-><init>(Lcom/android/systemui/statusbar/policy/UserSwitcherController$2;I)V
+
+    const-wide/16 v16, 0xbb8
+
+    move-wide/from16 v0, v16
+
+    invoke-virtual {v13, v14, v0, v1}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    const-string/jumbo v13, "UserSwitcherController"
+
+    const-string/jumbo v14, "twophone_change - after post toast"
+
+    invoke-static {v13, v14}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_15
     const/4 v10, 0x1
@@ -767,7 +871,7 @@
 
     invoke-static {v13, v14}, Lcom/android/systemui/statusbar/policy/UserSwitcherController;->-set5(Lcom/android/systemui/statusbar/policy/UserSwitcherController;I)I
 
-    goto :goto_5
+    goto/16 :goto_5
 
     :cond_17
     iget v13, v12, Landroid/content/pm/UserInfo;->id:I
@@ -776,18 +880,11 @@
 
     move-object/from16 v0, p0
 
-    invoke-direct {v0, v2}, Lcom/android/systemui/statusbar/policy/UserSwitcherController$2;->showLogoutNotification(I)V
+    invoke-direct {v0, v3}, Lcom/android/systemui/statusbar/policy/UserSwitcherController$2;->showLogoutNotification(I)V
 
-    goto :goto_6
+    goto/16 :goto_6
 
     :cond_18
-    const v13, 0x7f0f0458
-
-    invoke-virtual {v9, v13}, Landroid/widget/Toast;->setText(I)V
-
-    goto :goto_7
-
-    :cond_19
     const-string/jumbo v13, "android.intent.action.USER_INFO_CHANGED"
 
     invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
@@ -798,7 +895,7 @@
 
     move-result v13
 
-    if-eqz v13, :cond_1a
+    if-eqz v13, :cond_19
 
     const-string/jumbo v13, "android.intent.extra.user_handle"
 
@@ -808,11 +905,11 @@
 
     invoke-virtual {v0, v13, v14}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
-    move-result v4
+    move-result v5
 
     goto/16 :goto_0
 
-    :cond_1a
+    :cond_19
     const-string/jumbo v13, "android.intent.action.USER_UNLOCKED"
 
     invoke-virtual/range {p2 .. p2}, Landroid/content/Intent;->getAction()Ljava/lang/String;
