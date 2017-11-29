@@ -1596,6 +1596,8 @@ command"</string>
     <string name="batt_cooldown_mode_ok">Acceptar</string>
     <string name="overheat_limit_warning_title">"El telèfon s'està sobreescalfant"</string>
     <string name="overheat_limit_warning">"El telèfon s'està sobreescalfant. Tanca aquesta aplicació immediatament. Es tancarà %s automàticament d'aquí a 1 minut i es perdran les dades que no s'hagin desat."</string>
+    <string name="overheat_limit_warning_phone_second">"El telèfon s'està sobreescalfant. Tanca aquesta aplicació immediatament. Es tancarà %1$s automàticament d'aquí a %2$d segons i es perdran les dades que no s'hagin desat."</string>
+    <string name="overheat_limit_warning_tablet_second">"La tablet s'està sobreescalfant. Tanca aquesta aplicació immediatament. Es tancarà %1$s automàticament d'aquí a %2$d segons i es perdran les dades que no s'hagin desat."</string>
     <string name="overheat_limit_closed_title">"S'ha tancat l'aplicació"</string>
     <string name="overheat_limit_closed">"S'ha tancat %1$s. El telèfon s'està sobreescalfant. Intenta tornar a utilitzar %2$s després que el telèfon s'hagi refredat."</string>
     <string name="overheat_limit_ok">ACCEPTAR</string>

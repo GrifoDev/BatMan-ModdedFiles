@@ -1591,6 +1591,8 @@
     <string name="batt_cooldown_mode_ok">OK</string>
     <string name="overheat_limit_warning_title">Телефон қызып кетті</string>
     <string name="overheat_limit_warning">Телефоныңыз қызып кетті. Бұл қолданбаны дереу жабыңыз. %s қолданбасы 1 минуттан кейін автоматты түрде жабылып, кез келген сақталмаған деректер жоғалады.</string>
+    <string name="overheat_limit_warning_phone_second">Телефоныңыз қызып кетті. Бұл қолданбаны дереу жабыңыз. %1$s қолданбасы %2$d секундтан кейін автоматты түрде жабылып, кез келген сақталмаған деректер жоғалады.</string>
+    <string name="overheat_limit_warning_tablet_second">Планшетіңіз қызып кетті. Бұл қолданбаны дереу жабыңыз. %1$s қолданбасы %2$d секундтан кейін автоматты түрде жабылып, кез келген сақталмаған деректер жоғалады.</string>
     <string name="overheat_limit_closed_title">Қолданба жабылды</string>
     <string name="overheat_limit_closed">%1$s қолданбасы жабылды. Телефоныңыз қызып кетті. %2$s қолданбасын телефоныңыз салқындағаннан кейін қайтадан пайдаланып көріңіз.</string>
     <string name="overheat_limit_ok">OK</string>

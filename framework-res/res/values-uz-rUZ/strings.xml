@@ -1591,6 +1591,8 @@ buyruq"</string>
     <string name="batt_cooldown_mode_ok">OK</string>
     <string name="overheat_limit_warning_title">Telefon qizimoqda</string>
     <string name="overheat_limit_warning">Telefon qizib ketmoqda. Bu ilovani darhol yoping. %s 1 daqiqadan so‘ng avtomatik tarzda yopiladi va saqlanmagan ma’lumotlar yo‘qotiladi.</string>
+    <string name="overheat_limit_warning_phone_second">Telefon qizib ketmoqda. Bu ilovani darhol yoping. %1$s %2$d soniyadan so‘ng avtomatik tarzda yopiladi va saqlanmagan ma’lumotlar yo‘qotiladi.</string>
+    <string name="overheat_limit_warning_tablet_second">Planshetingiz qizib ketmoqda. Bu ilovani darhol yoping. %1$s %2$d soniyadan so‘ng avtomatik tarzda yopiladi va saqlanmagan ma’lumotlar yo‘qotiladi.</string>
     <string name="overheat_limit_closed_title">Ilova yopildi</string>
     <string name="overheat_limit_closed">%1$s yopiq. Telefon qizib ketmoqda. Telefoningiz sovigandan so‘ng %2$s’dan yana foydalanib ko‘ring.</string>
     <string name="overheat_limit_ok">OK</string>

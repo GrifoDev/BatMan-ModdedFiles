@@ -1589,6 +1589,8 @@ command"</string>
     <string name="batt_cooldown_mode_ok">အိုကေ</string>
     <string name="overheat_limit_warning_title">ဖုန်း အပူလွန်ကဲနေသည်</string>
     <string name="overheat_limit_warning">သင့်ဖုန်း အပူလွန်ကဲနေပါသည်။ ဤအက်ပ်ကို ချက်ချင်းပိတ်ပါ။ %s သည် ၁ မိနစ်အတွင်းတွင် အလိုလျောက် ပိတ်မည်ဖြစ်ပြီး သိမ်းမထားသော ဒေတာမှန်သမျှကို ဆုံးရှုံးပါမည်။</string>
+    <string name="overheat_limit_warning_phone_second">သင့်ဖုန်း အပူလွန်ကဲနေပါသည်။ ဤအက်ပ်ကို ချက်ချင်းပိတ်ပါ။ %1$s သည် %2$d စက္ကန့်အတွင်း အလိုလျောက် ပိတ်မည်ဖြစ်ပြီး သိမ်းမထားသော ဒေတာမှန်သမျှကို ဆုံးရှုံးပါမည်။</string>
+    <string name="overheat_limit_warning_tablet_second">သင့်တက်ဘလက် အပူလွန်ကဲနေပါသည်။ ဤအက်ပ်ကို ချက်ချင်းပိတ်ပါ။ %1$s သည် %2$d စက္ကန့်အတွင်း အလိုလျောက် ပိတ်မည်ဖြစ်ပြီး သိမ်းမထားသော ဒေတာမှန်သမျှကို ဆုံးရှုံးပါမည်။</string>
     <string name="overheat_limit_closed_title">အက်ပ်ကို ပိတ်ပြီးပြီ</string>
     <string name="overheat_limit_closed">%1$s ပိတ်ထားသည်။ သင့်ဖုန်း အပူလွန်ကဲနေပါသည်။ သင့်ဖုန်း အပူချိန်ကျသွားသည်နှင့် %2$s ကို ထပ်သုံးကြည့်ပါ။</string>
     <string name="overheat_limit_ok">အိုကေ</string>

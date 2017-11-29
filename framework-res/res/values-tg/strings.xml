@@ -894,6 +894,8 @@
     <string name="batt_cooldown_mode_ok">OK</string>
     <string name="overheat_limit_warning_title">Телефон бениҳоят гарм мешавад</string>
     <string name="overheat_limit_warning">Телефони шумо бениҳоят гарм мешавад. Фавран ин барномаро бипӯшед. %s баъди 1 дақиқа ба таври худкор пӯшида мешавад ва ҳама иттилооти захиранашуда аз даст дода мешавад.</string>
+    <string name="overheat_limit_warning_phone_second">Телефони шумо аз ҳад зиёд гарм мешавад. Ин барномаро фавран пӯшед. %1$s ба таври худкор пас аз %2$d сония пӯшида мешавад ва тамоми иттилооти захиранашуда аз байн меравад.</string>
+    <string name="overheat_limit_warning_tablet_second">Планшети шумо аз ҳад зиёд гарм мешавад. Ин барномаро фавран пӯшед. %1$s ба таври худкор пас аз %2$d сония пӯшида мешавад ва тамоми иттилооти захиранаушуда аз байн меравад.</string>
     <string name="overheat_limit_closed_title">Барнома пӯшида шуд</string>
     <string name="overheat_limit_closed">%1$s пӯшида шуд. Телефони шумо бениҳоят гарм мешавад. %2$s-ро баъди хунуктар шудани телефон истифода баред.</string>
     <string name="overheat_limit_ok">ОК</string>

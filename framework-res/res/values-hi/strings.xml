@@ -1595,6 +1595,8 @@
     <string name="batt_cooldown_mode_ok">ओके</string>
     <string name="overheat_limit_warning_title">फोन जरूरत से ज्यादा गरम हो रहा है</string>
     <string name="overheat_limit_warning">आपका फोन जरूरत से ज्यादा गरम हो रहा है। तुरंत यह एप बंद करें। 1 मिनट में %s स्वचालित रूप से बंद हो जाएगा और कोई भी सुरक्षित नहीं किया गया डाटा खो जाएगा।</string>
+    <string name="overheat_limit_warning_phone_second">आपका फोन जरूरत से ज्यादा गरम हो रहा है। तुरंत यह एप बंद करें। %2$d सेकंड में %1$s स्वचालित रूप से बंद हो जाएगा और कोई भी सुरक्षित नहीं किया गया डाटा खो जाएगा।</string>
+    <string name="overheat_limit_warning_tablet_second">आपका टैबलेट जरूरत से ज्यादा गरम हो रहा है। तुरंत यह एप बंद करें। %2$d सेकंड में %1$s स्वचालित रूप से बंद हो जाएगा और कोई भी सुरक्षित नहीं किया गया डाटा खो जाएगा।</string>
     <string name="overheat_limit_closed_title">एप बंद किया गया</string>
     <string name="overheat_limit_closed">%1$s बंद हुआ। आपका फोन जरूरत से ज्यादा गरम हो रहा है। आपका फोन ठंडा होने के बाद फिर से %2$s का उपयोग करने का प्रयास करें।</string>
     <string name="overheat_limit_ok">ओके</string>

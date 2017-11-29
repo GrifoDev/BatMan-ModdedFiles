@@ -891,6 +891,8 @@ command"</string>
     <string name="batt_cooldown_mode_ok">အုိေက</string>
     <string name="overheat_limit_warning_title">ဖုန္း အပူလြန္ကဲေနသည္</string>
     <string name="overheat_limit_warning">သင့္ဖုန္း အပူလြန္ကဲေနပါသည္။ ဤအက္ပ္ကို ခ်က္ခ်င္းပိတ္ပါ။ %s သည္ ၁ မိနစ္အတြင္းတြင္ အလိုေလ်ာက္ ပိတ္မည္ျဖစ္ၿပီး သိမ္းမထားေသာ ေဒတာမွန္သမွ်ကို ဆုံးရႈံးပါမည္။</string>
+    <string name="overheat_limit_warning_phone_second">သင့္ဖုန္း အပူလြန္ကဲေနပါသည္။ ဤအက္ပ္ကို ခ်က္ခ်င္းပိတ္ပါ။ %1$s သည္ %2$d စကၠန္႔အတြင္း အလိုေလ်ာက္ ပိတ္မည္ျဖစ္ၿပီး သိမ္းမထားေသာ ေဒတာမွန္သမွ်ကို ဆုံးရႈံးပါမည္။</string>
+    <string name="overheat_limit_warning_tablet_second">သင့္တက္ဘလက္ အပူလြန္ကဲေနပါသည္။ ဤအက္ပ္ကို ခ်က္ခ်င္းပိတ္ပါ။ %1$s သည္ %2$d စကၠန္႔အတြင္း အလိုေလ်ာက္ ပိတ္မည္ျဖစ္ၿပီး သိမ္းမထားေသာ ေဒတာမွန္သမွ်ကို ဆုံးရႈံးပါမည္။</string>
     <string name="overheat_limit_closed_title">အက္ပ္ကို ပိတ္ၿပီးၿပီ</string>
     <string name="overheat_limit_closed">%1$s ပိတ္ထားသည္။ သင့္ဖုန္း အပူလြန္ကဲေနပါသည္။ သင့္ဖုန္း အပူခ်ိန္က်သြားသည္ႏွင့္ %2$s ကုိ ထပ္သံုးၾကည့္ပါ။</string>
     <string name="overheat_limit_ok">အိုေက</string>

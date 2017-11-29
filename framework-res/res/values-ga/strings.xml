@@ -893,6 +893,8 @@ scáil."</string>
     <string name="batt_cooldown_mode_ok">OK</string>
     <string name="overheat_limit_warning_title">Fón róthe</string>
     <string name="overheat_limit_warning">"Tá d'fhón róthe. Dún an feidhmchlár seo láithreach. Dúnfar %s go huathoibríoch i gceann 1 nóiméad, agus caillfear aon sonraí neamhshábháilte."</string>
+    <string name="overheat_limit_warning_phone_second">"Tá d'fhón róthe. Dún an feidhmchlár seo láithreach. Dúnfar %1$s go huathoibríoch i gceann %2$d soicind, agus caillfear aon sonraí nach bhfuil sábháilte."</string>
+    <string name="overheat_limit_warning_tablet_second">Tá do tháibléad róthe. Dún an feidhmchlár seo láithreach. Dúnfar %1$s go huathoibríoch i gceann %2$d soicind, agus caillfear aon sonraí nach bhfuil sábháilte.</string>
     <string name="overheat_limit_closed_title">Feidhmchlár dúnta</string>
     <string name="overheat_limit_closed">"%1$s dúnta. Tá d'fhón róthe. Triail %2$s a úsáid arís nuair a bheidh d'fhón fuaraithe."</string>
     <string name="overheat_limit_ok">OK</string>

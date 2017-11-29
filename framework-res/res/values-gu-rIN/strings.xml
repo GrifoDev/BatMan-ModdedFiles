@@ -1590,6 +1590,8 @@
     <string name="batt_cooldown_mode_ok">ઓકે</string>
     <string name="overheat_limit_warning_title">ફોન વધુ ગરમ થાય છે</string>
     <string name="overheat_limit_warning">તમારો ફોન વધુ ગરમ થઈ રહ્યો છે. તરત જ આ એપને બંધ કરો. %s એ 1 મિનિટમાં સ્વચાલિત રીતે બંધ થશે અને કોઈપણ ન સાચવેલ ડેટા ખોવાઈ જશે.</string>
+    <string name="overheat_limit_warning_phone_second">તમારો ફોન વધુ ગરમ થઈ રહ્યો છે. તરત જ આ એપને બંધ કરો. %2$d સેકંડ્સમાં સ્વચાલિત રીતે %1$s બંધ થશે અને કોઈપણ ન સાચવેલ ડેટા ખોવાઈ જશે.</string>
+    <string name="overheat_limit_warning_tablet_second">તમારું ટેલ્બેટ વધુ ગરમ થઈ રહ્યું છે. તરત જ આ એપને બંધ કરો. %2$d સેકંડ્સમાં સ્વચાલિત રીતે %1$s બંધ થશે અને કોઈપણ ન સાચવેલ ડેટા ખોવાઈ જશે.</string>
     <string name="overheat_limit_closed_title">એપ બંધ કરી</string>
     <string name="overheat_limit_closed">%1$s બંધ કર્યુ. તમારો ફોન વધુ ગરમ થઈ રહ્યો છે. તમારો ફોન ઠંડો થાય પછી %2$s નો ફરીથી ઉપયોગ કરવાનો પ્રયાસ કરો.</string>
     <string name="overheat_limit_ok">ઓકે</string>

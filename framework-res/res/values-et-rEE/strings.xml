@@ -1592,6 +1592,8 @@ käsklus"</string>
     <string name="batt_cooldown_mode_ok">OK</string>
     <string name="overheat_limit_warning_title">Telefon kuumeneb üle</string>
     <string name="overheat_limit_warning">Teie telefon on ülekuumenemas. Sulgege see rakendus otsekohe. %s suletakse automaatselt 1 minuti pärast ja kõik salvestamata andmed lähevad kaotsi.</string>
+    <string name="overheat_limit_warning_phone_second">Teie telefon on ülekuumenemas. Sulgege see rakendus otsekohe. %1$s suletakse automaatselt %2$d sekundi pärast ja kõik salvestamata andmed lähevad kaotsi.</string>
+    <string name="overheat_limit_warning_tablet_second">Teie tahvelseade on ülekuumenemas. Sulgege see rakendus otsekohe. %1$s suletakse automaatselt %2$d sekundi pärast ja kõik salvestamata andmed lähevad kaotsi.</string>
     <string name="overheat_limit_closed_title">Rakendus suleti</string>
     <string name="overheat_limit_closed">%1$s sulgus. Teie telefon on ülekuumenemas. Proovige rakendust %2$s uuesti kasutada, kui telefon on maha jahtunud.</string>
     <string name="overheat_limit_ok">OK</string>

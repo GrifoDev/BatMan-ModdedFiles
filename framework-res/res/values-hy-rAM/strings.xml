@@ -1592,6 +1592,8 @@
     <string name="batt_cooldown_mode_ok">Ընդունել</string>
     <string name="overheat_limit_warning_title">Հեռախոսը գերտաքանում է</string>
     <string name="overheat_limit_warning">Ձեր հեռախոսը գերտաքանում է: Իսկույն փակեք այս ծրագիրը: %s-ը 1 րոպեից ինքնաբերաբար կփակվի, և բոլոր չպահպանված տվյալները կկորչեն:</string>
+    <string name="overheat_limit_warning_phone_second">Ձեր հեռախոսը գերտաքանում է: Իսկույն փակեք այս ծրագիրը: %1$s-ը %2$d վայրկյանից ինքնաբերաբար կփակվի, և բոլոր չպահպանված տվյալները կկորչեն:</string>
+    <string name="overheat_limit_warning_tablet_second">Ձեր պլանշետը գերտաքանում է: Իսկույն փակեք այս ծրագիրը: %1$s-ը %2$d վայրկյանից ինքնաբերաբար կփակվի, և բոլոր չպահպանված տվյալները կկորչեն:</string>
     <string name="overheat_limit_closed_title">Ծրագիրը փակվեց</string>
     <string name="overheat_limit_closed">%1$s-ը փակվեց: Ձեր հեռախոսը գերտաքանում է: Փորձեք %2$s օգտագործել հեռախոսի հովացումից հետո:</string>
     <string name="overheat_limit_ok">OK</string>

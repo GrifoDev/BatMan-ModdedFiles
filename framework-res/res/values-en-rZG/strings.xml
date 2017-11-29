@@ -889,6 +889,8 @@ command"</string>
     <string name="batt_cooldown_mode_ok">OK</string>
     <string name="overheat_limit_warning_title">Phone overheating</string>
     <string name="overheat_limit_warning">Your phone is overheating. Close this app immediately. %s will be closed automatically in 1 minute, and any unsaved data will be lost.</string>
+    <string name="overheat_limit_warning_phone_second">Your phone is overheating. Close this app immediately. %1$s will be closed automatically in %2$d seconds, and any unsaved data will be lost.</string>
+    <string name="overheat_limit_warning_tablet_second">Your tablet is overheating. Close this app immediately. %1$s will be closed automatically in %2$d seconds, and any unsaved data will be lost.</string>
     <string name="overheat_limit_closed_title">App closed</string>
     <string name="overheat_limit_closed">%1$s closed. Your phone is overheating. Try using %2$s again after your phone cools down.</string>
     <string name="overheat_limit_ok">OK</string>

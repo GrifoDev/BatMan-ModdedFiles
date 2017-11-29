@@ -891,10 +891,12 @@ bez tyk."</string>
     <string name="batt_cooldown_mode_attention">Aplikacyjŏ zawarto</string>
     <string name="batt_cooldown_mode_attentions">Aplikacyje zawarte</string>
     <string name="batt_cooldown_mode_ok">OK</string>
-    <string name="overheat_limit_warning_title">Przegrzanie telefonu</string>
-    <string name="overheat_limit_warning">Telefon przegrzewa się. Natychmiast zamknij tę aplikację. Aplikacja %s zostanie zamknięta automatycznie za 1 minutę, a dowolne niezapisane dane zostaną utracone.</string>
+    <string name="overheat_limit_warning_title">Telefōn je za gŏrki</string>
+    <string name="overheat_limit_warning">Telefōn je za gŏrki. Hned zawrzij ta aplikacyjŏ. Aplikacyjŏ %1$s bydzie zawartŏ autōmatycznie za 1 min, a leda kere niyzachowane dane bydōm stracōne.</string>
+    <string name="overheat_limit_warning_phone_second">Mobilniŏk przegrzywo sie. Zarŏzki zawrzij ta aplikacyjo. Aplikacyjo %1$s bydzie zawarto autōmatycznie za %2$d s, a niyzachowane dane bydōm stracōne.</string>
+    <string name="overheat_limit_warning_tablet_second">Tablet przegrzywo sie. Zarŏzki zawrzij ta aplikacyjo. Aplikacyjo %1$s bydzie zawarto autōmatycznie za %2$d s, a niyzachowane dane bydōm stracōne.</string>
     <string name="overheat_limit_closed_title">Aplikacyjŏ zawarto</string>
-    <string name="overheat_limit_closed">Aplikacja %1$s została zamknięta. Telefon się przegrzewa. Spróbuj ponownie użyć aplikacji %2$s po ostygnięciu telefonu.</string>
+    <string name="overheat_limit_closed">Aplikacyjŏ %1$s je zawartŏ. Telefōn je za gŏrki. Sprōbuj zajś użyć aplikacyji %2$s, kej telefōn ôchłōdnie.</string>
     <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Maszina bydzie resztartowanŏ.</string>
     <string name="tw_reboot_safemode_title_vzw">Załōncz nazŏd w Trybie Bezpiecznym.</string>

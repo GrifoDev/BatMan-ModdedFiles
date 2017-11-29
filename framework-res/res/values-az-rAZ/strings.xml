@@ -1592,6 +1592,8 @@ yazısı"</string>
     <string name="batt_cooldown_mode_ok">OK</string>
     <string name="overheat_limit_warning_title">Telefon həddən artıq qızır</string>
     <string name="overheat_limit_warning">Telefonunuz həddən artıq qızır. Bu proqramı dərhal bağlayın. %s 1 dəqiqəyə avtomatik bağlanavaq və saxlanmamış məlumatlar itəcək.</string>
+    <string name="overheat_limit_warning_phone_second">Telefon həddən artıq qızır. Bu proqramı dərhal bağlayın. %1$s %2$d saniyəyə yenidən bağlanacaq və saxlanmamış məlumatlar itəcək.</string>
+    <string name="overheat_limit_warning_tablet_second">Tabletiniz həddən artıq qızır. Bu proqramı dərhal bağlayın. %1$s %2$d saniyəyə yenidən bağlanacaq və saxlanmamış məlumatlar itəcək.</string>
     <string name="overheat_limit_closed_title">Proqram bağlandı</string>
     <string name="overheat_limit_closed">%1$s bağlandı. Telefonunuz həddən artıq qızır. Telefon soyuduqdan sonra yenidən %2$s istifadə etməyə çalışın.</string>
     <string name="overheat_limit_ok">OK</string>

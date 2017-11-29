@@ -1590,6 +1590,8 @@ booker"</string>
     <string name="batt_cooldown_mode_ok">ОК</string>
     <string name="overheat_limit_warning_title">Телефон өтө ысып кетүүдө</string>
     <string name="overheat_limit_warning">Телефонуңуз өтө ысып кетүүдө. Бул колдонмону дароо жабыңыз. %s автоматтык түрдө 1 мүнөттөн кийин жабылып, бардык сакталбаган маалыматтар жоготулат.</string>
+    <string name="overheat_limit_warning_phone_second">Телефонуңуз өтө ысып кетүүдө. Бул колдонмону дароо жабыңыз. %1$s %2$d секунд ичинде автоматтык түрдө жабылат, жана каалаган сактала элек маалыматтар жоголот.</string>
+    <string name="overheat_limit_warning_tablet_second">Планшетиңиз өтө ысып кетүүдө. Бул колдонмону дароо жабыңыз. %1$s %2$d секунд ичинде автоматтык түрдө жабылат, жана каалаган сактала элек маалыматтар жоголот.</string>
     <string name="overheat_limit_closed_title">Колдонмо жабылды</string>
     <string name="overheat_limit_closed">%1$s жабылды. Телефонуңуз өтө ысып кетүүдө. Телефонуңуз муздагандан кийин, %2$s кайра колдонуп көрүңүз.</string>
     <string name="overheat_limit_ok">OK</string>

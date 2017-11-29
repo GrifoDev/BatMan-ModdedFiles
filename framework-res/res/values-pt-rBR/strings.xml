@@ -733,7 +733,7 @@ Tem certeza de que deseja sair desta página?"</string>
     <string name="app_running_notification_title">%s está em execução.</string>
     <string name="app_running_notification_text">Toque para obter mais informações ou interromper o aplicativo.</string>
     <string name="loading">Carregando…</string>
-    <string name="capital_on">Lig.</string>
+    <string name="capital_on">Ligado</string>
     <string name="capital_off">Desativado</string>
     <string name="whichApplication">Concluir ação utilizando</string>
     <string name="whichApplicationNamed">Completar ação usando %s</string>
@@ -1592,6 +1592,8 @@ susp."</string>
     <string name="batt_cooldown_mode_ok">OK</string>
     <string name="overheat_limit_warning_title">Aquecimento do telefone</string>
     <string name="overheat_limit_warning">Seu telefone está aquecendo. Feche este aplicativo imediatamente. %s será fechado automaticamente em 1 minuto, e os dados não salvos serão perdidos.</string>
+    <string name="overheat_limit_warning_phone_second">Seu telefone está aquecendo. Feche este aplicativo imediatamente. %1$s será fechado automaticamente em %2$d segundos, e qualquer dado não salvo será perdido.</string>
+    <string name="overheat_limit_warning_tablet_second">Seu tablet está aquecendo. Feche este aplicativo imediatamente. %1$s será fechado automaticamente em %2$d segundos, e qualquer dado não salvo será perdido.</string>
     <string name="overheat_limit_closed_title">Aplicativo fechado</string>
     <string name="overheat_limit_closed">O %1$s foi fechado. Seu telefone está aquecendo. Tente usar %2$s novamente depois que o telefone esfriar.</string>
     <string name="overheat_limit_ok">OK</string>

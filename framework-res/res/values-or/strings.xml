@@ -895,6 +895,8 @@
     <string name="batt_cooldown_mode_ok">ଓକେ</string>
     <string name="overheat_limit_warning_title">ଫୋନ୍ ଅଧିକ ଉତ୍ତପ୍ତ ହୋଇଛି</string>
     <string name="overheat_limit_warning">ଆପଣଙ୍କ ଫୋନ୍ ଅଧିକ ଉତ୍ତପ୍ତ ହୋଇଛି। ତୁରନ୍ତ ଏହି ଆପ୍ଲିକେସନ୍ ବନ୍ଦ କରନ୍ତୁ। 1 ମିନିଟରେ %s ସ୍ୱତଃସ୍ପୃତ ଭାବେ ବନ୍ଦ ହେବ, ଏବଂ ଯେକୌଣସି ଅସଞ୍ଚିତ ଡାଟା ହରାଇବେ।</string>
+    <string name="overheat_limit_warning_phone_second">ଆପଣଙ୍କ ଫୋନ୍ ଅଧିକ ଉତ୍ତପ୍ତ ହୋଇଛି। ତୁରନ୍ତ ଏହି ଆପ୍ଲିକେସନ୍ ବନ୍ଦ କରନ୍ତୁ। %2$d ମିନିଟରେ %1$s ସ୍ୱତଃସ୍ପୃତ ଭାବେ ବନ୍ଦ ହେବ, ଅସଞ୍ଚିତ ଯେକୌଣସି ଡାଟା ହରାଇବ।</string>
+    <string name="overheat_limit_warning_tablet_second">ଆପଣଙ୍କ ଟ୍ୟାବଲେଟ୍ ଅତ୍ୟଧିକ ଉତ୍ତପ୍ତ ହୋଇଛି। ତୁରନ୍ତ ଏହି ଆପ୍ଲିକେସନ୍ ବନ୍ଦ କରନ୍ତୁ। %2$d ମିନିଟରେ %1$s ସ୍ୱତଃସ୍ପୃତ ଭାବେ ବନ୍ଦ ହେବ, ଅସଞ୍ଚିତ ଯେକୌଣସି ଡାଟା ହଜିଯିବ।</string>
     <string name="overheat_limit_closed_title">ଆପ୍ଲିକେସନ୍‌ ବନ୍ଦ</string>
     <string name="overheat_limit_closed">%1$s ବନ୍ଦ ହୋଇଛି। ଆପଣଙ୍କ ଫୋନ୍ ଅଧିକ ଉତ୍ତପ୍ତ ହୋଇଛି। ଆପଣଙ୍କ ଫୋନ୍ ଥଣ୍ତା ହେବା ପରେ ପୁନଃ %2$s ବ୍ୟବହାର କରିବାକୁ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
     <string name="overheat_limit_ok">ଓକେ</string>

@@ -1596,6 +1596,8 @@ command"</string>
     <string name="batt_cooldown_mode_ok">OK</string>
     <string name="overheat_limit_warning_title">Nag-o-overheat ang telepono</string>
     <string name="overheat_limit_warning">Nag-o-overheat ang telepono mo. Isara agad ang app na ito. Awtomatikong isasara ang %s sa loob ng 1 minuto at mawawala ang anumang hindi naka-save na data.</string>
+    <string name="overheat_limit_warning_phone_second">Nag-o-overheat ang telepono mo. Isara agad ang app na ito. Awtomatikong isasara ang %1$s sa loob ng %2$d segundo at mawawala ang anumang hindi naka-save na data.</string>
+    <string name="overheat_limit_warning_tablet_second">Nag-o-overheat ang tablet mo. Isara agad ang app na ito. Awtomatikong isasara ang %1$s sa loob ng %2$d segundo at mawawala ang anumang hindi naka-save na data.</string>
     <string name="overheat_limit_closed_title">Isinara ang app</string>
     <string name="overheat_limit_closed">Nagsara ang %1$s. Nag-o-overheat ang telepono mo. Muling subukan ang %2$s pagkatapos lumamig ng telepono mo.</string>
     <string name="overheat_limit_ok">OK</string>

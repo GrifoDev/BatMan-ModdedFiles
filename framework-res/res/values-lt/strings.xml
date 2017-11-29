@@ -1596,6 +1596,8 @@ kom."</string>
     <string name="batt_cooldown_mode_ok">Gerai</string>
     <string name="overheat_limit_warning_title">Telefonas kaista</string>
     <string name="overheat_limit_warning">Jūsų telefonas kaista. Nedelsdami uždarykite šią programą. %s bus uždaryta automatiškai po 1 min., o visi neišsaugoti duomenys bus prarasti.</string>
+    <string name="overheat_limit_warning_phone_second">Jūsų telefonas kaista. Nedelsdami uždarykite šią programą. %1$s bus uždaryta automatiškai po %2$d sek., o visi neišsaugoti duomenys bus prarasti.</string>
+    <string name="overheat_limit_warning_tablet_second">Jūsų planšetinis kompiuteris kaista. Nedelsdami uždarykite šią programą. %1$s bus uždaryta automatiškai po %2$d sek., o visi neišsaugoti duomenys bus prarasti.</string>
     <string name="overheat_limit_closed_title">Programa uždaryta</string>
     <string name="overheat_limit_closed">%1$s uždaryta. Jūsų telefonas kaista. Pabandykite pasinaudoti %2$s dar kartą, kai telefonas atvės.</string>
     <string name="overheat_limit_ok">Gerai</string>

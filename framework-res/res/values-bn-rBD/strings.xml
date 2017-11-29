@@ -1591,6 +1591,8 @@
     <string name="batt_cooldown_mode_ok">ওকে</string>
     <string name="overheat_limit_warning_title">ফোন বেশি গরম হচ্ছে</string>
     <string name="overheat_limit_warning">আপনার ফোন বেশি গরম হচ্ছে। এই অ্যাপটি অবিলম্বে বন্ধ করুন৷ 1 মিনিট পর %s স্বয়ংক্রিয়ভাবে বন্ধ হবে, এবং অসংরক্ষিত যেকোনো তথ্য হারিয়ে যাবে৷</string>
+    <string name="overheat_limit_warning_phone_second">আপনার ফোন বেশি গরম হচ্ছে। এই অ্যাপটি অবিলম্বে বন্ধ করুন৷ %2$d সেকেন্ড পর %1$s স্বয়ংক্রিয়ভাবে বন্ধ হবে, এবং অসংরক্ষিত যেকোনো তথ্য হারিয়ে যাবে৷</string>
+    <string name="overheat_limit_warning_tablet_second">আপনার ট্যাবলেট বেশি গরম হচ্ছে৷ এই অ্যাপটি অবিলম্বে বন্ধ করুন৷ %2$d সেকেন্ড পর %1$s স্বয়ংক্রিয়ভাবে বন্ধ হবে, এবং অসংরক্ষিত যেকোনো তথ্য হারিয়ে যাবে৷</string>
     <string name="overheat_limit_closed_title">অ্যাপ বন্ধ হয়েছে</string>
     <string name="overheat_limit_closed">%1$s বন্ধ হয়েছে৷ আপনার ফোন বেশি গরম হচ্ছে। আপনার ফোন ঠান্ডা হওয়ার পর আবার %2$s ব্যবহারের চেষ্টা করুন৷</string>
     <string name="overheat_limit_ok">ঠিক আছে</string>

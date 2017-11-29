@@ -893,6 +893,8 @@ buýruk"</string>
     <string name="batt_cooldown_mode_ok">OK</string>
     <string name="overheat_limit_warning_title">Telefon gyzýar</string>
     <string name="overheat_limit_warning">Telefonyňyz gyzýar. Bu goýmany derrew ýapyň. %s 1 minutdan awtomatik ýapylar we ýazdyrylmadyk maglumat ýiter.</string>
+    <string name="overheat_limit_warning_phone_second">Telefonyňyz gyzýar. Bu goýmany derrew ýapyň. %1$s %2$d sekuntdan awtomatik ýapylar we ýazdyrylmadyk maglumat ýiter.</string>
+    <string name="overheat_limit_warning_tablet_second">Planşetiňiz gyzýar. Bu goýmany derrew ýapyň. %1$s %2$d sekuntdan awtomatik ýapylar we ýazdyrylmadyk maglumat ýiter.</string>
     <string name="overheat_limit_closed_title">Goýma ýapyldy</string>
     <string name="overheat_limit_closed">%1$s ýapyldy. Telefonyňyz gyzýar. Telefonyňyz sowansoň, %2$s ýene ulanyp görüň.</string>
     <string name="overheat_limit_ok">OK</string>

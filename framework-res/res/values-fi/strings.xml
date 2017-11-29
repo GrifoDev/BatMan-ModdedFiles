@@ -1595,6 +1595,8 @@ komento"</string>
     <string name="batt_cooldown_mode_ok">OK</string>
     <string name="overheat_limit_warning_title">Puhelin ylikuumenee</string>
     <string name="overheat_limit_warning">Puhelin ylikuumenee. Sulje tämä sovellus välittömästi. %s suljetaan automaattisesti 1 minuutin kuluttua, ja kaikki tallentamattomat tiedot menetetään.</string>
+    <string name="overheat_limit_warning_phone_second">Puhelin ylikuumenee. Sulje tämä sovellus välittömästi. %1$s suljetaan automaattisesti %2$d sekunnin kuluttua, ja kaikki tallentamattomat tiedot menetetään.</string>
+    <string name="overheat_limit_warning_tablet_second">Tablet-laite ylikuumenee. Sulje tämä sovellus välittömästi. %1$s suljetaan automaattisesti %2$d sekunnin kuluttua, ja kaikki tallentamattomat tiedot menetetään.</string>
     <string name="overheat_limit_closed_title">Sovellus suljettu</string>
     <string name="overheat_limit_closed">%1$s on suljettu. Puhelin ylikuumenee. Yritä käyttää sovellusta %2$s uudelleen, kun puhelin on jäähtynyt.</string>
     <string name="overheat_limit_ok">OK</string>

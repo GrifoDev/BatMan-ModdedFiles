@@ -1596,6 +1596,8 @@ príkaz"</string>
     <string name="batt_cooldown_mode_ok">OK</string>
     <string name="overheat_limit_warning_title">Telefón sa prehrieva</string>
     <string name="overheat_limit_warning">Telefón sa prehrieva. Ihneď zavrite túto aplikáciu. Aplikácia %s sa v priebehu 1 minúty automaticky zavrie a stratíte všetky neuložené údaje.</string>
+    <string name="overheat_limit_warning_phone_second">Telefón sa prehrieva. Ihneď zavrite túto aplikáciu. Aplikácia %1$s sa v priebehu %2$d sekúnd automaticky zavrie a stratíte všetky neuložené údaje.</string>
+    <string name="overheat_limit_warning_tablet_second">Tablet sa prehrieva. Ihneď zavrite túto aplikáciu. Aplikácia %1$s sa v priebehu %2$d sekúnd automaticky zavrie a stratíte všetky neuložené údaje.</string>
     <string name="overheat_limit_closed_title">Aplikácia sa zavrela</string>
     <string name="overheat_limit_closed">Aplikácia %1$s sa zavrela. Telefón sa prehrieva. Skúste použiť aplikáciu %2$s znova po ochladení telefónu.</string>
     <string name="overheat_limit_ok">OK</string>

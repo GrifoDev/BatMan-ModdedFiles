@@ -1590,6 +1590,8 @@
     <string name="batt_cooldown_mode_ok">OK</string>
     <string name="overheat_limit_warning_title">Утас хэт халж байна</string>
     <string name="overheat_limit_warning">Таны утас хэт халж байна. Энэ хэрэглүүрийг нэн даруй хаана уу. 1 минутын дараа %s автоматаар хаагдах ба хадгалагдаагүй өгөгдлүүд алга болно.</string>
+    <string name="overheat_limit_warning_phone_second">Таны утас хэт халж байна. Энэ хэрэглүүрийг нэн даруй хаа. %1$s-г %2$d секундын дараа автоматаар хаах ба хадгалагдаагүй бүх өгөгдөл устана.</string>
+    <string name="overheat_limit_warning_tablet_second">Таны таблет хэт халж байна. Энэ хэрэглүүрийг нэн даруй хаа. %1$s-г %2$d секундын дараа автоматаар хаах ба хадгалагдаагүй бүх өгөгдөл устана.</string>
     <string name="overheat_limit_closed_title">Хэрэглүүр хаагдлаа</string>
     <string name="overheat_limit_closed">%1$s хаагдсан. Таны утас хэт халж байна. Утсаа хөрсний дараа %2$s-г дахин ашиглаад үзнэ үү.</string>
     <string name="overheat_limit_ok">ОК</string>

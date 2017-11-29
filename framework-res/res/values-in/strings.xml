@@ -1596,6 +1596,8 @@ udara"</string>
     <string name="batt_cooldown_mode_ok">OK</string>
     <string name="overheat_limit_warning_title">Ponsel terlalu panas</string>
     <string name="overheat_limit_warning">Ponsel terlalu panas. Segera tutup aplikasi ini. %s akan ditutup secara otomatis dalam 1 menit, dan data yang tidak disimpan akan hilang.</string>
+    <string name="overheat_limit_warning_phone_second">Ponsel terlalu panas. Segera tutup aplikasi ini. %1$s akan ditutup secara otomatis dalam %2$d detik, dan data yang tidak disimpan akan hilang.</string>
+    <string name="overheat_limit_warning_tablet_second">Tablet terlalu panas. Segera tutup aplikasi ini. %1$s akan ditutup secara otomatis dalam %2$d detik, dan data yang tidak disimpan akan hilang.</string>
     <string name="overheat_limit_closed_title">Aplikasi ditutup</string>
     <string name="overheat_limit_closed">%1$s ditutup. Ponsel terlalu panas. Coba gunakan %2$s lagi setelah ponsel mendingin.</string>
     <string name="overheat_limit_ok">OK</string>

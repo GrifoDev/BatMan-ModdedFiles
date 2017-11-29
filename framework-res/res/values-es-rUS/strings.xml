@@ -1595,8 +1595,10 @@ aéreo"</string>
     <string name="batt_cooldown_mode_ok">Aceptar</string>
     <string name="overheat_limit_warning_title">Sobrecalentamiento del teléfono</string>
     <string name="overheat_limit_warning">Su teléfono se está sobrecalentando. Cierre esta aplicación inmediatamente. %s se cerrará automáticamente dentro de 1 minuto y los datos que no haya guardado se perderán.</string>
+    <string name="overheat_limit_warning_phone_second">Su teléfono se está sobrecalentando. Cierre esta aplicación inmediatamente. %1$s se cerrará automáticamente dentro de %2$d segundos, y los datos que no haya guardado se perderán.</string>
+    <string name="overheat_limit_warning_tablet_second">Su tableta se está sobrecalentando. Cierre esta aplicación inmediatamente. %1$s se cerrará automáticamente dentro de %2$d segundos, y los datos que no haya guardado se perderán.</string>
     <string name="overheat_limit_closed_title">Se cerró una aplicación</string>
-    <string name="overheat_limit_closed">Se cerró %1$s. Su teléfono se está sobrecalentando. Espere a que se enfríe e intente usar %2$s.</string>
+    <string name="overheat_limit_closed">Se cerró %1$s. Su teléfono se está sobrecalentando. Espere a que se enfríe y vuelva a intentar usar %2$s.</string>
     <string name="overheat_limit_ok">ACEPTAR</string>
     <string name="restart_confirm">Se reiniciará el dispositivo.</string>
     <string name="tw_reboot_safemode_title_vzw">Reiniciar en Modo seguro</string>

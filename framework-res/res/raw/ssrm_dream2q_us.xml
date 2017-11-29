@@ -44,9 +44,15 @@
         <setting name="PST">
             <set default="15" min="15" max="15" step="0" />
         </setting>
-        <setting name="FunctionsLimitation">
-            <set ovht_pst="540" ovht_bat="450" final_pst="600" final_bat="500" />
-            <set ovht_pst="540" ovht_bat="450" region="CHINA"/>
+        <setting name="OverheatComplexControl">
+            <set ovht_mw_pst="540" ovht_mw_bat="450" />
+            <set ovht_low_temp_burn_pst="540" ovht_low_temp_burn_bat="450" />
+            <set ovht_security_standard_pst="600" ovht_security_standard_bat="500" />
+        </setting>
+        <setting name="OverheatComplexControl" region="CHINA">
+            <set ovht_mw_pst="540" ovht_mw_bat="450" />
+            <set ovht_low_temp_burn_pst="540" ovht_low_temp_burn_bat="450" />
+            <set ovht_security_standard_pst="540" ovht_security_standard_bat="450" />
         </setting>
     </model_settings>
 
@@ -101,6 +107,12 @@
             <table_item temp="510" value="30" />
             <table_item temp="530" value="10" />
         </limiter>
+        <limiter name="HotspotTput" type="number">
+            <table_item temp="440" value="-1" />
+        </limiter>
+        <limiter name="MaxVolume" type="number">
+            <table_item temp="440" value="-1" />
+        </limiter>
     </default_scenario>
 
     <extra_scenario>
@@ -133,26 +145,6 @@
         </scenario>
 
         <scenario name="Navigation">
-            <trigger_packages>
-                <package name="com.google.android.apps.maps" />
-                <package name="com.skt.skaf.l001mtm091" />
-                <package name="com.skt.tmap.ku" />
-                <package name="kt.navi" />
-                <package name="com.mnsoft.lgunavi" />
-                <package name="com.lguplus.navi" />
-                <package name="com.locnall.KimGiSa" />
-                <package name="kr.mappers.AtlanSmart" />
-                <package name="com.mnsoft.mappyobn" />
-                <package name="com.thinkware.inaviair" />
-                <package name="com.thinkware.sundo.inavi3d" />
-                <package name="net.daum.android.map" />
-                <package name="com.nhn.android.nmap" />
-                <package name="com.autonavi.minimap" />
-                <package name="com.sogou.map.android.maps" />
-                <package name="com.tencent.map" />
-                <package name="com.baidu.BaiduMap" />
-            </trigger_packages>
-
             <limiter name="CPUFreqMax" type="STS">
                 <sts_item trigger="440" release="400" min="1056000" />
             </limiter>
@@ -431,6 +423,27 @@
             <limiter name="LCDBrightness" type="number">
                 <table_item temp="330" value="-1" />
                 <table_item temp="370" value="120" />
+            </limiter>
+        </scenario>
+
+        <scenario name="OverheatComplexControlForLowTemp" priority="2">
+            <limiter name="WifiTput" type="number">
+                <table_item temp="440" value="10" />
+            </limiter>
+            <limiter name="HotspotTput" type="number">
+                <table_item temp="440" value="10" />
+            </limiter>
+        </scenario>
+
+        <scenario name="OverheatComplexControl" priority="3">
+            <limiter name="LCDBrightness" type="number">
+                <table_item temp="440" value="116" />
+            </limiter>
+            <limiter name="MaxVolume" type="number">
+                <table_item temp="440" value="13" />
+            </limiter>
+            <limiter name="HotspotTput" type="number">
+                <table_item temp="440" value="1" />
             </limiter>
         </scenario>
 

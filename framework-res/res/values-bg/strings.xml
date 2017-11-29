@@ -1596,6 +1596,8 @@
     <string name="batt_cooldown_mode_ok">OK</string>
     <string name="overheat_limit_warning_title">Телефонът прегрява</string>
     <string name="overheat_limit_warning">Телефонът прегрява. Затворете това приложение незабавно. %s ще се затвори автоматично след 1 минута и всички незаписани данни ще бъдат загубени.</string>
+    <string name="overheat_limit_warning_phone_second">Телефонът прегрява. Затворете това приложение незабавно. %1$s ще се затвори автоматично след %2$d секунди и всички незаписани данни ще бъдат загубени.</string>
+    <string name="overheat_limit_warning_tablet_second">Таблетът прегрява. Затворете това приложение незабавно. %1$s ще се затвори автоматично след %2$d секунди и всички незаписани данни ще бъдат загубени.</string>
     <string name="overheat_limit_closed_title">Приложението е затворено</string>
     <string name="overheat_limit_closed">%1$s се затвори. Телефонът прегрява. Опитайте да използвате %2$s отново, след като телефонът се охлади.</string>
     <string name="overheat_limit_ok">OK</string>

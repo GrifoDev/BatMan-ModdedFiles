@@ -1595,6 +1595,8 @@ aéreo"</string>
     <string name="batt_cooldown_mode_ok">OK</string>
     <string name="overheat_limit_warning_title">Sobreaquecimento telefone</string>
     <string name="overheat_limit_warning">O seu telefone está a sobreaquecer. Feche esta aplicação imediatamente. %s será fechado automaticamente dentro de 1 minuto e os dados não guardados serão perdidos.</string>
+    <string name="overheat_limit_warning_phone_second">O seu telefone está a sobreaquecer. Feche esta aplicação imediatamente. %1$s será fechado automaticamente dentro de %2$d segundos e os dados não guardados serão perdidos.</string>
+    <string name="overheat_limit_warning_tablet_second">O seu tablet está a sobreaquecer. Feche esta aplicação imediatamente. %1$s será fechado automaticamente dentro de %2$d segundos e os dados não guardados serão perdidos.</string>
     <string name="overheat_limit_closed_title">Aplicação fechada</string>
     <string name="overheat_limit_closed">%1$s fechado. O seu telefone está a sobreaquecer. Tende utilizar %2$s novamente depois de o telefone ter arrefecido.</string>
     <string name="overheat_limit_ok">OK</string>

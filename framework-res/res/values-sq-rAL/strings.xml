@@ -1590,6 +1590,8 @@ ajrore"</string>
     <string name="batt_cooldown_mode_ok">OK</string>
     <string name="overheat_limit_warning_title">Telefoni po mbinxehet</string>
     <string name="overheat_limit_warning">Telefoni yt po mbinxehet. Mbylle këtë app menjëherë. %s do të mbyllet automatikisht pas 1 minute, dhe të gjitha të dhënat e paruajtura do të humbasin.</string>
+    <string name="overheat_limit_warning_phone_second">Telefoni yt po mbinxehet. Mbylle këtë app menjëherë. %1$s do të mbyllet automatikisht pas %2$d sekondash, dhe të gjitha të dhënat e paruajtura do të humbasin.</string>
+    <string name="overheat_limit_warning_tablet_second">Tableta jote po mbinxehet. Mbylle këtë app menjëherë. %1$s do të mbyllet automatikisht pas %2$d sekondash, dhe të gjitha të dhënat e paruajtura do të humbasin.</string>
     <string name="overheat_limit_closed_title">App-i u mbyll</string>
     <string name="overheat_limit_closed">%1$s u mbyll. Telefoni yt po mbinxehet. Provo ta përdorësh %2$s sërish, pasi të ftohet telefoni.</string>
     <string name="overheat_limit_ok">OK</string>

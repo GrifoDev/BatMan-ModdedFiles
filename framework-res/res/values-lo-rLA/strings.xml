@@ -1590,6 +1590,8 @@
     <string name="batt_cooldown_mode_ok">ຕົກລົງ</string>
     <string name="overheat_limit_warning_title">ໂທລະສັບກຳລັງຮ້ອນເກີນໄປ</string>
     <string name="overheat_limit_warning">ໂທລະສັບຂອງທ່ານ​ກຳ​ລັງຮ້ອນເກີນ​ໄປ. ປິດແອັບນີ້ໂດຍທັນທີ. %s ຈະຖືກປິດໂດຍອັດຕະໂນມັດໃນ 1 ນາທີ, ແລະຂໍ້ມູນທີ່ບໍ່ໄດ້ບັນທຶກໃດໜຶ່ງຈະສູນເສຍໄປ.</string>
+    <string name="overheat_limit_warning_phone_second">ໂທລະສັບຂອງທ່ານ​ຮ້ອນເກີນ​ໄປ. ປິດແອັບນີ້ໂດຍທັນທີ. %1$s ຈະຖືກປິດໂດຍອັດຕະໂນມັດໃນ %2$d ວິນາທີ, ແລະຂໍ້ມູນທີ່ບໍ່ໄດ້ບັນທຶກໃດໜຶ່ງຈະສູນເສຍໄປ.</string>
+    <string name="overheat_limit_warning_tablet_second">ແທັບເລັດຂອງທ່ານຮ້ອນເກີນ​ໄປ. ປິດແອັບນີ້ໂດຍທັນທີ. %1$s ຈະຖືກປິດໂດຍອັດຕະໂນມັດໃນ %2$d ວິນາທີ, ແລະຂໍ້ມູນທີ່ບໍ່ໄດ້ບັນທຶກໃດໜຶ່ງຈະສູນເສຍໄປ.</string>
     <string name="overheat_limit_closed_title">ປິດແອັບແລ້ວ</string>
     <string name="overheat_limit_closed">ປິດ %1$s ແລ້ວ. ໂທລະສັບຂອງທ່ານ​ກຳ​ລັງຮ້ອນເກີນ​ໄປ. ລອງໃຊ້ %2$s ອີກຄັ້ງຫຼັງຈາກໂທລະສັບຂອງທ່ານເຢັນລົງ.</string>
     <string name="overheat_limit_ok">ຕົກລົງ</string>

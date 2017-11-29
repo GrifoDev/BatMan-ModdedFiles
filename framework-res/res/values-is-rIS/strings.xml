@@ -1591,6 +1591,8 @@ skipun"</string>
     <string name="batt_cooldown_mode_ok">Í lagi</string>
     <string name="overheat_limit_warning_title">Síminn er að ofhitna</string>
     <string name="overheat_limit_warning">Síminn þinn er að ofhitna. Lokaðu þessu forriti samstundis. „%s“ verður sjálfkrafa lokað eftir 1 mínútu og öll gögn sem ekki hafa verið vistuð munu glatast.</string>
+    <string name="overheat_limit_warning_phone_second">Síminn þinn er verða of heitur. Lokaðu þessu forriti samstundis. „%1$s“ verður sjálfkrafa lokað eftir %2$d sekúndur og öll gögn sem ekki hafa verið vistuð munu glatast.</string>
+    <string name="overheat_limit_warning_tablet_second">Spjaldtölvan þín er að verða of heit. Lokaðu þessu forriti samstundis. „%1$s“ verður sjálfkrafa lokað eftir %2$d sekúndur og öll gögn sem ekki hafa verið vistuð munu glatast.</string>
     <string name="overheat_limit_closed_title">Forriti lokað</string>
     <string name="overheat_limit_closed">„%1$s“ var lokað vegna þess að síminn er að ofhitna. Prófaðu að nota „%2$s“ aftur þegar síminn hefur kólnað.</string>
     <string name="overheat_limit_ok">Í LAGI</string>

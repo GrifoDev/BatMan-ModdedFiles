@@ -1596,6 +1596,8 @@ sensore"</string>
     <string name="batt_cooldown_mode_ok">OK</string>
     <string name="overheat_limit_warning_title">Surriscaldamento telefono</string>
     <string name="overheat_limit_warning">Il telefono si sta surriscaldando. Chiudete subito questa applicazione. %s verrà chiusa automaticamente tra 1 minuto e i dati non salvati andranno persi.</string>
+    <string name="overheat_limit_warning_phone_second">Il telefono si sta surriscaldando. Chiudete subito questa applicazione. L’applicazione %1$s verrà chiusa automaticamente tra %2$d secondi e i dati non salvati andranno persi.</string>
+    <string name="overheat_limit_warning_tablet_second">Il tablet si sta surriscaldando. Chiudete subito questa applicazione. L’applicazione %1$s verrà chiusa automaticamente tra %2$d secondi e i dati non salvati andranno persi.</string>
     <string name="overheat_limit_closed_title">Applicazione chiusa</string>
     <string name="overheat_limit_closed">%1$s chiusa. Il telefono si sta surriscaldando. Provate a riutilizzare %2$s dopo che il telefono si sarà raffreddato.</string>
     <string name="overheat_limit_ok">OK</string>

@@ -1596,6 +1596,8 @@ komm."</string>
     <string name="batt_cooldown_mode_ok">OK</string>
     <string name="overheat_limit_warning_title">Telefonen er overopphetet</string>
     <string name="overheat_limit_warning">Telefonen er overopphetet. Lukk denne appen umiddelbart. %s lukkes automatisk om 1 minutt, og alle ulagrede data vil gå tapt.</string>
+    <string name="overheat_limit_warning_phone_second">Telefonen er overopphetet. Lukk denne appen umiddelbart. %1$s lukkes automatisk om %2$d sekunder, og alle ulagrede data vil gå tapt.</string>
+    <string name="overheat_limit_warning_tablet_second">Nettbrettet er overopphetet. Lukk denne appen umiddelbart. %1$s lukkes automatisk om %2$d sekunder, og alle ulagrede data vil gå tapt.</string>
     <string name="overheat_limit_closed_title">Appen ble lukket</string>
     <string name="overheat_limit_closed">%1$s er lukket. Telefonen er overopphetet. Prøv å bruke %2$s igjen når telefonen har kjølt seg ned.</string>
     <string name="overheat_limit_ok">OK</string>

@@ -890,6 +890,8 @@
     <string name="batt_cooldown_mode_ok">ওকে</string>
     <string name="overheat_limit_warning_title">ফোন অতিরিক্ত উত্তপ্ত</string>
     <string name="overheat_limit_warning">আপনার ফোনটি অতিরিক্ত উত্তপ্ত হচ্ছে। এই অ্যাপটি তৎক্ষণাৎ বন্ধ করুন। %s স্বয়ংক্রিয়ভাবে 1 মিনিটে বন্ধ হবে ও যেকোনও অসংরক্ষিত তথ্য হারিয়ে যাবে।</string>
+    <string name="overheat_limit_warning_phone_second">আপনার ফোন অতিরিক্ত উত্তপ্ত হচ্ছে। এই অ্যাপটি তৎক্ষণাৎ বন্ধ করুন। %1$s স্বয়ংক্রিয়ভাবে %2$d সেকেন্ডে বন্ধ হবে ও যেকোনও অসংরক্ষিত তথ্য হারিয়ে যাবে।</string>
+    <string name="overheat_limit_warning_tablet_second">আপনার ট্যাবলেট অতিরিক্ত উত্তপ্ত হচ্ছে। এই অ্যাপটি তৎক্ষণাৎ বন্ধ করুন। %1$s স্বয়ংক্রিয়ভাবে %2$d সেকেন্ডে বন্ধ হবে ও যেকোনও অসংরক্ষিত তথ্য হারিয়ে যাবে।</string>
     <string name="overheat_limit_closed_title">অ্যাপ বন্ধ হয়েছে</string>
     <string name="overheat_limit_closed">%1$s বন্ধ হয়েছে। আপনার ফোনটি অতিরিক্ত উত্তপ্ত হচ্ছে। আপনার ফোনটি ঠান্ডা হওয়ার পরে %2$s আবার ব্যবহার করার চেষ্টা করুন।</string>
     <string name="overheat_limit_ok">ওকে</string>

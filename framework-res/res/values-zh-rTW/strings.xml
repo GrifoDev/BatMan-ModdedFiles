@@ -1595,6 +1595,8 @@ Memo"</string>
     <string name="batt_cooldown_mode_ok">確定</string>
     <string name="overheat_limit_warning_title">手機過熱</string>
     <string name="overheat_limit_warning">手機過熱。請立即關閉此應用程式。%s 將於 1 分鐘後自動關閉，所有未儲存的資料都將遺失。</string>
+    <string name="overheat_limit_warning_phone_second">手機過熱。請立即關閉此應用程式。%1$s 將於 %2$d 秒鐘後自動關閉，所有未儲存的資料都將遺失。</string>
+    <string name="overheat_limit_warning_tablet_second">平板過熱。請立即關閉此應用程式。%1$s 將於 %2$d 秒鐘後自動關閉，所有未儲存的資料都將遺失。</string>
     <string name="overheat_limit_closed_title">已關閉應用程式</string>
     <string name="overheat_limit_closed">%1$s 已關閉。您的手機過熱。請待手機降溫再嘗試使用 %2$s。</string>
     <string name="overheat_limit_ok">確定</string>

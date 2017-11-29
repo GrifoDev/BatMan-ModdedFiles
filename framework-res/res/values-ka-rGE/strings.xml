@@ -1591,6 +1591,8 @@
     <string name="batt_cooldown_mode_ok">კი</string>
     <string name="overheat_limit_warning_title">ტელეფონი გადახურების პირასაა</string>
     <string name="overheat_limit_warning">ტელეფონი გადახურების პირასაა. დაუყოვნებლივ დახურეთ ეს აპლიკაცია. %s ავტომატურად დაიხურება 1 წუთში და შეუნახავი მონაცემები წაიშლება.</string>
+    <string name="overheat_limit_warning_phone_second">ტელეფონი გადახურების პირასაა. დაუყოვნებლივ დახურეთ ეს აპლიკაცია. %1$s ავტომატურად დაიხურება %2$d წამში და შეუნახავი მონაცემები წაიშლება.</string>
+    <string name="overheat_limit_warning_tablet_second">პლანშეტი გადახურების პირასაა. დაუყოვნებლივ დახურეთ ეს აპლიკაცია. %1$s ავტომატურად დაიხურება %2$d წამში და შეუნახავი მონაცემები წაიშლება.</string>
     <string name="overheat_limit_closed_title">აპლიკაცია დაიხურა</string>
     <string name="overheat_limit_closed">%1$s დაიხურა. ტელეფონი გადახურების პირასაა. ისევ სცადეთ გამოიყენოთ %2$s, როდესაც ტელეფონი გაგრილდება.</string>
     <string name="overheat_limit_ok">OK</string>

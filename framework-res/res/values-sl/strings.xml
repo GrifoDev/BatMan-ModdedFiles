@@ -1595,6 +1595,8 @@ ukaz"</string>
     <string name="batt_cooldown_mode_ok">V redu</string>
     <string name="overheat_limit_warning_title">Pregrevanje telefona</string>
     <string name="overheat_limit_warning">Telefon se pregreva. Takoj zaprite to aplikacijo. Aplikacija %s se bo čez 1 minuto zaprla samodejno, vsi neshranjeni podatki pa bodo izgubljeni.</string>
+    <string name="overheat_limit_warning_phone_second">Telefon se pregreva. Takoj zaprite to aplikacijo. Aplikacija %1$s se bo čez %2$d s zaprla samodejno, vsi neshranjeni podatki pa bodo izgubljeni.</string>
+    <string name="overheat_limit_warning_tablet_second">Tablični računalnik se pregreva. Takoj zaprite to aplikacijo. Aplikacija %1$s se bo čez %2$d s zaprla samodejno, vsi neshranjeni podatki pa bodo izgubljeni.</string>
     <string name="overheat_limit_closed_title">Aplikacija je zaprta</string>
     <string name="overheat_limit_closed">Aplikacija %1$s se je zaprla. Telefon se pregreva. Poskusite znova uporabiti aplikacijo %2$s, ko se telefon ohladi.</string>
     <string name="overheat_limit_ok">V REDU</string>

@@ -1590,6 +1590,8 @@
     <string name="batt_cooldown_mode_ok">సరే</string>
     <string name="overheat_limit_warning_title">ఫోన్ వేడెక్కుతోంది</string>
     <string name="overheat_limit_warning">మీ ఫోన్ చాలా వేడెక్కుతోంది. ఈ అప్లికేషన్‌ను వెంటనే మూసివేయండి. 1 నిమిషంలో %s స్వయంచాలకంగా మూసివేయబడుతుంది మరియు ఏదైనా సేవ్ చేయని డేటాను కోల్పోతారు.</string>
+    <string name="overheat_limit_warning_phone_second">మీ ఫోన్ చాలా వేడెక్కుతోంది. ఈ అప్లికేషన్‌ను వెంటనే మూసివేయండి. %2$d సెకన్లలో %1$s స్వయంచాలకంగా మూసివేయబడుతుంది మరియు సేవ్ చేయని ఏదైనా డేటాను కోల్పోతారు.</string>
+    <string name="overheat_limit_warning_tablet_second">మీ టాబ్లెట్ చాలా వేడెక్కుతోంది. ఈ అప్లికేషన్‌ను వెంటనే మూసివేయండి. %2$d సెకన్లలో %1$s స్వయంచాలకంగా మూసివేయబడుతుంది మరియు సేవ్ చేయని ఏదైనా డేటాను కోల్పోతారు.</string>
     <string name="overheat_limit_closed_title">అప్లికేషన్ మూసివేయబడింది</string>
     <string name="overheat_limit_closed">%1$s మూసివేయబడింది. మీ ఫోన్ చాలా వేడెక్కుతోంది. మీ ఫోన్ చల్లబడిన తర్వాత %2$sని మళ్లీ ఉపయోగించడానికి ప్రయత్నించండి.</string>
     <string name="overheat_limit_ok">సరే</string>

@@ -1429,6 +1429,8 @@
     <string name="batt_cooldown_mode_ok">ठीक छ</string>
     <string name="overheat_limit_warning_title">फोन धेरै तातो हुँदैछ</string>
     <string name="overheat_limit_warning">तपाईको फोन धेरै तातो भइरहेको छ। यस एपलाई तुरुन्त बन्द गर्नुहोस्। %s लाई 1 मिनटमा स्वचालित रूपमा बन्द गरिनेछ र सेव नगरिएको जुनसुकै डाटा गुम्नेछ।</string>
+    <string name="overheat_limit_warning_phone_second">तपाईको फोन धेरै तातो भइरहेको छ। यस एपलाई तुरुन्त बन्द गर्नुहोस्। %1$s लाई %2$d सेकेन्डमा स्वचालित रूपमा बन्द गरिनेछ र सेव नगरिएको जुनसुकै डाटा गुम्नेछ।</string>
+    <string name="overheat_limit_warning_tablet_second">तपाईको ट्याबलेट धेरै तातो भइरहेको छ। यस एपलाई तुरुन्त बन्द गर्नुहोस्। %1$s लाई %2$d सेकेन्डमा स्वचालित रूपमा बन्द गरिनेछ र सेव नगरिएको जुनसुकै डाटा गुम्नेछ।</string>
     <string name="overheat_limit_closed_title">एपलाई बन्द गरियो</string>
     <string name="overheat_limit_closed">%1$s लाई बन्द गरियो। तपाईको फोन धेरै तातो भइरहेको छ। तपाईको फोन चिसो भएपछि %2$s फेरि प्रयोग गरी हेर्नुहोस्।</string>
     <string name="overheat_limit_ok">ठीक छ</string>

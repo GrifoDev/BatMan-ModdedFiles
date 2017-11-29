@@ -1596,6 +1596,8 @@ komanda"</string>
     <string name="batt_cooldown_mode_ok">Labi</string>
     <string name="overheat_limit_warning_title">Tālrunis ir pārkarsis</string>
     <string name="overheat_limit_warning">Tālrunis ir pārkarsis. Nekavējoties aizveriet šo programmu. %s pēc 1 minūtes tiks automātiski aizvērta, un visi nesaglabātie dati tiks zaudēti.</string>
+    <string name="overheat_limit_warning_phone_second">Tālrunis ir pārkarsis. Nekavējoties aizveriet šo programmu. Programma %1$s pēc %2$d sekundēm tiks automātiski aizvērta, un visi nesaglabātie dati tiks zaudēti.</string>
+    <string name="overheat_limit_warning_tablet_second">Planšetdators ir pārkarsis. Nekavējoties aizveriet šo programmu. Programma %1$s pēc %2$d sekundēm tiks automātiski aizvērta, un visi nesaglabātie dati tiks zaudēti.</string>
     <string name="overheat_limit_closed_title">Programma ir aizvērta</string>
     <string name="overheat_limit_closed">Programma %1$s ir aizvērta. Tālrunis ir pārkarsis. Mēģiniet atkal lietot %2$s, kad tālrunis būs atdzisis.</string>
     <string name="overheat_limit_ok">Labi</string>

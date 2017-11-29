@@ -1595,8 +1595,10 @@ komm."</string>
     <string name="batt_cooldown_mode_attentions">Program har stängts</string>
     <string name="batt_cooldown_mode_ok">OK</string>
     <string name="overheat_limit_warning_title">Telefonen överhettas</string>
-    <string name="overheat_limit_warning">Telefonen överhettas. Stäng detta program omedelbart. %s stängs automatiskt om en minut och eventuella data som inte har sparats går förlorade.</string>
-    <string name="overheat_limit_closed_title">Program har stängts</string>
+    <string name="overheat_limit_warning">Telefonen överhettas. Stäng denna app omedelbart. %s stängs automatiskt om en minut och eventuella data som inte har sparats går förlorade.</string>
+    <string name="overheat_limit_warning_phone_second">Telefonen överhettas. Stäng denna app omedelbart. %1$s stängs automatiskt om %2$d sekunder och eventuella data som inte har sparats går förlorade.</string>
+    <string name="overheat_limit_warning_tablet_second">Surfplattan överhettas. Stäng denna app omedelbart. %1$s stängs automatiskt om %2$d sekunder och eventuella data som inte har sparats går förlorade.</string>
+    <string name="overheat_limit_closed_title">Appen har stängts</string>
     <string name="overheat_limit_closed">%1$s stängdes. Telefonen håller på att överhettas. Försök använda %2$s igen när telefonen har svalnat.</string>
     <string name="overheat_limit_ok">OK</string>
     <string name="restart_confirm">Enheten startas om.</string>

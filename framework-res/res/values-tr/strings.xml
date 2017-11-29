@@ -1595,6 +1595,8 @@ komut"</string>
     <string name="batt_cooldown_mode_ok">Tamam</string>
     <string name="overheat_limit_warning_title">Telefon aşırı ısınıyor</string>
     <string name="overheat_limit_warning">Telefonunuz aşırı ısınıyor. Bu uygulamayı hemen kapatın. %s, 1 dakika sonra otomatik olarak kapanacak ve kaydedilmemiş tüm veriler kaybolacak.</string>
+    <string name="overheat_limit_warning_phone_second">Telefonunuz aşırı ısınıyor. Bu uygulamayı hemen kapatın. %1$s, %2$d saniye sonra otomatik olarak kapanacak ve kaydedilmemiş tüm veriler kaybolacak.</string>
+    <string name="overheat_limit_warning_tablet_second">Tabletiniz aşırı ısınıyor. Bu uygulamayı hemen kapatın. %1$s, %2$d saniye sonra otomatik olarak kapanacak ve kaydedilmemiş tüm veriler kaybolacak.</string>
     <string name="overheat_limit_closed_title">Uygulama kapatıldı</string>
     <string name="overheat_limit_closed">%1$s kapatıldı. Telefonunuz aşırı ısınıyor. Telefonunuz soğuduktan sonra %2$s uygulamasını tekrar kullanmayı deneyin.</string>
     <string name="overheat_limit_ok">Tamam</string>

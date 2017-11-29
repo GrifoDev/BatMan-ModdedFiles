@@ -1595,6 +1595,8 @@ Befehl"</string>
     <string name="batt_cooldown_mode_ok">OK</string>
     <string name="overheat_limit_warning_title">Telefon überhitzt</string>
     <string name="overheat_limit_warning">Ihr Telefon überhitzt. Schließen Sie diese App sofort. %s wird in 1 Minute automatisch geschlossen und alle nicht gespeicherten Daten gehen verloren.</string>
+    <string name="overheat_limit_warning_phone_second">Ihr Telefon überhitzt. Schließen Sie diese App sofort. %1$s wird in %2$d Sekunden automatisch geschlossen und alle nicht gespeicherten Daten gehen verloren.</string>
+    <string name="overheat_limit_warning_tablet_second">Ihr Tablet überhitzt. Schließen Sie diese App sofort. %1$s wird in %2$d Sekunden automatisch geschlossen und alle nicht gespeicherten Daten gehen verloren.</string>
     <string name="overheat_limit_closed_title">App geschlossen</string>
     <string name="overheat_limit_closed">%1$s geschlossen. Ihr Telefon überhitzt. Versuchen Sie %2$s zu verwenden, nachdem Ihr Telefon abgekühlt ist.</string>
     <string name="overheat_limit_ok">OK</string>

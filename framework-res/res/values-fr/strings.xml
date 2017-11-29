@@ -1595,6 +1595,8 @@ Command"</string>
     <string name="batt_cooldown_mode_ok">OK</string>
     <string name="overheat_limit_warning_title">Surchauffe du téléphone</string>
     <string name="overheat_limit_warning">Votre téléphone est en surchauffe. Fermez cette application immédiatement. %s se fermera automatiquement dans 1 minute, et les données non enregistrées seront perdues.</string>
+    <string name="overheat_limit_warning_phone_second">Votre téléphone est en surchauffe. Fermez cette application immédiatement. %1$s se fermera automatiquement dans %2$d secondes, et les données non enregistrées seront perdues.</string>
+    <string name="overheat_limit_warning_tablet_second">Votre tablette est en surchauffe. Fermez cette application immédiatement. %1$s se fermera automatiquement dans %2$d secondes, et les données non enregistrées seront perdues.</string>
     <string name="overheat_limit_closed_title">Application fermée</string>
     <string name="overheat_limit_closed">"L'application %1$s s'est fermée. Votre téléphone est en surchauffe. Réessayez d'utiliser %2$s une fois que votre téléphone aura refroidi."</string>
     <string name="overheat_limit_ok">OK</string>

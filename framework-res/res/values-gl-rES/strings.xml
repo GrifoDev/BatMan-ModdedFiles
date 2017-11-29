@@ -1591,6 +1591,8 @@ command"</string>
     <string name="batt_cooldown_mode_ok">Aceptar</string>
     <string name="overheat_limit_warning_title">Teléfono demasiado quente</string>
     <string name="overheat_limit_warning">O teléfono está demasiado quente. Pecha esta aplicación inmediatamente. %s pecharase automaticamente dentro de 1 minuto e os datos sen gardar perderanse.</string>
+    <string name="overheat_limit_warning_phone_second">O teléfono está demasiado quente. Pecha esta aplicación inmediatamente. %1$s pecharase automaticamente dentro de %2$d segundos e perderanse todos os datos sen gardar.</string>
+    <string name="overheat_limit_warning_tablet_second">A tableta está demasiado quente. Pecha esta aplicación inmediatamente. %1$s pecharase automaticamente dentro de %2$d segundos e perderanse todos os datos sen gardar.</string>
     <string name="overheat_limit_closed_title">Aplicación pechada</string>
     <string name="overheat_limit_closed">Pechouse %1$s. O teléfono está demasiado quente. Tenta volver usar %2$s cando arrefríe o teléfono.</string>
     <string name="overheat_limit_ok">ACEPTAR</string>

@@ -1596,6 +1596,8 @@
     <string name="batt_cooldown_mode_ok">تأیید</string>
     <string name="overheat_limit_warning_title">تلفن بیش از حد داغ است</string>
     <string name="overheat_limit_warning">تلفن بیش از حد داغ شده است. این برنامه را فوری ببندید. %s به طور خودکار در عرض ۱ دقیقه بسته خواهد شد و همه اطلاعات ذخیره نشده از بین خواهد رفت.</string>
+    <string name="overheat_limit_warning_phone_second">تلفن بیش از حد داغ شده است. این برنامه را فوری ببندید. %1$s به طور خودکار در عرض %2$d ثانیه بسته خواهد شد و همه اطلاعات ذخیره نشده از بین خواهد رفت.</string>
+    <string name="overheat_limit_warning_tablet_second">تبلت شما بیش از حد داغ شده است. این برنامه را فوری ببندید. %1$s به طور خودکار در عرض %2$d ثانیه بسته خواهد شد و همه اطلاعات ذخیره نشده از بین خواهد رفت.</string>
     <string name="overheat_limit_closed_title">برنامه بسته شد</string>
     <string name="overheat_limit_closed">%1$s بسته شد. تلفن بیش از حد داغ شده است. پس از اینکه تلفن خنک شد، سعی کنید دوباره از %2$s استفاده کنید.</string>
     <string name="overheat_limit_ok">تأیید</string>

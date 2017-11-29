@@ -1590,6 +1590,8 @@
     <string name="batt_cooldown_mode_ok">ठीक</string>
     <string name="overheat_limit_warning_title">फोन अति तापणे</string>
     <string name="overheat_limit_warning">आपला फोन अति तापत आहे. हा अनुप्रयोग त्वरित बंद करा. %s 1 मिनिटा मध्ये स्वयंचलितपणे बंद होईल आणि कोणताही जतन न केलेला डेटा हरवला जाईल.</string>
+    <string name="overheat_limit_warning_phone_second">आपला फोन अति तापत आहे. हा अनुप्रयोग त्वरित बंद करा. %1$s %2$d सेकंदां मध्ये स्वयंचलित पणे बंद होईल आणि कोणताही जतन न केलेला डेटा हरवला जाईल.</string>
+    <string name="overheat_limit_warning_tablet_second">आपला टॅबलेट अति तापत आहे. हा अनुप्रयोग त्वरित बंद करा. %1$s %2$d सेकंदां मध्ये स्वयंचलित पणे बंद होईल आणि कोणताही जतन न केलेला डेटा हरवला जाईल.</string>
     <string name="overheat_limit_closed_title">अनुप्रयोग बंद केले</string>
     <string name="overheat_limit_closed">%1$s बंद केले. आपला फोन अति तापत आहे. आपला फोन थंड झाल्या नंतर पुन्हा %2$s वापरण्याचा प्रयत्न करा.</string>
     <string name="overheat_limit_ok">ठीक</string>

@@ -1596,6 +1596,8 @@ không chạm"</string>
     <string name="batt_cooldown_mode_ok">OK</string>
     <string name="overheat_limit_warning_title">Điện thoại quá nóng</string>
     <string name="overheat_limit_warning">Điện thoại của bạn đang quá nóng. Hãy đóng ứng dụng này ngay. %s sẽ tự động đóng sau 1 phút và tất cả dữ liệu chưa lưu sẽ bị mất.</string>
+    <string name="overheat_limit_warning_phone_second">Điện thoại của bạn đang quá nóng. Hãy đóng ứng dụng này ngay. %1$s sẽ tự động đóng sau %2$d giây và tất cả dữ liệu chưa lưu sẽ bị mất.</string>
+    <string name="overheat_limit_warning_tablet_second">Máy tính bảng của bạn đang quá nóng. Hãy đóng ứng dụng này ngay. %1$s sẽ tự động đóng sau %2$d giây và tất cả dữ liệu chưa lưu sẽ bị mất.</string>
     <string name="overheat_limit_closed_title">Ứng dụng đã đóng</string>
     <string name="overheat_limit_closed">%1$s đã đóng. Điện thoại của bạn đang quá nóng. Hãy thử sử dụng lại %2$s sau khi điện thoại hạ nhiệt.</string>
     <string name="overheat_limit_ok">OK</string>

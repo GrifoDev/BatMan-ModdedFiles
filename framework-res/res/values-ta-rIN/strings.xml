@@ -1590,6 +1590,8 @@
     <string name="batt_cooldown_mode_ok">சரி</string>
     <string name="overheat_limit_warning_title">ஃபோன் அதிக சூடாகிறது</string>
     <string name="overheat_limit_warning">உங்கள் ஃபோன் அதிக சூடாகிறது. உடனடியாக இந்தப் பயன்பாட்டை மூடவும். %s, 1 நிமிடத்தில் தானாகவே நிறுத்தப்படும், சேமிக்கப்படாத எந்தத் தரவையும் இழப்பீர்கள்.</string>
+    <string name="overheat_limit_warning_phone_second">உங்கள் ஃபோன் அதிக சூடாகிறது. உடனடியாக இந்தப் பயன்பாட்டை மூடவும். %1$s, %2$d நிமிடங்களில் தானாகவே மூடப்படும், மேலும் சேமிக்கப்படாத எந்தத் தரவையும் இழப்பீர்கள்.</string>
+    <string name="overheat_limit_warning_tablet_second">உங்கள் டேப்லெட் அதிக சூடாகிறது. உடனடியாக இந்தப் பயன்பாட்டை மூடவும். %1$s, %2$d நிமிடங்களில் தானாகவே மூடப்படும், மேலும் சேமிக்கப்படாத எந்தத் தரவையும் இழப்பீர்கள்.</string>
     <string name="overheat_limit_closed_title">பயன்பாடு மூடப்பட்டது</string>
     <string name="overheat_limit_closed">%1$s மூடப்பட்டது. உங்கள் ஃபோன் அதிக சூடாகிறது. உங்கள் ஃபோன் தணிந்த பிறகு %2$s-ஐ மீண்டும் பயன்படுத்த முயலவும்.</string>
     <string name="overheat_limit_ok">சரி</string>

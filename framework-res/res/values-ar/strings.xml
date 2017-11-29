@@ -1596,6 +1596,8 @@
     <string name="batt_cooldown_mode_ok">موافق</string>
     <string name="overheat_limit_warning_title">تجاوزت درجة حرارة الهاتف المستوى المسموح به</string>
     <string name="overheat_limit_warning">تجاوزت درجة حرارة هاتفك المستوى المسموح به. أغلق هذا التطبيق فوراً. سيتم إغلاق %s تلقائياً في غضون دقيقة واحدة، وسيتم فقدان أي بيانات غير محفوظة.</string>
+    <string name="overheat_limit_warning_phone_second">تتجاوز درجة حرارة هاتفك المستوى المسموح به. أغلق هذا التطبيق فوراً. سيتم إغلاق %1$s تلقائياً في غضون %2$d من الثواني، وسيتم فقدان أي بيانات غير محفوظة.</string>
+    <string name="overheat_limit_warning_tablet_second">تتجاوز درجة حرارة جهازك اللوحي المستوى المسموح به. أغلق هذا التطبيق فوراً. سيتم إغلاق %1$s تلقائياً في غضون %2$d من الثواني، وسيتم فقدان أي بيانات غير محفوظة.</string>
     <string name="overheat_limit_closed_title">تم إغلاق التطبيق</string>
     <string name="overheat_limit_closed">تم إغلاق %1$s. تجاوزت درجة حرارة هاتفك المستوى المسموح به. حاول استخدام %2$s مجدداً بعد أن يبرد هاتفك.</string>
     <string name="overheat_limit_ok">موافق</string>

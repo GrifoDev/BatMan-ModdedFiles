@@ -1431,6 +1431,8 @@
     <string name="batt_cooldown_mode_ok">ОК</string>
     <string name="overheat_limit_warning_title">Перагрэў тэлефона</string>
     <string name="overheat_limit_warning">Ваш тэлефон перагрэўся. Неадкладна закрыйце гэту праграму. Праграма %s будзе аўтаматычна закрыта праз 1 хвіліну, а ўсе незахаваныя даныя будуць страчаны.</string>
+    <string name="overheat_limit_warning_phone_second">Ваш тэлефон пераграваецца. Неадкладна закрыйце гэту праграму. Праграма %1$s будзе аўтаматычна закрыта праз %2$d с, а ўсе незахаваныя даныя будуць страчаны.</string>
+    <string name="overheat_limit_warning_tablet_second">Ваш планшэт пераграваецца. Неадкладна закрыйце гэту праграму. Праграма %1$s будзе аўтаматычна закрыта праз %2$d с, а ўсе незахаваныя даныя будуць страчаны.</string>
     <string name="overheat_limit_closed_title">Праграма закрыта</string>
     <string name="overheat_limit_closed">%1$s закрыта. Ваш тэлефон перагрэўся. Паспрабуйце выкарыстаць %2$s яшчэ раз, калі тэлефон астыне.</string>
     <string name="overheat_limit_ok">OK</string>

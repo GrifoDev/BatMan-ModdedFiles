@@ -1431,6 +1431,8 @@
     <string name="batt_cooldown_mode_ok">හරි</string>
     <string name="overheat_limit_warning_title">දුරකථනය අධිකව රත් වේ</string>
     <string name="overheat_limit_warning">ඔබේ දුරකථනය අධිකව රත් වේ. මෙම යෙදුම වහාම වසන්න. %s විනාඩි 1කින් ස්වයංක්‍රීයව වසා දමනු ඇති අතර, ඕනෑම නොසුරැකි දත්තයක් නැති වනු ඇත.</string>
+    <string name="overheat_limit_warning_phone_second">ඔබේ දුරකථනය අධිකව රත් වේ. මෙම යෙදුම වහාම වසන්න. %1$s තත්පර %2$dකින් ස්වයංක්‍රීයව වසා දමනු ඇති අතර, ඕනෑම නොසුරැකි දත්තයක් නැති වනු ඇත.</string>
+    <string name="overheat_limit_warning_tablet_second">ඔබේ ටැබ්ලටය අධිකව රත් වේ. මෙම යෙදුම වහාම වසන්න. %1$s තත්පර %2$dකින් ස්වයංක්‍රීයව වසා දමනු ඇති අතර, ඕනෑම නොසුරැකි දත්තයක් නැති වනු ඇත.</string>
     <string name="overheat_limit_closed_title">යෙදුම වැසිණි</string>
     <string name="overheat_limit_closed">%1$s වැසිණි. ඔබේ දුරකථනය අධිකව රත් වේ. ඔබේ දුරකථනය සිසිලනය වූ පසුව %2$s නැවත භාවිතයට උත්සාහ කරන්න.</string>
     <string name="overheat_limit_ok">හරි</string>

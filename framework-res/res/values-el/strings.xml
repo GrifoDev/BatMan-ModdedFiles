@@ -1596,6 +1596,8 @@
     <string name="batt_cooldown_mode_ok">OK</string>
     <string name="overheat_limit_warning_title">Υπερθέρμανση τηλεφώνου</string>
     <string name="overheat_limit_warning">Το τηλέφωνό σας υπερθερμάνθηκε. Κλείστε αμέσως αυτήν την εφαρμογή. Η εφαρμογή %s θα κλείσει αυτόματα σε 1 λεπτό και τυχόν μη αποθηκευμένα δεδομένα θα χαθούν.</string>
+    <string name="overheat_limit_warning_phone_second">Το τηλέφωνό σας υπερθερμάνθηκε. Κλείστε αμέσως αυτήν την εφαρμογή. Η εφαρμογή %1$s θα κλείσει αυτόματα σε %2$d δευτερόλεπτα και τυχόν μη αποθηκευμένα δεδομένα θα χαθούν.</string>
+    <string name="overheat_limit_warning_tablet_second">Το tablet σας υπερθερμάνθηκε. Κλείστε αμέσως αυτήν την εφαρμογή. Η εφαρμογή %1$s θα κλείσει αυτόματα σε %2$d δευτερόλεπτα και τυχόν μη αποθηκευμένα δεδομένα θα χαθούν.</string>
     <string name="overheat_limit_closed_title">Η εφαρμογή έκλεισε</string>
     <string name="overheat_limit_closed">Η εφαρμογή %1$s έκλεισε. Το τηλέφωνο υπερθερμάνθηκε. Δοκιμάστε να χρησιμοποιήσετε ξανά την εφαρμογή %2$s μόλις μειωθεί η θερμοκρασία του τηλεφώνου σας.</string>
     <string name="overheat_limit_ok">OK</string>

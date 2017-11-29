@@ -1596,6 +1596,8 @@
     <string name="batt_cooldown_mode_ok">OK</string>
     <string name="overheat_limit_warning_title">端末の過熱</string>
     <string name="overheat_limit_warning">端末が過熱しています。直ちにこのアプリを終了してください。%sは1分後に自動的に終了し、未保存のデータは失われます。</string>
+    <string name="overheat_limit_warning_phone_second">端末が過熱しています。直ちにこのアプリを終了してください。%1$sは%2$d秒後に自動的に終了し、未保存のデータは失われます。</string>
+    <string name="overheat_limit_warning_tablet_second">タブレットが過熱しています。直ちにこのアプリを終了してください。%1$sは%2$d秒後に自動的に終了し、未保存のデータは失われます。</string>
     <string name="overheat_limit_closed_title">アプリを終了</string>
     <string name="overheat_limit_closed">端末が過熱しているため、%1$sを終了しました。%2$sは端末の温度が下がってから使用してください。</string>
     <string name="overheat_limit_ok">OK</string>

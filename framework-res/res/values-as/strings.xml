@@ -894,6 +894,8 @@
     <string name="batt_cooldown_mode_ok">ঠিক</string>
     <string name="overheat_limit_warning_title">ফোনটো অধিক গৰম হৈছে</string>
     <string name="overheat_limit_warning">"আপোনাৰ ফোনটো অধিক গৰম হৈছে। এই এপ তাৎক্ষণিকভাৱে বন্ধ কৰক। %s 1 মিনিটৰ ভিতৰত স্বয়ংক্ৰিয়ভাৱে বন্ধ হ'ব আৰু যিকোনো অসংৰক্ষিত ডাটা হেৰুৱাব।"</string>
+    <string name="overheat_limit_warning_phone_second">"আপোনাৰ ফোনটো অধিক গৰম হৈছে। এই এপটো তাৎক্ষণিকভাৱে বন্ধ কৰক। %1$s %2$d ছেকেণ্ডৰ ভিতৰত স্বয়ংক্ৰিয়ভাৱে বন্ধ হ'ব আৰু যিকোনো অসংৰক্ষিত ডাটা হেৰুৱাব।"</string>
+    <string name="overheat_limit_warning_tablet_second">"আপোনাৰ টেবলেটটো অধিক গৰম হৈছে। এই এপটো তাৎক্ষণিকভাৱে বন্ধ কৰক। %1$s %2$d ছেকেণ্ডৰ ভিতৰত স্বয়ংক্ৰিয়ভাৱে বন্ধ হ'ব আৰু যিকোনো অসংৰক্ষিত ডাটা হেৰুৱাব।"</string>
     <string name="overheat_limit_closed_title">এপ বন্ধ হৈছে</string>
     <string name="overheat_limit_closed">%1$s বন্ধ হৈছে। আপোনাৰ ফোনটো অধিক গৰম হৈছে। আপোনাৰ ফোনটো ঠাণ্ডা হোৱাৰ পিছত %2$s পুনঃ ব্যৱহাৰ কৰিবলৈ চেষ্টা কৰক।</string>
     <string name="overheat_limit_ok">ঠিক</string>

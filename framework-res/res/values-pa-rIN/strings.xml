@@ -1590,6 +1590,8 @@
     <string name="batt_cooldown_mode_ok">ਓਕੇ</string>
     <string name="overheat_limit_warning_title">ਫ਼ੋਨ ਬਹੁਤ ਗਰਮ ਹੋ ਰਿਹਾ ਹੈ</string>
     <string name="overheat_limit_warning">ਤੁਹਾਡਾ ਫ਼ੋਨ ਬਹੁਤ ਗਰਮ ਹੋ ਰਿਹਾ ਹੈ। ਇਸ ਐਪ ਨੂੰ ਤੁਰੰਤ ਬੰਦ ਕਰੋ। %s ਨੂੰ 1 ਮਿੰਟ ਵਿੱਚ ਸਵੈਚਲਿਤ ਹੀ ਬੰਦ ਕਰ ਦਿੱਤਾ ਜਾਵੇਗਾ, ਅਤੇ ਜਿਹੜਾ ਡੈਟਾ ਸੁਰੱਖਿਅਤ ਨਹੀਂ ਕੀਤਾ ਗਿਆ ਉਹ ਗੁਆਚ ਜਾਵੇਗਾ।</string>
+    <string name="overheat_limit_warning_phone_second">ਤੁਹਾਡਾ ਫ਼ੋਨ ਬਹੁਤ ਜ਼ਿਆਦਾ ਗਰਮ ਹੋ ਰਿਹਾ ਹੈ। ਇਸ ਐਪ ਨੂੰ ਤੁਰੰਤ ਬੰਦ ਕਰੋ। %1$s ਨੂੰ %2$d ਸਕਿੰਟ ਵਿੱਚ ਸਵੈਚਲਿਤ ਹੀ ਬੰਦ ਕਰ ਦਿੱਤਾ ਜਾਵੇਗਾ, ਅਤੇ ਜਿਹੜਾ ਡੈਟਾ ਸੁਰੱਖਿਅਤ ਨਹੀਂ ਕੀਤਾ ਗਿਆ ਉਹ ਗੁਆਚ ਜਾਵੇਗਾ।</string>
+    <string name="overheat_limit_warning_tablet_second">ਤੁਹਾਡਾ ਟੈਬਲੇਟ ਬਹੁਤ ਜ਼ਿਆਦਾ ਗਰਮ ਹੋ ਰਿਹਾ ਹੈ। ਇਸ ਐਪ ਨੂੰ ਤੁਰੰਤ ਬੰਦ ਕਰੋ। %1$s ਨੂੰ %2$d ਸਕਿੰਟ ਵਿੱਚ ਸਵੈਚਲਿਤ ਹੀ ਬੰਦ ਕਰ ਦਿੱਤਾ ਜਾਵੇਗਾ, ਅਤੇ ਜਿਹੜਾ ਡੈਟਾ ਸੁਰੱਖਿਅਤ ਨਹੀਂ ਕੀਤਾ ਗਿਆ ਉਹ ਗੁਆਚ ਜਾਵੇਗਾ।</string>
     <string name="overheat_limit_closed_title">ਐਪ ਨੂੰ ਬੰਦ ਕੀਤਾ ਗਿਆ</string>
     <string name="overheat_limit_closed">%1$s ਨੂੰ ਬੰਦ ਕੀਤਾ ਗਿਆ। ਤੁਹਾਡਾ ਫ਼ੋਨ ਬਹੁਤ ਗਰਮ ਹੋ ਰਿਹਾ ਹੈ। ਫ਼ੋਨ ਦੇ ਠੰਡਾ ਹੋਣ ਤੋਂ ਬਾਅਦ %2$s ਦੀ ਦੁਬਾਰਾ ਵਰਤੋਂ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
     <string name="overheat_limit_ok">ਓਕੇ</string>

@@ -1596,6 +1596,8 @@ wskaz."</string>
     <string name="batt_cooldown_mode_ok">OK</string>
     <string name="overheat_limit_warning_title">Przegrzanie telefonu</string>
     <string name="overheat_limit_warning">Telefon przegrzewa się. Natychmiast zamknij tę aplikację. Aplikacja %s zostanie zamknięta automatycznie za 1 minutę, a dowolne niezapisane dane zostaną utracone.</string>
+    <string name="overheat_limit_warning_phone_second">Telefon przegrzewa się. Natychmiast zamknij tę aplikację. Aplikacja %1$s zostanie zamknięta automatycznie za %2$d s, a niezapisane dane zostaną utracone.</string>
+    <string name="overheat_limit_warning_tablet_second">Tablet przegrzewa się. Natychmiast zamknij tę aplikację. Aplikacja %1$s zostanie zamknięta automatycznie za %2$d s, a niezapisane dane zostaną utracone.</string>
     <string name="overheat_limit_closed_title">Aplikacja zamknięta</string>
     <string name="overheat_limit_closed">Aplikacja %1$s została zamknięta. Telefon się przegrzewa. Spróbuj ponownie użyć aplikacji %2$s po ostygnięciu telefonu.</string>
     <string name="overheat_limit_ok">OK</string>

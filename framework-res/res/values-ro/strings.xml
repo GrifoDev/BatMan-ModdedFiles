@@ -1595,6 +1595,8 @@ pe ecr."</string>
     <string name="batt_cooldown_mode_ok">OK</string>
     <string name="overheat_limit_warning_title">Supraîncălzire telefon</string>
     <string name="overheat_limit_warning">Telefonul se supraîncălzește. Închideți această aplicație imediat. %s se va închide automat peste un minut și toate datele nesalvate se vor pierde.</string>
+    <string name="overheat_limit_warning_phone_second">Telefonul se supraîncălzește. Închideți această aplicație imediat. %1$s se va închide automat peste %2$d secunde și toate datele nesalvate se vor pierde.</string>
+    <string name="overheat_limit_warning_tablet_second">Tableta se supraîncălzește. Închideți această aplicație imediat. %1$s se va închide automat peste %2$d secunde și toate datele nesalvate se vor pierde.</string>
     <string name="overheat_limit_closed_title">Aplicație închisă</string>
     <string name="overheat_limit_closed">%1$s s-a închis. Telefonul dvs. se supraîncălzește. Încercați să utilizați %2$s din nou, după răcirea telefonului.</string>
     <string name="overheat_limit_ok">OK</string>

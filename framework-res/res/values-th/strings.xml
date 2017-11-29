@@ -1597,6 +1597,8 @@ memo"</string>
     <string name="batt_cooldown_mode_ok">ตกลง</string>
     <string name="overheat_limit_warning_title">โทรศัพท์ร้อนเกินไป</string>
     <string name="overheat_limit_warning">โทรศัพท์ของคุณร้อนเกินไป โปรดปิดแอพนี้ทันที ระบบจะปิด %s โดยอัตโนมัติใน 1 นาที และข้อมูลใดๆ ที่ไม่ได้บันทึกจะสูญหาย</string>
+    <string name="overheat_limit_warning_phone_second">โทรศัพท์ของคุณร้อนเกินไป โปรดปิดแอพนี้ทันที ระบบจะปิด %1$s โดยอัตโนมัติใน %2$d วินาที และข้อมูลใดๆ ที่ไม่ได้บันทึกจะสูญหาย</string>
+    <string name="overheat_limit_warning_tablet_second">แท็บเล็ตของคุณร้อนเกินไป โปรดปิดแอพนี้ทันที ระบบจะปิด %1$s โดยอัตโนมัติใน %2$d วินาที และข้อมูลใดๆ ที่ไม่ได้บันทึกจะสูญหาย</string>
     <string name="overheat_limit_closed_title">แอพถูกปิดแล้ว</string>
     <string name="overheat_limit_closed">ปิด %1$s แล้ว โทรศัพท์ของคุณร้อนเกินไป ลองใช้งาน %2$s ใหม่หลังจากโทรศัพท์เย็นลงแล้ว</string>
     <string name="overheat_limit_ok">ตกลง</string>

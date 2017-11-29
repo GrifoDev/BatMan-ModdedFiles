@@ -205,6 +205,8 @@ zraku"</string>
     <string name="batt_cooldown_mode_ok">OK</string>
     <string name="overheat_limit_warning_title">Telefon se pregrijava</string>
     <string name="overheat_limit_warning">Telefon se pregrijava. Odmah zatvorite ovu aplikaciju. %s će se automatski zatvoriti za jedan minut, a nesačuvani podaci će biti izgubljeni.</string>
+    <string name="overheat_limit_warning_phone_second">Telefon se pregrijava. Odmah zatvorite ovu aplikaciju. %1$s će se automatski zatvoriti za %2$d sekunde/i, a nesačuvani podaci će biti izgubljeni.</string>
+    <string name="overheat_limit_warning_tablet_second">Tablet se pregrijava. Odmah zatvorite ovu aplikaciju. %1$s će se automatski zatvoriti za %2$d sekunde/i, a nesačuvani podaci će biti izgubljeni.</string>
     <string name="overheat_limit_closed_title">Aplikacija je zatvorena</string>
     <string name="overheat_limit_closed">Aplikacija %1$s je zatvorena. Telefon se pregrijava. Ponovno koristite %2$s nakon što se telefon ohladi.</string>
     <string name="overheat_limit_ok">OK</string>

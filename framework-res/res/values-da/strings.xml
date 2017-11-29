@@ -1596,6 +1596,8 @@ command"</string>
     <string name="batt_cooldown_mode_ok">OK</string>
     <string name="overheat_limit_warning_title">Telefonen overophedes</string>
     <string name="overheat_limit_warning">Din telefon er ved at blive overophedet. Luk denne app med det samme. %s vil blive lukket automatisk om 1 minut, og data, der ikke er gemt, vil gå tabt.</string>
+    <string name="overheat_limit_warning_phone_second">Din telefon er ved at blive overophedet. Luk denne app med det samme. %1$s vil blive lukket automatisk om %2$d sekunder, og data, der ikke er gemt, vil gå tabt.</string>
+    <string name="overheat_limit_warning_tablet_second">Din tablet er ved at blive overophedet. Luk denne app med det samme. %1$s vil blive lukket automatisk om %2$d sekunder, og data, der ikke er gemt, vil gå tabt.</string>
     <string name="overheat_limit_closed_title">App lukket</string>
     <string name="overheat_limit_closed">%1$s blev lukket. Din telefon er ved at blive overophedet. Prøv at bruge %2$s igen, når din telefon er kølet af.</string>
     <string name="overheat_limit_ok">OK</string>

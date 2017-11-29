@@ -1596,6 +1596,8 @@ command"</string>
     <string name="batt_cooldown_mode_ok">OK</string>
     <string name="overheat_limit_warning_title">Telefoon oververhit</string>
     <string name="overheat_limit_warning">Uw telefoon is oververhit. Sluit deze app onmiddellijk. %s wordt automatisch gesloten over 1 minuut en niet-opgeslagen gegevens gaan verloren.</string>
+    <string name="overheat_limit_warning_phone_second">Uw telefoon wordt te warm. Sluit deze app onmiddellijk. %1$s wordt automatisch gesloten over %2$d seconden en niet-opgeslagen gegevens gaan verloren.</string>
+    <string name="overheat_limit_warning_tablet_second">Uw tablet wordt te warm. Sluit deze app onmiddellijk. %1$s wordt automatisch gesloten over %2$d seconden en niet-opgeslagen gegevens gaan verloren.</string>
     <string name="overheat_limit_closed_title">App gesloten</string>
     <string name="overheat_limit_closed">%1$s gesloten. Uw telefoon is oververhit. Probeer %2$s opnieuw te gebruiken nadat uw telefoon is afgekoeld.</string>
     <string name="overheat_limit_ok">OK</string>

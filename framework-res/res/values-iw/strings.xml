@@ -1596,6 +1596,8 @@
     <string name="batt_cooldown_mode_ok">אישור</string>
     <string name="overheat_limit_warning_title">התחממות יתר בטלפון</string>
     <string name="overheat_limit_warning">התחממות יתר בטלפון. סגור את היישום מיד. %s ייסגר באופן אוטומטי בעוד דקה אחת וכל הנתונים שלא יישמרו יאבדו.</string>
+    <string name="overheat_limit_warning_phone_second">התחממות יתר בטלפון. סגור את היישום מיד. %1$s ייסגר באופן אוטומטי בעוד %2$d שניות וכל הנתונים שלא יישמרו יאבדו.</string>
+    <string name="overheat_limit_warning_tablet_second">התחממות יתר בטאבלט. סגור את היישום מיד. %1$s ייסגר באופן אוטומטי בעוד %2$d שניות וכל הנתונים שלא יישמרו יאבדו.</string>
     <string name="overheat_limit_closed_title">היישום נסגר</string>
     <string name="overheat_limit_closed">%1$s נסגר. התחממות יתר בטלפון. נסה שוב להשתמש ב-%2$s לאחר שהטלפון יתקרר.</string>
     <string name="overheat_limit_ok">אישור</string>

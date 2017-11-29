@@ -1591,6 +1591,8 @@ command"</string>
     <string name="batt_cooldown_mode_ok">Ados</string>
     <string name="overheat_limit_warning_title">Telefonoa beroegi dago</string>
     <string name="overheat_limit_warning">Telefonoa beroegi dago. Itxi aplikazio hori berehala. 1 minutu barru itxiko da automatikoki %s, eta gorde ez diren datu guztiak galduko dira.</string>
+    <string name="overheat_limit_warning_phone_second">Telefonoa beroegi dago. Itxi aplikazio hori berehala. %2$d segundo barru itxiko da automatikoki %1$s, eta gorde ez diren datu guztiak galduko dira.</string>
+    <string name="overheat_limit_warning_tablet_second">Tableta beroegi dago. Itxi aplikazio hori berehala. %2$d segundo barru itxiko da automatikoki %1$s, eta gorde ez diren datu guztiak galduko dira.</string>
     <string name="overheat_limit_closed_title">Aplikazioa itxi da</string>
     <string name="overheat_limit_closed">%1$s itxi da. Telefonoa gehiegi berotzen ari da. Telefonoa hozten denean, saiatu %2$s berriz erabiltzen.</string>
     <string name="overheat_limit_ok">ADOS</string>
