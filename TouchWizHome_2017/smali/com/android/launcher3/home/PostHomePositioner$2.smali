@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/PostHomePositioner;->addItem(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/ItemRecord;)Z
+    value = Lcom/android/launcher3/home/PostHomePositioner;->addItem(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/PostPositionItemRecord;)Z
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -22,13 +22,13 @@
 
 .field final synthetic val$cn:Landroid/content/ComponentName;
 
-.field final synthetic val$itemRecord:Lcom/android/launcher3/common/customer/ItemRecord;
+.field final synthetic val$itemRecord:Lcom/android/launcher3/common/customer/PostPositionItemRecord;
 
 .field final synthetic val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/home/PostHomePositioner;Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/ItemRecord;)V
+.method constructor <init>(Lcom/android/launcher3/home/PostHomePositioner;Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/PostPositionItemRecord;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/home/PostHomePositioner$2;->this$0:Lcom/android/launcher3/home/PostHomePositioner;
@@ -37,7 +37,7 @@
 
     iput-object p3, p0, Lcom/android/launcher3/home/PostHomePositioner$2;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
-    iput-object p4, p0, Lcom/android/launcher3/home/PostHomePositioner$2;->val$itemRecord:Lcom/android/launcher3/common/customer/ItemRecord;
+    iput-object p4, p0, Lcom/android/launcher3/home/PostHomePositioner$2;->val$itemRecord:Lcom/android/launcher3/common/customer/PostPositionItemRecord;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -55,9 +55,9 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/PostHomePositioner$2;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
-    iget-object v3, p0, Lcom/android/launcher3/home/PostHomePositioner$2;->val$itemRecord:Lcom/android/launcher3/common/customer/ItemRecord;
+    iget-object v3, p0, Lcom/android/launcher3/home/PostHomePositioner$2;->val$itemRecord:Lcom/android/launcher3/common/customer/PostPositionItemRecord;
 
-    invoke-static {v0, v1, v2, v3}, Lcom/android/launcher3/home/PostHomePositioner;->access$300(Lcom/android/launcher3/home/PostHomePositioner;Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/ItemRecord;)V
+    invoke-static {v0, v1, v2, v3}, Lcom/android/launcher3/home/PostHomePositioner;->access$300(Lcom/android/launcher3/home/PostHomePositioner;Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/PostPositionItemRecord;)V
 
     iget-object v0, p0, Lcom/android/launcher3/home/PostHomePositioner$2;->this$0:Lcom/android/launcher3/home/PostHomePositioner;
 
@@ -67,9 +67,9 @@
 
     const/4 v1, 0x1
 
-    iget-object v2, p0, Lcom/android/launcher3/home/PostHomePositioner$2;->val$itemRecord:Lcom/android/launcher3/common/customer/ItemRecord;
+    iget-object v2, p0, Lcom/android/launcher3/home/PostHomePositioner$2;->val$itemRecord:Lcom/android/launcher3/common/customer/PostPositionItemRecord;
 
-    invoke-virtual {v2}, Lcom/android/launcher3/common/customer/ItemRecord;->getComponentName()Ljava/lang/String;
+    invoke-virtual {v2}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getComponentName()Ljava/lang/String;
 
     move-result-object v2
 

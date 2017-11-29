@@ -126,9 +126,17 @@
 
 .field public static final VERSION_MASK:I = 0x3
 
+.field public static isChineseSpacialized:Z
+
 .field public static isJapaneseSpacialized:Z
 
+.field public static isShiftJisAsDefault:Z
+
+.field public static isValidChnCscFeature:Z
+
 .field public static isValidCscFeature:Z
+
+.field public static isValidShiftJisCscFeature:Z
 
 .field private static final sJapaneseMobileTypeSet:Ljava/util/Set;
     .annotation system Ldalvik/annotation/Signature;
@@ -160,13 +168,13 @@
 
     const v6, 0x18000008
 
-    const/4 v5, 0x0
+    const v5, -0x3ffffff7    # -2.0000021f
 
-    const v4, -0x3ffffff7    # -2.0000021f
-
-    const v3, -0x3ffffff8    # -2.000002f
+    const v4, -0x3ffffff8    # -2.000002f
 
     const/high16 v2, -0x40000000    # -2.0f
+
+    const/4 v3, 0x0
 
     const-string v0, "v21_generic"
 
@@ -246,7 +254,7 @@
 
     const-string v1, "v21_japanese_utf8"
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
 
@@ -256,7 +264,7 @@
 
     const-string v1, "v30_japanese_utf8"
 
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v2
 
@@ -292,7 +300,7 @@
 
     sget-object v0, Lcom/android/vcard/VCardConfig;->sJapaneseMobileTypeSet:Ljava/util/Set;
 
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
@@ -300,7 +308,7 @@
 
     sget-object v0, Lcom/android/vcard/VCardConfig;->sJapaneseMobileTypeSet:Ljava/util/Set;
 
-    invoke-static {v4}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v1
 
@@ -324,9 +332,17 @@
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    sput-boolean v5, Lcom/android/vcard/VCardConfig;->isValidCscFeature:Z
+    sput-boolean v3, Lcom/android/vcard/VCardConfig;->isValidCscFeature:Z
 
-    sput-boolean v5, Lcom/android/vcard/VCardConfig;->isJapaneseSpacialized:Z
+    sput-boolean v3, Lcom/android/vcard/VCardConfig;->isJapaneseSpacialized:Z
+
+    sput-boolean v3, Lcom/android/vcard/VCardConfig;->isValidChnCscFeature:Z
+
+    sput-boolean v3, Lcom/android/vcard/VCardConfig;->isChineseSpacialized:Z
+
+    sput-boolean v3, Lcom/android/vcard/VCardConfig;->isValidShiftJisCscFeature:Z
+
+    sput-boolean v3, Lcom/android/vcard/VCardConfig;->isShiftJisAsDefault:Z
 
     return-void
 .end method
@@ -352,16 +368,15 @@
 
     and-int/2addr v0, p0
 
-    if-eqz v0, :cond_1
+    if-nez v0, :cond_0
 
-    :cond_0
-    const/4 v0, 0x1
+    const/4 v0, 0x0
 
     :goto_0
     return v0
 
-    :cond_1
-    const/4 v0, 0x0
+    :cond_0
+    const/4 v0, 0x1
 
     goto :goto_0
 .end method
@@ -422,13 +437,9 @@
 
     new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v3, "Unknown vCard type String: \""
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v2, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -449,6 +460,41 @@
     sget v1, Lcom/android/vcard/VCardConfig;->VCARD_TYPE_DEFAULT:I
 
     goto :goto_0
+.end method
+
+.method public static isChineseSpacialized()Z
+    .locals 3
+
+    sget-boolean v0, Lcom/android/vcard/VCardConfig;->isValidChnCscFeature:Z
+
+    if-nez v0, :cond_0
+
+    const-string v0, "CHN"
+
+    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+
+    move-result-object v1
+
+    const-string v2, "CscFeature_Contact_VcardException4"
+
+    invoke-virtual {v1, v2}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/vcard/VCardConfig;->isChineseSpacialized:Z
+
+    const/4 v0, 0x1
+
+    sput-boolean v0, Lcom/android/vcard/VCardConfig;->isValidChnCscFeature:Z
+
+    :cond_0
+    sget-boolean v0, Lcom/android/vcard/VCardConfig;->isChineseSpacialized:Z
+
+    return v0
 .end method
 
 .method public static isDoCoMo(I)Z
@@ -522,6 +568,41 @@
     return v0
 .end method
 
+.method public static isShiftJisAsDefault()Z
+    .locals 3
+
+    sget-boolean v0, Lcom/android/vcard/VCardConfig;->isValidShiftJisCscFeature:Z
+
+    if-nez v0, :cond_0
+
+    const-string v0, "SHIFT_JIS"
+
+    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
+
+    move-result-object v1
+
+    const-string v2, "CscFeature_Contact_ConfigDefaultCharsetVCard"
+
+    invoke-virtual {v1, v2}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/vcard/VCardConfig;->isShiftJisAsDefault:Z
+
+    const/4 v0, 0x1
+
+    sput-boolean v0, Lcom/android/vcard/VCardConfig;->isValidShiftJisCscFeature:Z
+
+    :cond_0
+    sget-boolean v0, Lcom/android/vcard/VCardConfig;->isShiftJisAsDefault:Z
+
+    return v0
+.end method
+
 .method public static isVersion21(I)Z
     .locals 1
 
@@ -541,18 +622,37 @@
 .end method
 
 .method public static isVersion30(I)Z
-    .locals 2
+    .locals 4
 
     const/4 v0, 0x1
 
-    and-int/lit8 v1, p0, 0x3
+    const-string v1, "CMCC"
 
-    if-ne v1, v0, :cond_0
+    invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
+    move-result-object v2
+
+    const-string v3, "CscFeature_Contact_ConfigProfileService"
+
+    invoke-virtual {v2, v3}, Lcom/samsung/android/feature/SemCscFeature;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    :cond_0
     :goto_0
     return v0
 
-    :cond_0
+    :cond_1
+    and-int/lit8 v1, p0, 0x3
+
+    if-eq v1, v0, :cond_0
+
     const/4 v0, 0x0
 
     goto :goto_0
@@ -649,16 +749,15 @@
 
     and-int/2addr v0, p0
 
-    if-eqz v0, :cond_1
+    if-nez v0, :cond_0
 
-    :cond_0
-    const/4 v0, 0x1
+    const/4 v0, 0x0
 
     :goto_0
     return v0
 
-    :cond_1
-    const/4 v0, 0x0
+    :cond_0
+    const/4 v0, 0x1
 
     goto :goto_0
 .end method
@@ -670,15 +769,15 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_0
 
-    const/4 v0, 0x1
+    const/4 v0, 0x0
 
     :goto_0
     return v0
 
     :cond_0
-    const/4 v0, 0x0
+    const/4 v0, 0x1
 
     goto :goto_0
 .end method

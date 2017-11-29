@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="appsPicker_icon_checkbox_margin_start">8.0dip</dimen>
-    <dimen name="appsPicker_icon_checkbox_margin_top">0.0dip</dimen>
+    <dimen name="appsPicker_icon_checkbox_margin_top">2.0dip</dimen>
     <dimen name="appsPicker_icon_layout_height">89.0dip</dimen>
     <dimen name="appsPicker_icon_layout_width">70.0dip</dimen>
     <dimen name="appsPicker_icon_margin_top">4.0dip</dimen>
@@ -49,8 +49,7 @@
     <dimen name="overview_pannel_margin_bottom">0.0dip</dimen>
     <dimen name="overview_pannel_options_button_height">77.0dip</dimen>
     <dimen name="overview_pannel_textsize">12.0dip</dimen>
-    <dimen name="pageIndicator_dot_gap">8.0dip</dimen>
-    <dimen name="pageIndicator_dot_size">7.0dip</dimen>
+    <dimen name="pageIndicator_dot_size">15.0dip</dimen>
     <dimen name="quick_option_popup_margin_widget">3.0dip</dimen>
     <dimen name="screen_grid_explain_view_height">55.0dip</dimen>
     <dimen name="screen_grid_panel_margin_bottom">0.0dip</dimen>
@@ -64,27 +63,27 @@
     <dimen name="widget_itemview_focus_padding">2.0dip</dimen>
     <dimen name="widget_itemview_folder_arraw_size">15.0dip</dimen>
     <dimen name="widget_itemview_folder_preview_gap">2.0dip</dimen>
-    <dimen name="widget_itemview_folder_preview_height">98.0dip</dimen>
-    <dimen name="widget_itemview_folder_preview_image_height">84.0dip</dimen>
+    <dimen name="widget_itemview_folder_preview_height">67.0dip</dimen>
+    <dimen name="widget_itemview_folder_preview_image_height">52.0dip</dimen>
     <dimen name="widget_itemview_folder_preview_image_width">60.0dip</dimen>
     <dimen name="widget_itemview_folder_preview_padding_bottom">7.0dip</dimen>
     <dimen name="widget_itemview_folder_preview_padding_left">3.0dip</dimen>
     <dimen name="widget_itemview_folder_preview_padding_right">3.0dip</dimen>
     <dimen name="widget_itemview_folder_preview_padding_top">7.0dip</dimen>
     <dimen name="widget_itemview_folder_preview_width">66.0dip</dimen>
-    <dimen name="widget_itemview_height">138.0dip</dimen>
-    <dimen name="widget_itemview_single_preview_container_height">98.0dip</dimen>
+    <dimen name="widget_itemview_height">110.0dip</dimen>
+    <dimen name="widget_itemview_single_preview_container_height">67.0dip</dimen>
     <dimen name="widget_itemview_single_preview_container_padding_bottom">7.0dip</dimen>
     <dimen name="widget_itemview_single_preview_container_padding_left">7.0dip</dimen>
     <dimen name="widget_itemview_single_preview_container_padding_right">7.0dip</dimen>
     <dimen name="widget_itemview_single_preview_container_padding_top">7.0dip</dimen>
-    <dimen name="widget_itemview_single_preview_image_height">84.0dip</dimen>
+    <dimen name="widget_itemview_single_preview_image_height">63.0dip</dimen>
     <dimen name="widget_itemview_single_preview_image_width">119.0dip</dimen>
     <dimen name="widget_itemview_title_cellspan_height">18.0dip</dimen>
     <dimen name="widget_itemview_title_name_height">18.0dip</dimen>
     <dimen name="widget_itemview_title_textSize">12.0dip</dimen>
     <dimen name="widget_itemview_width">137.0dip</dimen>
-    <dimen name="widget_page_cellgap_x">17.0dip</dimen>
+    <dimen name="widget_page_cellgap_x">16.0dip</dimen>
     <dimen name="widget_page_cellgap_y">25.0dip</dimen>
     <dimen name="widget_page_padding_bottom">0.0dip</dimen>
     <dimen name="widget_page_padding_left">14.5dip</dimen>
@@ -114,8 +113,9 @@
     <item type="dimen" name="widget_folder_page_cellgap_y">@dimen/widget_page_cellgap_y</item>
     <dimen name="widget_folder_pageindicator_container_height">73.0dip</dimen>
     <dimen name="widget_page_indicator_bottom_margin">17.0dip</dimen>
-    <dimen name="widget_page_top_margin">63.0dip</dimen>
+    <dimen name="widget_page_top_margin">48.0dip</dimen>
     <dimen name="appsearch_container_Height">43.0dip</dimen>
+    <dimen name="home_swipe_affordance_text_margin_top">0.0dip</dimen>
     <dimen name="overview_home_button_size">38.0dip</dimen>
     <dimen name="quick_option_item_padding">4.0dip</dimen>
     <dimen name="screen_grid_panel_height">67.0dip</dimen>

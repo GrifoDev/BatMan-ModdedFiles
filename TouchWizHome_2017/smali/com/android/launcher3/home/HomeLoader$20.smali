@@ -192,6 +192,14 @@
 
     iget-object v9, p0, Lcom/android/launcher3/home/HomeLoader$20;->val$intent:Landroid/content/Intent;
 
+    invoke-static {v9}, Lcom/android/launcher3/common/view/IconView;->isKnoxShortcut(Landroid/content/Intent;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_2
+
+    iget-object v9, p0, Lcom/android/launcher3/home/HomeLoader$20;->val$intent:Landroid/content/Intent;
+
     invoke-virtual {v9}, Landroid/content/Intent;->getFlags()I
 
     move-result v9

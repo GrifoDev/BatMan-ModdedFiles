@@ -84,6 +84,8 @@
 
 .field private static sSupportGSAPreWarming:Z
 
+.field private static sSupportGSARoundingFeature:Z
+
 .field private static sSupportGalaxyAppsSearch:Z
 
 .field private static sSupportGameHome:Z
@@ -117,8 +119,6 @@
 .field private static sSupportSetToZeroPage:Z
 
 .field private static sSupportTransitionEffect:Z
-
-.field private static sSupportTraySwipeInteraction:Z
 
 .field private static sSupportWallpaperTilt:Z
 
@@ -185,8 +185,6 @@
 
     sput-boolean v1, Lcom/android/launcher3/LauncherFeature;->sSupportDeepShortcut:Z
 
-    sput-boolean v2, Lcom/android/launcher3/LauncherFeature;->sSupportTraySwipeInteraction:Z
-
     sput-boolean v2, Lcom/android/launcher3/LauncherFeature;->sSupportMoveToHomeAppsByDragging:Z
 
     sput-boolean v2, Lcom/android/launcher3/LauncherFeature;->sSupportMoveToHomeAppsByLongPress:Z
@@ -245,7 +243,9 @@
 
     sput-boolean v1, Lcom/android/launcher3/LauncherFeature;->sIsSPR:Z
 
-    sput-boolean v1, Lcom/android/launcher3/LauncherFeature;->sSupportGSAPreWarming:Z
+    sput-boolean v2, Lcom/android/launcher3/LauncherFeature;->sSupportGSAPreWarming:Z
+
+    sput-boolean v1, Lcom/android/launcher3/LauncherFeature;->sSupportGSARoundingFeature:Z
 
     sput-boolean v1, Lcom/android/launcher3/LauncherFeature;->sSupportZeroPageSetting:Z
 
@@ -978,7 +978,7 @@
 
     sput-boolean v2, Lcom/android/launcher3/LauncherFeature;->sSupportRotate:Z
 
-    const v2, 0x7f0b0006
+    const v2, 0x7f0d0007
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -986,7 +986,7 @@
 
     sput-boolean v2, Lcom/android/launcher3/LauncherFeature;->sIsLargeTablet:Z
 
-    const v2, 0x7f0b0001
+    const v2, 0x7f0d0001
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -1653,6 +1653,14 @@
 .end method
 
 .method public static supportGSAPreWarming()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/launcher3/LauncherFeature;->sSupportGSAPreWarming:Z
+
+    return v0
+.end method
+
+.method public static supportGSARoundingFeature()Z
     .locals 2
 
     sget-object v0, Lcom/android/launcher3/LauncherFeature;->sProductName:Ljava/lang/String;
@@ -1723,10 +1731,10 @@
     const/4 v0, 0x1
 
     :goto_0
-    sput-boolean v0, Lcom/android/launcher3/LauncherFeature;->sSupportGSAPreWarming:Z
+    sput-boolean v0, Lcom/android/launcher3/LauncherFeature;->sSupportGSARoundingFeature:Z
 
     :cond_1
-    sget-boolean v0, Lcom/android/launcher3/LauncherFeature;->sSupportGSAPreWarming:Z
+    sget-boolean v0, Lcom/android/launcher3/LauncherFeature;->sSupportGSARoundingFeature:Z
 
     return v0
 
@@ -1952,14 +1960,6 @@
     .locals 1
 
     sget-boolean v0, Lcom/android/launcher3/LauncherFeature;->sSupportTransitionEffect:Z
-
-    return v0
-.end method
-
-.method public static supportTraySwipeInteraction()Z
-    .locals 1
-
-    sget-boolean v0, Lcom/android/launcher3/LauncherFeature;->sSupportTraySwipeInteraction:Z
 
     return v0
 .end method

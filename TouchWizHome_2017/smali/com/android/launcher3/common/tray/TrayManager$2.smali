@@ -3,7 +3,7 @@
 .source "TrayManager.java"
 
 # interfaces
-.implements Lcom/android/launcher3/common/tray/FakeView$TranslationCallback;
+.implements Lcom/android/launcher3/common/tray/FakeView$DragEventCallback;
 
 
 # annotations
@@ -34,58 +34,126 @@
 
 
 # virtual methods
-.method public onTranslateX(Lcom/android/launcher3/common/tray/TrayManager$TrayLevel;F)V
-    .locals 0
+.method public getDropTarget(Lcom/android/launcher3/common/tray/TrayManager$TrayLevel;)Lcom/android/launcher3/common/drag/DropTarget;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/common/tray/TrayManager$2;->this$0:Lcom/android/launcher3/common/tray/TrayManager;
+
+    invoke-static {v0, p1}, Lcom/android/launcher3/common/tray/TrayManager;->access$600(Lcom/android/launcher3/common/tray/TrayManager;Lcom/android/launcher3/common/tray/TrayManager$TrayLevel;)Lcom/android/launcher3/common/drag/DropTarget;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method public onChangeStage(Lcom/android/launcher3/common/tray/TrayManager$TrayLevel;I)V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/launcher3/common/tray/TrayManager$2;->this$0:Lcom/android/launcher3/common/tray/TrayManager;
+
+    const/4 v1, -0x1
+
+    invoke-static {v0, p1, p2, v1}, Lcom/android/launcher3/common/tray/TrayManager;->access$500(Lcom/android/launcher3/common/tray/TrayManager;Lcom/android/launcher3/common/tray/TrayManager$TrayLevel;II)V
 
     return-void
 .end method
 
-.method public onTranslateY(Lcom/android/launcher3/common/tray/TrayManager$TrayLevel;F)V
-    .locals 5
+.method public onDragEnter(I)V
+    .locals 3
 
-    iget-object v1, p0, Lcom/android/launcher3/common/tray/TrayManager$2;->this$0:Lcom/android/launcher3/common/tray/TrayManager;
+    const/4 v1, 0x1
 
-    invoke-static {v1}, Lcom/android/launcher3/common/tray/TrayManager;->access$500(Lcom/android/launcher3/common/tray/TrayManager;)Lcom/android/launcher3/common/tray/FakeView;
+    iget-object v2, p0, Lcom/android/launcher3/common/tray/TrayManager$2;->this$0:Lcom/android/launcher3/common/tray/TrayManager;
 
-    move-result-object v1
+    invoke-static {v2}, Lcom/android/launcher3/common/tray/TrayManager;->access$000(Lcom/android/launcher3/common/tray/TrayManager;)Z
 
-    if-eqz v1, :cond_0
+    move-result v2
 
-    iget-object v1, p0, Lcom/android/launcher3/common/tray/TrayManager$2;->this$0:Lcom/android/launcher3/common/tray/TrayManager;
+    if-nez v2, :cond_0
 
-    invoke-static {v1}, Lcom/android/launcher3/common/tray/TrayManager;->access$500(Lcom/android/launcher3/common/tray/TrayManager;)Lcom/android/launcher3/common/tray/FakeView;
+    if-nez p1, :cond_1
 
-    move-result-object v1
+    const/4 v0, 0x0
 
-    invoke-virtual {v1}, Lcom/android/launcher3/common/tray/FakeView;->getTag()Ljava/lang/Object;
+    :goto_0
+    sget-object v2, Lcom/android/launcher3/util/LightingEffectManager;->INSTANCE:Lcom/android/launcher3/util/LightingEffectManager;
 
-    move-result-object v0
+    invoke-virtual {v2, v0, v1}, Lcom/android/launcher3/util/LightingEffectManager;->turnOnEachLight(IZ)V
 
-    check-cast v0, Lcom/android/launcher3/common/tray/TrayManager$TrayLevel;
+    :cond_0
+    return-void
 
-    if-ne p1, v0, :cond_0
+    :cond_1
+    move v0, v1
+
+    goto :goto_0
+.end method
+
+.method public onDragExit(I)V
+    .locals 4
+
+    const/4 v0, 0x1
+
+    const/4 v1, 0x0
+
+    iget-object v2, p0, Lcom/android/launcher3/common/tray/TrayManager$2;->this$0:Lcom/android/launcher3/common/tray/TrayManager;
+
+    invoke-static {v2, v1}, Lcom/android/launcher3/common/tray/TrayManager;->access$002(Lcom/android/launcher3/common/tray/TrayManager;Z)Z
+
+    iget-object v2, p0, Lcom/android/launcher3/common/tray/TrayManager$2;->this$0:Lcom/android/launcher3/common/tray/TrayManager;
+
+    invoke-static {v2}, Lcom/android/launcher3/common/tray/TrayManager;->access$100(Lcom/android/launcher3/common/tray/TrayManager;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/launcher3/common/tray/TrayManager$2;->this$0:Lcom/android/launcher3/common/tray/TrayManager;
+
+    invoke-static {v2, v1}, Lcom/android/launcher3/common/tray/TrayManager;->access$102(Lcom/android/launcher3/common/tray/TrayManager;Z)Z
+
+    iget-object v2, p0, Lcom/android/launcher3/common/tray/TrayManager$2;->this$0:Lcom/android/launcher3/common/tray/TrayManager;
+
+    invoke-static {v2}, Lcom/android/launcher3/common/tray/TrayManager;->access$300(Lcom/android/launcher3/common/tray/TrayManager;)Lcom/android/launcher3/common/tray/FakeView;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v1}, Lcom/android/launcher3/common/tray/FakeView;->setSuppressChangeStage(Z)V
+
+    iget-object v2, p0, Lcom/android/launcher3/common/tray/TrayManager$2;->this$0:Lcom/android/launcher3/common/tray/TrayManager;
+
+    invoke-static {v2}, Lcom/android/launcher3/common/tray/TrayManager;->access$200(Lcom/android/launcher3/common/tray/TrayManager;)Lcom/android/launcher3/common/tray/FakeView;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v1}, Lcom/android/launcher3/common/tray/FakeView;->setSuppressChangeStage(Z)V
+
+    sget-object v1, Lcom/android/launcher3/util/LightingEffectManager;->INSTANCE:Lcom/android/launcher3/util/LightingEffectManager;
+
+    iget-object v2, p0, Lcom/android/launcher3/common/tray/TrayManager$2;->this$0:Lcom/android/launcher3/common/tray/TrayManager;
+
+    invoke-static {v2}, Lcom/android/launcher3/common/tray/TrayManager;->access$400(Lcom/android/launcher3/common/tray/TrayManager;)I
+
+    move-result v2
+
+    invoke-static {}, Lcom/android/launcher3/Utilities;->isMobileKeyboardMode()Z
+
+    move-result v3
+
+    invoke-virtual {v1, v0, v2, v3}, Lcom/android/launcher3/util/LightingEffectManager;->showEffect(ZIZ)V
 
     :goto_0
     return-void
 
     :cond_0
-    iget-object v1, p0, Lcom/android/launcher3/common/tray/TrayManager$2;->this$0:Lcom/android/launcher3/common/tray/TrayManager;
+    if-nez p1, :cond_1
 
-    const/4 v2, 0x0
+    move v0, v1
 
-    iget-object v3, p0, Lcom/android/launcher3/common/tray/TrayManager$2;->this$0:Lcom/android/launcher3/common/tray/TrayManager;
+    :cond_1
+    sget-object v2, Lcom/android/launcher3/util/LightingEffectManager;->INSTANCE:Lcom/android/launcher3/util/LightingEffectManager;
 
-    invoke-static {v3}, Lcom/android/launcher3/common/tray/TrayManager;->access$600(Lcom/android/launcher3/common/tray/TrayManager;)F
-
-    move-result v3
-
-    iget-object v4, p0, Lcom/android/launcher3/common/tray/TrayManager$2;->this$0:Lcom/android/launcher3/common/tray/TrayManager;
-
-    invoke-static {v4}, Lcom/android/launcher3/common/tray/TrayManager;->access$700(Lcom/android/launcher3/common/tray/TrayManager;)I
-
-    move-result v4
-
-    invoke-virtual {v1, v2, v3, v4}, Lcom/android/launcher3/common/tray/TrayManager;->onChangeTrayTranslationY(Lcom/android/launcher3/common/tray/TrayManager$TrayInteractionListener;FI)V
+    invoke-virtual {v2, v0, v1}, Lcom/android/launcher3/util/LightingEffectManager;->turnOnEachLight(IZ)V
 
     goto :goto_0
 .end method

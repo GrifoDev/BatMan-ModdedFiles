@@ -115,7 +115,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0900ad
+    const v9, 0x7f0900b2
 
     const/4 v10, 0x2
 

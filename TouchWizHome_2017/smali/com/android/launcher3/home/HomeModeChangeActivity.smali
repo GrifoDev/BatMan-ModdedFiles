@@ -113,7 +113,7 @@
 .method private askConfirmation()V
     .locals 3
 
-    const v2, 0x7f09004d
+    const v2, 0x7f09004f
 
     const/4 v1, 0x0
 
@@ -164,7 +164,7 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x7f09004f
+    const v0, 0x7f090051
 
     const/4 v1, 0x1
 
@@ -217,25 +217,58 @@
 .end method
 
 .method private checkNeedInit()V
-    .locals 7
+    .locals 8
+
+    const/4 v7, 0x0
+
+    const/4 v0, 0x1
 
     const/4 v2, 0x0
 
     invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
-    move-result-object v0
+    move-result-object v3
 
-    const/4 v3, 0x0
+    invoke-virtual {v3, v7}, Lcom/android/launcher3/LauncherAppState;->isHomeOnlyModeEnabled(Z)Z
 
-    invoke-virtual {v0, v3}, Lcom/android/launcher3/LauncherAppState;->isHomeOnlyModeEnabled(Z)Z
+    move-result v3
 
-    move-result v0
-
-    if-eqz v0, :cond_2
+    if-eqz v3, :cond_2
 
     sget-object v1, Lcom/android/launcher3/common/model/LauncherSettings$Favorites_HomeApps;->CONTENT_URI:Landroid/net/Uri;
 
     :goto_0
+    invoke-static {}, Lcom/android/launcher3/common/model/FavoritesProvider;->getInstance()Lcom/android/launcher3/common/model/FavoritesProvider;
+
+    move-result-object v3
+
+    invoke-virtual {v1}, Landroid/net/Uri;->getLastPathSegment()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Lcom/android/launcher3/common/model/FavoritesProvider;->tableExists(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    move v7, v0
+
+    :cond_0
+    if-eqz v7, :cond_3
+
+    iput-boolean v0, p0, Lcom/android/launcher3/home/HomeModeChangeActivity;->mNeedInit:Z
+
+    :cond_1
+    :goto_1
+    return-void
+
+    :cond_2
+    sget-object v1, Lcom/android/launcher3/common/model/LauncherSettings$Favorites_HomeOnly;->CONTENT_URI:Landroid/net/Uri;
+
+    goto :goto_0
+
+    :cond_3
     invoke-virtual {p0}, Lcom/android/launcher3/home/HomeModeChangeActivity;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
@@ -257,7 +290,7 @@
 
     move-result v0
 
-    if-gtz v0, :cond_0
+    if-gtz v0, :cond_4
 
     const/4 v0, 0x1
 
@@ -265,16 +298,10 @@
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    :cond_0
+    :cond_4
     invoke-interface {v6}, Landroid/database/Cursor;->close()V
 
-    :cond_1
-    return-void
-
-    :cond_2
-    sget-object v1, Lcom/android/launcher3/common/model/LauncherSettings$Favorites_HomeOnly;->CONTENT_URI:Landroid/net/Uri;
-
-    goto :goto_0
+    goto :goto_1
 
     :catchall_0
     move-exception v0
@@ -579,7 +606,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0901b5
+    const v2, 0x7f0901ba
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -591,7 +618,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f09014d
+    const v3, 0x7f090152
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -607,7 +634,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f09014c
+    const v3, 0x7f090151
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -666,7 +693,7 @@
 
     move-result-object v4
 
-    const v6, 0x7f0901b5
+    const v6, 0x7f0901ba
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -676,7 +703,7 @@
 
     move-result-object v4
 
-    const v7, 0x7f090106
+    const v7, 0x7f09010b
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -697,7 +724,7 @@
 
     move-result-object v4
 
-    const v6, 0x7f0901d9
+    const v6, 0x7f0901de
 
     invoke-virtual {v4, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -757,7 +784,7 @@
 
     invoke-direct {v1, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f09004e
+    const v2, 0x7f090050
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -771,7 +798,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f09001c
+    const v3, 0x7f09001e
 
     new-instance v4, Lcom/android/launcher3/home/HomeModeChangeActivity$2;
 
@@ -783,7 +810,7 @@
 
     invoke-virtual {v1, v5, v6}, Landroid/app/AlertDialog$Builder;->setNeutralButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    const v2, 0x7f090035
+    const v2, 0x7f090037
 
     new-instance v3, Lcom/android/launcher3/home/HomeModeChangeActivity$3;
 
@@ -868,7 +895,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeModeChangeActivity;->mHelpText:Landroid/widget/TextView;
 
-    const v1, 0x7f090051
+    const v1, 0x7f090053
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -903,7 +930,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeModeChangeActivity;->mHelpText:Landroid/widget/TextView;
 
-    const v1, 0x7f090050
+    const v1, 0x7f090052
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -955,7 +982,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0901b5
+    const v2, 0x7f0901ba
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -965,7 +992,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f09011f
+    const v3, 0x7f090124
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1028,7 +1055,7 @@
 
     invoke-virtual {p0, v1}, Lcom/android/launcher3/home/HomeModeChangeActivity;->setRequestedOrientation(I)V
 
-    :cond_0
+    :goto_0
     const v1, 0x7f04002c
 
     invoke-virtual {p0, v1}, Lcom/android/launcher3/home/HomeModeChangeActivity;->setContentView(I)V
@@ -1053,7 +1080,7 @@
 
     invoke-direct {p0, v1}, Lcom/android/launcher3/home/HomeModeChangeActivity;->updatePreviewAndHelpText(Z)V
 
-    const v1, 0x7f09004b
+    const v1, 0x7f09004d
 
     invoke-virtual {p0, v1}, Lcom/android/launcher3/home/HomeModeChangeActivity;->setTitle(I)V
 
@@ -1084,6 +1111,13 @@
     iput-object v1, p0, Lcom/android/launcher3/home/HomeModeChangeActivity;->mSettingsActivity:Landroid/app/Activity;
 
     return-void
+
+    :cond_0
+    const/4 v1, 0x5
+
+    invoke-virtual {p0, v1}, Lcom/android/launcher3/home/HomeModeChangeActivity;->setRequestedOrientation(I)V
+
+    goto :goto_0
 .end method
 
 .method protected onDestroy()V

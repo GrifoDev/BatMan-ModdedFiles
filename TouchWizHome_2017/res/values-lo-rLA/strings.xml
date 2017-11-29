@@ -16,8 +16,10 @@
     <string name="accessibility_button">ປຸ່ມ</string>
     <string name="accessibility_dimmed">ລີ່​ລົງ</string>
     <string name="activity_not_available">ແອັບ​ນີ້​ບໍ່​ມີ​ໃຫ້​ສຳ​ລັບ​ອຸ​ປະ​ກອນ​ຂອງ​ທ່ານ.</string>
-    <string name="activity_not_found">ແອັບບໍ່ຖືກຕິດຕັ້ງ.</string>
+    <string name="activity_not_found">ບໍ່ພົບແອັບ</string>
+    <string name="add">​ເພີ່​ມ</string>
     <string name="add_to_last_page">ທ່ານໄດ້ເລືອກ %1$d ລາຍການແລ້ວ, ແຕ່ບໍ່ມີພື້ນທີ່ພຽງພໍໃນໜ້ານີ້. %2$d ລາຍການທີ່ເຫຼືອຢູ່ຈະຖືກເພີ່ມໃສ່ໜ້າສຸດທ້າຍ.</string>
+    <string name="add_to_last_page_for_hotseat">ທ່ານໄດ້ເລືອກ %1$d ລາຍການແລ້ວ, ແຕ່ບໍ່ມີພື້ນທີ່ພຽງພໍໃນຖາດລາຍການທີ່ມັກ. %2$d ລາຍການທີ່ເຫຼືອຢູ່ຈະຖືກເພີ່ມໃສ່ໜ້າສຸດທ້າຍ.</string>
     <string name="align_to_bottom">ຈັດປັບໃສ່ເບື້ອງລຸ່ມສຸດ</string>
     <string name="align_to_top">ຈັດປັບໃສ່ເບື້ອງເທິງສຸດ</string>
     <string name="app_locked_toast">ລັອກ %s ​ແລ້ວ.</string>
@@ -121,6 +123,7 @@
     <string name="new_page_created">ເພີ່ມໜ້າແລ້ວ.</string>
     <string name="no_changes">ບໍ່​ມີ​ການ​ປ່ຽນ​ແປງ.</string>
     <string name="no_space_page">ບໍ່ມີພື້ນທີ່ໃນໜ້າ. ລອງເພີ່ມທາງລັດໃສ່ໜ້າອື່ນ.</string>
+    <string name="no_space_page_for_hotseat">ບໍ່ມີພື້ນທີ່ໃນຖາດລາຍການທີ່ມັກ.</string>
     <string name="no_space_page_for_widget">ບໍ່ມີພື້ນທີ່ຢູ່ໃນໜ້ານີ້.</string>
     <string name="not_selected">ບໍ່ໄດ້ເລືອກ</string>
     <string name="notification_panel_setting_summary">ຮູດລົງເພື່ອເປີດແຜງການແຈ້ງເຕືອນຈາກໜ້າຈໍຫຼັກ.</string>
@@ -155,6 +158,8 @@
     <string name="quick_option_delete_folder">ລຶບໂຟລເດີ</string>
     <string name="quick_option_delete_folder_alert">%s ໂຟລເດີຈະຖືກລຶບ. ແອັບທີ່ຢູ່ໃນໂຟລເດີນີ້ຈະຍັງຄົງມີຢູ່ໃນໜ້າຈໍແອັບ.</string>
     <string name="quick_option_delete_folder_alert_no_title">ໂຟລເດີນີ້ຈະຖືກລຶບ. ແອັບທີ່ຢູ່ໃນໂຟລເດີນີ້ຈະຍັງຄົງມີຢູ່ໃນໜ້າຈໍແອັບ.</string>
+    <string name="quick_option_delete_folder_home_only_alert">ໂຟລເດີ %s ຈະຖືກລຶບ. ແອັບທີ່ຢູ່ໃນໂຟລເດີນີ້ຈະຍັງຄົງມີຢູ່ໃນໜ້າຈໍຫຼັກ.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">ໂຟລເດີນີ້ຈະຖືກລຶບ. ແອັບທີ່ຢູ່ໃນໂຟລເດີນີ້ຈະຍັງຄົງມີຢູ່ໃນໜ້າຈໍຫຼັກ.</string>
     <string name="quick_option_dimmed_disable">ປິດໃຊ້ງານ</string>
     <string name="quick_option_disable">ປິດໃຊ້ງານ</string>
     <string name="quick_option_install_dual_im">ຕິດຕັ້ງແອັບທີສອງ</string>

@@ -16,8 +16,10 @@
     <string name="accessibility_button">ခလုတ်</string>
     <string name="accessibility_dimmed">မီးမှိန်ထားသည်</string>
     <string name="activity_not_available">ဤအက်ပ်သည် သင့်ကိရိယာအတွက် မရနိုင်ပါ။</string>
-    <string name="activity_not_found">လုပ်ငန်းသုံးပရိုဂရမ်အား သွင်းမထားပါ။</string>
+    <string name="activity_not_found">အက်ပ်ကို ရှာမတွေ့ပါ</string>
+    <string name="add">ထည့်ပါ</string>
     <string name="add_to_last_page">သင်သည် အိုင်တမ် %1$d ခုကို ရွေးချယ်ခဲ့သော်လည်း ဤစာမျက်နှာတွင် လုံလောက်သည့် နေရာလွတ် မရှိပါ။ ကျန်သည့် အိုင်တမ် %2$d ခုကို နောက်ဆုံး စာမျက်နှာသို့ ပို့ပါမည်။</string>
+    <string name="add_to_last_page_for_hotseat">သင်သည် အိုင်တမ် %1$d ခုကို ရွေးချယ်ခဲ့သော်လည်း သင်နှစ်သက်သည့်နေရာတွင် နေရာလွတ် မလုံလောက်ပါ။ ကျန်သည့် အိုင်တမ် %2$d ခုကို နောက်ဆုံး စာမျက်နှာတွင် ထည့်ပါမည်။</string>
     <string name="align_to_bottom">အောက်ခြေတွင် စီပါ</string>
     <string name="align_to_top">ထိပ်ပိုင်းတွင် စီပါ</string>
     <string name="app_locked_toast">%s သော့ခတ်ထားသည်။</string>
@@ -121,13 +123,14 @@
     <string name="new_page_created">စာမျက်နှာ ထည့်ထားသည်။</string>
     <string name="no_changes">ပြောင်းလဲမှုများ မရှိပါ။</string>
     <string name="no_space_page">စာမျက်နှာတွင် နေရာလွတ် မရှိပါ။ အခြားစာမျက်နှာတွင် ရှော့ကတ်တစ်ခု ထည့်ကြည့်ပါ။</string>
+    <string name="no_space_page_for_hotseat">အကြိုက်ဆုံးနေရာတွင် နေရာမလွတ်ပါ။</string>
     <string name="no_space_page_for_widget">ဤစာမျက်နှာတွင် နေရာလွတ် မရှိပါ။</string>
     <string name="not_selected">ရွေးမထားပါ</string>
     <string name="notification_panel_setting_summary">ပင်မဖန်သားပြင်မှနေ၍ အသိပေးချက်ပန်နယ်ကို ဖွင့်ရန် အောက်သို့ ပွတ်ဆွဲချပါ။</string>
     <string name="notification_panel_setting_title">အမြန်ဖွင့် အသိပေးချက် ပန်နယ်</string>
     <string name="ok">အိုကေ</string>
     <string name="only_one_widget_instance_allowed">%s ဝဒ်ဂျက်ကို ပင်မဖန်သားပြင်သို့ ထည့်ထားပြီးဖြစ်သည်။</string>
-    <string name="option_menu_contact_up">ကျွန်ုပ်တို့ထံသို့ ဆက်သွယ်ပါ</string>
+    <string name="option_menu_contact_up">ကျွန်ုပ်တို့ထံ ဆက်သွယ်ပါ</string>
     <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">သတ်မှတ်ချက်များ</string>
     <string name="options_menu">နောက်ထပ်ရွေးချယ်ရန်များ</string>
@@ -155,6 +158,8 @@
     <string name="quick_option_delete_folder">ွှဤဖိုင်တွဲကို ဖျက်ပစ်ပါ</string>
     <string name="quick_option_delete_folder_alert">%s ဖိုင်တွဲကို ဖျက်ပါမည်။ ဤဖိုင်တွဲအတွင်းရှိ အက်ပ်များကို အက်ပ်ဖန်သားပြင်ပေါ်မှာ သုံးနိုင်သည်။</string>
     <string name="quick_option_delete_folder_alert_no_title">ဤဖိုင်တွဲကို ဖျက်ပါမည်။ ဤဖိုင်တွဲအတွင်းရှိ အက်ပ်များကို အက်ပ်ဖန်သားပြင်ပေါ်မှာ သုံးနိုင်သည်။</string>
+    <string name="quick_option_delete_folder_home_only_alert">%s ဖိုင်တွဲကို ဖျက်ပါမည်။ ဤဖိုင်တွဲထဲရှိ အက်ပ်များကို ပင်မ ဖန်သားပြင်ပေါ်တွင်လည်း ရနိုင်သည်။</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">ဤဖိုင်တွဲကို ဖျက်ပစ်မည်။ ဤဖိုင်တွဲထဲရှိ အက်ပ်များကို ပင်မ ဖန်သားပြင်ပေါ်တွင်လည်း ရနိုင်သည်။</string>
     <string name="quick_option_dimmed_disable">ပိတ်ထားပါ</string>
     <string name="quick_option_disable">ပိတ်ထားပါ</string>
     <string name="quick_option_install_dual_im">ဒုတိယ အက်ပ်ကို ထည့်ပါ</string>

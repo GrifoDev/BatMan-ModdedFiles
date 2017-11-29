@@ -16,8 +16,10 @@
     <string name="accessibility_button">Nupp</string>
     <string name="accessibility_dimmed">Tuhm</string>
     <string name="activity_not_available">See rakendus pole teie seadme jaoks saadaval.</string>
-    <string name="activity_not_found">Rakendus pole installitud.</string>
+    <string name="activity_not_found">Rakendust ei leitud</string>
+    <string name="add">Lisa</string>
     <string name="add_to_last_page">Valisite %1$d üksust, kuid sellel lehel on liiga vähe ruumi. Ülejäänud %2$d üksust lisatakse viimasele lehele.</string>
+    <string name="add_to_last_page_for_hotseat">Valisite %1$d üksust, kuid lemmikute salves on liiga vähe ruumi. Allesjäänud %2$d üksust lisatakse viimasele lehele.</string>
     <string name="align_to_bottom">Joonda üles</string>
     <string name="align_to_top">Joonda alla</string>
     <string name="app_locked_toast">%s on lukus.</string>
@@ -121,6 +123,7 @@
     <string name="new_page_created">Leht on lisatud.</string>
     <string name="no_changes">Muutusi pole.</string>
     <string name="no_space_page">Leheküljel pole ruumi. Proovige lisada otsetee mõnele muule leheküljele.</string>
+    <string name="no_space_page_for_hotseat">Lemmikute salves pole ruumi.</string>
     <string name="no_space_page_for_widget">Sellel leheküljel pole ruumi.</string>
     <string name="not_selected">Pole valitud</string>
     <string name="notification_panel_setting_summary">Libistage alla, et avada teavituste paneel avaekraanilt.</string>
@@ -155,6 +158,8 @@
     <string name="quick_option_delete_folder">Kustuta kaust</string>
     <string name="quick_option_delete_folder_alert">Kaust %s kustutatakse. Kaustas sisalduvaid rakendusi saab endiselt rakenduste kuvalt kasutada.</string>
     <string name="quick_option_delete_folder_alert_no_title">See kaust kustutatakse. Kaustas sisalduvaid rakendusi saab endiselt rakenduste kuvalt kasutada.</string>
+    <string name="quick_option_delete_folder_home_only_alert">Kaust %s kustutatakse. Selles kaustas olevad rakendused on jätkuvalt avaekraanil saadaval.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">See kaust kustutatakse. Selles kaustas olevad rakendused on jätkuvalt avaekraanil saadaval.</string>
     <string name="quick_option_dimmed_disable">Desaktiveeri</string>
     <string name="quick_option_disable">Desaktiveeri</string>
     <string name="quick_option_install_dual_im">Installi teine rakendus</string>

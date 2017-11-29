@@ -113,7 +113,7 @@
 .end method
 
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
-    .locals 7
+    .locals 8
 
     const/4 v0, 0x0
 
@@ -121,17 +121,17 @@
 
     invoke-virtual {p0}, Lcom/android/launcher3/common/dialog/FolderDeleteDialog;->getFragmentManager()Landroid/app/FragmentManager;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Landroid/app/FragmentManager;->beginTransaction()Landroid/app/FragmentTransaction;
+    invoke-virtual {v4}, Landroid/app/FragmentManager;->beginTransaction()Landroid/app/FragmentTransaction;
 
     move-result-object v1
 
     invoke-virtual {p0}, Lcom/android/launcher3/common/dialog/FolderDeleteDialog;->getFragmentManager()Landroid/app/FragmentManager;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-static {v1, v3}, Lcom/android/launcher3/common/dialog/FolderDeleteDialog;->dismiss(Landroid/app/FragmentTransaction;Landroid/app/FragmentManager;)V
+    invoke-static {v1, v4}, Lcom/android/launcher3/common/dialog/FolderDeleteDialog;->dismiss(Landroid/app/FragmentTransaction;Landroid/app/FragmentManager;)V
 
     invoke-virtual {v1, v0}, Landroid/app/FragmentTransaction;->addToBackStack(Ljava/lang/String;)Landroid/app/FragmentTransaction;
 
@@ -140,77 +140,101 @@
     return-object v0
 
     :cond_1
-    iget-object v3, p0, Lcom/android/launcher3/common/dialog/FolderDeleteDialog;->mFolderInfo:Lcom/android/launcher3/folder/FolderInfo;
+    iget-object v4, p0, Lcom/android/launcher3/common/dialog/FolderDeleteDialog;->mFolderInfo:Lcom/android/launcher3/folder/FolderInfo;
 
-    if-eqz v3, :cond_0
+    if-eqz v4, :cond_0
 
-    iget-object v3, p0, Lcom/android/launcher3/common/dialog/FolderDeleteDialog;->mFolderInfo:Lcom/android/launcher3/folder/FolderInfo;
-
-    iget-object v3, v3, Lcom/android/launcher3/folder/FolderInfo;->title:Ljava/lang/CharSequence;
-
-    invoke-interface {v3}, Ljava/lang/CharSequence;->length()I
-
-    move-result v3
-
-    if-nez v3, :cond_2
-
-    const v3, 0x7f09009b
-
-    invoke-virtual {p0, v3}, Lcom/android/launcher3/common/dialog/FolderDeleteDialog;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    :goto_1
-    new-instance v3, Landroid/app/AlertDialog$Builder;
-
-    invoke-virtual {p0}, Lcom/android/launcher3/common/dialog/FolderDeleteDialog;->getActivity()Landroid/app/Activity;
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
     move-result-object v4
 
-    invoke-direct {v3, v4}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    invoke-virtual {v4}, Lcom/android/launcher3/LauncherAppState;->isHomeOnlyModeEnabled()Z
 
-    invoke-virtual {v3, v2}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+    move-result v2
+
+    iget-object v4, p0, Lcom/android/launcher3/common/dialog/FolderDeleteDialog;->mFolderInfo:Lcom/android/launcher3/folder/FolderInfo;
+
+    iget-object v4, v4, Lcom/android/launcher3/folder/FolderInfo;->title:Ljava/lang/CharSequence;
+
+    invoke-interface {v4}, Ljava/lang/CharSequence;->length()I
+
+    move-result v4
+
+    if-nez v4, :cond_3
+
+    if-eqz v2, :cond_2
+
+    const v4, 0x7f0900a0
+
+    :goto_1
+    invoke-virtual {p0, v4}, Lcom/android/launcher3/common/dialog/FolderDeleteDialog;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v4, 0x7f090099
+    :goto_2
+    new-instance v4, Landroid/app/AlertDialog$Builder;
 
-    invoke-virtual {v3, v4, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {p0}, Lcom/android/launcher3/common/dialog/FolderDeleteDialog;->getActivity()Landroid/app/Activity;
 
-    move-result-object v3
+    move-result-object v5
 
-    const v4, 0x7f09002f
+    invoke-direct {v4, v5}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    invoke-virtual {v3, v4, p0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+    invoke-virtual {v4, v3}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+    const v5, 0x7f09009c
+
+    invoke-virtual {v4, v5, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v4
+
+    const v5, 0x7f090031
+
+    invoke-virtual {v4, v5, p0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v0
 
     goto :goto_0
 
     :cond_2
-    const v3, 0x7f09009a
-
-    const/4 v4, 0x1
-
-    new-array v4, v4, [Ljava/lang/Object;
-
-    const/4 v5, 0x0
-
-    iget-object v6, p0, Lcom/android/launcher3/common/dialog/FolderDeleteDialog;->mFolderInfo:Lcom/android/launcher3/folder/FolderInfo;
-
-    iget-object v6, v6, Lcom/android/launcher3/folder/FolderInfo;->title:Ljava/lang/CharSequence;
-
-    aput-object v6, v4, v5
-
-    invoke-virtual {p0, v3, v4}, Lcom/android/launcher3/common/dialog/FolderDeleteDialog;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v2
+    const v4, 0x7f09009e
 
     goto :goto_1
+
+    :cond_3
+    if-eqz v2, :cond_4
+
+    const v4, 0x7f09009f
+
+    :goto_3
+    const/4 v5, 0x1
+
+    new-array v5, v5, [Ljava/lang/Object;
+
+    const/4 v6, 0x0
+
+    iget-object v7, p0, Lcom/android/launcher3/common/dialog/FolderDeleteDialog;->mFolderInfo:Lcom/android/launcher3/folder/FolderInfo;
+
+    iget-object v7, v7, Lcom/android/launcher3/folder/FolderInfo;->title:Ljava/lang/CharSequence;
+
+    aput-object v7, v5, v6
+
+    invoke-virtual {p0, v4, v5}, Lcom/android/launcher3/common/dialog/FolderDeleteDialog;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v3
+
+    goto :goto_2
+
+    :cond_4
+    const v4, 0x7f09009d
+
+    goto :goto_3
 .end method
 
 .method public show(Landroid/app/FragmentManager;Lcom/android/launcher3/common/stage/Stage;Lcom/android/launcher3/folder/FolderInfo;)V

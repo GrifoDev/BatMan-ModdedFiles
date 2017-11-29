@@ -67,7 +67,7 @@
 
     iput-object p1, p0, Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollPopup;->mRv:Lcom/android/launcher3/common/base/view/BaseRecyclerView;
 
-    const v0, 0x7f0a0112
+    const v0, 0x7f0a0116
 
     invoke-virtual {p2, v0}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -111,7 +111,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/base/BaseRecyclerViewFastScrollPopup;->mTextPaint:Landroid/graphics/Paint;
 
-    const v1, 0x7f0a0113
+    const v1, 0x7f0a0117
 
     invoke-virtual {p2, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

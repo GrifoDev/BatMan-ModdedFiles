@@ -306,13 +306,13 @@
 
     move-result-object v1
 
-    const v4, 0x7f0900af
+    const v4, 0x7f0900b4
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v4, 0x7f09007b
+    const v4, 0x7f09007e
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -327,7 +327,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v5, 0x7f0900c3
+    const v5, 0x7f0900c8
 
     invoke-virtual {v1, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -468,7 +468,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0051
+    const v2, 0x7f0a0050
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -705,7 +705,7 @@
     return-object v0
 .end method
 
-.method getScreenGridTopConatiner()Landroid/view/View;
+.method public getScreenGridTopConatiner()Landroid/view/View;
     .locals 1
 
     iget-object v0, p0, Lcom/android/launcher3/home/ScreenGridPanel;->mScreenGridTopContainer:Landroid/view/View;
@@ -786,7 +786,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0900ad
+    const v3, 0x7f0900b2
 
     const/4 v4, 0x2
 
@@ -1006,7 +1006,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0a004f
+    const v5, 0x7f0a004e
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -1030,7 +1030,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0a004e
+    const v5, 0x7f0a004d
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -1061,7 +1061,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0a0050
+    const v5, 0x7f0a004f
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -1139,7 +1139,7 @@
 
     move-result-object v5
 
-    const v18, 0x7f0900c3
+    const v18, 0x7f0900c8
 
     move/from16 v0, v18
 
@@ -1165,7 +1165,7 @@
 
     move-result v12
 
-    const v18, 0x7f0a0188
+    const v18, 0x7f0a018d
 
     move/from16 v0, v18
 
@@ -1294,7 +1294,7 @@
 
     move/from16 v16, v0
 
-    const v18, 0x7f0a018a
+    const v18, 0x7f0a018f
 
     move/from16 v0, v18
 
@@ -1332,7 +1332,7 @@
 
     if-lt v0, v1, :cond_6
 
-    const v18, 0x7f0a018b
+    const v18, 0x7f0a0190
 
     move/from16 v0, v18
 
@@ -1680,23 +1680,23 @@
 .end method
 
 .method updateButtonStatus()V
-    .locals 4
+    .locals 5
+
+    const/4 v4, 0x0
+
+    const/4 v2, 0x2
+
+    new-array v0, v2, [I
 
     iget-object v2, p0, Lcom/android/launcher3/home/ScreenGridPanel;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    invoke-virtual {v2}, Lcom/android/launcher3/Launcher;->getDeviceProfile()Lcom/android/launcher3/common/deviceprofile/DeviceProfile;
-
-    move-result-object v1
+    invoke-static {v2, v0}, Lcom/android/launcher3/Utilities;->loadCurrentGridSize(Landroid/content/Context;[I)V
 
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v3, v1, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->homeGrid:Lcom/android/launcher3/common/deviceprofile/GridInfo;
-
-    invoke-virtual {v3}, Lcom/android/launcher3/common/deviceprofile/GridInfo;->getCellCountX()I
-
-    move-result v3
+    aget v3, v0, v4
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -1708,11 +1708,9 @@
 
     move-result-object v2
 
-    iget-object v3, v1, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->homeGrid:Lcom/android/launcher3/common/deviceprofile/GridInfo;
+    const/4 v3, 0x1
 
-    invoke-virtual {v3}, Lcom/android/launcher3/common/deviceprofile/GridInfo;->getCellCountY()I
-
-    move-result v3
+    aget v3, v0, v3
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -1720,15 +1718,13 @@
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    invoke-direct {p0, v0}, Lcom/android/launcher3/home/ScreenGridPanel;->updateBtnForScreenGrid(Ljava/lang/String;)V
+    invoke-direct {p0, v1}, Lcom/android/launcher3/home/ScreenGridPanel;->updateBtnForScreenGrid(Ljava/lang/String;)V
 
     iget-object v2, p0, Lcom/android/launcher3/home/ScreenGridPanel;->mApplyView:Landroid/widget/TextView;
 
-    const/4 v3, 0x0
-
-    invoke-virtual {v2, v3}, Landroid/widget/TextView;->setEnabled(Z)V
+    invoke-virtual {v2, v4}, Landroid/widget/TextView;->setEnabled(Z)V
 
     iget-object v2, p0, Lcom/android/launcher3/home/ScreenGridPanel;->mApplyView:Landroid/widget/TextView;
 

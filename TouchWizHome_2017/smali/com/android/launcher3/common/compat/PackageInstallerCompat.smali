@@ -95,6 +95,12 @@
 
 
 # virtual methods
+.method public abstract addAllSessionInfoToCache()V
+.end method
+
+.method public abstract isSessionInfoItem(Ljava/lang/String;)Z
+.end method
+
 .method public abstract onStop()V
 .end method
 

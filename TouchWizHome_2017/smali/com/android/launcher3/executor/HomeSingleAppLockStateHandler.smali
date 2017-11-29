@@ -171,7 +171,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-nez v3, :cond_3
 
     invoke-virtual {p0}, Lcom/android/launcher3/executor/HomeSingleAppLockStateHandler;->getLauncherProxy()Lcom/android/launcher3/proxy/LauncherProxy;
 

@@ -17,8 +17,10 @@
     <string name="accessibility_button">Botão</string>
     <string name="accessibility_dimmed">Atenuado</string>
     <string name="activity_not_available">Esta aplicação não está disponível para o seu dispositivo.</string>
-    <string name="activity_not_found">Aplicação não instalada.</string>
+    <string name="activity_not_found">Aplicação não encontrada</string>
+    <string name="add">Adicionar</string>
     <string name="add_to_last_page">Seleccionou %1$d itens, mas não existe espaço suficiente nesta página. Os %2$d itens restantes serão adicionados à última página.</string>
+    <string name="add_to_last_page_for_hotseat">Seleccionou %1$d itens, mas não existe espaço suficiente no tabuleiro dos favoritos. Os %2$d itens restantes serão adicionados à última página.</string>
     <string name="align_to_bottom">Alinhar em baixo</string>
     <string name="align_to_top">Alinhar em cima</string>
     <string name="app_locked_toast">%s bloqueado.</string>
@@ -122,6 +124,7 @@
     <string name="new_page_created">Página adicionada.</string>
     <string name="no_changes">Sem alterações.</string>
     <string name="no_space_page">Sem espaço na página. Experimente adicionar o atalho a uma página diferente.</string>
+    <string name="no_space_page_for_hotseat">Sem espaço no tabuleiro dos favoritos.</string>
     <string name="no_space_page_for_widget">Sem espaço nesta página.</string>
     <string name="not_selected">Não seleccionado</string>
     <string name="notification_panel_setting_summary">Deslizar para baixo para abrir o painel de notificações a partir do Ecrã principal.</string>
@@ -156,6 +159,8 @@
     <string name="quick_option_delete_folder">Eliminar pasta</string>
     <string name="quick_option_delete_folder_alert">A pasta %s será eliminada. As aplicações que estão dentro desta pasta continuarão a estar disponíveis no ecrã Aplicações.</string>
     <string name="quick_option_delete_folder_alert_no_title">Esta pasta será eliminada. As aplicações que estão dentro desta pasta continuarão a estar disponíveis no ecrã Aplicações.</string>
+    <string name="quick_option_delete_folder_home_only_alert">A pasta %s será eliminada. As aplicações que estão dentro desta pasta continuarão a estar disponíveis no Ecrã principal.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Esta pasta será eliminada. As aplicações que estão dentro desta pasta continuarão a estar disponíveis no Ecrã principal.</string>
     <string name="quick_option_dimmed_disable">Desactivar</string>
     <string name="quick_option_disable">Desactivar</string>
     <string name="quick_option_install_dual_im">Instalar segunda aplicação</string>

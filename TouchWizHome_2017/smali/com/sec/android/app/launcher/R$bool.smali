@@ -15,19 +15,21 @@
 
 
 # static fields
-.field public static final abc_action_bar_embed_tabs:I = 0x7f0b0000
+.field public static final abc_action_bar_embed_tabs:I = 0x7f0d0000
 
-.field public static final config_isLightTheme:I = 0x7f0b0003
+.field public static final config_isLightTheme:I = 0x7f0d0004
 
-.field public static final config_largeHeap:I = 0x7f0b0004
+.field public static final config_largeHeap:I = 0x7f0d0005
 
-.field public static final enable_backup:I = 0x7f0b0005
+.field public static final enable_backup:I = 0x7f0d0006
 
-.field public static final hotseat_transpose_layout_with_orientation:I = 0x7f0b0002
+.field public static final hotseat_transpose_layout_with_orientation:I = 0x7f0d0002
 
-.field public static final is_large_tablet:I = 0x7f0b0006
+.field public static final is_large_tablet:I = 0x7f0d0007
 
-.field public static final is_supportFlexibleGrid:I = 0x7f0b0001
+.field public static final is_supportFlexibleGrid:I = 0x7f0d0001
+
+.field public static final is_supportMultiWindow:I = 0x7f0d0003
 
 
 # direct methods

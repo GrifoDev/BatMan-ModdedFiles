@@ -63,7 +63,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/OverviewPanel$5;->this$0:Lcom/android/launcher3/home/OverviewPanel;
 
-    invoke-static {v0}, Lcom/android/launcher3/home/OverviewPanel;->access$400(Lcom/android/launcher3/home/OverviewPanel;)V
+    invoke-static {v0}, Lcom/android/launcher3/home/OverviewPanel;->access$500(Lcom/android/launcher3/home/OverviewPanel;)V
 
     :cond_0
     return-void

@@ -17,8 +17,10 @@
     <string name="accessibility_button">Бутон</string>
     <string name="accessibility_dimmed">Затъмнено</string>
     <string name="activity_not_available">Това приложение не е налично за вашето устройство.</string>
-    <string name="activity_not_found">Приложението не е инсталирано.</string>
+    <string name="activity_not_found">Приложението не е намерено</string>
+    <string name="add">Добавяне</string>
     <string name="add_to_last_page">Избрахте %1$d елемента, но на тази страница няма достатъчно място. Оставащите %2$d елемента ще бъдат добавени към последната страница.</string>
+    <string name="add_to_last_page_for_hotseat">Избрахте %1$d елемента, но в областта за любими няма достатъчно място. Оставащите %2$d елемента ще бъдат добавени към последната страница.</string>
     <string name="align_to_bottom">Подравняване отдолу</string>
     <string name="align_to_top">Подравняване отгоре</string>
     <string name="app_locked_toast">%s е заключен.</string>
@@ -122,13 +124,14 @@
     <string name="new_page_created">Страницата е добавена.</string>
     <string name="no_changes">Няма промени.</string>
     <string name="no_space_page">Няма място на страницата. Опитайте да добавите пряк път на друга страница.</string>
+    <string name="no_space_page_for_hotseat">Няма място в областта за любими.</string>
     <string name="no_space_page_for_widget">Няма място на тази страница.</string>
     <string name="not_selected">Не е избрано</string>
     <string name="notification_panel_setting_summary">Плъзнете надолу, за да отворите панела за уведомления от началния екран.</string>
     <string name="notification_panel_setting_title">Бързо отваряне панел уведомл.</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Уиджетът %s вече е добавен към началния екран.</string>
-    <string name="option_menu_contact_up">Свържете се с нас</string>
+    <string name="option_menu_contact_up">Връзка с нас</string>
     <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Настройки</string>
     <string name="options_menu">Още опции</string>
@@ -156,6 +159,8 @@
     <string name="quick_option_delete_folder">Изтриване на папка</string>
     <string name="quick_option_delete_folder_alert">Папката %s ще бъде изтрита. Приложенията в тази папка все още ще бъдат налични на екрана за приложения.</string>
     <string name="quick_option_delete_folder_alert_no_title">Тази папка ще бъде изтрита. Приложенията в тази папка все още ще бъдат налични на екрана за приложения.</string>
+    <string name="quick_option_delete_folder_home_only_alert">Папката %s ще бъде изтрита. Приложенията в тази папка все още ще бъдат налични на началния екран.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Тази папка ще бъде изтрита. Приложенията в тази папка все още ще бъдат налични на началния екран.</string>
     <string name="quick_option_dimmed_disable">Деактивиране</string>
     <string name="quick_option_disable">Деактивиране</string>
     <string name="quick_option_install_dual_im">Инстал. второ приложение</string>

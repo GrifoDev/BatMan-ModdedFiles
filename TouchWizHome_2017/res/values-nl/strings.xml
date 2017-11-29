@@ -17,8 +17,10 @@
     <string name="accessibility_button">Knop</string>
     <string name="accessibility_dimmed">Gedimd</string>
     <string name="activity_not_available">Deze app is niet beschikbaar voor uw apparaat.</string>
-    <string name="activity_not_found">Applicatie niet geïnstalleerd.</string>
+    <string name="activity_not_found">App niet gevonden</string>
+    <string name="add">Toevoegen</string>
     <string name="add_to_last_page">U hebt %1$d items geselecteerd, maar er is onvoldoende ruimte op deze pagina. De resterende %2$d items worden toegevoegd aan de laatste pagina.</string>
+    <string name="add_to_last_page_for_hotseat">U hebt %1$d items geselecteerd, maar er is onvoldoende ruimte in het vak met favorieten. De resterende %2$d items worden toegevoegd aan de laatste pagina.</string>
     <string name="align_to_bottom">Uitlijnen met onderkant</string>
     <string name="align_to_top">Uitlijnen met bovenkant</string>
     <string name="app_locked_toast">%s vergrendeld.</string>
@@ -122,13 +124,14 @@
     <string name="new_page_created">Pagina toegevoegd.</string>
     <string name="no_changes">Geen wijzigingen.</string>
     <string name="no_space_page">Geen ruimte op deze pagina. Probeer sneltoets toe te voegen op een andere pagina.</string>
+    <string name="no_space_page_for_hotseat">Geen ruimte in vak Favorieten.</string>
     <string name="no_space_page_for_widget">Geen ruimte op deze pagina.</string>
     <string name="not_selected">Niet geselecteerd</string>
     <string name="notification_panel_setting_summary">Veeg naar beneden in het Startscherm om het meldingenvenster te openen.</string>
     <string name="notification_panel_setting_title">Meldingenvenster snel openen</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s-widget al toegevoegd aan startscherm.</string>
-    <string name="option_menu_contact_up">Neem contact met ons op</string>
+    <string name="option_menu_contact_up">Neem contact op</string>
     <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Instellingen</string>
     <string name="options_menu">Meer opties</string>
@@ -156,6 +159,8 @@
     <string name="quick_option_delete_folder">Map verwijderen</string>
     <string name="quick_option_delete_folder_alert">De map %s wordt verwijderd. De apps in deze map blijven beschikbaar op het Apps-scherm.</string>
     <string name="quick_option_delete_folder_alert_no_title">Deze map wordt verwijderd. De apps in deze map blijven beschikbaar op het Apps-scherm.</string>
+    <string name="quick_option_delete_folder_home_only_alert">De map %s wordt verwijderd. De apps in deze map blijven beschikbaar op het Startscherm.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Deze map wordt verwijderd. De apps in deze map blijven beschikbaar op het Startscherm.</string>
     <string name="quick_option_dimmed_disable">Uitschakelen</string>
     <string name="quick_option_disable">Uitschakelen</string>
     <string name="quick_option_install_dual_im">Tweede app installeren</string>

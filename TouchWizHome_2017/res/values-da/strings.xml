@@ -17,8 +17,10 @@
     <string name="accessibility_button">Knap</string>
     <string name="accessibility_dimmed">Nedtonet</string>
     <string name="activity_not_available">Denne app er ikke tilgængelig til din enhed.</string>
-    <string name="activity_not_found">Applikation ikke installeret.</string>
+    <string name="activity_not_found">Appen blev ikke fundet</string>
+    <string name="add">Tilføj</string>
     <string name="add_to_last_page">Du har valgt %1$d elementer, men der er ikke plads nok på denne side. De resterende %2$d elementer vil blive føjet til den sidste side.</string>
+    <string name="add_to_last_page_for_hotseat">Du har valgt %1$d elementer, men der er ikke plads nok i favoritbakken. De resterende %2$d elementer vil blive føjet til den sidste side.</string>
     <string name="align_to_bottom">Juster nederst</string>
     <string name="align_to_top">Juster øverst</string>
     <string name="app_locked_toast">%s låst.</string>
@@ -123,6 +125,7 @@ apps"</string>
     <string name="new_page_created">Side tilføjet.</string>
     <string name="no_changes">Ingen ændringer.</string>
     <string name="no_space_page">Der er ikke plads på siden. Prøv at tilføje en genvej på en anden side.</string>
+    <string name="no_space_page_for_hotseat">Ingen plads i favoritbakken.</string>
     <string name="no_space_page_for_widget">Ingen plads på denne side.</string>
     <string name="not_selected">Ikke valgt</string>
     <string name="notification_panel_setting_summary">Stryg nedad for at åbne informationspanelet fra startskærmen.</string>
@@ -157,6 +160,8 @@ apps"</string>
     <string name="quick_option_delete_folder">Slet mappe</string>
     <string name="quick_option_delete_folder_alert">Mappen %s vil blive slettet. Apps i denne mappe vil stadig være tilgængelige på appskærmen.</string>
     <string name="quick_option_delete_folder_alert_no_title">Denne mappe vil blive slettet. Apps i denne mappe vil stadig være tilgængelige på appskærmen.</string>
+    <string name="quick_option_delete_folder_home_only_alert">Mappen %s vil blive slettet. Apps i denne mappe vil stadig være tilgængelige på startskærmen.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Denne mappe vil blive slettet. Apps i denne mappe vil stadig være tilgængelige på startskærmen.</string>
     <string name="quick_option_dimmed_disable">Deaktiver</string>
     <string name="quick_option_disable">Deaktiver</string>
     <string name="quick_option_install_dual_im">Installer sekundær app</string>

@@ -49,9 +49,9 @@
 .method public run()V
     .locals 9
 
-    const v8, 0x7f090182
+    const v8, 0x7f090187
 
-    const v7, 0x7f090136
+    const v7, 0x7f09013b
 
     const/4 v6, 0x2
 
@@ -80,7 +80,7 @@
 
     iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging$19;->this$0:Lcom/android/launcher3/util/logging/SALogging;
 
-    const v5, 0x7f0901b9
+    const v5, 0x7f0901be
 
     invoke-virtual {v1, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -115,7 +115,7 @@
 
     iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging$19;->this$0:Lcom/android/launcher3/util/logging/SALogging;
 
-    const v5, 0x7f0901ac
+    const v5, 0x7f0901b1
 
     invoke-virtual {v1, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -144,7 +144,7 @@
 
     iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging$19;->this$0:Lcom/android/launcher3/util/logging/SALogging;
 
-    const v5, 0x7f0901a5
+    const v5, 0x7f0901aa
 
     invoke-virtual {v1, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -163,7 +163,7 @@
 
     iget-object v4, p0, Lcom/android/launcher3/util/logging/SALogging$19;->this$0:Lcom/android/launcher3/util/logging/SALogging;
 
-    const v5, 0x7f0901b1
+    const v5, 0x7f0901b6
 
     invoke-virtual {v1, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

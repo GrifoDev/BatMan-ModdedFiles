@@ -1,11 +1,14 @@
 .class Lcom/android/launcher3/home/HomeController$18;
-.super Landroid/animation/AnimatorListenerAdapter;
+.super Ljava/lang/Object;
 .source "HomeController.java"
+
+# interfaces
+.implements Lcom/android/launcher3/common/base/item/ItemOperator;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/HomeController;->createNewAppBounceAnimation(Landroid/view/View;I)Landroid/animation/ValueAnimator;
+    value = Lcom/android/launcher3/home/HomeController;->getFirstMatch(Lcom/android/launcher3/common/base/item/ItemOperator;)Landroid/view/View;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,40 +20,47 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/home/HomeController;
 
-.field final synthetic val$v:Landroid/view/View;
+.field final synthetic val$operator:Lcom/android/launcher3/common/base/item/ItemOperator;
+
+.field final synthetic val$value:[Landroid/view/View;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/home/HomeController;Landroid/view/View;)V
+.method constructor <init>(Lcom/android/launcher3/home/HomeController;Lcom/android/launcher3/common/base/item/ItemOperator;[Landroid/view/View;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/home/HomeController$18;->this$0:Lcom/android/launcher3/home/HomeController;
 
-    iput-object p2, p0, Lcom/android/launcher3/home/HomeController$18;->val$v:Landroid/view/View;
+    iput-object p2, p0, Lcom/android/launcher3/home/HomeController$18;->val$operator:Lcom/android/launcher3/common/base/item/ItemOperator;
 
-    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
+    iput-object p3, p0, Lcom/android/launcher3/home/HomeController$18;->val$value:[Landroid/view/View;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onAnimationCancel(Landroid/animation/Animator;)V
+.method public evaluate(Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/view/View;Landroid/view/View;)Z
     .locals 2
 
-    const/high16 v1, 0x3f800000    # 1.0f
+    const/4 v0, 0x0
 
-    iget-object v0, p0, Lcom/android/launcher3/home/HomeController$18;->val$v:Landroid/view/View;
+    iget-object v1, p0, Lcom/android/launcher3/home/HomeController$18;->val$operator:Lcom/android/launcher3/common/base/item/ItemOperator;
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
+    invoke-interface {v1, p1, p2, p3}, Lcom/android/launcher3/common/base/item/ItemOperator;->evaluate(Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/view/View;Landroid/view/View;)Z
 
-    iget-object v0, p0, Lcom/android/launcher3/home/HomeController$18;->val$v:Landroid/view/View;
+    move-result v1
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setScaleX(F)V
+    if-eqz v1, :cond_0
 
-    iget-object v0, p0, Lcom/android/launcher3/home/HomeController$18;->val$v:Landroid/view/View;
+    iget-object v1, p0, Lcom/android/launcher3/home/HomeController$18;->val$value:[Landroid/view/View;
 
-    invoke-virtual {v0, v1}, Landroid/view/View;->setScaleY(F)V
+    aput-object p2, v1, v0
 
-    return-void
+    const/4 v0, 0x1
+
+    :cond_0
+    return v0
 .end method

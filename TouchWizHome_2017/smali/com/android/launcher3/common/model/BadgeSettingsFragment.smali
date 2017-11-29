@@ -843,7 +843,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0901b6
+    const v3, 0x7f0901bb
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -855,7 +855,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090145
+    const v3, 0x7f09014a
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -882,6 +882,16 @@
 
 
 # virtual methods
+.method public disableAllAppsBadge()V
+    .locals 1
+
+    const/4 v0, 0x1
+
+    invoke-direct {p0, v0}, Lcom/android/launcher3/common/model/BadgeSettingsFragment;->refreshAllAppItems(Z)V
+
+    return-void
+.end method
+
 .method public enableAllAppsbadge(Z)V
     .locals 2
 
@@ -966,6 +976,57 @@
     invoke-direct {p0}, Lcom/android/launcher3/common/model/BadgeSettingsFragment;->updateAllSwitch()V
 
     return-void
+.end method
+
+.method public hasAppsBadge()Z
+    .locals 3
+
+    iget-object v1, p0, Lcom/android/launcher3/common/model/BadgeSettingsFragment;->mBadgeAppItems:Ljava/util/List;
+
+    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :cond_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/launcher3/common/model/BadgeSettingsFragment$BadgeAppItem;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/common/model/BadgeSettingsFragment$BadgeAppItem;->isHidden()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const/4 v1, 0x1
+
+    :goto_0
+    return v1
+
+    :cond_1
+    const/4 v1, 0x0
+
+    goto :goto_0
+.end method
+
+.method public isAllAppsBadgeSwitchChecked()Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/common/model/BadgeSettingsFragment;->mAllSwitch:Landroid/widget/Switch;
+
+    invoke-virtual {v0}, Landroid/widget/Switch;->isChecked()Z
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public isRunning()Z

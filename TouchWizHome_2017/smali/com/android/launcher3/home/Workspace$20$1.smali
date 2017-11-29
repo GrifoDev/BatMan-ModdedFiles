@@ -1,4 +1,4 @@
-.class Lcom/android/launcher3/home/Workspace$19$1;
+.class Lcom/android/launcher3/home/Workspace$20$1;
 .super Ljava/lang/Object;
 .source "Workspace.java"
 
@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/Workspace$19;->onClick(Landroid/content/DialogInterface;I)V
+    value = Lcom/android/launcher3/home/Workspace$20;->onClick(Landroid/content/DialogInterface;I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -18,14 +18,14 @@
 
 
 # instance fields
-.field final synthetic this$1:Lcom/android/launcher3/home/Workspace$19;
+.field final synthetic this$1:Lcom/android/launcher3/home/Workspace$20;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/home/Workspace$19;)V
+.method constructor <init>(Lcom/android/launcher3/home/Workspace$20;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/launcher3/home/Workspace$19$1;->this$1:Lcom/android/launcher3/home/Workspace$19;
+    iput-object p1, p0, Lcom/android/launcher3/home/Workspace$20$1;->this$1:Lcom/android/launcher3/home/Workspace$20;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -37,9 +37,9 @@
 .method public run()V
     .locals 3
 
-    iget-object v0, p0, Lcom/android/launcher3/home/Workspace$19$1;->this$1:Lcom/android/launcher3/home/Workspace$19;
+    iget-object v0, p0, Lcom/android/launcher3/home/Workspace$20$1;->this$1:Lcom/android/launcher3/home/Workspace$20;
 
-    iget-object v0, v0, Lcom/android/launcher3/home/Workspace$19;->this$0:Lcom/android/launcher3/home/Workspace;
+    iget-object v0, v0, Lcom/android/launcher3/home/Workspace$20;->this$0:Lcom/android/launcher3/home/Workspace;
 
     const/4 v1, 0x0
 

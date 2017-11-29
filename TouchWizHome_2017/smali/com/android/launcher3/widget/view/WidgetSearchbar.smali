@@ -194,9 +194,9 @@
 
     iput-object v0, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mState:Lcom/android/launcher3/widget/controller/WidgetState$State;
 
-    new-instance v0, Lcom/android/launcher3/widget/view/WidgetSearchbar$5;
+    new-instance v0, Lcom/android/launcher3/widget/view/WidgetSearchbar$6;
 
-    invoke-direct {v0, p0}, Lcom/android/launcher3/widget/view/WidgetSearchbar$5;-><init>(Lcom/android/launcher3/widget/view/WidgetSearchbar;)V
+    invoke-direct {v0, p0}, Lcom/android/launcher3/widget/view/WidgetSearchbar$6;-><init>(Lcom/android/launcher3/widget/view/WidgetSearchbar;)V
 
     iput-object v0, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mMenuItemClickListener:Landroid/widget/PopupMenu$OnMenuItemClickListener;
 
@@ -704,7 +704,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0901bc
+    const v2, 0x7f0901c1
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -714,7 +714,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f09018b
+    const v4, 0x7f090190
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -883,7 +883,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0076
+    const v2, 0x7f0a0075
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1115,6 +1115,14 @@
     invoke-virtual {v4, v7}, Landroid/widget/TextView;->semSetDirectPenInputEnabled(Z)V
 
     :cond_1
+    iget-object v4, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mSearchEditText:Landroid/widget/TextView;
+
+    new-instance v5, Lcom/android/launcher3/widget/view/WidgetSearchbar$3;
+
+    invoke-direct {v5, p0}, Lcom/android/launcher3/widget/view/WidgetSearchbar$3;-><init>(Lcom/android/launcher3/widget/view/WidgetSearchbar;)V
+
+    invoke-virtual {v4, v5}, Landroid/widget/TextView;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
+
     invoke-virtual {p0, v7}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->changeColorAndBackground(Z)V
 
     return-void
@@ -1258,9 +1266,9 @@
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
-    new-instance v1, Lcom/android/launcher3/widget/view/WidgetSearchbar$4;
+    new-instance v1, Lcom/android/launcher3/widget/view/WidgetSearchbar$5;
 
-    invoke-direct {v1, p0}, Lcom/android/launcher3/widget/view/WidgetSearchbar$4;-><init>(Lcom/android/launcher3/widget/view/WidgetSearchbar;)V
+    invoke-direct {v1, p0}, Lcom/android/launcher3/widget/view/WidgetSearchbar$5;-><init>(Lcom/android/launcher3/widget/view/WidgetSearchbar;)V
 
     const-wide/16 v2, 0x12c
 
@@ -1328,9 +1336,9 @@
     :cond_0
     iget-object v1, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mSearchView:Landroid/widget/SearchView;
 
-    new-instance v2, Lcom/android/launcher3/widget/view/WidgetSearchbar$3;
+    new-instance v2, Lcom/android/launcher3/widget/view/WidgetSearchbar$4;
 
-    invoke-direct {v2, p0}, Lcom/android/launcher3/widget/view/WidgetSearchbar$3;-><init>(Lcom/android/launcher3/widget/view/WidgetSearchbar;)V
+    invoke-direct {v2, p0}, Lcom/android/launcher3/widget/view/WidgetSearchbar$4;-><init>(Lcom/android/launcher3/widget/view/WidgetSearchbar;)V
 
     invoke-virtual {v1, v2}, Landroid/widget/SearchView;->post(Ljava/lang/Runnable;)Z
 
@@ -1339,13 +1347,23 @@
 .end method
 
 .method public openKeyboard()V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->openKeyboard(Z)V
+
+    return-void
+.end method
+
+.method public openKeyboard(Z)V
     .locals 3
 
     iget-object v1, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mState:Lcom/android/launcher3/widget/controller/WidgetState$State;
 
     sget-object v2, Lcom/android/launcher3/widget/controller/WidgetState$State;->SEARCH:Lcom/android/launcher3/widget/controller/WidgetState$State;
 
-    if-ne v1, v2, :cond_0
+    if-ne v1, v2, :cond_1
 
     iget-object v1, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mSearchEditText:Landroid/widget/TextView;
 
@@ -1361,11 +1379,18 @@
 
     check-cast v0, Landroid/view/inputmethod/InputMethodManager;
 
+    if-eqz p1, :cond_0
+
+    iget-object v1, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mSearchEditText:Landroid/widget/TextView;
+
+    invoke-virtual {v0, v1}, Landroid/view/inputmethod/InputMethodManager;->viewClicked(Landroid/view/View;)V
+
+    :cond_0
     invoke-virtual {v0}, Landroid/view/inputmethod/InputMethodManager;->semIsInputMethodShown()Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-nez v1, :cond_1
 
     iget-object v1, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mSearchEditText:Landroid/widget/TextView;
 
@@ -1373,7 +1398,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/view/inputmethod/InputMethodManager;->showSoftInput(Landroid/view/View;I)Z
 
-    :cond_0
+    :cond_1
     return-void
 .end method
 
@@ -1565,9 +1590,9 @@
 
     iget-object v2, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar;->mPopupMenu:Landroid/widget/PopupMenu;
 
-    new-instance v3, Lcom/android/launcher3/widget/view/WidgetSearchbar$6;
+    new-instance v3, Lcom/android/launcher3/widget/view/WidgetSearchbar$7;
 
-    invoke-direct {v3, p0}, Lcom/android/launcher3/widget/view/WidgetSearchbar$6;-><init>(Lcom/android/launcher3/widget/view/WidgetSearchbar;)V
+    invoke-direct {v3, p0}, Lcom/android/launcher3/widget/view/WidgetSearchbar$7;-><init>(Lcom/android/launcher3/widget/view/WidgetSearchbar;)V
 
     invoke-virtual {v2, v3}, Landroid/widget/PopupMenu;->setOnDismissListener(Landroid/widget/PopupMenu$OnDismissListener;)V
 

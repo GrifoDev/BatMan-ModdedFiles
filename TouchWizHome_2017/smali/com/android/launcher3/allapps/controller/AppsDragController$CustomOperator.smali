@@ -284,7 +284,7 @@
 .end method
 
 .method dragOver(Lcom/android/launcher3/common/drag/DropTarget$DragObject;)V
-    .locals 8
+    .locals 9
 
     const/4 v5, 0x1
 
@@ -399,6 +399,8 @@
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_2
+    const/16 v8, 0xfa
+
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsDragController$CustomOperator;->this$0:Lcom/android/launcher3/allapps/controller/AppsDragController;
 
     invoke-static {v0}, Lcom/android/launcher3/allapps/controller/AppsDragController;->access$1400(Lcom/android/launcher3/allapps/controller/AppsDragController;)Lcom/android/launcher3/util/alarm/Alarm;
@@ -1492,8 +1494,6 @@
 
     move-result-object v10
 
-    check-cast v10, Lcom/android/launcher3/common/view/IconView;
-
     goto/16 :goto_2
 
     :cond_7
@@ -1614,13 +1614,13 @@
 
     move-result-object v0
 
-    const v1, 0x7f0901ac
+    const v1, 0x7f0901b1
 
     invoke-virtual {v7, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    const v2, 0x7f090186
+    const v2, 0x7f09018b
 
     invoke-virtual {v7, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

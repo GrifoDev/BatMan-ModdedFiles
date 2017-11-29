@@ -798,7 +798,7 @@
 .method protected getCurrentPageDescription()Ljava/lang/String;
     .locals 5
 
-    const v0, 0x7f090031
+    const v0, 0x7f090033
 
     invoke-virtual {p0}, Lcom/android/launcher3/widget/view/WidgetPagedView;->getContext()Landroid/content/Context;
 
@@ -959,16 +959,23 @@
 
     instance-of v2, p0, Lcom/android/launcher3/widget/view/WidgetFolderPagedView;
 
-    if-eqz v2, :cond_3
+    if-eqz v2, :cond_4
 
     const/4 v2, 0x0
 
     iput v2, v0, Landroid/widget/FrameLayout$LayoutParams;->bottomMargin:I
 
-    :cond_2
     :goto_1
+    invoke-virtual {v1}, Lcom/android/launcher3/common/view/PageIndicator;->disableLayoutTransitions()V
+
+    :cond_2
     invoke-direct {p0}, Lcom/android/launcher3/widget/view/WidgetPagedView;->runFilter()V
 
+    if-eqz v1, :cond_3
+
+    invoke-virtual {v1}, Lcom/android/launcher3/common/view/PageIndicator;->enableLayoutTransitions()V
+
+    :cond_3
     invoke-virtual {p0}, Lcom/android/launcher3/widget/view/WidgetPagedView;->isDataReady()Z
 
     move-result v2
@@ -979,12 +986,12 @@
 
     goto :goto_0
 
-    :cond_3
+    :cond_4
     invoke-virtual {p0}, Lcom/android/launcher3/widget/view/WidgetPagedView;->getResources()Landroid/content/res/Resources;
 
     move-result-object v2
 
-    const v3, 0x7f0a008d
+    const v3, 0x7f0a008c
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1486,13 +1493,13 @@
 
     move-result-object v2
 
-    const v3, 0x7f0901bb
+    const v3, 0x7f0901c0
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v4, 0x7f090122
+    const v4, 0x7f090127
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1515,13 +1522,13 @@
 
     move-result-object v2
 
-    const v3, 0x7f0901bc
+    const v3, 0x7f0901c1
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v4, 0x7f090121
+    const v4, 0x7f090126
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

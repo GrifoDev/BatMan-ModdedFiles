@@ -374,6 +374,8 @@
     move-result-object v2
 
     :goto_0
+    if-eqz v1, :cond_1
+
     if-eqz p1, :cond_1
 
     const/4 v3, 0x0

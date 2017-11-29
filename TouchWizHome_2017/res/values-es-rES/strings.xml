@@ -8,7 +8,7 @@
     <string name="about_licence">Licencias de código abierto</string>
     <string name="about_network_err_phone">No se puede comprobar si hay actualizaciones disponibles. El teléfono no está conectado a una red.</string>
     <string name="about_network_err_tablet">No se puede comprobar si hay actualizaciones disponibles. La conexión de red de la tableta no es estable.</string>
-    <string name="about_new_version_exist">Hay una nueva versión disponible</string>
+    <string name="about_new_version_exist">Hay una nueva versión disponible.</string>
     <string name="about_retry">Reintentar</string>
     <string name="about_update">Actualizar</string>
     <string name="about_version">Versión %s</string>
@@ -16,8 +16,10 @@
     <string name="accessibility_button">Botón</string>
     <string name="accessibility_dimmed">Atenuado</string>
     <string name="activity_not_available">Esta aplicación no está disponible para tu dispositivo.</string>
-    <string name="activity_not_found">Aplicación no instalada</string>
+    <string name="activity_not_found">Aplicación no encontrada</string>
+    <string name="add">Añadir</string>
     <string name="add_to_last_page">Has seleccionado %1$d elementos pero no hay espacio suficiente en esta página. Los %2$d elementos restantes se añadirán a la última página.</string>
+    <string name="add_to_last_page_for_hotseat">Has seleccionado %1$d elementos, pero no hay espacio suficiente en la bandeja de favoritos. Los %2$d elementos restantes se añadirán a la última página.</string>
     <string name="align_to_bottom">Alinear a la parte inferior</string>
     <string name="align_to_top">Alinear a la parte superior</string>
     <string name="app_locked_toast">%s bloqueado.</string>
@@ -48,7 +50,7 @@
     <string name="button">Botón</string>
     <string name="cancel">Cancelar</string>
     <string name="default_page">Página predeterminada</string>
-    <string name="default_scroll_format">Página %1$d de %2$d</string>
+    <string name="default_scroll_format">Página %1$d de %2$d.</string>
     <string name="disable_message">%1$s y todas las funciones relacionadas se desactivarán. Para activar de nuevo la aplicación, ve a Ajustes > Aplicaciones y, a continuación, seleccione %2$s.</string>
     <string name="disable_message_knox_mode">%1$s y todas las funciones relacionadas se desactivarán. Para activar de nuevo la aplicación, ve a Ajustes de %2$s > Aplicaciones.</string>
     <string name="disable_message_vzw">Se desactivará %s y todas las funciones relacionadas. Para volver a activarlas, ve a Ajustes > Aplicaciones > Administrador de aplicaciones.</string>
@@ -70,7 +72,7 @@
     <string name="folder_opened">Carpeta abierta.</string>
     <string name="folder_social">Social</string>
     <string name="folder_tools">Utilidades</string>
-    <string name="gadget_error_text">Problema al cargar widget</string>
+    <string name="gadget_error_text">Problema al cargar widget.</string>
     <string name="hide_apps_button">Aplicar</string>
     <string name="home_screen">Pantalla Inicio</string>
     <string name="home_screen_global_setting_title">Pantalla Inicio</string>
@@ -121,6 +123,7 @@
     <string name="new_page_created">Página añadida.</string>
     <string name="no_changes">Sin cambios.</string>
     <string name="no_space_page">No hay espacio en la página. Intenta añadir el acceso directo a otra página.</string>
+    <string name="no_space_page_for_hotseat">No hay espacio en la bandeja de favoritos.</string>
     <string name="no_space_page_for_widget">No hay espacio en esta página.</string>
     <string name="not_selected">Sin seleccionar</string>
     <string name="notification_panel_setting_summary">Desliza hacia abajo para abrir el panel de notificaciones desde la pantalla Inicio.</string>
@@ -136,14 +139,14 @@
     <string name="options_menu_tide_up_pages">Limpiar páginas</string>
     <string name="organize_apps_confirm_alert">Los elementos de la pantalla se reorganizarán para llenar los espacios vacíos que haya entre ellos.</string>
     <string name="organize_apps_confirm_alert_title">¿Limpiar páginas?</string>
-    <string name="out_of_space">No hay más espacio en esta página</string>
+    <string name="out_of_space">No hay más espacio en esta página.</string>
     <string name="out_of_space_dialog">No hay más espacio en esta página. El elemento se añadirá en una página nueva.</string>
     <string name="permdesc_install_widget">Esta aplicación puede añadir widgets a la pantalla Inicio.</string>
     <string name="permdesc_read_settings">Esta aplicación puede leer los ajustes y los accesos directos de la pantalla Inicio.</string>
     <string name="permdesc_read_zeropage_settings">Esta aplicación puede leer los ajustes de la página de contenido personalizado, que está ubicada a la izquierda de la pantalla Inicio.</string>
     <string name="permdesc_write_zeropage_settings">Esta aplicación puede cambiar los ajustes de la página de contenido personalizado, que está ubicada a la izquierda de la pantalla Inicio.</string>
     <string name="permlab_install_widget">Añadir widgets</string>
-    <string name="permlab_read_settings">leer los ajustes de Inicio y accesos directos</string>
+    <string name="permlab_read_settings">Leer los ajustes de Inicio y accesos directos</string>
     <string name="permlab_read_zeropage_settings">Leer ajustes de página personal</string>
     <string name="permlab_write_zeropage_settings">Cambiar ajustes de página personal</string>
     <string name="quick_option_add_apps">Añadir aplicaciones</string>
@@ -155,6 +158,8 @@
     <string name="quick_option_delete_folder">Eliminar carpeta</string>
     <string name="quick_option_delete_folder_alert">Se eliminará la carpeta %s. Las aplicaciones que se encuentran dentro de esta carpeta seguirán estando disponibles en la pantalla Aplicaciones.</string>
     <string name="quick_option_delete_folder_alert_no_title">Se eliminará esta carpeta. Las aplicaciones que se encuentran dentro de esta carpeta seguirán estando disponibles en la pantalla Aplicaciones.</string>
+    <string name="quick_option_delete_folder_home_only_alert">Se eliminará la carpeta %s. Las aplicaciones que se encuentran dentro de esta carpeta seguirán estando disponibles en la pantalla Inicio.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Se eliminará esta carpeta. Las aplicaciones que se encuentran dentro de esta carpeta seguirán estando disponibles en la pantalla Inicio.</string>
     <string name="quick_option_dimmed_disable">Desactivar</string>
     <string name="quick_option_disable">Desactivar</string>
     <string name="quick_option_install_dual_im">Instalar app secundaria</string>
@@ -180,7 +185,7 @@
     <string name="shortcut_duplicate">El acceso directo %s ya existe.</string>
     <string name="shortcut_installed">Se ha añadido un acceso directo a %s en la pantalla Inicio.</string>
     <string name="shortcut_moved_to_game_launcher">El icono del juego se ha movido a Game Launcher.</string>
-    <string name="shortcut_uninstalled">Acceso directo %s eliminado</string>
+    <string name="shortcut_uninstalled">Acceso directo %s eliminado.</string>
     <string name="sound_mode_to_sound">Modo de sonido definido a Sonido</string>
     <string name="sound_mode_to_vibrate">Modo de sonido definido a Vibrar</string>
     <string name="speak_now">Hablar ahora</string>
@@ -202,7 +207,7 @@
     <string name="tts_changed_to_apps_edit_mode">Se ha cambiado al modo Edición de aplicaciones.</string>
     <string name="tts_changed_to_folder_edit_mode">Se ha cambiado a modo Edición de carpeta</string>
     <string name="tts_changed_to_home_screen_edit_mode">Se ha cambiado al modo Edición de la pantalla Inicio.</string>
-    <string name="tts_folder_created">Carpeta creada</string>
+    <string name="tts_folder_created">Carpeta creada.</string>
     <string name="tts_holding_items">Manteniendo pulsados %1$s y otros %2$d</string>
     <string name="tts_hotseat_item_moved_from_external">Elemento movido a la barra de menús de la pantalla de inicio.</string>
     <string name="tts_hotseat_move_to">Posición %d en la barra de menú.</string>

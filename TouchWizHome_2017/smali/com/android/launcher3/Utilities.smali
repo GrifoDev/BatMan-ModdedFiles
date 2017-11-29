@@ -128,6 +128,8 @@
 
 .field public static final WIDGETS_PREFERENCE_KEY:Ljava/lang/String; = "pref_hide_widgets"
 
+.field public static final ZERO_PAGE_APP_LIST:[Landroid/content/ComponentName;
+
 .field private static final alphanumSupEndCodePoint:I = 0x1f1ff
 
 .field private static final alphanumSupStartCodePoint:I = 0x1f100
@@ -162,7 +164,9 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 12
+    .locals 13
+
+    const/4 v12, 0x3
 
     const/16 v11, 0xa
 
@@ -342,11 +346,9 @@
 
     aput-object v1, v0, v10
 
-    const/4 v1, 0x3
+    const-string v1, "extra_data"
 
-    const-string v2, "extra_data"
-
-    aput-object v2, v0, v1
+    aput-object v1, v0, v12
 
     const/4 v1, 0x4
 
@@ -386,6 +388,64 @@
 
     sput-object v0, Lcom/android/launcher3/Utilities;->EXTRA_KEY_BLACK_LIST:[Ljava/lang/String;
 
+    const/4 v0, 0x5
+
+    new-array v0, v0, [Landroid/content/ComponentName;
+
+    new-instance v1, Landroid/content/ComponentName;
+
+    const-string v2, "com.samsung.android.app.spage"
+
+    const-string v3, "com.samsung.android.app.spage.main.MainActivity"
+
+    invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    aput-object v1, v0, v9
+
+    new-instance v1, Landroid/content/ComponentName;
+
+    const-string v2, "com.ss.android.sdk.minusscreen.samsung"
+
+    const-string v3, "com.ss.android.sdk.minusscreen.samsung.activity.FeedFragmentActivity"
+
+    invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    aput-object v1, v0, v8
+
+    new-instance v1, Landroid/content/ComponentName;
+
+    const-string v2, "de.axelspringer.yana.zeropage"
+
+    const-string v3, "de.axelspringer.yana.activities.HomeActivity"
+
+    invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    aput-object v1, v0, v10
+
+    new-instance v1, Landroid/content/ComponentName;
+
+    const-string v2, "com.mobilesrepublic.sohu.launcher"
+
+    const-string v3, "com.mobilesrepublic.sohu.launcher.MainActivity"
+
+    invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    aput-object v1, v0, v12
+
+    const/4 v1, 0x4
+
+    new-instance v2, Landroid/content/ComponentName;
+
+    const-string v3, "flipboard.boxer.app"
+
+    const-string v4, "flipboard.boxer.gui.LaunchActivity"
+
+    invoke-direct {v2, v3, v4}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+
+    aput-object v2, v0, v1
+
+    sput-object v0, Lcom/android/launcher3/Utilities;->ZERO_PAGE_APP_LIST:[Landroid/content/ComponentName;
+
     sput v9, Lcom/android/launcher3/Utilities;->launcherResumeCounter:I
 
     return-void
@@ -419,8 +479,6 @@
     move v0, v9
 
     goto/16 :goto_5
-
-    nop
 
     :array_0
     .array-data 2
@@ -1153,6 +1211,55 @@
     goto :goto_0
 .end method
 
+.method public static checkHomeHiddenDir()I
+    .locals 4
+
+    const/4 v0, -0x1
+
+    new-instance v1, Ljava/io/File;
+
+    invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;
+
+    move-result-object v2
+
+    const-string v3, ".homescreen"
+
+    invoke-direct {v1, v2, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    invoke-virtual {v1}, Ljava/io/File;->exists()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    const/4 v0, 0x0
+
+    :cond_0
+    :goto_0
+    return v0
+
+    :cond_1
+    new-instance v1, Ljava/io/File;
+
+    invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;
+
+    move-result-object v2
+
+    const-string v3, ".homedata"
+
+    invoke-direct {v1, v2, v3}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
+
+    invoke-virtual {v1}, Ljava/io/File;->exists()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+.end method
+
 .method public static checkThemeStoreState(Landroid/content/Context;)I
     .locals 2
 
@@ -1367,7 +1474,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090021
+    const v2, 0x7f090023
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2521,7 +2628,7 @@
 
     new-array v0, v3, [Landroid/text/InputFilter;
 
-    const v2, 0x7f09005c
+    const v2, 0x7f09005e
 
     new-array v3, v3, [Ljava/lang/Object;
 
@@ -3412,33 +3519,6 @@
     goto :goto_0
 .end method
 
-.method public static isAppInstalled(Landroid/content/Context;Ljava/lang/String;)Z
-    .locals 4
-
-    const/4 v2, 0x1
-
-    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v1
-
-    const/4 v3, 0x1
-
-    :try_start_0
-    invoke-virtual {v1, p1, v3}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
-    return v2
-
-    :catch_0
-    move-exception v0
-
-    const/4 v2, 0x0
-
-    goto :goto_0
-.end method
-
 .method public static isAppSuspended(Landroid/content/pm/ApplicationInfo;)Z
     .locals 3
 
@@ -4239,61 +4319,50 @@
 .end method
 
 .method public static isPackageExist(Landroid/content/Context;Ljava/lang/String;)Z
-    .locals 6
+    .locals 5
 
-    const/4 v1, 0x0
+    const/4 v2, 0x1
 
-    :try_start_0
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
-    move-result-object v2
-
-    if-eqz v2, :cond_0
+    move-result-object v1
 
     const/4 v3, 0x1
 
-    invoke-virtual {v2, p1, v3}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
-
-    const/4 v1, 0x1
-
-    :goto_0
-    return v1
-
-    :cond_0
-    const-string v3, "Launcher.Utilities"
-
-    const-string v4, "PackageManager is null in isPackageExist() "
-
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_start_0
+    invoke-virtual {v1, p1, v3}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
     :try_end_0
     .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
-    goto :goto_0
+    :goto_0
+    return v2
 
     :catch_0
     move-exception v0
 
-    const-string v3, "Launcher.Utilities"
+    const-string v2, "Launcher.Utilities"
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v3
 
-    const-string v5, " is not installed "
+    const-string v4, " is not installed "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v3
 
-    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v2, 0x0
 
     goto :goto_0
 .end method
@@ -4460,6 +4529,41 @@
 
     :cond_2
     const/4 v1, 0x0
+
+    goto :goto_0
+.end method
+
+.method public static isZeroPageAppInstalled(Landroid/content/Context;)Z
+    .locals 6
+
+    const/4 v0, 0x0
+
+    sget-object v3, Lcom/android/launcher3/Utilities;->ZERO_PAGE_APP_LIST:[Landroid/content/ComponentName;
+
+    array-length v4, v3
+
+    const/4 v2, 0x0
+
+    :goto_0
+    if-ge v2, v4, :cond_0
+
+    aget-object v1, v3, v2
+
+    invoke-virtual {v1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {p0, v5}, Lcom/android/launcher3/Utilities;->isPackageExist(Landroid/content/Context;Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    :cond_0
+    return v0
+
+    :cond_1
+    add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 .end method
@@ -5444,7 +5548,7 @@
 
     if-nez v11, :cond_0
 
-    const v11, 0x7f0900ab
+    const v11, 0x7f0900b0
 
     const/4 v12, 0x0
 
@@ -5601,13 +5705,15 @@
     invoke-virtual {p0, v0, v5}, Landroid/app/Activity;->startActivity(Landroid/content/Intent;Landroid/os/Bundle;)V
     :try_end_0
     .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/NullPointerException; {:try_start_0 .. :try_end_0} :catch_1
+    .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_2
 
     goto :goto_3
 
     :catch_0
     move-exception v2
 
+    :goto_4
     const v11, 0x7f090011
 
     const/4 v12, 0x0
@@ -5654,7 +5760,7 @@
 
     invoke-static {v11, v12, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    :goto_4
+    :goto_5
     const/4 v11, 0x0
 
     goto/16 :goto_0
@@ -5672,11 +5778,17 @@
     invoke-virtual {v4, v11, v9, v12, v5}, Lcom/android/launcher3/common/compat/LauncherAppsCompat;->startActivityForProfile(Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;Landroid/graphics/Rect;Landroid/os/Bundle;)V
     :try_end_1
     .catch Landroid/content/ActivityNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
-    .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Ljava/lang/NullPointerException; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_1} :catch_2
 
     goto :goto_3
 
     :catch_1
+    move-exception v2
+
+    goto :goto_4
+
+    :catch_2
     move-exception v2
 
     const v11, 0x7f090011
@@ -5749,7 +5861,7 @@
 
     invoke-static {v11, v12, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    goto :goto_4
+    goto :goto_5
 .end method
 
 .method public static startActivityTouchDown(Landroid/app/Activity;Landroid/view/View;)Z
@@ -6126,7 +6238,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0900b7
+    const v3, 0x7f0900bc
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

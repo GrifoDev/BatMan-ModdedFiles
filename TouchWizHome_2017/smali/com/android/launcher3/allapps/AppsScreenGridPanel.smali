@@ -188,7 +188,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a0188
+    const v7, 0x7f0a018d
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -239,7 +239,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0a00fa
+    const v7, 0x7f0a00fd
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -443,13 +443,13 @@
 
     move-result-object v1
 
-    const v4, 0x7f0900af
+    const v4, 0x7f0900b4
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v4, 0x7f09007b
+    const v4, 0x7f09007e
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -464,7 +464,7 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v5, 0x7f0900c3
+    const v5, 0x7f0900c8
 
     invoke-virtual {v1, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -605,7 +605,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0051
+    const v2, 0x7f0a0050
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -646,120 +646,180 @@
 .end method
 
 .method public initScreenGridTopContainer()V
-    .locals 3
+    .locals 5
 
-    const v2, 0x7f0200d8
+    const v4, 0x7f0200d8
 
-    iget-object v0, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mScreenGridTopContainer:Landroid/widget/LinearLayout;
+    iget-object v1, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mScreenGridTopContainer:Landroid/widget/LinearLayout;
 
-    if-nez v0, :cond_1
+    if-nez v1, :cond_1
 
-    iget-object v0, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mLauncher:Lcom/android/launcher3/Launcher;
+    iget-object v1, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v1, 0x7f11002b
+    const v2, 0x7f11002b
 
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
+    invoke-virtual {v1, v2}, Lcom/android/launcher3/Launcher;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/widget/LinearLayout;
+
+    iput-object v1, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mScreenGridTopContainer:Landroid/widget/LinearLayout;
+
+    iget-object v1, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mScreenGridTopContainer:Landroid/widget/LinearLayout;
+
+    const v2, 0x7f11002d
+
+    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mApplyView:Landroid/view/View;
+
+    iget-object v1, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mScreenGridTopContainer:Landroid/widget/LinearLayout;
+
+    const v2, 0x7f11002c
+
+    invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mCancelView:Landroid/view/View;
+
+    invoke-virtual {p0}, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f09000e
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    check-cast v0, Landroid/widget/LinearLayout;
+    iget-object v2, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mApplyView:Landroid/view/View;
 
-    iput-object v0, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mScreenGridTopContainer:Landroid/widget/LinearLayout;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    iget-object v0, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mScreenGridTopContainer:Landroid/widget/LinearLayout;
-
-    const v1, 0x7f11002d
-
-    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mApplyView:Landroid/view/View;
-
-    iget-object v0, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mScreenGridTopContainer:Landroid/widget/LinearLayout;
-
-    const v1, 0x7f11002c
-
-    invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    iput-object v0, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mCancelView:Landroid/view/View;
-
-    iget-object v0, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mApplyView:Landroid/view/View;
-
-    iget-object v1, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mApplyButtonClickListener:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    iget-object v0, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mCancelView:Landroid/view/View;
-
-    iget-object v1, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mCancleButtonClickListener:Landroid/view/View$OnClickListener;
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
-
-    iget-object v0, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mApplyView:Landroid/view/View;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setEnabled(Z)V
-
-    iget-object v0, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mApplyView:Landroid/view/View;
-
-    const v1, 0x3ecccccd    # 0.4f
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
-
-    iget-object v0, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mApplyView:Landroid/view/View;
-
-    iget-object v1, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mAppsScreenGridPanelKeyListener:Landroid/view/View$OnKeyListener;
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
-
-    iget-object v0, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mCancelView:Landroid/view/View;
-
-    iget-object v1, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mAppsScreenGridPanelKeyListener:Landroid/view/View$OnKeyListener;
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
-
-    iget-object v0, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    invoke-static {v0}, Lcom/android/launcher3/Utilities;->isEnableBtnBg(Landroid/content/Context;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mApplyView:Landroid/view/View;
-
-    invoke-virtual {v0, v2}, Landroid/view/View;->setBackgroundResource(I)V
-
-    iget-object v0, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mCancelView:Landroid/view/View;
-
-    invoke-virtual {v0, v2}, Landroid/view/View;->setBackgroundResource(I)V
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mApplyView:Landroid/view/View;
-
-    const/4 v1, 0x2
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setImportantForAccessibility(I)V
-
-    iget-object v0, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mAppsController:Lcom/android/launcher3/allapps/controller/AppsController;
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
     iget-object v1, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mApplyView:Landroid/view/View;
 
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/allapps/controller/AppsController;->setTextViewDescription(Landroid/view/View;)V
+    check-cast v1, Landroid/widget/TextView;
 
-    iget-object v0, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mAppsController:Lcom/android/launcher3/allapps/controller/AppsController;
+    invoke-virtual {v1}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v3, ", "
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v2, v1}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
+
+    iget-object v2, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mCancelView:Landroid/view/View;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
     iget-object v1, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mCancelView:Landroid/view/View;
 
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/allapps/controller/AppsController;->setTextViewDescription(Landroid/view/View;)V
+    check-cast v1, Landroid/widget/TextView;
 
-    iget-object v0, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mScreenGridTopContainer:Landroid/widget/LinearLayout;
+    invoke-virtual {v1}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
 
-    invoke-virtual {v0}, Landroid/widget/LinearLayout;->bringToFront()V
+    move-result-object v1
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v3, ", "
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v2, v1}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
+
+    iget-object v1, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mApplyView:Landroid/view/View;
+
+    iget-object v2, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mApplyButtonClickListener:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v1, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    iget-object v1, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mCancelView:Landroid/view/View;
+
+    iget-object v2, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mCancleButtonClickListener:Landroid/view/View$OnClickListener;
+
+    invoke-virtual {v1, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+
+    iget-object v1, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mApplyView:Landroid/view/View;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v1, v2}, Landroid/view/View;->setEnabled(Z)V
+
+    iget-object v1, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mApplyView:Landroid/view/View;
+
+    const v2, 0x3ecccccd    # 0.4f
+
+    invoke-virtual {v1, v2}, Landroid/view/View;->setAlpha(F)V
+
+    iget-object v1, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mApplyView:Landroid/view/View;
+
+    iget-object v2, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mAppsScreenGridPanelKeyListener:Landroid/view/View$OnKeyListener;
+
+    invoke-virtual {v1, v2}, Landroid/view/View;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
+
+    iget-object v1, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mCancelView:Landroid/view/View;
+
+    iget-object v2, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mAppsScreenGridPanelKeyListener:Landroid/view/View$OnKeyListener;
+
+    invoke-virtual {v1, v2}, Landroid/view/View;->setOnKeyListener(Landroid/view/View$OnKeyListener;)V
+
+    iget-object v1, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-static {v1}, Lcom/android/launcher3/Utilities;->isEnableBtnBg(Landroid/content/Context;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mApplyView:Landroid/view/View;
+
+    invoke-virtual {v1, v4}, Landroid/view/View;->setBackgroundResource(I)V
+
+    iget-object v1, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mCancelView:Landroid/view/View;
+
+    invoke-virtual {v1, v4}, Landroid/view/View;->setBackgroundResource(I)V
+
+    :cond_0
+    iget-object v1, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mScreenGridTopContainer:Landroid/widget/LinearLayout;
+
+    invoke-virtual {v1}, Landroid/widget/LinearLayout;->bringToFront()V
 
     :cond_1
     return-void
@@ -778,7 +838,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a004f
+    const v4, 0x7f0a004e
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -806,7 +866,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a0050
+    const v4, 0x7f0a004f
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -840,7 +900,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0900c3
+    const v5, 0x7f0900c8
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -983,114 +1043,6 @@
     return-void
 .end method
 
-.method setApplyDescription(Landroid/view/View;Z)V
-    .locals 6
-
-    const v5, 0x7f09001c
-
-    iget-object v3, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    const v4, 0x7f090039
-
-    invoke-virtual {v3, v4}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p0}, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v3
-
-    const v4, 0x7f09000e
-
-    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    if-eqz p2, :cond_0
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v4, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    invoke-virtual {v4, v5}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string v4, ", "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string v4, ", "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    :goto_0
-    const/4 v3, 0x0
-
-    new-array v3, v3, [Ljava/lang/Object;
-
-    invoke-static {v0, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {p1, v3}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
-
-    return-void
-
-    :cond_0
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    iget-object v4, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    invoke-virtual {v4, v5}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    const-string v4, ", "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-.end method
-
 .method public setScreenGridProxy(Ljava/lang/String;)V
     .locals 11
 
@@ -1165,15 +1117,15 @@
 .end method
 
 .method public updateApplyCancelButton()V
-    .locals 8
-
-    const/4 v7, 0x2
-
-    const/4 v5, 0x0
+    .locals 7
 
     const/4 v6, 0x1
 
-    new-array v0, v7, [I
+    const/4 v5, 0x0
+
+    const/4 v4, 0x2
+
+    new-array v0, v4, [I
 
     iget-object v4, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mLauncher:Lcom/android/launcher3/Launcher;
 
@@ -1215,10 +1167,6 @@
 
     invoke-virtual {v4, v5}, Landroid/view/View;->setAlpha(F)V
 
-    iget-object v4, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mApplyView:Landroid/view/View;
-
-    invoke-virtual {v4, v7}, Landroid/view/View;->setImportantForAccessibility(I)V
-
     :goto_0
     return-void
 
@@ -1232,10 +1180,6 @@
     const/high16 v5, 0x3f800000    # 1.0f
 
     invoke-virtual {v4, v5}, Landroid/view/View;->setAlpha(F)V
-
-    iget-object v4, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mApplyView:Landroid/view/View;
-
-    invoke-virtual {v4, v6}, Landroid/view/View;->setImportantForAccessibility(I)V
 
     goto :goto_0
 .end method
@@ -1296,12 +1240,6 @@
     const v3, 0x3ecccccd    # 0.4f
 
     invoke-virtual {v2, v3}, Landroid/view/View;->setAlpha(F)V
-
-    iget-object v2, p0, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->mApplyView:Landroid/view/View;
-
-    const/4 v3, 0x2
-
-    invoke-virtual {v2, v3}, Landroid/view/View;->setImportantForAccessibility(I)V
 
     return-void
 .end method

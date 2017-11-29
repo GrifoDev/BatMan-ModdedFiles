@@ -68,7 +68,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/Launcher$9;->this$0:Lcom/android/launcher3/Launcher;
 
-    invoke-static {v0}, Lcom/android/launcher3/Launcher;->access$700(Lcom/android/launcher3/Launcher;)V
+    invoke-static {v0}, Lcom/android/launcher3/Launcher;->access$800(Lcom/android/launcher3/Launcher;)V
 
     return-void
 .end method

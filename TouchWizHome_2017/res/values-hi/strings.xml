@@ -17,8 +17,10 @@
     <string name="accessibility_button">बटन</string>
     <string name="accessibility_dimmed">मंद</string>
     <string name="activity_not_available">यह एप आपके डिवाइस के लिए उपलब्ध नहीं है।</string>
-    <string name="activity_not_found">एप्लीकेशन स्थापित नहीं हुई।</string>
+    <string name="activity_not_found">एप नहीं मिला</string>
+    <string name="add">जोड़ें</string>
     <string name="add_to_last_page">आपने %1$d मदें चुनीं हैं, लेकिन इस पेज पर पर्याप्त स्थान नहीं है। शेष %2$d मदें अंतिम पेज पर जोड़ी जाएँगी।</string>
+    <string name="add_to_last_page_for_hotseat">आपने %1$d मदें चुनीं हैं, लेकिन पसंदीदा ट्रे पर पर्याप्त स्थान नहीं है। शेष %2$d मदें अंतिम पेज पर जोड़ी जाएँगी।</string>
     <string name="align_to_bottom">नीचे संरेखित करें</string>
     <string name="align_to_top">शीर्ष पर संरेखित करें</string>
     <string name="app_locked_toast">%s लॉक है।</string>
@@ -122,6 +124,7 @@
     <string name="new_page_created">पेज जोड़ा गया।</string>
     <string name="no_changes">कोई परिवर्तन नहीं हैं।</string>
     <string name="no_space_page">पेज पर कोई स्थान नहीं है। किसी भिन्न पेज पर कोई शॉर्टकट जोड़ने का प्रयास करें।</string>
+    <string name="no_space_page_for_hotseat">पसंदीदा ट्रे पर स्थान नहीं है।</string>
     <string name="no_space_page_for_widget">इस पेज पर कोई स्थान नहीं है।</string>
     <string name="not_selected">चयनित नहीं</string>
     <string name="notification_panel_setting_summary">होम स्क्रीन से सूचना पैनल खोलने के लिए नीचे स्वाइप करें।</string>
@@ -156,6 +159,8 @@
     <string name="quick_option_delete_folder">फोल्डर हटाएँ</string>
     <string name="quick_option_delete_folder_alert">%s फोल्डर हटा दिया जाएगा। इस फोल्डर में मौजूद एप्स अभी भी एप्स स्क्रीन पर उपलब्ध रहेंगे।</string>
     <string name="quick_option_delete_folder_alert_no_title">यह फोल्डर हटा दिया जाएगा। इस फोल्डर में मौजूद एप्स अभी भी एप्स स्क्रीन पर उपलब्ध रहेंगे।</string>
+    <string name="quick_option_delete_folder_home_only_alert">%s फोल्डर हटा दिया जाएगा। इस फोल्डर में मौजूद एप्स अभी भी होम स्क्रीन पर उपलब्ध रहेंगे।</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">यह फोल्डर हटा दिया जाएगा। इस फोल्डर में मौजूद एप्स अभी भी होम स्क्रीन पर उपलब्ध रहेंगे।</string>
     <string name="quick_option_dimmed_disable">अक्षम करें</string>
     <string name="quick_option_disable">अक्षम करें</string>
     <string name="quick_option_install_dual_im">दूसरा एप स्थापित करें</string>

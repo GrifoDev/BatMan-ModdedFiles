@@ -17,5 +17,6 @@
         <favorite launcher:className="com.android.dialer.DialtactsActivity" launcher:packageName="com.samsung.android.contacts" launcher:screen="1" />
         <favorite launcher:className="com.android.contacts.activities.PeopleActivity" launcher:packageName="com.samsung.android.contacts" launcher:screen="2" />
         <favorite launcher:className="com.sec.knox.shortcutsms.SMSShortcut" launcher:packageName="com.sec.knox.shortcutsms" launcher:screen="3" />
+        <favorite launcher:className="com.sec.android.app.sbrowser.SBrowserMainActivity" launcher:packageName="com.sec.android.app.sbrowser" launcher:screen="4" />
     </hotseat>
 </favorites>

@@ -119,8 +119,6 @@
 
     check-cast v2, Ljava/util/List;
 
-    const/4 v0, 0x0
-
     const/4 v7, 0x0
 
     invoke-interface {v2, v7}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -150,6 +148,10 @@
     goto :goto_0
 
     :cond_2
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
     invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v7
@@ -188,18 +190,16 @@
 
     if-eq v9, v10, :cond_3
 
-    if-nez v0, :cond_3
-
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 
     :cond_4
-    if-eqz v0, :cond_1
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v7
+
+    if-lez v7, :cond_1
 
     invoke-interface {v5, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 

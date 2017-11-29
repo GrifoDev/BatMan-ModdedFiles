@@ -28,6 +28,8 @@
 
 .field private isLastState:Ljava/lang/Boolean;
 
+.field private isResent:Ljava/lang/Boolean;
+
 .field private parameters:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -162,7 +164,7 @@
 
     move-result-object v0
 
-    iput-object v0, p0, Lcom/samsung/android/sdk/bixby/data/State;->isLandingState:Ljava/lang/Boolean;
+    iput-object v0, p0, Lcom/samsung/android/sdk/bixby/data/State;->isResent:Ljava/lang/Boolean;
 
     invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
 
@@ -170,7 +172,22 @@
 
     if-eqz v0, :cond_2
 
+    move v0, v1
+
     :goto_2
+    invoke-static {v0}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/samsung/android/sdk/bixby/data/State;->isLandingState:Ljava/lang/Boolean;
+
+    invoke-virtual {p1}, Landroid/os/Parcel;->readByte()B
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    :goto_3
     invoke-static {v1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
     move-result-object v0
@@ -204,12 +221,17 @@
     goto :goto_1
 
     :cond_2
-    move v1, v2
+    move v0, v2
 
     goto :goto_2
+
+    :cond_3
+    move v1, v2
+
+    goto :goto_3
 .end method
 
-.method public constructor <init>(Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;)V
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -220,6 +242,7 @@
             "Ljava/lang/String;",
             "Ljava/lang/String;",
             "Ljava/lang/String;",
+            "Ljava/lang/Boolean;",
             "Ljava/lang/Boolean;",
             "Ljava/lang/Boolean;",
             "Ljava/lang/String;",
@@ -254,13 +277,15 @@
 
     iput-object p6, p0, Lcom/samsung/android/sdk/bixby/data/State;->stateId:Ljava/lang/String;
 
-    iput-object p7, p0, Lcom/samsung/android/sdk/bixby/data/State;->isLandingState:Ljava/lang/Boolean;
+    iput-object p7, p0, Lcom/samsung/android/sdk/bixby/data/State;->isResent:Ljava/lang/Boolean;
 
-    iput-object p8, p0, Lcom/samsung/android/sdk/bixby/data/State;->isLastState:Ljava/lang/Boolean;
+    iput-object p8, p0, Lcom/samsung/android/sdk/bixby/data/State;->isLandingState:Ljava/lang/Boolean;
 
-    iput-object p9, p0, Lcom/samsung/android/sdk/bixby/data/State;->subIntent:Ljava/lang/String;
+    iput-object p9, p0, Lcom/samsung/android/sdk/bixby/data/State;->isLastState:Ljava/lang/Boolean;
 
-    iput-object p10, p0, Lcom/samsung/android/sdk/bixby/data/State;->parameters:Ljava/util/List;
+    iput-object p10, p0, Lcom/samsung/android/sdk/bixby/data/State;->subIntent:Ljava/lang/String;
+
+    iput-object p11, p0, Lcom/samsung/android/sdk/bixby/data/State;->parameters:Ljava/util/List;
 
     return-void
 .end method
@@ -404,6 +429,14 @@
     return-object v0
 .end method
 
+.method public isResent()Ljava/lang/Boolean;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/bixby/data/State;->isResent:Ljava/lang/Boolean;
+
+    return-object v0
+.end method
+
 .method public setAppName(Ljava/lang/String;)V
     .locals 0
 
@@ -449,6 +482,14 @@
     .end annotation
 
     iput-object p1, p0, Lcom/samsung/android/sdk/bixby/data/State;->parameters:Ljava/util/List;
+
+    return-void
+.end method
+
+.method public setResent(Ljava/lang/Boolean;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/samsung/android/sdk/bixby/data/State;->isResent:Ljava/lang/Boolean;
 
     return-void
 .end method
@@ -531,7 +572,7 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeString(Ljava/lang/String;)V
 
-    iget-object v0, p0, Lcom/samsung/android/sdk/bixby/data/State;->isLandingState:Ljava/lang/Boolean;
+    iget-object v0, p0, Lcom/samsung/android/sdk/bixby/data/State;->isResent:Ljava/lang/Boolean;
 
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
@@ -546,7 +587,7 @@
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
 
-    iget-object v0, p0, Lcom/samsung/android/sdk/bixby/data/State;->isLastState:Ljava/lang/Boolean;
+    iget-object v0, p0, Lcom/samsung/android/sdk/bixby/data/State;->isLandingState:Ljava/lang/Boolean;
 
     invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
 
@@ -554,7 +595,22 @@
 
     if-eqz v0, :cond_2
 
+    move v0, v1
+
     :goto_2
+    int-to-byte v0, v0
+
+    invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/bixby/data/State;->isLastState:Ljava/lang/Boolean;
+
+    invoke-virtual {v0}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    :goto_3
     int-to-byte v0, v1
 
     invoke-virtual {p1, v0}, Landroid/os/Parcel;->writeByte(B)V
@@ -580,7 +636,12 @@
     goto :goto_1
 
     :cond_2
-    move v1, v2
+    move v0, v2
 
     goto :goto_2
+
+    :cond_3
+    move v1, v2
+
+    goto :goto_3
 .end method

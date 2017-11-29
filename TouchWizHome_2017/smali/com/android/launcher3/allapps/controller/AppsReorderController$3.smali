@@ -25,16 +25,16 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/allapps/controller/AppsReorderController;Landroid/animation/AnimatorSet;Lcom/android/launcher3/common/base/view/CellLayout;Landroid/view/View;)V
+.method constructor <init>(Lcom/android/launcher3/allapps/controller/AppsReorderController;Lcom/android/launcher3/common/base/view/CellLayout;Landroid/view/View;Landroid/animation/AnimatorSet;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/allapps/controller/AppsReorderController$3;->this$0:Lcom/android/launcher3/allapps/controller/AppsReorderController;
 
-    iput-object p2, p0, Lcom/android/launcher3/allapps/controller/AppsReorderController$3;->val$deleteAnimator:Landroid/animation/AnimatorSet;
+    iput-object p2, p0, Lcom/android/launcher3/allapps/controller/AppsReorderController$3;->val$page:Lcom/android/launcher3/common/base/view/CellLayout;
 
-    iput-object p3, p0, Lcom/android/launcher3/allapps/controller/AppsReorderController$3;->val$page:Lcom/android/launcher3/common/base/view/CellLayout;
+    iput-object p3, p0, Lcom/android/launcher3/allapps/controller/AppsReorderController$3;->val$v:Landroid/view/View;
 
-    iput-object p4, p0, Lcom/android/launcher3/allapps/controller/AppsReorderController$3;->val$v:Landroid/view/View;
+    iput-object p4, p0, Lcom/android/launcher3/allapps/controller/AppsReorderController$3;->val$deleteAnimator:Landroid/animation/AnimatorSet;
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
 
@@ -55,6 +55,12 @@
     iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsReorderController$3;->val$deleteAnimator:Landroid/animation/AnimatorSet;
 
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
+
+    return-void
+.end method
+
+.method public onAnimationStart(Landroid/animation/Animator;)V
+    .locals 2
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsReorderController$3;->val$page:Lcom/android/launcher3/common/base/view/CellLayout;
 

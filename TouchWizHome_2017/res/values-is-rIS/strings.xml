@@ -16,8 +16,10 @@
     <string name="accessibility_button">Hnappur</string>
     <string name="accessibility_dimmed">Myrkvaður</string>
     <string name="activity_not_available">Þetta forrit er ekki í boði fyrir tækið þitt.</string>
-    <string name="activity_not_found">Forritið var ekki sett upp.</string>
+    <string name="activity_not_found">Forrit fannst ekki</string>
+    <string name="add">Bæta við</string>
     <string name="add_to_last_page">Þú valdir %1$d atriði en of lítið pláss er á síðunni. Atriðunum %2$d sem standa eftir verður bætt við síðustu síðuna.</string>
+    <string name="add_to_last_page_for_hotseat">Þú valdir %1$d atriði en of lítið pláss er í eftirlætisbakkanum. Atriðunum %2$d sem standa eftir verður bætt við síðustu síðuna.</string>
     <string name="align_to_bottom">Jafna við botn</string>
     <string name="align_to_top">Jafna við topp</string>
     <string name="app_locked_toast">%s læst.</string>
@@ -122,6 +124,7 @@ forrit"</string>
     <string name="new_page_created">Síðu bætt við.</string>
     <string name="no_changes">Engar breytingar.</string>
     <string name="no_space_page">Ekkert pláss á síðunni. Prófaðu að bæta flýtileið við aðra síðu.</string>
+    <string name="no_space_page_for_hotseat">Ekkert pláss í eftirlætisbakka.</string>
     <string name="no_space_page_for_widget">Ekkert pláss á þessari síðu.</string>
     <string name="not_selected">Ekki valið</string>
     <string name="notification_panel_setting_summary">Strjúktu niður til að opna tilkynningaskjáinn á heimaskjánum.</string>
@@ -156,6 +159,8 @@ forrit"</string>
     <string name="quick_option_delete_folder">Eyða möppu</string>
     <string name="quick_option_delete_folder_alert">Möppunni „%s“ verður eytt. Forritin í möppunni verða eftir sem áður aðgengileg á forritaskjánum.</string>
     <string name="quick_option_delete_folder_alert_no_title">Þessari möppu verður eytt. Forritin í möppunni verða eftir sem áður aðgengileg á forritaskjánum.</string>
+    <string name="quick_option_delete_folder_home_only_alert">Möppunni „%s“ verður eytt. Forritin í möppunni verða eftir sem áður aðgengileg á heimaskjánum.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Þessari möppu verður eytt. Forritin í möppunni verða eftir sem áður aðgengileg á heimaskjánum.</string>
     <string name="quick_option_dimmed_disable">Slökkva</string>
     <string name="quick_option_disable">Slökkva</string>
     <string name="quick_option_install_dual_im">Setja upp annað forrit</string>

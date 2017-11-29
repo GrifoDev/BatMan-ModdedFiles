@@ -310,7 +310,7 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x7f0900c4
+    const v1, 0x7f0900c9
 
     const/4 v2, 0x1
 
@@ -597,7 +597,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPrefHomeScreenMode:Landroid/preference/Preference;
 
-    const v1, 0x7f090052
+    const v1, 0x7f090054
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -616,7 +616,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/launcher3/SettingsActivity$LauncherSettingsFragment;->mPrefHomeScreenMode:Landroid/preference/Preference;
 
-    const v1, 0x7f09004c
+    const v1, 0x7f09004e
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setSummary(I)V
 

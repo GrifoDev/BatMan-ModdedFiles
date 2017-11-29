@@ -32,18 +32,18 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/launcher3/home/PostHomePositioner;Lcom/android/launcher3/common/customer/ItemRecord;)V
+.method static synthetic access$000(Lcom/android/launcher3/home/PostHomePositioner;Lcom/android/launcher3/common/customer/PostPositionItemRecord;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/launcher3/home/PostHomePositioner;->checkAndUpdatePositionInfo(Lcom/android/launcher3/common/customer/ItemRecord;)V
+    invoke-direct {p0, p1}, Lcom/android/launcher3/home/PostHomePositioner;->checkAndUpdatePositionInfo(Lcom/android/launcher3/common/customer/PostPositionItemRecord;)V
 
     return-void
 .end method
 
-.method static synthetic access$100(Lcom/android/launcher3/home/PostHomePositioner;Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/ItemRecord;)Z
+.method static synthetic access$100(Lcom/android/launcher3/home/PostHomePositioner;Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/PostPositionItemRecord;)Z
     .locals 1
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/launcher3/home/PostHomePositioner;->addItem(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/ItemRecord;)Z
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/launcher3/home/PostHomePositioner;->addItem(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/PostPositionItemRecord;)Z
 
     move-result v0
 
@@ -58,10 +58,10 @@
     return-object v0
 .end method
 
-.method static synthetic access$300(Lcom/android/launcher3/home/PostHomePositioner;Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/ItemRecord;)V
+.method static synthetic access$300(Lcom/android/launcher3/home/PostHomePositioner;Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/PostPositionItemRecord;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2, p3}, Lcom/android/launcher3/home/PostHomePositioner;->addWidget(Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/ItemRecord;)V
+    invoke-direct {p0, p1, p2, p3}, Lcom/android/launcher3/home/PostHomePositioner;->addWidget(Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/PostPositionItemRecord;)V
 
     return-void
 .end method
@@ -74,10 +74,10 @@
     return-object v0
 .end method
 
-.method private addItem(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/ItemRecord;)Z
+.method private addItem(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/PostPositionItemRecord;)Z
     .locals 20
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getItemType()Lcom/android/launcher3/common/customer/PostPositionProvider$ITEM_TYPE;
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getItemType()Lcom/android/launcher3/common/customer/PostPositionProvider$ITEM_TYPE;
 
     move-result-object v5
 
@@ -85,7 +85,7 @@
 
     if-ne v5, v6, :cond_1
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getComponentName()Ljava/lang/String;
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getComponentName()Ljava/lang/String;
 
     move-result-object v5
 
@@ -107,7 +107,7 @@
 
     move-object/from16 v2, p3
 
-    invoke-direct {v6, v0, v12, v1, v2}, Lcom/android/launcher3/home/PostHomePositioner$2;-><init>(Lcom/android/launcher3/home/PostHomePositioner;Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/ItemRecord;)V
+    invoke-direct {v6, v0, v12, v1, v2}, Lcom/android/launcher3/home/PostHomePositioner$2;-><init>(Lcom/android/launcher3/home/PostHomePositioner;Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/PostPositionItemRecord;)V
 
     const-wide/16 v18, 0x7d0
 
@@ -122,13 +122,13 @@
     return v5
 
     :cond_1
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeFolderName()Ljava/lang/String;
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getHomeFolderName()Ljava/lang/String;
 
     move-result-object v5
 
     if-eqz v5, :cond_a
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeFolderName()Ljava/lang/String;
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getHomeFolderName()Ljava/lang/String;
 
     move-result-object v5
 
@@ -142,7 +142,7 @@
 
     const-wide/16 v8, -0x1
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->isHomePreloadFolder()Z
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->isHomePreloadFolder()Z
 
     move-result v5
 
@@ -152,7 +152,7 @@
 
     iget-object v5, v0, Lcom/android/launcher3/home/PostHomePositioner;->mPrefInfo:Lcom/android/launcher3/common/customer/PostPositionSharedPref;
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeFolderName()Ljava/lang/String;
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getHomeFolderName()Ljava/lang/String;
 
     move-result-object v6
 
@@ -192,7 +192,7 @@
 
     iget-object v5, v0, Lcom/android/launcher3/home/PostHomePositioner;->mPrefInfo:Lcom/android/launcher3/common/customer/PostPositionSharedPref;
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeFolderName()Ljava/lang/String;
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getHomeFolderName()Ljava/lang/String;
 
     move-result-object v6
 
@@ -238,7 +238,7 @@
 
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeFolderName()Ljava/lang/String;
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getHomeFolderName()Ljava/lang/String;
 
     move-result-object v7
 
@@ -267,7 +267,7 @@
 
     iget-object v5, v0, Lcom/android/launcher3/home/PostHomePositioner;->mPrefInfo:Lcom/android/launcher3/common/customer/PostPositionSharedPref;
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeFolderName()Ljava/lang/String;
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getHomeFolderName()Ljava/lang/String;
 
     move-result-object v6
 
@@ -344,7 +344,7 @@
 
     move-object/from16 v10, p3
 
-    invoke-direct/range {v5 .. v10}, Lcom/android/launcher3/home/PostHomePositioner;->addToFolder(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;JLcom/android/launcher3/common/customer/ItemRecord;)Z
+    invoke-direct/range {v5 .. v10}, Lcom/android/launcher3/home/PostHomePositioner;->addToFolder(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;JLcom/android/launcher3/common/customer/PostPositionItemRecord;)Z
 
     move-result v5
 
@@ -385,7 +385,7 @@
     goto/16 :goto_0
 
     :cond_5
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeFolderName()Ljava/lang/String;
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getHomeFolderName()Ljava/lang/String;
 
     move-result-object v5
 
@@ -395,7 +395,7 @@
 
     iget-object v5, v0, Lcom/android/launcher3/home/PostHomePositioner;->mPrefInfo:Lcom/android/launcher3/common/customer/PostPositionSharedPref;
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeFolderName()Ljava/lang/String;
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getHomeFolderName()Ljava/lang/String;
 
     move-result-object v6
 
@@ -453,7 +453,7 @@
 
     if-nez v5, :cond_8
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getComponentName()Ljava/lang/String;
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getComponentName()Ljava/lang/String;
 
     move-result-object v5
 
@@ -514,7 +514,7 @@
 
     iput-wide v6, v13, Lcom/android/launcher3/folder/FolderInfo;->id:J
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeFolderName()Ljava/lang/String;
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getHomeFolderName()Ljava/lang/String;
 
     move-result-object v5
 
@@ -546,7 +546,7 @@
 
     move-object/from16 v2, p3
 
-    invoke-direct {v0, v1, v2}, Lcom/android/launcher3/home/PostHomePositioner;->createIconInfo(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/customer/ItemRecord;)Lcom/android/launcher3/common/base/item/IconInfo;
+    invoke-direct {v0, v1, v2}, Lcom/android/launcher3/home/PostHomePositioner;->createIconInfo(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/customer/PostPositionItemRecord;)Lcom/android/launcher3/common/base/item/IconInfo;
 
     move-result-object v4
 
@@ -632,7 +632,7 @@
 
     iget-object v5, v0, Lcom/android/launcher3/home/PostHomePositioner;->mPrefInfo:Lcom/android/launcher3/common/customer/PostPositionSharedPref;
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeFolderName()Ljava/lang/String;
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getHomeFolderName()Ljava/lang/String;
 
     move-result-object v6
 
@@ -644,7 +644,7 @@
 
     iget-object v5, v0, Lcom/android/launcher3/home/PostHomePositioner;->mPrefInfo:Lcom/android/launcher3/common/customer/PostPositionSharedPref;
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeFolderName()Ljava/lang/String;
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getHomeFolderName()Ljava/lang/String;
 
     move-result-object v6
 
@@ -665,7 +665,7 @@
     goto/16 :goto_0
 
     :cond_8
-    invoke-direct/range {p0 .. p3}, Lcom/android/launcher3/home/PostHomePositioner;->addShortcut(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/ItemRecord;)Lcom/android/launcher3/common/base/item/IconInfo;
+    invoke-direct/range {p0 .. p3}, Lcom/android/launcher3/home/PostHomePositioner;->addShortcut(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/PostPositionItemRecord;)Lcom/android/launcher3/common/base/item/IconInfo;
 
     move-result-object v17
 
@@ -740,7 +740,7 @@
 
     iget-object v5, v0, Lcom/android/launcher3/home/PostHomePositioner;->mPrefInfo:Lcom/android/launcher3/common/customer/PostPositionSharedPref;
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeFolderName()Ljava/lang/String;
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getHomeFolderName()Ljava/lang/String;
 
     move-result-object v6
 
@@ -759,7 +759,7 @@
     goto :goto_2
 
     :cond_a
-    invoke-direct/range {p0 .. p3}, Lcom/android/launcher3/home/PostHomePositioner;->addShortcut(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/ItemRecord;)Lcom/android/launcher3/common/base/item/IconInfo;
+    invoke-direct/range {p0 .. p3}, Lcom/android/launcher3/home/PostHomePositioner;->addShortcut(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/PostPositionItemRecord;)Lcom/android/launcher3/common/base/item/IconInfo;
 
     move-result-object v5
 
@@ -800,7 +800,7 @@
     goto/16 :goto_0
 .end method
 
-.method private addShortcut(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/ItemRecord;)Lcom/android/launcher3/common/base/item/IconInfo;
+.method private addShortcut(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/PostPositionItemRecord;)Lcom/android/launcher3/common/base/item/IconInfo;
     .locals 20
 
     const-string v8, "PostHomePositioner"
@@ -815,9 +815,9 @@
 
     move-object/from16 v1, p3
 
-    invoke-direct {v0, v1, v8}, Lcom/android/launcher3/home/PostHomePositioner;->performHomeNewPage(Lcom/android/launcher3/common/customer/ItemRecord;Z)J
+    invoke-direct {v0, v1, v8}, Lcom/android/launcher3/home/PostHomePositioner;->performHomeNewPage(Lcom/android/launcher3/common/customer/PostPositionItemRecord;Z)J
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->isHomeNewPage()Z
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->isHomeNewPage()Z
 
     move-result v8
 
@@ -827,14 +827,14 @@
 
     move-object/from16 v1, p3
 
-    invoke-direct {v0, v1}, Lcom/android/launcher3/home/PostHomePositioner;->performHomeReplace(Lcom/android/launcher3/common/customer/ItemRecord;)V
+    invoke-direct {v0, v1}, Lcom/android/launcher3/home/PostHomePositioner;->performHomeReplace(Lcom/android/launcher3/common/customer/PostPositionItemRecord;)V
 
     :cond_0
     move-object/from16 v0, p0
 
     iget-object v8, v0, Lcom/android/launcher3/home/PostHomePositioner;->mHomeLoader:Lcom/android/launcher3/home/HomeLoader;
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeIndex()I
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getHomeIndex()I
 
     move-result v9
 
@@ -860,7 +860,7 @@
 
     move-result-object v9
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeIndex()I
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getHomeIndex()I
 
     move-result v10
 
@@ -886,7 +886,7 @@
 
     const/4 v8, 0x0
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeCellX()I
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getHomeCellX()I
 
     move-result v9
 
@@ -894,7 +894,7 @@
 
     const/4 v8, 0x1
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeCellY()I
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getHomeCellY()I
 
     move-result v9
 
@@ -910,7 +910,7 @@
 
     const/4 v12, 0x0
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->isHomeReplace()Z
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->isHomeReplace()Z
 
     move-result v8
 
@@ -947,7 +947,7 @@
 
     move-result-wide v6
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeIndex()I
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getHomeIndex()I
 
     move-result v8
 
@@ -965,11 +965,11 @@
 
     if-nez v12, :cond_3
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeCellX()I
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getHomeCellX()I
 
     move-result v8
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeCellY()I
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getHomeCellY()I
 
     move-result v9
 
@@ -995,11 +995,11 @@
 
     if-nez v12, :cond_2
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeCellX()I
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getHomeCellX()I
 
     move-result v8
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeCellY()I
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getHomeCellY()I
 
     move-result v9
 
@@ -1035,7 +1035,7 @@
 
     move-object/from16 v2, p3
 
-    invoke-direct {v0, v1, v2}, Lcom/android/launcher3/home/PostHomePositioner;->createIconInfo(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/customer/ItemRecord;)Lcom/android/launcher3/common/base/item/IconInfo;
+    invoke-direct {v0, v1, v2}, Lcom/android/launcher3/home/PostHomePositioner;->createIconInfo(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/customer/PostPositionItemRecord;)Lcom/android/launcher3/common/base/item/IconInfo;
 
     move-result-object v13
 
@@ -1080,7 +1080,7 @@
     goto/16 :goto_0
 .end method
 
-.method private addToFolder(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;JLcom/android/launcher3/common/customer/ItemRecord;)Z
+.method private addToFolder(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;JLcom/android/launcher3/common/customer/PostPositionItemRecord;)Z
     .locals 7
 
     const/4 v3, 0x0
@@ -1125,7 +1125,7 @@
 
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
 
-    invoke-direct {p0, p1, p5}, Lcom/android/launcher3/home/PostHomePositioner;->createIconInfo(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/customer/ItemRecord;)Lcom/android/launcher3/common/base/item/IconInfo;
+    invoke-direct {p0, p1, p5}, Lcom/android/launcher3/home/PostHomePositioner;->createIconInfo(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/customer/PostPositionItemRecord;)Lcom/android/launcher3/common/base/item/IconInfo;
 
     move-result-object v2
 
@@ -1161,7 +1161,7 @@
     return v3
 .end method
 
-.method private addWidget(Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/ItemRecord;)V
+.method private addWidget(Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/PostPositionItemRecord;)V
     .locals 18
 
     const/4 v6, 0x0
@@ -1204,9 +1204,9 @@
 
     move-object/from16 v1, p3
 
-    invoke-direct {v0, v1, v6}, Lcom/android/launcher3/home/PostHomePositioner;->performHomeNewPage(Lcom/android/launcher3/common/customer/ItemRecord;Z)J
+    invoke-direct {v0, v1, v6}, Lcom/android/launcher3/home/PostHomePositioner;->performHomeNewPage(Lcom/android/launcher3/common/customer/PostPositionItemRecord;Z)J
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->isHomeNewPage()Z
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->isHomeNewPage()Z
 
     move-result v6
 
@@ -1216,7 +1216,7 @@
 
     move-object/from16 v1, p3
 
-    invoke-direct {v0, v1}, Lcom/android/launcher3/home/PostHomePositioner;->performHomeReplace(Lcom/android/launcher3/common/customer/ItemRecord;)V
+    invoke-direct {v0, v1}, Lcom/android/launcher3/home/PostHomePositioner;->performHomeReplace(Lcom/android/launcher3/common/customer/PostPositionItemRecord;)V
 
     :cond_1
     move-object/from16 v0, p0
@@ -1231,7 +1231,7 @@
 
     iget-object v6, v0, Lcom/android/launcher3/home/PostHomePositioner;->mHomeLoader:Lcom/android/launcher3/home/HomeLoader;
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeIndex()I
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getHomeIndex()I
 
     move-result v7
 
@@ -1257,7 +1257,7 @@
 
     move-result-object v7
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeIndex()I
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getHomeIndex()I
 
     move-result v8
 
@@ -1280,7 +1280,7 @@
 
     const/4 v13, 0x0
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->isHomeReplace()Z
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->isHomeReplace()Z
 
     move-result v6
 
@@ -1340,7 +1340,7 @@
     :cond_3
     const/4 v6, 0x0
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeCellX()I
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getHomeCellX()I
 
     move-result v7
 
@@ -1348,17 +1348,17 @@
 
     const/4 v6, 0x1
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeCellY()I
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getHomeCellY()I
 
     move-result v7
 
     aput v7, v3, v6
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getWidgetSpanX()I
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getWidgetSpanX()I
 
     move-result v6
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getWidgetSpanY()I
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getWidgetSpanY()I
 
     move-result v7
 
@@ -1399,13 +1399,13 @@
 
     invoke-direct {v15, v10, v0}, Lcom/android/launcher3/home/LauncherAppWidgetInfo;-><init>(ILandroid/content/ComponentName;)V
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getWidgetSpanX()I
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getWidgetSpanX()I
 
     move-result v6
 
     iput v6, v15, Lcom/android/launcher3/home/LauncherAppWidgetInfo;->spanX:I
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getWidgetSpanY()I
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getWidgetSpanY()I
 
     move-result v6
 
@@ -1435,13 +1435,13 @@
 
     iput-wide v4, v15, Lcom/android/launcher3/home/LauncherAppWidgetInfo;->screenId:J
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeCellX()I
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getHomeCellX()I
 
     move-result v6
 
     iput v6, v15, Lcom/android/launcher3/home/LauncherAppWidgetInfo;->cellX:I
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeCellY()I
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getHomeCellY()I
 
     move-result v6
 
@@ -1449,11 +1449,11 @@
 
     if-nez v13, :cond_5
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getWidgetSpanX()I
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getWidgetSpanX()I
 
     move-result v6
 
-    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getWidgetSpanY()I
+    invoke-virtual/range {p3 .. p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getWidgetSpanY()I
 
     move-result v7
 
@@ -1506,7 +1506,7 @@
 
     move-object/from16 v1, p3
 
-    invoke-direct {v0, v1, v6}, Lcom/android/launcher3/home/PostHomePositioner;->performHomeNewPage(Lcom/android/launcher3/common/customer/ItemRecord;Z)J
+    invoke-direct {v0, v1, v6}, Lcom/android/launcher3/home/PostHomePositioner;->performHomeNewPage(Lcom/android/launcher3/common/customer/PostPositionItemRecord;Z)J
 
     move-result-wide v4
 
@@ -1521,30 +1521,30 @@
     goto :goto_2
 .end method
 
-.method private checkAndUpdatePositionInfo(Lcom/android/launcher3/common/customer/ItemRecord;)V
+.method private checkAndUpdatePositionInfo(Lcom/android/launcher3/common/customer/PostPositionItemRecord;)V
     .locals 12
 
     const/4 v11, 0x0
 
     const/4 v2, 0x1
 
-    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeIndex()I
+    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getHomeIndex()I
 
     move-result v3
 
-    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeCellX()I
+    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getHomeCellX()I
 
     move-result v4
 
-    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeCellY()I
+    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getHomeCellY()I
 
     move-result v5
 
-    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/ItemRecord;->getWidgetSpanX()I
+    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getWidgetSpanX()I
 
     move-result v9
 
-    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/ItemRecord;->getWidgetSpanY()I
+    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getWidgetSpanY()I
 
     move-result v10
 
@@ -1630,7 +1630,7 @@
     add-int/lit8 v5, v0, -0x1
 
     :cond_4
-    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/ItemRecord;->getItemType()Lcom/android/launcher3/common/customer/PostPositionProvider$ITEM_TYPE;
+    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getItemType()Lcom/android/launcher3/common/customer/PostPositionProvider$ITEM_TYPE;
 
     move-result-object v0
 
@@ -1684,10 +1684,10 @@
     sub-int v10, v0, v5
 
     :cond_a
-    invoke-virtual {p1, v9, v10}, Lcom/android/launcher3/common/customer/ItemRecord;->setWidgetSpanXY(II)V
+    invoke-virtual {p1, v9, v10}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->setWidgetSpanXY(II)V
 
     :goto_1
-    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/ItemRecord;->getItemType()Lcom/android/launcher3/common/customer/PostPositionProvider$ITEM_TYPE;
+    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getItemType()Lcom/android/launcher3/common/customer/PostPositionProvider$ITEM_TYPE;
 
     move-result-object v0
 
@@ -1695,11 +1695,11 @@
 
     if-ne v0, v1, :cond_d
 
-    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeShortcutTitle()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getHomeShortcutTitle()Ljava/lang/String;
 
     move-result-object v8
 
-    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeShortcutIcon()Landroid/graphics/Bitmap;
+    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getHomeShortcutIcon()Landroid/graphics/Bitmap;
 
     move-result-object v7
 
@@ -1725,20 +1725,20 @@
     move-result-object v7
 
     :cond_c
-    invoke-virtual {p1, v8, v7}, Lcom/android/launcher3/common/customer/ItemRecord;->setShortcutInfo(Ljava/lang/String;Landroid/graphics/Bitmap;)V
+    invoke-virtual {p1, v8, v7}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->setShortcutInfo(Ljava/lang/String;Landroid/graphics/Bitmap;)V
 
     :cond_d
-    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/ItemRecord;->isHomeNewPage()Z
+    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->isHomeNewPage()Z
 
     move-result v1
 
-    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/ItemRecord;->isHomeReplace()Z
+    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->isHomeReplace()Z
 
     move-result v2
 
     move-object v0, p1
 
-    invoke-virtual/range {v0 .. v5}, Lcom/android/launcher3/common/customer/ItemRecord;->setHomePosition(ZZIII)V
+    invoke-virtual/range {v0 .. v5}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->setHomePosition(ZZIII)V
 
     return-void
 
@@ -1757,12 +1757,12 @@
     goto :goto_1
 .end method
 
-.method private createIconInfo(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/customer/ItemRecord;)Lcom/android/launcher3/common/base/item/IconInfo;
+.method private createIconInfo(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/customer/PostPositionItemRecord;)Lcom/android/launcher3/common/base/item/IconInfo;
     .locals 4
 
     const/4 v0, 0x0
 
-    invoke-virtual {p2}, Lcom/android/launcher3/common/customer/ItemRecord;->getItemType()Lcom/android/launcher3/common/customer/PostPositionProvider$ITEM_TYPE;
+    invoke-virtual {p2}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getItemType()Lcom/android/launcher3/common/customer/PostPositionProvider$ITEM_TYPE;
 
     move-result-object v1
 
@@ -1781,7 +1781,7 @@
     return-object v0
 
     :cond_1
-    invoke-virtual {p2}, Lcom/android/launcher3/common/customer/ItemRecord;->getItemType()Lcom/android/launcher3/common/customer/PostPositionProvider$ITEM_TYPE;
+    invoke-virtual {p2}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getItemType()Lcom/android/launcher3/common/customer/PostPositionProvider$ITEM_TYPE;
 
     move-result-object v1
 
@@ -1793,7 +1793,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/PostHomePositioner;->mContext:Landroid/content/Context;
 
-    invoke-virtual {p2}, Lcom/android/launcher3/common/customer/ItemRecord;->getShorcutIntent()Landroid/content/Intent;
+    invoke-virtual {p2}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getShorcutIntent()Landroid/content/Intent;
 
     move-result-object v3
 
@@ -1942,7 +1942,7 @@
     goto :goto_4
 .end method
 
-.method private performHomeNewPage(Lcom/android/launcher3/common/customer/ItemRecord;Z)J
+.method private performHomeNewPage(Lcom/android/launcher3/common/customer/PostPositionItemRecord;Z)J
     .locals 5
 
     const-wide/16 v0, -0x1
@@ -1954,7 +1954,7 @@
     return-wide v0
 
     :cond_1
-    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/ItemRecord;->isHomeNewPage()Z
+    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->isHomeNewPage()Z
 
     move-result v2
 
@@ -1971,7 +1971,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/home/PostHomePositioner;->mProvider:Lcom/android/launcher3/common/customer/PostPositionProvider;
 
-    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeIndex()I
+    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getHomeIndex()I
 
     move-result v3
 
@@ -1981,7 +1981,7 @@
 
     iget-object v3, p0, Lcom/android/launcher3/home/PostHomePositioner;->mContext:Landroid/content/Context;
 
-    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/ItemRecord;->getHomeIndex()I
+    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getHomeIndex()I
 
     move-result v4
 
@@ -1994,7 +1994,7 @@
     goto :goto_0
 .end method
 
-.method private performHomeReplace(Lcom/android/launcher3/common/customer/ItemRecord;)V
+.method private performHomeReplace(Lcom/android/launcher3/common/customer/PostPositionItemRecord;)V
     .locals 0
 
     return-void
@@ -2002,7 +2002,7 @@
 
 
 # virtual methods
-.method public declared-synchronized addItem(Lcom/android/launcher3/common/customer/ItemRecord;Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;)Z
+.method public declared-synchronized addItem(Lcom/android/launcher3/common/customer/PostPositionItemRecord;Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;)Z
     .locals 4
 
     const/4 v0, 0x0
@@ -2010,7 +2010,7 @@
     monitor-enter p0
 
     :try_start_0
-    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/ItemRecord;->isHomeAdd()Z
+    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->isHomeAdd()Z
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -2027,7 +2027,7 @@
     if-nez p2, :cond_1
 
     :try_start_1
-    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/ItemRecord;->getItemType()Lcom/android/launcher3/common/customer/PostPositionProvider$ITEM_TYPE;
+    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getItemType()Lcom/android/launcher3/common/customer/PostPositionProvider$ITEM_TYPE;
 
     move-result-object v1
 
@@ -2047,7 +2047,7 @@
 
     move-result-object v2
 
-    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/ItemRecord;->getComponentName()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getComponentName()Ljava/lang/String;
 
     move-result-object v3
 
@@ -2086,7 +2086,7 @@
 
     move-result-object v1
 
-    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/ItemRecord;->getComponentName()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getComponentName()Ljava/lang/String;
 
     move-result-object v2
 
@@ -2100,7 +2100,7 @@
 
     move-result-object v1
 
-    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/ItemRecord;->getItemType()Lcom/android/launcher3/common/customer/PostPositionProvider$ITEM_TYPE;
+    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getItemType()Lcom/android/launcher3/common/customer/PostPositionProvider$ITEM_TYPE;
 
     move-result-object v2
 
@@ -2118,7 +2118,7 @@
 
     new-instance v1, Lcom/android/launcher3/home/PostHomePositioner$1;
 
-    invoke-direct {v1, p0, p1, p2, p3}, Lcom/android/launcher3/home/PostHomePositioner$1;-><init>(Lcom/android/launcher3/home/PostHomePositioner;Lcom/android/launcher3/common/customer/ItemRecord;Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
+    invoke-direct {v1, p0, p1, p2, p3}, Lcom/android/launcher3/home/PostHomePositioner$1;-><init>(Lcom/android/launcher3/home/PostHomePositioner;Lcom/android/launcher3/common/customer/PostPositionItemRecord;Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
     :try_end_2

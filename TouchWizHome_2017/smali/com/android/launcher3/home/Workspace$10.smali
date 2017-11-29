@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/Workspace;->addCustomLayout(Lcom/android/launcher3/home/WorkspaceCellLayout;)V
+    value = Lcom/android/launcher3/home/Workspace;->createCustomPlusPage()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -35,19 +35,44 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 2
+    .locals 3
 
-    const-string v0, "Launcher.Workspace"
+    iget-object v1, p0, Lcom/android/launcher3/home/Workspace$10;->this$0:Lcom/android/launcher3/home/Workspace;
 
-    const-string v1, "onClick AlignTop"
+    invoke-virtual {v1}, Lcom/android/launcher3/home/Workspace;->isOverviewState()Z
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    move-result v1
 
-    iget-object v0, p0, Lcom/android/launcher3/home/Workspace$10;->this$0:Lcom/android/launcher3/home/Workspace;
+    if-eqz v1, :cond_0
 
-    const/4 v1, 0x1
+    iget-object v1, p0, Lcom/android/launcher3/home/Workspace$10;->this$0:Lcom/android/launcher3/home/Workspace;
 
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/home/Workspace;->autoAlignItems(Z)V
+    invoke-virtual {v1, p1}, Lcom/android/launcher3/home/Workspace;->indexOfChild(Landroid/view/View;)I
 
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/launcher3/home/Workspace$10;->this$0:Lcom/android/launcher3/home/Workspace;
+
+    invoke-static {v1}, Lcom/android/launcher3/home/Workspace;->access$800(Lcom/android/launcher3/home/Workspace;)I
+
+    move-result v1
+
+    if-ne v0, v1, :cond_1
+
+    iget-object v1, p0, Lcom/android/launcher3/home/Workspace$10;->this$0:Lcom/android/launcher3/home/Workspace;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/home/Workspace;->addNewWorkspaceScreen()J
+
+    :cond_0
+    :goto_0
     return-void
+
+    :cond_1
+    iget-object v1, p0, Lcom/android/launcher3/home/Workspace$10;->this$0:Lcom/android/launcher3/home/Workspace;
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v1, v0, v2}, Lcom/android/launcher3/home/Workspace;->moveToScreen(IZ)V
+
+    goto :goto_0
 .end method

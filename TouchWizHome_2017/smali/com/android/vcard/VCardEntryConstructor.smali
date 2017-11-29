@@ -136,26 +136,62 @@
 .end method
 
 .method public onEntryEnded()V
-    .locals 6
+    .locals 5
 
-    iget-object v4, p0, Lcom/android/vcard/VCardEntryConstructor;->mCurrentEntry:Lcom/android/vcard/VCardEntry;
+    iget-object v3, p0, Lcom/android/vcard/VCardEntryConstructor;->mCurrentEntry:Lcom/android/vcard/VCardEntry;
 
-    invoke-virtual {v4}, Lcom/android/vcard/VCardEntry;->consolidateFields()V
+    invoke-virtual {v3}, Lcom/android/vcard/VCardEntry;->consolidateFields()V
 
-    iget-object v4, p0, Lcom/android/vcard/VCardEntryConstructor;->mEntryHandlers:Ljava/util/List;
+    iget-object v3, p0, Lcom/android/vcard/VCardEntryConstructor;->mEntryHandlers:Ljava/util/List;
 
-    invoke-interface {v4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object v3
 
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-nez v4, :cond_0
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    iget-object v3, p0, Lcom/android/vcard/VCardEntryConstructor;->mEntryStack:Ljava/util/List;
+
+    invoke-interface {v3}, Ljava/util/List;->size()I
+
+    move-result v2
+
+    const/4 v3, 0x1
+
+    if-le v2, v3, :cond_1
+
+    iget-object v3, p0, Lcom/android/vcard/VCardEntryConstructor;->mEntryStack:Ljava/util/List;
+
+    add-int/lit8 v4, v2, -0x2
+
+    invoke-interface {v3, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/vcard/VCardEntry;
+
+    iget-object v3, p0, Lcom/android/vcard/VCardEntryConstructor;->mCurrentEntry:Lcom/android/vcard/VCardEntry;
+
+    invoke-virtual {v1, v3}, Lcom/android/vcard/VCardEntry;->addChild(Lcom/android/vcard/VCardEntry;)V
+
+    iput-object v1, p0, Lcom/android/vcard/VCardEntryConstructor;->mCurrentEntry:Lcom/android/vcard/VCardEntry;
+
+    :goto_1
+    iget-object v3, p0, Lcom/android/vcard/VCardEntryConstructor;->mEntryStack:Ljava/util/List;
+
+    add-int/lit8 v4, v2, -0x1
+
+    invoke-interface {v3, v4}, Ljava/util/List;->remove(I)Ljava/lang/Object;
+
+    return-void
+
+    :cond_0
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -167,46 +203,10 @@
 
     goto :goto_0
 
-    :cond_0
-    iget-object v4, p0, Lcom/android/vcard/VCardEntryConstructor;->mEntryStack:Ljava/util/List;
-
-    invoke-interface {v4}, Ljava/util/List;->size()I
-
-    move-result v3
-
-    const/4 v4, 0x1
-
-    if-le v3, v4, :cond_1
-
-    iget-object v4, p0, Lcom/android/vcard/VCardEntryConstructor;->mEntryStack:Ljava/util/List;
-
-    add-int/lit8 v5, v3, -0x2
-
-    invoke-interface {v4, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/vcard/VCardEntry;
-
-    iget-object v4, p0, Lcom/android/vcard/VCardEntryConstructor;->mCurrentEntry:Lcom/android/vcard/VCardEntry;
-
-    invoke-virtual {v2, v4}, Lcom/android/vcard/VCardEntry;->addChild(Lcom/android/vcard/VCardEntry;)V
-
-    iput-object v2, p0, Lcom/android/vcard/VCardEntryConstructor;->mCurrentEntry:Lcom/android/vcard/VCardEntry;
-
-    :goto_1
-    iget-object v4, p0, Lcom/android/vcard/VCardEntryConstructor;->mEntryStack:Ljava/util/List;
-
-    add-int/lit8 v5, v3, -0x1
-
-    invoke-interface {v4, v5}, Ljava/util/List;->remove(I)Ljava/lang/Object;
-
-    return-void
-
     :cond_1
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    iput-object v4, p0, Lcom/android/vcard/VCardEntryConstructor;->mCurrentEntry:Lcom/android/vcard/VCardEntry;
+    iput-object v3, p0, Lcom/android/vcard/VCardEntryConstructor;->mCurrentEntry:Lcom/android/vcard/VCardEntry;
 
     goto :goto_1
 .end method
@@ -246,9 +246,9 @@
 .method public onVCardEnded()V
     .locals 3
 
-    iget-object v2, p0, Lcom/android/vcard/VCardEntryConstructor;->mEntryHandlers:Ljava/util/List;
+    iget-object v1, p0, Lcom/android/vcard/VCardEntryConstructor;->mEntryHandlers:Ljava/util/List;
 
-    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
@@ -257,8 +257,11 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-nez v2, :cond_0
 
+    return-void
+
+    :cond_0
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
@@ -268,17 +271,14 @@
     invoke-interface {v0}, Lcom/android/vcard/VCardEntryHandler;->onEnd()V
 
     goto :goto_0
-
-    :cond_0
-    return-void
 .end method
 
 .method public onVCardStarted()V
     .locals 3
 
-    iget-object v2, p0, Lcom/android/vcard/VCardEntryConstructor;->mEntryHandlers:Ljava/util/List;
+    iget-object v1, p0, Lcom/android/vcard/VCardEntryConstructor;->mEntryHandlers:Ljava/util/List;
 
-    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v1
 
@@ -287,8 +287,11 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-nez v2, :cond_0
 
+    return-void
+
+    :cond_0
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
@@ -298,7 +301,4 @@
     invoke-interface {v0}, Lcom/android/vcard/VCardEntryHandler;->onStart()V
 
     goto :goto_0
-
-    :cond_0
-    return-void
 .end method

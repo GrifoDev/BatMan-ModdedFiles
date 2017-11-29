@@ -459,15 +459,15 @@
 .end method
 
 .method private cacheLocked(Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;ZZI)Lcom/android/launcher3/common/model/IconCache$CacheEntry;
-    .locals 13
+    .locals 14
 
-    new-instance v7, Lcom/android/launcher3/util/ComponentKey;
+    new-instance v8, Lcom/android/launcher3/util/ComponentKey;
 
     move-object/from16 v0, p3
 
-    invoke-direct {v7, p1, v0}, Lcom/android/launcher3/util/ComponentKey;-><init>(Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
+    invoke-direct {v8, p1, v0}, Lcom/android/launcher3/util/ComponentKey;-><init>(Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
 
-    const/4 v9, 0x0
+    const/4 v10, 0x0
 
     iget-object v2, p0, Lcom/android/launcher3/common/model/IconCache;->mCache:Ljava/util/HashMap;
 
@@ -476,7 +476,7 @@
     :try_start_0
     iget-object v1, p0, Lcom/android/launcher3/common/model/IconCache;->mCache:Ljava/util/HashMap;
 
-    invoke-virtual {v1, v7}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v8}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v1
 
@@ -484,15 +484,15 @@
 
     check-cast v0, Lcom/android/launcher3/common/model/IconCache$CacheEntry;
 
-    move-object v9, v0
+    move-object v10, v0
 
     monitor-exit v2
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    if-eqz v9, :cond_0
+    if-eqz v10, :cond_0
 
-    iget-boolean v1, v9, Lcom/android/launcher3/common/model/IconCache$CacheEntry;->isLowResIcon:Z
+    iget-boolean v1, v10, Lcom/android/launcher3/common/model/IconCache$CacheEntry;->isLowResIcon:Z
 
     if-eqz v1, :cond_4
 
@@ -504,27 +504,27 @@
     monitor-enter v2
 
     :try_start_1
-    new-instance v10, Lcom/android/launcher3/common/model/IconCache$CacheEntry;
+    new-instance v11, Lcom/android/launcher3/common/model/IconCache$CacheEntry;
 
-    invoke-direct {v10}, Lcom/android/launcher3/common/model/IconCache$CacheEntry;-><init>()V
+    invoke-direct {v11}, Lcom/android/launcher3/common/model/IconCache$CacheEntry;-><init>()V
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_1
 
     :try_start_2
     iget-object v1, p0, Lcom/android/launcher3/common/model/IconCache;->mCache:Ljava/util/HashMap;
 
-    invoke-virtual {v1, v7, v10}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v1, v8, v11}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     monitor-exit v2
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_3
 
-    monitor-enter v10
+    monitor-enter v11
 
     :try_start_3
     move/from16 v0, p5
 
-    invoke-direct {p0, v7, v10, v0}, Lcom/android/launcher3/common/model/IconCache;->getEntryFromDB(Lcom/android/launcher3/util/ComponentKey;Lcom/android/launcher3/common/model/IconCache$CacheEntry;Z)Z
+    invoke-direct {p0, v8, v11, v0}, Lcom/android/launcher3/common/model/IconCache;->getEntryFromDB(Lcom/android/launcher3/util/ComponentKey;Lcom/android/launcher3/common/model/IconCache$CacheEntry;Z)Z
 
     move-result v1
 
@@ -532,34 +532,36 @@
 
     if-eqz p2, :cond_6
 
-    invoke-virtual {p2}, Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;->getComponentName()Landroid/content/ComponentName;
+    invoke-virtual/range {p2 .. p2}, Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;->getComponentName()Landroid/content/ComponentName;
 
     move-result-object v1
 
     invoke-direct {p0, v1}, Lcom/android/launcher3/common/model/IconCache;->getCSCPackageItemIcon(Landroid/content/ComponentName;)Landroid/graphics/drawable/Drawable;
 
-    move-result-object v8
+    move-result-object v9
 
-    if-nez v8, :cond_1
+    if-nez v9, :cond_1
 
     iget v1, p0, Lcom/android/launcher3/common/model/IconCache;->mIconDpi:I
 
-    invoke-virtual {p2, v1}, Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;->getBadgedIconForIconTray(I)Landroid/graphics/drawable/Drawable;
+    move-object/from16 v0, p2
 
-    move-result-object v8
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;->getBadgedIconForIconTray(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v9
 
     :cond_1
     iget-object v1, p0, Lcom/android/launcher3/common/model/IconCache;->mContext:Landroid/content/Context;
 
-    invoke-static {v8, v1}, Lcom/android/launcher3/util/BitmapUtils;->createIconBitmap(Landroid/graphics/drawable/Drawable;Landroid/content/Context;)Landroid/graphics/Bitmap;
+    invoke-static {v9, v1}, Lcom/android/launcher3/util/BitmapUtils;->createIconBitmap(Landroid/graphics/drawable/Drawable;Landroid/content/Context;)Landroid/graphics/Bitmap;
 
     move-result-object v1
 
-    iput-object v1, v10, Lcom/android/launcher3/common/model/IconCache$CacheEntry;->icon:Landroid/graphics/Bitmap;
+    iput-object v1, v11, Lcom/android/launcher3/common/model/IconCache$CacheEntry;->icon:Landroid/graphics/Bitmap;
 
     :cond_2
     :goto_0
-    iget-object v1, v10, Lcom/android/launcher3/common/model/IconCache$CacheEntry;->title:Ljava/lang/CharSequence;
+    iget-object v1, v11, Lcom/android/launcher3/common/model/IconCache$CacheEntry;->title:Ljava/lang/CharSequence;
 
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -569,15 +571,17 @@
 
     if-eqz p2, :cond_3
 
-    invoke-virtual {p0, p2}, Lcom/android/launcher3/common/model/IconCache;->getPackageItemTitle(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;)Ljava/lang/CharSequence;
+    move-object/from16 v0, p2
 
-    move-result-object v12
+    invoke-virtual {p0, v0}, Lcom/android/launcher3/common/model/IconCache;->getPackageItemTitle(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;)Ljava/lang/CharSequence;
 
-    iput-object v12, v10, Lcom/android/launcher3/common/model/IconCache$CacheEntry;->title:Ljava/lang/CharSequence;
+    move-result-object v13
+
+    iput-object v13, v11, Lcom/android/launcher3/common/model/IconCache$CacheEntry;->title:Ljava/lang/CharSequence;
 
     iget-object v1, p0, Lcom/android/launcher3/common/model/IconCache;->mUserManager:Lcom/android/launcher3/common/compat/UserManagerCompat;
 
-    iget-object v2, v10, Lcom/android/launcher3/common/model/IconCache$CacheEntry;->title:Ljava/lang/CharSequence;
+    iget-object v2, v11, Lcom/android/launcher3/common/model/IconCache$CacheEntry;->title:Ljava/lang/CharSequence;
 
     move-object/from16 v0, p3
 
@@ -585,14 +589,14 @@
 
     move-result-object v1
 
-    iput-object v1, v10, Lcom/android/launcher3/common/model/IconCache$CacheEntry;->contentDescription:Ljava/lang/CharSequence;
+    iput-object v1, v11, Lcom/android/launcher3/common/model/IconCache$CacheEntry;->contentDescription:Ljava/lang/CharSequence;
 
     :cond_3
-    monitor-exit v10
+    monitor-exit v11
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_2
 
-    move-object v9, v10
+    move-object v10, v11
 
     :cond_4
     invoke-virtual {p1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
@@ -617,10 +621,10 @@
 
     move-result-object v1
 
-    iput-object v1, v9, Lcom/android/launcher3/common/model/IconCache$CacheEntry;->icon:Landroid/graphics/Bitmap;
+    iput-object v1, v10, Lcom/android/launcher3/common/model/IconCache$CacheEntry;->icon:Landroid/graphics/Bitmap;
 
     :cond_5
-    return-object v9
+    return-object v10
 
     :catchall_0
     move-exception v1
@@ -644,7 +648,7 @@
     throw v1
 
     :cond_6
-    if-eqz p4, :cond_7
+    if-eqz p4, :cond_9
 
     :try_start_6
     invoke-virtual {p1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
@@ -663,9 +667,59 @@
 
     invoke-direct/range {v1 .. v6}, Lcom/android/launcher3/common/model/IconCache;->getEntryForPackageLocked(Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;ZIZ)Lcom/android/launcher3/common/model/IconCache$CacheEntry;
 
-    move-result-object v11
+    move-result-object v12
 
-    if-eqz v11, :cond_7
+    if-eqz v12, :cond_7
+
+    iget-object v1, v12, Lcom/android/launcher3/common/model/IconCache$CacheEntry;->title:Ljava/lang/CharSequence;
+
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_8
+
+    :cond_7
+    iget-object v1, p0, Lcom/android/launcher3/common/model/IconCache;->mContext:Landroid/content/Context;
+
+    invoke-static {v1}, Lcom/android/launcher3/common/compat/PackageInstallerCompat;->getInstance(Landroid/content/Context;)Lcom/android/launcher3/common/compat/PackageInstallerCompat;
+
+    move-result-object v7
+
+    if-eqz v7, :cond_8
+
+    invoke-virtual {p1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v7, v1}, Lcom/android/launcher3/common/compat/PackageInstallerCompat;->isSessionInfoItem(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_8
+
+    invoke-virtual {v7}, Lcom/android/launcher3/common/compat/PackageInstallerCompat;->addAllSessionInfoToCache()V
+
+    invoke-virtual {p1}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    const/4 v4, 0x0
+
+    const/4 v6, 0x1
+
+    move-object v1, p0
+
+    move-object/from16 v3, p3
+
+    move/from16 v5, p6
+
+    invoke-direct/range {v1 .. v6}, Lcom/android/launcher3/common/model/IconCache;->getEntryForPackageLocked(Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;ZIZ)Lcom/android/launcher3/common/model/IconCache$CacheEntry;
+
+    move-result-object v12
+
+    :cond_8
+    if-eqz v12, :cond_9
 
     const-string v1, "Launcher.IconCache"
 
@@ -689,20 +743,20 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
+    iget-object v1, v12, Lcom/android/launcher3/common/model/IconCache$CacheEntry;->icon:Landroid/graphics/Bitmap;
+
+    iput-object v1, v11, Lcom/android/launcher3/common/model/IconCache$CacheEntry;->icon:Landroid/graphics/Bitmap;
+
+    iget-object v1, v12, Lcom/android/launcher3/common/model/IconCache$CacheEntry;->title:Ljava/lang/CharSequence;
+
+    iput-object v1, v11, Lcom/android/launcher3/common/model/IconCache$CacheEntry;->title:Ljava/lang/CharSequence;
+
+    iget-object v1, v12, Lcom/android/launcher3/common/model/IconCache$CacheEntry;->contentDescription:Ljava/lang/CharSequence;
+
+    iput-object v1, v11, Lcom/android/launcher3/common/model/IconCache$CacheEntry;->contentDescription:Ljava/lang/CharSequence;
+
+    :cond_9
     iget-object v1, v11, Lcom/android/launcher3/common/model/IconCache$CacheEntry;->icon:Landroid/graphics/Bitmap;
-
-    iput-object v1, v10, Lcom/android/launcher3/common/model/IconCache$CacheEntry;->icon:Landroid/graphics/Bitmap;
-
-    iget-object v1, v11, Lcom/android/launcher3/common/model/IconCache$CacheEntry;->title:Ljava/lang/CharSequence;
-
-    iput-object v1, v10, Lcom/android/launcher3/common/model/IconCache$CacheEntry;->title:Ljava/lang/CharSequence;
-
-    iget-object v1, v11, Lcom/android/launcher3/common/model/IconCache$CacheEntry;->contentDescription:Ljava/lang/CharSequence;
-
-    iput-object v1, v10, Lcom/android/launcher3/common/model/IconCache$CacheEntry;->contentDescription:Ljava/lang/CharSequence;
-
-    :cond_7
-    iget-object v1, v10, Lcom/android/launcher3/common/model/IconCache$CacheEntry;->icon:Landroid/graphics/Bitmap;
 
     if-nez v1, :cond_2
 
@@ -734,14 +788,14 @@
 
     move-result-object v1
 
-    iput-object v1, v10, Lcom/android/launcher3/common/model/IconCache$CacheEntry;->icon:Landroid/graphics/Bitmap;
+    iput-object v1, v11, Lcom/android/launcher3/common/model/IconCache$CacheEntry;->icon:Landroid/graphics/Bitmap;
 
     goto/16 :goto_0
 
     :catchall_2
     move-exception v1
 
-    monitor-exit v10
+    monitor-exit v11
     :try_end_6
     .catchall {:try_start_6 .. :try_end_6} :catchall_2
 
@@ -750,9 +804,9 @@
     :catchall_3
     move-exception v1
 
-    move-object v9, v10
+    move-object v10, v11
 
-    goto :goto_1
+    goto/16 :goto_1
 .end method
 
 .method private getCSCPackageItemIcon(Landroid/content/ComponentName;)Landroid/graphics/drawable/Drawable;

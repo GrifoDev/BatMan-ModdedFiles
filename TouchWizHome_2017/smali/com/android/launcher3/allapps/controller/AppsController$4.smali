@@ -37,11 +37,15 @@
 .method public onClick(Landroid/view/View;)V
     .locals 3
 
+    const/4 v2, 0x1
+
+    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController$4;->this$0:Lcom/android/launcher3/allapps/controller/AppsController;
+
+    invoke-static {v0, v2}, Lcom/android/launcher3/allapps/controller/AppsController;->access$602(Lcom/android/launcher3/allapps/controller/AppsController;Z)Z
+
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController$4;->this$0:Lcom/android/launcher3/allapps/controller/AppsController;
 
     const/4 v1, 0x0
-
-    const/4 v2, 0x1
 
     invoke-virtual {v0, v1, v2}, Lcom/android/launcher3/allapps/controller/AppsController;->changeState(IZ)Z
 

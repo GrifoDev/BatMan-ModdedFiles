@@ -170,8 +170,17 @@
 
     move-result v3
 
-    if-ge v1, v3, :cond_1
+    if-lt v1, v3, :cond_0
 
+    invoke-virtual {v0}, Landroid/content/ContentProviderOperation$Builder;->build()Landroid/content/ContentProviderOperation;
+
+    move-result-object v3
+
+    invoke-interface {p1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    return-void
+
+    :cond_0
     iget-object v3, p0, Lcom/android/vcard/VCardEntry$AndroidCustomData;->mDataList:Ljava/util/List;
 
     invoke-interface {v3, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -184,17 +193,13 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_1
 
     new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v4, "data"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     add-int/lit8 v4, v1, 0x1
 
@@ -208,19 +213,10 @@
 
     invoke-virtual {v0, v3, v2}, Landroid/content/ContentProviderOperation$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Landroid/content/ContentProviderOperation$Builder;
 
-    :cond_0
+    :cond_1
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_0
-
-    :cond_1
-    invoke-virtual {v0}, Landroid/content/ContentProviderOperation$Builder;->build()Landroid/content/ContentProviderOperation;
-
-    move-result-object v3
-
-    invoke-interface {p1, v3}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    return-void
 .end method
 
 .method public equals(Ljava/lang/Object;)Z
@@ -230,19 +226,23 @@
 
     const/4 v6, 0x0
 
-    if-ne p0, p1, :cond_1
+    if-ne p0, p1, :cond_0
 
-    move v6, v5
+    move v3, v5
+
+    :goto_0
+    return v3
 
     :cond_0
-    :goto_0
-    return v6
-
-    :cond_1
     instance-of v3, p1, Lcom/android/vcard/VCardEntry$AndroidCustomData;
 
-    if-eqz v3, :cond_0
+    if-nez v3, :cond_1
 
+    move v3, v6
+
+    goto :goto_0
+
+    :cond_1
     move-object v0, p1
 
     check-cast v0, Lcom/android/vcard/VCardEntry$AndroidCustomData;
@@ -255,29 +255,31 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
-
-    iget-object v3, p0, Lcom/android/vcard/VCardEntry$AndroidCustomData;->mDataList:Ljava/util/List;
-
-    if-nez v3, :cond_3
-
-    iget-object v3, v0, Lcom/android/vcard/VCardEntry$AndroidCustomData;->mDataList:Ljava/util/List;
-
     if-nez v3, :cond_2
 
-    move v3, v5
-
-    :goto_1
-    move v6, v3
+    move v3, v6
 
     goto :goto_0
 
     :cond_2
-    move v3, v6
+    iget-object v3, p0, Lcom/android/vcard/VCardEntry$AndroidCustomData;->mDataList:Ljava/util/List;
 
-    goto :goto_1
+    if-nez v3, :cond_4
+
+    iget-object v3, v0, Lcom/android/vcard/VCardEntry$AndroidCustomData;->mDataList:Ljava/util/List;
+
+    if-nez v3, :cond_3
+
+    move v3, v5
+
+    goto :goto_0
 
     :cond_3
+    move v3, v6
+
+    goto :goto_0
+
+    :cond_4
     iget-object v3, p0, Lcom/android/vcard/VCardEntry$AndroidCustomData;->mDataList:Ljava/util/List;
 
     invoke-interface {v3}, Ljava/util/List;->size()I
@@ -290,13 +292,23 @@
 
     move-result v3
 
-    if-ne v2, v3, :cond_0
+    if-eq v2, v3, :cond_5
 
+    move v3, v6
+
+    goto :goto_0
+
+    :cond_5
     const/4 v1, 0x0
 
-    :goto_2
-    if-ge v1, v2, :cond_4
+    :goto_1
+    if-lt v1, v2, :cond_6
 
+    move v3, v5
+
+    goto :goto_0
+
+    :cond_6
     iget-object v3, p0, Lcom/android/vcard/VCardEntry$AndroidCustomData;->mDataList:Ljava/util/List;
 
     invoke-interface {v3, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -317,16 +329,16 @@
 
     move-result v3
 
-    if-eqz v3, :cond_0
+    if-nez v3, :cond_7
 
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_2
-
-    :cond_4
-    move v6, v5
+    move v3, v6
 
     goto :goto_0
+
+    :cond_7
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_1
 .end method
 
 .method public getDataList()Ljava/util/List;
@@ -365,37 +377,46 @@
 .method public hashCode()I
     .locals 6
 
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
-    iget-object v4, p0, Lcom/android/vcard/VCardEntry$AndroidCustomData;->mMimeType:Ljava/lang/String;
+    iget-object v3, p0, Lcom/android/vcard/VCardEntry$AndroidCustomData;->mMimeType:Ljava/lang/String;
 
-    if-eqz v4, :cond_0
+    if-eqz v3, :cond_1
 
-    iget-object v4, p0, Lcom/android/vcard/VCardEntry$AndroidCustomData;->mMimeType:Ljava/lang/String;
+    iget-object v3, p0, Lcom/android/vcard/VCardEntry$AndroidCustomData;->mMimeType:Ljava/lang/String;
 
-    invoke-virtual {v4}, Ljava/lang/String;->hashCode()I
+    invoke-virtual {v3}, Ljava/lang/String;->hashCode()I
 
     move-result v1
 
     :goto_0
-    iget-object v4, p0, Lcom/android/vcard/VCardEntry$AndroidCustomData;->mDataList:Ljava/util/List;
+    iget-object v3, p0, Lcom/android/vcard/VCardEntry$AndroidCustomData;->mDataList:Ljava/util/List;
 
-    if-eqz v4, :cond_2
+    if-eqz v3, :cond_0
 
-    iget-object v4, p0, Lcom/android/vcard/VCardEntry$AndroidCustomData;->mDataList:Ljava/util/List;
+    iget-object v3, p0, Lcom/android/vcard/VCardEntry$AndroidCustomData;->mDataList:Ljava/util/List;
 
-    invoke-interface {v4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v4
 
     :goto_1
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v4
+    move-result v3
 
-    if-eqz v4, :cond_2
+    if-nez v3, :cond_2
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    :cond_0
+    return v1
+
+    :cond_1
+    move v1, v2
+
+    goto :goto_0
+
+    :cond_2
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -403,29 +424,21 @@
 
     mul-int/lit8 v5, v1, 0x1f
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3
 
     invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
 
-    move-result v4
+    move-result v3
 
     :goto_2
-    add-int v1, v5, v4
+    add-int v1, v5, v3
 
     goto :goto_1
 
-    :cond_0
-    move v1, v3
-
-    goto :goto_0
-
-    :cond_1
-    move v4, v3
+    :cond_3
+    move v3, v2
 
     goto :goto_2
-
-    :cond_2
-    return v1
 .end method
 
 .method public isEmpty()Z
@@ -449,16 +462,15 @@
 
     move-result v0
 
-    if-nez v0, :cond_1
+    if-eqz v0, :cond_0
 
-    :cond_0
-    const/4 v0, 0x1
+    const/4 v0, 0x0
 
     :goto_0
     return v0
 
-    :cond_1
-    const/4 v0, 0x0
+    :cond_0
+    const/4 v0, 0x1
 
     goto :goto_0
 .end method
@@ -472,13 +484,9 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "android-custom: "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v2, p0, Lcom/android/vcard/VCardEntry$AndroidCustomData;->mMimeType:Ljava/lang/String;
 

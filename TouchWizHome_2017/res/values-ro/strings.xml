@@ -17,8 +17,10 @@
     <string name="accessibility_button">Buton</string>
     <string name="accessibility_dimmed">Estompat</string>
     <string name="activity_not_available">Aplicaţia nu este disponibilă pentru dispozitivul dvs.</string>
-    <string name="activity_not_found">Aplicația nu este instalată.</string>
+    <string name="activity_not_found">Aplicație negăsită</string>
+    <string name="add">Adăugare</string>
     <string name="add_to_last_page">Ați selectat %1$d elemente, dar nu există spațiu suficient pe această pagină. Cele %2$d elemente rămase vor fi adăugate pe ultima pagină.</string>
+    <string name="add_to_last_page_for_hotseat">Ați selectat %1$d elemente, dar nu există spațiu suficient pe bara de preferate. Cele %2$d elemente rămase vor fi adăugate pe ultima pagină.</string>
     <string name="align_to_bottom">Aliniere jos</string>
     <string name="align_to_top">Aliniere sus</string>
     <string name="app_locked_toast">%s este blocat.</string>
@@ -122,6 +124,7 @@
     <string name="new_page_created">Pagina a fost adăugată.</string>
     <string name="no_changes">Nicio modificare.</string>
     <string name="no_space_page">Nu există spațiu pe pagină. Încercați să adăugați comanda rapidă pe o pagină diferită.</string>
+    <string name="no_space_page_for_hotseat">Spațiu insuficient pe bara de preferate.</string>
     <string name="no_space_page_for_widget">Nu există spațiu pe această pagină.</string>
     <string name="not_selected">Neselectat</string>
     <string name="notification_panel_setting_summary">Glisați în jos pentru a deschide panoul de notificare din ecranul Acasă.</string>
@@ -156,6 +159,8 @@
     <string name="quick_option_delete_folder">Ștergere Director</string>
     <string name="quick_option_delete_folder_alert">Folderul %s va fi șters. Aplicațiile din acesta vor fi disponibile în continuare pe ecranul Aplicații.</string>
     <string name="quick_option_delete_folder_alert_no_title">Folderul va fi șters. Aplicațiile din acesta vor fi disponibile în continuare pe ecranul Aplicații.</string>
+    <string name="quick_option_delete_folder_home_only_alert">Folderul %s va fi șters. Aplicațiile din interiorul acestuia vor fi disponibile în continuare pe ecranul Acasă.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Folderul va fi șters. Aplicațiile din interiorul acestuia vor fi disponibile în continuare pe ecranul Acasă.</string>
     <string name="quick_option_dimmed_disable">Dezactivare</string>
     <string name="quick_option_disable">Dezactivare</string>
     <string name="quick_option_install_dual_im">Instalați a doua aplicație</string>

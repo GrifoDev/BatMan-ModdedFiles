@@ -53,13 +53,13 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a011d
+    const v1, 0x7f0a0121
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
-    const v2, 0x7f0a011a
+    const v2, 0x7f0a011e
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -67,7 +67,7 @@
 
     add-int/2addr v1, v2
 
-    const v2, 0x7f0a011b
+    const v2, 0x7f0a011f
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

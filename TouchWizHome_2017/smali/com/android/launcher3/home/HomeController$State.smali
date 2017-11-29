@@ -45,7 +45,7 @@
     return-void
 .end method
 
-.method static synthetic access$000(Lcom/android/launcher3/home/HomeController$State;I)Z
+.method static synthetic access$100(Lcom/android/launcher3/home/HomeController$State;I)Z
     .locals 1
 
     invoke-direct {p0, p1}, Lcom/android/launcher3/home/HomeController$State;->equal(I)Z
@@ -55,15 +55,7 @@
     return v0
 .end method
 
-.method static synthetic access$100(Lcom/android/launcher3/home/HomeController$State;I)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/launcher3/home/HomeController$State;->set(I)V
-
-    return-void
-.end method
-
-.method static synthetic access$1300(Lcom/android/launcher3/home/HomeController$State;)I
+.method static synthetic access$1400(Lcom/android/launcher3/home/HomeController$State;)I
     .locals 1
 
     iget v0, p0, Lcom/android/launcher3/home/HomeController$State;->mCurrentState:I
@@ -71,7 +63,15 @@
     return v0
 .end method
 
-.method static synthetic access$200(Lcom/android/launcher3/home/HomeController$State;)I
+.method static synthetic access$200(Lcom/android/launcher3/home/HomeController$State;I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/launcher3/home/HomeController$State;->set(I)V
+
+    return-void
+.end method
+
+.method static synthetic access$300(Lcom/android/launcher3/home/HomeController$State;)I
     .locals 1
 
     invoke-direct {p0}, Lcom/android/launcher3/home/HomeController$State;->get()I

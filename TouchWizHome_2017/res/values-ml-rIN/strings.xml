@@ -16,8 +16,10 @@
     <string name="accessibility_button">ബട്ടൺ</string>
     <string name="accessibility_dimmed">മങ്ങിച്ചു</string>
     <string name="activity_not_available">നിങ്ങളുടെ ഉപകരണത്തിൽ ഈ ഉള്ളടക്കം ലഭ്യമല്ല.</string>
-    <string name="activity_not_found">ആപ്ലിക്കേഷന്‍ ഇന്‍സ്റ്റോള്‍ ചെയ്തിട്ടില്ല.</string>
+    <string name="activity_not_found">ആപ്ലിക്കേഷൻ കണ്ടെത്തിയില്ല</string>
+    <string name="add">ചേര്‍ക്കുക</string>
     <string name="add_to_last_page">നിങ്ങൾ %1$d ഇനങ്ങളെ തിരഞ്ഞെടുത്തു, പക്ഷേ ഈ പേജിൽ മതിയായ സ്ഥലമില്ല. ശേഷിക്കുന്ന %2$d ഇനങ്ങൾ അവസാന പേജിൽ ചേർക്കപ്പെടും.</string>
+    <string name="add_to_last_page_for_hotseat">നിങ്ങൾ %1$d ഇനങ്ങളെ തിരഞ്ഞെടുത്തു, പക്ഷേ പ്രിയപ്പെട്ടവ ട്രേയിൽ മതിയായ സ്ഥലമില്ല. ശേഷിക്കുന്ന %2$d ഇനങ്ങൾ അവസാന പേജിൽ ചേർക്കപ്പെടും.</string>
     <string name="align_to_bottom">തഴേയ്ക്ക് അടുക്കിവയ്ക്കുക</string>
     <string name="align_to_top">മുകളിലേക്ക് അടുക്കിവയ്ക്കുക</string>
     <string name="app_locked_toast">%s ലോക്കുചെയ്തു.</string>
@@ -121,6 +123,7 @@
     <string name="new_page_created">പേജ് ചേർത്തു.</string>
     <string name="no_changes">മാറ്റങ്ങൾ ഒന്നുമില്ല.</string>
     <string name="no_space_page">പേജിൽ സ്ഥലമില്ല. വേറൊരു പേജിൽ എളുപ്പവഴി ചേർക്കാൻ ശ്രമിക്കുക.</string>
+    <string name="no_space_page_for_hotseat">പ്രിയപ്പെട്ടവ ട്രേയിൽ സ്പെയ്‌സൊന്നുമില്ല.</string>
     <string name="no_space_page_for_widget">ഈ പേജിൽ സ്ഥലമില്ല.</string>
     <string name="not_selected">തിരഞ്ഞെടുത്തില്ല</string>
     <string name="notification_panel_setting_summary">ഹോം സ്ക്രീനിൽ നിന്ന് അറിയിപ്പ് പാനൽ തുറക്കുന്നതിന് താഴേയ്ക്ക് സ്വൈപ് ചെയ്യുക.</string>
@@ -155,6 +158,8 @@
     <string name="quick_option_delete_folder">ഫോള്‍ഡര്‍ ഇല്ലാതാക്കുക</string>
     <string name="quick_option_delete_folder_alert">%s ഫോൾഡർ ഇല്ലാതാക്കപ്പെടും. ഈ ഫോൾഡറിനകത്തുള്ള ആപ്പുകൾ തുടർന്നും ആപ്സ് സ്ക്രീനിൽ ലഭ്യമാകും.</string>
     <string name="quick_option_delete_folder_alert_no_title">ഈ ഫോൾഡർ ഇല്ലാതാക്കപ്പെടും. ഈ ഫോൾഡറിനകത്തുള്ള ആപ്പുകൾ തുടർന്നും ആപ്സ് സ്ക്രീനിൽ ലഭ്യമാകും.</string>
+    <string name="quick_option_delete_folder_home_only_alert">%s ഫോൾഡർ ഇല്ലാതാക്കപ്പെടും. ഈ ഫോൾഡറിനകത്തുള്ള ആപ്പുകൾ തുടർന്നും ഹോം സ്ക്രീനിൽ ലഭ്യമാകും.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">ഈ ഫോൾഡർ ഇല്ലാതാക്കപ്പെടും. ഈ ഫോൾഡറിനകത്തുള്ള ആപ്പുകൾ തുടർന്നും ഹോം സ്ക്രീനിൽ ലഭ്യമാകും.</string>
     <string name="quick_option_dimmed_disable">അപ്രാപ്തമാക്കുക</string>
     <string name="quick_option_disable">അപ്രാപ്തമാക്കുക</string>
     <string name="quick_option_install_dual_im">രണ്ടാമത്തെ ആപ്ലിക്കേഷൻ ഇൻസ്റ്റാൾ ചെയ്യുക</string>

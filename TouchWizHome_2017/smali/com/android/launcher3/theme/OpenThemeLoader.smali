@@ -1251,6 +1251,24 @@
     goto :goto_0
 .end method
 
+.method public getCurrentIconPackages()Ljava/lang/String;
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/launcher3/theme/OpenThemeLoader;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string v1, "current_sec_appicon_theme_package"
+
+    invoke-static {v0, v1}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public getDefaultPackageName()Ljava/lang/String;
     .locals 2
 

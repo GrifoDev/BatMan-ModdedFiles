@@ -4,12 +4,6 @@
 
 
 # instance fields
-.field private mClearAreaFadeInEnd:I
-
-.field private mClearAreaFadeInRange:F
-
-.field private mClearAreaFadeInStart:I
-
 .field private mClearRect:Landroid/graphics/Rect;
 
 .field private mController:Lcom/android/launcher3/allapps/controller/AppsController;
@@ -74,40 +68,6 @@
     move-result v0
 
     iput v0, p0, Lcom/android/launcher3/allapps/view/AppsContainer;->mPageIndicatorScaleRatio:F
-
-    invoke-virtual {p0}, Lcom/android/launcher3/allapps/view/AppsContainer;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x7f0a0192
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/launcher3/allapps/view/AppsContainer;->mClearAreaFadeInStart:I
-
-    invoke-virtual {p0}, Lcom/android/launcher3/allapps/view/AppsContainer;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x7f0a0194
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/launcher3/allapps/view/AppsContainer;->mClearAreaFadeInEnd:I
-
-    iget v0, p0, Lcom/android/launcher3/allapps/view/AppsContainer;->mClearAreaFadeInStart:I
-
-    iget v1, p0, Lcom/android/launcher3/allapps/view/AppsContainer;->mClearAreaFadeInEnd:I
-
-    sub-int/2addr v0, v1
-
-    int-to-float v0, v0
-
-    iput v0, p0, Lcom/android/launcher3/allapps/view/AppsContainer;->mClearAreaFadeInRange:F
 
     return-void
 .end method
@@ -184,14 +144,6 @@
     iget-object v0, p0, Lcom/android/launcher3/allapps/view/AppsContainer;->mScreenDivision:Lcom/android/launcher3/util/event/ScreenDivision;
 
     return-object v0
-.end method
-
-.method public onDrawForeground(Landroid/graphics/Canvas;)V
-    .locals 0
-
-    invoke-super {p0, p1}, Landroid/widget/FrameLayout;->onDrawForeground(Landroid/graphics/Canvas;)V
-
-    return-void
 .end method
 
 .method public onInterceptTouchEvent(Landroid/view/MotionEvent;)Z

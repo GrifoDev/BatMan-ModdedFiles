@@ -84,7 +84,7 @@
 
     if-eqz v3, :cond_3
 
-    const v3, 0x7f0901b1
+    const v3, 0x7f0901b6
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -96,7 +96,7 @@
 
     if-lez v3, :cond_6
 
-    const v3, 0x7f09013e
+    const v3, 0x7f090143
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -119,7 +119,7 @@
     return-void
 
     :cond_3
-    const v3, 0x7f0901b2
+    const v3, 0x7f0901b7
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -140,7 +140,7 @@
 
     if-eqz v3, :cond_5
 
-    const v3, 0x7f0901a5
+    const v3, 0x7f0901aa
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -149,7 +149,7 @@
     goto :goto_0
 
     :cond_5
-    const v3, 0x7f0901a6
+    const v3, 0x7f0901ab
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -158,7 +158,7 @@
     goto :goto_0
 
     :cond_6
-    const v3, 0x7f09013f
+    const v3, 0x7f090144
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

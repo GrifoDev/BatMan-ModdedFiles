@@ -159,6 +159,49 @@
     return v0
 .end method
 
+.method private static markState(Landroid/support/v4/app/FragmentManager;Landroid/arch/lifecycle/Lifecycle$State;)V
+    .locals 4
+
+    invoke-virtual {p0}, Landroid/support/v4/app/FragmentManager;->getFragments()Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :cond_0
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/support/v4/app/Fragment;
+
+    if-eqz v0, :cond_0
+
+    iget-object v3, v0, Landroid/support/v4/app/Fragment;->mLifecycleRegistry:Landroid/arch/lifecycle/LifecycleRegistry;
+
+    invoke-virtual {v3, p1}, Landroid/arch/lifecycle/LifecycleRegistry;->markState(Landroid/arch/lifecycle/Lifecycle$State;)V
+
+    invoke-virtual {v0}, Landroid/support/v4/app/Fragment;->getChildFragmentManager()Landroid/support/v4/app/FragmentManager;
+
+    move-result-object v3
+
+    invoke-static {v3, p1}, Landroid/support/v4/app/FragmentActivity;->markState(Landroid/support/v4/app/FragmentManager;Landroid/arch/lifecycle/Lifecycle$State;)V
+
+    goto :goto_0
+
+    :cond_1
+    return-void
+.end method
+
 
 # virtual methods
 .method final dispatchFragmentsOnCreateView(Landroid/view/View;Ljava/lang/String;Landroid/content/Context;Landroid/util/AttributeSet;)Landroid/view/View;
@@ -322,6 +365,16 @@
     const/4 v1, 0x0
 
     goto :goto_0
+.end method
+
+.method public getLifecycle()Landroid/arch/lifecycle/Lifecycle;
+    .locals 1
+
+    invoke-super {p0}, Landroid/support/v4/app/BaseFragmentActivityApi16;->getLifecycle()Landroid/arch/lifecycle/Lifecycle;
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method public getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
@@ -1126,6 +1179,14 @@
 
     invoke-super {p0, p1}, Landroid/support/v4/app/BaseFragmentActivityApi16;->onSaveInstanceState(Landroid/os/Bundle;)V
 
+    invoke-virtual {p0}, Landroid/support/v4/app/FragmentActivity;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+
+    move-result-object v4
+
+    sget-object v5, Landroid/arch/lifecycle/Lifecycle$State;->CREATED:Landroid/arch/lifecycle/Lifecycle$State;
+
+    invoke-static {v4, v5}, Landroid/support/v4/app/FragmentActivity;->markState(Landroid/support/v4/app/FragmentManager;Landroid/arch/lifecycle/Lifecycle$State;)V
+
     iget-object v4, p0, Landroid/support/v4/app/FragmentActivity;->mFragments:Landroid/support/v4/app/FragmentController;
 
     invoke-virtual {v4}, Landroid/support/v4/app/FragmentController;->saveAllState()Landroid/os/Parcelable;
@@ -1277,17 +1338,25 @@
 .end method
 
 .method protected onStop()V
-    .locals 2
+    .locals 3
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
     invoke-super {p0}, Landroid/support/v4/app/BaseFragmentActivityApi16;->onStop()V
 
-    iput-boolean v1, p0, Landroid/support/v4/app/FragmentActivity;->mStopped:Z
+    iput-boolean v2, p0, Landroid/support/v4/app/FragmentActivity;->mStopped:Z
+
+    invoke-virtual {p0}, Landroid/support/v4/app/FragmentActivity;->getSupportFragmentManager()Landroid/support/v4/app/FragmentManager;
+
+    move-result-object v0
+
+    sget-object v1, Landroid/arch/lifecycle/Lifecycle$State;->CREATED:Landroid/arch/lifecycle/Lifecycle$State;
+
+    invoke-static {v0, v1}, Landroid/support/v4/app/FragmentActivity;->markState(Landroid/support/v4/app/FragmentManager;Landroid/arch/lifecycle/Lifecycle$State;)V
 
     iget-object v0, p0, Landroid/support/v4/app/FragmentActivity;->mHandler:Landroid/os/Handler;
 
-    invoke-virtual {v0, v1}, Landroid/os/Handler;->sendEmptyMessage(I)Z
+    invoke-virtual {v0, v2}, Landroid/os/Handler;->sendEmptyMessage(I)Z
 
     iget-object v0, p0, Landroid/support/v4/app/FragmentActivity;->mFragments:Landroid/support/v4/app/FragmentController;
 

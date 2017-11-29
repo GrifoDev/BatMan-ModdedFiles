@@ -17,8 +17,10 @@
     <string name="accessibility_button">Knapp</string>
     <string name="accessibility_dimmed">Nedtonet</string>
     <string name="activity_not_available">Denne appen er ikke tilgjengelig for enheten din.</string>
-    <string name="activity_not_found">App ikke installert.</string>
+    <string name="activity_not_found">Fant ikke appen</string>
+    <string name="add">Legg til</string>
     <string name="add_to_last_page">Du valgte %1$d elementer, men det er ikke nok plass på denne siden. De gjenværende %2$d elementene blir lagt til på siste side.</string>
+    <string name="add_to_last_page_for_hotseat">Du valgte %1$d elementer, men det er ikke nok plass på favorittbrettet. De gjenværende %2$d elementene blir lagt til på den siste siden.</string>
     <string name="align_to_bottom">Juster til bunn</string>
     <string name="align_to_top">Juster til topp</string>
     <string name="app_locked_toast">%s låst.</string>
@@ -123,9 +125,10 @@ apper"</string>
     <string name="new_page_created">Side er lagt til.</string>
     <string name="no_changes">Ingen endringer.</string>
     <string name="no_space_page">Ikke plass på siden. Prøv å legge til snarveien på en annen side.</string>
+    <string name="no_space_page_for_hotseat">Ikke plass på favorittbrett.</string>
     <string name="no_space_page_for_widget">Ikke plass på denne siden.</string>
     <string name="not_selected">Ikke valgt</string>
-    <string name="notification_panel_setting_summary">Stryk ned for å åpne varselspanelet fra startskjermbildet.</string>
+    <string name="notification_panel_setting_summary">Stryk ned for å åpne varselspanelet fra startskjermen.</string>
     <string name="notification_panel_setting_title">Åpne varselspanelet hurtig</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s-widgeten er allerede lagt til på startskjermbildet.</string>
@@ -157,6 +160,8 @@ apper"</string>
     <string name="quick_option_delete_folder">Slett mappe</string>
     <string name="quick_option_delete_folder_alert">%s-mappen blir slettet. Appene i denne mappen vil fortsatt være tilgjengelige på Apper-skjermbildet.</string>
     <string name="quick_option_delete_folder_alert_no_title">Denne mappen blir slettet. Appene i denne mappen vil fortsatt være tilgjengelige på Apper-skjermbildet.</string>
+    <string name="quick_option_delete_folder_home_only_alert">%s-mappen blir slettet. Appene i denne mappen vil fortsatt være tilgjengelige på startskjermbildet.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Denne mappen blir slettet. Appene i denne mappen vil fortsatt være tilgjengelige på startskjermbildet.</string>
     <string name="quick_option_dimmed_disable">Deaktiver</string>
     <string name="quick_option_disable">Deaktiver</string>
     <string name="quick_option_install_dual_im">Installer den andre appen</string>

@@ -15,6 +15,8 @@
 
 
 # static fields
+.field private static final INFLOW_LABEL:Ljava/lang/String; = "inflow_label"
+
 .field private static final JAPANESE_MISC_LABEL:Ljava/lang/String; = "\u4ed6"
 
 .field private static final USE_JAPANESE_MISC_LABEL:Z = true
@@ -64,7 +66,7 @@
 
     move-result v4
 
-    if-lez v4, :cond_0
+    if-lez v4, :cond_1
 
     sget-object v4, Lcom/android/launcher3/util/locale/LocaleUtils$JapaneseContactUtils;->mAlphabeticIndex:Landroid/icu/text/AlphabeticIndex$ImmutableIndex;
 
@@ -84,8 +86,25 @@
 
     move-result-object v1
 
-    if-nez v1, :cond_1
+    if-eqz v1, :cond_0
 
+    iget-object v4, p0, Lcom/android/launcher3/util/locale/LocaleUtils$JapaneseContactUtils;->mUnderflowLabel:Ljava/lang/String;
+
+    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    iget-object v4, p0, Lcom/android/launcher3/util/locale/LocaleUtils$JapaneseContactUtils;->mOverflowLabel:Ljava/lang/String;
+
+    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_2
+
+    :cond_0
     const/4 v4, 0x0
 
     const/4 v5, 0x1
@@ -94,23 +113,15 @@
 
     move-result-object v2
 
-    :cond_0
+    :cond_1
     :goto_0
     move-object v4, v2
 
     :goto_1
     return-object v4
 
-    :cond_1
-    iget-object v4, p0, Lcom/android/launcher3/util/locale/LocaleUtils$JapaneseContactUtils;->mUnderflowLabel:Ljava/lang/String;
-
-    invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_2
-
-    iget-object v4, p0, Lcom/android/launcher3/util/locale/LocaleUtils$JapaneseContactUtils;->mOverflowLabel:Ljava/lang/String;
+    :cond_2
+    iget-object v4, p0, Lcom/android/launcher3/util/locale/LocaleUtils$JapaneseContactUtils;->mInflowLabel:Ljava/lang/String;
 
     invoke-virtual {v1, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -118,7 +129,6 @@
 
     if-eqz v4, :cond_3
 
-    :cond_2
     const-string v2, "\u4ed6"
 
     goto :goto_0
@@ -163,6 +173,24 @@
     invoke-super {p0, p1}, Lcom/android/launcher3/util/locale/LocaleUtils$LocaleUtilsBase;->getSortKey(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
+
+    return-object v0
+.end method
+
+.method protected initAlphabeticIndex()Landroid/icu/text/AlphabeticIndex;
+    .locals 2
+
+    new-instance v0, Landroid/icu/text/AlphabeticIndex;
+
+    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Landroid/icu/text/AlphabeticIndex;-><init>(Ljava/util/Locale;)V
+
+    const-string v1, "inflow_label"
+
+    invoke-virtual {v0, v1}, Landroid/icu/text/AlphabeticIndex;->setInflowLabel(Ljava/lang/String;)Landroid/icu/text/AlphabeticIndex;
 
     return-object v0
 .end method

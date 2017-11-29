@@ -61,7 +61,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController$21;->this$0:Lcom/android/launcher3/allapps/controller/AppsController;
 
-    invoke-static {v1}, Lcom/android/launcher3/allapps/controller/AppsController;->access$1500(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/common/stage/StageManager;
+    invoke-static {v1}, Lcom/android/launcher3/allapps/controller/AppsController;->access$1800(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/common/stage/StageManager;
 
     move-result-object v1
 

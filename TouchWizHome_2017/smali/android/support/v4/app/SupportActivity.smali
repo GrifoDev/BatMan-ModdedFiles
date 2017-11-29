@@ -2,6 +2,9 @@
 .super Landroid/app/Activity;
 .source "SupportActivity.java"
 
+# interfaces
+.implements Landroid/arch/lifecycle/LifecycleOwner;
+
 
 # annotations
 .annotation build Landroid/support/annotation/RestrictTo;
@@ -33,6 +36,8 @@
     .end annotation
 .end field
 
+.field private mLifecycleRegistry:Landroid/arch/lifecycle/LifecycleRegistry;
+
 
 # direct methods
 .method public constructor <init>()V
@@ -45,6 +50,12 @@
     invoke-direct {v0}, Landroid/support/v4/util/SimpleArrayMap;-><init>()V
 
     iput-object v0, p0, Landroid/support/v4/app/SupportActivity;->mExtraDataMap:Landroid/support/v4/util/SimpleArrayMap;
+
+    new-instance v0, Landroid/arch/lifecycle/LifecycleRegistry;
+
+    invoke-direct {v0, p0}, Landroid/arch/lifecycle/LifecycleRegistry;-><init>(Landroid/arch/lifecycle/LifecycleOwner;)V
+
+    iput-object v0, p0, Landroid/support/v4/app/SupportActivity;->mLifecycleRegistry:Landroid/arch/lifecycle/LifecycleRegistry;
 
     return-void
 .end method
@@ -78,6 +89,44 @@
     check-cast v0, Landroid/support/v4/app/SupportActivity$ExtraData;
 
     return-object v0
+.end method
+
+.method public getLifecycle()Landroid/arch/lifecycle/Lifecycle;
+    .locals 1
+
+    iget-object v0, p0, Landroid/support/v4/app/SupportActivity;->mLifecycleRegistry:Landroid/arch/lifecycle/LifecycleRegistry;
+
+    return-object v0
+.end method
+
+.method protected onCreate(Landroid/os/Bundle;)V
+    .locals 0
+    .param p1    # Landroid/os/Bundle;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
+
+    invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
+
+    invoke-static {p0}, Landroid/arch/lifecycle/ReportFragment;->injectIfNeededIn(Landroid/app/Activity;)V
+
+    return-void
+.end method
+
+.method protected onSaveInstanceState(Landroid/os/Bundle;)V
+    .locals 2
+    .annotation build Landroid/support/annotation/CallSuper;
+    .end annotation
+
+    iget-object v0, p0, Landroid/support/v4/app/SupportActivity;->mLifecycleRegistry:Landroid/arch/lifecycle/LifecycleRegistry;
+
+    sget-object v1, Landroid/arch/lifecycle/Lifecycle$State;->CREATED:Landroid/arch/lifecycle/Lifecycle$State;
+
+    invoke-virtual {v0, v1}, Landroid/arch/lifecycle/LifecycleRegistry;->markState(Landroid/arch/lifecycle/Lifecycle$State;)V
+
+    invoke-super {p0, p1}, Landroid/app/Activity;->onSaveInstanceState(Landroid/os/Bundle;)V
+
+    return-void
 .end method
 
 .method public putExtraData(Landroid/support/v4/app/SupportActivity$ExtraData;)V

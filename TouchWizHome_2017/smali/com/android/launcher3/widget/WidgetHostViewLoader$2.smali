@@ -103,7 +103,7 @@
 
     invoke-static {v6, v10}, Lcom/android/launcher3/widget/WidgetHostViewLoader;->access$102(Lcom/android/launcher3/widget/WidgetHostViewLoader;I)I
 
-    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportGSAPreWarming()Z
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportGSARoundingFeature()Z
 
     move-result v6
 

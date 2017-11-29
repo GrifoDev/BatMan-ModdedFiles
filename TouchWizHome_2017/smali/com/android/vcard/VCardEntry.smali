@@ -6,30 +6,29 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/vcard/VCardEntry$1;,
-        Lcom/android/vcard/VCardEntry$InsertOperationConstrutor;,
-        Lcom/android/vcard/VCardEntry$ToStringIterator;,
-        Lcom/android/vcard/VCardEntry$IsIgnorableIterator;,
-        Lcom/android/vcard/VCardEntry$EntryElementIterator;,
-        Lcom/android/vcard/VCardEntry$XGroupNameData;,
         Lcom/android/vcard/VCardEntry$AndroidCustomData;,
-        Lcom/android/vcard/VCardEntry$SipData;,
         Lcom/android/vcard/VCardEntry$AnniversaryData;,
         Lcom/android/vcard/VCardEntry$BirthdayData;,
-        Lcom/android/vcard/VCardEntry$WebsiteData;,
-        Lcom/android/vcard/VCardEntry$NoteData;,
-        Lcom/android/vcard/VCardEntry$NicknameData;,
-        Lcom/android/vcard/VCardEntry$NameCardData;,
-        Lcom/android/vcard/VCardEntry$PhotoStateData;,
-        Lcom/android/vcard/VCardEntry$PhotoData;,
-        Lcom/android/vcard/VCardEntry$ImData;,
-        Lcom/android/vcard/VCardEntry$OrganizationData;,
-        Lcom/android/vcard/VCardEntry$PostalData;,
         Lcom/android/vcard/VCardEntry$EmailData;,
-        Lcom/android/vcard/VCardEntry$PhoneData;,
-        Lcom/android/vcard/VCardEntry$NameData;,
         Lcom/android/vcard/VCardEntry$EntryElement;,
-        Lcom/android/vcard/VCardEntry$EntryLabel;
+        Lcom/android/vcard/VCardEntry$EntryElementIterator;,
+        Lcom/android/vcard/VCardEntry$EntryLabel;,
+        Lcom/android/vcard/VCardEntry$ImData;,
+        Lcom/android/vcard/VCardEntry$InsertOperationConstrutor;,
+        Lcom/android/vcard/VCardEntry$IsIgnorableIterator;,
+        Lcom/android/vcard/VCardEntry$NameCardData;,
+        Lcom/android/vcard/VCardEntry$NameData;,
+        Lcom/android/vcard/VCardEntry$NicknameData;,
+        Lcom/android/vcard/VCardEntry$NoteData;,
+        Lcom/android/vcard/VCardEntry$OrganizationData;,
+        Lcom/android/vcard/VCardEntry$PhoneData;,
+        Lcom/android/vcard/VCardEntry$PhotoData;,
+        Lcom/android/vcard/VCardEntry$PhotoStateData;,
+        Lcom/android/vcard/VCardEntry$PostalData;,
+        Lcom/android/vcard/VCardEntry$SipData;,
+        Lcom/android/vcard/VCardEntry$ToStringIterator;,
+        Lcom/android/vcard/VCardEntry$WebsiteData;,
+        Lcom/android/vcard/VCardEntry$XGroupNameData;
     }
 .end annotation
 
@@ -390,6 +389,18 @@
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
+    sget-object v0, Lcom/android/vcard/VCardEntry;->sImMap:Ljava/util/Map;
+
+    const-string v1, "X-FACEBOOK"
+
+    const/16 v2, 0xa
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
     new-instance v0, Ljava/util/ArrayList;
 
     invoke-direct {v0, v3}, Ljava/util/ArrayList;-><init>(I)V
@@ -734,21 +745,28 @@
     const/4 v4, 0x0
 
     :goto_1
-    if-ge v4, v5, :cond_7
+    if-lt v4, v5, :cond_3
 
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    goto :goto_0
+
+    :cond_3
     invoke-virtual {v7, v4}, Ljava/lang/String;->charAt(I)C
 
     move-result v1
 
     const/16 v8, 0x70
 
-    if-eq v1, v8, :cond_3
+    if-eq v1, v8, :cond_4
 
     const/16 v8, 0x50
 
-    if-ne v1, v8, :cond_4
+    if-ne v1, v8, :cond_5
 
-    :cond_3
+    :cond_4
     const/16 v8, 0x2c
 
     invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -760,16 +778,16 @@
 
     goto :goto_1
 
-    :cond_4
+    :cond_5
     const/16 v8, 0x77
 
-    if-eq v1, v8, :cond_5
+    if-eq v1, v8, :cond_6
 
     const/16 v8, 0x57
 
-    if-ne v1, v8, :cond_6
+    if-ne v1, v8, :cond_7
 
-    :cond_5
+    :cond_6
     const/16 v8, 0x3b
 
     invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
@@ -778,17 +796,10 @@
 
     goto :goto_2
 
-    :cond_6
+    :cond_7
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     goto :goto_2
-
-    :cond_7
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    goto :goto_0
 .end method
 
 .method private addPhotoBytes(Ljava/lang/String;[BZ)V
@@ -941,7 +952,7 @@
 .end method
 
 .method private buildSinglePhoneticNameFromSortAsParam(Ljava/util/Map;)Ljava/lang/String;
-    .locals 8
+    .locals 7
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -956,93 +967,97 @@
         }
     .end annotation
 
-    const-string v5, "SORT-AS"
+    const-string v4, "SORT-AS"
 
-    invoke-interface {p1, v5}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-interface {p1, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v3
+    move-result-object v2
 
-    check-cast v3, Ljava/util/Collection;
+    check-cast v2, Ljava/util/Collection;
 
-    if-eqz v3, :cond_2
+    if-eqz v2, :cond_2
 
-    invoke-interface {v3}, Ljava/util/Collection;->size()I
+    invoke-interface {v2}, Ljava/util/Collection;->size()I
 
-    move-result v5
+    move-result v4
 
-    if-eqz v5, :cond_2
+    if-eqz v4, :cond_2
 
-    invoke-interface {v3}, Ljava/util/Collection;->size()I
+    invoke-interface {v2}, Ljava/util/Collection;->size()I
 
-    move-result v5
+    move-result v4
 
-    const/4 v6, 0x1
+    const/4 v5, 0x1
 
-    if-le v5, v6, :cond_0
+    if-le v4, v5, :cond_0
 
-    const-string v5, "vCard"
+    const-string v4, "vCard"
 
-    new-instance v6, Ljava/lang/StringBuilder;
+    new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v6, "Incorrect multiple SORT_AS parameters detected: "
 
-    const-string v7, "Incorrect multiple SORT_AS parameters detected: "
+    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-interface {v3}, Ljava/util/Collection;->toArray()[Ljava/lang/Object;
-
-    move-result-object v7
-
-    invoke-static {v7}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-interface {v2}, Ljava/util/Collection;->toArray()[Ljava/lang/Object;
 
     move-result-object v6
 
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v6}, Ljava/util/Arrays;->toString([Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v6
 
-    invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_0
-    invoke-interface {v3}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
-
-    move-result-object v5
-
-    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Ljava/lang/String;
-
-    iget v6, p0, Lcom/android/vcard/VCardEntry;->mVCardType:I
-
-    invoke-static {v5, v6}, Lcom/android/vcard/VCardUtils;->constructListFromValue(Ljava/lang/String;I)Ljava/util/List;
+    invoke-interface {v2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
+
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Ljava/lang/String;
+
+    iget v5, p0, Lcom/android/vcard/VCardEntry;->mVCardType:I
+
+    invoke-static {v4, v5}, Lcom/android/vcard/VCardUtils;->constructListFromValue(Ljava/lang/String;I)Ljava/util/List;
+
+    move-result-object v3
 
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-interface {v4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface {v3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v4
 
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-nez v5, :cond_1
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    :goto_1
+    return-object v4
+
+    :cond_1
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
@@ -1052,16 +1067,8 @@
 
     goto :goto_0
 
-    :cond_1
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    :goto_1
-    return-object v5
-
     :cond_2
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
     goto :goto_1
 .end method
@@ -1075,7 +1082,7 @@
 
     iget-object v0, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    invoke-static {v0}, Lcom/android/vcard/VCardEntry$NameData;->access$1700(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/android/vcard/VCardEntry$NameData;->access$12(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -1087,7 +1094,7 @@
 
     iget-object v0, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    invoke-static {v0}, Lcom/android/vcard/VCardEntry$NameData;->access$1700(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/android/vcard/VCardEntry$NameData;->access$12(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
 
     move-result-object v6
 
@@ -1113,31 +1120,31 @@
 
     iget-object v1, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    invoke-static {v1}, Lcom/android/vcard/VCardEntry$NameData;->access$1600(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
+    invoke-static {v1}, Lcom/android/vcard/VCardEntry$NameData;->access$14(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    invoke-static {v2}, Lcom/android/vcard/VCardEntry$NameData;->access$1400(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
+    invoke-static {v2}, Lcom/android/vcard/VCardEntry$NameData;->access$15(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    invoke-static {v3}, Lcom/android/vcard/VCardEntry$NameData;->access$1500(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
+    invoke-static {v3}, Lcom/android/vcard/VCardEntry$NameData;->access$16(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
 
     move-result-object v3
 
     iget-object v4, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    invoke-static {v4}, Lcom/android/vcard/VCardEntry$NameData;->access$1300(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
+    invoke-static {v4}, Lcom/android/vcard/VCardEntry$NameData;->access$17(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
 
     move-result-object v4
 
     iget-object v5, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    invoke-static {v5}, Lcom/android/vcard/VCardEntry$NameData;->access$1200(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
+    invoke-static {v5}, Lcom/android/vcard/VCardEntry$NameData;->access$18(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
 
     move-result-object v5
 
@@ -1160,19 +1167,19 @@
 
     iget-object v1, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    invoke-static {v1}, Lcom/android/vcard/VCardEntry$NameData;->access$900(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
+    invoke-static {v1}, Lcom/android/vcard/VCardEntry$NameData;->access$0(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
 
     move-result-object v1
 
     iget-object v2, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    invoke-static {v2}, Lcom/android/vcard/VCardEntry$NameData;->access$1000(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
+    invoke-static {v2}, Lcom/android/vcard/VCardEntry$NameData;->access$1(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
 
     move-result-object v2
 
     iget-object v3, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    invoke-static {v3}, Lcom/android/vcard/VCardEntry$NameData;->access$1100(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
+    invoke-static {v3}, Lcom/android/vcard/VCardEntry$NameData;->access$2(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
 
     move-result-object v3
 
@@ -1183,44 +1190,17 @@
     goto :goto_0
 
     :cond_4
-    iget-object v0, p0, Lcom/android/vcard/VCardEntry;->mEmailList:Ljava/util/List;
+    iget-object v0, p0, Lcom/android/vcard/VCardEntry;->mPhoneList:Ljava/util/List;
 
     if-eqz v0, :cond_5
 
-    iget-object v0, p0, Lcom/android/vcard/VCardEntry;->mEmailList:Ljava/util/List;
+    iget-object v0, p0, Lcom/android/vcard/VCardEntry;->mPhoneList:Ljava/util/List;
 
     invoke-interface {v0}, Ljava/util/List;->size()I
 
     move-result v0
 
     if-lez v0, :cond_5
-
-    iget-object v0, p0, Lcom/android/vcard/VCardEntry;->mEmailList:Ljava/util/List;
-
-    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/vcard/VCardEntry$EmailData;
-
-    invoke-static {v0}, Lcom/android/vcard/VCardEntry$EmailData;->access$1900(Lcom/android/vcard/VCardEntry$EmailData;)Ljava/lang/String;
-
-    move-result-object v6
-
-    goto :goto_0
-
-    :cond_5
-    iget-object v0, p0, Lcom/android/vcard/VCardEntry;->mPhoneList:Ljava/util/List;
-
-    if-eqz v0, :cond_6
-
-    iget-object v0, p0, Lcom/android/vcard/VCardEntry;->mPhoneList:Ljava/util/List;
-
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    if-lez v0, :cond_6
 
     iget-object v0, p0, Lcom/android/vcard/VCardEntry;->mPhoneList:Ljava/util/List;
 
@@ -1230,7 +1210,34 @@
 
     check-cast v0, Lcom/android/vcard/VCardEntry$PhoneData;
 
-    invoke-static {v0}, Lcom/android/vcard/VCardEntry$PhoneData;->access$2000(Lcom/android/vcard/VCardEntry$PhoneData;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/android/vcard/VCardEntry$PhoneData;->access$0(Lcom/android/vcard/VCardEntry$PhoneData;)Ljava/lang/String;
+
+    move-result-object v6
+
+    goto :goto_0
+
+    :cond_5
+    iget-object v0, p0, Lcom/android/vcard/VCardEntry;->mEmailList:Ljava/util/List;
+
+    if-eqz v0, :cond_6
+
+    iget-object v0, p0, Lcom/android/vcard/VCardEntry;->mEmailList:Ljava/util/List;
+
+    invoke-interface {v0}, Ljava/util/List;->size()I
+
+    move-result v0
+
+    if-lez v0, :cond_6
+
+    iget-object v0, p0, Lcom/android/vcard/VCardEntry;->mEmailList:Ljava/util/List;
+
+    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/vcard/VCardEntry$EmailData;
+
+    invoke-static {v0}, Lcom/android/vcard/VCardEntry$EmailData;->access$0(Lcom/android/vcard/VCardEntry$EmailData;)Ljava/lang/String;
 
     move-result-object v6
 
@@ -1383,7 +1390,7 @@
 
     check-cast v1, Ljava/lang/String;
 
-    invoke-static {v2, v1}, Lcom/android/vcard/VCardEntry$NameData;->access$1602(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, v1}, Lcom/android/vcard/VCardEntry$NameData;->access$10(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)V
 
     goto :goto_0
 
@@ -1398,7 +1405,7 @@
 
     check-cast v1, Ljava/lang/String;
 
-    invoke-static {v2, v1}, Lcom/android/vcard/VCardEntry$NameData;->access$1202(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, v1}, Lcom/android/vcard/VCardEntry$NameData;->access$6(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)V
 
     :pswitch_1
     iget-object v2, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
@@ -1411,7 +1418,7 @@
 
     check-cast v1, Ljava/lang/String;
 
-    invoke-static {v2, v1}, Lcom/android/vcard/VCardEntry$NameData;->access$1302(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, v1}, Lcom/android/vcard/VCardEntry$NameData;->access$7(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)V
 
     :pswitch_2
     iget-object v2, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
@@ -1424,7 +1431,7 @@
 
     check-cast v1, Ljava/lang/String;
 
-    invoke-static {v2, v1}, Lcom/android/vcard/VCardEntry$NameData;->access$1402(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, v1}, Lcom/android/vcard/VCardEntry$NameData;->access$8(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)V
 
     :pswitch_3
     iget-object v2, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
@@ -1435,7 +1442,7 @@
 
     check-cast v1, Ljava/lang/String;
 
-    invoke-static {v2, v1}, Lcom/android/vcard/VCardEntry$NameData;->access$1502(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2, v1}, Lcom/android/vcard/VCardEntry$NameData;->access$9(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)V
 
     goto :goto_1
 
@@ -1451,7 +1458,7 @@
 .end method
 
 .method private handleOrgValue(ILjava/util/List;Ljava/util/Map;Z)V
-    .locals 24
+    .locals 23
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(I",
@@ -1484,7 +1491,7 @@
     :cond_0
     invoke-interface/range {p2 .. p2}, Ljava/util/List;->size()I
 
-    move-result v23
+    move-result v22
 
     invoke-static {}, Lcom/android/vcard/VCardConfig;->isJapanSpacialized()Z
 
@@ -1492,7 +1499,7 @@
 
     if-eqz v2, :cond_9
 
-    packed-switch v23, :pswitch_data_0
+    packed-switch v22, :pswitch_data_0
 
     const-string v5, ""
 
@@ -2097,11 +2104,11 @@
     :cond_5
     new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v5}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    move-result-object v2
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     const-string v3, " "
 
@@ -2132,11 +2139,11 @@
     :cond_6
     new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v5}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    move-result-object v2
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     const-string v3, " "
 
@@ -2167,11 +2174,11 @@
     :cond_7
     new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v5}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    move-result-object v2
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     const-string v3, " "
 
@@ -2202,11 +2209,11 @@
     :cond_8
     new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static {v5}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    invoke-virtual {v2, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result-object v3
 
-    move-result-object v2
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     const-string v3, " "
 
@@ -2235,7 +2242,7 @@
     goto/16 :goto_3
 
     :cond_9
-    packed-switch v23, :pswitch_data_1
+    packed-switch v22, :pswitch_data_1
 
     const/4 v2, 0x0
 
@@ -2256,15 +2263,53 @@
     :goto_6
     move/from16 v0, v20
 
-    move/from16 v1, v23
+    move/from16 v1, v22
 
-    if-ge v0, v1, :cond_b
+    if-lt v0, v1, :cond_a
 
+    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    :goto_7
+    const/4 v7, 0x0
+
+    const/4 v8, 0x0
+
+    const/4 v9, 0x0
+
+    const/4 v11, 0x0
+
+    goto/16 :goto_4
+
+    :pswitch_8
+    const-string v5, ""
+
+    const/4 v6, 0x0
+
+    goto :goto_7
+
+    :pswitch_9
+    const/4 v2, 0x0
+
+    move-object/from16 v0, p2
+
+    invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Ljava/lang/String;
+
+    const/4 v6, 0x0
+
+    goto :goto_7
+
+    :cond_a
     const/4 v2, 0x1
 
     move/from16 v0, v20
 
-    if-le v0, v2, :cond_a
+    if-le v0, v2, :cond_b
 
     const/16 v2, 0x20
 
@@ -2272,7 +2317,7 @@
 
     invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    :cond_a
+    :cond_b
     move-object/from16 v0, p2
 
     move/from16 v1, v20
@@ -2290,44 +2335,6 @@
     add-int/lit8 v20, v20, 0x1
 
     goto :goto_6
-
-    :pswitch_8
-    const-string v5, ""
-
-    const/4 v6, 0x0
-
-    :goto_7
-    const/4 v7, 0x0
-
-    const/4 v8, 0x0
-
-    const/4 v9, 0x0
-
-    const/4 v11, 0x0
-
-    goto/16 :goto_4
-
-    :pswitch_9
-    const/4 v2, 0x0
-
-    move-object/from16 v0, p2
-
-    invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Ljava/lang/String;
-
-    const/4 v6, 0x0
-
-    goto :goto_7
-
-    :cond_b
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    goto :goto_7
 
     :cond_c
     const/4 v15, 0x0
@@ -2355,135 +2362,15 @@
 
     invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v21
+    move-result-object v2
 
     :cond_e
-    invoke-interface/range {v21 .. v21}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_10
+    if-nez v3, :cond_f
 
-    invoke-interface/range {v21 .. v21}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v22
-
-    check-cast v22, Lcom/android/vcard/VCardEntry$OrganizationData;
-
-    invoke-static {}, Lcom/android/vcard/VCardConfig;->isJapanSpacialized()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_f
-
-    invoke-static/range {v22 .. v22}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$100(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
-
-    move-result-object v2
-
-    if-nez v2, :cond_f
-
-    invoke-static/range {v22 .. v22}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$200(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
-
-    move-result-object v2
-
-    if-nez v2, :cond_f
-
-    invoke-static/range {v22 .. v22}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$300(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
-
-    move-result-object v2
-
-    if-nez v2, :cond_f
-
-    invoke-static/range {v22 .. v22}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$400(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
-
-    move-result-object v2
-
-    if-nez v2, :cond_f
-
-    invoke-static/range {v22 .. v22}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$500(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
-
-    move-result-object v2
-
-    if-nez v2, :cond_f
-
-    invoke-static/range {v22 .. v22}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$600(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
-
-    move-result-object v2
-
-    if-nez v2, :cond_f
-
-    invoke-static/range {v22 .. v22}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$700(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
-
-    move-result-object v2
-
-    if-nez v2, :cond_f
-
-    move-object/from16 v0, v22
-
-    invoke-static {v0, v5}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$102(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)Ljava/lang/String;
-
-    move-object/from16 v0, v22
-
-    invoke-static {v0, v6}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$202(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)Ljava/lang/String;
-
-    move-object/from16 v0, v22
-
-    invoke-static {v0, v7}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$302(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)Ljava/lang/String;
-
-    move-object/from16 v0, v22
-
-    invoke-static {v0, v8}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$402(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)Ljava/lang/String;
-
-    move-object/from16 v0, v22
-
-    invoke-static {v0, v9}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$502(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)Ljava/lang/String;
-
-    move-object/from16 v0, v22
-
-    invoke-static {v0, v10}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$602(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)Ljava/lang/String;
-
-    move-object/from16 v0, v22
-
-    invoke-static {v0, v11}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$702(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)Ljava/lang/String;
-
-    move-object/from16 v0, v22
-
-    move/from16 v1, p4
-
-    invoke-static {v0, v1}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$802(Lcom/android/vcard/VCardEntry$OrganizationData;Z)Z
-
-    goto/16 :goto_5
-
-    :cond_f
-    invoke-static/range {v22 .. v22}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$100(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
-
-    move-result-object v2
-
-    if-nez v2, :cond_e
-
-    invoke-static/range {v22 .. v22}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$200(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
-
-    move-result-object v2
-
-    if-nez v2, :cond_e
-
-    move-object/from16 v0, v22
-
-    invoke-static {v0, v5}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$102(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)Ljava/lang/String;
-
-    move-object/from16 v0, v22
-
-    invoke-static {v0, v6}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$202(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)Ljava/lang/String;
-
-    move-object/from16 v0, v22
-
-    move/from16 v1, p4
-
-    invoke-static {v0, v1}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$802(Lcom/android/vcard/VCardEntry$OrganizationData;Z)Z
-
-    goto/16 :goto_5
-
-    :cond_10
     const/4 v15, 0x0
 
     move-object/from16 v12, p0
@@ -2499,6 +2386,126 @@
     move/from16 v18, p4
 
     invoke-direct/range {v12 .. v18}, Lcom/android/vcard/VCardEntry;->addNewOrganization(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IZ)V
+
+    goto/16 :goto_5
+
+    :cond_f
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v21
+
+    check-cast v21, Lcom/android/vcard/VCardEntry$OrganizationData;
+
+    invoke-static {}, Lcom/android/vcard/VCardConfig;->isJapanSpacialized()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_10
+
+    invoke-static/range {v21 .. v21}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$0(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
+
+    move-result-object v3
+
+    if-nez v3, :cond_10
+
+    invoke-static/range {v21 .. v21}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$1(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
+
+    move-result-object v3
+
+    if-nez v3, :cond_10
+
+    invoke-static/range {v21 .. v21}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$2(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
+
+    move-result-object v3
+
+    if-nez v3, :cond_10
+
+    invoke-static/range {v21 .. v21}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$3(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
+
+    move-result-object v3
+
+    if-nez v3, :cond_10
+
+    invoke-static/range {v21 .. v21}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$4(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
+
+    move-result-object v3
+
+    if-nez v3, :cond_10
+
+    invoke-static/range {v21 .. v21}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$5(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
+
+    move-result-object v3
+
+    if-nez v3, :cond_10
+
+    invoke-static/range {v21 .. v21}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$6(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
+
+    move-result-object v3
+
+    if-nez v3, :cond_10
+
+    move-object/from16 v0, v21
+
+    invoke-static {v0, v5}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$7(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)V
+
+    move-object/from16 v0, v21
+
+    invoke-static {v0, v6}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$8(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)V
+
+    move-object/from16 v0, v21
+
+    invoke-static {v0, v7}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$9(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)V
+
+    move-object/from16 v0, v21
+
+    invoke-static {v0, v8}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$10(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)V
+
+    move-object/from16 v0, v21
+
+    invoke-static {v0, v9}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$11(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)V
+
+    move-object/from16 v0, v21
+
+    invoke-static {v0, v10}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$12(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)V
+
+    move-object/from16 v0, v21
+
+    invoke-static {v0, v11}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$13(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)V
+
+    move-object/from16 v0, v21
+
+    move/from16 v1, p4
+
+    invoke-static {v0, v1}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$14(Lcom/android/vcard/VCardEntry$OrganizationData;Z)V
+
+    goto/16 :goto_5
+
+    :cond_10
+    invoke-static/range {v21 .. v21}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$0(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
+
+    move-result-object v3
+
+    if-nez v3, :cond_e
+
+    invoke-static/range {v21 .. v21}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$1(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
+
+    move-result-object v3
+
+    if-nez v3, :cond_e
+
+    move-object/from16 v0, v21
+
+    invoke-static {v0, v5}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$7(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)V
+
+    move-object/from16 v0, v21
+
+    invoke-static {v0, v6}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$8(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)V
+
+    move-object/from16 v0, v21
+
+    move/from16 v1, p4
+
+    invoke-static {v0, v1}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$14(Lcom/android/vcard/VCardEntry$OrganizationData;Z)V
 
     goto/16 :goto_5
 
@@ -2543,7 +2550,7 @@
 
     iget-object v5, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    invoke-static {v5}, Lcom/android/vcard/VCardEntry$NameData;->access$900(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
+    invoke-static {v5}, Lcom/android/vcard/VCardEntry$NameData;->access$0(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
 
     move-result-object v5
 
@@ -2555,7 +2562,7 @@
 
     iget-object v5, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    invoke-static {v5}, Lcom/android/vcard/VCardEntry$NameData;->access$1000(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
+    invoke-static {v5}, Lcom/android/vcard/VCardEntry$NameData;->access$1(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
 
     move-result-object v5
 
@@ -2567,7 +2574,7 @@
 
     iget-object v5, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    invoke-static {v5}, Lcom/android/vcard/VCardEntry$NameData;->access$1100(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
+    invoke-static {v5}, Lcom/android/vcard/VCardEntry$NameData;->access$2(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
 
     move-result-object v5
 
@@ -2605,37 +2612,30 @@
 
     move-result v5
 
-    if-lez v5, :cond_7
+    if-lez v5, :cond_8
 
     const/4 v3, 0x1
 
     const/4 v0, 0x1
 
     :goto_1
-    if-ge v0, v4, :cond_3
+    if-lt v0, v4, :cond_4
 
-    invoke-interface {p1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Ljava/lang/String;
-
-    invoke-virtual {v5}, Ljava/lang/String;->length()I
-
-    move-result v5
-
-    if-lez v5, :cond_4
-
-    const/4 v3, 0x0
-
-    :cond_3
+    :goto_2
     invoke-static {}, Lcom/android/vcard/VCardConfig;->isJapanSpacialized()Z
 
     move-result v5
 
-    if-nez v5, :cond_7
+    if-eqz v5, :cond_3
 
-    if-eqz v3, :cond_7
+    invoke-static {}, Lcom/android/vcard/VCardConfig;->isShiftJisAsDefault()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_8
+
+    :cond_3
+    if-eqz v3, :cond_8
 
     invoke-interface {p1, v7}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
@@ -2651,67 +2651,68 @@
 
     array-length v1, v2
 
-    if-ne v1, v10, :cond_5
+    if-ne v1, v10, :cond_6
 
     iget-object v5, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
     aget-object v6, v2, v7
 
-    invoke-static {v5, v6}, Lcom/android/vcard/VCardEntry$NameData;->access$902(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v5, v6}, Lcom/android/vcard/VCardEntry$NameData;->access$5(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)V
 
     iget-object v5, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
     aget-object v6, v2, v8
 
-    invoke-static {v5, v6}, Lcom/android/vcard/VCardEntry$NameData;->access$1002(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v5, v6}, Lcom/android/vcard/VCardEntry$NameData;->access$3(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)V
 
     iget-object v5, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
     aget-object v6, v2, v9
 
-    invoke-static {v5, v6}, Lcom/android/vcard/VCardEntry$NameData;->access$1102(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v5, v6}, Lcom/android/vcard/VCardEntry$NameData;->access$4(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)V
 
     goto :goto_0
 
     :cond_4
+    invoke-interface {p1, v0}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Ljava/lang/String;
+
+    invoke-virtual {v5}, Ljava/lang/String;->length()I
+
+    move-result v5
+
+    if-lez v5, :cond_5
+
+    const/4 v3, 0x0
+
+    goto :goto_2
+
+    :cond_5
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_1
 
-    :cond_5
-    if-ne v1, v9, :cond_6
+    :cond_6
+    if-ne v1, v9, :cond_7
 
     iget-object v5, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
     aget-object v6, v2, v7
 
-    invoke-static {v5, v6}, Lcom/android/vcard/VCardEntry$NameData;->access$902(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v5, v6}, Lcom/android/vcard/VCardEntry$NameData;->access$5(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)V
 
     iget-object v5, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
     aget-object v6, v2, v8
 
-    invoke-static {v5, v6}, Lcom/android/vcard/VCardEntry$NameData;->access$1102(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
-
-    goto :goto_0
-
-    :cond_6
-    iget-object v6, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
-
-    invoke-interface {p1, v7}, Ljava/util/List;->get(I)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Ljava/lang/String;
-
-    invoke-static {v6, v5}, Lcom/android/vcard/VCardEntry$NameData;->access$1102(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v5, v6}, Lcom/android/vcard/VCardEntry$NameData;->access$4(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)V
 
     goto :goto_0
 
     :cond_7
-    packed-switch v4, :pswitch_data_0
-
-    :goto_2
     iget-object v6, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
     invoke-interface {p1, v7}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -2720,7 +2721,23 @@
 
     check-cast v5, Ljava/lang/String;
 
-    invoke-static {v6, v5}, Lcom/android/vcard/VCardEntry$NameData;->access$902(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v6, v5}, Lcom/android/vcard/VCardEntry$NameData;->access$4(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_8
+    packed-switch v4, :pswitch_data_0
+
+    :goto_3
+    iget-object v6, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
+
+    invoke-interface {p1, v7}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Ljava/lang/String;
+
+    invoke-static {v6, v5}, Lcom/android/vcard/VCardEntry$NameData;->access$5(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)V
 
     goto/16 :goto_0
 
@@ -2733,7 +2750,7 @@
 
     check-cast v5, Ljava/lang/String;
 
-    invoke-static {v6, v5}, Lcom/android/vcard/VCardEntry$NameData;->access$1002(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v6, v5}, Lcom/android/vcard/VCardEntry$NameData;->access$3(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)V
 
     :pswitch_1
     iget-object v6, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
@@ -2744,11 +2761,9 @@
 
     check-cast v5, Ljava/lang/String;
 
-    invoke-static {v6, v5}, Lcom/android/vcard/VCardEntry$NameData;->access$1102(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v6, v5}, Lcom/android/vcard/VCardEntry$NameData;->access$4(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)V
 
-    goto :goto_2
-
-    nop
+    goto :goto_3
 
     :pswitch_data_0
     .packed-switch 0x2
@@ -2772,144 +2787,145 @@
 
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_1
+    if-eqz v5, :cond_1
 
     :cond_0
     :goto_0
     return-void
 
     :cond_1
-    const-string v6, "sip:"
+    const-string v5, "sip:"
 
-    invoke-virtual {p1, v6}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {p1, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_2
+    if-eqz v5, :cond_2
 
-    const/4 v6, 0x4
+    const/4 v5, 0x4
 
-    invoke-virtual {p1, v6}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual {p1, v5}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
     move-result-object p1
 
     invoke-virtual {p1}, Ljava/lang/String;->length()I
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_0
+    if-eqz v5, :cond_0
 
     :cond_2
-    const/4 v3, -0x1
-
-    const/4 v2, 0x0
+    const/4 v2, -0x1
 
     const/4 v1, 0x0
 
-    if-eqz p2, :cond_8
+    const/4 v0, 0x0
+
+    if-eqz p2, :cond_4
 
     invoke-interface {p2}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object v0
+    move-result-object v5
 
     :cond_3
     :goto_1
-    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_8
+    if-nez v6, :cond_6
 
-    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    :cond_4
+    if-gez v2, :cond_5
+
+    const/4 v2, 0x3
+
+    :cond_5
+    invoke-direct {p0, p1, v2, v1, v0}, Lcom/android/vcard/VCardEntry;->addSip(Ljava/lang/String;ILjava/lang/String;Z)V
+
+    goto :goto_0
+
+    :cond_6
+    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v3
+
+    check-cast v3, Ljava/lang/String;
+
+    invoke-virtual {v3}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
 
     move-result-object v4
 
-    check-cast v4, Ljava/lang/String;
-
-    invoke-virtual {v4}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
-
-    move-result-object v5
-
     const-string v6, "PREF"
 
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_4
-
-    const/4 v1, 0x1
-
-    goto :goto_1
-
-    :cond_4
-    const-string v6, "HOME"
-
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_5
-
-    const/4 v3, 0x1
-
-    goto :goto_1
-
-    :cond_5
-    const-string v6, "WORK"
-
-    invoke-virtual {v5, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v6
-
-    if-eqz v6, :cond_6
-
-    const/4 v3, 0x2
-
-    goto :goto_1
-
-    :cond_6
-    if-gez v3, :cond_3
-
-    const-string v6, "X-"
-
-    invoke-virtual {v5, v6}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v4, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
     if-eqz v6, :cond_7
 
-    const/4 v6, 0x2
-
-    invoke-virtual {v4, v6}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    :goto_2
-    const/4 v3, 0x0
+    const/4 v0, 0x1
 
     goto :goto_1
 
     :cond_7
-    move-object v2, v4
+    const-string v6, "HOME"
 
-    goto :goto_2
+    invoke-virtual {v4, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_8
+
+    const/4 v2, 0x1
+
+    goto :goto_1
 
     :cond_8
-    if-gez v3, :cond_9
+    const-string v6, "WORK"
 
-    const/4 v3, 0x3
+    invoke-virtual {v4, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_9
+
+    const/4 v2, 0x2
+
+    goto :goto_1
 
     :cond_9
-    invoke-direct {p0, p1, v3, v2, v1}, Lcom/android/vcard/VCardEntry;->addSip(Ljava/lang/String;ILjava/lang/String;Z)V
+    if-gez v2, :cond_3
 
-    goto :goto_0
+    const-string v6, "X-"
+
+    invoke-virtual {v4, v6}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_a
+
+    const/4 v6, 0x2
+
+    invoke-virtual {v3, v6}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    :goto_2
+    const/4 v2, 0x0
+
+    goto :goto_1
+
+    :cond_a
+    move-object v1, v3
+
+    goto :goto_2
 .end method
 
 .method private handleTitleValue(Ljava/lang/String;)V
-    .locals 9
+    .locals 8
 
     const/4 v5, 0x1
 
@@ -2954,11 +2970,11 @@
 
     invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v8
+    move-result-object v7
 
-    check-cast v8, Lcom/android/vcard/VCardEntry$OrganizationData;
+    check-cast v7, Lcom/android/vcard/VCardEntry$OrganizationData;
 
-    invoke-static {v8}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$300(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
+    invoke-static {v7}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$2(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -2966,7 +2982,7 @@
 
     const-string v0, ""
 
-    invoke-static {v8}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$300(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
+    invoke-static {v7}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$2(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
 
     move-result-object v1
 
@@ -2976,7 +2992,7 @@
 
     if-nez v0, :cond_2
 
-    invoke-static {v8}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$300(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
+    invoke-static {v7}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$2(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -2987,7 +3003,7 @@
     if-eqz v0, :cond_0
 
     :cond_2
-    invoke-static {v8, p1}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$302(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v7, p1}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$9(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)V
 
     goto :goto_0
 
@@ -2996,32 +3012,15 @@
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v7
-
-    :cond_4
-    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_5
-
-    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v8
-
-    check-cast v8, Lcom/android/vcard/VCardEntry$OrganizationData;
-
-    invoke-static {v8}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$300(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
-
     move-result-object v0
 
-    if-nez v0, :cond_4
+    :cond_4
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    invoke-static {v8, p1}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$302(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)Ljava/lang/String;
+    move-result v2
 
-    goto :goto_0
+    if-nez v2, :cond_5
 
-    :cond_5
     invoke-static {}, Lcom/android/vcard/VCardConfig;->isJapanSpacialized()Z
 
     move-result v0
@@ -3037,6 +3036,23 @@
     move-object v4, v1
 
     invoke-direct/range {v0 .. v6}, Lcom/android/vcard/VCardEntry;->addNewOrganization(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;IZ)V
+
+    goto :goto_0
+
+    :cond_5
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v7
+
+    check-cast v7, Lcom/android/vcard/VCardEntry$OrganizationData;
+
+    invoke-static {v7}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$2(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
+
+    move-result-object v2
+
+    if-nez v2, :cond_4
+
+    invoke-static {v7, p1}, Lcom/android/vcard/VCardEntry$OrganizationData;->access$9(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)V
 
     goto :goto_0
 .end method
@@ -3055,27 +3071,27 @@
         }
     .end annotation
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_0
 
     invoke-interface {p1}, Ljava/util/List;->size()I
 
-    move-result v2
+    move-result v1
 
-    if-lez v2, :cond_1
+    if-lez v1, :cond_0
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-interface {p1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v2
+    move-result-object v1
 
-    check-cast v2, Lcom/android/vcard/VCardEntry$EntryElement;
+    check-cast v1, Lcom/android/vcard/VCardEntry$EntryElement;
 
-    invoke-interface {v2}, Lcom/android/vcard/VCardEntry$EntryElement;->getEntryLabel()Lcom/android/vcard/VCardEntry$EntryLabel;
+    invoke-interface {v1}, Lcom/android/vcard/VCardEntry$EntryElement;->getEntryLabel()Lcom/android/vcard/VCardEntry$EntryLabel;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-interface {p2, v2}, Lcom/android/vcard/VCardEntry$EntryElementIterator;->onElementGroupStarted(Lcom/android/vcard/VCardEntry$EntryLabel;)V
+    invoke-interface {p2, v1}, Lcom/android/vcard/VCardEntry$EntryElementIterator;->onElementGroupStarted(Lcom/android/vcard/VCardEntry$EntryLabel;)V
 
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
@@ -3086,8 +3102,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-nez v2, :cond_1
 
+    invoke-interface {p2}, Lcom/android/vcard/VCardEntry$EntryElementIterator;->onElementGroupEnded()V
+
+    :cond_0
+    return-void
+
+    :cond_1
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
@@ -3097,12 +3119,6 @@
     invoke-interface {p2, v0}, Lcom/android/vcard/VCardEntry$EntryElementIterator;->onElement(Lcom/android/vcard/VCardEntry$EntryElement;)Z
 
     goto :goto_0
-
-    :cond_0
-    invoke-interface {p2}, Lcom/android/vcard/VCardEntry$EntryElementIterator;->onElementGroupEnded()V
-
-    :cond_1
-    return-void
 .end method
 
 .method private listToString(Ljava/util/List;)Ljava/lang/String;
@@ -3118,13 +3134,13 @@
         }
     .end annotation
 
-    const/4 v5, 0x1
+    const/4 v4, 0x1
 
     invoke-interface {p1}, Ljava/util/List;->size()I
 
-    move-result v3
+    move-result v2
 
-    if-le v3, v5, :cond_2
+    if-le v2, v4, :cond_2
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -3134,25 +3150,33 @@
 
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v4
 
     :cond_0
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-nez v5, :cond_1
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v4
 
-    check-cast v4, Ljava/lang/String;
+    :goto_1
+    return-object v4
 
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :cond_1
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    add-int/lit8 v5, v3, -0x1
+    move-result-object v3
+
+    check-cast v3, Ljava/lang/String;
+
+    invoke-virtual {v0, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    add-int/lit8 v5, v2, -0x1
 
     if-ge v1, v5, :cond_0
 
@@ -3162,29 +3186,21 @@
 
     goto :goto_0
 
-    :cond_1
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    :goto_1
-    return-object v5
-
     :cond_2
-    if-ne v3, v5, :cond_3
+    if-ne v2, v4, :cond_3
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
-    invoke-interface {p1, v5}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    invoke-interface {p1, v4}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result-object v5
+    move-result-object v4
 
-    check-cast v5, Ljava/lang/String;
+    check-cast v4, Ljava/lang/String;
 
     goto :goto_1
 
     :cond_3
-    const-string v5, ""
+    const-string v4, ""
 
     goto :goto_1
 .end method
@@ -3216,7 +3232,7 @@
 
     iget-object v3, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    invoke-static {v3}, Lcom/android/vcard/VCardEntry$NameData;->access$900(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
+    invoke-static {v3}, Lcom/android/vcard/VCardEntry$NameData;->access$0(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
 
     move-result-object v3
 
@@ -3228,7 +3244,7 @@
 
     iget-object v3, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    invoke-static {v3}, Lcom/android/vcard/VCardEntry$NameData;->access$1000(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
+    invoke-static {v3}, Lcom/android/vcard/VCardEntry$NameData;->access$1(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
 
     move-result-object v3
 
@@ -3240,7 +3256,7 @@
 
     iget-object v3, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    invoke-static {v3}, Lcom/android/vcard/VCardEntry$NameData;->access$1100(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
+    invoke-static {v3}, Lcom/android/vcard/VCardEntry$NameData;->access$2(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
 
     move-result-object v3
 
@@ -3281,13 +3297,9 @@
 
     new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v5, "Incorrect multiple SORT_AS parameters detected: "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
+    invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-interface {v1}, Ljava/util/Collection;->toArray()[Ljava/lang/Object;
 
@@ -3348,7 +3360,7 @@
 
     check-cast v3, Ljava/lang/String;
 
-    invoke-static {v4, v3}, Lcom/android/vcard/VCardEntry$NameData;->access$902(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v4, v3}, Lcom/android/vcard/VCardEntry$NameData;->access$5(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)V
 
     goto :goto_0
 
@@ -3363,7 +3375,7 @@
 
     check-cast v3, Ljava/lang/String;
 
-    invoke-static {v4, v3}, Lcom/android/vcard/VCardEntry$NameData;->access$1002(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v4, v3}, Lcom/android/vcard/VCardEntry$NameData;->access$3(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)V
 
     :pswitch_1
     iget-object v4, p0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
@@ -3374,7 +3386,7 @@
 
     check-cast v3, Ljava/lang/String;
 
-    invoke-static {v4, v3}, Lcom/android/vcard/VCardEntry$NameData;->access$1102(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v4, v3}, Lcom/android/vcard/VCardEntry$NameData;->access$4(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)V
 
     goto :goto_1
 
@@ -3409,45 +3421,45 @@
 .end method
 
 .method public addProperty(Lcom/android/vcard/VCardProperty;)V
-    .locals 38
+    .locals 36
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/vcard/VCardProperty;->getName()Ljava/lang/String;
 
-    move-result-object v23
+    move-result-object v22
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/vcard/VCardProperty;->getParameterMap()Ljava/util/Map;
 
-    move-result-object v18
+    move-result-object v17
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/vcard/VCardProperty;->getValueList()Ljava/util/List;
 
-    move-result-object v25
+    move-result-object v24
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/vcard/VCardProperty;->getByteValue()[B
 
-    move-result-object v22
+    move-result-object v21
 
-    if-eqz v25, :cond_0
+    if-eqz v24, :cond_0
 
-    invoke-interface/range {v25 .. v25}, Ljava/util/List;->size()I
+    invoke-interface/range {v24 .. v24}, Ljava/util/List;->size()I
 
     move-result v4
 
     if-nez v4, :cond_2
 
     :cond_0
-    if-nez v22, :cond_2
+    if-nez v21, :cond_2
 
     :cond_1
     :goto_0
     return-void
 
     :cond_2
-    if-eqz v25, :cond_4
+    if-eqz v24, :cond_4
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v24
 
     invoke-direct {v0, v1}, Lcom/android/vcard/VCardEntry;->listToString(Ljava/util/List;)Ljava/lang/String;
 
@@ -3460,7 +3472,7 @@
     :goto_1
     const-string v4, "VERSION"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -3470,7 +3482,7 @@
 
     const-string v4, "FN"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -3501,7 +3513,7 @@
 
     iget-object v4, v0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    invoke-static {v4, v7}, Lcom/android/vcard/VCardEntry$NameData;->access$1702(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v4, v7}, Lcom/android/vcard/VCardEntry$NameData;->access$11(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)V
 
     goto :goto_0
 
@@ -3513,7 +3525,7 @@
     :cond_5
     const-string v4, "NAME"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -3525,7 +3537,7 @@
 
     iget-object v4, v0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    invoke-static {v4}, Lcom/android/vcard/VCardEntry$NameData;->access$1700(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
+    invoke-static {v4}, Lcom/android/vcard/VCardEntry$NameData;->access$12(Lcom/android/vcard/VCardEntry$NameData;)Ljava/lang/String;
 
     move-result-object v4
 
@@ -3539,14 +3551,14 @@
 
     iget-object v4, v0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    invoke-static {v4, v7}, Lcom/android/vcard/VCardEntry$NameData;->access$1702(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v4, v7}, Lcom/android/vcard/VCardEntry$NameData;->access$11(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)V
 
     goto :goto_0
 
     :cond_6
     const-string v4, "N"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -3556,9 +3568,9 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v24
 
-    move-object/from16 v2, v18
+    move-object/from16 v2, v17
 
     invoke-direct {v0, v1, v2}, Lcom/android/vcard/VCardEntry;->handleNProperty(Ljava/util/List;Ljava/util/Map;)V
 
@@ -3567,7 +3579,7 @@
     :cond_7
     const-string v4, "SORT-STRING"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -3579,14 +3591,14 @@
 
     iget-object v4, v0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    invoke-static {v4, v7}, Lcom/android/vcard/VCardEntry$NameData;->access$1802(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v4, v7}, Lcom/android/vcard/VCardEntry$NameData;->access$13(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)V
 
     goto/16 :goto_0
 
     :cond_8
     const-string v4, "NICKNAME"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -3596,7 +3608,7 @@
 
     const-string v4, "X-NICKNAME"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -3614,7 +3626,7 @@
     :cond_a
     const-string v4, "SOUND"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -3624,19 +3636,19 @@
 
     const-string v4, "TYPE"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v17
 
     invoke-interface {v0, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v26
+    move-result-object v25
 
-    check-cast v26, Ljava/util/Collection;
+    check-cast v25, Ljava/util/Collection;
 
-    if-eqz v26, :cond_1
+    if-eqz v25, :cond_1
 
     const-string v4, "X-IRMC-N"
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v25
 
     invoke-interface {v0, v4}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
 
@@ -3650,7 +3662,7 @@
 
     if-eqz v4, :cond_c
 
-    invoke-interface/range {v25 .. v25}, Ljava/util/List;->size()I
+    invoke-interface/range {v24 .. v24}, Ljava/util/List;->size()I
 
     move-result v4
 
@@ -3660,7 +3672,7 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v24
 
     invoke-direct {v0, v1}, Lcom/android/vcard/VCardEntry;->handlePhoneticNameFromSound(Ljava/util/List;)V
 
@@ -3673,11 +3685,11 @@
 
     invoke-static {v7, v4}, Lcom/android/vcard/VCardUtils;->constructListFromValue(Ljava/lang/String;I)Ljava/util/List;
 
-    move-result-object v21
+    move-result-object v20
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v20
 
     invoke-direct {v0, v1}, Lcom/android/vcard/VCardEntry;->handlePhoneticNameFromSound(Ljava/util/List;)V
 
@@ -3690,11 +3702,11 @@
 
     invoke-static {v7, v4}, Lcom/android/vcard/VCardUtils;->constructListFromValue(Ljava/lang/String;I)Ljava/util/List;
 
-    move-result-object v21
+    move-result-object v20
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v20
 
     invoke-direct {v0, v1}, Lcom/android/vcard/VCardEntry;->handlePhoneticNameFromSound(Ljava/util/List;)V
 
@@ -3703,494 +3715,250 @@
     :cond_d
     const-string v4, "ADR"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_19
+    if-eqz v4, :cond_1a
 
-    const/16 v34, 0x1
+    const/16 v33, 0x1
 
-    invoke-interface/range {v25 .. v25}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface/range {v24 .. v24}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v15
+    move-result-object v4
 
     :cond_e
-    invoke-interface {v15}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v4
+    move-result v6
 
-    if-eqz v4, :cond_f
+    if-nez v6, :cond_12
 
-    invoke-interface {v15}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v33
-
-    check-cast v33, Ljava/lang/String;
-
-    invoke-static/range {v33 .. v33}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_e
-
-    const/16 v34, 0x0
-
-    :cond_f
-    if-nez v34, :cond_1
+    :goto_2
+    if-nez v33, :cond_1
 
     const/4 v8, -0x1
 
-    const/16 v17, 0x0
+    const/16 v16, 0x0
 
     const/4 v9, 0x0
 
     const-string v4, "TYPE"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v17
 
     invoke-interface {v0, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v26
+    move-result-object v25
 
-    check-cast v26, Ljava/util/Collection;
+    check-cast v25, Ljava/util/Collection;
 
-    if-eqz v26, :cond_17
+    if-eqz v25, :cond_10
 
-    invoke-interface/range {v26 .. v26}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    invoke-interface/range {v25 .. v25}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object v15
+    move-result-object v4
+
+    :cond_f
+    :goto_3
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v6
+
+    if-nez v6, :cond_13
 
     :cond_10
-    :goto_2
-    invoke-interface {v15}, Ljava/util/Iterator;->hasNext()Z
+    if-gez v8, :cond_11
 
-    move-result v4
-
-    if-eqz v4, :cond_17
-
-    invoke-interface {v15}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v29
-
-    check-cast v29, Ljava/lang/String;
-
-    invoke-virtual/range {v29 .. v29}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
-
-    move-result-object v31
-
-    const-string v4, "PREF"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_11
-
-    const/4 v9, 0x1
-
-    goto :goto_2
+    const/4 v8, 0x1
 
     :cond_11
-    const-string v4, "HOME"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_12
-
-    const/4 v8, 0x1
-
-    const/16 v17, 0x0
-
-    goto :goto_2
-
-    :cond_12
-    const-string v4, "WORK"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_13
-
-    const-string v4, "COMPANY"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_14
-
-    :cond_13
-    const/4 v8, 0x2
-
-    const/16 v17, 0x0
-
-    goto :goto_2
-
-    :cond_14
-    const-string v4, "PARCEL"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_10
-
-    const-string v4, "DOM"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_10
-
-    const-string v4, "INTL"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_10
-
-    invoke-static {}, Lcom/android/vcard/VCardConfig;->isJapanSpacialized()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_15
-
-    const-string v4, "OTHER"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_15
-
-    const/4 v8, 0x3
-
-    const-string v17, ""
-
-    goto :goto_2
-
-    :cond_15
-    if-gez v8, :cond_10
-
-    const/4 v8, 0x0
-
-    const-string v4, "X-"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_16
-
-    const/4 v4, 0x2
-
-    move-object/from16 v0, v29
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object v17
-
-    goto/16 :goto_2
-
-    :cond_16
-    move-object/from16 v17, v29
-
-    goto/16 :goto_2
-
-    :cond_17
-    if-gez v8, :cond_18
-
-    const/4 v8, 0x1
-
-    :cond_18
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v24
 
-    move-object/from16 v2, v17
+    move-object/from16 v2, v16
 
     invoke-direct {v0, v8, v1, v2, v9}, Lcom/android/vcard/VCardEntry;->addPostal(ILjava/util/List;Ljava/lang/String;Z)V
 
     goto/16 :goto_0
 
-    :cond_19
-    const-string v4, "EMAIL"
+    :cond_12
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-object/from16 v0, v23
+    move-result-object v32
 
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    check-cast v32, Ljava/lang/String;
 
-    move-result v4
+    invoke-static/range {v32 .. v32}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    if-eqz v4, :cond_23
+    move-result v6
 
-    const/4 v8, -0x1
+    if-nez v6, :cond_e
 
-    const/16 v17, 0x0
+    const/16 v33, 0x0
 
-    const/4 v9, 0x0
+    goto :goto_2
 
-    const-string v4, "TYPE"
-
-    move-object/from16 v0, v18
-
-    invoke-interface {v0, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v26
-
-    check-cast v26, Ljava/util/Collection;
-
-    if-eqz v26, :cond_21
-
-    invoke-interface/range {v26 .. v26}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
-
-    move-result-object v15
-
-    :cond_1a
-    :goto_3
-    invoke-interface {v15}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_21
-
-    invoke-interface {v15}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v29
-
-    check-cast v29, Ljava/lang/String;
-
-    invoke-virtual/range {v29 .. v29}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
-
-    move-result-object v31
-
-    const-string v4, "PREF"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1b
-
-    const/4 v9, 0x1
-
-    goto :goto_3
-
-    :cond_1b
-    const-string v4, "HOME"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1c
-
-    const/4 v8, 0x1
-
-    goto :goto_3
-
-    :cond_1c
-    const-string v4, "WORK"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1d
-
-    const/4 v8, 0x2
-
-    goto :goto_3
-
-    :cond_1d
-    const-string v4, "CELL"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1e
-
-    const/4 v8, 0x4
-
-    goto :goto_3
-
-    :cond_1e
-    invoke-static {}, Lcom/android/vcard/VCardConfig;->isJapanSpacialized()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1f
-
-    const-string v4, "OTHER"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_1f
-
-    const/4 v8, 0x3
-
-    goto :goto_3
-
-    :cond_1f
-    if-gez v8, :cond_1a
-
-    const-string v4, "X-"
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_20
-
-    const/4 v4, 0x2
-
-    move-object/from16 v0, v29
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object v17
-
-    :goto_4
-    const/4 v8, 0x0
-
-    goto :goto_3
-
-    :cond_20
-    move-object/from16 v17, v29
-
-    goto :goto_4
-
-    :cond_21
-    if-gez v8, :cond_22
-
-    const/4 v8, 0x3
-
-    :cond_22
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v17
-
-    invoke-direct {v0, v8, v7, v1, v9}, Lcom/android/vcard/VCardEntry;->addEmail(ILjava/lang/String;Ljava/lang/String;Z)V
-
-    goto/16 :goto_0
-
-    :cond_23
-    const-string v4, "ORG"
-
-    move-object/from16 v0, v23
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_2d
-
-    invoke-static {}, Lcom/android/vcard/VCardConfig;->isJapanSpacialized()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_2a
-
-    const/4 v9, 0x0
-
-    const/4 v8, -0x1
-
-    const/16 v17, 0x0
-
-    const-string v4, "TYPE"
-
-    move-object/from16 v0, v18
-
-    invoke-interface {v0, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v26
-
-    check-cast v26, Ljava/util/Collection;
-
-    if-eqz v26, :cond_28
-
-    invoke-interface/range {v26 .. v26}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
-
-    move-result-object v15
-
-    :goto_5
-    invoke-interface {v15}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_28
-
-    invoke-interface {v15}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    :cond_13
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v28
 
     check-cast v28, Ljava/lang/String;
 
-    move-object/from16 v30, v28
-
     invoke-virtual/range {v28 .. v28}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
 
-    move-result-object v28
+    move-result-object v30
 
-    const-string v4, "PREF"
+    const-string v6, "PREF"
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v30
 
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v4
+    move-result v6
 
-    if-eqz v4, :cond_24
+    if-eqz v6, :cond_14
 
     const/4 v9, 0x1
 
-    goto :goto_5
+    goto :goto_3
 
-    :cond_24
-    const-string v4, "WORK"
+    :cond_14
+    const-string v6, "HOME"
+
+    move-object/from16 v0, v30
+
+    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_15
+
+    const/4 v8, 0x1
+
+    const/16 v16, 0x0
+
+    goto :goto_3
+
+    :cond_15
+    const-string v6, "WORK"
+
+    move-object/from16 v0, v30
+
+    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_16
+
+    const-string v6, "COMPANY"
+
+    move-object/from16 v0, v30
+
+    invoke-virtual {v0, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_17
+
+    :cond_16
+    const/4 v8, 0x2
+
+    const/16 v16, 0x0
+
+    goto :goto_3
+
+    :cond_17
+    const-string v6, "PARCEL"
+
+    move-object/from16 v0, v30
+
+    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_f
+
+    const-string v6, "DOM"
+
+    move-object/from16 v0, v30
+
+    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_f
+
+    const-string v6, "INTL"
+
+    move-object/from16 v0, v30
+
+    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_f
+
+    invoke-static {}, Lcom/android/vcard/VCardConfig;->isJapanSpacialized()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_18
+
+    const-string v6, "OTHER"
+
+    move-object/from16 v0, v30
+
+    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_18
+
+    const/4 v8, 0x3
+
+    const-string v16, ""
+
+    goto/16 :goto_3
+
+    :cond_18
+    if-gez v8, :cond_f
+
+    const/4 v8, 0x0
+
+    const-string v6, "X-"
+
+    move-object/from16 v0, v30
+
+    invoke-virtual {v0, v6}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_19
+
+    const/4 v6, 0x2
 
     move-object/from16 v0, v28
+
+    invoke-virtual {v0, v6}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v16
+
+    goto/16 :goto_3
+
+    :cond_19
+    move-object/from16 v16, v28
+
+    goto/16 :goto_3
+
+    :cond_1a
+    const-string v4, "EMAIL"
+
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -4198,141 +3966,392 @@
 
     if-eqz v4, :cond_25
 
+    const/4 v8, -0x1
+
+    const/16 v16, 0x0
+
+    const/4 v9, 0x0
+
+    const-string v4, "TYPE"
+
+    move-object/from16 v0, v17
+
+    invoke-interface {v0, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v25
+
+    check-cast v25, Ljava/util/Collection;
+
+    if-eqz v25, :cond_1c
+
+    invoke-interface/range {v25 .. v25}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    :cond_1b
+    :goto_4
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v6
+
+    if-nez v6, :cond_1e
+
+    :cond_1c
+    if-gez v8, :cond_1d
+
+    const/4 v8, 0x3
+
+    :cond_1d
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v16
+
+    invoke-direct {v0, v8, v7, v1, v9}, Lcom/android/vcard/VCardEntry;->addEmail(ILjava/lang/String;Ljava/lang/String;Z)V
+
+    goto/16 :goto_0
+
+    :cond_1e
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v28
+
+    check-cast v28, Ljava/lang/String;
+
+    invoke-virtual/range {v28 .. v28}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
+
+    move-result-object v30
+
+    const-string v6, "PREF"
+
+    move-object/from16 v0, v30
+
+    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_1f
+
+    const/4 v9, 0x1
+
+    goto :goto_4
+
+    :cond_1f
+    const-string v6, "HOME"
+
+    move-object/from16 v0, v30
+
+    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_20
+
     const/4 v8, 0x1
+
+    goto :goto_4
+
+    :cond_20
+    const-string v6, "WORK"
+
+    move-object/from16 v0, v30
+
+    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_21
+
+    const/4 v8, 0x2
+
+    goto :goto_4
+
+    :cond_21
+    const-string v6, "CELL"
+
+    move-object/from16 v0, v30
+
+    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_22
+
+    const/4 v8, 0x4
+
+    goto :goto_4
+
+    :cond_22
+    invoke-static {}, Lcom/android/vcard/VCardConfig;->isJapanSpacialized()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_23
+
+    const-string v6, "OTHER"
+
+    move-object/from16 v0, v30
+
+    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_23
+
+    const/4 v8, 0x3
+
+    goto :goto_4
+
+    :cond_23
+    if-gez v8, :cond_1b
+
+    const-string v6, "X-"
+
+    move-object/from16 v0, v30
+
+    invoke-virtual {v0, v6}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_24
+
+    const/4 v6, 0x2
+
+    move-object/from16 v0, v28
+
+    invoke-virtual {v0, v6}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v16
+
+    :goto_5
+    const/4 v8, 0x0
+
+    goto :goto_4
+
+    :cond_24
+    move-object/from16 v16, v28
 
     goto :goto_5
 
     :cond_25
-    const-string v4, "OTHER"
+    const-string v4, "ORG"
 
-    move-object/from16 v0, v28
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_26
+    if-eqz v4, :cond_31
 
-    const/4 v8, 0x2
-
-    goto :goto_5
-
-    :cond_26
-    const-string v4, "X-"
-
-    move-object/from16 v0, v30
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-static {}, Lcom/android/vcard/VCardConfig;->isJapanSpacialized()Z
 
     move-result v4
 
-    if-eqz v4, :cond_27
+    if-eqz v4, :cond_2d
 
+    const/4 v9, 0x0
+
+    const/4 v8, -0x1
+
+    const/16 v16, 0x0
+
+    const-string v4, "TYPE"
+
+    move-object/from16 v0, v17
+
+    invoke-interface {v0, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v25
+
+    check-cast v25, Ljava/util/Collection;
+
+    if-eqz v25, :cond_26
+
+    invoke-interface/range {v25 .. v25}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    :goto_6
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v6
+
+    if-nez v6, :cond_28
+
+    :cond_26
     if-gez v8, :cond_27
-
-    const/4 v4, 0x2
-
-    move-object/from16 v0, v30
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object v30
-
-    :cond_27
-    const/4 v8, 0x0
-
-    move-object/from16 v17, v30
-
-    goto :goto_5
-
-    :cond_28
-    if-gez v8, :cond_29
 
     const/4 v8, 0x1
 
-    :cond_29
+    :cond_27
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v24
 
-    move-object/from16 v2, v18
+    move-object/from16 v2, v17
 
     invoke-direct {v0, v8, v1, v2, v9}, Lcom/android/vcard/VCardEntry;->handleOrgValue(ILjava/util/List;Ljava/util/Map;Z)V
 
     goto/16 :goto_0
 
+    :cond_28
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v27
+
+    check-cast v27, Ljava/lang/String;
+
+    move-object/from16 v29, v27
+
+    invoke-virtual/range {v27 .. v27}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
+
+    move-result-object v27
+
+    const-string v6, "PREF"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_29
+
+    const/4 v9, 0x1
+
+    goto :goto_6
+
+    :cond_29
+    const-string v6, "WORK"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_2a
+
+    const/4 v8, 0x1
+
+    goto :goto_6
+
     :cond_2a
+    const-string v6, "OTHER"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_2b
+
+    const/4 v8, 0x2
+
+    goto :goto_6
+
+    :cond_2b
+    const-string v6, "X-"
+
+    move-object/from16 v0, v29
+
+    invoke-virtual {v0, v6}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_2c
+
+    if-gez v8, :cond_2c
+
+    const/4 v6, 0x2
+
+    move-object/from16 v0, v29
+
+    invoke-virtual {v0, v6}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v29
+
+    :cond_2c
+    const/4 v8, 0x0
+
+    move-object/from16 v16, v29
+
+    goto :goto_6
+
+    :cond_2d
     const/4 v8, 0x1
 
     const/4 v9, 0x0
 
     const-string v4, "TYPE"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v17
 
     invoke-interface {v0, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v26
+    move-result-object v25
 
-    check-cast v26, Ljava/util/Collection;
+    check-cast v25, Ljava/util/Collection;
 
-    if-eqz v26, :cond_2c
+    if-eqz v25, :cond_2f
 
-    invoke-interface/range {v26 .. v26}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    invoke-interface/range {v25 .. v25}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object v15
+    move-result-object v4
 
-    :cond_2b
-    :goto_6
-    invoke-interface {v15}, Ljava/util/Iterator;->hasNext()Z
+    :cond_2e
+    :goto_7
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v4
+    move-result v6
 
-    if-eqz v4, :cond_2c
+    if-nez v6, :cond_30
 
-    invoke-interface {v15}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v28
-
-    check-cast v28, Ljava/lang/String;
-
-    const-string v4, "PREF"
-
-    move-object/from16 v0, v28
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_2b
-
-    const/4 v9, 0x1
-
-    goto :goto_6
-
-    :cond_2c
+    :cond_2f
     const/4 v4, 0x1
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v24
 
-    move-object/from16 v2, v18
+    move-object/from16 v2, v17
 
     invoke-direct {v0, v4, v1, v2, v9}, Lcom/android/vcard/VCardEntry;->handleOrgValue(ILjava/util/List;Ljava/util/Map;Z)V
 
     goto/16 :goto_0
 
-    :cond_2d
+    :cond_30
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v27
+
+    check-cast v27, Ljava/lang/String;
+
+    const-string v6, "PREF"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_2e
+
+    const/4 v9, 0x1
+
+    goto :goto_7
+
+    :cond_31
     const-string v4, "TITLE"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_2e
+    if-eqz v4, :cond_32
 
     move-object/from16 v0, p0
 
@@ -4340,10 +4359,10 @@
 
     goto/16 :goto_0
 
-    :cond_2e
+    :cond_32
     const-string v4, "ROLE"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -4353,40 +4372,40 @@
 
     const-string v4, "PHOTO"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-nez v4, :cond_2f
+    if-nez v4, :cond_33
 
     const-string v4, "LOGO"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_34
+    if-eqz v4, :cond_39
 
-    :cond_2f
+    :cond_33
     const-string v4, "VALUE"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v17
 
     invoke-interface {v0, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v19
+    move-result-object v18
 
-    check-cast v19, Ljava/util/Collection;
+    check-cast v18, Ljava/util/Collection;
 
-    if-eqz v19, :cond_30
+    if-eqz v18, :cond_34
 
     const-string v4, "URL"
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
     invoke-interface {v0, v4}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
 
@@ -4394,92 +4413,76 @@
 
     if-nez v4, :cond_1
 
-    :cond_30
+    :cond_34
     const-string v4, "TYPE"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v17
 
     invoke-interface {v0, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v26
+    move-result-object v25
 
-    check-cast v26, Ljava/util/Collection;
+    check-cast v25, Ljava/util/Collection;
 
     const/4 v14, 0x0
 
     const/4 v9, 0x0
 
-    if-eqz v26, :cond_33
+    if-eqz v25, :cond_36
 
-    invoke-interface/range {v26 .. v26}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    invoke-interface/range {v25 .. v25}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object v15
+    move-result-object v4
 
-    :cond_31
-    :goto_7
-    invoke-interface {v15}, Ljava/util/Iterator;->hasNext()Z
+    :cond_35
+    :goto_8
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v4
+    move-result v6
 
-    if-eqz v4, :cond_33
+    if-nez v6, :cond_37
 
-    invoke-interface {v15}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v32
-
-    check-cast v32, Ljava/lang/String;
-
-    const-string v4, "PREF"
-
-    move-object/from16 v0, v32
-
-    invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_32
-
-    const/4 v9, 0x1
-
-    goto :goto_7
-
-    :cond_32
-    if-nez v14, :cond_31
-
-    move-object/from16 v14, v32
-
-    goto :goto_7
-
-    :cond_33
+    :cond_36
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v22
+    move-object/from16 v1, v21
 
     invoke-direct {v0, v14, v1, v9}, Lcom/android/vcard/VCardEntry;->addPhotoBytes(Ljava/lang/String;[BZ)V
 
     goto/16 :goto_0
 
-    :cond_34
+    :cond_37
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v31
+
+    check-cast v31, Ljava/lang/String;
+
+    const-string v6, "PREF"
+
+    move-object/from16 v0, v31
+
+    invoke-virtual {v6, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_38
+
+    const/4 v9, 0x1
+
+    goto :goto_8
+
+    :cond_38
+    if-nez v14, :cond_35
+
+    move-object/from16 v14, v31
+
+    goto :goto_8
+
+    :cond_39
     const-string v4, "X-PHOTOSTATE"
 
-    move-object/from16 v0, v23
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_35
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v7}, Lcom/android/vcard/VCardEntry;->addPhotoState(Ljava/lang/String;)V
-
-    goto/16 :goto_0
-
-    :cond_35
-    const-string v4, "X-NAMECARDPHOTO"
-
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -4487,121 +4490,38 @@
 
     if-eqz v4, :cond_3a
 
-    const-string v4, "VALUE"
-
-    move-object/from16 v0, v18
-
-    invoke-interface {v0, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v19
-
-    check-cast v19, Ljava/util/Collection;
-
-    if-eqz v19, :cond_36
-
-    const-string v4, "URL"
-
-    move-object/from16 v0, v19
-
-    invoke-interface {v0, v4}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_1
-
-    :cond_36
-    const-string v4, "TYPE"
-
-    move-object/from16 v0, v18
-
-    invoke-interface {v0, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v26
-
-    check-cast v26, Ljava/util/Collection;
-
-    const/4 v14, 0x0
-
-    const/4 v9, 0x0
-
-    if-eqz v26, :cond_39
-
-    invoke-interface/range {v26 .. v26}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
-
-    move-result-object v15
-
-    :cond_37
-    :goto_8
-    invoke-interface {v15}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_39
-
-    invoke-interface {v15}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v32
-
-    check-cast v32, Ljava/lang/String;
-
-    const-string v4, "PREF"
-
-    move-object/from16 v0, v32
-
-    invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_38
-
-    const/4 v9, 0x1
-
-    goto :goto_8
-
-    :cond_38
-    if-nez v14, :cond_37
-
-    move-object/from16 v14, v32
-
-    goto :goto_8
-
-    :cond_39
-    const-string v4, "FRONT"
-
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v22
-
-    invoke-direct {v0, v14, v1, v9, v4}, Lcom/android/vcard/VCardEntry;->addNameCardBytes(Ljava/lang/String;[BZLjava/lang/String;)V
+    invoke-direct {v0, v7}, Lcom/android/vcard/VCardEntry;->addPhotoState(Ljava/lang/String;)V
 
     goto/16 :goto_0
 
     :cond_3a
-    const-string v4, "X-NAMECARDPHOTO-REVERSE"
+    const-string v4, "X-NAMECARDPHOTO"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_3f
+    if-eqz v4, :cond_40
 
     const-string v4, "VALUE"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v17
 
     invoke-interface {v0, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v19
+    move-result-object v18
 
-    check-cast v19, Ljava/util/Collection;
+    check-cast v18, Ljava/util/Collection;
 
-    if-eqz v19, :cond_3b
+    if-eqz v18, :cond_3b
 
     const-string v4, "URL"
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v18
 
     invoke-interface {v0, v4}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
 
@@ -4612,84 +4532,186 @@
     :cond_3b
     const-string v4, "TYPE"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v17
 
     invoke-interface {v0, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v26
+    move-result-object v25
 
-    check-cast v26, Ljava/util/Collection;
+    check-cast v25, Ljava/util/Collection;
 
     const/4 v14, 0x0
 
     const/4 v9, 0x0
 
-    if-eqz v26, :cond_3e
+    if-eqz v25, :cond_3d
 
-    invoke-interface/range {v26 .. v26}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    invoke-interface/range {v25 .. v25}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object v15
+    move-result-object v4
 
     :cond_3c
     :goto_9
-    invoke-interface {v15}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v4
+    move-result v6
 
-    if-eqz v4, :cond_3e
-
-    invoke-interface {v15}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v32
-
-    check-cast v32, Ljava/lang/String;
-
-    const-string v4, "PREF"
-
-    move-object/from16 v0, v32
-
-    invoke-virtual {v4, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_3d
-
-    const/4 v9, 0x1
-
-    goto :goto_9
+    if-nez v6, :cond_3e
 
     :cond_3d
-    if-nez v14, :cond_3c
-
-    move-object/from16 v14, v32
-
-    goto :goto_9
-
-    :cond_3e
-    const-string v4, "BACK"
+    const-string v4, "FRONT"
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v22
+    move-object/from16 v1, v21
 
     invoke-direct {v0, v14, v1, v9, v4}, Lcom/android/vcard/VCardEntry;->addNameCardBytes(Ljava/lang/String;[BZLjava/lang/String;)V
 
     goto/16 :goto_0
 
-    :cond_3f
-    const-string v4, "TEL"
+    :cond_3e
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move-object/from16 v0, v23
+    move-result-object v31
+
+    check-cast v31, Ljava/lang/String;
+
+    const-string v6, "PREF"
+
+    move-object/from16 v0, v31
+
+    invoke-virtual {v6, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_3f
+
+    const/4 v9, 0x1
+
+    goto :goto_9
+
+    :cond_3f
+    if-nez v14, :cond_3c
+
+    move-object/from16 v14, v31
+
+    goto :goto_9
+
+    :cond_40
+    const-string v4, "X-NAMECARDPHOTO-REVERSE"
+
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_47
+    if-eqz v4, :cond_46
 
-    const/16 v20, 0x0
+    const-string v4, "VALUE"
 
-    const/16 v16, 0x0
+    move-object/from16 v0, v17
+
+    invoke-interface {v0, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v18
+
+    check-cast v18, Ljava/util/Collection;
+
+    if-eqz v18, :cond_41
+
+    const-string v4, "URL"
+
+    move-object/from16 v0, v18
+
+    invoke-interface {v0, v4}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_1
+
+    :cond_41
+    const-string v4, "TYPE"
+
+    move-object/from16 v0, v17
+
+    invoke-interface {v0, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v25
+
+    check-cast v25, Ljava/util/Collection;
+
+    const/4 v14, 0x0
+
+    const/4 v9, 0x0
+
+    if-eqz v25, :cond_43
+
+    invoke-interface/range {v25 .. v25}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    :cond_42
+    :goto_a
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v6
+
+    if-nez v6, :cond_44
+
+    :cond_43
+    const-string v4, "BACK"
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v21
+
+    invoke-direct {v0, v14, v1, v9, v4}, Lcom/android/vcard/VCardEntry;->addNameCardBytes(Ljava/lang/String;[BZLjava/lang/String;)V
+
+    goto/16 :goto_0
+
+    :cond_44
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v31
+
+    check-cast v31, Ljava/lang/String;
+
+    const-string v6, "PREF"
+
+    move-object/from16 v0, v31
+
+    invoke-virtual {v6, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_45
+
+    const/4 v9, 0x1
+
+    goto :goto_a
+
+    :cond_45
+    if-nez v14, :cond_42
+
+    move-object/from16 v14, v31
+
+    goto :goto_a
+
+    :cond_46
+    const-string v4, "TEL"
+
+    move-object/from16 v0, v22
+
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_4e
+
+    const/16 v19, 0x0
+
+    const/4 v15, 0x0
 
     move-object/from16 v0, p0
 
@@ -4699,7 +4721,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_42
+    if-eqz v4, :cond_49
 
     const-string v4, "sip:"
 
@@ -4707,59 +4729,59 @@
 
     move-result v4
 
-    if-eqz v4, :cond_40
+    if-eqz v4, :cond_47
 
-    const/16 v16, 0x1
+    const/4 v15, 0x1
 
-    :goto_a
-    if-eqz v16, :cond_43
+    :goto_b
+    if-eqz v15, :cond_4a
 
     const-string v4, "TYPE"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v17
 
     invoke-interface {v0, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v26
+    move-result-object v25
 
-    check-cast v26, Ljava/util/Collection;
+    check-cast v25, Ljava/util/Collection;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v26
+    move-object/from16 v1, v25
 
     invoke-direct {v0, v7, v1}, Lcom/android/vcard/VCardEntry;->handleSipCase(Ljava/lang/String;Ljava/util/Collection;)V
 
     goto/16 :goto_0
 
-    :cond_40
+    :cond_47
     const-string v4, "tel:"
 
     invoke-virtual {v7, v4}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_41
+    if-eqz v4, :cond_48
 
     const/4 v4, 0x4
 
     invoke-virtual {v7, v4}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    move-result-object v20
+    move-result-object v19
 
-    goto :goto_a
+    goto :goto_b
 
-    :cond_41
-    move-object/from16 v20, v7
+    :cond_48
+    move-object/from16 v19, v7
 
-    goto :goto_a
+    goto :goto_b
 
-    :cond_42
-    move-object/from16 v20, v7
+    :cond_49
+    move-object/from16 v19, v7
 
-    goto :goto_a
+    goto :goto_b
 
-    :cond_43
+    :cond_4a
     invoke-virtual {v7}, Ljava/lang/String;->length()I
 
     move-result v4
@@ -4768,121 +4790,121 @@
 
     const-string v4, "TYPE"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v17
 
     invoke-interface {v0, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v26
+    move-result-object v25
 
-    check-cast v26, Ljava/util/Collection;
+    check-cast v25, Ljava/util/Collection;
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v25
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v19
 
     invoke-static {v0, v1}, Lcom/android/vcard/VCardUtils;->getPhoneTypeFromStrings(Ljava/util/Collection;Ljava/lang/String;)Ljava/lang/Object;
 
-    move-result-object v27
+    move-result-object v26
 
-    move-object/from16 v0, v27
+    move-object/from16 v0, v26
 
     instance-of v4, v0, Ljava/lang/Integer;
 
-    if-eqz v4, :cond_44
+    if-eqz v4, :cond_4b
 
-    check-cast v27, Ljava/lang/Integer;
+    check-cast v26, Ljava/lang/Integer;
 
-    invoke-virtual/range {v27 .. v27}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual/range {v26 .. v26}, Ljava/lang/Integer;->intValue()I
 
     move-result v8
 
-    const/16 v17, 0x0
+    const/16 v16, 0x0
 
-    :goto_b
-    if-eqz v26, :cond_46
+    :goto_c
+    if-eqz v25, :cond_4d
 
     const-string v4, "PREF"
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v25
 
     invoke-interface {v0, v4}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_46
+    if-eqz v4, :cond_4d
 
     const/4 v9, 0x1
 
-    :goto_c
+    :goto_d
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v19
 
-    move-object/from16 v2, v17
+    move-object/from16 v2, v16
 
     invoke-direct {v0, v8, v1, v2, v9}, Lcom/android/vcard/VCardEntry;->addPhone(ILjava/lang/String;Ljava/lang/String;Z)V
 
     goto/16 :goto_0
 
-    :cond_44
+    :cond_4b
     const/4 v8, 0x0
 
-    if-eqz v27, :cond_45
+    if-eqz v26, :cond_4c
 
-    invoke-virtual/range {v27 .. v27}, Ljava/lang/Object;->toString()Ljava/lang/String;
+    invoke-virtual/range {v26 .. v26}, Ljava/lang/Object;->toString()Ljava/lang/String;
 
-    move-result-object v17
-
-    goto :goto_b
-
-    :cond_45
-    const/16 v17, 0x0
-
-    goto :goto_b
-
-    :cond_46
-    const/4 v9, 0x0
+    move-result-object v16
 
     goto :goto_c
 
-    :cond_47
+    :cond_4c
+    const/16 v16, 0x0
+
+    goto :goto_c
+
+    :cond_4d
+    const/4 v9, 0x0
+
+    goto :goto_d
+
+    :cond_4e
     const-string v4, "X-SKYPE-PSTNNUMBER"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_49
+    if-eqz v4, :cond_50
 
     const-string v4, "TYPE"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v17
 
     invoke-interface {v0, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v26
+    move-result-object v25
 
-    check-cast v26, Ljava/util/Collection;
+    check-cast v25, Ljava/util/Collection;
 
     const/4 v8, 0x7
 
-    if-eqz v26, :cond_48
+    if-eqz v25, :cond_4f
 
     const-string v4, "PREF"
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, v25
 
     invoke-interface {v0, v4}, Ljava/util/Collection;->contains(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_48
+    if-eqz v4, :cond_4f
 
     const/4 v9, 0x1
 
-    :goto_d
+    :goto_e
     const/4 v4, 0x7
 
     const/4 v6, 0x0
@@ -4893,25 +4915,25 @@
 
     goto/16 :goto_0
 
-    :cond_48
+    :cond_4f
     const/4 v9, 0x0
 
-    goto :goto_d
+    goto :goto_e
 
-    :cond_49
+    :cond_50
     sget-object v4, Lcom/android/vcard/VCardEntry;->sImMap:Ljava/util/Map;
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-interface {v4, v0}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_4f
+    if-eqz v4, :cond_57
 
     sget-object v4, Lcom/android/vcard/VCardEntry;->sImMap:Ljava/util/Map;
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-interface {v4, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -4929,86 +4951,34 @@
 
     const-string v4, "TYPE"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v17
 
     invoke-interface {v0, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v26
+    move-result-object v25
 
-    check-cast v26, Ljava/util/Collection;
+    check-cast v25, Ljava/util/Collection;
 
-    if-eqz v26, :cond_4d
+    if-eqz v25, :cond_52
 
-    invoke-interface/range {v26 .. v26}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
+    invoke-interface/range {v25 .. v25}, Ljava/util/Collection;->iterator()Ljava/util/Iterator;
 
-    move-result-object v15
+    move-result-object v4
 
-    :cond_4a
-    :goto_e
-    invoke-interface {v15}, Ljava/util/Iterator;->hasNext()Z
+    :cond_51
+    :goto_f
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v4
+    move-result v6
 
-    if-eqz v4, :cond_4d
+    if-nez v6, :cond_54
 
-    invoke-interface {v15}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v28
-
-    check-cast v28, Ljava/lang/String;
-
-    const-string v4, "PREF"
-
-    move-object/from16 v0, v28
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_4b
-
-    const/4 v9, 0x1
-
-    goto :goto_e
-
-    :cond_4b
-    if-gez v8, :cond_4a
-
-    const-string v4, "HOME"
-
-    move-object/from16 v0, v28
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_4c
+    :cond_52
+    if-gez v8, :cond_53
 
     const/4 v8, 0x1
 
-    goto :goto_e
-
-    :cond_4c
-    const-string v4, "WORK"
-
-    move-object/from16 v0, v28
-
-    invoke-virtual {v0, v4}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_4a
-
-    const/4 v8, 0x2
-
-    goto :goto_e
-
-    :cond_4d
-    if-gez v8, :cond_4e
-
-    const/4 v8, 0x1
-
-    :cond_4e
+    :cond_53
     const/4 v6, 0x0
 
     move-object/from16 v4, p0
@@ -5017,16 +4987,69 @@
 
     goto/16 :goto_0
 
-    :cond_4f
+    :cond_54
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v27
+
+    check-cast v27, Ljava/lang/String;
+
+    const-string v6, "PREF"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_55
+
+    const/4 v9, 0x1
+
+    goto :goto_f
+
+    :cond_55
+    if-gez v8, :cond_51
+
+    const-string v6, "HOME"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_56
+
+    const/4 v8, 0x1
+
+    goto :goto_f
+
+    :cond_56
+    const-string v6, "WORK"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v0, v6}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_51
+
+    const/4 v8, 0x2
+
+    goto :goto_f
+
+    :cond_57
     const-string v4, "NOTE"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_50
+    if-eqz v4, :cond_58
 
     move-object/from16 v0, p0
 
@@ -5034,22 +5057,22 @@
 
     goto/16 :goto_0
 
-    :cond_50
+    :cond_58
     const-string v4, "URL"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_52
+    if-eqz v4, :cond_5a
 
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/vcard/VCardEntry;->mWebsiteList:Ljava/util/List;
 
-    if-nez v4, :cond_51
+    if-nez v4, :cond_59
 
     new-instance v4, Ljava/util/ArrayList;
 
@@ -5061,7 +5084,7 @@
 
     iput-object v4, v0, Lcom/android/vcard/VCardEntry;->mWebsiteList:Ljava/util/List;
 
-    :cond_51
+    :cond_59
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/vcard/VCardEntry;->mWebsiteList:Ljava/util/List;
@@ -5074,22 +5097,22 @@
 
     goto/16 :goto_0
 
-    :cond_52
+    :cond_5a
     const-string v4, "BDAY"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_56
+    if-eqz v4, :cond_5e
 
     invoke-static {}, Lcom/android/vcard/VCardConfig;->isJapanSpacialized()Z
 
     move-result v4
 
-    if-eqz v4, :cond_55
+    if-eqz v4, :cond_5d
 
     invoke-virtual {v7}, Ljava/lang/String;->length()I
 
@@ -5097,7 +5120,7 @@
 
     const/16 v6, 0x8
 
-    if-ne v4, v6, :cond_53
+    if-ne v4, v6, :cond_5b
 
     const-string v4, "-"
 
@@ -5105,7 +5128,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_53
+    if-nez v4, :cond_5b
 
     new-instance v10, Ljava/lang/StringBuilder;
 
@@ -5163,14 +5186,14 @@
 
     goto/16 :goto_0
 
-    :cond_53
+    :cond_5b
     invoke-virtual {v7}, Ljava/lang/String;->length()I
 
     move-result v4
 
     const/4 v6, 0x4
 
-    if-ne v4, v6, :cond_54
+    if-ne v4, v6, :cond_5c
 
     const-string v4, "-"
 
@@ -5178,7 +5201,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_54
+    if-nez v4, :cond_5c
 
     new-instance v10, Ljava/lang/StringBuilder;
 
@@ -5230,7 +5253,7 @@
 
     goto/16 :goto_0
 
-    :cond_54
+    :cond_5c
     new-instance v4, Lcom/android/vcard/VCardEntry$BirthdayData;
 
     invoke-direct {v4, v7}, Lcom/android/vcard/VCardEntry$BirthdayData;-><init>(Ljava/lang/String;)V
@@ -5241,7 +5264,7 @@
 
     goto/16 :goto_0
 
-    :cond_55
+    :cond_5d
     new-instance v4, Lcom/android/vcard/VCardEntry$BirthdayData;
 
     invoke-direct {v4, v7}, Lcom/android/vcard/VCardEntry$BirthdayData;-><init>(Ljava/lang/String;)V
@@ -5252,34 +5275,34 @@
 
     goto/16 :goto_0
 
-    :cond_56
+    :cond_5e
     const-string v4, ".*BDAY.*"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->matches(Ljava/lang/String;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_58
+    if-eqz v4, :cond_60
 
     const-string v4, "TYPE"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_57
+    if-eqz v4, :cond_5f
 
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/vcard/VCardEntry;->mBirthday:Lcom/android/vcard/VCardEntry$BirthdayData;
 
-    if-eqz v4, :cond_57
+    if-eqz v4, :cond_5f
 
-    if-eqz v7, :cond_57
+    if-eqz v7, :cond_5f
 
     const-string v4, "1"
 
@@ -5287,7 +5310,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_57
+    if-eqz v4, :cond_5f
 
     move-object/from16 v0, p0
 
@@ -5295,10 +5318,10 @@
 
     invoke-virtual {v4, v7}, Lcom/android/vcard/VCardEntry$BirthdayData;->setBirthdayType(Ljava/lang/String;)V
 
-    :cond_57
+    :cond_5f
     const-string v4, "DATE"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
@@ -5322,16 +5345,16 @@
 
     goto/16 :goto_0
 
-    :cond_58
+    :cond_60
     const-string v4, "ANNIVERSARY"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_59
+    if-eqz v4, :cond_61
 
     new-instance v4, Lcom/android/vcard/VCardEntry$AnniversaryData;
 
@@ -5343,73 +5366,73 @@
 
     goto/16 :goto_0
 
-    :cond_59
+    :cond_61
     const-string v4, "X-PHONETIC-FIRST-NAME"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_5a
+    if-eqz v4, :cond_62
 
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    invoke-static {v4, v7}, Lcom/android/vcard/VCardEntry$NameData;->access$1102(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v4, v7}, Lcom/android/vcard/VCardEntry$NameData;->access$4(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)V
 
     goto/16 :goto_0
 
-    :cond_5a
+    :cond_62
     const-string v4, "X-PHONETIC-MIDDLE-NAME"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_5b
+    if-eqz v4, :cond_63
 
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    invoke-static {v4, v7}, Lcom/android/vcard/VCardEntry$NameData;->access$1002(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v4, v7}, Lcom/android/vcard/VCardEntry$NameData;->access$3(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)V
 
     goto/16 :goto_0
 
-    :cond_5b
+    :cond_63
     const-string v4, "X-PHONETIC-LAST-NAME"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_5c
+    if-eqz v4, :cond_64
 
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/vcard/VCardEntry;->mNameData:Lcom/android/vcard/VCardEntry$NameData;
 
-    invoke-static {v4, v7}, Lcom/android/vcard/VCardEntry$NameData;->access$902(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v4, v7}, Lcom/android/vcard/VCardEntry$NameData;->access$5(Lcom/android/vcard/VCardEntry$NameData;Ljava/lang/String;)V
 
     goto/16 :goto_0
 
-    :cond_5c
+    :cond_64
     const-string v4, "IMPP"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_5d
+    if-eqz v4, :cond_65
 
     const-string v4, "sip:"
 
@@ -5421,32 +5444,32 @@
 
     const-string v4, "TYPE"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v17
 
     invoke-interface {v0, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v26
+    move-result-object v25
 
-    check-cast v26, Ljava/util/Collection;
+    check-cast v25, Ljava/util/Collection;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v26
+    move-object/from16 v1, v25
 
     invoke-direct {v0, v7, v1}, Lcom/android/vcard/VCardEntry;->handleSipCase(Ljava/lang/String;Ljava/util/Collection;)V
 
     goto/16 :goto_0
 
-    :cond_5d
+    :cond_65
     const-string v4, "X-SIP"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_5e
+    if-eqz v4, :cond_66
 
     invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -5456,51 +5479,51 @@
 
     const-string v4, "TYPE"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v17
 
     invoke-interface {v0, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
-    move-result-object v26
+    move-result-object v25
 
-    check-cast v26, Ljava/util/Collection;
+    check-cast v25, Ljava/util/Collection;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v26
+    move-object/from16 v1, v25
 
     invoke-direct {v0, v7, v1}, Lcom/android/vcard/VCardEntry;->handleSipCase(Ljava/lang/String;Ljava/util/Collection;)V
 
     goto/16 :goto_0
 
-    :cond_5e
+    :cond_66
     const-string v4, "X-ANDROID-CUSTOM"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_64
+    if-eqz v4, :cond_6c
 
     invoke-static {}, Lcom/android/vcard/VCardConfig;->isJapanSpacialized()Z
 
     move-result v4
 
-    if-eqz v4, :cond_60
+    if-eqz v4, :cond_68
 
-    if-eqz v25, :cond_5f
+    if-eqz v24, :cond_67
 
-    move-object/from16 v11, v25
+    move-object/from16 v11, v24
 
-    :goto_f
+    :goto_10
     move-object/from16 v0, p0
 
     invoke-direct {v0, v11}, Lcom/android/vcard/VCardEntry;->handleAndroidCustomProperty(Ljava/util/List;)V
 
     goto/16 :goto_0
 
-    :cond_5f
+    :cond_67
     move-object/from16 v0, p0
 
     iget v4, v0, Lcom/android/vcard/VCardEntry;->mVCardType:I
@@ -5509,42 +5532,42 @@
 
     move-result-object v11
 
-    goto :goto_f
+    goto :goto_10
 
-    :cond_60
+    :cond_68
     const-string v4, "vnd.android.cursor.item/relation"
 
     invoke-virtual {v7, v4}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_62
+    if-eqz v4, :cond_6a
 
     invoke-virtual/range {p1 .. p1}, Lcom/android/vcard/VCardProperty;->getRawValue()Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v23
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v23
 
     invoke-virtual {v7, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-nez v4, :cond_61
+    if-nez v4, :cond_69
 
     move-object/from16 v0, p0
 
     iget v4, v0, Lcom/android/vcard/VCardEntry;->mVCardType:I
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v23
 
     invoke-static {v7, v0, v4}, Lcom/android/vcard/VCardUtils;->constructListFromRawValue(Ljava/lang/String;Ljava/lang/String;I)Ljava/util/List;
 
     move-result-object v11
 
-    goto :goto_f
+    goto :goto_10
 
-    :cond_61
+    :cond_69
     move-object/from16 v0, p0
 
     iget v4, v0, Lcom/android/vcard/VCardEntry;->mVCardType:I
@@ -5553,12 +5576,12 @@
 
     move-result-object v11
 
-    goto :goto_f
+    goto :goto_10
 
-    :cond_62
+    :cond_6a
     const-string v4, "ENCODING"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v17
 
     invoke-interface {v0, v4}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
@@ -5566,7 +5589,7 @@
 
     check-cast v13, Ljava/util/Collection;
 
-    if-eqz v13, :cond_63
+    if-eqz v13, :cond_6b
 
     const-string v4, "QUOTED-PRINTABLE"
 
@@ -5574,13 +5597,13 @@
 
     move-result v4
 
-    if-eqz v4, :cond_63
+    if-eqz v4, :cond_6b
 
-    move-object/from16 v11, v25
+    move-object/from16 v11, v24
 
-    goto :goto_f
+    goto :goto_10
 
-    :cond_63
+    :cond_6b
     move-object/from16 v0, p0
 
     iget v4, v0, Lcom/android/vcard/VCardEntry;->mVCardType:I
@@ -5589,18 +5612,18 @@
 
     move-result-object v11
 
-    goto :goto_f
+    goto :goto_10
 
-    :cond_64
+    :cond_6c
     const-string v4, "X-VZW-NGM-LOC"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_65
+    if-eqz v4, :cond_6d
 
     const-string v4, "NGM"
 
@@ -5614,30 +5637,26 @@
 
     goto/16 :goto_0
 
-    :cond_65
+    :cond_6d
     const-string v4, "GEO"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_66
+    if-eqz v4, :cond_6e
 
     const-string v4, "NGM"
 
     new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v34, "GEO tag"
 
-    const-string v35, "GEO tag"
+    move-object/from16 v0, v34
 
-    move-object/from16 v0, v35
-
-    invoke-virtual {v6, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
+    invoke-direct {v6, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -5655,9 +5674,17 @@
 
     if-nez v4, :cond_1
 
-    const-string v4, ","
+    const-string v4, "geo:"
 
-    invoke-virtual {v7, v4}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    const-string v6, ""
+
+    invoke-virtual {v7, v4, v6}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v4
+
+    const-string v6, ","
+
+    invoke-virtual {v4, v6}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v12
 
@@ -5679,9 +5706,9 @@
 
     invoke-virtual {v4}, Ljava/lang/Double;->doubleValue()D
 
-    move-result-wide v36
+    move-result-wide v34
 
-    move-wide/from16 v0, v36
+    move-wide/from16 v0, v34
 
     move-object/from16 v2, p0
 
@@ -5697,9 +5724,9 @@
 
     invoke-virtual {v4}, Ljava/lang/Double;->doubleValue()D
 
-    move-result-wide v36
+    move-result-wide v34
 
-    move-wide/from16 v0, v36
+    move-wide/from16 v0, v34
 
     move-object/from16 v2, p0
 
@@ -5707,7 +5734,7 @@
 
     goto/16 :goto_0
 
-    :cond_66
+    :cond_6e
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
     move-result-object v4
@@ -5718,23 +5745,30 @@
 
     move-result v4
 
-    if-eqz v4, :cond_68
+    if-nez v4, :cond_6f
 
+    invoke-static {}, Lcom/android/vcard/VCardConfig;->isChineseSpacialized()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_71
+
+    :cond_6f
     const-string v4, "X-GN"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_68
+    if-eqz v4, :cond_71
 
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/vcard/VCardEntry;->mXGroupNameList:Ljava/util/List;
 
-    if-nez v4, :cond_67
+    if-nez v4, :cond_70
 
     new-instance v4, Ljava/util/ArrayList;
 
@@ -5744,7 +5778,7 @@
 
     iput-object v4, v0, Lcom/android/vcard/VCardEntry;->mXGroupNameList:Ljava/util/List;
 
-    :cond_67
+    :cond_70
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/vcard/VCardEntry;->mXGroupNameList:Ljava/util/List;
@@ -5755,17 +5789,17 @@
 
     iget-object v0, v0, Lcom/android/vcard/VCardEntry;->mAccount:Landroid/accounts/Account;
 
-    move-object/from16 v35, v0
+    move-object/from16 v34, v0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/vcard/VCardEntry;->mContentsResolver:Landroid/content/ContentResolver;
 
-    move-object/from16 v36, v0
+    move-object/from16 v35, v0
 
-    move-object/from16 v0, v35
+    move-object/from16 v0, v34
 
-    move-object/from16 v1, v36
+    move-object/from16 v1, v35
 
     invoke-direct {v6, v7, v0, v1}, Lcom/android/vcard/VCardEntry$XGroupNameData;-><init>(Ljava/lang/String;Landroid/accounts/Account;Landroid/content/ContentResolver;)V
 
@@ -5773,8 +5807,8 @@
 
     goto/16 :goto_0
 
-    :cond_68
-    invoke-virtual/range {v23 .. v23}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
+    :cond_71
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/String;->toUpperCase()Ljava/lang/String;
 
     move-result-object v4
 
@@ -5790,7 +5824,7 @@
 
     iget-object v4, v0, Lcom/android/vcard/VCardEntry;->mUnknownXData:Ljava/util/List;
 
-    if-nez v4, :cond_69
+    if-nez v4, :cond_72
 
     new-instance v4, Ljava/util/ArrayList;
 
@@ -5800,14 +5834,14 @@
 
     iput-object v4, v0, Lcom/android/vcard/VCardEntry;->mUnknownXData:Ljava/util/List;
 
-    :cond_69
+    :cond_72
     move-object/from16 v0, p0
 
     iget-object v4, v0, Lcom/android/vcard/VCardEntry;->mUnknownXData:Ljava/util/List;
 
     new-instance v6, Landroid/util/Pair;
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-direct {v6, v0, v7}, Landroid/util/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
 
@@ -5940,7 +5974,7 @@
 
     iget-object v0, p0, Lcom/android/vcard/VCardEntry;->mBirthday:Lcom/android/vcard/VCardEntry$BirthdayData;
 
-    invoke-static {v0}, Lcom/android/vcard/VCardEntry$BirthdayData;->access$2200(Lcom/android/vcard/VCardEntry$BirthdayData;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/android/vcard/VCardEntry$BirthdayData;->access$0(Lcom/android/vcard/VCardEntry$BirthdayData;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -6241,7 +6275,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/android/vcard/VCardEntry$IsIgnorableIterator;-><init>(Lcom/android/vcard/VCardEntry;Lcom/android/vcard/VCardEntry$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/vcard/VCardEntry$IsIgnorableIterator;-><init>(Lcom/android/vcard/VCardEntry;Lcom/android/vcard/VCardEntry$IsIgnorableIterator;)V
 
     invoke-virtual {p0, v0}, Lcom/android/vcard/VCardEntry;->iterateAllData(Lcom/android/vcard/VCardEntry$EntryElementIterator;)V
 
@@ -6361,6 +6395,12 @@
     invoke-interface {p1}, Lcom/android/vcard/VCardEntry$EntryElementIterator;->onElementGroupEnded()V
 
     :cond_1
+    invoke-static {}, Lcom/android/vcard/VCardConfig;->isChineseSpacialized()Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
     move-result-object v0
@@ -6371,8 +6411,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
+    :cond_2
     iget-object v0, p0, Lcom/android/vcard/VCardEntry;->mContentsResolver:Landroid/content/ContentResolver;
 
     sput-object v0, Lcom/android/vcard/VCardEntry$XGroupNameData;->mResover:Landroid/content/ContentResolver;
@@ -6381,7 +6422,7 @@
 
     invoke-direct {p0, v0, p1}, Lcom/android/vcard/VCardEntry;->iterateOneList(Ljava/util/List;Lcom/android/vcard/VCardEntry$EntryElementIterator;)V
 
-    :cond_2
+    :cond_3
     invoke-interface {p1}, Lcom/android/vcard/VCardEntry$EntryElementIterator;->onIterationEnded()V
 
     return-void
@@ -6394,7 +6435,7 @@
 
     const/4 v1, 0x0
 
-    invoke-direct {v0, p0, v1}, Lcom/android/vcard/VCardEntry$ToStringIterator;-><init>(Lcom/android/vcard/VCardEntry;Lcom/android/vcard/VCardEntry$1;)V
+    invoke-direct {v0, p0, v1}, Lcom/android/vcard/VCardEntry$ToStringIterator;-><init>(Lcom/android/vcard/VCardEntry;Lcom/android/vcard/VCardEntry$ToStringIterator;)V
 
     invoke-virtual {p0, v0}, Lcom/android/vcard/VCardEntry;->iterateAllData(Lcom/android/vcard/VCardEntry$EntryElementIterator;)V
 

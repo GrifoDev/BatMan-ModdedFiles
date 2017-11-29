@@ -16,8 +16,10 @@
     <string name="accessibility_button">Düymə</string>
     <string name="accessibility_dimmed">Tutqunlaşdırılıb</string>
     <string name="activity_not_available">Bu proqram cihazınız üçün aktiv deyil.</string>
-    <string name="activity_not_found">Proqram quraşdırılmamışdır.</string>
+    <string name="activity_not_found">Proqram tapılmadı</string>
+    <string name="add">Əlavə et</string>
     <string name="add_to_last_page">%1$d elementi seçdiniz, lakin bu səhifədə kifayət yer yoxdur. Qalan %2$d elementlər son səhifəyə əlavə ediləcək.</string>
+    <string name="add_to_last_page_for_hotseat">%1$d elementi seçdiniz, lakin bu sevimlilər panelində kifayət yer yoxdur. Qalan %2$d element son səhifəyə əlavə ediləcək.</string>
     <string name="align_to_bottom">Aşağıda bərabərləşdir</string>
     <string name="align_to_top">Yuxarıya bərabərləşdir</string>
     <string name="app_locked_toast">%s kilidlidir.</string>
@@ -121,6 +123,7 @@
     <string name="new_page_created">Səhifə əlavə edildi.</string>
     <string name="no_changes">Dəyişiklik yoxdur.</string>
     <string name="no_space_page">Səhifədə yer yoxdur. Fərqli səhifəyə qısayol əlavə etməyə çalışın.</string>
+    <string name="no_space_page_for_hotseat">Sevimlilər panelində yer yoxdur.</string>
     <string name="no_space_page_for_widget">Bu səhifədə yer yoxdur.</string>
     <string name="not_selected">Seçilməyib</string>
     <string name="notification_panel_setting_summary">Əsas ekrandan bildiriş panelini açmaq üçün aşağı sürüşdürün.</string>
@@ -155,6 +158,8 @@
     <string name="quick_option_delete_folder">Qovluğu sil</string>
     <string name="quick_option_delete_folder_alert">%s qovluq silinəcək. Bu qovluqdakı proqramlar yenə də Proqramlar ekranında mövcud olacaq.</string>
     <string name="quick_option_delete_folder_alert_no_title">Bu qovluq silinəcək. Bu qovluqdakı proqramlar yenə də Proqramlar ekranında mövcud olacaq.</string>
+    <string name="quick_option_delete_folder_home_only_alert">%s qovluq silinəcək. Bu qovluqda olan proqramlar Əsas ekranda da görünəcək.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Bu qovluq silinəcək. Bu qovluqda olan proqramlar Əsas ekranda da görünəcək.</string>
     <string name="quick_option_dimmed_disable">Qeyri-aktv et</string>
     <string name="quick_option_disable">Qeyri-aktv et</string>
     <string name="quick_option_install_dual_im">İkinci proqramı quraşdır</string>

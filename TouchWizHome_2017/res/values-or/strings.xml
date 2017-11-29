@@ -16,8 +16,10 @@
     <string name="accessibility_button">ବଟନ୍‍</string>
     <string name="accessibility_dimmed">ଡିମ୍ ହୋଇଛି</string>
     <string name="activity_not_available">ଆପଣଙ୍କ ଡିଭାଇସ୍ ପାଇଁ ଏହି ଆପ୍ଲିକେସନ୍‌ ଉପଲବ୍ଧ ନାହିଁ।</string>
-    <string name="activity_not_found">ଆପ୍ଲିକେସନ୍ ସଂସ୍ଥାପନ ହୋଇନାହିଁ।</string>
+    <string name="activity_not_found">ଆପ୍ଲିକେସନ୍‌ ମିଳିଲା ନାହିଁ</string>
+    <string name="add">ଯୋଡନ୍ତୁ</string>
     <string name="add_to_last_page">ଆପଣ %1$dଟି ଆଇଟମ୍ ଚୟନ କରିଛନ୍ତି, କିନ୍ତୁ ଏହି ପୃଷ୍ଠାରେ ପର୍ଯ୍ୟାପ୍ତ ସ୍ପେସ୍ ନାହିଁ। ବାକି ରହିଥିବା %2$dଟି ଆଇଟମ୍ ଶେଷ ପୃଷ୍ଠାକୁ ଯୋଡାଯିବ।</string>
+    <string name="add_to_last_page_for_hotseat">ଆପଣଙ୍କ %1$dଟି ଆଇଟମ୍ ଚୟନ କରିଛନ୍ତି, କିନ୍ତୁ ପସନ୍ଦିତା ଟ୍ରେରେ ପର୍ଯ୍ୟାପ୍ତ ସ୍ପେସ୍ ନାହିଁ। ବାକି ରହିଥିବା %2$dଟି ଆଇଟମ୍ ଶେଷ ପୃଷ୍ଠାକୁ ଯୋଡାଯିବ।</string>
     <string name="align_to_bottom">ନିମ୍ନକୁ ଶ୍ରେଣୀବଦ୍ଧ</string>
     <string name="align_to_top">ଉପରକୁ ଶ୍ରେଣୀବଦ୍ଧ</string>
     <string name="app_locked_toast">%s ଲକ୍ ହୋଇଛି।</string>
@@ -25,7 +27,7 @@
     <string name="app_search_no_apps">ଆପଣ ସନ୍ଧାନ ଫଳାଫଳରୁ ହୋମ୍ ସ୍କ୍ରିନରେ ସର୍ଟକଟଗୁଡିକ ଯୋଡି ପାରିବେ।</string>
     <string name="app_search_no_results_found">କୌଣସି ଫଳାଫଳ ମିଳିଲା ନାହିଁ</string>
     <string name="app_search_tablet">ଟ୍ୟାବଲେଟ୍ ସନ୍ଧାନ</string>
-    <string name="app_unlocked_toast">%s ଅନ୍‌ଲକ୍ ହୋଇଛି।</string>
+    <string name="app_unlocked_toast">%s ଅନଲକ୍ ହୋଇଛି।</string>
     <string name="application_name">ଟଚୱିଜ୍ ହୋମ୍</string>
     <string name="apply">ପ୍ରୟୋଗ</string>
     <string name="appsPicker_add_button">ଯୋଡନ୍ତୁ</string>
@@ -121,6 +123,7 @@
     <string name="new_page_created">ପୃଷ୍ଠା ଯୋଗ ହୋଇଛି</string>
     <string name="no_changes">କୌଣସି ପରିବର୍ତ୍ତନ ନାହିଁ।</string>
     <string name="no_space_page">ପୃଷ୍ଠାରେ କୌଣସି ସ୍ଥାନ ନାହିଁ। ଏକ ଭିନ୍ନ ପୃଷ୍ଠାକୁ ସର୍ଟକଟ୍ ଯୋଡିବାକୁ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
+    <string name="no_space_page_for_hotseat">ପସନ୍ଦିତା ଟ୍ରେରେ କୌଣସି ସ୍ଥାନ ନାହିଁ।</string>
     <string name="no_space_page_for_widget">ଏହି ପୃଷ୍ଠାରେ କୌଣସି ସ୍ପେସ୍ ନାହିଁ।</string>
     <string name="not_selected">ଚୟନ ହୋଇନାହିଁ</string>
     <string name="notification_panel_setting_summary">ହୋମ୍ ସ୍କ୍ରିନରୁ ବିଜ୍ଞପ୍ତି ପ୍ୟାନେଲ୍ ଖୋଲିବାକୁ ନିମ୍ନକୁ ସ୍ଵାଇପ୍ କରନ୍ତୁ।</string>
@@ -155,6 +158,8 @@
     <string name="quick_option_delete_folder">ଫୋଲ୍ଡର୍ ବିଲୋପ</string>
     <string name="quick_option_delete_folder_alert">%s ଫୋଲ୍ଡର୍ ବିଲୋପ ହେବ। ଏହି ଫୋଲ୍ଡର୍ ଭିତରେ ଆପସ୍ ଆପସ୍ ସ୍କ୍ରିନରେ ଏପର୍ଯ୍ୟନ୍ତ ଉପଲବ୍ଧ ହେବ।</string>
     <string name="quick_option_delete_folder_alert_no_title">ଏହି ଫୋଲ୍ଡର୍ ବିଲୋପ ହେବ। ଏହି ଫୋଲ୍ଡର୍ ଭିତରେ ଆପସ୍ ଆପସ୍ ସ୍କ୍ରିନରେ ଏପର୍ଯ୍ୟନ୍ତ ଉପଲବ୍ଧ ହେବ।</string>
+    <string name="quick_option_delete_folder_home_only_alert">%s ଫୋଲ୍ଡର୍ ବିଲୋପ ହେବ। ଏହି ଫୋଲ୍ଡର୍ ଭିତରେ ଆପସ୍ ଏପର୍ଯ୍ୟନ୍ତ ହୋମ୍ ସ୍କ୍ରିନରେ ଉପଲବ୍ଧ ହେବ।</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">ଏହି ଫୋଲ୍ଡର୍ ବିଲୋପ ହେବ। ଏହି ଫୋଲ୍ଡର୍ ଭିତରେ ଆପସ୍ ଏପର୍ଯ୍ୟନ୍ତ ହୋମ୍ ସ୍କ୍ରିନରେ ଉପଲବ୍ଧ ହେବ।</string>
     <string name="quick_option_dimmed_disable">ଅକ୍ଷମ</string>
     <string name="quick_option_disable">ଅକ୍ଷମ</string>
     <string name="quick_option_install_dual_im">ଦ୍ଵିତୀୟ ଆପ୍ ସଂସ୍ଥାପନ</string>
@@ -177,7 +182,7 @@
     <string name="search_for_widgets">ୱିଜେଟଗୁଡିକ ପାଇଁ ସନ୍ଧାନ</string>
     <string name="selected">ଚୟନିତ</string>
     <string name="setting_apps_screen_grid">ଆପସ୍ ସ୍କ୍ରିନ୍ ଗ୍ରୀଡ୍</string>
-    <string name="shortcut_duplicate">ସର୍ଟ୍‌କଟ୍ %s ପୂର୍ବରୁ ବିଦ୍ୟମାନ ଅଛି।</string>
+    <string name="shortcut_duplicate">ସର୍ଟକଟ୍ %s ପୂର୍ବରୁ ବିଦ୍ୟମାନ ଅଛି।</string>
     <string name="shortcut_installed">ହୋମ୍ ସ୍କ୍ରିନରେ %sର ସର୍ଟକଟ୍ ଯୋଡାଯାଇଛି।</string>
     <string name="shortcut_moved_to_game_launcher">ଖେଳ ଆଇକନ୍ Game Launcherକୁ ଘୁଞ୍ଚା ହୋଇଛି।</string>
     <string name="shortcut_uninstalled">ସର୍ଟକଟ୍ %s ଅପସାରିତ।</string>

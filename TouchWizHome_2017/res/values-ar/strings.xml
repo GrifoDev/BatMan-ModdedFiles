@@ -17,8 +17,10 @@
     <string name="accessibility_button">الزر</string>
     <string name="accessibility_dimmed">إضاءة خافتة</string>
     <string name="activity_not_available">هذا التطبيق غير متوفر لجهازك.</string>
-    <string name="activity_not_found">لم يتم تثبيت التطبيق.</string>
+    <string name="activity_not_found">لم يتم العثور على التطبيق</string>
+    <string name="add">إضافة</string>
     <string name="add_to_last_page">لقد حددت %1$d من العناصر، ولكن لا تتوفر مساحة كافية على هذه الصفحة. ستتم إضافة العناصر المتبقية الـ %2$d إلى الصفحة الأخيرة.</string>
+    <string name="add_to_last_page_for_hotseat">لقد حددت %1$d من العناصر، ولكن لا تتوفر مساحة كافية في درج المفضلة. ستتم إضافة العناصر الـ %2$d المتبقية إلى الصفحة الأخيرة.</string>
     <string name="align_to_bottom">محاذاة للأسفل</string>
     <string name="align_to_top">محاذاة للأعلى</string>
     <string name="app_locked_toast">تمّ إقفال %s.</string>
@@ -122,6 +124,7 @@
     <string name="new_page_created">تمت إضافة الصفحة.</string>
     <string name="no_changes">لا توجد تغييرات.</string>
     <string name="no_space_page">ما من مساحة على الصفحة. حاول إضافة اختصار إلى صفحة أخرى.</string>
+    <string name="no_space_page_for_hotseat">ما من مساحة في درج المفضلة.</string>
     <string name="no_space_page_for_widget">ما من مساحة على هذه الصفحة.</string>
     <string name="not_selected">لم يتم التحديد</string>
     <string name="notification_panel_setting_summary">اسحب لأسفل لفتح لوحة الإشعارات من الشاشة الرئيسية.</string>
@@ -156,6 +159,8 @@
     <string name="quick_option_delete_folder">مسح المجلد</string>
     <string name="quick_option_delete_folder_alert">سيتم حذف المجلد %s. ستبقى التطبيقات الموجودة داخل هذا المجلد متوفرة على شاشة ”التطبيقات“.</string>
     <string name="quick_option_delete_folder_alert_no_title">سيتم حذف هذا المجلد. ستبقى التطبيقات الموجودة داخل هذا المجلد متوفرة على شاشة ”التطبيقات“.</string>
+    <string name="quick_option_delete_folder_home_only_alert">سيتم حذف المجلد %s. ستبقى التطبيقات الموجودة داخل هذا المجلد متوفرة على الشاشة الرئيسية.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">سيتم حذف هذا المجلد. ستبقى التطبيقات الموجودة داخل هذا المجلد متوفرة على الشاشة الرئيسية.</string>
     <string name="quick_option_dimmed_disable">إلغاء التفعيل</string>
     <string name="quick_option_disable">إلغاء التفعيل</string>
     <string name="quick_option_install_dual_im">تثبيت التطبيق الثاني</string>

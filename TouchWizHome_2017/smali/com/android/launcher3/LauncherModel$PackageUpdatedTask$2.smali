@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/LauncherModel$PackageUpdatedTask;->run()V
+    value = Lcom/android/launcher3/LauncherModel$PackageUpdatedTask;->checkZeroPageUpdate()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -39,7 +39,7 @@
 
 # virtual methods
 .method public run()V
-    .locals 2
+    .locals 4
 
     iget-object v1, p0, Lcom/android/launcher3/LauncherModel$PackageUpdatedTask$2;->this$1:Lcom/android/launcher3/LauncherModel$PackageUpdatedTask;
 
@@ -53,11 +53,39 @@
 
     if-ne v1, v0, :cond_0
 
-    if-eqz v0, :cond_0
+    const-string v1, "Launcher.Model"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "checkZeroPageUpdate, call updateZeroPage, op : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget-object v3, p0, Lcom/android/launcher3/LauncherModel$PackageUpdatedTask$2;->this$1:Lcom/android/launcher3/LauncherModel$PackageUpdatedTask;
+
+    iget v3, v3, Lcom/android/launcher3/LauncherModel$PackageUpdatedTask;->mOp:I
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v1, p0, Lcom/android/launcher3/LauncherModel$PackageUpdatedTask$2;->val$callbacks:Lcom/android/launcher3/LauncherModel$Callbacks;
 
-    invoke-interface {v1}, Lcom/android/launcher3/LauncherModel$Callbacks;->dumpLogsToLocalData()V
+    iget-object v2, p0, Lcom/android/launcher3/LauncherModel$PackageUpdatedTask$2;->this$1:Lcom/android/launcher3/LauncherModel$PackageUpdatedTask;
+
+    iget v2, v2, Lcom/android/launcher3/LauncherModel$PackageUpdatedTask;->mOp:I
+
+    invoke-interface {v1, v2}, Lcom/android/launcher3/LauncherModel$Callbacks;->updateZeroPage(I)V
 
     :cond_0
     return-void

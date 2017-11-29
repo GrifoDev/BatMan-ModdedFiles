@@ -28,29 +28,27 @@
 
 .field static final DEBUG_APPS_CONTROLLER:Z = true
 
-.field public static final EXIT_DRAG_STATE_DELAY:I = 0x64
+.field private static final EXIT_DRAG_STATE_DELAY:I = 0x64
 
 .field private static final FACTOR_INTERVAL:I = 0x2
 
 .field private static final FACTOR_VALID_DECIMAL_PLACE:I = 0x2
 
-.field public static final KEY_REPOSITION_BY:Ljava/lang/String; = "KEY_REPOSITION_BY"
+.field private static final KEY_REPOSITION_BY:Ljava/lang/String; = "KEY_REPOSITION_BY"
 
-.field public static final KEY_TARGET_GRID_SIZE:Ljava/lang/String; = "KEY_CHANGE_GRID_SIZE"
+.field private static final KEY_TARGET_GRID_SIZE:Ljava/lang/String; = "KEY_CHANGE_GRID_SIZE"
 
 .field private static final MAP_NO_RECURSE:Z = false
 
 .field private static final MAP_RECURSE:Z = true
 
-.field public static final REPOSITION_CONFIGURATION:I = 0x3
+.field private static final REPOSITION_CONFIGURATION:I = 0x3
 
-.field public static final REPOSITION_GRIDBY:I = 0x1
+.field private static final REPOSITION_GRIDBY:I = 0x1
 
-.field public static final REPOSITION_NONE:I = -0x1
+.field private static final REPOSITION_TIDEUP:I = 0x2
 
-.field public static final REPOSITION_TIDEUP:I = 0x2
-
-.field public static final REPOSITION_VIEWBY:I = 0x0
+.field private static final REPOSITION_VIEWBY:I = 0x0
 
 .field public static final STATE_DRAG:I = 0x1
 
@@ -120,8 +118,6 @@
 
 .field private mLoggingRunnable:Ljava/lang/Runnable;
 
-.field private mMoveToHomeApproachingEnd:I
-
 .field private mMoveToHomeApproachingStart:I
 
 .field private mMultiSelectManager:Lcom/android/launcher3/common/multiselect/MultiSelectManager;
@@ -132,6 +128,8 @@
 
 .field private mPageSnapMovingRatioOnApps:F
 
+.field private mPrevState:I
+
 .field private mRemoveInProgress:Z
 
 .field private mReorderController:Lcom/android/launcher3/allapps/controller/AppsReorderController;
@@ -140,9 +138,20 @@
 
 .field private mState:I
 
-.field private mTrayBorderLimit:I
-
 .field private mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
+
+.field private mUpdateBadgeItems:Ljava/util/ArrayList;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/ArrayList",
+            "<",
+            "Lcom/android/launcher3/common/base/item/ItemInfo;",
+            ">;"
+        }
+    .end annotation
+.end field
+
+.field private mUpdateBadgeListRunnable:Ljava/lang/Runnable;
 
 .field private mUpwardFadeOutEnd:I
 
@@ -158,6 +167,8 @@
     const/4 v1, 0x0
 
     invoke-direct {p0}, Lcom/android/launcher3/common/stage/Stage;-><init>()V
+
+    iput v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mPrevState:I
 
     iput v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mState:I
 
@@ -191,9 +202,21 @@
 
     iput-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mLoggingRunnable:Ljava/lang/Runnable;
 
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mUpdateBadgeItems:Ljava/util/ArrayList;
+
     new-instance v0, Lcom/android/launcher3/allapps/controller/AppsController$2;
 
     invoke-direct {v0, p0}, Lcom/android/launcher3/allapps/controller/AppsController$2;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;)V
+
+    iput-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mUpdateBadgeListRunnable:Ljava/lang/Runnable;
+
+    new-instance v0, Lcom/android/launcher3/allapps/controller/AppsController$3;
+
+    invoke-direct {v0, p0}, Lcom/android/launcher3/allapps/controller/AppsController$3;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;)V
 
     iput-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mDataListener:Lcom/android/launcher3/allapps/controller/AppsAdapter$DataListener;
 
@@ -208,31 +231,23 @@
     return-object v0
 .end method
 
-.method static synthetic access$100(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/allapps/AppsScreenGridPanel;
+.method static synthetic access$100(Lcom/android/launcher3/allapps/controller/AppsController;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->updateBadgeItems()V
+
+    return-void
+.end method
+
+.method static synthetic access$1000(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/allapps/controller/AppsDragController;
     .locals 1
 
-    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsScreenGridPanel:Lcom/android/launcher3/allapps/AppsScreenGridPanel;
+    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mDragController:Lcom/android/launcher3/allapps/controller/AppsDragController;
 
     return-object v0
 .end method
 
-.method static synthetic access$1000(Lcom/android/launcher3/allapps/controller/AppsController;)Ljava/lang/Runnable;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mLoggingRunnable:Ljava/lang/Runnable;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1100(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/common/drag/DragManager;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mDragMgr:Lcom/android/launcher3/common/drag/DragManager;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1200(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/Launcher;
+.method static synthetic access$1100(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/Launcher;
     .locals 1
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
@@ -240,12 +255,20 @@
     return-object v0
 .end method
 
-.method static synthetic access$1302(Lcom/android/launcher3/allapps/controller/AppsController;Z)Z
-    .locals 0
+.method static synthetic access$1200(Lcom/android/launcher3/allapps/controller/AppsController;)Ljava/lang/Runnable;
+    .locals 1
 
-    iput-boolean p1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mRemoveInProgress:Z
+    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mLoggingRunnable:Ljava/lang/Runnable;
 
-    return p1
+    return-object v0
+.end method
+
+.method static synthetic access$1300(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/common/drag/DragManager;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mDragMgr:Lcom/android/launcher3/common/drag/DragManager;
+
+    return-object v0
 .end method
 
 .method static synthetic access$1400(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/Launcher;
@@ -256,14 +279,12 @@
     return-object v0
 .end method
 
-.method static synthetic access$1500(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/common/stage/StageManager;
-    .locals 1
+.method static synthetic access$1502(Lcom/android/launcher3/allapps/controller/AppsController;Z)Z
+    .locals 0
 
-    invoke-virtual {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->getStageManager()Lcom/android/launcher3/common/stage/StageManager;
+    iput-boolean p1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mRemoveInProgress:Z
 
-    move-result-object v0
-
-    return-object v0
+    return p1
 .end method
 
 .method static synthetic access$1600(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/Launcher;
@@ -274,23 +295,15 @@
     return-object v0
 .end method
 
-.method static synthetic access$1700(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/Launcher;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1800(Lcom/android/launcher3/allapps/controller/AppsController;[I)V
+.method static synthetic access$1700(Lcom/android/launcher3/allapps/controller/AppsController;)V
     .locals 0
 
-    invoke-direct {p0, p1}, Lcom/android/launcher3/allapps/controller/AppsController;->repositionByGrid([I)V
+    invoke-direct {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->searchSettingCheck()V
 
     return-void
 .end method
 
-.method static synthetic access$1900(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/common/stage/StageManager;
+.method static synthetic access$1800(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/common/stage/StageManager;
     .locals 1
 
     invoke-virtual {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->getStageManager()Lcom/android/launcher3/common/stage/StageManager;
@@ -300,7 +313,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$200(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/Launcher;
+.method static synthetic access$1900(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/Launcher;
     .locals 1
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
@@ -308,7 +321,49 @@
     return-object v0
 .end method
 
-.method static synthetic access$300(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/allapps/controller/AppsController$ViewType;
+.method static synthetic access$200(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/allapps/AppsScreenGridPanel;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsScreenGridPanel:Lcom/android/launcher3/allapps/AppsScreenGridPanel;
+
+    return-object v0
+.end method
+
+.method static synthetic access$2000(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/Launcher;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    return-object v0
+.end method
+
+.method static synthetic access$2100(Lcom/android/launcher3/allapps/controller/AppsController;[I)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/launcher3/allapps/controller/AppsController;->repositionByGrid([I)V
+
+    return-void
+.end method
+
+.method static synthetic access$2200(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/common/stage/StageManager;
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->getStageManager()Lcom/android/launcher3/common/stage/StageManager;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$300(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/Launcher;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    return-object v0
+.end method
+
+.method static synthetic access$400(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/allapps/controller/AppsController$ViewType;
     .locals 1
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mViewType:Lcom/android/launcher3/allapps/controller/AppsController$ViewType;
@@ -316,7 +371,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$400(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/allapps/controller/AppsReorderController;
+.method static synthetic access$500(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/allapps/controller/AppsReorderController;
     .locals 1
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mReorderController:Lcom/android/launcher3/allapps/controller/AppsReorderController;
@@ -324,7 +379,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$502(Lcom/android/launcher3/allapps/controller/AppsController;Z)Z
+.method static synthetic access$602(Lcom/android/launcher3/allapps/controller/AppsController;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mApplyTideUpPage:Z
@@ -332,7 +387,7 @@
     return p1
 .end method
 
-.method static synthetic access$600(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/common/tray/TrayManager;
+.method static synthetic access$700(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/common/tray/TrayManager;
     .locals 1
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
@@ -340,7 +395,15 @@
     return-object v0
 .end method
 
-.method static synthetic access$700(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/allapps/view/AppsSearch;
+.method static synthetic access$800(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/allapps/view/AppsContainer;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsContainer:Lcom/android/launcher3/allapps/view/AppsContainer;
+
+    return-object v0
+.end method
+
+.method static synthetic access$900(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/allapps/view/AppsSearch;
     .locals 1
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsSearch:Lcom/android/launcher3/allapps/view/AppsSearch;
@@ -348,20 +411,102 @@
     return-object v0
 .end method
 
-.method static synthetic access$800(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/allapps/controller/AppsDragController;
-    .locals 1
+.method private addFolderChildItemToDb(Lcom/android/launcher3/common/base/item/ItemInfo;J)J
+    .locals 2
 
-    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mDragController:Lcom/android/launcher3/allapps/controller/AppsDragController;
+    iput-wide p2, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
 
-    return-object v0
+    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAdapterProvider:Lcom/android/launcher3/allapps/controller/AppsAdapterProvider;
+
+    invoke-virtual {v0, p1}, Lcom/android/launcher3/allapps/controller/AppsAdapterProvider;->addItem(Lcom/android/launcher3/common/base/item/ItemInfo;)J
+
+    move-result-wide v0
+
+    return-wide v0
 .end method
 
-.method static synthetic access$900(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/Launcher;
-    .locals 1
+.method private applyOrCancelTideUpPages()V
+    .locals 5
 
-    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
+    const v3, 0x7f0901af
 
-    return-object v0
+    const/4 v4, 0x0
+
+    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAdapterProvider:Lcom/android/launcher3/allapps/controller/AppsAdapterProvider;
+
+    invoke-virtual {v1, v4, v4}, Lcom/android/launcher3/allapps/controller/AppsAdapterProvider;->setStateAndUpdateLock(IZ)V
+
+    iget-boolean v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mApplyTideUpPage:Z
+
+    if-nez v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
+
+    invoke-virtual {v1, v4}, Lcom/android/launcher3/allapps/view/AppsPagedView;->setCurrentPage(I)V
+
+    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAdapterProvider:Lcom/android/launcher3/allapps/controller/AppsAdapterProvider;
+
+    const/4 v2, 0x1
+
+    invoke-virtual {v1, v2}, Lcom/android/launcher3/allapps/controller/AppsAdapterProvider;->reloadAllItemsFromDB(Z)V
+
+    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAdapterProvider:Lcom/android/launcher3/allapps/controller/AppsAdapterProvider;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/allapps/controller/AppsAdapterProvider;->getNormalizer()Lcom/android/launcher3/allapps/controller/Normalizer;
+
+    move-result-object v1
+
+    const/4 v2, 0x2
+
+    invoke-direct {p0, v1, v2, v4}, Lcom/android/launcher3/allapps/controller/AppsController;->repositionByNormalizer(Lcom/android/launcher3/allapps/controller/Normalizer;IZ)V
+
+    invoke-static {}, Lcom/android/launcher3/util/logging/SALogging;->getInstance()Lcom/android/launcher3/util/logging/SALogging;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    const v3, 0x7f090115
+
+    invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v2, v3}, Lcom/android/launcher3/util/logging/SALogging;->insertEventLog(Ljava/lang/String;Ljava/lang/String;)V
+
+    :goto_0
+    invoke-virtual {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->updateDirtyItems()V
+
+    iput-boolean v4, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mApplyTideUpPage:Z
+
+    return-void
+
+    :cond_0
+    invoke-static {}, Lcom/android/launcher3/util/logging/SALogging;->getInstance()Lcom/android/launcher3/util/logging/SALogging;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    const v3, 0x7f090114
+
+    invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v2, v3}, Lcom/android/launcher3/util/logging/SALogging;->insertEventLog(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
 .end method
 
 .method private applySetViewType()V
@@ -419,6 +564,88 @@
     const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/allapps/controller/AppsAdapterProvider;->reloadAllItemsFromDB(Z)V
+
+    goto :goto_0
+.end method
+
+.method private changeState(IZZ)Z
+    .locals 4
+
+    if-nez p3, :cond_0
+
+    iget v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mState:I
+
+    if-ne v1, p1, :cond_0
+
+    const/4 v1, 0x0
+
+    :goto_0
+    return v1
+
+    :cond_0
+    const-string v1, "Launcher.AppsController"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "changeState : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget v3, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mState:I
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, " > "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, ", animated : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v0, Lcom/android/launcher3/common/stage/StageEntry;
+
+    invoke-direct {v0}, Lcom/android/launcher3/common/stage/StageEntry;-><init>()V
+
+    iput-boolean p2, v0, Lcom/android/launcher3/common/stage/StageEntry;->enableAnimation:Z
+
+    iget v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mState:I
+
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/stage/StageEntry;->setInternalStateFrom(I)V
+
+    invoke-virtual {v0, p1}, Lcom/android/launcher3/common/stage/StageEntry;->setInternalStateTo(I)V
+
+    invoke-virtual {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->getStageManager()Lcom/android/launcher3/common/stage/StageManager;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p0, v0}, Lcom/android/launcher3/common/stage/StageManager;->switchInternalState(Lcom/android/launcher3/common/stage/Stage;Lcom/android/launcher3/common/stage/StageEntry;)V
+
+    const/4 v1, 0x1
 
     goto :goto_0
 .end method
@@ -571,7 +798,7 @@
 
     move-result-object v16
 
-    const v17, 0x7f0d0031
+    const v17, 0x7f0b0032
 
     invoke-virtual/range {v16 .. v17}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -738,6 +965,259 @@
     goto/16 :goto_0
 .end method
 
+.method private findSearchedApp(Landroid/content/ComponentName;Landroid/os/UserHandle;)V
+    .locals 16
+
+    move-object/from16 v0, p0
+
+    iget-object v11, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v11}, Lcom/android/launcher3/Launcher;->getLauncherModel()Lcom/android/launcher3/LauncherModel;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Lcom/android/launcher3/LauncherModel;->getAppsModel()Lcom/android/launcher3/allapps/model/AppsModel;
+
+    move-result-object v11
+
+    invoke-virtual {v11}, Lcom/android/launcher3/allapps/model/AppsModel;->getTopLevelItemsInApps()Ljava/util/ArrayList;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v11
+
+    :cond_0
+    invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v12
+
+    if-eqz v12, :cond_1
+
+    invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Lcom/android/launcher3/common/base/item/ItemInfo;
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
+
+    iget-wide v14, v6, Lcom/android/launcher3/common/base/item/ItemInfo;->screenId:J
+
+    long-to-int v13, v14
+
+    invoke-virtual {v12, v13}, Lcom/android/launcher3/allapps/view/AppsPagedView;->getCellLayout(I)Lcom/android/launcher3/common/base/view/CellLayout;
+
+    move-result-object v9
+
+    if-eqz v9, :cond_0
+
+    iget v12, v6, Lcom/android/launcher3/common/base/item/ItemInfo;->itemType:I
+
+    if-nez v12, :cond_2
+
+    iget-object v12, v6, Lcom/android/launcher3/common/base/item/ItemInfo;->componentName:Landroid/content/ComponentName;
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v12, v0}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_0
+
+    invoke-virtual {v6}, Lcom/android/launcher3/common/base/item/ItemInfo;->getUserHandle()Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    move-result-object v12
+
+    invoke-virtual {v12}, Lcom/android/launcher3/common/compat/UserHandleCompat;->getUser()Landroid/os/UserHandle;
+
+    move-result-object v12
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v12, v0}, Landroid/os/UserHandle;->equals(Ljava/lang/Object;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v11, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
+
+    iget-wide v12, v6, Lcom/android/launcher3/common/base/item/ItemInfo;->screenId:J
+
+    long-to-int v12, v12
+
+    invoke-virtual {v11, v12}, Lcom/android/launcher3/allapps/view/AppsPagedView;->snapToPage(I)V
+
+    iget v11, v6, Lcom/android/launcher3/common/base/item/ItemInfo;->rank:I
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
+
+    invoke-virtual {v12}, Lcom/android/launcher3/allapps/view/AppsPagedView;->getCellCountX()I
+
+    move-result v12
+
+    rem-int/2addr v11, v12
+
+    iget v12, v6, Lcom/android/launcher3/common/base/item/ItemInfo;->rank:I
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
+
+    invoke-virtual {v13}, Lcom/android/launcher3/allapps/view/AppsPagedView;->getCellCountX()I
+
+    move-result v13
+
+    div-int/2addr v12, v13
+
+    invoke-virtual {v9, v11, v12}, Lcom/android/launcher3/common/base/view/CellLayout;->getChildAt(II)Landroid/view/View;
+
+    move-result-object v10
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v0, v10}, Lcom/android/launcher3/allapps/controller/AppsController;->startBounceAnimationForSearchedApp(Landroid/view/View;)V
+
+    :cond_1
+    :goto_0
+    return-void
+
+    :cond_2
+    iget v12, v6, Lcom/android/launcher3/common/base/item/ItemInfo;->itemType:I
+
+    const/4 v13, 0x2
+
+    if-ne v12, v13, :cond_0
+
+    move-object v4, v6
+
+    check-cast v4, Lcom/android/launcher3/folder/FolderInfo;
+
+    iget-object v12, v4, Lcom/android/launcher3/folder/FolderInfo;->contents:Ljava/util/ArrayList;
+
+    invoke-virtual {v12}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v12
+
+    :cond_3
+    invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v13
+
+    if-eqz v13, :cond_0
+
+    invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v5
+
+    check-cast v5, Lcom/android/launcher3/common/base/item/IconInfo;
+
+    iget-object v13, v5, Lcom/android/launcher3/common/base/item/IconInfo;->componentName:Landroid/content/ComponentName;
+
+    move-object/from16 v0, p1
+
+    invoke-virtual {v13, v0}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
+
+    move-result v13
+
+    if-eqz v13, :cond_3
+
+    invoke-virtual {v5}, Lcom/android/launcher3/common/base/item/IconInfo;->getUserHandle()Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    move-result-object v13
+
+    invoke-virtual {v13}, Lcom/android/launcher3/common/compat/UserHandleCompat;->getUser()Landroid/os/UserHandle;
+
+    move-result-object v13
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v13, v0}, Landroid/os/UserHandle;->equals(Ljava/lang/Object;)Z
+
+    move-result v13
+
+    if-eqz v13, :cond_3
+
+    iget v11, v6, Lcom/android/launcher3/common/base/item/ItemInfo;->rank:I
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
+
+    invoke-virtual {v12}, Lcom/android/launcher3/allapps/view/AppsPagedView;->getCellCountX()I
+
+    move-result v12
+
+    rem-int/2addr v11, v12
+
+    iget v12, v6, Lcom/android/launcher3/common/base/item/ItemInfo;->rank:I
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
+
+    invoke-virtual {v13}, Lcom/android/launcher3/allapps/view/AppsPagedView;->getCellCountX()I
+
+    move-result v13
+
+    div-int/2addr v12, v13
+
+    invoke-virtual {v9, v11, v12}, Lcom/android/launcher3/common/base/view/CellLayout;->getChildAt(II)Landroid/view/View;
+
+    move-result-object v10
+
+    move-object v3, v10
+
+    check-cast v3, Lcom/android/launcher3/folder/view/FolderIconView;
+
+    new-instance v2, Lcom/android/launcher3/common/stage/StageEntry;
+
+    invoke-direct {v2}, Lcom/android/launcher3/common/stage/StageEntry;-><init>()V
+
+    const-string v11, "KEY_FOLDER_ICON_VIEW"
+
+    invoke-virtual {v2, v11, v3}, Lcom/android/launcher3/common/stage/StageEntry;->putExtras(Ljava/lang/String;Ljava/lang/Object;)V
+
+    const-string v11, "KEY_FOLDER_ICON_APPSEARCHED"
+
+    invoke-virtual {v2, v11, v5}, Lcom/android/launcher3/common/stage/StageEntry;->putExtras(Ljava/lang/String;Ljava/lang/Object;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v11, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
+
+    iget-wide v12, v4, Lcom/android/launcher3/folder/FolderInfo;->screenId:J
+
+    long-to-int v12, v12
+
+    invoke-virtual {v11, v12}, Lcom/android/launcher3/allapps/view/AppsPagedView;->snapToPage(I)V
+
+    new-instance v8, Landroid/os/Handler;
+
+    invoke-direct {v8}, Landroid/os/Handler;-><init>()V
+
+    new-instance v11, Lcom/android/launcher3/allapps/controller/AppsController$23;
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v11, v0, v2}, Lcom/android/launcher3/allapps/controller/AppsController$23;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;Lcom/android/launcher3/common/stage/StageEntry;)V
+
+    const-wide/16 v12, 0x3e8
+
+    invoke-virtual {v8, v11, v12, v13}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    goto :goto_0
+.end method
+
 .method private getFirstMatch(Lcom/android/launcher3/common/base/item/ItemOperator;)Landroid/view/View;
     .locals 4
 
@@ -749,15 +1229,35 @@
 
     iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
 
-    new-instance v2, Lcom/android/launcher3/allapps/controller/AppsController$17;
+    new-instance v2, Lcom/android/launcher3/allapps/controller/AppsController$18;
 
-    invoke-direct {v2, p0, p1, v0}, Lcom/android/launcher3/allapps/controller/AppsController$17;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;Lcom/android/launcher3/common/base/item/ItemOperator;[Landroid/view/View;)V
+    invoke-direct {v2, p0, p1, v0}, Lcom/android/launcher3/allapps/controller/AppsController$18;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;Lcom/android/launcher3/common/base/item/ItemOperator;[Landroid/view/View;)V
 
     invoke-virtual {v1, v3, v2}, Lcom/android/launcher3/allapps/view/AppsPagedView;->mapOverItems(ZLcom/android/launcher3/common/base/item/ItemOperator;)V
 
     aget-object v1, v0, v3
 
     return-object v1
+.end method
+
+.method private getOrganizeAppsAlertEnable()Z
+    .locals 3
+
+    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/Launcher;->getSharedPrefs()Landroid/content/SharedPreferences;
+
+    move-result-object v0
+
+    const-string v1, "AppsController.OrganizeAppsAlert"
+
+    const/4 v2, 0x1
+
+    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    return v0
 .end method
 
 .method private getTargetView(Ljava/util/ArrayList;)Landroid/view/View;
@@ -836,7 +1336,9 @@
     :goto_1
     if-ge v2, v5, :cond_1
 
-    invoke-virtual {p0, v2}, Lcom/android/launcher3/allapps/controller/AppsController;->findFirstEmptyCell(I)I
+    iget-object v8, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
+
+    invoke-virtual {v8, v2}, Lcom/android/launcher3/allapps/view/AppsPagedView;->findFirstEmptyCell(I)I
 
     move-result v1
 
@@ -1308,7 +1810,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0193
+    const v1, 0x7f0a0198
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1316,29 +1818,13 @@
 
     iput v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsSlipY:I
 
-    const v1, 0x7f0a0194
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v1
-
-    iput v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mTrayBorderLimit:I
-
-    const v1, 0x7f0a00f3
+    const v1, 0x7f0a00f6
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v1
 
     iput v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mMoveToHomeApproachingStart:I
-
-    const v1, 0x7f0a00f1
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
-
-    move-result v1
-
-    iput v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mMoveToHomeApproachingEnd:I
 
     const/high16 v1, 0x3f800000    # 1.0f
 
@@ -1384,7 +1870,7 @@
 
     iput v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mPageIndicatorScaleRatio:F
 
-    const v1, 0x7f0a0199
+    const v1, 0x7f0a019e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1421,6 +1907,341 @@
     iget-boolean v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mRemoveInProgress:Z
 
     return v0
+.end method
+
+.method private isGridState()Z
+    .locals 2
+
+    iget v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mState:I
+
+    const/4 v1, 0x5
+
+    if-ne v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method private isTidyState()Z
+    .locals 2
+
+    iget v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mState:I
+
+    const/4 v1, 0x4
+
+    if-ne v0, v1, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
+.method private modifyItemInDb(Lcom/android/launcher3/common/base/item/ItemInfo;JJIII)V
+    .locals 10
+
+    iget v9, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->hidden:I
+
+    move-object v0, p0
+
+    move-object v1, p1
+
+    move-wide v2, p2
+
+    move-wide v4, p4
+
+    move/from16 v6, p6
+
+    move/from16 v7, p7
+
+    move/from16 v8, p8
+
+    invoke-direct/range {v0 .. v9}, Lcom/android/launcher3/allapps/controller/AppsController;->modifyItemInDb(Lcom/android/launcher3/common/base/item/ItemInfo;JJIIII)V
+
+    return-void
+.end method
+
+.method private modifyItemInDb(Lcom/android/launcher3/common/base/item/ItemInfo;JJIIII)V
+    .locals 4
+
+    iput-wide p2, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
+
+    iput p8, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->rank:I
+
+    iput p6, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->cellX:I
+
+    iput p7, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->cellY:I
+
+    iput-wide p4, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->screenId:J
+
+    iput p9, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->hidden:I
+
+    const/4 v1, 0x1
+
+    iput-boolean v1, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->mDirty:Z
+
+    new-instance v0, Landroid/content/ContentValues;
+
+    invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
+
+    const-string v1, "container"
+
+    iget-wide v2, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
+
+    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
+
+    const-string v1, "rank"
+
+    iget v2, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->rank:I
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    const-string v1, "cellX"
+
+    iget v2, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->cellX:I
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    const-string v1, "cellY"
+
+    iget v2, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->cellY:I
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    const-string v1, "screen"
+
+    iget-wide v2, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->screenId:J
+
+    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
+
+    const-string v1, "hidden"
+
+    iget v2, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->hidden:I
+
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAdapterProvider:Lcom/android/launcher3/allapps/controller/AppsAdapterProvider;
+
+    invoke-virtual {v1, v0, p1}, Lcom/android/launcher3/allapps/controller/AppsAdapterProvider;->updateItem(Landroid/content/ContentValues;Lcom/android/launcher3/common/base/item/ItemInfo;)V
+
+    return-void
+.end method
+
+.method private removeAppsItem(Lcom/android/launcher3/common/base/item/ItemInfo;Z)V
+    .locals 9
+    .annotation runtime Ljava/lang/Deprecated;
+    .end annotation
+
+    const/4 v8, 0x0
+
+    const-string v5, "Launcher.AppsController"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v7, "removeAppsItem : "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-virtual {p0, p1}, Lcom/android/launcher3/allapps/controller/AppsController;->isItemInFolder(Lcom/android/launcher3/common/base/item/ItemInfo;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_1
+
+    iget-wide v6, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
+
+    invoke-virtual {p0, v6, v7}, Lcom/android/launcher3/allapps/controller/AppsController;->getAppsIconByItemId(J)Landroid/view/View;
+
+    move-result-object v5
+
+    if-eqz v5, :cond_1
+
+    iget-wide v6, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
+
+    invoke-virtual {p0, v6, v7}, Lcom/android/launcher3/allapps/controller/AppsController;->getAppsIconByItemId(J)Landroid/view/View;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Landroid/view/View;->getTag()Ljava/lang/Object;
+
+    move-result-object v5
+
+    instance-of v5, v5, Lcom/android/launcher3/folder/FolderInfo;
+
+    if-eqz v5, :cond_1
+
+    iget-wide v6, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
+
+    invoke-virtual {p0, v6, v7}, Lcom/android/launcher3/allapps/controller/AppsController;->getAppsIconByItemId(J)Landroid/view/View;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Landroid/view/View;->getTag()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Lcom/android/launcher3/folder/FolderInfo;
+
+    move-object v5, p1
+
+    check-cast v5, Lcom/android/launcher3/common/base/item/IconInfo;
+
+    invoke-virtual {v2, v5}, Lcom/android/launcher3/folder/FolderInfo;->remove(Lcom/android/launcher3/common/base/item/IconInfo;)V
+
+    const-string v5, "Launcher.AppsController"
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v7, "remove : "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {p1}, Lcom/android/launcher3/common/base/item/ItemInfo;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    iget-object v5, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
+
+    iget-wide v6, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->screenId:J
+
+    long-to-int v6, v6
+
+    invoke-virtual {v5, v6}, Lcom/android/launcher3/allapps/view/AppsPagedView;->getCellLayout(I)Lcom/android/launcher3/common/base/view/CellLayout;
+
+    move-result-object v4
+
+    if-eqz v4, :cond_0
+
+    iget v5, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->rank:I
+
+    iget-object v6, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
+
+    invoke-virtual {v6}, Lcom/android/launcher3/allapps/view/AppsPagedView;->getCellCountX()I
+
+    move-result v6
+
+    rem-int/2addr v5, v6
+
+    iget v6, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->rank:I
+
+    iget-object v7, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
+
+    invoke-virtual {v7}, Lcom/android/launcher3/allapps/view/AppsPagedView;->getCellCountX()I
+
+    move-result v7
+
+    div-int/2addr v6, v7
+
+    invoke-virtual {v4, v5, v6}, Lcom/android/launcher3/common/base/view/CellLayout;->getChildAt(II)Landroid/view/View;
+
+    move-result-object v3
+
+    invoke-direct {p0, v4, v3}, Lcom/android/launcher3/allapps/controller/AppsController;->removeAppsItem(Lcom/android/launcher3/common/base/view/CellLayout;Landroid/view/View;)V
+
+    if-eqz p2, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->getViewType()Lcom/android/launcher3/allapps/controller/AppsController$ViewType;
+
+    move-result-object v5
+
+    sget-object v6, Lcom/android/launcher3/allapps/controller/AppsController$ViewType;->ALPHABETIC_GRID:Lcom/android/launcher3/allapps/controller/AppsController$ViewType;
+
+    if-eq v5, v6, :cond_0
+
+    iget-object v5, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
+
+    invoke-virtual {v5}, Lcom/android/launcher3/allapps/view/AppsPagedView;->getMaxItemsPerScreen()I
+
+    move-result v5
+
+    add-int/lit8 v1, v5, -0x1
+
+    iget-object v5, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mReorderController:Lcom/android/launcher3/allapps/controller/AppsReorderController;
+
+    iget-wide v6, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->screenId:J
+
+    long-to-int v6, v6
+
+    invoke-virtual {v5, v8, v1, v6, v8}, Lcom/android/launcher3/allapps/controller/AppsReorderController;->removeEmptyCellAtPage(IIIZ)V
+
+    invoke-virtual {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->removeEmptyPagesAndUpdateAllItemsInfo()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->updateDirtyItems()V
+
+    goto :goto_0
 .end method
 
 .method private removeAppsItem(Lcom/android/launcher3/common/base/view/CellLayout;Landroid/view/View;)V
@@ -2311,6 +3132,155 @@
     return-void
 .end method
 
+.method private searchSettingCheck()V
+    .locals 4
+
+    iget-object v2, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
+
+    invoke-virtual {v2}, Lcom/android/launcher3/allapps/view/AppsPagedView;->getContext()Landroid/content/Context;
+
+    move-result-object v2
+
+    invoke-static {v2}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
+
+    move-result-object v1
+
+    const-string v2, "search_recommend"
+
+    const/4 v3, 0x1
+
+    invoke-interface {v1, v2, v3}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+
+    move-result v0
+
+    invoke-static {v0}, Lcom/android/launcher3/LauncherFeature;->setSupportGalaxyAppsSearch(Z)V
+
+    return-void
+.end method
+
+.method private sendGSIMLog(Lcom/android/launcher3/common/base/item/IconInfo;)V
+    .locals 7
+
+    if-eqz p1, :cond_0
+
+    invoke-virtual {p1}, Lcom/android/launcher3/common/base/item/IconInfo;->getTargetComponent()Landroid/content/ComponentName;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {}, Lcom/android/launcher3/util/logging/GSIMLogging;->getInstance()Lcom/android/launcher3/util/logging/GSIMLogging;
+
+    move-result-object v1
+
+    const-string v2, "APIS"
+
+    invoke-virtual {v0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v3
+
+    const-wide/16 v4, -0x1
+
+    const/4 v6, 0x0
+
+    invoke-virtual/range {v1 .. v6}, Lcom/android/launcher3/util/logging/GSIMLogging;->insertLogging(Ljava/lang/String;Ljava/lang/String;JZ)V
+
+    :cond_0
+    return-void
+.end method
+
+.method private setTextViewDescription(Landroid/view/View;)V
+    .locals 5
+
+    instance-of v2, p1, Landroid/widget/TextView;
+
+    if-eqz v2, :cond_0
+
+    move-object v2, p1
+
+    check-cast v2, Landroid/widget/TextView;
+
+    invoke-virtual {v2}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    iget-object v2, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v2}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v2
+
+    const v3, 0x7f09000e
+
+    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, " "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {p1, v2}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    const-string v2, "Launcher.AppsController"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "This view can\'t cast to TextView : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    if-eqz p1, :cond_1
+
+    :goto_1
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto :goto_0
+
+    :cond_1
+    const-string p1, "null"
+
+    goto :goto_1
+.end method
+
 .method public static setViewTypeFromSharedPreference(Landroid/content/Context;Lcom/android/launcher3/allapps/controller/AppsController$ViewType;)V
     .locals 4
 
@@ -2344,25 +3314,57 @@
     return-void
 .end method
 
-.method private startBounceAnimationForSearchedApp(Landroid/view/View;)V
-    .locals 1
+.method private showMoveToHomePanel(Z)V
+    .locals 2
 
-    if-nez p1, :cond_1
+    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
+
+    if-eqz v0, :cond_0
+
+    if-eqz p1, :cond_1
+
+    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
+
+    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsContainer:Lcom/android/launcher3/allapps/view/AppsContainer;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/allapps/view/AppsContainer;->getHeight()I
+
+    move-result v1
+
+    invoke-virtual {v0, p0, v1}, Lcom/android/launcher3/common/tray/TrayManager;->pullTrayForDrag(Lcom/android/launcher3/common/tray/TrayManager$TrayInteractionListener;I)V
 
     :cond_0
     :goto_0
     return-void
 
     :cond_1
+    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
+
+    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsContainer:Lcom/android/launcher3/allapps/view/AppsContainer;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/allapps/view/AppsContainer;->getHeight()I
+
+    move-result v1
+
+    invoke-virtual {v0, p0, v1}, Lcom/android/launcher3/common/tray/TrayManager;->releaseTrayForDrag(Lcom/android/launcher3/common/tray/TrayManager$TrayInteractionListener;I)V
+
+    goto :goto_0
+.end method
+
+.method private startBounceAnimationForSearchedApp(Landroid/view/View;)V
+    .locals 1
+
+    if-nez p1, :cond_0
+
+    :goto_0
+    return-void
+
+    :cond_0
     new-instance v0, Lcom/android/launcher3/util/animation/SearchedAppBounceAnimation;
 
     invoke-direct {v0, p1}, Lcom/android/launcher3/util/animation/SearchedAppBounceAnimation;-><init>(Landroid/view/View;)V
 
     iput-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mBounceAnimation:Lcom/android/launcher3/util/animation/SearchedAppBounceAnimation;
-
-    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mBounceAnimation:Lcom/android/launcher3/util/animation/SearchedAppBounceAnimation;
-
-    if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mBounceAnimation:Lcom/android/launcher3/util/animation/SearchedAppBounceAnimation;
 
@@ -2392,72 +3394,72 @@
 .end method
 
 .method private updateAppsViewByTrayPosition(FZ)V
-    .locals 19
+    .locals 17
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsContainer:Lcom/android/launcher3/allapps/view/AppsContainer;
+    iget-object v11, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsContainer:Lcom/android/launcher3/allapps/view/AppsContainer;
 
-    const/4 v14, 0x0
+    const/4 v12, 0x0
 
     move/from16 v0, p1
 
     move/from16 v1, p2
 
-    invoke-virtual {v13, v0, v14, v1}, Lcom/android/launcher3/allapps/view/AppsContainer;->setDrawBoundaryY(FZZ)V
+    invoke-virtual {v11, v0, v12, v1}, Lcom/android/launcher3/allapps/view/AppsContainer;->setDrawBoundaryY(FZZ)V
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsContainer:Lcom/android/launcher3/allapps/view/AppsContainer;
+    iget-object v11, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsContainer:Lcom/android/launcher3/allapps/view/AppsContainer;
 
-    invoke-virtual {v13}, Lcom/android/launcher3/allapps/view/AppsContainer;->getHeight()I
+    invoke-virtual {v11}, Lcom/android/launcher3/allapps/view/AppsContainer;->getHeight()I
 
-    move-result v13
+    move-result v11
 
-    int-to-float v13, v13
+    int-to-float v11, v11
 
-    add-float v5, p1, v13
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
-
-    if-eqz v13, :cond_9
+    add-float v5, p1, v11
 
     move-object/from16 v0, p0
 
-    iget v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mDownwardFadeOutEnd:I
+    iget-object v11, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
 
-    if-eqz v13, :cond_0
+    if-eqz v11, :cond_9
 
     move-object/from16 v0, p0
 
-    iget v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mUpwardFadeOutEnd:I
+    iget v11, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mDownwardFadeOutEnd:I
 
-    if-nez v13, :cond_1
+    if-eqz v11, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget v11, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mUpwardFadeOutEnd:I
+
+    if-nez v11, :cond_1
 
     :cond_0
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
+    iget-object v11, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
 
-    invoke-virtual {v13}, Lcom/android/launcher3/common/tray/TrayManager;->getTrayMovingRange()I
+    invoke-virtual {v11}, Lcom/android/launcher3/common/tray/TrayManager;->getTrayMovingRange()I
 
-    move-result v13
+    move-result v11
 
-    int-to-float v13, v13
+    int-to-float v11, v11
 
-    const v14, 0x3f666666    # 0.9f
+    const v12, 0x3f666666    # 0.9f
 
-    mul-float/2addr v13, v14
+    mul-float/2addr v11, v12
 
-    float-to-int v7, v13
+    float-to-int v7, v11
 
-    neg-int v13, v7
+    neg-int v11, v7
 
     move-object/from16 v0, p0
 
-    iput v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mDownwardFadeOutEnd:I
+    iput v11, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mDownwardFadeOutEnd:I
 
     move-object/from16 v0, p0
 
@@ -2465,59 +3467,154 @@
 
     move-object/from16 v0, p0
 
-    iget v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mUpwardFadeOutEnd:I
+    iget v11, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mUpwardFadeOutEnd:I
 
     move-object/from16 v0, p0
 
-    iget v14, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mUpwardFadeOutStart:I
+    iget v12, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mUpwardFadeOutStart:I
 
-    sub-int/2addr v13, v14
+    sub-int/2addr v11, v12
 
-    int-to-float v13, v13
+    int-to-float v11, v11
 
     move-object/from16 v0, p0
 
-    iput v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mFadeOutRange:F
+    iput v11, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mFadeOutRange:F
 
     :cond_1
-    const/4 v13, 0x0
+    const/4 v11, 0x0
 
-    cmpl-float v13, p1, v13
+    cmpl-float v11, p1, v11
 
-    if-lez v13, :cond_6
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
-
-    invoke-virtual {v13}, Lcom/android/launcher3/common/tray/TrayManager;->getTrayMovingRange()I
-
-    move-result v13
-
-    int-to-float v13, v13
-
-    sub-float v11, p1, v13
-
-    move v10, v11
+    if-lez v11, :cond_6
 
     move-object/from16 v0, p0
 
-    iget v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mDownwardFadeOutStart:I
+    iget-object v11, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
 
-    int-to-float v13, v13
+    invoke-virtual {v11}, Lcom/android/launcher3/common/tray/TrayManager;->getTrayMovingRange()I
 
-    cmpl-float v13, v11, v13
+    move-result v11
 
-    if-ltz v13, :cond_4
+    int-to-float v11, v11
+
+    sub-float v10, p1, v11
+
+    move-object/from16 v0, p0
+
+    iget v11, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mDownwardFadeOutStart:I
+
+    int-to-float v11, v11
+
+    cmpl-float v11, v10, v11
+
+    if-ltz v11, :cond_4
 
     const/high16 v6, 0x3f800000    # 1.0f
 
     :goto_0
-    const/4 v13, 0x2
+    const/4 v11, 0x2
 
-    const/4 v14, 0x2
+    const/4 v12, 0x2
 
-    invoke-static {v6, v13, v14}, Lcom/android/launcher3/Utilities;->simplifyDecimalFraction(FII)F
+    invoke-static {v6, v11, v12}, Lcom/android/launcher3/Utilities;->simplifyDecimalFraction(FII)F
+
+    const/4 v11, 0x0
+
+    const/high16 v12, 0x3f800000    # 1.0f
+
+    const/high16 v13, 0x3f800000    # 1.0f
+
+    sub-float/2addr v13, v6
+
+    move-object/from16 v0, p0
+
+    iget v14, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsAlphaRatio:F
+
+    mul-float/2addr v13, v14
+
+    sub-float/2addr v12, v13
+
+    invoke-static {v11, v12}, Ljava/lang/Math;->max(FF)F
+
+    move-result v2
+
+    move-object/from16 v0, p0
+
+    iget-object v11, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsContainer:Lcom/android/launcher3/allapps/view/AppsContainer;
+
+    invoke-virtual {v11, v2}, Lcom/android/launcher3/allapps/view/AppsContainer;->setAlpha(F)V
+
+    move-object/from16 v0, p0
+
+    iget v11, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsShrinkFactor:F
+
+    const/high16 v12, 0x3f800000    # 1.0f
+
+    move-object/from16 v0, p0
+
+    iget v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsShrinkFactor:F
+
+    sub-float/2addr v12, v13
+
+    mul-float/2addr v12, v6
+
+    add-float v9, v11, v12
+
+    move-object/from16 v0, p0
+
+    iget v11, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mState:I
+
+    move-object/from16 v0, p0
+
+    invoke-virtual {v0, v11}, Lcom/android/launcher3/allapps/controller/AppsController;->getBackgroundImageAlphaForState(I)F
+
+    move-result v11
+
+    mul-float/2addr v11, v6
+
+    float-to-double v12, v11
+
+    invoke-static {v12, v13}, Ljava/lang/Math;->sqrt(D)D
+
+    move-result-wide v12
+
+    double-to-float v4, v12
+
+    move-object/from16 v0, p0
+
+    iget-object v11, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsContainer:Lcom/android/launcher3/allapps/view/AppsContainer;
+
+    invoke-virtual {v11, v9}, Lcom/android/launcher3/allapps/view/AppsContainer;->setScaleX(F)V
+
+    move-object/from16 v0, p0
+
+    iget-object v11, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsContainer:Lcom/android/launcher3/allapps/view/AppsContainer;
+
+    invoke-virtual {v11, v9}, Lcom/android/launcher3/allapps/view/AppsContainer;->setScaleY(F)V
+
+    if-nez p2, :cond_2
+
+    move-object/from16 v0, p0
+
+    iget-object v11, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mDragLayer:Lcom/android/launcher3/common/view/DragLayer;
+
+    invoke-virtual {v11, v4}, Lcom/android/launcher3/common/view/DragLayer;->setBackgroundImageAlpha(F)V
+
+    :cond_2
+    move-object/from16 v0, p0
+
+    iget-object v11, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPageIndicatorView:Landroid/view/View;
+
+    if-eqz v11, :cond_3
+
+    move-object/from16 v0, p0
+
+    iget v11, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mPageIndicatorShrinkFactor:F
+
+    move-object/from16 v0, p0
+
+    iget v12, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mPageIndicatorShrinkFactor:F
 
     const/4 v13, 0x0
 
@@ -2529,7 +3626,7 @@
 
     move-object/from16 v0, p0
 
-    iget v0, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsAlphaRatio:F
+    iget v0, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mPageIndicatorScaleRatio:F
 
     move/from16 v16, v0
 
@@ -2539,184 +3636,70 @@
 
     invoke-static {v13, v14}, Ljava/lang/Math;->max(FF)F
 
-    move-result v2
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsContainer:Lcom/android/launcher3/allapps/view/AppsContainer;
-
-    invoke-virtual {v13, v2}, Lcom/android/launcher3/allapps/view/AppsContainer;->setAlpha(F)V
-
-    move-object/from16 v0, p0
-
-    iget v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsShrinkFactor:F
-
-    const/high16 v14, 0x3f800000    # 1.0f
-
-    move-object/from16 v0, p0
-
-    iget v15, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsShrinkFactor:F
-
-    sub-float/2addr v14, v15
-
-    mul-float/2addr v14, v6
-
-    add-float v9, v13, v14
-
-    move-object/from16 v0, p0
-
-    iget v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mState:I
-
-    move-object/from16 v0, p0
-
-    invoke-virtual {v0, v13}, Lcom/android/launcher3/allapps/controller/AppsController;->getBackgroundImageAlphaForState(I)F
-
     move-result v13
 
-    mul-float/2addr v13, v6
+    mul-float/2addr v12, v13
 
-    float-to-double v14, v13
-
-    invoke-static {v14, v15}, Ljava/lang/Math;->sqrt(D)D
-
-    move-result-wide v14
-
-    double-to-float v4, v14
+    add-float v8, v11, v12
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsContainer:Lcom/android/launcher3/allapps/view/AppsContainer;
+    iget-object v11, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPageIndicatorView:Landroid/view/View;
 
-    invoke-virtual {v13, v9}, Lcom/android/launcher3/allapps/view/AppsContainer;->setScaleX(F)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsContainer:Lcom/android/launcher3/allapps/view/AppsContainer;
-
-    invoke-virtual {v13, v9}, Lcom/android/launcher3/allapps/view/AppsContainer;->setScaleY(F)V
-
-    if-nez p2, :cond_2
+    invoke-virtual {v11, v8}, Landroid/view/View;->setScaleX(F)V
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mDragLayer:Lcom/android/launcher3/common/view/DragLayer;
+    iget-object v11, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPageIndicatorView:Landroid/view/View;
 
-    invoke-virtual {v13, v4}, Lcom/android/launcher3/common/view/DragLayer;->setBackgroundImageAlpha(F)V
-
-    :cond_2
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPageIndicatorView:Landroid/view/View;
-
-    if-eqz v13, :cond_3
-
-    move-object/from16 v0, p0
-
-    iget v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mPageIndicatorShrinkFactor:F
-
-    move-object/from16 v0, p0
-
-    iget v14, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mPageIndicatorShrinkFactor:F
-
-    const/4 v15, 0x0
-
-    const/high16 v16, 0x3f800000    # 1.0f
-
-    const/high16 v17, 0x3f800000    # 1.0f
-
-    sub-float v17, v17, v6
-
-    move-object/from16 v0, p0
-
-    iget v0, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mPageIndicatorScaleRatio:F
-
-    move/from16 v18, v0
-
-    mul-float v17, v17, v18
-
-    sub-float v16, v16, v17
-
-    invoke-static/range {v15 .. v16}, Ljava/lang/Math;->max(FF)F
-
-    move-result v15
-
-    mul-float/2addr v14, v15
-
-    add-float v8, v13, v14
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPageIndicatorView:Landroid/view/View;
-
-    invoke-virtual {v13, v8}, Landroid/view/View;->setScaleX(F)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPageIndicatorView:Landroid/view/View;
-
-    invoke-virtual {v13, v8}, Landroid/view/View;->setScaleY(F)V
+    invoke-virtual {v11, v8}, Landroid/view/View;->setScaleY(F)V
 
     :cond_3
     :goto_1
-    const/4 v13, 0x0
-
-    cmpl-float v13, v11, v13
-
-    if-eqz v13, :cond_a
-
-    const/4 v12, 0x1
-
-    :goto_2
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
+    iget-object v11, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsContainer:Lcom/android/launcher3/allapps/view/AppsContainer;
 
-    invoke-virtual {v13, v12}, Lcom/android/launcher3/allapps/view/AppsPagedView;->updateOnlyCurrentPage(Z)V
+    invoke-virtual {v11, v10}, Lcom/android/launcher3/allapps/view/AppsContainer;->setTranslationY(F)V
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsContainer:Lcom/android/launcher3/allapps/view/AppsContainer;
+    iget-object v11, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsSearch:Lcom/android/launcher3/allapps/view/AppsSearch;
 
-    invoke-virtual {v13, v11}, Lcom/android/launcher3/allapps/view/AppsContainer;->setTranslationY(F)V
+    const/4 v12, 0x0
 
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsSearch:Lcom/android/launcher3/allapps/view/AppsSearch;
-
-    const/4 v14, 0x0
-
-    invoke-virtual {v13, v14}, Lcom/android/launcher3/allapps/view/AppsSearch;->changeColorAndBackground(Z)V
+    invoke-virtual {v11, v12}, Lcom/android/launcher3/allapps/view/AppsSearch;->changeColorAndBackground(Z)V
 
     return-void
 
     :cond_4
     move-object/from16 v0, p0
 
-    iget v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mDownwardFadeOutEnd:I
+    iget v11, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mDownwardFadeOutEnd:I
 
-    int-to-float v13, v13
+    int-to-float v11, v11
 
-    cmpl-float v13, v11, v13
+    cmpl-float v11, v10, v11
 
-    if-ltz v13, :cond_5
+    if-ltz v11, :cond_5
 
-    const/high16 v13, 0x3f800000    # 1.0f
-
-    move-object/from16 v0, p0
-
-    iget v14, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mDownwardFadeOutEnd:I
-
-    int-to-float v14, v14
-
-    sub-float v14, v11, v14
+    const/high16 v11, 0x3f800000    # 1.0f
 
     move-object/from16 v0, p0
 
-    iget v15, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mFadeOutRange:F
+    iget v12, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mDownwardFadeOutEnd:I
 
-    div-float/2addr v14, v15
+    int-to-float v12, v12
 
-    invoke-static {v13, v14}, Ljava/lang/Math;->min(FF)F
+    sub-float v12, v10, v12
+
+    move-object/from16 v0, p0
+
+    iget v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mFadeOutRange:F
+
+    div-float/2addr v12, v13
+
+    invoke-static {v11, v12}, Ljava/lang/Math;->min(FF)F
 
     move-result v6
 
@@ -2730,27 +3713,25 @@
     :cond_6
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
+    iget-object v11, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
 
-    invoke-virtual {v13}, Lcom/android/launcher3/common/tray/TrayManager;->getTrayMovingRange()I
+    invoke-virtual {v11}, Lcom/android/launcher3/common/tray/TrayManager;->getTrayMovingRange()I
 
-    move-result v13
+    move-result v11
 
-    int-to-float v13, v13
+    int-to-float v11, v11
 
-    add-float v11, p1, v13
-
-    move v10, v11
+    add-float v10, p1, v11
 
     move-object/from16 v0, p0
 
-    iget v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mUpwardFadeOutStart:I
+    iget v11, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mUpwardFadeOutStart:I
 
-    int-to-float v13, v13
+    int-to-float v11, v11
 
-    cmpg-float v13, v11, v13
+    cmpg-float v11, v10, v11
 
-    if-gtz v13, :cond_7
+    if-gtz v11, :cond_7
 
     const/high16 v6, 0x3f800000    # 1.0f
 
@@ -2759,31 +3740,31 @@
     :cond_7
     move-object/from16 v0, p0
 
-    iget v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mUpwardFadeOutEnd:I
+    iget v11, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mUpwardFadeOutEnd:I
 
-    int-to-float v13, v13
+    int-to-float v11, v11
 
-    cmpg-float v13, v11, v13
+    cmpg-float v11, v10, v11
 
-    if-gtz v13, :cond_8
+    if-gtz v11, :cond_8
 
-    const/high16 v13, 0x3f800000    # 1.0f
-
-    move-object/from16 v0, p0
-
-    iget v14, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mUpwardFadeOutEnd:I
-
-    int-to-float v14, v14
-
-    sub-float/2addr v14, v11
+    const/high16 v11, 0x3f800000    # 1.0f
 
     move-object/from16 v0, p0
 
-    iget v15, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mFadeOutRange:F
+    iget v12, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mUpwardFadeOutEnd:I
 
-    div-float/2addr v14, v15
+    int-to-float v12, v12
 
-    invoke-static {v13, v14}, Ljava/lang/Math;->min(FF)F
+    sub-float/2addr v12, v10
+
+    move-object/from16 v0, p0
+
+    iget v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mFadeOutRange:F
+
+    div-float/2addr v12, v13
+
+    invoke-static {v11, v12}, Ljava/lang/Math;->min(FF)F
 
     move-result v6
 
@@ -2801,44 +3782,60 @@
 
     move-object/from16 v0, p0
 
-    iget v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsSlipY:I
+    iget v11, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsSlipY:I
 
-    int-to-float v13, v13
+    int-to-float v11, v11
 
-    int-to-float v14, v3
+    int-to-float v12, v3
 
-    sub-float v14, v5, v14
+    sub-float v12, v5, v12
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsContainer:Lcom/android/launcher3/allapps/view/AppsContainer;
+    iget-object v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsContainer:Lcom/android/launcher3/allapps/view/AppsContainer;
 
-    invoke-virtual {v15}, Lcom/android/launcher3/allapps/view/AppsContainer;->getHeight()I
+    invoke-virtual {v13}, Lcom/android/launcher3/allapps/view/AppsContainer;->getHeight()I
 
-    move-result v15
+    move-result v13
 
-    sub-int/2addr v15, v3
+    sub-int/2addr v13, v3
 
-    int-to-float v15, v15
+    int-to-float v13, v13
 
-    div-float/2addr v14, v15
+    div-float/2addr v12, v13
 
-    const/4 v15, 0x0
+    const/4 v13, 0x0
 
-    invoke-static {v14, v15}, Ljava/lang/Math;->max(FF)F
+    invoke-static {v12, v13}, Ljava/lang/Math;->max(FF)F
 
-    move-result v14
+    move-result v12
 
-    mul-float v11, v13, v14
-
-    move v10, v11
+    mul-float v10, v11, v12
 
     goto/16 :goto_1
+.end method
 
-    :cond_a
-    const/4 v12, 0x0
+.method private updateBadgeItems()V
+    .locals 1
 
-    goto/16 :goto_2
+    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mUpdateBadgeItems:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->isEmpty()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mUpdateBadgeItems:Ljava/util/ArrayList;
+
+    invoke-virtual {p0, v0}, Lcom/android/launcher3/allapps/controller/AppsController;->updateBadgeItems(Ljava/util/ArrayList;)V
+
+    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mUpdateBadgeItems:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
+
+    :cond_0
+    return-void
 .end method
 
 
@@ -2854,7 +3851,7 @@
 
     iget-object v2, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v6, 0x7f090192
+    const v6, 0x7f090197
 
     invoke-virtual {v2, v6}, Lcom/android/launcher3/Launcher;->getText(I)Ljava/lang/CharSequence;
 
@@ -2990,20 +3987,6 @@
     goto :goto_1
 .end method
 
-.method public addFolderChildItemToDb(Lcom/android/launcher3/common/base/item/ItemInfo;J)J
-    .locals 2
-
-    iput-wide p2, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
-
-    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAdapterProvider:Lcom/android/launcher3/allapps/controller/AppsAdapterProvider;
-
-    invoke-virtual {v0, p1}, Lcom/android/launcher3/allapps/controller/AppsAdapterProvider;->addItem(Lcom/android/launcher3/common/base/item/ItemInfo;)J
-
-    move-result-wide v0
-
-    return-wide v0
-.end method
-
 .method public addItem(Landroid/view/View;Lcom/android/launcher3/common/base/item/ItemInfo;)V
     .locals 1
 
@@ -3105,7 +4088,7 @@
 
     check-cast v4, Lcom/android/launcher3/common/base/item/IconInfo;
 
-    invoke-virtual {p0, v4, v2, v3}, Lcom/android/launcher3/allapps/controller/AppsController;->addFolderChildItemToDb(Lcom/android/launcher3/common/base/item/ItemInfo;J)J
+    invoke-direct {p0, v4, v2, v3}, Lcom/android/launcher3/allapps/controller/AppsController;->addFolderChildItemToDb(Lcom/android/launcher3/common/base/item/ItemInfo;J)J
 
     invoke-virtual {v0, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
@@ -3127,7 +4110,7 @@
     return-void
 
     :cond_3
-    invoke-virtual/range {p0 .. p8}, Lcom/android/launcher3/allapps/controller/AppsController;->modifyItemInDb(Lcom/android/launcher3/common/base/item/ItemInfo;JJIII)V
+    invoke-direct/range {p0 .. p8}, Lcom/android/launcher3/allapps/controller/AppsController;->modifyItemInDb(Lcom/android/launcher3/common/base/item/ItemInfo;JJIII)V
 
     goto :goto_1
 .end method
@@ -3552,90 +4535,6 @@
     goto :goto_4
 .end method
 
-.method public applyOrCancelTideUpPages()V
-    .locals 5
-
-    const v3, 0x7f0901aa
-
-    const/4 v4, 0x0
-
-    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    invoke-virtual {v1}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAdapterProvider:Lcom/android/launcher3/allapps/controller/AppsAdapterProvider;
-
-    invoke-virtual {v1, v4, v4}, Lcom/android/launcher3/allapps/controller/AppsAdapterProvider;->setStateAndUpdateLock(IZ)V
-
-    iget-boolean v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mApplyTideUpPage:Z
-
-    if-nez v1, :cond_0
-
-    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
-
-    invoke-virtual {v1, v4}, Lcom/android/launcher3/allapps/view/AppsPagedView;->setCurrentPage(I)V
-
-    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAdapterProvider:Lcom/android/launcher3/allapps/controller/AppsAdapterProvider;
-
-    const/4 v2, 0x1
-
-    invoke-virtual {v1, v2}, Lcom/android/launcher3/allapps/controller/AppsAdapterProvider;->reloadAllItemsFromDB(Z)V
-
-    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAdapterProvider:Lcom/android/launcher3/allapps/controller/AppsAdapterProvider;
-
-    invoke-virtual {v1}, Lcom/android/launcher3/allapps/controller/AppsAdapterProvider;->getNormalizer()Lcom/android/launcher3/allapps/controller/Normalizer;
-
-    move-result-object v1
-
-    const/4 v2, 0x2
-
-    invoke-direct {p0, v1, v2, v4}, Lcom/android/launcher3/allapps/controller/AppsController;->repositionByNormalizer(Lcom/android/launcher3/allapps/controller/Normalizer;IZ)V
-
-    invoke-static {}, Lcom/android/launcher3/util/logging/SALogging;->getInstance()Lcom/android/launcher3/util/logging/SALogging;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    const v3, 0x7f090110
-
-    invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v1, v2, v3}, Lcom/android/launcher3/util/logging/SALogging;->insertEventLog(Ljava/lang/String;Ljava/lang/String;)V
-
-    :goto_0
-    invoke-virtual {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->updateDirtyItems()V
-
-    iput-boolean v4, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mApplyTideUpPage:Z
-
-    return-void
-
-    :cond_0
-    invoke-static {}, Lcom/android/launcher3/util/logging/SALogging;->getInstance()Lcom/android/launcher3/util/logging/SALogging;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    const v3, 0x7f09010f
-
-    invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v1, v2, v3}, Lcom/android/launcher3/util/logging/SALogging;->insertEventLog(Ljava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_0
-.end method
-
 .method public applyScreenGrid()V
     .locals 6
 
@@ -3722,41 +4621,8 @@
 .end method
 
 .method public approachBorderOnDrag(F)V
-    .locals 1
+    .locals 0
 
-    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    invoke-virtual {v0}, Lcom/android/launcher3/Launcher;->isAppsStage()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mDragMgr:Lcom/android/launcher3/common/drag/DragManager;
-
-    invoke-virtual {v0}, Lcom/android/launcher3/common/drag/DragManager;->isDragging()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    invoke-virtual {v0}, Lcom/android/launcher3/Launcher;->isRunningAnimation()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
-
-    invoke-virtual {v0, p0, p1}, Lcom/android/launcher3/common/tray/TrayManager;->approachBorderOnDrag(Lcom/android/launcher3/common/tray/TrayManager$TrayInteractionListener;F)V
-
-    :cond_0
     return-void
 .end method
 
@@ -3891,93 +4757,11 @@
 
     const/4 v0, 0x0
 
-    invoke-virtual {p0, p1, p2, v0}, Lcom/android/launcher3/allapps/controller/AppsController;->changeState(IZZ)Z
+    invoke-direct {p0, p1, p2, v0}, Lcom/android/launcher3/allapps/controller/AppsController;->changeState(IZZ)Z
 
     move-result v0
 
     return v0
-.end method
-
-.method changeState(IZZ)Z
-    .locals 4
-
-    if-nez p3, :cond_0
-
-    iget v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mState:I
-
-    if-ne v1, p1, :cond_0
-
-    const/4 v1, 0x0
-
-    :goto_0
-    return v1
-
-    :cond_0
-    const-string v1, "Launcher.AppsController"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "changeState : "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget v3, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mState:I
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, " > "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, ", animated : "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    new-instance v0, Lcom/android/launcher3/common/stage/StageEntry;
-
-    invoke-direct {v0}, Lcom/android/launcher3/common/stage/StageEntry;-><init>()V
-
-    iput-boolean p2, v0, Lcom/android/launcher3/common/stage/StageEntry;->enableAnimation:Z
-
-    iget v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mState:I
-
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/stage/StageEntry;->setInternalStateFrom(I)V
-
-    invoke-virtual {v0, p1}, Lcom/android/launcher3/common/stage/StageEntry;->setInternalStateTo(I)V
-
-    invoke-virtual {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->getStageManager()Lcom/android/launcher3/common/stage/StageManager;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p0, v0}, Lcom/android/launcher3/common/stage/StageManager;->switchInternalState(Lcom/android/launcher3/common/stage/Stage;Lcom/android/launcher3/common/stage/StageEntry;)V
-
-    const/4 v1, 0x1
-
-    goto :goto_0
 .end method
 
 .method public chooseViewType()V
@@ -4003,9 +4787,9 @@
 
     move-result-object v1
 
-    new-instance v2, Lcom/android/launcher3/allapps/controller/AppsController$7;
+    new-instance v2, Lcom/android/launcher3/allapps/controller/AppsController$8;
 
-    invoke-direct {v2, p0}, Lcom/android/launcher3/allapps/controller/AppsController$7;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;)V
+    invoke-direct {v2, p0}, Lcom/android/launcher3/allapps/controller/AppsController$8;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;)V
 
     invoke-static {v0, v1, v2}, Lcom/android/launcher3/allapps/AppsViewTypeDialog;->createAndShow(Lcom/android/launcher3/allapps/controller/AppsController$ViewType;Landroid/app/FragmentManager;Lcom/android/launcher3/allapps/AppsViewTypeDialog$OnViewTypeChagnedListener;)V
 
@@ -4160,7 +4944,7 @@
 
     const/4 v1, 0x0
 
-    invoke-virtual {p0, p1, v1}, Lcom/android/launcher3/allapps/controller/AppsController;->removeAppsItem(Lcom/android/launcher3/common/base/item/ItemInfo;Z)V
+    invoke-direct {p0, p1, v1}, Lcom/android/launcher3/allapps/controller/AppsController;->removeAppsItem(Lcom/android/launcher3/common/base/item/ItemInfo;Z)V
 
     invoke-virtual {p0, p1}, Lcom/android/launcher3/allapps/controller/AppsController;->deleteItemFromDb(Lcom/android/launcher3/common/base/item/ItemInfo;)V
 
@@ -4321,9 +5105,9 @@
 
     invoke-direct {v13}, Landroid/os/Handler;-><init>()V
 
-    new-instance v1, Lcom/android/launcher3/allapps/controller/AppsController$14;
+    new-instance v1, Lcom/android/launcher3/allapps/controller/AppsController$15;
 
-    invoke-direct {v1, p0}, Lcom/android/launcher3/allapps/controller/AppsController$14;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;)V
+    invoke-direct {v1, p0}, Lcom/android/launcher3/allapps/controller/AppsController$15;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;)V
 
     const-wide/16 v2, 0x1f4
 
@@ -4399,7 +5183,7 @@
 
     move-result-object v3
 
-    const v5, 0x7f0901a9
+    const v5, 0x7f0901ae
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4411,7 +5195,7 @@
 
     move-result-object v3
 
-    const v6, 0x7f090114
+    const v6, 0x7f090119
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4649,13 +5433,13 @@
 
     move-result-object v0
 
-    invoke-virtual {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->isTidyState()Z
+    invoke-direct {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->isTidyState()Z
 
     move-result v2
 
     if-eqz v2, :cond_0
 
-    const v2, 0x7f090086
+    const v2, 0x7f090089
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4669,13 +5453,13 @@
     return v2
 
     :cond_0
-    invoke-virtual {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->isGridState()Z
+    invoke-direct {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->isGridState()Z
 
     move-result v2
 
     if-eqz v2, :cond_1
 
-    const v2, 0x7f0900b0
+    const v2, 0x7f0900b5
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4686,7 +5470,7 @@
     goto :goto_0
 
     :cond_1
-    const v2, 0x7f090021
+    const v2, 0x7f090023
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4718,9 +5502,9 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mExitDragStateHandler:Landroid/os/Handler;
 
-    new-instance v1, Lcom/android/launcher3/allapps/controller/AppsController$8;
+    new-instance v1, Lcom/android/launcher3/allapps/controller/AppsController$9;
 
-    invoke-direct {v1, p0}, Lcom/android/launcher3/allapps/controller/AppsController$8;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;)V
+    invoke-direct {v1, p0}, Lcom/android/launcher3/allapps/controller/AppsController$9;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;)V
 
     int-to-long v2, p1
 
@@ -4730,370 +5514,12 @@
     return-void
 .end method
 
-.method public findFirstEmptyCell(I)I
-    .locals 12
-
-    iget-object v6, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
-
-    invoke-virtual {v6}, Lcom/android/launcher3/allapps/view/AppsPagedView;->getMaxItemsPerScreen()I
-
-    move-result v0
-
-    new-array v4, v0, [Z
-
-    iget-object v6, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    invoke-virtual {v6}, Lcom/android/launcher3/Launcher;->getLauncherModel()Lcom/android/launcher3/LauncherModel;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Lcom/android/launcher3/LauncherModel;->getAppsModel()Lcom/android/launcher3/allapps/model/AppsModel;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Lcom/android/launcher3/allapps/model/AppsModel;->getTopLevelItemsInApps()Ljava/util/ArrayList;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v6
-
-    :cond_0
-    :goto_0
-    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_1
-
-    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/launcher3/common/base/item/ItemInfo;
-
-    iget-wide v8, v2, Lcom/android/launcher3/common/base/item/ItemInfo;->screenId:J
-
-    int-to-long v10, p1
-
-    cmp-long v7, v8, v10
-
-    if-nez v7, :cond_0
-
-    iget v5, v2, Lcom/android/launcher3/common/base/item/ItemInfo;->rank:I
-
-    if-ltz v5, :cond_0
-
-    if-ge v5, v0, :cond_0
-
-    const/4 v7, 0x1
-
-    aput-boolean v7, v4, v5
-
-    goto :goto_0
-
-    :cond_1
-    const/4 v1, 0x0
-
-    :goto_1
-    array-length v6, v4
-
-    if-ge v1, v6, :cond_3
-
-    aget-boolean v6, v4, v1
-
-    if-nez v6, :cond_2
-
-    :goto_2
-    return v1
-
-    :cond_2
-    add-int/lit8 v1, v1, 0x1
-
-    goto :goto_1
-
-    :cond_3
-    const/4 v1, -0x1
-
-    goto :goto_2
-.end method
-
-.method public findSearchedApp(Landroid/content/ComponentName;Landroid/os/UserHandle;)V
-    .locals 16
-
-    move-object/from16 v0, p0
-
-    iget-object v11, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    invoke-virtual {v11}, Lcom/android/launcher3/Launcher;->getLauncherModel()Lcom/android/launcher3/LauncherModel;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Lcom/android/launcher3/LauncherModel;->getAppsModel()Lcom/android/launcher3/allapps/model/AppsModel;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Lcom/android/launcher3/allapps/model/AppsModel;->getTopLevelItemsInApps()Ljava/util/ArrayList;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v11
-
-    :cond_0
-    invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v12
-
-    if-eqz v12, :cond_1
-
-    invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Lcom/android/launcher3/common/base/item/ItemInfo;
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
-
-    iget-wide v14, v6, Lcom/android/launcher3/common/base/item/ItemInfo;->screenId:J
-
-    long-to-int v13, v14
-
-    invoke-virtual {v12, v13}, Lcom/android/launcher3/allapps/view/AppsPagedView;->getCellLayout(I)Lcom/android/launcher3/common/base/view/CellLayout;
-
-    move-result-object v9
-
-    if-eqz v9, :cond_0
-
-    iget v12, v6, Lcom/android/launcher3/common/base/item/ItemInfo;->itemType:I
-
-    if-nez v12, :cond_2
-
-    iget-object v12, v6, Lcom/android/launcher3/common/base/item/ItemInfo;->componentName:Landroid/content/ComponentName;
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v12, v0}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
-
-    move-result v12
-
-    if-eqz v12, :cond_0
-
-    invoke-virtual {v6}, Lcom/android/launcher3/common/base/item/ItemInfo;->getUserHandle()Lcom/android/launcher3/common/compat/UserHandleCompat;
-
-    move-result-object v12
-
-    invoke-virtual {v12}, Lcom/android/launcher3/common/compat/UserHandleCompat;->getUser()Landroid/os/UserHandle;
-
-    move-result-object v12
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v12, v0}, Landroid/os/UserHandle;->equals(Ljava/lang/Object;)Z
-
-    move-result v12
-
-    if-eqz v12, :cond_0
-
-    move-object/from16 v0, p0
-
-    iget-object v11, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
-
-    iget-wide v12, v6, Lcom/android/launcher3/common/base/item/ItemInfo;->screenId:J
-
-    long-to-int v12, v12
-
-    invoke-virtual {v11, v12}, Lcom/android/launcher3/allapps/view/AppsPagedView;->snapToPage(I)V
-
-    iget v11, v6, Lcom/android/launcher3/common/base/item/ItemInfo;->rank:I
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
-
-    invoke-virtual {v12}, Lcom/android/launcher3/allapps/view/AppsPagedView;->getCellCountX()I
-
-    move-result v12
-
-    rem-int/2addr v11, v12
-
-    iget v12, v6, Lcom/android/launcher3/common/base/item/ItemInfo;->rank:I
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
-
-    invoke-virtual {v13}, Lcom/android/launcher3/allapps/view/AppsPagedView;->getCellCountX()I
-
-    move-result v13
-
-    div-int/2addr v12, v13
-
-    invoke-virtual {v9, v11, v12}, Lcom/android/launcher3/common/base/view/CellLayout;->getChildAt(II)Landroid/view/View;
-
-    move-result-object v10
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v10}, Lcom/android/launcher3/allapps/controller/AppsController;->startBounceAnimationForSearchedApp(Landroid/view/View;)V
-
-    :cond_1
-    :goto_0
-    return-void
-
-    :cond_2
-    iget v12, v6, Lcom/android/launcher3/common/base/item/ItemInfo;->itemType:I
-
-    const/4 v13, 0x2
-
-    if-ne v12, v13, :cond_0
-
-    move-object v4, v6
-
-    check-cast v4, Lcom/android/launcher3/folder/FolderInfo;
-
-    iget-object v12, v4, Lcom/android/launcher3/folder/FolderInfo;->contents:Ljava/util/ArrayList;
-
-    invoke-virtual {v12}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v12
-
-    :cond_3
-    invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v13
-
-    if-eqz v13, :cond_0
-
-    invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Lcom/android/launcher3/common/base/item/IconInfo;
-
-    iget-object v13, v5, Lcom/android/launcher3/common/base/item/IconInfo;->componentName:Landroid/content/ComponentName;
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v13, v0}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_3
-
-    invoke-virtual {v5}, Lcom/android/launcher3/common/base/item/IconInfo;->getUserHandle()Lcom/android/launcher3/common/compat/UserHandleCompat;
-
-    move-result-object v13
-
-    invoke-virtual {v13}, Lcom/android/launcher3/common/compat/UserHandleCompat;->getUser()Landroid/os/UserHandle;
-
-    move-result-object v13
-
-    move-object/from16 v0, p2
-
-    invoke-virtual {v13, v0}, Landroid/os/UserHandle;->equals(Ljava/lang/Object;)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_3
-
-    iget v11, v6, Lcom/android/launcher3/common/base/item/ItemInfo;->rank:I
-
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
-
-    invoke-virtual {v12}, Lcom/android/launcher3/allapps/view/AppsPagedView;->getCellCountX()I
-
-    move-result v12
-
-    rem-int/2addr v11, v12
-
-    iget v12, v6, Lcom/android/launcher3/common/base/item/ItemInfo;->rank:I
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
-
-    invoke-virtual {v13}, Lcom/android/launcher3/allapps/view/AppsPagedView;->getCellCountX()I
-
-    move-result v13
-
-    div-int/2addr v12, v13
-
-    invoke-virtual {v9, v11, v12}, Lcom/android/launcher3/common/base/view/CellLayout;->getChildAt(II)Landroid/view/View;
-
-    move-result-object v10
-
-    move-object v3, v10
-
-    check-cast v3, Lcom/android/launcher3/folder/view/FolderIconView;
-
-    new-instance v2, Lcom/android/launcher3/common/stage/StageEntry;
-
-    invoke-direct {v2}, Lcom/android/launcher3/common/stage/StageEntry;-><init>()V
-
-    const-string v11, "KEY_FOLDER_ICON_VIEW"
-
-    invoke-virtual {v2, v11, v3}, Lcom/android/launcher3/common/stage/StageEntry;->putExtras(Ljava/lang/String;Ljava/lang/Object;)V
-
-    const-string v11, "KEY_FOLDER_ICON_APPSEARCHED"
-
-    invoke-virtual {v2, v11, v5}, Lcom/android/launcher3/common/stage/StageEntry;->putExtras(Ljava/lang/String;Ljava/lang/Object;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v11, v0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
-
-    iget-wide v12, v4, Lcom/android/launcher3/folder/FolderInfo;->screenId:J
-
-    long-to-int v12, v12
-
-    invoke-virtual {v11, v12}, Lcom/android/launcher3/allapps/view/AppsPagedView;->snapToPage(I)V
-
-    new-instance v8, Landroid/os/Handler;
-
-    invoke-direct {v8}, Landroid/os/Handler;-><init>()V
-
-    new-instance v11, Lcom/android/launcher3/allapps/controller/AppsController$23;
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v11, v0, v2}, Lcom/android/launcher3/allapps/controller/AppsController$23;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;Lcom/android/launcher3/common/stage/StageEntry;)V
-
-    const-wide/16 v12, 0x3e8
-
-    invoke-virtual {v8, v11, v12, v13}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    goto :goto_0
-.end method
-
-.method public getApproachingEndPoint()I
-    .locals 1
-
-    iget v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mMoveToHomeApproachingEnd:I
-
-    return v0
-.end method
-
-.method public getApproachingStartPoint()I
-    .locals 1
-
-    iget v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mMoveToHomeApproachingStart:I
-
-    return v0
-.end method
-
 .method public getAppsIconByItemId(J)Landroid/view/View;
     .locals 1
 
-    new-instance v0, Lcom/android/launcher3/allapps/controller/AppsController$18;
+    new-instance v0, Lcom/android/launcher3/allapps/controller/AppsController$19;
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/android/launcher3/allapps/controller/AppsController$18;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;J)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/android/launcher3/allapps/controller/AppsController$19;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;J)V
 
     invoke-direct {p0, v0}, Lcom/android/launcher3/allapps/controller/AppsController;->getFirstMatch(Lcom/android/launcher3/common/base/item/ItemOperator;)Landroid/view/View;
 
@@ -5176,6 +5602,18 @@
     return v0
 .end method
 
+.method public getChildViewAt(Lcom/android/launcher3/common/base/item/ItemInfo;)Landroid/view/View;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
+
+    invoke-virtual {v0, p1}, Lcom/android/launcher3/allapps/view/AppsPagedView;->getChildViewAt(Lcom/android/launcher3/common/base/item/ItemInfo;)Landroid/view/View;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public getContainerView()Landroid/view/View;
     .locals 1
 
@@ -5188,6 +5626,16 @@
     .locals 1
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mDragController:Lcom/android/launcher3/allapps/controller/AppsDragController;
+
+    return-object v0
+.end method
+
+.method public getDragSourceForLongKey()Lcom/android/launcher3/common/drag/DragSource;
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->getDragController()Lcom/android/launcher3/allapps/controller/AppsDragController;
+
+    move-result-object v0
 
     return-object v0
 .end method
@@ -5267,26 +5715,6 @@
     return-object v1
 .end method
 
-.method public getOrganizeAppsAlertEnable()Z
-    .locals 3
-
-    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    invoke-virtual {v0}, Lcom/android/launcher3/Launcher;->getSharedPrefs()Landroid/content/SharedPreferences;
-
-    move-result-object v0
-
-    const-string v1, "AppsController.OrganizeAppsAlert"
-
-    const/4 v2, 0x1
-
-    invoke-interface {v0, v1, v2}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    return v0
-.end method
-
 .method public getPageIndexForDragView(Lcom/android/launcher3/common/base/item/ItemInfo;)I
     .locals 1
 
@@ -5311,7 +5739,7 @@
     goto :goto_0
 .end method
 
-.method public getReorderController()Lcom/android/launcher3/allapps/controller/AppsReorderController;
+.method getReorderController()Lcom/android/launcher3/allapps/controller/AppsReorderController;
     .locals 1
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mReorderController:Lcom/android/launcher3/allapps/controller/AppsReorderController;
@@ -5393,7 +5821,7 @@
     return-object v0
 .end method
 
-.method public hideViewTypeDialog()V
+.method hideViewTypeDialog()V
     .locals 2
 
     invoke-direct {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->closeViewTypeDialog()V
@@ -5516,13 +5944,13 @@
 
     move-result-object v0
 
-    new-instance v2, Lcom/android/launcher3/allapps/controller/AppsController$3;
+    new-instance v2, Lcom/android/launcher3/allapps/controller/AppsController$4;
 
-    invoke-direct {v2, p0}, Lcom/android/launcher3/allapps/controller/AppsController$3;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;)V
+    invoke-direct {v2, p0}, Lcom/android/launcher3/allapps/controller/AppsController$4;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;)V
 
     invoke-virtual {v0, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    invoke-virtual {p0, v0}, Lcom/android/launcher3/allapps/controller/AppsController;->setTextViewDescription(Landroid/view/View;)V
+    invoke-direct {p0, v0}, Lcom/android/launcher3/allapps/controller/AppsController;->setTextViewDescription(Landroid/view/View;)V
 
     iget-object v2, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
 
@@ -5532,13 +5960,13 @@
 
     move-result-object v1
 
-    new-instance v2, Lcom/android/launcher3/allapps/controller/AppsController$4;
+    new-instance v2, Lcom/android/launcher3/allapps/controller/AppsController$5;
 
-    invoke-direct {v2, p0}, Lcom/android/launcher3/allapps/controller/AppsController$4;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;)V
+    invoke-direct {v2, p0}, Lcom/android/launcher3/allapps/controller/AppsController$5;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;)V
 
     invoke-virtual {v1, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    invoke-virtual {p0, v1}, Lcom/android/launcher3/allapps/controller/AppsController;->setTextViewDescription(Landroid/view/View;)V
+    invoke-direct {p0, v1}, Lcom/android/launcher3/allapps/controller/AppsController;->setTextViewDescription(Landroid/view/View;)V
 
     iget-object v2, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
 
@@ -5555,7 +5983,7 @@
     :cond_1
     invoke-direct {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->initScreenGridPanel()V
 
-    invoke-virtual {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->searchSettingCheck()V
+    invoke-direct {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->searchSettingCheck()V
 
     invoke-super {p0}, Lcom/android/launcher3/common/stage/Stage;->initStageView()V
 
@@ -5588,26 +6016,6 @@
     const/4 v0, 0x0
 
     return v0
-.end method
-
-.method public isGridState()Z
-    .locals 2
-
-    iget v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mState:I
-
-    const/4 v1, 0x5
-
-    if-ne v0, v1, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
 .end method
 
 .method public isItemInFolder(Lcom/android/launcher3/common/base/item/ItemInfo;)Z
@@ -5737,6 +6145,36 @@
     goto :goto_0
 .end method
 
+.method public isSwitchingGridToNormal()Z
+    .locals 2
+
+    invoke-virtual {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->isSwithchingInternalState()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mPrevState:I
+
+    const/4 v1, 0x5
+
+    if-ne v0, v1, :cond_0
+
+    iget v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mState:I
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
 .method public isSwitchingState()Z
     .locals 1
 
@@ -5778,26 +6216,6 @@
     return v0
 .end method
 
-.method public isTidyState()Z
-    .locals 2
-
-    iget v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mState:I
-
-    const/4 v1, 0x4
-
-    if-ne v0, v1, :cond_0
-
-    const/4 v0, 0x1
-
-    :goto_0
-    return v0
-
-    :cond_0
-    const/4 v0, 0x0
-
-    goto :goto_0
-.end method
-
 .method public isVerticalScroll()Z
     .locals 1
 
@@ -5823,147 +6241,6 @@
     const/4 v0, 0x0
 
     goto :goto_0
-.end method
-
-.method public isVisibleGridPanel()Z
-    .locals 2
-
-    const/4 v0, 0x0
-
-    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsScreenGridPanel:Lcom/android/launcher3/allapps/AppsScreenGridPanel;
-
-    if-nez v1, :cond_1
-
-    :cond_0
-    :goto_0
-    return v0
-
-    :cond_1
-    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsScreenGridPanel:Lcom/android/launcher3/allapps/AppsScreenGridPanel;
-
-    invoke-virtual {v1}, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->getVisibility()I
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    const/4 v0, 0x1
-
-    goto :goto_0
-.end method
-
-.method public modifyItemInDb(Lcom/android/launcher3/common/base/item/ItemInfo;JJIII)V
-    .locals 10
-
-    iget v9, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->hidden:I
-
-    move-object v0, p0
-
-    move-object v1, p1
-
-    move-wide v2, p2
-
-    move-wide v4, p4
-
-    move/from16 v6, p6
-
-    move/from16 v7, p7
-
-    move/from16 v8, p8
-
-    invoke-virtual/range {v0 .. v9}, Lcom/android/launcher3/allapps/controller/AppsController;->modifyItemInDb(Lcom/android/launcher3/common/base/item/ItemInfo;JJIIII)V
-
-    return-void
-.end method
-
-.method public modifyItemInDb(Lcom/android/launcher3/common/base/item/ItemInfo;JJIIII)V
-    .locals 4
-
-    iput-wide p2, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
-
-    iput p8, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->rank:I
-
-    iput p6, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->cellX:I
-
-    iput p7, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->cellY:I
-
-    iput-wide p4, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->screenId:J
-
-    iput p9, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->hidden:I
-
-    const/4 v1, 0x1
-
-    iput-boolean v1, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->mDirty:Z
-
-    new-instance v0, Landroid/content/ContentValues;
-
-    invoke-direct {v0}, Landroid/content/ContentValues;-><init>()V
-
-    const-string v1, "container"
-
-    iget-wide v2, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
-
-    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
-
-    const-string v1, "rank"
-
-    iget v2, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->rank:I
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
-
-    const-string v1, "cellX"
-
-    iget v2, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->cellX:I
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
-
-    const-string v1, "cellY"
-
-    iget v2, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->cellY:I
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
-
-    const-string v1, "screen"
-
-    iget-wide v2, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->screenId:J
-
-    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Long;)V
-
-    const-string v1, "hidden"
-
-    iget v2, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->hidden:I
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
-
-    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAdapterProvider:Lcom/android/launcher3/allapps/controller/AppsAdapterProvider;
-
-    invoke-virtual {v1, v0, p1}, Lcom/android/launcher3/allapps/controller/AppsAdapterProvider;->updateItem(Landroid/content/ContentValues;Lcom/android/launcher3/common/base/item/ItemInfo;)V
-
-    return-void
 .end method
 
 .method public modifyItemsInDb(Ljava/util/ArrayList;JI)V
@@ -6152,9 +6429,9 @@
 
     invoke-direct {v3}, Landroid/os/Handler;-><init>()V
 
-    new-instance v4, Lcom/android/launcher3/allapps/controller/AppsController$15;
+    new-instance v4, Lcom/android/launcher3/allapps/controller/AppsController$16;
 
-    invoke-direct {v4, p0, p1}, Lcom/android/launcher3/allapps/controller/AppsController$15;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;Lcom/android/launcher3/common/base/item/IconInfo;)V
+    invoke-direct {v4, p0, p1}, Lcom/android/launcher3/allapps/controller/AppsController$16;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;Lcom/android/launcher3/common/base/item/IconInfo;)V
 
     const-wide/16 v6, 0x1f4
 
@@ -6660,13 +6937,13 @@
 
     move-result-object v1
 
-    const v3, 0x7f0901a9
+    const v3, 0x7f0901ae
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v4, 0x7f090114
+    const v4, 0x7f090119
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -6682,7 +6959,7 @@
 .end method
 
 .method public onBadgeBindingCompleted(Ljava/util/ArrayList;)V
-    .locals 2
+    .locals 4
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -6693,32 +6970,58 @@
         }
     .end annotation
 
-    new-instance v0, Lcom/android/launcher3/allapps/controller/AppsController$19;
+    invoke-virtual {p1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    invoke-direct {v0, p0, p1}, Lcom/android/launcher3/allapps/controller/AppsController$19;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;Ljava/util/ArrayList;)V
-
-    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    invoke-virtual {v1, v0}, Lcom/android/launcher3/Launcher;->waitUntilResume(Ljava/lang/Runnable;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
+    move-result-object v1
 
     :cond_0
     :goto_0
-    return-void
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/launcher3/common/base/item/ItemInfo;
+
+    iget-object v2, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mUpdateBadgeItems:Ljava/util/ArrayList;
+
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mUpdateBadgeItems:Ljava/util/ArrayList;
+
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
 
     :cond_1
-    invoke-virtual {p1}, Ljava/util/ArrayList;->isEmpty()Z
+    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    iget-object v2, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mUpdateBadgeListRunnable:Ljava/lang/Runnable;
+
+    const/4 v3, 0x1
+
+    invoke-virtual {v1, v2, v3}, Lcom/android/launcher3/Launcher;->waitUntilResume(Ljava/lang/Runnable;Z)Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-eqz v1, :cond_2
 
-    invoke-virtual {p0, p1}, Lcom/android/launcher3/allapps/controller/AppsController;->updateBadgeItems(Ljava/util/ArrayList;)V
+    :goto_1
+    return-void
 
-    goto :goto_0
+    :cond_2
+    invoke-direct {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->updateBadgeItems()V
+
+    goto :goto_1
 .end method
 
 .method public onChangeSelectMode(ZZ)V
@@ -6750,7 +7053,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0900c7
+    const v3, 0x7f0900cc
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -6772,7 +7075,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090031
+    const v3, 0x7f090033
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -6891,7 +7194,7 @@
     if-nez v4, :cond_0
 
     :cond_2
-    invoke-virtual {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->isTidyState()Z
+    invoke-direct {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->isTidyState()Z
 
     move-result v4
 
@@ -6946,7 +7249,7 @@
 
     check-cast v0, Lcom/android/launcher3/common/base/item/IconInfo;
 
-    invoke-virtual {p0, v0}, Lcom/android/launcher3/allapps/controller/AppsController;->sendGSIMLog(Lcom/android/launcher3/common/base/item/IconInfo;)V
+    invoke-direct {p0, v0}, Lcom/android/launcher3/allapps/controller/AppsController;->sendGSIMLog(Lcom/android/launcher3/common/base/item/IconInfo;)V
 
     goto :goto_1
 
@@ -6956,6 +7259,10 @@
     goto :goto_0
 
     :pswitch_2
+    instance-of v4, v1, Lcom/android/launcher3/common/base/item/IconInfo;
+
+    if-eqz v4, :cond_0
+
     move-object v0, v1
 
     check-cast v0, Lcom/android/launcher3/common/base/item/IconInfo;
@@ -6968,7 +7275,7 @@
 
     invoke-virtual {v4, v0}, Lcom/android/launcher3/allapps/view/AppsSearch;->updateRecentApp(Lcom/android/launcher3/common/base/item/IconInfo;)V
 
-    invoke-virtual {p0, v0}, Lcom/android/launcher3/allapps/controller/AppsController;->sendGSIMLog(Lcom/android/launcher3/common/base/item/IconInfo;)V
+    invoke-direct {p0, v0}, Lcom/android/launcher3/allapps/controller/AppsController;->sendGSIMLog(Lcom/android/launcher3/common/base/item/IconInfo;)V
 
     invoke-virtual {p0, v2, v2}, Lcom/android/launcher3/allapps/controller/AppsController;->changeState(IZ)Z
 
@@ -7026,7 +7333,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0901ac
+    const v5, 0x7f0901b1
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -7092,7 +7399,7 @@
     :goto_1
     const/4 v0, 0x0
 
-    invoke-virtual {p0, v0, v2, v2}, Lcom/android/launcher3/allapps/controller/AppsController;->changeState(IZZ)Z
+    invoke-direct {p0, v0, v2, v2}, Lcom/android/launcher3/allapps/controller/AppsController;->changeState(IZZ)Z
 
     goto :goto_0
 
@@ -7354,7 +7661,7 @@
     if-nez v5, :cond_0
 
     :cond_2
-    invoke-virtual {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->isTidyState()Z
+    invoke-direct {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->isTidyState()Z
 
     move-result v5
 
@@ -7435,7 +7742,7 @@
     goto :goto_1
 .end method
 
-.method public onOptionSelectedSearchRecommend()V
+.method onOptionSelectedSearchRecommend()V
     .locals 6
 
     new-instance v0, Landroid/content/Intent;
@@ -7454,9 +7761,9 @@
 
     invoke-direct {v1}, Landroid/os/Handler;-><init>()V
 
-    new-instance v2, Lcom/android/launcher3/allapps/controller/AppsController$16;
+    new-instance v2, Lcom/android/launcher3/allapps/controller/AppsController$17;
 
-    invoke-direct {v2, p0}, Lcom/android/launcher3/allapps/controller/AppsController$16;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;)V
+    invoke-direct {v2, p0}, Lcom/android/launcher3/allapps/controller/AppsController$17;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;)V
 
     const-wide/16 v4, 0x2bc
 
@@ -7479,6 +7786,10 @@
     const/4 v1, 0x0
 
     iput-boolean v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mIsResumed:Z
+
+    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/allapps/view/AppsPagedView;->onPause()V
 
     invoke-virtual {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->initBounceAnimation()V
 
@@ -7514,11 +7825,11 @@
 .method public onReceiveTrayEvent(Lcom/android/launcher3/common/tray/TrayManager$TrayEvent;)V
     .locals 7
 
-    const/4 v6, 0x1
+    const/4 v6, -0x1
 
-    const/4 v5, 0x0
+    const/4 v5, 0x1
 
-    const/4 v4, -0x1
+    const/4 v4, 0x0
 
     iget v2, p1, Lcom/android/launcher3/common/tray/TrayManager$TrayEvent;->mEventType:I
 
@@ -7539,7 +7850,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsContainer:Lcom/android/launcher3/allapps/view/AppsContainer;
 
-    invoke-virtual {v2, v5}, Lcom/android/launcher3/allapps/view/AppsContainer;->setVisibility(I)V
+    invoke-virtual {v2, v4}, Lcom/android/launcher3/allapps/view/AppsContainer;->setVisibility(I)V
 
     iget-object v2, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsContainer:Lcom/android/launcher3/allapps/view/AppsContainer;
 
@@ -7550,7 +7861,11 @@
     :cond_0
     iget-object v2, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
 
-    invoke-virtual {v2, v4, v6}, Lcom/android/launcher3/allapps/view/AppsPagedView;->updateChildrenLayersEnabled(IZ)I
+    invoke-virtual {v2, v5}, Lcom/android/launcher3/allapps/view/AppsPagedView;->updateOnlyCurrentPage(Z)V
+
+    iget-object v2, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
+
+    invoke-virtual {v2, v6, v5}, Lcom/android/launcher3/allapps/view/AppsPagedView;->updateChildrenLayersEnabled(IZ)I
 
     move-result v2
 
@@ -7563,7 +7878,7 @@
 
     float-to-int v1, v2
 
-    if-ne v1, v6, :cond_1
+    if-ne v1, v5, :cond_1
 
     iget-object v2, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsContainer:Lcom/android/launcher3/allapps/view/AppsContainer;
 
@@ -7574,11 +7889,15 @@
     :cond_1
     iget-object v2, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
 
+    invoke-virtual {v2, v4}, Lcom/android/launcher3/allapps/view/AppsPagedView;->updateOnlyCurrentPage(Z)V
+
+    iget-object v2, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
+
     iget v3, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mHwLayerPageIndexWhileTray:I
 
-    invoke-virtual {v2, v3, v5}, Lcom/android/launcher3/allapps/view/AppsPagedView;->updateChildrenLayersEnabled(IZ)I
+    invoke-virtual {v2, v3, v4}, Lcom/android/launcher3/allapps/view/AppsPagedView;->updateChildrenLayersEnabled(IZ)I
 
-    iput v4, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mHwLayerPageIndexWhileTray:I
+    iput v6, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mHwLayerPageIndexWhileTray:I
 
     goto :goto_0
 
@@ -7649,6 +7968,10 @@
     const/4 v9, 0x1
 
     iput-boolean v9, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mIsResumed:Z
+
+    iget-object v7, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
+
+    invoke-virtual {v7}, Lcom/android/launcher3/allapps/view/AppsPagedView;->onResume()V
 
     iget-object v7, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAdapterProvider:Lcom/android/launcher3/allapps/controller/AppsAdapterProvider;
 
@@ -7722,7 +8045,7 @@
     :cond_1
     iget-object v7, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    invoke-static {v7, v6}, Lcom/android/launcher3/Utilities;->isAppInstalled(Landroid/content/Context;Ljava/lang/String;)Z
+    invoke-static {v7, v6}, Lcom/android/launcher3/Utilities;->isPackageExist(Landroid/content/Context;Ljava/lang/String;)Z
 
     move-result v7
 
@@ -7821,7 +8144,7 @@
 
     move-result-object v7
 
-    invoke-virtual {p0, v2, v7}, Lcom/android/launcher3/allapps/controller/AppsController;->findSearchedApp(Landroid/content/ComponentName;Landroid/os/UserHandle;)V
+    invoke-direct {p0, v2, v7}, Lcom/android/launcher3/allapps/controller/AppsController;->findSearchedApp(Landroid/content/ComponentName;Landroid/os/UserHandle;)V
 
     iget-object v7, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
 
@@ -8029,7 +8352,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f090026
+    const v12, 0x7f090028
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -8106,7 +8429,7 @@
 
     iget-object v8, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsAnimation:Lcom/android/launcher3/allapps/AppsTransitionAnimation;
 
-    invoke-virtual {v8, v1, p1, v6, v0}, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->getEnterFromFolderAnimation(ZLcom/android/launcher3/common/stage/StageEntry;Ljava/util/HashMap;Landroid/view/View;)Landroid/animation/Animator;
+    invoke-virtual {v8, v1, v6, v0}, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->getEnterFromFolderAnimation(ZLjava/util/HashMap;Landroid/view/View;)Landroid/animation/Animator;
 
     move-result-object v2
 
@@ -8145,9 +8468,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/launcher3/allapps/controller/AppsController$6;
+    new-instance v1, Lcom/android/launcher3/allapps/controller/AppsController$7;
 
-    invoke-direct {v1, p0}, Lcom/android/launcher3/allapps/controller/AppsController$6;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;)V
+    invoke-direct {v1, p0}, Lcom/android/launcher3/allapps/controller/AppsController$7;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;)V
 
     invoke-virtual {v0, v1}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
@@ -8294,9 +8617,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/launcher3/allapps/controller/AppsController$5;
+    new-instance v1, Lcom/android/launcher3/allapps/controller/AppsController$6;
 
-    invoke-direct {v1, p0}, Lcom/android/launcher3/allapps/controller/AppsController$5;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;)V
+    invoke-direct {v1, p0}, Lcom/android/launcher3/allapps/controller/AppsController$6;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;)V
 
     invoke-virtual {v0, v1}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
@@ -8445,7 +8768,7 @@
 .method public prepareTidedUpPages()V
     .locals 4
 
-    invoke-virtual {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->getOrganizeAppsAlertEnable()Z
+    invoke-direct {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->getOrganizeAppsAlertEnable()Z
 
     move-result v1
 
@@ -8486,7 +8809,7 @@
     :cond_1
     iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v2, 0x7f090078
+    const v2, 0x7f09007a
 
     const/4 v3, 0x0
 
@@ -8739,7 +9062,7 @@
     goto :goto_0
 .end method
 
-.method public removeApps(Ljava/util/ArrayList;)V
+.method removeApps(Ljava/util/ArrayList;)V
     .locals 22
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -9073,13 +9396,13 @@
 
     invoke-direct/range {v18 .. v18}, Landroid/os/Handler;-><init>()V
 
-    new-instance v19, Lcom/android/launcher3/allapps/controller/AppsController$13;
+    new-instance v19, Lcom/android/launcher3/allapps/controller/AppsController$14;
 
     move-object/from16 v0, v19
 
     move-object/from16 v1, p0
 
-    invoke-direct {v0, v1}, Lcom/android/launcher3/allapps/controller/AppsController$13;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;)V
+    invoke-direct {v0, v1}, Lcom/android/launcher3/allapps/controller/AppsController$14;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;)V
 
     const-wide/16 v20, 0xc8
 
@@ -9099,197 +9422,16 @@
     goto :goto_5
 .end method
 
-.method public removeAppsItem(Lcom/android/launcher3/common/base/item/ItemInfo;)V
+.method removeAppsItem(Lcom/android/launcher3/common/base/item/ItemInfo;)V
     .locals 1
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
     const/4 v0, 0x1
 
-    invoke-virtual {p0, p1, v0}, Lcom/android/launcher3/allapps/controller/AppsController;->removeAppsItem(Lcom/android/launcher3/common/base/item/ItemInfo;Z)V
+    invoke-direct {p0, p1, v0}, Lcom/android/launcher3/allapps/controller/AppsController;->removeAppsItem(Lcom/android/launcher3/common/base/item/ItemInfo;Z)V
 
     return-void
-.end method
-
-.method public removeAppsItem(Lcom/android/launcher3/common/base/item/ItemInfo;Z)V
-    .locals 9
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-
-    const/4 v8, 0x0
-
-    const-string v5, "Launcher.AppsController"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v7, "removeAppsItem : "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {p0, p1}, Lcom/android/launcher3/allapps/controller/AppsController;->isItemInFolder(Lcom/android/launcher3/common/base/item/ItemInfo;)Z
-
-    move-result v5
-
-    if-eqz v5, :cond_1
-
-    iget-wide v6, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
-
-    invoke-virtual {p0, v6, v7}, Lcom/android/launcher3/allapps/controller/AppsController;->getAppsIconByItemId(J)Landroid/view/View;
-
-    move-result-object v5
-
-    if-eqz v5, :cond_1
-
-    iget-wide v6, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
-
-    invoke-virtual {p0, v6, v7}, Lcom/android/launcher3/allapps/controller/AppsController;->getAppsIconByItemId(J)Landroid/view/View;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Landroid/view/View;->getTag()Ljava/lang/Object;
-
-    move-result-object v5
-
-    instance-of v5, v5, Lcom/android/launcher3/folder/FolderInfo;
-
-    if-eqz v5, :cond_1
-
-    iget-wide v6, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
-
-    invoke-virtual {p0, v6, v7}, Lcom/android/launcher3/allapps/controller/AppsController;->getAppsIconByItemId(J)Landroid/view/View;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Landroid/view/View;->getTag()Ljava/lang/Object;
-
-    move-result-object v2
-
-    check-cast v2, Lcom/android/launcher3/folder/FolderInfo;
-
-    move-object v5, p1
-
-    check-cast v5, Lcom/android/launcher3/common/base/item/IconInfo;
-
-    invoke-virtual {v2, v5}, Lcom/android/launcher3/folder/FolderInfo;->remove(Lcom/android/launcher3/common/base/item/IconInfo;)V
-
-    const-string v5, "Launcher.AppsController"
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v7, "remove : "
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {p1}, Lcom/android/launcher3/common/base/item/ItemInfo;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
-    iget-object v5, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
-
-    iget-wide v6, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->screenId:J
-
-    long-to-int v6, v6
-
-    invoke-virtual {v5, v6}, Lcom/android/launcher3/allapps/view/AppsPagedView;->getCellLayout(I)Lcom/android/launcher3/common/base/view/CellLayout;
-
-    move-result-object v4
-
-    if-eqz v4, :cond_0
-
-    iget v5, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->rank:I
-
-    iget-object v6, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
-
-    invoke-virtual {v6}, Lcom/android/launcher3/allapps/view/AppsPagedView;->getCellCountX()I
-
-    move-result v6
-
-    rem-int/2addr v5, v6
-
-    iget v6, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->rank:I
-
-    iget-object v7, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
-
-    invoke-virtual {v7}, Lcom/android/launcher3/allapps/view/AppsPagedView;->getCellCountX()I
-
-    move-result v7
-
-    div-int/2addr v6, v7
-
-    invoke-virtual {v4, v5, v6}, Lcom/android/launcher3/common/base/view/CellLayout;->getChildAt(II)Landroid/view/View;
-
-    move-result-object v3
-
-    invoke-direct {p0, v4, v3}, Lcom/android/launcher3/allapps/controller/AppsController;->removeAppsItem(Lcom/android/launcher3/common/base/view/CellLayout;Landroid/view/View;)V
-
-    if-eqz p2, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->getViewType()Lcom/android/launcher3/allapps/controller/AppsController$ViewType;
-
-    move-result-object v5
-
-    sget-object v6, Lcom/android/launcher3/allapps/controller/AppsController$ViewType;->ALPHABETIC_GRID:Lcom/android/launcher3/allapps/controller/AppsController$ViewType;
-
-    if-eq v5, v6, :cond_0
-
-    iget-object v5, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
-
-    invoke-virtual {v5}, Lcom/android/launcher3/allapps/view/AppsPagedView;->getMaxItemsPerScreen()I
-
-    move-result v5
-
-    add-int/lit8 v1, v5, -0x1
-
-    iget-object v5, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mReorderController:Lcom/android/launcher3/allapps/controller/AppsReorderController;
-
-    iget-wide v6, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->screenId:J
-
-    long-to-int v6, v6
-
-    invoke-virtual {v5, v8, v1, v6, v8}, Lcom/android/launcher3/allapps/controller/AppsReorderController;->removeEmptyCellAtPage(IIIZ)V
-
-    invoke-virtual {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->removeEmptyPagesAndUpdateAllItemsInfo()Z
-
-    move-result v0
-
-    if-nez v0, :cond_0
-
-    invoke-virtual {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->updateDirtyItems()V
-
-    goto :goto_0
 .end method
 
 .method public removeEmptyPagesAndUpdateAllItemsInfo()Z
@@ -9676,7 +9818,7 @@
 
     if-ne v1, v2, :cond_2
 
-    invoke-virtual {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->applyOrCancelTideUpPages()V
+    invoke-direct {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->applyOrCancelTideUpPages()V
 
     goto :goto_0
 
@@ -9749,61 +9891,30 @@
     return v0
 .end method
 
-.method public searchSettingCheck()V
-    .locals 4
+.method public searchBarHasFocus()Z
+    .locals 1
 
-    iget-object v2, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
-
-    invoke-virtual {v2}, Lcom/android/launcher3/allapps/view/AppsPagedView;->getContext()Landroid/content/Context;
-
-    move-result-object v2
-
-    invoke-static {v2}, Landroid/preference/PreferenceManager;->getDefaultSharedPreferences(Landroid/content/Context;)Landroid/content/SharedPreferences;
-
-    move-result-object v1
-
-    const-string v2, "search_recommend"
-
-    const/4 v3, 0x1
-
-    invoke-interface {v1, v2, v3}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v0
-
-    invoke-static {v0}, Lcom/android/launcher3/LauncherFeature;->setSupportGalaxyAppsSearch(Z)V
-
-    return-void
-.end method
-
-.method public sendGSIMLog(Lcom/android/launcher3/common/base/item/IconInfo;)V
-    .locals 7
-
-    if-eqz p1, :cond_0
-
-    invoke-virtual {p1}, Lcom/android/launcher3/common/base/item/IconInfo;->getTargetComponent()Landroid/content/ComponentName;
+    invoke-virtual {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->getAppsSearchBarView()Landroid/view/View;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
-    invoke-static {}, Lcom/android/launcher3/util/logging/GSIMLogging;->getInstance()Lcom/android/launcher3/util/logging/GSIMLogging;
+    invoke-virtual {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->getAppsSearchBarView()Landroid/view/View;
 
-    move-result-object v1
+    move-result-object v0
 
-    const-string v2, "APIS"
+    invoke-virtual {v0}, Landroid/view/View;->hasFocus()Z
 
-    invoke-virtual {v0}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+    move-result v0
 
-    move-result-object v3
-
-    const-wide/16 v4, -0x1
-
-    const/4 v6, 0x0
-
-    invoke-virtual/range {v1 .. v6}, Lcom/android/launcher3/util/logging/GSIMLogging;->insertLogging(Ljava/lang/String;Ljava/lang/String;JZ)V
+    :goto_0
+    return v0
 
     :cond_0
-    return-void
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method setApplyTidyUpPage(Z)V
@@ -9905,104 +10016,12 @@
     goto :goto_0
 .end method
 
-.method public setTextViewDescription(Landroid/view/View;)V
-    .locals 5
-
-    instance-of v2, p1, Landroid/widget/TextView;
-
-    if-eqz v2, :cond_0
-
-    move-object v2, p1
-
-    check-cast v2, Landroid/widget/TextView;
-
-    invoke-virtual {v2}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
-
-    move-result-object v2
-
-    invoke-interface {v2}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    iget-object v2, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    invoke-virtual {v2}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    const v3, 0x7f09000e
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, " "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {p1, v2}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
-
-    :goto_0
-    return-void
-
-    :cond_0
-    const-string v2, "Launcher.AppsController"
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "This view can\'t cast to TextView : "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    if-eqz p1, :cond_1
-
-    :goto_1
-    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    :cond_1
-    const-string p1, "null"
-
-    goto :goto_1
-.end method
-
 .method public setViewType(Lcom/android/launcher3/allapps/controller/AppsController$ViewType;)V
     .locals 8
 
-    const v7, 0x7f0901ac
+    const v7, 0x7f0901b1
 
-    const v4, 0x7f09011b
+    const v4, 0x7f090120
 
     const/4 v6, 0x1
 
@@ -10089,7 +10108,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0901c6
+    const v2, 0x7f0901cb
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -10133,7 +10152,7 @@
     :goto_1
     invoke-direct {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->saveViewTypeSharefPref()V
 
-    invoke-virtual {p0, v5, v6, v6}, Lcom/android/launcher3/allapps/controller/AppsController;->changeState(IZZ)Z
+    invoke-direct {p0, v5, v6, v6}, Lcom/android/launcher3/allapps/controller/AppsController;->changeState(IZZ)Z
 
     invoke-virtual {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->getDragController()Lcom/android/launcher3/allapps/controller/AppsDragController;
 
@@ -10271,43 +10290,6 @@
     invoke-virtual {v0, v1}, Lcom/android/launcher3/util/event/ScrollDeterminator;->registrateController(I)V
 
     return-void
-.end method
-
-.method public showMoveToHomePanel(Z)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
-
-    if-eqz v0, :cond_0
-
-    if-eqz p1, :cond_1
-
-    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
-
-    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsContainer:Lcom/android/launcher3/allapps/view/AppsContainer;
-
-    invoke-virtual {v1}, Lcom/android/launcher3/allapps/view/AppsContainer;->getHeight()I
-
-    move-result v1
-
-    invoke-virtual {v0, p0, v1}, Lcom/android/launcher3/common/tray/TrayManager;->pullTrayForDrag(Lcom/android/launcher3/common/tray/TrayManager$TrayInteractionListener;I)V
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
-    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
-
-    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsContainer:Lcom/android/launcher3/allapps/view/AppsContainer;
-
-    invoke-virtual {v1}, Lcom/android/launcher3/allapps/view/AppsContainer;->getHeight()I
-
-    move-result v1
-
-    invoke-virtual {v0, p0, v1}, Lcom/android/launcher3/common/tray/TrayManager;->releaseTrayForDrag(Lcom/android/launcher3/common/tray/TrayManager$TrayInteractionListener;I)V
-
-    goto :goto_0
 .end method
 
 .method public startContactUs()V
@@ -10488,6 +10470,8 @@
 
     move-result v2
 
+    iput v2, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mPrevState:I
+
     invoke-virtual {p1}, Lcom/android/launcher3/common/stage/StageEntry;->getInternalStateTo()I
 
     move-result v5
@@ -10506,7 +10490,7 @@
 
     if-ne v5, v7, :cond_2
 
-    invoke-virtual {p0, v7}, Lcom/android/launcher3/allapps/controller/AppsController;->showMoveToHomePanel(Z)V
+    invoke-direct {p0, v7}, Lcom/android/launcher3/allapps/controller/AppsController;->showMoveToHomePanel(Z)V
 
     iget-object v6, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
 
@@ -10690,6 +10674,8 @@
     :cond_8
     if-ne v2, v7, :cond_c
 
+    invoke-direct {p0, v8}, Lcom/android/launcher3/allapps/controller/AppsController;->showMoveToHomePanel(Z)V
+
     if-nez v5, :cond_b
 
     invoke-virtual {p0}, Lcom/android/launcher3/allapps/controller/AppsController;->isSelectState()Z
@@ -10720,8 +10706,6 @@
     invoke-virtual {v6}, Lcom/android/launcher3/allapps/controller/AppsReorderController;->undoOverLastItems()V
 
     :cond_a
-    invoke-virtual {p0, v8}, Lcom/android/launcher3/allapps/controller/AppsController;->showMoveToHomePanel(Z)V
-
     iget-object v6, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsAnimation:Lcom/android/launcher3/allapps/AppsTransitionAnimation;
 
     invoke-virtual {v6, v0, v3, v8, v8}, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->getDragAnimation(ZLjava/util/HashMap;ZZ)Landroid/animation/AnimatorSet;
@@ -10810,7 +10794,7 @@
 
     invoke-virtual {v6}, Lcom/android/launcher3/allapps/view/AppsPagedView;->addExtraEmptyScreenOnDrag()V
 
-    invoke-virtual {p0, v7}, Lcom/android/launcher3/allapps/controller/AppsController;->showMoveToHomePanel(Z)V
+    invoke-direct {p0, v7}, Lcom/android/launcher3/allapps/controller/AppsController;->showMoveToHomePanel(Z)V
 
     iget-object v6, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsAnimation:Lcom/android/launcher3/allapps/AppsTransitionAnimation;
 
@@ -10893,9 +10877,9 @@
     :cond_12
     if-ne v5, v9, :cond_0
 
-    new-instance v1, Lcom/android/launcher3/allapps/controller/AppsController$9;
+    new-instance v1, Lcom/android/launcher3/allapps/controller/AppsController$10;
 
-    invoke-direct {v1, p0}, Lcom/android/launcher3/allapps/controller/AppsController$9;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;)V
+    invoke-direct {v1, p0}, Lcom/android/launcher3/allapps/controller/AppsController$10;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;)V
 
     invoke-virtual {p1, v1}, Lcom/android/launcher3/common/stage/StageEntry;->addOnCompleteRunnableCallBack(Ljava/lang/Runnable;)V
 
@@ -10908,7 +10892,7 @@
     goto/16 :goto_0
 .end method
 
-.method public updateApps(Ljava/util/ArrayList;)V
+.method updateApps(Ljava/util/ArrayList;)V
     .locals 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -10940,11 +10924,11 @@
 
     iget-object v9, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsPagedView:Lcom/android/launcher3/allapps/view/AppsPagedView;
 
-    new-instance v0, Lcom/android/launcher3/allapps/controller/AppsController$12;
+    new-instance v0, Lcom/android/launcher3/allapps/controller/AppsController$13;
 
     move-object v1, p0
 
-    invoke-direct/range {v0 .. v5}, Lcom/android/launcher3/allapps/controller/AppsController$12;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;Ljava/util/HashSet;ZLjava/util/ArrayList;Ljava/util/ArrayList;)V
+    invoke-direct/range {v0 .. v5}, Lcom/android/launcher3/allapps/controller/AppsController$13;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;Ljava/util/HashSet;ZLjava/util/ArrayList;Ljava/util/ArrayList;)V
 
     invoke-virtual {v9, v10, v0}, Lcom/android/launcher3/allapps/view/AppsPagedView;->mapOverItems(ZLcom/android/launcher3/common/base/item/ItemOperator;)V
 
@@ -11025,9 +11009,9 @@
 
     const/4 v2, 0x1
 
-    new-instance v3, Lcom/android/launcher3/allapps/controller/AppsController$10;
+    new-instance v3, Lcom/android/launcher3/allapps/controller/AppsController$11;
 
-    invoke-direct {v3, p0, v0}, Lcom/android/launcher3/allapps/controller/AppsController$10;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;Ljava/util/HashSet;)V
+    invoke-direct {v3, p0, v0}, Lcom/android/launcher3/allapps/controller/AppsController$11;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;Ljava/util/HashSet;)V
 
     invoke-virtual {v1, v2, v3}, Lcom/android/launcher3/allapps/view/AppsPagedView;->mapOverItems(ZLcom/android/launcher3/common/base/item/ItemOperator;)V
 
@@ -11077,7 +11061,7 @@
     return-void
 .end method
 
-.method public updateGridInfo()V
+.method updateGridInfo()V
     .locals 3
 
     iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController;->mAppsScreenGridPanel:Lcom/android/launcher3/allapps/AppsScreenGridPanel;
@@ -11128,7 +11112,7 @@
     return-void
 .end method
 
-.method public updateRestoreItems(Ljava/util/HashSet;)V
+.method updateRestoreItems(Ljava/util/HashSet;)V
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -11144,9 +11128,9 @@
 
     const/4 v1, 0x1
 
-    new-instance v2, Lcom/android/launcher3/allapps/controller/AppsController$11;
+    new-instance v2, Lcom/android/launcher3/allapps/controller/AppsController$12;
 
-    invoke-direct {v2, p0, p1}, Lcom/android/launcher3/allapps/controller/AppsController$11;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;Ljava/util/HashSet;)V
+    invoke-direct {v2, p0, p1}, Lcom/android/launcher3/allapps/controller/AppsController$12;-><init>(Lcom/android/launcher3/allapps/controller/AppsController;Ljava/util/HashSet;)V
 
     invoke-virtual {v0, v1, v2}, Lcom/android/launcher3/allapps/view/AppsPagedView;->mapOverItems(ZLcom/android/launcher3/common/base/item/ItemOperator;)V
 

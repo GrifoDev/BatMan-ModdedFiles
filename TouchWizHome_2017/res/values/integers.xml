@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <integer name="apps_picker_item_max_lines">2</integer>
     <integer name="apps_default_cellCountX">4</integer>
     <integer name="apps_default_cellCountY">5</integer>
     <integer name="config_workspaceOverviewShrinkPercentage">70</integer>

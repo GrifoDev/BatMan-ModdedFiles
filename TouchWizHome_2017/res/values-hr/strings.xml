@@ -17,8 +17,10 @@
     <string name="accessibility_button">Gumb</string>
     <string name="accessibility_dimmed">Prigušeno</string>
     <string name="activity_not_available">Ova aplikacija nije dostupna za vaš uređaj.</string>
-    <string name="activity_not_found">Aplikacija nije instalirana.</string>
+    <string name="activity_not_found">Aplikacija nije pronađena</string>
+    <string name="add">Dodaj</string>
     <string name="add_to_last_page">Odabrali ste više stavki (njih %1$d), ali nema dovoljno prostora na ovoj stranici. Preostale stavke (njih %2$d) dodat će se na posljednju stranicu.</string>
+    <string name="add_to_last_page_for_hotseat">Odabrali ste više stavki (njih %1$d), ali nema dovoljno prostora na traci s favoritima. Preostale stavke (njih %2$d) dodat će se na posljednju stranicu.</string>
     <string name="align_to_bottom">Poravnaj s dnom</string>
     <string name="align_to_top">Poravnaj s vrhom</string>
     <string name="app_locked_toast">%s zaključan.</string>
@@ -122,6 +124,7 @@
     <string name="new_page_created">Stranica dodana.</string>
     <string name="no_changes">Bez promjena.</string>
     <string name="no_space_page">Nema prostora na stranici. Pokušajte dodati prečac na drugu stranicu.</string>
+    <string name="no_space_page_for_hotseat">Nema prostora na traci s favoritima.</string>
     <string name="no_space_page_for_widget">Nema prostora na ovoj stranici.</string>
     <string name="not_selected">Nije odabrano</string>
     <string name="notification_panel_setting_summary">Prijeđite prstom prema dolje da biste otvorili ploču s obavijestima s početnog zaslona.</string>
@@ -156,6 +159,8 @@
     <string name="quick_option_delete_folder">Obriši mapu</string>
     <string name="quick_option_delete_folder_alert">Mapa %s bit će izbrisana. Aplikacije unutar ove mape bit će i dalje dostupne na zaslonu za aplikacije.</string>
     <string name="quick_option_delete_folder_alert_no_title">Ova će mapa biti izbrisana. Aplikacije unutar ove mape bit će i dalje dostupne na zaslonu za aplikacije.</string>
+    <string name="quick_option_delete_folder_home_only_alert">Izbrisat će se mapa %s. Aplikacije unutar ove mape bit će i dalje dostupne na početnom zaslonu.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Ova će se mapa izbrisati. Aplikacije unutar ove mape bit će i dalje dostupne na početnom zaslonu.</string>
     <string name="quick_option_dimmed_disable">Isključi</string>
     <string name="quick_option_disable">Isključi</string>
     <string name="quick_option_install_dual_im">Instal. drugu aplikaciju</string>

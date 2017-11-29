@@ -50,8 +50,7 @@
     <dimen name="overview_pannel_margin_bottom">64.0dip</dimen>
     <dimen name="overview_pannel_options_button_height">62.0dip</dimen>
     <dimen name="overview_pannel_textsize">11.0dip</dimen>
-    <dimen name="pageIndicator_dot_gap">4.0dip</dimen>
-    <dimen name="pageIndicator_dot_size">7.0dip</dimen>
+    <dimen name="pageIndicator_dot_size">12.0dip</dimen>
     <dimen name="tray_fake_view_text_size">14.0dip</dimen>
     <dimen name="tray_transfer_panel_bottom_height">19.0dip</dimen>
     <dimen name="tray_transfer_panel_top_height">54.0dip</dimen>
@@ -106,12 +105,14 @@
     <dimen name="apps_search_titlebar_padding_top">0.0dip</dimen>
     <dimen name="appsearch_menu_searchHeight">36.0dip</dimen>
     <dimen name="tidyup_container_height">43.0dip</dimen>
+    <item type="dimen" name="tidyup_container_margin_top">@dimen/status_bar_height</item>
     <item type="dimen" name="widget_folder_page_cellgap_x">@dimen/widget_page_cellgap_x</item>
     <dimen name="widget_folder_page_cellgap_y">33.0dip</dimen>
     <dimen name="widget_folder_pageindicator_container_height">23.0dip</dimen>
     <dimen name="widget_page_indicator_bottom_margin">24.0dip</dimen>
     <dimen name="widget_page_top_margin">67.0dip</dimen>
     <dimen name="appsearch_container_Height">36.0dip</dimen>
+    <dimen name="home_swipe_affordance_text_margin_top">-2.0dip</dimen>
     <dimen name="overview_home_button_size">33.0dip</dimen>
     <dimen name="overview_pannel_options_button_drawable_size">27.0dip</dimen>
     <dimen name="overview_pannel_options_button_width">74.0dip</dimen>
@@ -138,7 +139,6 @@
     <dimen name="hint_page_width">10.0dip</dimen>
     <dimen name="home_pulling_pages_offset">15.0dip</dimen>
     <dimen name="home_scroll_zone">20.0dip</dimen>
-    <dimen name="home_swipe_affordance_text_margin_top">-2.0dip</dimen>
     <dimen name="home_workspace_page_spacing">10.0dip</dimen>
     <dimen name="multi_select_help_dialog_margin_left">22.0dip</dimen>
     <dimen name="multi_select_pannel_margin_end">22.0dip</dimen>
@@ -153,6 +153,7 @@
     <dimen name="overview_zeropage_switch_text_padding_left">11.0dip</dimen>
     <dimen name="overview_zeropage_switch_text_padding_right">8.0dip</dimen>
     <dimen name="overview_zeropage_switch_text_size">13.0dip</dimen>
+    <dimen name="pageIndicator_dot_gap">4.0dip</dimen>
     <dimen name="pageIndicator_dot_margin">5.0dip</dimen>
     <dimen name="status_bar_height">23.0dip</dimen>
 </resources>

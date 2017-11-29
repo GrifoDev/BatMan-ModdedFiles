@@ -375,31 +375,7 @@
     return p1
 .end method
 
-.method static synthetic access$1600(Lcom/android/launcher3/LauncherModel;Landroid/content/Context;)V
-    .locals 0
-
-    invoke-direct {p0, p1}, Lcom/android/launcher3/LauncherModel;->deleteDeviceOnwerOMCItem(Landroid/content/Context;)V
-
-    return-void
-.end method
-
-.method static synthetic access$1700(Lcom/android/launcher3/LauncherModel;)Lcom/android/launcher3/LauncherModel$LoaderTask;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/launcher3/LauncherModel;->mLoaderTask:Lcom/android/launcher3/LauncherModel$LoaderTask;
-
-    return-object v0
-.end method
-
-.method static synthetic access$1702(Lcom/android/launcher3/LauncherModel;Lcom/android/launcher3/LauncherModel$LoaderTask;)Lcom/android/launcher3/LauncherModel$LoaderTask;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/launcher3/LauncherModel;->mLoaderTask:Lcom/android/launcher3/LauncherModel$LoaderTask;
-
-    return-object p1
-.end method
-
-.method static synthetic access$1800(Lcom/android/launcher3/LauncherModel;)Z
+.method static synthetic access$1600(Lcom/android/launcher3/LauncherModel;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/launcher3/LauncherModel;->mHasLoaderCompletedOnce:Z
@@ -407,12 +383,36 @@
     return v0
 .end method
 
-.method static synthetic access$1802(Lcom/android/launcher3/LauncherModel;Z)Z
+.method static synthetic access$1602(Lcom/android/launcher3/LauncherModel;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/launcher3/LauncherModel;->mHasLoaderCompletedOnce:Z
 
     return p1
+.end method
+
+.method static synthetic access$1700(Lcom/android/launcher3/LauncherModel;Landroid/content/Context;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/launcher3/LauncherModel;->deleteDeviceOnwerOMCItem(Landroid/content/Context;)V
+
+    return-void
+.end method
+
+.method static synthetic access$1800(Lcom/android/launcher3/LauncherModel;)Lcom/android/launcher3/LauncherModel$LoaderTask;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/LauncherModel;->mLoaderTask:Lcom/android/launcher3/LauncherModel$LoaderTask;
+
+    return-object v0
+.end method
+
+.method static synthetic access$1802(Lcom/android/launcher3/LauncherModel;Lcom/android/launcher3/LauncherModel$LoaderTask;)Lcom/android/launcher3/LauncherModel$LoaderTask;
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/launcher3/LauncherModel;->mLoaderTask:Lcom/android/launcher3/LauncherModel$LoaderTask;
+
+    return-object p1
 .end method
 
 .method static synthetic access$1900()Ljava/util/ArrayList;

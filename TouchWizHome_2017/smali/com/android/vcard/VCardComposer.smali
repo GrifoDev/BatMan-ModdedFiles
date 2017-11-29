@@ -6,14 +6,16 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/vcard/VCardComposer$RawContactEntitlesInfoCallback;,
-        Lcom/android/vcard/VCardComposer$RawContactEntitlesInfo;
+        Lcom/android/vcard/VCardComposer$RawContactEntitlesInfo;,
+        Lcom/android/vcard/VCardComposer$RawContactEntitlesInfoCallback;
     }
 .end annotation
 
 
 # static fields
 .field private static final DEBUG:Z = false
+
+.field public static ENTERPRISE_CONTACT_ID_BASE:J = 0x0L
 
 .field public static final FAILURE_REASON_FAILED_TO_GET_DATABASE_INFO:Ljava/lang/String; = "Failed to get database information"
 
@@ -22,6 +24,8 @@
 .field public static final FAILURE_REASON_NO_ENTRY:Ljava/lang/String; = "There\'s no exportable in the database"
 
 .field public static final FAILURE_REASON_UNSUPPORTED_URI:Ljava/lang/String; = "The Uri vCard composer received is not supported by the composer."
+
+.field private static final KNOX_CONTAINER_ID:Ljava/lang/String; = "knoxContainerId"
 
 .field private static final LOG_TAG:Ljava/lang/String; = "VCardComposer"
 
@@ -74,6 +78,8 @@
 .field private mIdColumn:I
 
 .field private mInitDone:Z
+
+.field private final mIsChn:Z
 
 .field private final mIsDoCoMo:Z
 
@@ -189,6 +195,22 @@
     const-string v2, "X-WHATSAPP"
 
     invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    sget-object v0, Lcom/android/vcard/VCardComposer;->sImMap:Ljava/util/Map;
+
+    const/16 v1, 0xa
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string v2, "X-FACEBOOK"
+
+    invoke-interface {v0, v1, v2}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-wide/32 v0, 0x3b9aca00
+
+    sput-wide v0, Lcom/android/vcard/VCardComposer;->ENTERPRISE_CONTACT_ID_BASE:J
 
     new-array v0, v4, [Ljava/lang/String;
 
@@ -315,6 +337,12 @@
 
     iput-boolean v2, p0, Lcom/android/vcard/VCardComposer;->mIsDoCoMo:Z
 
+    invoke-static {}, Lcom/android/vcard/VCardConfig;->isChineseSpacialized()Z
+
+    move-result v2
+
+    iput-boolean v2, p0, Lcom/android/vcard/VCardComposer;->mIsChn:Z
+
     invoke-static {p4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
@@ -336,15 +364,16 @@
 
     move-result v2
 
-    if-nez v2, :cond_4
+    if-eqz v2, :cond_1
+
+    const/4 v1, 0x0
 
     :cond_1
-    :goto_1
     iget-boolean v2, p0, Lcom/android/vcard/VCardComposer;->mIsDoCoMo:Z
 
     if-nez v2, :cond_2
 
-    if-eqz v1, :cond_7
+    if-eqz v1, :cond_6
 
     :cond_2
     const-string v2, "SHIFT_JIS"
@@ -353,22 +382,18 @@
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_4
 
     iput-object p4, p0, Lcom/android/vcard/VCardComposer;->mCharset:Ljava/lang/String;
 
-    :goto_2
+    :goto_1
     const-string v2, "VCardComposer"
 
     new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v4, "Use the charset \""
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v4, p0, Lcom/android/vcard/VCardComposer;->mCharset:Ljava/lang/String;
 
@@ -396,45 +421,40 @@
     goto :goto_0
 
     :cond_4
-    const/4 v1, 0x0
-
-    goto :goto_1
-
-    :cond_5
     invoke-static {p4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_5
 
     const-string v2, "SHIFT_JIS"
 
     iput-object v2, p0, Lcom/android/vcard/VCardComposer;->mCharset:Ljava/lang/String;
 
-    goto :goto_2
+    goto :goto_1
 
-    :cond_6
+    :cond_5
     iput-object p4, p0, Lcom/android/vcard/VCardComposer;->mCharset:Ljava/lang/String;
 
-    goto :goto_2
+    goto :goto_1
 
-    :cond_7
+    :cond_6
     invoke-static {p4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_7
 
     const-string v2, "UTF-8"
 
     iput-object v2, p0, Lcom/android/vcard/VCardComposer;->mCharset:Ljava/lang/String;
 
-    goto :goto_2
+    goto :goto_1
 
-    :cond_8
+    :cond_7
     iput-object p4, p0, Lcom/android/vcard/VCardComposer;->mCharset:Ljava/lang/String;
 
-    goto :goto_2
+    goto :goto_1
 .end method
 
 .method private closeCursorIfAppropriate()V
@@ -470,13 +490,9 @@
 
     new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v3, "SQLiteException on Cursor#close(): "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v0}, Landroid/database/sqlite/SQLiteException;->getMessage()Ljava/lang/String;
 
@@ -496,38 +512,210 @@
 .end method
 
 .method private createOneEntryInternal(JLjava/lang/reflect/Method;)Ljava/lang/String;
-    .locals 21
+    .locals 25
 
-    new-instance v11, Ljava/util/HashMap;
+    new-instance v12, Ljava/util/HashMap;
 
-    invoke-direct {v11}, Ljava/util/HashMap;-><init>()V
+    invoke-direct {v12}, Ljava/util/HashMap;-><init>()V
 
-    const/4 v14, 0x0
+    const/4 v15, 0x0
 
     :try_start_0
     move-object/from16 v0, p0
 
-    iget-object v4, v0, Lcom/android/vcard/VCardComposer;->mContentUriForRawContactsEntity:Landroid/net/Uri;
+    iget-object v5, v0, Lcom/android/vcard/VCardComposer;->mContentUriForRawContactsEntity:Landroid/net/Uri;
+
+    sget-wide v6, Lcom/android/vcard/VCardComposer;->ENTERPRISE_CONTACT_ID_BASE:J
+
+    const-wide/16 v22, 0x64
+
+    mul-long v6, v6, v22
+
+    cmp-long v4, p1, v6
+
+    if-ltz v4, :cond_2
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/vcard/VCardComposer;->mRawContactEntitlesInfoCallback:Lcom/android/vcard/VCardComposer$RawContactEntitlesInfoCallback;
+    iget-object v4, v0, Lcom/android/vcard/VCardComposer;->mRawContactEntitlesInfoCallback:Lcom/android/vcard/VCardComposer$RawContactEntitlesInfoCallback;
 
-    if-eqz v3, :cond_0
+    if-eqz v4, :cond_2
+
+    invoke-static/range {p1 .. p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/Long;->longValue()J
+
+    move-result-wide v6
+
+    sget-wide v22, Lcom/android/vcard/VCardComposer;->ENTERPRISE_CONTACT_ID_BASE:J
+
+    div-long v6, v6, v22
+
+    long-to-int v0, v6
+
+    move/from16 v20, v0
+
+    invoke-static/range {v20 .. v20}, Lcom/samsung/android/knox/SemPersonaManager;->isKnoxId(I)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_0
 
     move-object/from16 v0, p0
 
-    iget-object v3, v0, Lcom/android/vcard/VCardComposer;->mRawContactEntitlesInfoCallback:Lcom/android/vcard/VCardComposer$RawContactEntitlesInfoCallback;
+    iget-object v4, v0, Lcom/android/vcard/VCardComposer;->mRawContactEntitlesInfoCallback:Lcom/android/vcard/VCardComposer$RawContactEntitlesInfoCallback;
 
     move-wide/from16 v0, p1
 
-    invoke-interface {v3, v0, v1}, Lcom/android/vcard/VCardComposer$RawContactEntitlesInfoCallback;->getRawContactEntitlesInfo(J)Lcom/android/vcard/VCardComposer$RawContactEntitlesInfo;
+    invoke-interface {v4, v0, v1}, Lcom/android/vcard/VCardComposer$RawContactEntitlesInfoCallback;->getRawContactEntitlesInfo(J)Lcom/android/vcard/VCardComposer$RawContactEntitlesInfo;
 
     move-result-object v18
 
     move-object/from16 v0, v18
 
-    iget-object v4, v0, Lcom/android/vcard/VCardComposer$RawContactEntitlesInfo;->rawContactEntitlesUri:Landroid/net/Uri;
+    iget-object v5, v0, Lcom/android/vcard/VCardComposer$RawContactEntitlesInfo;->rawContactEntitlesUri:Landroid/net/Uri;
+
+    sget-wide v6, Lcom/android/vcard/VCardComposer;->ENTERPRISE_CONTACT_ID_BASE:J
+
+    rem-long p1, p1, v6
+
+    invoke-virtual {v5}, Landroid/net/Uri;->buildUpon()Landroid/net/Uri$Builder;
+
+    move-result-object v4
+
+    const-string v6, "knoxContainerId"
+
+    invoke-static/range {v20 .. v20}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-virtual {v4, v6, v7}, Landroid/net/Uri$Builder;->appendQueryParameter(Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri$Builder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
+
+    move-result-object v5
+
+    :cond_0
+    :goto_0
+    const-string v19, "contact_id=?"
+
+    const/4 v4, 0x1
+
+    new-array v8, v4, [Ljava/lang/String;
+
+    const/4 v4, 0x0
+
+    invoke-static/range {p1 .. p2}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
+
+    move-result-object v6
+
+    aput-object v6, v8, v4
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    if-eqz p3, :cond_4
+
+    const/4 v4, 0x0
+
+    const/4 v6, 0x5
+
+    :try_start_1
+    new-array v6, v6, [Ljava/lang/Object;
+
+    const/4 v7, 0x0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/vcard/VCardComposer;->mContentResolver:Landroid/content/ContentResolver;
+
+    move-object/from16 v21, v0
+
+    aput-object v21, v6, v7
+
+    const/4 v7, 0x1
+
+    aput-object v5, v6, v7
+
+    const/4 v7, 0x2
+
+    const-string v21, "contact_id=?"
+
+    aput-object v21, v6, v7
+
+    const/4 v7, 0x3
+
+    aput-object v8, v6, v7
+
+    const/4 v7, 0x4
+
+    const/16 v21, 0x0
+
+    aput-object v21, v6, v7
+
+    move-object/from16 v0, p3
+
+    invoke-virtual {v0, v4, v6}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v4
+
+    move-object v0, v4
+
+    check-cast v0, Landroid/content/EntityIterator;
+
+    move-object v15, v0
+    :try_end_1
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_1} :catch_0
+    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_1
+    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_1 .. :try_end_1} :catch_2
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+
+    :goto_1
+    if-nez v15, :cond_5
+
+    :try_start_2
+    const-string v4, "VCardComposer"
+
+    const-string v6, "EntityIterator is null"
+
+    invoke-static {v4, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    if-eqz v15, :cond_1
+
+    invoke-interface {v15}, Landroid/content/EntityIterator;->close()V
+
+    :cond_1
+    const-string v4, ""
+
+    :goto_2
+    return-object v4
+
+    :cond_2
+    :try_start_3
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/vcard/VCardComposer;->mRawContactEntitlesInfoCallback:Lcom/android/vcard/VCardComposer$RawContactEntitlesInfoCallback;
+
+    if-eqz v4, :cond_0
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/vcard/VCardComposer;->mRawContactEntitlesInfoCallback:Lcom/android/vcard/VCardComposer$RawContactEntitlesInfoCallback;
+
+    move-wide/from16 v0, p1
+
+    invoke-interface {v4, v0, v1}, Lcom/android/vcard/VCardComposer$RawContactEntitlesInfoCallback;->getRawContactEntitlesInfo(J)Lcom/android/vcard/VCardComposer$RawContactEntitlesInfo;
+
+    move-result-object v18
+
+    move-object/from16 v0, v18
+
+    iget-object v5, v0, Lcom/android/vcard/VCardComposer$RawContactEntitlesInfo;->rawContactEntitlesUri:Landroid/net/Uri;
 
     move-object/from16 v0, v18
 
@@ -535,333 +723,211 @@
 
     move-wide/from16 p1, v0
 
-    :cond_0
-    const-string v19, "contact_id=?"
-
-    const/4 v3, 0x1
-
-    new-array v7, v3, [Ljava/lang/String;
-
-    const/4 v3, 0x0
-
-    invoke-static/range {p1 .. p2}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
-
-    move-result-object v5
-
-    aput-object v5, v7, v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    if-eqz p3, :cond_3
-
-    const/4 v3, 0x0
-
-    const/4 v5, 0x5
-
-    :try_start_1
-    new-array v5, v5, [Ljava/lang/Object;
-
-    const/4 v6, 0x0
-
-    move-object/from16 v0, p0
-
-    iget-object v8, v0, Lcom/android/vcard/VCardComposer;->mContentResolver:Landroid/content/ContentResolver;
-
-    aput-object v8, v5, v6
-
-    const/4 v6, 0x1
-
-    aput-object v4, v5, v6
-
-    const/4 v6, 0x2
-
-    const-string v8, "contact_id=?"
-
-    aput-object v8, v5, v6
-
-    const/4 v6, 0x3
-
-    aput-object v7, v5, v6
-
-    const/4 v6, 0x4
-
-    const/4 v8, 0x0
-
-    aput-object v8, v5, v6
-
-    move-object/from16 v0, p3
-
-    invoke-virtual {v0, v3, v5}, Ljava/lang/reflect/Method;->invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v3
-
-    move-object v0, v3
-
-    check-cast v0, Landroid/content/EntityIterator;
-
-    move-object v14, v0
-    :try_end_1
-    .catch Ljava/lang/IllegalArgumentException; {:try_start_1 .. :try_end_1} :catch_0
-    .catch Ljava/lang/IllegalAccessException; {:try_start_1 .. :try_end_1} :catch_1
-    .catch Ljava/lang/reflect/InvocationTargetException; {:try_start_1 .. :try_end_1} :catch_2
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
-
-    :goto_0
-    if-nez v14, :cond_4
-
-    :try_start_2
-    const-string v3, "VCardComposer"
-
-    const-string v5, "EntityIterator is null"
-
-    invoke-static {v3, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    const-string v3, ""
-    :try_end_2
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
-
-    if-eqz v14, :cond_1
-
-    invoke-interface {v14}, Landroid/content/EntityIterator;->close()V
-
-    :cond_1
-    :goto_1
-    return-object v3
+    goto :goto_0
 
     :catch_0
-    move-exception v12
+    move-exception v13
 
-    :try_start_3
-    const-string v3, "VCardComposer"
+    const-string v4, "VCardComposer"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v7, "IllegalArgumentException has been thrown: "
 
-    const-string v6, "IllegalArgumentException has been thrown: "
+    invoke-direct {v6, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v13}, Ljava/lang/IllegalArgumentException;->getMessage()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v12}, Ljava/lang/IllegalArgumentException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v6
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v3, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
-    goto :goto_0
+    goto :goto_1
 
     :catchall_0
-    move-exception v3
+    move-exception v4
 
-    if-eqz v14, :cond_2
+    if-eqz v15, :cond_3
 
-    invoke-interface {v14}, Landroid/content/EntityIterator;->close()V
+    invoke-interface {v15}, Landroid/content/EntityIterator;->close()V
 
-    :cond_2
-    throw v3
+    :cond_3
+    throw v4
 
     :catch_1
-    move-exception v12
+    move-exception v13
 
     :try_start_4
-    const-string v3, "VCardComposer"
+    const-string v4, "VCardComposer"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v7, "IllegalAccessException has been thrown: "
 
-    const-string v6, "IllegalAccessException has been thrown: "
+    invoke-direct {v6, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v13}, Ljava/lang/IllegalAccessException;->getMessage()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v7
 
-    invoke-virtual {v12}, Ljava/lang/IllegalAccessException;->getMessage()Ljava/lang/String;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v6
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v4, v6}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    move-result-object v5
-
-    invoke-static {v3, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
+    goto :goto_1
 
     :catch_2
-    move-exception v12
+    move-exception v13
 
-    const-string v3, "VCardComposer"
+    const-string v4, "VCardComposer"
 
-    const-string v5, "InvocationTargetException has been thrown: "
+    const-string v6, "InvocationTargetException has been thrown: "
 
-    invoke-static {v3, v5, v12}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v4, v6, v13}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
-    new-instance v3, Ljava/lang/RuntimeException;
+    new-instance v4, Ljava/lang/RuntimeException;
 
-    const-string v5, "InvocationTargetException has been thrown"
+    const-string v6, "InvocationTargetException has been thrown"
 
-    invoke-direct {v3, v5}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+    invoke-direct {v4, v6}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
 
-    throw v3
-
-    :cond_3
-    move-object/from16 v0, p0
-
-    iget-object v3, v0, Lcom/android/vcard/VCardComposer;->mContentResolver:Landroid/content/ContentResolver;
-
-    const/4 v5, 0x0
-
-    const-string v6, "contact_id=?"
-
-    const/4 v8, 0x0
-
-    invoke-virtual/range {v3 .. v8}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
-
-    move-result-object v3
-
-    invoke-static {v3}, Landroid/provider/ContactsContract$RawContacts;->newEntityIterator(Landroid/database/Cursor;)Landroid/content/EntityIterator;
-
-    move-result-object v14
-
-    goto :goto_0
+    throw v4
 
     :cond_4
-    invoke-interface {v14}, Landroid/content/EntityIterator;->hasNext()Z
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    move-result v3
+    const-string v6, "is_super_primary, (CASE WHEN display_name IS (SELECT display_name FROM view_contacts WHERE _id = "
 
-    if-nez v3, :cond_5
+    invoke-direct {v4, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    const-string v3, "VCardComposer"
+    invoke-static/range {p1 .. p2}, Ljava/lang/String;->valueOf(J)Ljava/lang/String;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    move-result-object v6
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v6, "Data does not exist. contactId: "
+    move-result-object v4
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v6, ") THEN 1 ELSE 0 END) DESC"
 
-    move-result-object v5
+    invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-wide/from16 v0, p1
+    move-result-object v4
 
-    invoke-virtual {v5, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v9
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-object/from16 v0, p0
 
-    move-result-object v5
+    iget-object v4, v0, Lcom/android/vcard/VCardComposer;->mContentResolver:Landroid/content/ContentResolver;
 
-    invoke-static {v3, v5}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    const/4 v6, 0x0
 
-    const-string v3, ""
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    const-string v7, "contact_id=?"
 
-    if-eqz v14, :cond_1
+    invoke-virtual/range {v4 .. v9}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
 
-    invoke-interface {v14}, Landroid/content/EntityIterator;->close()V
+    move-result-object v4
+
+    invoke-static {v4}, Landroid/provider/ContactsContract$RawContacts;->newEntityIterator(Landroid/database/Cursor;)Landroid/content/EntityIterator;
+
+    move-result-object v15
 
     goto/16 :goto_1
 
     :cond_5
-    :try_start_5
-    invoke-interface {v14}, Landroid/content/EntityIterator;->hasNext()Z
+    invoke-interface {v15}, Landroid/content/EntityIterator;->hasNext()Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_8
+    if-nez v4, :cond_9
 
-    invoke-interface {v14}, Landroid/content/EntityIterator;->next()Ljava/lang/Object;
+    const-string v4, "VCardComposer"
 
-    move-result-object v13
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    check-cast v13, Landroid/content/Entity;
+    const-string v7, "Data does not exist. contactId: "
 
-    invoke-virtual {v13}, Landroid/content/Entity;->getSubValues()Ljava/util/ArrayList;
+    invoke-direct {v6, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    move-result-object v3
+    move-wide/from16 v0, p1
 
-    invoke-virtual {v3}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v6, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v4, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_4
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+
+    if-eqz v15, :cond_6
+
+    invoke-interface {v15}, Landroid/content/EntityIterator;->close()V
 
     :cond_6
-    :goto_2
-    invoke-interface {v15}, Ljava/util/Iterator;->hasNext()Z
+    const-string v4, ""
 
-    move-result v3
-
-    if-eqz v3, :cond_5
-
-    invoke-interface {v15}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v17
-
-    check-cast v17, Landroid/content/Entity$NamedContentValues;
-
-    move-object/from16 v0, v17
-
-    iget-object v9, v0, Landroid/content/Entity$NamedContentValues;->values:Landroid/content/ContentValues;
-
-    const-string v3, "mimetype"
-
-    invoke-virtual {v9, v3}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v16
-
-    if-eqz v16, :cond_6
-
-    move-object/from16 v0, v16
-
-    invoke-interface {v11, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v10
-
-    check-cast v10, Ljava/util/List;
-
-    if-nez v10, :cond_7
-
-    new-instance v10, Ljava/util/ArrayList;
-
-    invoke-direct {v10}, Ljava/util/ArrayList;-><init>()V
-
-    move-object/from16 v0, v16
-
-    invoke-interface {v11, v0, v10}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    goto/16 :goto_2
 
     :cond_7
-    invoke-interface {v10, v9}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    :try_start_5
+    invoke-interface {v15}, Landroid/content/EntityIterator;->next()Ljava/lang/Object;
+
+    move-result-object v14
+
+    check-cast v14, Landroid/content/Entity;
+
+    invoke-virtual {v14}, Landroid/content/Entity;->getSubValues()Ljava/util/ArrayList;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    :cond_8
+    :goto_3
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v6
+
+    if-nez v6, :cond_b
+
+    :cond_9
+    invoke-interface {v15}, Landroid/content/EntityIterator;->hasNext()Z
     :try_end_5
     .catchall {:try_start_5 .. :try_end_5} :catchall_0
 
-    goto :goto_2
+    move-result v4
 
-    :cond_8
-    if-eqz v14, :cond_9
+    if-nez v4, :cond_7
 
-    invoke-interface {v14}, Landroid/content/EntityIterator;->close()V
+    if-eqz v15, :cond_a
 
-    :cond_9
+    invoke-interface {v15}, Landroid/content/EntityIterator;->close()V
+
+    :cond_a
     move-wide/from16 v0, p1
 
     move-object/from16 v2, p0
@@ -870,11 +936,56 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v0, v11}, Lcom/android/vcard/VCardComposer;->buildVCard(Ljava/util/Map;)Ljava/lang/String;
+    invoke-virtual {v0, v12}, Lcom/android/vcard/VCardComposer;->buildVCard(Ljava/util/Map;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    goto/16 :goto_1
+    goto/16 :goto_2
+
+    :cond_b
+    :try_start_6
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v17
+
+    check-cast v17, Landroid/content/Entity$NamedContentValues;
+
+    move-object/from16 v0, v17
+
+    iget-object v10, v0, Landroid/content/Entity$NamedContentValues;->values:Landroid/content/ContentValues;
+
+    const-string v6, "mimetype"
+
+    invoke-virtual {v10, v6}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v16
+
+    if-eqz v16, :cond_8
+
+    move-object/from16 v0, v16
+
+    invoke-interface {v12, v0}, Ljava/util/Map;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v11
+
+    check-cast v11, Ljava/util/List;
+
+    if-nez v11, :cond_c
+
+    new-instance v11, Ljava/util/ArrayList;
+
+    invoke-direct {v11}, Ljava/util/ArrayList;-><init>()V
+
+    move-object/from16 v0, v16
+
+    invoke-interface {v12, v0, v11}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    :cond_c
+    invoke-interface {v11, v10}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    :try_end_6
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
+
+    goto :goto_3
 .end method
 
 .method private initInterCursorCreationPart(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Z
@@ -972,13 +1083,9 @@
 
     new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "SQLiteException on Cursor#close(): "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
+    invoke-direct {v1, v2}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v6}, Landroid/database/sqlite/SQLiteException;->getMessage()Ljava/lang/String;
 
@@ -1557,15 +1664,20 @@
     :cond_b
     iget-boolean v1, p0, Lcom/android/vcard/VCardComposer;->mIsDoCoMo:Z
 
-    if-eqz v1, :cond_c
+    if-nez v1, :cond_c
 
+    iget-boolean v1, p0, Lcom/android/vcard/VCardComposer;->mIsChn:Z
+
+    if-eqz v1, :cond_d
+
+    :cond_c
     const-string v1, "vnd.android.cursor.item/group_membership"
 
     invoke-interface {p1, v1}, Ljava/util/Map;->containsKey(Ljava/lang/Object;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_c
+    if-eqz v1, :cond_d
 
     const-string v1, "vnd.android.cursor.item/group_membership"
 
@@ -1579,7 +1691,7 @@
 
     invoke-virtual {v0, v1, v2}, Lcom/android/vcard/VCardBuilder;->appendGroupName(Ljava/util/List;Landroid/content/ContentResolver;)V
 
-    :cond_c
+    :cond_d
     invoke-virtual {v0}, Lcom/android/vcard/VCardBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1

@@ -79,7 +79,7 @@
 .end method
 
 .method public static constructPostalData(Ljava/util/List;ILjava/lang/String;ZI)Lcom/android/vcard/VCardEntry$PostalData;
-    .locals 19
+    .locals 18
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -99,43 +99,29 @@
 
     invoke-interface/range {p0 .. p0}, Ljava/util/List;->size()I
 
-    move-result v18
+    move-result v17
 
     const/4 v1, 0x7
 
-    move/from16 v0, v18
+    move/from16 v0, v17
 
     if-le v0, v1, :cond_0
 
-    const/16 v18, 0x7
+    const/16 v17, 0x7
 
     :cond_0
     const/4 v15, 0x0
 
     invoke-interface/range {p0 .. p0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v17
+    move-result-object v1
 
     :cond_1
-    invoke-interface/range {v17 .. v17}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_3
-
-    invoke-interface/range {v17 .. v17}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v13
-
-    check-cast v13, Ljava/lang/String;
-
-    aput-object v13, v14, v15
-
-    add-int/lit8 v15, v15, 0x1
-
-    move/from16 v0, v18
-
-    if-lt v15, v0, :cond_1
+    if-nez v2, :cond_2
 
     move/from16 v16, v15
 
@@ -144,19 +130,8 @@
 
     move/from16 v0, v16
 
-    if-ge v0, v1, :cond_2
+    if-lt v0, v1, :cond_3
 
-    add-int/lit8 v15, v16, 0x1
-
-    const/4 v1, 0x0
-
-    aput-object v1, v14, v16
-
-    move/from16 v16, v15
-
-    goto :goto_0
-
-    :cond_2
     new-instance v1, Lcom/android/vcard/VCardEntry$PostalData;
 
     const/4 v2, 0x0
@@ -199,7 +174,32 @@
 
     return-object v1
 
+    :cond_2
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v13
+
+    check-cast v13, Ljava/lang/String;
+
+    aput-object v13, v14, v15
+
+    add-int/lit8 v15, v15, 0x1
+
+    move/from16 v0, v17
+
+    if-lt v15, v0, :cond_1
+
+    move/from16 v16, v15
+
+    goto :goto_0
+
     :cond_3
+    add-int/lit8 v15, v16, 0x1
+
+    const/4 v1, 0x0
+
+    aput-object v1, v14, v16
+
     move/from16 v16, v15
 
     goto :goto_0
@@ -387,13 +387,13 @@
     :cond_5
     new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
     iget-object v3, p0, Lcom/android/vcard/VCardEntry$PostalData;->mStreet:Ljava/lang/String;
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v3}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v3
+
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     const-string v3, " "
 
@@ -1229,77 +1229,15 @@
 
     const/high16 v7, -0x3bf00000    # -576.0f
 
-    if-ne p1, v7, :cond_25
+    if-ne p1, v7, :cond_27
 
     :cond_22
     const/4 v4, 0x6
 
     :goto_1
-    if-ltz v4, :cond_28
-
-    aget-object v0, v2, v4
-
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v7
-
-    if-nez v7, :cond_23
-
-    if-nez v3, :cond_24
-
-    const/16 v7, 0x20
-
-    invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    :goto_2
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-gez v4, :cond_24
 
     :cond_23
-    add-int/lit8 v4, v4, -0x1
-
-    goto :goto_1
-
-    :cond_24
-    const/4 v3, 0x0
-
-    goto :goto_2
-
-    :cond_25
-    const/4 v4, 0x0
-
-    :goto_3
-    const/4 v7, 0x7
-
-    if-ge v4, v7, :cond_28
-
-    aget-object v0, v2, v4
-
-    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v7
-
-    if-nez v7, :cond_26
-
-    if-nez v3, :cond_27
-
-    const/16 v7, 0x20
-
-    invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    :goto_4
-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    :cond_26
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_3
-
-    :cond_27
-    const/4 v3, 0x0
-
-    goto :goto_4
-
-    :cond_28
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v7
@@ -1309,6 +1247,69 @@
     move-result-object v7
 
     goto/16 :goto_0
+
+    :cond_24
+    aget-object v0, v2, v4
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_25
+
+    if-nez v3, :cond_26
+
+    const/16 v7, 0x20
+
+    invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    :goto_2
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_25
+    add-int/lit8 v4, v4, -0x1
+
+    goto :goto_1
+
+    :cond_26
+    const/4 v3, 0x0
+
+    goto :goto_2
+
+    :cond_27
+    const/4 v4, 0x0
+
+    :goto_3
+    const/4 v7, 0x7
+
+    if-ge v4, v7, :cond_23
+
+    aget-object v0, v2, v4
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v7
+
+    if-nez v7, :cond_28
+
+    if-nez v3, :cond_29
+
+    const/16 v7, 0x20
+
+    invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    :goto_4
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_28
+    add-int/lit8 v4, v4, 0x1
+
+    goto :goto_3
+
+    :cond_29
+    const/4 v3, 0x0
+
+    goto :goto_4
 .end method
 
 .method public getLabel()Ljava/lang/String;
@@ -1368,125 +1369,125 @@
 .end method
 
 .method public hashCode()I
-    .locals 9
-
-    const/4 v7, 0x0
-
-    iget v1, p0, Lcom/android/vcard/VCardEntry$PostalData;->mType:I
-
-    mul-int/lit8 v8, v1, 0x1f
-
-    iget-object v6, p0, Lcom/android/vcard/VCardEntry$PostalData;->mLabel:Ljava/lang/String;
-
-    if-eqz v6, :cond_0
-
-    iget-object v6, p0, Lcom/android/vcard/VCardEntry$PostalData;->mLabel:Ljava/lang/String;
-
-    invoke-virtual {v6}, Ljava/lang/String;->hashCode()I
-
-    move-result v6
-
-    :goto_0
-    add-int v1, v8, v6
-
-    mul-int/lit8 v8, v1, 0x1f
-
-    iget-boolean v6, p0, Lcom/android/vcard/VCardEntry$PostalData;->mIsPrimary:Z
-
-    if-eqz v6, :cond_1
-
-    const/16 v6, 0x4cf
-
-    :goto_1
-    add-int v1, v8, v6
-
-    const/4 v6, 0x7
-
-    new-array v3, v6, [Ljava/lang/String;
-
-    iget-object v6, p0, Lcom/android/vcard/VCardEntry$PostalData;->mPobox:Ljava/lang/String;
-
-    aput-object v6, v3, v7
-
-    const/4 v6, 0x1
-
-    iget-object v8, p0, Lcom/android/vcard/VCardEntry$PostalData;->mExtendedAddress:Ljava/lang/String;
-
-    aput-object v8, v3, v6
-
-    const/4 v6, 0x2
-
-    iget-object v8, p0, Lcom/android/vcard/VCardEntry$PostalData;->mStreet:Ljava/lang/String;
-
-    aput-object v8, v3, v6
-
-    const/4 v6, 0x3
-
-    iget-object v8, p0, Lcom/android/vcard/VCardEntry$PostalData;->mLocalty:Ljava/lang/String;
-
-    aput-object v8, v3, v6
-
-    const/4 v6, 0x4
-
-    iget-object v8, p0, Lcom/android/vcard/VCardEntry$PostalData;->mRegion:Ljava/lang/String;
-
-    aput-object v8, v3, v6
-
-    const/4 v6, 0x5
-
-    iget-object v8, p0, Lcom/android/vcard/VCardEntry$PostalData;->mPostalCode:Ljava/lang/String;
-
-    aput-object v8, v3, v6
-
-    const/4 v6, 0x6
-
-    iget-object v8, p0, Lcom/android/vcard/VCardEntry$PostalData;->mCountry:Ljava/lang/String;
-
-    aput-object v8, v3, v6
-
-    move-object v0, v3
-
-    array-length v5, v0
+    .locals 8
 
     const/4 v4, 0x0
 
+    iget v0, p0, Lcom/android/vcard/VCardEntry$PostalData;->mType:I
+
+    mul-int/lit8 v5, v0, 0x1f
+
+    iget-object v3, p0, Lcom/android/vcard/VCardEntry$PostalData;->mLabel:Ljava/lang/String;
+
+    if-eqz v3, :cond_0
+
+    iget-object v3, p0, Lcom/android/vcard/VCardEntry$PostalData;->mLabel:Ljava/lang/String;
+
+    invoke-virtual {v3}, Ljava/lang/String;->hashCode()I
+
+    move-result v3
+
+    :goto_0
+    add-int v0, v5, v3
+
+    mul-int/lit8 v5, v0, 0x1f
+
+    iget-boolean v3, p0, Lcom/android/vcard/VCardEntry$PostalData;->mIsPrimary:Z
+
+    if-eqz v3, :cond_1
+
+    const/16 v3, 0x4cf
+
+    :goto_1
+    add-int v0, v5, v3
+
+    const/4 v3, 0x7
+
+    new-array v2, v3, [Ljava/lang/String;
+
+    iget-object v3, p0, Lcom/android/vcard/VCardEntry$PostalData;->mPobox:Ljava/lang/String;
+
+    aput-object v3, v2, v4
+
+    const/4 v3, 0x1
+
+    iget-object v5, p0, Lcom/android/vcard/VCardEntry$PostalData;->mExtendedAddress:Ljava/lang/String;
+
+    aput-object v5, v2, v3
+
+    const/4 v3, 0x2
+
+    iget-object v5, p0, Lcom/android/vcard/VCardEntry$PostalData;->mStreet:Ljava/lang/String;
+
+    aput-object v5, v2, v3
+
+    const/4 v3, 0x3
+
+    iget-object v5, p0, Lcom/android/vcard/VCardEntry$PostalData;->mLocalty:Ljava/lang/String;
+
+    aput-object v5, v2, v3
+
+    const/4 v3, 0x4
+
+    iget-object v5, p0, Lcom/android/vcard/VCardEntry$PostalData;->mRegion:Ljava/lang/String;
+
+    aput-object v5, v2, v3
+
+    const/4 v3, 0x5
+
+    iget-object v5, p0, Lcom/android/vcard/VCardEntry$PostalData;->mPostalCode:Ljava/lang/String;
+
+    aput-object v5, v2, v3
+
+    const/4 v3, 0x6
+
+    iget-object v5, p0, Lcom/android/vcard/VCardEntry$PostalData;->mCountry:Ljava/lang/String;
+
+    aput-object v5, v2, v3
+
+    array-length v6, v2
+
+    move v5, v4
+
     :goto_2
-    if-ge v4, v5, :cond_3
+    if-lt v5, v6, :cond_2
 
-    aget-object v2, v0, v4
-
-    mul-int/lit8 v8, v1, 0x1f
-
-    if-eqz v2, :cond_2
-
-    invoke-virtual {v2}, Ljava/lang/String;->hashCode()I
-
-    move-result v6
-
-    :goto_3
-    add-int v1, v8, v6
-
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_2
+    return v0
 
     :cond_0
-    move v6, v7
+    move v3, v4
 
     goto :goto_0
 
     :cond_1
-    const/16 v6, 0x4d5
+    const/16 v3, 0x4d5
 
     goto :goto_1
 
     :cond_2
-    move v6, v7
+    aget-object v1, v2, v5
 
-    goto :goto_3
+    mul-int/lit8 v7, v0, 0x1f
+
+    if-eqz v1, :cond_3
+
+    invoke-virtual {v1}, Ljava/lang/String;->hashCode()I
+
+    move-result v3
+
+    :goto_3
+    add-int v0, v7, v3
+
+    add-int/lit8 v3, v5, 0x1
+
+    move v5, v3
+
+    goto :goto_2
 
     :cond_3
-    return v1
+    move v3, v4
+
+    goto :goto_3
 .end method
 
 .method public isEmpty()Z

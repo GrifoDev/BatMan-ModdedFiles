@@ -16,8 +16,10 @@
     <string name="accessibility_button">Тугма</string>
     <string name="accessibility_dimmed">Тира шуд</string>
     <string name="activity_not_available">Ин барнома барои дастгоҳи шумо дастрас нест.</string>
-    <string name="activity_not_found">Барнома насб нашудааст.</string>
+    <string name="activity_not_found">Барнома ёфт нашуд</string>
+    <string name="add">Илова кардан</string>
     <string name="add_to_last_page">Шумо %1$d ҷузъ интихоб кардаед, аммо дар ин саҳифа ҷой намерасад. %2$d ҷузъ ба саҳифаи охирин илова карда мешавад.</string>
+    <string name="add_to_last_page_for_hotseat">Шумо %1$d ҷузъ интихоб кардаед, аммо дар лавҳаи писандидаҳо ҷой намерасад. %2$d ҷузъ ба саҳифаи охирин илова карда мешавад.</string>
     <string name="align_to_bottom">Ба поён мос кардан</string>
     <string name="align_to_top">Ба боло мос кардан</string>
     <string name="app_locked_toast">%s банд шудааст.</string>
@@ -121,13 +123,14 @@
     <string name="new_page_created">Саҳифа илова карда шуд.</string>
     <string name="no_changes">Тағйирот нест.</string>
     <string name="no_space_page">Дар саҳифа ҷой нест. Миёнбурро ба саҳифаи дигаре илова кунед.</string>
+    <string name="no_space_page_for_hotseat">Дар лавҳаи писандидаҳо ҷой нест.</string>
     <string name="no_space_page_for_widget">Дар ин саҳифа ҷой нест.</string>
     <string name="not_selected">Интихоб нашудааст</string>
     <string name="notification_panel_setting_summary">Барои дар экрани Асосӣ панели огоҳиро кушодан, ба поён бимолед.</string>
     <string name="notification_panel_setting_title">Кушодани зуди панели огоҳӣ</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Видҷети %s аллакай ба экрани асосӣ илова карда шудааст.</string>
-    <string name="option_menu_contact_up">Бо мо тамос гиред</string>
+    <string name="option_menu_contact_up">Тамос бо мо</string>
     <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Танзимот</string>
     <string name="options_menu">Имконоти бештар</string>
@@ -155,6 +158,8 @@
     <string name="quick_option_delete_folder">Нест кардани ҷузвадон</string>
     <string name="quick_option_delete_folder_alert">Ҷузвдони %s нест карда мешавад. Барномаҳои дохили ин ҷузвдон ба ҳар ҳол дар экрани Барномаҳо дастрас мемонанд.</string>
     <string name="quick_option_delete_folder_alert_no_title">Ин ҷузвдон нест карда мешавад. Барномаҳои дохили ин ҷузвдон ба ҳар ҳол дар экрани Барномаҳо дастрас мемонанд.</string>
+    <string name="quick_option_delete_folder_home_only_alert">Ҷузвдони %s нест карда мешавад. Барномаҳои дохили он ба ҳар ҳол дар экрани Асосӣ дастрас мемонанд.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Ин ҷузвдон нест карда мешавад. Барномаҳои дохили он ба ҳар ҳол дар экрани Асосӣ дастрас мемонанд.</string>
     <string name="quick_option_dimmed_disable">Ғайрифаъол</string>
     <string name="quick_option_disable">Ғайрифаъол</string>
     <string name="quick_option_install_dual_im">Барномаи дуюмро насб к-н</string>

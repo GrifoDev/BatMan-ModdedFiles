@@ -37,7 +37,7 @@
 
 
 # direct methods
-.method public constructor <init>(IF)V
+.method constructor <init>(IF)V
     .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V

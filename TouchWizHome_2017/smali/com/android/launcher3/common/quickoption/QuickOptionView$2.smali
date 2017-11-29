@@ -43,7 +43,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/quickoption/QuickOptionView$2;->this$0:Lcom/android/launcher3/common/quickoption/QuickOptionView;
 
-    invoke-static {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->access$000(Lcom/android/launcher3/common/quickoption/QuickOptionView;)Lcom/android/launcher3/Launcher;
+    invoke-static {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->access$200(Lcom/android/launcher3/common/quickoption/QuickOptionView;)Lcom/android/launcher3/Launcher;
 
     move-result-object v0
 
@@ -57,7 +57,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/quickoption/QuickOptionView$2;->this$0:Lcom/android/launcher3/common/quickoption/QuickOptionView;
 
-    invoke-static {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->access$000(Lcom/android/launcher3/common/quickoption/QuickOptionView;)Lcom/android/launcher3/Launcher;
+    invoke-static {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->access$200(Lcom/android/launcher3/common/quickoption/QuickOptionView;)Lcom/android/launcher3/Launcher;
 
     move-result-object v0
 
@@ -69,7 +69,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/quickoption/QuickOptionView$2;->this$0:Lcom/android/launcher3/common/quickoption/QuickOptionView;
 
-    invoke-static {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->access$000(Lcom/android/launcher3/common/quickoption/QuickOptionView;)Lcom/android/launcher3/Launcher;
+    invoke-static {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->access$200(Lcom/android/launcher3/common/quickoption/QuickOptionView;)Lcom/android/launcher3/Launcher;
 
     move-result-object v0
 

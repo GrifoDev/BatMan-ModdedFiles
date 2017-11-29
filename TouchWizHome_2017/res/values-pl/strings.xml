@@ -17,8 +17,10 @@
     <string name="accessibility_button">Przycisk</string>
     <string name="accessibility_dimmed">Przyciemnione</string>
     <string name="activity_not_available">Ta aplikacja nie jest dostępna dla Twojego urządzenia.</string>
-    <string name="activity_not_found">Aplikacja nie została zainstalowana.</string>
+    <string name="activity_not_found">Nie znaleziono aplikacji</string>
+    <string name="add">Dodaj</string>
     <string name="add_to_last_page">Zostało wybranych elementów: %1$d, ale brakuje miejsca na tej stronie. Pozostałych elementów: %2$d zostanie dodanych do ostatniej strony.</string>
+    <string name="add_to_last_page_for_hotseat">Zostało wybranych elementów: %1$d, ale brakuje miejsca w zasobniku ulubionych. Pozostałych elementów: %2$d zostanie dodanych do ostatniej strony.</string>
     <string name="align_to_bottom">Wyrównaj do dołu</string>
     <string name="align_to_top">Wyrównaj do góry</string>
     <string name="app_locked_toast">Aplikacja %s zablokowana.</string>
@@ -123,13 +125,14 @@ Microsoft"</string>
     <string name="new_page_created">Dodano stronę.</string>
     <string name="no_changes">Brak zmian.</string>
     <string name="no_space_page">Brak miejsca na stronie. Spróbuj dodać skrót na innej stronie.</string>
+    <string name="no_space_page_for_hotseat">Brak miejsca w zasobniku ulubionych.</string>
     <string name="no_space_page_for_widget">Brak miejsca na tej stronie.</string>
     <string name="not_selected">Niewybrany</string>
     <string name="notification_panel_setting_summary">Przeciągnij w dół, aby otworzyć panel powiadomień z ekranu startowego.</string>
     <string name="notification_panel_setting_title">Szybko otwórz panel powiadomień</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Widget %s został już dodany do ekranu startowego.</string>
-    <string name="option_menu_contact_up">Skontaktuj się z nami</string>
+    <string name="option_menu_contact_up">Kontakt z nami</string>
     <string name="option_menu_galaxy_essentials">Niezbędne dla Galaxy</string>
     <string name="option_menu_home_settings">Ustawienia</string>
     <string name="options_menu">Więcej opcji</string>
@@ -157,6 +160,8 @@ Microsoft"</string>
     <string name="quick_option_delete_folder">Usuń katalog</string>
     <string name="quick_option_delete_folder_alert">Katalog %s zostanie usunięty. Aplikacje w nim zawarte będą nadal dostępne na ekranie Aplikacje.</string>
     <string name="quick_option_delete_folder_alert_no_title">Ten katalog zostanie usunięty. Aplikacje w nim zawarte będą nadal dostępne na ekranie Aplikacje.</string>
+    <string name="quick_option_delete_folder_home_only_alert">Katalog %s zostanie usunięty. Aplikacje w nim zawarte będą nadal dostępne na ekranie startowym.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Ten katalog zostanie usunięty. Aplikacje w nim zawarte będą nadal dostępne na ekranie startowym.</string>
     <string name="quick_option_dimmed_disable">Wyłącz</string>
     <string name="quick_option_disable">Wyłącz</string>
     <string name="quick_option_install_dual_im">Instaluj drugą aplikację</string>

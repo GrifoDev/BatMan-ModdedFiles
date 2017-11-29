@@ -20,12 +20,20 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/home/HomeController;
 
+.field final synthetic val$hostView:Landroid/appwidget/AppWidgetHostView;
+
+.field final synthetic val$layout:Lcom/android/launcher3/common/base/view/CellLayout;
+
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/home/HomeController;)V
+.method constructor <init>(Lcom/android/launcher3/home/HomeController;Landroid/appwidget/AppWidgetHostView;Lcom/android/launcher3/common/base/view/CellLayout;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/home/HomeController$11;->this$0:Lcom/android/launcher3/home/HomeController;
+
+    iput-object p2, p0, Lcom/android/launcher3/home/HomeController$11;->val$hostView:Landroid/appwidget/AppWidgetHostView;
+
+    iput-object p3, p0, Lcom/android/launcher3/home/HomeController$11;->val$layout:Lcom/android/launcher3/common/base/view/CellLayout;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -35,11 +43,15 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .locals 3
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController$11;->this$0:Lcom/android/launcher3/home/HomeController;
 
-    invoke-virtual {v0}, Lcom/android/launcher3/home/HomeController;->exitDragStateDelayed()V
+    iget-object v1, p0, Lcom/android/launcher3/home/HomeController$11;->val$hostView:Landroid/appwidget/AppWidgetHostView;
+
+    iget-object v2, p0, Lcom/android/launcher3/home/HomeController$11;->val$layout:Lcom/android/launcher3/common/base/view/CellLayout;
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/launcher3/home/HomeController;->enterResizeStateDelay(Landroid/appwidget/AppWidgetHostView;Lcom/android/launcher3/common/base/view/CellLayout;)V
 
     return-void
 .end method

@@ -61,7 +61,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/LauncherModel$6;->this$0:Lcom/android/launcher3/LauncherModel;
 
-    invoke-static {v2}, Lcom/android/launcher3/LauncherModel;->access$1700(Lcom/android/launcher3/LauncherModel;)Lcom/android/launcher3/LauncherModel$LoaderTask;
+    invoke-static {v2}, Lcom/android/launcher3/LauncherModel;->access$1800(Lcom/android/launcher3/LauncherModel;)Lcom/android/launcher3/LauncherModel$LoaderTask;
 
     move-result-object v2
 
@@ -77,7 +77,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/LauncherModel$6;->this$0:Lcom/android/launcher3/LauncherModel;
 
-    invoke-static {v1}, Lcom/android/launcher3/LauncherModel;->access$1700(Lcom/android/launcher3/LauncherModel;)Lcom/android/launcher3/LauncherModel$LoaderTask;
+    invoke-static {v1}, Lcom/android/launcher3/LauncherModel;->access$1800(Lcom/android/launcher3/LauncherModel;)Lcom/android/launcher3/LauncherModel$LoaderTask;
 
     move-result-object v1
 

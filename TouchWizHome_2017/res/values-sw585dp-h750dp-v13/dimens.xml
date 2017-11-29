@@ -50,8 +50,7 @@
     <dimen name="overview_pannel_margin_bottom">28.0dip</dimen>
     <dimen name="overview_pannel_options_button_height">75.0dip</dimen>
     <dimen name="overview_pannel_textsize">12.0dip</dimen>
-    <dimen name="pageIndicator_dot_gap">6.0dip</dimen>
-    <dimen name="pageIndicator_dot_size">8.0dip</dimen>
+    <dimen name="pageIndicator_dot_size">15.0dip</dimen>
     <dimen name="tray_fake_view_text_size">11.0dip</dimen>
     <dimen name="tray_transfer_panel_bottom_height">32.0dip</dimen>
     <dimen name="tray_transfer_panel_top_height">58.0dip</dimen>
@@ -113,6 +112,7 @@
     <dimen name="widget_page_indicator_bottom_margin">32.0dip</dimen>
     <dimen name="widget_page_top_margin">55.0dip</dimen>
     <dimen name="appsearch_container_Height">36.0dip</dimen>
+    <dimen name="home_swipe_affordance_text_margin_top">-4.0dip</dimen>
     <dimen name="overview_home_button_size">33.0dip</dimen>
     <dimen name="overview_pannel_options_button_drawable_size">33.0dip</dimen>
     <dimen name="overview_pannel_options_button_width">103.0dip</dimen>
@@ -128,7 +128,6 @@
     <dimen name="drop_target_cancel_text_size">11.0dip</dimen>
     <dimen name="drop_target_margin_top">0.0dip</dimen>
     <dimen name="hint_page_width">4.0dip</dimen>
-    <dimen name="home_swipe_affordance_text_margin_top">-4.0dip</dimen>
     <dimen name="home_workspace_page_spacing">11.0dip</dimen>
     <dimen name="multi_select_help_dialog_margin_left">25.0dip</dimen>
     <dimen name="multi_select_pannel_margin_end">8.0dip</dimen>
@@ -143,6 +142,7 @@
     <dimen name="overview_zeropage_switch_text_padding_left">19.0dip</dimen>
     <dimen name="overview_zeropage_switch_text_padding_right">18.0dip</dimen>
     <dimen name="overview_zeropage_switch_text_size">17.0dip</dimen>
+    <dimen name="pageIndicator_dot_gap">6.0dip</dimen>
     <dimen name="pageIndicator_dot_margin">7.0dip</dimen>
     <dimen name="status_bar_height">30.5dip</dimen>
     <dimen name="home_6x6_cellHeight_port">92.0dip</dimen>

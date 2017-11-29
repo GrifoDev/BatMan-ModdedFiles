@@ -291,7 +291,7 @@
 
     const/high16 v12, 0x42c80000    # 100.0f
 
-    const v13, 0x7f0d0002
+    const v13, 0x7f0b0003
 
     invoke-virtual {v9, v13}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -301,7 +301,7 @@
 
     div-float v7, v12, v13
 
-    const v12, 0x7f0a00bb
+    const v12, 0x7f0a00bc
 
     invoke-virtual {v9, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -313,7 +313,7 @@
 
     float-to-int v11, v12
 
-    const v12, 0x7f0a01ac
+    const v12, 0x7f0a01b1
 
     invoke-virtual {v9, v12}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

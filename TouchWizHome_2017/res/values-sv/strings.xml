@@ -17,15 +17,17 @@
     <string name="accessibility_button">Knapp</string>
     <string name="accessibility_dimmed">Nedtonat</string>
     <string name="activity_not_available">Den här appen är inte tillgänglig för din enhet.</string>
-    <string name="activity_not_found">Appen är inte installerad.</string>
+    <string name="activity_not_found">Appen hittades inte</string>
+    <string name="add">Lägg till</string>
     <string name="add_to_last_page">Du valde %1$d objekt, men utrymmet på den här sidan räcker inte. De återstående %2$d objekten läggs till på sista sidan.</string>
+    <string name="add_to_last_page_for_hotseat">Du valde %1$d objekt, men utrymmet i favoritfältet räcker inte. De återstående %2$d objekten läggs till på den sista sidan.</string>
     <string name="align_to_bottom">Justera efter nederkant</string>
     <string name="align_to_top">Justera efter överkant</string>
     <string name="app_locked_toast">%s låst.</string>
-    <string name="app_search">Sök efter telefon</string>
+    <string name="app_search">Sök på telefonen</string>
     <string name="app_search_no_apps">Du kan lägga till genvägar på hemskärmen från sökresultaten.</string>
     <string name="app_search_no_results_found">Inga resultat hittades</string>
-    <string name="app_search_tablet">Sök efter surfplatta</string>
+    <string name="app_search_tablet">Sök på surfplattan</string>
     <string name="app_unlocked_toast">%s är upplåst.</string>
     <string name="application_name">TouchWiz-starts.</string>
     <string name="apply">Använd</string>
@@ -123,6 +125,7 @@ appar"</string>
     <string name="new_page_created">Sida tillagd.</string>
     <string name="no_changes">Inga ändringar.</string>
     <string name="no_space_page">Det finns inget utrymme på sidan. Försök lägga till genvägen på en annan sida.</string>
+    <string name="no_space_page_for_hotseat">Inget utrymme i favoritfältet.</string>
     <string name="no_space_page_for_widget">Inget utrymme på den här sidan.</string>
     <string name="not_selected">Inte vald</string>
     <string name="notification_panel_setting_summary">Svep nedåt så öppnas aviseringspanelen från hemskärmen.</string>
@@ -157,6 +160,8 @@ appar"</string>
     <string name="quick_option_delete_folder">Radera mapp</string>
     <string name="quick_option_delete_folder_alert">Mappen %s tas bort. Apparna i mappen är fortfarande tillgängliga på appskärmen.</string>
     <string name="quick_option_delete_folder_alert_no_title">Den här mappen tas bort. Apparna i mappen är fortfarande tillgängliga på appskärmen.</string>
+    <string name="quick_option_delete_folder_home_only_alert">Mappen %s raderas. Apparna i mappen är fortfarande tillgängliga på hemskärmen.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Den här mappen tas bort. Apparna i mappen är fortfarande tillgängliga på hemskärmen.</string>
     <string name="quick_option_dimmed_disable">Inaktivera</string>
     <string name="quick_option_disable">Inaktivera</string>
     <string name="quick_option_install_dual_im">Installera en andra app</string>

@@ -12,6 +12,8 @@
 # instance fields
 .field private mActiveMarker:Landroid/widget/ImageView;
 
+.field private mEnableMarkerAnim:Z
+
 .field private mInactiveMarker:Landroid/widget/ImageView;
 
 .field private mIsActive:Z
@@ -53,6 +55,10 @@
 
     iput-object v0, p0, Lcom/android/launcher3/common/view/PageIndicatorMarker;->type:Lcom/android/launcher3/common/view/PageIndicator$PageMarkerResources$IndicatorType;
 
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/launcher3/common/view/PageIndicatorMarker;->mEnableMarkerAnim:Z
+
     return-void
 .end method
 
@@ -67,8 +73,13 @@
 
     const/high16 v1, 0x3f800000    # 1.0f
 
-    if-eqz p1, :cond_0
+    if-nez p1, :cond_0
 
+    iget-boolean v0, p0, Lcom/android/launcher3/common/view/PageIndicatorMarker;->mEnableMarkerAnim:Z
+
+    if-nez v0, :cond_1
+
+    :cond_0
     iget-object v0, p0, Lcom/android/launcher3/common/view/PageIndicatorMarker;->mActiveMarker:Landroid/widget/ImageView;
 
     invoke-virtual {v0}, Landroid/widget/ImageView;->animate()Landroid/view/ViewPropertyAnimator;
@@ -108,7 +119,7 @@
 
     return-void
 
-    :cond_0
+    :cond_1
     iget-object v0, p0, Lcom/android/launcher3/common/view/PageIndicatorMarker;->mActiveMarker:Landroid/widget/ImageView;
 
     invoke-virtual {v0}, Landroid/widget/ImageView;->animate()Landroid/view/ViewPropertyAnimator;
@@ -174,6 +185,26 @@
     return-void
 .end method
 
+.method public disableMarkerAnimation()V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/launcher3/common/view/PageIndicatorMarker;->mEnableMarkerAnim:Z
+
+    return-void
+.end method
+
+.method public enableMarkerAnimation()V
+    .locals 1
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/android/launcher3/common/view/PageIndicatorMarker;->mEnableMarkerAnim:Z
+
+    return-void
+.end method
+
 .method public getMarkerType()Lcom/android/launcher3/common/view/PageIndicator$PageMarkerResources$IndicatorType;
     .locals 1
 
@@ -193,8 +224,13 @@
 
     const/high16 v1, 0x3f000000    # 0.5f
 
-    if-eqz p1, :cond_0
+    if-nez p1, :cond_0
 
+    iget-boolean v0, p0, Lcom/android/launcher3/common/view/PageIndicatorMarker;->mEnableMarkerAnim:Z
+
+    if-nez v0, :cond_1
+
+    :cond_0
     iget-object v0, p0, Lcom/android/launcher3/common/view/PageIndicatorMarker;->mInactiveMarker:Landroid/widget/ImageView;
 
     invoke-virtual {v0}, Landroid/widget/ImageView;->animate()Landroid/view/ViewPropertyAnimator;
@@ -234,7 +270,7 @@
 
     return-void
 
-    :cond_0
+    :cond_1
     iget-object v0, p0, Lcom/android/launcher3/common/view/PageIndicatorMarker;->mInactiveMarker:Landroid/widget/ImageView;
 
     invoke-virtual {v0}, Landroid/widget/ImageView;->animate()Landroid/view/ViewPropertyAnimator;

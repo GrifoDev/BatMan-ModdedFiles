@@ -63,6 +63,18 @@
 .method public abstract removeAllItems()V
 .end method
 
+.method public abstract removeAppsItems(Ljava/util/ArrayList;)V
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/ArrayList",
+            "<",
+            "Lcom/android/launcher3/common/base/item/ItemInfo;",
+            ">;)V"
+        }
+    .end annotation
+.end method
+
 .method public abstract terminate()V
 .end method
 

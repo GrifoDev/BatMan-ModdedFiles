@@ -100,7 +100,7 @@
     :try_start_0
     iget-object v2, p0, Lcom/android/launcher3/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher3/LauncherModel;
 
-    invoke-static {v2}, Lcom/android/launcher3/LauncherModel;->access$1700(Lcom/android/launcher3/LauncherModel;)Lcom/android/launcher3/LauncherModel$LoaderTask;
+    invoke-static {v2}, Lcom/android/launcher3/LauncherModel;->access$1800(Lcom/android/launcher3/LauncherModel;)Lcom/android/launcher3/LauncherModel$LoaderTask;
 
     move-result-object v2
 
@@ -110,7 +110,7 @@
 
     const/4 v4, 0x0
 
-    invoke-static {v2, v4}, Lcom/android/launcher3/LauncherModel;->access$1702(Lcom/android/launcher3/LauncherModel;Lcom/android/launcher3/LauncherModel$LoaderTask;)Lcom/android/launcher3/LauncherModel$LoaderTask;
+    invoke-static {v2, v4}, Lcom/android/launcher3/LauncherModel;->access$1802(Lcom/android/launcher3/LauncherModel;Lcom/android/launcher3/LauncherModel$LoaderTask;)Lcom/android/launcher3/LauncherModel$LoaderTask;
 
     :cond_0
     iget-object v2, p0, Lcom/android/launcher3/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher3/LauncherModel;
@@ -123,7 +123,7 @@
 
     const/4 v4, 0x1
 
-    invoke-static {v2, v4}, Lcom/android/launcher3/LauncherModel;->access$1802(Lcom/android/launcher3/LauncherModel;Z)Z
+    invoke-static {v2, v4}, Lcom/android/launcher3/LauncherModel;->access$1602(Lcom/android/launcher3/LauncherModel;Z)Z
 
     invoke-static {}, Lcom/android/launcher3/LauncherModel;->access$1900()Ljava/util/ArrayList;
 
@@ -867,10 +867,27 @@
     return-void
 .end method
 
-.method public run()V
-    .locals 9
+.method public removeAppsItems(Ljava/util/ArrayList;)V
+    .locals 0
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/ArrayList",
+            "<",
+            "Lcom/android/launcher3/common/base/item/ItemInfo;",
+            ">;)V"
+        }
+    .end annotation
 
-    const/4 v8, 0x1
+    return-void
+.end method
+
+.method public run()V
+    .locals 10
+
+    const/4 v9, 0x1
+
+    const/4 v8, 0x0
 
     const/4 v7, 0x0
 
@@ -900,6 +917,12 @@
 
     invoke-static {v4, v6}, Lcom/android/launcher3/LauncherModel;->access$1502(Lcom/android/launcher3/LauncherModel;Z)Z
 
+    iget-object v4, p0, Lcom/android/launcher3/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher3/LauncherModel;
+
+    const/4 v6, 0x0
+
+    invoke-static {v4, v6}, Lcom/android/launcher3/LauncherModel;->access$1602(Lcom/android/launcher3/LauncherModel;Z)Z
+
     monitor-exit v5
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
@@ -914,7 +937,7 @@
 
     iget-object v5, p0, Lcom/android/launcher3/LauncherModel$LoaderTask;->mContext:Landroid/content/Context;
 
-    invoke-static {v4, v5}, Lcom/android/launcher3/LauncherModel;->access$1600(Lcom/android/launcher3/LauncherModel;Landroid/content/Context;)V
+    invoke-static {v4, v5}, Lcom/android/launcher3/LauncherModel;->access$1700(Lcom/android/launcher3/LauncherModel;Landroid/content/Context;)V
 
     iget-object v4, p0, Lcom/android/launcher3/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher3/LauncherModel;
 
@@ -930,9 +953,7 @@
 
     move-result-object v5
 
-    const/4 v6, 0x0
-
-    invoke-virtual {v4, v5, v6}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    invoke-virtual {v4, v5, v8}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
     move-result-object v2
 
@@ -1106,7 +1127,7 @@
 
     iget-object v4, p0, Lcom/android/launcher3/LauncherModel$LoaderTask;->this$0:Lcom/android/launcher3/LauncherModel;
 
-    invoke-static {v4, v7, v7, v8}, Lcom/android/launcher3/LauncherModel;->access$500(Lcom/android/launcher3/LauncherModel;[Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;Z)V
+    invoke-static {v4, v7, v7, v9}, Lcom/android/launcher3/LauncherModel;->access$500(Lcom/android/launcher3/LauncherModel;[Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;Z)V
 
     invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportDeepShortcut()Z
 

@@ -101,7 +101,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;->mResources:Landroid/content/res/Resources;
 
-    const v1, 0x7f0d0046
+    const v1, 0x7f0b0047
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -115,7 +115,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;->mResources:Landroid/content/res/Resources;
 
-    const v1, 0x7f0d0047
+    const v1, 0x7f0b0048
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 

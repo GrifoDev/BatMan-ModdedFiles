@@ -17,8 +17,10 @@
     <string name="accessibility_button">Bouton</string>
     <string name="accessibility_dimmed">Tamisé</string>
     <string name="activity_not_available">"Cette application n'est pas disponible pour votre appareil."</string>
-    <string name="activity_not_found">Application non installée</string>
+    <string name="activity_not_found">Application introuvable</string>
+    <string name="add">Ajouter</string>
     <string name="add_to_last_page">"Vous avez sélectionné %1$d éléments, mais l'espace est insuffisant sur cette page. Les %2$d éléments restants seront ajoutés à la dernière page."</string>
+    <string name="add_to_last_page_for_hotseat">"Vous avez sélectionné %1$d éléments, mais l'espace est insuffisant dans le volet des favoris. Les %2$d éléments restants seront ajoutés à la dernière page."</string>
     <string name="align_to_bottom">Aligner avec le bas</string>
     <string name="align_to_top">Aligner avec le haut</string>
     <string name="app_locked_toast">%s est verrouillé.</string>
@@ -85,7 +87,7 @@
     <string name="home_screen_mode_only_home">"Écran d'accueil unique"</string>
     <string name="home_screen_screengrid">"Grille de l'écran d'accueil"</string>
     <string name="home_screen_settings_hide_apps">Masquer les applications</string>
-    <string name="homes_screen_settings">"Param. écran d'accueil"</string>
+    <string name="homes_screen_settings">"Paramètres écran d'accueil"</string>
     <string name="homesetting_easymode_close">Fermer</string>
     <string name="homesetting_easymode_summary">Vous pouvez désactiver le mode Simplifié dans Paramètres.</string>
     <string name="homesetting_easymode_title">Mode Simplifié activé</string>
@@ -122,6 +124,7 @@
     <string name="new_page_created">Page ajoutée.</string>
     <string name="no_changes">Aucune modification.</string>
     <string name="no_space_page">"Aucun espace sur la page. Essayez d'ajouter un raccourci vers une autre page."</string>
+    <string name="no_space_page_for_hotseat">"Il n'y a aucun espace dans le volet de favoris."</string>
     <string name="no_space_page_for_widget">Aucun espace sur cette page.</string>
     <string name="not_selected">Non sélectionné</string>
     <string name="notification_panel_setting_summary">"Faites glisser un doigt vers le bas pour ouvrir le volet des raccourcis depuis l'écran d'accueil."</string>
@@ -156,6 +159,8 @@
     <string name="quick_option_delete_folder">Supprimer dossier</string>
     <string name="quick_option_delete_folder_alert">"Le dossier %s va être supprimé. Les applications conservées dans ce dossier seront toujours disponibles sur l'écran Applications."</string>
     <string name="quick_option_delete_folder_alert_no_title">"Ce dossier va être supprimé. Les applications conservées dans ce dossier seront toujours disponibles sur l'écran Applications."</string>
+    <string name="quick_option_delete_folder_home_only_alert">"Le dossier %s va être supprimé. Les applications conservées dans ce dossier seront toujours disponibles sur l'écran d'accueil."</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">"Ce dossier va être supprimé. Les applications conservées dans ce dossier seront toujours disponibles sur l'écran d'accueil."</string>
     <string name="quick_option_dimmed_disable">Désactiver</string>
     <string name="quick_option_disable">Désactiver</string>
     <string name="quick_option_install_dual_im">Installer appli. secondaire</string>
@@ -205,14 +210,14 @@
     <string name="tts_changed_to_home_screen_edit_mode">"Le mode Édition de l'écran d'accueil est activé."</string>
     <string name="tts_folder_created">Dossier créé</string>
     <string name="tts_holding_items">%1$s et %2$d autres applications maintenues</string>
-    <string name="tts_hotseat_item_moved_from_external">"Elément déplacé sur la barre de menu de l'écran d'accueil."</string>
+    <string name="tts_hotseat_item_moved_from_external">"Élément déplacé sur la barre de menu de l'écran d'accueil."</string>
     <string name="tts_hotseat_move_to">Position %d dans la barre de menu.</string>
     <string name="tts_hover_item_over_other_item">%1$s apparaît par-dessus %2$s</string>
-    <string name="tts_item_added">Elément ajouté.</string>
+    <string name="tts_item_added">Élément ajouté.</string>
     <string name="tts_item_dims_format">Ligne %1$d, colonne %2$d</string>
-    <string name="tts_item_moved">Elément déplacé.</string>
-    <string name="tts_item_moved_into_folder">Elément déplacé dans le dossier.</string>
-    <string name="tts_item_moved_to_other_page">"Elément déplacé vers l'écran d'accueil %1$d sur %2$d."</string>
+    <string name="tts_item_moved">Élément déplacé.</string>
+    <string name="tts_item_moved_into_folder">Élément déplacé dans le dossier.</string>
+    <string name="tts_item_moved_to_other_page">"Élément déplacé vers l'écran d'accueil %1$d sur %2$d."</string>
     <string name="tts_left_handle">Poignée gauche</string>
     <string name="tts_long_pressd_widget_handle">Appui long sur %1$s</string>
     <string name="tts_move_to_folder">Déplacer dans le dossier</string>

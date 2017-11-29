@@ -16,8 +16,10 @@
     <string name="accessibility_button">Button</string>
     <string name="accessibility_dimmed">Dimmed</string>
     <string name="activity_not_available">This app is not available for your device.</string>
-    <string name="activity_not_found">Application not installed.</string>
+    <string name="activity_not_found">App not found</string>
+    <string name="add">Add</string>
     <string name="add_to_last_page">"You selected %1$d items, but there's not enough space on this page. The remaining %2$d items will be added to the last page."</string>
+    <string name="add_to_last_page_for_hotseat">"You selected %1$d items, but there's not enough space on the favourites tray. The remaining %2$d items will be added to the last page."</string>
     <string name="align_to_bottom">Align to bottom</string>
     <string name="align_to_top">Align to top</string>
     <string name="app_locked_toast">%s locked.</string>
@@ -39,7 +41,7 @@
     <string name="apps_button_title">Apps button</string>
     <string name="apps_screen">Apps screen</string>
     <string name="autoalign_popup_message">"Once you align them, you can't go back to your previous arrangement."</string>
-    <string name="autoalign_popup_title">Align items on the page?</string>
+    <string name="autoalign_popup_title">Align items on page?</string>
     <string name="available_galaxyapps">Available in Galaxy Apps</string>
     <string name="badge_manage_explain">Select whether to show or hide badges for each app.</string>
     <string name="badge_manage_summary">Select whether to show or hide badges for each app.</string>
@@ -99,7 +101,7 @@
     <string name="multi_select_add_to_personal">Add to Personal</string>
     <string name="multi_select_apps_deselected">Apps deselected.</string>
     <string name="multi_select_create_folder">Create folder</string>
-    <string name="multi_select_create_folder_all_folder_items_notice">"Can't create a new folder. All items are selected."</string>
+    <string name="multi_select_create_folder_all_folder_items_notice">"Can't create a new folder. All items selected."</string>
     <string name="multi_select_create_folder_one_item_notice">Select at least %d items.</string>
     <string name="multi_select_create_folder_select_folder_notice">"Can't create a new folder while a folder is selected."</string>
     <string name="multi_select_disable">Disable</string>
@@ -121,6 +123,7 @@
     <string name="new_page_created">Page added.</string>
     <string name="no_changes">No changes.</string>
     <string name="no_space_page">No space on the page. Try adding a shortcut to a different page.</string>
+    <string name="no_space_page_for_hotseat">No space on the favourites tray.</string>
     <string name="no_space_page_for_widget">No space on this page.</string>
     <string name="not_selected">Not selected</string>
     <string name="notification_panel_setting_summary">Swipe down to open the notification panel from the Home screen.</string>
@@ -155,6 +158,8 @@
     <string name="quick_option_delete_folder">Delete folder</string>
     <string name="quick_option_delete_folder_alert">The %s folder will be deleted. The apps inside this folder will still be available on the Apps screen.</string>
     <string name="quick_option_delete_folder_alert_no_title">This folder will be deleted. The apps inside this folder will still be available on the Apps screen.</string>
+    <string name="quick_option_delete_folder_home_only_alert">The %s folder will be deleted. The apps inside this folder will still be available on the Home screen.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">This folder will be deleted. The apps inside this folder will still be available on the Home screen.</string>
     <string name="quick_option_dimmed_disable">Disable</string>
     <string name="quick_option_disable">Disable</string>
     <string name="quick_option_install_dual_im">Install second app</string>
@@ -204,13 +209,13 @@
     <string name="tts_changed_to_home_screen_edit_mode">Changed to Home screen edit mode.</string>
     <string name="tts_folder_created">Folder created.</string>
     <string name="tts_holding_items">Holding %1$s and %2$d others</string>
-    <string name="tts_hotseat_item_moved_from_external">Item moved to menu bar on home screen.</string>
+    <string name="tts_hotseat_item_moved_from_external">Item moved to the menu bar on the home screen.</string>
     <string name="tts_hotseat_move_to">Position %d in menu bar.</string>
     <string name="tts_hover_item_over_other_item">%1$s on top of %2$s</string>
     <string name="tts_item_added">Item added.</string>
     <string name="tts_item_dims_format">Row %1$d, column %2$d</string>
     <string name="tts_item_moved">Item moved.</string>
-    <string name="tts_item_moved_into_folder">Item moved into folder.</string>
+    <string name="tts_item_moved_into_folder">Item was moved into the folder.</string>
     <string name="tts_item_moved_to_other_page">Item moved to home screen %1$d of %2$d.</string>
     <string name="tts_left_handle">Left handle</string>
     <string name="tts_long_pressd_widget_handle">Long-pressed %1$s</string>

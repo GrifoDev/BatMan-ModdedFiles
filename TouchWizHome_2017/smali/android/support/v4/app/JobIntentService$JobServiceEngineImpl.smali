@@ -133,13 +133,15 @@
 .end method
 
 .method public onStartJob(Landroid/app/job/JobParameters;)Z
-    .locals 1
+    .locals 2
 
     iput-object p1, p0, Landroid/support/v4/app/JobIntentService$JobServiceEngineImpl;->mParams:Landroid/app/job/JobParameters;
 
     iget-object v0, p0, Landroid/support/v4/app/JobIntentService$JobServiceEngineImpl;->mService:Landroid/support/v4/app/JobIntentService;
 
-    invoke-virtual {v0}, Landroid/support/v4/app/JobIntentService;->ensureProcessorRunningLocked()V
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Landroid/support/v4/app/JobIntentService;->ensureProcessorRunningLocked(Z)V
 
     const/4 v0, 0x1
 

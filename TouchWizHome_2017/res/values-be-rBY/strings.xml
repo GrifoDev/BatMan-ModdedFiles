@@ -16,8 +16,10 @@
     <string name="accessibility_button">Кнопка</string>
     <string name="accessibility_dimmed">Паменшаная яркасць</string>
     <string name="activity_not_available">Гэта праграма недаступна для вашай прылады.</string>
-    <string name="activity_not_found">Праграма не ўсталявана.</string>
+    <string name="activity_not_found">Праграма не знойдзена</string>
+    <string name="add">Дадаць</string>
     <string name="add_to_last_page">Вы выбралі наступную колькасць элементаў: %1$d, але на гэтай старонцы не хапае месца. Астатнія элементы (%2$d) будуць дададзены на апошнюю старонку.</string>
+    <string name="add_to_last_page_for_hotseat">Вы выбралі наступную колькасць элементаў: %1$d, але ў вобласці апавяшчэнняў упадабаных не хапае месца. Астатнія элементы (%2$d) будуць дададзены на апошнюю старонку.</string>
     <string name="align_to_bottom">Выраўнаваць па ніжнім краі</string>
     <string name="align_to_top">Выраўнаваць па верхнім краі</string>
     <string name="app_locked_toast">%s заблакіраваны.</string>
@@ -121,6 +123,7 @@
     <string name="new_page_created">Старонка дададзена.</string>
     <string name="no_changes">Няма змяненняў.</string>
     <string name="no_space_page">Няма месца на старонцы. Паспрабуйце дадаць ярлык на іншую старонку.</string>
+    <string name="no_space_page_for_hotseat">Няма месца ў вобласці апавяшчэнняў упадабаных.</string>
     <string name="no_space_page_for_widget">Няма месца на гэтай старонцы.</string>
     <string name="not_selected">Не выбрана</string>
     <string name="notification_panel_setting_summary">Правядзіце ўніз, каб адкрыць панэль апавяшчэнняў з галоўнага экрана.</string>
@@ -155,6 +158,8 @@
     <string name="quick_option_delete_folder">Выдаліць папку</string>
     <string name="quick_option_delete_folder_alert">Папка %s будзе выдалена. Праграмы ў гэтай папцы будуць усё роўна даступны на экране праграм.</string>
     <string name="quick_option_delete_folder_alert_no_title">Гэта папка будзе выдалена. Праграмы ў гэтай папцы будуць усё роўна даступны на экране праграм.</string>
+    <string name="quick_option_delete_folder_home_only_alert">Папка «%s» будзе выдалена. Праграмы ў гэтай папцы будуць па-ранейшаму даступны на Галоўным экране.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Гэта папка будзе выдалена. Праграмы ў гэтай папцы будуць па-ранейшаму даступны на Галоўным экране.</string>
     <string name="quick_option_dimmed_disable">Адключыць</string>
     <string name="quick_option_disable">Адключыць</string>
     <string name="quick_option_install_dual_im">Усталяваць другую праграму</string>

@@ -465,7 +465,7 @@
 
     new-instance v1, Lcom/android/launcher3/allapps/controller/AppsReorderController$3;
 
-    invoke-direct {v1, p0, v0, p1, p2}, Lcom/android/launcher3/allapps/controller/AppsReorderController$3;-><init>(Lcom/android/launcher3/allapps/controller/AppsReorderController;Landroid/animation/AnimatorSet;Lcom/android/launcher3/common/base/view/CellLayout;Landroid/view/View;)V
+    invoke-direct {v1, p0, p1, p2, v0}, Lcom/android/launcher3/allapps/controller/AppsReorderController$3;-><init>(Lcom/android/launcher3/allapps/controller/AppsReorderController;Lcom/android/launcher3/common/base/view/CellLayout;Landroid/view/View;Landroid/animation/AnimatorSet;)V
 
     invoke-virtual {v0, v1}, Landroid/animation/AnimatorSet;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
@@ -1340,7 +1340,7 @@
 
     move-result-object v14
 
-    if-nez v14, :cond_1
+    if-nez v14, :cond_0
 
     const-string v3, "AppsReorderController"
 
@@ -1366,10 +1366,12 @@
 
     invoke-static {v3, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_0
+    :goto_0
     return-void
 
-    :cond_1
+    :cond_0
+    invoke-virtual {v14}, Lcom/android/launcher3/common/base/view/CellLayout;->clearOccupiedCells()V
+
     const/4 v5, 0x0
 
     const/4 v15, 0x0
@@ -1378,10 +1380,10 @@
 
     move/from16 v13, p1
 
-    :goto_0
+    :goto_1
     move/from16 v0, p2
 
-    if-gt v13, v0, :cond_0
+    if-gt v13, v0, :cond_6
 
     rem-int v3, v13, v2
 
@@ -1395,7 +1397,7 @@
 
     instance-of v3, v0, Lcom/android/launcher3/common/view/Removable;
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_3
 
     move-object/from16 v3, v17
 
@@ -1405,10 +1407,10 @@
 
     move-result v16
 
-    :goto_1
-    if-eqz v17, :cond_3
+    :goto_2
+    if-eqz v17, :cond_2
 
-    if-nez v16, :cond_3
+    if-nez v16, :cond_2
 
     invoke-virtual/range {v17 .. v17}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
@@ -1416,7 +1418,7 @@
 
     check-cast v4, Lcom/android/launcher3/common/base/item/ItemInfo;
 
-    if-eq v13, v5, :cond_2
+    if-eq v13, v5, :cond_1
 
     move-object/from16 v0, p0
 
@@ -1426,7 +1428,7 @@
 
     int-to-long v6, v0
 
-    if-eqz p4, :cond_5
+    if-eqz p4, :cond_4
 
     int-to-float v8, v15
 
@@ -1436,12 +1438,12 @@
 
     int-to-long v8, v15
 
-    :goto_2
-    if-eqz p4, :cond_6
+    :goto_3
+    if-eqz p4, :cond_5
 
     const/4 v10, -0x1
 
-    :goto_3
+    :goto_4
     const/4 v11, 0x0
 
     check-cast v11, [[Z
@@ -1462,28 +1464,33 @@
 
     iput-boolean v3, v4, Lcom/android/launcher3/common/base/item/ItemInfo;->mDirty:Z
 
-    :cond_2
+    :cond_1
     add-int/lit8 v5, v5, 0x1
 
-    :cond_3
+    :cond_2
     add-int/lit8 v13, v13, 0x1
-
-    goto :goto_0
-
-    :cond_4
-    const/16 v16, 0x0
 
     goto :goto_1
 
-    :cond_5
-    const-wide/16 v8, 0x0
+    :cond_3
+    const/16 v16, 0x0
 
     goto :goto_2
 
-    :cond_6
-    const/4 v10, 0x0
+    :cond_4
+    const-wide/16 v8, 0x0
 
     goto :goto_3
+
+    :cond_5
+    const/4 v10, 0x0
+
+    goto :goto_4
+
+    :cond_6
+    invoke-virtual {v14}, Lcom/android/launcher3/common/base/view/CellLayout;->markCellsAsOccupiedForAllChild()V
+
+    goto :goto_0
 .end method
 
 .method public removeEmptyCellsAndViews(Ljava/util/ArrayList;)V
@@ -1897,16 +1904,6 @@
     goto :goto_1
 
     :cond_5
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/launcher3/allapps/controller/AppsReorderController;->mListener:Lcom/android/launcher3/allapps/view/AppsPagedView$Listener;
-
-    invoke-interface {v12}, Lcom/android/launcher3/allapps/view/AppsPagedView$Listener;->isAlphabeticalMode()Z
-
-    move-result v12
-
-    if-eqz v12, :cond_8
-
     if-eqz v4, :cond_7
 
     invoke-virtual {v4}, Ljava/util/ArrayList;->isEmpty()Z
@@ -1950,20 +1947,26 @@
     invoke-virtual {v12, v4}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
 
     :cond_7
-    :goto_3
-    return-void
+    move-object/from16 v0, p0
 
-    :cond_8
+    iget-object v12, v0, Lcom/android/launcher3/allapps/controller/AppsReorderController;->mListener:Lcom/android/launcher3/allapps/view/AppsPagedView$Listener;
+
+    invoke-interface {v12}, Lcom/android/launcher3/allapps/view/AppsPagedView$Listener;->isAlphabeticalMode()Z
+
+    move-result v12
+
+    if-nez v12, :cond_8
+
     invoke-virtual {v5}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
     move-result-object v13
 
-    :goto_4
+    :goto_3
     invoke-interface {v13}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v12
 
-    if-eqz v12, :cond_9
+    if-eqz v12, :cond_8
 
     invoke-interface {v13}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2005,52 +2008,10 @@
 
     invoke-virtual {v0, v12, v6, v14, v1}, Lcom/android/launcher3/allapps/controller/AppsReorderController;->removeEmptyCellAtPage(IIIZ)V
 
-    goto :goto_4
-
-    :cond_9
-    if-eqz v4, :cond_7
-
-    invoke-virtual {v4}, Ljava/util/ArrayList;->isEmpty()Z
-
-    move-result v12
-
-    if-nez v12, :cond_7
-
-    const-string v12, "AppsReorderController"
-
-    const-string v13, "start deleteAnimators"
-
-    invoke-static {v12, v13}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {v4}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
-
-    move-result-object v12
-
-    :goto_5
-    invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v13
-
-    if-eqz v13, :cond_a
-
-    invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v3
-
-    check-cast v3, Landroid/animation/AnimatorSet;
-
-    invoke-virtual {v3}, Landroid/animation/AnimatorSet;->start()V
-
-    goto :goto_5
-
-    :cond_a
-    move-object/from16 v0, p0
-
-    iget-object v12, v0, Lcom/android/launcher3/allapps/controller/AppsReorderController;->mDeleteAnimators:Ljava/util/ArrayList;
-
-    invoke-virtual {v12, v4}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
-
     goto :goto_3
+
+    :cond_8
+    return-void
 .end method
 
 .method public setExistOverLastItemMoved(Z)V

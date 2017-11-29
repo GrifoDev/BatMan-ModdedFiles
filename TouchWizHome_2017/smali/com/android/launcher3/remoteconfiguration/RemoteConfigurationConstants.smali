@@ -64,8 +64,6 @@
 
 .field static final METHOD_GET_SUPPLEMENT_SERVICE_PAGE_VISIBILITY:Ljava/lang/String; = "get_supplement_service_page_visibility"
 
-.field static final METHOD_IS_SUPPORTED:Ljava/lang/String; = "is_supported"
-
 .field static final METHOD_MAKE_EMPTY_POSITION:Ljava/lang/String; = "make_empty_position"
 
 .field static final METHOD_REMOVE_HOTSEAT_ITEM:Ljava/lang/String; = "remove_hotseat_item"

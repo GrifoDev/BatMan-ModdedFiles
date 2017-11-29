@@ -5855,301 +5855,559 @@
 .end method
 
 .method private getAppShortcutInfo(Landroid/content/Intent;Lcom/android/launcher3/common/compat/UserHandleCompat;Landroid/database/Cursor;Lcom/android/launcher3/common/model/CursorInfo;ZZZ)Lcom/android/launcher3/common/base/item/IconInfo;
-    .locals 11
+    .locals 17
 
     if-nez p2, :cond_1
 
-    const-string v1, "HomeLoader"
+    const-string v2, "HomeLoader"
 
-    const-string v5, "Null user found in getShortcutInfo"
+    const-string v6, "Null user found in getShortcutInfo"
 
-    invoke-static {v1, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     :cond_0
     :goto_0
-    return-object v2
+    return-object v3
 
     :cond_1
-    invoke-virtual {p1}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
 
-    move-result-object v3
+    move-result-object v4
 
-    if-nez v3, :cond_2
+    if-nez v4, :cond_2
 
-    const-string v1, "HomeLoader"
+    const-string v2, "HomeLoader"
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, "Missing component found in getShortcutInfo: "
+    const-string v7, "Missing component found in getAppShortcutInfo: "
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-static {v1, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     goto :goto_0
 
     :cond_2
-    new-instance v10, Landroid/content/Intent;
-
-    invoke-virtual {p1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
-
-    move-result-object v1
-
     const/4 v5, 0x0
 
-    invoke-direct {v10, v1, v5}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+    if-nez p7, :cond_3
 
-    const-string v1, "android.intent.category.LAUNCHER"
+    sget-boolean v2, Lcom/android/launcher3/home/HomeLoader;->sIsSafeMode:Z
 
-    invoke-virtual {v10, v1}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
-
-    invoke-virtual {v10, v3}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
-
-    sget-object v1, Lcom/android/launcher3/home/HomeLoader;->sLauncherApps:Lcom/android/launcher3/common/compat/LauncherAppsCompat;
-
-    invoke-virtual {v1, v10, p2}, Lcom/android/launcher3/common/compat/LauncherAppsCompat;->resolveActivity(Landroid/content/Intent;Lcom/android/launcher3/common/compat/UserHandleCompat;)Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;
-
-    move-result-object v4
-
-    if-nez v4, :cond_3
-
-    if-nez p5, :cond_3
-
-    const-string v1, "HomeLoader"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "Missing activity found in getShortcutInfo: "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v1, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v2, 0x0
-
-    goto :goto_0
+    if-eqz v2, :cond_4
 
     :cond_3
-    new-instance v2, Lcom/android/launcher3/common/base/item/IconInfo;
+    new-instance v15, Landroid/content/Intent;
 
-    invoke-direct {v2}, Lcom/android/launcher3/common/base/item/IconInfo;-><init>()V
+    invoke-virtual/range {p1 .. p1}, Landroid/content/Intent;->getAction()Ljava/lang/String;
 
-    sget-object v1, Lcom/android/launcher3/home/HomeLoader;->sIconCache:Lcom/android/launcher3/common/model/IconCache;
+    move-result-object v2
 
     const/4 v6, 0x0
 
-    move-object v5, p2
+    invoke-direct {v15, v2, v6}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
-    move/from16 v7, p6
+    const-string v2, "android.intent.category.LAUNCHER"
 
-    invoke-virtual/range {v1 .. v7}, Lcom/android/launcher3/common/model/IconCache;->getTitleAndIcon(Lcom/android/launcher3/common/base/item/IconInfo;Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;ZZ)V
+    invoke-virtual {v15, v2}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
 
-    sget-object v1, Lcom/android/launcher3/home/HomeLoader;->sIconCache:Lcom/android/launcher3/common/model/IconCache;
+    invoke-virtual {v15, v4}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    sget-object v5, Lcom/android/launcher3/home/HomeLoader;->sIconCache:Lcom/android/launcher3/common/model/IconCache;
+    sget-object v2, Lcom/android/launcher3/home/HomeLoader;->sLauncherApps:Lcom/android/launcher3/common/compat/LauncherAppsCompat;
 
-    invoke-virtual {v2, v5}, Lcom/android/launcher3/common/base/item/IconInfo;->getIcon(Lcom/android/launcher3/common/model/IconCache;)Landroid/graphics/Bitmap;
+    move-object/from16 v0, p2
 
-    move-result-object v5
-
-    invoke-virtual {v1, v5, p2}, Lcom/android/launcher3/common/model/IconCache;->isDefaultIcon(Landroid/graphics/Bitmap;Lcom/android/launcher3/common/compat/UserHandleCompat;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_7
-
-    if-eqz p3, :cond_7
-
-    if-nez p5, :cond_5
-
-    sget-object v1, Lcom/android/launcher3/home/HomeLoader;->sLauncherApps:Lcom/android/launcher3/common/compat/LauncherAppsCompat;
-
-    invoke-virtual {v3}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+    invoke-virtual {v2, v15, v0}, Lcom/android/launcher3/common/compat/LauncherAppsCompat;->resolveActivity(Landroid/content/Intent;Lcom/android/launcher3/common/compat/UserHandleCompat;)Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;
 
     move-result-object v5
 
-    invoke-virtual {v1, v5, p2}, Lcom/android/launcher3/common/compat/LauncherAppsCompat;->getActivityList(Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;)Ljava/util/List;
+    if-nez v5, :cond_9
 
-    move-result-object v8
+    if-nez p5, :cond_9
 
-    invoke-interface {v8}, Ljava/util/List;->isEmpty()Z
+    const-string v2, "HomeLoader"
 
-    move-result v1
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    if-nez v1, :cond_4
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static {v8, v3, p2}, Lcom/android/launcher3/home/HomeLoader;->findActivityInfo(Ljava/util/List;Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;)Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;
+    const-string v7, "Missing activity found in getAppShortcutInfo: "
 
-    move-result-object v1
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-nez v1, :cond_5
+    move-result-object v6
+
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v2, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v3, 0x0
+
+    goto :goto_0
 
     :cond_4
-    const-string v1, "HomeLoader"
+    sget-object v2, Lcom/android/launcher3/home/HomeLoader;->sLauncherApps:Lcom/android/launcher3/common/compat/LauncherAppsCompat;
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    invoke-virtual {v4}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    move-result-object v6
 
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, p2
+
+    invoke-virtual {v2, v6, v0}, Lcom/android/launcher3/common/compat/LauncherAppsCompat;->getActivityList(Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;)Ljava/util/List;
+
+    move-result-object v14
+
+    invoke-interface {v14}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :cond_5
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v6
+
+    if-eqz v6, :cond_6
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v13
+
+    check-cast v13, Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;
+
+    invoke-virtual {v13}, Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;->getComponentName()Landroid/content/ComponentName;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v4}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
+
+    move-result v6
+
+    if-eqz v6, :cond_5
+
+    move-object v5, v13
+
+    :cond_6
+    if-nez v5, :cond_9
+
+    if-nez p5, :cond_9
+
+    const/4 v9, 0x0
+
+    invoke-static {}, Lcom/android/launcher3/common/compat/UserHandleCompat;->myUserHandle()Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    move-result-object v2
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v2, v0}, Lcom/android/launcher3/common/compat/UserHandleCompat;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_7
+
+    :try_start_0
+    sget-object v2, Lcom/android/launcher3/home/HomeLoader;->sPackageManager:Landroid/content/pm/PackageManager;
+
+    const/4 v6, 0x0
+
+    invoke-virtual {v2, v4, v6}, Landroid/content/pm/PackageManager;->getActivityInfo(Landroid/content/ComponentName;I)Landroid/content/pm/ActivityInfo;
+    :try_end_0
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v9
+
+    :cond_7
+    :goto_1
+    if-eqz v9, :cond_b
+
+    iget-boolean v2, v9, Landroid/content/pm/ActivityInfo;->exported:Z
+
+    if-eqz v2, :cond_b
+
+    sget-object v2, Lcom/android/launcher3/home/HomeLoader;->sLauncherApps:Lcom/android/launcher3/common/compat/LauncherAppsCompat;
+
+    move-object/from16 v0, p1
+
+    move-object/from16 v1, p2
+
+    invoke-virtual {v2, v0, v1}, Lcom/android/launcher3/common/compat/LauncherAppsCompat;->resolveActivity(Landroid/content/Intent;Lcom/android/launcher3/common/compat/UserHandleCompat;)Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;
 
     move-result-object v5
 
-    const-string v6, " is defaultIcon and activityInfo is null"
+    if-nez v5, :cond_8
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, "HomeLoader"
 
-    move-result-object v5
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-result-object v5
+    const-string v7, "Missing activity found in getAppShortcutInfo: "
 
-    invoke-static {v1, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const/4 v2, 0x0
+    move-result-object v6
+
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v2, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v3, 0x0
 
     goto/16 :goto_0
 
-    :cond_5
-    iget v1, p4, Lcom/android/launcher3/common/model/CursorInfo;->iconIndex:I
+    :catch_0
+    move-exception v11
 
-    sget-object v5, Lcom/android/launcher3/home/HomeLoader;->sContext:Landroid/content/Context;
+    const-string v2, "HomeLoader"
 
-    invoke-static {p3, v1, v5}, Lcom/android/launcher3/util/BitmapUtils;->createIconBitmap(Landroid/database/Cursor;ILandroid/content/Context;)Landroid/graphics/Bitmap;
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    move-result-object v9
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    if-nez v9, :cond_6
+    const-string v7, "This component is not exist - "
 
-    sget-object v1, Lcom/android/launcher3/home/HomeLoader;->sIconCache:Lcom/android/launcher3/common/model/IconCache;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v1, p2}, Lcom/android/launcher3/common/model/IconCache;->getDefaultIcon(Lcom/android/launcher3/common/compat/UserHandleCompat;)Landroid/graphics/Bitmap;
+    move-result-object v6
 
-    move-result-object v9
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    :cond_6
-    invoke-virtual {v2, v9}, Lcom/android/launcher3/common/base/item/IconInfo;->setIcon(Landroid/graphics/Bitmap;)V
+    move-result-object v6
 
-    :cond_7
-    if-eqz v4, :cond_8
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v4}, Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
+    move-result-object v6
 
-    move-result-object v1
+    invoke-static {v2, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-static {v1}, Lcom/android/launcher3/Utilities;->isAppSuspended(Landroid/content/pm/ApplicationInfo;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_8
-
-    const/4 v1, 0x4
-
-    iput v1, v2, Lcom/android/launcher3/common/base/item/IconInfo;->isDisabled:I
+    goto :goto_1
 
     :cond_8
-    iget-object v1, v2, Lcom/android/launcher3/common/base/item/IconInfo;->title:Ljava/lang/CharSequence;
+    const-string v2, "HomeLoader"
 
-    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    move-result v1
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    if-eqz v1, :cond_9
+    const-string v7, "change item type to shortcut type : "
 
-    if-eqz p3, :cond_9
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget v1, p4, Lcom/android/launcher3/common/model/CursorInfo;->titleIndex:I
+    move-result-object v6
 
-    invoke-interface {p3, v1}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v6
 
-    invoke-static {v1}, Lcom/android/launcher3/Utilities;->trim(Ljava/lang/CharSequence;)Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v6
 
-    iput-object v1, v2, Lcom/android/launcher3/common/base/item/IconInfo;->title:Ljava/lang/CharSequence;
+    invoke-static {v2, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v16, Landroid/content/ContentValues;
+
+    invoke-direct/range {v16 .. v16}, Landroid/content/ContentValues;-><init>()V
+
+    const-string v2, "itemType"
+
+    const/4 v6, 0x1
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    move-object/from16 v0, v16
+
+    invoke-virtual {v0, v2, v6}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    move-object/from16 v0, p4
+
+    iget v2, v0, Lcom/android/launcher3/common/model/CursorInfo;->idIndex:I
+
+    move-object/from16 v0, p3
+
+    invoke-interface {v0, v2}, Landroid/database/Cursor;->getLong(I)J
+
+    move-result-wide v6
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v0, v6, v7, v1}, Lcom/android/launcher3/home/HomeLoader;->updateItem(JLandroid/content/ContentValues;)V
+
+    const/16 p7, 0x1
 
     :cond_9
-    iget-object v1, v2, Lcom/android/launcher3/common/base/item/IconInfo;->title:Ljava/lang/CharSequence;
+    new-instance v3, Lcom/android/launcher3/common/base/item/IconInfo;
 
-    if-nez v1, :cond_a
+    invoke-direct {v3}, Lcom/android/launcher3/common/base/item/IconInfo;-><init>()V
 
-    invoke-virtual {v3}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
+    sget-object v2, Lcom/android/launcher3/home/HomeLoader;->sIconCache:Lcom/android/launcher3/common/model/IconCache;
 
-    move-result-object v1
+    const/4 v7, 0x0
 
-    iput-object v1, v2, Lcom/android/launcher3/common/base/item/IconInfo;->title:Ljava/lang/CharSequence;
+    move-object/from16 v6, p2
+
+    move/from16 v8, p6
+
+    invoke-virtual/range {v2 .. v8}, Lcom/android/launcher3/common/model/IconCache;->getTitleAndIcon(Lcom/android/launcher3/common/base/item/IconInfo;Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;ZZ)V
+
+    sget-object v2, Lcom/android/launcher3/home/HomeLoader;->sIconCache:Lcom/android/launcher3/common/model/IconCache;
+
+    sget-object v6, Lcom/android/launcher3/home/HomeLoader;->sIconCache:Lcom/android/launcher3/common/model/IconCache;
+
+    invoke-virtual {v3, v6}, Lcom/android/launcher3/common/base/item/IconInfo;->getIcon(Lcom/android/launcher3/common/model/IconCache;)Landroid/graphics/Bitmap;
+
+    move-result-object v6
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v2, v6, v0}, Lcom/android/launcher3/common/model/IconCache;->isDefaultIcon(Landroid/graphics/Bitmap;Lcom/android/launcher3/common/compat/UserHandleCompat;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_e
+
+    if-eqz p3, :cond_e
+
+    if-nez p5, :cond_c
+
+    sget-object v2, Lcom/android/launcher3/home/HomeLoader;->sLauncherApps:Lcom/android/launcher3/common/compat/LauncherAppsCompat;
+
+    invoke-virtual {v4}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v6
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v2, v6, v0}, Lcom/android/launcher3/common/compat/LauncherAppsCompat;->getActivityList(Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;)Ljava/util/List;
+
+    move-result-object v10
+
+    invoke-interface {v10}, Ljava/util/List;->isEmpty()Z
+
+    move-result v2
+
+    if-nez v2, :cond_a
+
+    move-object/from16 v0, p2
+
+    invoke-static {v10, v4, v0}, Lcom/android/launcher3/home/HomeLoader;->findActivityInfo(Ljava/util/List;Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;)Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;
+
+    move-result-object v2
+
+    if-nez v2, :cond_c
 
     :cond_a
-    move/from16 v0, p7
+    const-string v2, "HomeLoader"
 
-    iput-boolean v0, v2, Lcom/android/launcher3/common/base/item/IconInfo;->isAppShortcut:Z
+    new-instance v6, Ljava/lang/StringBuilder;
 
-    if-eqz p7, :cond_b
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
 
-    const/4 v1, 0x1
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    :goto_1
-    iput v1, v2, Lcom/android/launcher3/common/base/item/IconInfo;->itemType:I
+    move-result-object v6
 
-    iput-object p2, v2, Lcom/android/launcher3/common/base/item/IconInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+    const-string v7, " is defaultIcon and activityInfo is null"
 
-    sget-object v1, Lcom/android/launcher3/home/HomeLoader;->sUserManager:Lcom/android/launcher3/common/compat/UserManagerCompat;
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v5, v2, Lcom/android/launcher3/common/base/item/IconInfo;->title:Ljava/lang/CharSequence;
+    move-result-object v6
 
-    iget-object v6, v2, Lcom/android/launcher3/common/base/item/IconInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    invoke-virtual {v1, v5, v6}, Lcom/android/launcher3/common/compat/UserManagerCompat;->getBadgedLabelForUser(Ljava/lang/CharSequence;Lcom/android/launcher3/common/compat/UserHandleCompat;)Ljava/lang/CharSequence;
+    move-result-object v6
 
-    move-result-object v1
+    invoke-static {v2, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    iput-object v1, v2, Lcom/android/launcher3/common/base/item/IconInfo;->contentDescription:Ljava/lang/CharSequence;
-
-    if-eqz v4, :cond_0
-
-    invoke-static {v4}, Lcom/android/launcher3/common/base/item/IconInfo;->initFlags(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;)I
-
-    move-result v1
-
-    iput v1, v2, Lcom/android/launcher3/common/base/item/IconInfo;->flags:I
+    const/4 v3, 0x0
 
     goto/16 :goto_0
 
     :cond_b
-    const/4 v1, 0x0
+    const-string v2, "HomeLoader"
 
-    goto :goto_1
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v7, "ComponentName does not match with the Launcher category : "
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-static {v2, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v3, 0x0
+
+    goto/16 :goto_0
+
+    :cond_c
+    move-object/from16 v0, p4
+
+    iget v2, v0, Lcom/android/launcher3/common/model/CursorInfo;->iconIndex:I
+
+    sget-object v6, Lcom/android/launcher3/home/HomeLoader;->sContext:Landroid/content/Context;
+
+    move-object/from16 v0, p3
+
+    invoke-static {v0, v2, v6}, Lcom/android/launcher3/util/BitmapUtils;->createIconBitmap(Landroid/database/Cursor;ILandroid/content/Context;)Landroid/graphics/Bitmap;
+
+    move-result-object v12
+
+    if-nez v12, :cond_d
+
+    sget-object v2, Lcom/android/launcher3/home/HomeLoader;->sIconCache:Lcom/android/launcher3/common/model/IconCache;
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v2, v0}, Lcom/android/launcher3/common/model/IconCache;->getDefaultIcon(Lcom/android/launcher3/common/compat/UserHandleCompat;)Landroid/graphics/Bitmap;
+
+    move-result-object v12
+
+    :cond_d
+    invoke-virtual {v3, v12}, Lcom/android/launcher3/common/base/item/IconInfo;->setIcon(Landroid/graphics/Bitmap;)V
+
+    :cond_e
+    if-eqz v5, :cond_f
+
+    invoke-virtual {v5}, Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;->getApplicationInfo()Landroid/content/pm/ApplicationInfo;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/launcher3/Utilities;->isAppSuspended(Landroid/content/pm/ApplicationInfo;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_f
+
+    const/4 v2, 0x4
+
+    iput v2, v3, Lcom/android/launcher3/common/base/item/IconInfo;->isDisabled:I
+
+    :cond_f
+    iget-object v2, v3, Lcom/android/launcher3/common/base/item/IconInfo;->title:Ljava/lang/CharSequence;
+
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_10
+
+    if-eqz p3, :cond_10
+
+    move-object/from16 v0, p4
+
+    iget v2, v0, Lcom/android/launcher3/common/model/CursorInfo;->titleIndex:I
+
+    move-object/from16 v0, p3
+
+    invoke-interface {v0, v2}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/launcher3/Utilities;->trim(Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v2
+
+    iput-object v2, v3, Lcom/android/launcher3/common/base/item/IconInfo;->title:Ljava/lang/CharSequence;
+
+    :cond_10
+    iget-object v2, v3, Lcom/android/launcher3/common/base/item/IconInfo;->title:Ljava/lang/CharSequence;
+
+    if-nez v2, :cond_11
+
+    invoke-virtual {v4}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
+
+    move-result-object v2
+
+    iput-object v2, v3, Lcom/android/launcher3/common/base/item/IconInfo;->title:Ljava/lang/CharSequence;
+
+    :cond_11
+    move/from16 v0, p7
+
+    iput-boolean v0, v3, Lcom/android/launcher3/common/base/item/IconInfo;->isAppShortcut:Z
+
+    if-eqz p7, :cond_12
+
+    const/4 v2, 0x1
+
+    :goto_2
+    iput v2, v3, Lcom/android/launcher3/common/base/item/IconInfo;->itemType:I
+
+    move-object/from16 v0, p2
+
+    iput-object v0, v3, Lcom/android/launcher3/common/base/item/IconInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    sget-object v2, Lcom/android/launcher3/home/HomeLoader;->sUserManager:Lcom/android/launcher3/common/compat/UserManagerCompat;
+
+    iget-object v6, v3, Lcom/android/launcher3/common/base/item/IconInfo;->title:Ljava/lang/CharSequence;
+
+    iget-object v7, v3, Lcom/android/launcher3/common/base/item/IconInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    invoke-virtual {v2, v6, v7}, Lcom/android/launcher3/common/compat/UserManagerCompat;->getBadgedLabelForUser(Ljava/lang/CharSequence;Lcom/android/launcher3/common/compat/UserHandleCompat;)Ljava/lang/CharSequence;
+
+    move-result-object v2
+
+    iput-object v2, v3, Lcom/android/launcher3/common/base/item/IconInfo;->contentDescription:Ljava/lang/CharSequence;
+
+    if-eqz v5, :cond_0
+
+    invoke-static {v5}, Lcom/android/launcher3/common/base/item/IconInfo;->initFlags(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;)I
+
+    move-result v2
+
+    iput v2, v3, Lcom/android/launcher3/common/base/item/IconInfo;->flags:I
+
+    goto/16 :goto_0
+
+    :cond_12
+    const/4 v2, 0x0
+
+    goto :goto_2
 .end method
 
 .method private getCallback()Lcom/android/launcher3/home/HomeLoader$HomeCallbacks;
@@ -6351,7 +6609,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f090021
+    const v5, 0x7f090023
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -10295,7 +10553,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_f
+    if-eqz v7, :cond_d
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -10307,7 +10565,7 @@
 
     instance-of v7, v0, Lcom/android/launcher3/common/base/item/IconInfo;
 
-    if-eqz v7, :cond_e
+    if-eqz v7, :cond_c
 
     move-object/from16 v0, v16
 
@@ -10319,7 +10577,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_e
+    if-eqz v7, :cond_c
 
     move-object/from16 v0, v16
 
@@ -10404,7 +10662,7 @@
 
     move-result-object v12
 
-    if-eqz v12, :cond_9
+    if-eqz v12, :cond_7
 
     invoke-virtual {v12}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
@@ -10416,7 +10674,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_9
+    if-eqz v7, :cond_7
 
     move-object/from16 v0, p3
 
@@ -10430,7 +10688,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_c
+    if-eqz v7, :cond_a
 
     sget-object v7, Lcom/android/launcher3/home/HomeLoader;->sLauncherApps:Lcom/android/launcher3/common/compat/LauncherAppsCompat;
 
@@ -10530,109 +10788,7 @@
     iput-object v0, v14, Lcom/android/launcher3/common/base/item/IconInfo;->promisedIntent:Landroid/content/Intent;
 
     :cond_3
-    const/4 v7, 0x4
-
-    invoke-virtual {v14, v7}, Lcom/android/launcher3/common/base/item/IconInfo;->hasStatusFlag(I)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_5
-
-    iget v7, v14, Lcom/android/launcher3/common/base/item/IconInfo;->itemType:I
-
-    const/16 v25, 0x1
-
-    move/from16 v0, v25
-
-    if-ne v7, v0, :cond_5
-
-    iget-object v7, v14, Lcom/android/launcher3/common/base/item/IconInfo;->intent:Landroid/content/Intent;
-
-    invoke-static {v7}, Lcom/android/launcher3/Utilities;->isLauncherAppTarget(Landroid/content/Intent;)Z
-
-    move-result v7
-
-    if-eqz v7, :cond_5
-
-    if-eqz v8, :cond_5
-
-    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
-
-    move-result-object v7
-
-    invoke-virtual {v7}, Lcom/android/launcher3/LauncherAppState;->isHomeOnlyModeEnabled()Z
-
-    move-result v7
-
-    if-eqz v7, :cond_4
-
-    const-string v7, "HomeLoader"
-
-    new-instance v25, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v26, "addOrUpdater : this shortcut(restored) is app shortcut. so remove "
-
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v25
-
-    iget-object v0, v14, Lcom/android/launcher3/common/base/item/IconInfo;->title:Ljava/lang/CharSequence;
-
-    move-object/from16 v26, v0
-
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v25
-
-    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v25
-
-    move-object/from16 v0, v25
-
-    invoke-static {v7, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-virtual {v6, v14}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto/16 :goto_0
-
-    :cond_4
-    const-string v7, "HomeLoader"
-
-    new-instance v25, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v26, "addOrUpdater : this shortcut(restored) is app shortcut. change item type "
-
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v25
-
-    iget-object v0, v14, Lcom/android/launcher3/common/base/item/IconInfo;->title:Ljava/lang/CharSequence;
-
-    move-object/from16 v26, v0
-
-    invoke-virtual/range {v25 .. v26}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v25
-
-    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v25
-
-    move-object/from16 v0, v25
-
-    invoke-static {v7, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    const/4 v7, 0x0
-
-    iput v7, v14, Lcom/android/launcher3/common/base/item/IconInfo;->itemType:I
-
-    :cond_5
-    if-eqz v8, :cond_6
+    if-eqz v8, :cond_4
 
     invoke-static {v8}, Lcom/android/launcher3/common/base/item/IconInfo;->initFlags(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;)I
 
@@ -10640,7 +10796,7 @@
 
     iput v7, v14, Lcom/android/launcher3/common/base/item/IconInfo;->flags:I
 
-    :cond_6
+    :cond_4
     iget-object v7, v14, Lcom/android/launcher3/common/base/item/IconInfo;->promisedIntent:Landroid/content/Intent;
 
     iput-object v7, v14, Lcom/android/launcher3/common/base/item/IconInfo;->intent:Landroid/content/Intent;
@@ -10655,26 +10811,26 @@
 
     iget v7, v14, Lcom/android/launcher3/common/base/item/IconInfo;->itemType:I
 
-    if-nez v7, :cond_7
+    if-nez v7, :cond_5
 
     const/4 v7, 0x0
 
     iput-boolean v7, v14, Lcom/android/launcher3/common/base/item/IconInfo;->customIcon:Z
 
-    :cond_7
+    :cond_5
     const/16 v17, 0x1
 
     sget-object v7, Lcom/android/launcher3/home/HomeLoader;->sIconCache:Lcom/android/launcher3/common/model/IconCache;
 
     invoke-virtual {v14, v7}, Lcom/android/launcher3/common/base/item/IconInfo;->updateIcon(Lcom/android/launcher3/common/model/IconCache;)V
 
-    :cond_8
+    :cond_6
     :goto_1
     iget v7, v14, Lcom/android/launcher3/common/base/item/IconInfo;->isDisabled:I
 
     and-int/lit8 v7, v7, 0x2
 
-    if-eqz v7, :cond_d
+    if-eqz v7, :cond_b
 
     iget v7, v14, Lcom/android/launcher3/common/base/item/IconInfo;->isDisabled:I
 
@@ -10684,16 +10840,16 @@
 
     const/4 v15, 0x1
 
-    :cond_9
+    :cond_7
     :goto_2
-    if-nez v17, :cond_a
+    if-nez v17, :cond_8
 
-    if-eqz v15, :cond_b
+    if-eqz v15, :cond_9
 
-    :cond_a
+    :cond_8
     invoke-virtual {v5, v14}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_b
+    :cond_9
     if-eqz v17, :cond_0
 
     new-instance v22, Landroid/content/ContentValues;
@@ -10716,8 +10872,8 @@
 
     goto/16 :goto_0
 
-    :cond_c
-    if-eqz v10, :cond_8
+    :cond_a
+    if-eqz v10, :cond_6
 
     const-string v7, "android.intent.action.MAIN"
 
@@ -10735,11 +10891,11 @@
 
     move-result v7
 
-    if-eqz v7, :cond_8
+    if-eqz v7, :cond_6
 
     iget v7, v14, Lcom/android/launcher3/common/base/item/IconInfo;->itemType:I
 
-    if-nez v7, :cond_8
+    if-nez v7, :cond_6
 
     sget-object v7, Lcom/android/launcher3/home/HomeLoader;->sIconCache:Lcom/android/launcher3/common/model/IconCache;
 
@@ -10753,12 +10909,12 @@
 
     goto :goto_1
 
-    :cond_d
+    :cond_b
     iget v7, v14, Lcom/android/launcher3/common/base/item/IconInfo;->isDisabled:I
 
     and-int/lit8 v7, v7, 0x20
 
-    if-eqz v7, :cond_9
+    if-eqz v7, :cond_7
 
     iget v7, v14, Lcom/android/launcher3/common/base/item/IconInfo;->isDisabled:I
 
@@ -10770,7 +10926,7 @@
 
     goto :goto_2
 
-    :cond_e
+    :cond_c
     move-object/from16 v0, v16
 
     instance-of v7, v0, Lcom/android/launcher3/home/LauncherAppWidgetInfo;
@@ -10871,7 +11027,7 @@
 
     goto/16 :goto_0
 
-    :cond_f
+    :cond_d
     monitor-exit v3
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -10880,7 +11036,7 @@
 
     move-result-object v4
 
-    if-nez v4, :cond_11
+    if-nez v4, :cond_f
 
     const-string v2, "HomeLoader"
 
@@ -10888,16 +11044,16 @@
 
     invoke-static {v2, v3}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_10
+    :cond_e
     :goto_3
     return-void
 
-    :cond_11
+    :cond_f
     invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportHomeModeChange()Z
 
     move-result v2
 
-    if-eqz v2, :cond_12
+    if-eqz v2, :cond_10
 
     invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
@@ -10907,15 +11063,15 @@
 
     move-result v2
 
-    if-eqz v2, :cond_12
+    if-eqz v2, :cond_10
 
-    if-eqz p2, :cond_12
+    if-eqz p2, :cond_10
 
     invoke-virtual/range {p2 .. p2}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v2
 
-    if-nez v2, :cond_12
+    if-nez v2, :cond_10
 
     new-instance v2, Ljava/util/ArrayList;
 
@@ -10937,20 +11093,20 @@
 
     invoke-virtual {v0, v2, v1, v3}, Lcom/android/launcher3/home/HomeLoader;->addAndBindAddedWorkspaceItems(Landroid/content/Context;Ljava/util/ArrayList;Z)V
 
-    :cond_12
+    :cond_10
     invoke-virtual {v5}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v2
 
-    if-eqz v2, :cond_13
+    if-eqz v2, :cond_11
 
     invoke-virtual {v6}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v2
 
-    if-nez v2, :cond_14
+    if-nez v2, :cond_12
 
-    :cond_13
+    :cond_11
     sget-object v25, Lcom/android/launcher3/home/HomeLoader;->sHandler:Lcom/android/launcher3/common/model/DeferredHandler;
 
     new-instance v2, Lcom/android/launcher3/home/HomeLoader$21;
@@ -10969,7 +11125,7 @@
 
     move-result v2
 
-    if-nez v2, :cond_14
+    if-nez v2, :cond_12
 
     move-object/from16 v0, p0
 
@@ -10977,12 +11133,12 @@
 
     invoke-virtual {v2, v6}, Lcom/android/launcher3/common/model/FavoritesUpdater;->deleteItemsFromDatabase(Ljava/util/ArrayList;)V
 
-    :cond_14
+    :cond_12
     invoke-virtual/range {v24 .. v24}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v2
 
-    if-nez v2, :cond_10
+    if-nez v2, :cond_e
 
     sget-object v2, Lcom/android/launcher3/home/HomeLoader;->sHandler:Lcom/android/launcher3/common/model/DeferredHandler;
 
@@ -11000,7 +11156,7 @@
 .end method
 
 .method public addPagesItem(Lcom/android/launcher3/common/base/item/ItemInfo;)V
-    .locals 4
+    .locals 6
 
     iget-wide v0, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->screenId:J
 
@@ -11019,11 +11175,16 @@
     return-void
 
     :cond_1
-    iget-wide v0, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
+    sget-object v1, Lcom/android/launcher3/home/HomeLoader;->sBgLock:Ljava/lang/Object;
 
-    const-wide/16 v2, -0x65
+    monitor-enter v1
 
-    cmp-long v0, v0, v2
+    :try_start_0
+    iget-wide v2, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
+
+    const-wide/16 v4, -0x65
+
+    cmp-long v0, v2, v4
 
     if-nez v0, :cond_2
 
@@ -11037,14 +11198,27 @@
 
     invoke-virtual {v0}, Lcom/android/launcher3/util/logging/SALogging;->updateLogValuesForHomeItems()V
 
+    :goto_1
+    monitor-exit v1
+
     goto :goto_0
 
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v0
+
     :cond_2
-    iget-wide v0, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
+    :try_start_1
+    iget-wide v2, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
 
-    const-wide/16 v2, -0x64
+    const-wide/16 v4, -0x64
 
-    cmp-long v0, v0, v2
+    cmp-long v0, v2, v4
 
     if-nez v0, :cond_4
 
@@ -11054,9 +11228,9 @@
 
     invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -11068,13 +11242,13 @@
 
     invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v1
+    move-result-object v2
 
-    new-instance v2, Ljava/util/ArrayList;
+    new-instance v3, Ljava/util/ArrayList;
 
-    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
 
-    invoke-virtual {v0, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v2, v3}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_3
     iget-object v0, p0, Lcom/android/launcher3/home/HomeLoader;->mBgPagesItems:Ljava/util/HashMap;
@@ -11083,9 +11257,9 @@
 
     invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v0, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {v0, v2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -11099,34 +11273,36 @@
 
     invoke-virtual {v0}, Lcom/android/launcher3/util/logging/SALogging;->updateLogValuesForHomeItems()V
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_4
     const-string v0, "HomeLoader"
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "addPagesItem : input item container error "
+    const-string v3, "addPagesItem : input item container error "
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    iget-wide v2, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
+    iget-wide v4, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
 
-    invoke-virtual {v1, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+    invoke-virtual {v2, v4, v5}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method bindItemAfterChangePosition(Lcom/android/launcher3/common/base/item/ItemInfo;)V
@@ -12902,13 +13078,13 @@
 
     move-result-object v19
 
-    if-eqz v19, :cond_19
+    if-eqz v19, :cond_17
 
     invoke-virtual/range {v19 .. v19}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object v4
 
-    if-eqz v4, :cond_19
+    if-eqz v4, :cond_17
 
     sget-object v4, Lcom/android/launcher3/home/HomeLoader;->sLauncherApps:Lcom/android/launcher3/common/compat/LauncherAppsCompat;
 
@@ -12939,13 +13115,13 @@
     const/16 v42, 0x1
 
     :goto_3
-    if-eqz v42, :cond_c
+    if-eqz v42, :cond_a
 
     if-eqz v37, :cond_3
 
     and-int/lit8 v4, v36, 0x20
 
-    if-eqz v4, :cond_a
+    if-eqz v4, :cond_2
 
     new-instance v45, Landroid/content/ContentValues;
 
@@ -12978,7 +13154,6 @@
     invoke-virtual {v0, v1, v2, v3}, Lcom/android/launcher3/home/HomeLoader;->updateItem(JLandroid/content/ContentValues;)V
 
     :cond_2
-    :goto_4
     invoke-static/range {v26 .. v27}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v4
@@ -13015,13 +13190,13 @@
 
     move/from16 v0, v30
 
-    if-ne v0, v4, :cond_29
+    if-ne v0, v4, :cond_27
 
     invoke-static/range {v28 .. v28}, Lcom/android/launcher3/Utilities;->isLauncherAppTarget(Landroid/content/Intent;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_29
+    if-eqz v4, :cond_27
 
     sget-object v4, Lcom/android/launcher3/home/HomeLoader;->sPackageManager:Landroid/content/pm/PackageManager;
 
@@ -13035,7 +13210,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_29
+    if-eqz v4, :cond_27
 
     const/4 v13, 0x1
 
@@ -13043,8 +13218,8 @@
 
     move-object/from16 v7, v28
 
-    :goto_5
-    if-ltz v21, :cond_1a
+    :goto_4
+    if-ltz v21, :cond_18
 
     move-object/from16 v0, p2
 
@@ -13058,12 +13233,12 @@
 
     const/16 v5, 0x9
 
-    if-lt v4, v5, :cond_1a
+    if-lt v4, v5, :cond_18
 
     const/4 v12, 0x1
 
-    :goto_6
-    if-eqz v37, :cond_1c
+    :goto_5
+    if-eqz v37, :cond_1a
 
     invoke-static {}, Lcom/android/launcher3/common/compat/UserHandleCompat;->myUserHandle()Lcom/android/launcher3/common/compat/UserHandleCompat;
 
@@ -13075,7 +13250,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_1b
+    if-eqz v4, :cond_19
 
     const-string v4, "HomeLoader"
 
@@ -13126,8 +13301,8 @@
     move-result-object v7
 
     :cond_5
-    :goto_7
-    if-eqz v25, :cond_28
+    :goto_6
+    if-eqz v25, :cond_26
 
     move-wide/from16 v0, v26
 
@@ -13311,7 +13486,7 @@
 
     iget v4, v0, Lcom/android/launcher3/common/base/item/IconInfo;->hidden:I
 
-    if-nez v4, :cond_22
+    if-nez v4, :cond_20
 
     move-object/from16 v0, v25
 
@@ -13321,11 +13496,11 @@
 
     cmp-long v4, v4, v8
 
-    if-nez v4, :cond_21
+    if-nez v4, :cond_1f
 
     const-wide/16 v4, 0x1
 
-    :goto_8
+    :goto_7
     move-object/from16 v0, p4
 
     invoke-virtual {v0, v4, v5}, Lcom/android/launcher3/util/LongArrayMap;->get(J)Ljava/lang/Object;
@@ -13344,7 +13519,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_22
+    if-nez v4, :cond_20
 
     invoke-static/range {v26 .. v27}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
@@ -13378,137 +13553,19 @@
     goto/16 :goto_3
 
     :cond_a
-    and-int/lit8 v4, v36, 0x4
-
-    if-eqz v4, :cond_2
-
-    const/4 v4, 0x1
-
-    move/from16 v0, v30
-
-    if-ne v0, v4, :cond_2
-
-    invoke-static/range {v28 .. v28}, Lcom/android/launcher3/Utilities;->isLauncherAppTarget(Landroid/content/Intent;)Z
-
-    move-result v4
-
-    if-eqz v4, :cond_2
-
-    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Lcom/android/launcher3/LauncherAppState;->isHomeOnlyModeEnabled()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_b
-
-    const-string v4, "HomeLoader"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "createShortcutItem : this shortcut(restored) is app shortcut. so remove "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    move-wide/from16 v0, v26
-
-    invoke-virtual {v5, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    invoke-static/range {v26 .. v27}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v4
-
-    move-object/from16 v0, v31
-
-    invoke-virtual {v0, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    const/16 v39, 0x0
-
-    move/from16 v11, v20
-
-    goto/16 :goto_1
-
-    :cond_b
-    const-string v4, "HomeLoader"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "createShortcutItem : this shortcut(restored) is app shortcut. change item type "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    move-wide/from16 v0, v26
-
-    invoke-virtual {v5, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    new-instance v45, Landroid/content/ContentValues;
-
-    invoke-direct/range {v45 .. v45}, Landroid/content/ContentValues;-><init>()V
-
-    const-string v4, "itemType"
-
-    const/4 v5, 0x0
-
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    move-object/from16 v0, v45
-
-    invoke-virtual {v0, v4, v5}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
-
-    move-object/from16 v0, p0
-
-    move-wide/from16 v1, v26
-
-    move-object/from16 v3, v45
-
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/launcher3/home/HomeLoader;->updateItem(JLandroid/content/ContentValues;)V
-
-    const/16 v30, 0x0
-
-    goto/16 :goto_4
-
-    :cond_c
-    if-eqz v43, :cond_12
+    if-eqz v43, :cond_10
 
     const/16 v44, 0x0
 
     and-int/lit8 v4, v36, 0x2
 
-    if-nez v4, :cond_d
+    if-nez v4, :cond_b
 
     and-int/lit8 v4, v36, 0x20
 
-    if-eqz v4, :cond_e
+    if-eqz v4, :cond_c
 
-    :cond_d
+    :cond_b
     sget-object v4, Lcom/android/launcher3/home/HomeLoader;->sPackageManager:Landroid/content/pm/PackageManager;
 
     invoke-virtual/range {v19 .. v19}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
@@ -13519,7 +13576,7 @@
 
     move-result-object v44
 
-    if-eqz v44, :cond_e
+    if-eqz v44, :cond_c
 
     new-instance v45, Landroid/content/ContentValues;
 
@@ -13547,8 +13604,8 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/android/launcher3/home/HomeLoader;->updateItem(JLandroid/content/ContentValues;)V
 
-    :cond_e
-    if-nez v44, :cond_10
+    :cond_c
+    if-nez v44, :cond_e
 
     invoke-virtual/range {v19 .. v19}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
@@ -13596,7 +13653,7 @@
 
     and-int/lit8 v4, v36, 0x20
 
-    if-eqz v4, :cond_f
+    if-eqz v4, :cond_d
 
     const-string v4, "HomeLoader"
 
@@ -13626,12 +13683,12 @@
 
     move-object/from16 v7, v28
 
-    :goto_9
+    :goto_8
     move/from16 v11, v20
 
-    goto/16 :goto_5
+    goto/16 :goto_4
 
-    :cond_f
+    :cond_d
     const-string v4, "HomeLoader"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -13672,12 +13729,12 @@
 
     goto/16 :goto_1
 
-    :cond_10
+    :cond_e
     move-object/from16 v7, v44
 
     and-int/lit8 v4, v36, 0x20
 
-    if-eqz v4, :cond_11
+    if-eqz v4, :cond_f
 
     new-instance v45, Landroid/content/ContentValues;
 
@@ -13709,7 +13766,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Lcom/android/launcher3/home/HomeLoader;->updateItem(JLandroid/content/ContentValues;)V
 
-    :cond_11
+    :cond_f
     invoke-static/range {v26 .. v27}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v4
@@ -13720,10 +13777,10 @@
 
     const/16 v37, 0x0
 
-    goto :goto_9
+    goto :goto_8
 
-    :cond_12
-    if-eqz v37, :cond_15
+    :cond_10
+    if-eqz v37, :cond_13
 
     const-string v4, "HomeLoader"
 
@@ -13753,16 +13810,16 @@
 
     and-int/lit8 v4, v36, 0x2
 
-    if-nez v4, :cond_13
+    if-nez v4, :cond_11
 
     and-int/lit8 v4, v36, 0x1
 
-    if-eqz v4, :cond_29
+    if-eqz v4, :cond_27
 
-    :cond_13
+    :cond_11
     sget-object v4, Lcom/android/launcher3/home/HomeLoader;->sInstallingPkgs:Ljava/util/HashMap;
 
-    if-eqz v4, :cond_14
+    if-eqz v4, :cond_12
 
     sget-object v4, Lcom/android/launcher3/home/HomeLoader;->sInstallingPkgs:Ljava/util/HashMap;
 
@@ -13774,9 +13831,9 @@
 
     move-result v4
 
-    if-nez v4, :cond_29
+    if-nez v4, :cond_27
 
-    :cond_14
+    :cond_12
     const-string v4, "HomeLoader"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -13817,7 +13874,7 @@
 
     goto/16 :goto_1
 
-    :cond_15
+    :cond_13
     invoke-virtual/range {v19 .. v19}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
     move-result-object v4
@@ -13828,7 +13885,7 @@
 
     move-result v33
 
-    if-lez v33, :cond_16
+    if-lez v33, :cond_14
 
     const-string v4, "HomeLoader"
 
@@ -13874,12 +13931,12 @@
 
     move-object/from16 v7, v28
 
-    goto/16 :goto_5
+    goto/16 :goto_4
 
-    :cond_16
+    :cond_14
     sget-boolean v4, Lcom/android/launcher3/home/HomeLoader;->mIsBootCompleted:Z
 
-    if-nez v4, :cond_17
+    if-nez v4, :cond_15
 
     const-string v4, "HomeLoader"
 
@@ -13927,22 +13984,22 @@
 
     move-object/from16 v7, v28
 
-    goto/16 :goto_5
+    goto/16 :goto_4
 
-    :cond_17
+    :cond_15
     sget-object v4, Lcom/android/launcher3/home/HomeLoader;->sContext:Landroid/content/Context;
 
     invoke-static {v4}, Lcom/android/launcher3/util/DualAppUtils;->supportDualApp(Landroid/content/Context;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_18
+    if-eqz v4, :cond_16
 
     const/4 v4, 0x1
 
     move/from16 v0, v30
 
-    if-ne v0, v4, :cond_18
+    if-ne v0, v4, :cond_16
 
     const-string v4, "com.samsung.android.da.daagent"
 
@@ -13954,7 +14011,7 @@
 
     move-result v4
 
-    if-eqz v4, :cond_18
+    if-eqz v4, :cond_16
 
     const-string v4, "HomeLoader"
 
@@ -13990,9 +14047,9 @@
 
     move-object/from16 v7, v28
 
-    goto/16 :goto_5
+    goto/16 :goto_4
 
-    :cond_18
+    :cond_16
     const-string v4, "HomeLoader"
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -14033,8 +14090,8 @@
 
     goto/16 :goto_1
 
-    :cond_19
-    if-nez v19, :cond_29
+    :cond_17
+    if-nez v19, :cond_27
 
     invoke-static/range {v26 .. v27}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
@@ -14052,7 +14109,7 @@
 
     move-object/from16 v7, v28
 
-    goto/16 :goto_5
+    goto/16 :goto_4
 
     :catch_0
     move-exception v23
@@ -14097,12 +14154,38 @@
 
     goto/16 :goto_1
 
-    :cond_1a
+    :cond_18
     const/4 v12, 0x0
 
-    goto/16 :goto_6
+    goto/16 :goto_5
 
-    :cond_1b
+    :cond_19
+    const-string v4, "HomeLoader"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "Don\'t restore items for other profiles: "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    move-object/from16 v0, v18
+
+    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    const/4 v6, 0x1
+
+    invoke-static {v4, v5, v6}, Lcom/android/launcher3/Launcher;->addDumpLog(Ljava/lang/String;Ljava/lang/String;Z)V
+
     invoke-static/range {v26 .. v27}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v4
@@ -14115,12 +14198,12 @@
 
     goto/16 :goto_1
 
-    :cond_1c
-    if-eqz v30, :cond_1d
+    :cond_1a
+    if-eqz v30, :cond_1b
 
-    if-eqz v13, :cond_1e
+    if-eqz v13, :cond_1c
 
-    :cond_1d
+    :cond_1b
     move-object/from16 v6, p0
 
     move-object/from16 v8, v18
@@ -14135,6 +14218,14 @@
 
     if-nez v25, :cond_5
 
+    const-string v4, "HomeLoader"
+
+    const-string v5, "This item\'s info is null"
+
+    const/4 v6, 0x1
+
+    invoke-static {v4, v5, v6}, Lcom/android/launcher3/Launcher;->addDumpLog(Ljava/lang/String;Ljava/lang/String;Z)V
+
     invoke-static/range {v26 .. v27}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
     move-result-object v4
@@ -14147,12 +14238,12 @@
 
     goto/16 :goto_1
 
-    :cond_1e
+    :cond_1c
     const/4 v4, 0x1
 
     move/from16 v0, v30
 
-    if-ne v0, v4, :cond_1f
+    if-ne v0, v4, :cond_1d
 
     move-object/from16 v14, p0
 
@@ -14166,9 +14257,9 @@
 
     move-result-object v25
 
-    goto/16 :goto_7
+    goto/16 :goto_6
 
-    :cond_1f
+    :cond_1d
     const/4 v4, 0x6
 
     move/from16 v0, v30
@@ -14193,7 +14284,15 @@
 
     check-cast v34, Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutInfoCompat;
 
-    if-nez v34, :cond_20
+    if-nez v34, :cond_1e
+
+    const-string v4, "HomeLoader"
+
+    const-string v5, "The pinned shortcut is no longer valid"
+
+    const/4 v6, 0x1
+
+    invoke-static {v4, v5, v6}, Lcom/android/launcher3/Launcher;->addDumpLog(Ljava/lang/String;Ljava/lang/String;Z)V
 
     invoke-static/range {v26 .. v27}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
 
@@ -14207,7 +14306,7 @@
 
     goto/16 :goto_1
 
-    :cond_20
+    :cond_1e
     new-instance v25, Lcom/android/launcher3/common/base/item/IconInfo;
 
     sget-object v4, Lcom/android/launcher3/home/HomeLoader;->sContext:Landroid/content/Context;
@@ -14228,21 +14327,21 @@
 
     invoke-static {v0, v4}, Lcom/android/launcher3/home/HomeLoader;->incrementPinnedShortcutCount(Lcom/android/launcher3/common/quickoption/shortcuts/ShortcutKey;Z)V
 
-    goto/16 :goto_7
+    goto/16 :goto_6
 
-    :cond_21
+    :cond_1f
     const-wide/16 v4, 0x0
 
-    goto/16 :goto_8
+    goto/16 :goto_7
 
-    :cond_22
-    if-eqz v7, :cond_23
+    :cond_20
+    if-eqz v7, :cond_21
 
     invoke-virtual/range {v25 .. v25}, Lcom/android/launcher3/common/base/item/IconInfo;->getTargetComponent()Landroid/content/ComponentName;
 
     move-result-object v19
 
-    if-eqz v19, :cond_23
+    if-eqz v19, :cond_21
 
     sget-object v4, Lcom/android/launcher3/home/HomeLoader;->sBadgeCache:Lcom/android/launcher3/common/model/BadgeCache;
 
@@ -14262,23 +14361,23 @@
 
     iput v4, v0, Lcom/android/launcher3/common/base/item/IconInfo;->mBadgeCount:I
 
-    :cond_23
-    if-eqz v37, :cond_24
+    :cond_21
+    if-eqz v37, :cond_22
 
     invoke-virtual/range {v25 .. v25}, Lcom/android/launcher3/common/base/item/IconInfo;->getTargetComponent()Landroid/content/ComponentName;
 
     move-result-object v19
 
-    if-eqz v19, :cond_24
+    if-eqz v19, :cond_22
 
     sget-object v4, Lcom/android/launcher3/home/HomeLoader;->sInstallingPkgs:Ljava/util/HashMap;
 
-    if-nez v4, :cond_26
+    if-nez v4, :cond_24
 
     const/16 v35, 0x0
 
-    :goto_a
-    if-eqz v35, :cond_27
+    :goto_9
+    if-eqz v35, :cond_25
 
     invoke-virtual/range {v35 .. v35}, Ljava/lang/Integer;->intValue()I
 
@@ -14288,8 +14387,8 @@
 
     invoke-virtual {v0, v4}, Lcom/android/launcher3/common/base/item/IconInfo;->setInstallProgress(I)V
 
-    :cond_24
-    :goto_b
+    :cond_22
+    :goto_a
     packed-switch v21, :pswitch_data_0
 
     sget-object v5, Lcom/android/launcher3/home/HomeLoader;->sBgLock:Ljava/lang/Object;
@@ -14313,12 +14412,12 @@
     :try_end_2
     .catchall {:try_start_2 .. :try_end_2} :catchall_0
 
-    if-eqz v24, :cond_25
+    if-eqz v24, :cond_23
 
     invoke-virtual/range {v24 .. v25}, Lcom/android/launcher3/folder/FolderInfo;->add(Lcom/android/launcher3/common/base/item/IconInfo;)V
 
-    :cond_25
-    :goto_c
+    :cond_23
+    :goto_b
     move-object/from16 v0, p0
 
     move-object/from16 v1, v25
@@ -14327,7 +14426,7 @@
 
     goto/16 :goto_1
 
-    :cond_26
+    :cond_24
     sget-object v4, Lcom/android/launcher3/home/HomeLoader;->sInstallingPkgs:Ljava/util/HashMap;
 
     invoke-virtual/range {v19 .. v19}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
@@ -14342,9 +14441,9 @@
 
     move-object/from16 v35, v4
 
-    goto :goto_a
+    goto :goto_9
 
-    :cond_27
+    :cond_25
     move-object/from16 v0, v25
 
     iget v4, v0, Lcom/android/launcher3/common/base/item/IconInfo;->status:I
@@ -14355,7 +14454,7 @@
 
     iput v4, v0, Lcom/android/launcher3/common/base/item/IconInfo;->status:I
 
-    goto :goto_b
+    goto :goto_a
 
     :pswitch_0
     move-object/from16 v0, p0
@@ -14366,7 +14465,7 @@
 
     move-object/from16 v39, v25
 
-    goto :goto_c
+    goto :goto_b
 
     :catchall_0
     move-exception v4
@@ -14378,7 +14477,7 @@
 
     throw v4
 
-    :cond_28
+    :cond_26
     new-instance v4, Ljava/lang/RuntimeException;
 
     const-string v5, "Unexpected null IconInfo"
@@ -14387,14 +14486,12 @@
 
     throw v4
 
-    :cond_29
+    :cond_27
     move/from16 v11, v20
 
     move-object/from16 v7, v28
 
-    goto/16 :goto_5
-
-    nop
+    goto/16 :goto_4
 
     :pswitch_data_0
     .packed-switch -0x65
@@ -14898,7 +14995,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_7
+    if-eqz v6, :cond_6
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -14908,21 +15005,20 @@
 
     iget v6, v3, Lcom/android/launcher3/common/base/item/ItemInfo;->itemType:I
 
-    if-nez v6, :cond_4
+    if-nez v6, :cond_3
 
     iget-wide v6, v3, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
 
     cmp-long v6, v6, v8
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_4
 
     iget-wide v6, v3, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
 
     cmp-long v6, v6, v10
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_4
 
-    :cond_4
     iget-wide v6, v3, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
 
     invoke-static {v6, v7}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
@@ -14935,10 +15031,10 @@
 
     if-eqz v6, :cond_3
 
-    :cond_5
+    :cond_4
     iget-object v6, v3, Lcom/android/launcher3/common/base/item/ItemInfo;->componentName:Landroid/content/ComponentName;
 
-    if-nez v6, :cond_6
+    if-nez v6, :cond_5
 
     invoke-virtual {v3}, Lcom/android/launcher3/common/base/item/ItemInfo;->getIntent()Landroid/content/Intent;
 
@@ -14954,12 +15050,12 @@
 
     goto :goto_1
 
-    :cond_6
+    :cond_5
     invoke-virtual {v0, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     goto :goto_1
 
-    :cond_7
+    :cond_6
     monitor-exit v5
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
@@ -17403,8 +17499,13 @@
 .end method
 
 .method public removePagesItem(Lcom/android/launcher3/common/base/item/ItemInfo;)V
-    .locals 3
+    .locals 4
 
+    sget-object v2, Lcom/android/launcher3/home/HomeLoader;->sBgLock:Ljava/lang/Object;
+
+    monitor-enter v2
+
+    :try_start_0
     iget-object v1, p0, Lcom/android/launcher3/home/HomeLoader;->mBgHotseatItems:Ljava/util/ArrayList;
 
     invoke-virtual {v1, p1}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
@@ -17425,6 +17526,8 @@
 
     :cond_0
     :goto_0
+    monitor-exit v2
+
     return-void
 
     :cond_1
@@ -17436,16 +17539,16 @@
 
     invoke-interface {v1}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v3
 
     :cond_2
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -17482,6 +17585,15 @@
     invoke-virtual {v1}, Lcom/android/launcher3/util/logging/SALogging;->updateLogValuesForHomeItems()V
 
     goto :goto_0
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit v2
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v1
 .end method
 
 .method public removeScreen(I)V
@@ -18034,7 +18146,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f090021
+    const v6, 0x7f090023
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

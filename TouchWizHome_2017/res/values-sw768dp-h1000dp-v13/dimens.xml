@@ -46,8 +46,7 @@
     <dimen name="overview_pannel_margin_bottom">38.0dip</dimen>
     <dimen name="overview_pannel_options_button_height">99.0dip</dimen>
     <dimen name="overview_pannel_textsize">16.0dip</dimen>
-    <dimen name="pageIndicator_dot_gap">8.0dip</dimen>
-    <dimen name="pageIndicator_dot_size">10.0dip</dimen>
+    <dimen name="pageIndicator_dot_size">20.0dip</dimen>
     <dimen name="quick_option_popup_margin_widget">5.0dip</dimen>
     <dimen name="quick_options_text_size">12.0dip</dimen>
     <dimen name="tray_fake_view_text_size">14.0dip</dimen>
@@ -126,6 +125,7 @@
     <dimen name="overview_zeropage_switch_text_padding_left">14.0dip</dimen>
     <dimen name="overview_zeropage_switch_text_padding_right">10.0dip</dimen>
     <dimen name="overview_zeropage_switch_text_size">17.0dip</dimen>
+    <dimen name="pageIndicator_dot_gap">8.0dip</dimen>
     <dimen name="pageIndicator_dot_margin">6.0dip</dimen>
     <dimen name="status_bar_height">30.0dip</dimen>
     <dimen name="home_6x6_cellHeight_port">121.0dip</dimen>

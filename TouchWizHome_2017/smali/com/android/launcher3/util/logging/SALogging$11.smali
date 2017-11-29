@@ -45,9 +45,9 @@
 .method public run()V
     .locals 4
 
-    const v3, 0x7f0901ad
+    const v3, 0x7f0901b2
 
-    const v2, 0x7f0901ba
+    const v2, 0x7f0901bf
 
     sget-object v1, Lcom/android/launcher3/util/logging/Logging;->sContext:Landroid/content/Context;
 
@@ -71,7 +71,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090167
+    const v3, 0x7f09016c
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -96,7 +96,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090168
+    const v3, 0x7f09016d
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -119,7 +119,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090169
+    const v3, 0x7f09016e
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -142,7 +142,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090115
+    const v3, 0x7f09011a
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -165,7 +165,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090116
+    const v3, 0x7f09011b
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

@@ -16,8 +16,10 @@
     <string name="accessibility_button">ღილაკი</string>
     <string name="accessibility_dimmed">ჩამქრალი</string>
     <string name="activity_not_available">ეს აპლიკაცია არ არის თქვენი მოწყობილობისთვის.</string>
-    <string name="activity_not_found">პროგრამა არაა დაინსტალირებული.</string>
+    <string name="activity_not_found">აპლიკაცია ვერ მოიძებნა</string>
+    <string name="add">დამატება</string>
     <string name="add_to_last_page">თქვენ აირჩიეთ %1$d ელემენტი, მაგრამ ამ გვერდზე არ არის საკმარისი ადგილი. დარჩენილი %2$d ელემენტი დაემატება ბოლო გვერდზე.</string>
+    <string name="add_to_last_page_for_hotseat">თქვენ აირჩიეთ %1$d ელემენტი, მაგრამ რჩეულების ლანგარზე არ არის საკმარისი ადგილი. დარჩენილი %2$d ელემენტი დაემატება ბოლო გვერდზე.</string>
     <string name="align_to_bottom">ქვემოთ გასწორება</string>
     <string name="align_to_top">ზემოთ გასწორება</string>
     <string name="app_locked_toast">%s დაბლოკილია.</string>
@@ -121,13 +123,14 @@
     <string name="new_page_created">გვერდი დაემატა.</string>
     <string name="no_changes">ცვლილებები არ არის.</string>
     <string name="no_space_page">გვერდზე არ არის ადგილი. ღილაკის დამატება სცადეთ სხვა გვერდზე.</string>
+    <string name="no_space_page_for_hotseat">რჩეულა ანგარზე ადგილი არ არის.</string>
     <string name="no_space_page_for_widget">ამ გვერდზე არ არის ადგილი.</string>
     <string name="not_selected">არ არის არჩეული</string>
     <string name="notification_panel_setting_summary">შეტყობინებათა დაფის გასახსნელად, „საწყის ეკრანს“ ჩამოუსვით თითი ქვემოთ.</string>
     <string name="notification_panel_setting_title">შეტყობინებათა დაფის გახსენა</string>
     <string name="ok">კი</string>
     <string name="only_one_widget_instance_allowed">%s ვიჯეტი უკვე დამატებულია საწყის გვერდზე.</string>
-    <string name="option_menu_contact_up">მოგვმართეთ</string>
+    <string name="option_menu_contact_up">დაგვიკავშირდით</string>
     <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">პარამეტრები</string>
     <string name="options_menu">სხვა ოფციები</string>
@@ -155,6 +158,8 @@
     <string name="quick_option_delete_folder">საქაღალდის წაშლა</string>
     <string name="quick_option_delete_folder_alert">%s საქაღალდე წაიშლება. ამ საქაღალდეში შენახული აპლიკაციები კვლავ ხელმისაწვდომი იქნება „აპლიკაციების“ ეკრანზე.</string>
     <string name="quick_option_delete_folder_alert_no_title">ეს საქაღალდე წაიშლება. ამ საქაღალდეში შენახული აპლიკაციები კვლავ ხელმისაწვდომი იქნება „აპლიკაციების“ ეკრანზე.</string>
+    <string name="quick_option_delete_folder_home_only_alert">„%s“ საქაღალდე წაიშლება. ამ საქაღალდეში მყოფი აპლიკაციები კვლავ ხელმისაწვდომი იქნება „საწყის ეკრანზე“.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">ეს საქაღალდე წაიშლება. ამ საქაღალდეში მყოფი აპლიკაციები კვლავ ხელმისაწვდომი იქნება „საწყის ეკრანზე“.</string>
     <string name="quick_option_dimmed_disable">გამორთვა</string>
     <string name="quick_option_disable">გამორთვა</string>
     <string name="quick_option_install_dual_im">მეორე აპის დაინსტალირება</string>

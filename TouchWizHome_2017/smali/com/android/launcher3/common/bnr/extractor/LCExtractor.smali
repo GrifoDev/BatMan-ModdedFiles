@@ -4,13 +4,21 @@
 
 
 # static fields
+.field public static final ACTION_INTENT_LCEXTRACTOR:Ljava/lang/String; = "com.sec.android.intent.action.LCEXTRACTOR"
+
+.field public static final EXTRACT_TYPE_HOMEDATA:I = 0x1
+
+.field public static final EXTRACT_TYPE_LAYOUT:I = 0x0
+
+.field public static final EXTRACT_TYPE_NO:I = -0x1
+
 .field private static final FILE_NAME_APPS:Ljava/lang/String; = "default_application_order"
 
 .field private static final FILE_NAME_WORKSPACE:Ljava/lang/String; = "default_workspace"
 
-.field private static final HOMEDATA_DIR:Ljava/lang/String; = ".homedata"
+.field public static final HOMEDATA_DIR:Ljava/lang/String; = ".homedata"
 
-.field private static final HOMESCREEN_DIR:Ljava/lang/String; = ".homescreen"
+.field public static final HOMESCREEN_DIR:Ljava/lang/String; = ".homescreen"
 
 .field public static final LCEXTRACTOR_APPS_SOURCE:Ljava/lang/String; = "LCExtractorApps"
 
@@ -26,13 +34,11 @@
 # instance fields
 .field private mContext:Landroid/content/Context;
 
-.field private mIsDb:Z
+.field private mExtractType:I
 
 .field private mIsEasyMode:Z
 
 .field private mIsHomeOnly:Z
-
-.field private mPossibleToExtract:Z
 
 
 # direct methods
@@ -90,156 +96,51 @@
     return-void
 .end method
 
-.method public constructor <init>(Landroid/content/Context;)V
-    .locals 9
-
-    const/4 v8, 0x1
-
-    const/4 v7, 0x0
+.method public constructor <init>(Landroid/content/Context;I)V
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-boolean v7, p0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->mPossibleToExtract:Z
-
-    iput-boolean v7, p0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->mIsHomeOnly:Z
-
-    iput-boolean v7, p0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->mIsEasyMode:Z
-
-    iput-boolean v7, p0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->mIsDb:Z
-
     iput-object p1, p0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->mContext:Landroid/content/Context;
 
-    new-instance v1, Ljava/util/ArrayList;
+    iput p2, p0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->mExtractType:I
 
-    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportHomeModeChange()Z
 
-    iget-object v4, p0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->mContext:Landroid/content/Context;
+    move-result v0
 
-    sget-object v5, Lcom/android/launcher3/util/PermissionUtils;->PERMISSIONS_STORAGE:[Ljava/lang/String;
+    if-eqz v0, :cond_1
 
-    invoke-static {v4, v5, v1}, Lcom/android/launcher3/util/PermissionUtils;->hasSelfPermission(Landroid/content/Context;[Ljava/lang/String;Ljava/util/ArrayList;)I
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
-    move-result v3
+    move-result-object v0
 
-    const-string v4, "Launcher.Extractor"
+    invoke-virtual {v0}, Lcom/android/launcher3/LauncherAppState;->isHomeOnlyModeEnabled()Z
 
-    new-instance v5, Ljava/lang/StringBuilder;
+    move-result v0
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "hasSelfPermission : "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    if-eqz v3, :cond_1
-
-    const-string v4, "Launcher.Extractor"
-
-    const-string v5, "No storage permission in TouchWizHome"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    iput-boolean v0, p0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->mIsHomeOnly:Z
 
     :cond_0
     :goto_0
     return-void
 
     :cond_1
-    new-instance v0, Ljava/io/File;
-
-    invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;
-
-    move-result-object v4
-
-    const-string v5, ".homescreen"
-
-    invoke-direct {v0, v4, v5}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
-
-    invoke-virtual {v0}, Ljava/io/File;->exists()Z
-
-    move-result v4
-
-    if-nez v4, :cond_3
-
-    new-instance v0, Ljava/io/File;
-
-    invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;
-
-    move-result-object v4
-
-    const-string v5, ".homedata"
-
-    invoke-direct {v0, v4, v5}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
-
-    invoke-virtual {v0}, Ljava/io/File;->exists()Z
-
-    move-result v4
-
-    if-nez v4, :cond_2
-
-    const-string v4, "Launcher.Extractor"
-
-    const-string v5, "startLauncherExtractor() failed, device doesn\'t have secret directory"
-
-    invoke-static {v4, v5}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto :goto_0
-
-    :cond_2
-    iput-boolean v8, p0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->mIsDb:Z
-
-    :cond_3
-    iput-boolean v8, p0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->mPossibleToExtract:Z
-
-    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getSharedPreferencesKey()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {p1, v4, v7}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
-
-    move-result-object v2
-
-    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportHomeModeChange()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_4
-
-    const-string v4, "home_only_mode"
-
-    invoke-interface {v2, v4, v7}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
-
-    move-result v4
-
-    iput-boolean v4, p0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->mIsHomeOnly:Z
-
-    :cond_4
     invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportEasyModeChange()Z
 
-    move-result v4
+    move-result v0
 
-    if-eqz v4, :cond_0
+    if-eqz v0, :cond_0
 
     invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v4}, Lcom/android/launcher3/LauncherAppState;->isEasyModeEnabled()Z
+    invoke-virtual {v0}, Lcom/android/launcher3/LauncherAppState;->isEasyModeEnabled()Z
 
-    move-result v4
+    move-result v0
 
-    iput-boolean v4, p0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->mIsEasyMode:Z
+    iput-boolean v0, p0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->mIsEasyMode:Z
 
     goto :goto_0
 .end method
@@ -263,6 +164,22 @@
     iget-object v0, p0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->mContext:Landroid/content/Context;
 
     return-object v0
+.end method
+
+.method static synthetic access$200(Lcom/android/launcher3/common/bnr/extractor/LCExtractor;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->mIsEasyMode:Z
+
+    return v0
+.end method
+
+.method static synthetic access$300(Lcom/android/launcher3/common/bnr/extractor/LCExtractor;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->mIsHomeOnly:Z
+
+    return v0
 .end method
 
 .method private extractData()V
@@ -562,315 +479,132 @@
 
 
 # virtual methods
-.method public getCanExtract()Z
-    .locals 1
+.method public checkCondition()V
+    .locals 6
 
-    iget-boolean v0, p0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->mPossibleToExtract:Z
+    new-instance v1, Ljava/util/ArrayList;
 
-    return v0
+    invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
+
+    iget-object v3, p0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->mContext:Landroid/content/Context;
+
+    sget-object v4, Lcom/android/launcher3/util/PermissionUtils;->PERMISSIONS_STORAGE:[Ljava/lang/String;
+
+    invoke-static {v3, v4, v1}, Lcom/android/launcher3/util/PermissionUtils;->hasSelfPermission(Landroid/content/Context;[Ljava/lang/String;Ljava/util/ArrayList;)I
+
+    move-result v2
+
+    const-string v3, "Launcher.Extractor"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "hasSelfPermission : "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-eqz v2, :cond_1
+
+    const-string v3, "Launcher.Extractor"
+
+    const-string v4, "No storage permission in TouchWizHome"
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->mContext:Landroid/content/Context;
+
+    check-cast v0, Lcom/android/launcher3/Launcher;
+
+    invoke-static {v0, v1}, Lcom/android/launcher3/util/PermissionUtils;->shouldShowRequestPermissionRationale(Landroid/app/Activity;Ljava/util/ArrayList;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    const-string v3, "Launcher.Extractor"
+
+    const-string v4, "Permission denied."
+
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_0
+    return-void
+
+    :cond_0
+    const/4 v3, 0x2
+
+    invoke-static {v0, v1, v3}, Lcom/android/launcher3/util/PermissionUtils;->requestPermissions(Lcom/android/launcher3/Launcher;Ljava/util/ArrayList;I)V
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {p0}, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->startExtractLayout()V
+
+    goto :goto_0
 .end method
 
 .method public startExtractLayout()V
-    .locals 13
+    .locals 3
 
-    const/4 v8, 0x0
+    const/4 v2, 0x1
 
-    iget-boolean v9, p0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->mIsDb:Z
+    iget v0, p0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->mExtractType:I
 
-    if-eqz v9, :cond_1
+    if-ne v0, v2, :cond_1
 
-    new-instance v9, Lcom/android/launcher3/common/bnr/extractor/LCExtractor$1;
+    new-instance v0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor$1;
 
-    invoke-direct {v9, p0}, Lcom/android/launcher3/common/bnr/extractor/LCExtractor$1;-><init>(Lcom/android/launcher3/common/bnr/extractor/LCExtractor;)V
+    invoke-direct {v0, p0}, Lcom/android/launcher3/common/bnr/extractor/LCExtractor$1;-><init>(Lcom/android/launcher3/common/bnr/extractor/LCExtractor;)V
 
-    sget-object v10, Lcom/android/launcher3/Utilities;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
+    sget-object v1, Lcom/android/launcher3/Utilities;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
 
-    new-array v8, v8, [Ljava/lang/Void;
+    const/4 v2, 0x0
 
-    invoke-virtual {v9, v10, v8}, Lcom/android/launcher3/common/bnr/extractor/LCExtractor$1;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
+    new-array v2, v2, [Ljava/lang/Void;
+
+    invoke-virtual {v0, v1, v2}, Lcom/android/launcher3/common/bnr/extractor/LCExtractor$1;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
 
     :cond_0
     :goto_0
     return-void
 
     :cond_1
-    invoke-static {}, Lcom/android/launcher3/common/bnr/LauncherBnrHelper;->getInstance()Lcom/android/launcher3/common/bnr/LauncherBnrHelper;
+    iget v0, p0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->mExtractType:I
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->mContext:Landroid/content/Context;
+
+    const-string v1, "Extracting the home screen layout."
+
+    invoke-static {v0, v1, v2}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
 
     move-result-object v0
 
-    new-instance v5, Ljava/lang/StringBuffer;
+    invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    const-string v9, "default_workspace"
+    new-instance v0, Ljava/lang/Thread;
 
-    invoke-direct {v5, v9}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
+    new-instance v1, Lcom/android/launcher3/common/bnr/extractor/LCExtractor$2;
 
-    iget-boolean v9, p0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->mIsEasyMode:Z
+    invoke-direct {v1, p0}, Lcom/android/launcher3/common/bnr/extractor/LCExtractor$2;-><init>(Lcom/android/launcher3/common/bnr/extractor/LCExtractor;)V
 
-    if-eqz v9, :cond_7
+    invoke-direct {v0, v1}, Ljava/lang/Thread;-><init>(Ljava/lang/Runnable;)V
 
-    const-string v9, "_easy"
+    invoke-virtual {v0}, Ljava/lang/Thread;->start()V
 
-    invoke-virtual {v5, v9}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    :cond_2
-    :goto_1
-    const-string v9, ".xml"
-
-    invoke-virtual {v5, v9}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    new-instance v4, Ljava/lang/StringBuffer;
-
-    const-string v9, "default_application_order"
-
-    invoke-direct {v4, v9}, Ljava/lang/StringBuffer;-><init>(Ljava/lang/String;)V
-
-    iget-boolean v9, p0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->mIsEasyMode:Z
-
-    if-eqz v9, :cond_3
-
-    const-string v9, "_easy"
-
-    invoke-virtual {v4, v9}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    :cond_3
-    const-string v9, ".xml"
-
-    invoke-virtual {v4, v9}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    new-instance v7, Ljava/lang/StringBuffer;
-
-    invoke-direct {v7}, Ljava/lang/StringBuffer;-><init>()V
-
-    invoke-virtual {v7, v5}, Ljava/lang/StringBuffer;->append(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;
-
-    iget-boolean v9, p0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->mIsEasyMode:Z
-
-    if-nez v9, :cond_4
-
-    iget-boolean v9, p0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->mIsHomeOnly:Z
-
-    if-nez v9, :cond_5
-
-    :cond_4
-    const-string v9, ", "
-
-    invoke-virtual {v7, v9}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    move-result-object v9
-
-    invoke-virtual {v9, v4}, Ljava/lang/StringBuffer;->append(Ljava/lang/StringBuffer;)Ljava/lang/StringBuffer;
-
-    :cond_5
-    const-string v9, " is creating..."
-
-    invoke-virtual {v7, v9}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    iget-object v9, p0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v7}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    const/4 v11, 0x1
-
-    invoke-static {v9, v10, v11}, Landroid/widget/Toast;->makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;
-
-    move-result-object v9
-
-    invoke-virtual {v9}, Landroid/widget/Toast;->show()V
-
-    new-instance v1, Ljava/io/File;
-
-    invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;
-
-    move-result-object v9
-
-    const-string v10, "/LCExtractor"
-
-    invoke-direct {v1, v9, v10}, Ljava/io/File;-><init>(Ljava/io/File;Ljava/lang/String;)V
-
-    invoke-virtual {v1}, Ljava/io/File;->exists()Z
-
-    move-result v9
-
-    if-eqz v9, :cond_8
-
-    invoke-virtual {v1}, Ljava/io/File;->list()[Ljava/lang/String;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_9
-
-    const-string v9, "Launcher.Extractor"
-
-    new-instance v10, Ljava/lang/StringBuilder;
-
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v11, "dir fileList.length : "
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    array-length v11, v3
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-static {v9, v10}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    array-length v9, v3
-
-    :goto_2
-    if-ge v8, v9, :cond_9
-
-    aget-object v6, v3, v8
-
-    new-instance v2, Ljava/io/File;
-
-    new-instance v10, Ljava/lang/StringBuilder;
-
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-static {}, Landroid/os/Environment;->getExternalStorageDirectory()Ljava/io/File;
-
-    move-result-object v11
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    const-string v11, "/LCExtractor"
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    const/16 v11, 0x2f
-
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v10
-
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v10
-
-    invoke-direct {v2, v10}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    invoke-virtual {v2}, Ljava/io/File;->delete()Z
-
-    move-result v10
-
-    if-nez v10, :cond_6
-
-    const-string v10, "Launcher.Extractor"
-
-    new-instance v11, Ljava/lang/StringBuilder;
-
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v12, "file : "
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    const-string v12, ", delete failed"
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-static {v10, v11}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_6
-    add-int/lit8 v8, v8, 0x1
-
-    goto :goto_2
-
-    :cond_7
-    iget-boolean v9, p0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->mIsHomeOnly:Z
-
-    if-eqz v9, :cond_2
-
-    const-string v9, "_homeonly"
-
-    invoke-virtual {v5, v9}, Ljava/lang/StringBuffer;->append(Ljava/lang/String;)Ljava/lang/StringBuffer;
-
-    goto/16 :goto_1
-
-    :cond_8
-    invoke-virtual {v1}, Ljava/io/File;->mkdirs()Z
-
-    :cond_9
-    iget-object v8, p0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v5}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    const-string v10, "LCExtractorHome"
-
-    invoke-virtual {v0, v8, v9, v10}, Lcom/android/launcher3/common/bnr/LauncherBnrHelper;->extractXML(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Z
-
-    move-result v8
-
-    if-nez v8, :cond_a
-
-    const-string v8, "Launcher.Extractor"
-
-    const-string v9, "makeDefaultWorkspace() is failed"
-
-    invoke-static {v8, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_a
-    iget-boolean v8, p0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->mIsEasyMode:Z
-
-    if-nez v8, :cond_b
-
-    iget-boolean v8, p0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->mIsHomeOnly:Z
-
-    if-nez v8, :cond_0
-
-    :cond_b
-    iget-object v8, p0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v4}, Ljava/lang/StringBuffer;->toString()Ljava/lang/String;
-
-    move-result-object v9
-
-    const-string v10, "LCExtractorApps"
-
-    invoke-virtual {v0, v8, v9, v10}, Lcom/android/launcher3/common/bnr/LauncherBnrHelper;->extractXML(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Z
-
-    move-result v8
-
-    if-nez v8, :cond_0
-
-    const-string v8, "Launcher.Extractor"
-
-    const-string v9, "makeDefaultAppOrder() is failed."
-
-    invoke-static {v8, v9}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-
-    goto/16 :goto_0
+    goto :goto_0
 .end method

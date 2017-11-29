@@ -1,11 +1,11 @@
-.class synthetic Lcom/android/vcard/VCardEntry$1;
+.class synthetic Landroid/arch/core/internal/SafeIterableMap$1;
 .super Ljava/lang/Object;
-.source "VCardEntry.java"
+.source "SafeIterableMap.java"
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/vcard/VCardEntry;
+    value = Landroid/arch/core/internal/SafeIterableMap;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

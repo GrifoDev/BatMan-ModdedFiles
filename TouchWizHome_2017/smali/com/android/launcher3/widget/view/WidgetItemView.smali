@@ -12,6 +12,10 @@
 .end annotation
 
 
+# static fields
+.field private static final TAG:Ljava/lang/String; = "WidgetItemView"
+
+
 # instance fields
 .field protected mDimensionsFormatString:Ljava/lang/String;
 
@@ -116,7 +120,7 @@
 
     invoke-virtual {v1, v2}, Landroid/view/animation/Animation;->setAnimationListener(Landroid/view/animation/Animation$AnimationListener;)V
 
-    const v1, 0x7f0901e3
+    const v1, 0x7f0901e8
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -124,7 +128,7 @@
 
     iput-object v1, p0, Lcom/android/launcher3/widget/view/WidgetItemView;->mDimensionsFormatString:Ljava/lang/String;
 
-    const v1, 0x7f0900c3
+    const v1, 0x7f0900c8
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -180,13 +184,15 @@
 .end method
 
 .method public applyHighlightTitle(Ljava/lang/String;Ljava/lang/String;)V
-    .locals 9
+    .locals 11
+
+    const/4 v10, 0x0
 
     invoke-virtual {p0}, Lcom/android/launcher3/widget/view/WidgetItemView;->getTitleTextView()Landroid/widget/TextView;
 
-    move-result-object v4
+    move-result-object v5
 
-    const/4 v3, -0x1
+    const/4 v4, -0x1
 
     invoke-virtual {p2}, Ljava/lang/String;->trim()Ljava/lang/String;
 
@@ -194,82 +200,195 @@
 
     invoke-virtual {p2}, Ljava/lang/String;->length()I
 
-    move-result v1
+    move-result v2
 
-    new-instance v0, Landroid/text/SpannableString;
+    new-instance v1, Landroid/text/SpannableString;
 
-    invoke-direct {v0, p1}, Landroid/text/SpannableString;-><init>(Ljava/lang/CharSequence;)V
+    invoke-direct {v1, p1}, Landroid/text/SpannableString;-><init>(Ljava/lang/CharSequence;)V
 
-    invoke-virtual {v4}, Landroid/widget/TextView;->getPaint()Landroid/text/TextPaint;
+    invoke-virtual {v5}, Landroid/widget/TextView;->getPaint()Landroid/text/TextPaint;
 
-    move-result-object v6
+    move-result-object v7
 
     invoke-virtual {p2}, Ljava/lang/String;->toCharArray()[C
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-static {v6, p1, v7}, Landroid/text/TextUtils;->semGetPrefixCharForSpan(Landroid/text/TextPaint;Ljava/lang/CharSequence;[C)[C
+    invoke-static {v7, p1, v8}, Landroid/text/TextUtils;->semGetPrefixCharForSpan(Landroid/text/TextPaint;Ljava/lang/CharSequence;[C)[C
 
-    move-result-object v2
+    move-result-object v3
 
-    if-eqz v2, :cond_1
+    if-eqz v3, :cond_1
 
-    new-instance v5, Ljava/lang/String;
+    new-instance v6, Ljava/lang/String;
 
-    invoke-direct {v5, v2}, Ljava/lang/String;-><init>([C)V
+    invoke-direct {v6, v3}, Ljava/lang/String;-><init>([C)V
 
     invoke-virtual {p1}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
-    move-result-object v6
-
-    invoke-virtual {v5}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
-
     move-result-object v7
 
-    invoke-virtual {v6, v7}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+    invoke-virtual {v6}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
-    move-result v3
+    move-result-object v8
 
-    invoke-virtual {v5}, Ljava/lang/String;->length()I
+    invoke-virtual {v7, v8}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
-    move-result v1
+    move-result v4
+
+    invoke-virtual {v6}, Ljava/lang/String;->length()I
+
+    move-result v2
 
     :goto_0
-    const/4 v6, -0x1
+    const/4 v7, -0x1
 
-    if-le v3, v6, :cond_0
+    if-le v4, v7, :cond_0
 
-    new-instance v6, Landroid/text/style/ForegroundColorSpan;
+    :try_start_0
+    new-instance v7, Landroid/text/style/ForegroundColorSpan;
 
-    iget v7, p0, Lcom/android/launcher3/widget/view/WidgetItemView;->mHighlightColor:I
+    iget v8, p0, Lcom/android/launcher3/widget/view/WidgetItemView;->mHighlightColor:I
 
-    invoke-direct {v6, v7}, Landroid/text/style/ForegroundColorSpan;-><init>(I)V
+    invoke-direct {v7, v8}, Landroid/text/style/ForegroundColorSpan;-><init>(I)V
 
-    add-int v7, v3, v1
+    add-int v8, v4, v2
 
-    const/4 v8, 0x0
+    const/4 v9, 0x0
 
-    invoke-interface {v0, v6, v3, v7, v8}, Landroid/text/Spannable;->setSpan(Ljava/lang/Object;III)V
+    invoke-interface {v1, v7, v4, v8, v9}, Landroid/text/Spannable;->setSpan(Ljava/lang/Object;III)V
+    :try_end_0
+    .catch Ljava/lang/IndexOutOfBoundsException; {:try_start_0 .. :try_end_0} :catch_0
 
     :cond_0
-    invoke-virtual {v4, v0}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
+    :goto_1
+    invoke-virtual {v5, v1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     return-void
 
     :cond_1
     invoke-virtual {p1}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
-    move-result-object v6
+    move-result-object v7
 
     invoke-virtual {p2}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-virtual {v6, v7}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
+    invoke-virtual {v7, v8}, Ljava/lang/String;->indexOf(Ljava/lang/String;)I
 
-    move-result v3
+    move-result v4
 
     goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    const-string v7, "WidgetItemView"
+
+    new-instance v8, Ljava/lang/StringBuilder;
+
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v9, "highLightText<"
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    const-string v9, ">length = "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-interface {v1}, Landroid/text/Spannable;->length()I
+
+    move-result v9
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    const-string v9, " ,highlight<"
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    const-string v9, ">length = "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {p2}, Ljava/lang/String;->length()I
+
+    move-result v9
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    const-string v9, " ,indexOf = "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    const-string v9, " ,"
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    const-string v9, "highlightStrLength = "
+
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-static {v7, v8}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-interface {v1}, Landroid/text/Spannable;->length()I
+
+    move-result v7
+
+    if-ge v4, v7, :cond_0
+
+    new-instance v7, Landroid/text/style/ForegroundColorSpan;
+
+    iget v8, p0, Lcom/android/launcher3/widget/view/WidgetItemView;->mHighlightColor:I
+
+    invoke-direct {v7, v8}, Landroid/text/style/ForegroundColorSpan;-><init>(I)V
+
+    invoke-interface {v1}, Landroid/text/Spannable;->length()I
+
+    move-result v8
+
+    invoke-interface {v1, v7, v4, v8, v10}, Landroid/text/Spannable;->setSpan(Ljava/lang/Object;III)V
+
+    goto :goto_1
 .end method
 
 .method protected final applyTileAndSpan(Ljava/lang/String;)V
@@ -699,7 +818,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f090073
+    const v4, 0x7f090075
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

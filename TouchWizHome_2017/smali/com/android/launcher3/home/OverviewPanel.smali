@@ -92,7 +92,15 @@
     return-void
 .end method
 
-.method static synthetic access$200(Lcom/android/launcher3/home/OverviewPanel;)V
+.method static synthetic access$200(Lcom/android/launcher3/home/OverviewPanel;)Lcom/android/launcher3/Launcher;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/home/OverviewPanel;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    return-object v0
+.end method
+
+.method static synthetic access$300(Lcom/android/launcher3/home/OverviewPanel;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/launcher3/home/OverviewPanel;->onClickWallpapersButton()V
@@ -100,7 +108,7 @@
     return-void
 .end method
 
-.method static synthetic access$300(Lcom/android/launcher3/home/OverviewPanel;)V
+.method static synthetic access$400(Lcom/android/launcher3/home/OverviewPanel;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/launcher3/home/OverviewPanel;->onClickWallpapersAndThemesButton()V
@@ -108,7 +116,7 @@
     return-void
 .end method
 
-.method static synthetic access$400(Lcom/android/launcher3/home/OverviewPanel;)V
+.method static synthetic access$500(Lcom/android/launcher3/home/OverviewPanel;)V
     .locals 0
 
     invoke-direct {p0}, Lcom/android/launcher3/home/OverviewPanel;->onClickSettingsButton()V
@@ -159,7 +167,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0901b3
+    const v2, 0x7f0901b8
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -169,7 +177,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090162
+    const v3, 0x7f090167
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -209,7 +217,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0901b3
+    const v2, 0x7f0901b8
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -219,7 +227,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f09018f
+    const v3, 0x7f090194
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -301,7 +309,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0901b3
+    const v3, 0x7f0901b8
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -311,7 +319,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f09018f
+    const v4, 0x7f090194
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -351,7 +359,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/OverviewPanel;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v1, 0x7f0900ac
+    const v1, 0x7f0900b1
 
     invoke-static {v0, v1, v6}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -380,7 +388,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0901b3
+    const v2, 0x7f0901b8
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -390,7 +398,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090190
+    const v3, 0x7f090195
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -816,7 +824,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0900e2
+    const v6, 0x7f0900e7
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

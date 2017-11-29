@@ -47,7 +47,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0901b3
+    const v2, 0x7f0901b8
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -59,25 +59,13 @@
 
     move-result-object v2
 
-    const v3, 0x7f090174
+    const v3, 0x7f090178
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
     invoke-virtual {v0, v1, v2}, Lcom/android/launcher3/util/logging/SALogging;->insertEventLog(Ljava/lang/String;Ljava/lang/String;)V
-
-    new-instance v0, Landroid/os/Handler;
-
-    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
-
-    new-instance v1, Lcom/android/launcher3/home/Workspace$19$1;
-
-    invoke-direct {v1, p0}, Lcom/android/launcher3/home/Workspace$19$1;-><init>(Lcom/android/launcher3/home/Workspace$19;)V
-
-    const-wide/16 v2, 0x12c
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
 
     return-void
 .end method

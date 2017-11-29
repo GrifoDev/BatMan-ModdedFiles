@@ -16,8 +16,10 @@
     <string name="accessibility_button">Butang</string>
     <string name="accessibility_dimmed">Lebih malap</string>
     <string name="activity_not_available">Aplikasi ini tidak tersedia untuk peranti anda.</string>
-    <string name="activity_not_found">Aplikasi tidak dipasang.</string>
+    <string name="activity_not_found">Aplikasi tidak ditemui</string>
+    <string name="add">Tambahkan</string>
     <string name="add_to_last_page">Anda telah memilih %1$d item tetapi ruang tidak mencukupi pada halaman ini. Baki %2$d item akan ditambahkan pada halaman terakhir.</string>
+    <string name="add_to_last_page_for_hotseat">Anda telah memilih %1$d item, tetapi ruang tidak mencukupi pada bekas kegemaran. Baki %2$d item akan ditambahkan pada halaman terakhir.</string>
     <string name="align_to_bottom">Jajar ke bawah</string>
     <string name="align_to_top">Jajar ke atas</string>
     <string name="app_locked_toast">%s dikunci.</string>
@@ -121,6 +123,7 @@
     <string name="new_page_created">Halaman ditambah.</string>
     <string name="no_changes">Tiada perubahan.</string>
     <string name="no_space_page">Tiada ruang pada halaman. Cuba tambahkan pintasan pada halaman berlainan.</string>
+    <string name="no_space_page_for_hotseat">Tiada ruang pada bekas kegemaran.</string>
     <string name="no_space_page_for_widget">Tiada ruang pada halaman ini.</string>
     <string name="not_selected">Tidak dipilih</string>
     <string name="notification_panel_setting_summary">Sapu ke bawah untuk membuka panel pemberitahuan daripada Skrin utama.</string>
@@ -155,6 +158,8 @@
     <string name="quick_option_delete_folder">Padam pelipat</string>
     <string name="quick_option_delete_folder_alert">Pelipat %s akan dipadam. Aplikasi dalam pelipat ini masih akan tersedia pada skrin Aplikasi.</string>
     <string name="quick_option_delete_folder_alert_no_title">Pelipat ini akan dipadam. Aplikasi dalam pelipat ini masih akan tersedia pada skrin Aplikasi.</string>
+    <string name="quick_option_delete_folder_home_only_alert">Pelipat %s akan dipadamkan. Aplikasi dalam pelipat ini masih akan tersedia pada Skrin utama.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Pelipat ini akan dipadamkan. Aplikasi dalam pelipat ini masih akan tersedia pada Skrin utama.</string>
     <string name="quick_option_dimmed_disable">Nyahaktif</string>
     <string name="quick_option_disable">Nyahaktif</string>
     <string name="quick_option_install_dual_im">Pasang aplikasi kedua</string>

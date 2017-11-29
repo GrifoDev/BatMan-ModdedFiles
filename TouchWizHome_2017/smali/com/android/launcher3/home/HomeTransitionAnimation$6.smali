@@ -93,7 +93,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$6;->val$res:Landroid/content/res/Resources;
 
-    const v2, 0x7f090053
+    const v2, 0x7f090055
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

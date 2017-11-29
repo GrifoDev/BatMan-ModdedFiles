@@ -358,6 +358,32 @@
     goto :goto_0
 .end method
 
+.method public disableAllAppsBadge()Z
+    .locals 2
+
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/launcher3/LauncherAppState;->getSettingsActivity()Lcom/android/launcher3/SettingsActivity;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/launcher3/SettingsActivity;->disableAllAppsBadge()Z
+
+    move-result v1
+
+    :goto_0
+    return v1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
+.end method
+
 .method public enableAllAppsBadge(Z)Z
     .locals 2
 
@@ -556,6 +582,32 @@
     return-void
 .end method
 
+.method public hasAppsBadge()Z
+    .locals 2
+
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/launcher3/LauncherAppState;->getSettingsActivity()Lcom/android/launcher3/SettingsActivity;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/launcher3/SettingsActivity;->hasAppsBadge()Z
+
+    move-result v1
+
+    :goto_0
+    return v1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
+.end method
+
 .method public hideApps(Ljava/util/ArrayList;)V
     .locals 2
     .annotation system Ldalvik/annotation/Signature;
@@ -590,6 +642,32 @@
     invoke-direct {p0, v0}, Lcom/android/launcher3/Launcher$2;->callAppsButtonEnabled(Z)V
 
     return-void
+.end method
+
+.method public isAllAppsBadgeSwitchChecked()Z
+    .locals 2
+
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/launcher3/LauncherAppState;->getSettingsActivity()Lcom/android/launcher3/SettingsActivity;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/launcher3/SettingsActivity;->isAllAppsBadgeSwitchChecked()Z
+
+    move-result v1
+
+    :goto_0
+    return v1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
 .end method
 
 .method public isAlreadySleepMode(Lcom/android/launcher3/common/base/item/ItemInfo;)Z

@@ -16,8 +16,10 @@
     <string name="accessibility_button">ប៊ូតុង</string>
     <string name="accessibility_dimmed">ស្រអាប់</string>
     <string name="activity_not_available">កម្មវិធី​នេះ​មិន​អាច​ប្រើ​បាន​ទេ​សម្រាប់​ឧបករណ៍​របស់​អ្នក។</string>
-    <string name="activity_not_found">មិន​បាន​ដំឡើង​កម្មវិធី។</string>
+    <string name="activity_not_found">រក​មិន​ឃើញ​កម្មវិធី</string>
+    <string name="add">ថែម</string>
     <string name="add_to_last_page">អ្នក​បាន​ជ្រើស​ធាតុ %1$d ប៉ុន្តែ​មិនមាន​លំហ​គ្រប់គ្រាន់​លើ​ទំព័រ​នេះ។ ធាតុ​នៅសល់ %2$d នឹង​ត្រូវ​បាន​ថែម​ទៅ​ទំព័រ​ចុងក្រោយ។</string>
+    <string name="add_to_last_page_for_hotseat">អ្នក​បាន​ជ្រើស​ធាតុ %1$d ប៉ុន្តែ​មិនមាន​លំហ​គ្រប់គ្រាន់​លើ​ស្ពក​សំណព្វ។ ធាតុ​នៅសល់ %2$d នឹង​ត្រូវ​បាន​ថែម​ទៅ​ទំព័រ​ចុងក្រោយ។</string>
     <string name="align_to_bottom">តម្រឹម​ខាងក្រោម</string>
     <string name="align_to_top">តម្រឹម​ខាងលើ</string>
     <string name="app_locked_toast">បាន​ចាក់សោ %s។</string>
@@ -121,6 +123,7 @@
     <string name="new_page_created">បាន​ថែម​ទំព័រ។</string>
     <string name="no_changes">គ្មាន​ការប្ដូរ។</string>
     <string name="no_space_page">គ្មាន​លំហ​លើ​ទំព័រ។ សាកល្បង​ថែម​ផ្លូវកាត់​ទៅ​ទំព័រ​ផ្សេង។</string>
+    <string name="no_space_page_for_hotseat">គ្មាន​លំហ​លើ​ស្ពក​សំណព្វ។</string>
     <string name="no_space_page_for_widget">គ្មាន​លំហ​លើ​ទំព័រ​នេះ។</string>
     <string name="not_selected">មិន​បាន​ជ្រើស</string>
     <string name="notification_panel_setting_summary">អូស​ចុះក្រោម ដើម្បី​បើក​ផ្ទាំង​ជូនដំណឹង​ពី​គេហអេក្រង់។</string>
@@ -155,6 +158,8 @@
     <string name="quick_option_delete_folder">លុប​សឺមី</string>
     <string name="quick_option_delete_folder_alert">នឹង​លុប​សឺមី %s។ កម្មវិធី​ខាងក្នុង​សឺមី​នេះ​នឹង​នៅតែ​អាច​ប្រើ​បាន​ដដែល​លើ​អេក្រង់​កម្មវិធី។</string>
     <string name="quick_option_delete_folder_alert_no_title">នឹង​លុប​សឺមី​នេះ។ កម្មវិធី​ខាងក្នុង​សឺមី​នេះ​នឹង​នៅតែ​អាច​ប្រើ​បាន​ដដែល​លើ​អេក្រង់​កម្មវិធី។</string>
+    <string name="quick_option_delete_folder_home_only_alert">នឹង​លុប​សឺមី %s។ កម្មវិធី​ខាងក្នុង​សឺមី​នេះ​នឹង​នៅតែ​អាច​ប្រើ​បាន​ដដែល​លើ​គេហអេក្រង់។</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">នឹង​លុប​សឺមី​នេះ។ កម្មវិធី​ខាងក្នុង​សឺមី​នេះ​នឹង​នៅតែ​អាច​ប្រើ​បាន​ដដែល​លើ​គេហអេក្រង់។</string>
     <string name="quick_option_dimmed_disable">បិទ</string>
     <string name="quick_option_disable">បិទ</string>
     <string name="quick_option_install_dual_im">ដំឡើង​កម្មវិធី​ទីពីរ</string>

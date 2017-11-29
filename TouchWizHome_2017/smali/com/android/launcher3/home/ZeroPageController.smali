@@ -43,8 +43,6 @@
 
 .field private static final TO_ZEROEPAGE:I = 0x4
 
-.field private static final ZERO_PAGE_APP_LIST:[Landroid/content/ComponentName;
-
 .field public static final ZERO_PAGE_SCREEN_INDEX:I = -0x1
 
 .field private static sActiveZeroPage:Z
@@ -122,11 +120,11 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 7
+    .locals 5
 
-    const/4 v6, 0x1
+    const/4 v4, 0x1
 
-    const/4 v5, 0x0
+    const/4 v3, 0x0
 
     const-class v0, Lcom/android/launcher3/home/ZeroPageController;
 
@@ -146,81 +144,19 @@
 
     sput-object v0, Lcom/android/launcher3/home/ZeroPageController;->sZeroPageCompName:Landroid/content/ComponentName;
 
-    const/4 v0, 0x5
-
-    new-array v0, v0, [Landroid/content/ComponentName;
-
-    new-instance v1, Landroid/content/ComponentName;
-
-    const-string v2, "com.samsung.android.app.spage"
-
-    const-string v3, "com.samsung.android.app.spage.main.MainActivity"
-
-    invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
-
-    aput-object v1, v0, v5
-
-    new-instance v1, Landroid/content/ComponentName;
-
-    const-string v2, "com.ss.android.sdk.minusscreen.samsung"
-
-    const-string v3, "com.ss.android.sdk.minusscreen.samsung.activity.FeedFragmentActivity"
-
-    invoke-direct {v1, v2, v3}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
-
-    aput-object v1, v0, v6
-
-    const/4 v1, 0x2
-
-    new-instance v2, Landroid/content/ComponentName;
-
-    const-string v3, "de.axelspringer.yana.zeropage"
-
-    const-string v4, "de.axelspringer.yana.activities.HomeActivity"
-
-    invoke-direct {v2, v3, v4}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
-
-    aput-object v2, v0, v1
-
-    const/4 v1, 0x3
-
-    new-instance v2, Landroid/content/ComponentName;
-
-    const-string v3, "com.mobilesrepublic.sohu.launcher"
-
-    const-string v4, "com.mobilesrepublic.sohu.launcher.MainActivity"
-
-    invoke-direct {v2, v3, v4}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
-
-    aput-object v2, v0, v1
-
-    const/4 v1, 0x4
-
-    new-instance v2, Landroid/content/ComponentName;
-
-    const-string v3, "flipboard.boxer.app"
-
-    const-string v4, "flipboard.boxer.gui.LaunchActivity"
-
-    invoke-direct {v2, v3, v4}, Landroid/content/ComponentName;-><init>(Ljava/lang/String;Ljava/lang/String;)V
-
-    aput-object v2, v0, v1
-
-    sput-object v0, Lcom/android/launcher3/home/ZeroPageController;->ZERO_PAGE_APP_LIST:[Landroid/content/ComponentName;
-
     invoke-static {}, Lcom/android/launcher3/home/ZeroPageController;->supportVirtualScreen()Z
 
     move-result v0
 
     sput-boolean v0, Lcom/android/launcher3/home/ZeroPageController;->sEnableZeroPage:Z
 
-    sput-boolean v6, Lcom/android/launcher3/home/ZeroPageController;->sActiveZeroPage:Z
+    sput-boolean v4, Lcom/android/launcher3/home/ZeroPageController;->sActiveZeroPage:Z
 
-    sput-boolean v6, Lcom/android/launcher3/home/ZeroPageController;->sZeroPageDefaultOnOffState:Z
+    sput-boolean v4, Lcom/android/launcher3/home/ZeroPageController;->sZeroPageDefaultOnOffState:Z
 
-    sput-boolean v5, Lcom/android/launcher3/home/ZeroPageController;->sSupportVirtualScreen:Z
+    sput-boolean v3, Lcom/android/launcher3/home/ZeroPageController;->sSupportVirtualScreen:Z
 
-    sput-boolean v5, Lcom/android/launcher3/home/ZeroPageController;->sVirtualScreenAvailableChecked:Z
+    sput-boolean v3, Lcom/android/launcher3/home/ZeroPageController;->sVirtualScreenAvailableChecked:Z
 
     const/16 v0, 0xd
 
@@ -231,6 +167,8 @@
     sput-object v0, Lcom/android/launcher3/home/ZeroPageController;->TOKEN:[C
 
     return-void
+
+    nop
 
     :array_0
     .array-data 2
@@ -1034,7 +972,7 @@
 
     if-nez v0, :cond_3
 
-    sget-object v6, Lcom/android/launcher3/home/ZeroPageController;->ZERO_PAGE_APP_LIST:[Landroid/content/ComponentName;
+    sget-object v6, Lcom/android/launcher3/Utilities;->ZERO_PAGE_APP_LIST:[Landroid/content/ComponentName;
 
     array-length v7, v6
 
@@ -1113,7 +1051,7 @@
 
     move-result-object v3
 
-    sget-object v6, Lcom/android/launcher3/home/ZeroPageController;->ZERO_PAGE_APP_LIST:[Landroid/content/ComponentName;
+    sget-object v6, Lcom/android/launcher3/Utilities;->ZERO_PAGE_APP_LIST:[Landroid/content/ComponentName;
 
     array-length v7, v6
 
@@ -1223,7 +1161,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0900eb
+    const v2, 0x7f0900f0
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1247,7 +1185,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0900e9
+    const v2, 0x7f0900ee
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1270,7 +1208,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0900e6
+    const v2, 0x7f0900eb
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1285,7 +1223,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0900ea
+    const v2, 0x7f0900ef
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1342,7 +1280,7 @@
 
     if-nez v0, :cond_6
 
-    sget-object v8, Lcom/android/launcher3/home/ZeroPageController;->ZERO_PAGE_APP_LIST:[Landroid/content/ComponentName;
+    sget-object v8, Lcom/android/launcher3/Utilities;->ZERO_PAGE_APP_LIST:[Landroid/content/ComponentName;
 
     array-length v9, v8
 
@@ -1433,7 +1371,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0a00c4
+    const v6, 0x7f0a00c6
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1447,7 +1385,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0a00c3
+    const v6, 0x7f0a00c5
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1492,7 +1430,7 @@
 
     move-result-object v4
 
-    sget-object v8, Lcom/android/launcher3/home/ZeroPageController;->ZERO_PAGE_APP_LIST:[Landroid/content/ComponentName;
+    sget-object v8, Lcom/android/launcher3/Utilities;->ZERO_PAGE_APP_LIST:[Landroid/content/ComponentName;
 
     array-length v9, v8
 
@@ -2231,7 +2169,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f0901e2
+    const v4, 0x7f0901e7
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2325,7 +2263,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0900e8
+    const v4, 0x7f0900ed
 
     const/4 v5, 0x2
 
@@ -2349,7 +2287,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0900e7
+    const v4, 0x7f0900ec
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2367,7 +2305,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f09002f
+    const v4, 0x7f090031
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2617,6 +2555,34 @@
     const/4 v2, 0x1
 
     sget-boolean v1, Lcom/android/launcher3/home/ZeroPageController;->sVirtualScreenAvailableChecked:Z
+
+    if-nez v1, :cond_0
+
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/launcher3/LauncherAppState;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/launcher3/LauncherAppState;->getContext()Landroid/content/Context;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/pm/PackageManager;->isSafeMode()Z
+
+    move-result v1
 
     if-nez v1, :cond_0
 
@@ -3422,7 +3388,7 @@
 
     const/high16 v3, 0x42c80000    # 100.0f
 
-    const v4, 0x7f0d0002
+    const v4, 0x7f0b0003
 
     invoke-virtual {v11, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -3432,7 +3398,7 @@
 
     div-float v9, v3, v4
 
-    const v3, 0x7f0a00bb
+    const v3, 0x7f0a00bc
 
     invoke-virtual {v11, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -4133,11 +4099,11 @@
     if-ne v10, v2, :cond_11
 
     :cond_10
-    if-eqz v13, :cond_34
+    if-eqz v13, :cond_35
 
     sget-boolean v2, Lcom/android/launcher3/Utilities;->sIsRtl:Z
 
-    if-eqz v2, :cond_33
+    if-eqz v2, :cond_34
 
     move-object/from16 v0, p0
 
@@ -4145,7 +4111,7 @@
 
     sub-int v2, v21, v2
 
-    if-gez v2, :cond_34
+    if-gez v2, :cond_35
 
     :cond_11
     const/16 v16, 0x1
@@ -4548,7 +4514,7 @@
 
     iget-boolean v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mBezelSwipe:Z
 
-    if-eqz v2, :cond_2b
+    if-eqz v2, :cond_2c
 
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/home/ZeroPageController;->unBindVirtualScreen()V
 
@@ -4580,7 +4546,7 @@
 
     iget v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mMovingState:I
 
-    if-nez v2, :cond_2e
+    if-nez v2, :cond_2f
 
     move-object/from16 v0, p0
 
@@ -4616,7 +4582,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0901b7
+    const v5, 0x7f0901bc
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4630,7 +4596,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f090128
+    const v6, 0x7f09012d
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4640,9 +4606,22 @@
 
     invoke-virtual {v2, v4, v5, v6}, Lcom/android/launcher3/util/logging/SALogging;->insertEventLog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mVirtualScreenHandler:Lcom/android/launcher3/home/ZeroPageController$VirtualScreenHandler;
+
+    if-eqz v2, :cond_2b
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mVirtualScreenHandler:Lcom/android/launcher3/home/ZeroPageController$VirtualScreenHandler;
+
+    invoke-virtual {v2}, Lcom/android/launcher3/home/ZeroPageController$VirtualScreenHandler;->initPreOffset()V
+
+    :cond_2b
     sget-boolean v2, Lcom/android/launcher3/Utilities;->sIsRtl:Z
 
-    if-eqz v2, :cond_2c
+    if-eqz v2, :cond_2d
 
     const/4 v2, -0x1
 
@@ -4653,7 +4632,7 @@
 
     iget v4, v0, Lcom/android/launcher3/home/ZeroPageController;->mMovingState:I
 
-    if-eqz v4, :cond_2d
+    if-eqz v4, :cond_2e
 
     const/4 v4, 0x1
 
@@ -4664,22 +4643,22 @@
 
     goto/16 :goto_5
 
-    :cond_2b
+    :cond_2c
     invoke-direct/range {p0 .. p0}, Lcom/android/launcher3/home/ZeroPageController;->bindVirtualScreen()V
 
     goto :goto_e
 
-    :cond_2c
+    :cond_2d
     const/4 v2, 0x1
 
     goto :goto_f
 
-    :cond_2d
+    :cond_2e
     const/4 v4, 0x0
 
     goto :goto_10
 
-    :cond_2e
+    :cond_2f
     invoke-virtual/range {p0 .. p0}, Lcom/android/launcher3/home/ZeroPageController;->getOffset()Landroid/graphics/Point;
 
     move-result-object v15
@@ -4706,7 +4685,7 @@
 
     iget v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mMovingState:I
 
-    if-eqz v2, :cond_2f
+    if-eqz v2, :cond_30
 
     const/4 v7, 0x1
 
@@ -4719,7 +4698,7 @@
 
     goto/16 :goto_5
 
-    :cond_2f
+    :cond_30
     const/4 v7, 0x0
 
     goto :goto_11
@@ -4729,19 +4708,19 @@
 
     iget-boolean v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mTouchDowned:Z
 
-    if-nez v2, :cond_30
+    if-nez v2, :cond_31
 
     move-object/from16 v0, p0
 
     iget-boolean v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mMovedToVirtualScreen:Z
 
-    if-nez v2, :cond_30
+    if-nez v2, :cond_31
 
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mMovingState:I
 
-    if-nez v2, :cond_30
+    if-nez v2, :cond_31
 
     sget-object v2, Lcom/android/launcher3/home/ZeroPageController;->TAG:Ljava/lang/String;
 
@@ -4751,12 +4730,12 @@
 
     goto/16 :goto_5
 
-    :cond_30
+    :cond_31
     move-object/from16 v0, p0
 
     iget-boolean v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mMovedToVirtualScreen:Z
 
-    if-eqz v2, :cond_31
+    if-eqz v2, :cond_32
 
     const/4 v13, 0x1
 
@@ -4771,12 +4750,12 @@
 
     goto/16 :goto_5
 
-    :cond_31
+    :cond_32
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mMovingState:I
 
-    if-eqz v2, :cond_32
+    if-eqz v2, :cond_33
 
     move-object/from16 v0, p0
 
@@ -4786,7 +4765,7 @@
 
     goto :goto_12
 
-    :cond_32
+    :cond_33
     const/4 v2, 0x0
 
     move-object/from16 v0, p0
@@ -4800,7 +4779,7 @@
 
     goto/16 :goto_5
 
-    :cond_33
+    :cond_34
     move-object/from16 v0, p0
 
     iget v2, v0, Lcom/android/launcher3/home/ZeroPageController;->mDownX:I
@@ -4809,12 +4788,10 @@
 
     if-gtz v2, :cond_11
 
-    :cond_34
+    :cond_35
     const/16 v16, 0x0
 
     goto/16 :goto_6
-
-    nop
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -5445,7 +5422,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a01ab
+    const v2, 0x7f0a01b0
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

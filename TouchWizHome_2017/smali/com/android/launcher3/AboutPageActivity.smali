@@ -1576,6 +1576,10 @@
     goto :goto_0
 
     :cond_0
+    const/4 v0, 0x5
+
+    invoke-virtual {p0, v0}, Lcom/android/launcher3/AboutPageActivity;->setRequestedOrientation(I)V
+
     invoke-virtual {p0, v1}, Lcom/android/launcher3/AboutPageActivity;->setContentView(I)V
 
     invoke-direct {p0}, Lcom/android/launcher3/AboutPageActivity;->init()V

@@ -1,11 +1,14 @@
 .class Lcom/android/launcher3/home/HomeController$33;
-.super Landroid/animation/AnimatorListenerAdapter;
+.super Ljava/lang/Object;
 .source "HomeController.java"
+
+# interfaces
+.implements Ljava/lang/Runnable;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/HomeController;->onReceiveTrayEvent(Lcom/android/launcher3/common/tray/TrayManager$TrayEvent;)V
+    value = Lcom/android/launcher3/home/HomeController;->switchInternalStateChange(II)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,7 +20,7 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/home/HomeController;
 
-.field final synthetic val$finalStageMode:I
+.field final synthetic val$fromState:I
 
 
 # direct methods
@@ -26,43 +29,53 @@
 
     iput-object p1, p0, Lcom/android/launcher3/home/HomeController$33;->this$0:Lcom/android/launcher3/home/HomeController;
 
-    iput p2, p0, Lcom/android/launcher3/home/HomeController$33;->val$finalStageMode:I
+    iput p2, p0, Lcom/android/launcher3/home/HomeController$33;->val$fromState:I
 
-    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
-    .locals 2
+.method public run()V
+    .locals 3
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController$33;->this$0:Lcom/android/launcher3/home/HomeController;
 
-    invoke-static {v0}, Lcom/android/launcher3/home/HomeController;->access$2200(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/Launcher;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/launcher3/Launcher;->getTrayManager()Lcom/android/launcher3/common/tray/TrayManager;
+    invoke-static {v0}, Lcom/android/launcher3/home/HomeController;->access$2300(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/home/ZeroPageController;
 
     move-result-object v0
 
     if-eqz v0, :cond_0
 
+    iget v0, p0, Lcom/android/launcher3/home/HomeController$33;->val$fromState:I
+
+    const/4 v1, 0x4
+
+    if-eq v0, v1, :cond_0
+
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController$33;->this$0:Lcom/android/launcher3/home/HomeController;
 
-    invoke-static {v0}, Lcom/android/launcher3/home/HomeController;->access$2300(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/Launcher;
+    invoke-virtual {v0}, Lcom/android/launcher3/home/HomeController;->getState()I
+
+    move-result v0
+
+    const/4 v1, 0x6
+
+    if-eq v0, v1, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeController$33;->this$0:Lcom/android/launcher3/home/HomeController;
+
+    invoke-static {v0}, Lcom/android/launcher3/home/HomeController;->access$2300(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/home/ZeroPageController;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/launcher3/Launcher;->getTrayManager()Lcom/android/launcher3/common/tray/TrayManager;
+    const/4 v1, 0x1
 
-    move-result-object v0
+    const/4 v2, 0x0
 
-    iget v1, p0, Lcom/android/launcher3/home/HomeController$33;->val$finalStageMode:I
-
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/tray/TrayManager;->trayMoveEnd(I)V
+    invoke-virtual {v0, v1, v2}, Lcom/android/launcher3/home/ZeroPageController;->updatePageIndicatorForZeroPage(ZZ)V
 
     :cond_0
     return-void

@@ -214,7 +214,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0023
+    const v1, 0x7f0b0024
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -725,7 +725,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0d0010
+    const v3, 0x7f0b0011
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1325,6 +1325,46 @@
     return-object v0
 .end method
 
+.method private getOriginDragView(Lcom/android/launcher3/common/base/item/ItemInfo;)Landroid/view/View;
+    .locals 2
+
+    iget-object v1, p0, Lcom/android/launcher3/common/drag/DragManager;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/launcher3/common/drag/DragManager;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/Launcher;->getStageManager()Lcom/android/launcher3/common/stage/StageManager;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/launcher3/common/drag/DragManager;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/Launcher;->getStageManager()Lcom/android/launcher3/common/stage/StageManager;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/launcher3/common/stage/StageManager;->getTopStage()Lcom/android/launcher3/common/stage/Stage;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0, p1}, Lcom/android/launcher3/common/stage/Stage;->getChildViewAt(Lcom/android/launcher3/common/base/item/ItemInfo;)Landroid/view/View;
+
+    move-result-object v1
+
+    :goto_0
+    return-object v1
+
+    :cond_0
+    const/4 v1, 0x0
+
+    goto :goto_0
+.end method
+
 .method private handleMoveEvent(II)V
     .locals 20
 
@@ -1693,6 +1733,34 @@
     return-void
 .end method
 
+.method private setAnchor(Landroid/view/View;)V
+    .locals 2
+
+    new-instance v0, Landroid/graphics/Rect;
+
+    invoke-direct {v0}, Landroid/graphics/Rect;-><init>()V
+
+    invoke-virtual {p1, v0}, Landroid/view/View;->getGlobalVisibleRect(Landroid/graphics/Rect;)Z
+
+    iget-object v1, p0, Lcom/android/launcher3/common/drag/DragManager;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/Launcher;->getQuickOptionManager()Lcom/android/launcher3/common/quickoption/QuickOptionManager;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Lcom/android/launcher3/common/quickoption/QuickOptionManager;->setAnchorRect(Landroid/graphics/Rect;)V
+
+    iget-object v1, p0, Lcom/android/launcher3/common/drag/DragManager;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/Launcher;->getQuickOptionManager()Lcom/android/launcher3/common/quickoption/QuickOptionManager;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Lcom/android/launcher3/common/quickoption/QuickOptionManager;->setAnchorView(Landroid/view/View;)V
+
+    return-void
+.end method
+
 
 # virtual methods
 .method public addDragListener(Lcom/android/launcher3/common/drag/DragManager$DragListener;)V
@@ -1863,6 +1931,54 @@
     return-void
 .end method
 
+.method public cancelDragIfViewRemoved(Landroid/view/View;)V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/common/drag/DragManager;->mDragObject:Lcom/android/launcher3/common/drag/DropTarget$DragObject;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/launcher3/common/drag/DragManager;->mDragObject:Lcom/android/launcher3/common/drag/DropTarget$DragObject;
+
+    iget-object v0, v0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->dragView:Lcom/android/launcher3/common/drag/DragView;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/launcher3/common/drag/DragManager;->mDragObject:Lcom/android/launcher3/common/drag/DropTarget$DragObject;
+
+    iget-object v0, v0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->dragView:Lcom/android/launcher3/common/drag/DragView;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/common/drag/DragView;->getSourceView()Landroid/view/View;
+
+    move-result-object v0
+
+    invoke-virtual {p1, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportQuickOption()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/launcher3/common/drag/DragManager;->isQuickOptionShowing()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/launcher3/common/drag/DragManager;->removeQuickOptionView()V
+
+    :cond_0
+    invoke-virtual {p0}, Lcom/android/launcher3/common/drag/DragManager;->cancelDrag()V
+
+    :cond_1
+    return-void
+.end method
+
 .method public createDragView(Landroid/view/View;II)Lcom/android/launcher3/common/drag/DragView;
     .locals 20
 
@@ -2017,6 +2133,93 @@
     invoke-virtual {v2, v3, v5}, Lcom/android/launcher3/common/drag/DragView;->setTargetOffset(II)V
 
     return-object v2
+.end method
+
+.method public createQuickOptionViewFromCenterKey(Landroid/view/View;Lcom/android/launcher3/common/drag/DragSource;)V
+    .locals 4
+
+    if-nez p1, :cond_1
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
+
+    move-result-object v1
+
+    instance-of v1, v1, Lcom/android/launcher3/common/base/item/IconInfo;
+
+    if-eqz v1, :cond_2
+
+    invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/launcher3/common/base/item/IconInfo;
+
+    iget-boolean v1, v1, Lcom/android/launcher3/common/base/item/IconInfo;->isAppsButton:Z
+
+    if-nez v1, :cond_0
+
+    :cond_2
+    new-instance v0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;
+
+    invoke-direct {v0}, Lcom/android/launcher3/common/drag/DropTarget$DragObject;-><init>()V
+
+    invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/launcher3/common/base/item/ItemInfo;
+
+    iput-object v1, v0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->dragInfo:Ljava/lang/Object;
+
+    iput-object p2, v0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->dragSource:Lcom/android/launcher3/common/drag/DragSource;
+
+    invoke-direct {p0, p1}, Lcom/android/launcher3/common/drag/DragManager;->setAnchor(Landroid/view/View;)V
+
+    invoke-direct {p0, v0}, Lcom/android/launcher3/common/drag/DragManager;->createQuickOptionView(Lcom/android/launcher3/common/drag/DropTarget$DragObject;)V
+
+    invoke-virtual {p0}, Lcom/android/launcher3/common/drag/DragManager;->isQuickOptionShowing()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    invoke-static {}, Lcom/android/launcher3/util/logging/SALogging;->getInstance()Lcom/android/launcher3/util/logging/SALogging;
+
+    move-result-object v2
+
+    iget-object v1, v0, Lcom/android/launcher3/common/drag/DropTarget$DragObject;->dragInfo:Ljava/lang/Object;
+
+    check-cast v1, Lcom/android/launcher3/common/base/item/ItemInfo;
+
+    iget-object v3, p0, Lcom/android/launcher3/common/drag/DragManager;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v2, v1, v3}, Lcom/android/launcher3/util/logging/SALogging;->insertQuickViewEventLog(Lcom/android/launcher3/common/base/item/ItemInfo;Lcom/android/launcher3/Launcher;)V
+
+    invoke-virtual {p0}, Lcom/android/launcher3/common/drag/DragManager;->enableQuickOptionView()V
+
+    :cond_3
+    iget-object v1, p0, Lcom/android/launcher3/common/drag/DragManager;->mQuickOptionView:Lcom/android/launcher3/common/quickoption/QuickOptionView;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/launcher3/common/drag/DragManager;->mQuickOptionView:Lcom/android/launcher3/common/quickoption/QuickOptionView;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->hasFocus()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/launcher3/common/drag/DragManager;->mQuickOptionView:Lcom/android/launcher3/common/quickoption/QuickOptionView;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->requestFocus()Z
+
+    goto :goto_0
 .end method
 
 .method public dispatchKeyEvent(Landroid/view/KeyEvent;)Z
@@ -2789,6 +2992,37 @@
     goto :goto_0
 .end method
 
+.method public removeQuickOptionView(Ljava/lang/String;Z)V
+    .locals 2
+
+    if-eqz p2, :cond_0
+
+    iget-object v1, p0, Lcom/android/launcher3/common/drag/DragManager;->mQuickOptionView:Lcom/android/launcher3/common/quickoption/QuickOptionView;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/launcher3/common/drag/DragManager;->mQuickOptionView:Lcom/android/launcher3/common/quickoption/QuickOptionView;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->getItemInfo()Lcom/android/launcher3/common/base/item/ItemInfo;
+
+    move-result-object v1
+
+    invoke-direct {p0, v1}, Lcom/android/launcher3/common/drag/DragManager;->getOriginDragView(Lcom/android/launcher3/common/base/item/ItemInfo;)Landroid/view/View;
+
+    move-result-object v0
+
+    instance-of v1, v0, Lcom/android/launcher3/common/view/IconView;
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {v0}, Landroid/view/View;->requestFocus()Z
+
+    :cond_0
+    invoke-virtual {p0, p1}, Lcom/android/launcher3/common/drag/DragManager;->removeQuickOptionView(Ljava/lang/String;)V
+
+    return-void
+.end method
+
 .method public removeQuickOptionViewWithoutSALogging()V
     .locals 2
 
@@ -2860,12 +3094,17 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/drag/DragManager;->mDragScroller:Lcom/android/launcher3/common/drag/DragScroller;
 
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/common/drag/DragManager;->mDragScroller:Lcom/android/launcher3/common/drag/DragScroller;
+
     invoke-interface {v0}, Lcom/android/launcher3/common/drag/DragScroller;->getScrollZone()I
 
     move-result v0
 
     iput v0, p0, Lcom/android/launcher3/common/drag/DragManager;->mScrollZone:I
 
+    :cond_0
     return-void
 .end method
 
@@ -3467,7 +3706,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0a015a
+    const v6, 0x7f0a015f
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

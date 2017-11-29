@@ -179,13 +179,13 @@
 .method public constructor <init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
     .locals 7
 
-    const/4 v6, 0x0
+    const/4 v4, 0x0
 
-    const/4 v5, 0x2
+    const/4 v3, 0x2
 
-    const/4 v4, 0x1
+    const/4 v6, 0x1
 
-    const/4 v3, 0x0
+    const/4 v5, 0x0
 
     invoke-direct {p0, p1, p2, p3}, Lcom/android/launcher3/common/base/view/PagedView;-><init>(Landroid/content/Context;Landroid/util/AttributeSet;I)V
 
@@ -201,13 +201,13 @@
 
     iput-object v2, p0, Lcom/android/launcher3/home/Workspace;->mScreenOrder:Ljava/util/ArrayList;
 
-    new-array v2, v5, [I
+    new-array v2, v3, [I
 
     iput-object v2, p0, Lcom/android/launcher3/home/Workspace;->mTempCell:[I
 
-    iput-boolean v4, p0, Lcom/android/launcher3/home/Workspace;->mChildrenLayersEnabled:Z
+    iput-boolean v6, p0, Lcom/android/launcher3/home/Workspace;->mChildrenLayersEnabled:Z
 
-    new-array v2, v5, [I
+    new-array v2, v3, [I
 
     iput-object v2, p0, Lcom/android/launcher3/home/Workspace;->mTempVisiblePagesRange:[I
 
@@ -223,13 +223,13 @@
 
     iput-object v2, p0, Lcom/android/launcher3/home/Workspace;->mRestoredPages:Ljava/util/ArrayList;
 
-    iput-object v6, p0, Lcom/android/launcher3/home/Workspace;->mDefaultHomeIcon:Landroid/view/View;
+    iput-object v4, p0, Lcom/android/launcher3/home/Workspace;->mDefaultHomeIcon:Landroid/view/View;
 
-    iput v3, p0, Lcom/android/launcher3/home/Workspace;->mAdditionalCount:I
+    iput v5, p0, Lcom/android/launcher3/home/Workspace;->mAdditionalCount:I
 
-    iput-object v6, p0, Lcom/android/launcher3/home/Workspace;->mCustomPage:Lcom/android/launcher3/home/WorkspaceCellLayout;
+    iput-object v4, p0, Lcom/android/launcher3/home/Workspace;->mCustomPage:Lcom/android/launcher3/home/WorkspaceCellLayout;
 
-    iput-boolean v3, p0, Lcom/android/launcher3/home/Workspace;->mRestartZeroPage:Z
+    iput-boolean v5, p0, Lcom/android/launcher3/home/Workspace;->mRestartZeroPage:Z
 
     new-instance v2, Lcom/android/launcher3/home/Workspace$1;
 
@@ -237,7 +237,7 @@
 
     iput-object v2, p0, Lcom/android/launcher3/home/Workspace;->mBindPages:Ljava/lang/Runnable;
 
-    iput v3, p0, Lcom/android/launcher3/home/Workspace;->mBindWidgetsState:I
+    iput v5, p0, Lcom/android/launcher3/home/Workspace;->mBindWidgetsState:I
 
     new-instance v2, Ljava/util/ArrayList;
 
@@ -261,7 +261,7 @@
 
     move-result-object v1
 
-    iput-boolean v3, p0, Lcom/android/launcher3/home/Workspace;->mFadeInAdjacentScreens:Z
+    iput-boolean v5, p0, Lcom/android/launcher3/home/Workspace;->mFadeInAdjacentScreens:Z
 
     invoke-static {p1}, Landroid/app/WallpaperManager;->getInstance(Landroid/content/Context;)Landroid/app/WallpaperManager;
 
@@ -284,7 +284,7 @@
     :cond_0
     sget-object v2, Lcom/sec/android/app/launcher/R$styleable;->Workspace:[I
 
-    invoke-virtual {p1, p2, v2, p3, v3}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
+    invoke-virtual {p1, p2, v2, p3, v5}, Landroid/content/Context;->obtainStyledAttributes(Landroid/util/AttributeSet;[III)Landroid/content/res/TypedArray;
 
     move-result-object v0
 
@@ -300,18 +300,55 @@
 
     iput v2, p0, Lcom/android/launcher3/home/Workspace;->mDefaultPage:I
 
+    iget v2, p0, Lcom/android/launcher3/home/Workspace;->mDefaultPage:I
+
+    if-gez v2, :cond_1
+
+    const-string v2, "Launcher.Workspace"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "Default Page Error : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget v4, p0, Lcom/android/launcher3/home/Workspace;->mDefaultPage:I
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iput v5, p0, Lcom/android/launcher3/home/Workspace;->mDefaultPage:I
+
+    iget-object v2, p0, Lcom/android/launcher3/home/Workspace;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    iget v3, p0, Lcom/android/launcher3/home/Workspace;->mDefaultPage:I
+
+    invoke-static {v2, v3}, Lcom/android/launcher3/Utilities;->setHomeDefaultPageKey(Landroid/content/Context;I)V
+
+    :cond_1
     invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportZeroPageHome()Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2
 
     iget v2, p0, Lcom/android/launcher3/home/Workspace;->mDefaultPage:I
 
-    invoke-direct {p0, v2, v4}, Lcom/android/launcher3/home/Workspace;->updateHomeDefaultZeroPageKey(IZ)V
+    invoke-direct {p0, v2, v6}, Lcom/android/launcher3/home/Workspace;->updateHomeDefaultZeroPageKey(IZ)V
 
-    :cond_1
-    const v2, 0x7f0a00b1
+    :cond_2
+    const v2, 0x7f0a00b2
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -321,7 +358,7 @@
 
     invoke-virtual {p0, p0}, Lcom/android/launcher3/home/Workspace;->setOnHierarchyChangeListener(Landroid/view/ViewGroup$OnHierarchyChangeListener;)V
 
-    invoke-virtual {p0, v3}, Lcom/android/launcher3/home/Workspace;->setHapticFeedbackEnabled(Z)V
+    invoke-virtual {p0, v5}, Lcom/android/launcher3/home/Workspace;->setHapticFeedbackEnabled(Z)V
 
     invoke-direct {p0}, Lcom/android/launcher3/home/Workspace;->initWorkspace()V
 
@@ -333,9 +370,9 @@
 
     iput-object v2, p0, Lcom/android/launcher3/home/Workspace;->mWsDragController:Lcom/android/launcher3/home/WorkspaceDragController;
 
-    invoke-virtual {p0, v4}, Lcom/android/launcher3/home/Workspace;->setMotionEventSplittingEnabled(Z)V
+    invoke-virtual {p0, v6}, Lcom/android/launcher3/home/Workspace;->setMotionEventSplittingEnabled(Z)V
 
-    const v2, 0x7f0a00ad
+    const v2, 0x7f0a00af
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -343,7 +380,7 @@
 
     iput v2, p0, Lcom/android/launcher3/home/Workspace;->mHintPageWidth:I
 
-    const v2, 0x7f0a00ac
+    const v2, 0x7f0a00ae
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -363,7 +400,7 @@
 
     iput v2, p0, Lcom/android/launcher3/home/Workspace;->mHintPageRightZone:I
 
-    const v2, 0x7f0a00ae
+    const v2, 0x7f0a00b0
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -537,17 +574,17 @@
 
     const/4 v7, 0x0
 
-    new-instance v3, Lcom/android/launcher3/home/Workspace$10;
+    new-instance v3, Lcom/android/launcher3/home/Workspace$11;
 
-    invoke-direct {v3, p0}, Lcom/android/launcher3/home/Workspace$10;-><init>(Lcom/android/launcher3/home/Workspace;)V
+    invoke-direct {v3, p0}, Lcom/android/launcher3/home/Workspace$11;-><init>(Lcom/android/launcher3/home/Workspace;)V
 
-    new-instance v0, Lcom/android/launcher3/home/Workspace$11;
+    new-instance v0, Lcom/android/launcher3/home/Workspace$12;
 
-    invoke-direct {v0, p0}, Lcom/android/launcher3/home/Workspace$11;-><init>(Lcom/android/launcher3/home/Workspace;)V
+    invoke-direct {v0, p0}, Lcom/android/launcher3/home/Workspace$12;-><init>(Lcom/android/launcher3/home/Workspace;)V
 
-    new-instance v4, Lcom/android/launcher3/home/Workspace$12;
+    new-instance v4, Lcom/android/launcher3/home/Workspace$13;
 
-    invoke-direct {v4, p0}, Lcom/android/launcher3/home/Workspace$12;-><init>(Lcom/android/launcher3/home/Workspace;)V
+    invoke-direct {v4, p0}, Lcom/android/launcher3/home/Workspace$13;-><init>(Lcom/android/launcher3/home/Workspace;)V
 
     invoke-virtual {p1, v3}, Lcom/android/launcher3/home/WorkspaceCellLayout;->addAlignLayoutTop(Landroid/view/View$OnClickListener;)V
 
@@ -1210,11 +1247,13 @@
 
     check-cast v2, Lcom/android/launcher3/common/base/view/CellLayout;
 
-    new-instance v4, Lcom/android/launcher3/home/Workspace$5;
+    new-instance v4, Lcom/android/launcher3/home/Workspace$6;
 
-    invoke-direct {v4, p0, v2}, Lcom/android/launcher3/home/Workspace$5;-><init>(Lcom/android/launcher3/home/Workspace;Lcom/android/launcher3/common/base/view/CellLayout;)V
+    invoke-direct {v4, p0, v2}, Lcom/android/launcher3/home/Workspace$6;-><init>(Lcom/android/launcher3/home/Workspace;Lcom/android/launcher3/common/base/view/CellLayout;)V
 
     iput-object v4, p0, Lcom/android/launcher3/home/Workspace;->mRemoveEmptyScreenRunnable:Ljava/lang/Runnable;
+
+    if-lez p2, :cond_1
 
     const/4 v4, 0x2
 
@@ -1236,15 +1275,28 @@
 
     invoke-virtual {v3, v4, v5}, Landroid/animation/ObjectAnimator;->setStartDelay(J)V
 
-    new-instance v4, Lcom/android/launcher3/home/Workspace$6;
+    new-instance v4, Lcom/android/launcher3/home/Workspace$7;
 
-    invoke-direct {v4, p0, p3}, Lcom/android/launcher3/home/Workspace$6;-><init>(Lcom/android/launcher3/home/Workspace;Ljava/lang/Runnable;)V
+    invoke-direct {v4, p0, p3}, Lcom/android/launcher3/home/Workspace$7;-><init>(Lcom/android/launcher3/home/Workspace;Ljava/lang/Runnable;)V
 
     invoke-virtual {v3, v4}, Landroid/animation/ObjectAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
     invoke-virtual {v3}, Landroid/animation/ObjectAnimator;->start()V
 
+    :cond_0
+    :goto_0
     return-void
+
+    :cond_1
+    iget-object v4, p0, Lcom/android/launcher3/home/Workspace;->mRemoveEmptyScreenRunnable:Ljava/lang/Runnable;
+
+    invoke-interface {v4}, Ljava/lang/Runnable;->run()V
+
+    if-eqz p3, :cond_0
+
+    invoke-interface {p3}, Ljava/lang/Runnable;->run()V
+
+    goto :goto_0
 .end method
 
 .method private getPageDescription(IZ)Ljava/lang/String;
@@ -1287,7 +1339,7 @@
 
     move-result-object v6
 
-    const v9, 0x7f0900bd
+    const v9, 0x7f0900c2
 
     invoke-virtual {v6, v9}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1402,7 +1454,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f090031
+    const v10, 0x7f090033
 
     invoke-virtual {v9, v10}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1462,7 +1514,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f090030
+    const v8, 0x7f090032
 
     invoke-virtual {v7, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1503,7 +1555,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f090059
+    const v8, 0x7f09005b
 
     invoke-virtual {v7, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1777,6 +1829,17 @@
 
     iget v0, p0, Lcom/android/launcher3/home/Workspace;->mCurrentPage:I
 
+    iget v4, p0, Lcom/android/launcher3/home/Workspace;->mDefaultPage:I
+
+    if-gt p2, v4, :cond_0
+
+    iget v4, p0, Lcom/android/launcher3/home/Workspace;->mDefaultPage:I
+
+    add-int/lit8 v4, v4, 0x1
+
+    iput v4, p0, Lcom/android/launcher3/home/Workspace;->mDefaultPage:I
+
+    :cond_0
     invoke-direct {p0, v2, v3, p2}, Lcom/android/launcher3/home/Workspace;->createPage(JI)Lcom/android/launcher3/home/WorkspaceCellLayout;
 
     move-result-object v1
@@ -1787,23 +1850,23 @@
 
     move-result v4
 
-    if-eqz v4, :cond_0
+    if-eqz v4, :cond_1
 
     const/4 v4, 0x1
 
     invoke-virtual {p0, v4}, Lcom/android/launcher3/home/Workspace;->showDefaultHomeIcon(Z)V
 
-    :cond_0
-    if-le v0, p1, :cond_1
+    :cond_1
+    if-le v0, p1, :cond_2
 
     add-int/lit8 v0, v0, 0x1
 
-    :cond_1
+    :cond_2
     invoke-virtual {p0}, Lcom/android/launcher3/home/Workspace;->getPageIndicator()Lcom/android/launcher3/common/view/PageIndicator;
 
     move-result-object v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_3
 
     invoke-virtual {p0}, Lcom/android/launcher3/home/Workspace;->getPageIndicator()Lcom/android/launcher3/common/view/PageIndicator;
 
@@ -1825,7 +1888,7 @@
 
     invoke-virtual {v4, v0, v5}, Lcom/android/launcher3/common/view/PageIndicator;->updateMarker(ILcom/android/launcher3/common/view/PageIndicator$PageMarkerResources;)V
 
-    :cond_2
+    :cond_3
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/Workspace;->setCurrentPage(I)V
 
     return-wide v2
@@ -2069,7 +2132,7 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0900a9
+    const v1, 0x7f0900ae
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -2081,11 +2144,11 @@
 
     move-result-object v0
 
-    const v1, 0x7f0900aa
+    const v1, 0x7f0900af
 
-    new-instance v2, Lcom/android/launcher3/home/Workspace$19;
+    new-instance v2, Lcom/android/launcher3/home/Workspace$20;
 
-    invoke-direct {v2, p0}, Lcom/android/launcher3/home/Workspace$19;-><init>(Lcom/android/launcher3/home/Workspace;)V
+    invoke-direct {v2, p0}, Lcom/android/launcher3/home/Workspace$20;-><init>(Lcom/android/launcher3/home/Workspace;)V
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -2093,17 +2156,17 @@
 
     const/high16 v1, 0x1040000
 
-    new-instance v2, Lcom/android/launcher3/home/Workspace$18;
+    new-instance v2, Lcom/android/launcher3/home/Workspace$19;
 
-    invoke-direct {v2, p0}, Lcom/android/launcher3/home/Workspace$18;-><init>(Lcom/android/launcher3/home/Workspace;)V
+    invoke-direct {v2, p0}, Lcom/android/launcher3/home/Workspace$19;-><init>(Lcom/android/launcher3/home/Workspace;)V
 
     invoke-virtual {v0, v1, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/launcher3/home/Workspace$17;
+    new-instance v1, Lcom/android/launcher3/home/Workspace$18;
 
-    invoke-direct {v1, p0}, Lcom/android/launcher3/home/Workspace$17;-><init>(Lcom/android/launcher3/home/Workspace;)V
+    invoke-direct {v1, p0}, Lcom/android/launcher3/home/Workspace$18;-><init>(Lcom/android/launcher3/home/Workspace;)V
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setOnDismissListener(Landroid/content/DialogInterface$OnDismissListener;)Landroid/app/AlertDialog$Builder;
 
@@ -2427,7 +2490,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0900af
+    const v3, 0x7f0900b4
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2442,7 +2505,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f090030
+    const v4, 0x7f090032
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2486,7 +2549,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f09007b
+    const v3, 0x7f09007e
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2627,7 +2690,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0901b3
+    const v3, 0x7f0901b8
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2637,7 +2700,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f090120
+    const v4, 0x7f090125
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2982,7 +3045,7 @@
 
     sget-object v5, Lcom/android/launcher3/util/Talk;->INSTANCE:Lcom/android/launcher3/util/Talk;
 
-    const v6, 0x7f090077
+    const v6, 0x7f090079
 
     invoke-virtual {v5, v6}, Lcom/android/launcher3/util/Talk;->say(I)V
 
@@ -2994,7 +3057,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0901b3
+    const v7, 0x7f0901b8
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3004,7 +3067,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0900f4
+    const v8, 0x7f0900f9
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3091,7 +3154,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0901b3
+    const v3, 0x7f0901b8
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3105,7 +3168,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f0900f6
+    const v4, 0x7f0900fb
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3136,7 +3199,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f0900f5
+    const v4, 0x7f0900fa
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3618,7 +3681,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0d0002
+    const v9, 0x7f0b0003
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -3678,9 +3741,9 @@
 
     invoke-virtual {v3, v7}, Lcom/android/launcher3/home/WorkspaceCellLayout;->setForegroundGravity(I)V
 
-    new-instance v7, Lcom/android/launcher3/home/Workspace$9;
+    new-instance v7, Lcom/android/launcher3/home/Workspace$10;
 
-    invoke-direct {v7, p0}, Lcom/android/launcher3/home/Workspace$9;-><init>(Lcom/android/launcher3/home/Workspace;)V
+    invoke-direct {v7, p0}, Lcom/android/launcher3/home/Workspace$10;-><init>(Lcom/android/launcher3/home/Workspace;)V
 
     invoke-virtual {v3, v7}, Lcom/android/launcher3/home/WorkspaceCellLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -3959,7 +4022,53 @@
     goto :goto_0
 .end method
 
-.method public dropCompletedFromHotseat(Ljava/util/ArrayList;Ljava/lang/Runnable;Z)V
+.method protected drawChild(Landroid/graphics/Canvas;Landroid/view/View;J)Z
+    .locals 3
+
+    iget-boolean v0, p0, Lcom/android/launcher3/home/Workspace;->mUpdateOnlyCurrentPage:Z
+
+    if-eqz v0, :cond_0
+
+    iget-boolean v0, p0, Lcom/android/launcher3/home/Workspace;->mIsPageMoving:Z
+
+    if-nez v0, :cond_0
+
+    if-eqz p2, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/launcher3/home/Workspace;->getCurrentPage()I
+
+    move-result v0
+
+    invoke-virtual {p0, v0}, Lcom/android/launcher3/home/Workspace;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v0
+
+    invoke-virtual {p2, v0}, Ljava/lang/Object;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const-string v0, "Launcher.Workspace"
+
+    const-string v1, "drawChild, mUpdateOnlyCurrentPage && !mIsPageMoving && !currentPage => draw skip!"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    invoke-super {p0, p1, p2, p3, p4}, Lcom/android/launcher3/common/base/view/PagedView;->drawChild(Landroid/graphics/Canvas;Landroid/view/View;J)Z
+
+    move-result v0
+
+    goto :goto_0
+.end method
+
+.method public dropCompletedFromHotseat(Ljava/util/ArrayList;Ljava/lang/Runnable;ZI)V
     .locals 1
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -3969,13 +4078,13 @@
             "Lcom/android/launcher3/common/drag/DropTarget$DragObject;",
             ">;",
             "Ljava/lang/Runnable;",
-            "Z)V"
+            "ZI)V"
         }
     .end annotation
 
     iget-object v0, p0, Lcom/android/launcher3/home/Workspace;->mWsDragController:Lcom/android/launcher3/home/WorkspaceDragController;
 
-    invoke-virtual {v0, p1, p2, p3}, Lcom/android/launcher3/home/WorkspaceDragController;->dropCompletedFromHotseat(Ljava/util/ArrayList;Ljava/lang/Runnable;Z)V
+    invoke-virtual {v0, p1, p2, p3, p4}, Lcom/android/launcher3/home/WorkspaceDragController;->dropCompletedFromHotseat(Ljava/util/ArrayList;Ljava/lang/Runnable;ZI)V
 
     return-void
 .end method
@@ -4737,7 +4846,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090055
+    const v2, 0x7f090057
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -5200,9 +5309,9 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/Workspace;->mDefaultHomeIcon:Landroid/view/View;
 
-    new-instance v1, Lcom/android/launcher3/home/Workspace$13;
+    new-instance v1, Lcom/android/launcher3/home/Workspace$14;
 
-    invoke-direct {v1, p0}, Lcom/android/launcher3/home/Workspace$13;-><init>(Lcom/android/launcher3/home/Workspace;)V
+    invoke-direct {v1, p0}, Lcom/android/launcher3/home/Workspace$14;-><init>(Lcom/android/launcher3/home/Workspace;)V
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -6551,7 +6660,7 @@
 
     if-eqz v7, :cond_0
 
-    const v7, 0x7f0d000a
+    const v7, 0x7f0b000b
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -6602,7 +6711,7 @@
     goto :goto_0
 
     :cond_2
-    const v7, 0x7f0a00ad
+    const v7, 0x7f0a00af
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -6610,7 +6719,7 @@
 
     iput v7, p0, Lcom/android/launcher3/home/Workspace;->mHintPageWidth:I
 
-    const v7, 0x7f0a00ac
+    const v7, 0x7f0a00ae
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -6630,7 +6739,7 @@
 
     iput v7, p0, Lcom/android/launcher3/home/Workspace;->mHintPageRightZone:I
 
-    const v7, 0x7f0a00ae
+    const v7, 0x7f0a00b0
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -6640,7 +6749,7 @@
 
     iput v7, p0, Lcom/android/launcher3/home/Workspace;->mTranslatePagesOffset:F
 
-    const v7, 0x7f0a00b1
+    const v7, 0x7f0a00b2
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -6648,9 +6757,13 @@
 
     invoke-virtual {p0, v7}, Lcom/android/launcher3/home/Workspace;->setPageSpacing(I)V
 
-    new-instance v7, Lcom/android/launcher3/home/Workspace$16;
+    const/4 v7, 0x1
 
-    invoke-direct {v7, p0}, Lcom/android/launcher3/home/Workspace$16;-><init>(Lcom/android/launcher3/home/Workspace;)V
+    iput-boolean v7, p0, Lcom/android/launcher3/home/Workspace;->mFirstLayout:Z
+
+    new-instance v7, Lcom/android/launcher3/home/Workspace$17;
+
+    invoke-direct {v7, p0}, Lcom/android/launcher3/home/Workspace$17;-><init>(Lcom/android/launcher3/home/Workspace;)V
 
     invoke-virtual {p0, v7}, Lcom/android/launcher3/home/Workspace;->post(Ljava/lang/Runnable;)Z
 
@@ -7012,13 +7125,13 @@
 
     move-result-object v4
 
-    const v6, 0x7f0901b7
+    const v6, 0x7f0901bc
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v6
 
-    const v7, 0x7f090149
+    const v7, 0x7f09014e
 
     invoke-virtual {v3, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -7142,9 +7255,9 @@
 
     invoke-direct {v0}, Landroid/os/Handler;-><init>()V
 
-    new-instance v1, Lcom/android/launcher3/home/Workspace$8;
+    new-instance v1, Lcom/android/launcher3/home/Workspace$9;
 
-    invoke-direct {v1, p0}, Lcom/android/launcher3/home/Workspace$8;-><init>(Lcom/android/launcher3/home/Workspace;)V
+    invoke-direct {v1, p0}, Lcom/android/launcher3/home/Workspace$9;-><init>(Lcom/android/launcher3/home/Workspace;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
@@ -7217,7 +7330,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0d003c
+    const v7, 0x7f0b003d
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -7600,10 +7713,12 @@
     goto :goto_1
 .end method
 
-.method onPause()V
+.method public onPause()V
     .locals 7
 
     const/4 v3, 0x0
+
+    invoke-super {p0}, Lcom/android/launcher3/common/base/view/PagedView;->onPause()V
 
     iget-object v0, p0, Lcom/android/launcher3/home/Workspace;->mRemoveScreenDialog:Landroid/app/AlertDialog;
 
@@ -7732,6 +7847,14 @@
 
     if-nez v0, :cond_0
 
+    iget-object v0, p0, Lcom/android/launcher3/home/Workspace;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/Launcher;->isFolderStage()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
     invoke-super {p0, p1, p2}, Lcom/android/launcher3/common/base/view/PagedView;->onRequestFocusInDescendants(ILandroid/graphics/Rect;)Z
 
     move-result v0
@@ -7745,8 +7868,10 @@
     goto :goto_0
 .end method
 
-.method onResume()V
+.method public onResume()V
     .locals 1
+
+    invoke-super {p0}, Lcom/android/launcher3/common/base/view/PagedView;->onResume()V
 
     invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
@@ -8186,7 +8311,7 @@
 
     const-string v2, "Launcher.Workspace"
 
-    const-string v3, "    - workspace loading, skip"
+    const-string v3, "removeExtraEmptyScreenDelayed - workspace loading, skip"
 
     const/4 v4, 0x1
 
@@ -8199,9 +8324,9 @@
     :cond_1
     if-lez p2, :cond_2
 
-    new-instance v2, Lcom/android/launcher3/home/Workspace$3;
+    new-instance v2, Lcom/android/launcher3/home/Workspace$4;
 
-    invoke-direct {v2, p0, p1}, Lcom/android/launcher3/home/Workspace$3;-><init>(Lcom/android/launcher3/home/Workspace;Ljava/lang/Runnable;)V
+    invoke-direct {v2, p0, p1}, Lcom/android/launcher3/home/Workspace$4;-><init>(Lcom/android/launcher3/home/Workspace;Ljava/lang/Runnable;)V
 
     int-to-long v4, p2
 
@@ -8249,9 +8374,9 @@
     goto :goto_0
 
     :cond_3
-    new-instance v1, Lcom/android/launcher3/home/Workspace$4;
+    new-instance v1, Lcom/android/launcher3/home/Workspace$5;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/launcher3/home/Workspace$4;-><init>(Lcom/android/launcher3/home/Workspace;Ljava/lang/Runnable;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/launcher3/home/Workspace$5;-><init>(Lcom/android/launcher3/home/Workspace;Ljava/lang/Runnable;)V
 
     sget-boolean v2, Lcom/android/launcher3/Utilities;->sIsRtl:Z
 
@@ -8281,13 +8406,64 @@
 .end method
 
 .method removeExtraEmptyScreenOnDrop(Ljava/lang/Runnable;)V
-    .locals 1
+    .locals 4
 
-    const/16 v0, 0xc8
+    iget-object v1, p0, Lcom/android/launcher3/home/Workspace;->mHomeBindController:Lcom/android/launcher3/home/HomeBindController;
 
-    invoke-virtual {p0, p1, v0}, Lcom/android/launcher3/home/Workspace;->removeExtraEmptyScreenDelayed(Ljava/lang/Runnable;I)V
+    invoke-virtual {v1}, Lcom/android/launcher3/home/HomeBindController;->isWorkspaceLoading()Z
 
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    const-string v1, "Launcher.Workspace"
+
+    const-string v2, "removeExtraEmptyScreenOnDrop - workspace loading, skip"
+
+    const/4 v3, 0x1
+
+    invoke-static {v1, v2, v3}, Lcom/android/launcher3/Launcher;->addDumpLog(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    :cond_0
+    :goto_0
     return-void
+
+    :cond_1
+    invoke-virtual {p0}, Lcom/android/launcher3/home/Workspace;->hasExtraEmptyScreen()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    new-instance v0, Lcom/android/launcher3/home/Workspace$3;
+
+    invoke-direct {v0, p0, p1}, Lcom/android/launcher3/home/Workspace$3;-><init>(Lcom/android/launcher3/home/Workspace;Ljava/lang/Runnable;)V
+
+    sget-boolean v1, Lcom/android/launcher3/Utilities;->sIsRtl:Z
+
+    if-eqz v1, :cond_2
+
+    invoke-virtual {p0}, Lcom/android/launcher3/home/Workspace;->isPageMoving()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_2
+
+    invoke-virtual {p0, v0}, Lcom/android/launcher3/home/Workspace;->post(Ljava/lang/Runnable;)Z
+
+    goto :goto_0
+
+    :cond_2
+    invoke-interface {v0}, Ljava/lang/Runnable;->run()V
+
+    goto :goto_0
+
+    :cond_3
+    if-eqz p1, :cond_0
+
+    invoke-interface {p1}, Ljava/lang/Runnable;->run()V
+
+    goto :goto_0
 .end method
 
 .method public removeScreenWithItem(IZZ)V
@@ -8401,6 +8577,17 @@
     iput v1, p0, Lcom/android/launcher3/home/Workspace;->mCurrentPage:I
 
     :cond_0
+    iget v1, p0, Lcom/android/launcher3/home/Workspace;->mDefaultPage:I
+
+    if-ge v0, v1, :cond_1
+
+    iget v1, p0, Lcom/android/launcher3/home/Workspace;->mDefaultPage:I
+
+    add-int/lit8 v1, v1, -0x1
+
+    iput v1, p0, Lcom/android/launcher3/home/Workspace;->mDefaultPage:I
+
+    :cond_1
     return-void
 .end method
 
@@ -8649,9 +8836,9 @@
 
     if-nez p2, :cond_2
 
-    new-instance v2, Lcom/android/launcher3/home/Workspace$14;
+    new-instance v2, Lcom/android/launcher3/home/Workspace$15;
 
-    invoke-direct {v2, p0, p1, p2}, Lcom/android/launcher3/home/Workspace$14;-><init>(Lcom/android/launcher3/home/Workspace;Landroid/view/View;I)V
+    invoke-direct {v2, p0, p1, p2}, Lcom/android/launcher3/home/Workspace$15;-><init>(Lcom/android/launcher3/home/Workspace;Landroid/view/View;I)V
 
     :goto_2
     invoke-virtual {v1, v2}, Landroid/animation/ObjectAnimator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
@@ -8666,9 +8853,9 @@
     goto :goto_1
 
     :cond_2
-    new-instance v2, Lcom/android/launcher3/home/Workspace$15;
+    new-instance v2, Lcom/android/launcher3/home/Workspace$16;
 
-    invoke-direct {v2, p0, p1, p2}, Lcom/android/launcher3/home/Workspace$15;-><init>(Lcom/android/launcher3/home/Workspace;Landroid/view/View;I)V
+    invoke-direct {v2, p0, p1, p2}, Lcom/android/launcher3/home/Workspace$16;-><init>(Lcom/android/launcher3/home/Workspace;Landroid/view/View;I)V
 
     goto :goto_2
 
@@ -8716,7 +8903,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0901b3
+    const v3, 0x7f0901b8
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -8726,7 +8913,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f090120
+    const v4, 0x7f090125
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -9143,7 +9330,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0002
+    const v1, 0x7f0b0003
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -9298,7 +9485,7 @@
 .end method
 
 .method protected snapToPage(IIZLandroid/animation/TimeInterpolator;)V
-    .locals 2
+    .locals 4
 
     invoke-super {p0, p1, p2, p3, p4}, Lcom/android/launcher3/common/base/view/PagedView;->snapToPage(IIZLandroid/animation/TimeInterpolator;)V
 
@@ -9328,11 +9515,13 @@
 
     if-eqz v0, :cond_0
 
-    new-instance v0, Lcom/android/launcher3/home/Workspace$7;
+    new-instance v0, Lcom/android/launcher3/home/Workspace$8;
 
-    invoke-direct {v0, p0}, Lcom/android/launcher3/home/Workspace$7;-><init>(Lcom/android/launcher3/home/Workspace;)V
+    invoke-direct {v0, p0}, Lcom/android/launcher3/home/Workspace$8;-><init>(Lcom/android/launcher3/home/Workspace;)V
 
-    invoke-virtual {p0, v0}, Lcom/android/launcher3/home/Workspace;->post(Ljava/lang/Runnable;)Z
+    const-wide/16 v2, 0xc8
+
+    invoke-virtual {p0, v0, v2, v3}, Lcom/android/launcher3/home/Workspace;->postDelayed(Ljava/lang/Runnable;J)Z
 
     :cond_0
     return-void
@@ -9405,13 +9594,13 @@
 
     move-result-object v2
 
-    const v3, 0x7f0901b9
+    const v3, 0x7f0901be
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v4, 0x7f090183
+    const v4, 0x7f090188
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -9444,13 +9633,13 @@
 
     move-result-object v2
 
-    const v3, 0x7f0901b3
+    const v3, 0x7f0901b8
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v4, 0x7f090123
+    const v4, 0x7f090128
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -9467,13 +9656,13 @@
 
     move-result-object v2
 
-    const v3, 0x7f0901b7
+    const v3, 0x7f0901bc
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v3
 
-    const v4, 0x7f09015c
+    const v4, 0x7f090161
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

@@ -23,7 +23,7 @@
 
 .field private final mRunWakeLock:Landroid/os/PowerManager$WakeLock;
 
-.field mServiceRunning:Z
+.field mServiceProcessing:Z
 
 
 # direct methods
@@ -149,7 +149,7 @@
 
     iput-boolean v1, p0, Landroid/support/v4/app/JobIntentService$CompatWorkEnqueuer;->mLaunchingService:Z
 
-    iget-boolean v1, p0, Landroid/support/v4/app/JobIntentService$CompatWorkEnqueuer;->mServiceRunning:Z
+    iget-boolean v1, p0, Landroid/support/v4/app/JobIntentService$CompatWorkEnqueuer;->mServiceProcessing:Z
 
     if-nez v1, :cond_0
 
@@ -175,29 +175,36 @@
     throw v1
 .end method
 
-.method public serviceCreated()V
-    .locals 1
+.method public serviceProcessingFinished()V
+    .locals 4
 
     monitor-enter p0
 
     :try_start_0
-    iget-boolean v0, p0, Landroid/support/v4/app/JobIntentService$CompatWorkEnqueuer;->mServiceRunning:Z
+    iget-boolean v0, p0, Landroid/support/v4/app/JobIntentService$CompatWorkEnqueuer;->mServiceProcessing:Z
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_1
 
-    const/4 v0, 0x1
+    iget-boolean v0, p0, Landroid/support/v4/app/JobIntentService$CompatWorkEnqueuer;->mLaunchingService:Z
 
-    iput-boolean v0, p0, Landroid/support/v4/app/JobIntentService$CompatWorkEnqueuer;->mServiceRunning:Z
-
-    iget-object v0, p0, Landroid/support/v4/app/JobIntentService$CompatWorkEnqueuer;->mRunWakeLock:Landroid/os/PowerManager$WakeLock;
-
-    invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->acquire()V
+    if-eqz v0, :cond_0
 
     iget-object v0, p0, Landroid/support/v4/app/JobIntentService$CompatWorkEnqueuer;->mLaunchWakeLock:Landroid/os/PowerManager$WakeLock;
 
-    invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
+    const-wide/32 v2, 0xea60
+
+    invoke-virtual {v0, v2, v3}, Landroid/os/PowerManager$WakeLock;->acquire(J)V
 
     :cond_0
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Landroid/support/v4/app/JobIntentService$CompatWorkEnqueuer;->mServiceProcessing:Z
+
+    iget-object v0, p0, Landroid/support/v4/app/JobIntentService$CompatWorkEnqueuer;->mRunWakeLock:Landroid/os/PowerManager$WakeLock;
+
+    invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
+
+    :cond_1
     monitor-exit p0
 
     return-void
@@ -212,31 +219,31 @@
     throw v0
 .end method
 
-.method public serviceDestroyed()V
+.method public serviceProcessingStarted()V
     .locals 4
 
     monitor-enter p0
 
     :try_start_0
-    iget-boolean v0, p0, Landroid/support/v4/app/JobIntentService$CompatWorkEnqueuer;->mLaunchingService:Z
+    iget-boolean v0, p0, Landroid/support/v4/app/JobIntentService$CompatWorkEnqueuer;->mServiceProcessing:Z
 
-    if-eqz v0, :cond_0
+    if-nez v0, :cond_0
 
-    iget-object v0, p0, Landroid/support/v4/app/JobIntentService$CompatWorkEnqueuer;->mLaunchWakeLock:Landroid/os/PowerManager$WakeLock;
+    const/4 v0, 0x1
 
-    const-wide/32 v2, 0xea60
-
-    invoke-virtual {v0, v2, v3}, Landroid/os/PowerManager$WakeLock;->acquire(J)V
-
-    :cond_0
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Landroid/support/v4/app/JobIntentService$CompatWorkEnqueuer;->mServiceRunning:Z
+    iput-boolean v0, p0, Landroid/support/v4/app/JobIntentService$CompatWorkEnqueuer;->mServiceProcessing:Z
 
     iget-object v0, p0, Landroid/support/v4/app/JobIntentService$CompatWorkEnqueuer;->mRunWakeLock:Landroid/os/PowerManager$WakeLock;
 
+    const-wide/32 v2, 0x927c0
+
+    invoke-virtual {v0, v2, v3}, Landroid/os/PowerManager$WakeLock;->acquire(J)V
+
+    iget-object v0, p0, Landroid/support/v4/app/JobIntentService$CompatWorkEnqueuer;->mLaunchWakeLock:Landroid/os/PowerManager$WakeLock;
+
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
 
+    :cond_0
     monitor-exit p0
 
     return-void

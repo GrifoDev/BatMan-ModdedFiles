@@ -7,6 +7,8 @@
 
 
 # static fields
+.field private static mIsTargetHotseat:Z = false
+
 .field private static mNegativeRunnable:Ljava/lang/Runnable; = null
 
 .field private static mPositiveRunnable:Ljava/lang/Runnable; = null
@@ -27,7 +29,7 @@
     return-void
 .end method
 
-.method static createAndShow(Landroid/app/FragmentManager;Ljava/lang/Runnable;Ljava/lang/Runnable;II)V
+.method static createAndShow(Landroid/app/FragmentManager;Ljava/lang/Runnable;Ljava/lang/Runnable;IIZ)V
     .locals 2
 
     sput-object p1, Lcom/android/launcher3/home/AddItemOnLastPageDialog;->mPositiveRunnable:Ljava/lang/Runnable;
@@ -37,6 +39,8 @@
     sput p3, Lcom/android/launcher3/home/AddItemOnLastPageDialog;->mRemainCnt:I
 
     sput p4, Lcom/android/launcher3/home/AddItemOnLastPageDialog;->mTotalCnt:I
+
+    sput-boolean p5, Lcom/android/launcher3/home/AddItemOnLastPageDialog;->mIsTargetHotseat:Z
 
     new-instance v0, Lcom/android/launcher3/home/AddItemOnLastPageDialog;
 
@@ -126,71 +130,81 @@
 .end method
 
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
-    .locals 6
+    .locals 7
 
-    new-instance v1, Landroid/app/AlertDialog$Builder;
+    sget-boolean v2, Lcom/android/launcher3/home/AddItemOnLastPageDialog;->mIsTargetHotseat:Z
+
+    if-eqz v2, :cond_0
+
+    const v1, 0x7f090014
+
+    :goto_0
+    new-instance v2, Landroid/app/AlertDialog$Builder;
 
     invoke-virtual {p0}, Lcom/android/launcher3/home/AddItemOnLastPageDialog;->getActivity()Landroid/app/Activity;
 
+    move-result-object v3
+
+    invoke-direct {v2, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+
+    invoke-virtual {p0, v1}, Lcom/android/launcher3/home/AddItemOnLastPageDialog;->getString(I)Ljava/lang/String;
+
+    move-result-object v3
+
+    const/4 v4, 0x2
+
+    new-array v4, v4, [Ljava/lang/Object;
+
+    const/4 v5, 0x0
+
+    sget v6, Lcom/android/launcher3/home/AddItemOnLastPageDialog;->mTotalCnt:I
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    aput-object v6, v4, v5
+
+    const/4 v5, 0x1
+
+    sget v6, Lcom/android/launcher3/home/AddItemOnLastPageDialog;->mRemainCnt:I
+
+    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v6
+
+    aput-object v6, v4, v5
+
+    invoke-static {v3, v4}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
+
     move-result-object v2
 
-    invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
+    const v3, 0x7f090012
 
-    const v2, 0x7f090012
-
-    invoke-virtual {p0, v2}, Lcom/android/launcher3/home/AddItemOnLastPageDialog;->getString(I)Ljava/lang/String;
+    invoke-virtual {v2, v3, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v2
 
-    const/4 v3, 0x2
+    const v3, 0x7f090031
 
-    new-array v3, v3, [Ljava/lang/Object;
-
-    const/4 v4, 0x0
-
-    sget v5, Lcom/android/launcher3/home/AddItemOnLastPageDialog;->mTotalCnt:I
-
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    aput-object v5, v3, v4
-
-    const/4 v4, 0x1
-
-    sget v5, Lcom/android/launcher3/home/AddItemOnLastPageDialog;->mRemainCnt:I
-
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v5
-
-    aput-object v5, v3, v4
-
-    invoke-static {v2, v3}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v2, v3, p0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     move-result-object v2
 
-    invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setMessage(Ljava/lang/CharSequence;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v1
-
-    const v2, 0x7f09007e
-
-    invoke-virtual {v1, v2, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v1
-
-    const v2, 0x7f09002f
-
-    invoke-virtual {v1, v2, p0}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
+    invoke-virtual {v2}, Landroid/app/AlertDialog$Builder;->create()Landroid/app/AlertDialog;
 
     move-result-object v0
 
     return-object v0
+
+    :cond_0
+    const v1, 0x7f090013
+
+    goto :goto_0
 .end method
 
 .method public onDismiss(Landroid/content/DialogInterface;)V

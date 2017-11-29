@@ -17,8 +17,10 @@
     <string name="accessibility_button">Κουμπί</string>
     <string name="accessibility_dimmed">Με μειωμένη φωτεινότητα</string>
     <string name="activity_not_available">Αυτή η εφαρμογή δεν είναι διαθέσιμη για τη συσκευή σας.</string>
-    <string name="activity_not_found">Η εφαρμογή δεν εγκαταστάθηκε.</string>
+    <string name="activity_not_found">Η εφαρμογή δεν βρέθηκε</string>
+    <string name="add">Προσθήκη</string>
     <string name="add_to_last_page">Επιλέξατε %1$d στοιχεία, αλλά ο χώρος σε αυτήν τη σελίδα δεν επαρκεί. Τα %2$d στοιχεία που απομένουν θα προστεθούν στην τελευταία σελίδα.</string>
+    <string name="add_to_last_page_for_hotseat">Επιλέξατε %1$d στοιχεία, αλλά ο χώρος στην περιοχή αγαπημένων δεν επαρκεί. Τα %2$d στοιχεία που απομένουν θα προστεθούν στην τελευταία σελίδα.</string>
     <string name="align_to_bottom">Στοίχιση κάτω</string>
     <string name="align_to_top">Στοίχιση επάνω</string>
     <string name="app_locked_toast">Η εφαρμογή %s κλειδώθηκε.</string>
@@ -122,13 +124,14 @@
     <string name="new_page_created">Η σελίδα προστέθηκε.</string>
     <string name="no_changes">Καμία αλλαγή.</string>
     <string name="no_space_page">Δεν υπάρχει χώρος στη σελίδα. Δοκιμάστε να προσθέσετε τη συντόμευση σε άλλη σελίδα.</string>
+    <string name="no_space_page_for_hotseat">Δεν υπάρχει χώρος στην περιοχή αγαπημένων.</string>
     <string name="no_space_page_for_widget">Δεν υπάρχει χώρος σε αυτήν τη σελίδα.</string>
     <string name="not_selected">Δεν έχει επιλεγεί</string>
     <string name="notification_panel_setting_summary">Κάντε σάρωση προς τα κάτω για να ανοίξετε τον πίνακα ειδοποιήσεων από την Αρχική οθόνη.</string>
     <string name="notification_panel_setting_title">Γρήγορο άνοιγμα πίνακα ειδοπ.</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Το widget %s προστέθηκε ήδη στην αρχική οθόνη.</string>
-    <string name="option_menu_contact_up">Επικοινωνία</string>
+    <string name="option_menu_contact_up">Επικοινωνήστε μαζί μας</string>
     <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Ρυθμίσεις</string>
     <string name="options_menu">Περισσότερες επιλογές</string>
@@ -156,6 +159,8 @@
     <string name="quick_option_delete_folder">Διαγραφή φακέλου</string>
     <string name="quick_option_delete_folder_alert">Ο φάκελος %s θα διαγραφεί. Οι εφαρμογές που υπάρχουν σε αυτόν το φάκελο θα συνεχίσουν να είναι διαθέσιμες στην οθόνη Εφαρμογών.</string>
     <string name="quick_option_delete_folder_alert_no_title">Αυτός ο φάκελος θα διαγραφεί. Οι εφαρμογές σε αυτόν το φάκελο θα συνεχίσουν να είναι διαθέσιμες στην οθόνη Εφαρμογών.</string>
+    <string name="quick_option_delete_folder_home_only_alert">Ο φάκελος %s θα διαγραφεί. Οι εφαρμογές που υπάρχουν σε αυτόν το φάκελο θα εξακολουθούν να είναι διαθέσιμες στην Αρχική οθόνη.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Αυτός ο φάκελος θα διαγραφεί. Οι εφαρμογές που υπάρχουν σε αυτόν το φάκελο θα εξακολουθούν να είναι διαθέσιμες στην Αρχική οθόνη.</string>
     <string name="quick_option_dimmed_disable">Απενεργοπ.</string>
     <string name="quick_option_disable">Απενεργοπ.</string>
     <string name="quick_option_install_dual_im">Εγκατ. δεύτερης εφαρμογής</string>

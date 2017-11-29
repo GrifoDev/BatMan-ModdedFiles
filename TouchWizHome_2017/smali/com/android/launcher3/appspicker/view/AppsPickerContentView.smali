@@ -182,7 +182,7 @@
 
     invoke-virtual {v2, v8}, Landroid/widget/TextView;->setVisibility(I)V
 
-    const v4, 0x7f09001e
+    const v4, 0x7f090020
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setText(I)V
 
@@ -805,7 +805,7 @@
 
     move-result-object v13
 
-    const v14, 0x7f0a019d
+    const v14, 0x7f0a01a2
 
     invoke-virtual {v13, v14}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -863,7 +863,7 @@
 .method public setSearchResultText(I)V
     .locals 8
 
-    const v7, 0x7f09001e
+    const v7, 0x7f090020
 
     const/4 v5, 0x1
 
@@ -887,7 +887,7 @@
 
     iget-object v3, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContentView;->mEmptyView:Landroid/widget/TextView;
 
-    const v4, 0x7f090018
+    const v4, 0x7f09001a
 
     invoke-virtual {v3, v4}, Landroid/widget/TextView;->setText(I)V
 
@@ -908,7 +908,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f09001f
+    const v4, 0x7f090021
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

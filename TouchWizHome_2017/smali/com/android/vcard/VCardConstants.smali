@@ -180,6 +180,8 @@
 
 .field public static final PROPERTY_X_DCM_HMN_MODE:Ljava/lang/String; = "X-DCM-HMN-MODE"
 
+.field public static final PROPERTY_X_FACEBOOK:Ljava/lang/String; = "X-FACEBOOK"
+
 .field public static final PROPERTY_X_GOOGLE_TALK:Ljava/lang/String; = "X-GOOGLE-TALK"
 
 .field public static final PROPERTY_X_ICQ:Ljava/lang/String; = "X-ICQ"

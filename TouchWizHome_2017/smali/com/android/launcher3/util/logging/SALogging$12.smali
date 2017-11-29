@@ -121,7 +121,7 @@
 
     move-object/from16 v19, v0
 
-    const v23, 0x7f0901c2
+    const v23, 0x7f0901c7
 
     move-object/from16 v0, v16
 
@@ -153,7 +153,7 @@
 
     move-object/from16 v19, v0
 
-    const v23, 0x7f0901c4
+    const v23, 0x7f0901c9
 
     move-object/from16 v0, v16
 
@@ -195,7 +195,7 @@
 
     move-object/from16 v19, v0
 
-    const v23, 0x7f0901bf
+    const v23, 0x7f0901c4
 
     move-object/from16 v0, v16
 
@@ -223,7 +223,7 @@
 
     move-object/from16 v19, v0
 
-    const v23, 0x7f0901c3
+    const v23, 0x7f0901c8
 
     move-object/from16 v0, v16
 
@@ -299,7 +299,7 @@
 
     move-object/from16 v23, v0
 
-    const v19, 0x7f0901c6
+    const v19, 0x7f0901cb
 
     move-object/from16 v0, v16
 
@@ -344,7 +344,7 @@
 
     move-object/from16 v19, v0
 
-    const v23, 0x7f0901c1
+    const v23, 0x7f0901c6
 
     move-object/from16 v0, v16
 

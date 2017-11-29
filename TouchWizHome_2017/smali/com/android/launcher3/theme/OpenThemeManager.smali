@@ -1207,7 +1207,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a013e
+    const v1, 0x7f0a0142
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1215,7 +1215,7 @@
 
     iput v1, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mTextBackgroundExtraPadding:I
 
-    const v1, 0x7f0a013d
+    const v1, 0x7f0a0141
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2686,6 +2686,24 @@
     const/4 v4, 0x1
 
     goto :goto_0
+.end method
+
+.method public isKellyPreloadIconTheme()Z
+    .locals 2
+
+    iget-object v1, p0, Lcom/android/launcher3/theme/OpenThemeManager;->mThemeLoader:Lcom/android/launcher3/theme/OpenThemeLoader;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/theme/OpenThemeLoader;->getCurrentIconPackages()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "com.set.Platinum_Gold.common.appiconpack"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    return v1
 .end method
 
 .method public isPinkTheme()Z

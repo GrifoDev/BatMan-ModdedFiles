@@ -2989,7 +2989,7 @@
 .method private setupDefaultGridInfo(Lcom/android/launcher3/common/deviceprofile/DeviceProfile;[I)V
     .locals 13
 
-    const/high16 v12, 0x7f0d0000
+    const v12, 0x7f0b0001
 
     const/4 v8, 0x1
 
@@ -3224,7 +3224,7 @@
 
     aput v9, p2, v7
 
-    const v9, 0x7f0d0001
+    const v9, 0x7f0b0002
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getInteger(I)I
 

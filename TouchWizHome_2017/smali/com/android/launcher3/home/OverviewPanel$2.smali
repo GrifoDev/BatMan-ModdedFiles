@@ -37,23 +37,21 @@
 .method public onLongClick(Landroid/view/View;)Z
     .locals 3
 
-    new-instance v0, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;
+    invoke-static {}, Lcom/android/launcher3/Utilities;->checkHomeHiddenDir()I
+
+    move-result v0
+
+    const/4 v2, -0x1
+
+    if-le v0, v2, :cond_0
 
     iget-object v2, p0, Lcom/android/launcher3/home/OverviewPanel$2;->this$0:Lcom/android/launcher3/home/OverviewPanel;
 
-    invoke-virtual {v2}, Lcom/android/launcher3/home/OverviewPanel;->getContext()Landroid/content/Context;
+    invoke-static {v2}, Lcom/android/launcher3/home/OverviewPanel;->access$200(Lcom/android/launcher3/home/OverviewPanel;)Lcom/android/launcher3/Launcher;
 
     move-result-object v2
 
-    invoke-direct {v0, v2}, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;-><init>(Landroid/content/Context;)V
-
-    invoke-virtual {v0}, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->getCanExtract()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_0
-
-    invoke-virtual {v0}, Lcom/android/launcher3/common/bnr/extractor/LCExtractor;->startExtractLayout()V
+    invoke-virtual {v2, v0}, Lcom/android/launcher3/Launcher;->startLCExtractor(I)V
 
     :cond_0
     iget-object v2, p0, Lcom/android/launcher3/home/OverviewPanel$2;->this$0:Lcom/android/launcher3/home/OverviewPanel;

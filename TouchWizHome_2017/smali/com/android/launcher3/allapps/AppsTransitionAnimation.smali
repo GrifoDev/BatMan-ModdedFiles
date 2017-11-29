@@ -432,7 +432,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0019
+    const v1, 0x7f0b001a
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -450,7 +450,7 @@
 .method private getStageAnimationDuration(II)I
     .locals 6
 
-    const v5, 0x7f0d0028
+    const v5, 0x7f0b0029
 
     const/4 v4, 0x5
 
@@ -468,7 +468,7 @@
 
     if-ne p2, v4, :cond_0
 
-    const v1, 0x7f0d0030
+    const v1, 0x7f0b0031
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -502,7 +502,7 @@
 
     if-ne p2, v2, :cond_3
 
-    const v1, 0x7f0d0031
+    const v1, 0x7f0b0032
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -529,7 +529,7 @@
 
     if-ne p1, v1, :cond_0
 
-    const v1, 0x7f0d0015
+    const v1, 0x7f0b0016
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -543,7 +543,7 @@
 
     if-ne p1, v1, :cond_1
 
-    const v1, 0x7f0d0013
+    const v1, 0x7f0b0014
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -556,7 +556,7 @@
 
     if-ne p1, v1, :cond_2
 
-    const v1, 0x7f0d0016
+    const v1, 0x7f0b0017
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -569,7 +569,7 @@
 
     if-ne p1, v1, :cond_3
 
-    const v1, 0x7f0d0017
+    const v1, 0x7f0b0018
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -580,7 +580,7 @@
     :cond_3
     if-nez p1, :cond_4
 
-    const v1, 0x7f0d0018
+    const v1, 0x7f0b0019
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -593,7 +593,7 @@
 
     if-ne p1, v1, :cond_5
 
-    const v1, 0x7f0d0014
+    const v1, 0x7f0b0015
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -614,7 +614,7 @@
 
     const/4 v1, 0x1
 
-    if-eqz p1, :cond_1
+    if-eqz p1, :cond_0
 
     invoke-direct {p0, v1, v2}, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->getStageAnimationDuration(II)I
 
@@ -623,24 +623,28 @@
     :goto_0
     iget-object v1, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
 
-    if-eqz v1, :cond_0
+    if-nez v1, :cond_1
 
+    :goto_1
+    return v0
+
+    :cond_0
+    invoke-direct {p0, v2, v1}, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->getStageAnimationDuration(II)I
+
+    move-result v0
+
+    goto :goto_0
+
+    :cond_1
     const/4 v1, 0x0
 
     cmpl-float v1, p2, v1
 
     if-nez v1, :cond_2
 
-    :cond_0
-    :goto_1
-    return v0
+    const/4 v0, 0x0
 
-    :cond_1
-    invoke-direct {p0, v2, v1}, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->getStageAnimationDuration(II)I
-
-    move-result v0
-
-    goto :goto_0
+    goto :goto_1
 
     :cond_2
     iget-object v1, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
@@ -1919,12 +1923,11 @@
     goto :goto_4
 .end method
 
-.method public getEnterFromFolderAnimation(ZLcom/android/launcher3/common/stage/StageEntry;Ljava/util/HashMap;Landroid/view/View;)Landroid/animation/Animator;
+.method public getEnterFromFolderAnimation(ZLjava/util/HashMap;Landroid/view/View;)Landroid/animation/Animator;
     .locals 11
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z",
-            "Lcom/android/launcher3/common/stage/StageEntry;",
             "Ljava/util/HashMap",
             "<",
             "Landroid/view/View;",
@@ -1968,15 +1971,15 @@
 
     move-result-object v7
 
-    invoke-virtual {p3, v6, v7}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p2, v6, v7}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     const/4 v6, 0x2
 
     new-array v3, v6, [I
 
-    if-eqz p4, :cond_1
+    if-eqz p3, :cond_1
 
-    invoke-virtual {p4, v3}, Landroid/view/View;->getLocationOnScreen([I)V
+    invoke-virtual {p3, v3}, Landroid/view/View;->getLocationOnScreen([I)V
 
     const/4 v6, 0x0
 
@@ -2210,6 +2213,10 @@
 
 .method public getEnterFromHomeAnimation(ZLjava/util/HashMap;)Landroid/animation/Animator;
     .locals 10
+    .param p2    # Ljava/util/HashMap;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z",
@@ -2222,13 +2229,11 @@
         }
     .end annotation
 
-    const/4 v9, 0x0
+    const/4 v7, 0x1
 
     const/4 v5, 0x0
 
-    const/high16 v8, 0x3f800000    # 1.0f
-
-    const/4 v7, 0x1
+    const/high16 v9, 0x3f800000    # 1.0f
 
     sget-object v6, Lcom/android/launcher3/util/Talk;->INSTANCE:Lcom/android/launcher3/util/Talk;
 
@@ -2238,13 +2243,7 @@
 
     invoke-direct {p0}, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->cancelStageAnimation()V
 
-    if-eqz p1, :cond_5
-
-    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportTraySwipeInteraction()Z
-
-    move-result v6
-
-    if-eqz v6, :cond_4
+    if-eqz p1, :cond_4
 
     if-nez p2, :cond_2
 
@@ -2297,7 +2296,9 @@
 
     new-array v7, v7, [F
 
-    aput v8, v7, v9
+    const/4 v8, 0x0
+
+    aput v9, v7, v8
 
     invoke-static {v5, v6, v7}, Lcom/android/launcher3/util/animation/LauncherAnimUtils;->ofFloat(Landroid/view/View;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
 
@@ -2326,71 +2327,14 @@
 
     move-result v5
 
-    sub-float v5, v8, v5
+    sub-float v5, v9, v5
 
     goto :goto_0
 
     :cond_4
-    invoke-static {}, Lcom/android/launcher3/util/animation/LauncherAnimUtils;->createAnimatorSet()Landroid/animation/AnimatorSet;
-
-    move-result-object v5
-
-    iput-object v5, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->mStageAnimator:Landroid/animation/AnimatorSet;
-
-    const/4 v5, 0x2
-
-    invoke-direct {p0, v7, v5}, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->getStageAnimationDuration(II)I
-
-    move-result v2
-
     iget-object v5, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->mAppsContentView:Landroid/view/ViewGroup;
 
-    invoke-static {v7}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v6
-
-    invoke-virtual {p2, v5, v6}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v5, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->mAppsContentView:Landroid/view/ViewGroup;
-
-    sget-object v6, Landroid/view/View;->ALPHA:Landroid/util/Property;
-
-    invoke-virtual {v6}, Landroid/util/Property;->getName()Ljava/lang/String;
-
-    move-result-object v6
-
-    new-array v7, v7, [F
-
-    aput v8, v7, v9
-
-    invoke-static {v5, v6, v7}, Lcom/android/launcher3/util/animation/LauncherAnimUtils;->ofFloat(Landroid/view/View;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
-
-    move-result-object v1
-
-    int-to-long v6, v2
-
-    invoke-virtual {v1, v6, v7}, Landroid/animation/Animator;->setDuration(J)Landroid/animation/Animator;
-
-    iget-object v5, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->mStageAnimator:Landroid/animation/AnimatorSet;
-
-    invoke-virtual {v5, v1}, Landroid/animation/AnimatorSet;->play(Landroid/animation/Animator;)Landroid/animation/AnimatorSet$Builder;
-
-    iget-object v5, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->mStageAnimator:Landroid/animation/AnimatorSet;
-
-    new-instance v6, Lcom/android/launcher3/allapps/AlphaUpdateListener;
-
-    iget-object v7, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->mAppsContentView:Landroid/view/ViewGroup;
-
-    invoke-direct {v6, v7, v0}, Lcom/android/launcher3/allapps/AlphaUpdateListener;-><init>(Landroid/view/View;Z)V
-
-    invoke-virtual {v5, v6}, Landroid/animation/AnimatorSet;->addListener(Landroid/animation/Animator$AnimatorListener;)V
-
-    goto :goto_1
-
-    :cond_5
-    iget-object v5, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->mAppsContentView:Landroid/view/ViewGroup;
-
-    invoke-virtual {v5, v8}, Landroid/view/ViewGroup;->setAlpha(F)V
+    invoke-virtual {v5, v9}, Landroid/view/ViewGroup;->setAlpha(F)V
 
     iget-object v5, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->mAppsContentView:Landroid/view/ViewGroup;
 
@@ -2765,6 +2709,10 @@
 
 .method public getExitToHomeAnimation(ZLjava/util/HashMap;)Landroid/animation/Animator;
     .locals 10
+    .param p2    # Ljava/util/HashMap;
+        .annotation build Landroid/support/annotation/Nullable;
+        .end annotation
+    .end param
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z",
@@ -2779,8 +2727,6 @@
 
     const/4 v9, 0x0
 
-    const/4 v8, 0x1
-
     const/4 v6, 0x0
 
     sget-object v5, Lcom/android/launcher3/util/Talk;->INSTANCE:Lcom/android/launcher3/util/Talk;
@@ -2791,13 +2737,7 @@
 
     invoke-direct {p0}, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->cancelStageAnimation()V
 
-    if-eqz p1, :cond_5
-
-    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportTraySwipeInteraction()Z
-
-    move-result v5
-
-    if-eqz v5, :cond_4
+    if-eqz p1, :cond_4
 
     if-nez p2, :cond_2
 
@@ -2850,6 +2790,8 @@
 
     move-result-object v7
 
+    const/4 v8, 0x1
+
     new-array v8, v8, [F
 
     aput v6, v8, v9
@@ -2884,76 +2826,19 @@
     goto :goto_0
 
     :cond_4
-    invoke-static {}, Lcom/android/launcher3/util/animation/LauncherAnimUtils;->createAnimatorSet()Landroid/animation/AnimatorSet;
-
-    move-result-object v5
-
-    iput-object v5, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->mStageAnimator:Landroid/animation/AnimatorSet;
-
-    const/4 v5, 0x2
-
-    invoke-direct {p0, v5, v8}, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->getStageAnimationDuration(II)I
-
-    move-result v2
-
-    iget-object v5, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->mAppsContentView:Landroid/view/ViewGroup;
-
-    invoke-static {v8}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v7
-
-    invoke-virtual {p2, v5, v7}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    iget-object v5, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->mAppsContentView:Landroid/view/ViewGroup;
-
-    sget-object v7, Landroid/view/View;->ALPHA:Landroid/util/Property;
-
-    invoke-virtual {v7}, Landroid/util/Property;->getName()Ljava/lang/String;
-
-    move-result-object v7
-
-    new-array v8, v8, [F
-
-    aput v6, v8, v9
-
-    invoke-static {v5, v7, v8}, Lcom/android/launcher3/util/animation/LauncherAnimUtils;->ofFloat(Landroid/view/View;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
-
-    move-result-object v1
-
-    int-to-long v6, v2
-
-    invoke-virtual {v1, v6, v7}, Landroid/animation/Animator;->setDuration(J)Landroid/animation/Animator;
-
-    iget-object v5, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->mStageAnimator:Landroid/animation/AnimatorSet;
-
-    invoke-virtual {v5, v1}, Landroid/animation/AnimatorSet;->play(Landroid/animation/Animator;)Landroid/animation/AnimatorSet$Builder;
-
-    iget-object v5, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->mStageAnimator:Landroid/animation/AnimatorSet;
-
-    new-instance v6, Lcom/android/launcher3/allapps/AlphaUpdateListener;
-
-    iget-object v7, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->mAppsContentView:Landroid/view/ViewGroup;
-
-    invoke-direct {v6, v7, v0}, Lcom/android/launcher3/allapps/AlphaUpdateListener;-><init>(Landroid/view/View;Z)V
-
-    invoke-virtual {v5, v6}, Landroid/animation/AnimatorSet;->addListener(Landroid/animation/Animator$AnimatorListener;)V
-
-    goto :goto_1
-
-    :cond_5
     iget-object v5, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->mAppsContentView:Landroid/view/ViewGroup;
 
     invoke-virtual {v5, v6}, Landroid/view/ViewGroup;->setAlpha(F)V
 
     iget-object v5, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->mAppsPageIndicatorView:Landroid/view/View;
 
-    if-eqz v5, :cond_6
+    if-eqz v5, :cond_5
 
     iget-object v5, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->mAppsPageIndicatorView:Landroid/view/View;
 
     invoke-virtual {v5, v6}, Landroid/view/View;->setAlpha(F)V
 
-    :cond_6
+    :cond_5
     iget-object v5, p0, Lcom/android/launcher3/allapps/AppsTransitionAnimation;->mAppsContentView:Landroid/view/ViewGroup;
 
     invoke-static {v5, v0}, Lcom/android/launcher3/allapps/AlphaUpdateListener;->updateVisibility(Landroid/view/View;Z)V
@@ -3212,7 +3097,7 @@
 
     move-result v4
 
-    const v5, 0x7f0a00ef
+    const v5, 0x7f0a00f2
 
     move-object/from16 v0, v29
 
@@ -3568,7 +3453,7 @@
     goto/16 :goto_0
 
     :cond_4
-    const v4, 0x7f0a00ef
+    const v4, 0x7f0a00f2
 
     move-object/from16 v0, v29
 

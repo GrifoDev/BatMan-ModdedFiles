@@ -9,6 +9,10 @@
 .end annotation
 
 
+# static fields
+.field private static final TAG:Ljava/lang/String; = "PackageInstallerCompatVL"
+
+
 # instance fields
 .field private final mActiveSessions:Landroid/util/SparseArray;
     .annotation system Ldalvik/annotation/Signature;
@@ -122,12 +126,12 @@
 .method static synthetic access$300(Lcom/android/launcher3/common/compat/PackageInstallerCompatVL;Landroid/content/pm/PackageInstaller$SessionInfo;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
     .locals 0
 
-    invoke-direct {p0, p1, p2}, Lcom/android/launcher3/common/compat/PackageInstallerCompatVL;->addSessionInfoToCahce(Landroid/content/pm/PackageInstaller$SessionInfo;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
+    invoke-direct {p0, p1, p2}, Lcom/android/launcher3/common/compat/PackageInstallerCompatVL;->addSessionInfoToCache(Landroid/content/pm/PackageInstaller$SessionInfo;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
 
     return-void
 .end method
 
-.method private addSessionInfoToCahce(Landroid/content/pm/PackageInstaller$SessionInfo;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
+.method private addSessionInfoToCache(Landroid/content/pm/PackageInstaller$SessionInfo;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
     .locals 4
 
     invoke-virtual {p1}, Landroid/content/pm/PackageInstaller$SessionInfo;->getAppPackageName()Ljava/lang/String;
@@ -135,6 +139,56 @@
     move-result-object v0
 
     if-eqz v0, :cond_0
+
+    const-string v1, "PackageInstallerCompatVL"
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "add PAI Info to Cache : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, ", "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {p1}, Landroid/content/pm/PackageInstaller$SessionInfo;->getAppLabel()Ljava/lang/CharSequence;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, ", "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {p1}, Landroid/content/pm/PackageInstaller$SessionInfo;->getAppIcon()Landroid/graphics/Bitmap;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v1, p0, Lcom/android/launcher3/common/compat/PackageInstallerCompatVL;->mCache:Lcom/android/launcher3/common/model/IconCache;
 
@@ -187,6 +241,107 @@
 
 
 # virtual methods
+.method public addAllSessionInfoToCache()V
+    .locals 4
+
+    const-string v2, "PackageInstallerCompatVL"
+
+    const-string v3, "addAllSessionInfoToCache()"
+
+    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v2, p0, Lcom/android/launcher3/common/compat/PackageInstallerCompatVL;->mInstaller:Landroid/content/pm/PackageInstaller;
+
+    if-eqz v2, :cond_0
+
+    invoke-static {}, Lcom/android/launcher3/common/compat/UserHandleCompat;->myUserHandle()Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    move-result-object v1
+
+    iget-object v2, p0, Lcom/android/launcher3/common/compat/PackageInstallerCompatVL;->mInstaller:Landroid/content/pm/PackageInstaller;
+
+    invoke-virtual {v2}, Landroid/content/pm/PackageInstaller;->getAllSessions()Ljava/util/List;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v2
+
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_0
+
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/pm/PackageInstaller$SessionInfo;
+
+    invoke-direct {p0, v0, v1}, Lcom/android/launcher3/common/compat/PackageInstallerCompatVL;->addSessionInfoToCache(Landroid/content/pm/PackageInstaller$SessionInfo;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
+
+    goto :goto_0
+
+    :cond_0
+    return-void
+.end method
+
+.method public isSessionInfoItem(Ljava/lang/String;)Z
+    .locals 3
+
+    iget-object v1, p0, Lcom/android/launcher3/common/compat/PackageInstallerCompatVL;->mInstaller:Landroid/content/pm/PackageInstaller;
+
+    if-eqz v1, :cond_1
+
+    if-eqz p1, :cond_1
+
+    iget-object v1, p0, Lcom/android/launcher3/common/compat/PackageInstallerCompatVL;->mInstaller:Landroid/content/pm/PackageInstaller;
+
+    invoke-virtual {v1}, Landroid/content/pm/PackageInstaller;->getAllSessions()Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v1
+
+    :cond_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/content/pm/PackageInstaller$SessionInfo;
+
+    invoke-virtual {v0}, Landroid/content/pm/PackageInstaller$SessionInfo;->getAppPackageName()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {p1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    const/4 v1, 0x1
+
+    :goto_0
+    return v1
+
+    :cond_1
+    const/4 v1, 0x0
+
+    goto :goto_0
+.end method
+
 .method public onStop()V
     .locals 2
 
@@ -244,7 +399,7 @@
 
     check-cast v1, Landroid/content/pm/PackageInstaller$SessionInfo;
 
-    invoke-direct {p0, v1, v2}, Lcom/android/launcher3/common/compat/PackageInstallerCompatVL;->addSessionInfoToCahce(Landroid/content/pm/PackageInstaller$SessionInfo;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
+    invoke-direct {p0, v1, v2}, Lcom/android/launcher3/common/compat/PackageInstallerCompatVL;->addSessionInfoToCache(Landroid/content/pm/PackageInstaller$SessionInfo;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
 
     invoke-virtual {v1}, Landroid/content/pm/PackageInstaller$SessionInfo;->getAppPackageName()Ljava/lang/String;
 

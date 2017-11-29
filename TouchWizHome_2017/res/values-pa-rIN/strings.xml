@@ -16,8 +16,10 @@
     <string name="accessibility_button">ਬਟਨ</string>
     <string name="accessibility_dimmed">ਧੁੰਦਲਾ ਕੀਤਾ ਗਿਆ</string>
     <string name="activity_not_available">ਇਹ ਐਪ ਤੁਹਾਡੇ ਡਿਵਾਈਸ ਲਈ ਉਪਲਬਧ ਨਹੀਂ ਹੈ।</string>
-    <string name="activity_not_found">ਅਨੁਪ੍ਰਯੋਗ ਸਥਾਪਿਤ ਨਹੀਂ ਹੋਈ।</string>
+    <string name="activity_not_found">ਐਪ ਨਹੀਂ ਮਿਲੀ</string>
+    <string name="add">ਜੋੜੋ</string>
     <string name="add_to_last_page">ਤੁਸੀਂ %1$d ਆਈਟਮਸ ਨੂੰ ਚੁਣਿਆ ਹੈ, ਪਰ ਇਸ ਪੰਨੇ ਤੇ ਉਚਿਤ ਥਾਂ ਉਪਲਬਧ ਨਹੀਂ ਹੈ। ਬਾਕੀ ਬਚੀਆਂ %2$d ਆਈਟਮਸ ਨੂੰ ਆਖਰੀ ਪੰਨੇ ਤੇ ਜੋੜ ਦਿੱਤਾ ਜਾਵੇਗਾ।</string>
+    <string name="add_to_last_page_for_hotseat">ਤੁਸੀਂ %1$d ਆਈਟਮਸ ਨੂੰ ਚੁਣਿਆ ਹੈ, ਪਰ ਮਨਪਸੰਦ ਟ੍ਰੇਅ ਵਿੱਚ ਉਚਿਤ ਥਾਂ ਉਪਲਬਧ ਨਹੀਂ ਹੈ। ਬਾਕੀ ਬਚੀਆਂ %2$d ਆਈਟਮਸ ਨੂੰ ਆਖਰੀ ਪੰਨੇ ਤੇ ਜੋੜ ਦਿੱਤਾ ਜਾਵੇਗਾ।</string>
     <string name="align_to_bottom">ਹੇਠਾਂ ਵੱਲ ਸੇਧ ਵਿੱਚ ਕਰੋ</string>
     <string name="align_to_top">ਉੱਪਰ ਵੱਲ ਸੇਧ ਵਿੱਚ ਕਰੋ</string>
     <string name="app_locked_toast">%s ਲੌਕ ਹੋਇਆ।</string>
@@ -121,13 +123,14 @@
     <string name="new_page_created">ਪੰਨਾ ਜੋੜਿਆ ਗਿਆ।</string>
     <string name="no_changes">ਕੋਈ ਬਦਲਾਵ ਨਹੀਂ।</string>
     <string name="no_space_page">ਪੰਨੇ ਉੱਤੇ ਥਾਂ ਖਾਲੀ ਨਹੀਂ ਹੈ। ਕਿਸੇ ਹੋਰ ਪੰਨੇ ਉੱਤੇ ਸ਼ੌਰਟਕੱਟ ਜੋੜਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
+    <string name="no_space_page_for_hotseat">ਮਨਪਸੰਦ ਟ੍ਰੇਅ ਵਿੱਚ ਥਾਂ ਉਪਲਬਧ ਨਹੀਂ ਹੈ।</string>
     <string name="no_space_page_for_widget">ਇਸ ਪੰਨੇ ਤੇ ਕੋਈ ਥਾਂ ਨਹੀਂ ਹੈ।</string>
     <string name="not_selected">ਚੁਣਿਆ ਨਹੀਂ ਗਿਆ</string>
     <string name="notification_panel_setting_summary">ਹੋਮ ਸਕ੍ਰੀਨ ਤੋਂ ਸੂਚਨਾ ਪੈਨਲ ਖੋਲ੍ਹਣ ਦੇ ਲਈ ਹੇਠਾਂ ਵੱਲ ਸਵਾਈਪ ਕਰੋ।</string>
     <string name="notification_panel_setting_title">ਸੂਚਨਾ ਪੈਨਲ ਨੂੰ ਤੁਰੰਤ ਖੋਲ੍ਹੋ</string>
     <string name="ok">ਓਕੇ</string>
     <string name="only_one_widget_instance_allowed">%s ਵਿੱਜੇਟ ਪਹਿਲਾਂ ਹੀ ਹੋਮ ਸਕ੍ਰੀਨ ਤੇ ਜੋੜਿਆ ਗਿਆ।</string>
-    <string name="option_menu_contact_up">ਸਾਨੂੰ ਸੰਪਰਕ ਕਰੋ</string>
+    <string name="option_menu_contact_up">ਸਾਡੇ ਨਾਲ ਸੰਪਰਕ ਕਰੋ</string>
     <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">ਸੈੱਟਿੰਗਸ</string>
     <string name="options_menu">ਹੋਰ ਵਿਕਲਪ</string>
@@ -155,6 +158,8 @@
     <string name="quick_option_delete_folder">ਫੋਲਡਰ ਮਿਟਾਓ</string>
     <string name="quick_option_delete_folder_alert">%s ਫੋਲਡਰ ਮਿਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ। ਇਸ ਫੋਲਡਰ ਵਿਚਲੀਆਂ ਐਪਸ ਅਜੇ ਵੀ ਐਪਸ ਸਕ੍ਰੀਨ ਤੇ ਉਪਲਬਧ ਹੋਣਗੀਆਂ।</string>
     <string name="quick_option_delete_folder_alert_no_title">ਇਸ ਫੋਲਡਰ ਨੂੰ ਮਿਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ। ਇਸ ਫੋਲਡਰ ਵਿਚਲੀਆਂ ਐਪਸ ਅਜੇ ਵੀ ਐਪਸ ਸਕ੍ਰੀਨ ਤੇ ਉਪਲਬਧ ਹੋਣਗੀਆਂ।</string>
+    <string name="quick_option_delete_folder_home_only_alert">%s ਫੋਲਡਰ ਨੂੰ ਮਿਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ। ਇਸ ਫੋਲਡਰ ਵਿਚਲੀਆਂ ਐਪਸ ਅਜੇ ਵੀ ਹੋਮ ਸਕ੍ਰੀਨ ਤੇ ਉਪਲਬਧ ਹੋਣਗੀਆਂ।</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">ਇਸ ਫੋਲਡਰ ਨੂੰ ਮਿਟਾ ਦਿੱਤਾ ਜਾਵੇਗਾ। ਇਸ ਫੋਲਡਰ ਵਿਚਲੀਆਂ ਐਪਸ ਅਜੇ ਵੀ ਹੋਮ ਸਕ੍ਰੀਨ ਤੇ ਉਪਲਬਧ ਹੋਣਗੀਆਂ।</string>
     <string name="quick_option_dimmed_disable">ਅਸਮਰੱਥ ਕਰੋ</string>
     <string name="quick_option_disable">ਅਸਮਰੱਥ ਕਰੋ</string>
     <string name="quick_option_install_dual_im">ਦੂਜੀ ਐਪ ਸਥਾਪਿਤ ਕਰੋ</string>

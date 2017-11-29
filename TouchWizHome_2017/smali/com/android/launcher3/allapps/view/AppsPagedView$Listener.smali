@@ -39,13 +39,13 @@
 .method public abstract isSelectState()Z
 .end method
 
+.method public abstract isSwitchingGridToNormal()Z
+.end method
+
 .method public abstract isSwitchingState()Z
 .end method
 
 .method public abstract isSwithchingInternalState()Z
-.end method
-
-.method public abstract isVisibleGridPanel()Z
 .end method
 
 .method public abstract requestDeferredRunnables()Z

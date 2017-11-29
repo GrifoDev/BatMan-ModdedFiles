@@ -17,8 +17,10 @@
     <string name="accessibility_button">Button</string>
     <string name="accessibility_dimmed">Dimmed</string>
     <string name="activity_not_available">This app is not available for your device.</string>
-    <string name="activity_not_found">Uhlelo lokusebenza alufakiwe.</string>
+    <string name="activity_not_found">App not found</string>
+    <string name="add">Add</string>
     <string name="add_to_last_page">"You selected %1$d items, but there's not enough space on this page. The remaining %2$d items will be added to last page."</string>
+    <string name="add_to_last_page_for_hotseat">"You selected %1$d items, but there's not enough space on the favorites tray. The remaining %2$d items will be added to the last page."</string>
     <string name="align_to_bottom">Align to bottom</string>
     <string name="align_to_top">Align to top</string>
     <string name="app_locked_toast">%s locked.</string>
@@ -122,6 +124,7 @@
     <string name="new_page_created">Page added.</string>
     <string name="no_changes">No changes.</string>
     <string name="no_space_page">No space on page. Try adding shortcut to a different page.</string>
+    <string name="no_space_page_for_hotseat">No space on favorites tray.</string>
     <string name="no_space_page_for_widget">No space on this page.</string>
     <string name="not_selected">Not selected</string>
     <string name="notification_panel_setting_summary">Swipe down to open the notification panel from the Home screen.</string>
@@ -156,6 +159,8 @@
     <string name="quick_option_delete_folder">Sula isikhwanyana</string>
     <string name="quick_option_delete_folder_alert">The %s folder will be deleted. The apps inside this folder will still be available on the Apps screen.</string>
     <string name="quick_option_delete_folder_alert_no_title">This folder will be deleted. The apps inside this folder will still be available on the Apps screen.</string>
+    <string name="quick_option_delete_folder_home_only_alert">The %s folder will be deleted. The apps inside this folder will still be available on the Home screen.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">This folder will be deleted. The apps inside this folder will still be available on the Home screen.</string>
     <string name="quick_option_dimmed_disable">Disable</string>
     <string name="quick_option_disable">Disable</string>
     <string name="quick_option_install_dual_im">Install second app</string>

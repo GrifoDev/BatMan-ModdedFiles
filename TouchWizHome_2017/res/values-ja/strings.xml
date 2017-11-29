@@ -17,8 +17,10 @@
     <string name="accessibility_button">ボタン</string>
     <string name="accessibility_dimmed">選択不可</string>
     <string name="activity_not_available">お使いの端末では、このアプリを利用できません。</string>
-    <string name="activity_not_found">アプリケーションがインストールされていません。</string>
+    <string name="activity_not_found">アプリが見つかりません。</string>
+    <string name="add">追加</string>
     <string name="add_to_last_page">%1$d件のアイテムを選択していますが、このページには十分なスペースがありません。最後のページに%2$d件のアイテムを追加します。</string>
+    <string name="add_to_last_page_for_hotseat">%1$d件のアイテムを選択していますが、お気に入りトレイには十分なスペースがありません。最後のページに%2$d件のアイテムを追加します。</string>
     <string name="align_to_bottom">下に揃える</string>
     <string name="align_to_top">上に揃える</string>
     <string name="app_locked_toast">%sをロックしました。</string>
@@ -123,6 +125,7 @@
     <string name="new_page_created">ページを追加しました。</string>
     <string name="no_changes">変更はありません。</string>
     <string name="no_space_page">ページにスペースがありません。ショートカットを別のページに追加してください。</string>
+    <string name="no_space_page_for_hotseat">お気に入りトレイにスペースがありません。</string>
     <string name="no_space_page_for_widget">このページにはスペースがありません。</string>
     <string name="not_selected">選択なし</string>
     <string name="notification_panel_setting_summary">下にスワイプして、ホーム画面から通知パネルを開きます。</string>
@@ -157,6 +160,8 @@
     <string name="quick_option_delete_folder">フォルダを削除</string>
     <string name="quick_option_delete_folder_alert">%sフォルダを削除します。このフォルダ内のアプリは、アプリ画面から使用することができます。</string>
     <string name="quick_option_delete_folder_alert_no_title">このフォルダを削除します。このフォルダ内のアプリは、アプリ画面から使用することができます。</string>
+    <string name="quick_option_delete_folder_home_only_alert">%sフォルダを削除します。このフォルダ内のアプリは、ホーム画面から使用することができます。</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">このフォルダを削除します。このフォルダ内のアプリは、ホーム画面から使用することができます。</string>
     <string name="quick_option_dimmed_disable">無効</string>
     <string name="quick_option_disable">無効</string>
     <string name="quick_option_install_dual_im">2つ目のアプリをインストール</string>

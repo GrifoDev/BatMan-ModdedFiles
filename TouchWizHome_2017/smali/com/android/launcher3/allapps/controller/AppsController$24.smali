@@ -49,7 +49,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/allapps/controller/AppsController$24;->this$0:Lcom/android/launcher3/allapps/controller/AppsController;
 
-    invoke-static {v2}, Lcom/android/launcher3/allapps/controller/AppsController;->access$1700(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/Launcher;
+    invoke-static {v2}, Lcom/android/launcher3/allapps/controller/AppsController;->access$2000(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/Launcher;
 
     move-result-object v2
 
@@ -57,7 +57,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/allapps/controller/AppsController$24;->this$0:Lcom/android/launcher3/allapps/controller/AppsController;
 
-    invoke-static {v2, v1}, Lcom/android/launcher3/allapps/controller/AppsController;->access$1800(Lcom/android/launcher3/allapps/controller/AppsController;[I)V
+    invoke-static {v2, v1}, Lcom/android/launcher3/allapps/controller/AppsController;->access$2100(Lcom/android/launcher3/allapps/controller/AppsController;[I)V
 
     iget-object v2, p0, Lcom/android/launcher3/allapps/controller/AppsController$24;->this$0:Lcom/android/launcher3/allapps/controller/AppsController;
 
@@ -79,7 +79,7 @@
 
     iget-object v2, p0, Lcom/android/launcher3/allapps/controller/AppsController$24;->this$0:Lcom/android/launcher3/allapps/controller/AppsController;
 
-    invoke-static {v2}, Lcom/android/launcher3/allapps/controller/AppsController;->access$1900(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/common/stage/StageManager;
+    invoke-static {v2}, Lcom/android/launcher3/allapps/controller/AppsController;->access$2200(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/common/stage/StageManager;
 
     move-result-object v2
 

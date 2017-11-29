@@ -1025,136 +1025,196 @@
 .end method
 
 .method public static loadDefaultLayoutIfNecessary()V
-    .locals 10
+    .locals 12
 
-    const/4 v9, 0x0
+    const/4 v11, 0x1
 
-    sget-object v6, Lcom/android/launcher3/common/model/DataLoader;->sContext:Landroid/content/Context;
+    const/4 v10, 0x0
 
-    invoke-static {v6}, Lcom/android/launcher3/common/customer/PostPositionController;->getInstance(Landroid/content/Context;)Lcom/android/launcher3/common/customer/PostPositionController;
+    sget-object v8, Lcom/android/launcher3/common/model/DataLoader;->sContext:Landroid/content/Context;
 
-    move-result-object v6
+    invoke-static {v8}, Lcom/android/launcher3/common/customer/PostPositionController;->getInstance(Landroid/content/Context;)Lcom/android/launcher3/common/customer/PostPositionController;
 
-    invoke-virtual {v6}, Lcom/android/launcher3/common/customer/PostPositionController;->isReloadNeeded()Z
+    move-result-object v8
 
-    move-result v6
+    invoke-virtual {v8}, Lcom/android/launcher3/common/customer/PostPositionController;->isReloadNeeded()Z
 
-    if-eqz v6, :cond_0
+    move-result v8
 
-    sget-object v6, Lcom/android/launcher3/common/model/DataLoader;->sLoaderList:Ljava/util/ArrayList;
+    if-eqz v8, :cond_2
 
-    invoke-virtual {v6}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+    sget-object v8, Lcom/android/launcher3/common/model/DataLoader;->sLoaderList:Ljava/util/ArrayList;
 
-    move-result-object v6
+    invoke-virtual {v8}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v8
 
     :goto_0
-    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v7
+    move-result v9
 
-    if-eqz v7, :cond_7
+    if-eqz v9, :cond_0
 
-    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Lcom/android/launcher3/common/model/DataLoader;
 
-    const/4 v7, 0x0
+    const/4 v9, 0x0
 
-    const/4 v8, 0x1
-
-    invoke-virtual {v3, v7, v9, v8}, Lcom/android/launcher3/common/model/DataLoader;->loadDefaultLayout(Lcom/android/launcher3/common/model/AutoInstallsLayout;ZZ)V
+    invoke-virtual {v3, v9, v10, v11}, Lcom/android/launcher3/common/model/DataLoader;->loadDefaultLayout(Lcom/android/launcher3/common/model/AutoInstallsLayout;ZZ)V
 
     goto :goto_0
 
     :cond_0
+    new-array v5, v11, [Ljava/lang/String;
+
+    const/16 v8, 0x20
+
+    invoke-static {v8}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+
+    move-result-object v8
+
+    aput-object v8, v5, v10
+
+    sget-object v8, Lcom/android/launcher3/common/model/DataLoader;->sContentResolver:Landroid/content/ContentResolver;
+
+    sget-object v9, Lcom/android/launcher3/common/model/LauncherSettings$Favorites;->CONTENT_URI:Landroid/net/Uri;
+
+    const-string v10, "restored=?"
+
+    invoke-virtual {v8, v9, v10, v5}, Landroid/content/ContentResolver;->delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
+
+    move-result v4
+
+    const-string v8, "DataLoader"
+
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    invoke-direct {v9}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v10, "noFDR OMCItem - "
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    const-string v10, " items removed."
+
+    invoke-virtual {v9, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    sget-object v8, Lcom/android/launcher3/common/model/DataLoader;->sContext:Landroid/content/Context;
+
+    invoke-static {v8}, Lcom/android/launcher3/common/customer/PostPositionController;->getInstance(Landroid/content/Context;)Lcom/android/launcher3/common/customer/PostPositionController;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Lcom/android/launcher3/common/customer/PostPositionController;->checkAndEnablePositioner()V
+
+    return-void
+
+    :cond_2
     invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getSharedPreferencesKey()Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v7
 
-    sget-object v6, Lcom/android/launcher3/common/model/DataLoader;->sContext:Landroid/content/Context;
+    sget-object v8, Lcom/android/launcher3/common/model/DataLoader;->sContext:Landroid/content/Context;
 
-    invoke-virtual {v6, v5, v9}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    invoke-virtual {v8, v7, v10}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
-    move-result-object v4
+    move-result-object v6
 
     const/4 v2, 0x0
 
     const/4 v0, 0x0
 
-    const-string v6, "EMPTY_DATABASE_CREATED"
+    const-string v8, "EMPTY_DATABASE_CREATED"
 
-    invoke-interface {v4, v6, v9}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-interface {v6, v8, v10}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
-    move-result v6
+    move-result v8
 
-    if-eqz v6, :cond_3
+    if-eqz v8, :cond_5
 
-    const-string v6, "DataLoader"
+    const-string v8, "DataLoader"
 
-    const-string v7, "loading default workspace"
+    const-string v9, "loading default workspace"
 
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     const/4 v2, 0x1
 
-    :cond_1
+    :cond_3
     :goto_1
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_7
 
     const/4 v1, 0x0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_4
 
-    sget-object v6, Lcom/android/launcher3/common/model/DataLoader;->sContext:Landroid/content/Context;
+    sget-object v8, Lcom/android/launcher3/common/model/DataLoader;->sContext:Landroid/content/Context;
 
-    invoke-static {v6}, Lcom/android/launcher3/common/model/AutoInstallsLayout;->get(Landroid/content/Context;)Lcom/android/launcher3/common/model/AutoInstallsLayout;
+    invoke-static {v8}, Lcom/android/launcher3/common/model/AutoInstallsLayout;->get(Landroid/content/Context;)Lcom/android/launcher3/common/model/AutoInstallsLayout;
 
     move-result-object v1
 
-    sget-object v6, Lcom/android/launcher3/common/model/DataLoader;->sContext:Landroid/content/Context;
+    sget-object v8, Lcom/android/launcher3/common/model/DataLoader;->sContext:Landroid/content/Context;
 
-    invoke-static {v6}, Lcom/android/launcher3/common/model/DefaultLayoutParser;->loadOmcIfNecessary(Landroid/content/Context;)V
+    invoke-static {v8}, Lcom/android/launcher3/common/model/DefaultLayoutParser;->loadOmcIfNecessary(Landroid/content/Context;)V
 
-    :cond_2
-    sget-object v6, Lcom/android/launcher3/common/model/DataLoader;->sLoaderList:Ljava/util/ArrayList;
+    :cond_4
+    sget-object v8, Lcom/android/launcher3/common/model/DataLoader;->sLoaderList:Ljava/util/ArrayList;
 
-    invoke-virtual {v6}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v8}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    move-result-object v6
+    move-result-object v8
 
     :goto_2
-    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v7
+    move-result v9
 
-    if-eqz v7, :cond_4
+    if-eqz v9, :cond_6
 
-    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v3
 
     check-cast v3, Lcom/android/launcher3/common/model/DataLoader;
 
-    invoke-virtual {v3, v1, v0, v9}, Lcom/android/launcher3/common/model/DataLoader;->loadDefaultLayout(Lcom/android/launcher3/common/model/AutoInstallsLayout;ZZ)V
+    invoke-virtual {v3, v1, v0, v10}, Lcom/android/launcher3/common/model/DataLoader;->loadDefaultLayout(Lcom/android/launcher3/common/model/AutoInstallsLayout;ZZ)V
 
     goto :goto_2
 
-    :cond_3
-    const-string v6, "EMPTY_DATABASE_SWITCHED"
+    :cond_5
+    const-string v8, "EMPTY_DATABASE_SWITCHED"
 
-    invoke-interface {v4, v6, v9}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
+    invoke-interface {v6, v8, v10}, Landroid/content/SharedPreferences;->getBoolean(Ljava/lang/String;Z)Z
 
-    move-result v6
+    move-result v8
 
-    if-eqz v6, :cond_1
+    if-eqz v8, :cond_3
 
-    const-string v6, "DataLoader"
+    const-string v8, "DataLoader"
 
-    const-string v7, "loading default workspace without switch table"
+    const-string v9, "loading default workspace without switch table"
 
-    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v8, v9}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     const/4 v0, 0x1
 
@@ -1162,37 +1222,37 @@
 
     goto :goto_1
 
-    :cond_4
-    if-nez v0, :cond_6
+    :cond_6
+    if-nez v0, :cond_8
 
     invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getLauncherProvider()Lcom/android/launcher3/LauncherProvider;
 
-    move-result-object v6
+    move-result-object v8
 
-    invoke-virtual {v6}, Lcom/android/launcher3/LauncherProvider;->clearFlagEmptyDbCreated()V
+    invoke-virtual {v8}, Lcom/android/launcher3/LauncherProvider;->clearFlagEmptyDbCreated()V
 
-    :cond_5
+    :cond_7
     :goto_3
-    sget-object v6, Lcom/android/launcher3/common/model/DataLoader;->sFavoritesProvider:Lcom/android/launcher3/common/model/FavoritesProvider;
+    sget-object v8, Lcom/android/launcher3/common/model/DataLoader;->sFavoritesProvider:Lcom/android/launcher3/common/model/FavoritesProvider;
 
-    invoke-virtual {v6}, Lcom/android/launcher3/common/model/FavoritesProvider;->checkChangedComponentExist()V
+    invoke-virtual {v8, v2}, Lcom/android/launcher3/common/model/FavoritesProvider;->checkChangedComponentExist(Z)V
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_1
 
-    sget-object v6, Lcom/android/launcher3/common/model/DataLoader;->sLoaderList:Ljava/util/ArrayList;
+    sget-object v8, Lcom/android/launcher3/common/model/DataLoader;->sLoaderList:Ljava/util/ArrayList;
 
-    invoke-virtual {v6}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+    invoke-virtual {v8}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    move-result-object v6
+    move-result-object v8
 
     :goto_4
-    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v8}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v7
+    move-result v9
 
-    if-eqz v7, :cond_7
+    if-eqz v9, :cond_1
 
-    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v8}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v3
 
@@ -1202,23 +1262,12 @@
 
     goto :goto_4
 
-    :cond_6
-    sget-object v6, Lcom/android/launcher3/common/model/DataLoader;->sFavoritesProvider:Lcom/android/launcher3/common/model/FavoritesProvider;
+    :cond_8
+    sget-object v8, Lcom/android/launcher3/common/model/DataLoader;->sFavoritesProvider:Lcom/android/launcher3/common/model/FavoritesProvider;
 
-    invoke-virtual {v6}, Lcom/android/launcher3/common/model/FavoritesProvider;->clearFlagEmptyDbSwitched()V
+    invoke-virtual {v8}, Lcom/android/launcher3/common/model/FavoritesProvider;->clearFlagEmptyDbSwitched()V
 
     goto :goto_3
-
-    :cond_7
-    sget-object v6, Lcom/android/launcher3/common/model/DataLoader;->sContext:Landroid/content/Context;
-
-    invoke-static {v6}, Lcom/android/launcher3/common/customer/PostPositionController;->getInstance(Landroid/content/Context;)Lcom/android/launcher3/common/customer/PostPositionController;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Lcom/android/launcher3/common/customer/PostPositionController;->checkAndEnablePositioner()V
-
-    return-void
 .end method
 
 .method protected static runOnWorkerThread(Ljava/lang/Runnable;)V

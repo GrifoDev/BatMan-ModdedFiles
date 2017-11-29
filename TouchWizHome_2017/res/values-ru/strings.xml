@@ -17,8 +17,10 @@
     <string name="accessibility_button">Кнопка</string>
     <string name="accessibility_dimmed">Затемненный</string>
     <string name="activity_not_available">Это приложение недоступно для вашего устройства.</string>
-    <string name="activity_not_found">Приложение не установлено.</string>
+    <string name="activity_not_found">Приложение не найдено</string>
+    <string name="add">Добавить</string>
     <string name="add_to_last_page">Количество выбранных элементов (%1$d) превышает количество свободного места на этой странице. Оставшиеся элементы (%2$d) будут добавлены на последнюю страницу.</string>
+    <string name="add_to_last_page_for_hotseat">Для выбранного количества элементов (%1$d) недостаточно свободного места в области “Избранное”. Оставшиеся элементы (%2$d) будут добавлены на последнюю страницу.</string>
     <string name="align_to_bottom">Выровнять по нижнему краю</string>
     <string name="align_to_top">Выровнять по верхнему краю</string>
     <string name="app_locked_toast">Приложение %s заблокировано.</string>
@@ -79,7 +81,7 @@
     <string name="home_screen_mode_apps">Главный экран и экран прилож.</string>
     <string name="home_screen_mode_change_alert_text">Все изменения главного экрана будут сброшены.</string>
     <string name="home_screen_mode_change_dialog_title">Применить выбранный макет главного экрана?</string>
-    <string name="home_screen_mode_change_with_copy_layout">Список иконок в меню приложений будет перенесен на главный экран. Нажмите ПРИМЕНИТЬ, чтобы сохранить текущий вид главного экрана или СБРОСИТЬ, чтобы выполнить сброс.</string>
+    <string name="home_screen_mode_change_with_copy_layout">Список иконок из меню приложений будет перенесен на главный экран. Нажмите ПРИМЕНИТЬ, чтобы сохранить установленные ранее на главном экране иконки или СБРОСИТЬ для их удаления.</string>
     <string name="home_screen_mode_home_apps_body_text">Станет доступен отдельный экран приложений. Чтобы отобразить его, проведите пальцем по главному экрану вверх или вниз. Чтобы быстро запускать самые важные приложения, вы также можете поместить их на главный экран.</string>
     <string name="home_screen_mode_home_only_body_text">На главном экране будут показаны все приложения.</string>
     <string name="home_screen_mode_only_home">Только главный экран</string>
@@ -122,6 +124,7 @@
     <string name="new_page_created">Страница добавлена.</string>
     <string name="no_changes">Без изменений.</string>
     <string name="no_space_page">На странице нет места. Добавьте ярлык на другую страницу.</string>
+    <string name="no_space_page_for_hotseat">В области “Избранное” нет места.</string>
     <string name="no_space_page_for_widget">На этой странице нет места.</string>
     <string name="not_selected">Не выбрано</string>
     <string name="notification_panel_setting_summary">Проведите пальцем вниз, чтобы открыть панель уведомлений с главного экрана.</string>
@@ -156,6 +159,8 @@
     <string name="quick_option_delete_folder">Удалить папку</string>
     <string name="quick_option_delete_folder_alert">Папка %s будет удалена. Приложения из этой папки будут доступны на экране приложений.</string>
     <string name="quick_option_delete_folder_alert_no_title">Эта папка будет удалена. Приложения из этой папки будут доступны на экране приложений.</string>
+    <string name="quick_option_delete_folder_home_only_alert">Папка %s будет удалена. Приложения из этой папки будут доступны на главном экране.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Эта папка будет удалена. Приложения из этой папки будут доступны на главном экране.</string>
     <string name="quick_option_dimmed_disable">Выключить</string>
     <string name="quick_option_disable">Выключить</string>
     <string name="quick_option_install_dual_im">Устан. второе приложение</string>

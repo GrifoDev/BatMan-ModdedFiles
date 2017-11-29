@@ -20,8 +20,6 @@
 
 .field private mIsRunningOverviewAnimation:Z
 
-.field private mIsRunningSwipeAnimation:Z
-
 .field private mLauncher:Lcom/android/launcher3/Launcher;
 
 .field private mOverviewShrinkFactor:F
@@ -111,7 +109,7 @@
 
     iput v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mFolderBgGrowFactor:F
 
-    invoke-virtual {p0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->setupShrinkFactor()V
+    invoke-direct {p0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->setupShrinkFactor()V
 
     return-void
 .end method
@@ -148,15 +146,7 @@
     return-object p1
 .end method
 
-.method static synthetic access$402(Lcom/android/launcher3/home/HomeTransitionAnimation;Z)Z
-    .locals 0
-
-    iput-boolean p1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mIsRunningSwipeAnimation:Z
-
-    return p1
-.end method
-
-.method static synthetic access$500(Lcom/android/launcher3/home/HomeTransitionAnimation;)Lcom/android/launcher3/common/tray/TrayManager;
+.method static synthetic access$400(Lcom/android/launcher3/home/HomeTransitionAnimation;)Lcom/android/launcher3/common/tray/TrayManager;
     .locals 1
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
@@ -164,7 +154,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$600(Lcom/android/launcher3/home/HomeTransitionAnimation;)Lcom/android/launcher3/home/HomeController;
+.method static synthetic access$500(Lcom/android/launcher3/home/HomeTransitionAnimation;)Lcom/android/launcher3/home/HomeController;
     .locals 1
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeController:Lcom/android/launcher3/home/HomeController;
@@ -264,8 +254,8 @@
     goto :goto_0
 .end method
 
-.method private animateSwipeHometray(Landroid/animation/AnimatorSet;ZJZ)V
-    .locals 11
+.method private animateSwipeHometray(Landroid/animation/AnimatorSet;ZZJZ)V
+    .locals 12
 
     const/4 v9, 0x0
 
@@ -286,14 +276,14 @@
     move-result v9
 
     :goto_0
-    if-eqz p2, :cond_2
+    if-eqz p3, :cond_2
 
     const/4 v3, 0x0
 
     :goto_1
     const-wide/16 v0, 0x0
 
-    cmp-long v0, p3, v0
+    cmp-long v0, p4, v0
 
     if-gez v0, :cond_6
 
@@ -309,7 +299,7 @@
     const/4 v0, 0x0
 
     :goto_2
-    invoke-direct {p0, p2, v0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->getSwipeAnimationDuration(ZF)I
+    invoke-direct {p0, p2, p3, v0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->getSwipeAnimationDuration(ZZF)I
 
     move-result v0
 
@@ -346,9 +336,9 @@
 
     move-object v1, p0
 
-    move/from16 v2, p5
+    move/from16 v2, p6
 
-    move v6, p2
+    move v6, p3
 
     invoke-direct/range {v0 .. v6}, Lcom/android/launcher3/home/HomeTransitionAnimation$7;-><init>(Lcom/android/launcher3/home/HomeTransitionAnimation;ZFJZ)V
 
@@ -398,7 +388,7 @@
     goto :goto_1
 
     :cond_4
-    if-eqz p2, :cond_5
+    if-eqz p3, :cond_5
 
     int-to-float v0, v10
 
@@ -426,7 +416,7 @@
     goto :goto_2
 
     :cond_6
-    move-wide v4, p3
+    move-wide/from16 v4, p4
 
     goto :goto_3
 .end method
@@ -1033,7 +1023,7 @@
 .method private getStageAnimationDuration(II)I
     .locals 6
 
-    const v5, 0x7f0d0028
+    const v5, 0x7f0b0029
 
     const/4 v4, 0x5
 
@@ -1051,7 +1041,7 @@
 
     if-ne p2, v4, :cond_0
 
-    const v1, 0x7f0d0030
+    const v1, 0x7f0b0031
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1085,7 +1075,7 @@
 
     if-ne p2, v2, :cond_3
 
-    const v1, 0x7f0d0031
+    const v1, 0x7f0b0032
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1112,7 +1102,7 @@
 
     if-ne p1, v1, :cond_0
 
-    const v1, 0x7f0d003c
+    const v1, 0x7f0b003d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1126,7 +1116,7 @@
 
     if-ne p1, v1, :cond_1
 
-    const v1, 0x7f0d0036
+    const v1, 0x7f0b0037
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1139,7 +1129,7 @@
 
     if-ne p1, v1, :cond_2
 
-    const v1, 0x7f0d0039
+    const v1, 0x7f0b003a
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1152,7 +1142,7 @@
 
     if-ne p1, v1, :cond_3
 
-    const v1, 0x7f0d003a
+    const v1, 0x7f0b003b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1166,27 +1156,23 @@
     goto :goto_0
 .end method
 
-.method private getSwipeAnimationDuration(ZF)I
+.method private getSwipeAnimationDuration(ZZF)I
     .locals 3
 
     const/4 v2, 0x2
 
     const/4 v1, 0x1
 
-    if-eqz p1, :cond_1
+    if-eqz p2, :cond_1
 
     invoke-direct {p0, v2, v1}, Lcom/android/launcher3/home/HomeTransitionAnimation;->getStageAnimationDuration(II)I
 
     move-result v0
 
     :goto_0
+    if-eqz p1, :cond_0
+
     iget-object v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
-
-    if-eqz v1, :cond_0
-
-    const/4 v1, 0x0
-
-    cmpl-float v1, p2, v1
 
     if-nez v1, :cond_2
 
@@ -1202,9 +1188,20 @@
     goto :goto_0
 
     :cond_2
+    const/4 v1, 0x0
+
+    cmpl-float v1, p3, v1
+
+    if-nez v1, :cond_3
+
+    const/4 v0, 0x0
+
+    goto :goto_1
+
+    :cond_3
     iget-object v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
 
-    invoke-virtual {v1, p2, v0}, Lcom/android/launcher3/common/tray/TrayManager;->calculateDuration(FI)I
+    invoke-virtual {v1, p3, v0}, Lcom/android/launcher3/common/tray/TrayManager;->calculateDuration(FI)I
 
     move-result v0
 
@@ -1303,10 +1300,54 @@
     return-void
 .end method
 
+.method private setupShrinkFactor()V
+    .locals 3
+
+    const/high16 v2, 0x42c80000    # 100.0f
+
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f0b0003
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v0
+
+    int-to-float v0, v0
+
+    div-float/2addr v0, v2
+
+    iput v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mOverviewShrinkFactor:F
+
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v1, 0x7f0b000b
+
+    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v0
+
+    int-to-float v0, v0
+
+    div-float/2addr v0, v2
+
+    iput v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mScreenGridShrinkFactor:F
+
+    return-void
+.end method
+
 
 # virtual methods
 .method getDragAnimation(ZLjava/util/HashMap;ZZZ)Landroid/animation/AnimatorSet;
-    .locals 18
+    .locals 19
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(Z",
@@ -1321,35 +1362,35 @@
 
     move-object/from16 v0, p0
 
-    iget-object v5, v0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeController:Lcom/android/launcher3/home/HomeController;
+    iget-object v4, v0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeController:Lcom/android/launcher3/home/HomeController;
 
-    invoke-virtual {v5}, Lcom/android/launcher3/home/HomeController;->getWorkspace()Lcom/android/launcher3/home/Workspace;
+    invoke-virtual {v4}, Lcom/android/launcher3/home/HomeController;->getWorkspace()Lcom/android/launcher3/home/Workspace;
 
-    move-result-object v15
+    move-result-object v16
 
     if-eqz p4, :cond_3
 
-    sget-object v5, Lcom/android/launcher3/util/Talk;->INSTANCE:Lcom/android/launcher3/util/Talk;
+    sget-object v4, Lcom/android/launcher3/util/Talk;->INSTANCE:Lcom/android/launcher3/util/Talk;
 
-    invoke-virtual {v5}, Lcom/android/launcher3/util/Talk;->isAccessibilityEnabled()Z
-
-    move-result v4
-
-    const/4 v5, 0x2
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v0, v5}, Lcom/android/launcher3/home/HomeTransitionAnimation;->getStateAnimationDuration(I)I
+    invoke-virtual {v4}, Lcom/android/launcher3/util/Talk;->isAccessibilityEnabled()Z
 
     move-result v11
 
-    invoke-virtual {v15}, Lcom/android/launcher3/home/Workspace;->getPageIndicator()Lcom/android/launcher3/common/view/PageIndicator;
+    const/4 v4, 0x2
 
-    move-result-object v12
+    move-object/from16 v0, p0
 
-    const/4 v13, 0x0
+    invoke-direct {v0, v4}, Lcom/android/launcher3/home/HomeTransitionAnimation;->getStateAnimationDuration(I)I
 
-    const/16 v17, 0x0
+    move-result v12
+
+    invoke-virtual/range {v16 .. v16}, Lcom/android/launcher3/home/Workspace;->getPageIndicator()Lcom/android/launcher3/common/view/PageIndicator;
+
+    move-result-object v13
+
+    const/4 v14, 0x0
+
+    const/16 v18, 0x0
 
     invoke-direct/range {p0 .. p0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->cancelStateAnimation()V
 
@@ -1357,94 +1398,98 @@
 
     invoke-static {}, Lcom/android/launcher3/util/animation/LauncherAnimUtils;->createAnimatorSet()Landroid/animation/AnimatorSet;
 
-    move-result-object v5
+    move-result-object v4
 
     move-object/from16 v0, p0
 
-    iput-object v5, v0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStateAnimator:Landroid/animation/AnimatorSet;
+    iput-object v4, v0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStateAnimator:Landroid/animation/AnimatorSet;
 
-    new-instance v16, Lcom/android/launcher3/util/animation/LauncherViewPropertyAnimator;
+    new-instance v17, Lcom/android/launcher3/util/animation/LauncherViewPropertyAnimator;
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
-    invoke-direct {v0, v15}, Lcom/android/launcher3/util/animation/LauncherViewPropertyAnimator;-><init>(Landroid/view/View;)V
+    move-object/from16 v1, v16
+
+    invoke-direct {v0, v1}, Lcom/android/launcher3/util/animation/LauncherViewPropertyAnimator;-><init>(Landroid/view/View;)V
+
+    const/high16 v4, 0x3f800000    # 1.0f
+
+    move-object/from16 v0, v17
+
+    invoke-virtual {v0, v4}, Lcom/android/launcher3/util/animation/LauncherViewPropertyAnimator;->scaleX(F)Lcom/android/launcher3/util/animation/LauncherViewPropertyAnimator;
+
+    move-result-object v4
 
     const/high16 v5, 0x3f800000    # 1.0f
 
-    move-object/from16 v0, v16
+    invoke-virtual {v4, v5}, Lcom/android/launcher3/util/animation/LauncherViewPropertyAnimator;->scaleY(F)Lcom/android/launcher3/util/animation/LauncherViewPropertyAnimator;
 
-    invoke-virtual {v0, v5}, Lcom/android/launcher3/util/animation/LauncherViewPropertyAnimator;->scaleX(F)Lcom/android/launcher3/util/animation/LauncherViewPropertyAnimator;
+    move-result-object v4
 
-    move-result-object v5
+    const/4 v5, 0x0
 
-    const/high16 v6, 0x3f800000    # 1.0f
+    invoke-virtual {v4, v5}, Lcom/android/launcher3/util/animation/LauncherViewPropertyAnimator;->translationY(F)Lcom/android/launcher3/util/animation/LauncherViewPropertyAnimator;
 
-    invoke-virtual {v5, v6}, Lcom/android/launcher3/util/animation/LauncherViewPropertyAnimator;->scaleY(F)Lcom/android/launcher3/util/animation/LauncherViewPropertyAnimator;
+    move-result-object v4
 
-    move-result-object v5
+    int-to-long v6, v12
 
-    const/4 v6, 0x0
-
-    invoke-virtual {v5, v6}, Lcom/android/launcher3/util/animation/LauncherViewPropertyAnimator;->translationY(F)Lcom/android/launcher3/util/animation/LauncherViewPropertyAnimator;
-
-    move-result-object v5
-
-    int-to-long v6, v11
-
-    invoke-virtual {v5, v6, v7}, Lcom/android/launcher3/util/animation/LauncherViewPropertyAnimator;->setDuration(J)Landroid/animation/Animator;
+    invoke-virtual {v4, v6, v7}, Lcom/android/launcher3/util/animation/LauncherViewPropertyAnimator;->setDuration(J)Landroid/animation/Animator;
 
     move-object/from16 v0, p0
 
-    iget-object v5, v0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStateAnimator:Landroid/animation/AnimatorSet;
+    iget-object v4, v0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStateAnimator:Landroid/animation/AnimatorSet;
 
-    move-object/from16 v0, v16
+    move-object/from16 v0, v17
 
-    invoke-virtual {v5, v0}, Landroid/animation/AnimatorSet;->play(Landroid/animation/Animator;)Landroid/animation/AnimatorSet$Builder;
+    invoke-virtual {v4, v0}, Landroid/animation/AnimatorSet;->play(Landroid/animation/Animator;)Landroid/animation/AnimatorSet$Builder;
 
-    if-eqz v12, :cond_0
+    if-eqz v13, :cond_0
 
-    new-instance v5, Lcom/android/launcher3/util/animation/LauncherViewPropertyAnimator;
+    new-instance v4, Lcom/android/launcher3/util/animation/LauncherViewPropertyAnimator;
 
-    invoke-direct {v5, v12}, Lcom/android/launcher3/util/animation/LauncherViewPropertyAnimator;-><init>(Landroid/view/View;)V
+    invoke-direct {v4, v13}, Lcom/android/launcher3/util/animation/LauncherViewPropertyAnimator;-><init>(Landroid/view/View;)V
 
-    const/4 v6, 0x0
+    const/4 v5, 0x0
 
-    invoke-virtual {v5, v6}, Lcom/android/launcher3/util/animation/LauncherViewPropertyAnimator;->translationY(F)Lcom/android/launcher3/util/animation/LauncherViewPropertyAnimator;
+    invoke-virtual {v4, v5}, Lcom/android/launcher3/util/animation/LauncherViewPropertyAnimator;->translationY(F)Lcom/android/launcher3/util/animation/LauncherViewPropertyAnimator;
 
-    move-result-object v14
+    move-result-object v15
 
-    int-to-long v6, v11
+    int-to-long v4, v12
 
-    invoke-virtual {v14, v6, v7}, Lcom/android/launcher3/util/animation/LauncherViewPropertyAnimator;->setDuration(J)Landroid/animation/Animator;
+    invoke-virtual {v15, v4, v5}, Lcom/android/launcher3/util/animation/LauncherViewPropertyAnimator;->setDuration(J)Landroid/animation/Animator;
 
-    new-instance v5, Landroid/view/animation/DecelerateInterpolator;
+    new-instance v4, Landroid/view/animation/DecelerateInterpolator;
 
-    invoke-direct {v5}, Landroid/view/animation/DecelerateInterpolator;-><init>()V
+    invoke-direct {v4}, Landroid/view/animation/DecelerateInterpolator;-><init>()V
 
-    invoke-virtual {v14, v5}, Lcom/android/launcher3/util/animation/LauncherViewPropertyAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
+    invoke-virtual {v15, v4}, Lcom/android/launcher3/util/animation/LauncherViewPropertyAnimator;->setInterpolator(Landroid/animation/TimeInterpolator;)V
 
     move-object/from16 v0, p0
 
-    iget-object v5, v0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStateAnimator:Landroid/animation/AnimatorSet;
+    iget-object v4, v0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStateAnimator:Landroid/animation/AnimatorSet;
 
-    invoke-virtual {v5, v14}, Landroid/animation/AnimatorSet;->play(Landroid/animation/Animator;)Landroid/animation/AnimatorSet$Builder;
+    invoke-virtual {v4, v15}, Landroid/animation/AnimatorSet;->play(Landroid/animation/Animator;)Landroid/animation/AnimatorSet$Builder;
 
     :cond_0
     move-object/from16 v0, p0
 
+    iget-object v4, v0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStateAnimator:Landroid/animation/AnimatorSet;
+
+    new-instance v5, Lcom/android/launcher3/home/HomeTransitionAnimation$4;
+
+    move-object/from16 v0, p0
+
+    invoke-direct {v5, v0}, Lcom/android/launcher3/home/HomeTransitionAnimation$4;-><init>(Lcom/android/launcher3/home/HomeTransitionAnimation;)V
+
+    invoke-virtual {v4, v5}, Landroid/animation/AnimatorSet;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+
+    move-object/from16 v0, p0
+
     iget-object v5, v0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStateAnimator:Landroid/animation/AnimatorSet;
 
-    new-instance v6, Lcom/android/launcher3/home/HomeTransitionAnimation$4;
-
-    move-object/from16 v0, p0
-
-    invoke-direct {v6, v0}, Lcom/android/launcher3/home/HomeTransitionAnimation$4;-><init>(Lcom/android/launcher3/home/HomeTransitionAnimation;)V
-
-    invoke-virtual {v5, v6}, Landroid/animation/AnimatorSet;->addListener(Landroid/animation/Animator$AnimatorListener;)V
-
-    move-object/from16 v0, p0
-
-    iget-object v6, v0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStateAnimator:Landroid/animation/AnimatorSet;
+    const/4 v6, 0x0
 
     const/4 v7, 0x1
 
@@ -1452,68 +1497,78 @@
 
     const/4 v10, 0x1
 
-    move-object/from16 v5, p0
+    move-object/from16 v4, p0
 
-    invoke-direct/range {v5 .. v10}, Lcom/android/launcher3/home/HomeTransitionAnimation;->animateSwipeHometray(Landroid/animation/AnimatorSet;ZJZ)V
+    invoke-direct/range {v4 .. v10}, Lcom/android/launcher3/home/HomeTransitionAnimation;->animateSwipeHometray(Landroid/animation/AnimatorSet;ZZJZ)V
 
     :cond_1
     :goto_0
     move-object/from16 v0, p0
 
-    move/from16 v1, p3
+    move-object/from16 v1, v16
 
-    invoke-direct {v0, v15, v1}, Lcom/android/launcher3/home/HomeTransitionAnimation;->changeDragBackground(Lcom/android/launcher3/home/Workspace;Z)V
+    move/from16 v2, p3
+
+    invoke-direct {v0, v1, v2}, Lcom/android/launcher3/home/HomeTransitionAnimation;->changeDragBackground(Lcom/android/launcher3/home/Workspace;Z)V
 
     move-object/from16 v0, p0
 
-    iget-object v5, v0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStateAnimator:Landroid/animation/AnimatorSet;
+    iget-object v4, v0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStateAnimator:Landroid/animation/AnimatorSet;
 
     move-object/from16 v0, p0
 
     move/from16 v1, p1
 
-    invoke-direct {v0, v5, v1, v4}, Lcom/android/launcher3/home/HomeTransitionAnimation;->animateExitAppsOrWidget(Landroid/animation/AnimatorSet;ZZ)V
+    invoke-direct {v0, v4, v1, v11}, Lcom/android/launcher3/home/HomeTransitionAnimation;->animateExitAppsOrWidget(Landroid/animation/AnimatorSet;ZZ)V
 
     move-object/from16 v0, p0
 
-    iget-object v5, v0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStateAnimator:Landroid/animation/AnimatorSet;
+    iget-object v4, v0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStateAnimator:Landroid/animation/AnimatorSet;
 
     :goto_1
-    return-object v5
+    return-object v4
 
     :cond_2
-    const/high16 v5, 0x3f800000    # 1.0f
+    const/high16 v4, 0x3f800000    # 1.0f
 
-    invoke-virtual {v15, v5}, Lcom/android/launcher3/home/Workspace;->setScaleX(F)V
+    move-object/from16 v0, v16
 
-    const/high16 v5, 0x3f800000    # 1.0f
+    invoke-virtual {v0, v4}, Lcom/android/launcher3/home/Workspace;->setScaleX(F)V
 
-    invoke-virtual {v15, v5}, Lcom/android/launcher3/home/Workspace;->setScaleY(F)V
+    const/high16 v4, 0x3f800000    # 1.0f
 
-    const/4 v5, 0x0
+    move-object/from16 v0, v16
 
-    invoke-virtual {v15, v5}, Lcom/android/launcher3/home/Workspace;->setTranslationY(F)V
+    invoke-virtual {v0, v4}, Lcom/android/launcher3/home/Workspace;->setScaleY(F)V
 
-    if-eqz v12, :cond_1
+    const/4 v4, 0x0
 
-    const/4 v5, 0x0
+    move-object/from16 v0, v16
 
-    invoke-virtual {v12, v5}, Lcom/android/launcher3/common/view/PageIndicator;->setTranslationY(F)V
+    invoke-virtual {v0, v4}, Lcom/android/launcher3/home/Workspace;->setTranslationY(F)V
+
+    if-eqz v13, :cond_1
+
+    const/4 v4, 0x0
+
+    invoke-virtual {v13, v4}, Lcom/android/launcher3/common/view/PageIndicator;->setTranslationY(F)V
 
     goto :goto_0
 
     :cond_3
     move-object/from16 v0, p0
 
-    move/from16 v1, p3
+    move-object/from16 v1, v16
 
-    invoke-direct {v0, v15, v1}, Lcom/android/launcher3/home/HomeTransitionAnimation;->changeDragBackground(Lcom/android/launcher3/home/Workspace;Z)V
+    move/from16 v2, p3
+
+    invoke-direct {v0, v1, v2}, Lcom/android/launcher3/home/HomeTransitionAnimation;->changeDragBackground(Lcom/android/launcher3/home/Workspace;Z)V
 
     if-eqz p5, :cond_5
 
     if-nez p3, :cond_4
 
-    const/4 v5, 0x1
+    const/4 v4, 0x1
 
     :goto_2
     move-object/from16 v0, p0
@@ -1522,19 +1577,19 @@
 
     move-object/from16 v2, p2
 
-    invoke-virtual {v0, v1, v2, v5}, Lcom/android/launcher3/home/HomeTransitionAnimation;->getSelectAnimation(ZLjava/util/HashMap;Z)Landroid/animation/AnimatorSet;
+    invoke-virtual {v0, v1, v2, v4}, Lcom/android/launcher3/home/HomeTransitionAnimation;->getSelectAnimation(ZLjava/util/HashMap;Z)Landroid/animation/AnimatorSet;
 
-    move-result-object v5
+    move-result-object v4
 
     goto :goto_1
 
     :cond_4
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
     goto :goto_2
 
     :cond_5
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
     goto :goto_1
 .end method
@@ -1561,13 +1616,13 @@
 
     const/4 v3, 0x1
 
-    const/high16 v5, 0x3f800000    # 1.0f
+    const/high16 v2, 0x3f800000    # 1.0f
 
-    sget-object v1, Lcom/android/launcher3/util/Talk;->INSTANCE:Lcom/android/launcher3/util/Talk;
+    sget-object v0, Lcom/android/launcher3/util/Talk;->INSTANCE:Lcom/android/launcher3/util/Talk;
 
-    invoke-virtual {v1}, Lcom/android/launcher3/util/Talk;->isAccessibilityEnabled()Z
+    invoke-virtual {v0}, Lcom/android/launcher3/util/Talk;->isAccessibilityEnabled()Z
 
-    move-result v0
+    move-result v7
 
     invoke-direct {p0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->cancelStageAnimation()V
 
@@ -1575,120 +1630,81 @@
 
     invoke-static {}, Lcom/android/launcher3/util/animation/LauncherAnimUtils;->createAnimatorSet()Landroid/animation/AnimatorSet;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStageAnimator:Landroid/animation/AnimatorSet;
+    iput-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStageAnimator:Landroid/animation/AnimatorSet;
 
     if-eqz p2, :cond_0
 
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
 
     invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {p2, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p2, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_0
-    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportTraySwipeInteraction()Z
+    iget-object v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStageAnimator:Landroid/animation/AnimatorSet;
 
-    move-result v1
+    if-nez p2, :cond_1
 
-    if-eqz v1, :cond_1
-
-    iget-object v2, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStageAnimator:Landroid/animation/AnimatorSet;
-
-    const-wide/16 v4, -0x1
-
-    move-object v1, p0
-
-    invoke-direct/range {v1 .. v6}, Lcom/android/launcher3/home/HomeTransitionAnimation;->animateSwipeHometray(Landroid/animation/AnimatorSet;ZJZ)V
+    move v2, v3
 
     :goto_0
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStageAnimator:Landroid/animation/AnimatorSet;
+    const-wide/16 v4, -0x1
 
-    return-object v1
+    move-object v0, p0
+
+    invoke-direct/range {v0 .. v6}, Lcom/android/launcher3/home/HomeTransitionAnimation;->animateSwipeHometray(Landroid/animation/AnimatorSet;ZZJZ)V
+
+    :goto_1
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStageAnimator:Landroid/animation/AnimatorSet;
+
+    return-object v0
 
     :cond_1
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
-
-    sget-object v2, Landroid/view/View;->ALPHA:Landroid/util/Property;
-
-    invoke-virtual {v2}, Landroid/util/Property;->getName()Ljava/lang/String;
-
-    move-result-object v2
-
-    new-array v4, v3, [F
-
-    aput v5, v4, v6
-
-    invoke-static {v1, v2, v4}, Lcom/android/launcher3/util/animation/LauncherAnimUtils;->ofFloat(Landroid/view/View;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
-
-    move-result-object v7
-
-    const/4 v1, 0x2
-
-    invoke-direct {p0, v1, v3}, Lcom/android/launcher3/home/HomeTransitionAnimation;->getStageAnimationDuration(II)I
-
-    move-result v1
-
-    int-to-long v2, v1
-
-    invoke-virtual {v7, v2, v3}, Landroid/animation/Animator;->setDuration(J)Landroid/animation/Animator;
-
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStageAnimator:Landroid/animation/AnimatorSet;
-
-    invoke-virtual {v1, v7}, Landroid/animation/AnimatorSet;->play(Landroid/animation/Animator;)Landroid/animation/AnimatorSet$Builder;
-
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStageAnimator:Landroid/animation/AnimatorSet;
-
-    new-instance v2, Lcom/android/launcher3/home/AlphaUpdateListener;
-
-    iget-object v3, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
-
-    invoke-direct {v2, v3, v0}, Lcom/android/launcher3/home/AlphaUpdateListener;-><init>(Landroid/view/View;Z)V
-
-    invoke-virtual {v1, v2}, Landroid/animation/AnimatorSet;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+    move v2, v6
 
     goto :goto_0
 
     :cond_2
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->setTranslationY(F)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setTranslationY(F)V
 
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
 
-    invoke-virtual {v1, v5}, Landroid/view/View;->setAlpha(F)V
+    invoke-virtual {v0, v2}, Landroid/view/View;->setAlpha(F)V
 
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
 
-    invoke-virtual {v1, v5}, Landroid/view/View;->setScaleX(F)V
+    invoke-virtual {v0, v2}, Landroid/view/View;->setScaleX(F)V
 
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
 
-    invoke-virtual {v1, v5}, Landroid/view/View;->setScaleY(F)V
+    invoke-virtual {v0, v2}, Landroid/view/View;->setScaleY(F)V
 
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeController:Lcom/android/launcher3/home/HomeController;
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeController:Lcom/android/launcher3/home/HomeController;
 
-    invoke-virtual {v1}, Lcom/android/launcher3/home/HomeController;->getHomePageIndicatorView()Landroid/view/View;
+    invoke-virtual {v0}, Lcom/android/launcher3/home/HomeController;->getHomePageIndicatorView()Landroid/view/View;
 
     move-result-object v8
 
     if-eqz v8, :cond_3
 
-    invoke-virtual {v8, v5}, Landroid/view/View;->setScaleX(F)V
+    invoke-virtual {v8, v2}, Landroid/view/View;->setScaleX(F)V
 
-    invoke-virtual {v8, v5}, Landroid/view/View;->setScaleY(F)V
+    invoke-virtual {v8, v2}, Landroid/view/View;->setScaleY(F)V
 
     :cond_3
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
 
-    invoke-static {v1, v0}, Lcom/android/launcher3/home/AlphaUpdateListener;->updateVisibility(Landroid/view/View;Z)V
+    invoke-static {v0, v7}, Lcom/android/launcher3/home/AlphaUpdateListener;->updateVisibility(Landroid/view/View;Z)V
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method getEnterFromAppsPickerAnimation(ZLjava/util/HashMap;)Landroid/animation/Animator;
@@ -2252,17 +2268,15 @@
         }
     .end annotation
 
-    const/4 v6, 0x0
-
-    const/4 v5, 0x1
+    const/4 v2, 0x1
 
     const/4 v3, 0x0
 
-    sget-object v1, Lcom/android/launcher3/util/Talk;->INSTANCE:Lcom/android/launcher3/util/Talk;
+    sget-object v0, Lcom/android/launcher3/util/Talk;->INSTANCE:Lcom/android/launcher3/util/Talk;
 
-    invoke-virtual {v1}, Lcom/android/launcher3/util/Talk;->isAccessibilityEnabled()Z
+    invoke-virtual {v0}, Lcom/android/launcher3/util/Talk;->isAccessibilityEnabled()Z
 
-    move-result v0
+    move-result v7
 
     invoke-direct {p0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->cancelStageAnimation()V
 
@@ -2270,113 +2284,74 @@
 
     invoke-static {}, Lcom/android/launcher3/util/animation/LauncherAnimUtils;->createAnimatorSet()Landroid/animation/AnimatorSet;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStageAnimator:Landroid/animation/AnimatorSet;
+    iput-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStageAnimator:Landroid/animation/AnimatorSet;
 
     if-eqz p2, :cond_0
 
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
 
-    invoke-static {v5}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {p2, v1, v2}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p2, v0, v1}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 
     :cond_0
-    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportTraySwipeInteraction()Z
+    iget-object v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStageAnimator:Landroid/animation/AnimatorSet;
 
-    move-result v1
+    if-nez p2, :cond_1
 
-    if-eqz v1, :cond_1
-
-    iget-object v2, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStageAnimator:Landroid/animation/AnimatorSet;
-
+    :goto_0
     const-wide/16 v4, -0x1
 
-    move-object v1, p0
+    move-object v0, p0
 
     move v6, v3
 
-    invoke-direct/range {v1 .. v6}, Lcom/android/launcher3/home/HomeTransitionAnimation;->animateSwipeHometray(Landroid/animation/AnimatorSet;ZJZ)V
+    invoke-direct/range {v0 .. v6}, Lcom/android/launcher3/home/HomeTransitionAnimation;->animateSwipeHometray(Landroid/animation/AnimatorSet;ZZJZ)V
 
-    :goto_0
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStageAnimator:Landroid/animation/AnimatorSet;
+    :goto_1
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStageAnimator:Landroid/animation/AnimatorSet;
 
-    return-object v1
+    return-object v0
 
     :cond_1
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
-
-    sget-object v2, Landroid/view/View;->ALPHA:Landroid/util/Property;
-
-    invoke-virtual {v2}, Landroid/util/Property;->getName()Ljava/lang/String;
-
-    move-result-object v2
-
-    new-array v4, v5, [F
-
-    aput v6, v4, v3
-
-    invoke-static {v1, v2, v4}, Lcom/android/launcher3/util/animation/LauncherAnimUtils;->ofFloat(Landroid/view/View;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
-
-    move-result-object v7
-
-    const/4 v1, 0x2
-
-    invoke-direct {p0, v5, v1}, Lcom/android/launcher3/home/HomeTransitionAnimation;->getStageAnimationDuration(II)I
-
-    move-result v1
-
-    int-to-long v2, v1
-
-    invoke-virtual {v7, v2, v3}, Landroid/animation/Animator;->setDuration(J)Landroid/animation/Animator;
-
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStageAnimator:Landroid/animation/AnimatorSet;
-
-    invoke-virtual {v1, v7}, Landroid/animation/AnimatorSet;->play(Landroid/animation/Animator;)Landroid/animation/AnimatorSet$Builder;
-
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStageAnimator:Landroid/animation/AnimatorSet;
-
-    new-instance v2, Lcom/android/launcher3/home/AlphaUpdateListener;
-
-    iget-object v3, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
-
-    invoke-direct {v2, v3, v0}, Lcom/android/launcher3/home/AlphaUpdateListener;-><init>(Landroid/view/View;Z)V
-
-    invoke-virtual {v1, v2}, Landroid/animation/AnimatorSet;->addListener(Landroid/animation/Animator$AnimatorListener;)V
+    move v2, v3
 
     goto :goto_0
 
     :cond_2
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
 
-    iget-object v2, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mLauncher:Lcom/android/launcher3/Launcher;
+    iget-object v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    invoke-virtual {v2}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
+    invoke-virtual {v1}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
 
-    move-result-object v2
+    move-result-object v1
 
-    const v3, 0x7f0a019c
+    const v2, 0x7f0a01a1
 
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
-    move-result v2
+    move-result v1
 
-    int-to-float v2, v2
+    int-to-float v1, v1
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->setTranslationY(F)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setTranslationY(F)V
 
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
 
-    invoke-virtual {v1, v6}, Landroid/view/View;->setAlpha(F)V
+    const/4 v1, 0x0
 
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
+    invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
 
-    invoke-static {v1, v0}, Lcom/android/launcher3/home/AlphaUpdateListener;->updateVisibility(Landroid/view/View;Z)V
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
 
-    goto :goto_0
+    invoke-static {v0, v7}, Lcom/android/launcher3/home/AlphaUpdateListener;->updateVisibility(Landroid/view/View;Z)V
+
+    goto :goto_1
 .end method
 
 .method getExitToFolderAnimation(ZLjava/util/HashMap;Landroid/view/View;)Landroid/animation/Animator;
@@ -3084,7 +3059,9 @@
 
     iget-object v0, v0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStateAnimator:Landroid/animation/AnimatorSet;
 
-    move-object/from16 v18, v0
+    move-object/from16 v17, v0
+
+    const/16 v18, 0x0
 
     const/16 v19, 0x1
 
@@ -3092,9 +3069,9 @@
 
     const/16 v22, 0x0
 
-    move-object/from16 v17, p0
+    move-object/from16 v16, p0
 
-    invoke-direct/range {v17 .. v22}, Lcom/android/launcher3/home/HomeTransitionAnimation;->animateSwipeHometray(Landroid/animation/AnimatorSet;ZJZ)V
+    invoke-direct/range {v16 .. v22}, Lcom/android/launcher3/home/HomeTransitionAnimation;->animateSwipeHometray(Landroid/animation/AnimatorSet;ZZJZ)V
 
     :cond_1
     :goto_6
@@ -3223,7 +3200,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v3, 0x7f0900c9
+    const v3, 0x7f0900ce
 
     invoke-virtual {v15, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4013,7 +3990,7 @@
 
     sget-object v2, Lcom/android/launcher3/util/Talk;->INSTANCE:Lcom/android/launcher3/util/Talk;
 
-    const v3, 0x7f090053
+    const v3, 0x7f090055
 
     invoke-virtual {v7, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4074,13 +4051,13 @@
 
     move-result-object v13
 
-    const v2, 0x7f0a0164
+    const v2, 0x7f0a0169
 
     invoke-virtual {v13, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v17
 
-    const v2, 0x7f0d003b
+    const v2, 0x7f0b003c
 
     invoke-virtual {v13, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -4560,7 +4537,9 @@
 .end method
 
 .method getTrayReturnAnimation(ZZ)Landroid/animation/Animator;
-    .locals 7
+    .locals 8
+
+    const/4 v2, 0x0
 
     invoke-direct {p0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->cancelStageAnimation()V
 
@@ -4568,43 +4547,43 @@
 
     invoke-static {}, Lcom/android/launcher3/util/animation/LauncherAnimUtils;->createAnimatorSet()Landroid/animation/AnimatorSet;
 
-    move-result-object v1
+    move-result-object v0
 
-    iput-object v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStageAnimator:Landroid/animation/AnimatorSet;
+    iput-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStageAnimator:Landroid/animation/AnimatorSet;
 
-    const/4 v1, 0x2
+    const/4 v0, 0x2
 
-    const/4 v2, 0x1
+    const/4 v1, 0x1
 
-    invoke-direct {p0, v1, v2}, Lcom/android/launcher3/home/HomeTransitionAnimation;->getStageAnimationDuration(II)I
+    invoke-direct {p0, v0, v1}, Lcom/android/launcher3/home/HomeTransitionAnimation;->getStageAnimationDuration(II)I
 
-    move-result v1
+    move-result v0
 
-    div-int/lit8 v0, v1, 0x2
+    div-int/lit8 v7, v0, 0x2
 
-    iget-object v2, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStageAnimator:Landroid/animation/AnimatorSet;
+    iget-object v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStageAnimator:Landroid/animation/AnimatorSet;
 
-    int-to-long v4, v0
+    int-to-long v4, v7
 
-    const/4 v6, 0x0
-
-    move-object v1, p0
+    move-object v0, p0
 
     move v3, p2
 
-    invoke-direct/range {v1 .. v6}, Lcom/android/launcher3/home/HomeTransitionAnimation;->animateSwipeHometray(Landroid/animation/AnimatorSet;ZJZ)V
+    move v6, v2
+
+    invoke-direct/range {v0 .. v6}, Lcom/android/launcher3/home/HomeTransitionAnimation;->animateSwipeHometray(Landroid/animation/AnimatorSet;ZZJZ)V
 
     :goto_0
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStageAnimator:Landroid/animation/AnimatorSet;
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mStageAnimator:Landroid/animation/AnimatorSet;
 
-    return-object v1
+    return-object v0
 
     :cond_0
-    iget-object v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mHomeRootView:Landroid/view/View;
 
-    const/4 v2, 0x0
+    const/4 v1, 0x0
 
-    invoke-virtual {v1, v2}, Landroid/view/View;->setTranslationY(F)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setTranslationY(F)V
 
     goto :goto_0
 .end method
@@ -4617,62 +4596,10 @@
     return v0
 .end method
 
-.method isRunningSwipeAnimation()Z
-    .locals 1
-
-    iget-boolean v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mIsRunningSwipeAnimation:Z
-
-    return v0
-.end method
-
 .method onConfigurationChangedIfNeeded()V
     .locals 0
 
-    invoke-virtual {p0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->setupShrinkFactor()V
-
-    return-void
-.end method
-
-.method setupShrinkFactor()V
-    .locals 3
-
-    const/high16 v2, 0x42c80000    # 100.0f
-
-    iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    invoke-virtual {v0}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x7f0d0002
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v0
-
-    int-to-float v0, v0
-
-    div-float/2addr v0, v2
-
-    iput v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mOverviewShrinkFactor:F
-
-    iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    invoke-virtual {v0}, Lcom/android/launcher3/Launcher;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v0
-
-    const v1, 0x7f0d000a
-
-    invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v0
-
-    int-to-float v0, v0
-
-    div-float/2addr v0, v2
-
-    iput v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation;->mScreenGridShrinkFactor:F
+    invoke-direct {p0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->setupShrinkFactor()V
 
     return-void
 .end method

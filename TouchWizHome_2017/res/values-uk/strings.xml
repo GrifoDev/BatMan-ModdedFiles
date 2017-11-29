@@ -17,8 +17,10 @@
     <string name="accessibility_button">Кнопка</string>
     <string name="accessibility_dimmed">Затемнений</string>
     <string name="activity_not_available">Ця програма недоступна для вашого пристрою.</string>
-    <string name="activity_not_found">Програму не інстальовано.</string>
+    <string name="activity_not_found">Програму не знайдено</string>
+    <string name="add">Додати</string>
     <string name="add_to_last_page">Кількість вибраних об’єктів (%1$d) перевищує кількість вільного місця на цій сторінці. Об’єкти, що залишилися (%2$d), буде додано на останню сторінку.</string>
+    <string name="add_to_last_page_for_hotseat">Ви вибрали кілька об’єктів (%1$d), але на панелі «Улюблене» не вистачає місця. Об’єкти, що залишилися (%2$d), буде додано на останню сторінку.</string>
     <string name="align_to_bottom">Вирівняти по нижньому краю</string>
     <string name="align_to_top">Вирівняти по верхньому краю</string>
     <string name="app_locked_toast">%s заблоковано.</string>
@@ -122,13 +124,14 @@
     <string name="new_page_created">Сторінку додано.</string>
     <string name="no_changes">Без змін.</string>
     <string name="no_space_page">На сторінці немає місця. Додайте ярлик на іншу сторінку.</string>
+    <string name="no_space_page_for_hotseat">На панелі «Улюблене» немає місця.</string>
     <string name="no_space_page_for_widget">На цій сторінці немає місця.</string>
     <string name="not_selected">Не вибрано</string>
     <string name="notification_panel_setting_summary">Проведіть пальцем униз, щоб відкрити панель сповіщень на головному екрані.</string>
     <string name="notification_panel_setting_title">Швидка панель сповіщень</string>
     <string name="ok">ОК</string>
     <string name="only_one_widget_instance_allowed">Віджет %s вже додано на головний екран.</string>
-    <string name="option_menu_contact_up">Зв’язатися з нами</string>
+    <string name="option_menu_contact_up">Зв’яжіться з нами</string>
     <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Налаштування</string>
     <string name="options_menu">Інші опції</string>
@@ -156,6 +159,8 @@
     <string name="quick_option_delete_folder">Видалити папку</string>
     <string name="quick_option_delete_folder_alert">Папку %s буде видалено. Програми, які в ній містяться, будуть доступні на екрані програм.</string>
     <string name="quick_option_delete_folder_alert_no_title">Цю папку буде видалено. Програми, які в ній містяться, будуть доступні на екрані програм.</string>
+    <string name="quick_option_delete_folder_home_only_alert">Папку %s буде видалено. Програми, які в ній містяться, будуть і далі доступні на головному екрані.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Цю папку буде видалено. Програми, які в ній містяться, будуть і далі доступні на головному екрані.</string>
     <string name="quick_option_dimmed_disable">Вимкнути</string>
     <string name="quick_option_disable">Вимкнути</string>
     <string name="quick_option_install_dual_im">Установити другу програму</string>
@@ -181,7 +186,7 @@
     <string name="shortcut_duplicate">Ярлик швидкого доступу %s уже існує.</string>
     <string name="shortcut_installed">Ярлик %s додано на головний екран.</string>
     <string name="shortcut_moved_to_game_launcher">Значок гри переміщено до Game Launcher.</string>
-    <string name="shortcut_uninstalled">Клавішу швидкого доступу %s видалено.</string>
+    <string name="shortcut_uninstalled">Ярлик %s видалено.</string>
     <string name="sound_mode_to_sound">Встановлення звуку для режиму «Звук».</string>
     <string name="sound_mode_to_vibrate">Звуковий режим змінено на вібрацію.</string>
     <string name="speak_now">Говоріть</string>

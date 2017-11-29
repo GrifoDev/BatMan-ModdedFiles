@@ -16,8 +16,10 @@
     <string name="accessibility_button">বাটন</string>
     <string name="accessibility_dimmed">নিষ্প্রভ</string>
     <string name="activity_not_available">আপনার ডিভাইসের জন্য এই অ্যাপটি নেই।</string>
-    <string name="activity_not_found">অ্যাপ্লিকেশন ইন্সটল হয়নি।</string>
+    <string name="activity_not_found">অ্যাপ পাওয়া যায়নি</string>
+    <string name="add">যোগ করুন</string>
     <string name="add_to_last_page">আপনি %1$dটি আইটেম নির্বাচন করেছেন, কিন্তু এই পেইজে পর্যাপ্ত জায়গা নেই। অবশিষ্ট %2$dটি আইটেম শেষ পেইজে যোগ করা হবে।</string>
+    <string name="add_to_last_page_for_hotseat">আপনি %1$dটি আইটেম নির্বাচন করেছেন, কিন্তু প্রিয় ট্রেতে পর্যাপ্ত জায়গা নেই। অবশিষ্ট %2$dটি আইটেম শেষ পেইজে যোগ করা হবে।</string>
     <string name="align_to_bottom">নিচের দিক দিয়ে সাজান</string>
     <string name="align_to_top">উপরের দিক দিয়ে সাজান</string>
     <string name="app_locked_toast">%s লক হয়েছে।</string>
@@ -121,6 +123,7 @@
     <string name="new_page_created">পৃষ্ঠা যুক্ত হয়েছে।</string>
     <string name="no_changes">কোনো পরিবর্তন নেই৷</string>
     <string name="no_space_page">পেইজে কোনো জায়গা নেই৷ ভিন্ন একটি পেইজে শর্টকাট যোগ করার চেষ্টা করুন৷</string>
+    <string name="no_space_page_for_hotseat">প্রিয় ট্রেতে কোনো জায়গা নেই৷</string>
     <string name="no_space_page_for_widget">এই পেইজে কোনো জায়গা নেই।</string>
     <string name="not_selected">নির্বাচিত নয়</string>
     <string name="notification_panel_setting_summary">হোম স্ক্রিন থেকে বিজ্ঞপ্তির প্যানেল খুলতে নিচের দিকে সোয়াইপ করুন৷</string>
@@ -155,6 +158,8 @@
     <string name="quick_option_delete_folder">ফোল্ডার মুছুন</string>
     <string name="quick_option_delete_folder_alert">%s ফোল্ডারটি মুছে ফেলা হবে। তারপরেও এই ফোল্ডারের ভেতরে থাকা অ্যাপগুলো অ্যাপ স্ক্রিনে পাওয়া যাবে৷</string>
     <string name="quick_option_delete_folder_alert_no_title">এই ফোল্ডারটি মুছে ফেলা হবে। তারপরেও এই ফোল্ডারের ভেতরে থাকা অ্যাপগুলো অ্যাপ স্ক্রিনে পাওয়া যাবে৷</string>
+    <string name="quick_option_delete_folder_home_only_alert">%s ফোল্ডার মুছে যাবে। তারপরেও এই ফোল্ডারের ভেতরে থাকা অ্যাপগুলো হোম স্ক্রিনে পাওয়া যাবে৷</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">এই ফোল্ডারটি মুছে যাবে। তারপরেও এই ফোল্ডারের ভেতরে থাকা অ্যাপগুলো হোম স্ক্রিনে পাওয়া যাবে৷</string>
     <string name="quick_option_dimmed_disable">নিষ্ক্রিয় করুন</string>
     <string name="quick_option_disable">নিষ্ক্রিয় করুন</string>
     <string name="quick_option_install_dual_im">দ্বিতীয় অ্যাপ ইনস্টল করুন</string>

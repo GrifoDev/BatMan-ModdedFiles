@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/HomeController;->removeHomeOrFolderItem(Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/view/View;)Z
+    value = Lcom/android/launcher3/home/HomeController;->removeHomeItem(Lcom/android/launcher3/common/base/item/ItemInfo;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -63,7 +63,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController$20;->this$0:Lcom/android/launcher3/home/HomeController;
 
-    invoke-static {v0}, Lcom/android/launcher3/home/HomeController;->access$1800(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/home/LauncherAppWidgetHost;
+    invoke-static {v0}, Lcom/android/launcher3/home/HomeController;->access$2000(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/home/LauncherAppWidgetHost;
 
     move-result-object v0
 

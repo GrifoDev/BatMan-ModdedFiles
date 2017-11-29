@@ -573,7 +573,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a00aa
+    const v4, 0x7f0a00ac
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -674,7 +674,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f09002f
+    const v4, 0x7f090031
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -694,7 +694,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f09002e
+    const v4, 0x7f090030
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1056,7 +1056,7 @@
     :cond_0
     sget-object v5, Lcom/android/launcher3/util/Talk;->INSTANCE:Lcom/android/launcher3/util/Talk;
 
-    const v9, 0x7f09002f
+    const v9, 0x7f090031
 
     invoke-virtual {v5, v9}, Lcom/android/launcher3/util/Talk;->say(I)V
 
@@ -1335,7 +1335,7 @@
     invoke-virtual {v2, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
     :cond_1
-    const v2, 0x7f09002f
+    const v2, 0x7f090031
 
     const v3, 0x7f0200ff
 

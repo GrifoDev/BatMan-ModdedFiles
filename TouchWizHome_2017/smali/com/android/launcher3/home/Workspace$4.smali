@@ -39,27 +39,15 @@
 
 # virtual methods
 .method public run()V
-    .locals 4
-
-    const/4 v3, 0x0
+    .locals 3
 
     iget-object v0, p0, Lcom/android/launcher3/home/Workspace$4;->this$0:Lcom/android/launcher3/home/Workspace;
 
-    iget-object v1, p0, Lcom/android/launcher3/home/Workspace$4;->this$0:Lcom/android/launcher3/home/Workspace;
+    iget-object v1, p0, Lcom/android/launcher3/home/Workspace$4;->val$onComplete:Ljava/lang/Runnable;
 
-    invoke-virtual {v1}, Lcom/android/launcher3/home/Workspace;->getNextPage()I
+    const/4 v2, 0x0
 
-    move-result v1
-
-    invoke-virtual {v0, v1, v3}, Lcom/android/launcher3/home/Workspace;->snapToPage(II)V
-
-    iget-object v0, p0, Lcom/android/launcher3/home/Workspace$4;->this$0:Lcom/android/launcher3/home/Workspace;
-
-    const/16 v1, 0x96
-
-    iget-object v2, p0, Lcom/android/launcher3/home/Workspace$4;->val$onComplete:Ljava/lang/Runnable;
-
-    invoke-static {v0, v3, v1, v2}, Lcom/android/launcher3/home/Workspace;->access$100(Lcom/android/launcher3/home/Workspace;IILjava/lang/Runnable;)V
+    invoke-virtual {v0, v1, v2}, Lcom/android/launcher3/home/Workspace;->removeExtraEmptyScreenDelayed(Ljava/lang/Runnable;I)V
 
     return-void
 .end method

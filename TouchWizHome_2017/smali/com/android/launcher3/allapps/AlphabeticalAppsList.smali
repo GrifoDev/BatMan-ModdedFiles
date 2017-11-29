@@ -1956,6 +1956,60 @@
     packed-switch v5, :pswitch_data_0
 
     :cond_1d
+    const-string v5, "AlphabeticalAppsList"
+
+    new-instance v27, Ljava/lang/StringBuilder;
+
+    invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v28, "updateAdapterItems: mAdapterItems.size()"
+
+    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v27
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher3/allapps/AlphabeticalAppsList;->mAdapterItems:Ljava/util/List;
+
+    move-object/from16 v28, v0
+
+    invoke-interface/range {v28 .. v28}, Ljava/util/List;->size()I
+
+    move-result v28
+
+    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v27
+
+    const-string v28, " mApps.size() = "
+
+    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v27
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher3/allapps/AlphabeticalAppsList;->mApps:Ljava/util/List;
+
+    move-object/from16 v28, v0
+
+    invoke-interface/range {v28 .. v28}, Ljava/util/List;->size()I
+
+    move-result v28
+
+    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v27
+
+    invoke-virtual/range {v27 .. v27}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v27
+
+    move-object/from16 v0, v27
+
+    invoke-static {v5, v0}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
     move-object/from16 v0, p0
 
     iget-object v5, v0, Lcom/android/launcher3/allapps/AlphabeticalAppsList;->mAdapter:Landroid/support/v7/widget/RecyclerView$Adapter;
@@ -1968,7 +2022,7 @@
 
     invoke-virtual {v5}, Landroid/support/v7/widget/RecyclerView$Adapter;->notifyDataSetChanged()V
 
-    goto :goto_8
+    goto/16 :goto_8
 
     :pswitch_0
     const/high16 v5, 0x3f800000    # 1.0f
@@ -2202,6 +2256,8 @@
     move/from16 v2, v22
 
     goto/16 :goto_4
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x0

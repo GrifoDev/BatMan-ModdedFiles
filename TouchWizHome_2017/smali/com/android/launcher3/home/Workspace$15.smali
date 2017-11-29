@@ -39,7 +39,7 @@
 
 
 # virtual methods
-.method public onAnimationEnd(Landroid/animation/Animator;)V
+.method public onAnimationStart(Landroid/animation/Animator;)V
     .locals 2
 
     iget-object v0, p0, Lcom/android/launcher3/home/Workspace$15;->val$target:Landroid/view/View;

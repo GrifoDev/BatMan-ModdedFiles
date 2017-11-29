@@ -17,8 +17,10 @@
     <string name="accessibility_button">Botão</string>
     <string name="accessibility_dimmed">Brilho reduzido</string>
     <string name="activity_not_available">Este aplicativo não está disponível para o seu aparelho.</string>
-    <string name="activity_not_found">Aplicação não instalada.</string>
+    <string name="activity_not_found">Aplicativo não encontrado</string>
+    <string name="add">Adicionar</string>
     <string name="add_to_last_page">Você selecionou %1$d itens, mas não há espaço suficiente nesta página. Os %2$d itens restantes serão adicionados à última página.</string>
+    <string name="add_to_last_page_for_hotseat">Você selecionou %1$d itens, mas não há espaço suficiente na bandeja de favoritos. Os %2$d itens restantes serão adicionados à última página.</string>
     <string name="align_to_bottom">Alinhar à parte inferior</string>
     <string name="align_to_top">Alinhar à parte superior</string>
     <string name="app_locked_toast">%s bloqueado.</string>
@@ -122,13 +124,14 @@
     <string name="new_page_created">Página adicionada.</string>
     <string name="no_changes">Sem alterações.</string>
     <string name="no_space_page">Sem espaço na página. Tente adicionar o atalho a uma página diferente.</string>
+    <string name="no_space_page_for_hotseat">Não há espaço na bandeja de favoritos.</string>
     <string name="no_space_page_for_widget">Nenhum espaço nesta página.</string>
     <string name="not_selected">Não selecionado</string>
     <string name="notification_panel_setting_summary">Deslize para baixo para abrir o painel de notificações a partir da Tela inicial.</string>
     <string name="notification_panel_setting_title">Abrir rápido pain. notificações</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">O widget %s já foi adicionado à tela inicial.</string>
-    <string name="option_menu_contact_up">Entre em contato conosco</string>
+    <string name="option_menu_contact_up">Fale conosco</string>
     <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Configurações</string>
     <string name="options_menu">Mais opções</string>
@@ -156,6 +159,8 @@
     <string name="quick_option_delete_folder">Apagar pasta</string>
     <string name="quick_option_delete_folder_alert">A pasta %s será excluída. Os aplicativos dentro dela ainda estarão disponíveis na tela Aplicativos.</string>
     <string name="quick_option_delete_folder_alert_no_title">Esta pasta será excluída. Os aplicativos dentro dela ainda estarão disponíveis na tela Aplicativos.</string>
+    <string name="quick_option_delete_folder_home_only_alert">A pasta %s será excluída. Os aplicativos dentro dela ainda estarão disponíveis na Tela inicial.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Esta pasta será excluída. Os aplicativos dentro dela ainda estarão disponíveis na Tela inicial.</string>
     <string name="quick_option_dimmed_disable">Desativar</string>
     <string name="quick_option_disable">Desativar</string>
     <string name="quick_option_install_dual_im">Instalar o segundo app</string>

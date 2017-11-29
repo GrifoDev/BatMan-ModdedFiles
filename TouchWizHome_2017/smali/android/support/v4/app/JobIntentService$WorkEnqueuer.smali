@@ -96,13 +96,13 @@
     throw v0
 .end method
 
-.method public serviceCreated()V
+.method public serviceProcessingFinished()V
     .locals 0
 
     return-void
 .end method
 
-.method public serviceDestroyed()V
+.method public serviceProcessingStarted()V
     .locals 0
 
     return-void

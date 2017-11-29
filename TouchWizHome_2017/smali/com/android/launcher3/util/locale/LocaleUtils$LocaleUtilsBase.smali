@@ -19,6 +19,8 @@
 
 
 # instance fields
+.field protected mInflowLabel:Ljava/lang/String;
+
 .field protected mOverflowLabel:Ljava/lang/String;
 
 .field protected mUnderflowLabel:Ljava/lang/String;
@@ -40,13 +42,9 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    new-instance v0, Landroid/icu/text/AlphabeticIndex;
+    invoke-virtual {p0}, Lcom/android/launcher3/util/locale/LocaleUtils$LocaleUtilsBase;->initAlphabeticIndex()Landroid/icu/text/AlphabeticIndex;
 
-    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
-
-    move-result-object v3
-
-    invoke-direct {v0, v3}, Landroid/icu/text/AlphabeticIndex;-><init>(Ljava/util/Locale;)V
+    move-result-object v0
 
     invoke-virtual {v0}, Landroid/icu/text/AlphabeticIndex;->getUnderflowLabel()Ljava/lang/String;
 
@@ -59,6 +57,12 @@
     move-result-object v3
 
     iput-object v3, p0, Lcom/android/launcher3/util/locale/LocaleUtils$LocaleUtilsBase;->mOverflowLabel:Ljava/lang/String;
+
+    invoke-virtual {v0}, Landroid/icu/text/AlphabeticIndex;->getInflowLabel()Ljava/lang/String;
+
+    move-result-object v3
+
+    iput-object v3, p0, Lcom/android/launcher3/util/locale/LocaleUtils$LocaleUtilsBase;->mInflowLabel:Ljava/lang/String;
 
     invoke-static {}, Landroid/os/LocaleList;->getDefault()Landroid/os/LocaleList;
 
@@ -555,4 +559,18 @@
     .locals 0
 
     return-object p1
+.end method
+
+.method protected initAlphabeticIndex()Landroid/icu/text/AlphabeticIndex;
+    .locals 2
+
+    new-instance v0, Landroid/icu/text/AlphabeticIndex;
+
+    invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
+
+    move-result-object v1
+
+    invoke-direct {v0, v1}, Landroid/icu/text/AlphabeticIndex;-><init>(Ljava/util/Locale;)V
+
+    return-object v0
 .end method

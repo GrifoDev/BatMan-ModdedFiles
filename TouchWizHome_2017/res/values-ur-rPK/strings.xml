@@ -16,8 +16,10 @@
     <string name="accessibility_button">بٹن</string>
     <string name="accessibility_dimmed">مدھم</string>
     <string name="activity_not_available">یہ ایپلیکیشن آپ کے آلہ کے لیے دستیاب نہیں ہے۔</string>
-    <string name="activity_not_found">ایپلیکیشن نصب نہیں کی گئی۔</string>
+    <string name="activity_not_found">ایپلیکیشن نہیں ملا</string>
+    <string name="add">شامل کریں</string>
     <string name="add_to_last_page">آپ نے %1$d اشیاء منتخب کی ہے، لیکن اس صفحے پر کافی جگہ نہیں ہے۔ باقی ماندہ %2$d اشیاء آخری صفحہ میں شامل کر دیا جائے گا۔</string>
+    <string name="add_to_last_page_for_hotseat">آپ نے %1$d اشیاء منتخب کی ہیں، لیکن پسندیدہ ٹرے پر کافی جگہ نہیں ہے۔ باقی %2$d اشیاء آخری صفحہ میں شامل کر دیا جائے گا۔</string>
     <string name="align_to_bottom">نیچے سیدھ میں لائیں</string>
     <string name="align_to_top">اوپر سیدھ میں لائیں</string>
     <string name="app_locked_toast">%s مقفل۔</string>
@@ -121,6 +123,7 @@
     <string name="new_page_created">صفحہ شامل کیا گیا۔</string>
     <string name="no_changes">کوئی تبدیلیاں نہیں۔</string>
     <string name="no_space_page">صفحہ پر کوئي جگہ نہیں۔ مختلف صفحہ میں شارٹ کٹ شامل کرنے کی کوشش کریں۔</string>
+    <string name="no_space_page_for_hotseat">پسندیدگان ٹرے پر خلا نہیں ہے۔</string>
     <string name="no_space_page_for_widget">اس صفحہ پر کوئی اسپیس نہیں ہے۔</string>
     <string name="not_selected">غیر منتخب شدہ</string>
     <string name="notification_panel_setting_summary">ہوم اسکرین سے نوٹیفکیشن پینل کھولنے کے لیے نیچے سوائپ کریں۔</string>
@@ -155,6 +158,8 @@
     <string name="quick_option_delete_folder">فولڈر مٹائیں</string>
     <string name="quick_option_delete_folder_alert">%s فولڈر حذف کردیا جائے گا۔ اس فولڈر کا اندرونی ایپلیکیشنز اب بھی ایپلیکیشنز کے اسکرین پر دستیاب ہوگا۔</string>
     <string name="quick_option_delete_folder_alert_no_title">یہ فولڈر حذف کردیا جائے گا۔ اس فولڈر کا اندرونی ایپلیکیشنز اب بھی ایپلیکیشنز کے اسکرین پر دستیاب ہوگا۔</string>
+    <string name="quick_option_delete_folder_home_only_alert">%s فولڈر حذف کردیا جائے گا۔ اس فولڈر کا اندرونی ایپلیکیشنز اب بھی ہوم اسکرین پر دستیاب ہوگا۔</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">یہ فولڈر حذف کردیا جائے گا۔ اس فولڈر کا اندرونی ایپلیکیشنز اب بھی ہوم اسکرین پر دستیاب ہوگا۔</string>
     <string name="quick_option_dimmed_disable">نااہل کریں</string>
     <string name="quick_option_disable">نااہل کریں</string>
     <string name="quick_option_install_dual_im">دوسرا ایپلیکیشن نصب کریں</string>

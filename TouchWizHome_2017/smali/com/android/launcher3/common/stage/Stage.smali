@@ -372,7 +372,23 @@
 .method protected abstract getBackgroundImageAlphaForState(I)F
 .end method
 
+.method public getChildViewAt(Lcom/android/launcher3/common/base/item/ItemInfo;)Landroid/view/View;
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return-object v0
+.end method
+
 .method public abstract getContainerView()Landroid/view/View;
+.end method
+
+.method public getDragSourceForLongKey()Lcom/android/launcher3/common/drag/DragSource;
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return-object v0
 .end method
 
 .method protected abstract getInternalState()I
@@ -456,8 +472,15 @@
 
     iput v1, p0, Lcom/android/launcher3/common/stage/Stage;->mCurrentOrientation:I
 
+    invoke-static {}, Lcom/android/launcher3/util/TestHelper;->isRoboUnitTest()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
     const/4 v1, -0x1
 
+    :goto_0
     iput v1, p0, Lcom/android/launcher3/common/stage/Stage;->mCurrentMobileKeyboard:I
 
     iget v1, v0, Landroid/content/res/Configuration;->screenHeightDp:I
@@ -465,6 +488,11 @@
     iput v1, p0, Lcom/android/launcher3/common/stage/Stage;->mCurrentHeightDp:I
 
     return-void
+
+    :cond_0
+    iget v1, v0, Landroid/content/res/Configuration;->semMobileKeyboardCovered:I
+
+    goto :goto_0
 .end method
 
 .method protected isRestorable()Z
@@ -709,6 +737,9 @@
     .locals 0
 
     return-void
+.end method
+
+.method public abstract searchBarHasFocus()Z
 .end method
 
 .method public setDataWithOutStageChange(Lcom/android/launcher3/common/stage/StageEntry;)V

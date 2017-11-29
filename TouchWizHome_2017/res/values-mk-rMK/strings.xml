@@ -16,8 +16,10 @@
     <string name="accessibility_button">Копче</string>
     <string name="accessibility_dimmed">Затемнетo</string>
     <string name="activity_not_available">Оваа апликација не е достапна за Вашиот уред.</string>
-    <string name="activity_not_found">Апликацијата не е инсталирана.</string>
+    <string name="activity_not_found">Апликацијата не е најдена</string>
+    <string name="add">Додај</string>
     <string name="add_to_last_page">Избравте %1$d записи, но нема доволно простор на оваа страница. Преостанатите %2$d записи ќе се додадат на последната страница.</string>
+    <string name="add_to_last_page_for_hotseat">Избравте %1$d записи, но нема доволно простор на лентата за омилени. Преостанатите %2$d записи ќе се додадат на последната страница.</string>
     <string name="align_to_bottom">Порамни со дното</string>
     <string name="align_to_top">Порамни со врвот</string>
     <string name="app_locked_toast">%s е заклучено.</string>
@@ -121,13 +123,14 @@
     <string name="new_page_created">Додадена е страница.</string>
     <string name="no_changes">Нема промени.</string>
     <string name="no_space_page">Нема простор на страницата. Обидете се да додадете кратенка на друга страница.</string>
+    <string name="no_space_page_for_hotseat">Нема простор во лентата за омилени.</string>
     <string name="no_space_page_for_widget">Нема простор на оваа страница.</string>
     <string name="not_selected">Не е одбрано</string>
     <string name="notification_panel_setting_summary">Поминете надолу за да ја отворите таблата за известувања од Почетниот екран.</string>
     <string name="notification_panel_setting_title">Брзо отвор. на таб.за известув.</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Виџетот %s веќе е додаден во почетниот екран.</string>
-    <string name="option_menu_contact_up">Контактирајте нѐ</string>
+    <string name="option_menu_contact_up">Контактирајте со нас</string>
     <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Поставувања</string>
     <string name="options_menu">Повеќе опции</string>
@@ -155,6 +158,8 @@
     <string name="quick_option_delete_folder">Избриши папка</string>
     <string name="quick_option_delete_folder_alert">Папката %s ќе се избрише. Апликациите во папката ќе бидат достапни на екранот Апликации.</string>
     <string name="quick_option_delete_folder_alert_no_title">Оваа папка ќе се избрише. Апликациите во папката ќе бидат достапни на екранот Апликации.</string>
+    <string name="quick_option_delete_folder_home_only_alert">Папката %s ќе се избрише. Апликациите во папката ќе бидат достапни на Почетниот екран.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Оваа папка ќе се избрише. Апликациите во папкава ќе бидат достапни на Почетниот екран.</string>
     <string name="quick_option_dimmed_disable">Исклучи</string>
     <string name="quick_option_disable">Исклучи</string>
     <string name="quick_option_install_dual_im">Инстал. втора апликација</string>

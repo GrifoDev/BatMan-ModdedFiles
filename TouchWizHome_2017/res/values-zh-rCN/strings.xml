@@ -17,8 +17,10 @@
     <string name="accessibility_button">按钮</string>
     <string name="accessibility_dimmed">已变暗</string>
     <string name="activity_not_available">该应用程序不可用于您的设备。</string>
-    <string name="activity_not_found">未安装应用程序。</string>
+    <string name="activity_not_found">未找到应用程序</string>
+    <string name="add">添加</string>
     <string name="add_to_last_page">您选择了 %1$d 个项目，但此页空间不足。剩余的 %2$d 个项目将添加至下一页。</string>
+    <string name="add_to_last_page_for_hotseat">您选择了 %1$d 个项目，但收藏托盘的空间不足。剩余的 %2$d 个项目将添加至下一页。</string>
     <string name="align_to_bottom">向底部对齐</string>
     <string name="align_to_top">向顶部对齐</string>
     <string name="app_locked_toast">%s已锁定。</string>
@@ -122,6 +124,7 @@
     <string name="new_page_created">已添加页面</string>
     <string name="no_changes">无更改</string>
     <string name="no_space_page">本页面空间已满，请尝试添加快捷方式到其他页面。</string>
+    <string name="no_space_page_for_hotseat">收藏托盘上没有空间了</string>
     <string name="no_space_page_for_widget">该页面上没有空间</string>
     <string name="not_selected">未选中</string>
     <string name="notification_panel_setting_summary">在主屏幕中向下滑动以打开通知面板</string>
@@ -156,6 +159,8 @@
     <string name="quick_option_delete_folder">删除文件夹</string>
     <string name="quick_option_delete_folder_alert">将删除 %s 文件夹，但您仍然可以在应用程序屏幕上访问此文件夹内的应用程序。</string>
     <string name="quick_option_delete_folder_alert_no_title">将删除此文件夹，但您仍然可以在应用程序屏幕上访问此文件夹内的应用程序。</string>
+    <string name="quick_option_delete_folder_home_only_alert">将删除 %s 文件夹，但您仍然可以在主屏幕上访问此文件夹内的应用程序。</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">将删除此文件夹，但您仍然可以在主屏幕上访问此文件夹内的应用程序。</string>
     <string name="quick_option_dimmed_disable">禁用</string>
     <string name="quick_option_disable">禁用</string>
     <string name="quick_option_install_dual_im">安装第二个应用程序</string>

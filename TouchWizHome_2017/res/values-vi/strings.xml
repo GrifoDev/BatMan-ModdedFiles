@@ -17,8 +17,10 @@
     <string name="accessibility_button">Phím</string>
     <string name="accessibility_dimmed">Tối</string>
     <string name="activity_not_available">Ứng dụng này không có cho thiết bị của bạn.</string>
-    <string name="activity_not_found">Ứng dụng không được cài đặt.</string>
+    <string name="activity_not_found">Không tìm thấy ứng dụng</string>
+    <string name="add">Thêm</string>
     <string name="add_to_last_page">Bạn đã chọn %1$d mục nhưng không đủ không gian trên trang này. %2$d mục còn lại sẽ được thêm vào trang cuối.</string>
+    <string name="add_to_last_page_for_hotseat">Bạn đã chọn %1$d mục nhưng không đủ chỗ trống trên khay yêu thích. %2$d mục còn lại sẽ được thêm vào trang cuối.</string>
     <string name="align_to_bottom">Canh chỉnh xuống dưới cùng</string>
     <string name="align_to_top">Canh chỉnh lên trên cùng</string>
     <string name="app_locked_toast">%s đã bị khóa.</string>
@@ -122,13 +124,14 @@
     <string name="new_page_created">Đã thêm trang.</string>
     <string name="no_changes">Không có thay đổi.</string>
     <string name="no_space_page">Trang không có chỗ trống. Hãy thử thêm phím tắt vào một trang khác.</string>
+    <string name="no_space_page_for_hotseat">Không có chỗ trống trên khay yêu thích.</string>
     <string name="no_space_page_for_widget">Không có chỗ trống trên trang này.</string>
     <string name="not_selected">Chưa được chọn</string>
     <string name="notification_panel_setting_summary">Vuốt xuống để mở bảng thông báo từ màn hình Chờ.</string>
     <string name="notification_panel_setting_title">Mở nhanh bảng thông báo</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Widget %s đã được thêm vào màn hình chờ.</string>
-    <string name="option_menu_contact_up">Liên hệ với chúng tôi</string>
+    <string name="option_menu_contact_up">Liên hệ chúng tôi</string>
     <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Cài đặt</string>
     <string name="options_menu">Tùy chọn khác</string>
@@ -156,6 +159,8 @@
     <string name="quick_option_delete_folder">Xóa thư mục</string>
     <string name="quick_option_delete_folder_alert">Thư mục %s sẽ bị xóa. Các ứng dụng trong thư mục này sẽ vẫn còn trên màn hình Ứng dụng.</string>
     <string name="quick_option_delete_folder_alert_no_title">Thư mục này sẽ bị xóa. Các ứng dụng trong thư mục này sẽ vẫn còn trên màn hình Ứng dụng.</string>
+    <string name="quick_option_delete_folder_home_only_alert">Thư mục %s sẽ bị xóa. Các ứng dụng trong thư mục này sẽ vẫn còn trên màn hình Chờ.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Thư mục này sẽ bị xóa. Các ứng dụng trong thư mục này sẽ vẫn còn trên màn hình Chờ.</string>
     <string name="quick_option_dimmed_disable">Tắt</string>
     <string name="quick_option_disable">Tắt</string>
     <string name="quick_option_install_dual_im">Cài đặt ứng dụng thứ hai</string>

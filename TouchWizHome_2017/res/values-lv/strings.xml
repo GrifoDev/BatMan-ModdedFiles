@@ -17,8 +17,10 @@
     <string name="accessibility_button">Poga</string>
     <string name="accessibility_dimmed">Aptumšots</string>
     <string name="activity_not_available">Šī programma jūsu ierīcei nav pieejama.</string>
-    <string name="activity_not_found">Programma nav instalēta.</string>
+    <string name="activity_not_found">Programma nav atrasta</string>
+    <string name="add">Pievienot</string>
     <string name="add_to_last_page">Jūs izvēlējāties %1$d objektus, bet šajā lapā nepietiek vietas. Atlikušie %2$d objekti tiks pievienoti pēdējā lapā.</string>
+    <string name="add_to_last_page_for_hotseat">Jūs izvēlējāties %1$d objektus, bet izlases joslā nepietiek vietas. Atlikušie %2$d objekti tiks pievienoti pēdējā lapā.</string>
     <string name="align_to_bottom">Līdzināt uz leju</string>
     <string name="align_to_top">Līdzināt uz augšu</string>
     <string name="app_locked_toast">%s bloķēts.</string>
@@ -123,13 +125,14 @@ person."</string>
     <string name="new_page_created">Lapa ir pievienota.</string>
     <string name="no_changes">Nav izmaiņu.</string>
     <string name="no_space_page">Lapā nav vietas. Mēģiniet īsceļu pievienot citā lapā.</string>
+    <string name="no_space_page_for_hotseat">Izlases joslā nav vietas.</string>
     <string name="no_space_page_for_widget">Šajā lapā nav vietas.</string>
     <string name="not_selected">Nav izvēlēts</string>
     <string name="notification_panel_setting_summary">Sākuma ekrānā pavelciet uz leju, lai atvērtu paziņojumu paneli.</string>
     <string name="notification_panel_setting_title">Ātri atver. paziņojumu panelis</string>
     <string name="ok">Labi</string>
     <string name="only_one_widget_instance_allowed">Logrīks %s jau ir pievienots sākuma ekrānam.</string>
-    <string name="option_menu_contact_up">Sazināties ar mums</string>
+    <string name="option_menu_contact_up">Sazinieties ar mums</string>
     <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Iestatījumi</string>
     <string name="options_menu">Citas iespējas</string>
@@ -157,6 +160,8 @@ person."</string>
     <string name="quick_option_delete_folder">Dzēst mapi</string>
     <string name="quick_option_delete_folder_alert">Mape %s tiks izdzēsta. Šajā mapē esošās programmas joprojām būs pieejamas programmu ekrānā.</string>
     <string name="quick_option_delete_folder_alert_no_title">Šī mape tiks izdzēsta. Šajā mapē esošās programmas joprojām būs pieejamas programmu ekrānā.</string>
+    <string name="quick_option_delete_folder_home_only_alert">Mape %s tiks izdzēsta. Šajā mapē esošās programmas vēl arvien būs pieejamas sākuma ekrānā.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Šī mape tiks izdzēsta. Šajā mapē esošās programmas vēl arvien būs pieejamas sākuma ekrānā.</string>
     <string name="quick_option_dimmed_disable">Deaktivizēt</string>
     <string name="quick_option_disable">Deaktivizēt</string>
     <string name="quick_option_install_dual_im">Instalēt otru programmu</string>

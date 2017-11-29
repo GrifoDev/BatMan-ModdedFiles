@@ -35,13 +35,13 @@
 # instance fields
 .field public action:I
 
-.field public color:I
+.field public final color:I
 
 .field public component:Landroid/content/ComponentName;
 
 .field public container:J
 
-.field public hidden:Z
+.field public final hidden:Z
 
 .field public id:J
 
@@ -62,9 +62,17 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/android/launcher3/common/model/FavoritesProvider$AppOrderModify;->hidden:Z
+
+    const/4 v0, -0x1
+
+    iput v0, p0, Lcom/android/launcher3/common/model/FavoritesProvider$AppOrderModify;->color:I
 
     return-void
 .end method

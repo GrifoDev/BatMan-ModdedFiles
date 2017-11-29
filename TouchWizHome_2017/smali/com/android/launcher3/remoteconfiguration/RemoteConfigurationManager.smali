@@ -12,11 +12,11 @@
 
 
 # instance fields
-.field private mAppstate:Lcom/android/launcher3/LauncherAppState;
+.field private final mAppstate:Lcom/android/launcher3/LauncherAppState;
 
 .field private mCompleteRunnableOnWorkThread:Ljava/lang/Runnable;
 
-.field private mConfigurationLock:Ljava/lang/Object;
+.field private final mConfigurationLock:Ljava/lang/Object;
 
 .field private final mContext:Landroid/content/Context;
 
@@ -435,6 +435,12 @@
     goto/16 :goto_0
 
     :cond_8
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v18
+
+    invoke-direct {v0, v10, v1}, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;->makeAdjustedWidgetSize(Landroid/content/ComponentName;Landroid/graphics/Point;)V
+
     move-object/from16 v0, v18
 
     iget v8, v0, Landroid/graphics/Point;->x:I
@@ -443,13 +449,15 @@
 
     iget v9, v0, Landroid/graphics/Point;->y:I
 
-    iget-object v4, v12, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->homeGrid:Lcom/android/launcher3/common/deviceprofile/GridInfo;
+    add-int v4, v6, v8
 
-    invoke-virtual {v4}, Lcom/android/launcher3/common/deviceprofile/GridInfo;->getCellCountX()I
+    iget-object v11, v12, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->homeGrid:Lcom/android/launcher3/common/deviceprofile/GridInfo;
 
-    move-result v4
+    invoke-virtual {v11}, Lcom/android/launcher3/common/deviceprofile/GridInfo;->getCellCountX()I
 
-    if-gt v8, v4, :cond_9
+    move-result v11
+
+    if-gt v4, v11, :cond_9
 
     const/4 v4, 0x1
 
@@ -462,7 +470,19 @@
 
     invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v19, "addWorkspaceItem : spanX is "
+    const-string v19, "addWorkspaceItem : cellX is "
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v11, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    const-string v19, ", spanX is "
 
     move-object/from16 v0, v19
 
@@ -471,6 +491,14 @@
     move-result-object v11
 
     invoke-virtual {v11, v8}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    const-string v19, ". and it\'s out of a cell."
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v11, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v11
 
@@ -483,13 +511,15 @@
     goto/16 :goto_0
 
     :cond_a
-    iget-object v4, v12, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->homeGrid:Lcom/android/launcher3/common/deviceprofile/GridInfo;
+    add-int v4, v7, v9
 
-    invoke-virtual {v4}, Lcom/android/launcher3/common/deviceprofile/GridInfo;->getCellCountY()I
+    iget-object v11, v12, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->homeGrid:Lcom/android/launcher3/common/deviceprofile/GridInfo;
 
-    move-result v4
+    invoke-virtual {v11}, Lcom/android/launcher3/common/deviceprofile/GridInfo;->getCellCountY()I
 
-    if-gt v9, v4, :cond_b
+    move-result v11
+
+    if-gt v4, v11, :cond_b
 
     const/4 v4, 0x1
 
@@ -502,7 +532,19 @@
 
     invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v19, "addWorkspaceItem : spanY is "
+    const-string v19, "addWorkspaceItem : cellY is "
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v11, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    invoke-virtual {v11, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    const-string v19, ", spanY is "
 
     move-object/from16 v0, v19
 
@@ -511,6 +553,14 @@
     move-result-object v11
 
     invoke-virtual {v11, v9}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v11
+
+    const-string v19, ". and it\'s out of a cell."
+
+    move-object/from16 v0, v19
+
+    invoke-virtual {v11, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v11
 
@@ -543,8 +593,60 @@
 
     move-result v4
 
+    if-eqz v4, :cond_11
+
+    new-instance v13, Lcom/android/launcher3/remoteconfiguration/ExternalMethodInfo;
+
+    if-eqz p2, :cond_10
+
+    const-string v4, "add_widget"
+
+    :goto_2
+    const-wide/16 v20, -0x1
+
+    move-object/from16 v0, p1
+
+    move-wide/from16 v1, v20
+
+    invoke-direct {v13, v4, v0, v1, v2}, Lcom/android/launcher3/remoteconfiguration/ExternalMethodInfo;-><init>(Ljava/lang/String;Landroid/os/Bundle;J)V
+
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;->mContext:Landroid/content/Context;
+
+    invoke-static {v13, v4}, Lcom/android/launcher3/remoteconfiguration/ExternalMethodQueue;->queueExternalMethodInfo(Lcom/android/launcher3/remoteconfiguration/ExternalMethodInfo;Landroid/content/Context;)Z
+
+    move-result v4
+
     if-nez v4, :cond_f
 
+    move-object/from16 v0, p0
+
+    iget-object v4, v0, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;->mAppstate:Lcom/android/launcher3/LauncherAppState;
+
+    invoke-virtual {v4}, Lcom/android/launcher3/LauncherAppState;->getModel()Lcom/android/launcher3/LauncherModel;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/launcher3/LauncherModel;->getHomeLoader()Lcom/android/launcher3/home/HomeLoader;
+
+    move-result-object v4
+
+    move/from16 v11, p2
+
+    invoke-virtual/range {v4 .. v11}, Lcom/android/launcher3/home/HomeLoader;->addOrMoveItem(IIIIILandroid/content/ComponentName;Z)V
+
+    :cond_f
+    const/16 v17, 0x0
+
+    goto/16 :goto_1
+
+    :cond_10
+    const-string v4, "add_shortcut"
+
+    goto :goto_2
+
+    :cond_11
     sget-object v4, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;->TAG:Ljava/lang/String;
 
     new-instance v11, Ljava/lang/StringBuilder;
@@ -580,58 +682,6 @@
     const/16 v17, -0x3
 
     goto/16 :goto_1
-
-    :cond_f
-    new-instance v13, Lcom/android/launcher3/remoteconfiguration/ExternalMethodInfo;
-
-    if-eqz p2, :cond_11
-
-    const-string v4, "add_widget"
-
-    :goto_2
-    const-wide/16 v20, -0x1
-
-    move-object/from16 v0, p1
-
-    move-wide/from16 v1, v20
-
-    invoke-direct {v13, v4, v0, v1, v2}, Lcom/android/launcher3/remoteconfiguration/ExternalMethodInfo;-><init>(Ljava/lang/String;Landroid/os/Bundle;J)V
-
-    move-object/from16 v0, p0
-
-    iget-object v4, v0, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v13, v4}, Lcom/android/launcher3/remoteconfiguration/ExternalMethodQueue;->queueExternalMethodInfo(Lcom/android/launcher3/remoteconfiguration/ExternalMethodInfo;Landroid/content/Context;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_10
-
-    move-object/from16 v0, p0
-
-    iget-object v4, v0, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;->mAppstate:Lcom/android/launcher3/LauncherAppState;
-
-    invoke-virtual {v4}, Lcom/android/launcher3/LauncherAppState;->getModel()Lcom/android/launcher3/LauncherModel;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Lcom/android/launcher3/LauncherModel;->getHomeLoader()Lcom/android/launcher3/home/HomeLoader;
-
-    move-result-object v4
-
-    move/from16 v11, p2
-
-    invoke-virtual/range {v4 .. v11}, Lcom/android/launcher3/home/HomeLoader;->addOrMoveItem(IIIIILandroid/content/ComponentName;Z)V
-
-    :cond_10
-    const/16 v17, 0x0
-
-    goto/16 :goto_1
-
-    :cond_11
-    const-string v4, "add_shortcut"
-
-    goto :goto_2
 .end method
 
 .method private checkPermission()Z
@@ -786,29 +836,49 @@
 .end method
 
 .method private getAppsButtonState()Landroid/os/Bundle;
-    .locals 3
+    .locals 4
 
-    sget-object v1, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;->TAG:Ljava/lang/String;
+    sget-object v2, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;->TAG:Ljava/lang/String;
 
-    const-string v2, "getAppsButtonState"
+    const-string v3, "getAppsButtonState"
 
-    invoke-static {v1, v2}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v3}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     new-instance v0, Landroid/os/Bundle;
 
     invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
 
-    const-string v1, "state"
+    const/4 v1, 0x0
 
     iget-object v2, p0, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;->mAppstate:Lcom/android/launcher3/LauncherAppState;
 
-    invoke-virtual {v2}, Lcom/android/launcher3/LauncherAppState;->getAppsButtonEnabled()Z
+    invoke-virtual {v2}, Lcom/android/launcher3/LauncherAppState;->isHomeOnlyModeEnabled()Z
 
     move-result v2
 
-    invoke-virtual {v0, v1, v2}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+    if-eqz v2, :cond_0
+
+    const/4 v1, -0x2
+
+    :goto_0
+    const-string v2, "invocation_result"
+
+    invoke-virtual {v0, v2, v1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     return-object v0
+
+    :cond_0
+    const-string v2, "state"
+
+    iget-object v3, p0, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;->mAppstate:Lcom/android/launcher3/LauncherAppState;
+
+    invoke-virtual {v3}, Lcom/android/launcher3/LauncherAppState;->getAppsButtonEnabled()Z
+
+    move-result v3
+
+    invoke-virtual {v0, v2, v3}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+
+    goto :goto_0
 .end method
 
 .method private getAppsCellDimension()Landroid/os/Bundle;
@@ -1492,7 +1562,7 @@
     return-object v0
 
     :sswitch_0
-    const-string v1, "is_supported"
+    const-string v1, "get_home_cell_dimension"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1505,7 +1575,7 @@
     goto :goto_0
 
     :sswitch_1
-    const-string v1, "get_home_cell_dimension"
+    const-string v1, "get_apps_cell_dimension"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1518,7 +1588,7 @@
     goto :goto_0
 
     :sswitch_2
-    const-string v1, "get_apps_cell_dimension"
+    const-string v1, "get_hotseat_item"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1531,7 +1601,7 @@
     goto :goto_0
 
     :sswitch_3
-    const-string v1, "get_hotseat_item"
+    const-string v1, "get_hotseat_item_count"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1544,7 +1614,7 @@
     goto :goto_0
 
     :sswitch_4
-    const-string v1, "get_hotseat_item_count"
+    const-string v1, " get_hotseat_maxitem_count"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1557,7 +1627,7 @@
     goto :goto_0
 
     :sswitch_5
-    const-string v1, " get_hotseat_maxitem_count"
+    const-string v1, "get_supplement_service_page_visibility"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1570,7 +1640,7 @@
     goto :goto_0
 
     :sswitch_6
-    const-string v1, "get_supplement_service_page_visibility"
+    const-string v1, "get_apps_button_state"
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -1582,87 +1652,64 @@
 
     goto :goto_0
 
-    :sswitch_7
-    const-string v1, "get_apps_button_state"
-
-    invoke-virtual {p1, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    const/4 v0, 0x7
-
-    goto :goto_0
-
     :pswitch_0
-    invoke-direct {p0, p2}, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;->isSupported(Landroid/os/Bundle;)Landroid/os/Bundle;
-
-    move-result-object v0
-
-    goto :goto_1
-
-    :pswitch_1
     invoke-direct {p0}, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;->getHomeCellDimension()Landroid/os/Bundle;
 
     move-result-object v0
 
     goto :goto_1
 
-    :pswitch_2
+    :pswitch_1
     invoke-direct {p0}, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;->getAppsCellDimension()Landroid/os/Bundle;
 
     move-result-object v0
 
     goto :goto_1
 
-    :pswitch_3
+    :pswitch_2
     invoke-direct {p0, p2}, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;->getHotseatItem(Landroid/os/Bundle;)Landroid/os/Bundle;
 
     move-result-object v0
 
     goto :goto_1
 
-    :pswitch_4
+    :pswitch_3
     invoke-direct {p0}, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;->getHotseatItemCount()Landroid/os/Bundle;
 
     move-result-object v0
 
     goto :goto_1
 
-    :pswitch_5
+    :pswitch_4
     invoke-direct {p0}, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;->getHotseatMaxItemCount()Landroid/os/Bundle;
 
     move-result-object v0
 
     goto :goto_1
 
-    :pswitch_6
+    :pswitch_5
     invoke-direct {p0}, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;->getSupplementServicePageVisibility()Landroid/os/Bundle;
 
     move-result-object v0
 
     goto :goto_1
 
-    :pswitch_7
+    :pswitch_6
     invoke-direct {p0}, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;->getAppsButtonState()Landroid/os/Bundle;
 
     move-result-object v0
 
     goto :goto_1
 
-    nop
-
     :sswitch_data_0
     .sparse-switch
-        -0x736ea507 -> :sswitch_4
-        -0x51d6cac5 -> :sswitch_6
-        -0x4f541027 -> :sswitch_0
-        -0x21d4b657 -> :sswitch_3
-        -0x9458c40 -> :sswitch_1
-        0xf712b51 -> :sswitch_5
-        0x639b65cd -> :sswitch_2
-        0x6e30d948 -> :sswitch_7
+        -0x736ea507 -> :sswitch_3
+        -0x51d6cac5 -> :sswitch_5
+        -0x21d4b657 -> :sswitch_2
+        -0x9458c40 -> :sswitch_0
+        0xf712b51 -> :sswitch_4
+        0x639b65cd -> :sswitch_1
+        0x6e30d948 -> :sswitch_6
     .end sparse-switch
 
     :pswitch_data_0
@@ -1674,7 +1721,6 @@
         :pswitch_4
         :pswitch_5
         :pswitch_6
-        :pswitch_7
     .end packed-switch
 .end method
 
@@ -2819,20 +2865,43 @@
     throw v4
 .end method
 
-.method private isSupported(Landroid/os/Bundle;)Landroid/os/Bundle;
-    .locals 2
+.method private makeAdjustedWidgetSize(Landroid/content/ComponentName;Landroid/graphics/Point;)V
+    .locals 3
 
-    sget-object v0, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;->TAG:Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;->mContext:Landroid/content/Context;
 
-    const-string v1, "isSupported"
+    invoke-static {v1}, Lcom/android/launcher3/common/compat/AppWidgetManagerCompat;->getInstance(Landroid/content/Context;)Lcom/android/launcher3/common/compat/AppWidgetManagerCompat;
 
-    invoke-static {v0, v1}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    move-result-object v1
 
-    new-instance v0, Landroid/os/Bundle;
+    invoke-static {}, Lcom/android/launcher3/common/compat/UserHandleCompat;->myUserHandle()Lcom/android/launcher3/common/compat/UserHandleCompat;
 
-    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+    move-result-object v2
 
-    return-object v0
+    invoke-virtual {v1, p1, v2}, Lcom/android/launcher3/common/compat/AppWidgetManagerCompat;->findProvider(Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;)Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget v1, p2, Landroid/graphics/Point;->x:I
+
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo;->getNearestWidth(I)I
+
+    move-result v1
+
+    iput v1, p2, Landroid/graphics/Point;->x:I
+
+    iget v1, p2, Landroid/graphics/Point;->y:I
+
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/model/LauncherAppWidgetProviderInfo;->getNearestHeight(I)I
+
+    move-result v1
+
+    iput v1, p2, Landroid/graphics/Point;->y:I
+
+    :cond_0
+    return-void
 .end method
 
 .method private makeEmptyPosition(Landroid/os/Bundle;)Landroid/os/Bundle;
@@ -3686,8 +3755,50 @@
 
     move-result v4
 
+    if-eqz v4, :cond_6
+
+    new-instance v1, Lcom/android/launcher3/remoteconfiguration/ExternalMethodInfo;
+
+    if-eqz p2, :cond_5
+
+    const-string v4, "remove_widget"
+
+    :goto_2
+    const-wide/16 v6, -0x1
+
+    invoke-direct {v1, v4, p1, v6, v7}, Lcom/android/launcher3/remoteconfiguration/ExternalMethodInfo;-><init>(Ljava/lang/String;Landroid/os/Bundle;J)V
+
+    iget-object v4, p0, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;->mContext:Landroid/content/Context;
+
+    invoke-static {v1, v4}, Lcom/android/launcher3/remoteconfiguration/ExternalMethodQueue;->queueExternalMethodInfo(Lcom/android/launcher3/remoteconfiguration/ExternalMethodInfo;Landroid/content/Context;)Z
+
+    move-result v4
+
     if-nez v4, :cond_4
 
+    iget-object v4, p0, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;->mAppstate:Lcom/android/launcher3/LauncherAppState;
+
+    invoke-virtual {v4}, Lcom/android/launcher3/LauncherAppState;->getModel()Lcom/android/launcher3/LauncherModel;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/launcher3/LauncherModel;->getHomeLoader()Lcom/android/launcher3/home/HomeLoader;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v0, p2}, Lcom/android/launcher3/home/HomeLoader;->removeItem(Landroid/content/ComponentName;Z)V
+
+    :cond_4
+    const/4 v3, 0x0
+
+    goto :goto_1
+
+    :cond_5
+    const-string v4, "remove_shortcut"
+
+    goto :goto_2
+
+    :cond_6
     sget-object v4, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;->TAG:Ljava/lang/String;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -3719,48 +3830,6 @@
     const/4 v3, -0x3
 
     goto :goto_1
-
-    :cond_4
-    new-instance v1, Lcom/android/launcher3/remoteconfiguration/ExternalMethodInfo;
-
-    if-eqz p2, :cond_6
-
-    const-string v4, "remove_widget"
-
-    :goto_2
-    const-wide/16 v6, -0x1
-
-    invoke-direct {v1, v4, p1, v6, v7}, Lcom/android/launcher3/remoteconfiguration/ExternalMethodInfo;-><init>(Ljava/lang/String;Landroid/os/Bundle;J)V
-
-    iget-object v4, p0, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;->mContext:Landroid/content/Context;
-
-    invoke-static {v1, v4}, Lcom/android/launcher3/remoteconfiguration/ExternalMethodQueue;->queueExternalMethodInfo(Lcom/android/launcher3/remoteconfiguration/ExternalMethodInfo;Landroid/content/Context;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_5
-
-    iget-object v4, p0, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;->mAppstate:Lcom/android/launcher3/LauncherAppState;
-
-    invoke-virtual {v4}, Lcom/android/launcher3/LauncherAppState;->getModel()Lcom/android/launcher3/LauncherModel;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Lcom/android/launcher3/LauncherModel;->getHomeLoader()Lcom/android/launcher3/home/HomeLoader;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v0, p2}, Lcom/android/launcher3/home/HomeLoader;->removeItem(Landroid/content/ComponentName;Z)V
-
-    :cond_5
-    const/4 v3, 0x0
-
-    goto :goto_1
-
-    :cond_6
-    const-string v4, "remove_shortcut"
-
-    goto :goto_2
 .end method
 
 .method private setAppsButton(ZLjava/lang/String;)Landroid/os/Bundle;
@@ -3841,10 +3910,6 @@
     invoke-direct {v0, p0}, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager$1;-><init>(Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;)V
 
     iput-object v0, p0, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;->mCompleteRunnableOnWorkThread:Ljava/lang/Runnable;
-
-    iget-object v0, p0, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;->mAppstate:Lcom/android/launcher3/LauncherAppState;
-
-    invoke-virtual {v0}, Lcom/android/launcher3/LauncherAppState;->getModel()Lcom/android/launcher3/LauncherModel;
 
     iget-object v0, p0, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;->mCompleteRunnableOnWorkThread:Ljava/lang/Runnable;
 
@@ -3968,7 +4033,7 @@
 
     move-result-object v4
 
-    const v7, 0x7f0901e2
+    const v7, 0x7f0901e7
 
     invoke-virtual {v4, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4001,15 +4066,13 @@
 .method private switchHomeMode(Landroid/os/Bundle;)Landroid/os/Bundle;
     .locals 7
 
-    const/4 v3, 0x1
+    const/4 v5, 0x0
 
-    const/4 v4, 0x0
-
-    sget-object v5, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;->TAG:Ljava/lang/String;
+    sget-object v4, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;->TAG:Ljava/lang/String;
 
     const-string v6, "switchHomeMode"
 
-    invoke-static {v5, v6}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v4, v6}, Landroid/util/Log;->v(Ljava/lang/String;Ljava/lang/String;)I
 
     new-instance v1, Landroid/os/Bundle;
 
@@ -4033,13 +4096,13 @@
     return-object v1
 
     :cond_0
-    const-string v5, "home_mode"
+    const-string v4, "home_mode"
 
-    invoke-virtual {p1, v5}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {p1, v4}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    const/4 v5, -0x1
+    const/4 v4, -0x1
 
     invoke-virtual {v0}, Ljava/lang/String;->hashCode()I
 
@@ -4049,27 +4112,24 @@
 
     :cond_1
     :goto_1
-    packed-switch v5, :pswitch_data_0
+    packed-switch v4, :pswitch_data_0
 
     goto :goto_0
 
     :pswitch_0
-    const-string v5, "home_only_mode"
+    const-string v4, "home_only_mode"
 
-    invoke-virtual {v0, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v5
+    move-result v3
 
-    if-eqz v5, :cond_3
-
-    :goto_2
-    iget-object v5, p0, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;->mContext:Landroid/content/Context;
+    iget-object v4, p0, Lcom/android/launcher3/remoteconfiguration/RemoteConfigurationManager;->mContext:Landroid/content/Context;
 
     invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getSharedPreferencesKey()Ljava/lang/String;
 
     move-result-object v6
 
-    invoke-virtual {v5, v6, v4}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
+    invoke-virtual {v4, v6, v5}, Landroid/content/Context;->getSharedPreferences(Ljava/lang/String;I)Landroid/content/SharedPreferences;
 
     move-result-object v4
 
@@ -4109,7 +4169,7 @@
 
     if-eqz v6, :cond_1
 
-    move v5, v4
+    move v4, v5
 
     goto :goto_1
 
@@ -4122,14 +4182,11 @@
 
     if-eqz v6, :cond_1
 
-    move v5, v3
+    const/4 v4, 0x1
 
     goto :goto_1
 
-    :cond_3
-    move v3, v4
-
-    goto :goto_2
+    nop
 
     :sswitch_data_0
     .sparse-switch

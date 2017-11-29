@@ -64,17 +64,45 @@
     const/4 v2, 0x0
 
     :goto_0
-    if-ge v2, v4, :cond_7
+    if-lt v2, v4, :cond_2
 
+    if-eqz v3, :cond_0
+
+    const-string v5, "vCard"
+
+    const-string v6, "Dangling Dquote."
+
+    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_0
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
+
+    move-result v5
+
+    if-nez v5, :cond_a
+
+    const-string v5, "vCard"
+
+    const-string v6, "Unintended behavior. We must not see empty StringBuilder at the end of parameter value parsing."
+
+    invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
+
+    :cond_1
+    :goto_1
+    return-void
+
+    :cond_2
     invoke-virtual {p3, v2}, Ljava/lang/String;->charAt(I)C
 
     move-result v1
 
     const/16 v5, 0x22
 
-    if-ne v1, v5, :cond_3
+    if-ne v1, v5, :cond_6
 
-    if-eqz v3, :cond_0
+    if-eqz v3, :cond_3
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -90,19 +118,19 @@
 
     const/4 v3, 0x0
 
-    :goto_1
+    :goto_2
     add-int/lit8 v2, v2, 0x1
 
     goto :goto_0
 
-    :cond_0
-    if-eqz v0, :cond_1
+    :cond_3
+    if-eqz v0, :cond_4
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
 
     move-result v5
 
-    if-lez v5, :cond_2
+    if-lez v5, :cond_5
 
     const-string v5, "vCard"
 
@@ -110,13 +138,13 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_1
-    :goto_2
+    :cond_4
+    :goto_3
     const/4 v3, 0x1
 
-    goto :goto_1
+    goto :goto_2
 
-    :cond_2
+    :cond_5
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
@@ -127,28 +155,24 @@
 
     invoke-virtual {p1, p2, v5}, Lcom/android/vcard/VCardProperty;->addParameter(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_2
+    goto :goto_3
 
-    :cond_3
+    :cond_6
     const/16 v5, 0x2c
 
-    if-ne v1, v5, :cond_5
+    if-ne v1, v5, :cond_8
 
-    if-nez v3, :cond_5
+    if-nez v3, :cond_8
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_7
 
     const-string v5, "vCard"
 
     new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v7, "Comma is used before actual string comes. ("
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
+    invoke-direct {v6, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v6, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -166,9 +190,9 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
 
-    goto :goto_1
+    goto :goto_2
 
-    :cond_4
+    :cond_7
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
@@ -181,47 +205,19 @@
 
     const/4 v0, 0x0
 
-    goto :goto_1
+    goto :goto_2
 
-    :cond_5
-    if-nez v0, :cond_6
+    :cond_8
+    if-nez v0, :cond_9
 
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    :cond_6
+    :cond_9
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    goto :goto_1
-
-    :cond_7
-    if-eqz v3, :cond_8
-
-    const-string v5, "vCard"
-
-    const-string v6, "Dangling Dquote."
-
-    invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_8
-    if-eqz v0, :cond_9
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
-
-    move-result v5
-
-    if-nez v5, :cond_a
-
-    const-string v5, "vCard"
-
-    const-string v6, "Unintended behavior. We must not see empty StringBuilder at the end of parameter value parsing."
-
-    invoke-static {v5, v6}, Landroid/util/Log;->w(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_9
-    :goto_3
-    return-void
+    goto :goto_2
 
     :cond_a
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -234,7 +230,7 @@
 
     invoke-virtual {p1, p2, v5}, Lcom/android/vcard/VCardProperty;->addParameter(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_3
+    goto :goto_1
 .end method
 
 .method public static unescapeCharacter(C)Ljava/lang/String;
@@ -276,19 +272,26 @@
     const/4 v2, 0x0
 
     :goto_0
-    if-ge v2, v3, :cond_3
+    if-lt v2, v3, :cond_0
 
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    return-object v5
+
+    :cond_0
     invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
 
     move-result v1
 
     const/16 v5, 0x5c
 
-    if-ne v1, v5, :cond_2
+    if-ne v1, v5, :cond_3
 
     add-int/lit8 v5, v3, -0x1
 
-    if-ge v2, v5, :cond_2
+    if-ge v2, v5, :cond_3
 
     add-int/lit8 v2, v2, 0x1
 
@@ -298,13 +301,13 @@
 
     const/16 v5, 0x6e
 
-    if-eq v4, v5, :cond_0
+    if-eq v4, v5, :cond_1
 
     const/16 v5, 0x4e
 
-    if-ne v4, v5, :cond_1
+    if-ne v4, v5, :cond_2
 
-    :cond_0
+    :cond_1
     const-string v5, "\n"
 
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -314,22 +317,15 @@
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     goto :goto_1
 
-    :cond_2
+    :cond_3
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     goto :goto_1
-
-    :cond_3
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    return-object v5
 .end method
 
 
@@ -733,13 +729,9 @@
 
     new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v4, "Unknown params value: "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 

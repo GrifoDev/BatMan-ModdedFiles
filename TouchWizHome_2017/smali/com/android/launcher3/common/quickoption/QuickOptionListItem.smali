@@ -6,67 +6,67 @@
 # static fields
 .field static final ADD_APPS_ICON_ID:I = 0x7f0200de
 
-.field static final ADD_APPS_TEXT_ID:I = 0x7f090093
+.field static final ADD_APPS_TEXT_ID:I = 0x7f090096
 
 .field static final ADD_SHORTCUT_TO_HOME_ICON_ID:I = 0x7f0200df
 
-.field static final ADD_SHORTCUT_TO_HOME_TEXT_ID:I = 0x7f090094
+.field static final ADD_SHORTCUT_TO_HOME_TEXT_ID:I = 0x7f090097
 
 .field static final ADD_TO_PERSONAL_ICON_ID:I = 0x7f0200e0
 
-.field static final ADD_TO_PERSONAL_TEXT_ID:I = 0x7f090095
+.field static final ADD_TO_PERSONAL_TEXT_ID:I = 0x7f090098
 
 .field static final APP_INFO_ICON_ID:I = 0x7f0200e2
 
-.field static final APP_INFO_TEXT_ID:I = 0x7f090096
+.field static final APP_INFO_TEXT_ID:I = 0x7f090099
 
 .field static final CLEAR_BADGE_ICON_ID:I = 0x7f0200e3
 
-.field static final CLEAR_BADGE_TEXT_ID:I = 0x7f090098
+.field static final CLEAR_BADGE_TEXT_ID:I = 0x7f09009b
 
 .field static final DELETE_FOLDER_ICON_ID:I = 0x7f0200e9
 
-.field static final DELETE_FOLDER_TEXT_ID:I = 0x7f090099
+.field static final DELETE_FOLDER_TEXT_ID:I = 0x7f09009c
 
-.field static final DIMMED_DISABLE_TEXT_ID:I = 0x7f09009c
+.field static final DIMMED_DISABLE_TEXT_ID:I = 0x7f0900a1
 
 .field static final DISABLE_ICON_ID:I = 0x7f0200e4
 
-.field static final DISABLE_TEXT_ID:I = 0x7f09009d
+.field static final DISABLE_TEXT_ID:I = 0x7f0900a2
 
 .field static final INSTALL_DUAL_IM_ICON_ID:I = 0x7f0200e6
 
-.field static final INSTALL_DUAL_IM_TEXT_ID:I = 0x7f09009e
+.field static final INSTALL_DUAL_IM_TEXT_ID:I = 0x7f0900a3
 
 .field static final LOCK_ICON_ID:I = 0x7f0200e7
 
-.field static final LOCK_TEXT_ID:I = 0x7f09009f
+.field static final LOCK_TEXT_ID:I = 0x7f0900a4
 
 .field static final MOVE_FROM_FOLDER_ICON_ID:I = 0x7f0200e8
 
-.field static final MOVE_FROM_FOLDER_TEXT_ID:I = 0x7f0900a0
+.field static final MOVE_FROM_FOLDER_TEXT_ID:I = 0x7f0900a5
 
 .field static final REMOVE_ICON_ID:I = 0x7f0200e9
 
-.field static final REMOVE_SHORTCUT_TEXT_ID:I = 0x7f0900a2
+.field static final REMOVE_SHORTCUT_TEXT_ID:I = 0x7f0900a7
 
-.field static final REMOVE_TEXT_ID:I = 0x7f0900a1
+.field static final REMOVE_TEXT_ID:I = 0x7f0900a6
 
 .field static final SECURE_FOLDER_ICON_ID:I = 0x7f0200e1
 
-.field static final SECURE_FOLDER_TEXT_ID:I = 0x7f0900a3
+.field static final SECURE_FOLDER_TEXT_ID:I = 0x7f0900a8
 
 .field static final SELECT_ICON_ID:I = 0x7f0200ea
 
-.field static final SELECT_TEXT_ID:I = 0x7f0900a4
+.field static final SELECT_TEXT_ID:I = 0x7f0900a9
 
 .field static final SET_TO_ZEROPAGE_ICON_ID:I = 0x7f0200de
 
-.field static final SET_TO_ZEROPAGE_TEXT_ID:I = 0x7f09019e
+.field static final SET_TO_ZEROPAGE_TEXT_ID:I = 0x7f0901a3
 
 .field static final SLEEP_ICON_ID:I = 0x7f0200eb
 
-.field static final SLEEP_TEXT_ID:I = 0x7f0900a5
+.field static final SLEEP_TEXT_ID:I = 0x7f0900aa
 
 .field static final TYPE_DEEP_SHORTCUT:I = 0x1
 
@@ -76,11 +76,11 @@
 
 .field static final UNINSTALL_ICON_ID:I = 0x7f0200ec
 
-.field static final UNINSTALL_TEXT_ID:I = 0x7f0900a7
+.field static final UNINSTALL_TEXT_ID:I = 0x7f0900ac
 
 .field static final UNLOCK_ICON_ID:I = 0x7f0200ed
 
-.field static final UNLOCK_TEXT_ID:I = 0x7f0900a8
+.field static final UNLOCK_TEXT_ID:I = 0x7f0900ad
 
 
 # instance fields
@@ -185,7 +185,7 @@
 
     move-result v0
 
-    const v1, 0x7f0900a1
+    const v1, 0x7f0900a6
 
     if-eq v0, v1, :cond_0
 
@@ -193,7 +193,7 @@
 
     move-result v0
 
-    const v1, 0x7f0900a2
+    const v1, 0x7f0900a7
 
     if-ne v0, v1, :cond_1
 

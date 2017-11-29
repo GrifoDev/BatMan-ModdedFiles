@@ -20,38 +20,79 @@
 .end method
 
 .method private uninstallWidget(Landroid/view/View;)V
-    .locals 5
+    .locals 6
 
     invoke-virtual {p1}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
-    move-result-object v1
+    move-result-object v2
 
-    instance-of v2, v1, Lcom/android/launcher3/common/base/item/PendingAddItemInfo;
+    instance-of v3, v2, Lcom/android/launcher3/common/base/item/PendingAddItemInfo;
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_1
 
-    move-object v0, v1
+    move-object v0, v2
 
     check-cast v0, Lcom/android/launcher3/common/base/item/PendingAddItemInfo;
 
-    iget-object v2, p0, Lcom/android/launcher3/widget/controller/WidgetStateUninstall;->mContext:Landroid/content/Context;
+    iget-object v3, p0, Lcom/android/launcher3/widget/controller/WidgetStateUninstall;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v0, v2}, Lcom/android/launcher3/common/base/item/PendingAddItemInfo;->uninstallable(Landroid/content/Context;)Z
+    invoke-virtual {v0, v3}, Lcom/android/launcher3/common/base/item/PendingAddItemInfo;->uninstallable(Landroid/content/Context;)Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_1
 
-    iget-object v2, p0, Lcom/android/launcher3/widget/controller/WidgetStateUninstall;->mContext:Landroid/content/Context;
+    iget-object v3, v0, Lcom/android/launcher3/common/base/item/PendingAddItemInfo;->componentName:Landroid/content/ComponentName;
+
+    invoke-virtual {v3}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
+
+    move-result-object v1
+
+    iget-object v3, p0, Lcom/android/launcher3/widget/controller/WidgetStateUninstall;->mContext:Landroid/content/Context;
+
+    invoke-static {v3}, Lcom/android/launcher3/util/DualAppUtils;->supportDualApp(Landroid/content/Context;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
 
     iget-object v3, v0, Lcom/android/launcher3/common/base/item/PendingAddItemInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
-    iget-object v4, v0, Lcom/android/launcher3/common/base/item/PendingAddItemInfo;->componentName:Landroid/content/ComponentName;
+    invoke-static {v3, v1}, Lcom/android/launcher3/util/DualAppUtils;->isDualApp(Lcom/android/launcher3/common/compat/UserHandleCompat;Ljava/lang/String;)Z
 
-    invoke-static {v2, v3, v4}, Lcom/android/launcher3/util/UninstallAppUtils;->startUninstallActivity(Landroid/content/Context;Lcom/android/launcher3/common/compat/UserHandleCompat;Landroid/content/ComponentName;)V
+    move-result v3
+
+    if-nez v3, :cond_0
+
+    iget-object v3, v0, Lcom/android/launcher3/common/base/item/PendingAddItemInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    invoke-static {v3, v1}, Lcom/android/launcher3/util/DualAppUtils;->hasDualApp(Lcom/android/launcher3/common/compat/UserHandleCompat;Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_2
 
     :cond_0
+    iget-object v3, p0, Lcom/android/launcher3/widget/controller/WidgetStateUninstall;->mContext:Landroid/content/Context;
+
+    iget-object v4, v0, Lcom/android/launcher3/common/base/item/PendingAddItemInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    invoke-static {v3, v1, v4}, Lcom/android/launcher3/util/DualAppUtils;->uninstallOrDisableDualApp(Landroid/content/Context;Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
+
+    :cond_1
+    :goto_0
     return-void
+
+    :cond_2
+    iget-object v3, p0, Lcom/android/launcher3/widget/controller/WidgetStateUninstall;->mContext:Landroid/content/Context;
+
+    iget-object v4, v0, Lcom/android/launcher3/common/base/item/PendingAddItemInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    iget-object v5, v0, Lcom/android/launcher3/common/base/item/PendingAddItemInfo;->componentName:Landroid/content/ComponentName;
+
+    invoke-static {v3, v4, v5}, Lcom/android/launcher3/util/UninstallAppUtils;->startUninstallActivity(Landroid/content/Context;Lcom/android/launcher3/common/compat/UserHandleCompat;Landroid/content/ComponentName;)V
+
+    goto :goto_0
 .end method
 
 
@@ -196,7 +237,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f09005e
+    const v3, 0x7f090060
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -274,7 +315,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0080
+    const v2, 0x7f0a007f
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

@@ -17,8 +17,10 @@
     <string name="accessibility_button">לחצן</string>
     <string name="accessibility_dimmed">מעומעם</string>
     <string name="activity_not_available">יישום זה אינו זמין למכשירים כמו זה שברשותך.</string>
-    <string name="activity_not_found">היישום אינו מותקן.</string>
+    <string name="activity_not_found">היישום לא נמצא</string>
+    <string name="add">הוסף</string>
     <string name="add_to_last_page">בחרת %1$d פריטים אך אין די מקום בשבילם בדף זה. %2$d הפריטים הנותרים יתווספו לדף האחרון.</string>
+    <string name="add_to_last_page_for_hotseat">בחרת %1$d פריטים אך אין די מקום בשבילם במגש המועדפים. %2$d הפריטים הנותרים יתווספו לדף האחרון.</string>
     <string name="align_to_bottom">יישר כלפי מטה</string>
     <string name="align_to_top">ישר כלפי מעלה</string>
     <string name="app_locked_toast">%s נעול.</string>
@@ -122,6 +124,7 @@
     <string name="new_page_created">נוסף דף.</string>
     <string name="no_changes">אין שינויים.</string>
     <string name="no_space_page">אין מקום בדף. נסה להוסיף את קיצור הדרך בדף אחר.</string>
+    <string name="no_space_page_for_hotseat">אין מקום במגש המועדפים.</string>
     <string name="no_space_page_for_widget">אין שטח בדף זה.</string>
     <string name="not_selected">לא נבחר</string>
     <string name="notification_panel_setting_summary">החלק מטה כדי לפתוח את חלונית ההתראות ממסך הבית.</string>
@@ -156,6 +159,8 @@
     <string name="quick_option_delete_folder">מחק תיקייה</string>
     <string name="quick_option_delete_folder_alert">התיקייה %s תימחק. היישומים שבתוך תיקייה זו ימשיכו להיות זמינים דרך מסך היישומים.</string>
     <string name="quick_option_delete_folder_alert_no_title">תיקייה זו תימחק. היישומים שבתוך תיקייה זו ימשיכו להיות זמינים דרך מסך היישומים.</string>
+    <string name="quick_option_delete_folder_home_only_alert">התיקייה %s תימחק. היישומים שבתוך תיקייה זו ימשיכו להיות זמינים במסך הבית.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">תיקייה זו תימחק. היישומים שבתוך תיקייה זו ימשיכו להיות זמינים דרך מסך הבית.</string>
     <string name="quick_option_dimmed_disable">השבת</string>
     <string name="quick_option_disable">השבת</string>
     <string name="quick_option_install_dual_im">התקן יישום נוסף</string>

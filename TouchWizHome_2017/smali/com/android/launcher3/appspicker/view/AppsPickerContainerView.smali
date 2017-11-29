@@ -34,6 +34,18 @@
 
 .field private mQueryKey:Ljava/lang/String;
 
+.field private mRestoredHiddenItems:Ljava/util/HashMap;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Ljava/util/HashMap",
+            "<",
+            "Lcom/android/launcher3/common/base/item/IconInfo;",
+            "Ljava/lang/Boolean;",
+            ">;"
+        }
+    .end annotation
+.end field
+
 .field private mSearchBarContainerView:Landroid/view/ViewGroup;
 
 .field private mSearchBarController:Lcom/android/launcher3/appspicker/controller/AppsPickerSearchBarController;
@@ -118,6 +130,12 @@
 
     iput-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSelectedItems:Ljava/util/ArrayList;
 
+    new-instance v0, Ljava/util/HashMap;
+
+    invoke-direct {v0}, Ljava/util/HashMap;-><init>()V
+
+    iput-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mRestoredHiddenItems:Ljava/util/HashMap;
+
     new-instance v0, Lcom/android/launcher3/appspicker/AppsPickerFocusListener;
 
     invoke-direct {v0}, Lcom/android/launcher3/appspicker/AppsPickerFocusListener;-><init>()V
@@ -187,7 +205,7 @@
     if-ne v3, v1, :cond_2
 
     :goto_0
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4
 
     iget-object v3, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSelectedItems:Ljava/util/ArrayList;
 
@@ -256,6 +274,9 @@
     goto :goto_0
 
     :cond_3
+    invoke-direct {p0}, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->restoreHiddenItems()V
+
+    :cond_4
     return-void
 .end method
 
@@ -767,6 +788,97 @@
     goto :goto_0
 .end method
 
+.method private restoreHiddenItems()V
+    .locals 4
+
+    iget-object v2, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSelectedItems:Ljava/util/ArrayList;
+
+    if-eqz v2, :cond_0
+
+    iget-object v2, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mRestoredHiddenItems:Ljava/util/HashMap;
+
+    if-nez v2, :cond_1
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    iget-object v2, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mRestoredHiddenItems:Ljava/util/HashMap;
+
+    invoke-virtual {v2}, Ljava/util/HashMap;->keySet()Ljava/util/Set;
+
+    move-result-object v2
+
+    invoke-interface {v2}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v3
+
+    :cond_2
+    :goto_1
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_4
+
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/launcher3/common/base/item/IconInfo;
+
+    iget-object v2, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mRestoredHiddenItems:Ljava/util/HashMap;
+
+    invoke-virtual {v2, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/Boolean;
+
+    invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    iget-object v2, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSelectedItems:Ljava/util/ArrayList;
+
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_3
+
+    iget-object v2, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSelectedItems:Ljava/util/ArrayList;
+
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    goto :goto_1
+
+    :cond_3
+    if-nez v1, :cond_2
+
+    iget-object v2, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSelectedItems:Ljava/util/ArrayList;
+
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    iget-object v2, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSelectedItems:Ljava/util/ArrayList;
+
+    invoke-virtual {v2, v0}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
+
+    goto :goto_1
+
+    :cond_4
+    invoke-virtual {p0}, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->clearRestoredHiddenItems()V
+
+    goto :goto_0
+.end method
+
 .method private setSelectionCount()V
     .locals 7
 
@@ -845,7 +957,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0900af
+    const v4, 0x7f0900b4
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1046,7 +1158,7 @@
 .method public changeColorAndBackground()V
     .locals 14
 
-    const v13, 0x7f0a01a2
+    const v13, 0x7f0a01a7
 
     const/4 v12, 0x0
 
@@ -1206,6 +1318,21 @@
     invoke-virtual {v10, v1}, Landroid/graphics/drawable/Drawable;->setColorFilter(Landroid/graphics/ColorFilter;)V
 
     :cond_5
+    return-void
+.end method
+
+.method public clearRestoredHiddenItems()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mRestoredHiddenItems:Ljava/util/HashMap;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mRestoredHiddenItems:Ljava/util/HashMap;
+
+    invoke-virtual {v0}, Ljava/util/HashMap;->clear()V
+
+    :cond_0
     return-void
 .end method
 
@@ -1430,6 +1557,24 @@
     iget v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mPickerMode:I
 
     return v0
+.end method
+
+.method public getRestoredHiddenItems()Ljava/util/HashMap;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/HashMap",
+            "<",
+            "Lcom/android/launcher3/common/base/item/IconInfo;",
+            "Ljava/lang/Boolean;",
+            ">;"
+        }
+    .end annotation
+
+    iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mRestoredHiddenItems:Ljava/util/HashMap;
+
+    return-object v0
 .end method
 
 .method public getSelectedItems()Ljava/util/ArrayList;
@@ -1913,6 +2058,23 @@
     return-void
 .end method
 
+.method public resetSearchText()V
+    .locals 2
+
+    iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSearchListAdapter:Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mSearchListAdapter:Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;
+
+    const-string v1, ""
+
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/appspicker/AppsPickerSearchListAdapter;->setSearchText(Ljava/lang/String;)V
+
+    :cond_0
+    return-void
+.end method
+
 .method public setAppsPickerViewTop(Z)V
     .locals 1
 
@@ -1967,7 +2129,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mAddButtonText:Landroid/widget/TextView;
 
-    const v1, 0x7f090048
+    const v1, 0x7f09004a
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -1998,7 +2160,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f09002e
+    const v3, 0x7f090030
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2021,7 +2183,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/launcher3/appspicker/view/AppsPickerContainerView;->mAddButtonText:Landroid/widget/TextView;
 
-    const v1, 0x7f09001d
+    const v1, 0x7f09001f
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 

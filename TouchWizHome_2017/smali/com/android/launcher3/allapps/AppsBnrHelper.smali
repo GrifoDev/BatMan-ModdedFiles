@@ -11,6 +11,8 @@
 
 .field static final APPS_VIEW_TYPE_CUSTOM:Ljava/lang/String; = "CUSTOM"
 
+.field private static final GOOGLE_VOICE_SEARCH_CLASS_NAME:Ljava/lang/String; = "com.google.android.googlequicksearchbox.VoiceSearchActivity"
+
 .field private static final TAG:Ljava/lang/String; = "Launcher.AppsBnr"
 
 
@@ -961,7 +963,7 @@
 .end method
 
 .method private backupItem(Ljava/lang/String;Ljava/lang/String;Landroid/database/Cursor;Landroid/content/ContentResolver;Lorg/xmlpull/v1/XmlSerializer;Landroid/net/Uri;Lcom/android/launcher3/common/bnr/LauncherBnrListener$Result;)V
-    .locals 25
+    .locals 26
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Ljava/lang/IllegalArgumentException;,
@@ -980,7 +982,7 @@
 
     const-string v2, ""
 
-    if-nez v11, :cond_3
+    if-nez v11, :cond_4
 
     const-string v3, "\n"
 
@@ -1018,7 +1020,7 @@
 
     invoke-interface {v0, v3}, Landroid/database/Cursor;->getInt(I)I
 
-    move-result v19
+    move-result v20
 
     iget v3, v14, Lcom/android/launcher3/common/model/CursorInfo;->screenIndex:I
 
@@ -1026,7 +1028,7 @@
 
     invoke-interface {v0, v3}, Landroid/database/Cursor;->getInt(I)I
 
-    move-result v23
+    move-result v24
 
     iget v3, v14, Lcom/android/launcher3/common/model/CursorInfo;->titleIndex:I
 
@@ -1034,7 +1036,7 @@
 
     invoke-interface {v0, v3}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v25
 
     iget v3, v14, Lcom/android/launcher3/common/model/CursorInfo;->intentIndex:I
 
@@ -1058,13 +1060,18 @@
 
     invoke-interface {v0, v3}, Landroid/database/Cursor;->getInt(I)I
 
-    move-result v21
+    move-result v22
+
+    const/16 v19, 0x0
 
     if-nez v16, :cond_1
 
-    if-eqz v21, :cond_4
+    if-eqz v22, :cond_5
 
     :cond_1
+    if-nez v11, :cond_5
+
+    :cond_2
     :goto_1
     invoke-interface/range {p3 .. p3}, Landroid/database/Cursor;->moveToNext()Z
 
@@ -1072,7 +1079,7 @@
 
     if-nez v3, :cond_0
 
-    if-nez v11, :cond_2
+    if-nez v11, :cond_3
 
     const-string v3, "\n"
 
@@ -1088,10 +1095,10 @@
 
     invoke-interface {v0, v3, v1}, Lorg/xmlpull/v1/XmlSerializer;->endTag(Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    :cond_2
+    :cond_3
     return-void
 
-    :cond_3
+    :cond_4
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -1122,14 +1129,14 @@
 
     goto :goto_0
 
-    :cond_4
+    :cond_5
     const/4 v13, 0x0
 
     invoke-static/range {v18 .. v18}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
-    if-nez v3, :cond_5
+    if-nez v3, :cond_6
 
     const/4 v3, 0x0
 
@@ -1146,24 +1153,35 @@
 
     move-result-object v13
 
-    :cond_5
-    const/16 v20, 0x0
+    :cond_6
+    const/16 v21, 0x0
 
     const/4 v12, 0x0
 
-    if-eqz v13, :cond_6
+    if-eqz v13, :cond_7
 
     invoke-virtual {v13}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
-    move-result-object v20
+    move-result-object v21
 
     invoke-virtual {v13}, Landroid/content/ComponentName;->getClassName()Ljava/lang/String;
 
     move-result-object v12
 
-    :cond_6
-    if-eqz v11, :cond_b
+    :cond_7
+    if-eqz v11, :cond_e
 
+    const-string v3, "com.google.android.googlequicksearchbox.VoiceSearchActivity"
+
+    invoke-virtual {v3, v12}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_8
+
+    const/16 v19, 0x1
+
+    :cond_8
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
@@ -1195,15 +1213,15 @@
     invoke-interface {v0, v3}, Lorg/xmlpull/v1/XmlSerializer;->text(Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
     :goto_2
-    packed-switch v19, :pswitch_data_0
+    packed-switch v20, :pswitch_data_0
 
     :pswitch_0
-    goto :goto_1
+    goto/16 :goto_1
 
     :pswitch_1
-    if-eqz v13, :cond_1
+    if-eqz v13, :cond_2
 
-    if-eqz v11, :cond_7
+    if-eqz v11, :cond_9
 
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -1219,7 +1237,7 @@
 
     iget-object v6, v0, Lcom/android/launcher3/allapps/AppsBnrHelper;->mContext:Landroid/content/Context;
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     invoke-static {v6, v0}, Lcom/android/launcher3/Utilities;->getAppLabel(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
 
@@ -1273,7 +1291,7 @@
 
     invoke-interface {v0, v3}, Lorg/xmlpull/v1/XmlSerializer;->text(Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    :cond_7
+    :cond_9
     const/4 v3, 0x0
 
     const-string v6, "favorite"
@@ -1302,7 +1320,7 @@
 
     move-result-object v6
 
-    invoke-static/range {v23 .. v23}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-static/range {v24 .. v24}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v7
 
@@ -1310,11 +1328,11 @@
 
     invoke-interface {v0, v3, v6, v7}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-static/range {v20 .. v20}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static/range {v21 .. v21}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
-    if-nez v3, :cond_8
+    if-nez v3, :cond_a
 
     const/4 v3, 0x0
 
@@ -1338,16 +1356,16 @@
 
     move-object/from16 v0, p5
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v21
 
     invoke-interface {v0, v3, v6, v1}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    :cond_8
+    :cond_a
     invoke-static {v12}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
-    if-nez v3, :cond_9
+    if-nez v3, :cond_b
 
     const/4 v3, 0x0
 
@@ -1373,7 +1391,7 @@
 
     invoke-interface {v0, v3, v6, v12}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    :cond_9
+    :cond_b
     const-string v3, "SCLOUD"
 
     move-object/from16 v0, p2
@@ -1382,13 +1400,13 @@
 
     move-result v3
 
-    if-eqz v3, :cond_a
+    if-eqz v3, :cond_c
 
     const/4 v3, 0x4
 
     invoke-static {v3}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v22
+    move-result-object v23
 
     const/4 v3, 0x0
 
@@ -1396,11 +1414,42 @@
 
     move-object/from16 v0, p5
 
-    move-object/from16 v1, v22
+    move-object/from16 v1, v23
 
     invoke-interface {v0, v3, v6, v1}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    :cond_a
+    :cond_c
+    if-eqz v11, :cond_d
+
+    if-eqz v19, :cond_d
+
+    const/4 v3, 0x0
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    const-string v7, "hidden"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    const-string v7, "true"
+
+    move-object/from16 v0, p5
+
+    invoke-interface {v0, v3, v6, v7}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
+
+    :cond_d
     const/4 v3, 0x0
 
     const-string v6, "favorite"
@@ -1416,7 +1465,7 @@
 
     goto/16 :goto_1
 
-    :cond_b
+    :cond_e
     const-string v3, "\n"
 
     move-object/from16 v0, p5
@@ -1426,7 +1475,7 @@
     goto/16 :goto_2
 
     :pswitch_2
-    if-eqz v11, :cond_c
+    if-eqz v11, :cond_f
 
     new-instance v3, Ljava/lang/StringBuilder;
 
@@ -1438,7 +1487,7 @@
 
     move-result-object v3
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v25
 
     invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1488,7 +1537,7 @@
 
     invoke-interface {v0, v3}, Lorg/xmlpull/v1/XmlSerializer;->text(Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    :cond_c
+    :cond_f
     const/4 v3, 0x0
 
     const-string v6, "folder"
@@ -1517,7 +1566,7 @@
 
     move-result-object v6
 
-    invoke-static/range {v23 .. v23}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-static/range {v24 .. v24}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
     move-result-object v7
 
@@ -1525,11 +1574,11 @@
 
     invoke-interface {v0, v3, v6, v7}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    invoke-static/range {v24 .. v24}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static/range {v25 .. v25}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
-    if-nez v3, :cond_d
+    if-nez v3, :cond_10
 
     const/4 v3, 0x0
 
@@ -1553,11 +1602,11 @@
 
     move-object/from16 v0, p5
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v25
 
     invoke-interface {v0, v3, v6, v1}, Lorg/xmlpull/v1/XmlSerializer;->attribute(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    :cond_d
+    :cond_10
     move-object/from16 v3, p0
 
     move-object/from16 v6, p2
@@ -1572,7 +1621,7 @@
 
     invoke-direct/range {v3 .. v11}, Lcom/android/launcher3/allapps/AppsBnrHelper;->backupFolderItemById(JLjava/lang/String;Landroid/content/ContentResolver;Lorg/xmlpull/v1/XmlSerializer;Landroid/net/Uri;Lcom/android/launcher3/common/bnr/LauncherBnrListener$Result;Z)V
 
-    if-eqz v11, :cond_e
+    if-eqz v11, :cond_11
 
     const/4 v3, 0x1
 
@@ -1586,7 +1635,7 @@
 
     invoke-interface {v0, v3}, Lorg/xmlpull/v1/XmlSerializer;->text(Ljava/lang/String;)Lorg/xmlpull/v1/XmlSerializer;
 
-    :cond_e
+    :cond_11
     const/4 v3, 0x0
 
     const-string v6, "folder"
@@ -1747,9 +1796,9 @@
         }
     .end annotation
 
-    const/4 v2, 0x0
-
     const/4 v4, 0x1
+
+    const/4 v2, 0x0
 
     invoke-static {}, Lcom/android/launcher3/common/model/FavoritesProvider;->getInstance()Lcom/android/launcher3/common/model/FavoritesProvider;
 
@@ -1810,7 +1859,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v6, v0, v1}, Lcom/android/launcher3/common/model/FavoritesProvider;->removeAndAddHiddenApp(Lcom/android/launcher3/common/model/DefaultLayoutParser;Ljava/lang/String;)V
+    invoke-virtual {v6, v0, v1, v2}, Lcom/android/launcher3/common/model/FavoritesProvider;->removeAndAddHiddenApp(Lcom/android/launcher3/common/model/DefaultLayoutParser;Ljava/lang/String;Ljava/util/ArrayList;)V
 
     goto :goto_0
 .end method

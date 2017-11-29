@@ -16,8 +16,10 @@
     <string name="accessibility_button">Botón</string>
     <string name="accessibility_dimmed">Atenuado</string>
     <string name="activity_not_available">Esta aplicación non está dispoñible para o teu dispositivo.</string>
-    <string name="activity_not_found">Aplicación non instalada</string>
+    <string name="activity_not_found">Aplicación non atopada</string>
+    <string name="add">Engadir</string>
     <string name="add_to_last_page">Seleccionaches %1$d elementos, pero non hai espazo suficiente nesta páxina. Os %2$d elementos restantes engadiranse na última páxina.</string>
+    <string name="add_to_last_page_for_hotseat">Seleccionaches %1$d elementos, pero non hai espazo suficiente na bandexa de favoritos. Os %2$d elementos restantes engadiranse na última páxina.</string>
     <string name="align_to_bottom">Aliñar na parte inferior</string>
     <string name="align_to_top">Aliñar na parte superior</string>
     <string name="app_locked_toast">%s bloqueado.</string>
@@ -121,6 +123,7 @@
     <string name="new_page_created">Páxina engadida.</string>
     <string name="no_changes">Non se produciron cambios.</string>
     <string name="no_space_page">Non hai espazo na páxina. Tenta engadir o atallo nunha páxina diferente.</string>
+    <string name="no_space_page_for_hotseat">Non hai espazo na bandexa de favoritos.</string>
     <string name="no_space_page_for_widget">Non hai ningún espazo nesta páxina.</string>
     <string name="not_selected">Non seleccionado</string>
     <string name="notification_panel_setting_summary">Pasa o dedo cara a abaixo para abrir o panel de notificacións desde a pantalla Inicio.</string>
@@ -155,6 +158,8 @@
     <string name="quick_option_delete_folder">Eliminar carpeta</string>
     <string name="quick_option_delete_folder_alert">Eliminarase a carpeta %s. As aplicacións situadas dentro desta carpeta seguirán estando dispoñibles na pantalla Aplicacións.</string>
     <string name="quick_option_delete_folder_alert_no_title">Eliminarase esta carpeta. As aplicacións situadas dentro desta carpeta seguirán estando dispoñibles na pantalla Aplicacións.</string>
+    <string name="quick_option_delete_folder_home_only_alert">Eliminarase a carpeta %s. As aplicacións situadas dentro desta carpeta seguirán estando dispoñibles na pantalla Inicio.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Eliminarase esta carpeta. As aplicacións situadas dentro desta carpeta seguirán estando dispoñibles na pantalla Inicio.</string>
     <string name="quick_option_dimmed_disable">Desactivar</string>
     <string name="quick_option_disable">Desactivar</string>
     <string name="quick_option_install_dual_im">Instalar segunda aplicación</string>

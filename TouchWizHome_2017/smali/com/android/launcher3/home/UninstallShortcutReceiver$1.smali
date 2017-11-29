@@ -139,7 +139,7 @@
 
     iget-object v7, p0, Lcom/android/launcher3/home/UninstallShortcutReceiver$1;->val$context:Landroid/content/Context;
 
-    const v10, 0x7f0900b4
+    const v10, 0x7f0900b9
 
     const/4 v11, 0x1
 

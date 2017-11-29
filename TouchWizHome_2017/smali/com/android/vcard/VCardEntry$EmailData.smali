@@ -44,7 +44,7 @@
     return-void
 .end method
 
-.method static synthetic access$1900(Lcom/android/vcard/VCardEntry$EmailData;)Ljava/lang/String;
+.method static synthetic access$0(Lcom/android/vcard/VCardEntry$EmailData;)Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/android/vcard/VCardEntry$EmailData;->mAddress:Ljava/lang/String;

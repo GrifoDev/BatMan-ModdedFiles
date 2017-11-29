@@ -17,8 +17,10 @@
     <string name="accessibility_button">ปุ่ม</string>
     <string name="accessibility_dimmed">หรี่แสง</string>
     <string name="activity_not_available">แอพนี้ไม่พร้อมใช้งานสำหรับอุปกรณ์ของคุณ</string>
-    <string name="activity_not_found">ไม่​ได้​ติด​ตั้ง​แอ​พพลิ​เค​ชั่น</string>
+    <string name="activity_not_found">ไม่พบแอพ</string>
+    <string name="add">เพิ่ม</string>
     <string name="add_to_last_page">คุณได้เลือก %1$d รายการ แต่มีพื้นที่ว่างไม่เพียงพอในหน้านี้ รายการที่เหลือ %2$d รายการจะถูกเพิ่มไปยังหน้าสุดท้าย</string>
+    <string name="add_to_last_page_for_hotseat">คุณเลือก %1$d รายการ แต่มีพื้นที่ว่างไม่เพียงพอในถาดรายการโปรด รายการที่เหลือ %2$d รายการจะถูกเพิ่มไปยังหน้าสุดท้าย</string>
     <string name="align_to_bottom">จัดเรียงไปด้านล่าง</string>
     <string name="align_to_top">จัดเรียงไปด้านบน</string>
     <string name="app_locked_toast">%s ถูกล็อกแล้ว</string>
@@ -122,6 +124,7 @@
     <string name="new_page_created">เพิ่มหน้าแล้ว</string>
     <string name="no_changes">ไม่เปลี่ยน</string>
     <string name="no_space_page">ไม่มีพื้นที่บนหน้า ลองเพิ่มทางลัดไปยังหน้าอื่น</string>
+    <string name="no_space_page_for_hotseat">ไม่มีพื้นที่ว่างในถาดรายการโปรด</string>
     <string name="no_space_page_for_widget">ไม่มีพื้นที่ในหน้านี้</string>
     <string name="not_selected">ไม่ได้เลือก</string>
     <string name="notification_panel_setting_summary">ปัดลงเพื่อเปิดแผงการแจ้งเตือนจากหน้าจอหลัก</string>
@@ -156,6 +159,8 @@
     <string name="quick_option_delete_folder">ลบ​แฟ้ม</string>
     <string name="quick_option_delete_folder_alert">โฟลเดอร์ %s จะถูกลบ แอพที่อยู่ในโฟลเดอร์นี้จะยังคงสามารถใช้งานได้บนหน้าจอแอพ</string>
     <string name="quick_option_delete_folder_alert_no_title">โฟลเดอร์นี้จะถูกลบ แอพที่อยู่ในโฟลเดอร์นี้จะยังคงสามารถใช้งานได้บนหน้าจอแอพ</string>
+    <string name="quick_option_delete_folder_home_only_alert">โฟลเดอร์ %s จะถูกลบ แอพที่อยู่ในโฟลเดอร์นี้จะยังคงสามารถใช้งานได้บนหน้าจอหลัก</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">โฟลเดอร์นี้จะถูกลบ แอพที่อยู่ในโฟลเดอร์นี้จะยังคงสามารถใช้งานได้บนหน้าจอหลัก</string>
     <string name="quick_option_dimmed_disable">ปิดใช้งาน</string>
     <string name="quick_option_disable">ปิดใช้งาน</string>
     <string name="quick_option_install_dual_im">ติดตั้งแอพที่สอง</string>

@@ -675,7 +675,7 @@
 .end method
 
 .method private static handleHotseatButtonKeyEvent(Landroid/view/View;ILandroid/view/KeyEvent;)Z
-    .locals 21
+    .locals 24
 
     invoke-static/range {p1 .. p1}, Lcom/android/launcher3/home/HomeFocusLogic;->shouldConsume(I)Z
 
@@ -685,9 +685,9 @@
 
     move-result v2
 
-    const/16 v20, 0x1
+    const/16 v23, 0x1
 
-    move/from16 v0, v20
+    move/from16 v0, v23
 
     if-eq v2, v0, :cond_0
 
@@ -700,47 +700,47 @@
     :cond_1
     invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
-    move-result-object v15
+    move-result-object v16
 
-    check-cast v15, Lcom/android/launcher3/Launcher;
+    check-cast v16, Lcom/android/launcher3/Launcher;
 
-    invoke-virtual {v15}, Lcom/android/launcher3/Launcher;->getDeviceProfile()Lcom/android/launcher3/common/deviceprofile/DeviceProfile;
+    invoke-virtual/range {v16 .. v16}, Lcom/android/launcher3/Launcher;->getDeviceProfile()Lcom/android/launcher3/common/deviceprofile/DeviceProfile;
 
-    move-result-object v18
+    move-result-object v21
 
     invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
+    move-result-object v13
+
+    check-cast v13, Lcom/android/launcher3/common/base/view/CellLayoutChildren;
+
+    if-eqz v13, :cond_0
+
+    invoke-virtual {v13}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->getParent()Landroid/view/ViewParent;
+
     move-result-object v12
 
-    check-cast v12, Lcom/android/launcher3/common/base/view/CellLayoutChildren;
-
-    if-eqz v12, :cond_0
-
-    invoke-virtual {v12}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->getParent()Landroid/view/ViewParent;
-
-    move-result-object v11
-
-    check-cast v11, Lcom/android/launcher3/common/base/view/CellLayout;
+    check-cast v12, Lcom/android/launcher3/common/base/view/CellLayout;
 
     invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getRootView()Landroid/view/View;
 
     move-result-object v2
 
-    const v20, 0x7f11000e
+    const v23, 0x7f11000e
 
-    move/from16 v0, v20
+    move/from16 v0, v23
 
     invoke-virtual {v2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
-    move-result-object v19
+    move-result-object v22
 
-    check-cast v19, Lcom/android/launcher3/home/Workspace;
+    check-cast v22, Lcom/android/launcher3/home/Workspace;
 
-    invoke-virtual/range {v19 .. v19}, Lcom/android/launcher3/home/Workspace;->getNextPage()I
+    invoke-virtual/range {v22 .. v22}, Lcom/android/launcher3/home/Workspace;->getNextPage()I
 
     move-result v7
 
-    invoke-virtual/range {v19 .. v19}, Lcom/android/launcher3/home/Workspace;->getChildCount()I
+    invoke-virtual/range {v22 .. v22}, Lcom/android/launcher3/home/Workspace;->getChildCount()I
 
     move-result v8
 
@@ -750,25 +750,25 @@
 
     move-object/from16 v0, p0
 
-    invoke-virtual {v12, v0}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->indexOfChild(Landroid/view/View;)I
+    invoke-virtual {v13, v0}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->indexOfChild(Landroid/view/View;)I
 
     move-result v6
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v7}, Lcom/android/launcher3/home/Workspace;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v13
-
-    check-cast v13, Lcom/android/launcher3/common/base/view/CellLayout;
-
-    if-eqz v13, :cond_0
-
-    invoke-virtual {v13}, Lcom/android/launcher3/common/base/view/CellLayout;->getCellLayoutChildren()Lcom/android/launcher3/common/base/view/CellLayoutChildren;
-
     move-result-object v14
 
+    check-cast v14, Lcom/android/launcher3/common/base/view/CellLayout;
+
     if-eqz v14, :cond_0
+
+    invoke-virtual {v14}, Lcom/android/launcher3/common/base/view/CellLayout;->getCellLayoutChildren()Lcom/android/launcher3/common/base/view/CellLayoutChildren;
+
+    move-result-object v15
+
+    if-eqz v15, :cond_0
 
     const/4 v9, 0x0
 
@@ -782,7 +782,7 @@
 
     if-ne v0, v2, :cond_5
 
-    invoke-virtual/range {v18 .. v18}, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->isVerticalBarLayout()Z
+    invoke-virtual/range {v21 .. v21}, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->isVerticalBarLayout()Z
 
     move-result v2
 
@@ -790,11 +790,11 @@
 
     const/4 v2, 0x1
 
-    invoke-static {v13, v11, v2}, Lcom/android/launcher3/home/HomeFocusLogic;->createSparseMatrix(Lcom/android/launcher3/common/base/view/CellLayout;Lcom/android/launcher3/common/base/view/CellLayout;Z)[[I
+    invoke-static {v14, v12, v2}, Lcom/android/launcher3/home/HomeFocusLogic;->createSparseMatrix(Lcom/android/launcher3/common/base/view/CellLayout;Lcom/android/launcher3/common/base/view/CellLayout;Z)[[I
 
     move-result-object v5
 
-    invoke-virtual {v14}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->getChildCount()I
+    invoke-virtual {v15}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->getChildCount()I
 
     move-result v2
 
@@ -802,36 +802,36 @@
 
     array-length v3, v5
 
-    invoke-virtual {v13}, Lcom/android/launcher3/common/base/view/CellLayout;->getCountY()I
+    invoke-virtual {v14}, Lcom/android/launcher3/common/base/view/CellLayout;->getCountY()I
 
     move-result v2
 
-    invoke-virtual {v11}, Lcom/android/launcher3/common/base/view/CellLayout;->getCountY()I
+    invoke-virtual {v12}, Lcom/android/launcher3/common/base/view/CellLayout;->getCountY()I
 
-    move-result v20
+    move-result v23
 
-    add-int v4, v2, v20
+    add-int v4, v2, v23
 
-    move-object v9, v14
+    move-object v9, v15
 
     :goto_1
     move/from16 v2, p1
 
     invoke-static/range {v2 .. v9}, Lcom/android/launcher3/home/HomeFocusLogic;->handleKeyEvent(III[[IIIILcom/android/launcher3/common/base/view/CellLayoutChildren;)I
 
-    move-result v17
+    move-result v20
 
-    const/16 v16, 0x0
+    const/16 v19, 0x0
 
     const/4 v2, -0x8
 
-    move/from16 v0, v17
+    move/from16 v0, v20
 
-    if-ne v0, v2, :cond_9
+    if-ne v0, v2, :cond_a
 
     add-int/lit8 v2, v7, 0x1
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v22
 
     invoke-static {v0, v2}, Lcom/android/launcher3/util/focus/FocusHelper;->getCellLayoutChildrenForIndex(Landroid/view/ViewGroup;I)Lcom/android/launcher3/common/base/view/CellLayoutChildren;
 
@@ -841,47 +841,47 @@
 
     invoke-virtual {v9, v2}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v16
+    move-result-object v19
 
     add-int/lit8 v2, v7, 0x1
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v2}, Lcom/android/launcher3/home/Workspace;->snapToPage(I)V
 
     :cond_2
     :goto_2
-    if-ne v9, v14, :cond_3
+    if-ne v9, v15, :cond_3
 
-    invoke-virtual {v14}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->getChildCount()I
+    invoke-virtual {v15}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->getChildCount()I
 
     move-result v2
 
-    move/from16 v0, v17
+    move/from16 v0, v20
 
     if-lt v0, v2, :cond_3
 
-    invoke-virtual {v14}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->getChildCount()I
+    invoke-virtual {v15}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->getChildCount()I
 
     move-result v2
 
-    sub-int v17, v17, v2
+    sub-int v20, v20, v2
 
     :cond_3
-    if-nez v16, :cond_4
+    if-nez v19, :cond_4
 
-    if-ltz v17, :cond_4
+    if-ltz v20, :cond_4
 
-    move/from16 v0, v17
+    move/from16 v0, v20
 
     invoke-virtual {v9, v0}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v16
+    move-result-object v19
 
     :cond_4
-    if-eqz v16, :cond_0
+    if-eqz v19, :cond_0
 
-    invoke-virtual/range {v16 .. v16}, Landroid/view/View;->requestFocus()Z
+    invoke-virtual/range {v19 .. v19}, Landroid/view/View;->requestFocus()Z
 
     move/from16 v0, p1
 
@@ -898,7 +898,7 @@
 
     if-ne v0, v2, :cond_6
 
-    invoke-virtual/range {v18 .. v18}, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->isVerticalBarLayout()Z
+    invoke-virtual/range {v21 .. v21}, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->isVerticalBarLayout()Z
 
     move-result v2
 
@@ -906,31 +906,31 @@
 
     const/4 v2, 0x0
 
-    invoke-static {v13, v11, v2}, Lcom/android/launcher3/home/HomeFocusLogic;->createSparseMatrix(Lcom/android/launcher3/common/base/view/CellLayout;Lcom/android/launcher3/common/base/view/CellLayout;Z)[[I
+    invoke-static {v14, v12, v2}, Lcom/android/launcher3/home/HomeFocusLogic;->createSparseMatrix(Lcom/android/launcher3/common/base/view/CellLayout;Lcom/android/launcher3/common/base/view/CellLayout;Z)[[I
 
     move-result-object v5
 
-    invoke-virtual {v14}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->getChildCount()I
+    invoke-virtual {v15}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->getChildCount()I
 
     move-result v2
 
     add-int/2addr v6, v2
 
-    invoke-virtual {v13}, Lcom/android/launcher3/common/base/view/CellLayout;->getCountX()I
+    invoke-virtual {v14}, Lcom/android/launcher3/common/base/view/CellLayout;->getCountX()I
 
     move-result v2
 
-    invoke-virtual {v11}, Lcom/android/launcher3/common/base/view/CellLayout;->getCountX()I
+    invoke-virtual {v12}, Lcom/android/launcher3/common/base/view/CellLayout;->getCountX()I
 
-    move-result v20
+    move-result v23
 
-    add-int v3, v2, v20
+    add-int v3, v2, v23
 
-    invoke-virtual {v13}, Lcom/android/launcher3/common/base/view/CellLayout;->getCountY()I
+    invoke-virtual {v14}, Lcom/android/launcher3/common/base/view/CellLayout;->getCountY()I
 
     move-result v4
 
-    move-object v9, v14
+    move-object v9, v15
 
     goto :goto_1
 
@@ -941,7 +941,7 @@
 
     if-ne v0, v2, :cond_7
 
-    invoke-virtual/range {v18 .. v18}, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->isVerticalBarLayout()Z
+    invoke-virtual/range {v21 .. v21}, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->isVerticalBarLayout()Z
 
     move-result v2
 
@@ -958,9 +958,9 @@
 
     if-ne v0, v2, :cond_8
 
-    invoke-virtual {v15}, Lcom/android/launcher3/Launcher;->getHomeController()Lcom/android/launcher3/home/HomeController;
+    invoke-virtual/range {v16 .. v16}, Lcom/android/launcher3/Launcher;->getHomeController()Lcom/android/launcher3/home/HomeController;
 
-    move-result-object v20
+    move-result-object v23
 
     invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getTag()Ljava/lang/Object;
 
@@ -968,7 +968,7 @@
 
     check-cast v2, Lcom/android/launcher3/common/base/item/ItemInfo;
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v23
 
     move-object/from16 v1, p0
 
@@ -977,32 +977,83 @@
     goto/16 :goto_0
 
     :cond_8
-    invoke-static {v11}, Lcom/android/launcher3/home/HomeFocusLogic;->createSparseMatrix(Lcom/android/launcher3/common/base/view/CellLayout;)[[I
+    const/16 v2, 0x43
+
+    move/from16 v0, p1
+
+    if-ne v0, v2, :cond_9
+
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/launcher3/LauncherAppState;->isHomeOnlyModeEnabled()Z
+
+    move-result v2
+
+    if-nez v2, :cond_9
+
+    invoke-virtual/range {v16 .. v16}, Lcom/android/launcher3/Launcher;->getHomeController()Lcom/android/launcher3/home/HomeController;
+
+    move-result-object v11
+
+    if-eqz v11, :cond_0
+
+    invoke-virtual/range {v16 .. v16}, Lcom/android/launcher3/Launcher;->getTopStageMode()I
+
+    move-result v2
+
+    const/16 v23, 0x1
+
+    move/from16 v0, v23
+
+    if-ne v2, v0, :cond_0
+
+    invoke-virtual {v11}, Lcom/android/launcher3/home/HomeController;->isModalState()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const/4 v2, 0x1
+
+    const/16 v23, 0x0
+
+    move-object/from16 v0, v16
+
+    move/from16 v1, v23
+
+    invoke-virtual {v0, v2, v1}, Lcom/android/launcher3/Launcher;->showAppsView(ZZ)V
+
+    goto/16 :goto_0
+
+    :cond_9
+    invoke-static {v12}, Lcom/android/launcher3/home/HomeFocusLogic;->createSparseMatrix(Lcom/android/launcher3/common/base/view/CellLayout;)[[I
 
     move-result-object v5
 
-    invoke-virtual {v11}, Lcom/android/launcher3/common/base/view/CellLayout;->getCountX()I
+    invoke-virtual {v12}, Lcom/android/launcher3/common/base/view/CellLayout;->getCountX()I
 
     move-result v3
 
-    invoke-virtual {v11}, Lcom/android/launcher3/common/base/view/CellLayout;->getCountY()I
+    invoke-virtual {v12}, Lcom/android/launcher3/common/base/view/CellLayout;->getCountY()I
 
     move-result v4
 
-    move-object v9, v12
+    move-object v9, v13
 
     goto/16 :goto_1
 
-    :cond_9
+    :cond_a
     const/4 v2, -0x4
 
-    move/from16 v0, v17
+    move/from16 v0, v20
 
-    if-ne v0, v2, :cond_a
+    if-ne v0, v2, :cond_b
 
     add-int/lit8 v2, v7, -0x1
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v22
 
     invoke-static {v0, v2}, Lcom/android/launcher3/util/focus/FocusHelper;->getCellLayoutChildrenForIndex(Landroid/view/ViewGroup;I)Lcom/android/launcher3/common/base/view/CellLayoutChildren;
 
@@ -1016,41 +1067,41 @@
 
     invoke-virtual {v9, v2}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v16
+    move-result-object v19
 
     add-int/lit8 v2, v7, -0x1
 
-    move-object/from16 v0, v19
-
-    invoke-virtual {v0, v2}, Lcom/android/launcher3/home/Workspace;->snapToPage(I)V
-
-    goto/16 :goto_2
-
-    :cond_a
-    const/16 v2, -0xb
-
-    move/from16 v0, v17
-
-    if-ne v0, v2, :cond_b
-
-    const/4 v2, -0x1
-
-    move-object/from16 v0, v19
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v2}, Lcom/android/launcher3/home/Workspace;->snapToPage(I)V
 
     goto/16 :goto_2
 
     :cond_b
+    const/16 v2, -0xb
+
+    move/from16 v0, v20
+
+    if-ne v0, v2, :cond_c
+
+    const/4 v2, -0x1
+
+    move-object/from16 v0, v22
+
+    invoke-virtual {v0, v2}, Lcom/android/launcher3/home/Workspace;->snapToPage(I)V
+
+    goto/16 :goto_2
+
+    :cond_c
     const/4 v2, -0x3
 
-    move/from16 v0, v17
+    move/from16 v0, v20
 
-    if-ne v0, v2, :cond_2
+    if-ne v0, v2, :cond_d
 
     add-int/lit8 v2, v7, -0x1
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v22
 
     invoke-static {v0, v2}, Lcom/android/launcher3/util/focus/FocusHelper;->getCellLayoutChildrenForIndex(Landroid/view/ViewGroup;I)Lcom/android/launcher3/common/base/view/CellLayoutChildren;
 
@@ -1060,19 +1111,54 @@
 
     invoke-virtual {v9, v2}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v16
+    move-result-object v19
 
     add-int/lit8 v2, v7, -0x1
 
-    move-object/from16 v0, v19
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v2}, Lcom/android/launcher3/home/Workspace;->snapToPage(I)V
+
+    goto/16 :goto_2
+
+    :cond_d
+    const/4 v2, -0x1
+
+    move/from16 v0, v20
+
+    if-ne v0, v2, :cond_2
+
+    const/16 v2, 0x13
+
+    move/from16 v0, p1
+
+    if-ne v0, v2, :cond_2
+
+    invoke-virtual/range {v16 .. v16}, Lcom/android/launcher3/Launcher;->getMultiSelectManager()Lcom/android/launcher3/common/multiselect/MultiSelectManager;
+
+    move-result-object v17
+
+    if-eqz v17, :cond_2
+
+    invoke-virtual/range {v17 .. v17}, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->getMultiSelectPanel()Lcom/android/launcher3/common/multiselect/MultiSelectPanel;
+
+    move-result-object v18
+
+    if-eqz v18, :cond_2
+
+    invoke-virtual/range {v18 .. v18}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->getVisibility()I
+
+    move-result v2
+
+    if-nez v2, :cond_2
+
+    move-object/from16 v19, v18
 
     goto/16 :goto_2
 .end method
 
 .method private static handleIconKeyEvent(Landroid/view/View;ILandroid/view/KeyEvent;)Z
-    .locals 30
+    .locals 33
 
     invoke-static/range {p1 .. p1}, Lcom/android/launcher3/home/HomeFocusLogic;->shouldConsume(I)Z
 
@@ -1095,13 +1181,13 @@
     :cond_1
     invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
-    move-result-object v24
+    move-result-object v25
 
-    check-cast v24, Lcom/android/launcher3/Launcher;
+    check-cast v25, Lcom/android/launcher3/Launcher;
 
-    invoke-virtual/range {v24 .. v24}, Lcom/android/launcher3/Launcher;->getDeviceProfile()Lcom/android/launcher3/common/deviceprofile/DeviceProfile;
+    invoke-virtual/range {v25 .. v25}, Lcom/android/launcher3/Launcher;->getDeviceProfile()Lcom/android/launcher3/common/deviceprofile/DeviceProfile;
 
-    move-result-object v27
+    move-result-object v30
 
     invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getParent()Landroid/view/ViewParent;
 
@@ -1111,17 +1197,17 @@
 
     invoke-virtual {v9}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->getParent()Landroid/view/ViewParent;
 
-    move-result-object v23
+    move-result-object v24
 
-    check-cast v23, Lcom/android/launcher3/common/base/view/CellLayout;
+    check-cast v24, Lcom/android/launcher3/common/base/view/CellLayout;
 
-    invoke-virtual/range {v23 .. v23}, Lcom/android/launcher3/common/base/view/CellLayout;->getParent()Landroid/view/ViewParent;
+    invoke-virtual/range {v24 .. v24}, Lcom/android/launcher3/common/base/view/CellLayout;->getParent()Landroid/view/ViewParent;
 
-    move-result-object v29
+    move-result-object v32
 
-    check-cast v29, Lcom/android/launcher3/home/Workspace;
+    check-cast v32, Lcom/android/launcher3/home/Workspace;
 
-    invoke-virtual/range {v29 .. v29}, Lcom/android/launcher3/home/Workspace;->getParent()Landroid/view/ViewParent;
+    invoke-virtual/range {v32 .. v32}, Lcom/android/launcher3/home/Workspace;->getParent()Landroid/view/ViewParent;
 
     move-result-object v19
 
@@ -1133,9 +1219,9 @@
 
     invoke-virtual {v0, v2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
-    move-result-object v20
+    move-result-object v21
 
-    check-cast v20, Lcom/android/launcher3/home/Hotseat;
+    check-cast v21, Lcom/android/launcher3/home/Hotseat;
 
     move-object/from16 v0, p0
 
@@ -1143,39 +1229,39 @@
 
     move-result v6
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v32
 
-    move-object/from16 v1, v23
+    move-object/from16 v1, v24
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/home/Workspace;->indexOfChild(Landroid/view/View;)I
 
     move-result v7
 
-    invoke-virtual/range {v29 .. v29}, Lcom/android/launcher3/home/Workspace;->getChildCount()I
+    invoke-virtual/range {v32 .. v32}, Lcom/android/launcher3/home/Workspace;->getChildCount()I
 
     move-result v8
 
-    invoke-virtual/range {v23 .. v23}, Lcom/android/launcher3/common/base/view/CellLayout;->getCountX()I
+    invoke-virtual/range {v24 .. v24}, Lcom/android/launcher3/common/base/view/CellLayout;->getCountX()I
 
     move-result v3
 
-    invoke-virtual/range {v23 .. v23}, Lcom/android/launcher3/common/base/view/CellLayout;->getCountY()I
+    invoke-virtual/range {v24 .. v24}, Lcom/android/launcher3/common/base/view/CellLayout;->getCountY()I
 
     move-result v4
 
     const/4 v2, 0x0
 
-    move-object/from16 v0, v20
+    move-object/from16 v0, v21
 
     invoke-virtual {v0, v2}, Lcom/android/launcher3/home/Hotseat;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v21
-
-    check-cast v21, Lcom/android/launcher3/common/base/view/CellLayout;
-
-    invoke-virtual/range {v21 .. v21}, Lcom/android/launcher3/common/base/view/CellLayout;->getCellLayoutChildren()Lcom/android/launcher3/common/base/view/CellLayoutChildren;
-
     move-result-object v22
+
+    check-cast v22, Lcom/android/launcher3/common/base/view/CellLayout;
+
+    invoke-virtual/range {v22 .. v22}, Lcom/android/launcher3/common/base/view/CellLayout;->getCellLayoutChildren()Lcom/android/launcher3/common/base/view/CellLayoutChildren;
+
+    move-result-object v23
 
     const/16 v2, 0x14
 
@@ -1183,7 +1269,7 @@
 
     if-ne v0, v2, :cond_3
 
-    invoke-virtual/range {v27 .. v27}, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->isVerticalBarLayout()Z
+    invoke-virtual/range {v30 .. v30}, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->isVerticalBarLayout()Z
 
     move-result v2
 
@@ -1191,15 +1277,15 @@
 
     const/4 v2, 0x1
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v24
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v22
 
     invoke-static {v0, v1, v2}, Lcom/android/launcher3/home/HomeFocusLogic;->createSparseMatrix(Lcom/android/launcher3/common/base/view/CellLayout;Lcom/android/launcher3/common/base/view/CellLayout;Z)[[I
 
     move-result-object v5
 
-    invoke-virtual/range {v21 .. v21}, Lcom/android/launcher3/common/base/view/CellLayout;->getCountY()I
+    invoke-virtual/range {v22 .. v22}, Lcom/android/launcher3/common/base/view/CellLayout;->getCountY()I
 
     move-result v2
 
@@ -1210,34 +1296,33 @@
 
     invoke-static/range {v2 .. v9}, Lcom/android/launcher3/home/HomeFocusLogic;->handleKeyEvent(III[[IIIILcom/android/launcher3/common/base/view/CellLayoutChildren;)I
 
-    move-result v26
+    move-result v29
 
-    const/16 v25, 0x0
+    const/16 v28, 0x0
 
-    packed-switch v26, :pswitch_data_0
+    packed-switch v29, :pswitch_data_0
 
-    if-ltz v26, :cond_8
+    if-ltz v29, :cond_9
 
     invoke-virtual {v9}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->getChildCount()I
 
     move-result v2
 
-    move/from16 v0, v26
+    move/from16 v0, v29
 
-    if-ge v0, v2, :cond_8
+    if-ge v0, v2, :cond_9
 
-    move/from16 v0, v26
+    move/from16 v0, v29
 
     invoke-virtual {v9, v0}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v25
+    move-result-object v28
 
     :cond_2
     :goto_2
-    :pswitch_0
-    if-eqz v25, :cond_0
+    if-eqz v28, :cond_0
 
-    invoke-virtual/range {v25 .. v25}, Landroid/view/View;->requestFocus()Z
+    invoke-virtual/range {v28 .. v28}, Landroid/view/View;->requestFocus()Z
 
     move/from16 v0, p1
 
@@ -1254,7 +1339,7 @@
 
     if-ne v0, v2, :cond_4
 
-    invoke-virtual/range {v27 .. v27}, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->isVerticalBarLayout()Z
+    invoke-virtual/range {v30 .. v30}, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->isVerticalBarLayout()Z
 
     move-result v2
 
@@ -1262,9 +1347,9 @@
 
     const/4 v2, 0x0
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v24
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v22
 
     invoke-static {v0, v1, v2}, Lcom/android/launcher3/home/HomeFocusLogic;->createSparseMatrix(Lcom/android/launcher3/common/base/view/CellLayout;Lcom/android/launcher3/common/base/view/CellLayout;Z)[[I
 
@@ -1281,7 +1366,7 @@
 
     if-ne v0, v2, :cond_5
 
-    invoke-virtual/range {v24 .. v24}, Lcom/android/launcher3/Launcher;->getHomeController()Lcom/android/launcher3/home/HomeController;
+    invoke-virtual/range {v25 .. v25}, Lcom/android/launcher3/Launcher;->getHomeController()Lcom/android/launcher3/home/HomeController;
 
     move-result-object v10
 
@@ -1298,24 +1383,100 @@
     goto/16 :goto_0
 
     :cond_5
-    invoke-static/range {v23 .. v23}, Lcom/android/launcher3/home/HomeFocusLogic;->createSparseMatrix(Lcom/android/launcher3/common/base/view/CellLayout;)[[I
+    const/16 v2, 0x43
+
+    move/from16 v0, p1
+
+    if-ne v0, v2, :cond_6
+
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Lcom/android/launcher3/LauncherAppState;->isHomeOnlyModeEnabled()Z
+
+    move-result v2
+
+    if-nez v2, :cond_6
+
+    invoke-virtual/range {v25 .. v25}, Lcom/android/launcher3/Launcher;->getHomeController()Lcom/android/launcher3/home/HomeController;
+
+    move-result-object v20
+
+    if-eqz v20, :cond_0
+
+    invoke-virtual/range {v25 .. v25}, Lcom/android/launcher3/Launcher;->getTopStageMode()I
+
+    move-result v2
+
+    const/4 v10, 0x1
+
+    if-ne v2, v10, :cond_0
+
+    invoke-virtual/range {v20 .. v20}, Lcom/android/launcher3/home/HomeController;->isModalState()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const/4 v2, 0x1
+
+    const/4 v10, 0x0
+
+    move-object/from16 v0, v25
+
+    invoke-virtual {v0, v2, v10}, Lcom/android/launcher3/Launcher;->showAppsView(ZZ)V
+
+    goto/16 :goto_0
+
+    :cond_6
+    invoke-static/range {v24 .. v24}, Lcom/android/launcher3/home/HomeFocusLogic;->createSparseMatrix(Lcom/android/launcher3/common/base/view/CellLayout;)[[I
 
     move-result-object v5
 
-    goto :goto_1
+    goto/16 :goto_1
+
+    :pswitch_0
+    const/16 v2, 0x13
+
+    move/from16 v0, p1
+
+    if-ne v0, v2, :cond_2
+
+    invoke-virtual/range {v25 .. v25}, Lcom/android/launcher3/Launcher;->getMultiSelectManager()Lcom/android/launcher3/common/multiselect/MultiSelectManager;
+
+    move-result-object v26
+
+    if-eqz v26, :cond_2
+
+    invoke-virtual/range {v26 .. v26}, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->getMultiSelectPanel()Lcom/android/launcher3/common/multiselect/MultiSelectPanel;
+
+    move-result-object v27
+
+    if-eqz v27, :cond_2
+
+    invoke-virtual/range {v27 .. v27}, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->getVisibility()I
+
+    move-result v2
+
+    if-nez v2, :cond_2
+
+    move-object/from16 v28, v27
+
+    goto/16 :goto_2
 
     :pswitch_1
     add-int/lit8 v15, v7, -0x1
 
     const/16 v2, -0xa
 
-    move/from16 v0, v26
+    move/from16 v0, v29
 
-    if-ne v0, v2, :cond_6
+    if-ne v0, v2, :cond_7
 
     add-int/lit8 v15, v7, 0x1
 
-    :cond_6
+    :cond_7
     invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v2
@@ -1324,9 +1485,9 @@
 
     iget v0, v2, Lcom/android/launcher3/common/base/view/CellLayout$LayoutParams;->cellY:I
 
-    move/from16 v28, v0
+    move/from16 v31, v0
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v32
 
     invoke-static {v0, v15}, Lcom/android/launcher3/util/focus/FocusHelper;->getCellLayoutChildrenForIndex(Landroid/view/ViewGroup;I)Lcom/android/launcher3/common/base/view/CellLayoutChildren;
 
@@ -1334,35 +1495,35 @@
 
     if-eqz v9, :cond_2
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v32
 
     invoke-virtual {v0, v15}, Lcom/android/launcher3/home/Workspace;->snapToPage(I)V
 
     invoke-virtual {v9}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->getParent()Landroid/view/ViewParent;
 
-    move-result-object v23
+    move-result-object v24
 
-    check-cast v23, Lcom/android/launcher3/common/base/view/CellLayout;
+    check-cast v24, Lcom/android/launcher3/common/base/view/CellLayout;
 
-    invoke-virtual/range {v23 .. v23}, Lcom/android/launcher3/common/base/view/CellLayout;->getCountX()I
+    invoke-virtual/range {v24 .. v24}, Lcom/android/launcher3/common/base/view/CellLayout;->getCountX()I
 
     move-result v2
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v24
 
-    move/from16 v1, v28
+    move/from16 v1, v31
 
     invoke-static {v0, v2, v1}, Lcom/android/launcher3/home/HomeFocusLogic;->createSparseMatrix(Lcom/android/launcher3/common/base/view/CellLayout;II)[[I
 
     move-result-object v5
 
-    invoke-virtual/range {v23 .. v23}, Lcom/android/launcher3/common/base/view/CellLayout;->getCountX()I
+    invoke-virtual/range {v24 .. v24}, Lcom/android/launcher3/common/base/view/CellLayout;->getCountX()I
 
     move-result v2
 
     add-int/lit8 v11, v2, 0x1
 
-    invoke-virtual/range {v23 .. v23}, Lcom/android/launcher3/common/base/view/CellLayout;->getCountY()I
+    invoke-virtual/range {v24 .. v24}, Lcom/android/launcher3/common/base/view/CellLayout;->getCountY()I
 
     move-result v12
 
@@ -1378,24 +1539,24 @@
 
     invoke-static/range {v10 .. v17}, Lcom/android/launcher3/home/HomeFocusLogic;->handleKeyEvent(III[[IIIILcom/android/launcher3/common/base/view/CellLayoutChildren;)I
 
-    move-result v26
+    move-result v29
 
-    move/from16 v0, v26
+    move/from16 v0, v29
 
     invoke-virtual {v9, v0}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v25
+    move-result-object v28
 
-    if-nez v25, :cond_2
+    if-nez v28, :cond_2
 
-    invoke-virtual/range {v29 .. v29}, Lcom/android/launcher3/home/Workspace;->clearFocus()V
+    invoke-virtual/range {v32 .. v32}, Lcom/android/launcher3/home/Workspace;->clearFocus()V
 
     goto/16 :goto_2
 
     :pswitch_2
     add-int/lit8 v2, v7, -0x1
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v32
 
     invoke-static {v0, v2}, Lcom/android/launcher3/util/focus/FocusHelper;->getCellLayoutChildrenForIndex(Landroid/view/ViewGroup;I)Lcom/android/launcher3/common/base/view/CellLayoutChildren;
 
@@ -1405,11 +1566,11 @@
 
     invoke-virtual {v9, v2}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v25
+    move-result-object v28
 
     add-int/lit8 v2, v7, -0x1
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v32
 
     invoke-virtual {v0, v2}, Lcom/android/launcher3/home/Workspace;->snapToPage(I)V
 
@@ -1418,7 +1579,7 @@
     :pswitch_3
     add-int/lit8 v2, v7, -0x1
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v32
 
     invoke-static {v0, v2}, Lcom/android/launcher3/util/focus/FocusHelper;->getCellLayoutChildrenForIndex(Landroid/view/ViewGroup;I)Lcom/android/launcher3/common/base/view/CellLayoutChildren;
 
@@ -1432,11 +1593,11 @@
 
     invoke-virtual {v9, v2}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v25
+    move-result-object v28
 
     add-int/lit8 v2, v7, -0x1
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v32
 
     invoke-virtual {v0, v2}, Lcom/android/launcher3/home/Workspace;->snapToPage(I)V
 
@@ -1445,7 +1606,7 @@
     :pswitch_4
     add-int/lit8 v2, v7, 0x1
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v32
 
     invoke-static {v0, v2}, Lcom/android/launcher3/util/focus/FocusHelper;->getCellLayoutChildrenForIndex(Landroid/view/ViewGroup;I)Lcom/android/launcher3/common/base/view/CellLayoutChildren;
 
@@ -1455,11 +1616,11 @@
 
     invoke-virtual {v9, v2}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v25
+    move-result-object v28
 
     add-int/lit8 v2, v7, 0x1
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v32
 
     invoke-virtual {v0, v2}, Lcom/android/launcher3/home/Workspace;->snapToPage(I)V
 
@@ -1470,13 +1631,13 @@
 
     const/4 v2, -0x5
 
-    move/from16 v0, v26
+    move/from16 v0, v29
 
-    if-ne v0, v2, :cond_7
+    if-ne v0, v2, :cond_8
 
     add-int/lit8 v15, v7, -0x1
 
-    :cond_7
+    :cond_8
     invoke-virtual/range {p0 .. p0}, Landroid/view/View;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
     move-result-object v2
@@ -1485,9 +1646,9 @@
 
     iget v0, v2, Lcom/android/launcher3/common/base/view/CellLayout$LayoutParams;->cellY:I
 
-    move/from16 v28, v0
+    move/from16 v31, v0
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v32
 
     invoke-static {v0, v15}, Lcom/android/launcher3/util/focus/FocusHelper;->getCellLayoutChildrenForIndex(Landroid/view/ViewGroup;I)Lcom/android/launcher3/common/base/view/CellLayoutChildren;
 
@@ -1495,21 +1656,21 @@
 
     if-eqz v9, :cond_2
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v32
 
     invoke-virtual {v0, v15}, Lcom/android/launcher3/home/Workspace;->snapToPage(I)V
 
     invoke-virtual {v9}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->getParent()Landroid/view/ViewParent;
 
-    move-result-object v23
+    move-result-object v24
 
-    check-cast v23, Lcom/android/launcher3/common/base/view/CellLayout;
+    check-cast v24, Lcom/android/launcher3/common/base/view/CellLayout;
 
     const/4 v2, -0x1
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v24
 
-    move/from16 v1, v28
+    move/from16 v1, v31
 
     invoke-static {v0, v2, v1}, Lcom/android/launcher3/home/HomeFocusLogic;->createSparseMatrix(Lcom/android/launcher3/common/base/view/CellLayout;II)[[I
 
@@ -1531,17 +1692,17 @@
 
     invoke-static/range {v10 .. v17}, Lcom/android/launcher3/home/HomeFocusLogic;->handleKeyEvent(III[[IIIILcom/android/launcher3/common/base/view/CellLayoutChildren;)I
 
-    move-result v26
+    move-result v29
 
-    move/from16 v0, v26
+    move/from16 v0, v29
 
     invoke-virtual {v9, v0}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v25
+    move-result-object v28
 
-    if-nez v25, :cond_2
+    if-nez v28, :cond_2
 
-    invoke-virtual/range {v29 .. v29}, Lcom/android/launcher3/home/Workspace;->clearFocus()V
+    invoke-virtual/range {v32 .. v32}, Lcom/android/launcher3/home/Workspace;->clearFocus()V
 
     goto/16 :goto_2
 
@@ -1550,7 +1711,7 @@
 
     invoke-virtual {v9, v2}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v25
+    move-result-object v28
 
     goto/16 :goto_2
 
@@ -1563,25 +1724,25 @@
 
     invoke-virtual {v9, v2}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v25
+    move-result-object v28
 
     goto/16 :goto_2
 
     :pswitch_8
     const/4 v2, -0x1
 
-    move-object/from16 v0, v29
+    move-object/from16 v0, v32
 
     invoke-virtual {v0, v2}, Lcom/android/launcher3/home/Workspace;->snapToPage(I)V
 
     goto/16 :goto_2
 
-    :cond_8
+    :cond_9
     invoke-virtual {v9}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->getChildCount()I
 
     move-result v2
 
-    move/from16 v0, v26
+    move/from16 v0, v29
 
     if-gt v2, v0, :cond_2
 
@@ -1589,13 +1750,13 @@
 
     move-result v2
 
-    invoke-virtual/range {v22 .. v22}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->getChildCount()I
+    invoke-virtual/range {v23 .. v23}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->getChildCount()I
 
     move-result v10
 
     add-int/2addr v2, v10
 
-    move/from16 v0, v26
+    move/from16 v0, v29
 
     if-ge v0, v2, :cond_2
 
@@ -1603,17 +1764,15 @@
 
     move-result v2
 
-    sub-int v2, v26, v2
+    sub-int v2, v29, v2
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v23
 
     invoke-virtual {v0, v2}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v25
+    move-result-object v28
 
     goto/16 :goto_2
-
-    nop
 
     :pswitch_data_0
     .packed-switch -0xb
@@ -1984,29 +2143,33 @@
 .end method
 
 .method private static handleScreenGridPanelOptionButtonKeyEvent(Landroid/view/View;ILandroid/view/KeyEvent;)Z
-    .locals 10
+    .locals 11
 
-    const/16 v9, 0x16
+    const/16 v10, 0x16
 
-    const/16 v8, 0x15
+    const/16 v9, 0x15
 
-    const/4 v5, 0x1
+    const/4 v6, 0x1
 
-    const/4 v6, 0x0
+    const/4 v7, 0x0
 
-    if-eq p1, v8, :cond_0
+    if-eq p1, v9, :cond_0
 
-    if-ne p1, v9, :cond_2
+    if-eq p1, v10, :cond_0
+
+    const/16 v8, 0x13
+
+    if-ne p1, v8, :cond_2
 
     :cond_0
-    move v1, v5
+    move v1, v6
 
     :goto_0
     invoke-virtual {p2}, Landroid/view/KeyEvent;->getAction()I
 
-    move-result v7
+    move-result v8
 
-    if-eq v7, v5, :cond_1
+    if-eq v8, v6, :cond_1
 
     if-nez v1, :cond_3
 
@@ -2015,47 +2178,61 @@
     return v1
 
     :cond_2
-    move v1, v6
+    move v1, v7
 
     goto :goto_0
 
     :cond_3
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
-    move-result-object v5
+    move-result-object v6
 
-    check-cast v5, Lcom/android/launcher3/Launcher;
+    check-cast v6, Lcom/android/launcher3/Launcher;
 
-    invoke-virtual {v5}, Lcom/android/launcher3/Launcher;->getHomeController()Lcom/android/launcher3/home/HomeController;
+    invoke-virtual {v6}, Lcom/android/launcher3/Launcher;->getHomeController()Lcom/android/launcher3/home/HomeController;
 
     move-result-object v3
 
     const/4 v2, 0x0
 
+    const/4 v5, 0x0
+
     if-eqz v3, :cond_4
 
     invoke-virtual {v3}, Lcom/android/launcher3/home/HomeController;->getScreenGridPanel()Lcom/android/launcher3/home/ScreenGridPanel;
 
-    move-result-object v5
+    move-result-object v6
 
-    if-eqz v5, :cond_4
+    if-eqz v6, :cond_4
 
     invoke-virtual {v3}, Lcom/android/launcher3/home/HomeController;->getScreenGridPanel()Lcom/android/launcher3/home/ScreenGridPanel;
 
-    move-result-object v5
+    move-result-object v6
 
-    invoke-virtual {v5}, Lcom/android/launcher3/home/ScreenGridPanel;->getGriBtnLayout()Landroid/widget/LinearLayout;
+    invoke-virtual {v6}, Lcom/android/launcher3/home/ScreenGridPanel;->getGriBtnLayout()Landroid/widget/LinearLayout;
 
     move-result-object v2
+
+    invoke-virtual {v3}, Lcom/android/launcher3/home/HomeController;->getScreenGridPanel()Lcom/android/launcher3/home/ScreenGridPanel;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Lcom/android/launcher3/home/ScreenGridPanel;->getScreenGridTopConatiner()Landroid/view/View;
+
+    move-result-object v5
+
+    check-cast v5, Landroid/widget/LinearLayout;
 
     :cond_4
     if-eqz v2, :cond_1
 
-    sget-boolean v5, Lcom/android/launcher3/Utilities;->sIsRtl:Z
+    if-eqz v5, :cond_1
 
-    if-eqz v5, :cond_5
+    sget-boolean v6, Lcom/android/launcher3/Utilities;->sIsRtl:Z
 
-    if-ne p1, v8, :cond_6
+    if-eqz v6, :cond_5
+
+    if-ne p1, v9, :cond_6
 
     const/16 p1, 0x16
 
@@ -2067,36 +2244,35 @@
 
     packed-switch p1, :pswitch_data_0
 
+    :pswitch_0
     goto :goto_1
 
-    :pswitch_0
-    if-eqz v4, :cond_1
+    :pswitch_1
+    if-eqz v5, :cond_1
 
-    add-int/lit8 v5, v4, -0x1
+    invoke-virtual {v5, v7}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
 
-    invoke-virtual {v2, v5}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
+    move-result-object v6
 
-    move-result-object v0
+    invoke-virtual {v6}, Landroid/view/View;->requestFocus()Z
 
-    if-eqz v0, :cond_1
-
-    invoke-virtual {v0}, Landroid/view/View;->requestFocus()Z
-
-    invoke-virtual {v0, v6}, Landroid/view/View;->playSoundEffect(I)V
+    invoke-static {p1, p0}, Lcom/android/launcher3/util/focus/FocusHelper;->playSoundEffect(ILandroid/view/View;)V
 
     goto :goto_1
 
     :cond_6
-    if-ne p1, v9, :cond_5
+    if-ne p1, v10, :cond_5
 
     const/16 p1, 0x15
 
     goto :goto_2
 
-    :pswitch_1
-    add-int/lit8 v5, v4, 0x1
+    :pswitch_2
+    if-eqz v4, :cond_1
 
-    invoke-virtual {v2, v5}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
+    add-int/lit8 v6, v4, -0x1
+
+    invoke-virtual {v2, v6}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
 
     move-result-object v0
 
@@ -2104,105 +2280,216 @@
 
     invoke-virtual {v0}, Landroid/view/View;->requestFocus()Z
 
-    invoke-virtual {v0, v6}, Landroid/view/View;->playSoundEffect(I)V
+    invoke-virtual {v0, v7}, Landroid/view/View;->playSoundEffect(I)V
+
+    goto :goto_1
+
+    :pswitch_3
+    add-int/lit8 v6, v4, 0x1
+
+    invoke-virtual {v2, v6}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0}, Landroid/view/View;->requestFocus()Z
+
+    invoke-virtual {v0, v7}, Landroid/view/View;->playSoundEffect(I)V
 
     goto :goto_1
 
     :pswitch_data_0
-    .packed-switch 0x15
-        :pswitch_0
+    .packed-switch 0x13
         :pswitch_1
+        :pswitch_0
+        :pswitch_2
+        :pswitch_3
     .end packed-switch
 .end method
 
 .method private static handleScreenGridPanelTopButtonKeyEvent(Landroid/view/View;ILandroid/view/KeyEvent;)Z
-    .locals 6
+    .locals 11
 
-    const/4 v3, 0x1
+    const/4 v8, 0x1
 
-    const/4 v4, 0x0
+    const/4 v9, 0x0
 
-    const/16 v5, 0x14
+    const/16 v10, 0x14
 
-    if-eq p1, v5, :cond_0
+    if-eq p1, v10, :cond_0
 
-    const/16 v5, 0x3d
+    const/16 v10, 0x3d
 
-    if-ne p1, v5, :cond_2
+    if-eq p1, v10, :cond_0
+
+    const/16 v10, 0x15
+
+    if-eq p1, v10, :cond_0
+
+    const/16 v10, 0x16
+
+    if-ne p1, v10, :cond_2
 
     :cond_0
-    move v0, v3
+    move v2, v8
 
     :goto_0
     invoke-virtual {p2}, Landroid/view/KeyEvent;->getAction()I
 
-    move-result v5
+    move-result v10
 
-    if-eq v5, v3, :cond_1
+    if-eq v10, v8, :cond_1
 
-    if-nez v0, :cond_3
+    if-nez v2, :cond_3
 
     :cond_1
     :goto_1
-    return v0
+    return v2
 
     :cond_2
-    move v0, v4
+    move v2, v9
 
     goto :goto_0
 
     :cond_3
     invoke-virtual {p0}, Landroid/view/View;->getContext()Landroid/content/Context;
 
+    move-result-object v8
+
+    check-cast v8, Lcom/android/launcher3/Launcher;
+
+    invoke-virtual {v8}, Lcom/android/launcher3/Launcher;->getHomeController()Lcom/android/launcher3/home/HomeController;
+
+    move-result-object v4
+
+    const/4 v3, 0x0
+
+    const/4 v6, 0x0
+
+    if-eqz v4, :cond_4
+
+    invoke-virtual {v4}, Lcom/android/launcher3/home/HomeController;->getScreenGridPanel()Lcom/android/launcher3/home/ScreenGridPanel;
+
+    move-result-object v8
+
+    if-eqz v8, :cond_4
+
+    invoke-virtual {v4}, Lcom/android/launcher3/home/HomeController;->getScreenGridPanel()Lcom/android/launcher3/home/ScreenGridPanel;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Lcom/android/launcher3/home/ScreenGridPanel;->getGriBtnLayout()Landroid/widget/LinearLayout;
+
     move-result-object v3
 
-    check-cast v3, Lcom/android/launcher3/Launcher;
+    invoke-virtual {v4}, Lcom/android/launcher3/home/HomeController;->getScreenGridPanel()Lcom/android/launcher3/home/ScreenGridPanel;
 
-    invoke-virtual {v3}, Lcom/android/launcher3/Launcher;->getHomeController()Lcom/android/launcher3/home/HomeController;
+    move-result-object v8
 
-    move-result-object v2
+    invoke-virtual {v8}, Lcom/android/launcher3/home/ScreenGridPanel;->getScreenGridTopConatiner()Landroid/view/View;
 
-    const/4 v1, 0x0
+    move-result-object v6
 
-    if-eqz v2, :cond_4
-
-    invoke-virtual {v2}, Lcom/android/launcher3/home/HomeController;->getScreenGridPanel()Lcom/android/launcher3/home/ScreenGridPanel;
-
-    move-result-object v3
-
-    if-eqz v3, :cond_4
-
-    invoke-virtual {v2}, Lcom/android/launcher3/home/HomeController;->getScreenGridPanel()Lcom/android/launcher3/home/ScreenGridPanel;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/android/launcher3/home/ScreenGridPanel;->getGriBtnLayout()Landroid/widget/LinearLayout;
-
-    move-result-object v1
+    check-cast v6, Landroid/widget/LinearLayout;
 
     :cond_4
-    if-eqz v1, :cond_1
+    const v8, 0x7f110096
+
+    invoke-virtual {v6, v8}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
+
+    move-result-object v7
+
+    check-cast v7, Landroid/widget/LinearLayout;
+
+    if-eqz v3, :cond_1
+
+    if-eqz v7, :cond_1
+
+    invoke-virtual {v7, p0}, Landroid/view/ViewGroup;->indexOfChild(Landroid/view/View;)I
+
+    move-result v5
+
+    invoke-virtual {v7}, Landroid/widget/LinearLayout;->getChildCount()I
+
+    move-result v0
 
     sparse-switch p1, :sswitch_data_0
 
     goto :goto_1
 
     :sswitch_0
-    if-eqz v1, :cond_1
+    if-eqz v3, :cond_1
 
-    invoke-virtual {v1, v4}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
+    invoke-virtual {v3, v9}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
 
-    move-result-object v3
+    move-result-object v8
 
-    invoke-virtual {v3}, Landroid/view/View;->requestFocus()Z
+    invoke-virtual {v8}, Landroid/view/View;->requestFocus()Z
 
     invoke-static {p1, p0}, Lcom/android/launcher3/util/focus/FocusHelper;->playSoundEffect(ILandroid/view/View;)V
 
     goto :goto_1
 
+    :sswitch_1
+    add-int/lit8 v8, v5, -0x1
+
+    invoke-static {v8, v9}, Ljava/lang/Math;->max(II)I
+
+    move-result v8
+
+    invoke-virtual {v7, v8}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {v1}, Landroid/view/View;->isEnabled()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_1
+
+    invoke-virtual {v1}, Landroid/view/View;->requestFocus()Z
+
+    invoke-static {p1, p0}, Lcom/android/launcher3/util/focus/FocusHelper;->playSoundEffect(ILandroid/view/View;)V
+
+    goto :goto_1
+
+    :sswitch_2
+    add-int/lit8 v8, v5, 0x1
+
+    add-int/lit8 v9, v0, -0x1
+
+    invoke-static {v8, v9}, Ljava/lang/Math;->min(II)I
+
+    move-result v8
+
+    invoke-virtual {v7, v8}, Landroid/widget/LinearLayout;->getChildAt(I)Landroid/view/View;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {v1}, Landroid/view/View;->isEnabled()Z
+
+    move-result v8
+
+    if-eqz v8, :cond_1
+
+    invoke-virtual {v1}, Landroid/view/View;->requestFocus()Z
+
+    invoke-static {p1, p0}, Lcom/android/launcher3/util/focus/FocusHelper;->playSoundEffect(ILandroid/view/View;)V
+
+    goto/16 :goto_1
+
+    nop
+
     :sswitch_data_0
     .sparse-switch
         0x14 -> :sswitch_0
+        0x15 -> :sswitch_1
+        0x16 -> :sswitch_2
         0x3d -> :sswitch_0
     .end sparse-switch
 .end method

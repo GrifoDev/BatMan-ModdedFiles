@@ -12,5 +12,5 @@
     <integer name="home_cellCountY">4</integer>
     <integer name="config_workspaceScreenGridShrinkPercentage">68</integer>
     <integer name="easy_home_cellCountX">3</integer>
-    <integer name="easy_home_cellCountY">3</integer>
+    <integer name="easy_home_cellCountY">4</integer>
 </resources>

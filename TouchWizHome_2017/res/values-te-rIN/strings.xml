@@ -16,8 +16,10 @@
     <string name="accessibility_button">బటన్</string>
     <string name="accessibility_dimmed">మసకగా చేయబడింది</string>
     <string name="activity_not_available">ఈ అప్లికేషన్ మీ పరికరంలో అందుబాటులో లేదు.</string>
-    <string name="activity_not_found">అప్లికేషన్ స్థాపించబడలేదు.</string>
+    <string name="activity_not_found">అప్లికేషన్ కనుగొనబడలేదు</string>
+    <string name="add">జోడించు</string>
     <string name="add_to_last_page">మీరు %1$d అంశాలను ఎంచుకున్నారు, కానీ ఈ పేజీలో తగినంత నిల్వ లేదు. మిగిలి ఉన్న %2$d అంశాలు చివరి పేజీకి జోడించబడతాయి.</string>
+    <string name="add_to_last_page_for_hotseat">మీరు %1$d అంశాలను ఎంచుకున్నారు, కానీ ఇష్టాల ట్రేలో తగినంత నిల్వ లేదు. మిగిలి ఉన్న %2$d అంశాలు చివరి పేజీకి జోడించబడతాయి.</string>
     <string name="align_to_bottom">దిగువకు సమలేఖనం చేయి</string>
     <string name="align_to_top">ఎగువకు సమలేఖనం చేయి</string>
     <string name="app_locked_toast">%s లాక్ చేయబడింది.</string>
@@ -121,6 +123,7 @@
     <string name="new_page_created">పేజీ జోడించబడింది.</string>
     <string name="no_changes">మార్పులు లేవు.</string>
     <string name="no_space_page">పేజీలో ఖాళీ లేదు. మరో పేజీకి సత్వరమార్గాన్ని జోడించి, ప్రయత్నించండి.</string>
+    <string name="no_space_page_for_hotseat">ఇష్టమైన వాటి ట్రేలో నిల్వ లేదు.</string>
     <string name="no_space_page_for_widget">ఈ పేజీలో ఖాళీ లేదు.</string>
     <string name="not_selected">ఎంచుకోలేదు</string>
     <string name="notification_panel_setting_summary">హోమ్ స్క్రీన్ నుండి నోటిఫికేషన్ ప్యానెల్‌ని తెరవడానికి దిగువకు స్వైప్ చేయండి.</string>
@@ -155,6 +158,8 @@
     <string name="quick_option_delete_folder">ఫోల్డర్‌ను తొలగించు</string>
     <string name="quick_option_delete_folder_alert">%s ఫోల్డర్ తొలగించబడుతుంది. ఈ ఫోల్డర్ లోపల ఉన్న అప్లికేషన్‌లు ఇప్పటికీ అప్లికేషన్‌ల స్క్రీన్‌లో అందుబాటులో ఉన్నాయి.</string>
     <string name="quick_option_delete_folder_alert_no_title">ఈ ఫోల్డర్ తోలగించబడుతుంది. ఈ ఫోల్డర్ లోపల ఉన్న అప్లికేషన్‌లు ఇప్పటికీ అప్లికేషన్‌ల స్క్రీన్‌లో అందుబాటులో ఉన్నాయి.</string>
+    <string name="quick_option_delete_folder_home_only_alert">%s ఫోల్డర్ తొలగించబడుతుంది. ఈ ఫోల్డర్ లోపల ఉన్న అప్లికేషన్‌లు ఇప్పటికీ హోమ్ స్క్రీన్‌లో అందుబాటులో ఉన్నాయి.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">ఈ ఫోల్డర్ తొలగించబడుతుంది. ఈ ఫోల్డర్ లోపల ఉన్న అప్లికేషన్‌లు ఇప్పటికీ హోమ్ స్క్రీన్‌లో అందుబాటులో ఉంటాయి.</string>
     <string name="quick_option_dimmed_disable">నిలిపివేయి</string>
     <string name="quick_option_disable">నిలిపివేయి</string>
     <string name="quick_option_install_dual_im">ద్వితీయ అప్లికేషన్‌ని ఇన్‌స్టాల్ చేయండి</string>

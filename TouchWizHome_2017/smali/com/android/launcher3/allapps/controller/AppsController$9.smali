@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/allapps/controller/AppsController;->switchInternalState(Lcom/android/launcher3/common/stage/StageEntry;)Landroid/animation/Animator;
+    value = Lcom/android/launcher3/allapps/controller/AppsController;->exitDragStateDelayed(I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -35,15 +35,15 @@
 
 # virtual methods
 .method public run()V
-    .locals 1
+    .locals 3
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController$9;->this$0:Lcom/android/launcher3/allapps/controller/AppsController;
 
-    invoke-static {v0}, Lcom/android/launcher3/allapps/controller/AppsController;->access$100(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/allapps/AppsScreenGridPanel;
+    const/4 v1, 0x0
 
-    move-result-object v0
+    const/4 v2, 0x1
 
-    invoke-virtual {v0}, Lcom/android/launcher3/allapps/AppsScreenGridPanel;->updateApplyCancelButton()V
+    invoke-virtual {v0, v1, v2}, Lcom/android/launcher3/allapps/controller/AppsController;->changeState(IZ)Z
 
     return-void
 .end method

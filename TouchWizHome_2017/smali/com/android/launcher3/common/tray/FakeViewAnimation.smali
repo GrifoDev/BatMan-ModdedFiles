@@ -1,4 +1,4 @@
-.class public Lcom/android/launcher3/common/tray/FakeViewAnimation;
+.class Lcom/android/launcher3/common/tray/FakeViewAnimation;
 .super Ljava/lang/Object;
 .source "FakeViewAnimation.java"
 
@@ -18,7 +18,7 @@
 
 
 # direct methods
-.method public constructor <init>()V
+.method constructor <init>()V
     .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
@@ -66,7 +66,7 @@
 
     move-result-object v6
 
-    new-instance v0, Lcom/android/launcher3/common/tray/FakeViewAnimation$2;
+    new-instance v0, Lcom/android/launcher3/common/tray/FakeViewAnimation$1;
 
     move-object v1, p0
 
@@ -76,7 +76,7 @@
 
     move v4, p2
 
-    invoke-direct/range {v0 .. v5}, Lcom/android/launcher3/common/tray/FakeViewAnimation$2;-><init>(Lcom/android/launcher3/common/tray/FakeViewAnimation;Landroid/view/View;ZIF)V
+    invoke-direct/range {v0 .. v5}, Lcom/android/launcher3/common/tray/FakeViewAnimation$1;-><init>(Lcom/android/launcher3/common/tray/FakeViewAnimation;Landroid/view/View;ZIF)V
 
     invoke-virtual {v6, v0}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
 
@@ -86,38 +86,6 @@
     const/4 v5, 0x0
 
     goto :goto_0
-.end method
-
-.method private getTranslationAnimation(Landroid/view/View;IZ)Landroid/animation/Animator;
-    .locals 5
-
-    sget-object v1, Landroid/view/View;->TRANSLATION_Y:Landroid/util/Property;
-
-    invoke-virtual {v1}, Landroid/util/Property;->getName()Ljava/lang/String;
-
-    move-result-object v1
-
-    const/4 v2, 0x1
-
-    new-array v2, v2, [F
-
-    const/4 v3, 0x0
-
-    int-to-float v4, p2
-
-    aput v4, v2, v3
-
-    invoke-static {p1, v1, v2}, Lcom/android/launcher3/util/animation/LauncherAnimUtils;->ofFloat(Landroid/view/View;Ljava/lang/String;[F)Landroid/animation/ObjectAnimator;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/android/launcher3/common/tray/FakeViewAnimation$1;
-
-    invoke-direct {v1, p0, p1, p3, p2}, Lcom/android/launcher3/common/tray/FakeViewAnimation$1;-><init>(Lcom/android/launcher3/common/tray/FakeViewAnimation;Landroid/view/View;ZI)V
-
-    invoke-virtual {v0, v1}, Landroid/animation/Animator;->addListener(Landroid/animation/Animator$AnimatorListener;)V
-
-    return-object v0
 .end method
 
 

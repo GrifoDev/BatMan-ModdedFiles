@@ -175,14 +175,14 @@
 
     const-string v1, "com.samsung.android.app.galaxyfinder"
 
-    invoke-static {p1, v1}, Lcom/android/launcher3/Utilities;->isAppInstalled(Landroid/content/Context;Ljava/lang/String;)Z
+    invoke-static {p1, v1}, Lcom/android/launcher3/Utilities;->isPackageExist(Landroid/content/Context;Ljava/lang/String;)Z
 
     move-result v1
 
     iput-boolean v1, p0, Lcom/android/launcher3/home/HomeContainer;->mIsInstalledSFinder:Z
 
     :cond_0
-    const v1, 0x7f0a0199
+    const v1, 0x7f0a019e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -456,54 +456,52 @@
 .end method
 
 .method private updateScaleAndAlphaByTranslationY(F)V
-    .locals 13
+    .locals 12
 
-    const/4 v9, 0x2
+    const/4 v8, 0x2
 
-    const/4 v12, 0x0
+    const/4 v11, 0x0
 
-    const/high16 v11, 0x3f800000    # 1.0f
+    const/high16 v10, 0x3f800000    # 1.0f
 
-    cmpl-float v7, p1, v12
+    cmpl-float v6, p1, v11
 
-    if-lez v7, :cond_3
+    if-lez v6, :cond_3
 
-    move v6, p1
+    iget v6, p0, Lcom/android/launcher3/home/HomeContainer;->mDownwardFadeOutStart:I
 
-    iget v7, p0, Lcom/android/launcher3/home/HomeContainer;->mDownwardFadeOutStart:I
+    int-to-float v6, v6
 
-    int-to-float v7, v7
+    cmpg-float v6, p1, v6
 
-    cmpg-float v7, v6, v7
-
-    if-gez v7, :cond_1
+    if-gez v6, :cond_1
 
     const/high16 v2, 0x3f800000    # 1.0f
 
     :goto_0
-    invoke-static {v2, v9, v9}, Lcom/android/launcher3/Utilities;->simplifyDecimalFraction(FII)F
+    invoke-static {v2, v8, v8}, Lcom/android/launcher3/Utilities;->simplifyDecimalFraction(FII)F
 
-    sub-float v7, v11, v2
+    sub-float v6, v10, v2
 
-    iget v8, p0, Lcom/android/launcher3/home/HomeContainer;->mHomeAlphaRatio:F
+    iget v7, p0, Lcom/android/launcher3/home/HomeContainer;->mHomeAlphaRatio:F
 
-    mul-float/2addr v7, v8
+    mul-float/2addr v6, v7
 
-    sub-float v7, v11, v7
+    sub-float v6, v10, v6
 
-    invoke-static {v12, v7}, Ljava/lang/Math;->max(FF)F
+    invoke-static {v11, v6}, Ljava/lang/Math;->max(FF)F
 
     move-result v0
 
+    iget v6, p0, Lcom/android/launcher3/home/HomeContainer;->mHomeShrinkFactor:F
+
     iget v7, p0, Lcom/android/launcher3/home/HomeContainer;->mHomeShrinkFactor:F
 
-    iget v8, p0, Lcom/android/launcher3/home/HomeContainer;->mHomeShrinkFactor:F
+    sub-float v7, v10, v7
 
-    sub-float v8, v11, v8
+    mul-float/2addr v7, v2
 
-    mul-float/2addr v8, v2
-
-    add-float v5, v7, v8
+    add-float v5, v6, v7
 
     invoke-virtual {p0, v0}, Lcom/android/launcher3/home/HomeContainer;->setAlpha(F)V
 
@@ -511,63 +509,63 @@
 
     invoke-virtual {p0, v5}, Lcom/android/launcher3/home/HomeContainer;->setScaleY(F)V
 
-    iget-object v7, p0, Lcom/android/launcher3/home/HomeContainer;->mExternalPageIndicator:Landroid/view/View;
+    iget-object v6, p0, Lcom/android/launcher3/home/HomeContainer;->mExternalPageIndicator:Landroid/view/View;
 
-    if-eqz v7, :cond_0
+    if-eqz v6, :cond_0
+
+    iget v6, p0, Lcom/android/launcher3/home/HomeContainer;->mPageIndicatorShrinkFactor:F
 
     iget v7, p0, Lcom/android/launcher3/home/HomeContainer;->mPageIndicatorShrinkFactor:F
 
-    iget v8, p0, Lcom/android/launcher3/home/HomeContainer;->mPageIndicatorShrinkFactor:F
+    sub-float v7, v10, v7
 
-    sub-float v8, v11, v8
+    sub-float v8, v10, v2
 
-    sub-float v9, v11, v2
-
-    iget v10, p0, Lcom/android/launcher3/home/HomeContainer;->mPageIndicatorScaleRatio:F
-
-    mul-float/2addr v9, v10
-
-    sub-float v9, v11, v9
-
-    invoke-static {v12, v9}, Ljava/lang/Math;->max(FF)F
-
-    move-result v9
+    iget v9, p0, Lcom/android/launcher3/home/HomeContainer;->mPageIndicatorScaleRatio:F
 
     mul-float/2addr v8, v9
 
-    add-float v4, v7, v8
+    sub-float v8, v10, v8
 
-    iget-object v7, p0, Lcom/android/launcher3/home/HomeContainer;->mExternalPageIndicator:Landroid/view/View;
+    invoke-static {v11, v8}, Ljava/lang/Math;->max(FF)F
 
-    invoke-virtual {v7, v4}, Landroid/view/View;->setScaleX(F)V
+    move-result v8
 
-    iget-object v7, p0, Lcom/android/launcher3/home/HomeContainer;->mExternalPageIndicator:Landroid/view/View;
+    mul-float/2addr v7, v8
 
-    invoke-virtual {v7, v4}, Landroid/view/View;->setScaleY(F)V
+    add-float v4, v6, v7
+
+    iget-object v6, p0, Lcom/android/launcher3/home/HomeContainer;->mExternalPageIndicator:Landroid/view/View;
+
+    invoke-virtual {v6, v4}, Landroid/view/View;->setScaleX(F)V
+
+    iget-object v6, p0, Lcom/android/launcher3/home/HomeContainer;->mExternalPageIndicator:Landroid/view/View;
+
+    invoke-virtual {v6, v4}, Landroid/view/View;->setScaleY(F)V
 
     :cond_0
     return-void
 
     :cond_1
-    iget v7, p0, Lcom/android/launcher3/home/HomeContainer;->mDownwardFadeOutEnd:I
+    iget v6, p0, Lcom/android/launcher3/home/HomeContainer;->mDownwardFadeOutEnd:I
 
-    int-to-float v7, v7
+    int-to-float v6, v6
 
-    cmpg-float v7, v6, v7
+    cmpg-float v6, p1, v6
 
-    if-gez v7, :cond_2
+    if-gez v6, :cond_2
 
-    iget v7, p0, Lcom/android/launcher3/home/HomeContainer;->mDownwardFadeOutEnd:I
+    iget v6, p0, Lcom/android/launcher3/home/HomeContainer;->mDownwardFadeOutEnd:I
 
-    int-to-float v7, v7
+    int-to-float v6, v6
 
-    sub-float/2addr v7, v6
+    sub-float/2addr v6, p1
 
-    iget v8, p0, Lcom/android/launcher3/home/HomeContainer;->mFadeOutRange:F
+    iget v7, p0, Lcom/android/launcher3/home/HomeContainer;->mFadeOutRange:F
 
-    div-float/2addr v7, v8
+    div-float/2addr v6, v7
 
-    invoke-static {v11, v7}, Ljava/lang/Math;->min(FF)F
+    invoke-static {v10, v6}, Ljava/lang/Math;->min(FF)F
 
     move-result v2
 
@@ -583,61 +581,61 @@
 
     move-result v3
 
-    int-to-float v7, v3
+    int-to-float v6, v3
 
-    add-float v1, p1, v7
+    add-float v1, p1, v6
 
-    iget v7, p0, Lcom/android/launcher3/home/HomeContainer;->mUpwardFadeOutStart:I
+    iget v6, p0, Lcom/android/launcher3/home/HomeContainer;->mUpwardFadeOutStart:I
 
-    int-to-float v7, v7
+    int-to-float v6, v6
 
-    cmpl-float v7, v1, v7
+    cmpl-float v6, v1, v6
 
-    if-lez v7, :cond_4
+    if-lez v6, :cond_4
 
     const/high16 v2, 0x3f800000    # 1.0f
 
     goto :goto_0
 
     :cond_4
-    iget v7, p0, Lcom/android/launcher3/home/HomeContainer;->mUpwardFadeOutEnd:I
+    iget v6, p0, Lcom/android/launcher3/home/HomeContainer;->mUpwardFadeOutEnd:I
 
-    int-to-float v7, v7
+    int-to-float v6, v6
 
-    cmpl-float v7, v1, v7
+    cmpl-float v6, v1, v6
 
-    if-lez v7, :cond_5
+    if-lez v6, :cond_5
 
-    iget v7, p0, Lcom/android/launcher3/home/HomeContainer;->mUpwardFadeOutEnd:I
+    iget v6, p0, Lcom/android/launcher3/home/HomeContainer;->mUpwardFadeOutEnd:I
 
-    int-to-float v7, v7
+    int-to-float v6, v6
 
-    sub-float v7, v1, v7
+    sub-float v6, v1, v6
 
-    iget v8, p0, Lcom/android/launcher3/home/HomeContainer;->mFadeOutRange:F
+    iget v7, p0, Lcom/android/launcher3/home/HomeContainer;->mFadeOutRange:F
 
-    div-float/2addr v7, v8
+    div-float/2addr v6, v7
 
-    invoke-static {v11, v7}, Ljava/lang/Math;->min(FF)F
+    invoke-static {v10, v6}, Ljava/lang/Math;->min(FF)F
 
     move-result v2
 
     goto :goto_0
 
     :cond_5
-    cmpl-float v7, p1, v12
+    cmpl-float v6, p1, v11
 
-    if-nez v7, :cond_6
+    if-nez v6, :cond_6
 
-    const/4 v7, 0x1
+    const/4 v6, 0x1
 
     :goto_1
-    int-to-float v2, v7
+    int-to-float v2, v6
 
     goto/16 :goto_0
 
     :cond_6
-    const/4 v7, 0x0
+    const/4 v6, 0x0
 
     goto :goto_1
 .end method
@@ -948,7 +946,13 @@
     goto/16 :goto_0
 
     :cond_1
-    iget-boolean v6, p0, Lcom/android/launcher3/home/HomeContainer;->mIsInstalledSFinder:Z
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Lcom/android/launcher3/LauncherAppState;->isHomeOnlyModeEnabled()Z
+
+    move-result v6
 
     if-eqz v6, :cond_2
 
@@ -975,7 +979,7 @@
 
     move-result v5
 
-    goto :goto_1
+    goto/16 :goto_1
 
     :pswitch_6
     iput-boolean v5, p0, Lcom/android/launcher3/home/HomeContainer;->mActivateTouchSFinder:Z
@@ -1039,6 +1043,10 @@
 
     if-gez v0, :cond_3
 
+    iget-boolean v6, p0, Lcom/android/launcher3/home/HomeContainer;->mIsInstalledSFinder:Z
+
+    if-eqz v6, :cond_3
+
     const-string v6, "swype_up"
 
     invoke-direct {p0, v6, v5}, Lcom/android/launcher3/home/HomeContainer;->launchSfinder(Ljava/lang/String;Z)V
@@ -1046,6 +1054,8 @@
     goto/16 :goto_1
 
     :cond_3
+    if-lez v0, :cond_2
+
     invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
     move-result-object v6
@@ -1063,11 +1073,17 @@
     goto/16 :goto_1
 
     :cond_4
+    iget-boolean v6, p0, Lcom/android/launcher3/home/HomeContainer;->mIsInstalledSFinder:Z
+
+    if-eqz v6, :cond_2
+
     const-string v6, "swype_down"
 
     invoke-direct {p0, v6, v10}, Lcom/android/launcher3/home/HomeContainer;->launchSfinder(Ljava/lang/String;Z)V
 
     goto/16 :goto_1
+
+    nop
 
     :pswitch_data_0
     .packed-switch 0x0
@@ -1393,150 +1409,127 @@
 .end method
 
 .method public setTranslationY(F)V
-    .locals 11
+    .locals 8
 
-    const/4 v6, 0x0
-
-    const/4 v10, 0x0
-
-    cmpl-float v7, p1, v10
-
-    if-eqz v7, :cond_2
-
-    const/4 v2, 0x1
-
-    :goto_0
-    iget-object v7, p0, Lcom/android/launcher3/home/HomeContainer;->mController:Lcom/android/launcher3/home/HomeController;
-
-    if-eqz v7, :cond_0
-
-    iget-object v7, p0, Lcom/android/launcher3/home/HomeContainer;->mController:Lcom/android/launcher3/home/HomeController;
-
-    invoke-virtual {v7, v2}, Lcom/android/launcher3/home/HomeController;->updateOnlyCurrentPage(Z)V
-
-    :cond_0
     invoke-super {p0, p1}, Landroid/widget/FrameLayout;->setTranslationY(F)V
 
-    iget-object v7, p0, Lcom/android/launcher3/home/HomeContainer;->mController:Lcom/android/launcher3/home/HomeController;
+    iget-object v5, p0, Lcom/android/launcher3/home/HomeContainer;->mController:Lcom/android/launcher3/home/HomeController;
 
-    if-eqz v7, :cond_3
+    if-eqz v5, :cond_1
 
-    iget-object v7, p0, Lcom/android/launcher3/home/HomeContainer;->mController:Lcom/android/launcher3/home/HomeController;
+    iget-object v5, p0, Lcom/android/launcher3/home/HomeContainer;->mController:Lcom/android/launcher3/home/HomeController;
 
-    invoke-virtual {v7}, Lcom/android/launcher3/home/HomeController;->isSelectState()Z
+    invoke-virtual {v5}, Lcom/android/launcher3/home/HomeController;->isSelectState()Z
 
-    move-result v7
+    move-result v5
 
-    if-nez v7, :cond_1
+    if-nez v5, :cond_0
 
-    iget-object v7, p0, Lcom/android/launcher3/home/HomeContainer;->mController:Lcom/android/launcher3/home/HomeController;
+    iget-object v5, p0, Lcom/android/launcher3/home/HomeContainer;->mController:Lcom/android/launcher3/home/HomeController;
 
-    invoke-virtual {v7}, Lcom/android/launcher3/home/HomeController;->isRunningStateChangeAnimation()Z
+    invoke-virtual {v5}, Lcom/android/launcher3/home/HomeController;->isRunningStateChangeAnimation()Z
 
-    move-result v7
+    move-result v5
 
-    if-eqz v7, :cond_3
+    if-eqz v5, :cond_1
 
-    :cond_1
-    :goto_1
+    :cond_0
+    :goto_0
     return-void
 
-    :cond_2
-    move v2, v6
+    :cond_1
+    iget-object v5, p0, Lcom/android/launcher3/home/HomeContainer;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
 
-    goto :goto_0
+    if-eqz v5, :cond_2
 
-    :cond_3
-    iget-object v7, p0, Lcom/android/launcher3/home/HomeContainer;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
+    iget-object v5, p0, Lcom/android/launcher3/home/HomeContainer;->mController:Lcom/android/launcher3/home/HomeController;
 
-    if-eqz v7, :cond_4
+    if-eqz v5, :cond_2
 
-    iget-object v7, p0, Lcom/android/launcher3/home/HomeContainer;->mController:Lcom/android/launcher3/home/HomeController;
+    iget-object v5, p0, Lcom/android/launcher3/home/HomeContainer;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
 
-    if-eqz v7, :cond_4
-
-    iget-object v7, p0, Lcom/android/launcher3/home/HomeContainer;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
-
-    iget-object v8, p0, Lcom/android/launcher3/home/HomeContainer;->mController:Lcom/android/launcher3/home/HomeController;
+    iget-object v6, p0, Lcom/android/launcher3/home/HomeContainer;->mController:Lcom/android/launcher3/home/HomeController;
 
     invoke-virtual {p0}, Lcom/android/launcher3/home/HomeContainer;->getHeight()I
 
-    move-result v9
+    move-result v7
 
-    invoke-virtual {v7, v8, p1, v9}, Lcom/android/launcher3/common/tray/TrayManager;->onChangeTrayTranslationY(Lcom/android/launcher3/common/tray/TrayManager$TrayInteractionListener;FI)V
+    invoke-virtual {v5, v6, p1, v7}, Lcom/android/launcher3/common/tray/TrayManager;->onChangeTrayTranslationY(Lcom/android/launcher3/common/tray/TrayManager$TrayInteractionListener;FI)V
 
-    :cond_4
+    :cond_2
     const/4 v0, 0x0
 
-    iget-object v7, p0, Lcom/android/launcher3/home/HomeContainer;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
+    iget-object v5, p0, Lcom/android/launcher3/home/HomeContainer;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
 
-    if-eqz v7, :cond_7
+    if-eqz v5, :cond_5
 
-    iget-object v7, p0, Lcom/android/launcher3/home/HomeContainer;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
+    iget-object v5, p0, Lcom/android/launcher3/home/HomeContainer;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
 
-    invoke-virtual {v7}, Lcom/android/launcher3/common/tray/TrayManager;->getTrayMovingRange()I
+    invoke-virtual {v5}, Lcom/android/launcher3/common/tray/TrayManager;->getTrayMovingRange()I
 
     move-result v1
 
-    iget-object v7, p0, Lcom/android/launcher3/home/HomeContainer;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
+    iget-object v5, p0, Lcom/android/launcher3/home/HomeContainer;->mTrayManager:Lcom/android/launcher3/common/tray/TrayManager;
 
-    invoke-virtual {v7}, Lcom/android/launcher3/common/tray/TrayManager;->isMoveAndAnimated()Z
+    invoke-virtual {v5}, Lcom/android/launcher3/common/tray/TrayManager;->isMoveAndAnimated()Z
 
     move-result v0
 
+    :goto_1
+    neg-int v4, v1
+
+    move v3, v1
+
+    const/4 v5, 0x0
+
+    cmpl-float v5, p1, v5
+
+    if-eqz v5, :cond_6
+
+    int-to-float v5, v4
+
+    cmpg-float v5, p1, v5
+
+    if-lez v5, :cond_3
+
+    int-to-float v5, v3
+
+    cmpl-float v5, p1, v5
+
+    if-ltz v5, :cond_6
+
+    :cond_3
+    const/16 v2, 0x8
+
     :goto_2
-    neg-int v5, v1
-
-    move v4, v1
-
-    cmpl-float v7, p1, v10
-
-    if-eqz v7, :cond_8
-
-    int-to-float v7, v5
-
-    cmpg-float v7, p1, v7
-
-    if-lez v7, :cond_5
-
-    int-to-float v7, v4
-
-    cmpl-float v7, p1, v7
-
-    if-ltz v7, :cond_8
-
-    :cond_5
-    const/16 v3, 0x8
-
-    :goto_3
-    if-nez v0, :cond_6
+    if-nez v0, :cond_4
 
     invoke-virtual {p0}, Lcom/android/launcher3/home/HomeContainer;->getVisibility()I
 
-    move-result v6
+    move-result v5
 
-    if-eq v6, v3, :cond_6
+    if-eq v5, v2, :cond_4
 
-    invoke-virtual {p0, v3}, Lcom/android/launcher3/home/HomeContainer;->setVisibility(I)V
+    invoke-virtual {p0, v2}, Lcom/android/launcher3/home/HomeContainer;->setVisibility(I)V
 
-    :cond_6
+    :cond_4
     invoke-direct {p0, p1}, Lcom/android/launcher3/home/HomeContainer;->updateScaleAndAlphaByTranslationY(F)V
 
-    goto :goto_1
+    goto :goto_0
 
-    :cond_7
-    iget-object v7, p0, Lcom/android/launcher3/home/HomeContainer;->mLauncher:Lcom/android/launcher3/Launcher;
+    :cond_5
+    iget-object v5, p0, Lcom/android/launcher3/home/HomeContainer;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    invoke-static {v7}, Lcom/android/launcher3/Utilities;->getFullScreenHeight(Landroid/app/Activity;)I
+    invoke-static {v5}, Lcom/android/launcher3/Utilities;->getFullScreenHeight(Landroid/app/Activity;)I
 
     move-result v1
 
+    goto :goto_1
+
+    :cond_6
+    const/4 v2, 0x0
+
     goto :goto_2
-
-    :cond_8
-    move v3, v6
-
-    goto :goto_3
 .end method
 
 .method setTrayManager(Lcom/android/launcher3/common/tray/TrayManager;)V

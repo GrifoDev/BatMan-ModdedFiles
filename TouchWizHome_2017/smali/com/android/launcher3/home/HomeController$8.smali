@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/HomeController;->requestCreateShortcut(IILandroid/content/Intent;)V
+    value = Lcom/android/launcher3/home/HomeController;->requestBindAppWidget(ILandroid/content/Intent;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

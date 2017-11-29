@@ -49,8 +49,7 @@
     <dimen name="overview_pannel_margin_bottom">10.0dip</dimen>
     <dimen name="overview_pannel_options_button_height">72.0dip</dimen>
     <dimen name="overview_pannel_textsize">12.0dip</dimen>
-    <dimen name="pageIndicator_dot_gap">10.0dip</dimen>
-    <dimen name="pageIndicator_dot_size">8.0dip</dimen>
+    <dimen name="pageIndicator_dot_size">17.0dip</dimen>
     <dimen name="screen_grid_explain_view_height">70.0dip</dimen>
     <dimen name="screen_grid_panel_margin_bottom">0.0dip</dimen>
     <dimen name="tray_fake_view_text_size">14.0dip</dimen>
@@ -110,6 +109,6 @@
     <dimen name="tidyup_container_margin_top">24.0dip</dimen>
     <dimen name="widget_page_indicator_bottom_margin">12.0dip</dimen>
     <dimen name="widget_page_top_margin">70.0dip</dimen>
-    <dimen name="appsearch_container_Height">44.0dip</dimen>
+    <dimen name="appsearch_container_Height">48.0dip</dimen>
     <dimen name="quick_option_item_padding">4.0dip</dimen>
 </resources>

@@ -16,8 +16,10 @@
     <string name="accessibility_button">Tugma</string>
     <string name="accessibility_dimmed">Xiralashdi</string>
     <string name="activity_not_available">Bu ilovadan qurilmangizda foydalanib bo‘lmaydi.</string>
-    <string name="activity_not_found">Ilova o‘rnatilmadi.</string>
+    <string name="activity_not_found">Ilova topilmadi</string>
+    <string name="add">Qo‘shish</string>
     <string name="add_to_last_page">%1$d ta elementni tanladingiz, lekin bu sahifada yetarli bo‘sh joy mavjud emas. Qolgan %2$d ta element oxirgi sahifaga qo‘shiladi.</string>
+    <string name="add_to_last_page_for_hotseat">%1$d ta element tanladingiz, lekin tanlanganlar treyida yetarli joy yo‘q. Qolgan %2$d ta element oxirgi sahifaga qo‘shiladi.</string>
     <string name="align_to_bottom">Pastga tenglashtirilsin</string>
     <string name="align_to_top">Yuqoriga tenglashtirilsin</string>
     <string name="app_locked_toast">%s bloklandi.</string>
@@ -121,13 +123,14 @@
     <string name="new_page_created">Sahifa qo‘shildi.</string>
     <string name="no_changes">O‘zgarishlar yo‘q.</string>
     <string name="no_space_page">Sahifada joy yo‘q. Boshqa sahifaga yorliq qo‘shishga urining.</string>
+    <string name="no_space_page_for_hotseat">Tanlanganlar treyida joy yo‘q.</string>
     <string name="no_space_page_for_widget">Bu sahifada joy yo‘q.</string>
     <string name="not_selected">Tanlanmagan</string>
     <string name="notification_panel_setting_summary">Asosiy ekrandan bildirishnoma panelini ochish uchun pastga suring.</string>
     <string name="notification_panel_setting_title">Bildirishnoma panelini tez och</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s vidjeti avvalroq asosiy ekranga qo‘shilgan.</string>
-    <string name="option_menu_contact_up">Biz bilan bog‘lanish</string>
+    <string name="option_menu_contact_up">Bog‘lanish</string>
     <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Parametrlar</string>
     <string name="options_menu">Ko‘proq opsiyalar</string>
@@ -155,6 +158,8 @@
     <string name="quick_option_delete_folder">"Jildni o'chirib tashlash"</string>
     <string name="quick_option_delete_folder_alert">%s jildi o‘chirib tashlanadi. Ushbu jilddagi ilovalarni Ilovalar ekranida topish mumkin bo‘ladi.</string>
     <string name="quick_option_delete_folder_alert_no_title">Ushbu jild o‘chiriladi. Ushbu jilddagi ilovalarni Ilovalar ekranida topish mumkin bo‘ladi.</string>
+    <string name="quick_option_delete_folder_home_only_alert">%s jildi o‘chirib tashlanadi. Bu jild ichidagi ilovalar Asosiy ekranda mavjud bo‘ladi.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Ushbu jild o‘chiriladi. Bu jild ichidagi ilovalar Asosiy ekranda mavjud bo‘ladi.</string>
     <string name="quick_option_dimmed_disable">O‘chirish</string>
     <string name="quick_option_disable">O‘chirish</string>
     <string name="quick_option_install_dual_im">Ikkinchi ilovani o‘rnat</string>

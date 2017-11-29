@@ -7,30 +7,14 @@
 
 
 # instance fields
-.field private mSearchTextViewKeyListener:Landroid/view/View$OnKeyListener;
-
-.field private mSearchTextViewTouchListener:Landroid/view/View$OnTouchListener;
-
 .field private mWidgetSearchbar:Lcom/android/launcher3/widget/view/WidgetSearchbar;
 
 
 # direct methods
 .method public constructor <init>(Landroid/content/Context;Landroid/view/View;)V
-    .locals 1
+    .locals 0
 
     invoke-direct {p0, p1, p2}, Lcom/android/launcher3/widget/controller/WidgetState;-><init>(Landroid/content/Context;Landroid/view/View;)V
-
-    new-instance v0, Lcom/android/launcher3/widget/controller/WidgetStateNormal$1;
-
-    invoke-direct {v0, p0}, Lcom/android/launcher3/widget/controller/WidgetStateNormal$1;-><init>(Lcom/android/launcher3/widget/controller/WidgetStateNormal;)V
-
-    iput-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetStateNormal;->mSearchTextViewTouchListener:Landroid/view/View$OnTouchListener;
-
-    new-instance v0, Lcom/android/launcher3/widget/controller/WidgetStateNormal$2;
-
-    invoke-direct {v0, p0}, Lcom/android/launcher3/widget/controller/WidgetStateNormal$2;-><init>(Lcom/android/launcher3/widget/controller/WidgetStateNormal;)V
-
-    iput-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetStateNormal;->mSearchTextViewKeyListener:Landroid/view/View$OnKeyListener;
 
     return-void
 .end method
@@ -90,18 +74,6 @@
 
     iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetStateNormal;->mWidgetSearchbar:Lcom/android/launcher3/widget/view/WidgetSearchbar;
 
-    iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetStateNormal;->mSearchTextViewKeyListener:Landroid/view/View$OnKeyListener;
-
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->setOnSearchTextViewKeyListener(Landroid/view/View$OnKeyListener;)V
-
-    iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetStateNormal;->mWidgetSearchbar:Lcom/android/launcher3/widget/view/WidgetSearchbar;
-
-    iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetStateNormal;->mSearchTextViewTouchListener:Landroid/view/View$OnTouchListener;
-
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->setOnSearchTextViewTouchListener(Landroid/view/View$OnTouchListener;)V
-
-    iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetStateNormal;->mWidgetSearchbar:Lcom/android/launcher3/widget/view/WidgetSearchbar;
-
     invoke-virtual {p0}, Lcom/android/launcher3/widget/controller/WidgetStateNormal;->getState()Lcom/android/launcher3/widget/controller/WidgetState$State;
 
     move-result-object v1
@@ -112,9 +84,7 @@
 .end method
 
 .method public exit(Lcom/android/launcher3/widget/controller/WidgetState;Landroid/animation/AnimatorSet;)V
-    .locals 3
-
-    const/4 v2, 0x0
+    .locals 2
 
     invoke-virtual {p1}, Lcom/android/launcher3/widget/controller/WidgetState;->getState()Lcom/android/launcher3/widget/controller/WidgetState$State;
 
@@ -145,15 +115,9 @@
 
     iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetStateNormal;->mWidgetSearchbar:Lcom/android/launcher3/widget/view/WidgetSearchbar;
 
-    invoke-virtual {v0, v2}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->setMenuActionListener(Lcom/android/launcher3/widget/view/WidgetSearchbar$MenuActionListener;)V
+    const/4 v1, 0x0
 
-    iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetStateNormal;->mWidgetSearchbar:Lcom/android/launcher3/widget/view/WidgetSearchbar;
-
-    invoke-virtual {v0, v2}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->setOnSearchTextViewKeyListener(Landroid/view/View$OnKeyListener;)V
-
-    iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetStateNormal;->mWidgetSearchbar:Lcom/android/launcher3/widget/view/WidgetSearchbar;
-
-    invoke-virtual {v0, v2}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->setOnSearchTextViewTouchListener(Landroid/view/View$OnTouchListener;)V
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->setMenuActionListener(Lcom/android/launcher3/widget/view/WidgetSearchbar$MenuActionListener;)V
 
     invoke-virtual {p1}, Lcom/android/launcher3/widget/controller/WidgetState;->getState()Lcom/android/launcher3/widget/controller/WidgetState$State;
 
@@ -286,7 +250,7 @@
 .method public onWidgetItemClick(Landroid/view/View;)V
     .locals 4
 
-    const v2, 0x7f0901bc
+    const v2, 0x7f0901c1
 
     instance-of v0, p1, Lcom/android/launcher3/widget/view/WidgetItemFolderView;
 
@@ -322,7 +286,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f09016d
+    const v3, 0x7f090172
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -361,7 +325,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0900f3
+    const v3, 0x7f0900f8
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

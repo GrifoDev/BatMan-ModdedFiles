@@ -3,7 +3,7 @@
 .source "WidgetController.java"
 
 # interfaces
-.implements Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
+.implements Landroid/view/View$OnKeyListener;
 
 
 # annotations
@@ -34,67 +34,82 @@
 
 
 # virtual methods
-.method public onGlobalLayout()V
-    .locals 6
+.method public onKey(Landroid/view/View;ILandroid/view/KeyEvent;)Z
+    .locals 3
 
-    new-instance v2, Landroid/graphics/Rect;
+    const/4 v2, 0x1
 
-    invoke-direct {v2}, Landroid/graphics/Rect;-><init>()V
+    invoke-virtual {p3}, Landroid/view/KeyEvent;->getAction()I
 
-    iget-object v4, p0, Lcom/android/launcher3/widget/controller/WidgetController$5;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
+    move-result v0
 
-    invoke-static {v4}, Lcom/android/launcher3/widget/controller/WidgetController;->access$1400(Lcom/android/launcher3/widget/controller/WidgetController;)Landroid/widget/LinearLayout;
+    if-ne v0, v2, :cond_1
 
-    move-result-object v4
+    iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController$5;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
 
-    invoke-virtual {v4}, Landroid/widget/LinearLayout;->getRootView()Landroid/view/View;
+    invoke-virtual {v0}, Lcom/android/launcher3/widget/controller/WidgetController;->getState()Lcom/android/launcher3/widget/controller/WidgetState$State;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v4}, Landroid/view/View;->getHeight()I
+    sget-object v1, Lcom/android/launcher3/widget/controller/WidgetState$State;->NORMAL:Lcom/android/launcher3/widget/controller/WidgetState$State;
 
-    move-result v3
+    if-eq v0, v1, :cond_0
 
-    iget-object v4, p0, Lcom/android/launcher3/widget/controller/WidgetController$5;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
+    iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController$5;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
 
-    invoke-static {v4}, Lcom/android/launcher3/widget/controller/WidgetController;->access$1400(Lcom/android/launcher3/widget/controller/WidgetController;)Landroid/widget/LinearLayout;
+    invoke-virtual {v0}, Lcom/android/launcher3/widget/controller/WidgetController;->getState()Lcom/android/launcher3/widget/controller/WidgetState$State;
 
-    move-result-object v4
+    move-result-object v0
 
-    invoke-virtual {v4, v2}, Landroid/widget/LinearLayout;->getWindowVisibleDisplayFrame(Landroid/graphics/Rect;)V
+    sget-object v1, Lcom/android/launcher3/widget/controller/WidgetState$State;->SEARCH:Lcom/android/launcher3/widget/controller/WidgetState$State;
 
-    iget v4, v2, Landroid/graphics/Rect;->bottom:I
-
-    sub-int v0, v3, v4
-
-    iget-object v4, p0, Lcom/android/launcher3/widget/controller/WidgetController$5;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
-
-    invoke-static {v4}, Lcom/android/launcher3/widget/controller/WidgetController;->access$1400(Lcom/android/launcher3/widget/controller/WidgetController;)Landroid/widget/LinearLayout;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Landroid/widget/LinearLayout;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v1
-
-    iget v4, v1, Landroid/view/ViewGroup$LayoutParams;->height:I
-
-    sub-int v5, v3, v0
-
-    if-eq v4, v5, :cond_0
-
-    sub-int v4, v3, v0
-
-    iput v4, v1, Landroid/view/ViewGroup$LayoutParams;->height:I
-
-    iget-object v4, p0, Lcom/android/launcher3/widget/controller/WidgetController$5;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
-
-    invoke-static {v4}, Lcom/android/launcher3/widget/controller/WidgetController;->access$1400(Lcom/android/launcher3/widget/controller/WidgetController;)Landroid/widget/LinearLayout;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v1}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
+    if-ne v0, v1, :cond_1
 
     :cond_0
-    return-void
+    const/16 v0, 0x43
+
+    if-eq p2, v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController$5;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
+
+    sget-object v1, Lcom/android/launcher3/widget/controller/WidgetState$State;->SEARCH:Lcom/android/launcher3/widget/controller/WidgetState$State;
+
+    invoke-static {v0, v1, v2}, Lcom/android/launcher3/widget/controller/WidgetController;->access$100(Lcom/android/launcher3/widget/controller/WidgetController;Lcom/android/launcher3/widget/controller/WidgetState$State;Z)V
+
+    iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController$5;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
+
+    invoke-static {v0}, Lcom/android/launcher3/widget/controller/WidgetController;->access$1300(Lcom/android/launcher3/widget/controller/WidgetController;)Lcom/android/launcher3/widget/view/WidgetSearchbar;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    const/16 v0, 0x17
+
+    if-ne p2, v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController$5;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
+
+    invoke-static {v0}, Lcom/android/launcher3/widget/controller/WidgetController;->access$1300(Lcom/android/launcher3/widget/controller/WidgetController;)Lcom/android/launcher3/widget/view/WidgetSearchbar;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v2}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->openKeyboard(Z)V
+
+    :cond_1
+    :goto_0
+    const/4 v0, 0x0
+
+    return v0
+
+    :cond_2
+    iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController$5;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
+
+    invoke-static {v0}, Lcom/android/launcher3/widget/controller/WidgetController;->access$1300(Lcom/android/launcher3/widget/controller/WidgetController;)Lcom/android/launcher3/widget/view/WidgetSearchbar;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->openKeyboard()V
+
+    goto :goto_0
 .end method

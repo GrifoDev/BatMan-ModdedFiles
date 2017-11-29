@@ -14,6 +14,20 @@
 
 
 # virtual methods
+.method public addAllSessionInfoToCache()V
+    .locals 0
+
+    return-void
+.end method
+
+.method public isSessionInfoItem(Ljava/lang/String;)Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
+.end method
+
 .method public onStop()V
     .locals 0
 

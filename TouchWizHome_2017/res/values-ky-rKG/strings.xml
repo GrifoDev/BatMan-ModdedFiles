@@ -16,8 +16,10 @@
     <string name="accessibility_button">Баскыч</string>
     <string name="accessibility_dimmed">Караңгылатылган</string>
     <string name="activity_not_available">Бул колдонмо сиздин түзмөгүңүздө байкалбайт.</string>
-    <string name="activity_not_found">Сунуучу орнотулган эмес</string>
+    <string name="activity_not_found">Колдонмо табылган жок</string>
+    <string name="add">Кошуу</string>
     <string name="add_to_last_page">Сиз %1$d нерсени тандадаңыз, бирок бул бетте жетиштүү бош орун жок. Калган %2$d нерсе акыркы бетке кошулат.</string>
+    <string name="add_to_last_page_for_hotseat">Сиз %1$d нерсени тандадыңыз, бирок сүйүктүү тактаңзда бош орун жетишсиз. Калган %2$d нерсе акыркы бетке кошулат.</string>
     <string name="align_to_bottom">Төмөн жагына ирээттөө</string>
     <string name="align_to_top">Жогору жагына ирээттөө</string>
     <string name="app_locked_toast">%s кулпуланды.</string>
@@ -121,6 +123,7 @@
     <string name="new_page_created">Бет кошулду.</string>
     <string name="no_changes">Өзгөртүүлөр жок.</string>
     <string name="no_space_page">Баракчада бош орун жок. Башка бетке тез чакырманы кошуп көрүңүз.</string>
+    <string name="no_space_page_for_hotseat">Сүйүктүүлөр тактасында бош орун жок.</string>
     <string name="no_space_page_for_widget">Бул баракчада башка орун жок.</string>
     <string name="not_selected">Тандалган жок</string>
     <string name="notification_panel_setting_summary">Башкы экрандан эскертүү панелин ачуу үчун ылдый сүрүңүз.</string>
@@ -155,6 +158,8 @@
     <string name="quick_option_delete_folder">Папканы өчүрүү</string>
     <string name="quick_option_delete_folder_alert">%s папкасы өчүрүлөт. Бул папканын ичиндеги колдонмолор Колдонмолор экранында байкалат.</string>
     <string name="quick_option_delete_folder_alert_no_title">Бул папка өчүрүлөт. Бул папканын ичиндеги колдонмолор Колдонмолор экранында байкалат.</string>
+    <string name="quick_option_delete_folder_home_only_alert">%s папкасы өчүрүлөт. Бул папканын ичиндеги колдонмолор Башкы экранда байкала берет.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Бул папка өчүрүлөт. Бул папканын ичиндеги колдонмолор Башкы экранда байкала берет.</string>
     <string name="quick_option_dimmed_disable">Иштен чыгаруу</string>
     <string name="quick_option_disable">Иштен чыгаруу</string>
     <string name="quick_option_install_dual_im">Экинчи колдонмону орнотуу</string>

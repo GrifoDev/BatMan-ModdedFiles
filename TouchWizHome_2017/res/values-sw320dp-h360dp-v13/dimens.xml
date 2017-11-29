@@ -16,7 +16,7 @@
     <dimen name="appsPicker_header_text_padding">6.0dip</dimen>
     <dimen name="appsPicker_header_text_size">14.0sp</dimen>
     <dimen name="appsPicker_icon_checkbox_margin_start">8.0dip</dimen>
-    <dimen name="appsPicker_icon_checkbox_margin_top">0.0dip</dimen>
+    <dimen name="appsPicker_icon_checkbox_margin_top">2.0dip</dimen>
     <dimen name="appsPicker_icon_drawable_padding">1.0dip</dimen>
     <dimen name="appsPicker_icon_layout_height">89.0dip</dimen>
     <dimen name="appsPicker_icon_layout_width">70.0dip</dimen>
@@ -71,8 +71,7 @@
     <dimen name="overview_pannel_margin_bottom">5.0dip</dimen>
     <dimen name="overview_pannel_options_button_height">69.0dip</dimen>
     <dimen name="overview_pannel_textsize">11.0dip</dimen>
-    <dimen name="pageIndicator_dot_gap">8.0dip</dimen>
-    <dimen name="pageIndicator_dot_size">7.0dip</dimen>
+    <dimen name="pageIndicator_dot_size">15.0dip</dimen>
     <dimen name="quick_option_popup_margin_widget">3.0dip</dimen>
     <dimen name="quick_options_text_size">11.0dip</dimen>
     <dimen name="screen_grid_explain_view_height">35.0dip</dimen>

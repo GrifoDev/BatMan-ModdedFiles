@@ -6,7 +6,7 @@
     <dimen name="appsPicker_header_margin_start">8.0dip</dimen>
     <dimen name="appsPicker_header_text_padding">6.0dip</dimen>
     <dimen name="appsPicker_icon_checkbox_margin_start">8.0dip</dimen>
-    <dimen name="appsPicker_icon_checkbox_margin_top">0.0dip</dimen>
+    <dimen name="appsPicker_icon_checkbox_margin_top">2.0dip</dimen>
     <dimen name="appsPicker_icon_layout_height">89.0dip</dimen>
     <dimen name="appsPicker_icon_layout_width">70.0dip</dimen>
     <dimen name="appsPicker_icon_margin_top">4.0dip</dimen>
@@ -37,8 +37,7 @@
     <dimen name="overview_pannel_margin_bottom">16.0dip</dimen>
     <dimen name="overview_pannel_options_button_height">80.0dip</dimen>
     <dimen name="overview_pannel_textsize">12.0dip</dimen>
-    <dimen name="pageIndicator_dot_gap">8.0dip</dimen>
-    <dimen name="pageIndicator_dot_size">7.0dip</dimen>
+    <dimen name="pageIndicator_dot_size">15.0dip</dimen>
     <dimen name="quick_option_popup_margin_widget">3.0dip</dimen>
     <dimen name="screen_grid_explain_view_height">55.0dip</dimen>
     <dimen name="screen_grid_panel_margin_bottom">16.0dip</dimen>
@@ -108,6 +107,7 @@
     <dimen name="screen_grid_panel_height">75.0dip</dimen>
     <item type="dimen" name="widget_searchbar_top_margin">@dimen/status_bar_height</item>
     <dimen name="widget_title_bottom_padding">2.0dip</dimen>
+    <dimen name="badge_default_top_margin">1.0dip</dimen>
     <dimen name="title_shortcut_icon_padding_left">12.0dip</dimen>
     <dimen name="title_shortcut_icon_padding_top">2.0dip</dimen>
 </resources>

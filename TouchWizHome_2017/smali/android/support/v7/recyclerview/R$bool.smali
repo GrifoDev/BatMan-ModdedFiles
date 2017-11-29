@@ -15,7 +15,7 @@
 
 
 # static fields
-.field public static final abc_action_bar_embed_tabs:I = 0x7f0b0000
+.field public static final abc_action_bar_embed_tabs:I = 0x7f0d0000
 
 
 # direct methods

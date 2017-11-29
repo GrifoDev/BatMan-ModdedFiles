@@ -17,8 +17,10 @@
     <string name="accessibility_button">Gumb</string>
     <string name="accessibility_dimmed">Zatemnjeno</string>
     <string name="activity_not_available">Ta aplikacija ni na voljo za vašo napravo.</string>
-    <string name="activity_not_found">Program ni nameščen.</string>
+    <string name="activity_not_found">Aplikacija ni najdena</string>
+    <string name="add">Dodaj</string>
     <string name="add_to_last_page">Izbrali ste nekaj (%1$d) elementov, vendar na tej strani še vedno ni dovolj prostora. Nekaj (%2$d) preostalih elementov bo dodanih na zadnjo stran.</string>
+    <string name="add_to_last_page_for_hotseat">Izbrali ste nekaj (%1$d) elementov, vendar v vrstici priljubljenih še vedno ni dovolj prostora. Nekaj (%2$d) preostalih elementov bo dodanih na zadnjo stran.</string>
     <string name="align_to_bottom">Poravnaj navzdol</string>
     <string name="align_to_top">Poravnaj navzgor</string>
     <string name="app_locked_toast">Aplikacija %s je zaklenjena.</string>
@@ -122,13 +124,14 @@
     <string name="new_page_created">Stran je dodana.</string>
     <string name="no_changes">Ni sprememb.</string>
     <string name="no_space_page">Na strani ni prostora. Bližnjico poskusite dodati na drugo stran.</string>
+    <string name="no_space_page_for_hotseat">V vrstici priljubljenih ni prostora.</string>
     <string name="no_space_page_for_widget">Na tej strani ni prostora.</string>
     <string name="not_selected">Ni izbrano</string>
     <string name="notification_panel_setting_summary">Podrsajte navzdol, da na začetnem zaslonu odprete obvestilno ploščo.</string>
     <string name="notification_panel_setting_title">Hitro odpir. obvestilne plošče</string>
     <string name="ok">V redu</string>
     <string name="only_one_widget_instance_allowed">Pripomoček %s je že dodan na domači zaslon.</string>
-    <string name="option_menu_contact_up">Pišite nam</string>
+    <string name="option_menu_contact_up">Stik z nami</string>
     <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Nastavitve</string>
     <string name="options_menu">Več možnosti</string>
@@ -156,6 +159,8 @@
     <string name="quick_option_delete_folder">Izbriši mapo</string>
     <string name="quick_option_delete_folder_alert">Mapa %s bo izbrisana. Aplikacije v tej mapi bodo še vedno na voljo na zaslonu z aplikacijami.</string>
     <string name="quick_option_delete_folder_alert_no_title">Ta mapa bo izbrisana. Aplikacije v tej mapi bodo še vedno na voljo na zaslonu z aplikacijami.</string>
+    <string name="quick_option_delete_folder_home_only_alert">Mapa %s bo izbrisana. Aplikacije v tej mapi bodo še vedno na voljo na domačem zaslonu.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Ta mapa bo izbrisana. Aplikacije v tej mapi bodo še vedno na voljo na domačem zaslonu.</string>
     <string name="quick_option_dimmed_disable">Onemogoči</string>
     <string name="quick_option_disable">Onemogoči</string>
     <string name="quick_option_install_dual_im">Namesti drugo aplikacijo</string>

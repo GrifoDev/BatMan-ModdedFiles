@@ -17,8 +17,10 @@
     <string name="accessibility_button">Taste</string>
     <string name="accessibility_dimmed">Abgeblendet</string>
     <string name="activity_not_available">Diese App ist für Ihr Gerät nicht verfügbar.</string>
-    <string name="activity_not_found">Anwendung nicht installiert</string>
+    <string name="activity_not_found">App nicht gefunden</string>
+    <string name="add">Hinzufügen</string>
     <string name="add_to_last_page">Sie haben %1$d Elemente ausgewählt aber es ist nicht genügend Platz auf dieser Seite vorhanden. Die verbleibenden %2$d Elemente werden auf der letzten Seite hinzugefügt.</string>
+    <string name="add_to_last_page_for_hotseat">Sie haben %1$d Elemente ausgewählt aber es ist nicht genügend Platz auf der Favoritenleiste vorhanden. Die verbleibenden %2$d Elemente werden auf der letzten Seite hinzugefügt.</string>
     <string name="align_to_bottom">Am unteren Rand anordnen</string>
     <string name="align_to_top">Am oberen Rand anordnen</string>
     <string name="app_locked_toast">%s gesperrt.</string>
@@ -122,6 +124,7 @@
     <string name="new_page_created">Seite hinzugefügt.</string>
     <string name="no_changes">Keine Änderungen.</string>
     <string name="no_space_page">Kein Platz auf der Seite. Versuchen Sie, den Shortcut auf einer anderen Seite hinzuzufügen.</string>
+    <string name="no_space_page_for_hotseat">Kein Platz auf Favoritenleiste.</string>
     <string name="no_space_page_for_widget">Kein Platz auf dieser Seite.</string>
     <string name="not_selected">Nicht ausgewählt</string>
     <string name="notification_panel_setting_summary">Streichen Sie nach unten, um auf dem Startbildschirm das Benachrichtigungsfeld zu öffnen.</string>
@@ -156,6 +159,8 @@
     <string name="quick_option_delete_folder">Ordner löschen</string>
     <string name="quick_option_delete_folder_alert">Der %s-Ordner wird gelöscht. Die Apps in diesem Ordner sind weiterhin auf dem App-Bildschirm verfügbar.</string>
     <string name="quick_option_delete_folder_alert_no_title">Dieser Ordner wird gelöscht. Die Apps in diesem Ordner sind weiterhin auf dem App-Bildschirm verfügbar.</string>
+    <string name="quick_option_delete_folder_home_only_alert">Der %s-Ordner wird gelöscht. Die Apps in diesem Ordner sind weiterhin auf dem Startbildschirm verfügbar.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Dieser Ordner wird gelöscht. Die Apps in diesem Ordner sind weiterhin auf dem Startbildschirm verfügbar.</string>
     <string name="quick_option_dimmed_disable">Deaktivieren</string>
     <string name="quick_option_disable">Deaktivieren</string>
     <string name="quick_option_install_dual_im">Zweite App installieren</string>

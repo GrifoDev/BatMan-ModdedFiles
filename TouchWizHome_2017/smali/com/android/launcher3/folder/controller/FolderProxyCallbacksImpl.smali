@@ -24,24 +24,124 @@
 
 # virtual methods
 .method public addFolderItem(Lcom/android/launcher3/common/base/item/ItemInfo;)V
-    .locals 1
+    .locals 6
 
-    instance-of v0, p1, Lcom/android/launcher3/common/base/item/IconInfo;
+    new-instance v2, Ljava/util/ArrayList;
 
-    if-eqz v0, :cond_0
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
 
-    iget-object v0, p0, Lcom/android/launcher3/folder/controller/FolderProxyCallbacksImpl;->mFolderController:Lcom/android/launcher3/folder/controller/FolderController;
+    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
-    invoke-virtual {v0}, Lcom/android/launcher3/folder/controller/FolderController;->getTargetFolderIconView()Lcom/android/launcher3/folder/view/FolderIconView;
+    move-result-object v4
 
-    move-result-object v0
+    invoke-virtual {v4}, Lcom/android/launcher3/LauncherAppState;->getLauncherProxy()Lcom/android/launcher3/proxy/LauncherProxy;
+
+    move-result-object v3
+
+    instance-of v4, p1, Lcom/android/launcher3/common/base/item/IconInfo;
+
+    if-eqz v4, :cond_0
+
+    invoke-virtual {v3}, Lcom/android/launcher3/proxy/LauncherProxy;->isHomeOnlyMode()Z
+
+    move-result v4
+
+    if-eqz v4, :cond_1
+
+    iget-object v4, p0, Lcom/android/launcher3/folder/controller/FolderProxyCallbacksImpl;->mFolderController:Lcom/android/launcher3/folder/controller/FolderController;
+
+    invoke-virtual {v4}, Lcom/android/launcher3/folder/controller/FolderController;->getTargetFolderIconView()Lcom/android/launcher3/folder/view/FolderIconView;
+
+    move-result-object v4
 
     check-cast p1, Lcom/android/launcher3/common/base/item/IconInfo;
 
-    invoke-virtual {v0, p1}, Lcom/android/launcher3/folder/view/FolderIconView;->addItem(Lcom/android/launcher3/common/base/item/IconInfo;)V
+    invoke-virtual {v4, p1}, Lcom/android/launcher3/folder/view/FolderIconView;->addItem(Lcom/android/launcher3/common/base/item/IconInfo;)V
 
     :cond_0
+    :goto_0
     return-void
+
+    :cond_1
+    const/4 v0, 0x0
+
+    :goto_1
+    iget-object v4, p0, Lcom/android/launcher3/folder/controller/FolderProxyCallbacksImpl;->mFolderController:Lcom/android/launcher3/folder/controller/FolderController;
+
+    invoke-virtual {v4}, Lcom/android/launcher3/folder/controller/FolderController;->getTargetFolderIconView()Lcom/android/launcher3/folder/view/FolderIconView;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/launcher3/folder/view/FolderIconView;->getFolderInfo()Lcom/android/launcher3/folder/FolderInfo;
+
+    move-result-object v4
+
+    iget-object v4, v4, Lcom/android/launcher3/folder/FolderInfo;->contents:Ljava/util/ArrayList;
+
+    invoke-virtual {v4}, Ljava/util/ArrayList;->size()I
+
+    move-result v4
+
+    if-ge v0, v4, :cond_2
+
+    iget-object v4, p0, Lcom/android/launcher3/folder/controller/FolderProxyCallbacksImpl;->mFolderController:Lcom/android/launcher3/folder/controller/FolderController;
+
+    invoke-virtual {v4}, Lcom/android/launcher3/folder/controller/FolderController;->getTargetFolderIconView()Lcom/android/launcher3/folder/view/FolderIconView;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/launcher3/folder/view/FolderIconView;->getFolderInfo()Lcom/android/launcher3/folder/FolderInfo;
+
+    move-result-object v4
+
+    iget-object v4, v4, Lcom/android/launcher3/folder/FolderInfo;->contents:Ljava/util/ArrayList;
+
+    invoke-virtual {v4, v0}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Lcom/android/launcher3/common/base/item/IconInfo;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/common/base/item/IconInfo;->getIntent()Landroid/content/Intent;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v4
+
+    invoke-virtual {p1}, Lcom/android/launcher3/common/base/item/ItemInfo;->getIntent()Landroid/content/Intent;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Landroid/content/Intent;->getComponent()Landroid/content/ComponentName;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_0
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_1
+
+    :cond_2
+    check-cast p1, Lcom/android/launcher3/common/base/item/IconInfo;
+
+    invoke-virtual {v2, p1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    iget-object v4, p0, Lcom/android/launcher3/folder/controller/FolderProxyCallbacksImpl;->mFolderController:Lcom/android/launcher3/folder/controller/FolderController;
+
+    invoke-virtual {v4}, Lcom/android/launcher3/folder/controller/FolderController;->getTargetFolderIconView()Lcom/android/launcher3/folder/view/FolderIconView;
+
+    move-result-object v4
+
+    invoke-virtual {v4, v2}, Lcom/android/launcher3/folder/view/FolderIconView;->addItems(Ljava/util/ArrayList;)V
+
+    goto :goto_0
 .end method
 
 .method public changeBackgroundColor(I)V

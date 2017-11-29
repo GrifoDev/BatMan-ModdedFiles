@@ -17,8 +17,10 @@
     <string name="accessibility_button">Botó</string>
     <string name="accessibility_dimmed">Atenuat</string>
     <string name="activity_not_available">Aquesta aplicació no està disponible per al seu dispositiu.</string>
-    <string name="activity_not_found">Aplicació no instal·lada</string>
+    <string name="activity_not_found">Aplicació no trobada</string>
+    <string name="add">Afegir</string>
     <string name="add_to_last_page">"Has seleccionat %1$d elements, però no hi ha prou espai en aquesta pàgina. Els %2$d elements restants s'afegiran a l'última pàgina."</string>
+    <string name="add_to_last_page_for_hotseat">"Has seleccionat %1$d elements, però no hi ha prou espai a la safata de preferits. Els %2$d elements restants s'afegiran a l'última pàgina."</string>
     <string name="align_to_bottom">Alinear a la part inferior</string>
     <string name="align_to_top">Alinear a la part superior</string>
     <string name="app_locked_toast">%s bloquejat.</string>
@@ -122,6 +124,7 @@
     <string name="new_page_created">Pàgina afegida.</string>
     <string name="no_changes">No hi ha cap canvi.</string>
     <string name="no_space_page">"No hi ha espai a la pàgina. Prova d'afegir un accés directe en una altra pàgina."</string>
+    <string name="no_space_page_for_hotseat">No hi ha espai a la safata de preferits.</string>
     <string name="no_space_page_for_widget">No hi ha espai a aquesta pàgina.</string>
     <string name="not_selected">No seleccionat</string>
     <string name="notification_panel_setting_summary">"Desplaça avall per obrir el tauler de notificacions des de la Pantalla d'inici."</string>
@@ -156,6 +159,8 @@
     <string name="quick_option_delete_folder">Esborrar carpeta</string>
     <string name="quick_option_delete_folder_alert">"S'esborrarà la carpeta %s. Les apps d'aquesta carpeta encara estaran disponible a la pantalla Apps."</string>
     <string name="quick_option_delete_folder_alert_no_title">"S'esborrarà aquesta carpeta. Les apps d'aquesta carpeta encara estaran disponible a la pantalla Apps."</string>
+    <string name="quick_option_delete_folder_home_only_alert">"S'esborrarà la carpeta %s. Les aplicacions d'aquesta carpeta encara estaran disponibles a la Pantalla d'inici."</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">"S'esborrarà aquesta carpeta. Les aplicacions d'aquesta carpeta encara estaran disponibles a la Pantalla d'inici."</string>
     <string name="quick_option_dimmed_disable">Deshabilitar</string>
     <string name="quick_option_disable">Deshabilitar</string>
     <string name="quick_option_install_dual_im">Instal·lar segona aplicació</string>
@@ -189,7 +194,7 @@
     <string name="swipe_up_for_more_apps_att">"Desplaci's cap amunt o cap avall a la pantalla per a totes les apps"</string>
     <string name="swipe_up_for_more_apps_quick_noti_pannel_on">Desplaça amunt per veure totes les aplicacions</string>
     <string name="swipe_up_for_more_apps_quick_noti_pannel_on_att">Desplaçar cap amunt a la pantalla per veure totes les aplicacions</string>
-    <string name="swipe_up_for_more_apps_quick_noti_pannel_on_tts">Desplaça cap avall amb dos dits per totes les aplicacions.</string>
+    <string name="swipe_up_for_more_apps_quick_noti_pannel_on_tts">Desplaça cap amunt amb dos dits per a totes les aplicacions.</string>
     <string name="swipe_up_for_more_apps_with_two_fingers">"Desplaci's cap amunt o cap avall amb dos dits per totes les aplicacions."</string>
     <string name="talkback_changed_to_ps">Canviat a %s.</string>
     <string name="talkback_folder">Carpeta</string>

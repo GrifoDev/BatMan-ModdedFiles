@@ -3,12 +3,12 @@
 .source "WidgetController.java"
 
 # interfaces
-.implements Landroid/view/ViewTreeObserver$OnPreDrawListener;
+.implements Landroid/view/View$OnTouchListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/widget/controller/WidgetController;->setPreDrawListener()V
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/android/launcher3/widget/controller/WidgetController;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,36 +34,46 @@
 
 
 # virtual methods
-.method public onPreDraw()Z
+.method public onTouch(Landroid/view/View;Landroid/view/MotionEvent;)Z
     .locals 3
 
     const/4 v2, 0x1
 
-    iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController$4;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
-
-    invoke-static {v1}, Lcom/android/launcher3/widget/controller/WidgetController;->access$600(Lcom/android/launcher3/widget/controller/WidgetController;)Z
+    invoke-virtual {p2}, Landroid/view/MotionEvent;->getAction()I
 
     move-result v0
 
-    iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController$4;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
+    if-ne v0, v2, :cond_1
 
-    invoke-static {v1}, Lcom/android/launcher3/widget/controller/WidgetController;->access$400(Lcom/android/launcher3/widget/controller/WidgetController;)Lcom/android/launcher3/widget/view/WidgetPagedView;
+    iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController$4;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
 
-    move-result-object v1
+    invoke-virtual {v0}, Lcom/android/launcher3/widget/controller/WidgetController;->getState()Lcom/android/launcher3/widget/controller/WidgetState$State;
 
-    invoke-virtual {v1, v2, v0}, Lcom/android/launcher3/widget/view/WidgetPagedView;->prepareInOut(IZ)V
+    move-result-object v0
 
-    iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController$4;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
+    sget-object v1, Lcom/android/launcher3/widget/controller/WidgetState$State;->NORMAL:Lcom/android/launcher3/widget/controller/WidgetState$State;
 
-    invoke-static {v1}, Lcom/android/launcher3/widget/controller/WidgetController;->access$1300(Lcom/android/launcher3/widget/controller/WidgetController;)Landroid/widget/FrameLayout;
+    if-eq v0, v1, :cond_0
 
-    move-result-object v1
+    iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController$4;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
 
-    invoke-virtual {v1}, Landroid/widget/FrameLayout;->getViewTreeObserver()Landroid/view/ViewTreeObserver;
+    invoke-virtual {v0}, Lcom/android/launcher3/widget/controller/WidgetController;->getState()Lcom/android/launcher3/widget/controller/WidgetState$State;
 
-    move-result-object v1
+    move-result-object v0
 
-    invoke-virtual {v1, p0}, Landroid/view/ViewTreeObserver;->removeOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
+    sget-object v1, Lcom/android/launcher3/widget/controller/WidgetState$State;->SEARCH:Lcom/android/launcher3/widget/controller/WidgetState$State;
 
-    return v2
+    if-ne v0, v1, :cond_1
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController$4;->this$0:Lcom/android/launcher3/widget/controller/WidgetController;
+
+    sget-object v1, Lcom/android/launcher3/widget/controller/WidgetState$State;->SEARCH:Lcom/android/launcher3/widget/controller/WidgetState$State;
+
+    invoke-static {v0, v1, v2}, Lcom/android/launcher3/widget/controller/WidgetController;->access$100(Lcom/android/launcher3/widget/controller/WidgetController;Lcom/android/launcher3/widget/controller/WidgetState$State;Z)V
+
+    :cond_1
+    const/4 v0, 0x0
+
+    return v0
 .end method

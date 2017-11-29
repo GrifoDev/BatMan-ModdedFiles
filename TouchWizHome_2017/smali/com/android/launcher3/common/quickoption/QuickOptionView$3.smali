@@ -55,7 +55,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->access$102(Lcom/android/launcher3/common/quickoption/QuickOptionView;Landroid/animation/AnimatorSet;)Landroid/animation/AnimatorSet;
+    invoke-static {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->access$302(Lcom/android/launcher3/common/quickoption/QuickOptionView;Landroid/animation/AnimatorSet;)Landroid/animation/AnimatorSet;
 
     return-void
 .end method
@@ -69,7 +69,7 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->access$102(Lcom/android/launcher3/common/quickoption/QuickOptionView;Landroid/animation/AnimatorSet;)Landroid/animation/AnimatorSet;
+    invoke-static {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->access$302(Lcom/android/launcher3/common/quickoption/QuickOptionView;Landroid/animation/AnimatorSet;)Landroid/animation/AnimatorSet;
 
     sget-object v0, Lcom/android/launcher3/util/Talk;->INSTANCE:Lcom/android/launcher3/util/Talk;
 
@@ -81,7 +81,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/quickoption/QuickOptionView$3;->this$0:Lcom/android/launcher3/common/quickoption/QuickOptionView;
 
-    invoke-static {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->access$200(Lcom/android/launcher3/common/quickoption/QuickOptionView;)Landroid/widget/ListView;
+    invoke-static {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->access$400(Lcom/android/launcher3/common/quickoption/QuickOptionView;)Landroid/widget/ListView;
 
     move-result-object v0
 
@@ -93,7 +93,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/quickoption/QuickOptionView$3;->this$0:Lcom/android/launcher3/common/quickoption/QuickOptionView;
 
-    invoke-static {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->access$200(Lcom/android/launcher3/common/quickoption/QuickOptionView;)Landroid/widget/ListView;
+    invoke-static {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->access$400(Lcom/android/launcher3/common/quickoption/QuickOptionView;)Landroid/widget/ListView;
 
     move-result-object v0
 
@@ -105,7 +105,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/quickoption/QuickOptionView$3;->this$0:Lcom/android/launcher3/common/quickoption/QuickOptionView;
 
-    invoke-static {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->access$200(Lcom/android/launcher3/common/quickoption/QuickOptionView;)Landroid/widget/ListView;
+    invoke-static {v0}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->access$400(Lcom/android/launcher3/common/quickoption/QuickOptionView;)Landroid/widget/ListView;
 
     move-result-object v0
 
@@ -120,7 +120,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->access$302(Lcom/android/launcher3/common/quickoption/QuickOptionView;Z)Z
+    invoke-static {v0, v1}, Lcom/android/launcher3/common/quickoption/QuickOptionView;->access$502(Lcom/android/launcher3/common/quickoption/QuickOptionView;Z)Z
 
     return-void
 .end method

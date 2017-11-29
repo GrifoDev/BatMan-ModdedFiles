@@ -16,8 +16,10 @@
     <string name="accessibility_button">Butoni</string>
     <string name="accessibility_dimmed">Errësuar</string>
     <string name="activity_not_available">Ky app nuk disponohet për pajisjen tënde.</string>
-    <string name="activity_not_found">Aplikacioni nuk është instaluar.</string>
+    <string name="activity_not_found">App-i nuk u gjet</string>
+    <string name="add">Shto</string>
     <string name="add_to_last_page">Përzgjodhe %1$d objekte, por nuk ka vend të mjaftueshëm në këtë faqe. %2$d objektet e mbetura do të shtohen te faqja e fundit.</string>
+    <string name="add_to_last_page_for_hotseat">Përzgjodhe %1$d objekte, por nuk ka vend të mjaftueshëm në tabakanë e të preferuarave. %2$d objektet e mbetura do të shtohen te faqja e fundit.</string>
     <string name="align_to_bottom">Drejtvizo me fundin</string>
     <string name="align_to_top">Drejtvizo me kreun</string>
     <string name="app_locked_toast">%s bllokuar.</string>
@@ -121,6 +123,7 @@
     <string name="new_page_created">Faqja u shtua.</string>
     <string name="no_changes">Nuk ka ndryshime.</string>
     <string name="no_space_page">Nuk ka vend në faqe. Provo ta shtosh shkurtoren te një faqe tjetër.</string>
+    <string name="no_space_page_for_hotseat">Nuk ka hapësirë në tabakanë e të preferuarave.</string>
     <string name="no_space_page_for_widget">Nuk ka hapësirë në këtë faqe.</string>
     <string name="not_selected">Nuk është përzgjedhur</string>
     <string name="notification_panel_setting_summary">Rrëshqit poshtë për të hapur panelin e njoftimeve që nga Ekrani bazë.</string>
@@ -155,6 +158,8 @@
     <string name="quick_option_delete_folder">Fshij regjistrin</string>
     <string name="quick_option_delete_folder_alert">Dosja %s do të hiqet. App-et në dosje gjithnjë do të mbeten në dispozicion në ekranin App-et.</string>
     <string name="quick_option_delete_folder_alert_no_title">Kjo dosje do të hiqet. App-et në dosje gjithnjë do të mbeten në dispozicion në ekranin App-et.</string>
+    <string name="quick_option_delete_folder_home_only_alert">Dosja %s do të hiqet. App-et në dosje do të mbeten ende në dispozicion në Ekranin bazë.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Kjo dosje do të hiqet. App-et në dosje do të mbeten ende në dispozicion në Ekranin bazë.</string>
     <string name="quick_option_dimmed_disable">Paaftëso</string>
     <string name="quick_option_disable">Paaftëso</string>
     <string name="quick_option_install_dual_im">Instalo app-in e dytë</string>

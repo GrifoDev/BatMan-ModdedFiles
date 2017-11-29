@@ -16,8 +16,10 @@
     <string name="accessibility_button">Knefel</string>
     <string name="accessibility_dimmed">Przićmiōne</string>
     <string name="activity_not_available">Ta aplikacyjo niy ma do chycynio dlo Twojij masziny.</string>
-    <string name="activity_not_found">Aplikacjŏ niy ôstała zainsztalowanŏ.</string>
+    <string name="activity_not_found">Niy wysznupano aplikacyji</string>
+    <string name="add">Przidej</string>
     <string name="add_to_last_page">Ôstało ôbranych dingsōw: %1$d, ale niy ma placu na tyj zajcie. Reszta dingsōw: %2$d bydzie przidanych do zadnij zajty.</string>
+    <string name="add_to_last_page_for_hotseat">Ôstało ôbranych dingsōw: %1$d, ale niy ma placu w panelu nojrŏdszych. Reszta dingsōw: %2$d bydzie przidano do zadnij zajty.</string>
     <string name="align_to_bottom">Wyrōwnej na spodek</string>
     <string name="align_to_top">Wyrōwnej do wiyrchu</string>
     <string name="app_locked_toast">Aplikacyjŏ %s zablokowanŏ.</string>
@@ -122,10 +124,11 @@ Microsoft"</string>
     <string name="new_page_created">Zajta je przidanŏ.</string>
     <string name="no_changes">Niy ma pomian.</string>
     <string name="no_space_page">Brak miejsca na stronie. Spróbuj dodać skrót na innej stronie.</string>
+    <string name="no_space_page_for_hotseat">Niy ma placu w panelu nojrŏdszych.</string>
     <string name="no_space_page_for_widget">Niyma placu na tyj zajcie.</string>
     <string name="not_selected">Niyŏbrane</string>
-    <string name="notification_panel_setting_summary">Przeciągnij w dół, aby otworzyć panel powiadomień z ekranu startowego.</string>
-    <string name="notification_panel_setting_title">Szybko otwórz panel powiadomień</string>
+    <string name="notification_panel_setting_summary">Szibnij na spodek, coby ôdewrzić panel nowin z ekranu sztartowego.</string>
+    <string name="notification_panel_setting_title">Gibko ôdewrzij panel nowin</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Widget %s je już przidany do ekranu sztartowego.</string>
     <string name="option_menu_contact_up">Pogŏdej z nami</string>
@@ -156,6 +159,8 @@ Microsoft"</string>
     <string name="quick_option_delete_folder">Wyciep katalog</string>
     <string name="quick_option_delete_folder_alert">Katalog %s bydzie wyciepany. Aplikacyje w ônym zawarte bydōm dalij do chycynio na ekranie Aplikacyje.</string>
     <string name="quick_option_delete_folder_alert_no_title">Tyn katalog bydzie wyciepany. Aplikacyje w ônym zawarte bydōm dalij do chycynio na ekranie Aplikacyje.</string>
+    <string name="quick_option_delete_folder_home_only_alert">Katalog %s bydzie wyciepany. Aplikacyje kere w ônym sōm bydōm dalij do chycynio na ekranie sztartowym.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Tyn katalog bydzie wyciepany. Aplikacyje kere w ônym sōm bydōm dalij do chycynio na ekranie sztartowym.</string>
     <string name="quick_option_dimmed_disable">Wyłōncz</string>
     <string name="quick_option_disable">Wyłōncz</string>
     <string name="quick_option_install_dual_im">Insztaluj drugo aplikacyjo</string>
@@ -172,7 +177,7 @@ Microsoft"</string>
     <string name="remove_popup_msg">Wyciepać zajta?</string>
     <string name="remove_popup_positive">Wyciep</string>
     <string name="safemode_shortcut_error">Zebrane aplikacyje sōm wyłōnczōne, kej załōnczōny je tryb bezpieczny.</string>
-    <string name="safemode_widget_error">Widgety są wyłączone, gdy włączony jest tryb bezpieczny.</string>
+    <string name="safemode_widget_error">Widgety sōm wyłōnczōne, kej załōnczōny je tryb bezpieczny.</string>
     <string name="screen_grid_explain_text">"Rozłożynie ekr. Aplikacyji je pōmiynione na
 %1$d x %2$d, coby ône przipasować do ukł. ekr. sztart."</string>
     <string name="search_for_widgets">Sznupej za widgetami</string>
@@ -187,9 +192,9 @@ Microsoft"</string>
     <string name="speak_now">Gŏdej terŏzki</string>
     <string name="swipe_up_for_more_apps">Szibnij palcym ku wiyrchu abo na spodek dlo wszyjskich aplikacyji</string>
     <string name="swipe_up_for_more_apps_att">Szibnij ku wiyrchu abo na spodek po ekranie dlo wszyjskich aplikacyji</string>
-    <string name="swipe_up_for_more_apps_quick_noti_pannel_on">Przeciągnij w górę, aby zobaczyć wszystkie aplikacje</string>
-    <string name="swipe_up_for_more_apps_quick_noti_pannel_on_att">Przeciągnij w górę po ekranie dla wszystkich aplikacji</string>
-    <string name="swipe_up_for_more_apps_quick_noti_pannel_on_tts">Przeciągnij dwoma palcami w górę, aby wyświetlić wszystkie aplikacje.</string>
+    <string name="swipe_up_for_more_apps_quick_noti_pannel_on">Szibnij na wiyrch, coby ôbejrzeć wszyjske aplikacyje</string>
+    <string name="swipe_up_for_more_apps_quick_noti_pannel_on_att">Szibnij na wiyrch po ekranie dlo wszyjskich aplikacyji</string>
+    <string name="swipe_up_for_more_apps_quick_noti_pannel_on_tts">Szibnij bez dwa palce na wiyrch, coby pokŏzać wszyjske aplikacyje.</string>
     <string name="swipe_up_for_more_apps_with_two_fingers">Przejedź na wiyrch abo na spodek dwōma palami do wszyjskich aplikacyj.</string>
     <string name="talkback_changed_to_ps">Zmieniono na %s.</string>
     <string name="talkback_folder">Katalog</string>

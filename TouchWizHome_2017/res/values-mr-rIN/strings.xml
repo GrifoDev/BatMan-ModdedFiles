@@ -16,8 +16,10 @@
     <string name="accessibility_button">बटण</string>
     <string name="accessibility_dimmed">डीम्ड</string>
     <string name="activity_not_available">आपल्‍या उपकरणासाठी हा अनुप्रयोग उपलब्‍ध नाही.</string>
-    <string name="activity_not_found">ऍप्लिकेशन इंस्टॉल केलेला नाही.</string>
+    <string name="activity_not_found">अनुप्रयोग सापडला नाही</string>
+    <string name="add">जोडा</string>
     <string name="add_to_last_page">आपण %1$d आयटम्‍स निवडले, परंतु या पृष्‍ठावर पुरेशी जागा नाही. शिल्लक %2$d आयटम्स अंतिम पृष्‍ठावर जोडले जातील.</string>
+    <string name="add_to_last_page_for_hotseat">आपण %1$d आयटम निवडले, परंतु पसंतीच्या ट्रे मध्ये पुरेशी जागा नाही. शिल्लक %2$d आयटम अंतिम पृष्‍ठा वर जोडले जातील.</string>
     <string name="align_to_bottom">तळास संरेखित करा</string>
     <string name="align_to_top">शीर्षास संरेखित करा</string>
     <string name="app_locked_toast">%s लॉक केले.</string>
@@ -121,6 +123,7 @@
     <string name="new_page_created">पृष्‍ठ जोडले.</string>
     <string name="no_changes">कोणतेही बदल नाहीत.</string>
     <string name="no_space_page">पृष्ठा वर जागा नाही. भिन्न पृष्ठा वर शॉर्टकट जोडण्याचा प्रयत्न करा.</string>
+    <string name="no_space_page_for_hotseat">पसंतीच्या ट्रे वर जागा नाही.</string>
     <string name="no_space_page_for_widget">ह्या पृष्‍ठावर कोणताही जागा नाही.</string>
     <string name="not_selected">निवडलेले नाही</string>
     <string name="notification_panel_setting_summary">मुख्‍य स्‍क्रीन वरून अधिसूचना पॅनेल उघडण्या साठी खाली स्वाइप करा.</string>
@@ -155,6 +158,8 @@
     <string name="quick_option_delete_folder">फोल्डर काढून टाका</string>
     <string name="quick_option_delete_folder_alert">%s फोल्डर हटवला जाईल. या फोल्डरच्या आतील अनुप्रयोग अजूनही अनुप्रयोग स्क्रीनवर उपलब्ध आहेत.</string>
     <string name="quick_option_delete_folder_alert_no_title">हे फोल्डर हटवले जाईल. या फोल्डरच्या आतील अनुप्रयोग अजूनही अनुप्रयोग स्क्रीनवर उपलब्ध आहेत.</string>
+    <string name="quick_option_delete_folder_home_only_alert">%s फोल्डर हटवला जाईल. या फोल्डरच्या आतील अनुप्रयोग अजूनही मुख्य स्क्रीन वर उपलब्ध असतील.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">हे फोल्डर हटवले जाईल. या फोल्डरच्या आतील अनुप्रयोग अजूनही मुख्य स्क्रीन वर उपलब्ध असतील.</string>
     <string name="quick_option_dimmed_disable">अक्षम</string>
     <string name="quick_option_disable">अक्षम</string>
     <string name="quick_option_install_dual_im">दुसरा अनुप्रयोग इन्स्टॉल करा</string>

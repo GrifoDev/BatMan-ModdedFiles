@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/allapps/controller/AppsController;->updateRestoreItems(Ljava/util/HashSet;)V
+    value = Lcom/android/launcher3/allapps/controller/AppsController;->updateBadgeItems(Ljava/util/ArrayList;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -39,30 +39,56 @@
 
 # virtual methods
 .method public evaluate(Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/view/View;Landroid/view/View;)Z
-    .locals 2
+    .locals 4
 
-    const/4 v1, 0x0
+    if-eqz p1, :cond_2
 
-    instance-of v0, p1, Lcom/android/launcher3/common/base/item/IconInfo;
+    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController$11;->val$updates:Ljava/util/HashSet;
 
-    if-eqz v0, :cond_0
+    invoke-virtual {v1, p1}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
 
-    instance-of v0, p2, Lcom/android/launcher3/common/view/IconView;
+    move-result v1
 
-    if-eqz v0, :cond_0
+    if-eqz v1, :cond_2
 
-    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController$11;->val$updates:Ljava/util/HashSet;
+    move-object v0, p2
 
-    invoke-virtual {v0, p1}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
+    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController$11;->this$0:Lcom/android/launcher3/allapps/controller/AppsController;
 
-    move-result v0
+    invoke-virtual {v1, p1}, Lcom/android/launcher3/allapps/controller/AppsController;->isItemInFolder(Lcom/android/launcher3/common/base/item/ItemInfo;)Z
 
-    if-eqz v0, :cond_0
+    move-result v1
 
-    check-cast p2, Lcom/android/launcher3/common/view/IconView;
+    if-eqz v1, :cond_0
 
-    invoke-virtual {p2, v1}, Lcom/android/launcher3/common/view/IconView;->applyState(Z)V
+    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController$11;->this$0:Lcom/android/launcher3/allapps/controller/AppsController;
+
+    iget-wide v2, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
+
+    invoke-virtual {v1, v2, v3}, Lcom/android/launcher3/allapps/controller/AppsController;->getAppsIconByItemId(J)Landroid/view/View;
+
+    move-result-object v0
 
     :cond_0
+    instance-of v1, v0, Lcom/android/launcher3/common/view/IconView;
+
+    if-eqz v1, :cond_1
+
+    check-cast v0, Lcom/android/launcher3/common/view/IconView;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/common/view/IconView;->refreshBadge()V
+
+    :cond_1
+    instance-of v1, p3, Lcom/android/launcher3/folder/view/FolderIconView;
+
+    if-eqz v1, :cond_2
+
+    check-cast p3, Lcom/android/launcher3/folder/view/FolderIconView;
+
+    invoke-virtual {p3}, Lcom/android/launcher3/folder/view/FolderIconView;->refreshBadge()V
+
+    :cond_2
+    const/4 v1, 0x0
+
     return v1
 .end method

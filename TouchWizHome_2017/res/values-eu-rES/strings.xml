@@ -16,8 +16,10 @@
     <string name="accessibility_button">Botoia</string>
     <string name="accessibility_dimmed">Ilunduta</string>
     <string name="activity_not_available">Aplikazioa ez dago eskuragarri zure gailurako.</string>
-    <string name="activity_not_found">Aplikazioa ez dago instalatuta</string>
+    <string name="activity_not_found">Ez da aurkitu aplikazioa</string>
+    <string name="add">Gehitu</string>
     <string name="add_to_last_page">%1$d elementu hautatu dituzu, baina ez dago behar adina toki orri honetan. Geratzen diren %2$d elementuak azken orrian gehituko dira.</string>
+    <string name="add_to_last_page_for_hotseat">%1$d elementu hautatu dituzu, baina ez dago behar adina toki gogokoen erretiluan. Geratzen diren %2$d elementuak azken orrian gehituko dira.</string>
     <string name="align_to_bottom">Lerrokatu behean</string>
     <string name="align_to_top">Lerrokatu goian</string>
     <string name="app_locked_toast">%s blokeatuta.</string>
@@ -121,13 +123,14 @@
     <string name="new_page_created">Orria gehitu da.</string>
     <string name="no_changes">Ez dago aldaketarik.</string>
     <string name="no_space_page">Ezin dago tokirik orrian. Saiatu lasterbidea beste orri batean gehitzen.</string>
+    <string name="no_space_page_for_hotseat">Ez dago tokirik Gogokoak erretiluan.</string>
     <string name="no_space_page_for_widget">Ez dago tokirik orri honetan.</string>
     <string name="not_selected">Ez da hautatu</string>
     <string name="notification_panel_setting_summary">Pantaila nagusian, irristatu behera jakinarazpen panela irekitzeko.</string>
     <string name="notification_panel_setting_title">Ireki azkar jakinarazpen panela</string>
     <string name="ok">Ados</string>
     <string name="only_one_widget_instance_allowed">%s widget gehitu dira jada pantaila Nagusian.</string>
-    <string name="option_menu_contact_up">Jarri gurekin harremanetan</string>
+    <string name="option_menu_contact_up">Jarri harremanetan</string>
     <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Ezarpenak</string>
     <string name="options_menu">Aukera gehiago</string>
@@ -155,6 +158,8 @@
     <string name="quick_option_delete_folder">Karpeta ezabatu</string>
     <string name="quick_option_delete_folder_alert">%s karpeta ezabatuko da. Dena dela, karpeta horretako aplikazioak Aplikazioak pantailan egongo dira erabilgarri.</string>
     <string name="quick_option_delete_folder_alert_no_title">Karpeta hau ezabatuko da. Dena dela, karpetako aplikazioak Aplikazioak pantailan egongo dira erabilgarri.</string>
+    <string name="quick_option_delete_folder_home_only_alert">%s karpeta ezabatuko da. Dena dela, karpeta horretako aplikazioak Pantaila nagusian egongo dira erabilgarri.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Karpeta hau ezabatuko da. Dena dela, karpetako aplikazioak Pantaila nagusian egongo dira erabilgarri.</string>
     <string name="quick_option_dimmed_disable">Desgaitu</string>
     <string name="quick_option_disable">Desgaitu</string>
     <string name="quick_option_install_dual_im">Instalatu bigarren aplik.</string>

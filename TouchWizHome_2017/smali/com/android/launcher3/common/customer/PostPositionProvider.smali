@@ -125,7 +125,7 @@
 
 .field protected mDBHelper:Lcom/android/launcher3/common/customer/PostPositionProvider$DatabaseHelper;
 
-.field private mItemRecord:Lcom/android/launcher3/common/customer/ItemRecord;
+.field private mItemRecord:Lcom/android/launcher3/common/customer/PostPositionItemRecord;
 
 .field private mWhiteListApps:[Ljava/lang/String;
 
@@ -168,14 +168,14 @@
     return-void
 .end method
 
-.method private getItemRecordFromCusor(Landroid/database/Cursor;)Lcom/android/launcher3/common/customer/ItemRecord;
+.method private getItemRecordFromCusor(Landroid/database/Cursor;)Lcom/android/launcher3/common/customer/PostPositionItemRecord;
     .locals 8
 
     const/4 v6, 0x1
 
     const/4 v7, 0x0
 
-    new-instance v0, Lcom/android/launcher3/common/customer/ItemRecord;
+    new-instance v0, Lcom/android/launcher3/common/customer/PostPositionItemRecord;
 
     invoke-interface {p1, v7}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
@@ -185,7 +185,7 @@
 
     move-result v2
 
-    invoke-direct {v0, v1, v2}, Lcom/android/launcher3/common/customer/ItemRecord;-><init>(Ljava/lang/String;I)V
+    invoke-direct {v0, v1, v2}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;-><init>(Ljava/lang/String;I)V
 
     const/4 v1, 0x2
 
@@ -198,7 +198,7 @@
     move v1, v6
 
     :goto_0
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/customer/ItemRecord;->setHomeAdded(Z)V
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->setHomeAdded(Z)V
 
     const/4 v1, 0x3
 
@@ -211,7 +211,7 @@
     move v1, v6
 
     :goto_1
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/customer/ItemRecord;->setHomePreloadFolder(Z)V
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->setHomePreloadFolder(Z)V
 
     const/4 v1, 0x4
 
@@ -219,7 +219,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/customer/ItemRecord;->setHomeFolderName(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->setHomeFolderName(Ljava/lang/String;)V
 
     const/4 v1, 0x5
 
@@ -261,7 +261,7 @@
 
     move-result v5
 
-    invoke-virtual/range {v0 .. v5}, Lcom/android/launcher3/common/customer/ItemRecord;->setHomePosition(ZZIII)V
+    invoke-virtual/range {v0 .. v5}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->setHomePosition(ZZIII)V
 
     const/16 v1, 0xa
 
@@ -275,9 +275,9 @@
 
     move-result v2
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/launcher3/common/customer/ItemRecord;->setWidgetSpanXY(II)V
+    invoke-virtual {v0, v1, v2}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->setWidgetSpanXY(II)V
 
-    invoke-virtual {v0}, Lcom/android/launcher3/common/customer/ItemRecord;->getItemType()Lcom/android/launcher3/common/customer/PostPositionProvider$ITEM_TYPE;
+    invoke-virtual {v0}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getItemType()Lcom/android/launcher3/common/customer/PostPositionProvider$ITEM_TYPE;
 
     move-result-object v1
 
@@ -301,7 +301,7 @@
 
     move-result-object v3
 
-    invoke-virtual {v0, v1, v2, v3}, Lcom/android/launcher3/common/customer/ItemRecord;->setShortcutInfo(Ljava/lang/String;[BLandroid/content/Context;)V
+    invoke-virtual {v0, v1, v2, v3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->setShortcutInfo(Ljava/lang/String;[BLandroid/content/Context;)V
 
     :cond_0
     const/16 v1, 0xe
@@ -315,7 +315,7 @@
     move v1, v6
 
     :goto_4
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/customer/ItemRecord;->setAppsAdded(Z)V
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->setAppsAdded(Z)V
 
     const/16 v1, 0xf
 
@@ -328,7 +328,7 @@
     move v1, v6
 
     :goto_5
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/customer/ItemRecord;->setAppsPreloadFolder(Z)V
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->setAppsPreloadFolder(Z)V
 
     const/16 v1, 0x10
 
@@ -336,7 +336,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/customer/ItemRecord;->setAppsFolderName(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->setAppsFolderName(Ljava/lang/String;)V
 
     const/16 v1, 0x11
 
@@ -350,7 +350,7 @@
 
     move-result v2
 
-    invoke-virtual {v0, v1, v2}, Lcom/android/launcher3/common/customer/ItemRecord;->setAppsPosition(II)V
+    invoke-virtual {v0, v1, v2}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->setAppsPosition(II)V
 
     const/16 v1, 0x13
 
@@ -363,7 +363,7 @@
     move v1, v6
 
     :goto_6
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/customer/ItemRecord;->setAppsForceAtoZ(Z)V
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->setAppsForceAtoZ(Z)V
 
     const/16 v1, 0x14
 
@@ -374,7 +374,7 @@
     if-lez v1, :cond_8
 
     :goto_7
-    invoke-virtual {v0, v6}, Lcom/android/launcher3/common/customer/ItemRecord;->setRemoveAfterPosition(Z)V
+    invoke-virtual {v0, v6}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->setRemoveAfterPosition(Z)V
 
     return-object v0
 
@@ -860,7 +860,7 @@
     return-object v0
 .end method
 
-.method getItemRecord(Ljava/lang/String;Lcom/android/launcher3/common/customer/PostPositionProvider$ITEM_TYPE;)Lcom/android/launcher3/common/customer/ItemRecord;
+.method getItemRecord(Ljava/lang/String;Lcom/android/launcher3/common/customer/PostPositionProvider$ITEM_TYPE;)Lcom/android/launcher3/common/customer/PostPositionItemRecord;
     .locals 7
 
     const/4 v3, 0x0
@@ -1053,7 +1053,7 @@
 
     const/4 v4, 0x0
 
-    iput-object v4, p0, Lcom/android/launcher3/common/customer/PostPositionProvider;->mItemRecord:Lcom/android/launcher3/common/customer/ItemRecord;
+    iput-object v4, p0, Lcom/android/launcher3/common/customer/PostPositionProvider;->mItemRecord:Lcom/android/launcher3/common/customer/PostPositionItemRecord;
 
     if-eqz v0, :cond_7
 
@@ -1081,7 +1081,7 @@
 
     const/4 v4, 0x0
 
-    iput-object v4, p0, Lcom/android/launcher3/common/customer/PostPositionProvider;->mItemRecord:Lcom/android/launcher3/common/customer/ItemRecord;
+    iput-object v4, p0, Lcom/android/launcher3/common/customer/PostPositionProvider;->mItemRecord:Lcom/android/launcher3/common/customer/PostPositionItemRecord;
 
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
     :try_end_1
@@ -1191,15 +1191,15 @@
     goto/16 :goto_2
 
     :cond_6
-    invoke-direct {p0, v0}, Lcom/android/launcher3/common/customer/PostPositionProvider;->getItemRecordFromCusor(Landroid/database/Cursor;)Lcom/android/launcher3/common/customer/ItemRecord;
+    invoke-direct {p0, v0}, Lcom/android/launcher3/common/customer/PostPositionProvider;->getItemRecordFromCusor(Landroid/database/Cursor;)Lcom/android/launcher3/common/customer/PostPositionItemRecord;
 
     move-result-object v4
 
-    iput-object v4, p0, Lcom/android/launcher3/common/customer/PostPositionProvider;->mItemRecord:Lcom/android/launcher3/common/customer/ItemRecord;
+    iput-object v4, p0, Lcom/android/launcher3/common/customer/PostPositionProvider;->mItemRecord:Lcom/android/launcher3/common/customer/PostPositionItemRecord;
 
-    iget-object v4, p0, Lcom/android/launcher3/common/customer/PostPositionProvider;->mItemRecord:Lcom/android/launcher3/common/customer/ItemRecord;
+    iget-object v4, p0, Lcom/android/launcher3/common/customer/PostPositionProvider;->mItemRecord:Lcom/android/launcher3/common/customer/PostPositionItemRecord;
 
-    invoke-virtual {v4}, Lcom/android/launcher3/common/customer/ItemRecord;->isValid()Z
+    invoke-virtual {v4}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->isValid()Z
 
     move-result v4
 
@@ -1207,7 +1207,7 @@
 
     const/4 v4, 0x0
 
-    iput-object v4, p0, Lcom/android/launcher3/common/customer/PostPositionProvider;->mItemRecord:Lcom/android/launcher3/common/customer/ItemRecord;
+    iput-object v4, p0, Lcom/android/launcher3/common/customer/PostPositionProvider;->mItemRecord:Lcom/android/launcher3/common/customer/PostPositionItemRecord;
 
     invoke-interface {v0}, Landroid/database/Cursor;->close()V
     :try_end_3
@@ -1227,7 +1227,7 @@
 
     :cond_8
     :goto_3
-    iget-object v3, p0, Lcom/android/launcher3/common/customer/PostPositionProvider;->mItemRecord:Lcom/android/launcher3/common/customer/ItemRecord;
+    iget-object v3, p0, Lcom/android/launcher3/common/customer/PostPositionProvider;->mItemRecord:Lcom/android/launcher3/common/customer/PostPositionItemRecord;
 
     if-eqz v3, :cond_9
 
@@ -1243,9 +1243,9 @@
 
     move-result-object v4
 
-    iget-object v5, p0, Lcom/android/launcher3/common/customer/PostPositionProvider;->mItemRecord:Lcom/android/launcher3/common/customer/ItemRecord;
+    iget-object v5, p0, Lcom/android/launcher3/common/customer/PostPositionProvider;->mItemRecord:Lcom/android/launcher3/common/customer/PostPositionItemRecord;
 
-    invoke-virtual {v5}, Lcom/android/launcher3/common/customer/ItemRecord;->getComponentName()Ljava/lang/String;
+    invoke-virtual {v5}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getComponentName()Ljava/lang/String;
 
     move-result-object v5
 
@@ -1260,7 +1260,7 @@
     invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_9
-    iget-object v3, p0, Lcom/android/launcher3/common/customer/PostPositionProvider;->mItemRecord:Lcom/android/launcher3/common/customer/ItemRecord;
+    iget-object v3, p0, Lcom/android/launcher3/common/customer/PostPositionProvider;->mItemRecord:Lcom/android/launcher3/common/customer/PostPositionItemRecord;
 
     goto/16 :goto_0
 
@@ -1313,7 +1313,7 @@
     throw v3
 .end method
 
-.method getItemRecordsNeedToPosition(Ljava/lang/String;)[Lcom/android/launcher3/common/customer/ItemRecord;
+.method getItemRecordsNeedToPosition(Ljava/lang/String;)[Lcom/android/launcher3/common/customer/PostPositionItemRecord;
     .locals 8
 
     const/4 v3, 0x0
@@ -1378,7 +1378,7 @@
 
     move-result v5
 
-    new-array v3, v5, [Lcom/android/launcher3/common/customer/ItemRecord;
+    new-array v3, v5, [Lcom/android/launcher3/common/customer/PostPositionItemRecord;
 
     const/4 v1, 0x0
 
@@ -1389,7 +1389,7 @@
 
     if-eqz v5, :cond_1
 
-    invoke-direct {p0, v0}, Lcom/android/launcher3/common/customer/PostPositionProvider;->getItemRecordFromCusor(Landroid/database/Cursor;)Lcom/android/launcher3/common/customer/ItemRecord;
+    invoke-direct {p0, v0}, Lcom/android/launcher3/common/customer/PostPositionProvider;->getItemRecordFromCusor(Landroid/database/Cursor;)Lcom/android/launcher3/common/customer/PostPositionItemRecord;
 
     move-result-object v5
 
@@ -1870,19 +1870,19 @@
 
     aget-object v10, v10, v11
 
-    invoke-virtual {p0, v7, v10}, Lcom/android/launcher3/common/customer/PostPositionProvider;->getItemRecord(Ljava/lang/String;Lcom/android/launcher3/common/customer/PostPositionProvider$ITEM_TYPE;)Lcom/android/launcher3/common/customer/ItemRecord;
+    invoke-virtual {p0, v7, v10}, Lcom/android/launcher3/common/customer/PostPositionProvider;->getItemRecord(Ljava/lang/String;Lcom/android/launcher3/common/customer/PostPositionProvider$ITEM_TYPE;)Lcom/android/launcher3/common/customer/PostPositionItemRecord;
 
     move-result-object v2
 
     if-eqz v2, :cond_8
 
-    invoke-virtual {v2}, Lcom/android/launcher3/common/customer/ItemRecord;->isHomeAdd()Z
+    invoke-virtual {v2}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->isHomeAdd()Z
 
     move-result v7
 
     if-eqz v7, :cond_8
 
-    invoke-virtual {v3, v2}, Lcom/android/launcher3/common/customer/PostPositionController;->addItem(Lcom/android/launcher3/common/customer/ItemRecord;)V
+    invoke-virtual {v3, v2}, Lcom/android/launcher3/common/customer/PostPositionController;->addItem(Lcom/android/launcher3/common/customer/PostPositionItemRecord;)V
 
     :cond_8
     sget-object v7, Lcom/android/launcher3/common/customer/PostPositionProvider;->CONTENT_URI:Landroid/net/Uri;

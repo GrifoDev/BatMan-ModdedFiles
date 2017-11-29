@@ -17,8 +17,10 @@
     <string name="accessibility_button">बटन</string>
     <string name="accessibility_dimmed">मधुरो बनाइयो</string>
     <string name="activity_not_available">यो एप तपाईको यन्त्रको लागि उपलब्ध छैन।</string>
-    <string name="activity_not_found">अनुप्रयोग स्थापना गरिएन।</string>
+    <string name="activity_not_found">एप फेला परेन</string>
+    <string name="add">थप्नुहोस्</string>
     <string name="add_to_last_page">तपाईले %1$d वस्तुहरू चयन गर्नुभएको छ, तर यस पृष्ठमा पर्याप्त खाली ठाउँ छैन। बाँकी रहेका %2$d वस्तुहरू पछिल्लो पृष्ठमा थपिने छन्।</string>
+    <string name="add_to_last_page_for_hotseat">तपाईले %1$d वस्तुहरू चयन गर्नुभएको छ, तर मनपर्ने कुराहरूको ट्रेमा पर्याप्त खाली ठाउँ छैन। बाँकी रहेका %2$d वस्तुहरू पछिल्लो पृष्ठमा थपिने छन्।</string>
     <string name="align_to_bottom">तलतिर पङ्क्तिबद्ध गर्नुहोस्</string>
     <string name="align_to_top">माथितिर पङ्क्तिबद्ध गर्नुहोस्</string>
     <string name="app_locked_toast">%s लक गरिएको छ।</string>
@@ -122,6 +124,7 @@
     <string name="new_page_created">पृष्ठ थपियो।</string>
     <string name="no_changes">कुनै परिवर्तन छैन।</string>
     <string name="no_space_page">पृष्ठमा कुनै खाली ठाउँ छैन। कुनै फरक अर्को पृष्ठमा शर्टकट थपी हेर्नुहोस्।</string>
+    <string name="no_space_page_for_hotseat">मनपर्ने कुराहरूको ट्रेमा खाली ठाउँ छैन।</string>
     <string name="no_space_page_for_widget">यस पृष्ठमा खाली ठाउँ छैन।</string>
     <string name="not_selected">चयन गरिएको छैन</string>
     <string name="notification_panel_setting_summary">होम स्क्रीनबाट सूचना प्यानल खोल्न तलतिर स्वाइप गर्नुहोस्।</string>
@@ -156,6 +159,8 @@
     <string name="quick_option_delete_folder">फोल्डर मेटाउनु</string>
     <string name="quick_option_delete_folder_alert">%s फोल्डरलाई मेटिनेछ। यो फोल्डर भित्र रहेका एप्स भने अझै पनि एप्स स्क्रीनमा उपलब्ध हुनेछन्।</string>
     <string name="quick_option_delete_folder_alert_no_title">यस फोल्डरलाई मेटिनेछ। यो फोल्डर भित्र रहेका एप्स भने अझै पनि एप्स स्क्रीनमा उपलब्ध हुनेछन्।</string>
+    <string name="quick_option_delete_folder_home_only_alert">%s फोल्डरलाई मेटाइने छ। यो फोल्डरभित्र रहेका एप्स भने अझै पनि होम स्क्रीनमा उपलब्ध हुनेछन्।</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">यस फोल्डरलाई मेटाइने छ। यो फोल्डरभित्र रहेका एप्स भने अझै पनि होम स्क्रीनमा उपलब्ध हुनेछन्।</string>
     <string name="quick_option_dimmed_disable">असक्षम गर्नु</string>
     <string name="quick_option_disable">असक्षम गर्नु</string>
     <string name="quick_option_install_dual_im">दोस्रो एप स्थापना गर्नुहोस्</string>

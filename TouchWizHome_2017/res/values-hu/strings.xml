@@ -17,8 +17,10 @@
     <string name="accessibility_button">Gomb</string>
     <string name="accessibility_dimmed">Elsötétítve</string>
     <string name="activity_not_available">Az alkalmazás ehhez az eszközhöz nem áll rendelkezésre.</string>
-    <string name="activity_not_found">Az alkalmazás nincs telepítve.</string>
+    <string name="activity_not_found">Az alkalmazás nem található</string>
+    <string name="add">Hozzáadás</string>
     <string name="add_to_last_page">%1$d elemet jelölt ki, de nincs elég hely ezen az oldalon. Az oldalon el nem férő %2$d elemet a rendszer az utolsó oldalhoz adja hozzá.</string>
+    <string name="add_to_last_page_for_hotseat">%1$d elemet jelölt ki, de nincs elég hely a kedvencek sávján. Az el nem férő %2$d elemet a rendszer az utolsó oldalon helyezi el.</string>
     <string name="align_to_bottom">Alulra igazítás</string>
     <string name="align_to_top">Felülre igazítás</string>
     <string name="app_locked_toast">%s zárolva.</string>
@@ -123,13 +125,14 @@ alkalmazások"</string>
     <string name="new_page_created">Oldal hozzáadva.</string>
     <string name="no_changes">Nincs változás.</string>
     <string name="no_space_page">Nincs hely az oldalon. Próbálja meg egy másik oldalra felvenni a parancsikont.</string>
+    <string name="no_space_page_for_hotseat">Nincs hely a kedvencek sávján.</string>
     <string name="no_space_page_for_widget">Nincs hely az oldalon.</string>
     <string name="not_selected">Nincs kijelölve</string>
     <string name="notification_panel_setting_summary">Az értesítési panel megnyitásához húzza lefelé a kezdőképernyőt.</string>
     <string name="notification_panel_setting_title">Ért. panel gyors megnyitása</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Az %s widgetet már hozzáadta a kezdőképernyőhöz.</string>
-    <string name="option_menu_contact_up">Kapcsolatfelvétel</string>
+    <string name="option_menu_contact_up">Kapcsolat</string>
     <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Beállítások</string>
     <string name="options_menu">További opciók</string>
@@ -157,6 +160,8 @@ alkalmazások"</string>
     <string name="quick_option_delete_folder">Mappa törlése</string>
     <string name="quick_option_delete_folder_alert">Törli a(z) %s mappát, a benne található alkalmazásokat azonban továbbra is elérheti az Alkalmazások képernyőn.</string>
     <string name="quick_option_delete_folder_alert_no_title">Törli ezt a mappát, a benne található alkalmazásokat azonban továbbra is elérheti az Alkalmazások képernyőn.</string>
+    <string name="quick_option_delete_folder_home_only_alert">Törli a(z) %s mappát, a benne található alkalmazásokat azonban továbbra is elérheti a kezdőképernyőn.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Törli ezt a mappát, a benne található alkalmazásokat azonban továbbra is elérheti a kezdőképernyőn.</string>
     <string name="quick_option_dimmed_disable">Kikapcsolás</string>
     <string name="quick_option_disable">Kikapcsolás</string>
     <string name="quick_option_install_dual_im">Második alk. telepítése</string>

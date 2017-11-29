@@ -37,9 +37,8 @@
     <dimen name="overview_pannel_drawable_padding">0.0dip</dimen>
     <dimen name="overview_pannel_margin_bottom">31.0dip</dimen>
     <dimen name="overview_pannel_options_button_height">75.0dip</dimen>
-    <dimen name="overview_pannel_textsize">12.0dip</dimen>
-    <dimen name="pageIndicator_dot_gap">10.0dip</dimen>
-    <dimen name="pageIndicator_dot_size">8.0dip</dimen>
+    <dimen name="overview_pannel_textsize">13.0dip</dimen>
+    <dimen name="pageIndicator_dot_size">17.0dip</dimen>
     <dimen name="quick_options_text_size">12.0dip</dimen>
     <dimen name="screen_grid_explain_view_height">70.0dip</dimen>
     <dimen name="screen_grid_panel_margin_bottom">16.0dip</dimen>
@@ -86,7 +85,7 @@
     <dimen name="widget_searchbar_divider_height">16.0dip</dimen>
     <dimen name="widget_searchbar_searchview_height">36.0dip</dimen>
     <dimen name="widget_searchbar_searchview_padding_end">-16.5dip</dimen>
-    <dimen name="widget_searchbar_searchview_padding_start">-8.5dip</dimen>
+    <dimen name="widget_searchbar_searchview_padding_start">-18.5dip</dimen>
     <dimen name="widget_searchview_text_size">15.0dip</dimen>
     <dimen name="widget_title_bar_height">48.0dip</dimen>
     <dimen name="widget_title_bar_left_padding">5.0dip</dimen>
@@ -98,10 +97,12 @@
     <dimen name="appsearch_menu_searchHeight">36.0dip</dimen>
     <dimen name="tidyup_container_height">47.0dip</dimen>
     <dimen name="tidyup_container_margin_top">24.0dip</dimen>
-    <dimen name="widget_page_indicator_bottom_margin">12.0dip</dimen>
+    <dimen name="widget_page_indicator_bottom_margin">20.0dip</dimen>
     <dimen name="widget_page_top_margin">70.0dip</dimen>
+    <dimen name="appsearch_container_Height">48.0dip</dimen>
     <dimen name="quick_option_item_padding">4.0dip</dimen>
     <dimen name="widget_title_bottom_padding">2.0dip</dimen>
+    <dimen name="badge_default_top_margin">1.5dip</dimen>
     <dimen name="title_shortcut_icon_padding_left">13.0dip</dimen>
     <dimen name="title_shortcut_icon_padding_top">3.0dip</dimen>
 </resources>

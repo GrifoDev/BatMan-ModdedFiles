@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/allapps/controller/AppsAdapter;->updateAppsGridInfo(II)V
+    value = Lcom/android/launcher3/allapps/controller/AppsAdapter;->updateRestoreItems(Ljava/util/HashSet;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,20 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/allapps/controller/AppsAdapter;
 
-.field final synthetic val$gridX:I
-
-.field final synthetic val$gridY:I
+.field final synthetic val$updates:Ljava/util/HashSet;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/allapps/controller/AppsAdapter;II)V
+.method constructor <init>(Lcom/android/launcher3/allapps/controller/AppsAdapter;Ljava/util/HashSet;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/allapps/controller/AppsAdapter$9;->this$0:Lcom/android/launcher3/allapps/controller/AppsAdapter;
 
-    iput p2, p0, Lcom/android/launcher3/allapps/controller/AppsAdapter$9;->val$gridX:I
-
-    iput p3, p0, Lcom/android/launcher3/allapps/controller/AppsAdapter$9;->val$gridY:I
+    iput-object p2, p0, Lcom/android/launcher3/allapps/controller/AppsAdapter$9;->val$updates:Ljava/util/HashSet;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -43,27 +39,15 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 2
 
-    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
+    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsAdapter$9;->this$0:Lcom/android/launcher3/allapps/controller/AppsAdapter;
 
-    move-result-object v1
+    iget-object v0, v0, Lcom/android/launcher3/allapps/controller/AppsAdapter;->mListener:Lcom/android/launcher3/allapps/controller/AppsAdapter$DataListener;
 
-    invoke-virtual {v1}, Lcom/android/launcher3/LauncherAppState;->getDeviceProfile()Lcom/android/launcher3/common/deviceprofile/DeviceProfile;
+    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsAdapter$9;->val$updates:Ljava/util/HashSet;
 
-    move-result-object v0
-
-    iget v1, p0, Lcom/android/launcher3/allapps/controller/AppsAdapter$9;->val$gridX:I
-
-    iget v2, p0, Lcom/android/launcher3/allapps/controller/AppsAdapter$9;->val$gridY:I
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->setAppsCurrentGrid(II)V
-
-    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsAdapter$9;->this$0:Lcom/android/launcher3/allapps/controller/AppsAdapter;
-
-    iget-object v1, v1, Lcom/android/launcher3/allapps/controller/AppsAdapter;->mListener:Lcom/android/launcher3/allapps/controller/AppsAdapter$DataListener;
-
-    invoke-interface {v1}, Lcom/android/launcher3/allapps/controller/AppsAdapter$DataListener;->updateGridInfo()V
+    invoke-interface {v0, v1}, Lcom/android/launcher3/allapps/controller/AppsAdapter$DataListener;->updateRestoreItems(Ljava/util/HashSet;)V
 
     return-void
 .end method

@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/HomeController;->getHomescreenIconByItemId(J)Landroid/view/View;
+    value = Lcom/android/launcher3/home/HomeController;->getFolderForTag(Ljava/lang/Object;)Lcom/android/launcher3/folder/view/FolderView;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,16 +20,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/home/HomeController;
 
-.field final synthetic val$id:J
+.field final synthetic val$tag:Ljava/lang/Object;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/home/HomeController;J)V
+.method constructor <init>(Lcom/android/launcher3/home/HomeController;Ljava/lang/Object;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/home/HomeController$13;->this$0:Lcom/android/launcher3/home/HomeController;
 
-    iput-wide p2, p0, Lcom/android/launcher3/home/HomeController$13;->val$id:J
+    iput-object p2, p0, Lcom/android/launcher3/home/HomeController$13;->val$tag:Ljava/lang/Object;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -39,17 +39,33 @@
 
 # virtual methods
 .method public evaluate(Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/view/View;Landroid/view/View;)Z
-    .locals 4
+    .locals 2
 
-    if-eqz p1, :cond_0
+    instance-of v0, p2, Lcom/android/launcher3/folder/view/FolderView;
 
-    iget-wide v0, p1, Lcom/android/launcher3/common/base/item/ItemInfo;->id:J
+    if-eqz v0, :cond_0
 
-    iget-wide v2, p0, Lcom/android/launcher3/home/HomeController$13;->val$id:J
+    move-object v0, p2
 
-    cmp-long v0, v0, v2
+    check-cast v0, Lcom/android/launcher3/folder/view/FolderView;
 
-    if-nez v0, :cond_0
+    invoke-virtual {v0}, Lcom/android/launcher3/folder/view/FolderView;->getInfo()Lcom/android/launcher3/folder/FolderInfo;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/launcher3/home/HomeController$13;->val$tag:Ljava/lang/Object;
+
+    if-ne v0, v1, :cond_0
+
+    check-cast p2, Lcom/android/launcher3/folder/view/FolderView;
+
+    invoke-virtual {p2}, Lcom/android/launcher3/folder/view/FolderView;->getInfo()Lcom/android/launcher3/folder/FolderInfo;
+
+    move-result-object v0
+
+    iget-boolean v0, v0, Lcom/android/launcher3/folder/FolderInfo;->opened:Z
+
+    if-eqz v0, :cond_0
 
     const/4 v0, 0x1
 

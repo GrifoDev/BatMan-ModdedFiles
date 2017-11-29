@@ -17,8 +17,10 @@
     <string name="accessibility_button">Tlačidlo</string>
     <string name="accessibility_dimmed">Stlmené</string>
     <string name="activity_not_available">Táto aplikácia nie je dostupná pre vaše zariadenie.</string>
-    <string name="activity_not_found">Aplikácia nie je nainštalovaná.</string>
+    <string name="activity_not_found">Aplikácia sa nenašla</string>
+    <string name="add">Pridať</string>
     <string name="add_to_last_page">Vykonali ste výber %1$d položiek, ale na tejto stránke nie je dostatok miesta. Zvyšné položky (%2$d) sa pridajú na poslednú stránku.</string>
+    <string name="add_to_last_page_for_hotseat">Vykonali ste výber %1$d položiek, ale na paneli obľúbených nie je dostatok miesta. Zvyšné položky (%2$d) sa pridajú na poslednú stránku.</string>
     <string name="align_to_bottom">Zarovnať dole</string>
     <string name="align_to_top">Zarovnať hore</string>
     <string name="app_locked_toast">Zamknuté pomocou %s.</string>
@@ -122,13 +124,14 @@
     <string name="new_page_created">Stránka bola pridaná.</string>
     <string name="no_changes">Žiadne zmeny.</string>
     <string name="no_space_page">Na stránke nie je žiadne voľné miesto. Skúste pridať odkaz na inú stránku.</string>
+    <string name="no_space_page_for_hotseat">Žiadne miesto na paneli obľúbených.</string>
     <string name="no_space_page_for_widget">Na tejto stránke nie je žiadne voľné miesto.</string>
     <string name="not_selected">Nevybraté</string>
     <string name="notification_panel_setting_summary">Potiahnutím nadol môžete otvoriť panel oznámení z domovskej obrazovky.</string>
     <string name="notification_panel_setting_title">Rýchlo otvoriť panel oznámení</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">Miniaplikácia %s je už pridaná na domovskú obrazovku.</string>
-    <string name="option_menu_contact_up">Kontakt</string>
+    <string name="option_menu_contact_up">Kontaktujte nás</string>
     <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Nastavenia</string>
     <string name="options_menu">Ďalšie možnosti</string>
@@ -156,6 +159,8 @@
     <string name="quick_option_delete_folder">Odstrániť priečinok</string>
     <string name="quick_option_delete_folder_alert">Priečinok %s sa odstráni. Aplikácie v tomto priečinku budú stále k dispozícii na obrazovke aplikácií.</string>
     <string name="quick_option_delete_folder_alert_no_title">Tento priečinok sa odstráni. Aplikácie v tomto priečinku budú stále k dispozícii na obrazovke aplikácií.</string>
+    <string name="quick_option_delete_folder_home_only_alert">Priečinok %s sa odstráni. Aplikácie v tomto priečinku budú stále k dispozícii na domovskej obrazovke.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Tento priečinok sa odstráni. Aplikácie v tomto priečinku budú stále k dispozícii na domovskej obrazovke.</string>
     <string name="quick_option_dimmed_disable">Vypnúť</string>
     <string name="quick_option_disable">Vypnúť</string>
     <string name="quick_option_install_dual_im">Inštalovať druhú aplikáciu</string>

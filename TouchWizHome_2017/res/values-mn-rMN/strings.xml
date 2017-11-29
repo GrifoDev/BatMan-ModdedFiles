@@ -16,8 +16,10 @@
     <string name="accessibility_button">Товч</string>
     <string name="accessibility_dimmed">Бүдэгрүүлсэн</string>
     <string name="activity_not_available">Таны төхөөрөмжид энэ апп боломжгүй.</string>
-    <string name="activity_not_found">Програм суугаагүй.</string>
+    <string name="activity_not_found">Хэрэглүүр олдсонгүй</string>
+    <string name="add">Нэмэх</string>
     <string name="add_to_last_page">Та %1$d зүйлүүдийг сонгосон боловч энэ хуудсанд хангалттай зай байхгүй. Үлдсэн %2$d зүйлүүдийг сүүлийн хуудсанд нэмнэ.</string>
+    <string name="add_to_last_page_for_hotseat">Та %1$d зүйлс сонгосон боловч дуртай тавиурт хангалттай зай байхгүй. Үлдсэн %2$d зүйлсийг сүүлийн хуудсанд нэмнэ.</string>
     <string name="align_to_bottom">Доошоо зэрэгцүүлэх</string>
     <string name="align_to_top">Дээшээ зэрэгцүүлэх</string>
     <string name="app_locked_toast">%s түгжигдсэн.</string>
@@ -121,6 +123,7 @@
     <string name="new_page_created">Хуудас нэмэгдсэн.</string>
     <string name="no_changes">Өөрчлөлтгүй.</string>
     <string name="no_space_page">Хуудсанд зай байхгүй. Өөр хуудсанд холбоос нэмээд үз.</string>
+    <string name="no_space_page_for_hotseat">Дуртай тавиурт зай байхгүй.</string>
     <string name="no_space_page_for_widget">Энэ хуудсанд зай байхгүй.</string>
     <string name="not_selected">Сонгогдоогүй</string>
     <string name="notification_panel_setting_summary">Эх дэлгэцээс доошоо шударч мэдэгдлийн самбарыг нээнэ үү.</string>
@@ -155,6 +158,8 @@
     <string name="quick_option_delete_folder">Хавтсыг устгах</string>
     <string name="quick_option_delete_folder_alert">%s хавтсыг устгана. Энэ хавтсан доторх хэрэглүүрүүд Хэрэглүүрүүд дэлгэцэнд хэвээр үлдэнэ.</string>
     <string name="quick_option_delete_folder_alert_no_title">Энэ хавтсыг устгана. Энэ хавтсан доторх хэрэглүүрүүд Хэрэглүүрүүд дэлгэцэнд хэвээр үлдэнэ.</string>
+    <string name="quick_option_delete_folder_home_only_alert">%s хавтсыг устгана. Энэ хавтсан доторх хэрэглүүрүүд Эх дэлгэцэд боломжтой хэвээр байна.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Энэ хавтсыг устгана. Энэ хавтсан доторх хэрэглүүрүүд Эх дэлгэцэд боломжтой хэвээр байна.</string>
     <string name="quick_option_dimmed_disable">Идэвхгүй болгох</string>
     <string name="quick_option_disable">Идэвхгүй болгох</string>
     <string name="quick_option_install_dual_im">Хоёр дахь хэрэгл.г суулга</string>

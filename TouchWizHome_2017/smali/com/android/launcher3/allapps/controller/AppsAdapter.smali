@@ -910,7 +910,7 @@
 .method private setupDefaultGridInfo(Lcom/android/launcher3/common/deviceprofile/DeviceProfile;[I)V
     .locals 13
 
-    const/high16 v12, 0x7f0d0000
+    const v12, 0x7f0b0001
 
     const/4 v8, 0x1
 
@@ -1145,7 +1145,7 @@
 
     aput v9, p2, v7
 
-    const v9, 0x7f0d0001
+    const v9, 0x7f0b0002
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1511,9 +1511,9 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsAdapter;->mHandler:Landroid/os/Handler;
 
-    new-instance v1, Lcom/android/launcher3/allapps/controller/AppsAdapter$9;
+    new-instance v1, Lcom/android/launcher3/allapps/controller/AppsAdapter$10;
 
-    invoke-direct {v1, p0, p1, p2}, Lcom/android/launcher3/allapps/controller/AppsAdapter$9;-><init>(Lcom/android/launcher3/allapps/controller/AppsAdapter;II)V
+    invoke-direct {v1, p0, p1, p2}, Lcom/android/launcher3/allapps/controller/AppsAdapter$10;-><init>(Lcom/android/launcher3/allapps/controller/AppsAdapter;II)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
@@ -1878,9 +1878,9 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsAdapter;->mHandler:Landroid/os/Handler;
 
-    new-instance v1, Lcom/android/launcher3/allapps/controller/AppsAdapter$7;
+    new-instance v1, Lcom/android/launcher3/allapps/controller/AppsAdapter$8;
 
-    invoke-direct {v1, p0, p1, p2}, Lcom/android/launcher3/allapps/controller/AppsAdapter$7;-><init>(Lcom/android/launcher3/allapps/controller/AppsAdapter;Lcom/android/launcher3/folder/FolderInfo;Ljava/util/ArrayList;)V
+    invoke-direct {v1, p0, p1, p2}, Lcom/android/launcher3/allapps/controller/AppsAdapter$8;-><init>(Lcom/android/launcher3/allapps/controller/AppsAdapter;Lcom/android/launcher3/folder/FolderInfo;Ljava/util/ArrayList;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
@@ -3258,6 +3258,36 @@
     return-void
 .end method
 
+.method public removeAppsItems(Ljava/util/ArrayList;)V
+    .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/ArrayList",
+            "<",
+            "Lcom/android/launcher3/common/base/item/ItemInfo;",
+            ">;)V"
+        }
+    .end annotation
+
+    invoke-virtual {p1}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    if-lez v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsAdapter;->mHandler:Landroid/os/Handler;
+
+    new-instance v1, Lcom/android/launcher3/allapps/controller/AppsAdapter$6;
+
+    invoke-direct {v1, p0, p1}, Lcom/android/launcher3/allapps/controller/AppsAdapter$6;-><init>(Lcom/android/launcher3/allapps/controller/AppsAdapter;Ljava/util/ArrayList;)V
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
+
+    :cond_0
+    return-void
+.end method
+
 .method protected abstract removeViewAndReorder(Lcom/android/launcher3/common/base/item/IconInfo;)V
 .end method
 
@@ -3398,9 +3428,9 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsAdapter;->mHandler:Landroid/os/Handler;
 
-    new-instance v1, Lcom/android/launcher3/allapps/controller/AppsAdapter$6;
+    new-instance v1, Lcom/android/launcher3/allapps/controller/AppsAdapter$7;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/launcher3/allapps/controller/AppsAdapter$6;-><init>(Lcom/android/launcher3/allapps/controller/AppsAdapter;Ljava/util/ArrayList;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/launcher3/allapps/controller/AppsAdapter$7;-><init>(Lcom/android/launcher3/allapps/controller/AppsAdapter;Ljava/util/ArrayList;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 
@@ -3551,9 +3581,9 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsAdapter;->mHandler:Landroid/os/Handler;
 
-    new-instance v1, Lcom/android/launcher3/allapps/controller/AppsAdapter$8;
+    new-instance v1, Lcom/android/launcher3/allapps/controller/AppsAdapter$9;
 
-    invoke-direct {v1, p0, p1}, Lcom/android/launcher3/allapps/controller/AppsAdapter$8;-><init>(Lcom/android/launcher3/allapps/controller/AppsAdapter;Ljava/util/HashSet;)V
+    invoke-direct {v1, p0, p1}, Lcom/android/launcher3/allapps/controller/AppsAdapter$9;-><init>(Lcom/android/launcher3/allapps/controller/AppsAdapter;Ljava/util/HashSet;)V
 
     invoke-virtual {v0, v1}, Landroid/os/Handler;->post(Ljava/lang/Runnable;)Z
 

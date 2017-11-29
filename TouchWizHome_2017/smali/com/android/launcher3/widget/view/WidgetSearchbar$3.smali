@@ -3,12 +3,12 @@
 .source "WidgetSearchbar.java"
 
 # interfaces
-.implements Ljava/lang/Runnable;
+.implements Landroid/view/View$OnFocusChangeListener;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/widget/view/WidgetSearchbar;->onWindowFocusChanged(Z)V
+    value = Lcom/android/launcher3/widget/view/WidgetSearchbar;->onFinishInflate()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -34,18 +34,17 @@
 
 
 # virtual methods
-.method public run()V
+.method public onFocusChange(Landroid/view/View;Z)V
     .locals 2
+
+    if-nez p2, :cond_0
 
     iget-object v0, p0, Lcom/android/launcher3/widget/view/WidgetSearchbar$3;->this$0:Lcom/android/launcher3/widget/view/WidgetSearchbar;
 
-    invoke-virtual {v0}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->openKeyboard()V
+    const/4 v1, 0x0
 
-    const-string v0, "WidgetSearchbar"
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->closeKeyboard(Z)V
 
-    const-string v1, "onWindowFocusChanged : call showSoftInput"
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
+    :cond_0
     return-void
 .end method

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="SS_SEARCH_HISTORY_HEADER_ABB">অনুসন্ধান ইতিহাস</string>
-    <string name="about">%s-ৰ বিষয়ে</string>
+    <string name="about">%sৰ বিষয়ে</string>
     <string name="about_already_installed">শেহতীয়া সংস্কৰণ ইতিমধ্যে ইনষ্টল হৈছে৷</string>
     <string name="about_app_info">এপ তথ্য</string>
     <string name="about_home_screen">গৃহ স্ক্ৰীণ</string>
@@ -16,8 +16,10 @@
     <string name="accessibility_button">বুটাম</string>
     <string name="accessibility_dimmed">অস্পষ্ট</string>
     <string name="activity_not_available">এই এপ আপোনাৰ ডিভাইচৰ বাবে উপলব্ধ নহয়৷</string>
-    <string name="activity_not_found">এপ্লিকেশ্বন ইনষ্টল হোৱা নাই৷</string>
+    <string name="activity_not_found">এপ বিচাৰি নাপালে</string>
+    <string name="add">যোগ কৰক</string>
     <string name="add_to_last_page">"আপুনি %1$d টা আইটেম চয়ন কৰিছে, কিন্তু এই পৃষ্ঠাত পৰ্যাপ্ত স্থান নাই। বাকী থকা %2$d টা আইটেম অন্তিম পৃষ্ঠাত যোগ হ'ব।"</string>
+    <string name="add_to_last_page_for_hotseat">"আপুনি %1$d টা আইটেম চয়ন কৰিছে, কিন্তু প্ৰিয় ট্ৰেত পৰ্যাপ্ত স্থান নাই। বাকী থকা %2$d টা আইটেম অন্তিম পৃষ্ঠাত যোগ কৰা হ'ব।"</string>
     <string name="align_to_bottom">তলত সংৰেখন কৰক</string>
     <string name="align_to_top">শীৰ্ষত সংৰেখন কৰক</string>
     <string name="app_locked_toast">%s লক কৰা হৈছে৷</string>
@@ -121,6 +123,7 @@
     <string name="new_page_created">পৃষ্ঠা যোগ কৰা হৈছে৷</string>
     <string name="no_changes">পৰিৱৰ্তন নাই।</string>
     <string name="no_space_page">পৃষ্ঠাত কোনো স্থান নাই। এটা বেলেগ পৃষ্ঠাত চৰ্টকাট যোগ কৰিবলৈ চেষ্টা কৰক।</string>
+    <string name="no_space_page_for_hotseat">প্ৰিয় ট্ৰেত কোনো স্থান নাই।</string>
     <string name="no_space_page_for_widget">এই পৃষ্ঠাত কোনো স্থান নাই।</string>
     <string name="not_selected">চয়নিত নাই</string>
     <string name="notification_panel_setting_summary">গৃহ স্ক্ৰীণৰ পৰা অধিসূচনা পেনেল খুলিবলৈ তললৈ ঘহাঁওক।</string>
@@ -155,6 +158,8 @@
     <string name="quick_option_delete_folder">"ফ'ল্ডাৰ বিলোপ কৰক"</string>
     <string name="quick_option_delete_folder_alert">"%s ফ'ল্ডাৰ বিলোপ কৰা হ'ব। এপ্প্‌চ স্ক্ৰীণত এই ফ'ল্ডাৰৰ ভিতৰত থকা এপ্প্‌চ এতিয়াও উপলব্ধ হ'ব।"</string>
     <string name="quick_option_delete_folder_alert_no_title">"এই ফ'ল্ডাৰ বিলোপ কৰা হ'ব। এপ্প্‌চ স্ক্ৰীণত এই ফ'ল্ডাৰৰ ভিতৰত থকা এপ্প্‌চ এতিয়াও উপলব্ধ হ'ব।"</string>
+    <string name="quick_option_delete_folder_home_only_alert">"%s ফ'ল্ডাৰটো বিলোপ কৰা হ'ব। এই ফ'ল্ডাৰত থকা এপ্প্‌চ গৃহ স্ক্ৰীণত এতিয়াও উপলব্ধ হ'ব।"</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">"এই ফ'ল্ডাৰ বিলোপ কৰা হ'ব। এই ফ'ল্ডাৰত থকা এপ্প্‌চ গৃহ স্ক্ৰীণত এতিয়াও উপলব্ধ হ'ব।"</string>
     <string name="quick_option_dimmed_disable">অক্ষম</string>
     <string name="quick_option_disable">অক্ষম</string>
     <string name="quick_option_install_dual_im">দ্বিতীয় এপ ইনষ্টল কৰক</string>

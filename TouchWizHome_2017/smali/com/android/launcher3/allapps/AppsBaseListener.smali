@@ -16,9 +16,6 @@
 .method public abstract createItemView(Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/view/ViewGroup;Landroid/view/View;)Landroid/view/View;
 .end method
 
-.method public abstract findFirstEmptyCell(I)I
-.end method
-
 .method public abstract getAppsIconByItemId(J)Landroid/view/View;
 .end method
 

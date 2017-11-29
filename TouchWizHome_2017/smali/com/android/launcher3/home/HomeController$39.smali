@@ -39,7 +39,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeController$39;->this$0:Lcom/android/launcher3/home/HomeController;
 
-    invoke-static {v0}, Lcom/android/launcher3/home/HomeController;->access$3000(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/Launcher;
+    invoke-static {v0}, Lcom/android/launcher3/home/HomeController;->access$3200(Lcom/android/launcher3/home/HomeController;)Lcom/android/launcher3/Launcher;
 
     move-result-object v0
 

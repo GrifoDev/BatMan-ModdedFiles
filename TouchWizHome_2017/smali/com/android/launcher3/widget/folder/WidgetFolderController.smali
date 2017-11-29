@@ -251,6 +251,16 @@
     return-object v0
 .end method
 
+.method public getDragSourceForLongKey()Lcom/android/launcher3/common/drag/DragSource;
+    .locals 1
+
+    invoke-super {p0}, Lcom/android/launcher3/common/stage/Stage;->getDragSourceForLongKey()Lcom/android/launcher3/common/drag/DragSource;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method protected getInternalState()I
     .locals 1
 
@@ -296,7 +306,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0044
+    const v1, 0x7f0b0045
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -314,7 +324,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0045
+    const v1, 0x7f0b0046
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -471,7 +481,11 @@
 .end method
 
 .method public onPauseActivity()V
-    .locals 0
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/widget/folder/WidgetFolderController;->mPagedView:Lcom/android/launcher3/widget/view/WidgetPagedView;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/widget/view/WidgetPagedView;->onPause()V
 
     return-void
 .end method
@@ -483,7 +497,11 @@
 .end method
 
 .method public onResumeActivity()V
-    .locals 0
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/widget/folder/WidgetFolderController;->mPagedView:Lcom/android/launcher3/widget/view/WidgetPagedView;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/widget/view/WidgetPagedView;->onResume()V
 
     return-void
 .end method
@@ -761,6 +779,14 @@
 
     :cond_0
     return-void
+.end method
+
+.method public searchBarHasFocus()Z
+    .locals 1
+
+    const/4 v0, 0x0
+
+    return v0
 .end method
 
 .method public setup()V

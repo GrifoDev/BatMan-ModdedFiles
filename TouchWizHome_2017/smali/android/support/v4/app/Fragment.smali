@@ -5,6 +5,7 @@
 # interfaces
 .implements Landroid/content/ComponentCallbacks;
 .implements Landroid/view/View$OnCreateContextMenuListener;
+.implements Landroid/arch/lifecycle/LifecycleOwner;
 
 
 # annotations
@@ -97,6 +98,8 @@
 
 .field mLayoutInflater:Landroid/view/LayoutInflater;
 
+.field mLifecycleRegistry:Landroid/arch/lifecycle/LifecycleRegistry;
+
 .field mLoaderManager:Landroid/support/v4/app/LoaderManagerImpl;
 
 .field mLoadersStarted:Z
@@ -186,6 +189,12 @@
     iput-boolean v2, p0, Landroid/support/v4/app/Fragment;->mMenuVisible:Z
 
     iput-boolean v2, p0, Landroid/support/v4/app/Fragment;->mUserVisibleHint:Z
+
+    new-instance v0, Landroid/arch/lifecycle/LifecycleRegistry;
+
+    invoke-direct {v0, p0}, Landroid/arch/lifecycle/LifecycleRegistry;-><init>(Landroid/arch/lifecycle/LifecycleOwner;)V
+
+    iput-object v0, p0, Landroid/support/v4/app/Fragment;->mLifecycleRegistry:Landroid/arch/lifecycle/LifecycleRegistry;
 
     return-void
 .end method
@@ -1491,6 +1500,14 @@
     move-result-object v1
 
     invoke-static {v0, v1}, Landroid/support/v4/view/LayoutInflaterCompat;->setFactory2(Landroid/view/LayoutInflater;Landroid/view/LayoutInflater$Factory2;)V
+
+    return-object v0
+.end method
+
+.method public getLifecycle()Landroid/arch/lifecycle/Lifecycle;
+    .locals 1
+
+    iget-object v0, p0, Landroid/support/v4/app/Fragment;->mLifecycleRegistry:Landroid/arch/lifecycle/LifecycleRegistry;
 
     return-object v0
 .end method
@@ -2979,6 +2996,12 @@
     throw v0
 
     :cond_1
+    iget-object v0, p0, Landroid/support/v4/app/Fragment;->mLifecycleRegistry:Landroid/arch/lifecycle/LifecycleRegistry;
+
+    sget-object v1, Landroid/arch/lifecycle/Lifecycle$Event;->ON_CREATE:Landroid/arch/lifecycle/Lifecycle$Event;
+
+    invoke-virtual {v0, v1}, Landroid/arch/lifecycle/LifecycleRegistry;->handleLifecycleEvent(Landroid/arch/lifecycle/Lifecycle$Event;)V
+
     return-void
 .end method
 
@@ -3046,7 +3069,13 @@
 .method performDestroy()V
     .locals 3
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
+
+    iget-object v0, p0, Landroid/support/v4/app/Fragment;->mLifecycleRegistry:Landroid/arch/lifecycle/LifecycleRegistry;
+
+    sget-object v1, Landroid/arch/lifecycle/Lifecycle$Event;->ON_DESTROY:Landroid/arch/lifecycle/Lifecycle$Event;
+
+    invoke-virtual {v0, v1}, Landroid/arch/lifecycle/LifecycleRegistry;->handleLifecycleEvent(Landroid/arch/lifecycle/Lifecycle$Event;)V
 
     iget-object v0, p0, Landroid/support/v4/app/Fragment;->mChildFragmentManager:Landroid/support/v4/app/FragmentManagerImpl;
 
@@ -3057,11 +3086,11 @@
     invoke-virtual {v0}, Landroid/support/v4/app/FragmentManagerImpl;->dispatchDestroy()V
 
     :cond_0
-    iput v1, p0, Landroid/support/v4/app/Fragment;->mState:I
+    iput v2, p0, Landroid/support/v4/app/Fragment;->mState:I
 
-    iput-boolean v1, p0, Landroid/support/v4/app/Fragment;->mCalled:Z
+    iput-boolean v2, p0, Landroid/support/v4/app/Fragment;->mCalled:Z
 
-    iput-boolean v1, p0, Landroid/support/v4/app/Fragment;->mIsCreated:Z
+    iput-boolean v2, p0, Landroid/support/v4/app/Fragment;->mIsCreated:Z
 
     invoke-virtual {p0}, Landroid/support/v4/app/Fragment;->onDestroy()V
 
@@ -3408,6 +3437,12 @@
 .method performPause()V
     .locals 3
 
+    iget-object v0, p0, Landroid/support/v4/app/Fragment;->mLifecycleRegistry:Landroid/arch/lifecycle/LifecycleRegistry;
+
+    sget-object v1, Landroid/arch/lifecycle/Lifecycle$Event;->ON_PAUSE:Landroid/arch/lifecycle/Lifecycle$Event;
+
+    invoke-virtual {v0, v1}, Landroid/arch/lifecycle/LifecycleRegistry;->handleLifecycleEvent(Landroid/arch/lifecycle/Lifecycle$Event;)V
+
     iget-object v0, p0, Landroid/support/v4/app/Fragment;->mChildFragmentManager:Landroid/support/v4/app/FragmentManagerImpl;
 
     if-eqz v0, :cond_0
@@ -3667,6 +3702,12 @@
     invoke-virtual {v0}, Landroid/support/v4/app/FragmentManagerImpl;->execPendingActions()Z
 
     :cond_2
+    iget-object v0, p0, Landroid/support/v4/app/Fragment;->mLifecycleRegistry:Landroid/arch/lifecycle/LifecycleRegistry;
+
+    sget-object v1, Landroid/arch/lifecycle/Lifecycle$Event;->ON_RESUME:Landroid/arch/lifecycle/Lifecycle$Event;
+
+    invoke-virtual {v0, v1}, Landroid/arch/lifecycle/LifecycleRegistry;->handleLifecycleEvent(Landroid/arch/lifecycle/Lifecycle$Event;)V
+
     return-void
 .end method
 
@@ -3774,11 +3815,23 @@
     invoke-virtual {v0}, Landroid/support/v4/app/LoaderManagerImpl;->doReportStart()V
 
     :cond_3
+    iget-object v0, p0, Landroid/support/v4/app/Fragment;->mLifecycleRegistry:Landroid/arch/lifecycle/LifecycleRegistry;
+
+    sget-object v1, Landroid/arch/lifecycle/Lifecycle$Event;->ON_START:Landroid/arch/lifecycle/Lifecycle$Event;
+
+    invoke-virtual {v0, v1}, Landroid/arch/lifecycle/LifecycleRegistry;->handleLifecycleEvent(Landroid/arch/lifecycle/Lifecycle$Event;)V
+
     return-void
 .end method
 
 .method performStop()V
     .locals 3
+
+    iget-object v0, p0, Landroid/support/v4/app/Fragment;->mLifecycleRegistry:Landroid/arch/lifecycle/LifecycleRegistry;
+
+    sget-object v1, Landroid/arch/lifecycle/Lifecycle$Event;->ON_STOP:Landroid/arch/lifecycle/Lifecycle$Event;
+
+    invoke-virtual {v0, v1}, Landroid/arch/lifecycle/LifecycleRegistry;->handleLifecycleEvent(Landroid/arch/lifecycle/Lifecycle$Event;)V
 
     iget-object v0, p0, Landroid/support/v4/app/Fragment;->mChildFragmentManager:Landroid/support/v4/app/FragmentManagerImpl;
 

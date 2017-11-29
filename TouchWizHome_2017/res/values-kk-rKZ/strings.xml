@@ -16,8 +16,10 @@
     <string name="accessibility_button">Түйме</string>
     <string name="accessibility_dimmed">Жарамсыз</string>
     <string name="activity_not_available">Бұл бағдарлама сіздің құрылғыңыз үшін қолжетімсіз.</string>
-    <string name="activity_not_found">Бағдарлама орнатылмаған.</string>
+    <string name="activity_not_found">Қолданба табылмады</string>
+    <string name="add">Қосу</string>
     <string name="add_to_last_page">%1$d элементті таңдадыңыз, бірақ бұл бетте бос орын көлемі жеткіліксіз. Қалған %2$d элемент соңғы бетке қосылады.</string>
+    <string name="add_to_last_page_for_hotseat">Сіз %1$d элементті таңдадыңыз, бірақ таңдаулылар науасындағы бос орын көлемі жеткіліксіз. Қалған %2$d элемент соңғы бетке қосылады.</string>
     <string name="align_to_bottom">Төменге қарай туралау</string>
     <string name="align_to_top">Жоғары қарай туралау</string>
     <string name="app_locked_toast">%s құлыпталған.</string>
@@ -121,6 +123,7 @@
     <string name="new_page_created">Бет қосылды.</string>
     <string name="no_changes">Өзгертулер жоқ.</string>
     <string name="no_space_page">Бетте бос орын жоқ. Жедел пернені басқа бетке қосып көріңіз.</string>
+    <string name="no_space_page_for_hotseat">Таңдаулылар науасында бос орын жоқ.</string>
     <string name="no_space_page_for_widget">Бұл бетте бос орын жоқ.</string>
     <string name="not_selected">Таңдалмады</string>
     <string name="notification_panel_setting_summary">Бастапқы экранда хабарландыру тақтасын ашу үшін төмен қарай сипаңыз.</string>
@@ -155,6 +158,8 @@
     <string name="quick_option_delete_folder">Қалтаны жою</string>
     <string name="quick_option_delete_folder_alert">%s қалтасы жойылады. Осы қалтаның ішіндегі қолданбалар “Қолданбалар” экранында әлі де қолжетімді болады.</string>
     <string name="quick_option_delete_folder_alert_no_title">Бұл қалта жойылады. Осы қалтаның ішіндегі қолданбалар “Қолданбалар” экранында әлі де қолжетімді болады.</string>
+    <string name="quick_option_delete_folder_home_only_alert">%s қалтасы жойылады. Осы қалтаның ішіндегі қолданбалар Бастапқы экранда бұрынғысынша қолжетімді болады.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Бұл қалта жойылады. Осы қалтаның ішіндегі қолданбалар Бастапқы экранда бұрынғысынша қолжетімді болады.</string>
     <string name="quick_option_dimmed_disable">Өшіру</string>
     <string name="quick_option_disable">Өшіру</string>
     <string name="quick_option_install_dual_im">Екінші қолданбаны орнату</string>

@@ -16,8 +16,10 @@
     <string name="accessibility_button">Cnaipe</string>
     <string name="accessibility_dimmed">Maolaithe</string>
     <string name="activity_not_available">Níl an feidhmchlár seo ar fáil do do ghléas.</string>
-    <string name="activity_not_found">Níl an feidhmchlár suiteáilte.</string>
+    <string name="activity_not_found">Níor aimsíodh an feidhmchlár</string>
+    <string name="add">Cuir leis</string>
     <string name="add_to_last_page">Roghnaigh tú %1$d mír, ach níl go leor spáis ar fáil ar an leathanach seo. Cuirfear na %2$d mír atá fágtha leis an leathanach deireanach.</string>
+    <string name="add_to_last_page_for_hotseat">Roghnaigh tú %1$d mír, ach níl go leor spáis ar fáil ar thráidire na gceanán. Cuirfear na %2$d mír atá fágtha leis an leathanach deireanach.</string>
     <string name="align_to_bottom">Ailínigh leis an mbun</string>
     <string name="align_to_top">Ailínigh leis an mbarr</string>
     <string name="app_locked_toast">%s glasáilte.</string>
@@ -121,6 +123,7 @@
     <string name="new_page_created">Leathanach curtha leis.</string>
     <string name="no_changes">Níl athrú ann.</string>
     <string name="no_space_page">Níl aon spás ar fáil ar an leathanach. Triail an t-aicearra a chur le leathanach eile.</string>
+    <string name="no_space_page_for_hotseat">Níl aon spás ar thráidire na gceanán.</string>
     <string name="no_space_page_for_widget">Níl aon spás ar an leathanach seo.</string>
     <string name="not_selected">Gan roghnú</string>
     <string name="notification_panel_setting_summary">Svaidhpeáil síos leis an bpainéal fógraí a oscailt ón Scáileán baile.</string>
@@ -155,6 +158,8 @@
     <string name="quick_option_delete_folder">Scrios fillteán</string>
     <string name="quick_option_delete_folder_alert">Scriosfar an fillteán %s. Beidh na feidhmchláir atá san fhillteán sin ar fáil ar an Scáileán feidhmchlár go fóill.</string>
     <string name="quick_option_delete_folder_alert_no_title">Scriosfar an fillteán seo. Beidh na feidhmchláir atá san fhillteán seo ar fáil ar an Scáileán feidhmchlár go fóill.</string>
+    <string name="quick_option_delete_folder_home_only_alert">Scriosfar an fillteán %s. Beidh na feidhmchláir atá san fhillteán sin ar fáil ar an Scáileán baile go fóill.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Scriosfar an fillteán seo. Beidh na feidhmchláir atá san fhillteán seo ar fáil ar an Scáileán baile go fóill.</string>
     <string name="quick_option_dimmed_disable">Díchumasaigh</string>
     <string name="quick_option_disable">Díchumasaigh</string>
     <string name="quick_option_install_dual_im">Suiteáil an dara f.chlár</string>
@@ -187,7 +192,7 @@
     <string name="swipe_up_for_more_apps">Svaidhpeáil suas nó síos le haghaidh na bhfeidhmchlár uile</string>
     <string name="swipe_up_for_more_apps_att">Svaidhpeáil suas nó síos ar an scáileán le hagh. gach feidhmchláir</string>
     <string name="swipe_up_for_more_apps_quick_noti_pannel_on">Svaidhpeáil suas le haghaidh gach feidhmchláir</string>
-    <string name="swipe_up_for_more_apps_quick_noti_pannel_on_att">Svaidhpeáil suas ar an scáileán le haghaidh gach feidhmchláir</string>
+    <string name="swipe_up_for_more_apps_quick_noti_pannel_on_att">Svaidhpeáil suas ar an scáileán le haghaidh gach feidhmchlár</string>
     <string name="swipe_up_for_more_apps_quick_noti_pannel_on_tts">Svaidhpeáil suas le dhá mhéar le haghaidh na bhfeidhmchlár uile.</string>
     <string name="swipe_up_for_more_apps_with_two_fingers">Svaidhpeáil suas nó síos le dhá mhéar le haghaidh na bhfeidhmchlár uile.</string>
     <string name="talkback_changed_to_ps">Athraithe go %s.</string>

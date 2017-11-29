@@ -336,6 +336,30 @@
     .end packed-switch
 .end method
 
+.method declared-synchronized initPreOffset()V
+    .locals 1
+
+    monitor-enter p0
+
+    const/4 v0, -0x1
+
+    :try_start_0
+    iput v0, p0, Lcom/android/launcher3/home/ZeroPageController$VirtualScreenHandler;->mPreOffset:I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
+
+    return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit p0
+
+    throw v0
+.end method
+
 .method declared-synchronized removeMsg()V
     .locals 1
 

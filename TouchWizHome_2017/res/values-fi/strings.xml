@@ -17,8 +17,10 @@
     <string name="accessibility_button">Painike</string>
     <string name="accessibility_dimmed">Himmennetty</string>
     <string name="activity_not_available">Tätä sovellusta ei ole saatavilla omaan laitteeseesi.</string>
-    <string name="activity_not_found">Sovellusta ei ole asennettu.</string>
+    <string name="activity_not_found">Sovellusta ei löytynyt</string>
+    <string name="add">Lisää</string>
     <string name="add_to_last_page">Valitsit %1$d kohdetta, mutta tällä sivulla ei ole tarpeeksi tilaa. Jäljellä olevat %2$d kohdetta lisätään viimeiselle sivulle.</string>
+    <string name="add_to_last_page_for_hotseat">Valitsit %1$d kohdetta, mutta suosikkipalkissa ei ole tarpeeksi tilaa. Jäljellä olevat %2$d kohdetta lisätään viimeiselle sivulle.</string>
     <string name="align_to_bottom">Tasaa alas</string>
     <string name="align_to_top">Tasaa ylös</string>
     <string name="app_locked_toast">%s lukittu.</string>
@@ -123,13 +125,14 @@ sovellukset"</string>
     <string name="new_page_created">Sivu lisätty.</string>
     <string name="no_changes">Ei muutoksia.</string>
     <string name="no_space_page">Sivulla ei ole tilaa. Yritä lisätä pikavalinta toiselle sivulle.</string>
+    <string name="no_space_page_for_hotseat">Suosikkipalkissa ei ole tilaa.</string>
     <string name="no_space_page_for_widget">Tällä sivulla ei ole tilaa.</string>
     <string name="not_selected">Ei ole valittu</string>
     <string name="notification_panel_setting_summary">Avaa ilmoituspaneeli alkunäytössä pyyhkäisemällä alaspäin.</string>
     <string name="notification_panel_setting_title">Avaa ilmoituspaneeli nopeasti</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s-pienoisohjelma on jo lisätty alkunäyttöön.</string>
-    <string name="option_menu_contact_up">Ota yhteyttä</string>
+    <string name="option_menu_contact_up">Ota meihin yhteyttä</string>
     <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Asetukset</string>
     <string name="options_menu">Lisävalinnat</string>
@@ -157,6 +160,8 @@ sovellukset"</string>
     <string name="quick_option_delete_folder">Poista kansio</string>
     <string name="quick_option_delete_folder_alert">Kansio %s poistetaan. Kansiossa olevat sovellukset ovat edelleen käytettävissä Sovellukset-näytössä.</string>
     <string name="quick_option_delete_folder_alert_no_title">Tämä kansio poistetaan. Kansiossa olevat sovellukset ovat edelleen käytettävissä Sovellukset-näytössä.</string>
+    <string name="quick_option_delete_folder_home_only_alert">Kansio %s poistetaan. Kansiossa olevat sovellukset ovat edelleen käytettävissä alkunäytössä.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Tämä kansio poistetaan. Kansiossa olevat sovellukset ovat edelleen käytettävissä alkunäytössä.</string>
     <string name="quick_option_dimmed_disable">Poista käyt.</string>
     <string name="quick_option_disable">Poista käyt.</string>
     <string name="quick_option_install_dual_im">Asenna toinen sovellus</string>

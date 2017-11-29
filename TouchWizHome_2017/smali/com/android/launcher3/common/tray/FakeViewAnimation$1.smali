@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/common/tray/FakeViewAnimation;->getTranslationAnimation(Landroid/view/View;IZ)Landroid/animation/Animator;
+    value = Lcom/android/launcher3/common/tray/FakeViewAnimation;->getAlphaAnimation(Landroid/view/View;IZ)Landroid/animation/Animator;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -17,6 +17,8 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/common/tray/FakeViewAnimation;
 
+.field final synthetic val$alpha:F
+
 .field final synthetic val$targetView:Landroid/view/View;
 
 .field final synthetic val$toBeShown:Z
@@ -25,7 +27,7 @@
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/common/tray/FakeViewAnimation;Landroid/view/View;ZI)V
+.method constructor <init>(Lcom/android/launcher3/common/tray/FakeViewAnimation;Landroid/view/View;ZIF)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/common/tray/FakeViewAnimation$1;->this$0:Lcom/android/launcher3/common/tray/FakeViewAnimation;
@@ -35,6 +37,8 @@
     iput-boolean p3, p0, Lcom/android/launcher3/common/tray/FakeViewAnimation$1;->val$toBeShown:Z
 
     iput p4, p0, Lcom/android/launcher3/common/tray/FakeViewAnimation$1;->val$toTranslationY:I
+
+    iput p5, p0, Lcom/android/launcher3/common/tray/FakeViewAnimation$1;->val$alpha:F
 
     invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
 
@@ -56,11 +60,9 @@
 
     iget-object v0, p0, Lcom/android/launcher3/common/tray/FakeViewAnimation$1;->val$targetView:Landroid/view/View;
 
-    iget v1, p0, Lcom/android/launcher3/common/tray/FakeViewAnimation$1;->val$toTranslationY:I
+    iget v1, p0, Lcom/android/launcher3/common/tray/FakeViewAnimation$1;->val$alpha:F
 
-    int-to-float v1, v1
-
-    invoke-virtual {v0, v1}, Landroid/view/View;->setTranslationY(F)V
+    invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
 
     :cond_0
     return-void
@@ -93,6 +95,14 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
+    iget-object v0, p0, Lcom/android/launcher3/common/tray/FakeViewAnimation$1;->val$targetView:Landroid/view/View;
+
+    iget v1, p0, Lcom/android/launcher3/common/tray/FakeViewAnimation$1;->val$toTranslationY:I
+
+    int-to-float v1, v1
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setTranslationY(F)V
+
     :cond_0
     return-void
 .end method
@@ -107,6 +117,14 @@
     iget-boolean v0, p0, Lcom/android/launcher3/common/tray/FakeViewAnimation$1;->val$toBeShown:Z
 
     if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/common/tray/FakeViewAnimation$1;->val$targetView:Landroid/view/View;
+
+    iget v1, p0, Lcom/android/launcher3/common/tray/FakeViewAnimation$1;->val$toTranslationY:I
+
+    int-to-float v1, v1
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setTranslationY(F)V
 
     iget-object v0, p0, Lcom/android/launcher3/common/tray/FakeViewAnimation$1;->val$targetView:Landroid/view/View;
 

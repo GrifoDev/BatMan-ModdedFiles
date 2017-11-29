@@ -17,8 +17,10 @@
     <string name="accessibility_button">Button</string>
     <string name="accessibility_dimmed">Diniliman</string>
     <string name="activity_not_available">Hindi available ang app na ito para sa iyong device.</string>
-    <string name="activity_not_found">Hindi naka-install ang application.</string>
+    <string name="activity_not_found">Hindi nahanap ang app</string>
+    <string name="add">Idagdag</string>
     <string name="add_to_last_page">Pinili mo ang %1$d item, pero walang sapat na espasyo sa pahinang ito. Idaragdag ang nalalabing %2$d item sa huling pahina.</string>
+    <string name="add_to_last_page_for_hotseat">Pumili ka ng %1$d item, pero walang sapat na espasyo sa tray ng mga paborito. Idaragdag ang nalalabing %2$d item sa huling pahina.</string>
     <string name="align_to_bottom">I-align sa ibaba</string>
     <string name="align_to_top">I-align sa itaas</string>
     <string name="app_locked_toast">Naka-lock ang %s locked.</string>
@@ -122,6 +124,7 @@
     <string name="new_page_created">Naidagdag na ang pahina.</string>
     <string name="no_changes">Walang pagbabago.</string>
     <string name="no_space_page">Walang espasyo sa page. Subukang magdagdag ng shortcut sa ibang page.</string>
+    <string name="no_space_page_for_hotseat">Walang espasyo sa tray ng mga paborito.</string>
     <string name="no_space_page_for_widget">Walang espasyo sa pahinang ito.</string>
     <string name="not_selected">Hindi pinili</string>
     <string name="notification_panel_setting_summary">Mag-swipe pababa para buksan ang notification panel mula sa Home screen.</string>
@@ -156,6 +159,8 @@
     <string name="quick_option_delete_folder">I-delete ang folder</string>
     <string name="quick_option_delete_folder_alert">Tatanggalin ang %s folder. Magagamit pa rin ang mga app na nasa loob ng folder na ito sa Apps screen.</string>
     <string name="quick_option_delete_folder_alert_no_title">Tatanggalin ang folder na ito. Magagamit pa rin ang mga app na nasa loob ng folder na ito sa Apps screen.</string>
+    <string name="quick_option_delete_folder_home_only_alert">Tatanggalin ang %s folder. Magagamit pa rin ang mga app na nasa loob ng folder na ito sa Home screen.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Tatanggalin ang folder na ito. Magagamit pa rin ang mga app na nasa loob ng folder na ito sa Home screen.</string>
     <string name="quick_option_dimmed_disable">Huwag paganahin</string>
     <string name="quick_option_disable">Huwag paganahin</string>
     <string name="quick_option_install_dual_im">I-install ang ikalawang app</string>

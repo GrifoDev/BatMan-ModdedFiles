@@ -15,7 +15,7 @@
 
 
 # static fields
-.field public static final status_bar_notification_info_maxnum:I = 0x7f0d0050
+.field public static final status_bar_notification_info_maxnum:I = 0x7f0b0051
 
 
 # direct methods

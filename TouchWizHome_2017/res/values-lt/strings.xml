@@ -17,8 +17,10 @@
     <string name="accessibility_button">Mygtukas</string>
     <string name="accessibility_dimmed">Pritemdytas</string>
     <string name="activity_not_available">Jūsų įrenginys negali naudotis šia programa.</string>
-    <string name="activity_not_found">Programa nebuvo įdiegta.</string>
+    <string name="activity_not_found">Programa nerasta</string>
+    <string name="add">Pridėti</string>
     <string name="add_to_last_page">Pasirinkote %1$d element., tačiau šiame puslapyje nepakanka vietos. Likę %2$d element. bus pridėti paskutiniame puslapyje.</string>
+    <string name="add_to_last_page_for_hotseat">Pasirinkote %1$d element., tačiau parankinių dėkle nepakanka vietos. Likę %2$d element. bus pridėti paskutiniame puslapyje.</string>
     <string name="align_to_bottom">Lygiuoti apačioje</string>
     <string name="align_to_top">Lygiuoti viršuje</string>
     <string name="app_locked_toast">%s užrakinta.</string>
@@ -122,13 +124,14 @@
     <string name="new_page_created">Puslapis pridėtas.</string>
     <string name="no_changes">Pakeitimų nėra.</string>
     <string name="no_space_page">Puslapyje nėra vietos. Pabandykite pridėti trumpinį kitame puslapyje.</string>
+    <string name="no_space_page_for_hotseat">Parankinių dėkle nebėra vietos.</string>
     <string name="no_space_page_for_widget">Šiame puslapyje nėra vietos.</string>
     <string name="not_selected">Nepasirinkta</string>
     <string name="notification_panel_setting_summary">Pradžios ekrane braukite žemyn ir atidarykite pranešimų skydelį.</string>
     <string name="notification_panel_setting_title">Greitai atidarom. praneš. skyd.</string>
     <string name="ok">Gerai</string>
     <string name="only_one_widget_instance_allowed">%s valdiklis jau pridėtas prie pradžios ekrano.</string>
-    <string name="option_menu_contact_up">Kreipkitės</string>
+    <string name="option_menu_contact_up">Susisiekite su mumis</string>
     <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Nustatymai</string>
     <string name="options_menu">Daugiau parinkčių</string>
@@ -156,6 +159,8 @@
     <string name="quick_option_delete_folder">Trinti aplanką</string>
     <string name="quick_option_delete_folder_alert">%s aplankas bus ištrintas. Šiame aplanke esančios programos išliks pasiekiamos programų ekrane.</string>
     <string name="quick_option_delete_folder_alert_no_title">Šis aplankas bus ištrintas. Šiame aplanke esančios programos išliks pasiekiamos programų ekrane.</string>
+    <string name="quick_option_delete_folder_home_only_alert">%s aplankas bus ištrintas. Šiame aplanke esančios programos išliks pasiekiamos pradžios ekrane.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Šis aplankas bus ištrintas. Šiame aplanke esančios programos išliks pasiekiamos pradžios ekrane.</string>
     <string name="quick_option_dimmed_disable">Išjungti</string>
     <string name="quick_option_disable">Išjungti</string>
     <string name="quick_option_install_dual_im">Diegti antrąją programą</string>

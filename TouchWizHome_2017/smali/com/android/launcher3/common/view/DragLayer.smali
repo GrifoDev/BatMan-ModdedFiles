@@ -624,7 +624,7 @@
 
     move-result-object v32
 
-    const v5, 0x7f0d0022
+    const v5, 0x7f0b0023
 
     move-object/from16 v0, v32
 
@@ -638,7 +638,7 @@
 
     if-gez p9, :cond_1
 
-    const v5, 0x7f0d0023
+    const v5, 0x7f0b0024
 
     move-object/from16 v0, v32
 
@@ -671,7 +671,7 @@
     move/from16 p9, v0
 
     :cond_0
-    const v5, 0x7f0d0024
+    const v5, 0x7f0b0025
 
     move-object/from16 v0, v32
 

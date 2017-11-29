@@ -9,8 +9,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
-        Lcom/android/launcher3/common/tray/FakeView$DragEventCallback;,
-        Lcom/android/launcher3/common/tray/FakeView$TranslationCallback;
+        Lcom/android/launcher3/common/tray/FakeView$DragEventCallback;
     }
 .end annotation
 
@@ -47,8 +46,6 @@
 .field private final mLauncher:Lcom/android/launcher3/Launcher;
 
 .field private mSuppressChangeStage:Z
-
-.field private mTranslationCallback:Lcom/android/launcher3/common/tray/FakeView$TranslationCallback;
 
 .field private mTrayLevel:Lcom/android/launcher3/common/tray/TrayManager$TrayLevel;
 
@@ -316,8 +313,6 @@
     .locals 1
 
     const/4 v0, 0x0
-
-    iput-object v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mTranslationCallback:Lcom/android/launcher3/common/tray/FakeView$TranslationCallback;
 
     iput-object v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mDragEventCallback:Lcom/android/launcher3/common/tray/FakeView$DragEventCallback;
 
@@ -725,7 +720,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0036
+    const v1, 0x7f0b0037
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -854,52 +849,6 @@
     invoke-direct {p0, v2, v0}, Lcom/android/launcher3/common/tray/FakeView;->showDescription(ZI)V
 
     goto :goto_0
-.end method
-
-.method public setTranslationListener(Lcom/android/launcher3/common/tray/FakeView$TranslationCallback;)V
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/launcher3/common/tray/FakeView;->mTranslationCallback:Lcom/android/launcher3/common/tray/FakeView$TranslationCallback;
-
-    return-void
-.end method
-
-.method public setTranslationX(F)V
-    .locals 2
-
-    invoke-super {p0, p1}, Landroid/widget/FrameLayout;->setTranslationX(F)V
-
-    iget-object v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mTranslationCallback:Lcom/android/launcher3/common/tray/FakeView$TranslationCallback;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mTranslationCallback:Lcom/android/launcher3/common/tray/FakeView$TranslationCallback;
-
-    iget-object v1, p0, Lcom/android/launcher3/common/tray/FakeView;->mTrayLevel:Lcom/android/launcher3/common/tray/TrayManager$TrayLevel;
-
-    invoke-interface {v0, v1, p1}, Lcom/android/launcher3/common/tray/FakeView$TranslationCallback;->onTranslateX(Lcom/android/launcher3/common/tray/TrayManager$TrayLevel;F)V
-
-    :cond_0
-    return-void
-.end method
-
-.method public setTranslationY(F)V
-    .locals 2
-
-    invoke-super {p0, p1}, Landroid/widget/FrameLayout;->setTranslationY(F)V
-
-    iget-object v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mTranslationCallback:Lcom/android/launcher3/common/tray/FakeView$TranslationCallback;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/launcher3/common/tray/FakeView;->mTranslationCallback:Lcom/android/launcher3/common/tray/FakeView$TranslationCallback;
-
-    iget-object v1, p0, Lcom/android/launcher3/common/tray/FakeView;->mTrayLevel:Lcom/android/launcher3/common/tray/TrayManager$TrayLevel;
-
-    invoke-interface {v0, v1, p1}, Lcom/android/launcher3/common/tray/FakeView$TranslationCallback;->onTranslateY(Lcom/android/launcher3/common/tray/TrayManager$TrayLevel;F)V
-
-    :cond_0
-    return-void
 .end method
 
 .method public setTrayLevel(Lcom/android/launcher3/common/tray/TrayManager$TrayLevel;)V

@@ -17,8 +17,10 @@
     <string name="accessibility_button">Tombol</string>
     <string name="accessibility_dimmed">Diredupkan</string>
     <string name="activity_not_available">Aplikasi ini tidak tersedia untuk perangkat Anda.</string>
-    <string name="activity_not_found">Aplikasi tidak diinstal.</string>
+    <string name="activity_not_found">Aplikasi tidak ditemukan</string>
+    <string name="add">Tambah</string>
     <string name="add_to_last_page">Anda telah memilih %1$d item, tetapi tidak ada cukup ruang pada halaman ini. %2$d item tersisa akan ditambahkan ke halaman terakhir.</string>
+    <string name="add_to_last_page_for_hotseat">Anda telah memilih %1$d item, tetapi ruang penyimpanan pada baki favorit tidak cukup. %2$d item tersisa akan ditambahkan ke halaman terakhir.</string>
     <string name="align_to_bottom">Sejajarkan ke bawah</string>
     <string name="align_to_top">Sejajarkan ke atas</string>
     <string name="app_locked_toast">%s terkunci.</string>
@@ -122,6 +124,7 @@
     <string name="new_page_created">Halaman ditambahkan.</string>
     <string name="no_changes">Tanpa perubahan.</string>
     <string name="no_space_page">Tidak ada ruang pada halaman. Coba tambahkan pintasan ke halaman lain.</string>
+    <string name="no_space_page_for_hotseat">Tidak ada ruang di baki favorit.</string>
     <string name="no_space_page_for_widget">Tidak ada ruang di halaman ini.</string>
     <string name="not_selected">Tidak dipilih</string>
     <string name="notification_panel_setting_summary">Usap ke bawah untuk membuka panel notifikasi dari Layar depan.</string>
@@ -156,6 +159,8 @@
     <string name="quick_option_delete_folder">Hapus folder</string>
     <string name="quick_option_delete_folder_alert">Folder %s akan dihapus. Aplikasi dalam folder ini akan tetap tersedia di layar Aplikasi.</string>
     <string name="quick_option_delete_folder_alert_no_title">Folder ini akan dihapus. Aplikasi dalam folder ini akan tetap tersedia di layar Aplikasi.</string>
+    <string name="quick_option_delete_folder_home_only_alert">Folder %s akan dihapus. Aplikasi dalam folder ini akan tetap tersedia di Layar depan.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Folder ini akan dihapus. Aplikasi dalam folder ini akan tetap tersedia di Layar depan.</string>
     <string name="quick_option_dimmed_disable">Nonaktifkan</string>
     <string name="quick_option_disable">Nonaktifkan</string>
     <string name="quick_option_install_dual_im">Instal aplikasi kedua</string>

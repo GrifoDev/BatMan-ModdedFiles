@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/allapps/controller/AppsController;->deleteFolder(Lcom/android/launcher3/folder/FolderInfo;)V
+    value = Lcom/android/launcher3/allapps/controller/AppsController;->removeApps(Ljava/util/ArrayList;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -39,23 +39,9 @@
 
     iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsController$14;->this$0:Lcom/android/launcher3/allapps/controller/AppsController;
 
-    invoke-static {v0}, Lcom/android/launcher3/allapps/controller/AppsController;->access$000(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/allapps/view/AppsPagedView;
+    const/4 v1, 0x0
 
-    move-result-object v0
-
-    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsController$14;->this$0:Lcom/android/launcher3/allapps/controller/AppsController;
-
-    invoke-static {v1}, Lcom/android/launcher3/allapps/controller/AppsController;->access$000(Lcom/android/launcher3/allapps/controller/AppsController;)Lcom/android/launcher3/allapps/view/AppsPagedView;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/launcher3/allapps/view/AppsPagedView;->getPageCount()I
-
-    move-result v1
-
-    add-int/lit8 v1, v1, -0x1
-
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/allapps/view/AppsPagedView;->snapToPageImmediately(I)V
+    invoke-static {v0, v1}, Lcom/android/launcher3/allapps/controller/AppsController;->access$1502(Lcom/android/launcher3/allapps/controller/AppsController;Z)Z
 
     return-void
 .end method

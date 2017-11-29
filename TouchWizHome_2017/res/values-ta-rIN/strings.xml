@@ -16,8 +16,10 @@
     <string name="accessibility_button">பொத்தான்</string>
     <string name="accessibility_dimmed">மங்கலான</string>
     <string name="activity_not_available">உங்கள் சாதனத்தில் இந்த பயன்பாடு கிடைக்கவில்லை.</string>
-    <string name="activity_not_found">பயன்பாடு நிறுவப்படவில்லை.</string>
+    <string name="activity_not_found">பயன்பாடு கண்டறியப்படவில்லை</string>
+    <string name="add">சேர்க்கவும்</string>
     <string name="add_to_last_page">%1$d உருப்படிகளை நீங்கள் தேர்வு செய்துள்ளீர்கள், ஆனால் இந்த பக்கத்தில் போதுமான இடம் இல்லை. மீதம் உள்ள %2$d உருப்படிகள் கடைசிப் பக்கத்தில் சேர்க்கப்படும்.</string>
+    <string name="add_to_last_page_for_hotseat">%1$d உருப்படிகளை நீங்கள் தேர்வு செய்துள்ளீர்கள், ஆனால் பிடித்தமானவை ட்ரேயில் போதுமான இடம் இல்லை. மீதம் உள்ள %2$d உருப்படிகள் கடைசிப் பக்கத்தில் சேர்க்கப்படும்.</string>
     <string name="align_to_bottom">கீழே வரிசைப்படுத்தவும்</string>
     <string name="align_to_top">மேலே வரிசைப்படுத்தவும்</string>
     <string name="app_locked_toast">%s பூட்டப்பட்டது.</string>
@@ -121,13 +123,14 @@
     <string name="new_page_created">பக்கம் சேர்க்கப்பட்டது.</string>
     <string name="no_changes">மாற்றங்கள் இல்லை.</string>
     <string name="no_space_page">பக்கத்தில் இடமில்லை. வேறொரு பக்கத்திற்கு குறுக்குவழியைச் சேர்க்க முயற்சிக்கவும்.</string>
+    <string name="no_space_page_for_hotseat">பிடித்தமான ட்ரேயில் இடமில்லை.</string>
     <string name="no_space_page_for_widget">இந்தப் பக்கத்தில் இடமில்லை.</string>
     <string name="not_selected">தேர்வு செய்யப்படவில்லை</string>
     <string name="notification_panel_setting_summary">முகப்புத் திரையிலிருந்து அறிவிப்பு பலகையைத் திறக்க, கீழே ஸ்வைப் செய்யவும்.</string>
     <string name="notification_panel_setting_title">துரித-திறப்பு அறிவிப்பு பலகை</string>
     <string name="ok">சரி</string>
     <string name="only_one_widget_instance_allowed">%s விட்ஜெட் ஏற்கனவே முகப்புத் திரையில் சேர்க்கப்பட்டுள்ளது.</string>
-    <string name="option_menu_contact_up">எங்களை தொடர்பு கொள்ள</string>
+    <string name="option_menu_contact_up">எங்களை தொடர்பு கொள்க</string>
     <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">அமைவுகள்</string>
     <string name="options_menu">மேலும் தெரிவுகள்</string>
@@ -155,6 +158,8 @@
     <string name="quick_option_delete_folder">கோப்புறை நீக்குக</string>
     <string name="quick_option_delete_folder_alert">%s கோப்புறை நீக்கப்படும். இந்தக் கோப்புறையில் உள்ள பயன்பாடுகள் இப்போதும் பயன்பாடுகள் திரையில் கிடைக்கும்.</string>
     <string name="quick_option_delete_folder_alert_no_title">இந்தக் கோப்புறை நீக்கப்படும். இந்தக் கோப்புறையில் உள்ள பயன்பாடுகள் இப்போதும் பயன்பாடுகள் திரையில் கிடைக்கும்.</string>
+    <string name="quick_option_delete_folder_home_only_alert">%s கோப்புறை நீக்கப்படும். இந்தக் கோப்புறையின் உள்புறத்தில் உள்ள பயன்பாடுகள் இப்போதும் முகப்புத் திரையில் கிடைக்கும்.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">இந்தக் கோப்புறை நீக்கப்படும். இந்தக் கோப்புறையின் உள்புறத்தில் உள்ள பயன்பாடுகள் இப்போதும் முகப்புத் திரையில் கிடைக்கும்.</string>
     <string name="quick_option_dimmed_disable">செயல்நீக்குக</string>
     <string name="quick_option_disable">செயல்நீக்குக</string>
     <string name="quick_option_install_dual_im">இரண்டாவது பயன்பாட்டை நிறுவவும்</string>

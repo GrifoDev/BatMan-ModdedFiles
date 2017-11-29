@@ -91,6 +91,10 @@
 
     invoke-direct {p0}, Lcom/android/launcher3/common/base/item/ItemInfo;-><init>()V
 
+    const/4 v0, -0x1
+
+    iput v0, p0, Lcom/android/launcher3/folder/FolderInfo;->color:I
+
     sget-object v0, Lcom/android/launcher3/folder/FolderInfo;->ITEM_POS_COMPARATOR:Ljava/util/Comparator;
 
     iput-object v0, p0, Lcom/android/launcher3/folder/FolderInfo;->mCurrentComparator:Ljava/util/Comparator;

@@ -17,8 +17,10 @@
     <string name="accessibility_button">按鈕</string>
     <string name="accessibility_dimmed">變暗</string>
     <string name="activity_not_available">此應用程式目前無法供您的裝置使用。</string>
-    <string name="activity_not_found">未安裝應用程式。</string>
+    <string name="activity_not_found">找不到應用程式</string>
+    <string name="add">新增</string>
     <string name="add_to_last_page">您已選擇 %1$d 個項目，但此頁面空間不足。剩餘的 %2$d 個項目將新增至最後一頁。</string>
+    <string name="add_to_last_page_for_hotseat">您已選擇 %1$d 個項目，但常用工具列空間不足。剩餘的 %2$d 個項目將新增至最後一個頁面。</string>
     <string name="align_to_bottom">置底對齊</string>
     <string name="align_to_top">置頂對齊</string>
     <string name="app_locked_toast">%s已鎖定。</string>
@@ -122,6 +124,7 @@
     <string name="new_page_created">已新增頁面。</string>
     <string name="no_changes">無變更。</string>
     <string name="no_space_page">此頁面已無空間。請嘗試將捷徑新增至其他頁面。</string>
+    <string name="no_space_page_for_hotseat">常用工具列無空間。</string>
     <string name="no_space_page_for_widget">此頁面無空間。</string>
     <string name="not_selected">未選擇</string>
     <string name="notification_panel_setting_summary">向下滑動即可從主螢幕開啟通知面板。</string>
@@ -156,6 +159,8 @@
     <string name="quick_option_delete_folder">刪除資料夾</string>
     <string name="quick_option_delete_folder_alert">將刪除 %s 資料夾。您仍可透過應用程式螢幕取得此資料夾內的應用程式。</string>
     <string name="quick_option_delete_folder_alert_no_title">將刪除此資料夾。您仍可透過應用程式螢幕取得此資料夾內的應用程式。</string>
+    <string name="quick_option_delete_folder_home_only_alert">將刪除 %s 資料夾。您仍可透過主螢幕取得此資料夾內的應用程式。</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">將刪除此資料夾。您仍可透過主螢幕取得此資料夾內的應用程式。</string>
     <string name="quick_option_dimmed_disable">停用</string>
     <string name="quick_option_disable">停用</string>
     <string name="quick_option_install_dual_im">安裝次要應用程式</string>

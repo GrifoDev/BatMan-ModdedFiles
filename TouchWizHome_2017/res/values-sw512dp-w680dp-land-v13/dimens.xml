@@ -5,8 +5,10 @@
     <dimen name="appsPicker_header_margin_end">32.0dip</dimen>
     <dimen name="appsPicker_header_margin_start">16.0dip</dimen>
     <dimen name="appsPicker_header_text_padding">4.0dip</dimen>
-    <dimen name="appsPicker_icon_layout_height">66.0dip</dimen>
+    <dimen name="appsPicker_icon_checkbox_margin_top">0.0dip</dimen>
+    <dimen name="appsPicker_icon_layout_height">70.0dip</dimen>
     <dimen name="appsPicker_icon_layout_width">100.0dip</dimen>
+    <dimen name="appsPicker_icon_margin_top">1.0dip</dimen>
     <dimen name="appsPicker_icon_size">45.0dip</dimen>
     <dimen name="appsPicker_icon_text_size">11.0dip</dimen>
     <dimen name="appsPicker_title_layout_height">56.0dip</dimen>

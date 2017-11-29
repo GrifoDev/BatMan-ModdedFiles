@@ -53,80 +53,117 @@
 .end method
 
 .method private startSettingApp()V
-    .locals 5
+    .locals 7
 
-    const-string v2, "SettingsActivity"
+    const/4 v6, 0x1
 
-    const-string v3, "launch Setting App"
+    const-string v3, "SettingsActivity"
 
-    invoke-static {v2, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    const-string v4, "launch Setting App"
 
-    new-instance v1, Landroid/content/Intent;
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const-string v2, "android.intent.action.MAIN"
+    new-instance v2, Landroid/content/Intent;
 
-    invoke-direct {v1, v2}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
+    const-string v3, "android.intent.action.MAIN"
+
+    invoke-direct {v2, v3}, Landroid/content/Intent;-><init>(Ljava/lang/String;)V
 
     invoke-static {}, Lcom/android/launcher3/util/GlobalSettingUtils;->getSettingCN()Landroid/content/ComponentName;
 
-    move-result-object v2
+    move-result-object v3
 
-    invoke-virtual {v1, v2}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+    invoke-virtual {v2, v3}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
 
-    const/high16 v2, 0x10020000
+    const/high16 v3, 0x10020000
 
-    invoke-virtual {v1, v2}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+    invoke-virtual {v2, v3}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+
+    new-instance v0, Landroid/os/Bundle;
+
+    invoke-direct {v0}, Landroid/os/Bundle;-><init>()V
+
+    const-string v3, "needSearchMenuInSub"
+
+    invoke-virtual {v0, v3, v6}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+
+    invoke-virtual {v2, v0}, Landroid/content/Intent;->putExtras(Landroid/os/Bundle;)Landroid/content/Intent;
 
     :try_start_0
-    invoke-virtual {p0, v1}, Lcom/android/launcher3/SettingsActivity;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {p0, v2}, Lcom/android/launcher3/SettingsActivity;->startActivity(Landroid/content/Intent;)V
 
-    const v2, 0x7f050004
+    const v3, 0x7f050004
 
-    const v3, 0x7f05000b
+    const v4, 0x7f05000b
 
-    invoke-virtual {p0, v2, v3}, Lcom/android/launcher3/SettingsActivity;->overridePendingTransition(II)V
+    invoke-virtual {p0, v3, v4}, Lcom/android/launcher3/SettingsActivity;->overridePendingTransition(II)V
     :try_end_0
     .catch Landroid/content/ActivityNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
 
     :goto_0
     invoke-static {}, Lcom/android/launcher3/util/GlobalSettingUtils;->resetSettingsValue()V
 
-    const/4 v2, 0x1
-
-    invoke-static {v2}, Lcom/android/launcher3/util/GlobalSettingUtils;->setBackToSetting(Z)V
+    invoke-static {v6}, Lcom/android/launcher3/util/GlobalSettingUtils;->setBackToSetting(Z)V
 
     return-void
 
     :catch_0
-    move-exception v0
+    move-exception v1
 
-    const-string v2, "SettingsActivity"
+    const-string v3, "SettingsActivity"
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "Unable to launch. intent="
+    const-string v5, "Unable to launch. intent="
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-static {v2, v3, v0}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v3, v4, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     goto :goto_0
 .end method
 
 
 # virtual methods
+.method public disableAllAppsBadge()Z
+    .locals 2
+
+    const/4 v0, 0x1
+
+    iget v1, p0, Lcom/android/launcher3/SettingsActivity;->mVisibleFragment:I
+
+    if-ne v1, v0, :cond_0
+
+    iget-object v1, p0, Lcom/android/launcher3/SettingsActivity;->mBadgeSettingsFragment:Lcom/android/launcher3/common/model/BadgeSettingsFragment;
+
+    if-nez v1, :cond_1
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+
+    :cond_1
+    iget-object v1, p0, Lcom/android/launcher3/SettingsActivity;->mBadgeSettingsFragment:Lcom/android/launcher3/common/model/BadgeSettingsFragment;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/common/model/BadgeSettingsFragment;->disableAllAppsBadge()V
+
+    goto :goto_0
+.end method
+
 .method public enableAllAppsBadge(Z)Z
     .locals 2
 
@@ -177,6 +214,64 @@
     iget-object v1, p0, Lcom/android/launcher3/SettingsActivity;->mBadgeSettingsFragment:Lcom/android/launcher3/common/model/BadgeSettingsFragment;
 
     invoke-virtual {v1, p1, p2}, Lcom/android/launcher3/common/model/BadgeSettingsFragment;->enableAppBadge(Ljava/lang/String;Z)V
+
+    goto :goto_0
+.end method
+
+.method public hasAppsBadge()Z
+    .locals 2
+
+    iget v0, p0, Lcom/android/launcher3/SettingsActivity;->mVisibleFragment:I
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/SettingsActivity;->mBadgeSettingsFragment:Lcom/android/launcher3/common/model/BadgeSettingsFragment;
+
+    if-nez v0, :cond_1
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/launcher3/SettingsActivity;->mBadgeSettingsFragment:Lcom/android/launcher3/common/model/BadgeSettingsFragment;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/common/model/BadgeSettingsFragment;->hasAppsBadge()Z
+
+    move-result v0
+
+    goto :goto_0
+.end method
+
+.method public isAllAppsBadgeSwitchChecked()Z
+    .locals 2
+
+    iget v0, p0, Lcom/android/launcher3/SettingsActivity;->mVisibleFragment:I
+
+    const/4 v1, 0x1
+
+    if-ne v0, v1, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/SettingsActivity;->mBadgeSettingsFragment:Lcom/android/launcher3/common/model/BadgeSettingsFragment;
+
+    if-nez v0, :cond_1
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+
+    :cond_1
+    iget-object v0, p0, Lcom/android/launcher3/SettingsActivity;->mBadgeSettingsFragment:Lcom/android/launcher3/common/model/BadgeSettingsFragment;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/common/model/BadgeSettingsFragment;->isAllAppsBadgeSwitchChecked()Z
+
+    move-result v0
 
     goto :goto_0
 .end method
@@ -303,13 +398,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
     const/4 v1, -0x1
 
     invoke-virtual {p0, v1}, Lcom/android/launcher3/SettingsActivity;->setRequestedOrientation(I)V
 
-    :cond_1
+    :goto_0
     const v1, 0x7f040050
 
     invoke-virtual {p0, v1}, Lcom/android/launcher3/SettingsActivity;->setContentView(I)V
@@ -318,7 +413,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0001
+    const v2, 0x7f0d0001
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -368,8 +463,8 @@
 
     invoke-virtual {p0}, Lcom/android/launcher3/SettingsActivity;->showSettingsFragment()V
 
-    :cond_2
-    :goto_0
+    :cond_1
+    :goto_1
     invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
     move-result-object v1
@@ -390,12 +485,19 @@
 
     return-void
 
+    :cond_2
+    const/4 v1, 0x5
+
+    invoke-virtual {p0, v1}, Lcom/android/launcher3/SettingsActivity;->setRequestedOrientation(I)V
+
+    goto :goto_0
+
     :cond_3
-    if-ne v0, v3, :cond_2
+    if-ne v0, v3, :cond_1
 
     invoke-virtual {p0}, Lcom/android/launcher3/SettingsActivity;->showBadgeManagerSettings()V
 
-    goto :goto_0
+    goto :goto_1
 
     :cond_4
     const-string v1, "SettingsActivity"
@@ -406,7 +508,7 @@
 
     invoke-virtual {p0}, Lcom/android/launcher3/SettingsActivity;->showSettingsFragment()V
 
-    goto :goto_0
+    goto :goto_1
 .end method
 
 .method public onDestroy()V
@@ -450,7 +552,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0901b6
+    const v2, 0x7f0901bb
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -460,7 +562,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f09016b
+    const v3, 0x7f090170
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -579,7 +681,7 @@
 
     invoke-virtual {v0}, Landroid/app/FragmentTransaction;->commit()I
 
-    const v1, 0x7f09002c
+    const v1, 0x7f09002e
 
     invoke-virtual {p0, v1}, Lcom/android/launcher3/SettingsActivity;->setTitle(I)V
 
@@ -646,7 +748,7 @@
 
     if-eqz v1, :cond_2
 
-    const v1, 0x7f09004a
+    const v1, 0x7f09004c
 
     :goto_0
     invoke-virtual {p0, v1}, Lcom/android/launcher3/SettingsActivity;->setTitle(I)V
@@ -654,7 +756,7 @@
     return-void
 
     :cond_2
-    const v1, 0x7f090055
+    const v1, 0x7f090057
 
     goto :goto_0
 .end method

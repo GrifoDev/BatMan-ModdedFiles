@@ -16,6 +16,9 @@
 .method public abstract clearBadge(Lcom/android/launcher3/common/base/item/ItemInfo;)V
 .end method
 
+.method public abstract disableAllAppsBadge()Z
+.end method
+
 .method public abstract enableAllAppsBadge(Z)Z
 .end method
 
@@ -34,6 +37,9 @@
 .method public abstract enterHomeSettingView()V
 .end method
 
+.method public abstract hasAppsBadge()Z
+.end method
+
 .method public abstract hideApps(Ljava/util/ArrayList;)V
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -47,6 +53,9 @@
 .end method
 
 .method public abstract hideAppsButton()V
+.end method
+
+.method public abstract isAllAppsBadgeSwitchChecked()Z
 .end method
 
 .method public abstract isAlreadySleepMode(Lcom/android/launcher3/common/base/item/ItemInfo;)Z

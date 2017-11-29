@@ -16,8 +16,10 @@
     <string name="accessibility_button">Կոճակ</string>
     <string name="accessibility_dimmed">Աղոտ</string>
     <string name="activity_not_available">Այս ծրագիրը մատչելի չէ Ձեր սարքի համար:</string>
-    <string name="activity_not_found">Գործադիրը տեղադրված չէ:</string>
+    <string name="activity_not_found">Ծրագիրը չգտնվեց</string>
+    <string name="add">Ավելացնել</string>
     <string name="add_to_last_page">Դուք ընտրել եք %1$d տարր, բայց այս էջում բավարար տեղ չկա: Մնացյալ %2$d տարրերը կավելացվեն վերջին էջին:</string>
+    <string name="add_to_last_page_for_hotseat">Դուք ընտրել եք %1$d տարր, բայց սիրվածների մատուցարանում բավարար տեղ չկա: Մնացյալ %2$d տարրերը կավելացվեն վերջին էջին:</string>
     <string name="align_to_bottom">Հավասարեցնել դեպի ներքև</string>
     <string name="align_to_top">Հավասարեցնել դեպի վերև</string>
     <string name="app_locked_toast">%s-ը կողպված է:</string>
@@ -121,6 +123,7 @@
     <string name="new_page_created">Էջն ավելացվեց:</string>
     <string name="no_changes">Փոփոխություններ չկան:</string>
     <string name="no_space_page">Տեղ չկա էջում: Փորձեք դյուրանցում ավելացնել ուրիշ էջում:</string>
+    <string name="no_space_page_for_hotseat">Սիրվածների մատուցարանում տեղ չկա:</string>
     <string name="no_space_page_for_widget">Տեղ չկա այս էջում:</string>
     <string name="not_selected">Չի ընտրվել</string>
     <string name="notification_panel_setting_summary">Մատը սահեցրեք վար՝ Հիմնական էկրանից ծանուցումների վահանակը բացելու համար:</string>
@@ -155,6 +158,8 @@
     <string name="quick_option_delete_folder">Ջնջել թղթապանակը</string>
     <string name="quick_option_delete_folder_alert">%s պանակը կվերացվի: Այս պանակի ներսում եղած ծրագրերը կշարունակեն մատչելի լինել Ծրագրերի էկրանում:</string>
     <string name="quick_option_delete_folder_alert_no_title">Այս պանակը կվերացվի: Այս պանակի ներսում եղած ծրագրերը կշարունակեն մատչելի լինել Ծրագրերի էկրանում:</string>
+    <string name="quick_option_delete_folder_home_only_alert">%s պանակը կվերացվի: Այս պանակի ներսում եղած ծրագրերը կշարունակեն մատչելի լինել Հիմնական էկրանում:</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Այս պանակը կվերացվի: Այս պանակի ներսում եղած ծրագրերը կշարունակեն մատչելի լինել Հիմնական էկրանում:</string>
     <string name="quick_option_dimmed_disable">Կասեցնել</string>
     <string name="quick_option_disable">Կասեցնել</string>
     <string name="quick_option_install_dual_im">Տեղադրել երկրորդ ծրագիրը</string>

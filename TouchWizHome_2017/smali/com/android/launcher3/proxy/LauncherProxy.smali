@@ -337,7 +337,7 @@
 
 # virtual methods
 .method public final addAppsFolderItem(Lcom/android/launcher3/proxy/LauncherProxy$AppInfo;)I
-    .locals 10
+    .locals 7
 
     const/4 v3, -0x3
 
@@ -400,33 +400,24 @@
 
     const/4 v1, 0x0
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_6
 
     invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v4
 
-    :cond_6
     :goto_1
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_7
+    if-eqz v5, :cond_6
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Lcom/android/launcher3/common/base/item/ItemInfo;
-
-    iget-wide v6, v0, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
-
-    const-wide/16 v8, 0x0
-
-    cmp-long v5, v6, v8
-
-    if-gez v5, :cond_6
 
     iget-object v5, p0, Lcom/android/launcher3/proxy/LauncherProxy;->mFolderProxyCallbacks:Lcom/android/launcher3/proxy/FolderProxyCallbacks;
 
@@ -436,7 +427,7 @@
 
     goto :goto_1
 
-    :cond_7
+    :cond_6
     if-eqz v1, :cond_0
 
     const/4 v3, 0x0
@@ -1412,6 +1403,28 @@
     const/4 v4, 0x0
 
     invoke-interface {v3, v4, v0, v2}, Lcom/android/launcher3/proxy/HomeProxyCallbacks;->createShortcut(Landroid/content/ComponentName;Lcom/android/launcher3/common/base/item/ItemInfo;I)V
+
+    goto :goto_0
+.end method
+
+.method public final disableAllAppsBadge()I
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/proxy/LauncherProxy;->mLauncherActivityProxyCallbacks:Lcom/android/launcher3/proxy/LauncherActivityProxyCallbacks;
+
+    invoke-interface {v0}, Lcom/android/launcher3/proxy/LauncherActivityProxyCallbacks;->disableAllAppsBadge()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    const/4 v0, -0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
 
     goto :goto_0
 .end method
@@ -3064,6 +3077,18 @@
     goto :goto_0
 .end method
 
+.method public final hasAppsBadge()Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/proxy/LauncherProxy;->mLauncherActivityProxyCallbacks:Lcom/android/launcher3/proxy/LauncherActivityProxyCallbacks;
+
+    invoke-interface {v0}, Lcom/android/launcher3/proxy/LauncherActivityProxyCallbacks;->hasAppsBadge()Z
+
+    move-result v0
+
+    return v0
+.end method
+
 .method public final hasAppsEmptySpace(II)Z
     .locals 2
 
@@ -3291,6 +3316,18 @@
     const/4 v0, 0x0
 
     goto :goto_0
+.end method
+
+.method public final isAllAppsBadgeSwitchChecked()Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/proxy/LauncherProxy;->mLauncherActivityProxyCallbacks:Lcom/android/launcher3/proxy/LauncherActivityProxyCallbacks;
+
+    invoke-interface {v0}, Lcom/android/launcher3/proxy/LauncherActivityProxyCallbacks;->isAllAppsBadgeSwitchChecked()Z
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public final isAlreadySleepMode(Lcom/android/launcher3/proxy/LauncherProxy$AppInfo;)Z

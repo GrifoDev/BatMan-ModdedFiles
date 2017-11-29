@@ -85,7 +85,7 @@
 
     if-eqz v5, :cond_0
 
-    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportGSAPreWarming()Z
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportGSARoundingFeature()Z
 
     move-result v5
 

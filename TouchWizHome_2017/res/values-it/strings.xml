@@ -17,15 +17,17 @@
     <string name="accessibility_button">Pulsante</string>
     <string name="accessibility_dimmed">Oscurato</string>
     <string name="activity_not_available">Questa applicazione non è disponibile per questo dispositivo.</string>
-    <string name="activity_not_found">Applicazione non installata.</string>
+    <string name="activity_not_found">Applicazione non trovata</string>
+    <string name="add">Aggiungi</string>
     <string name="add_to_last_page">"Avete selezionato %1$d elementi, ma lo spazio disponibile su questa pagina non è sufficiente. I %2$d elementi rimanenti verranno aggiunti all'ultima pagina."</string>
+    <string name="add_to_last_page_for_hotseat">Avete selezionato %1$d elementi, ma lo spazio disponibile nell’area Preferiti non è sufficiente. I %2$d elementi rimanenti verranno aggiunti all’ultima pagina.</string>
     <string name="align_to_bottom">Allinea in basso</string>
     <string name="align_to_top">Allinea in alto</string>
     <string name="app_locked_toast">%s bloccato.</string>
-    <string name="app_search">Cerca nel telefono</string>
+    <string name="app_search">Cerca nel dispositivo</string>
     <string name="app_search_no_apps">Potete aggiungere sulla schermata Home dei collegamenti dai risultati di ricerca.</string>
     <string name="app_search_no_results_found">Nessun risultato trovato</string>
-    <string name="app_search_tablet">Cerca tablet</string>
+    <string name="app_search_tablet">Cerca nel dispositivo</string>
     <string name="app_unlocked_toast">%s sbloccato.</string>
     <string name="application_name">TouchWiz home</string>
     <string name="apply">Applica</string>
@@ -122,6 +124,7 @@
     <string name="new_page_created">Pagina aggiunta.</string>
     <string name="no_changes">Nessuna modifica.</string>
     <string name="no_space_page">"Spazio sulla pagina insufficiente. Provate ad aggiungere il collegamento in un'altra pagina."</string>
+    <string name="no_space_page_for_hotseat">Spazio esaurito nell’area Preferiti.</string>
     <string name="no_space_page_for_widget">Spazio esaurito su questa pagina.</string>
     <string name="not_selected">Non selezionato</string>
     <string name="notification_panel_setting_summary">Trascinate verso il basso per aprire il pannello notifiche dalla schermata Home.</string>
@@ -156,6 +159,8 @@
     <string name="quick_option_delete_folder">Elimina cartella</string>
     <string name="quick_option_delete_folder_alert">La cartella %s verrà eliminata. Le applicazioni in questa cartella saranno comunque disponibili sulla schermata Applicazioni.</string>
     <string name="quick_option_delete_folder_alert_no_title">Questa cartella verrà eliminata. Le applicazioni in questa cartella saranno comunque disponibili sulla schermata Applicazioni.</string>
+    <string name="quick_option_delete_folder_home_only_alert">La cartella %s verrà eliminata. Le applicazioni in questa cartella saranno comunque disponibili sulla schermata Home.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Questa cartella verrà eliminata. Le applicazioni in questa cartella saranno comunque disponibili sulla schermata Home.</string>
     <string name="quick_option_dimmed_disable">Disattiva</string>
     <string name="quick_option_disable">Disattiva</string>
     <string name="quick_option_install_dual_im">Installa app secondaria</string>

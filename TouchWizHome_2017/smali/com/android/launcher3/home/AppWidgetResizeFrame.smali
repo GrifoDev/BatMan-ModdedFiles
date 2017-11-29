@@ -205,7 +205,7 @@
 
     iput-object v9, p0, Lcom/android/launcher3/home/AppWidgetResizeFrame;->mBackgroundInvalid:Landroid/graphics/drawable/Drawable;
 
-    const v9, 0x7f0a0183
+    const v9, 0x7f0a0188
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -213,7 +213,7 @@
 
     iput v9, p0, Lcom/android/launcher3/home/AppWidgetResizeFrame;->mBackgroundPadding:I
 
-    const v9, 0x7f0a0184
+    const v9, 0x7f0a0189
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -245,7 +245,7 @@
 
     iput v9, p0, Lcom/android/launcher3/home/AppWidgetResizeFrame;->mHandleWidth:I
 
-    const v9, 0x7f0900c3
+    const v9, 0x7f0900c8
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -253,7 +253,7 @@
 
     iput-object v9, p0, Lcom/android/launcher3/home/AppWidgetResizeFrame;->mWidgetSpanFormat:Ljava/lang/String;
 
-    const v9, 0x7f0900d8
+    const v9, 0x7f0900dd
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -360,7 +360,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0900d4
+    const v10, 0x7f0900d9
 
     invoke-virtual {v6, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -430,7 +430,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0900da
+    const v10, 0x7f0900df
 
     invoke-virtual {v6, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -500,7 +500,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0900db
+    const v10, 0x7f0900e0
 
     invoke-virtual {v6, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -570,7 +570,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0900c6
+    const v10, 0x7f0900cb
 
     invoke-virtual {v6, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -714,7 +714,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0900d9
+    const v10, 0x7f0900de
 
     const/4 v11, 0x1
 
@@ -1649,7 +1649,7 @@
 
     move-result-object v1
 
-    const v6, 0x7f0901ba
+    const v6, 0x7f0901bf
 
     move-object/from16 v0, v23
 
@@ -1657,7 +1657,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f090175
+    const v7, 0x7f09017a
 
     move-object/from16 v0, v23
 
@@ -1888,7 +1888,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0900d4
+    const v3, 0x7f0900d9
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1899,7 +1899,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0900d5
+    const v3, 0x7f0900da
 
     const/4 v4, 0x1
 
@@ -1928,7 +1928,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0900da
+    const v3, 0x7f0900df
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1945,7 +1945,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0900db
+    const v3, 0x7f0900e0
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1958,7 +1958,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0900c6
+    const v3, 0x7f0900cb
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2296,7 +2296,7 @@
     invoke-virtual {v1, v0, v2}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
     :cond_1
-    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportGSAPreWarming()Z
+    invoke-static {}, Lcom/android/launcher3/LauncherFeature;->supportGSARoundingFeature()Z
 
     move-result v0
 
@@ -2964,7 +2964,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0900dc
+    const v4, 0x7f0900e1
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

@@ -24,8 +24,6 @@
 
 
 # static fields
-.field private static final synthetic $VALUES:[Lcom/android/vcard/VCardEntry$EntryLabel;
-
 .field public static final enum ANDROID_CUSTOM:Lcom/android/vcard/VCardEntry$EntryLabel;
 
 .field public static final enum ANNIVERSARY:Lcom/android/vcard/VCardEntry$EntryLabel;
@@ -33,6 +31,8 @@
 .field public static final enum BIRTHDAY:Lcom/android/vcard/VCardEntry$EntryLabel;
 
 .field public static final enum EMAIL:Lcom/android/vcard/VCardEntry$EntryLabel;
+
+.field private static final synthetic ENUM$VALUES:[Lcom/android/vcard/VCardEntry$EntryLabel;
 
 .field public static final enum IM:Lcom/android/vcard/VCardEntry$EntryLabel;
 
@@ -331,18 +331,13 @@
 
     aput-object v2, v0, v1
 
-    sput-object v0, Lcom/android/vcard/VCardEntry$EntryLabel;->$VALUES:[Lcom/android/vcard/VCardEntry$EntryLabel;
+    sput-object v0, Lcom/android/vcard/VCardEntry$EntryLabel;->ENUM$VALUES:[Lcom/android/vcard/VCardEntry$EntryLabel;
 
     return-void
 .end method
 
 .method private constructor <init>(Ljava/lang/String;I)V
     .locals 0
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "()V"
-        }
-    .end annotation
 
     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
 
@@ -364,15 +359,17 @@
 .end method
 
 .method public static values()[Lcom/android/vcard/VCardEntry$EntryLabel;
-    .locals 1
+    .locals 4
 
-    sget-object v0, Lcom/android/vcard/VCardEntry$EntryLabel;->$VALUES:[Lcom/android/vcard/VCardEntry$EntryLabel;
+    const/4 v3, 0x0
 
-    invoke-virtual {v0}, [Lcom/android/vcard/VCardEntry$EntryLabel;->clone()Ljava/lang/Object;
+    sget-object v0, Lcom/android/vcard/VCardEntry$EntryLabel;->ENUM$VALUES:[Lcom/android/vcard/VCardEntry$EntryLabel;
 
-    move-result-object v0
+    array-length v1, v0
 
-    check-cast v0, [Lcom/android/vcard/VCardEntry$EntryLabel;
+    new-array v2, v1, [Lcom/android/vcard/VCardEntry$EntryLabel;
 
-    return-object v0
+    invoke-static {v0, v3, v2, v3, v1}, Ljava/lang/System;->arraycopy(Ljava/lang/Object;ILjava/lang/Object;II)V
+
+    return-object v2
 .end method

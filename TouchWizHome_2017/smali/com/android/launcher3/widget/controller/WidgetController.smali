@@ -57,6 +57,10 @@
 
 .field private mPagedView:Lcom/android/launcher3/widget/view/WidgetPagedView;
 
+.field private mSearchTextViewKeyListener:Landroid/view/View$OnKeyListener;
+
+.field private mSearchTextViewTouchListener:Landroid/view/View$OnTouchListener;
+
 .field private mStateActionListener:Lcom/android/launcher3/widget/controller/WidgetState$StateActionListener;
 
 .field private mTransitAnimation:Lcom/android/launcher3/widget/controller/WidgetTransitAnimation;
@@ -64,6 +68,8 @@
 .field private mWhiteWallpaper:Z
 
 .field private mWidgetLoader:Lcom/android/launcher3/widget/model/WidgetLoader;
+
+.field private mWidgetSearchbar:Lcom/android/launcher3/widget/view/WidgetSearchbar;
 
 .field private mWidgetState:Lcom/android/launcher3/widget/controller/WidgetState;
 
@@ -128,9 +134,21 @@
 
     iput-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mLoadingListener:Lcom/android/launcher3/widget/model/WidgetLoader$LoadListener;
 
+    new-instance v0, Lcom/android/launcher3/widget/controller/WidgetController$4;
+
+    invoke-direct {v0, p0}, Lcom/android/launcher3/widget/controller/WidgetController$4;-><init>(Lcom/android/launcher3/widget/controller/WidgetController;)V
+
+    iput-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mSearchTextViewTouchListener:Landroid/view/View$OnTouchListener;
+
     new-instance v0, Lcom/android/launcher3/widget/controller/WidgetController$5;
 
     invoke-direct {v0, p0}, Lcom/android/launcher3/widget/controller/WidgetController$5;-><init>(Lcom/android/launcher3/widget/controller/WidgetController;)V
+
+    iput-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mSearchTextViewKeyListener:Landroid/view/View$OnKeyListener;
+
+    new-instance v0, Lcom/android/launcher3/widget/controller/WidgetController$7;
+
+    invoke-direct {v0, p0}, Lcom/android/launcher3/widget/controller/WidgetController$7;-><init>(Lcom/android/launcher3/widget/controller/WidgetController;)V
 
     iput-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mOnGlobalLayoutListener:Landroid/view/ViewTreeObserver$OnGlobalLayoutListener;
 
@@ -177,7 +195,15 @@
     return-object v0
 .end method
 
-.method static synthetic access$1300(Lcom/android/launcher3/widget/controller/WidgetController;)Landroid/widget/FrameLayout;
+.method static synthetic access$1300(Lcom/android/launcher3/widget/controller/WidgetController;)Lcom/android/launcher3/widget/view/WidgetSearchbar;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetSearchbar:Lcom/android/launcher3/widget/view/WidgetSearchbar;
+
+    return-object v0
+.end method
+
+.method static synthetic access$1400(Lcom/android/launcher3/widget/controller/WidgetController;)Landroid/widget/FrameLayout;
     .locals 1
 
     iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetView:Landroid/widget/FrameLayout;
@@ -185,7 +211,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$1400(Lcom/android/launcher3/widget/controller/WidgetController;)Landroid/widget/LinearLayout;
+.method static synthetic access$1500(Lcom/android/launcher3/widget/controller/WidgetController;)Landroid/widget/LinearLayout;
     .locals 1
 
     iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mNoResultView:Landroid/widget/LinearLayout;
@@ -395,9 +421,9 @@
 
     iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetView:Landroid/widget/FrameLayout;
 
-    new-instance v2, Lcom/android/launcher3/widget/controller/WidgetController$6;
+    new-instance v2, Lcom/android/launcher3/widget/controller/WidgetController$8;
 
-    invoke-direct {v2, p0}, Lcom/android/launcher3/widget/controller/WidgetController$6;-><init>(Lcom/android/launcher3/widget/controller/WidgetController;)V
+    invoke-direct {v2, p0}, Lcom/android/launcher3/widget/controller/WidgetController$8;-><init>(Lcom/android/launcher3/widget/controller/WidgetController;)V
 
     invoke-virtual {v1, v2}, Landroid/widget/FrameLayout;->post(Ljava/lang/Runnable;)Z
 
@@ -443,6 +469,10 @@
 
     if-eqz v1, :cond_0
 
+    iget-object v3, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetSearchbar:Lcom/android/launcher3/widget/view/WidgetSearchbar;
+
+    if-eqz v3, :cond_0
+
     move-object v2, v1
 
     :goto_0
@@ -451,9 +481,13 @@
     :cond_0
     const/4 v0, 0x0
 
+    const/4 v3, 0x0
+
+    iput-object v3, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetSearchbar:Lcom/android/launcher3/widget/view/WidgetSearchbar;
+
     sget-object v3, Lcom/android/launcher3/widget/controller/WidgetState$State;->SEARCH:Lcom/android/launcher3/widget/controller/WidgetState$State;
 
-    if-ne p1, v3, :cond_1
+    if-ne p1, v3, :cond_2
 
     iget-object v3, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetView:Landroid/widget/FrameLayout;
 
@@ -468,6 +502,15 @@
     invoke-direct {v1, v3, v0}, Lcom/android/launcher3/widget/controller/WidgetStateSearch;-><init>(Landroid/content/Context;Landroid/view/View;)V
 
     :goto_1
+    instance-of v3, v0, Lcom/android/launcher3/widget/view/WidgetSearchbar;
+
+    if-eqz v3, :cond_1
+
+    check-cast v0, Lcom/android/launcher3/widget/view/WidgetSearchbar;
+
+    iput-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetSearchbar:Lcom/android/launcher3/widget/view/WidgetSearchbar;
+
+    :cond_1
     iget-object v3, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mStateActionListener:Lcom/android/launcher3/widget/controller/WidgetState$StateActionListener;
 
     invoke-virtual {v1, v3}, Lcom/android/launcher3/widget/controller/WidgetState;->setActionListener(Lcom/android/launcher3/widget/controller/WidgetState$ActionListener;)V
@@ -480,10 +523,10 @@
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     sget-object v3, Lcom/android/launcher3/widget/controller/WidgetState$State;->UNINSTALL:Lcom/android/launcher3/widget/controller/WidgetState$State;
 
-    if-ne p1, v3, :cond_2
+    if-ne p1, v3, :cond_3
 
     iget-object v3, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetView:Landroid/widget/FrameLayout;
 
@@ -501,7 +544,7 @@
 
     goto :goto_1
 
-    :cond_2
+    :cond_3
     iget-object v3, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetView:Landroid/widget/FrameLayout;
 
     invoke-virtual {v3, v4}, Landroid/widget/FrameLayout;->findViewById(I)Landroid/view/View;
@@ -582,9 +625,9 @@
 
     move-result-object v0
 
-    new-instance v1, Lcom/android/launcher3/widget/controller/WidgetController$4;
+    new-instance v1, Lcom/android/launcher3/widget/controller/WidgetController$6;
 
-    invoke-direct {v1, p0}, Lcom/android/launcher3/widget/controller/WidgetController$4;-><init>(Lcom/android/launcher3/widget/controller/WidgetController;)V
+    invoke-direct {v1, p0}, Lcom/android/launcher3/widget/controller/WidgetController$6;-><init>(Lcom/android/launcher3/widget/controller/WidgetController;)V
 
     invoke-virtual {v0, v1}, Landroid/view/ViewTreeObserver;->addOnPreDrawListener(Landroid/view/ViewTreeObserver$OnPreDrawListener;)V
 
@@ -923,7 +966,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0900e4
+    const v2, 0x7f0900e9
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -964,6 +1007,16 @@
     .locals 1
 
     iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetView:Landroid/widget/FrameLayout;
+
+    return-object v0
+.end method
+
+.method public getDragSourceForLongKey()Lcom/android/launcher3/common/drag/DragSource;
+    .locals 1
+
+    invoke-super {p0}, Lcom/android/launcher3/common/stage/Stage;->getDragSourceForLongKey()Lcom/android/launcher3/common/drag/DragSource;
+
+    move-result-object v0
 
     return-object v0
 .end method
@@ -1033,7 +1086,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d0044
+    const v2, 0x7f0b0045
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1051,7 +1104,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0d0045
+    const v2, 0x7f0b0046
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1365,13 +1418,21 @@
 .end method
 
 .method public onPauseActivity()V
-    .locals 0
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mPagedView:Lcom/android/launcher3/widget/view/WidgetPagedView;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/widget/view/WidgetPagedView;->onPause()V
 
     return-void
 .end method
 
 .method public onResumeActivity()V
-    .locals 0
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mPagedView:Lcom/android/launcher3/widget/view/WidgetPagedView;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/widget/view/WidgetPagedView;->onResume()V
 
     return-void
 .end method
@@ -1423,11 +1484,11 @@
 
     iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetState:Lcom/android/launcher3/widget/controller/WidgetState;
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     iget v1, p1, Lcom/android/launcher3/common/stage/StageEntry;->fromStage:I
 
-    if-eq v1, v4, :cond_0
+    if-eq v1, v4, :cond_1
 
     iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetState:Lcom/android/launcher3/widget/controller/WidgetState;
 
@@ -1454,6 +1515,23 @@
 
     invoke-direct {p0}, Lcom/android/launcher3/widget/controller/WidgetController;->setPreDrawListener()V
 
+    iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetSearchbar:Lcom/android/launcher3/widget/view/WidgetSearchbar;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetSearchbar:Lcom/android/launcher3/widget/view/WidgetSearchbar;
+
+    iget-object v2, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mSearchTextViewKeyListener:Landroid/view/View$OnKeyListener;
+
+    invoke-virtual {v1, v2}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->setOnSearchTextViewKeyListener(Landroid/view/View$OnKeyListener;)V
+
+    iget-object v1, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetSearchbar:Lcom/android/launcher3/widget/view/WidgetSearchbar;
+
+    iget-object v2, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mSearchTextViewTouchListener:Landroid/view/View$OnTouchListener;
+
+    invoke-virtual {v1, v2}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->setOnSearchTextViewTouchListener(Landroid/view/View$OnTouchListener;)V
+
+    :cond_0
     invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
 
     move-result-object v1
@@ -1474,7 +1552,7 @@
 
     return-object v1
 
-    :cond_0
+    :cond_1
     sget-object v1, Lcom/android/launcher3/widget/controller/WidgetState$State;->NORMAL:Lcom/android/launcher3/widget/controller/WidgetState$State;
 
     invoke-direct {p0, v1, v3}, Lcom/android/launcher3/widget/controller/WidgetController;->changeState(Lcom/android/launcher3/widget/controller/WidgetState$State;Z)V
@@ -1492,6 +1570,8 @@
 
 .method protected onStageExit(Lcom/android/launcher3/common/stage/StageEntry;)Landroid/animation/Animator;
     .locals 8
+
+    const/4 v7, 0x0
 
     const/4 v3, 0x1
 
@@ -1518,18 +1598,18 @@
 
     iget-boolean v5, p1, Lcom/android/launcher3/common/stage/StageEntry;->enableAnimation:Z
 
-    if-eqz v5, :cond_2
+    if-eqz v5, :cond_3
 
     iget-boolean v5, p1, Lcom/android/launcher3/common/stage/StageEntry;->broughtToHome:Z
 
-    if-nez v5, :cond_2
+    if-nez v5, :cond_3
 
     move v0, v3
 
     :goto_0
     iget v5, p1, Lcom/android/launcher3/common/stage/StageEntry;->toStage:I
 
-    if-ne v5, v3, :cond_3
+    if-ne v5, v3, :cond_4
 
     invoke-virtual {p1}, Lcom/android/launcher3/common/stage/StageEntry;->getInternalStateTo()I
 
@@ -1537,7 +1617,7 @@
 
     const/4 v6, 0x2
 
-    if-ne v5, v6, :cond_3
+    if-ne v5, v6, :cond_4
 
     move v2, v3
 
@@ -1548,7 +1628,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_4
+    if-nez v5, :cond_5
 
     invoke-static {}, Lcom/android/launcher3/util/logging/SALogging;->getInstance()Lcom/android/launcher3/util/logging/SALogging;
 
@@ -1560,6 +1640,19 @@
 
     :cond_1
     :goto_2
+    iget-object v5, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetSearchbar:Lcom/android/launcher3/widget/view/WidgetSearchbar;
+
+    if-eqz v5, :cond_2
+
+    iget-object v5, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetSearchbar:Lcom/android/launcher3/widget/view/WidgetSearchbar;
+
+    invoke-virtual {v5, v7}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->setOnSearchTextViewKeyListener(Landroid/view/View$OnKeyListener;)V
+
+    iget-object v5, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetSearchbar:Lcom/android/launcher3/widget/view/WidgetSearchbar;
+
+    invoke-virtual {v5, v7}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->setOnSearchTextViewTouchListener(Landroid/view/View$OnTouchListener;)V
+
+    :cond_2
     const-string v5, "WidgetController"
 
     new-instance v6, Ljava/lang/StringBuilder;
@@ -1592,9 +1685,9 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_6
 
-    if-nez v2, :cond_5
+    if-nez v2, :cond_6
 
     :goto_3
     invoke-direct {p0, v3, p1}, Lcom/android/launcher3/widget/controller/WidgetController;->createAnimationOnExit(ZLcom/android/launcher3/common/stage/StageEntry;)Landroid/animation/Animator;
@@ -1603,17 +1696,17 @@
 
     return-object v3
 
-    :cond_2
+    :cond_3
     move v0, v4
 
     goto :goto_0
 
-    :cond_3
+    :cond_4
     move v2, v4
 
     goto :goto_1
 
-    :cond_4
+    :cond_5
     invoke-virtual {p1}, Lcom/android/launcher3/common/stage/StageEntry;->getInternalStateTo()I
 
     move-result v5
@@ -1630,7 +1723,7 @@
 
     goto :goto_2
 
-    :cond_5
+    :cond_6
     move v3, v4
 
     goto :goto_3
@@ -1692,6 +1785,32 @@
     move-result v0
 
     return v0
+.end method
+
+.method public searchBarHasFocus()Z
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetSearchbar:Lcom/android/launcher3/widget/view/WidgetSearchbar;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/widget/controller/WidgetController;->mWidgetSearchbar:Lcom/android/launcher3/widget/view/WidgetSearchbar;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/widget/view/WidgetSearchbar;->hasFocus()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
 .end method
 
 .method public setDataWithOutStageChange(Lcom/android/launcher3/common/stage/StageEntry;)V

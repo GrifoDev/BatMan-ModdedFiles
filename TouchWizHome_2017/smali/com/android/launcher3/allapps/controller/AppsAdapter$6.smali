@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/allapps/controller/AppsAdapter;->updateIconAndTitle(Ljava/util/ArrayList;)V
+    value = Lcom/android/launcher3/allapps/controller/AppsAdapter;->removeAppsItems(Ljava/util/ArrayList;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,7 +20,7 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/allapps/controller/AppsAdapter;
 
-.field final synthetic val$updated:Ljava/util/ArrayList;
+.field final synthetic val$items:Ljava/util/ArrayList;
 
 
 # direct methods
@@ -29,7 +29,7 @@
 
     iput-object p1, p0, Lcom/android/launcher3/allapps/controller/AppsAdapter$6;->this$0:Lcom/android/launcher3/allapps/controller/AppsAdapter;
 
-    iput-object p2, p0, Lcom/android/launcher3/allapps/controller/AppsAdapter$6;->val$updated:Ljava/util/ArrayList;
+    iput-object p2, p0, Lcom/android/launcher3/allapps/controller/AppsAdapter$6;->val$items:Ljava/util/ArrayList;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -39,53 +39,64 @@
 
 # virtual methods
 .method public run()V
-    .locals 3
+    .locals 4
 
-    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsAdapter$6;->this$0:Lcom/android/launcher3/allapps/controller/AppsAdapter;
+    const-string v1, "AppsAdapter"
 
-    iget-object v0, v0, Lcom/android/launcher3/allapps/controller/AppsAdapter;->mDataHolder:Lcom/android/launcher3/allapps/controller/AppsAdapterProvider$DataHolder;
+    const-string v2, "removeAppsItems"
 
-    iget-boolean v0, v0, Lcom/android/launcher3/allapps/controller/AppsAdapterProvider$DataHolder;->mDestroyed:Z
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v0, :cond_0
+    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsAdapter$6;->val$items:Ljava/util/ArrayList;
 
-    const-string v0, "AppsAdapter"
+    invoke-virtual {v1}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
 
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "ignore updateIconAndTitle because of destroyed : "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-object v2, p0, Lcom/android/launcher3/allapps/controller/AppsAdapter$6;->this$0:Lcom/android/launcher3/allapps/controller/AppsAdapter;
-
-    iget-object v2, v2, Lcom/android/launcher3/allapps/controller/AppsAdapter;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :goto_0
-    return-void
+    move-result-object v2
 
     :cond_0
-    iget-object v0, p0, Lcom/android/launcher3/allapps/controller/AppsAdapter$6;->this$0:Lcom/android/launcher3/allapps/controller/AppsAdapter;
+    :goto_0
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
-    iget-object v0, v0, Lcom/android/launcher3/allapps/controller/AppsAdapter;->mListener:Lcom/android/launcher3/allapps/controller/AppsAdapter$DataListener;
+    move-result v1
 
-    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsAdapter$6;->val$updated:Ljava/util/ArrayList;
+    if-eqz v1, :cond_1
 
-    invoke-interface {v0, v1}, Lcom/android/launcher3/allapps/controller/AppsAdapter$DataListener;->updateApps(Ljava/util/ArrayList;)V
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/launcher3/common/base/item/ItemInfo;
+
+    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsAdapter$6;->this$0:Lcom/android/launcher3/allapps/controller/AppsAdapter;
+
+    iget-object v1, v1, Lcom/android/launcher3/allapps/controller/AppsAdapter;->mItems:Ljava/util/ArrayList;
+
+    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->contains(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsAdapter$6;->this$0:Lcom/android/launcher3/allapps/controller/AppsAdapter;
+
+    iget-object v1, v1, Lcom/android/launcher3/allapps/controller/AppsAdapter;->mItems:Ljava/util/ArrayList;
+
+    invoke-virtual {v1, v0}, Ljava/util/ArrayList;->remove(Ljava/lang/Object;)Z
+
+    iget-object v3, p0, Lcom/android/launcher3/allapps/controller/AppsAdapter$6;->this$0:Lcom/android/launcher3/allapps/controller/AppsAdapter;
+
+    move-object v1, v0
+
+    check-cast v1, Lcom/android/launcher3/common/base/item/IconInfo;
+
+    invoke-virtual {v3, v1}, Lcom/android/launcher3/allapps/controller/AppsAdapter;->removeViewAndReorder(Lcom/android/launcher3/common/base/item/IconInfo;)V
+
+    iget-object v1, p0, Lcom/android/launcher3/allapps/controller/AppsAdapter$6;->this$0:Lcom/android/launcher3/allapps/controller/AppsAdapter;
+
+    invoke-virtual {v1, v0}, Lcom/android/launcher3/allapps/controller/AppsAdapter;->deleteItem(Lcom/android/launcher3/common/base/item/ItemInfo;)V
 
     goto :goto_0
+
+    :cond_1
+    return-void
 .end method

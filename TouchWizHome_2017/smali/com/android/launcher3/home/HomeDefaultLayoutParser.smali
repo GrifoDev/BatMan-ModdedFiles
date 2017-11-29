@@ -1358,13 +1358,13 @@
 
     :cond_0
     :goto_0
-    if-eqz v12, :cond_9
+    if-eqz v12, :cond_a
 
     invoke-virtual {v12}, Ljava/io/File;->isFile()Z
 
     move-result v2
 
-    if-eqz v2, :cond_9
+    if-eqz v2, :cond_a
 
     invoke-virtual {v12}, Ljava/io/File;->length()J
 
@@ -1374,7 +1374,7 @@
 
     cmp-long v2, v6, v20
 
-    if-lez v2, :cond_9
+    if-lez v2, :cond_a
 
     new-instance v15, Ljava/io/FileReader;
 
@@ -1406,7 +1406,7 @@
     move-object v14, v15
 
     :goto_1
-    if-eqz v3, :cond_14
+    if-eqz v3, :cond_15
 
     :try_start_2
     move-object/from16 v0, p0
@@ -1439,14 +1439,14 @@
 
     move-result v2
 
-    if-le v2, v9, :cond_14
+    if-le v2, v9, :cond_15
 
     :cond_2
     const/4 v2, 0x1
 
     move/from16 v0, v18
 
-    if-eq v0, v2, :cond_14
+    if-eq v0, v2, :cond_15
 
     const/4 v2, 0x2
 
@@ -1466,7 +1466,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_11
+    if-eqz v2, :cond_12
 
     const-string v4, "favorites"
 
@@ -1557,7 +1557,7 @@
 
     cmp-long v2, v6, v20
 
-    if-gtz v2, :cond_16
+    if-gtz v2, :cond_17
 
     :cond_6
     new-instance v12, Ljava/io/File;
@@ -1581,7 +1581,7 @@
 
     iget-boolean v2, v0, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->mIsHomeOnly:Z
 
-    if-eqz v2, :cond_8
+    if-eqz v2, :cond_9
 
     new-instance v13, Ljava/io/File;
 
@@ -1590,12 +1590,47 @@
     iget-object v2, v0, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->mDWPathHomeOnly:Ljava/lang/String;
 
     invoke-direct {v13, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    :try_end_4
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_4 .. :try_end_4} :catch_0
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_3
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_4 .. :try_end_4} :catch_5
+    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
-    move-object v12, v13
+    :try_start_5
+    invoke-virtual {v13}, Ljava/io/File;->isFile()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_8
+
+    invoke-virtual {v13}, Ljava/io/File;->length()J
+
+    move-result-wide v6
+
+    const-wide/16 v20, 0x0
+
+    cmp-long v2, v6, v20
+
+    if-gtz v2, :cond_17
+
+    :cond_8
+    new-instance v12, Ljava/io/File;
+
+    move-object/from16 v0, p0
+
+    iget-object v2, v0, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->mDWPath:Ljava/lang/String;
+
+    invoke-direct {v12, v2}, Ljava/io/File;-><init>(Ljava/lang/String;)V
+    :try_end_5
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_5 .. :try_end_5} :catch_c
+    .catch Ljava/io/IOException; {:try_start_5 .. :try_end_5} :catch_a
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_5 .. :try_end_5} :catch_8
+    .catchall {:try_start_5 .. :try_end_5} :catchall_1
 
     goto/16 :goto_0
 
-    :cond_8
+    :cond_9
+    :try_start_6
     new-instance v13, Ljava/io/File;
 
     move-object/from16 v0, p0
@@ -1608,18 +1643,18 @@
 
     goto/16 :goto_0
 
-    :cond_9
+    :cond_a
     move-object/from16 v0, p0
 
     iget-boolean v2, v0, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->mIsKnoxMode:Z
 
-    if-eqz v2, :cond_b
+    if-eqz v2, :cond_c
 
     move-object/from16 v0, p0
 
     iget-boolean v2, v0, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->mIsHomeOnly:Z
 
-    if-eqz v2, :cond_a
+    if-eqz v2, :cond_b
 
     const v16, 0x7f08000a
 
@@ -1636,28 +1671,28 @@
 
     goto/16 :goto_1
 
-    :cond_a
-    const v16, 0x7f08000b
-
-    goto :goto_3
-
     :cond_b
-    move-object/from16 v0, p0
-
-    iget-boolean v2, v0, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->mIsEasyMode:Z
-
-    if-eqz v2, :cond_c
-
-    const v16, 0x7f080007
+    const v16, 0x7f08000b
 
     goto :goto_3
 
     :cond_c
     move-object/from16 v0, p0
 
-    iget v2, v0, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->mLayoutId:I
+    iget-boolean v2, v0, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->mIsEasyMode:Z
 
     if-eqz v2, :cond_d
+
+    const v16, 0x7f080007
+
+    goto :goto_3
+
+    :cond_d
+    move-object/from16 v0, p0
+
+    iget v2, v0, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->mLayoutId:I
+
+    if-eqz v2, :cond_e
 
     move-object/from16 v0, p0
 
@@ -1667,45 +1702,45 @@
 
     goto :goto_3
 
-    :cond_d
+    :cond_e
     move-object/from16 v0, p0
 
     iget-boolean v2, v0, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->mIsGuest:Z
 
-    if-eqz v2, :cond_e
-
-    const v16, 0x7f080008
-
-    goto :goto_3
-
-    :cond_e
-    move-object/from16 v0, p0
-
-    iget-boolean v2, v0, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->mIsHomeOnly:Z
-
     if-eqz v2, :cond_f
 
-    const v16, 0x7f080009
+    const v16, 0x7f080008
 
     goto :goto_3
 
     :cond_f
     move-object/from16 v0, p0
 
-    iget-boolean v2, v0, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->mIsWifiDevice:Z
+    iget-boolean v2, v0, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->mIsHomeOnly:Z
 
     if-eqz v2, :cond_10
+
+    const v16, 0x7f080009
+
+    goto :goto_3
+
+    :cond_10
+    move-object/from16 v0, p0
+
+    iget-boolean v2, v0, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->mIsWifiDevice:Z
+
+    if-eqz v2, :cond_11
 
     const v16, 0x7f08000c
 
     goto :goto_3
 
-    :cond_10
+    :cond_11
     const v16, 0x7f080006
 
     goto :goto_3
 
-    :cond_11
+    :cond_12
     const-string v2, "hotseat"
 
     move-object/from16 v0, v17
@@ -1714,7 +1749,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_12
+    if-eqz v2, :cond_13
 
     const-string v4, "favorites"
 
@@ -1732,7 +1767,7 @@
 
     goto/16 :goto_2
 
-    :cond_12
+    :cond_13
     const-string v2, "HomeDefaultLayoutParser"
 
     new-instance v4, Ljava/lang/StringBuilder;
@@ -1756,11 +1791,11 @@
     move-result-object v4
 
     invoke-static {v2, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_4
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_4 .. :try_end_4} :catch_0
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_3
-    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_4 .. :try_end_4} :catch_5
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
+    :try_end_6
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_6 .. :try_end_6} :catch_0
+    .catch Ljava/io/IOException; {:try_start_6 .. :try_end_6} :catch_3
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_6 .. :try_end_6} :catch_5
+    .catchall {:try_start_6 .. :try_end_6} :catchall_0
 
     goto/16 :goto_2
 
@@ -1768,41 +1803,41 @@
     move-exception v10
 
     :goto_4
-    :try_start_5
+    :try_start_7
     const-string v2, "HomeDefaultLayoutParser"
 
     const-string v4, "Got exception parsing favorites."
 
     invoke-static {v2, v4, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_5
-    .catchall {:try_start_5 .. :try_end_5} :catchall_0
-
-    if-eqz v14, :cond_13
-
-    :try_start_6
-    invoke-virtual {v14}, Ljava/io/FileReader;->close()V
-    :try_end_6
-    .catch Ljava/lang/Exception; {:try_start_6 .. :try_end_6} :catch_2
-
-    :cond_13
-    :goto_5
-    return v8
-
-    :cond_14
-    :try_start_7
-    invoke-direct/range {p0 .. p0}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->checkValidCurrentGrid()V
     :try_end_7
-    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_7 .. :try_end_7} :catch_0
-    .catch Ljava/io/IOException; {:try_start_7 .. :try_end_7} :catch_3
-    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_7 .. :try_end_7} :catch_5
     .catchall {:try_start_7 .. :try_end_7} :catchall_0
 
-    if-eqz v14, :cond_13
+    if-eqz v14, :cond_14
 
     :try_start_8
     invoke-virtual {v14}, Ljava/io/FileReader;->close()V
     :try_end_8
-    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_1
+    .catch Ljava/lang/Exception; {:try_start_8 .. :try_end_8} :catch_2
+
+    :cond_14
+    :goto_5
+    return v8
+
+    :cond_15
+    :try_start_9
+    invoke-direct/range {p0 .. p0}, Lcom/android/launcher3/home/HomeDefaultLayoutParser;->checkValidCurrentGrid()V
+    :try_end_9
+    .catch Lorg/xmlpull/v1/XmlPullParserException; {:try_start_9 .. :try_end_9} :catch_0
+    .catch Ljava/io/IOException; {:try_start_9 .. :try_end_9} :catch_3
+    .catch Landroid/content/res/Resources$NotFoundException; {:try_start_9 .. :try_end_9} :catch_5
+    .catchall {:try_start_9 .. :try_end_9} :catchall_0
+
+    if-eqz v14, :cond_14
+
+    :try_start_a
+    invoke-virtual {v14}, Ljava/io/FileReader;->close()V
+    :try_end_a
+    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_a} :catch_1
 
     goto :goto_5
 
@@ -1832,21 +1867,21 @@
     move-exception v10
 
     :goto_6
-    :try_start_9
+    :try_start_b
     const-string v2, "HomeDefaultLayoutParser"
 
     const-string v4, "Got exception parsing favorites."
 
     invoke-static {v2, v4, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_9
-    .catchall {:try_start_9 .. :try_end_9} :catchall_0
+    :try_end_b
+    .catchall {:try_start_b .. :try_end_b} :catchall_0
 
-    if-eqz v14, :cond_13
+    if-eqz v14, :cond_14
 
-    :try_start_a
+    :try_start_c
     invoke-virtual {v14}, Ljava/io/FileReader;->close()V
-    :try_end_a
-    .catch Ljava/lang/Exception; {:try_start_a .. :try_end_a} :catch_4
+    :try_end_c
+    .catch Ljava/lang/Exception; {:try_start_c .. :try_end_c} :catch_4
 
     goto :goto_5
 
@@ -1865,21 +1900,21 @@
     move-exception v10
 
     :goto_7
-    :try_start_b
+    :try_start_d
     const-string v2, "HomeDefaultLayoutParser"
 
     const-string v4, "Got exception parsing favorites."
 
     invoke-static {v2, v4, v10}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
-    :try_end_b
-    .catchall {:try_start_b .. :try_end_b} :catchall_0
+    :try_end_d
+    .catchall {:try_start_d .. :try_end_d} :catchall_0
 
-    if-eqz v14, :cond_13
+    if-eqz v14, :cond_14
 
-    :try_start_c
+    :try_start_e
     invoke-virtual {v14}, Ljava/io/FileReader;->close()V
-    :try_end_c
-    .catch Ljava/lang/Exception; {:try_start_c .. :try_end_c} :catch_6
+    :try_end_e
+    .catch Ljava/lang/Exception; {:try_start_e .. :try_end_e} :catch_6
 
     goto :goto_5
 
@@ -1898,14 +1933,14 @@
     move-exception v2
 
     :goto_8
-    if-eqz v14, :cond_15
+    if-eqz v14, :cond_16
 
-    :try_start_d
+    :try_start_f
     invoke-virtual {v14}, Ljava/io/FileReader;->close()V
-    :try_end_d
-    .catch Ljava/lang/Exception; {:try_start_d .. :try_end_d} :catch_7
+    :try_end_f
+    .catch Ljava/lang/Exception; {:try_start_f .. :try_end_f} :catch_7
 
-    :cond_15
+    :cond_16
     :goto_9
     throw v2
 
@@ -1976,7 +2011,7 @@
 
     goto :goto_4
 
-    :cond_16
+    :cond_17
     move-object v12, v13
 
     goto/16 :goto_0

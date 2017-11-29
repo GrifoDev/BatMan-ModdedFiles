@@ -111,6 +111,12 @@
     move-result-object p2
 
     :goto_0
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v5
+
+    invoke-virtual {p2, v5}, Landroid/view/View;->setTag(Ljava/lang/Object;)V
+
     return-object p2
 
     :cond_0
@@ -168,7 +174,7 @@
 
     iget-object v5, p0, Lcom/android/launcher3/common/quickoption/QuickOptionListAdapter;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v6, 0x7f0900a3
+    const v6, 0x7f0900a8
 
     invoke-virtual {v5, v6}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -243,7 +249,7 @@
 
     move-result v5
 
-    const v6, 0x7f09009c
+    const v6, 0x7f0900a1
 
     if-ne v5, v6, :cond_2
 

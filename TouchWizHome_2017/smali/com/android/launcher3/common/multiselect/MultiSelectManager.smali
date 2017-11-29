@@ -672,7 +672,7 @@
 
     iget-object v4, p0, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v5, 0x7f09006b
+    const v5, 0x7f09006d
 
     invoke-virtual {v4, v5}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -1921,7 +1921,7 @@
 .method public showToast(I)V
     .locals 11
 
-    const v10, 0x7f09006c
+    const v10, 0x7f09006e
 
     const/4 v8, 0x3
 
@@ -2012,7 +2012,7 @@
 
     iget-object v4, p0, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v7, 0x7f090069
+    const v7, 0x7f09006b
 
     invoke-virtual {v4, v7}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -2066,7 +2066,7 @@
     :cond_6
     iget-object v4, p0, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v7, 0x7f090068
+    const v7, 0x7f09006a
 
     invoke-virtual {v4, v7}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -2093,7 +2093,7 @@
 
     iget-object v4, p0, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v7, 0x7f09006e
+    const v7, 0x7f090070
 
     invoke-virtual {v4, v7}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -2150,7 +2150,7 @@
 
     iget-object v4, p0, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v7, 0x7f090065
+    const v7, 0x7f090067
 
     invoke-virtual {v4, v7}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -2181,7 +2181,7 @@
 
     iget-object v4, p0, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v5, 0x7f090066
+    const v5, 0x7f090068
 
     invoke-virtual {v4, v5}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -2200,7 +2200,7 @@
 
     iget-object v4, p0, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v5, 0x7f090064
+    const v5, 0x7f090066
 
     invoke-virtual {v4, v5}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -2227,7 +2227,7 @@
 
     iget-object v4, p0, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v7, 0x7f090071
+    const v7, 0x7f090073
 
     invoke-virtual {v4, v7}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -2259,7 +2259,7 @@
 
     iget-object v5, p0, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v8, 0x7f09006f
+    const v8, 0x7f090071
 
     invoke-virtual {v5, v8}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -2284,6 +2284,41 @@
 
     iget-object v4, p0, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->mLauncher:Lcom/android/launcher3/Launcher;
 
+    const v7, 0x7f090074
+
+    invoke-virtual {v4, v7}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    new-array v7, v9, [Ljava/lang/Object;
+
+    iget-object v8, p0, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->mSecureFolderPendingList:Ljava/util/ArrayList;
+
+    invoke-virtual {v8, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v8
+
+    aput-object v8, v7, v6
+
+    iget-object v8, p0, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    const v9, 0x7f090071
+
+    invoke-virtual {v8, v9}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
+
+    move-result-object v8
+
+    aput-object v8, v7, v5
+
+    invoke-static {v4, v7}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v2
+
+    goto/16 :goto_0
+
+    :cond_a
+    iget-object v4, p0, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->mLauncher:Lcom/android/launcher3/Launcher;
+
     const v7, 0x7f090072
 
     invoke-virtual {v4, v7}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
@@ -2302,42 +2337,7 @@
 
     iget-object v8, p0, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v9, 0x7f09006f
-
-    invoke-virtual {v8, v9}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
-
-    move-result-object v8
-
-    aput-object v8, v7, v5
-
-    invoke-static {v4, v7}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v2
-
-    goto/16 :goto_0
-
-    :cond_a
-    iget-object v4, p0, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    const v7, 0x7f090070
-
-    invoke-virtual {v4, v7}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    new-array v7, v9, [Ljava/lang/Object;
-
-    iget-object v8, p0, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->mSecureFolderPendingList:Ljava/util/ArrayList;
-
-    invoke-virtual {v8, v6}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v8
-
-    aput-object v8, v7, v6
-
-    iget-object v8, p0, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->mLauncher:Lcom/android/launcher3/Launcher;
-
-    const v9, 0x7f09006f
+    const v9, 0x7f090071
 
     invoke-virtual {v8, v9}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -2370,7 +2370,7 @@
 
     iget-object v4, p0, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v7, 0x7f090071
+    const v7, 0x7f090073
 
     invoke-virtual {v4, v7}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -2425,7 +2425,7 @@
 
     iget-object v4, p0, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v7, 0x7f090072
+    const v7, 0x7f090074
 
     invoke-virtual {v4, v7}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -2458,7 +2458,7 @@
     :cond_c
     iget-object v4, p0, Lcom/android/launcher3/common/multiselect/MultiSelectManager;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v7, 0x7f090070
+    const v7, 0x7f090072
 
     invoke-virtual {v4, v7}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 

@@ -39,13 +39,13 @@
 
     const-string v0, "Launcher.Workspace"
 
-    const-string v1, "onClick AlignBottom"
+    const-string v1, "onClick AlignTop"
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v0, p0, Lcom/android/launcher3/home/Workspace$11;->this$0:Lcom/android/launcher3/home/Workspace;
 
-    const/4 v1, 0x0
+    const/4 v1, 0x1
 
     invoke-virtual {v0, v1}, Lcom/android/launcher3/home/Workspace;->autoAlignItems(Z)V
 

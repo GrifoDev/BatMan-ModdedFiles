@@ -20,19 +20,19 @@
     return-void
 .end method
 
-.method private declared-synchronized addItem(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/ItemRecord;)Z
+.method private declared-synchronized addItem(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/PostPositionItemRecord;)Z
     .locals 11
 
     monitor-enter p0
 
     :try_start_0
-    invoke-virtual {p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getAppsFolderName()Ljava/lang/String;
+    invoke-virtual {p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getAppsFolderName()Ljava/lang/String;
 
     move-result-object v6
 
-    if-eqz v6, :cond_9
+    if-eqz v6, :cond_a
 
-    invoke-virtual {p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getAppsFolderName()Ljava/lang/String;
+    invoke-virtual {p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getAppsFolderName()Ljava/lang/String;
 
     move-result-object v6
 
@@ -42,19 +42,82 @@
 
     move-result v6
 
-    if-nez v6, :cond_9
+    if-nez v6, :cond_a
 
+    iget-object v6, p0, Lcom/android/launcher3/allapps/controller/PostAppsPositioner;->mAppsModel:Lcom/android/launcher3/allapps/model/AppsModel;
+
+    invoke-virtual {p1}, Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;->getComponentName()Landroid/content/ComponentName;
+
+    move-result-object v7
+
+    const/4 v8, 0x1
+
+    invoke-virtual {v6, v7, p2, v8}, Lcom/android/launcher3/allapps/model/AppsModel;->getItemInfoInAppsForComponentName(Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;Z)Lcom/android/launcher3/common/base/item/ItemInfo;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    iget-wide v6, v0, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
+
+    const-wide/16 v8, -0x66
+
+    cmp-long v6, v6, v8
+
+    if-eqz v6, :cond_0
+
+    const-string v6, "PostAppsPositioner"
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v8, "Aleady exist in other folder : "
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {p1}, Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;->getComponentName()Landroid/content/ComponentName;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
+
+    move-result-object v8
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    const/4 v6, 0x1
+
+    :goto_0
+    monitor-exit p0
+
+    return v6
+
+    :cond_0
     const-wide/16 v2, -0x1
 
-    invoke-virtual {p3}, Lcom/android/launcher3/common/customer/ItemRecord;->isAppsPreloadFolder()Z
+    :try_start_1
+    invoke-virtual {p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->isAppsPreloadFolder()Z
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_2
 
     iget-object v6, p0, Lcom/android/launcher3/allapps/controller/PostAppsPositioner;->mPrefInfo:Lcom/android/launcher3/common/customer/PostPositionSharedPref;
 
-    invoke-virtual {p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getAppsFolderName()Ljava/lang/String;
+    invoke-virtual {p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getAppsFolderName()Ljava/lang/String;
 
     move-result-object v7
 
@@ -88,11 +151,11 @@
 
     cmp-long v6, v2, v6
 
-    if-gez v6, :cond_0
+    if-gez v6, :cond_1
 
     iget-object v6, p0, Lcom/android/launcher3/allapps/controller/PostAppsPositioner;->mPrefInfo:Lcom/android/launcher3/common/customer/PostPositionSharedPref;
 
-    invoke-virtual {p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getAppsFolderName()Ljava/lang/String;
+    invoke-virtual {p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getAppsFolderName()Ljava/lang/String;
 
     move-result-object v7
 
@@ -124,13 +187,13 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_0
-    :goto_0
+    :cond_1
+    :goto_1
     const-wide/32 v6, 0x1869f
 
     cmp-long v6, v2, v6
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_3
 
     const-string v6, "PostAppsPositioner"
 
@@ -138,7 +201,7 @@
 
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getAppsFolderName()Ljava/lang/String;
+    invoke-virtual {p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getAppsFolderName()Ljava/lang/String;
 
     move-result-object v8
 
@@ -157,21 +220,15 @@
     move-result-object v7
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     const/4 v6, 0x0
 
-    :goto_1
-    monitor-exit p0
+    goto :goto_0
 
-    return v6
-
-    :cond_1
-    :try_start_1
+    :cond_2
     iget-object v6, p0, Lcom/android/launcher3/allapps/controller/PostAppsPositioner;->mPrefInfo:Lcom/android/launcher3/common/customer/PostPositionSharedPref;
 
-    invoke-virtual {p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getAppsFolderName()Ljava/lang/String;
+    invoke-virtual {p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getAppsFolderName()Ljava/lang/String;
 
     move-result-object v7
 
@@ -205,7 +262,7 @@
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_0
+    goto :goto_1
 
     :catchall_0
     move-exception v6
@@ -214,12 +271,12 @@
 
     throw v6
 
-    :cond_2
+    :cond_3
     const-wide/16 v6, 0x0
 
     cmp-long v6, v2, v6
 
-    if-lez v6, :cond_3
+    if-lez v6, :cond_4
 
     :try_start_2
     const-string v6, "PostAppsPositioner"
@@ -256,7 +313,7 @@
 
     move-result v6
 
-    if-nez v6, :cond_7
+    if-nez v6, :cond_8
 
     const-string v6, "PostAppsPositioner"
 
@@ -290,18 +347,18 @@
 
     const/4 v6, 0x0
 
-    goto :goto_1
+    goto/16 :goto_0
 
-    :cond_3
-    invoke-virtual {p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getAppsFolderName()Ljava/lang/String;
+    :cond_4
+    invoke-virtual {p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getAppsFolderName()Ljava/lang/String;
 
     move-result-object v6
 
-    if-eqz v6, :cond_7
+    if-eqz v6, :cond_8
 
     iget-object v6, p0, Lcom/android/launcher3/allapps/controller/PostAppsPositioner;->mPrefInfo:Lcom/android/launcher3/common/customer/PostPositionSharedPref;
 
-    invoke-virtual {p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getAppsFolderName()Ljava/lang/String;
+    invoke-virtual {p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getAppsFolderName()Ljava/lang/String;
 
     move-result-object v7
 
@@ -353,9 +410,9 @@
 
     cmp-long v6, v2, v6
 
-    if-lez v6, :cond_6
+    if-lez v6, :cond_7
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_7
 
     iget-wide v6, v1, Lcom/android/launcher3/common/base/item/ItemInfo;->container:J
 
@@ -363,7 +420,7 @@
 
     cmp-long v6, v6, v8
 
-    if-nez v6, :cond_6
+    if-nez v6, :cond_7
 
     const-string v6, "PostAppsPositioner"
 
@@ -371,7 +428,7 @@
 
     invoke-static {v6, v7}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getComponentName()Ljava/lang/String;
+    invoke-virtual {p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getComponentName()Ljava/lang/String;
 
     move-result-object v6
 
@@ -385,7 +442,7 @@
 
     move-result v6
 
-    if-eqz v6, :cond_4
+    if-eqz v6, :cond_5
 
     const-string v6, "PostAppsPositioner"
 
@@ -395,12 +452,12 @@
 
     const/4 v6, 0x1
 
-    goto/16 :goto_1
+    goto/16 :goto_0
 
-    :cond_4
+    :cond_5
     iget-object v6, p0, Lcom/android/launcher3/allapps/controller/PostAppsPositioner;->mAppsModel:Lcom/android/launcher3/allapps/model/AppsModel;
 
-    invoke-virtual {p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getAppsFolderName()Ljava/lang/String;
+    invoke-virtual {p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getAppsFolderName()Ljava/lang/String;
 
     move-result-object v7
 
@@ -412,11 +469,11 @@
 
     cmp-long v6, v4, v6
 
-    if-eqz v6, :cond_5
+    if-eqz v6, :cond_6
 
     iget-object v6, p0, Lcom/android/launcher3/allapps/controller/PostAppsPositioner;->mPrefInfo:Lcom/android/launcher3/common/customer/PostPositionSharedPref;
 
-    invoke-virtual {p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getAppsFolderName()Ljava/lang/String;
+    invoke-virtual {p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getAppsFolderName()Ljava/lang/String;
 
     move-result-object v7
 
@@ -426,7 +483,7 @@
 
     iget-object v6, p0, Lcom/android/launcher3/allapps/controller/PostAppsPositioner;->mPrefInfo:Lcom/android/launcher3/common/customer/PostPositionSharedPref;
 
-    invoke-virtual {p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getAppsFolderName()Ljava/lang/String;
+    invoke-virtual {p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getAppsFolderName()Ljava/lang/String;
 
     move-result-object v7
 
@@ -436,9 +493,9 @@
 
     const/4 v6, 0x1
 
-    goto/16 :goto_1
+    goto/16 :goto_0
 
-    :cond_5
+    :cond_6
     const-string v6, "PostAppsPositioner"
 
     new-instance v7, Ljava/lang/StringBuilder;
@@ -471,26 +528,10 @@
 
     const/4 v6, 0x0
 
-    goto/16 :goto_1
+    goto/16 :goto_0
 
-    :cond_6
-    iget-object v6, p0, Lcom/android/launcher3/allapps/controller/PostAppsPositioner;->mAppsModel:Lcom/android/launcher3/allapps/model/AppsModel;
-
-    invoke-virtual {p1}, Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;->getComponentName()Landroid/content/ComponentName;
-
-    move-result-object v7
-
-    invoke-virtual {p1}, Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;->getUser()Lcom/android/launcher3/common/compat/UserHandleCompat;
-
-    move-result-object v8
-
-    const/4 v9, 0x0
-
-    invoke-virtual {v6, v7, v8, v9}, Lcom/android/launcher3/allapps/model/AppsModel;->getItemInfoInAppsForComponentName(Landroid/content/ComponentName;Lcom/android/launcher3/common/compat/UserHandleCompat;Z)Lcom/android/launcher3/common/base/item/ItemInfo;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_8
+    :cond_7
+    if-eqz v0, :cond_9
 
     const-string v6, "PostAppsPositioner"
 
@@ -518,7 +559,7 @@
 
     iget-object v6, p0, Lcom/android/launcher3/allapps/controller/PostAppsPositioner;->mPrefInfo:Lcom/android/launcher3/common/customer/PostPositionSharedPref;
 
-    invoke-virtual {p3}, Lcom/android/launcher3/common/customer/ItemRecord;->getAppsFolderName()Ljava/lang/String;
+    invoke-virtual {p3}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getAppsFolderName()Ljava/lang/String;
 
     move-result-object v7
 
@@ -528,18 +569,18 @@
 
     invoke-virtual {v6, v7, v8, v9, v10}, Lcom/android/launcher3/common/customer/PostPositionSharedPref;->writeFolderId(Ljava/lang/String;JZ)V
 
-    :cond_7
+    :cond_8
     :goto_2
     const/4 v6, 0x1
 
-    goto/16 :goto_1
-
-    :cond_8
-    const/4 v6, 0x0
-
-    goto/16 :goto_1
+    goto/16 :goto_0
 
     :cond_9
+    const/4 v6, 0x0
+
+    goto/16 :goto_0
+
+    :cond_a
     const-string v6, "PostAppsPositioner"
 
     const-string v7, "folder is not created and folderName from PrefInfo is null"
@@ -553,12 +594,12 @@
 
 
 # virtual methods
-.method public addItem(Lcom/android/launcher3/common/customer/ItemRecord;Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;)Z
+.method public addItem(Lcom/android/launcher3/common/customer/PostPositionItemRecord;Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;)Z
     .locals 4
 
     const/4 v0, 0x0
 
-    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/ItemRecord;->isAppsAdd()Z
+    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->isAppsAdd()Z
 
     move-result v1
 
@@ -580,7 +621,7 @@
 
     move-result-object v2
 
-    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/ItemRecord;->getComponentName()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getComponentName()Ljava/lang/String;
 
     move-result-object v3
 
@@ -594,7 +635,7 @@
 
     invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-direct {p0, p2, p3, p1}, Lcom/android/launcher3/allapps/controller/PostAppsPositioner;->addItem(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/ItemRecord;)Z
+    invoke-direct {p0, p2, p3, p1}, Lcom/android/launcher3/allapps/controller/PostAppsPositioner;->addItem(Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;Lcom/android/launcher3/common/compat/UserHandleCompat;Lcom/android/launcher3/common/customer/PostPositionItemRecord;)Z
 
     move-result v1
 
@@ -602,7 +643,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/allapps/controller/PostAppsPositioner;->mProvider:Lcom/android/launcher3/common/customer/PostPositionProvider;
 
-    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/ItemRecord;->getComponentName()Ljava/lang/String;
+    invoke-virtual {p1}, Lcom/android/launcher3/common/customer/PostPositionItemRecord;->getComponentName()Ljava/lang/String;
 
     move-result-object v2
 

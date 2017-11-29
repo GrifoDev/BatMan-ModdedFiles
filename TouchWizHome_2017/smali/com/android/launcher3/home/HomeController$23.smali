@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/HomeController;->removeItemsByComponentName(Ljava/util/HashSet;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
+    value = Lcom/android/launcher3/home/HomeController;->removeItemsByPackageName(Ljava/util/ArrayList;Lcom/android/launcher3/common/compat/UserHandleCompat;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -20,32 +20,24 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/launcher3/home/HomeController;
 
-.field final synthetic val$children:Ljava/util/HashMap;
+.field final synthetic val$cns:Ljava/util/HashSet;
 
-.field final synthetic val$childrenToRemove:Ljava/util/ArrayList;
-
-.field final synthetic val$componentNames:Ljava/util/HashSet;
-
-.field final synthetic val$folderAppsToRemove:Ljava/util/HashMap;
+.field final synthetic val$packageNames:Ljava/util/HashSet;
 
 .field final synthetic val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
 
 # direct methods
-.method constructor <init>(Lcom/android/launcher3/home/HomeController;Ljava/util/HashSet;Lcom/android/launcher3/common/compat/UserHandleCompat;Ljava/util/HashMap;Ljava/util/ArrayList;Ljava/util/HashMap;)V
+.method constructor <init>(Lcom/android/launcher3/home/HomeController;Ljava/util/HashSet;Lcom/android/launcher3/common/compat/UserHandleCompat;Ljava/util/HashSet;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/launcher3/home/HomeController$23;->this$0:Lcom/android/launcher3/home/HomeController;
 
-    iput-object p2, p0, Lcom/android/launcher3/home/HomeController$23;->val$componentNames:Ljava/util/HashSet;
+    iput-object p2, p0, Lcom/android/launcher3/home/HomeController$23;->val$packageNames:Ljava/util/HashSet;
 
     iput-object p3, p0, Lcom/android/launcher3/home/HomeController$23;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
-    iput-object p4, p0, Lcom/android/launcher3/home/HomeController$23;->val$folderAppsToRemove:Ljava/util/HashMap;
-
-    iput-object p5, p0, Lcom/android/launcher3/home/HomeController$23;->val$childrenToRemove:Ljava/util/ArrayList;
-
-    iput-object p6, p0, Lcom/android/launcher3/home/HomeController$23;->val$children:Ljava/util/HashMap;
+    iput-object p4, p0, Lcom/android/launcher3/home/HomeController$23;->val$cns:Ljava/util/HashSet;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -55,104 +47,41 @@
 
 # virtual methods
 .method public filterItem(Lcom/android/launcher3/common/base/item/ItemInfo;Lcom/android/launcher3/common/base/item/ItemInfo;Landroid/content/ComponentName;)Z
-    .locals 5
+    .locals 2
 
-    const/4 v2, 0x1
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeController$23;->val$packageNames:Ljava/util/HashSet;
 
-    instance-of v3, p1, Lcom/android/launcher3/folder/FolderInfo;
+    invoke-virtual {p3}, Landroid/content/ComponentName;->getPackageName()Ljava/lang/String;
 
-    if-eqz v3, :cond_1
+    move-result-object v1
 
-    iget-object v3, p0, Lcom/android/launcher3/home/HomeController$23;->val$componentNames:Ljava/util/HashSet;
+    invoke-virtual {v0, v1}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
 
-    invoke-virtual {v3, p3}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
+    move-result v0
 
-    move-result v3
+    if-eqz v0, :cond_0
 
-    if-eqz v3, :cond_2
+    iget-object v0, p2, Lcom/android/launcher3/common/base/item/ItemInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
-    iget-object v3, p2, Lcom/android/launcher3/common/base/item/ItemInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+    iget-object v1, p0, Lcom/android/launcher3/home/HomeController$23;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
 
-    iget-object v4, p0, Lcom/android/launcher3/home/HomeController$23;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
+    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/compat/UserHandleCompat;->equals(Ljava/lang/Object;)Z
 
-    invoke-virtual {v3, v4}, Lcom/android/launcher3/common/compat/UserHandleCompat;->equals(Ljava/lang/Object;)Z
+    move-result v0
 
-    move-result v3
+    if-eqz v0, :cond_0
 
-    if-eqz v3, :cond_2
+    iget-object v0, p0, Lcom/android/launcher3/home/HomeController$23;->val$cns:Ljava/util/HashSet;
 
-    move-object v1, p1
+    invoke-virtual {v0, p3}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
 
-    check-cast v1, Lcom/android/launcher3/folder/FolderInfo;
-
-    iget-object v3, p0, Lcom/android/launcher3/home/HomeController$23;->val$folderAppsToRemove:Ljava/util/HashMap;
-
-    invoke-virtual {v3, v1}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_0
-
-    iget-object v3, p0, Lcom/android/launcher3/home/HomeController$23;->val$folderAppsToRemove:Ljava/util/HashMap;
-
-    invoke-virtual {v3, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/util/ArrayList;
+    const/4 v0, 0x1
 
     :goto_0
-    check-cast p2, Lcom/android/launcher3/common/base/item/IconInfo;
-
-    invoke-virtual {v0, p2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    :goto_1
-    return v2
+    return v0
 
     :cond_0
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    iget-object v3, p0, Lcom/android/launcher3/home/HomeController$23;->val$folderAppsToRemove:Ljava/util/HashMap;
-
-    invoke-virtual {v3, v1, v0}, Ljava/util/HashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    const/4 v0, 0x0
 
     goto :goto_0
-
-    :cond_1
-    iget-object v3, p0, Lcom/android/launcher3/home/HomeController$23;->val$componentNames:Ljava/util/HashSet;
-
-    invoke-virtual {v3, p3}, Ljava/util/HashSet;->contains(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_2
-
-    iget-object v3, p2, Lcom/android/launcher3/common/base/item/ItemInfo;->user:Lcom/android/launcher3/common/compat/UserHandleCompat;
-
-    iget-object v4, p0, Lcom/android/launcher3/home/HomeController$23;->val$user:Lcom/android/launcher3/common/compat/UserHandleCompat;
-
-    invoke-virtual {v3, v4}, Lcom/android/launcher3/common/compat/UserHandleCompat;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_2
-
-    iget-object v3, p0, Lcom/android/launcher3/home/HomeController$23;->val$childrenToRemove:Ljava/util/ArrayList;
-
-    iget-object v4, p0, Lcom/android/launcher3/home/HomeController$23;->val$children:Ljava/util/HashMap;
-
-    invoke-virtual {v4, p2}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v4
-
-    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-
-    goto :goto_1
-
-    :cond_2
-    const/4 v2, 0x0
-
-    goto :goto_1
 .end method

@@ -67,558 +67,807 @@
 .end method
 
 .method public parseAndAdd(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)J
-    .locals 17
+    .locals 24
 
-    const-string v14, "packageName"
-
-    move-object/from16 v0, p1
-
-    invoke-static {v0, v14}, Lcom/android/launcher3/common/model/DefaultLayoutParser;->getAttributeValue(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v8
-
-    const-string v14, "className"
+    const-string v21, "packageName"
 
     move-object/from16 v0, p1
 
-    invoke-static {v0, v14}, Lcom/android/launcher3/common/model/DefaultLayoutParser;->getAttributeValue(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v1, v21
 
-    move-result-object v4
+    invoke-static {v0, v1}, Lcom/android/launcher3/common/model/DefaultLayoutParser;->getAttributeValue(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-static {v8}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    move-result-object v14
 
-    move-result v14
+    const-string v21, "className"
 
-    if-nez v14, :cond_a
+    move-object/from16 v0, p1
 
-    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    move-object/from16 v1, v21
 
-    move-result v14
+    invoke-static {v0, v1}, Lcom/android/launcher3/common/model/DefaultLayoutParser;->getAttributeValue(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Ljava/lang/String;
 
-    if-nez v14, :cond_a
+    move-result-object v7
+
+    invoke-static {v14}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v21
+
+    if-nez v21, :cond_e
+
+    invoke-static {v7}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v21
+
+    if-nez v21, :cond_e
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    invoke-virtual {v0, v1, v8, v4}, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->getComponent(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;Ljava/lang/String;)Landroid/content/ComponentName;
+    invoke-virtual {v0, v1, v14, v7}, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->getComponent(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;Ljava/lang/String;)Landroid/content/ComponentName;
 
-    move-result-object v5
+    move-result-object v8
 
-    if-nez v5, :cond_0
+    if-nez v8, :cond_0
 
-    const-wide/16 v14, -0x1
+    const-wide/16 v22, -0x1
 
     :goto_0
-    return-wide v14
+    return-wide v22
 
     :cond_0
-    const-string v11, ""
+    const-string v17, ""
+
+    const/4 v11, 0x0
 
     move-object/from16 v0, p0
 
-    iget-boolean v14, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->mIsRestore:Z
+    iget-boolean v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->mIsRestore:Z
 
-    if-nez v14, :cond_2
+    move/from16 v21, v0
 
-    invoke-static {v8, v4}, Lcom/android/launcher3/common/model/AutoInstallsLayout;->isAutoInstallApp(Ljava/lang/String;Ljava/lang/String;)Z
+    if-nez v21, :cond_2
 
-    move-result v14
+    invoke-static {v14, v7}, Lcom/android/launcher3/common/model/AutoInstallsLayout;->isAutoInstallApp(Ljava/lang/String;Ljava/lang/String;)Z
 
-    if-eqz v14, :cond_2
+    move-result v21
+
+    if-eqz v21, :cond_2
 
     move-object/from16 v0, p0
 
-    iget-object v14, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->this$0:Lcom/android/launcher3/common/model/DefaultLayoutParser;
+    iget-object v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->this$0:Lcom/android/launcher3/common/model/DefaultLayoutParser;
 
-    iget-object v14, v14, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mValues:Landroid/content/ContentValues;
+    move-object/from16 v21, v0
 
-    const-string v15, "restored"
+    move-object/from16 v0, v21
 
-    const/16 v16, 0x2
+    iget-object v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mValues:Landroid/content/ContentValues;
 
-    invoke-static/range {v16 .. v16}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-object/from16 v21, v0
 
-    move-result-object v16
+    const-string v22, "restored"
 
-    invoke-virtual/range {v14 .. v16}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    const/16 v23, 0x2
+
+    invoke-static/range {v23 .. v23}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v23
+
+    invoke-virtual/range {v21 .. v23}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    const/4 v11, 0x1
 
     :cond_1
     :goto_1
     move-object/from16 v0, p0
 
-    iget-object v14, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->this$0:Lcom/android/launcher3/common/model/DefaultLayoutParser;
+    iget-object v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->this$0:Lcom/android/launcher3/common/model/DefaultLayoutParser;
 
-    invoke-static {v14}, Lcom/android/launcher3/common/model/DefaultLayoutParser;->access$200(Lcom/android/launcher3/common/model/DefaultLayoutParser;)Z
+    move-object/from16 v21, v0
 
-    move-result v14
+    invoke-static/range {v21 .. v21}, Lcom/android/launcher3/common/model/DefaultLayoutParser;->access$200(Lcom/android/launcher3/common/model/DefaultLayoutParser;)Z
 
-    if-eqz v14, :cond_8
+    move-result v21
 
-    const-wide/16 v14, -0x1
+    if-eqz v21, :cond_8
+
+    const-wide/16 v22, -0x1
 
     goto :goto_0
 
     :cond_2
     move-object/from16 v0, p0
 
-    iget-boolean v14, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->mIsRestore:Z
+    iget-boolean v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->mIsRestore:Z
 
-    if-nez v14, :cond_3
+    move/from16 v21, v0
 
-    invoke-static {}, Lcom/android/launcher3/common/model/DefaultLayoutParser;->access$100()Ljava/util/HashMap;
-
-    move-result-object v14
-
-    if-eqz v14, :cond_3
+    if-nez v21, :cond_3
 
     invoke-static {}, Lcom/android/launcher3/common/model/DefaultLayoutParser;->access$100()Ljava/util/HashMap;
 
-    move-result-object v14
+    move-result-object v21
 
-    invoke-virtual {v14, v8}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
-
-    move-result v14
-
-    if-eqz v14, :cond_3
+    if-eqz v21, :cond_3
 
     invoke-static {}, Lcom/android/launcher3/common/model/DefaultLayoutParser;->access$100()Ljava/util/HashMap;
 
-    move-result-object v14
+    move-result-object v21
 
-    invoke-virtual {v14, v8}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+    move-object/from16 v0, v21
 
-    move-result-object v12
+    invoke-virtual {v0, v14}, Ljava/util/HashMap;->containsKey(Ljava/lang/Object;)Z
 
-    check-cast v12, Lcom/android/launcher3/common/model/DefaultLayoutParser$IconTitleValue;
+    move-result v21
+
+    if-eqz v21, :cond_3
+
+    invoke-static {}, Lcom/android/launcher3/common/model/DefaultLayoutParser;->access$100()Ljava/util/HashMap;
+
+    move-result-object v21
+
+    move-object/from16 v0, v21
+
+    invoke-virtual {v0, v14}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v19
+
+    check-cast v19, Lcom/android/launcher3/common/model/DefaultLayoutParser$IconTitleValue;
 
     move-object/from16 v0, p0
 
-    iget-object v14, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->this$0:Lcom/android/launcher3/common/model/DefaultLayoutParser;
+    iget-object v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->this$0:Lcom/android/launcher3/common/model/DefaultLayoutParser;
 
-    iget-object v14, v14, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mValues:Landroid/content/ContentValues;
+    move-object/from16 v21, v0
 
-    const-string v15, "restored"
+    move-object/from16 v0, v21
 
-    const/16 v16, 0x20
+    iget-object v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mValues:Landroid/content/ContentValues;
 
-    invoke-static/range {v16 .. v16}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-object/from16 v21, v0
 
-    move-result-object v16
+    const-string v22, "restored"
 
-    invoke-virtual/range {v14 .. v16}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    const/16 v23, 0x20
+
+    invoke-static/range {v23 .. v23}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v23
+
+    invoke-virtual/range {v21 .. v23}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
     move-object/from16 v0, p0
 
-    iget-object v14, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->this$0:Lcom/android/launcher3/common/model/DefaultLayoutParser;
+    iget-object v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->this$0:Lcom/android/launcher3/common/model/DefaultLayoutParser;
 
-    iget-object v14, v14, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mValues:Landroid/content/ContentValues;
+    move-object/from16 v21, v0
 
-    const-string v15, "icon"
+    move-object/from16 v0, v21
 
-    iget-object v0, v12, Lcom/android/launcher3/common/model/DefaultLayoutParser$IconTitleValue;->icon:[B
+    iget-object v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mValues:Landroid/content/ContentValues;
 
-    move-object/from16 v16, v0
+    move-object/from16 v21, v0
 
-    invoke-virtual/range {v14 .. v16}, Landroid/content/ContentValues;->put(Ljava/lang/String;[B)V
+    const-string v22, "icon"
 
-    iget-object v11, v12, Lcom/android/launcher3/common/model/DefaultLayoutParser$IconTitleValue;->title:Ljava/lang/String;
+    move-object/from16 v0, v19
 
-    const-string v14, "DefaultLayoutParser"
+    iget-object v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$IconTitleValue;->icon:[B
 
-    new-instance v15, Ljava/lang/StringBuilder;
+    move-object/from16 v23, v0
 
-    invoke-direct {v15}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual/range {v21 .. v23}, Landroid/content/ContentValues;->put(Ljava/lang/String;[B)V
 
-    const-string v16, "update omc title and icon "
+    move-object/from16 v0, v19
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$IconTitleValue;->title:Ljava/lang/String;
 
-    move-result-object v15
+    move-object/from16 v17, v0
 
-    iget-object v0, v12, Lcom/android/launcher3/common/model/DefaultLayoutParser$IconTitleValue;->iconPackage:Ljava/lang/String;
+    const/4 v11, 0x1
 
-    move-object/from16 v16, v0
+    const-string v21, "DefaultLayoutParser"
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    new-instance v22, Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v16, " title = "
+    const-string v23, "update omc title and icon "
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v15
+    move-result-object v22
 
-    iget-object v0, v12, Lcom/android/launcher3/common/model/DefaultLayoutParser$IconTitleValue;->title:Ljava/lang/String;
+    move-object/from16 v0, v19
 
-    move-object/from16 v16, v0
+    iget-object v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$IconTitleValue;->iconPackage:Ljava/lang/String;
 
-    invoke-virtual/range {v15 .. v16}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v23, v0
 
-    move-result-object v15
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual {v15}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v22
 
-    move-result-object v15
+    const-string v23, " title = "
 
-    invoke-static {v14, v15}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    goto :goto_1
+    move-result-object v22
+
+    move-object/from16 v0, v19
+
+    iget-object v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$IconTitleValue;->title:Ljava/lang/String;
+
+    move-object/from16 v23, v0
+
+    invoke-virtual/range {v22 .. v23}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v22
+
+    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v22
+
+    invoke-static/range {v21 .. v22}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    goto/16 :goto_1
 
     :cond_3
     move-object/from16 v0, p0
 
-    iget-boolean v14, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->mIsPostPosition:Z
+    iget-boolean v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->mIsPostPosition:Z
 
-    if-nez v14, :cond_4
+    move/from16 v21, v0
 
-    const-string v14, "true"
+    if-nez v21, :cond_4
 
-    const-string v15, "postPosition"
+    const-string v21, "true"
+
+    const-string v22, "postPosition"
 
     move-object/from16 v0, p1
 
-    invoke-static {v0, v15}, Lcom/android/launcher3/common/model/DefaultLayoutParser;->getAttributeValue(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v1, v22
 
-    move-result-object v15
+    invoke-static {v0, v1}, Lcom/android/launcher3/common/model/DefaultLayoutParser;->getAttributeValue(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v14, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result-object v22
 
-    move-result v14
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    if-eqz v14, :cond_6
+    move-result v21
+
+    if-eqz v21, :cond_6
 
     :cond_4
-    const/4 v13, 0x1
+    const/16 v20, 0x1
 
     :goto_2
-    if-eqz v13, :cond_1
+    if-eqz v20, :cond_1
 
     move-object/from16 v0, p0
 
-    iget-object v14, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->this$0:Lcom/android/launcher3/common/model/DefaultLayoutParser;
+    iget-object v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->this$0:Lcom/android/launcher3/common/model/DefaultLayoutParser;
 
-    invoke-virtual {v14, v5}, Lcom/android/launcher3/common/model/DefaultLayoutParser;->isPostPositionInsertCondition(Landroid/content/ComponentName;)Z
+    move-object/from16 v21, v0
 
-    move-result v14
+    move-object/from16 v0, v21
 
-    if-eqz v14, :cond_1
+    invoke-virtual {v0, v8}, Lcom/android/launcher3/common/model/DefaultLayoutParser;->isPostPositionInsertCondition(Landroid/content/ComponentName;)Z
 
-    const-string v14, "x"
+    move-result v21
+
+    if-eqz v21, :cond_1
+
+    const-string v21, "x"
 
     move-object/from16 v0, p1
 
-    invoke-static {v0, v14}, Lcom/android/launcher3/common/model/DefaultLayoutParser;->getAttributeValue(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v1, v21
 
-    move-result-object v2
+    invoke-static {v0, v1}, Lcom/android/launcher3/common/model/DefaultLayoutParser;->getAttributeValue(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Ljava/lang/String;
 
-    const-string v14, "y"
+    move-result-object v5
 
-    move-object/from16 v0, p1
-
-    invoke-static {v0, v14}, Lcom/android/launcher3/common/model/DefaultLayoutParser;->getAttributeValue(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v3
-
-    const-string v14, "screen"
+    const-string v21, "y"
 
     move-object/from16 v0, p1
 
-    invoke-static {v0, v14}, Lcom/android/launcher3/common/model/DefaultLayoutParser;->getAttributeValue(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v1, v21
 
-    move-result-object v10
+    invoke-static {v0, v1}, Lcom/android/launcher3/common/model/DefaultLayoutParser;->getAttributeValue(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Ljava/lang/String;
 
-    new-instance v6, Landroid/content/ContentValues;
+    move-result-object v6
 
-    invoke-direct {v6}, Landroid/content/ContentValues;-><init>()V
+    const-string v21, "screen"
 
-    const-string v14, "componentName"
+    move-object/from16 v0, p1
 
-    invoke-virtual {v5}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
+    move-object/from16 v1, v21
 
-    move-result-object v15
+    invoke-static {v0, v1}, Lcom/android/launcher3/common/model/DefaultLayoutParser;->getAttributeValue(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-virtual {v6, v14, v15}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+    move-result-object v16
 
-    const-string v14, "itemType"
+    new-instance v9, Landroid/content/ContentValues;
 
-    const/4 v15, 0x0
+    invoke-direct {v9}, Landroid/content/ContentValues;-><init>()V
 
-    invoke-static {v15}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    const-string v21, "componentName"
 
-    move-result-object v15
+    invoke-virtual {v8}, Landroid/content/ComponentName;->flattenToShortString()Ljava/lang/String;
 
-    invoke-virtual {v6, v14, v15}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    move-result-object v22
 
-    const-string v14, "isHomeAdd"
+    move-object/from16 v0, v21
 
-    const/4 v15, 0x1
+    move-object/from16 v1, v22
 
-    invoke-static {v15}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+    invoke-virtual {v9, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
-    move-result-object v15
+    const-string v21, "itemType"
 
-    invoke-virtual {v6, v14, v15}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Boolean;)V
+    const/16 v22, 0x0
 
-    move-object/from16 v0, p0
+    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    iget-object v14, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->mFolderTitle:Ljava/lang/String;
+    move-result-object v22
 
-    if-eqz v14, :cond_7
+    move-object/from16 v0, v21
 
-    const-string v14, ""
+    move-object/from16 v1, v22
 
-    move-object/from16 v0, p0
+    invoke-virtual {v9, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    iget-object v15, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->mFolderTitle:Ljava/lang/String;
+    const-string v21, "isHomeAdd"
 
-    invoke-virtual {v14, v15}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    const/16 v22, 0x1
 
-    move-result v14
+    invoke-static/range {v22 .. v22}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    if-nez v14, :cond_7
+    move-result-object v22
 
-    const-string v14, "isHomePreloadedFolder"
+    move-object/from16 v0, v21
 
-    const/4 v15, 0x1
+    move-object/from16 v1, v22
 
-    invoke-static {v15}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
-
-    move-result-object v15
-
-    invoke-virtual {v6, v14, v15}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Boolean;)V
-
-    const-string v14, "homeFolderName"
+    invoke-virtual {v9, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Boolean;)V
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->mFolderTitle:Ljava/lang/String;
+    iget-object v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->mFolderTitle:Ljava/lang/String;
 
-    invoke-virtual {v6, v14, v15}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
+    move-object/from16 v21, v0
 
-    move-object/from16 v0, p0
+    if-eqz v21, :cond_7
 
-    iget v14, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->mFolderScreen:I
-
-    const/4 v15, -0x1
-
-    if-le v14, v15, :cond_5
+    const-string v21, ""
 
     move-object/from16 v0, p0
 
-    iget v14, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->mFolderCellX:I
+    iget-object v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->mFolderTitle:Ljava/lang/String;
 
-    const/4 v15, -0x1
+    move-object/from16 v22, v0
 
-    if-le v14, v15, :cond_5
+    invoke-virtual/range {v21 .. v22}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-object/from16 v0, p0
+    move-result v21
 
-    iget v14, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->mFolderCellY:I
+    if-nez v21, :cond_7
 
-    const/4 v15, -0x1
+    const-string v21, "isHomePreloadedFolder"
 
-    if-le v14, v15, :cond_5
+    const/16 v22, 0x1
 
-    const-string v14, "homeIndex"
+    invoke-static/range {v22 .. v22}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
 
-    move-object/from16 v0, p0
+    move-result-object v22
 
-    iget v15, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->mFolderScreen:I
+    move-object/from16 v0, v21
 
-    invoke-static {v15}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-object/from16 v1, v22
 
-    move-result-object v15
+    invoke-virtual {v9, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Boolean;)V
 
-    invoke-virtual {v6, v14, v15}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
-
-    const-string v14, "homeCellX"
+    const-string v21, "homeFolderName"
 
     move-object/from16 v0, p0
 
-    iget v15, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->mFolderCellX:I
+    iget-object v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->mFolderTitle:Ljava/lang/String;
 
-    invoke-static {v15}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-object/from16 v22, v0
 
-    move-result-object v15
+    move-object/from16 v0, v21
 
-    invoke-virtual {v6, v14, v15}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    move-object/from16 v1, v22
 
-    const-string v14, "homeCellY"
+    invoke-virtual {v9, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/String;)V
 
     move-object/from16 v0, p0
 
-    iget v15, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->mFolderCellY:I
+    iget v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->mFolderScreen:I
 
-    invoke-static {v15}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move/from16 v21, v0
 
-    move-result-object v15
+    const/16 v22, -0x1
 
-    invoke-virtual {v6, v14, v15}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    move/from16 v0, v21
+
+    move/from16 v1, v22
+
+    if-le v0, v1, :cond_5
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->mFolderCellX:I
+
+    move/from16 v21, v0
+
+    const/16 v22, -0x1
+
+    move/from16 v0, v21
+
+    move/from16 v1, v22
+
+    if-le v0, v1, :cond_5
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->mFolderCellY:I
+
+    move/from16 v21, v0
+
+    const/16 v22, -0x1
+
+    move/from16 v0, v21
+
+    move/from16 v1, v22
+
+    if-le v0, v1, :cond_5
+
+    const-string v21, "homeIndex"
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->mFolderScreen:I
+
+    move/from16 v22, v0
+
+    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v22
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v22
+
+    invoke-virtual {v9, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    const-string v21, "homeCellX"
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->mFolderCellX:I
+
+    move/from16 v22, v0
+
+    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v22
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v22
+
+    invoke-virtual {v9, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    const-string v21, "homeCellY"
+
+    move-object/from16 v0, p0
+
+    iget v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->mFolderCellY:I
+
+    move/from16 v22, v0
+
+    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v22
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v22
+
+    invoke-virtual {v9, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
     :cond_5
     :goto_3
     move-object/from16 v0, p0
 
-    iget-object v14, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->this$0:Lcom/android/launcher3/common/model/DefaultLayoutParser;
+    iget-object v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->this$0:Lcom/android/launcher3/common/model/DefaultLayoutParser;
 
-    iget-object v14, v14, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mContext:Landroid/content/Context;
+    move-object/from16 v21, v0
 
-    invoke-static {v14}, Lcom/android/launcher3/common/customer/PostPositionController;->getInstance(Landroid/content/Context;)Lcom/android/launcher3/common/customer/PostPositionController;
+    move-object/from16 v0, v21
 
-    move-result-object v9
+    iget-object v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v9}, Lcom/android/launcher3/common/customer/PostPositionController;->getProvider()Lcom/android/launcher3/common/customer/PostPositionProvider;
+    move-object/from16 v21, v0
 
-    move-result-object v14
+    invoke-static/range {v21 .. v21}, Lcom/android/launcher3/common/customer/PostPositionController;->getInstance(Landroid/content/Context;)Lcom/android/launcher3/common/customer/PostPositionController;
 
-    invoke-virtual {v14, v6}, Lcom/android/launcher3/common/customer/PostPositionProvider;->dbInsertOrUpdate(Landroid/content/ContentValues;)J
+    move-result-object v15
 
-    const-wide/16 v14, -0x1
+    invoke-virtual {v15}, Lcom/android/launcher3/common/customer/PostPositionController;->getProvider()Lcom/android/launcher3/common/customer/PostPositionProvider;
+
+    move-result-object v21
+
+    move-object/from16 v0, v21
+
+    invoke-virtual {v0, v9}, Lcom/android/launcher3/common/customer/PostPositionProvider;->dbInsertOrUpdate(Landroid/content/ContentValues;)J
+
+    const-wide/16 v22, -0x1
 
     goto/16 :goto_0
 
     :cond_6
-    const/4 v13, 0x0
+    const/16 v20, 0x0
 
     goto/16 :goto_2
 
     :cond_7
-    if-eqz v10, :cond_5
+    if-eqz v16, :cond_5
 
-    if-eqz v2, :cond_5
+    if-eqz v5, :cond_5
 
-    if-eqz v3, :cond_5
+    if-eqz v6, :cond_5
 
-    const-string v14, "homeIndex"
+    const-string v21, "homeIndex"
 
-    invoke-static {v10}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-static/range {v16 .. v16}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result v15
+    move-result v22
 
-    invoke-static {v15}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v15
+    move-result-object v22
 
-    invoke-virtual {v6, v14, v15}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    move-object/from16 v0, v21
 
-    const-string v14, "homeCellX"
+    move-object/from16 v1, v22
 
-    invoke-static {v2}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    invoke-virtual {v9, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    move-result v15
+    const-string v21, "homeCellX"
 
-    invoke-static {v15}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static {v5}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    move-result-object v15
+    move-result v22
 
-    invoke-virtual {v6, v14, v15}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    const-string v14, "homeCellY"
+    move-result-object v22
 
-    invoke-static {v3}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+    move-object/from16 v0, v21
 
-    move-result v15
+    move-object/from16 v1, v22
 
-    invoke-static {v15}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-virtual {v9, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
-    move-result-object v15
+    const-string v21, "homeCellY"
 
-    invoke-virtual {v6, v14, v15}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    invoke-static {v6}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v22
+
+    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v22
+
+    move-object/from16 v0, v21
+
+    move-object/from16 v1, v22
+
+    invoke-virtual {v9, v0, v1}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
     goto :goto_3
 
     :cond_8
-    const-string v14, "hidden"
+    const-string v21, "hidden"
 
     move-object/from16 v0, p1
 
-    invoke-static {v0, v14}, Lcom/android/launcher3/common/model/DefaultLayoutParser;->getAttributeValue(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Ljava/lang/String;
+    move-object/from16 v1, v21
 
-    move-result-object v14
+    invoke-static {v0, v1}, Lcom/android/launcher3/common/model/DefaultLayoutParser;->getAttributeValue(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)Ljava/lang/String;
 
-    invoke-static {v14}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
+    move-result-object v21
 
-    move-result v14
+    invoke-static/range {v21 .. v21}, Ljava/lang/Boolean;->parseBoolean(Ljava/lang/String;)Z
 
-    if-eqz v14, :cond_9
+    move-result v21
 
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->this$0:Lcom/android/launcher3/common/model/DefaultLayoutParser;
-
-    iget-object v14, v14, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mValues:Landroid/content/ContentValues;
-
-    const-string v15, "hidden"
-
-    const/16 v16, 0x1
-
-    invoke-static/range {v16 .. v16}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v16
-
-    invoke-virtual/range {v14 .. v16}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    if-eqz v21, :cond_9
 
     move-object/from16 v0, p0
 
-    iget-object v14, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->this$0:Lcom/android/launcher3/common/model/DefaultLayoutParser;
+    iget-object v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->this$0:Lcom/android/launcher3/common/model/DefaultLayoutParser;
 
-    iget-object v14, v14, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mValues:Landroid/content/ContentValues;
+    move-object/from16 v21, v0
 
-    const-string v15, "screen"
+    move-object/from16 v0, v21
 
-    const/16 v16, -0x1
+    iget-object v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mValues:Landroid/content/ContentValues;
 
-    invoke-static/range {v16 .. v16}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    move-object/from16 v21, v0
 
-    move-result-object v16
+    const-string v22, "hidden"
 
-    invoke-virtual/range {v14 .. v16}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+    const/16 v23, 0x1
+
+    invoke-static/range {v23 .. v23}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v23
+
+    invoke-virtual/range {v21 .. v23}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->this$0:Lcom/android/launcher3/common/model/DefaultLayoutParser;
+
+    move-object/from16 v21, v0
+
+    move-object/from16 v0, v21
+
+    iget-object v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mValues:Landroid/content/ContentValues;
+
+    move-object/from16 v21, v0
+
+    const-string v22, "screen"
+
+    const/16 v23, -0x1
+
+    invoke-static/range {v23 .. v23}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v23
+
+    invoke-virtual/range {v21 .. v23}, Landroid/content/ContentValues;->put(Ljava/lang/String;Ljava/lang/Integer;)V
 
     :cond_9
-    new-instance v14, Landroid/content/Intent;
+    move-object/from16 v0, p0
 
-    const-string v15, "android.intent.action.MAIN"
+    iget-boolean v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->mIsRestore:Z
 
-    const/16 v16, 0x0
+    move/from16 v21, v0
 
-    invoke-direct/range {v14 .. v16}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+    if-nez v21, :cond_a
 
-    const-string v15, "android.intent.category.LAUNCHER"
+    if-eqz v11, :cond_c
 
-    invoke-virtual {v14, v15}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
+    :cond_a
+    const/16 v18, 0x0
 
-    move-result-object v14
+    :cond_b
+    :goto_4
+    new-instance v21, Landroid/content/Intent;
 
-    invoke-virtual {v14, v5}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+    const-string v22, "android.intent.action.MAIN"
 
-    move-result-object v14
+    const/16 v23, 0x0
 
-    const/high16 v15, 0x10200000
+    invoke-direct/range {v21 .. v23}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
-    invoke-virtual {v14, v15}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+    const-string v22, "android.intent.category.LAUNCHER"
 
-    move-result-object v7
+    invoke-virtual/range {v21 .. v22}, Landroid/content/Intent;->addCategory(Ljava/lang/String;)Landroid/content/Intent;
+
+    move-result-object v21
+
+    move-object/from16 v0, v21
+
+    invoke-virtual {v0, v8}, Landroid/content/Intent;->setComponent(Landroid/content/ComponentName;)Landroid/content/Intent;
+
+    move-result-object v21
+
+    const/high16 v22, 0x10200000
+
+    invoke-virtual/range {v21 .. v22}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+
+    move-result-object v10
 
     move-object/from16 v0, p0
 
-    iget-object v14, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->this$0:Lcom/android/launcher3/common/model/DefaultLayoutParser;
+    iget-object v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->this$0:Lcom/android/launcher3/common/model/DefaultLayoutParser;
 
-    const/4 v15, 0x0
+    move-object/from16 v21, v0
 
-    move-object/from16 v0, p2
+    move-object/from16 v0, v21
 
-    invoke-virtual {v14, v0, v11, v7, v15}, Lcom/android/launcher3/common/model/DefaultLayoutParser;->addShortcut(Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;I)J
+    move-object/from16 v1, p2
 
-    move-result-wide v14
+    move-object/from16 v2, v17
+
+    move/from16 v3, v18
+
+    invoke-virtual {v0, v1, v2, v10, v3}, Lcom/android/launcher3/common/model/DefaultLayoutParser;->addShortcut(Ljava/lang/String;Ljava/lang/String;Landroid/content/Intent;I)J
+
+    move-result-wide v22
 
     goto/16 :goto_0
 
-    :cond_a
+    :cond_c
+    const/16 v18, 0x1
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->this$0:Lcom/android/launcher3/common/model/DefaultLayoutParser;
+
+    move-object/from16 v21, v0
+
+    move-object/from16 v0, v21
+
+    iget-object v0, v0, Lcom/android/launcher3/common/model/DefaultLayoutParser;->mContext:Landroid/content/Context;
+
+    move-object/from16 v21, v0
+
+    invoke-static/range {v21 .. v21}, Lcom/android/launcher3/common/compat/LauncherAppsCompat;->getInstance(Landroid/content/Context;)Lcom/android/launcher3/common/compat/LauncherAppsCompat;
+
+    move-result-object v12
+
+    invoke-static {}, Lcom/android/launcher3/common/compat/UserHandleCompat;->myUserHandle()Lcom/android/launcher3/common/compat/UserHandleCompat;
+
+    move-result-object v21
+
+    move-object/from16 v0, v21
+
+    invoke-virtual {v12, v14, v0}, Lcom/android/launcher3/common/compat/LauncherAppsCompat;->getActivityList(Ljava/lang/String;Lcom/android/launcher3/common/compat/UserHandleCompat;)Ljava/util/List;
+
+    move-result-object v13
+
+    invoke-interface {v13}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v21
+
+    :cond_d
+    invoke-interface/range {v21 .. v21}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v22
+
+    if-eqz v22, :cond_b
+
+    invoke-interface/range {v21 .. v21}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v4
+
+    check-cast v4, Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;
+
+    invoke-virtual {v4}, Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;->getComponentName()Landroid/content/ComponentName;
+
+    move-result-object v22
+
+    if-eqz v22, :cond_d
+
+    invoke-virtual {v4}, Lcom/android/launcher3/common/compat/LauncherActivityInfoCompat;->getComponentName()Landroid/content/ComponentName;
+
+    move-result-object v22
+
+    move-object/from16 v0, v22
+
+    invoke-virtual {v0, v8}, Landroid/content/ComponentName;->equals(Ljava/lang/Object;)Z
+
+    move-result v22
+
+    if-eqz v22, :cond_d
+
+    const/16 v18, 0x0
+
+    goto :goto_4
+
+    :cond_e
     invoke-virtual/range {p0 .. p2}, Lcom/android/launcher3/common/model/DefaultLayoutParser$AppShortcutParser;->invalidPackageOrClass(Lorg/xmlpull/v1/XmlPullParser;Ljava/lang/String;)J
 
-    move-result-wide v14
+    move-result-wide v22
 
     goto/16 :goto_0
 .end method

@@ -268,7 +268,37 @@
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/executor/StateAppInfo;->setComponentName(Ljava/lang/String;)V
 
-    const-string v1, "PARAM_CHECK_OK"
+    iget-object v1, p0, Lcom/android/launcher3/executor/HomeSettingsBadgeSingleAppDisableStateHandler;->mAppInfo:Lcom/android/launcher3/executor/StateAppInfo;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/executor/StateAppInfo;->getComponentName()Landroid/content/ComponentName;
+
+    move-result-object v1
+
+    if-nez v1, :cond_1
+
+    const-string v1, "HomeSettingsBadgeManagementView"
+
+    iput-object v1, p0, Lcom/android/launcher3/executor/HomeSettingsBadgeSingleAppDisableStateHandler;->mNlgTargetState:Ljava/lang/String;
+
+    new-instance v1, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+
+    iget-object v2, p0, Lcom/android/launcher3/executor/HomeSettingsBadgeSingleAppDisableStateHandler;->mNlgTargetState:Ljava/lang/String;
+
+    invoke-direct {v1, v2}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;-><init>(Ljava/lang/String;)V
+
+    const-string v2, "SingleApp"
+
+    const-string v3, "Exist"
+
+    const-string v4, "no"
+
+    invoke-virtual {v1, v2, v3, v4}, Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;->addScreenParam(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+
+    move-result-object v1
+
+    iput-object v1, p0, Lcom/android/launcher3/executor/HomeSettingsBadgeSingleAppDisableStateHandler;->mNlgRequestInfo:Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
+
+    const-string v1, "PARAM_CHECK_ERROR"
 
     :goto_0
     return-object v1
@@ -293,6 +323,11 @@
     iput-object v1, p0, Lcom/android/launcher3/executor/HomeSettingsBadgeSingleAppDisableStateHandler;->mNlgRequestInfo:Lcom/samsung/android/sdk/bixby/data/NlgRequestInfo;
 
     const-string v1, "PARAM_CHECK_ERROR"
+
+    goto :goto_0
+
+    :cond_1
+    const-string v1, "PARAM_CHECK_OK"
 
     goto :goto_0
 .end method

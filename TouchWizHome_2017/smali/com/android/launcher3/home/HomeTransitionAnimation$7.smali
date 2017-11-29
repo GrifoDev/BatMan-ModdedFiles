@@ -5,7 +5,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/launcher3/home/HomeTransitionAnimation;->animateSwipeHometray(Landroid/animation/AnimatorSet;ZJZ)V
+    value = Lcom/android/launcher3/home/HomeTransitionAnimation;->animateSwipeHometray(Landroid/animation/AnimatorSet;ZZJZ)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -54,10 +54,6 @@
 
     const/high16 v2, 0x3f800000    # 1.0f
 
-    iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->this$0:Lcom/android/launcher3/home/HomeTransitionAnimation;
-
-    invoke-static {v0, v4}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$402(Lcom/android/launcher3/home/HomeTransitionAnimation;Z)Z
-
     iget-boolean v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->val$enter:Z
 
     if-eqz v0, :cond_0
@@ -99,7 +95,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->this$0:Lcom/android/launcher3/home/HomeTransitionAnimation;
 
-    invoke-static {v0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$500(Lcom/android/launcher3/home/HomeTransitionAnimation;)Lcom/android/launcher3/common/tray/TrayManager;
+    invoke-static {v0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$400(Lcom/android/launcher3/home/HomeTransitionAnimation;)Lcom/android/launcher3/common/tray/TrayManager;
 
     move-result-object v0
 
@@ -107,7 +103,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->this$0:Lcom/android/launcher3/home/HomeTransitionAnimation;
 
-    invoke-static {v0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$500(Lcom/android/launcher3/home/HomeTransitionAnimation;)Lcom/android/launcher3/common/tray/TrayManager;
+    invoke-static {v0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$400(Lcom/android/launcher3/home/HomeTransitionAnimation;)Lcom/android/launcher3/common/tray/TrayManager;
 
     move-result-object v0
 
@@ -115,7 +111,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->this$0:Lcom/android/launcher3/home/HomeTransitionAnimation;
 
-    invoke-static {v0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$500(Lcom/android/launcher3/home/HomeTransitionAnimation;)Lcom/android/launcher3/common/tray/TrayManager;
+    invoke-static {v0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$400(Lcom/android/launcher3/home/HomeTransitionAnimation;)Lcom/android/launcher3/common/tray/TrayManager;
 
     move-result-object v0
 
@@ -130,17 +126,11 @@
 .end method
 
 .method public onAnimationStart(Landroid/animation/Animator;)V
-    .locals 5
-
-    const/4 v4, 0x1
+    .locals 6
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->this$0:Lcom/android/launcher3/home/HomeTransitionAnimation;
 
-    invoke-static {v0, v4}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$402(Lcom/android/launcher3/home/HomeTransitionAnimation;Z)Z
-
-    iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->this$0:Lcom/android/launcher3/home/HomeTransitionAnimation;
-
-    invoke-static {v0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$500(Lcom/android/launcher3/home/HomeTransitionAnimation;)Lcom/android/launcher3/common/tray/TrayManager;
+    invoke-static {v0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$400(Lcom/android/launcher3/home/HomeTransitionAnimation;)Lcom/android/launcher3/common/tray/TrayManager;
 
     move-result-object v0
 
@@ -148,7 +138,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->this$0:Lcom/android/launcher3/home/HomeTransitionAnimation;
 
-    invoke-static {v0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$500(Lcom/android/launcher3/home/HomeTransitionAnimation;)Lcom/android/launcher3/common/tray/TrayManager;
+    invoke-static {v0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$400(Lcom/android/launcher3/home/HomeTransitionAnimation;)Lcom/android/launcher3/common/tray/TrayManager;
 
     move-result-object v0
 
@@ -158,19 +148,21 @@
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->this$0:Lcom/android/launcher3/home/HomeTransitionAnimation;
 
-    invoke-static {v0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$500(Lcom/android/launcher3/home/HomeTransitionAnimation;)Lcom/android/launcher3/common/tray/TrayManager;
+    invoke-static {v0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$400(Lcom/android/launcher3/home/HomeTransitionAnimation;)Lcom/android/launcher3/common/tray/TrayManager;
 
     move-result-object v0
 
-    iget v1, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->val$toTranslationY:F
+    const/4 v1, 0x1
 
-    iget-wide v2, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->val$animDuration:J
+    iget v2, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->val$toTranslationY:F
 
-    invoke-virtual {v0, v4, v1, v2, v3}, Lcom/android/launcher3/common/tray/TrayManager;->setSwipeAnimationStatus(ZFJ)V
+    iget-wide v4, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->val$animDuration:J
+
+    invoke-virtual {v0, v1, v2, v4, v5}, Lcom/android/launcher3/common/tray/TrayManager;->setSwipeAnimationStatus(ZFJ)V
 
     iget-object v0, p0, Lcom/android/launcher3/home/HomeTransitionAnimation$7;->this$0:Lcom/android/launcher3/home/HomeTransitionAnimation;
 
-    invoke-static {v0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$600(Lcom/android/launcher3/home/HomeTransitionAnimation;)Lcom/android/launcher3/home/HomeController;
+    invoke-static {v0}, Lcom/android/launcher3/home/HomeTransitionAnimation;->access$500(Lcom/android/launcher3/home/HomeTransitionAnimation;)Lcom/android/launcher3/home/HomeController;
 
     move-result-object v0
 

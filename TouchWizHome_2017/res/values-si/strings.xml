@@ -17,8 +17,10 @@
     <string name="accessibility_button">බොත්තම</string>
     <string name="accessibility_dimmed">අඳුරු විය</string>
     <string name="activity_not_available">මෙම යෙදුම ඔබේ උපාංගය සඳහා ලබා ගත නොහැක.</string>
-    <string name="activity_not_found">යෙදුම ස්ථාපිත නොවිය.</string>
+    <string name="activity_not_found">යෙදුම හමු නොවිණි</string>
+    <string name="add">එක් කරන්න</string>
     <string name="add_to_last_page">ඔබ අයිතම %1$d තේරූ නමුත්, මෙම පිටුවේ ප්‍රමාණවත් තරම් ඉඩ නැත. ඉතිරි අයිතම %2$d අවසාන පිටුවට එක් කරනු ඇත.</string>
+    <string name="add_to_last_page_for_hotseat">ඔබ අයිතම %1$d තේරූ නමුත්, ප්‍රියතම තැටියේ ප්‍රමාණවත් තරම් ඉඩ නැත. ඉතිරි අයිතම %2$d අවසාන පිටුවට එක් කරනු ඇත.</string>
     <string name="align_to_bottom">පහළට පෙළ ගස්වන්න</string>
     <string name="align_to_top">ඉහළට පෙළ ගස්වන්න</string>
     <string name="app_locked_toast">%s අගුලු ලා ඇත.</string>
@@ -40,7 +42,7 @@
     <string name="apps_button_title">යෙදුම් බොත්තම</string>
     <string name="apps_screen">යෙදුම් තිරය</string>
     <string name="autoalign_popup_message">ඔබ ඒවා පෙළගැස්වූ පසු, ඔබට ඔබේ පෙර පෙළගැස්මට ආපසු යා නොහැකියි.</string>
-    <string name="autoalign_popup_title">පිටුවේ අයිතම පෙළ ගස්වන්න ද?</string>
+    <string name="autoalign_popup_title">පිටුවේ අයිතම පෙළ ගස්වන්නද?</string>
     <string name="available_galaxyapps">Galaxy Apps තුළ ඇත</string>
     <string name="badge_manage_explain">එක් එක් යෙදුම සඳහා ලාංඡන පෙන්වා ද සඟවනවා ද යන්න තෝරන්න.</string>
     <string name="badge_manage_summary">එක් එක් යෙදුම සඳහා ලාංඡන පෙන්වා ද සඟවනවා ද යන්න තෝරන්න.</string>
@@ -78,7 +80,7 @@
     <string name="home_screen_layout">මුල් තිරයේ පිරිසැලසුම</string>
     <string name="home_screen_mode_apps">මුල් සහ යෙදුම් තිර</string>
     <string name="home_screen_mode_change_alert_text">ඔබ මුල් තිරයට කර ඇති ඕනෑම අභිමතකරණයක් ඉවත දැමෙනු ඇත.</string>
-    <string name="home_screen_mode_change_dialog_title">තෝරාගත් මුල් තිර පිරිසැලසුම යොදන්න ද?</string>
+    <string name="home_screen_mode_change_dialog_title">තෝරාගත් මුල් තිර පිරිසැලසුම යොදන්නද?</string>
     <string name="home_screen_mode_change_with_copy_layout">ඔබ යෙදුම් තිරය සඳහා දැනට භාවිතා කරන අයිකන පිරිසැලසුම මුල් තිරයට යොදනු ඇත.</string>
     <string name="home_screen_mode_home_apps_body_text">වෙනම යෙදුම් තිරයක් ලබා ගත හැකි වනු ඇත. එය පෙන්වීමට මුල් තිරය මත උඩට හෝ පහළට ස්වයිප් කරන්න. ඔබට යුහු ප්‍රවේශය සඳහා මුල් තිරය මත ඔබේ වඩාත් වැදගත් යෙදුම් ද දැමිය හැක.</string>
     <string name="home_screen_mode_home_only_body_text">ඔබේ යෙදුම් සියල්ල මුල් තිරය මත පෙන්වනු ලැබේ.</string>
@@ -122,6 +124,7 @@
     <string name="new_page_created">පිටුව එක් කෙරිණි.</string>
     <string name="no_changes">වෙනස්කම් නැත.</string>
     <string name="no_space_page">පිටුවේ ඉඩක් නැත. වෙනස් පිටුවකට කෙටිමඟ එක් කිරීමට උත්සාහ කරන්න.</string>
+    <string name="no_space_page_for_hotseat">ප්‍රියතම තැටියෙහි ඉඩක් නැත.</string>
     <string name="no_space_page_for_widget">මෙම පිටුවේ ඉඩ නොමැත.</string>
     <string name="not_selected">තෝරා නොගැනිණි</string>
     <string name="notification_panel_setting_summary">මුල් තිරයෙන් දැනුම්දීම් පැනලය විවෘත කිරීමට පහළට ස්වයිප් කරන්න.</string>
@@ -136,7 +139,7 @@
     <string name="options_menu_sort">සුබෙදන්න</string>
     <string name="options_menu_tide_up_pages">පිටු පිරිසිදු කරන්න</string>
     <string name="organize_apps_confirm_alert">තිරය මත අයිතම ඒවා අතර යම් හිස් අවකාශයන් පිරවීම සඳහා යළි පෙළගැස්වෙනු ඇත.</string>
-    <string name="organize_apps_confirm_alert_title">පිටු පිරිසිදු කරන්න ද?</string>
+    <string name="organize_apps_confirm_alert_title">පිටු පිරිසිදු කරන්නද?</string>
     <string name="out_of_space">මෙම පිටුවෙහි තවත් ඉඩ නැත</string>
     <string name="out_of_space_dialog">මෙම පිටුවේ වැඩි ඉඩක් නැත. අයිතමය නව පිටුවකට එක් කරනු ඇත.</string>
     <string name="permdesc_install_widget">මෙම යෙදුමට මුල් තිරය වෙත විජෙට්ටු එක් කළ හැක.</string>
@@ -156,6 +159,8 @@
     <string name="quick_option_delete_folder">ෆෝල්ඩරය මකන්න</string>
     <string name="quick_option_delete_folder_alert">%s ෆෝල්ඩරය මැකෙනු ඇත. මෙම ෆෝල්ඩරය තුළ ඇති යෙදුම් තවමත් යෙදුම් තිරය මත ලබා ගත හැකි වනු ඇත.</string>
     <string name="quick_option_delete_folder_alert_no_title">මෙම ෆෝල්ඩරය මැකෙනු ඇත. මෙම ෆෝල්ඩරය තුළ ඇති යෙදුම් තවමත් යෙදුම් තිරය මත ලබා ගත හැකි වනු ඇත.</string>
+    <string name="quick_option_delete_folder_home_only_alert">%s ෆෝල්ඩරය මැකෙනු ඇත. මෙම ෆෝල්ඩරය තුළ ඇති යෙදුම් තවමත් මුල් තිරය මත ලබා ගත හැකි වනු ඇත.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">මෙම ෆෝල්ඩරය මැකෙනු ඇත. මෙම ෆෝල්ඩරය තුළ ඇති යෙදුම් තවමත් මුල් තිරය මත ලබා ගත හැකි වනු ඇත.</string>
     <string name="quick_option_dimmed_disable">අක්‍රිය කරන්න</string>
     <string name="quick_option_disable">අක්‍රිය කරන්න</string>
     <string name="quick_option_install_dual_im">දෙවැනි යෙදුම ස්ථාපනය</string>
@@ -169,7 +174,7 @@
     <string name="quick_option_sleep_alert">මෙම යෙදුම නින්දට දැමීමෙන් පසුබිමේ බැටරිය භාවිතා කිරීමෙන් එය වළක්වනු ඇත. නිද්‍රා යෙදුම් යාවත්කාල නොලබනු ඇති හෝ ඔබට දැනුම්දීම් නොඑවනු ඇති නමුත්, ඔබ ඒවා විවෘත කළ විට ඒවා අවදි වනු ඇත.</string>
     <string name="quick_option_uninstall">අස්ථාපනය</string>
     <string name="quick_option_unlock">අගුලු අරින්න</string>
-    <string name="remove_popup_msg">පිටුව මකන්න ද?</string>
+    <string name="remove_popup_msg">පිටුව මකන්නද?</string>
     <string name="remove_popup_positive">මකන්න</string>
     <string name="safemode_shortcut_error">සුරක්ෂිත ප්‍රකාරය සක්‍රිය අතරතුර බාගත් යෙදුම් අක්‍රියයි.</string>
     <string name="safemode_widget_error">සුරක්ෂිත ප්‍රකාරය සක්‍රිය අතරේ විජෙට්ටු අක්‍රියයි.</string>

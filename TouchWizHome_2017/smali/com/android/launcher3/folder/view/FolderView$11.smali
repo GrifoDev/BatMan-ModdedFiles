@@ -40,7 +40,7 @@
     :try_start_0
     iget-object v0, p0, Lcom/android/launcher3/folder/view/FolderView$11;->this$0:Lcom/android/launcher3/folder/view/FolderView;
 
-    invoke-static {v0}, Lcom/android/launcher3/folder/view/FolderView;->access$900(Lcom/android/launcher3/folder/view/FolderView;)Lcom/android/launcher3/folder/view/FolderIconView;
+    invoke-static {v0}, Lcom/android/launcher3/folder/view/FolderView;->access$1000(Lcom/android/launcher3/folder/view/FolderView;)Lcom/android/launcher3/folder/view/FolderIconView;
 
     move-result-object v0
 

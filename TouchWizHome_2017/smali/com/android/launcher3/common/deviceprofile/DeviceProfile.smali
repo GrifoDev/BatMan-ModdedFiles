@@ -149,7 +149,7 @@
 
     iput p3, p0, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->availableHeightPx:I
 
-    const v8, 0x7f0a00ca
+    const v8, 0x7f0a00cb
 
     invoke-virtual {v6, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -200,7 +200,7 @@
 
     iput v8, p0, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->gedHomeCellHeight:I
 
-    const v8, 0x7f0d0049
+    const v8, 0x7f0b004a
 
     invoke-virtual {v6, v8}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -208,7 +208,7 @@
 
     iput v8, p0, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->gedHomeCellCountX:I
 
-    const v8, 0x7f0d004a
+    const v8, 0x7f0b004b
 
     invoke-virtual {v6, v8}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -222,7 +222,7 @@
 
     if-eqz v8, :cond_9
 
-    const v8, 0x7f0a00c2
+    const v8, 0x7f0a00c4
 
     invoke-virtual {v6, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -230,7 +230,7 @@
 
     iput v8, p0, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->defaultCellWidth:I
 
-    const v8, 0x7f0a00c1
+    const v8, 0x7f0a00c3
 
     invoke-virtual {v6, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -243,7 +243,7 @@
     const/4 v3, 0x6
 
     :goto_2
-    const v8, 0x7f0a014f
+    const v8, 0x7f0a0154
 
     invoke-virtual {v6, v8}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -251,7 +251,7 @@
 
     iput v8, p0, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->workspacePagePadding:I
 
-    const v8, 0x7f0b0002
+    const v8, 0x7f0d0002
 
     invoke-virtual {v6, v8}, Landroid/content/res/Resources;->getBoolean(I)Z
 
@@ -259,7 +259,7 @@
 
     iput-boolean v8, p0, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->hotseatRightLayoutWithOrientation:Z
 
-    const v8, 0x7f0a00f9
+    const v8, 0x7f0a00fc
 
     invoke-virtual {v6, v8}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -291,7 +291,7 @@
 
     invoke-direct {p0, p1, v8, v9}, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->loadHotseatGridInfo(Landroid/content/Context;Ljava/util/ArrayList;I)V
 
-    const v8, 0x7f0d004b
+    const v8, 0x7f0b004c
 
     invoke-virtual {v6, v8}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -336,7 +336,7 @@
 
     move-result-object v9
 
-    const/high16 v10, 0x7f0d0000
+    const v10, 0x7f0b0001
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -350,7 +350,7 @@
 
     move-result-object v9
 
-    const v10, 0x7f0d0001
+    const v10, 0x7f0b0002
 
     invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -527,13 +527,13 @@
 
     iput v8, p0, Lcom/android/launcher3/common/deviceprofile/DeviceProfile;->defaultCellHeight:I
 
-    const v8, 0x7f0d0008
+    const v8, 0x7f0b0009
 
     invoke-virtual {v6, v8}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v2
 
-    const v8, 0x7f0d0009
+    const v8, 0x7f0b000a
 
     invoke-virtual {v6, v8}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1145,7 +1145,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0a014d
+    const v8, 0x7f0a0152
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 

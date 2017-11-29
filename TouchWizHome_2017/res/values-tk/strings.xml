@@ -16,8 +16,10 @@
     <string name="accessibility_button">Düwme</string>
     <string name="accessibility_dimmed">Öçügsi</string>
     <string name="activity_not_available">Bu goýma siziň enjamyňyz üçin elýeterli däl.</string>
-    <string name="activity_not_found">Gollanma gurulmady.</string>
+    <string name="activity_not_found">Goýma tapylmady</string>
+    <string name="add">Goş</string>
     <string name="add_to_last_page">%1$d zat saýladyňyz, ýöne bu sahypada ýeterlik ýer ýok. Galan %2$d zat soňky sahypa goşular.</string>
+    <string name="add_to_last_page_for_hotseat">%1$d zat saýladyňyz, ýöne halanýanlar lotogynda ýeterlik ýer ýok. Galan %2$d zat soňky sahypa goşular.</string>
     <string name="align_to_bottom">Aşak deňle</string>
     <string name="align_to_top">Ýokaryk deňle</string>
     <string name="app_locked_toast">%s gulplandy.</string>
@@ -121,13 +123,14 @@
     <string name="new_page_created">Sahypa goşuldy.</string>
     <string name="no_changes">Üýtgetme ýok.</string>
     <string name="no_space_page">Sahypada ýer ýok. Çykgydy başga sahypa goşup görüň.</string>
+    <string name="no_space_page_for_hotseat">Halanýanlar lotogynda ýer ýok.</string>
     <string name="no_space_page_for_widget">Bu sahypada ýer ýok.</string>
     <string name="not_selected">Saýlanmadyk</string>
     <string name="notification_panel_setting_summary">Öý ekrandan habarnama panelini açmak üçin, aşak syryň.</string>
     <string name="notification_panel_setting_title">Habarnama panelini çalt-aç</string>
     <string name="ok">OK</string>
     <string name="only_one_widget_instance_allowed">%s wijeti eýýäm öý ekrana goşuldy.</string>
-    <string name="option_menu_contact_up">Biziň bilen habarlaşyň</string>
+    <string name="option_menu_contact_up">Bize ýüz tut</string>
     <string name="option_menu_galaxy_essentials">Galaxy Essentials</string>
     <string name="option_menu_home_settings">Sazlamalar</string>
     <string name="options_menu">Başga-da opsiýalar</string>
@@ -155,6 +158,8 @@
     <string name="quick_option_delete_folder">Bukjany ýok etmek</string>
     <string name="quick_option_delete_folder_alert">%s bukjasy öçüriler. Bu bukjadaky goýmalar Goýmalar ekranynda elýeterli bolar.</string>
     <string name="quick_option_delete_folder_alert_no_title">Bu bukja öçüriler. Bu bukjadaky goýmalar Goýmalar ekranynda elýeterli bolar.</string>
+    <string name="quick_option_delete_folder_home_only_alert">%s bukjasy öçüriler. Bu bukjadaky goýmalar Öý ekranda elýeterli bolar.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Bu bukja öçüriler. Bu bukjadaky goýmalar Öý ekranda elýeterli bolar.</string>
     <string name="quick_option_dimmed_disable">Ýap</string>
     <string name="quick_option_disable">Ýap</string>
     <string name="quick_option_install_dual_im">Ikinji goýmany gurna</string>

@@ -2,6 +2,7 @@
 <resources>
     <bool name="is_supportFlexibleGrid">true</bool>
     <bool name="hotseat_transpose_layout_with_orientation">true</bool>
+    <bool name="is_supportMultiWindow">false</bool>
     <bool name="config_isLightTheme">true</bool>
     <bool name="config_largeHeap">true</bool>
     <bool name="enable_backup">false</bool>

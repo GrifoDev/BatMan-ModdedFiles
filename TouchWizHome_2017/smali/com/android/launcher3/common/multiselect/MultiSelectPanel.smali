@@ -704,7 +704,7 @@
 
     if-eqz p2, :cond_4
 
-    const v4, 0x7f0d0053
+    const v4, 0x7f0b0054
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -712,7 +712,7 @@
 
     int-to-float v4, v4
 
-    const v5, 0x7f0d0051
+    const v5, 0x7f0b0052
 
     invoke-virtual {v1, v5}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -1053,7 +1053,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v2, 0x7f090073
+    const v2, 0x7f090075
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -1069,7 +1069,7 @@
 
     iget-object v1, p0, Lcom/android/launcher3/common/multiselect/MultiSelectPanel;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v2, 0x7f090067
+    const v2, 0x7f090069
 
     invoke-virtual {v1, v2}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -1704,13 +1704,13 @@
 
     move-result-object v3
 
-    const v6, 0x7f0a00b4
+    const v6, 0x7f0a00b5
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
     move-result v4
 
-    const v6, 0x7f0a00b5
+    const v6, 0x7f0a00b6
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1967,7 +1967,7 @@
 
     move-result-object v4
 
-    const v9, 0x7f0a00b4
+    const v9, 0x7f0a00b5
 
     invoke-virtual {v4, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -2130,7 +2130,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0162
+    const v3, 0x7f0a0167
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 

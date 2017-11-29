@@ -59,19 +59,26 @@
     const/4 v2, 0x0
 
     :goto_0
-    if-ge v2, v3, :cond_3
+    if-lt v2, v3, :cond_0
 
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    return-object v5
+
+    :cond_0
     invoke-virtual {p0, v2}, Ljava/lang/String;->charAt(I)C
 
     move-result v1
 
     const/16 v5, 0x5c
 
-    if-ne v1, v5, :cond_2
+    if-ne v1, v5, :cond_3
 
     add-int/lit8 v5, v3, -0x1
 
-    if-ge v2, v5, :cond_2
+    if-ge v2, v5, :cond_3
 
     add-int/lit8 v2, v2, 0x1
 
@@ -81,13 +88,13 @@
 
     const/16 v5, 0x6e
 
-    if-eq v4, v5, :cond_0
+    if-eq v4, v5, :cond_1
 
     const/16 v5, 0x4e
 
-    if-ne v4, v5, :cond_1
+    if-ne v4, v5, :cond_2
 
-    :cond_0
+    :cond_1
     const-string v5, "\n"
 
     invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -97,22 +104,15 @@
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     goto :goto_1
 
-    :cond_2
+    :cond_3
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     goto :goto_1
-
-    :cond_3
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    return-object v5
 .end method
 
 

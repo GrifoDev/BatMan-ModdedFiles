@@ -108,50 +108,13 @@
 .end method
 
 .method public static changeTextColorForBg(Landroid/content/Context;Landroid/widget/TextView;Z)V
-    .locals 4
+    .locals 1
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    const/4 v3, 0x0
+    invoke-static {p0, p1, p2, v0}, Lcom/android/launcher3/util/WhiteBgManager;->changeTextViewColorForBg(Landroid/content/Context;Landroid/widget/TextView;ZZ)V
 
-    if-eqz p1, :cond_0
-
-    if-nez p0, :cond_1
-
-    :cond_0
-    :goto_0
     return-void
-
-    :cond_1
-    invoke-static {p0, p2, v2}, Lcom/android/launcher3/util/WhiteBgManager$AttribText;->setup(Landroid/content/Context;ZZ)V
-
-    sget v0, Lcom/android/launcher3/util/WhiteBgManager$AttribText;->sColor:I
-
-    invoke-virtual {p1, v0}, Landroid/widget/TextView;->setTextColor(I)V
-
-    if-nez p2, :cond_2
-
-    sget v0, Lcom/android/launcher3/util/WhiteBgManager$AttribText;->sShadowColor:I
-
-    const v1, 0x1ffffff
-
-    if-eq v0, v1, :cond_3
-
-    :cond_2
-    sget v0, Lcom/android/launcher3/util/WhiteBgManager$AttribText;->sRadius:F
-
-    sget v1, Lcom/android/launcher3/util/WhiteBgManager$AttribText;->sDy:F
-
-    sget v2, Lcom/android/launcher3/util/WhiteBgManager$AttribText;->sShadowColor:I
-
-    invoke-virtual {p1, v0, v3, v1, v2}, Landroid/widget/TextView;->setShadowLayer(FFFI)V
-
-    goto :goto_0
-
-    :cond_3
-    invoke-virtual {p1, v3, v3, v3, v2}, Landroid/widget/TextView;->setShadowLayer(FFFI)V
-
-    goto :goto_0
 .end method
 
 .method public static changeTextColorForBg(Landroid/content/Context;Lcom/android/launcher3/common/view/IconView;ZZ)V
@@ -199,6 +162,53 @@
     const/4 v0, 0x0
 
     invoke-virtual {p1, v3, v3, v3, v0}, Lcom/android/launcher3/common/view/IconView;->setShadowLayer(FFFI)V
+
+    goto :goto_0
+.end method
+
+.method public static changeTextViewColorForBg(Landroid/content/Context;Landroid/widget/TextView;ZZ)V
+    .locals 4
+
+    const/4 v3, 0x0
+
+    if-eqz p1, :cond_0
+
+    if-nez p0, :cond_1
+
+    :cond_0
+    :goto_0
+    return-void
+
+    :cond_1
+    invoke-static {p0, p2, p3}, Lcom/android/launcher3/util/WhiteBgManager$AttribText;->setup(Landroid/content/Context;ZZ)V
+
+    sget v0, Lcom/android/launcher3/util/WhiteBgManager$AttribText;->sColor:I
+
+    invoke-virtual {p1, v0}, Landroid/widget/TextView;->setTextColor(I)V
+
+    if-nez p2, :cond_2
+
+    sget v0, Lcom/android/launcher3/util/WhiteBgManager$AttribText;->sShadowColor:I
+
+    const v1, 0x1ffffff
+
+    if-eq v0, v1, :cond_3
+
+    :cond_2
+    sget v0, Lcom/android/launcher3/util/WhiteBgManager$AttribText;->sRadius:F
+
+    sget v1, Lcom/android/launcher3/util/WhiteBgManager$AttribText;->sDy:F
+
+    sget v2, Lcom/android/launcher3/util/WhiteBgManager$AttribText;->sShadowColor:I
+
+    invoke-virtual {p1, v0, v3, v1, v2}, Landroid/widget/TextView;->setShadowLayer(FFFI)V
+
+    goto :goto_0
+
+    :cond_3
+    const/4 v0, 0x0
+
+    invoke-virtual {p1, v3, v3, v3, v0}, Landroid/widget/TextView;->setShadowLayer(FFFI)V
 
     goto :goto_0
 .end method

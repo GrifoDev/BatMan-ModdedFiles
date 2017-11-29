@@ -19,7 +19,7 @@
 
 
 # direct methods
-.method public constructor <init>(Lcom/android/launcher3/home/HomeController;)V
+.method constructor <init>(Lcom/android/launcher3/home/HomeController;)V
     .locals 1
 
     iput-object p1, p0, Lcom/android/launcher3/home/HomeController$DialerChangeObserver;->this$0:Lcom/android/launcher3/home/HomeController;

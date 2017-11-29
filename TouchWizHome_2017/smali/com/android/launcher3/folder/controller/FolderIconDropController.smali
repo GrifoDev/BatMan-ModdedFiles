@@ -610,7 +610,7 @@
 
     const/4 v1, 0x1
 
-    if-ne p1, v1, :cond_3
+    if-ne p1, v1, :cond_2
 
     iput-boolean v1, p0, Lcom/android/launcher3/folder/controller/FolderIconDropController;->mCreateUserFolderOnDrop:Z
 
@@ -620,37 +620,34 @@
 
     instance-of v0, v0, Lcom/android/launcher3/home/HotseatDragController;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/android/launcher3/folder/controller/FolderIconDropController;->mLayout:Lcom/android/launcher3/common/base/view/CellLayout;
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_1
 
-    iget-object v0, p0, Lcom/android/launcher3/folder/controller/FolderIconDropController;->mFolderRingAnimator:Lcom/android/launcher3/folder/view/FolderIconView$FolderRingAnimator;
+    iget-object v0, p0, Lcom/android/launcher3/folder/controller/FolderIconDropController;->mLayout:Lcom/android/launcher3/common/base/view/CellLayout;
 
-    if-eqz v0, :cond_2
+    invoke-virtual {v0}, Lcom/android/launcher3/common/base/view/CellLayout;->getFolderRings()Ljava/util/ArrayList;
 
-    iget-boolean v0, p0, Lcom/android/launcher3/folder/controller/FolderIconDropController;->mCreateUserFolderOnDrop:Z
+    move-result-object v0
 
-    if-nez v0, :cond_1
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
-    iget-boolean v0, p0, Lcom/android/launcher3/folder/controller/FolderIconDropController;->mAddToExistingFolderOnDrop:Z
+    move-result v0
 
-    if-eqz v0, :cond_2
+    if-lez v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/launcher3/folder/controller/FolderIconDropController;->mLayout:Lcom/android/launcher3/common/base/view/CellLayout;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/common/base/view/CellLayout;->hideFolderAcceptForcedly()V
 
     :cond_1
-    iget-object v0, p0, Lcom/android/launcher3/folder/controller/FolderIconDropController;->mLayout:Lcom/android/launcher3/common/base/view/CellLayout;
-
-    iget-object v1, p0, Lcom/android/launcher3/folder/controller/FolderIconDropController;->mFolderRingAnimator:Lcom/android/launcher3/folder/view/FolderIconView$FolderRingAnimator;
-
-    invoke-virtual {v0, v1}, Lcom/android/launcher3/common/base/view/CellLayout;->hideFolderAccept(Lcom/android/launcher3/folder/view/FolderIconView$FolderRingAnimator;)V
-
-    :cond_2
     invoke-virtual {p0}, Lcom/android/launcher3/folder/controller/FolderIconDropController;->cleanup()V
 
     return-void
 
-    :cond_3
+    :cond_2
     const/4 v0, 0x2
 
     if-ne p1, v0, :cond_0
@@ -814,7 +811,7 @@
 
     iget-object v4, v0, Lcom/android/launcher3/folder/controller/FolderIconDropController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v5, 0x7f0900ce
+    const v5, 0x7f0900d3
 
     const/4 v7, 0x2
 
@@ -852,7 +849,7 @@
 
     iget-object v4, v0, Lcom/android/launcher3/folder/controller/FolderIconDropController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v5, 0x7f0900d7
+    const v5, 0x7f0900dc
 
     invoke-virtual {v4, v5}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -881,7 +878,7 @@
 
     iget-object v2, v0, Lcom/android/launcher3/folder/controller/FolderIconDropController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v4, 0x7f090043
+    const v4, 0x7f090045
 
     const/4 v5, 0x1
 
@@ -1020,7 +1017,7 @@
 
     iget-object v2, v0, Lcom/android/launcher3/folder/controller/FolderIconDropController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v4, 0x7f0900d6
+    const v4, 0x7f0900db
 
     invoke-virtual {v2, v4}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 
@@ -2210,7 +2207,7 @@
 
     move-object/from16 v28, v0
 
-    const v29, 0x7f0900ca
+    const v29, 0x7f0900cf
 
     invoke-virtual/range {v28 .. v29}, Lcom/android/launcher3/Launcher;->getString(I)Ljava/lang/String;
 

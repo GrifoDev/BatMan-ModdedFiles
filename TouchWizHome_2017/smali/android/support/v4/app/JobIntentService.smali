@@ -54,6 +54,8 @@
 
 .field mCurProcessor:Landroid/support/v4/app/JobIntentService$CommandProcessor;
 
+.field mDestroyed:Z
+
 .field mInterruptIfStopped:Z
 
 .field mJobImpl:Landroid/support/v4/app/JobIntentService$CompatJobEngine;
@@ -90,6 +92,8 @@
     iput-boolean v0, p0, Landroid/support/v4/app/JobIntentService;->mInterruptIfStopped:Z
 
     iput-boolean v0, p0, Landroid/support/v4/app/JobIntentService;->mStopped:Z
+
+    iput-boolean v0, p0, Landroid/support/v4/app/JobIntentService;->mDestroyed:Z
 
     sget v0, Landroid/os/Build$VERSION;->SDK_INT:I
 
@@ -334,12 +338,12 @@
     return v0
 .end method
 
-.method ensureProcessorRunningLocked()V
+.method ensureProcessorRunningLocked(Z)V
     .locals 3
 
     iget-object v0, p0, Landroid/support/v4/app/JobIntentService;->mCurProcessor:Landroid/support/v4/app/JobIntentService$CommandProcessor;
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
     new-instance v0, Landroid/support/v4/app/JobIntentService$CommandProcessor;
 
@@ -347,6 +351,17 @@
 
     iput-object v0, p0, Landroid/support/v4/app/JobIntentService;->mCurProcessor:Landroid/support/v4/app/JobIntentService$CommandProcessor;
 
+    iget-object v0, p0, Landroid/support/v4/app/JobIntentService;->mCompatWorkEnqueuer:Landroid/support/v4/app/JobIntentService$WorkEnqueuer;
+
+    if-eqz v0, :cond_0
+
+    if-eqz p1, :cond_0
+
+    iget-object v0, p0, Landroid/support/v4/app/JobIntentService;->mCompatWorkEnqueuer:Landroid/support/v4/app/JobIntentService$WorkEnqueuer;
+
+    invoke-virtual {v0}, Landroid/support/v4/app/JobIntentService$WorkEnqueuer;->serviceProcessingStarted()V
+
+    :cond_0
     iget-object v0, p0, Landroid/support/v4/app/JobIntentService;->mCurProcessor:Landroid/support/v4/app/JobIntentService$CommandProcessor;
 
     sget-object v1, Landroid/os/AsyncTask;->THREAD_POOL_EXECUTOR:Ljava/util/concurrent/Executor;
@@ -357,7 +372,7 @@
 
     invoke-virtual {v0, v1, v2}, Landroid/support/v4/app/JobIntentService$CommandProcessor;->executeOnExecutor(Ljava/util/concurrent/Executor;[Ljava/lang/Object;)Landroid/os/AsyncTask;
 
-    :cond_0
+    :cond_1
     return-void
 .end method
 
@@ -438,28 +453,44 @@
 
     iput-object v1, p0, Landroid/support/v4/app/JobIntentService;->mCompatWorkEnqueuer:Landroid/support/v4/app/JobIntentService$WorkEnqueuer;
 
-    iget-object v1, p0, Landroid/support/v4/app/JobIntentService;->mCompatWorkEnqueuer:Landroid/support/v4/app/JobIntentService$WorkEnqueuer;
-
-    invoke-virtual {v1}, Landroid/support/v4/app/JobIntentService$WorkEnqueuer;->serviceCreated()V
-
     goto :goto_0
 .end method
 
 .method public onDestroy()V
-    .locals 1
+    .locals 2
 
     invoke-super {p0}, Landroid/app/Service;->onDestroy()V
 
-    iget-object v0, p0, Landroid/support/v4/app/JobIntentService;->mCompatWorkEnqueuer:Landroid/support/v4/app/JobIntentService$WorkEnqueuer;
+    iget-object v0, p0, Landroid/support/v4/app/JobIntentService;->mCompatQueue:Ljava/util/ArrayList;
 
     if-eqz v0, :cond_0
 
+    iget-object v1, p0, Landroid/support/v4/app/JobIntentService;->mCompatQueue:Ljava/util/ArrayList;
+
+    monitor-enter v1
+
+    const/4 v0, 0x1
+
+    :try_start_0
+    iput-boolean v0, p0, Landroid/support/v4/app/JobIntentService;->mDestroyed:Z
+
     iget-object v0, p0, Landroid/support/v4/app/JobIntentService;->mCompatWorkEnqueuer:Landroid/support/v4/app/JobIntentService$WorkEnqueuer;
 
-    invoke-virtual {v0}, Landroid/support/v4/app/JobIntentService$WorkEnqueuer;->serviceDestroyed()V
+    invoke-virtual {v0}, Landroid/support/v4/app/JobIntentService$WorkEnqueuer;->serviceProcessingFinished()V
+
+    monitor-exit v1
 
     :cond_0
     return-void
+
+    :catchall_0
+    move-exception v0
+
+    monitor-exit v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    throw v0
 .end method
 
 .method protected abstract onHandleWork(Landroid/content/Intent;)V
@@ -500,7 +531,9 @@
 
     invoke-virtual {v0, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {p0}, Landroid/support/v4/app/JobIntentService;->ensureProcessorRunningLocked()V
+    const/4 v0, 0x1
+
+    invoke-virtual {p0, v0}, Landroid/support/v4/app/JobIntentService;->ensureProcessorRunningLocked(Z)V
 
     monitor-exit v1
 
@@ -557,7 +590,7 @@
 
     iget-object v0, p0, Landroid/support/v4/app/JobIntentService;->mCompatQueue:Ljava/util/ArrayList;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_2
 
     iget-object v0, p0, Landroid/support/v4/app/JobIntentService;->mCompatQueue:Ljava/util/ArrayList;
 
@@ -565,15 +598,29 @@
 
     move-result v0
 
-    if-lez v0, :cond_0
+    if-lez v0, :cond_2
 
-    invoke-virtual {p0}, Landroid/support/v4/app/JobIntentService;->ensureProcessorRunningLocked()V
+    const/4 v0, 0x0
+
+    invoke-virtual {p0, v0}, Landroid/support/v4/app/JobIntentService;->ensureProcessorRunningLocked(Z)V
 
     :cond_0
+    :goto_0
     monitor-exit v1
 
     :cond_1
     return-void
+
+    :cond_2
+    iget-boolean v0, p0, Landroid/support/v4/app/JobIntentService;->mDestroyed:Z
+
+    if-nez v0, :cond_0
+
+    iget-object v0, p0, Landroid/support/v4/app/JobIntentService;->mCompatWorkEnqueuer:Landroid/support/v4/app/JobIntentService$WorkEnqueuer;
+
+    invoke-virtual {v0}, Landroid/support/v4/app/JobIntentService$WorkEnqueuer;->serviceProcessingFinished()V
+
+    goto :goto_0
 
     :catchall_0
     move-exception v0

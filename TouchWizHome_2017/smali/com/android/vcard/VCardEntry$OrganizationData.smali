@@ -128,7 +128,7 @@
     return-void
 .end method
 
-.method static synthetic access$100(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
+.method static synthetic access$0(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/android/vcard/VCardEntry$OrganizationData;->mOrganizationName:Ljava/lang/String;
@@ -136,15 +136,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$102(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/vcard/VCardEntry$OrganizationData;->mOrganizationName:Ljava/lang/String;
-
-    return-object p1
-.end method
-
-.method static synthetic access$200(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
+.method static synthetic access$1(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/android/vcard/VCardEntry$OrganizationData;->mDepartmentName:Ljava/lang/String;
@@ -152,15 +144,47 @@
     return-object v0
 .end method
 
-.method static synthetic access$202(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)Ljava/lang/String;
+.method static synthetic access$10(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/vcard/VCardEntry$OrganizationData;->mDepartmentName:Ljava/lang/String;
+    iput-object p1, p0, Lcom/android/vcard/VCardEntry$OrganizationData;->mJobDescription:Ljava/lang/String;
 
-    return-object p1
+    return-void
 .end method
 
-.method static synthetic access$300(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
+.method static synthetic access$11(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/vcard/VCardEntry$OrganizationData;->mSymbol:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method static synthetic access$12(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/vcard/VCardEntry$OrganizationData;->mPhoneticName:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method static synthetic access$13(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/vcard/VCardEntry$OrganizationData;->mOfficeLocation:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method static synthetic access$14(Lcom/android/vcard/VCardEntry$OrganizationData;Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/vcard/VCardEntry$OrganizationData;->mIsPrimary:Z
+
+    return-void
+.end method
+
+.method static synthetic access$2(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/android/vcard/VCardEntry$OrganizationData;->mTitle:Ljava/lang/String;
@@ -168,15 +192,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$302(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/vcard/VCardEntry$OrganizationData;->mTitle:Ljava/lang/String;
-
-    return-object p1
-.end method
-
-.method static synthetic access$400(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
+.method static synthetic access$3(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/android/vcard/VCardEntry$OrganizationData;->mJobDescription:Ljava/lang/String;
@@ -184,15 +200,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$402(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/vcard/VCardEntry$OrganizationData;->mJobDescription:Ljava/lang/String;
-
-    return-object p1
-.end method
-
-.method static synthetic access$500(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
+.method static synthetic access$4(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/android/vcard/VCardEntry$OrganizationData;->mSymbol:Ljava/lang/String;
@@ -200,15 +208,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$502(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/vcard/VCardEntry$OrganizationData;->mSymbol:Ljava/lang/String;
-
-    return-object p1
-.end method
-
-.method static synthetic access$600(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
+.method static synthetic access$5(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/android/vcard/VCardEntry$OrganizationData;->mPhoneticName:Ljava/lang/String;
@@ -216,15 +216,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$602(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
-
-    iput-object p1, p0, Lcom/android/vcard/VCardEntry$OrganizationData;->mPhoneticName:Ljava/lang/String;
-
-    return-object p1
-.end method
-
-.method static synthetic access$700(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
+.method static synthetic access$6(Lcom/android/vcard/VCardEntry$OrganizationData;)Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/android/vcard/VCardEntry$OrganizationData;->mOfficeLocation:Ljava/lang/String;
@@ -232,20 +224,28 @@
     return-object v0
 .end method
 
-.method static synthetic access$702(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)Ljava/lang/String;
+.method static synthetic access$7(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)V
     .locals 0
 
-    iput-object p1, p0, Lcom/android/vcard/VCardEntry$OrganizationData;->mOfficeLocation:Ljava/lang/String;
+    iput-object p1, p0, Lcom/android/vcard/VCardEntry$OrganizationData;->mOrganizationName:Ljava/lang/String;
 
-    return-object p1
+    return-void
 .end method
 
-.method static synthetic access$802(Lcom/android/vcard/VCardEntry$OrganizationData;Z)Z
+.method static synthetic access$8(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)V
     .locals 0
 
-    iput-boolean p1, p0, Lcom/android/vcard/VCardEntry$OrganizationData;->mIsPrimary:Z
+    iput-object p1, p0, Lcom/android/vcard/VCardEntry$OrganizationData;->mDepartmentName:Ljava/lang/String;
 
-    return p1
+    return-void
+.end method
+
+.method static synthetic access$9(Lcom/android/vcard/VCardEntry$OrganizationData;Ljava/lang/String;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/vcard/VCardEntry$OrganizationData;->mTitle:Ljava/lang/String;
+
+    return-void
 .end method
 
 

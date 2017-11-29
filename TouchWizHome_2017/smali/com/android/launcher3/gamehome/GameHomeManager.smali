@@ -1288,41 +1288,6 @@
     return-void
 .end method
 
-.method isAppInstalled(Ljava/lang/String;)Z
-    .locals 4
-
-    const/4 v2, 0x1
-
-    invoke-static {}, Lcom/android/launcher3/LauncherAppState;->getInstance()Lcom/android/launcher3/LauncherAppState;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Lcom/android/launcher3/LauncherAppState;->getContext()Landroid/content/Context;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-
-    move-result-object v1
-
-    const/4 v3, 0x1
-
-    :try_start_0
-    invoke-virtual {v1, p1, v3}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
-    :try_end_0
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_0 .. :try_end_0} :catch_0
-
-    :goto_0
-    return v2
-
-    :catch_0
-    move-exception v0
-
-    const/4 v2, 0x0
-
-    goto :goto_0
-.end method
-
 .method public isGameHomeHidden()Z
     .locals 6
 
@@ -1554,7 +1519,7 @@
 
     const-string v3, "com.samsung.android.game.gamehome"
 
-    invoke-virtual {p0, v3}, Lcom/android/launcher3/gamehome/GameHomeManager;->isAppInstalled(Ljava/lang/String;)Z
+    invoke-static {p1, v3}, Lcom/android/launcher3/Utilities;->isPackageExist(Landroid/content/Context;Ljava/lang/String;)Z
 
     move-result v3
 

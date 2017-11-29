@@ -170,7 +170,7 @@
 
     iput-object v1, p0, Lcom/android/launcher3/allapps/view/AppsSearchContainerView;->mItemDecoration:Landroid/support/v7/widget/RecyclerView$ItemDecoration;
 
-    const v1, 0x7f0a00fb
+    const v1, 0x7f0a00fe
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1290,7 +1290,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f09001f
+    const v2, 0x7f090021
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1755,7 +1755,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f09001e
+    const v2, 0x7f090020
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

@@ -18,12 +18,6 @@
 .method public abstract determineStageChange(IFFFI)Z
 .end method
 
-.method public abstract getApproachingEndPoint()I
-.end method
-
-.method public abstract getApproachingStartPoint()I
-.end method
-
 .method public abstract getDropTarget()Lcom/android/launcher3/common/drag/DropTarget;
 .end method
 

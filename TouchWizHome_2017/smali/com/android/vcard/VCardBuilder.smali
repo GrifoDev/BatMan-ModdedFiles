@@ -253,10 +253,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-nez v0, :cond_1
 
-    :cond_1
-    move v0, v2
+    move v0, v1
 
     :goto_0
     iput-boolean v0, p0, Lcom/android/vcard/VCardBuilder;->mIsV30OrV40:Z
@@ -269,7 +268,7 @@
 
     const/high16 v0, -0x3bf00000    # -576.0f
 
-    if-ne p1, v0, :cond_5
+    if-ne p1, v0, :cond_2
 
     iput-boolean v2, p0, Lcom/android/vcard/VCardBuilder;->mIsCoreanMobilePhone:Z
 
@@ -326,7 +325,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     const-string v0, "UTF-8"
 
@@ -334,19 +333,16 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-eqz v0, :cond_3
 
-    :cond_2
-    move v1, v2
-
-    :cond_3
+    :goto_2
     iput-boolean v1, p0, Lcom/android/vcard/VCardBuilder;->mShouldAppendCharsetParam:Z
 
     invoke-static {p1}, Lcom/android/vcard/VCardConfig;->isDoCoMo(I)Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_4
 
     const-string v0, "vCard"
 
@@ -362,27 +358,32 @@
 
     iput-object v0, p0, Lcom/android/vcard/VCardBuilder;->mVCardCharsetParameter:Ljava/lang/String;
 
-    :goto_2
+    :goto_3
     invoke-virtual {p0}, Lcom/android/vcard/VCardBuilder;->clear()V
 
     return-void
 
-    :cond_4
-    move v0, v1
+    :cond_1
+    move v0, v2
 
     goto :goto_0
 
-    :cond_5
+    :cond_2
     iput-boolean v1, p0, Lcom/android/vcard/VCardBuilder;->mIsCoreanMobilePhone:Z
 
     goto :goto_1
 
-    :cond_6
+    :cond_3
+    move v1, v2
+
+    goto :goto_2
+
+    :cond_4
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_5
 
     const-string v0, "vCard"
 
@@ -398,20 +399,16 @@
 
     iput-object v0, p0, Lcom/android/vcard/VCardBuilder;->mVCardCharsetParameter:Ljava/lang/String;
 
-    goto :goto_2
+    goto :goto_3
 
-    :cond_7
+    :cond_5
     iput-object p2, p0, Lcom/android/vcard/VCardBuilder;->mCharset:Ljava/lang/String;
 
     new-instance v0, Ljava/lang/StringBuilder;
 
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v1, "CHARSET="
 
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v0, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -423,7 +420,7 @@
 
     iput-object v0, p0, Lcom/android/vcard/VCardBuilder;->mVCardCharsetParameter:Ljava/lang/String;
 
-    goto :goto_2
+    goto :goto_3
 .end method
 
 .method private appendNamePropertiesV40(Ljava/util/List;)Lcom/android/vcard/VCardBuilder;
@@ -665,8 +662,6 @@
 
     new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
     move-object/from16 v0, p0
 
     move-object/from16 v1, v17
@@ -675,11 +670,13 @@
 
     move-result-object v21
 
+    invoke-static/range {v21 .. v21}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v21
+
     move-object/from16 v0, v21
 
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
+    invoke-direct {v2, v0}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     const/16 v21, 0x3b
 
@@ -1067,9 +1064,84 @@
 
     move-result v12
 
-    if-eqz v12, :cond_c
+    if-nez v12, :cond_4
+
+    iget v12, p0, Lcom/android/vcard/VCardBuilder;->mVCardType:I
+
+    invoke-static {v12}, Lcom/android/vcard/VCardConfig;->isVersion30(I)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_d
+
+    iget v12, p0, Lcom/android/vcard/VCardBuilder;->mVCardType:I
+
+    invoke-static {v12, v4, v6, v5}, Lcom/android/vcard/VCardUtils;->constructNameFromElements(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v8
+
+    iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
+
+    const-string v13, "SORT-STRING"
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget v12, p0, Lcom/android/vcard/VCardBuilder;->mVCardType:I
+
+    invoke-static {v12}, Lcom/android/vcard/VCardConfig;->isVersion30(I)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_3
+
+    const/4 v12, 0x1
+
+    new-array v12, v12, [Ljava/lang/String;
+
+    const/4 v13, 0x0
+
+    aput-object v8, v12, v13
+
+    invoke-direct {p0, v12}, Lcom/android/vcard/VCardBuilder;->shouldAppendCharsetParam([Ljava/lang/String;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_3
+
+    iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
+
+    const-string v13, ";"
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
+
+    iget-object v13, p0, Lcom/android/vcard/VCardBuilder;->mVCardCharsetParameter:Ljava/lang/String;
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_3
+    iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
+
+    const-string v13, ":"
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
+
+    invoke-direct {p0, v8}, Lcom/android/vcard/VCardBuilder;->escapeCharacters(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
+
+    const-string v13, "\r\n"
+
+    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_4
     :goto_2
     iget-boolean v12, p0, Lcom/android/vcard/VCardBuilder;->mUsesDefactProperty:Z
 
@@ -1085,11 +1157,11 @@
 
     move-result v12
 
-    if-nez v12, :cond_6
+    if-nez v12, :cond_7
 
     iget-boolean v12, p0, Lcom/android/vcard/VCardBuilder;->mShouldUseQuotedPrintable:Z
 
-    if-eqz v12, :cond_1d
+    if-eqz v12, :cond_1c
 
     const/4 v12, 0x1
 
@@ -1103,12 +1175,12 @@
 
     move-result v12
 
-    if-nez v12, :cond_1d
+    if-nez v12, :cond_1c
 
     const/4 v7, 0x1
 
     :goto_3
-    if-eqz v7, :cond_1e
+    if-eqz v7, :cond_1d
 
     invoke-direct {p0, v5}, Lcom/android/vcard/VCardBuilder;->encodeQuotedPrintable(Ljava/lang/String;)Ljava/lang/String;
 
@@ -1133,7 +1205,7 @@
 
     move-result v12
 
-    if-eqz v12, :cond_4
+    if-eqz v12, :cond_5
 
     iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
@@ -1147,8 +1219,8 @@
 
     invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_4
-    if-eqz v7, :cond_5
+    :cond_5
+    if-eqz v7, :cond_6
 
     iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
@@ -1162,7 +1234,7 @@
 
     invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_5
+    :cond_6
     iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
     const-string v13, ":"
@@ -1179,16 +1251,16 @@
 
     invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_6
+    :cond_7
     invoke-static {v6}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v12
 
-    if-nez v12, :cond_9
+    if-nez v12, :cond_a
 
     iget-boolean v12, p0, Lcom/android/vcard/VCardBuilder;->mShouldUseQuotedPrintable:Z
 
-    if-eqz v12, :cond_1f
+    if-eqz v12, :cond_1e
 
     const/4 v12, 0x1
 
@@ -1202,12 +1274,12 @@
 
     move-result v12
 
-    if-nez v12, :cond_1f
+    if-nez v12, :cond_1e
 
     const/4 v7, 0x1
 
     :goto_5
-    if-eqz v7, :cond_20
+    if-eqz v7, :cond_1f
 
     invoke-direct {p0, v6}, Lcom/android/vcard/VCardBuilder;->encodeQuotedPrintable(Ljava/lang/String;)Ljava/lang/String;
 
@@ -1232,7 +1304,7 @@
 
     move-result v12
 
-    if-eqz v12, :cond_7
+    if-eqz v12, :cond_8
 
     iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
@@ -1246,8 +1318,8 @@
 
     invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_7
-    if-eqz v7, :cond_8
+    :cond_8
+    if-eqz v7, :cond_9
 
     iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
@@ -1261,7 +1333,7 @@
 
     invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_8
+    :cond_9
     iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
     const-string v13, ":"
@@ -1278,7 +1350,7 @@
 
     invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_9
+    :cond_a
     invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v12
@@ -1287,7 +1359,7 @@
 
     iget-boolean v12, p0, Lcom/android/vcard/VCardBuilder;->mShouldUseQuotedPrintable:Z
 
-    if-eqz v12, :cond_21
+    if-eqz v12, :cond_20
 
     const/4 v12, 0x1
 
@@ -1301,12 +1373,12 @@
 
     move-result v12
 
-    if-nez v12, :cond_21
+    if-nez v12, :cond_20
 
     const/4 v7, 0x1
 
     :goto_7
-    if-eqz v7, :cond_22
+    if-eqz v7, :cond_21
 
     invoke-direct {p0, v4}, Lcom/android/vcard/VCardBuilder;->encodeQuotedPrintable(Ljava/lang/String;)Ljava/lang/String;
 
@@ -1331,7 +1403,7 @@
 
     move-result v12
 
-    if-eqz v12, :cond_a
+    if-eqz v12, :cond_b
 
     iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
@@ -1345,8 +1417,8 @@
 
     invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_a
-    if-eqz v7, :cond_b
+    :cond_b
+    if-eqz v7, :cond_c
 
     iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
@@ -1360,7 +1432,7 @@
 
     invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_b
+    :cond_c
     iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
     const-string v13, ":"
@@ -1379,88 +1451,10 @@
 
     goto/16 :goto_1
 
-    :cond_c
-    iget v12, p0, Lcom/android/vcard/VCardBuilder;->mVCardType:I
-
-    invoke-static {v12}, Lcom/android/vcard/VCardConfig;->isVersion30(I)Z
-
-    move-result v12
-
-    if-eqz v12, :cond_e
-
-    iget v12, p0, Lcom/android/vcard/VCardBuilder;->mVCardType:I
-
-    invoke-static {v12, v4, v6, v5}, Lcom/android/vcard/VCardUtils;->constructNameFromElements(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v8
-
-    iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
-
-    const-string v13, "SORT-STRING"
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget v12, p0, Lcom/android/vcard/VCardBuilder;->mVCardType:I
-
-    invoke-static {v12}, Lcom/android/vcard/VCardConfig;->isVersion30(I)Z
-
-    move-result v12
-
-    if-eqz v12, :cond_d
-
-    const/4 v12, 0x1
-
-    new-array v12, v12, [Ljava/lang/String;
-
-    const/4 v13, 0x0
-
-    aput-object v8, v12, v13
-
-    invoke-direct {p0, v12}, Lcom/android/vcard/VCardBuilder;->shouldAppendCharsetParam([Ljava/lang/String;)Z
-
-    move-result v12
-
-    if-eqz v12, :cond_d
-
-    iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
-
-    const-string v13, ";"
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
-
-    iget-object v13, p0, Lcom/android/vcard/VCardBuilder;->mVCardCharsetParameter:Ljava/lang/String;
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
     :cond_d
-    iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
-
-    const-string v13, ":"
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
-
-    invoke-direct {p0, v8}, Lcom/android/vcard/VCardBuilder;->escapeCharacters(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v13
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
-
-    const-string v13, "\r\n"
-
-    invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    goto/16 :goto_2
-
-    :cond_e
     iget-boolean v12, p0, Lcom/android/vcard/VCardBuilder;->mIsJapaneseMobilePhone:Z
 
-    if-eqz v12, :cond_3
+    if-eqz v12, :cond_4
 
     iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
@@ -1482,7 +1476,7 @@
 
     iget-boolean v12, p0, Lcom/android/vcard/VCardBuilder;->mRefrainsQPToNameProperties:Z
 
-    if-nez v12, :cond_14
+    if-nez v12, :cond_13
 
     const/4 v12, 0x1
 
@@ -1496,7 +1490,7 @@
 
     move-result v12
 
-    if-eqz v12, :cond_f
+    if-eqz v12, :cond_e
 
     const/4 v12, 0x1
 
@@ -1510,7 +1504,7 @@
 
     move-result v12
 
-    if-eqz v12, :cond_f
+    if-eqz v12, :cond_e
 
     const/4 v12, 0x1
 
@@ -1524,13 +1518,13 @@
 
     move-result v12
 
-    if-nez v12, :cond_14
+    if-nez v12, :cond_13
 
-    :cond_f
+    :cond_e
     const/4 v7, 0x1
 
     :goto_9
-    if-eqz v7, :cond_15
+    if-eqz v7, :cond_14
 
     invoke-direct {p0, v4}, Lcom/android/vcard/VCardBuilder;->encodeQuotedPrintable(Ljava/lang/String;)Ljava/lang/String;
 
@@ -1547,7 +1541,13 @@
     :goto_a
     iget-boolean v12, p0, Lcom/android/vcard/VCardBuilder;->mIsDoCoMo:Z
 
-    if-eqz v12, :cond_16
+    if-eqz v12, :cond_15
+
+    invoke-static {}, Lcom/android/vcard/VCardConfig;->isShiftJisAsDefault()Z
+
+    move-result v12
+
+    if-nez v12, :cond_15
 
     const/4 v12, 0x3
 
@@ -1569,7 +1569,7 @@
 
     move-result v12
 
-    if-eqz v12, :cond_10
+    if-eqz v12, :cond_f
 
     iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
@@ -1583,7 +1583,7 @@
 
     invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_10
+    :cond_f
     iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
     const-string v13, ":"
@@ -1594,13 +1594,13 @@
 
     move-result v12
 
-    if-nez v12, :cond_11
+    if-nez v12, :cond_10
 
     iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
     invoke-virtual {v12, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_11
+    :cond_10
     iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
     const-string v13, ";"
@@ -1611,13 +1611,13 @@
 
     move-result v12
 
-    if-nez v12, :cond_12
+    if-nez v12, :cond_11
 
     iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
     invoke-virtual {v12, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_12
+    :cond_11
     iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
     const-string v13, ";"
@@ -1628,13 +1628,13 @@
 
     move-result v12
 
-    if-nez v12, :cond_13
+    if-nez v12, :cond_12
 
     iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
     invoke-virtual {v12, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_13
+    :cond_12
     iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
     const-string v13, ";"
@@ -1655,12 +1655,12 @@
 
     goto/16 :goto_2
 
-    :cond_14
+    :cond_13
     const/4 v7, 0x0
 
-    goto :goto_9
+    goto/16 :goto_9
 
-    :cond_15
+    :cond_14
     invoke-direct {p0, v4}, Lcom/android/vcard/VCardBuilder;->escapeCharacters(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -1673,9 +1673,9 @@
 
     move-result-object v1
 
-    goto :goto_a
+    goto/16 :goto_a
 
-    :cond_16
+    :cond_15
     const/4 v12, 0x3
 
     new-array v12, v12, [Ljava/lang/String;
@@ -1696,7 +1696,7 @@
 
     move-result v12
 
-    if-eqz v12, :cond_17
+    if-eqz v12, :cond_16
 
     iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
@@ -1710,7 +1710,7 @@
 
     invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_17
+    :cond_16
     iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
     const-string v13, ":"
@@ -1723,7 +1723,7 @@
 
     move-result v12
 
-    if-nez v12, :cond_18
+    if-nez v12, :cond_17
 
     iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
@@ -1731,14 +1731,14 @@
 
     const/4 v3, 0x0
 
-    :cond_18
+    :cond_17
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v12
 
-    if-nez v12, :cond_19
+    if-nez v12, :cond_18
 
-    if-eqz v3, :cond_1c
+    if-eqz v3, :cond_1b
 
     const/4 v3, 0x0
 
@@ -1747,14 +1747,14 @@
 
     invoke-virtual {v12, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_19
+    :cond_18
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v12
 
-    if-nez v12, :cond_1b
+    if-nez v12, :cond_1a
 
-    if-nez v3, :cond_1a
+    if-nez v3, :cond_19
 
     iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
@@ -1762,12 +1762,12 @@
 
     invoke-virtual {v12, v13}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    :cond_1a
+    :cond_19
     iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
     invoke-virtual {v12, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_1b
+    :cond_1a
     iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
     const-string v13, ";"
@@ -1800,7 +1800,7 @@
 
     goto/16 :goto_2
 
-    :cond_1c
+    :cond_1b
     iget-object v12, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
     const/16 v13, 0x20
@@ -1809,36 +1809,36 @@
 
     goto :goto_b
 
-    :cond_1d
+    :cond_1c
     const/4 v7, 0x0
 
     goto/16 :goto_3
 
-    :cond_1e
+    :cond_1d
     invoke-direct {p0, v5}, Lcom/android/vcard/VCardBuilder;->escapeCharacters(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
     goto/16 :goto_4
 
-    :cond_1f
+    :cond_1e
     const/4 v7, 0x0
 
     goto/16 :goto_5
 
-    :cond_20
+    :cond_1f
     invoke-direct {p0, v6}, Lcom/android/vcard/VCardBuilder;->escapeCharacters(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v2
 
     goto/16 :goto_6
 
-    :cond_21
+    :cond_20
     const/4 v7, 0x0
 
     goto/16 :goto_7
 
-    :cond_22
+    :cond_21
     invoke-direct {p0, v4}, Lcom/android/vcard/VCardBuilder;->escapeCharacters(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
@@ -1864,17 +1864,20 @@
 
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v6
+    move-result-object v7
 
     :cond_0
     :goto_0
-    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-nez v0, :cond_1
 
-    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    return-void
+
+    :cond_1
+    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v3
 
@@ -1886,11 +1889,11 @@
 
     invoke-virtual {v3, v0}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
 
-    move-result-object v7
+    move-result-object v6
 
-    if-eqz v7, :cond_1
+    if-eqz v6, :cond_2
 
-    invoke-virtual {v7}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v6}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
 
@@ -1909,13 +1912,10 @@
 
     goto :goto_0
 
-    :cond_1
+    :cond_2
     move v1, v5
 
     goto :goto_1
-
-    :cond_2
-    return-void
 .end method
 
 .method private appendPostalsForGeneric(Ljava/util/List;)V
@@ -1930,23 +1930,26 @@
         }
     .end annotation
 
-    const/4 v9, 0x1
+    const/4 v8, 0x1
 
     const/4 v5, 0x0
 
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v6
+    move-result-object v9
 
     :cond_0
     :goto_0
-    invoke-interface {v6}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-nez v0, :cond_1
 
-    invoke-interface {v6}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    return-void
+
+    :cond_1
+    invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v3
 
@@ -1958,11 +1961,11 @@
 
     invoke-virtual {v3, v0}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
 
-    move-result-object v8
+    move-result-object v7
 
-    if-eqz v8, :cond_1
+    if-eqz v7, :cond_2
 
-    invoke-virtual {v8}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v7}, Ljava/lang/Integer;->intValue()I
 
     move-result v1
 
@@ -1977,17 +1980,17 @@
 
     invoke-virtual {v3, v0}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
 
-    move-result-object v7
+    move-result-object v6
 
-    if-eqz v7, :cond_3
+    if-eqz v6, :cond_4
 
-    invoke-virtual {v7}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v6}, Ljava/lang/Integer;->intValue()I
 
     move-result v0
 
-    if-lez v0, :cond_2
+    if-lez v0, :cond_3
 
-    move v4, v9
+    move v4, v8
 
     :goto_2
     move-object v0, p0
@@ -1996,15 +1999,10 @@
 
     goto :goto_0
 
-    :cond_1
-    move v1, v9
+    :cond_2
+    move v1, v8
 
     goto :goto_1
-
-    :cond_2
-    move v4, v5
-
-    goto :goto_2
 
     :cond_3
     move v4, v5
@@ -2012,7 +2010,9 @@
     goto :goto_2
 
     :cond_4
-    return-void
+    move v4, v5
+
+    goto :goto_2
 .end method
 
 .method private appendTypeParameter(Ljava/lang/String;)V
@@ -2086,21 +2086,24 @@
 
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v3
 
     :cond_0
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_7
+    if-nez v4, :cond_1
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    return-void
 
-    move-result-object v3
+    :cond_1
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    check-cast v3, Ljava/lang/String;
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
 
     iget v4, p0, Lcom/android/vcard/VCardBuilder;->mVCardType:I
 
@@ -2108,7 +2111,7 @@
 
     move-result v4
 
-    if-nez v4, :cond_1
+    if-nez v4, :cond_2
 
     iget v4, p0, Lcom/android/vcard/VCardBuilder;->mVCardType:I
 
@@ -2116,18 +2119,18 @@
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_5
 
-    :cond_1
+    :cond_2
     iget v4, p0, Lcom/android/vcard/VCardBuilder;->mVCardType:I
 
     invoke-static {v4}, Lcom/android/vcard/VCardConfig;->isVersion40(I)Z
 
     move-result v4
 
-    if-eqz v4, :cond_2
+    if-eqz v4, :cond_3
 
-    invoke-static {v3}, Lcom/android/vcard/VCardUtils;->toStringAsV40ParamValue(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v2}, Lcom/android/vcard/VCardUtils;->toStringAsV40ParamValue(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -2138,7 +2141,7 @@
 
     if-nez v4, :cond_0
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4
 
     const/4 v1, 0x0
 
@@ -2147,14 +2150,14 @@
 
     goto :goto_0
 
-    :cond_2
-    invoke-static {v3}, Lcom/android/vcard/VCardUtils;->toStringAsV30ParamValue(Ljava/lang/String;)Ljava/lang/String;
+    :cond_3
+    invoke-static {v2}, Lcom/android/vcard/VCardUtils;->toStringAsV30ParamValue(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     goto :goto_1
 
-    :cond_3
+    :cond_4
     iget-object v4, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
     const-string v5, ";"
@@ -2163,36 +2166,36 @@
 
     goto :goto_2
 
-    :cond_4
+    :cond_5
     iget-boolean v4, p0, Lcom/android/vcard/VCardBuilder;->mIsDoCoMo:Z
 
-    if-nez v4, :cond_5
+    if-nez v4, :cond_6
 
-    invoke-static {v3}, Lcom/android/vcard/VCardUtils;->isV21Word(Ljava/lang/String;)Z
+    invoke-static {v2}, Lcom/android/vcard/VCardUtils;->isV21Word(Ljava/lang/String;)Z
 
     move-result v4
 
-    if-nez v4, :cond_5
+    if-nez v4, :cond_6
 
     const-string v4, "X-CUSTOM"
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    invoke-virtual {v2, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v4
 
     if-eqz v4, :cond_0
 
-    :cond_5
-    if-eqz v1, :cond_6
+    :cond_6
+    if-eqz v1, :cond_7
 
     const/4 v1, 0x0
 
     :goto_3
-    invoke-direct {p0, v3}, Lcom/android/vcard/VCardBuilder;->appendTypeParameter(Ljava/lang/String;)V
+    invoke-direct {p0, v2}, Lcom/android/vcard/VCardBuilder;->appendTypeParameter(Ljava/lang/String;)V
 
     goto :goto_0
 
-    :cond_6
+    :cond_7
     iget-object v4, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
     const-string v5, ";"
@@ -2200,9 +2203,6 @@
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     goto :goto_3
-
-    :cond_7
-    return-void
 .end method
 
 .method private appendUncommonPhoneType(Ljava/lang/StringBuilder;Ljava/lang/Integer;)V
@@ -2235,13 +2235,9 @@
 
     new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v3, "Unknown or unsupported (by vCard) Phone type: "
 
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
+    invoke-direct {v2, v3}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
@@ -2463,16 +2459,15 @@
 
     move-result v9
 
-    if-nez v9, :cond_1
+    if-eqz v9, :cond_0
 
-    :cond_0
-    const/4 v9, 0x1
+    const/4 v9, 0x0
 
     :goto_0
     return v9
 
-    :cond_1
-    const/4 v9, 0x0
+    :cond_0
+    const/4 v9, 0x1
 
     goto :goto_0
 .end method
@@ -2511,36 +2506,17 @@
 
     move-result-object v4
 
+    :cond_1
     :goto_1
     array-length v5, v4
 
-    if-ge v2, v5, :cond_1
+    if-lt v2, v5, :cond_2
 
-    const-string v5, "=%02X"
-
-    const/4 v6, 0x1
-
-    new-array v6, v6, [Ljava/lang/Object;
-
-    const/4 v7, 0x0
-
-    aget-byte v8, v4, v2
-
-    invoke-static {v8}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
-
-    move-result-object v8
-
-    aput-object v8, v6, v7
-
-    invoke-static {v5, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v5
 
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    add-int/lit8 v2, v2, 0x1
-
-    goto :goto_1
+    goto :goto_0
 
     :catch_0
     move-exception v1
@@ -2549,13 +2525,9 @@
 
     new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v7, "Charset "
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
+    invoke-direct {v6, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     iget-object v7, p0, Lcom/android/vcard/VCardBuilder;->mCharset:Ljava/lang/String;
 
@@ -2587,12 +2559,44 @@
 
     goto :goto_1
 
-    :cond_1
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    :cond_2
+    const-string v5, "=%02X"
+
+    const/4 v6, 0x1
+
+    new-array v6, v6, [Ljava/lang/Object;
+
+    const/4 v7, 0x0
+
+    aget-byte v8, v4, v2
+
+    invoke-static {v8}, Ljava/lang/Byte;->valueOf(B)Ljava/lang/Byte;
+
+    move-result-object v8
+
+    aput-object v8, v6, v7
+
+    invoke-static {v5, v6}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
 
     move-result-object v5
 
-    goto :goto_0
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    add-int/lit8 v2, v2, 0x1
+
+    add-int/lit8 v3, v3, 0x3
+
+    const/16 v5, 0x43
+
+    if-lt v3, v5, :cond_1
+
+    const-string v5, "=\r\n"
+
+    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const/4 v3, 0x0
+
+    goto :goto_1
 .end method
 
 .method private escapeCharacters(Ljava/lang/String;)Ljava/lang/String;
@@ -2623,8 +2627,15 @@
     const/4 v1, 0x0
 
     :goto_1
-    if-ge v1, v2, :cond_6
+    if-lt v1, v2, :cond_1
 
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    goto :goto_0
+
+    :cond_1
     invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
@@ -2633,7 +2644,7 @@
 
     invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    :cond_1
+    :cond_2
     :goto_2
     add-int/lit8 v1, v1, 0x1
 
@@ -2651,7 +2662,7 @@
     :sswitch_1
     add-int/lit8 v5, v1, 0x1
 
-    if-ge v5, v2, :cond_2
+    if-ge v5, v2, :cond_3
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
 
@@ -2659,9 +2670,9 @@
 
     const/16 v5, 0xa
 
-    if-eq v3, v5, :cond_1
+    if-eq v3, v5, :cond_2
 
-    :cond_2
+    :cond_3
     :sswitch_2
     const-string v5, "\\n"
 
@@ -2672,7 +2683,7 @@
     :sswitch_3
     iget-boolean v5, p0, Lcom/android/vcard/VCardBuilder;->mIsV30OrV40:Z
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_4
 
     const-string v5, "\\\\"
 
@@ -2680,31 +2691,15 @@
 
     goto :goto_2
 
-    :cond_3
+    :cond_4
     :sswitch_4
     iget-boolean v5, p0, Lcom/android/vcard/VCardBuilder;->mIsDoCoMo:Z
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_5
 
     invoke-virtual {v4, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    goto :goto_2
-
-    :cond_4
-    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    goto :goto_2
-
-    :sswitch_5
-    iget-boolean v5, p0, Lcom/android/vcard/VCardBuilder;->mIsV30OrV40:Z
-
-    if-eqz v5, :cond_5
-
-    const-string v5, "\\,"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     goto :goto_2
 
@@ -2713,12 +2708,21 @@
 
     goto :goto_2
 
+    :sswitch_5
+    iget-boolean v5, p0, Lcom/android/vcard/VCardBuilder;->mIsV30OrV40:Z
+
+    if-eqz v5, :cond_6
+
+    const-string v5, "\\,"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto :goto_2
+
     :cond_6
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    move-result-object v5
-
-    goto :goto_0
+    goto :goto_2
 
     nop
 
@@ -2760,8 +2764,15 @@
     const/4 v1, 0x0
 
     :goto_1
-    if-ge v1, v2, :cond_6
+    if-lt v1, v2, :cond_1
 
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    goto :goto_0
+
+    :cond_1
     invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
 
     move-result v0
@@ -2770,7 +2781,7 @@
 
     invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    :cond_1
+    :cond_2
     :goto_2
     add-int/lit8 v1, v1, 0x1
 
@@ -2779,7 +2790,7 @@
     :sswitch_0
     add-int/lit8 v5, v1, 0x1
 
-    if-ge v5, v2, :cond_2
+    if-ge v5, v2, :cond_3
 
     invoke-virtual {p1, v1}, Ljava/lang/String;->charAt(I)C
 
@@ -2787,9 +2798,9 @@
 
     const/16 v5, 0xa
 
-    if-eq v3, v5, :cond_1
+    if-eq v3, v5, :cond_2
 
-    :cond_2
+    :cond_3
     :sswitch_1
     const-string v5, "\\n"
 
@@ -2800,7 +2811,7 @@
     :sswitch_2
     iget-boolean v5, p0, Lcom/android/vcard/VCardBuilder;->mIsV30OrV40:Z
 
-    if-eqz v5, :cond_3
+    if-eqz v5, :cond_4
 
     const-string v5, "\\\\"
 
@@ -2808,11 +2819,11 @@
 
     goto :goto_2
 
-    :cond_3
+    :cond_4
     :sswitch_3
     iget-boolean v5, p0, Lcom/android/vcard/VCardBuilder;->mIsDoCoMo:Z
 
-    if-eqz v5, :cond_4
+    if-eqz v5, :cond_5
 
     const/16 v5, 0x5c
 
@@ -2822,7 +2833,7 @@
 
     goto :goto_2
 
-    :cond_4
+    :cond_5
     invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     goto :goto_2
@@ -2830,7 +2841,7 @@
     :sswitch_4
     iget-boolean v5, p0, Lcom/android/vcard/VCardBuilder;->mIsV30OrV40:Z
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_6
 
     const-string v5, "\\,"
 
@@ -2838,17 +2849,10 @@
 
     goto :goto_2
 
-    :cond_5
+    :cond_6
     invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     goto :goto_2
-
-    :cond_6
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    goto :goto_0
 
     :sswitch_data_0
     .sparse-switch
@@ -2874,23 +2878,35 @@
         }
     .end annotation
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    const/4 v5, 0x0
+    const/4 v4, 0x0
 
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object v5
 
     :cond_0
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_1
+    if-nez v6, :cond_2
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    :goto_1
+    if-nez v3, :cond_1
+
+    if-eqz v4, :cond_5
+
+    move-object v3, v4
+
+    :cond_1
+    :goto_2
+    return-object v3
+
+    :cond_2
+    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -2902,41 +2918,32 @@
 
     invoke-virtual {v0, v6}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
 
-    move-result-object v3
+    move-result-object v2
 
-    if-eqz v3, :cond_3
+    if-eqz v2, :cond_3
 
-    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
 
     move-result v6
 
     if-lez v6, :cond_3
 
-    move-object v4, v0
+    move-object v3, v0
 
-    :cond_1
-    if-nez v4, :cond_2
-
-    if-eqz v5, :cond_5
-
-    move-object v4, v5
-
-    :cond_2
-    :goto_1
-    return-object v4
+    goto :goto_1
 
     :cond_3
-    if-nez v4, :cond_0
+    if-nez v3, :cond_0
 
     const-string v6, "is_primary"
 
     invoke-virtual {v0, v6}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
 
-    move-result-object v2
+    move-result-object v1
 
-    if-eqz v2, :cond_4
+    if-eqz v1, :cond_4
 
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
 
     move-result v6
 
@@ -2948,12 +2955,12 @@
 
     if-eqz v6, :cond_4
 
-    move-object v4, v0
+    move-object v3, v0
 
     goto :goto_0
 
     :cond_4
-    if-nez v5, :cond_0
+    if-nez v4, :cond_0
 
     invoke-direct {p0, v0}, Lcom/android/vcard/VCardBuilder;->containsNonEmptyName(Landroid/content/ContentValues;)Z
 
@@ -2961,61 +2968,59 @@
 
     if-eqz v6, :cond_0
 
-    move-object v5, v0
+    move-object v4, v0
 
     goto :goto_0
 
     :cond_5
-    new-instance v4, Landroid/content/ContentValues;
+    new-instance v3, Landroid/content/ContentValues;
 
-    invoke-direct {v4}, Landroid/content/ContentValues;-><init>()V
+    invoke-direct {v3}, Landroid/content/ContentValues;-><init>()V
 
-    goto :goto_1
+    goto :goto_2
 .end method
 
 .method private varargs shouldAppendCharsetParam([Ljava/lang/String;)Z
-    .locals 7
+    .locals 6
 
-    const/4 v5, 0x1
-
-    const/4 v4, 0x0
-
-    iget-boolean v6, p0, Lcom/android/vcard/VCardBuilder;->mShouldAppendCharsetParam:Z
-
-    if-nez v6, :cond_1
-
-    :cond_0
-    :goto_0
-    return v4
-
-    :cond_1
-    move-object v0, p1
-
-    array-length v2, v0
+    const/4 v2, 0x1
 
     const/4 v1, 0x0
 
+    iget-boolean v3, p0, Lcom/android/vcard/VCardBuilder;->mShouldAppendCharsetParam:Z
+
+    if-nez v3, :cond_1
+
+    :cond_0
+    :goto_0
+    return v1
+
+    :cond_1
+    array-length v4, p1
+
+    move v3, v1
+
     :goto_1
-    if-ge v1, v2, :cond_0
+    if-ge v3, v4, :cond_0
 
-    aget-object v3, v0, v1
+    aget-object v0, p1, v3
 
-    new-array v6, v5, [Ljava/lang/String;
+    new-array v5, v2, [Ljava/lang/String;
 
-    aput-object v3, v6, v4
+    aput-object v0, v5, v1
 
-    invoke-static {v6}, Lcom/android/vcard/VCardUtils;->containsOnlyPrintableAscii([Ljava/lang/String;)Z
+    invoke-static {v5}, Lcom/android/vcard/VCardUtils;->containsOnlyPrintableAscii([Ljava/lang/String;)Z
 
-    move-result v6
+    move-result v5
 
-    if-nez v6, :cond_2
+    if-nez v5, :cond_2
 
-    move v4, v5
+    move v1, v2
 
     goto :goto_0
 
     :cond_2
-    add-int/lit8 v1, v1, 0x1
+    add-int/lit8 v3, v3, 0x1
 
     goto :goto_1
 .end method
@@ -3049,21 +3054,37 @@
     const/4 v2, 0x0
 
     :goto_0
-    if-ge v2, v3, :cond_1
-
-    invoke-virtual {p1, v2}, Ljava/lang/String;->charAt(I)C
-
-    move-result v1
-
-    const/16 v5, 0xa
-
-    if-ne v1, v5, :cond_0
+    if-lt v2, v3, :cond_1
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
 
     move-result v5
 
     if-lez v5, :cond_0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-interface {v4, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    :cond_0
+    return-object v4
+
+    :cond_1
+    invoke-virtual {p1, v2}, Ljava/lang/String;->charAt(I)C
+
+    move-result v1
+
+    const/16 v5, 0xa
+
+    if-ne v1, v5, :cond_2
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
+
+    move-result v5
+
+    if-lez v5, :cond_2
 
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -3080,26 +3101,10 @@
 
     goto :goto_0
 
-    :cond_0
+    :cond_2
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     goto :goto_1
-
-    :cond_1
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->length()I
-
-    move-result v5
-
-    if-lez v5, :cond_2
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-interface {v4, v5}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    :cond_2
-    return-object v4
 .end method
 
 .method private tryConstructPostalStruct(Landroid/content/ContentValues;)Lcom/android/vcard/VCardBuilder$PostalStruct;
@@ -3236,9 +3241,9 @@
 
     move-result v24
 
-    if-nez v24, :cond_2
+    if-eqz v24, :cond_2
 
-    const/4 v4, 0x1
+    const/4 v4, 0x0
 
     :goto_1
     invoke-static/range {v16 .. v16}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
@@ -3407,7 +3412,7 @@
     goto/16 :goto_0
 
     :cond_2
-    const/4 v4, 0x0
+    const/4 v4, 0x1
 
     goto/16 :goto_1
 
@@ -3430,15 +3435,11 @@
     :cond_5
     new-instance v24, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-static/range {v16 .. v16}, Ljava/lang/String;->valueOf(Ljava/lang/Object;)Ljava/lang/String;
 
-    move-object/from16 v0, v24
+    move-result-object v25
 
-    move-object/from16 v1, v16
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v24
+    invoke-direct/range {v24 .. v25}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     const-string v25, " "
 
@@ -3706,9 +3707,9 @@
 
     move-result v24
 
-    if-nez v24, :cond_c
+    if-eqz v24, :cond_c
 
-    const/4 v4, 0x1
+    const/4 v4, 0x0
 
     :goto_6
     if-eqz v23, :cond_d
@@ -3784,7 +3785,7 @@
     goto :goto_5
 
     :cond_c
-    const/4 v4, 0x0
+    const/4 v4, 0x1
 
     goto :goto_6
 
@@ -3801,161 +3802,176 @@
 
 # virtual methods
 .method public appendAndroidSpecificProperty(Ljava/lang/String;Landroid/content/ContentValues;)V
-    .locals 12
+    .locals 11
 
-    const/4 v8, 0x1
+    const/4 v7, 0x1
 
-    const/4 v9, 0x0
+    const/4 v8, 0x0
 
-    sget-object v10, Lcom/android/vcard/VCardBuilder;->sAllowedAndroidPropertySet:Ljava/util/Set;
+    sget-object v9, Lcom/android/vcard/VCardBuilder;->sAllowedAndroidPropertySet:Ljava/util/Set;
 
-    invoke-interface {v10, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
+    invoke-interface {v9, p1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
-    move-result v10
+    move-result v9
 
-    if-nez v10, :cond_0
+    if-nez v9, :cond_0
 
     :goto_0
     return-void
 
     :cond_0
-    new-instance v5, Ljava/util/ArrayList;
+    new-instance v4, Ljava/util/ArrayList;
 
-    invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v4}, Ljava/util/ArrayList;-><init>()V
 
     const/4 v1, 0x1
 
     :goto_1
-    const/16 v10, 0xf
+    const/16 v9, 0xf
 
-    if-gt v1, v10, :cond_2
+    if-le v1, v9, :cond_3
 
-    new-instance v10, Ljava/lang/StringBuilder;
+    iget-boolean v9, p0, Lcom/android/vcard/VCardBuilder;->mShouldAppendCharsetParam:Z
 
-    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
+    if-eqz v9, :cond_5
 
-    const-string v11, "data"
+    invoke-static {v4}, Lcom/android/vcard/VCardUtils;->containsOnlyNonCrLfPrintableAscii(Ljava/util/Collection;)Z
 
-    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-result v9
 
-    move-result-object v10
+    if-nez v9, :cond_5
 
-    invoke-virtual {v10, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    move v2, v7
 
-    move-result-object v10
+    :goto_2
+    iget-boolean v9, p0, Lcom/android/vcard/VCardBuilder;->mShouldUseQuotedPrintable:Z
 
-    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    if-eqz v9, :cond_6
 
-    move-result-object v10
+    invoke-static {v4}, Lcom/android/vcard/VCardUtils;->containsOnlyNonCrLfPrintableAscii(Ljava/util/Collection;)Z
 
-    invoke-virtual {p2, v10}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
+    move-result v9
+
+    if-nez v9, :cond_6
+
+    move v5, v7
+
+    :goto_3
+    iget-object v7, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
+
+    const-string v8, "X-ANDROID-CUSTOM"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    if-eqz v2, :cond_1
+
+    iget-object v7, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
+
+    const-string v8, ";"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v7, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
+
+    iget-object v8, p0, Lcom/android/vcard/VCardBuilder;->mVCardCharsetParameter:Ljava/lang/String;
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_1
+    if-eqz v5, :cond_2
+
+    iget-object v7, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
+
+    const-string v8, ";"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v7, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
+
+    const-string v8, "ENCODING=QUOTED-PRINTABLE"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_2
+    iget-object v7, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
+
+    const-string v8, ":"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    iget-object v7, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
+
+    invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-interface {v4}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v7
 
-    if-nez v7, :cond_1
+    :goto_4
+    invoke-interface {v7}, Ljava/util/Iterator;->hasNext()Z
 
-    const-string v7, ""
+    move-result v8
 
-    :cond_1
-    invoke-interface {v5, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    if-nez v8, :cond_7
+
+    iget-object v7, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
+
+    const-string v8, "\r\n"
+
+    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto :goto_0
+
+    :cond_3
+    new-instance v9, Ljava/lang/StringBuilder;
+
+    const-string v10, "data"
+
+    invoke-direct {v9, v10}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v9, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v9
+
+    invoke-virtual {v9}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {p2, v9}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v6
+
+    if-nez v6, :cond_4
+
+    const-string v6, ""
+
+    :cond_4
+    invoke-interface {v4, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     add-int/lit8 v1, v1, 0x1
 
     goto :goto_1
 
-    :cond_2
-    iget-boolean v10, p0, Lcom/android/vcard/VCardBuilder;->mShouldAppendCharsetParam:Z
+    :cond_5
+    move v2, v8
 
-    if-eqz v10, :cond_5
+    goto :goto_2
 
-    invoke-static {v5}, Lcom/android/vcard/VCardUtils;->containsOnlyNonCrLfPrintableAscii(Ljava/util/Collection;)Z
+    :cond_6
+    move v5, v8
 
-    move-result v10
+    goto :goto_3
 
-    if-nez v10, :cond_5
+    :cond_7
+    invoke-interface {v7}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
-    move v3, v8
+    move-result-object v3
 
-    :goto_2
-    iget-boolean v10, p0, Lcom/android/vcard/VCardBuilder;->mShouldUseQuotedPrintable:Z
+    check-cast v3, Ljava/lang/String;
 
-    if-eqz v10, :cond_6
+    if-eqz v5, :cond_8
 
-    invoke-static {v5}, Lcom/android/vcard/VCardUtils;->containsOnlyNonCrLfPrintableAscii(Ljava/util/Collection;)Z
-
-    move-result v10
-
-    if-nez v10, :cond_6
-
-    move v6, v8
-
-    :goto_3
-    iget-object v8, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
-
-    const-string v9, "X-ANDROID-CUSTOM"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    if-eqz v3, :cond_3
-
-    iget-object v8, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
-
-    const-string v9, ";"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v8, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
-
-    iget-object v9, p0, Lcom/android/vcard/VCardBuilder;->mVCardCharsetParameter:Ljava/lang/String;
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    :cond_3
-    if-eqz v6, :cond_4
-
-    iget-object v8, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
-
-    const-string v9, ";"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v8, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
-
-    const-string v9, "ENCODING=QUOTED-PRINTABLE"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    :cond_4
-    iget-object v8, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
-
-    const-string v9, ":"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    iget-object v8, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
-
-    invoke-virtual {v8, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-interface {v5}, Ljava/util/List;->iterator()Ljava/util/Iterator;
-
-    move-result-object v2
-
-    :goto_4
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v8
-
-    if-eqz v8, :cond_8
-
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v4
-
-    check-cast v4, Ljava/lang/String;
-
-    if-eqz v6, :cond_7
-
-    invoke-direct {p0, v4}, Lcom/android/vcard/VCardBuilder;->encodeQuotedPrintable(Ljava/lang/String;)Ljava/lang/String;
+    invoke-direct {p0, v3}, Lcom/android/vcard/VCardBuilder;->encodeQuotedPrintable(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -3972,31 +3988,12 @@
 
     goto :goto_4
 
-    :cond_5
-    move v3, v9
-
-    goto :goto_2
-
-    :cond_6
-    move v6, v9
-
-    goto :goto_3
-
-    :cond_7
-    invoke-direct {p0, v4}, Lcom/android/vcard/VCardBuilder;->escapeCharacters(Ljava/lang/String;)Ljava/lang/String;
+    :cond_8
+    invoke-direct {p0, v3}, Lcom/android/vcard/VCardBuilder;->escapeCharacters(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     goto :goto_5
-
-    :cond_8
-    iget-object v8, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
-
-    const-string v9, "\r\n"
-
-    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    goto/16 :goto_0
 .end method
 
 .method public appendEmailLine(ILjava/lang/String;Ljava/lang/String;Z)V
@@ -4008,13 +4005,9 @@
 
     new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v5, "Unknown Email type: "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
+    invoke-direct {v4, v5}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -4094,13 +4087,9 @@
     :cond_3
     new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v4, "X-"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v3, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -4119,13 +4108,9 @@
 
     new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v4, "X-CUSTOM(CHARSET=UTF-8,ENCODING=QUOTED-PRINTABLE,"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
+    invoke-direct {v3, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -4183,7 +4168,7 @@
 .end method
 
 .method public appendEmails(Ljava/util/List;)Lcom/android/vcard/VCardBuilder;
-    .locals 14
+    .locals 13
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -4195,13 +4180,13 @@
         }
     .end annotation
 
-    const/4 v10, 0x1
+    const/4 v9, 0x1
 
-    const/4 v11, 0x0
+    const/4 v10, 0x0
 
     const/4 v3, 0x0
 
-    if-eqz p1, :cond_5
+    if-eqz p1, :cond_1
 
     new-instance v0, Ljava/util/HashSet;
 
@@ -4209,17 +4194,34 @@
 
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v4
+    move-result-object v11
 
     :cond_0
     :goto_0
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v12
 
-    if-eqz v12, :cond_5
+    if-nez v12, :cond_3
 
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    :cond_1
+    if-nez v3, :cond_2
+
+    iget-boolean v11, p0, Lcom/android/vcard/VCardBuilder;->mIsDoCoMo:Z
+
+    if-eqz v11, :cond_2
+
+    const-string v11, ""
+
+    const-string v12, ""
+
+    invoke-virtual {p0, v9, v11, v12, v10}, Lcom/android/vcard/VCardBuilder;->appendEmailLine(ILjava/lang/String;Ljava/lang/String;Z)V
+
+    :cond_2
+    return-object p0
+
+    :cond_3
+    invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
@@ -4231,13 +4233,13 @@
 
     move-result-object v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_4
 
     invoke-virtual {v2}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v2
 
-    :cond_1
+    :cond_4
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v12
@@ -4248,36 +4250,36 @@
 
     invoke-virtual {v1, v12}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
 
-    move-result-object v9
+    move-result-object v8
 
-    if-eqz v9, :cond_2
+    if-eqz v8, :cond_5
 
-    invoke-virtual {v9}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v8}, Ljava/lang/Integer;->intValue()I
 
-    move-result v8
+    move-result v7
 
     :goto_1
     const-string v12, "data3"
 
     invoke-virtual {v1, v12}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v6
 
     const-string v12, "is_primary"
 
     invoke-virtual {v1, v12}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
 
-    move-result-object v6
+    move-result-object v5
 
-    if-eqz v6, :cond_4
+    if-eqz v5, :cond_7
 
-    invoke-virtual {v6}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
 
     move-result v12
 
-    if-lez v12, :cond_3
+    if-lez v12, :cond_6
 
-    move v5, v10
+    move v4, v9
 
     :goto_2
     const/4 v3, 0x1
@@ -4290,44 +4292,28 @@
 
     invoke-interface {v0, v2}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    invoke-virtual {p0, v8, v7, v2, v5}, Lcom/android/vcard/VCardBuilder;->appendEmailLine(ILjava/lang/String;Ljava/lang/String;Z)V
+    invoke-virtual {p0, v7, v6, v2, v4}, Lcom/android/vcard/VCardBuilder;->appendEmailLine(ILjava/lang/String;Ljava/lang/String;Z)V
 
     goto :goto_0
 
-    :cond_2
-    const/4 v8, 0x3
+    :cond_5
+    const/4 v7, 0x3
 
     goto :goto_1
 
-    :cond_3
-    move v5, v11
-
-    goto :goto_2
-
-    :cond_4
-    move v5, v11
-
-    goto :goto_2
-
-    :cond_5
-    if-nez v3, :cond_6
-
-    iget-boolean v12, p0, Lcom/android/vcard/VCardBuilder;->mIsDoCoMo:Z
-
-    if-eqz v12, :cond_6
-
-    const-string v12, ""
-
-    const-string v13, ""
-
-    invoke-virtual {p0, v10, v12, v13, v11}, Lcom/android/vcard/VCardBuilder;->appendEmailLine(ILjava/lang/String;Ljava/lang/String;Z)V
-
     :cond_6
-    return-object p0
+    move v4, v10
+
+    goto :goto_2
+
+    :cond_7
+    move v4, v10
+
+    goto :goto_2
 .end method
 
 .method public appendEvents(Ljava/util/List;)Lcom/android/vcard/VCardBuilder;
-    .locals 15
+    .locals 14
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -4339,29 +4325,73 @@
         }
     .end annotation
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_3
 
-    const/4 v9, 0x0
-
-    const/4 v12, 0x0
+    const/4 v8, 0x0
 
     const/4 v11, 0x0
 
     const/4 v10, 0x0
 
-    invoke-interface/range {p1 .. p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    const/4 v9, 0x0
 
-    move-result-object v4
+    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v12
 
     :cond_0
     :goto_0
-    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v13
 
-    if-eqz v13, :cond_1
+    if-nez v13, :cond_4
 
-    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    :goto_1
+    if-eqz v8, :cond_f
+
+    iget-boolean v12, p0, Lcom/android/vcard/VCardBuilder;->mIsCoreanMobilePhone:Z
+
+    if-eqz v12, :cond_2
+
+    invoke-virtual {v8}, Ljava/lang/String;->length()I
+
+    move-result v12
+
+    if-nez v12, :cond_1
+
+    const-string v12, "-"
+
+    invoke-virtual {v8, v12}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v12
+
+    if-eqz v12, :cond_2
+
+    :cond_1
+    const-string v12, "-"
+
+    const-string v13, ""
+
+    invoke-virtual {v8, v12, v13}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v8
+
+    :cond_2
+    const-string v12, "BDAY"
+
+    invoke-virtual {v8}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v13
+
+    invoke-virtual {p0, v12, v13}, Lcom/android/vcard/VCardBuilder;->appendLineWithCharsetAndQPDetection(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_3
+    :goto_2
+    return-object p0
+
+    :cond_4
+    invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v1
 
@@ -4381,7 +4411,7 @@
 
     move-result v2
 
-    :goto_1
+    :goto_3
     const/4 v13, 0x3
 
     if-ne v2, v13, :cond_d
@@ -4398,116 +4428,71 @@
 
     invoke-virtual {v1, v13}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
 
-    move-result-object v8
+    move-result-object v7
 
-    if-eqz v8, :cond_7
+    if-eqz v7, :cond_7
 
-    invoke-virtual {v8}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v7}, Ljava/lang/Integer;->intValue()I
 
     move-result v13
 
     if-lez v13, :cond_6
 
-    const/4 v7, 0x1
+    const/4 v6, 0x1
 
-    :goto_2
-    if-eqz v7, :cond_8
+    :goto_4
+    if-eqz v6, :cond_8
 
-    move-object v9, v0
+    move-object v8, v0
 
-    :cond_1
-    if-eqz v9, :cond_f
-
-    iget-boolean v13, p0, Lcom/android/vcard/VCardBuilder;->mIsCoreanMobilePhone:Z
-
-    const/4 v14, 0x1
-
-    if-ne v13, v14, :cond_3
-
-    invoke-virtual {v9}, Ljava/lang/String;->length()I
-
-    move-result v13
-
-    if-nez v13, :cond_2
-
-    const-string v13, "-"
-
-    invoke-virtual {v9, v13}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v13
-
-    const/4 v14, 0x1
-
-    if-ne v13, v14, :cond_3
-
-    :cond_2
-    const-string v13, "-"
-
-    const-string v14, ""
-
-    invoke-virtual {v9, v13, v14}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
-
-    move-result-object v9
-
-    :cond_3
-    const-string v13, "BDAY"
-
-    invoke-virtual {v9}, Ljava/lang/String;->trim()Ljava/lang/String;
-
-    move-result-object v14
-
-    invoke-virtual {p0, v13, v14}, Lcom/android/vcard/VCardBuilder;->appendLineWithCharsetAndQPDetection(Ljava/lang/String;Ljava/lang/String;)V
-
-    :cond_4
-    :goto_3
-    return-object p0
+    goto :goto_1
 
     :cond_5
     const/4 v2, 0x2
 
-    goto :goto_1
+    goto :goto_3
 
     :cond_6
-    const/4 v7, 0x0
+    const/4 v6, 0x0
 
-    goto :goto_2
+    goto :goto_4
 
     :cond_7
-    const/4 v7, 0x0
+    const/4 v6, 0x0
 
-    goto :goto_2
+    goto :goto_4
 
     :cond_8
     const-string v13, "is_primary"
 
     invoke-virtual {v1, v13}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
 
-    move-result-object v6
+    move-result-object v5
 
-    if-eqz v6, :cond_b
+    if-eqz v5, :cond_b
 
-    invoke-virtual {v6}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v5}, Ljava/lang/Integer;->intValue()I
 
     move-result v13
 
     if-lez v13, :cond_a
 
-    const/4 v5, 0x1
+    const/4 v4, 0x1
 
-    :goto_4
-    if-eqz v5, :cond_c
+    :goto_5
+    if-eqz v4, :cond_c
 
-    move-object v9, v0
+    move-object v8, v0
 
     :cond_9
-    :goto_5
+    :goto_6
     const-string v13, "data15"
 
     invoke-virtual {v1, v13}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v11
+    move-result-object v10
 
-    invoke-static {v11}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v10}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v13
 
@@ -4515,7 +4500,7 @@
 
     const-string v13, "1"
 
-    invoke-virtual {v13, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v13, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v13
 
@@ -4525,26 +4510,26 @@
 
     invoke-virtual {v1, v13}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v10
+    move-result-object v9
 
     goto/16 :goto_0
 
     :cond_a
-    const/4 v5, 0x0
-
-    goto :goto_4
-
-    :cond_b
-    const/4 v5, 0x0
-
-    goto :goto_4
-
-    :cond_c
-    if-nez v12, :cond_9
-
-    move-object v12, v0
+    const/4 v4, 0x0
 
     goto :goto_5
+
+    :cond_b
+    const/4 v4, 0x0
+
+    goto :goto_5
+
+    :cond_c
+    if-nez v11, :cond_9
+
+    move-object v11, v0
+
+    goto :goto_6
 
     :cond_d
     iget-boolean v13, p0, Lcom/android/vcard/VCardBuilder;->mUsesAndroidProperty:Z
@@ -4563,81 +4548,77 @@
     goto/16 :goto_0
 
     :cond_f
-    if-eqz v12, :cond_4
+    if-eqz v11, :cond_3
 
-    iget-boolean v13, p0, Lcom/android/vcard/VCardBuilder;->mIsCoreanMobilePhone:Z
+    iget-boolean v12, p0, Lcom/android/vcard/VCardBuilder;->mIsCoreanMobilePhone:Z
 
-    const/4 v14, 0x1
+    if-eqz v12, :cond_11
 
-    if-ne v13, v14, :cond_11
+    invoke-virtual {v11}, Ljava/lang/String;->length()I
 
-    invoke-virtual {v12}, Ljava/lang/String;->length()I
+    move-result v12
 
-    move-result v13
+    if-nez v12, :cond_10
 
-    if-nez v13, :cond_10
+    const-string v12, "-"
 
-    const-string v13, "-"
+    invoke-virtual {v11, v12}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
-    invoke-virtual {v12, v13}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-result v12
 
-    move-result v13
-
-    const/4 v14, 0x1
-
-    if-ne v13, v14, :cond_11
+    if-eqz v12, :cond_11
 
     :cond_10
-    const-string v13, "-"
+    const-string v12, "-"
 
-    const-string v14, ""
+    const-string v13, ""
 
-    invoke-virtual {v12, v13, v14}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    invoke-virtual {v11, v12, v13}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
 
-    move-result-object v12
+    move-result-object v11
 
     :cond_11
-    const-string v13, "BDAY"
+    const-string v12, "BDAY"
 
-    invoke-virtual {v12}, Ljava/lang/String;->trim()Ljava/lang/String;
+    invoke-virtual {v11}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    move-result-object v14
+    move-result-object v13
 
-    invoke-virtual {p0, v13, v14}, Lcom/android/vcard/VCardBuilder;->appendLineWithCharsetAndQPDetection(Ljava/lang/String;Ljava/lang/String;)V
-
-    invoke-static {v11}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v13
-
-    if-nez v13, :cond_4
-
-    const-string v13, "1"
-
-    invoke-virtual {v13, v11}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v13
-
-    if-eqz v13, :cond_4
-
-    const-string v13, "X-BDAY-SOLATYPE"
-
-    invoke-virtual {p0, v13, v11}, Lcom/android/vcard/VCardBuilder;->appendLine(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v12, v13}, Lcom/android/vcard/VCardBuilder;->appendLineWithCharsetAndQPDetection(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-static {v10}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v13
+    move-result v12
 
-    if-nez v13, :cond_4
+    if-nez v12, :cond_3
 
-    const-string v13, "X-BDAY-SOLADATE"
+    const-string v12, "1"
 
-    invoke-virtual {p0, v13, v10}, Lcom/android/vcard/VCardBuilder;->appendLine(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v12, v10}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    goto/16 :goto_3
+    move-result v12
+
+    if-eqz v12, :cond_3
+
+    const-string v12, "X-BDAY-SOLATYPE"
+
+    invoke-virtual {p0, v12, v10}, Lcom/android/vcard/VCardBuilder;->appendLine(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-static {v9}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v12
+
+    if-nez v12, :cond_3
+
+    const-string v12, "X-BDAY-SOLADATE"
+
+    invoke-virtual {p0, v12, v9}, Lcom/android/vcard/VCardBuilder;->appendLine(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto/16 :goto_2
 .end method
 
 .method public appendGroupName(Ljava/util/List;Landroid/content/ContentResolver;)V
-    .locals 13
+    .locals 12
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -4654,7 +4635,7 @@
 
     invoke-direct {v9}, Ljava/util/HashMap;-><init>()V
 
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_3
 
     sget-object v1, Landroid/provider/ContactsContract$Groups;->CONTENT_URI:Landroid/net/Uri;
 
@@ -4699,7 +4680,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     :cond_0
     const-string v0, "_id"
@@ -4738,81 +4719,20 @@
     :cond_1
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v10
+    move-result-object v0
 
     :cond_2
     :goto_1
-    invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_6
-
-    invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v6
-
-    check-cast v6, Landroid/content/ContentValues;
-
-    const-string v0, "data1"
-
-    invoke-virtual {v6, v0}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-virtual {v9, v0}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v8
-
-    check-cast v8, Ljava/lang/String;
-
-    if-eqz v8, :cond_2
-
-    const/4 v0, 0x1
-
-    new-array v0, v0, [Ljava/lang/String;
-
-    const/4 v1, 0x0
-
-    aput-object v8, v0, v1
-
-    invoke-static {v0}, Lcom/android/vcard/VCardUtils;->containsOnlyPrintableAscii([Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_4
-
-    const/4 v12, 0x1
-
-    :goto_2
-    iget-boolean v0, p0, Lcom/android/vcard/VCardBuilder;->mShouldUseQuotedPrintable:Z
-
-    if-eqz v0, :cond_5
-
-    const/4 v0, 0x1
-
-    new-array v0, v0, [Ljava/lang/String;
-
-    const/4 v1, 0x0
-
-    aput-object v8, v0, v1
-
-    invoke-static {v0}, Lcom/android/vcard/VCardUtils;->containsOnlyNonCrLfPrintableAscii([Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_5
-
-    const/4 v11, 0x1
-
-    :goto_3
-    const-string v0, "X-GN"
-
-    invoke-virtual {p0, v0, v8, v12, v11}, Lcom/android/vcard/VCardBuilder;->appendLine(Ljava/lang/String;Ljava/lang/String;ZZ)V
-
-    goto :goto_1
+    if-nez v1, :cond_5
 
     :cond_3
+    return-void
+
+    :cond_4
     :try_start_1
     const-string v0, "vCard"
 
@@ -4831,18 +4751,80 @@
 
     throw v0
 
-    :cond_4
-    const/4 v12, 0x0
+    :cond_5
+    invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v6
+
+    check-cast v6, Landroid/content/ContentValues;
+
+    const-string v1, "data1"
+
+    invoke-virtual {v6, v1}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v9, v1}, Ljava/util/HashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v8
+
+    check-cast v8, Ljava/lang/String;
+
+    if-eqz v8, :cond_2
+
+    const/4 v1, 0x1
+
+    new-array v1, v1, [Ljava/lang/String;
+
+    const/4 v2, 0x0
+
+    aput-object v8, v1, v2
+
+    invoke-static {v1}, Lcom/android/vcard/VCardUtils;->containsOnlyPrintableAscii([Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_6
+
+    const/4 v11, 0x0
+
+    :goto_2
+    iget-boolean v1, p0, Lcom/android/vcard/VCardBuilder;->mShouldUseQuotedPrintable:Z
+
+    if-eqz v1, :cond_7
+
+    const/4 v1, 0x1
+
+    new-array v1, v1, [Ljava/lang/String;
+
+    const/4 v2, 0x0
+
+    aput-object v8, v1, v2
+
+    invoke-static {v1}, Lcom/android/vcard/VCardUtils;->containsOnlyNonCrLfPrintableAscii([Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_7
+
+    const/4 v10, 0x1
+
+    :goto_3
+    const-string v1, "X-GN"
+
+    invoke-virtual {p0, v1, v8, v11, v10}, Lcom/android/vcard/VCardBuilder;->appendLine(Ljava/lang/String;Ljava/lang/String;ZZ)V
+
+    goto :goto_1
+
+    :cond_6
+    const/4 v11, 0x1
 
     goto :goto_2
 
-    :cond_5
-    const/4 v11, 0x0
+    :cond_7
+    const/4 v10, 0x0
 
     goto :goto_3
-
-    :cond_6
-    return-void
 .end method
 
 .method public appendIms(Ljava/util/List;)Lcom/android/vcard/VCardBuilder;
@@ -4858,317 +4840,306 @@
         }
     .end annotation
 
-    if-eqz p1, :cond_c
+    if-eqz p1, :cond_1
 
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v11
 
     :cond_0
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v11
+    move-result v10
 
-    if-eqz v11, :cond_c
+    if-nez v10, :cond_2
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    :cond_1
+    return-object p0
+
+    :cond_2
+    invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/content/ContentValues;
 
-    const-string v11, "data5"
+    const-string v10, "data5"
 
-    invoke-virtual {v0, v11}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
+    invoke-virtual {v0, v10}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
 
-    move-result-object v8
+    move-result-object v7
 
-    if-eqz v8, :cond_0
+    if-eqz v7, :cond_0
 
-    iget-boolean v11, p0, Lcom/android/vcard/VCardBuilder;->mIsDoCoMo:Z
+    iget-boolean v10, p0, Lcom/android/vcard/VCardBuilder;->mIsDoCoMo:Z
 
-    if-eqz v11, :cond_1
+    if-eqz v10, :cond_3
 
-    invoke-virtual {v8}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v7}, Ljava/lang/Integer;->intValue()I
 
-    move-result v11
+    move-result v10
 
     const/4 v12, -0x1
 
-    if-ne v11, v12, :cond_1
+    if-ne v10, v12, :cond_3
 
-    const-string v11, "vnd.android.cursor.item/im"
+    const-string v10, "vnd.android.cursor.item/im"
 
-    invoke-virtual {p0, v11, v0}, Lcom/android/vcard/VCardBuilder;->appendAndroidSpecificProperty(Ljava/lang/String;Landroid/content/ContentValues;)V
+    invoke-virtual {p0, v10, v0}, Lcom/android/vcard/VCardBuilder;->appendAndroidSpecificProperty(Ljava/lang/String;Landroid/content/ContentValues;)V
 
     goto :goto_0
 
-    :cond_1
-    const/4 v7, 0x0
+    :cond_3
+    const/4 v6, 0x0
 
-    invoke-virtual {v8}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v7}, Ljava/lang/Integer;->intValue()I
 
-    move-result v11
+    move-result v10
 
     const/4 v12, -0x1
 
-    if-ne v11, v12, :cond_7
+    if-ne v10, v12, :cond_9
 
-    const-string v11, "data6"
+    const-string v10, "data6"
 
-    invoke-virtual {v0, v11}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v10}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v6
 
-    if-eqz v7, :cond_2
+    if-eqz v6, :cond_4
 
-    invoke-virtual {v7}, Ljava/lang/String;->trim()Ljava/lang/String;
+    invoke-virtual {v6}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v6
 
-    :cond_2
-    const/4 v11, 0x1
+    :cond_4
+    const/4 v10, 0x1
 
-    new-array v11, v11, [Ljava/lang/String;
-
-    const/4 v12, 0x0
-
-    aput-object v7, v11, v12
-
-    invoke-static {v11}, Lcom/android/vcard/VCardUtils;->containsOnlyPrintableAscii([Ljava/lang/String;)Z
-
-    move-result v11
-
-    if-nez v11, :cond_6
-
-    iget-boolean v11, p0, Lcom/android/vcard/VCardBuilder;->mShouldUseQuotedPrintable:Z
-
-    if-eqz v11, :cond_6
-
-    const/4 v11, 0x1
-
-    new-array v11, v11, [Ljava/lang/String;
+    new-array v10, v10, [Ljava/lang/String;
 
     const/4 v12, 0x0
 
-    aput-object v7, v11, v12
+    aput-object v6, v10, v12
 
-    invoke-static {v11}, Lcom/android/vcard/VCardUtils;->containsOnlyNonCrLfPrintableAscii([Ljava/lang/String;)Z
+    invoke-static {v10}, Lcom/android/vcard/VCardUtils;->containsOnlyPrintableAscii([Ljava/lang/String;)Z
 
-    move-result v11
+    move-result v10
 
-    if-nez v11, :cond_6
+    if-nez v10, :cond_8
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    iget-boolean v10, p0, Lcom/android/vcard/VCardBuilder;->mShouldUseQuotedPrintable:Z
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    if-eqz v10, :cond_8
+
+    const/4 v10, 0x1
+
+    new-array v10, v10, [Ljava/lang/String;
+
+    const/4 v12, 0x0
+
+    aput-object v6, v10, v12
+
+    invoke-static {v10}, Lcom/android/vcard/VCardUtils;->containsOnlyNonCrLfPrintableAscii([Ljava/lang/String;)Z
+
+    move-result v10
+
+    if-nez v10, :cond_8
+
+    new-instance v10, Ljava/lang/StringBuilder;
 
     const-string v12, "X-CUSTOM(CHARSET=UTF-8,ENCODING=QUOTED-PRINTABLE,"
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v10, v12}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    move-result-object v11
-
-    invoke-direct {p0, v7}, Lcom/android/vcard/VCardBuilder;->encodeQuotedPrintable(Ljava/lang/String;)Ljava/lang/String;
+    invoke-direct {p0, v6}, Lcom/android/vcard/VCardBuilder;->encodeQuotedPrintable(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v12
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v10
 
     const-string v12, ")"
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    move-result-object v10
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v6
 
     :goto_1
-    if-eqz v7, :cond_0
+    if-eqz v6, :cond_0
 
-    const-string v11, "data1"
+    const-string v10, "data1"
 
-    invoke-virtual {v0, v11}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v10}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v1
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_5
 
     invoke-virtual {v1}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v1
 
-    :cond_3
+    :cond_5
     invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v11
+    move-result v10
 
-    if-nez v11, :cond_0
+    if-nez v10, :cond_0
 
-    const-string v11, "data2"
+    const-string v10, "data2"
 
-    invoke-virtual {v0, v11}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
+    invoke-virtual {v0, v10}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
 
-    move-result-object v9
+    move-result-object v8
 
-    if-eqz v9, :cond_8
+    if-eqz v8, :cond_a
 
-    invoke-virtual {v9}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v8}, Ljava/lang/Integer;->intValue()I
 
-    move-result v11
+    move-result v10
 
     :goto_2
-    packed-switch v11, :pswitch_data_0
+    packed-switch v10, :pswitch_data_0
 
-    const/4 v10, 0x0
+    const/4 v9, 0x0
 
     :goto_3
-    new-instance v6, Ljava/util/ArrayList;
+    new-instance v5, Ljava/util/ArrayList;
 
-    invoke-direct {v6}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {v5}, Ljava/util/ArrayList;-><init>()V
 
-    invoke-static {v10}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v9}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v11
+    move-result v10
 
-    if-nez v11, :cond_4
+    if-nez v10, :cond_6
 
-    invoke-interface {v6, v10}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {v5, v9}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    :cond_4
-    const-string v11, "is_primary"
+    :cond_6
+    const-string v10, "is_primary"
 
-    invoke-virtual {v0, v11}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
+    invoke-virtual {v0, v10}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    if-eqz v3, :cond_d
+
+    invoke-virtual {v3}, Ljava/lang/Integer;->intValue()I
+
+    move-result v10
+
+    if-lez v10, :cond_c
+
+    const/4 v2, 0x1
+
+    :goto_4
+    if-eqz v2, :cond_7
+
+    const-string v10, "PREF"
+
+    invoke-interface {v5, v10}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    :cond_7
+    invoke-virtual {p0, v6, v5, v1}, Lcom/android/vcard/VCardBuilder;->appendLineWithCharsetAndQPDetection(Ljava/lang/String;Ljava/util/List;Ljava/lang/String;)V
+
+    goto/16 :goto_0
+
+    :cond_8
+    new-instance v10, Ljava/lang/StringBuilder;
+
+    const-string v12, "X-CUSTOM(CHARSET=UTF-8,ENCODING=QUOTED-PRINTABLE,"
+
+    invoke-direct {v10, v12}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    invoke-virtual {v10, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    const-string v12, ")"
+
+    invoke-virtual {v10, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v6
+
+    goto :goto_1
+
+    :cond_9
+    invoke-virtual {v7}, Ljava/lang/Integer;->intValue()I
+
+    move-result v10
+
+    invoke-static {v10}, Lcom/android/vcard/VCardUtils;->getPropertyNameForIm(I)Ljava/lang/String;
+
+    move-result-object v6
+
+    goto :goto_1
+
+    :cond_a
+    const/4 v10, 0x3
+
+    goto :goto_2
+
+    :pswitch_0
+    const-string v9, "HOME"
+
+    goto :goto_3
+
+    :pswitch_1
+    const-string v9, "WORK"
+
+    goto :goto_3
+
+    :pswitch_2
+    const-string v10, "data3"
+
+    invoke-virtual {v0, v10}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v4
 
     if-eqz v4, :cond_b
 
-    invoke-virtual {v4}, Ljava/lang/Integer;->intValue()I
-
-    move-result v11
-
-    if-lez v11, :cond_a
-
-    const/4 v3, 0x1
-
-    :goto_4
-    if-eqz v3, :cond_5
-
-    const-string v11, "PREF"
-
-    invoke-interface {v6, v11}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    :cond_5
-    invoke-virtual {p0, v7, v6, v1}, Lcom/android/vcard/VCardBuilder;->appendLineWithCharsetAndQPDetection(Ljava/lang/String;Ljava/util/List;Ljava/lang/String;)V
-
-    goto/16 :goto_0
-
-    :cond_6
-    new-instance v11, Ljava/lang/StringBuilder;
-
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v12, "X-CUSTOM(CHARSET=UTF-8,ENCODING=QUOTED-PRINTABLE,"
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    const-string v12, ")"
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v7
-
-    goto :goto_1
-
-    :cond_7
-    invoke-virtual {v8}, Ljava/lang/Integer;->intValue()I
-
-    move-result v11
-
-    invoke-static {v11}, Lcom/android/vcard/VCardUtils;->getPropertyNameForIm(I)Ljava/lang/String;
-
-    move-result-object v7
-
-    goto :goto_1
-
-    :cond_8
-    const/4 v11, 0x3
-
-    goto :goto_2
-
-    :pswitch_0
-    const-string v10, "HOME"
-
-    goto :goto_3
-
-    :pswitch_1
-    const-string v10, "WORK"
-
-    goto :goto_3
-
-    :pswitch_2
-    const-string v11, "data3"
-
-    invoke-virtual {v0, v11}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v5
-
-    if-eqz v5, :cond_9
-
-    new-instance v11, Ljava/lang/StringBuilder;
-
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    new-instance v10, Ljava/lang/StringBuilder;
 
     const-string v12, "X-"
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v10, v12}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    move-result-object v11
-
-    invoke-virtual {v11, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v10, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v10
+
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v9
 
     :goto_5
     goto :goto_3
 
-    :cond_9
-    const/4 v10, 0x0
+    :cond_b
+    const/4 v9, 0x0
 
     goto :goto_5
 
-    :cond_a
-    const/4 v3, 0x0
-
-    goto :goto_4
-
-    :cond_b
-    const/4 v3, 0x0
-
-    goto :goto_4
-
     :cond_c
-    return-object p0
+    const/4 v2, 0x0
+
+    goto :goto_4
+
+    :cond_d
+    const/4 v2, 0x0
+
+    goto :goto_4
 
     nop
 
@@ -5399,90 +5370,99 @@
         }
     .end annotation
 
-    iget-object v4, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
+    iget-object v3, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     if-eqz p2, :cond_0
 
     invoke-interface {p2}, Ljava/util/List;->size()I
 
-    move-result v4
+    move-result v3
 
-    if-lez v4, :cond_0
+    if-lez v3, :cond_0
 
-    iget-object v4, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
+    iget-object v3, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
-    const-string v5, ";"
+    const-string v4, ";"
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     invoke-direct {p0, p2}, Lcom/android/vcard/VCardBuilder;->appendTypeParameters(Ljava/util/List;)V
 
     :cond_0
     if-eqz p4, :cond_1
 
-    iget-object v4, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
+    iget-object v3, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
-    const-string v5, ";"
+    const-string v4, ";"
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v4, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
+    iget-object v3, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
-    iget-object v5, p0, Lcom/android/vcard/VCardBuilder;->mVCardCharsetParameter:Ljava/lang/String;
+    iget-object v4, p0, Lcom/android/vcard/VCardBuilder;->mVCardCharsetParameter:Ljava/lang/String;
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_1
     if-eqz p5, :cond_2
 
-    iget-object v4, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
+    iget-object v3, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
-    const-string v5, ";"
+    const-string v4, ";"
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    iget-object v4, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
+    iget-object v3, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
-    const-string v5, "ENCODING=QUOTED-PRINTABLE"
+    const-string v4, "ENCODING=QUOTED-PRINTABLE"
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :cond_2
-    iget-object v4, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
+    iget-object v3, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
-    const-string v5, ":"
+    const-string v4, ":"
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     const/4 v1, 0x1
 
     invoke-interface {p3}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v3
 
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_5
+    if-nez v4, :cond_3
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    iget-object v3, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    const-string v4, "\r\n"
 
-    check-cast v3, Ljava/lang/String;
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    if-eqz p5, :cond_3
+    return-void
 
-    invoke-direct {p0, v3}, Lcom/android/vcard/VCardBuilder;->encodeQuotedPrintable(Ljava/lang/String;)Ljava/lang/String;
+    :cond_3
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    if-eqz p5, :cond_4
+
+    invoke-direct {p0, v2}, Lcom/android/vcard/VCardBuilder;->encodeQuotedPrintable(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     :goto_1
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_5
 
     const/4 v1, 0x0
 
@@ -5493,14 +5473,14 @@
 
     goto :goto_0
 
-    :cond_3
-    invoke-direct {p0, v3}, Lcom/android/vcard/VCardBuilder;->escapeCharacters(Ljava/lang/String;)Ljava/lang/String;
+    :cond_4
+    invoke-direct {p0, v2}, Lcom/android/vcard/VCardBuilder;->escapeCharacters(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
     goto :goto_1
 
-    :cond_4
+    :cond_5
     iget-object v4, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
     const-string v5, ";"
@@ -5508,15 +5488,6 @@
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     goto :goto_2
-
-    :cond_5
-    iget-object v4, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
-
-    const-string v5, "\r\n"
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    return-void
 .end method
 
 .method public appendLine(Ljava/lang/String;Ljava/util/List;ZZ)V
@@ -5594,19 +5565,19 @@
         }
     .end annotation
 
-    const/4 v0, 0x1
+    const/4 v1, 0x1
 
-    const/4 v1, 0x0
+    const/4 v0, 0x0
 
-    new-array v2, v0, [Ljava/lang/String;
+    new-array v2, v1, [Ljava/lang/String;
 
-    aput-object p3, v2, v1
+    aput-object p3, v2, v0
 
     invoke-static {v2}, Lcom/android/vcard/VCardUtils;->containsOnlyPrintableAscii([Ljava/lang/String;)Z
 
     move-result v2
 
-    if-nez v2, :cond_0
+    if-eqz v2, :cond_0
 
     move v4, v0
 
@@ -5615,9 +5586,9 @@
 
     if-eqz v2, :cond_1
 
-    new-array v2, v0, [Ljava/lang/String;
+    new-array v2, v1, [Ljava/lang/String;
 
-    aput-object p3, v2, v1
+    aput-object p3, v2, v0
 
     invoke-static {v2}, Lcom/android/vcard/VCardUtils;->containsOnlyNonCrLfPrintableAscii([Ljava/lang/String;)Z
 
@@ -5625,7 +5596,7 @@
 
     if-nez v2, :cond_1
 
-    move v5, v0
+    move v5, v1
 
     :goto_1
     move-object v0, p0
@@ -5646,7 +5617,7 @@
     goto :goto_0
 
     :cond_1
-    move v5, v1
+    move v5, v0
 
     goto :goto_1
 .end method
@@ -5735,20 +5706,24 @@
         }
     .end annotation
 
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_1
 
     invoke-interface/range {p1 .. p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v10
+    move-result-object v26
 
     :cond_0
-    invoke-interface {v10}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface/range {v26 .. v26}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v27
+    move-result v25
 
-    if-eqz v27, :cond_8
+    if-nez v25, :cond_2
 
-    invoke-interface {v10}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    :cond_1
+    return-void
+
+    :cond_2
+    invoke-interface/range {v26 .. v26}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v5
 
@@ -5756,122 +5731,126 @@
 
     if-eqz v5, :cond_0
 
-    new-instance v20, Ljava/util/LinkedHashMap;
+    new-instance v18, Ljava/util/LinkedHashMap;
 
-    invoke-direct/range {v20 .. v20}, Ljava/util/LinkedHashMap;-><init>()V
+    invoke-direct/range {v18 .. v18}, Ljava/util/LinkedHashMap;-><init>()V
 
-    const-string v27, "FRONT"
+    const-string v25, "FRONT"
 
-    const-string v28, "data14"
-
-    move-object/from16 v0, v28
-
-    invoke-virtual {v5, v0}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v28
-
-    move-object/from16 v0, v20
-
-    move-object/from16 v1, v27
-
-    move-object/from16 v2, v28
-
-    invoke-virtual {v0, v1, v2}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    const-string v27, "BACK"
-
-    const-string v28, "data12"
-
-    move-object/from16 v0, v28
-
-    invoke-virtual {v5, v0}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v28
-
-    move-object/from16 v0, v20
-
-    move-object/from16 v1, v27
-
-    move-object/from16 v2, v28
-
-    invoke-virtual {v0, v1, v2}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-
-    invoke-virtual/range {v20 .. v20}, Ljava/util/LinkedHashMap;->keySet()Ljava/util/Set;
-
-    move-result-object v27
-
-    invoke-interface/range {v27 .. v27}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
-
-    move-result-object v11
-
-    :cond_1
-    :goto_0
-    invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
-
-    move-result v27
-
-    if-eqz v27, :cond_0
-
-    invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
-
-    move-result-object v18
-
-    check-cast v18, Ljava/lang/String;
-
-    move-object/from16 v0, v20
-
-    move-object/from16 v1, v18
-
-    invoke-virtual {v0, v1}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
-
-    move-result-object v19
-
-    check-cast v19, Ljava/lang/String;
-
-    if-eqz v19, :cond_1
-
-    const/4 v6, 0x0
-
-    sget-object v27, Landroid/provider/ContactsContract;->AUTHORITY_URI:Landroid/net/Uri;
-
-    invoke-virtual/range {v27 .. v27}, Landroid/net/Uri;->buildUpon()Landroid/net/Uri$Builder;
-
-    move-result-object v27
-
-    const-string v28, "display_photo"
-
-    invoke-virtual/range {v27 .. v28}, Landroid/net/Uri$Builder;->appendEncodedPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
-
-    move-result-object v27
+    const-string v27, "data14"
 
     move-object/from16 v0, v27
 
-    move-object/from16 v1, v19
-
-    invoke-virtual {v0, v1}, Landroid/net/Uri$Builder;->appendEncodedPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
+    invoke-virtual {v5, v0}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v27
 
-    invoke-virtual/range {v27 .. v27}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
+    move-object/from16 v0, v18
 
-    move-result-object v23
+    move-object/from16 v1, v25
+
+    move-object/from16 v2, v27
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    const-string v25, "BACK"
+
+    const-string v27, "data12"
+
+    move-object/from16 v0, v27
+
+    invoke-virtual {v5, v0}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v27
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v25
+
+    move-object/from16 v2, v27
+
+    invoke-virtual {v0, v1, v2}, Ljava/util/LinkedHashMap;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    invoke-virtual/range {v18 .. v18}, Ljava/util/LinkedHashMap;->keySet()Ljava/util/Set;
+
+    move-result-object v25
+
+    invoke-interface/range {v25 .. v25}, Ljava/util/Set;->iterator()Ljava/util/Iterator;
+
+    move-result-object v27
+
+    :cond_3
+    :goto_0
+    invoke-interface/range {v27 .. v27}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v25
+
+    if-eqz v25, :cond_0
+
+    invoke-interface/range {v27 .. v27}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v16
+
+    check-cast v16, Ljava/lang/String;
+
+    move-object/from16 v0, v18
+
+    move-object/from16 v1, v16
+
+    invoke-virtual {v0, v1}, Ljava/util/LinkedHashMap;->get(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object v17
+
+    check-cast v17, Ljava/lang/String;
+
+    if-eqz v17, :cond_3
+
+    const/4 v6, 0x0
+
+    sget-object v25, Landroid/provider/ContactsContract;->AUTHORITY_URI:Landroid/net/Uri;
+
+    invoke-virtual/range {v25 .. v25}, Landroid/net/Uri;->buildUpon()Landroid/net/Uri$Builder;
+
+    move-result-object v25
+
+    const-string v28, "display_photo"
+
+    move-object/from16 v0, v25
+
+    move-object/from16 v1, v28
+
+    invoke-virtual {v0, v1}, Landroid/net/Uri$Builder;->appendEncodedPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
+
+    move-result-object v25
+
+    move-object/from16 v0, v25
+
+    move-object/from16 v1, v17
+
+    invoke-virtual {v0, v1}, Landroid/net/Uri$Builder;->appendEncodedPath(Ljava/lang/String;)Landroid/net/Uri$Builder;
+
+    move-result-object v25
+
+    invoke-virtual/range {v25 .. v25}, Landroid/net/Uri$Builder;->build()Landroid/net/Uri;
+
+    move-result-object v21
 
     :try_start_0
-    const-string v27, "r"
+    const-string v25, "r"
 
     move-object/from16 v0, p2
 
-    move-object/from16 v1, v23
+    move-object/from16 v1, v21
 
-    move-object/from16 v2, v27
+    move-object/from16 v2, v25
 
     invoke-virtual {v0, v1, v2}, Landroid/content/ContentResolver;->openAssetFileDescriptor(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/res/AssetFileDescriptor;
 
     move-result-object v7
 
-    const/16 v27, 0x4000
+    const/16 v25, 0x4000
 
-    move/from16 v0, v27
+    move/from16 v0, v25
 
     new-array v4, v0, [B
 
@@ -5889,119 +5868,88 @@
     :try_start_1
     invoke-virtual {v8, v4}, Ljava/io/FileInputStream;->read([B)I
 
-    move-result v24
+    move-result v22
 
-    const/16 v27, -0x1
+    const/16 v25, -0x1
 
-    move/from16 v0, v24
+    move/from16 v0, v22
 
-    move/from16 v1, v27
+    move/from16 v1, v25
 
-    if-eq v0, v1, :cond_2
+    if-ne v0, v1, :cond_5
 
-    const/16 v27, 0x0
-
-    move/from16 v0, v27
-
-    move/from16 v1, v24
-
-    invoke-virtual {v3, v4, v0, v1}, Ljava/io/ByteArrayOutputStream;->write([BII)V
+    invoke-virtual {v3}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
     :try_end_1
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
-    goto :goto_1
-
-    :catchall_0
-    move-exception v27
+    move-result-object v6
 
     :try_start_2
     invoke-virtual {v8}, Ljava/io/FileInputStream;->close()V
 
     invoke-virtual {v7}, Landroid/content/res/AssetFileDescriptor;->close()V
-
-    throw v27
     :try_end_2
     .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
 
-    :catch_0
-    move-exception v12
-
-    goto :goto_0
-
-    :cond_2
-    :try_start_3
-    invoke-virtual {v3}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
-
-    move-result-object v6
-
-    :try_start_4
-    invoke-virtual {v8}, Ljava/io/FileInputStream;->close()V
-
-    invoke-virtual {v7}, Landroid/content/res/AssetFileDescriptor;->close()V
-    :try_end_4
-    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_0
-
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_3
 
     invoke-static {v6}, Lcom/android/vcard/VCardUtils;->guessImageType([B)Ljava/lang/String;
 
-    move-result-object v22
+    move-result-object v20
 
-    new-instance v21, Ljava/lang/String;
+    new-instance v19, Ljava/lang/String;
 
-    const/16 v27, 0x2
+    const/16 v25, 0x2
 
-    move/from16 v0, v27
+    move/from16 v0, v25
 
     invoke-static {v6, v0}, Landroid/util/Base64;->encode([BI)[B
 
-    move-result-object v27
+    move-result-object v25
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v19
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v25
 
     invoke-direct {v0, v1}, Ljava/lang/String;-><init>([B)V
 
-    invoke-static/range {v21 .. v21}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static/range {v19 .. v19}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v27
+    move-result v25
 
-    if-nez v27, :cond_1
+    if-nez v25, :cond_3
 
-    new-instance v25, Ljava/lang/StringBuilder;
+    new-instance v23, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v27, "FRONT"
+    const-string v25, "FRONT"
 
-    move-object/from16 v0, v18
+    move-object/from16 v0, v16
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 
-    move-result v27
+    move-result v25
 
-    if-eqz v27, :cond_5
+    if-eqz v25, :cond_6
 
-    const-string v27, "X-NAMECARDPHOTO"
+    const-string v25, "X-NAMECARDPHOTO"
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v25
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_3
+    :cond_4
     :goto_2
-    const-string v27, ";"
+    const-string v25, ";"
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v25
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -6009,198 +5957,238 @@
 
     iget-boolean v0, v0, Lcom/android/vcard/VCardBuilder;->mIsV30OrV40:Z
 
-    move/from16 v27, v0
+    move/from16 v25, v0
 
-    if-eqz v27, :cond_6
+    if-eqz v25, :cond_7
 
-    const-string v27, "ENCODING=B"
+    const-string v25, "ENCODING=B"
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v25
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :goto_3
-    const-string v27, ";"
+    const-string v25, ";"
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v25
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v23
 
-    move-object/from16 v2, v22
+    move-object/from16 v2, v20
 
     invoke-direct {v0, v1, v2}, Lcom/android/vcard/VCardBuilder;->appendTypeParameter(Ljava/lang/StringBuilder;Ljava/lang/String;)V
 
-    const-string v27, ":"
+    const-string v25, ":"
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v27
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-object/from16 v0, v25
-
-    move-object/from16 v1, v21
+    move-object/from16 v1, v25
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-object/from16 v0, v23
 
-    move-result-object v26
+    move-object/from16 v1, v19
 
-    new-instance v25, Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v25 .. v25}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const/4 v14, 0x0
+    move-result-object v24
 
-    invoke-virtual/range {v26 .. v26}, Ljava/lang/String;->length()I
+    new-instance v23, Ljava/lang/StringBuilder;
 
-    move-result v13
+    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v27, "\r\n"
+    const/4 v12, 0x0
 
-    invoke-virtual/range {v27 .. v27}, Ljava/lang/String;->length()I
+    invoke-virtual/range {v24 .. v24}, Ljava/lang/String;->length()I
 
-    move-result v27
+    move-result v11
 
-    rsub-int/lit8 v16, v27, 0x4b
+    const-string v25, "\r\n"
 
-    const-string v27, " "
+    invoke-virtual/range {v25 .. v25}, Ljava/lang/String;->length()I
 
-    invoke-virtual/range {v27 .. v27}, Ljava/lang/String;->length()I
+    move-result v25
 
-    move-result v27
+    rsub-int/lit8 v14, v25, 0x4b
 
-    sub-int v17, v16, v27
+    const-string v25, " "
 
-    move/from16 v15, v16
+    invoke-virtual/range {v25 .. v25}, Ljava/lang/String;->length()I
+
+    move-result v25
+
+    sub-int v15, v14, v25
+
+    move v13, v14
 
     const/4 v9, 0x0
 
     :goto_4
-    if-ge v9, v13, :cond_7
+    if-lt v9, v11, :cond_8
 
-    move-object/from16 v0, v26
+    move-object/from16 v0, p0
 
-    invoke-virtual {v0, v9}, Ljava/lang/String;->charAt(I)C
+    iget-object v0, v0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
-    move-result v27
+    move-object/from16 v25, v0
 
-    move-object/from16 v0, v25
+    invoke-virtual/range {v23 .. v23}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move/from16 v1, v27
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    add-int/lit8 v14, v14, 0x1
-
-    if-le v14, v15, :cond_4
-
-    const-string v27, "\r\n"
+    move-result-object v28
 
     move-object/from16 v0, v25
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v28
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v27, " "
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
+
+    move-object/from16 v25, v0
+
+    const-string v28, "\r\n"
 
     move-object/from16 v0, v25
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v28
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move/from16 v15, v17
+    move-object/from16 v0, p0
 
-    const/4 v14, 0x0
+    iget-object v0, v0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
-    :cond_4
-    add-int/lit8 v9, v9, 0x1
+    move-object/from16 v25, v0
 
-    goto :goto_4
+    const-string v28, "\r\n"
+
+    move-object/from16 v0, v25
+
+    move-object/from16 v1, v28
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto/16 :goto_0
 
     :cond_5
-    const-string v27, "BACK"
+    const/16 v25, 0x0
 
-    move-object/from16 v0, v18
+    :try_start_3
+    move/from16 v0, v25
 
-    move-object/from16 v1, v27
+    move/from16 v1, v22
+
+    invoke-virtual {v3, v4, v0, v1}, Ljava/io/ByteArrayOutputStream;->write([BII)V
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_0
+
+    goto/16 :goto_1
+
+    :catchall_0
+    move-exception v25
+
+    :try_start_4
+    invoke-virtual {v8}, Ljava/io/FileInputStream;->close()V
+
+    invoke-virtual {v7}, Landroid/content/res/AssetFileDescriptor;->close()V
+
+    throw v25
+    :try_end_4
+    .catch Ljava/io/IOException; {:try_start_4 .. :try_end_4} :catch_0
+
+    :catch_0
+    move-exception v10
+
+    goto/16 :goto_0
+
+    :cond_6
+    const-string v25, "BACK"
+
+    move-object/from16 v0, v16
+
+    move-object/from16 v1, v25
 
     invoke-static {v0, v1}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 
-    move-result v27
+    move-result v25
 
-    if-eqz v27, :cond_3
+    if-eqz v25, :cond_4
 
-    const-string v27, "X-NAMECARDPHOTO-REVERSE"
+    const-string v25, "X-NAMECARDPHOTO-REVERSE"
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v25
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     goto/16 :goto_2
 
-    :cond_6
-    const-string v27, "ENCODING=BASE64"
+    :cond_7
+    const-string v25, "ENCODING=BASE64"
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v23
 
-    move-object/from16 v1, v27
+    move-object/from16 v1, v25
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     goto/16 :goto_3
 
-    :cond_7
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
-
-    move-object/from16 v27, v0
-
-    invoke-virtual/range {v25 .. v25}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v28
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
-
-    move-object/from16 v27, v0
-
-    const-string v28, "\r\n"
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
-
-    move-object/from16 v27, v0
-
-    const-string v28, "\r\n"
-
-    invoke-virtual/range {v27 .. v28}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    goto/16 :goto_0
-
     :cond_8
-    return-void
+    move-object/from16 v0, v24
+
+    invoke-virtual {v0, v9}, Ljava/lang/String;->charAt(I)C
+
+    move-result v25
+
+    move-object/from16 v0, v23
+
+    move/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    add-int/lit8 v12, v12, 0x1
+
+    if-le v12, v13, :cond_9
+
+    const-string v25, "\r\n"
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v25, " "
+
+    move-object/from16 v0, v23
+
+    move-object/from16 v1, v25
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move v13, v15
+
+    const/4 v12, 0x0
+
+    :cond_9
+    add-int/lit8 v9, v9, 0x1
+
+    goto/16 :goto_4
 .end method
 
 .method public appendNameProperties(Ljava/util/List;)Lcom/android/vcard/VCardBuilder;
@@ -7009,33 +6997,46 @@
         }
     .end annotation
 
-    iget-boolean v4, p0, Lcom/android/vcard/VCardBuilder;->mIsV30OrV40:Z
+    iget-boolean v3, p0, Lcom/android/vcard/VCardBuilder;->mIsV30OrV40:Z
 
-    if-nez v4, :cond_0
+    if-nez v3, :cond_0
 
-    iget-boolean v4, p0, Lcom/android/vcard/VCardBuilder;->mIsDoCoMo:Z
+    iget-boolean v3, p0, Lcom/android/vcard/VCardBuilder;->mIsDoCoMo:Z
 
-    if-eqz v4, :cond_2
+    if-eqz v3, :cond_3
 
     :cond_0
-    const/4 v3, 0x0
+    const/4 v2, 0x0
 
     :goto_0
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_2
 
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object v3
 
     :cond_1
     :goto_1
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v4
 
-    if-eqz v4, :cond_4
+    if-nez v4, :cond_4
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    :cond_2
+    return-object p0
+
+    :cond_3
+    iget-boolean v3, p0, Lcom/android/vcard/VCardBuilder;->mUsesAndroidProperty:Z
+
+    if-eqz v3, :cond_2
+
+    const/4 v2, 0x1
+
+    goto :goto_0
+
+    :cond_4
+    invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -7045,15 +7046,15 @@
 
     invoke-virtual {v0, v4}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v4
 
     if-nez v4, :cond_1
 
-    if-eqz v3, :cond_3
+    if-eqz v2, :cond_5
 
     const-string v4, "vnd.android.cursor.item/nickname"
 
@@ -7061,24 +7062,12 @@
 
     goto :goto_1
 
-    :cond_2
-    iget-boolean v4, p0, Lcom/android/vcard/VCardBuilder;->mUsesAndroidProperty:Z
-
-    if-eqz v4, :cond_4
-
-    const/4 v3, 0x1
-
-    goto :goto_0
-
-    :cond_3
+    :cond_5
     const-string v4, "NICKNAME"
 
-    invoke-virtual {p0, v4, v2}, Lcom/android/vcard/VCardBuilder;->appendLineWithCharsetAndQPDetection(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v4, v1}, Lcom/android/vcard/VCardBuilder;->appendLineWithCharsetAndQPDetection(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_1
-
-    :cond_4
-    return-object p0
 .end method
 
 .method public appendNotes(Ljava/util/List;)Lcom/android/vcard/VCardBuilder;
@@ -7096,33 +7085,75 @@
 
     const/4 v8, 0x1
 
-    const/4 v9, 0x0
+    const/4 v7, 0x0
 
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_1
 
-    iget-boolean v10, p0, Lcom/android/vcard/VCardBuilder;->mOnlyOneNoteFieldIsAvailable:Z
+    iget-boolean v9, p0, Lcom/android/vcard/VCardBuilder;->mOnlyOneNoteFieldIsAvailable:Z
 
-    if-eqz v10, :cond_7
+    if-eqz v9, :cond_7
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
     const/4 v1, 0x1
 
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v9
 
     :cond_0
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v10
 
-    if-eqz v10, :cond_3
+    if-nez v10, :cond_2
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    new-array v9, v8, [Ljava/lang/String;
+
+    aput-object v4, v9, v7
+
+    invoke-static {v9}, Lcom/android/vcard/VCardUtils;->containsOnlyPrintableAscii([Ljava/lang/String;)Z
+
+    move-result v9
+
+    if-eqz v9, :cond_5
+
+    move v6, v7
+
+    :goto_1
+    iget-boolean v9, p0, Lcom/android/vcard/VCardBuilder;->mShouldUseQuotedPrintable:Z
+
+    if-eqz v9, :cond_6
+
+    new-array v9, v8, [Ljava/lang/String;
+
+    aput-object v4, v9, v7
+
+    invoke-static {v9}, Lcom/android/vcard/VCardUtils;->containsOnlyNonCrLfPrintableAscii([Ljava/lang/String;)Z
+
+    move-result v9
+
+    if-nez v9, :cond_6
+
+    move v5, v8
+
+    :goto_2
+    const-string v7, "NOTE"
+
+    invoke-virtual {p0, v7, v4, v6, v5}, Lcom/android/vcard/VCardBuilder;->appendLine(Ljava/lang/String;Ljava/lang/String;ZZ)V
+
+    :cond_1
+    return-object p0
+
+    :cond_2
+    invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -7132,101 +7163,59 @@
 
     invoke-virtual {v0, v10}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    if-nez v3, :cond_1
+    if-nez v2, :cond_3
 
-    const-string v3, ""
+    const-string v2, ""
 
-    :cond_1
-    invoke-virtual {v3}, Ljava/lang/String;->length()I
+    :cond_3
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
 
     move-result v10
 
     if-lez v10, :cond_0
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_4
 
     const/4 v1, 0x0
 
-    :goto_1
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    :goto_3
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     goto :goto_0
 
-    :cond_2
+    :cond_4
     const/16 v10, 0xa
 
-    invoke-virtual {v4, v10}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+    invoke-virtual {v3, v10}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    goto :goto_3
+
+    :cond_5
+    move v6, v8
 
     goto :goto_1
 
-    :cond_3
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    new-array v10, v8, [Ljava/lang/String;
-
-    aput-object v5, v10, v9
-
-    invoke-static {v10}, Lcom/android/vcard/VCardUtils;->containsOnlyPrintableAscii([Ljava/lang/String;)Z
-
-    move-result v10
-
-    if-nez v10, :cond_5
-
-    move v7, v8
-
-    :goto_2
-    iget-boolean v10, p0, Lcom/android/vcard/VCardBuilder;->mShouldUseQuotedPrintable:Z
-
-    if-eqz v10, :cond_6
-
-    new-array v10, v8, [Ljava/lang/String;
-
-    aput-object v5, v10, v9
-
-    invoke-static {v10}, Lcom/android/vcard/VCardUtils;->containsOnlyNonCrLfPrintableAscii([Ljava/lang/String;)Z
-
-    move-result v10
-
-    if-nez v10, :cond_6
-
-    move v6, v8
-
-    :goto_3
-    const-string v8, "NOTE"
-
-    invoke-virtual {p0, v8, v5, v7, v6}, Lcom/android/vcard/VCardBuilder;->appendLine(Ljava/lang/String;Ljava/lang/String;ZZ)V
-
-    :cond_4
-    return-object p0
-
-    :cond_5
-    move v7, v9
+    :cond_6
+    move v5, v7
 
     goto :goto_2
-
-    :cond_6
-    move v6, v9
-
-    goto :goto_3
 
     :cond_7
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v9
 
     :cond_8
     :goto_4
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v9}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v10
 
-    if-eqz v10, :cond_4
+    if-eqz v10, :cond_1
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v9}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -7236,9 +7225,9 @@
 
     invoke-virtual {v0, v10}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    invoke-static {v5}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v10
 
@@ -7246,15 +7235,15 @@
 
     new-array v10, v8, [Ljava/lang/String;
 
-    aput-object v5, v10, v9
+    aput-object v4, v10, v7
 
     invoke-static {v10}, Lcom/android/vcard/VCardUtils;->containsOnlyPrintableAscii([Ljava/lang/String;)Z
 
     move-result v10
 
-    if-nez v10, :cond_9
+    if-eqz v10, :cond_9
 
-    move v7, v8
+    move v6, v7
 
     :goto_5
     iget-boolean v10, p0, Lcom/android/vcard/VCardBuilder;->mShouldUseQuotedPrintable:Z
@@ -7263,7 +7252,7 @@
 
     new-array v10, v8, [Ljava/lang/String;
 
-    aput-object v5, v10, v9
+    aput-object v4, v10, v7
 
     invoke-static {v10}, Lcom/android/vcard/VCardUtils;->containsOnlyNonCrLfPrintableAscii([Ljava/lang/String;)Z
 
@@ -7271,22 +7260,22 @@
 
     if-nez v10, :cond_a
 
-    move v6, v8
+    move v5, v8
 
     :goto_6
     const-string v10, "NOTE"
 
-    invoke-virtual {p0, v10, v5, v7, v6}, Lcom/android/vcard/VCardBuilder;->appendLine(Ljava/lang/String;Ljava/lang/String;ZZ)V
+    invoke-virtual {p0, v10, v4, v6, v5}, Lcom/android/vcard/VCardBuilder;->appendLine(Ljava/lang/String;Ljava/lang/String;ZZ)V
 
     goto :goto_4
 
     :cond_9
-    move v7, v9
+    move v6, v8
 
     goto :goto_5
 
     :cond_a
-    move v6, v9
+    move v5, v7
 
     goto :goto_6
 .end method
@@ -7304,97 +7293,63 @@
         }
     .end annotation
 
-    if-eqz p1, :cond_1d
+    if-eqz p1, :cond_1
 
     invoke-interface/range {p1 .. p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v16
+    move-result-object v34
 
     :cond_0
     :goto_0
-    invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface/range {v34 .. v34}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v33
+    move-result v32
 
-    if-eqz v33, :cond_1d
+    if-nez v32, :cond_2
 
-    invoke-interface/range {v16 .. v16}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    :cond_1
+    return-object p0
+
+    :cond_2
+    invoke-interface/range {v34 .. v34}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v7
 
     check-cast v7, Landroid/content/ContentValues;
 
-    const-string v33, "data1"
+    const-string v32, "data1"
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, v32
 
     invoke-virtual {v7, v0}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v6
 
-    if-eqz v6, :cond_1
+    if-eqz v6, :cond_3
 
     invoke-virtual {v6}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v6
 
-    :cond_1
-    const-string v33, "data5"
+    :cond_3
+    const-string v32, "data5"
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, v32
 
     invoke-virtual {v7, v0}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v8
 
-    if-eqz v8, :cond_2
+    if-eqz v8, :cond_4
 
     invoke-virtual {v8}, Ljava/lang/String;->trim()Ljava/lang/String;
 
     move-result-object v8
 
-    :cond_2
-    const-string v33, "data4"
-
-    move-object/from16 v0, v33
-
-    invoke-virtual {v7, v0}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v30
-
-    if-eqz v30, :cond_3
-
-    invoke-virtual/range {v30 .. v30}, Ljava/lang/String;->trim()Ljava/lang/String;
-
-    move-result-object v30
-
-    :cond_3
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Lcom/android/vcard/VCardBuilder;->mIsDoCoMo:Z
-
-    move/from16 v33, v0
-
-    if-eqz v33, :cond_15
-
-    const-string v33, "data6"
-
-    move-object/from16 v0, v33
-
-    invoke-virtual {v7, v0}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v19
-
-    if-eqz v19, :cond_4
-
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/String;->trim()Ljava/lang/String;
-
-    move-result-object v19
-
     :cond_4
-    const-string v33, "data7"
+    const-string v32, "data4"
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, v32
 
     invoke-virtual {v7, v0}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
@@ -7407,188 +7362,226 @@
     move-result-object v29
 
     :cond_5
-    const-string v33, "data8"
+    move-object/from16 v0, p0
 
-    move-object/from16 v0, v33
+    iget-boolean v0, v0, Lcom/android/vcard/VCardBuilder;->mIsDoCoMo:Z
+
+    move/from16 v32, v0
+
+    if-eqz v32, :cond_17
+
+    const-string v32, "data6"
+
+    move-object/from16 v0, v32
 
     invoke-virtual {v7, v0}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v26
+    move-result-object v18
 
-    if-eqz v26, :cond_6
+    if-eqz v18, :cond_6
 
-    invoke-virtual/range {v26 .. v26}, Ljava/lang/String;->trim()Ljava/lang/String;
+    invoke-virtual/range {v18 .. v18}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    move-result-object v26
+    move-result-object v18
 
     :cond_6
-    const-string v33, "data9"
+    const-string v32, "data7"
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, v32
 
     invoke-virtual {v7, v0}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v28
 
-    if-eqz v21, :cond_7
+    if-eqz v28, :cond_7
 
-    invoke-virtual/range {v21 .. v21}, Ljava/lang/String;->trim()Ljava/lang/String;
+    invoke-virtual/range {v28 .. v28}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    move-result-object v21
+    move-result-object v28
 
     :cond_7
-    const/16 v33, 0x6
+    const-string v32, "data8"
 
-    move/from16 v0, v33
+    move-object/from16 v0, v32
 
-    new-array v0, v0, [Ljava/lang/String;
+    invoke-virtual {v7, v0}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-object/from16 v27, v0
+    move-result-object v25
 
-    const/16 v33, 0x0
+    if-eqz v25, :cond_8
 
-    aput-object v6, v27, v33
+    invoke-virtual/range {v25 .. v25}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    const/16 v33, 0x1
+    move-result-object v25
 
-    aput-object v8, v27, v33
+    :cond_8
+    const-string v32, "data9"
 
-    const/16 v33, 0x2
-
-    aput-object v19, v27, v33
-
-    const/16 v33, 0x3
-
-    aput-object v29, v27, v33
-
-    const/16 v33, 0x4
-
-    aput-object v26, v27, v33
-
-    const/16 v33, 0x5
-
-    aput-object v21, v27, v33
-
-    const-string v33, "data2"
-
-    move-object/from16 v0, v33
-
-    invoke-virtual {v7, v0}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
-
-    move-result-object v32
-
-    const-string v33, "data3"
-
-    move-object/from16 v0, v33
+    move-object/from16 v0, v32
 
     invoke-virtual {v7, v0}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v20
 
-    const-string v33, "is_primary"
+    if-eqz v20, :cond_9
 
-    move-object/from16 v0, v33
+    invoke-virtual/range {v20 .. v20}, Ljava/lang/String;->trim()Ljava/lang/String;
+
+    move-result-object v20
+
+    :cond_9
+    const/16 v32, 0x6
+
+    move/from16 v0, v32
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    move-object/from16 v26, v0
+
+    const/16 v32, 0x0
+
+    aput-object v6, v26, v32
+
+    const/16 v32, 0x1
+
+    aput-object v8, v26, v32
+
+    const/16 v32, 0x2
+
+    aput-object v18, v26, v32
+
+    const/16 v32, 0x3
+
+    aput-object v28, v26, v32
+
+    const/16 v32, 0x4
+
+    aput-object v25, v26, v32
+
+    const/16 v32, 0x5
+
+    aput-object v20, v26, v32
+
+    const-string v32, "data2"
+
+    move-object/from16 v0, v32
 
     invoke-virtual {v7, v0}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
 
-    move-result-object v18
+    move-result-object v31
 
-    if-eqz v18, :cond_e
+    const-string v32, "data3"
 
-    invoke-virtual/range {v18 .. v18}, Ljava/lang/Integer;->intValue()I
+    move-object/from16 v0, v32
 
-    move-result v33
+    invoke-virtual {v7, v0}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
-    if-lez v33, :cond_d
+    move-result-object v19
 
-    const/16 v17, 0x1
+    const-string v32, "is_primary"
+
+    move-object/from16 v0, v32
+
+    invoke-virtual {v7, v0}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
+
+    move-result-object v17
+
+    if-eqz v17, :cond_10
+
+    invoke-virtual/range {v17 .. v17}, Ljava/lang/Integer;->intValue()I
+
+    move-result v32
+
+    if-lez v32, :cond_f
+
+    const/16 v16, 0x1
 
     :goto_1
-    if-eqz v32, :cond_f
+    if-eqz v31, :cond_11
 
-    invoke-virtual/range {v32 .. v32}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual/range {v31 .. v31}, Ljava/lang/Integer;->intValue()I
 
-    move-result v31
+    move-result v30
 
     :goto_2
-    new-instance v25, Ljava/util/ArrayList;
+    new-instance v24, Ljava/util/ArrayList;
 
-    invoke-direct/range {v25 .. v25}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct/range {v24 .. v24}, Ljava/util/ArrayList;-><init>()V
 
-    if-eqz v17, :cond_8
+    if-eqz v16, :cond_a
 
-    const-string v33, "PREF"
+    const-string v32, "PREF"
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v24
 
-    move-object/from16 v1, v33
+    move-object/from16 v1, v32
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    :cond_8
-    packed-switch v31, :pswitch_data_0
+    :cond_a
+    packed-switch v30, :pswitch_data_0
 
-    const-string v33, "vCard"
+    const-string v32, "vCard"
 
-    new-instance v34, Ljava/lang/StringBuilder;
-
-    invoke-direct/range {v34 .. v34}, Ljava/lang/StringBuilder;-><init>()V
+    new-instance v33, Ljava/lang/StringBuilder;
 
     const-string v35, "Unknown Organizationl type: "
 
-    invoke-virtual/range {v34 .. v35}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object/from16 v0, v33
 
-    move-result-object v34
+    move-object/from16 v1, v35
 
-    move-object/from16 v0, v34
+    invoke-direct {v0, v1}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    move/from16 v1, v31
+    move-object/from16 v0, v33
+
+    move/from16 v1, v30
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v34
+    move-result-object v33
 
-    invoke-virtual/range {v34 .. v34}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v34
+    move-result-object v33
 
-    invoke-static/range {v33 .. v34}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static/range {v32 .. v33}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
-    :cond_9
+    :cond_b
     :goto_3
-    invoke-static/range {v27 .. v27}, Lcom/android/vcard/VCardUtils;->areAllEmpty([Ljava/lang/String;)Z
+    invoke-static/range {v26 .. v26}, Lcom/android/vcard/VCardUtils;->areAllEmpty([Ljava/lang/String;)Z
 
-    move-result v33
+    move-result v32
 
-    if-nez v33, :cond_14
+    if-nez v32, :cond_16
 
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/vcard/VCardBuilder;->mShouldUseQuotedPrintable:Z
 
-    move/from16 v33, v0
+    move/from16 v32, v0
 
-    if-eqz v33, :cond_11
+    if-eqz v32, :cond_13
 
-    invoke-static/range {v27 .. v27}, Lcom/android/vcard/VCardUtils;->containsOnlyNonCrLfPrintableAscii([Ljava/lang/String;)Z
+    invoke-static/range {v26 .. v26}, Lcom/android/vcard/VCardUtils;->containsOnlyNonCrLfPrintableAscii([Ljava/lang/String;)Z
 
-    move-result v33
+    move-result v32
 
-    if-nez v33, :cond_11
+    if-nez v32, :cond_13
 
-    const/16 v28, 0x1
+    const/16 v27, 0x1
 
     :goto_4
-    invoke-static/range {v27 .. v27}, Lcom/android/vcard/VCardUtils;->containsOnlyPrintableAscii([Ljava/lang/String;)Z
+    invoke-static/range {v26 .. v26}, Lcom/android/vcard/VCardUtils;->containsOnlyPrintableAscii([Ljava/lang/String;)Z
 
-    move-result v33
+    move-result v32
 
-    if-nez v33, :cond_12
+    if-eqz v32, :cond_14
 
-    const/4 v5, 0x1
+    const/4 v5, 0x0
 
     :goto_5
-    if-eqz v28, :cond_13
+    if-eqz v27, :cond_15
 
     move-object/from16 v0, p0
 
@@ -7604,7 +7597,7 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v30
+    move-object/from16 v1, v29
 
     invoke-direct {v0, v1}, Lcom/android/vcard/VCardBuilder;->encodeQuotedPrintable(Ljava/lang/String;)Ljava/lang/String;
 
@@ -7612,7 +7605,7 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v18
 
     invoke-direct {v0, v1}, Lcom/android/vcard/VCardBuilder;->encodeQuotedPrintable(Ljava/lang/String;)Ljava/lang/String;
 
@@ -7620,7 +7613,7 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v28
 
     invoke-direct {v0, v1}, Lcom/android/vcard/VCardBuilder;->encodeQuotedPrintable(Ljava/lang/String;)Ljava/lang/String;
 
@@ -7628,7 +7621,7 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v26
+    move-object/from16 v1, v25
 
     invoke-direct {v0, v1}, Lcom/android/vcard/VCardBuilder;->encodeQuotedPrintable(Ljava/lang/String;)Ljava/lang/String;
 
@@ -7636,86 +7629,86 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v20
 
     invoke-direct {v0, v1}, Lcom/android/vcard/VCardBuilder;->encodeQuotedPrintable(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v12
 
     :goto_6
-    new-instance v23, Ljava/lang/StringBuilder;
+    new-instance v22, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v23 .. v23}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v33, ";"
+    const-string v32, ";"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
-    move-object/from16 v1, v33
+    move-object/from16 v1, v32
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v10}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v33, ";"
+    const-string v32, ";"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
-    move-object/from16 v1, v33
-
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v33, ";"
-
-    move-object/from16 v0, v23
-
-    move-object/from16 v1, v33
+    move-object/from16 v1, v32
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, v23
+    const-string v32, ";"
+
+    move-object/from16 v0, v22
+
+    move-object/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v33, ";"
+    const-string v32, ";"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
-    move-object/from16 v1, v33
+    move-object/from16 v1, v32
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v14}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v33, ";"
+    const-string v32, ";"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
-    move-object/from16 v1, v33
+    move-object/from16 v1, v32
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v13}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v33, ";"
+    const-string v32, ";"
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
-    move-object/from16 v1, v33
+    move-object/from16 v1, v32
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-object/from16 v0, v23
+    move-object/from16 v0, v22
 
     invoke-virtual {v0, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -7723,104 +7716,104 @@
 
     iget-object v0, v0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
-    move-object/from16 v33, v0
+    move-object/from16 v32, v0
 
-    const-string v34, "ORG"
+    const-string v33, "ORG"
 
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-interface/range {v25 .. v25}, Ljava/util/List;->isEmpty()Z
+    invoke-interface/range {v24 .. v24}, Ljava/util/List;->isEmpty()Z
 
-    move-result v33
+    move-result v32
 
-    if-nez v33, :cond_a
+    if-nez v32, :cond_c
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
-    move-object/from16 v33, v0
+    move-object/from16 v32, v0
 
-    const-string v34, ";"
+    const-string v33, ";"
 
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v25
+    move-object/from16 v1, v24
 
     invoke-direct {v0, v1}, Lcom/android/vcard/VCardBuilder;->appendTypeParameters(Ljava/util/List;)V
 
-    :cond_a
-    if-eqz v5, :cond_b
+    :cond_c
+    if-eqz v5, :cond_d
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
-    move-object/from16 v33, v0
+    move-object/from16 v32, v0
 
-    const-string v34, ";"
+    const-string v33, ";"
 
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
-    move-object/from16 v33, v0
+    move-object/from16 v32, v0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/vcard/VCardBuilder;->mVCardCharsetParameter:Ljava/lang/String;
 
-    move-object/from16 v34, v0
+    move-object/from16 v33, v0
 
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_b
-    if-eqz v28, :cond_c
+    :cond_d
+    if-eqz v27, :cond_e
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
-    move-object/from16 v33, v0
+    move-object/from16 v32, v0
 
-    const-string v34, ";"
+    const-string v33, ";"
 
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
-
-    move-object/from16 v33, v0
-
-    const-string v34, "ENCODING=QUOTED-PRINTABLE"
-
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    :cond_c
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
-
-    move-object/from16 v33, v0
-
-    const-string v34, ":"
-
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
-    move-object/from16 v33, v0
+    move-object/from16 v32, v0
 
-    move-object/from16 v0, v33
+    const-string v33, "ENCODING=QUOTED-PRINTABLE"
 
-    move-object/from16 v1, v23
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    :cond_e
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
+
+    move-object/from16 v32, v0
+
+    const-string v33, ":"
+
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
+
+    move-object/from16 v32, v0
+
+    move-object/from16 v0, v32
+
+    move-object/from16 v1, v22
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
 
@@ -7829,125 +7822,49 @@
 
     iget-object v0, v0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
-    move-object/from16 v33, v0
+    move-object/from16 v32, v0
 
-    const-string v34, "\r\n"
+    const-string v33, "\r\n"
 
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     :goto_8
-    invoke-static/range {v30 .. v30}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static/range {v29 .. v29}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v33
+    move-result v32
 
-    if-nez v33, :cond_0
+    if-nez v32, :cond_0
 
     const-string v35, "TITLE"
 
-    const/16 v33, 0x1
+    const/16 v32, 0x1
 
-    move/from16 v0, v33
+    move/from16 v0, v32
 
     new-array v0, v0, [Ljava/lang/String;
 
-    move-object/from16 v33, v0
+    move-object/from16 v32, v0
 
-    const/16 v34, 0x0
+    const/16 v33, 0x0
 
-    aput-object v30, v33, v34
+    aput-object v29, v32, v33
 
-    invoke-static/range {v33 .. v33}, Lcom/android/vcard/VCardUtils;->containsOnlyPrintableAscii([Ljava/lang/String;)Z
+    invoke-static/range {v32 .. v32}, Lcom/android/vcard/VCardUtils;->containsOnlyPrintableAscii([Ljava/lang/String;)Z
 
-    move-result v33
+    move-result v32
 
-    if-nez v33, :cond_1b
+    if-eqz v32, :cond_1d
 
-    const/16 v33, 0x1
+    const/16 v32, 0x0
 
     :goto_9
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/vcard/VCardBuilder;->mShouldUseQuotedPrintable:Z
 
-    move/from16 v34, v0
-
-    if-eqz v34, :cond_1c
-
-    const/16 v34, 0x1
-
-    move/from16 v0, v34
-
-    new-array v0, v0, [Ljava/lang/String;
-
-    move-object/from16 v34, v0
-
-    const/16 v36, 0x0
-
-    aput-object v30, v34, v36
-
-    invoke-static/range {v34 .. v34}, Lcom/android/vcard/VCardUtils;->containsOnlyNonCrLfPrintableAscii([Ljava/lang/String;)Z
-
-    move-result v34
-
-    if-nez v34, :cond_1c
-
-    const/16 v34, 0x1
-
-    :goto_a
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v35
-
-    move-object/from16 v2, v30
-
-    move/from16 v3, v33
-
-    move/from16 v4, v34
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/vcard/VCardBuilder;->appendLine(Ljava/lang/String;Ljava/lang/String;ZZ)V
-
-    goto/16 :goto_0
-
-    :cond_d
-    const/16 v17, 0x0
-
-    goto/16 :goto_1
-
-    :cond_e
-    const/16 v17, 0x0
-
-    goto/16 :goto_1
-
-    :cond_f
-    const/16 v31, 0x1
-
-    goto/16 :goto_2
-
-    :pswitch_0
-    const-string v33, "WORK"
-
-    move-object/from16 v0, v25
-
-    move-object/from16 v1, v33
-
-    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-
-    goto/16 :goto_3
-
-    :pswitch_1
-    invoke-static/range {v20 .. v20}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v33
-
-    if-nez v33, :cond_9
-
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Lcom/android/vcard/VCardBuilder;->mIsDoCoMo:Z
-
     move/from16 v33, v0
 
-    if-nez v33, :cond_10
+    if-eqz v33, :cond_1e
 
     const/16 v33, 0x1
 
@@ -7957,69 +7874,141 @@
 
     move-object/from16 v33, v0
 
-    const/16 v34, 0x0
+    const/16 v36, 0x0
 
-    aput-object v20, v33, v34
+    aput-object v29, v33, v36
 
-    invoke-static/range {v33 .. v33}, Lcom/android/vcard/VCardUtils;->containsOnlyAlphaDigitHyphen([Ljava/lang/String;)Z
+    invoke-static/range {v33 .. v33}, Lcom/android/vcard/VCardUtils;->containsOnlyNonCrLfPrintableAscii([Ljava/lang/String;)Z
 
     move-result v33
 
-    if-eqz v33, :cond_9
+    if-nez v33, :cond_1e
+
+    const/16 v33, 0x1
+
+    :goto_a
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v35
+
+    move-object/from16 v2, v29
+
+    move/from16 v3, v32
+
+    move/from16 v4, v33
+
+    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/vcard/VCardBuilder;->appendLine(Ljava/lang/String;Ljava/lang/String;ZZ)V
+
+    goto/16 :goto_0
+
+    :cond_f
+    const/16 v16, 0x0
+
+    goto/16 :goto_1
 
     :cond_10
-    new-instance v33, Ljava/lang/StringBuilder;
+    const/16 v16, 0x0
 
-    invoke-direct/range {v33 .. v33}, Ljava/lang/StringBuilder;-><init>()V
+    goto/16 :goto_1
 
-    const-string v34, "X-"
+    :cond_11
+    const/16 v30, 0x1
 
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    goto/16 :goto_2
 
-    move-result-object v33
+    :pswitch_0
+    const-string v32, "WORK"
 
-    move-object/from16 v0, v33
+    move-object/from16 v0, v24
 
-    move-object/from16 v1, v20
+    move-object/from16 v1, v32
+
+    invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto/16 :goto_3
+
+    :pswitch_1
+    invoke-static/range {v19 .. v19}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v32
+
+    if-nez v32, :cond_b
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/android/vcard/VCardBuilder;->mIsDoCoMo:Z
+
+    move/from16 v32, v0
+
+    if-nez v32, :cond_12
+
+    const/16 v32, 0x1
+
+    move/from16 v0, v32
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    move-object/from16 v32, v0
+
+    const/16 v33, 0x0
+
+    aput-object v19, v32, v33
+
+    invoke-static/range {v32 .. v32}, Lcom/android/vcard/VCardUtils;->containsOnlyAlphaDigitHyphen([Ljava/lang/String;)Z
+
+    move-result v32
+
+    if-eqz v32, :cond_b
+
+    :cond_12
+    new-instance v32, Ljava/lang/StringBuilder;
+
+    const-string v33, "X-"
+
+    invoke-direct/range {v32 .. v33}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+
+    move-object/from16 v0, v32
+
+    move-object/from16 v1, v19
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v33
+    move-result-object v32
 
-    invoke-virtual/range {v33 .. v33}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual/range {v32 .. v32}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v33
+    move-result-object v32
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v24
 
-    move-object/from16 v1, v33
+    move-object/from16 v1, v32
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto/16 :goto_3
 
     :pswitch_2
-    const-string v33, "OTHER"
+    const-string v32, "OTHER"
 
-    move-object/from16 v0, v25
+    move-object/from16 v0, v24
 
-    move-object/from16 v1, v33
+    move-object/from16 v1, v32
 
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
     goto/16 :goto_3
 
-    :cond_11
-    const/16 v28, 0x0
+    :cond_13
+    const/16 v27, 0x0
 
     goto/16 :goto_4
 
-    :cond_12
-    const/4 v5, 0x0
+    :cond_14
+    const/4 v5, 0x1
 
     goto/16 :goto_5
 
-    :cond_13
+    :cond_15
     move-object/from16 v0, p0
 
     invoke-direct {v0, v6}, Lcom/android/vcard/VCardBuilder;->escapeCharacters(Ljava/lang/String;)Ljava/lang/String;
@@ -8034,7 +8023,7 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v30
+    move-object/from16 v1, v29
 
     invoke-direct {v0, v1}, Lcom/android/vcard/VCardBuilder;->escapeCharacters(Ljava/lang/String;)Ljava/lang/String;
 
@@ -8042,7 +8031,7 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v18
 
     invoke-direct {v0, v1}, Lcom/android/vcard/VCardBuilder;->escapeCharacters(Ljava/lang/String;)Ljava/lang/String;
 
@@ -8050,7 +8039,7 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v29
+    move-object/from16 v1, v28
 
     invoke-direct {v0, v1}, Lcom/android/vcard/VCardBuilder;->escapeCharacters(Ljava/lang/String;)Ljava/lang/String;
 
@@ -8058,7 +8047,7 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v26
+    move-object/from16 v1, v25
 
     invoke-direct {v0, v1}, Lcom/android/vcard/VCardBuilder;->escapeCharacters(Ljava/lang/String;)Ljava/lang/String;
 
@@ -8066,7 +8055,7 @@
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v21
+    move-object/from16 v1, v20
 
     invoke-direct {v0, v1}, Lcom/android/vcard/VCardBuilder;->escapeCharacters(Ljava/lang/String;)Ljava/lang/String;
 
@@ -8074,76 +8063,105 @@
 
     goto/16 :goto_6
 
-    :cond_14
+    :cond_16
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
-    move-object/from16 v33, v0
+    move-object/from16 v32, v0
 
-    const-string v34, "ORG"
+    const-string v33, "ORG"
 
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
-    move-object/from16 v33, v0
+    move-object/from16 v32, v0
 
-    const-string v34, ":"
+    const-string v33, ":"
 
-    invoke-virtual/range {v33 .. v34}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual/range {v32 .. v33}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     goto/16 :goto_7
 
-    :cond_15
-    new-instance v22, Ljava/lang/StringBuilder;
+    :cond_17
+    new-instance v21, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v22 .. v22}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct/range {v21 .. v21}, Ljava/lang/StringBuilder;-><init>()V
 
     invoke-static {v6}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v33
+    move-result v32
 
-    if-nez v33, :cond_16
+    if-nez v32, :cond_18
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v21
 
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_16
+    :cond_18
     invoke-static {v8}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v33
+    move-result v32
 
-    if-nez v33, :cond_18
+    if-nez v32, :cond_1a
 
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->length()I
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->length()I
 
-    move-result v33
+    move-result v32
 
-    if-lez v33, :cond_17
+    if-lez v32, :cond_19
 
-    const/16 v33, 0x3b
+    const/16 v32, 0x3b
 
-    move-object/from16 v0, v22
+    move-object/from16 v0, v21
 
-    move/from16 v1, v33
+    move/from16 v1, v32
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
-    :cond_17
-    move-object/from16 v0, v22
+    :cond_19
+    move-object/from16 v0, v21
 
     invoke-virtual {v0, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    :cond_18
-    invoke-virtual/range {v22 .. v22}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    :cond_1a
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v24
+    move-result-object v23
 
     const-string v35, "ORG"
+
+    const/16 v32, 0x1
+
+    move/from16 v0, v32
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    move-object/from16 v32, v0
+
+    const/16 v33, 0x0
+
+    aput-object v23, v32, v33
+
+    invoke-static/range {v32 .. v32}, Lcom/android/vcard/VCardUtils;->containsOnlyPrintableAscii([Ljava/lang/String;)Z
+
+    move-result v32
+
+    if-eqz v32, :cond_1b
+
+    const/16 v32, 0x0
+
+    :goto_b
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/android/vcard/VCardBuilder;->mShouldUseQuotedPrintable:Z
+
+    move/from16 v33, v0
+
+    if-eqz v33, :cond_1c
 
     const/16 v33, 0x1
 
@@ -8153,84 +8171,52 @@
 
     move-object/from16 v33, v0
 
-    const/16 v34, 0x0
+    const/16 v36, 0x0
 
-    aput-object v24, v33, v34
+    aput-object v23, v33, v36
 
-    invoke-static/range {v33 .. v33}, Lcom/android/vcard/VCardUtils;->containsOnlyPrintableAscii([Ljava/lang/String;)Z
+    invoke-static/range {v33 .. v33}, Lcom/android/vcard/VCardUtils;->containsOnlyNonCrLfPrintableAscii([Ljava/lang/String;)Z
 
     move-result v33
 
-    if-nez v33, :cond_19
+    if-nez v33, :cond_1c
 
     const/16 v33, 0x1
-
-    :goto_b
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Lcom/android/vcard/VCardBuilder;->mShouldUseQuotedPrintable:Z
-
-    move/from16 v34, v0
-
-    if-eqz v34, :cond_1a
-
-    const/16 v34, 0x1
-
-    move/from16 v0, v34
-
-    new-array v0, v0, [Ljava/lang/String;
-
-    move-object/from16 v34, v0
-
-    const/16 v36, 0x0
-
-    aput-object v24, v34, v36
-
-    invoke-static/range {v34 .. v34}, Lcom/android/vcard/VCardUtils;->containsOnlyNonCrLfPrintableAscii([Ljava/lang/String;)Z
-
-    move-result v34
-
-    if-nez v34, :cond_1a
-
-    const/16 v34, 0x1
 
     :goto_c
     move-object/from16 v0, p0
 
     move-object/from16 v1, v35
 
-    move-object/from16 v2, v24
+    move-object/from16 v2, v23
 
-    move/from16 v3, v33
+    move/from16 v3, v32
 
-    move/from16 v4, v34
+    move/from16 v4, v33
 
     invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/vcard/VCardBuilder;->appendLine(Ljava/lang/String;Ljava/lang/String;ZZ)V
 
     goto/16 :goto_8
 
-    :cond_19
-    const/16 v33, 0x0
+    :cond_1b
+    const/16 v32, 0x1
 
     goto :goto_b
 
-    :cond_1a
-    const/16 v34, 0x0
+    :cond_1c
+    const/16 v33, 0x0
 
     goto :goto_c
 
-    :cond_1b
-    const/16 v33, 0x0
+    :cond_1d
+    const/16 v32, 0x1
 
     goto/16 :goto_9
 
-    :cond_1c
-    const/16 v34, 0x0
+    :cond_1e
+    const/16 v33, 0x0
 
     goto/16 :goto_a
-
-    :cond_1d
-    return-object p0
 
     nop
 
@@ -8243,7 +8229,7 @@
 .end method
 
 .method public appendPhones(Ljava/util/List;Lcom/android/vcard/VCardPhoneNumberTranslationCallback;)Lcom/android/vcard/VCardBuilder;
-    .locals 28
+    .locals 27
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -8257,256 +8243,295 @@
         }
     .end annotation
 
-    const/16 v18, 0x0
+    const/16 v16, 0x0
 
-    if-eqz p1, :cond_e
+    if-eqz p1, :cond_1
 
-    new-instance v21, Ljava/util/HashSet;
+    new-instance v19, Ljava/util/HashSet;
 
-    invoke-direct/range {v21 .. v21}, Ljava/util/HashSet;-><init>()V
+    invoke-direct/range {v19 .. v19}, Ljava/util/HashSet;-><init>()V
 
     invoke-interface/range {p1 .. p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v11
+    move-result-object v22
 
     :cond_0
     :goto_0
-    invoke-interface {v11}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface/range {v22 .. v22}, Ljava/util/Iterator;->hasNext()Z
 
-    move-result v24
+    move-result v23
 
-    if-eqz v24, :cond_e
+    if-nez v23, :cond_3
 
-    invoke-interface {v11}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    :cond_1
+    if-nez v16, :cond_2
+
+    move-object/from16 v0, p0
+
+    iget-boolean v0, v0, Lcom/android/vcard/VCardBuilder;->mIsDoCoMo:Z
+
+    move/from16 v22, v0
+
+    if-eqz v22, :cond_2
+
+    const/16 v22, 0x1
+
+    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v22
+
+    const-string v23, ""
+
+    const-string v24, ""
+
+    const/16 v25, 0x0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v22
+
+    move-object/from16 v2, v23
+
+    move-object/from16 v3, v24
+
+    move/from16 v4, v25
+
+    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/vcard/VCardBuilder;->appendTelLine(Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/String;Z)V
+
+    :cond_2
+    return-object p0
+
+    :cond_3
+    invoke-interface/range {v22 .. v22}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v7
 
     check-cast v7, Landroid/content/ContentValues;
 
-    const-string v24, "data2"
+    const-string v23, "data2"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v23
 
     invoke-virtual {v7, v0}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
 
-    move-result-object v23
+    move-result-object v21
 
-    const-string v24, "data3"
+    const-string v23, "data3"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v23
 
     invoke-virtual {v7, v0}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v15
+    move-result-object v13
 
-    const-string v24, "is_primary"
+    const-string v23, "is_primary"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v23
 
     invoke-virtual {v7, v0}, Landroid/content/ContentValues;->getAsInteger(Ljava/lang/String;)Ljava/lang/Integer;
 
-    move-result-object v14
+    move-result-object v12
 
-    if-eqz v14, :cond_3
+    if-eqz v12, :cond_6
 
-    invoke-virtual {v14}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual {v12}, Ljava/lang/Integer;->intValue()I
 
-    move-result v24
+    move-result v23
 
-    if-lez v24, :cond_2
+    if-lez v23, :cond_5
 
-    const/4 v13, 0x1
+    const/4 v11, 0x1
 
     :goto_1
-    const-string v24, "data1"
+    const-string v23, "data1"
 
-    move-object/from16 v0, v24
+    move-object/from16 v0, v23
 
     invoke-virtual {v7, v0}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v19
+    move-result-object v17
 
-    if-eqz v19, :cond_1
+    if-eqz v17, :cond_4
 
-    invoke-virtual/range {v19 .. v19}, Ljava/lang/String;->trim()Ljava/lang/String;
+    invoke-virtual/range {v17 .. v17}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    move-result-object v19
+    move-result-object v17
 
-    :cond_1
-    invoke-static/range {v19 .. v19}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    :cond_4
+    invoke-static/range {v17 .. v17}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v24
+    move-result v23
 
-    if-nez v24, :cond_0
+    if-nez v23, :cond_0
 
-    if-eqz v23, :cond_4
+    if-eqz v21, :cond_7
 
-    invoke-virtual/range {v23 .. v23}, Ljava/lang/Integer;->intValue()I
+    invoke-virtual/range {v21 .. v21}, Ljava/lang/Integer;->intValue()I
 
-    move-result v22
+    move-result v20
 
     :goto_2
-    if-eqz p2, :cond_5
+    if-eqz p2, :cond_8
 
     move-object/from16 v0, p2
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v17
 
-    move/from16 v2, v22
+    move/from16 v2, v20
 
-    invoke-interface {v0, v1, v2, v15, v13}, Lcom/android/vcard/VCardPhoneNumberTranslationCallback;->onValueReceived(Ljava/lang/String;ILjava/lang/String;Z)Ljava/lang/String;
+    invoke-interface {v0, v1, v2, v13, v11}, Lcom/android/vcard/VCardPhoneNumberTranslationCallback;->onValueReceived(Ljava/lang/String;ILjava/lang/String;Z)Ljava/lang/String;
 
-    move-result-object v19
+    move-result-object v17
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v19
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v17
 
     invoke-interface {v0, v1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
-    move-result v24
+    move-result v23
 
-    if-nez v24, :cond_0
+    if-nez v23, :cond_0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v19
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v17
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v24
+    move-result-object v23
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v23
 
-    move-object/from16 v2, v19
+    move-object/from16 v2, v17
 
-    invoke-virtual {v0, v1, v15, v2, v13}, Lcom/android/vcard/VCardBuilder;->appendTelLine(Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-virtual {v0, v1, v13, v2, v11}, Lcom/android/vcard/VCardBuilder;->appendTelLine(Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/String;Z)V
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    :cond_2
-    const/4 v13, 0x0
-
-    goto :goto_1
-
-    :cond_3
-    const/4 v13, 0x0
+    :cond_5
+    const/4 v11, 0x0
 
     goto :goto_1
 
-    :cond_4
-    const/16 v22, 0x1
+    :cond_6
+    const/4 v11, 0x0
+
+    goto :goto_1
+
+    :cond_7
+    const/16 v20, 0x1
 
     goto :goto_2
 
-    :cond_5
+    :cond_8
     move-object/from16 v0, p0
 
     iget-boolean v0, v0, Lcom/android/vcard/VCardBuilder;->mIsDoCoMo:Z
 
-    move/from16 v24, v0
+    move/from16 v23, v0
 
-    if-nez v24, :cond_6
+    if-nez v23, :cond_9
 
-    const/16 v24, 0x6
+    const/16 v23, 0x6
 
-    move/from16 v0, v22
+    move/from16 v0, v20
 
-    move/from16 v1, v24
+    move/from16 v1, v23
 
-    if-eq v0, v1, :cond_6
+    if-eq v0, v1, :cond_9
 
     move-object/from16 v0, p0
 
     iget v0, v0, Lcom/android/vcard/VCardBuilder;->mVCardType:I
 
-    move/from16 v24, v0
+    move/from16 v23, v0
 
-    invoke-static/range {v24 .. v24}, Lcom/android/vcard/VCardConfig;->refrainPhoneNumberFormatting(I)Z
+    invoke-static/range {v23 .. v23}, Lcom/android/vcard/VCardConfig;->refrainPhoneNumberFormatting(I)Z
 
-    move-result v24
+    move-result v23
 
-    if-eqz v24, :cond_7
+    if-eqz v23, :cond_a
 
-    :cond_6
-    const/16 v18, 0x1
+    :cond_9
+    const/16 v16, 0x1
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v19
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v17
 
     invoke-interface {v0, v1}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
-    move-result v24
+    move-result v23
 
-    if-nez v24, :cond_0
+    if-nez v23, :cond_0
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v19
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v17
 
     invoke-interface {v0, v1}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
-    move-result-object v24
+    move-result-object v23
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v24
+    move-object/from16 v1, v23
 
-    move-object/from16 v2, v19
+    move-object/from16 v2, v17
 
-    invoke-virtual {v0, v1, v15, v2, v13}, Lcom/android/vcard/VCardBuilder;->appendTelLine(Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-virtual {v0, v1, v13, v2, v11}, Lcom/android/vcard/VCardBuilder;->appendTelLine(Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/String;Z)V
 
     goto/16 :goto_0
 
-    :cond_7
+    :cond_a
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v19
+    move-object/from16 v1, v17
 
     invoke-direct {v0, v1}, Lcom/android/vcard/VCardBuilder;->splitPhoneNumbers(Ljava/lang/String;)Ljava/util/List;
 
-    move-result-object v20
+    move-result-object v18
 
-    invoke-interface/range {v20 .. v20}, Ljava/util/List;->isEmpty()Z
+    invoke-interface/range {v18 .. v18}, Ljava/util/List;->isEmpty()Z
 
-    move-result v24
+    move-result v23
 
-    if-nez v24, :cond_0
+    if-nez v23, :cond_0
 
-    const/16 v18, 0x1
+    const/16 v16, 0x1
 
-    invoke-interface/range {v20 .. v20}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+    invoke-interface/range {v18 .. v18}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v12
+    move-result-object v23
 
-    :cond_8
+    :cond_b
     :goto_3
-    invoke-interface {v12}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface/range {v23 .. v23}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v24
 
     if-eqz v24, :cond_0
 
-    invoke-interface {v12}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface/range {v23 .. v23}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v5
 
     check-cast v5, Ljava/lang/String;
 
-    move-object/from16 v0, v21
+    move-object/from16 v0, v19
 
     invoke-interface {v0, v5}, Ljava/util/Set;->contains(Ljava/lang/Object;)Z
 
     move-result v24
 
-    if-nez v24, :cond_8
+    if-nez v24, :cond_b
 
     const/16 v24, 0x2c
 
@@ -8526,15 +8551,13 @@
 
     invoke-virtual/range {v24 .. v26}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
 
-    move-result-object v17
+    move-result-object v15
 
-    move-object/from16 v0, v17
-
-    invoke-static {v0, v5}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
+    invoke-static {v15, v5}, Landroid/text/TextUtils;->equals(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Z
 
     move-result v24
 
-    if-eqz v24, :cond_d
+    if-eqz v24, :cond_10
 
     new-instance v8, Ljava/lang/StringBuilder;
 
@@ -8542,52 +8565,13 @@
 
     invoke-virtual {v5}, Ljava/lang/String;->length()I
 
-    move-result v16
+    move-result v14
 
     const/4 v10, 0x0
 
     :goto_4
-    move/from16 v0, v16
+    if-lt v10, v14, :cond_d
 
-    if-ge v10, v0, :cond_b
-
-    invoke-virtual {v5, v10}, Ljava/lang/String;->charAt(I)C
-
-    move-result v6
-
-    invoke-static {v6}, Ljava/lang/Character;->isDigit(C)Z
-
-    move-result v24
-
-    if-nez v24, :cond_9
-
-    const/16 v24, 0x2b
-
-    move/from16 v0, v24
-
-    if-eq v6, v0, :cond_9
-
-    const/16 v24, 0x2a
-
-    move/from16 v0, v24
-
-    if-eq v6, v0, :cond_9
-
-    const/16 v24, 0x23
-
-    move/from16 v0, v24
-
-    if-ne v6, v0, :cond_a
-
-    :cond_9
-    invoke-virtual {v8, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    :cond_a
-    add-int/lit8 v10, v10, 0x1
-
-    goto :goto_4
-
-    :cond_b
     invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v9
@@ -8623,13 +8607,9 @@
 
     new-instance v24, Ljava/lang/StringBuilder;
 
-    invoke-direct/range {v24 .. v24}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v25, "tel:"
 
-    invoke-virtual/range {v24 .. v25}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v24
+    invoke-direct/range {v24 .. v25}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     move-object/from16 v0, v24
 
@@ -8642,11 +8622,11 @@
     move-result-object v9
 
     :cond_c
-    move-object/from16 v0, v21
+    move-object/from16 v0, v19
 
     invoke-interface {v0, v5}, Ljava/util/Set;->add(Ljava/lang/Object;)Z
 
-    invoke-static/range {v22 .. v22}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+    invoke-static/range {v20 .. v20}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
     move-result-object v24
 
@@ -8654,52 +8634,51 @@
 
     move-object/from16 v1, v24
 
-    invoke-virtual {v0, v1, v15, v9, v13}, Lcom/android/vcard/VCardBuilder;->appendTelLine(Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-virtual {v0, v1, v13, v9, v11}, Lcom/android/vcard/VCardBuilder;->appendTelLine(Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/String;Z)V
 
-    goto/16 :goto_3
+    goto :goto_3
 
     :cond_d
-    move-object/from16 v9, v17
+    invoke-virtual {v5, v10}, Ljava/lang/String;->charAt(I)C
 
-    goto :goto_5
+    move-result v6
+
+    invoke-static {v6}, Ljava/lang/Character;->isDigit(C)Z
+
+    move-result v24
+
+    if-nez v24, :cond_e
+
+    const/16 v24, 0x2b
+
+    move/from16 v0, v24
+
+    if-eq v6, v0, :cond_e
+
+    const/16 v24, 0x2a
+
+    move/from16 v0, v24
+
+    if-eq v6, v0, :cond_e
+
+    const/16 v24, 0x23
+
+    move/from16 v0, v24
+
+    if-ne v6, v0, :cond_f
 
     :cond_e
-    if-nez v18, :cond_f
-
-    move-object/from16 v0, p0
-
-    iget-boolean v0, v0, Lcom/android/vcard/VCardBuilder;->mIsDoCoMo:Z
-
-    move/from16 v24, v0
-
-    if-eqz v24, :cond_f
-
-    const/16 v24, 0x1
-
-    invoke-static/range {v24 .. v24}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v24
-
-    const-string v25, ""
-
-    const-string v26, ""
-
-    const/16 v27, 0x0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v24
-
-    move-object/from16 v2, v25
-
-    move-object/from16 v3, v26
-
-    move/from16 v4, v27
-
-    invoke-virtual {v0, v1, v2, v3, v4}, Lcom/android/vcard/VCardBuilder;->appendTelLine(Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-virtual {v8, v6}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
 
     :cond_f
-    return-object p0
+    add-int/lit8 v10, v10, 0x1
+
+    goto :goto_4
+
+    :cond_10
+    move-object v9, v15
+
+    goto :goto_5
 .end method
 
 .method public appendPhotoLine(Ljava/lang/String;Ljava/lang/String;)V
@@ -8719,7 +8698,7 @@
 
     iget-boolean v8, p0, Lcom/android/vcard/VCardBuilder;->mIsV30OrV40:Z
 
-    if-eqz v8, :cond_1
+    if-eqz v8, :cond_0
 
     const-string v8, "ENCODING=B"
 
@@ -8773,43 +8752,8 @@
     const/4 v0, 0x0
 
     :goto_1
-    if-ge v0, v1, :cond_2
+    if-lt v0, v1, :cond_1
 
-    invoke-virtual {v7, v0}, Ljava/lang/String;->charAt(I)C
-
-    move-result v8
-
-    invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
-
-    add-int/lit8 v2, v2, 0x1
-
-    if-le v2, v3, :cond_0
-
-    const-string v8, "\r\n"
-
-    invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    const-string v8, " "
-
-    invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move v3, v5
-
-    const/4 v2, 0x0
-
-    :cond_0
-    add-int/lit8 v0, v0, 0x1
-
-    goto :goto_1
-
-    :cond_1
-    const-string v8, "ENCODING=BASE64"
-
-    invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    goto :goto_0
-
-    :cond_2
     iget-object v8, p0, Lcom/android/vcard/VCardBuilder;->mBuilder:Ljava/lang/StringBuilder;
 
     invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -8831,6 +8775,41 @@
     invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     return-void
+
+    :cond_0
+    const-string v8, "ENCODING=BASE64"
+
+    invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    goto :goto_0
+
+    :cond_1
+    invoke-virtual {v7, v0}, Ljava/lang/String;->charAt(I)C
+
+    move-result v8
+
+    invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    add-int/lit8 v2, v2, 0x1
+
+    if-le v2, v3, :cond_2
+
+    const-string v8, "\r\n"
+
+    invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v8, " "
+
+    invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move v3, v5
+
+    const/4 v2, 0x0
+
+    :cond_2
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_1
 .end method
 
 .method public appendPhotos(Ljava/util/List;)Lcom/android/vcard/VCardBuilder;
@@ -8846,21 +8825,25 @@
         }
     .end annotation
 
-    if-eqz p1, :cond_3
+    if-eqz p1, :cond_1
 
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v2
+    move-result-object v5
 
     :cond_0
     :goto_0
-    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v6
 
-    if-eqz v6, :cond_3
+    if-nez v6, :cond_2
 
-    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    :cond_1
+    return-object p0
+
+    :cond_2
+    invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -8878,9 +8861,9 @@
 
     invoke-static {v1}, Lcom/android/vcard/VCardUtils;->guessImageType([B)Ljava/lang/String;
 
-    move-result-object v5
+    move-result-object v4
 
-    if-nez v5, :cond_1
+    if-nez v4, :cond_3
 
     const-string v6, "vCard"
 
@@ -8890,8 +8873,8 @@
 
     goto :goto_0
 
-    :cond_1
-    new-instance v4, Ljava/lang/String;
+    :cond_3
+    new-instance v3, Ljava/lang/String;
 
     const/4 v6, 0x2
 
@@ -8899,24 +8882,24 @@
 
     move-result-object v6
 
-    invoke-direct {v4, v6}, Ljava/lang/String;-><init>([B)V
+    invoke-direct {v3, v6}, Ljava/lang/String;-><init>([B)V
 
-    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v6
 
-    if-nez v6, :cond_2
+    if-nez v6, :cond_4
 
-    invoke-virtual {p0, v4, v5}, Lcom/android/vcard/VCardBuilder;->appendPhotoLine(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v3, v4}, Lcom/android/vcard/VCardBuilder;->appendPhotoLine(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_2
+    :cond_4
     const-string v6, "data11"
 
     invoke-virtual {v0, v6}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v6
 
@@ -8924,7 +8907,7 @@
 
     const-string v6, "1"
 
-    invoke-virtual {v6, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v6, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v6
 
@@ -8932,12 +8915,9 @@
 
     const-string v6, "X-PHOTOSTATE"
 
-    invoke-virtual {p0, v6, v3}, Lcom/android/vcard/VCardBuilder;->appendLine(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v6, v2}, Lcom/android/vcard/VCardBuilder;->appendLine(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
-
-    :cond_3
-    return-object p0
 .end method
 
 .method public appendPostalLine(ILjava/lang/String;Landroid/content/ContentValues;ZZ)V
@@ -8975,13 +8955,9 @@
 
     new-instance v7, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v8, "Unknown StructuredPostal type: "
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
+    invoke-direct {v7, v8}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v7, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -9116,13 +9092,9 @@
     :cond_7
     new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v7, "X-"
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
+    invoke-direct {v6, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v6, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -9143,13 +9115,9 @@
 
     new-instance v6, Ljava/lang/StringBuilder;
 
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v7, "X-CUSTOM(CHARSET=UTF-8,ENCODING=QUOTED-PRINTABLE,"
 
-    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
+    invoke-direct {v6, v7}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -9277,9 +9245,9 @@
         }
     .end annotation
 
-    iget-boolean v2, p0, Lcom/android/vcard/VCardBuilder;->mUsesAndroidProperty:Z
+    iget-boolean v1, p0, Lcom/android/vcard/VCardBuilder;->mUsesAndroidProperty:Z
 
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_1
 
     if-eqz p1, :cond_1
 
@@ -9293,8 +9261,12 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-nez v2, :cond_2
 
+    :cond_1
+    return-object p0
+
+    :cond_2
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
@@ -9308,9 +9280,6 @@
     invoke-virtual {p0, v2, v0}, Lcom/android/vcard/VCardBuilder;->appendAndroidSpecificProperty(Ljava/lang/String;Landroid/content/ContentValues;)V
 
     goto :goto_0
-
-    :cond_1
-    return-object p0
 .end method
 
 .method public appendSipAddresses(Ljava/util/List;)Lcom/android/vcard/VCardBuilder;
@@ -9328,28 +9297,41 @@
 
     const/4 v7, 0x4
 
-    iget-boolean v5, p0, Lcom/android/vcard/VCardBuilder;->mIsV30OrV40:Z
+    iget-boolean v4, p0, Lcom/android/vcard/VCardBuilder;->mIsV30OrV40:Z
 
-    if-eqz v5, :cond_2
+    if-eqz v4, :cond_2
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
     :goto_0
-    if-eqz p1, :cond_6
+    if-eqz p1, :cond_1
 
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object v4
 
     :cond_0
     :goto_1
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v5
 
-    if-eqz v5, :cond_6
+    if-nez v5, :cond_3
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    :cond_1
+    return-object p0
+
+    :cond_2
+    iget-boolean v4, p0, Lcom/android/vcard/VCardBuilder;->mUsesDefactProperty:Z
+
+    if-eqz v4, :cond_1
+
+    const/4 v3, 0x1
+
+    goto :goto_0
+
+    :cond_3
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -9359,100 +9341,84 @@
 
     invoke-virtual {v0, v5}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v5
 
     if-nez v5, :cond_0
 
-    if-eqz v4, :cond_3
+    if-eqz v3, :cond_5
 
     const-string v5, "sip:"
 
-    invoke-virtual {v3, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v2, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-eqz v5, :cond_1
+    if-eqz v5, :cond_4
 
-    invoke-virtual {v3}, Ljava/lang/String;->length()I
+    invoke-virtual {v2}, Ljava/lang/String;->length()I
 
     move-result v5
 
     if-eq v5, v7, :cond_0
 
-    invoke-virtual {v3, v7}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+    invoke-virtual {v2, v7}, Ljava/lang/String;->substring(I)Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    :cond_1
+    :cond_4
     const-string v5, "X-SIP"
 
-    invoke-virtual {p0, v5, v3}, Lcom/android/vcard/VCardBuilder;->appendLineWithCharsetAndQPDetection(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v5, v2}, Lcom/android/vcard/VCardBuilder;->appendLineWithCharsetAndQPDetection(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_1
 
-    :cond_2
-    iget-boolean v5, p0, Lcom/android/vcard/VCardBuilder;->mUsesDefactProperty:Z
-
-    if-eqz v5, :cond_6
-
-    const/4 v4, 0x1
-
-    goto :goto_0
-
-    :cond_3
+    :cond_5
     const-string v5, "sip:"
 
-    invoke-virtual {v3, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    invoke-virtual {v2, v5}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
 
     move-result v5
 
-    if-nez v5, :cond_4
+    if-nez v5, :cond_6
 
     new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v6, "sip:"
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
-    move-result-object v5
-
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
     invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    :cond_4
+    :cond_6
     iget v5, p0, Lcom/android/vcard/VCardBuilder;->mVCardType:I
 
     invoke-static {v5}, Lcom/android/vcard/VCardConfig;->isVersion40(I)Z
 
     move-result v5
 
-    if-eqz v5, :cond_5
+    if-eqz v5, :cond_7
 
-    const-string v2, "TEL"
+    const-string v1, "TEL"
 
     :goto_2
-    invoke-virtual {p0, v2, v3}, Lcom/android/vcard/VCardBuilder;->appendLineWithCharsetAndQPDetection(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v1, v2}, Lcom/android/vcard/VCardBuilder;->appendLineWithCharsetAndQPDetection(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_1
 
-    :cond_5
-    const-string v2, "IMPP"
+    :cond_7
+    const-string v1, "IMPP"
 
     goto :goto_2
-
-    :cond_6
-    return-object p0
 .end method
 
 .method public appendTelLine(Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/String;Z)V
@@ -9460,9 +9426,9 @@
 
     const/4 v10, 0x2
 
-    const/4 v9, 0x0
+    const/4 v9, 0x1
 
-    const/4 v8, 0x1
+    const/4 v8, 0x0
 
     const/16 v5, 0x2c
 
@@ -9514,7 +9480,7 @@
     :cond_1
     iget-boolean v5, p0, Lcom/android/vcard/VCardBuilder;->mIsCoreanMobilePhone:Z
 
-    if-ne v5, v8, :cond_2
+    if-eqz v5, :cond_2
 
     const-string v5, "VOICE"
 
@@ -9567,11 +9533,11 @@
     goto :goto_0
 
     :pswitch_0
-    new-array v5, v8, [Ljava/lang/String;
+    new-array v5, v9, [Ljava/lang/String;
 
     const-string v6, "HOME"
 
-    aput-object v6, v5, v9
+    aput-object v6, v5, v8
 
     invoke-static {v5}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
@@ -9582,11 +9548,11 @@
     goto :goto_1
 
     :pswitch_1
-    new-array v5, v8, [Ljava/lang/String;
+    new-array v5, v9, [Ljava/lang/String;
 
     const-string v6, "WORK"
 
-    aput-object v6, v5, v9
+    aput-object v6, v5, v8
 
     invoke-static {v5}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
@@ -9601,11 +9567,11 @@
 
     const-string v6, "HOME"
 
-    aput-object v6, v5, v9
+    aput-object v6, v5, v8
 
     const-string v6, "FAX"
 
-    aput-object v6, v5, v8
+    aput-object v6, v5, v9
 
     invoke-static {v5}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
@@ -9620,11 +9586,11 @@
 
     const-string v6, "WORK"
 
-    aput-object v6, v5, v9
+    aput-object v6, v5, v8
 
     const-string v6, "FAX"
 
-    aput-object v6, v5, v8
+    aput-object v6, v5, v9
 
     invoke-static {v5}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
@@ -9651,7 +9617,7 @@
     :pswitch_6
     iget-boolean v5, p0, Lcom/android/vcard/VCardBuilder;->mIsCoreanMobilePhone:Z
 
-    if-eq v5, v8, :cond_4
+    if-nez v5, :cond_4
 
     iget-boolean v5, p0, Lcom/android/vcard/VCardBuilder;->mIsDoCoMo:Z
 
@@ -9741,11 +9707,11 @@
 
     const-string v6, "WORK"
 
-    aput-object v6, v5, v9
+    aput-object v6, v5, v8
 
     const-string v6, "CELL"
 
-    aput-object v6, v5, v8
+    aput-object v6, v5, v9
 
     invoke-static {v5}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 
@@ -9846,9 +9812,9 @@
 
     if-nez v5, :cond_d
 
-    new-array v5, v8, [Ljava/lang/String;
+    new-array v5, v9, [Ljava/lang/String;
 
-    aput-object p2, v5, v9
+    aput-object p2, v5, v8
 
     invoke-static {v5}, Lcom/android/vcard/VCardUtils;->containsOnlyAlphaDigitHyphen([Ljava/lang/String;)Z
 
@@ -9859,13 +9825,9 @@
     :cond_d
     new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v6, "X-"
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
+    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -9886,13 +9848,9 @@
 
     new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v6, "X-CUSTOM(CHARSET=UTF-8,ENCODING=QUOTED-PRINTABLE,"
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
+    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v5, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -9949,9 +9907,9 @@
 
     if-nez v5, :cond_11
 
-    new-array v5, v8, [Ljava/lang/String;
+    new-array v5, v9, [Ljava/lang/String;
 
-    aput-object p2, v5, v9
+    aput-object p2, v5, v8
 
     invoke-static {v5}, Lcom/android/vcard/VCardUtils;->containsOnlyAlphaDigitHyphen([Ljava/lang/String;)Z
 
@@ -9962,13 +9920,9 @@
     :cond_11
     new-instance v5, Ljava/lang/StringBuilder;
 
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v6, "X-"
 
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
+    invoke-direct {v5, v6}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
 
     invoke-virtual {v5, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -10056,21 +10010,25 @@
         }
     .end annotation
 
-    if-eqz p1, :cond_2
+    if-eqz p1, :cond_1
 
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object v2
 
     :cond_0
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-nez v3, :cond_2
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    :cond_1
+    return-object p0
+
+    :cond_2
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -10080,16 +10038,16 @@
 
     invoke-virtual {v0, v3}, Landroid/content/ContentValues;->getAsString(Ljava/lang/String;)Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_3
 
-    invoke-virtual {v2}, Ljava/lang/String;->trim()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/String;->trim()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    :cond_1
-    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    :cond_3
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
@@ -10097,12 +10055,9 @@
 
     const-string v3, "URL"
 
-    invoke-virtual {p0, v3, v2}, Lcom/android/vcard/VCardBuilder;->appendLineWithCharsetAndQPDetection(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {p0, v3, v1}, Lcom/android/vcard/VCardBuilder;->appendLineWithCharsetAndQPDetection(Ljava/lang/String;Ljava/lang/String;)V
 
     goto :goto_0
-
-    :cond_2
-    return-object p0
 .end method
 
 .method public clear()V

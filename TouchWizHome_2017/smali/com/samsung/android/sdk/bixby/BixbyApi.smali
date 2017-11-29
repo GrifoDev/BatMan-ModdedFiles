@@ -73,9 +73,11 @@
 
 .field private static final TAG:Ljava/lang/String;
 
-.field static final VER:Ljava/lang/String; = "_0.2.5"
+.field static final VER:Ljava/lang/String; = "_0.2.7"
 
 .field private static mInstance:Lcom/samsung/android/sdk/bixby/BixbyApi;
+
+.field private static final syncObj:Ljava/lang/Object;
 
 
 # instance fields
@@ -150,7 +152,7 @@
 
     move-result-object v0
 
-    const-string v1, "_0.2.5"
+    const-string v1, "_0.2.7"
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -176,6 +178,12 @@
 
     :goto_0
     sput-boolean v0, Lcom/samsung/android/sdk/bixby/BixbyApi;->DEBUG:Z
+
+    new-instance v0, Ljava/lang/Object;
+
+    invoke-direct {v0}, Ljava/lang/Object;-><init>()V
+
+    sput-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi;->syncObj:Ljava/lang/Object;
 
     return-void
 
@@ -283,35 +291,25 @@
     return-void
 .end method
 
-.method public static declared-synchronized createInstance(Landroid/content/Context;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/BixbyApi;
+.method public static createInstance(Landroid/content/Context;Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/BixbyApi;
     .locals 7
-
-    const-class v4, Lcom/samsung/android/sdk/bixby/BixbyApi;
-
-    monitor-enter v4
 
     if-nez p0, :cond_0
 
-    :try_start_0
     new-instance v3, Ljava/lang/IllegalArgumentException;
 
-    const-string v5, "Context cannot be null."
+    const-string v4, "Context cannot be null."
 
-    invoke-direct {v3, v5}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
-
-    throw v3
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    :catchall_0
-    move-exception v3
-
-    monitor-exit v4
+    invoke-direct {v3, v4}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
 
     throw v3
 
     :cond_0
-    :try_start_1
+    sget-object v4, Lcom/samsung/android/sdk/bixby/BixbyApi;->syncObj:Ljava/lang/Object;
+
+    monitor-enter v4
+
+    :try_start_0
     sget-object v3, Lcom/samsung/android/sdk/bixby/BixbyApi;->mInstance:Lcom/samsung/android/sdk/bixby/BixbyApi;
 
     if-nez v3, :cond_1
@@ -332,14 +330,12 @@
     invoke-virtual {v3, p1}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setActiveApp(Ljava/lang/String;)V
 
     invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     move-result-object v2
 
-    const/4 v1, 0x0
-
-    :try_start_2
+    :try_start_1
     invoke-virtual {p0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
     move-result-object v3
@@ -393,16 +389,14 @@
     move-result-object v5
 
     invoke-static {v3, v5}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-    :try_end_2
-    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_2 .. :try_end_2} :catch_0
-    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+    :try_end_1
+    .catch Landroid/content/pm/PackageManager$NameNotFoundException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :cond_2
     :goto_0
-    :try_start_3
+    :try_start_2
     sget-object v3, Lcom/samsung/android/sdk/bixby/BixbyApi;->mInstance:Lcom/samsung/android/sdk/bixby/BixbyApi;
-    :try_end_3
-    .catchall {:try_start_3 .. :try_end_3} :catchall_0
 
     monitor-exit v4
 
@@ -411,7 +405,6 @@
     :catch_0
     move-exception v0
 
-    :try_start_4
     sget-object v3, Lcom/samsung/android/sdk/bixby/BixbyApi;->TAG:Ljava/lang/String;
 
     new-instance v5, Ljava/lang/StringBuilder;
@@ -443,10 +436,17 @@
     const-string v5, ""
 
     invoke-direct {v3, v5}, Lcom/samsung/android/sdk/bixby/BixbyApi;->setVersionName(Ljava/lang/String;)V
-    :try_end_4
-    .catchall {:try_start_4 .. :try_end_4} :catchall_0
 
     goto :goto_0
+
+    :catchall_0
+    move-exception v3
+
+    monitor-exit v4
+    :try_end_2
+    .catchall {:try_start_2 .. :try_end_2} :catchall_0
+
+    throw v3
 .end method
 
 .method private createIntent(Ljava/lang/String;)Landroid/content/Intent;
@@ -560,7 +560,7 @@
     return-object v0
 .end method
 
-.method public static declared-synchronized getInstance()Lcom/samsung/android/sdk/bixby/BixbyApi;
+.method public static getInstance()Lcom/samsung/android/sdk/bixby/BixbyApi;
     .locals 3
     .annotation system Ldalvik/annotation/Throws;
         value = {
@@ -568,7 +568,7 @@
         }
     .end annotation
 
-    const-class v1, Lcom/samsung/android/sdk/bixby/BixbyApi;
+    sget-object v1, Lcom/samsung/android/sdk/bixby/BixbyApi;->syncObj:Ljava/lang/Object;
 
     monitor-enter v1
 
@@ -584,23 +584,23 @@
     invoke-direct {v0, v2}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
     throw v0
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     :catchall_0
     move-exception v0
 
     monitor-exit v1
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
     throw v0
 
     :cond_0
     :try_start_1
     sget-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mInstance:Lcom/samsung/android/sdk/bixby/BixbyApi;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     monitor-exit v1
+    :try_end_1
+    .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     return-object v0
 .end method
@@ -1394,6 +1394,50 @@
     goto :goto_0
 .end method
 
+.method private notifyActivityLaunchState(Z)V
+    .locals 3
+
+    invoke-virtual {p0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->isRuleRunning()Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    sget-object v1, Lcom/samsung/android/sdk/bixby/BixbyApi;->TAG:Ljava/lang/String;
+
+    const-string v2, "activityLaunched: Path Rule is not running."
+
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    :goto_0
+    return-void
+
+    :cond_0
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "\"activityLaunched\":"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "esem_client_control"
+
+    invoke-direct {p0, v1, v0}, Lcom/samsung/android/sdk/bixby/BixbyApi;->sendCommandToBa(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
+.end method
+
 .method private requestTtsInternal(Ljava/lang/String;Lcom/samsung/android/sdk/bixby/BixbyApi$TtsMode;)V
     .locals 6
 
@@ -1587,7 +1631,29 @@
 .end method
 
 .method private setOnConfirmResultListener(Lcom/samsung/android/sdk/bixby/BixbyApi$OnConfirmResultListener;)V
-    .locals 0
+    .locals 3
+
+    sget-object v0, Lcom/samsung/android/sdk/bixby/BixbyApi;->TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "setOnConfirmResultListener:"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     iput-object p1, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mOnConfirmResultListener:Lcom/samsung/android/sdk/bixby/BixbyApi$OnConfirmResultListener;
 
@@ -3345,6 +3411,54 @@
     invoke-static {p2}, Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmResult;->toEnum(Ljava/lang/String;)Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmResult;
 
     move-result-object v0
+
+    sget-object v3, Lcom/samsung/android/sdk/bixby/BixbyApi;->TAG:Ljava/lang/String;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "mOnConfirmResultListener:"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget-object v5, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mOnConfirmResultListener:Lcom/samsung/android/sdk/bixby/BixbyApi$OnConfirmResultListener;
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget-object v3, Lcom/samsung/android/sdk/bixby/BixbyApi;->TAG:Ljava/lang/String;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "mConfirmResultListener:"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget-object v5, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mConfirmResultListener:Lcom/samsung/android/sdk/bixby/BixbyApi$ConfirmResultListener;
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
 
     iget-object v3, p0, Lcom/samsung/android/sdk/bixby/BixbyApi;->mOnConfirmResultListener:Lcom/samsung/android/sdk/bixby/BixbyApi$OnConfirmResultListener;
 

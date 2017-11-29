@@ -30,15 +30,14 @@
     <dimen name="more_icon_btn_bg_width">24.0dip</dimen>
     <dimen name="multi_select_pannel_height">60.0dip</dimen>
     <dimen name="multi_select_pannel_textsize">14.0dip</dimen>
-    <dimen name="open_folder_content_min_height">467.0dip</dimen>
+    <dimen name="open_folder_content_min_height">524.0dip</dimen>
     <dimen name="open_folder_header_content_height">81.0dip</dimen>
     <dimen name="overview_home_button_margin_top">79.0dip</dimen>
     <dimen name="overview_pannel_drawable_padding">3.0dip</dimen>
     <dimen name="overview_pannel_margin_bottom">16.0dip</dimen>
     <dimen name="overview_pannel_options_button_height">85.0dip</dimen>
-    <dimen name="overview_pannel_textsize">12.0dip</dimen>
-    <dimen name="pageIndicator_dot_gap">12.0dip</dimen>
-    <dimen name="pageIndicator_dot_size">9.0dip</dimen>
+    <dimen name="overview_pannel_textsize">13.0dip</dimen>
+    <dimen name="pageIndicator_dot_size">20.0dip</dimen>
     <dimen name="quick_option_popup_margin_widget">7.0dip</dimen>
     <dimen name="screen_grid_explain_view_height">70.0dip</dimen>
     <dimen name="screen_grid_panel_margin_bottom">30.0dip</dimen>
@@ -86,13 +85,13 @@
     <dimen name="widget_searchbar_divider_height">16.0dip</dimen>
     <dimen name="widget_searchbar_searchview_height">36.0dip</dimen>
     <dimen name="widget_searchbar_searchview_padding_end">-16.5dip</dimen>
-    <dimen name="widget_searchbar_searchview_padding_start">-8.5dip</dimen>
+    <dimen name="widget_searchbar_searchview_padding_start">-18.5dip</dimen>
     <dimen name="widget_searchview_text_size">15.0dip</dimen>
     <dimen name="widget_title_bar_height">55.0dip</dimen>
     <dimen name="widget_title_bar_left_padding">5.0dip</dimen>
     <dimen name="widget_title_bar_text_max_width">320.0dip</dimen>
     <dimen name="widget_title_bar_text_size">20.0dip</dimen>
-    <dimen name="all_apps_search_view_margin_top">25.0dip</dimen>
+    <dimen name="all_apps_search_view_margin_top">24.0dip</dimen>
     <dimen name="apps_search_titlebar_padding_bottom">6.0dip</dimen>
     <dimen name="apps_search_titlebar_padding_top">6.0dip</dimen>
     <dimen name="appsearch_menu_searchHeight">36.0dip</dimen>
@@ -112,4 +111,5 @@
     <dimen name="title_shortcut_icon_padding_top">4.0dip</dimen>
     <dimen name="searchbar_searchview_padding_end">-18.5dip</dimen>
     <dimen name="searchbar_searchview_padding_start">-18.5dip</dimen>
+    <dimen name="all_apps_page_indicator_height">23.0dip</dimen>
 </resources>

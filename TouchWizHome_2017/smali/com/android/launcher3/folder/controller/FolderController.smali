@@ -21,6 +21,8 @@
 
 .field private static final TAG:Ljava/lang/String; = "FolderController"
 
+.field private static mHomeKeyPressed:Z
+
 
 # instance fields
 .field private mBgBlurAmount:F
@@ -62,6 +64,16 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    const/4 v0, 0x0
+
+    sput-boolean v0, Lcom/android/launcher3/folder/controller/FolderController;->mHomeKeyPressed:Z
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 1
 
@@ -807,7 +819,7 @@
 
     iget-object v0, p0, Lcom/android/launcher3/folder/controller/FolderController;->mLauncher:Lcom/android/launcher3/Launcher;
 
-    const v1, 0x7f090062
+    const v1, 0x7f090064
 
     const/4 v2, 0x0
 
@@ -914,6 +926,51 @@
     return v0
 .end method
 
+.method public getChildViewAt(Lcom/android/launcher3/common/base/item/ItemInfo;)Landroid/view/View;
+    .locals 5
+
+    const/4 v3, 0x0
+
+    if-nez p1, :cond_1
+
+    :cond_0
+    :goto_0
+    return-object v3
+
+    :cond_1
+    invoke-virtual {p0}, Lcom/android/launcher3/folder/controller/FolderController;->getContainerView()Landroid/view/View;
+
+    move-result-object v1
+
+    instance-of v4, v1, Lcom/android/launcher3/folder/view/FolderView;
+
+    if-eqz v4, :cond_0
+
+    move-object v2, v1
+
+    check-cast v2, Lcom/android/launcher3/folder/view/FolderView;
+
+    invoke-virtual {v2}, Lcom/android/launcher3/folder/view/FolderView;->getContent()Lcom/android/launcher3/folder/view/FolderPagedView;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Lcom/android/launcher3/folder/view/FolderPagedView;->getCurrentCellLayout()Lcom/android/launcher3/common/base/view/CellLayout;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/android/launcher3/common/base/view/CellLayout;->getCellLayoutChildren()Lcom/android/launcher3/common/base/view/CellLayoutChildren;
+
+    move-result-object v3
+
+    invoke-virtual {v3, p1}, Lcom/android/launcher3/common/base/view/CellLayoutChildren;->getChildAt(Lcom/android/launcher3/common/base/item/ItemInfo;)Landroid/view/View;
+
+    move-result-object v3
+
+    goto :goto_0
+.end method
+
 .method public getContainerView()Landroid/view/View;
     .locals 1
 
@@ -936,6 +993,18 @@
     const/4 v0, 0x0
 
     goto :goto_0
+.end method
+
+.method public getDragSourceForLongKey()Lcom/android/launcher3/common/drag/DragSource;
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/launcher3/folder/controller/FolderController;->getContainerView()Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/launcher3/common/drag/DragSource;
+
+    return-object v0
 .end method
 
 .method public getFolderBgView()Lcom/android/launcher3/folder/view/FolderBgView;
@@ -998,6 +1067,16 @@
     iget-object v0, p0, Lcom/android/launcher3/folder/controller/FolderController;->mTargetFolderIconView:Lcom/android/launcher3/folder/view/FolderIconView;
 
     return-object v0
+.end method
+
+.method public homeKeyPressed()V
+    .locals 1
+
+    const/4 v0, 0x1
+
+    sput-boolean v0, Lcom/android/launcher3/folder/controller/FolderController;->mHomeKeyPressed:Z
+
+    return-void
 .end method
 
 .method public initStageView()V
@@ -1198,7 +1277,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0900c8
+    const v4, 0x7f0900cd
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1220,7 +1299,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f090031
+    const v4, 0x7f090033
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2027,9 +2106,17 @@
 
     iget-boolean v10, p1, Lcom/android/launcher3/common/stage/StageEntry;->broughtToHome:Z
 
+    if-nez v10, :cond_5
+
+    sget-boolean v10, Lcom/android/launcher3/folder/controller/FolderController;->mHomeKeyPressed:Z
+
     if-eqz v10, :cond_c
 
     :cond_5
+    const/4 v10, 0x0
+
+    sput-boolean v10, Lcom/android/launcher3/folder/controller/FolderController;->mHomeKeyPressed:Z
+
     const-string v10, "KEY_SUPPRESS_CHANGE_STAGE_ONCE"
 
     const/4 v11, 0x0
@@ -2090,14 +2177,14 @@
 
     if-eqz v10, :cond_d
 
-    const v10, 0x7f0901a3
+    const v10, 0x7f0901a8
 
     invoke-virtual {v6, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v7
 
     :goto_4
-    const v10, 0x7f090130
+    const v10, 0x7f090135
 
     invoke-virtual {v6, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2139,7 +2226,7 @@
     :cond_9
     const/4 v4, 0x0
 
-    goto :goto_0
+    goto/16 :goto_0
 
     :cond_a
     const/4 v8, 0x0
@@ -2165,7 +2252,7 @@
     goto :goto_3
 
     :cond_d
-    const v10, 0x7f0901af
+    const v10, 0x7f0901b4
 
     invoke-virtual {v6, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2254,6 +2341,47 @@
     return-void
 .end method
 
+.method public searchBarHasFocus()Z
+    .locals 2
+
+    const/4 v0, 0x0
+
+    iget-object v1, p0, Lcom/android/launcher3/folder/controller/FolderController;->mTargetFolderIconView:Lcom/android/launcher3/folder/view/FolderIconView;
+
+    if-eqz v1, :cond_0
+
+    iget-object v1, p0, Lcom/android/launcher3/folder/controller/FolderController;->mTargetFolderIconView:Lcom/android/launcher3/folder/view/FolderIconView;
+
+    invoke-virtual {v1}, Lcom/android/launcher3/folder/view/FolderIconView;->getFolderView()Lcom/android/launcher3/folder/view/FolderView;
+
+    move-result-object v0
+
+    :cond_0
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0}, Lcom/android/launcher3/folder/view/FolderView;->getFolderNameView()Lcom/android/launcher3/folder/view/FolderNameEditText;
+
+    move-result-object v1
+
+    if-eqz v1, :cond_1
+
+    invoke-virtual {v0}, Lcom/android/launcher3/folder/view/FolderView;->getFolderNameView()Lcom/android/launcher3/folder/view/FolderNameEditText;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/launcher3/folder/view/FolderNameEditText;->hasFocus()Z
+
+    move-result v1
+
+    :goto_0
+    return v1
+
+    :cond_1
+    const/4 v1, 0x0
+
+    goto :goto_0
+.end method
+
 .method public setSearchedAppInfo(Lcom/android/launcher3/common/base/item/IconInfo;)V
     .locals 0
 
@@ -2281,7 +2409,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d002e
+    const v1, 0x7f0b002f
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2299,7 +2427,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d002f
+    const v1, 0x7f0b0030
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2317,7 +2445,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d0032
+    const v1, 0x7f0b0033
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 

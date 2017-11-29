@@ -164,7 +164,7 @@
 
     move-result-object v0
 
-    const v4, 0x7f090087
+    const v4, 0x7f09008a
 
     invoke-virtual {p0, v4}, Lcom/android/launcher3/allapps/OrganizeAppsConfirmDialog;->getString(I)Ljava/lang/String;
 
@@ -174,7 +174,7 @@
 
     invoke-direct {v4, v0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v5, 0x7f090088
+    const v5, 0x7f09008b
 
     invoke-virtual {v4, v5}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -184,7 +184,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f09007e
+    const v5, 0x7f090081
 
     invoke-virtual {v4, v5, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

@@ -17,8 +17,10 @@
     <string name="accessibility_button">Tlačítko</string>
     <string name="accessibility_dimmed">Ztlumený</string>
     <string name="activity_not_available">Tato aplikace není pro toto zařízení k dispozici.</string>
-    <string name="activity_not_found">Aplikace není nainstalována.</string>
+    <string name="activity_not_found">Aplikace nebyla nalezena</string>
+    <string name="add">Přidat</string>
     <string name="add_to_last_page">Vybrali jste %1$d položek, ale na této stránce není dostatek místa. Zbývajících %2$d položek bude přidáno na poslední stránku.</string>
+    <string name="add_to_last_page_for_hotseat">Vybrali jste %1$d položek, ale na panelu oblíbených není dostatek místa. Zbývajících %2$d položek bude přidáno na poslední stránku.</string>
     <string name="align_to_bottom">Zarovnat dolů</string>
     <string name="align_to_top">Zarovnat nahoru</string>
     <string name="app_locked_toast">%s je zamknuto.</string>
@@ -122,6 +124,7 @@
     <string name="new_page_created">Stránka byla přidána.</string>
     <string name="no_changes">Beze změn.</string>
     <string name="no_space_page">Na stránce není místo. Přidejte zástupce na jinou stránku.</string>
+    <string name="no_space_page_for_hotseat">Na panelu oblíbených není volné místo.</string>
     <string name="no_space_page_for_widget">Na této stránce není žádné místo.</string>
     <string name="not_selected">Nevybráno</string>
     <string name="notification_panel_setting_summary">Potažením dolů otevřete oznamovací panel z Domovské obrazovky.</string>
@@ -156,6 +159,8 @@
     <string name="quick_option_delete_folder">Odstranit složku</string>
     <string name="quick_option_delete_folder_alert">Složka %s bude odstraněna. Aplikace uvnitř této složky budou stále k dispozici na obrazovce Aplikace.</string>
     <string name="quick_option_delete_folder_alert_no_title">Tato složka bude odstraněna. Aplikace uvnitř této složky budou stále k dispozici na obrazovce Aplikace.</string>
+    <string name="quick_option_delete_folder_home_only_alert">Složka %s bude odstraněna. Aplikace uvnitř této složky budou stále k dispozici na Domovské obrazovce.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">Tato složka bude odstraněna. Aplikace uvnitř této složky budou stále k dispozici na Domovské obrazovce.</string>
     <string name="quick_option_dimmed_disable">Vypnout</string>
     <string name="quick_option_disable">Vypnout</string>
     <string name="quick_option_install_dual_im">Instal. druhou aplikaci</string>

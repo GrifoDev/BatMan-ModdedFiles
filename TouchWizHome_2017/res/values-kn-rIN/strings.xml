@@ -16,8 +16,10 @@
     <string name="accessibility_button">ಬಟನ್</string>
     <string name="accessibility_dimmed">ಮಬ್ಬುಗೊಳಿಸಿದೆ</string>
     <string name="activity_not_available">ನಿಮ್ಮ ಸಾಧನಕ್ಕಾಗಿ ಈ ಅನ್ವಯಿಸುವಿಕೆ ಲಭ್ಯವಿಲ್ಲ.</string>
-    <string name="activity_not_found">ಅನ್ವಯಿಸುವಿಕೆಯನ್ನು ಸ್ಥಾಪಿಸಿಲ್ಲ.</string>
+    <string name="activity_not_found">ಅನ್ವಯಿಸುವಿಕೆ ಕಂಡುಬಂದಿಲ್ಲ</string>
+    <string name="add">ಸೇರಿಸು</string>
     <string name="add_to_last_page">ನೀವು %1$d ಅಂಶಗಳನ್ನು ಆಯ್ಕೆಮಾಡಿರುವಿರಿ, ಆದರೆ ಈ ಪುಟದಲ್ಲಿ ಸಾಕಷ್ಟು ಸ್ಥಳಾವಕಾಶವಿಲ್ಲ. ಉಳಿದ %2$d ಅಂಶಗಳನ್ನು ಕೊನೆಯ ಪುಟಕ್ಕೆ ಸೇರಿಸಲಾಗುವುದು.</string>
+    <string name="add_to_last_page_for_hotseat">ನೀವು %1$d ಅಂಶಗಳನ್ನು ಆಯ್ಕೆಮಾಡಿರುವಿರಿ, ಆದರೆ ಮೆಚ್ಚಿನವುಗಳ ಟ್ರೇನಲ್ಲಿ ಸಾಕಷ್ಟು ಸ್ಥಳಾವಕಾಶವಿಲ್ಲ. ಉಳಿದ %2$d ಅಂಶಗಳನ್ನು ಕೊನೆಯ ಪುಟಕ್ಕೆ ಸೇರಿಸಲಾಗುವುದು.</string>
     <string name="align_to_bottom">ಕೆಳಕ್ಕೆ ಜೋಡಿಸು</string>
     <string name="align_to_top">ಮೇಲಕ್ಕೆ ಜೋಡಿಸು</string>
     <string name="app_locked_toast">%s ಲಾಕ್ ಆಗಿದೆ.</string>
@@ -121,6 +123,7 @@
     <string name="new_page_created">ಪುಟ ಸೇರಿಸಲಾಗಿದೆ.</string>
     <string name="no_changes">ಬದಲಾವಣೆಗಳಿಲ್ಲ.</string>
     <string name="no_space_page">ಪುಟದಲ್ಲಿ ಸ್ಪೇಸ್ ಇಲ್ಲ. ಬೇರೊಂದು ಪುಟಕ್ಕೆ ಶಾರ್ಟ್‍ಕಟ್ ಸೇರಿಸಲು ಪ್ರಯತ್ನಿಸಿ.</string>
+    <string name="no_space_page_for_hotseat">ಮೆಚ್ಚಿನವುಗಳ ಟ್ರೇನಲ್ಲಿ ಸ್ಥಳಾವಕಾಶವಿಲ್ಲ.</string>
     <string name="no_space_page_for_widget">ಈ ಪುಟದಲ್ಲಿ ಸ್ಥಳಾವಕಾಶವಿಲ್ಲ.</string>
     <string name="not_selected">ಆಯ್ಕೆ ಮಾಡಿಲ್ಲ</string>
     <string name="notification_panel_setting_summary">ಹೋಮ್ ಸ್ಕ್ರೀನ್‌ನಿಂದ ಪ್ರಕಟಣೆ ಪ್ಯಾನೆಲ್ ತೆರೆಯಲು ಕೆಳಗೆ ಸ್ವೈಪ್ ಮಾಡಿ.</string>
@@ -155,6 +158,8 @@
     <string name="quick_option_delete_folder">ಫೋಲ್ಡರ್ ತೆಗೆದುಹಾಕಿ</string>
     <string name="quick_option_delete_folder_alert">%s ಫೋಲ್ಡರ್ ಅಳಿಸಲಾಗುವುದು. ಈ ಫೋಲ್ಡರ್‌ನಲ್ಲಿನ ಅನ್ವಯಿಸುವಿಕೆಗಳು ಅನ್ವಯಿಸುವಿಕೆಗಳು ಸ್ಕ್ರೀನ್‌ನಲ್ಲಿ ಈಗಲೂ ಲಭ್ಯವಿವೆ.</string>
     <string name="quick_option_delete_folder_alert_no_title">ಈ ಫೋಲ್ಡರ್ ಅಳಿಸಲಾಗುವುದು. ಈ ಫೋಲ್ಡರ್‌ನಲ್ಲಿನ ಅನ್ವಯಿಸುವಿಕೆಗಳು, ಅನ್ವಯಿಸುವಿಕೆಗಳ ಸ್ಕ್ರೀನ್‌ನಲ್ಲಿ ಇನ್ನೂ ಲಭ್ಯವಾಗಿಲ್ಲ.</string>
+    <string name="quick_option_delete_folder_home_only_alert">%s ಫೋಲ್ಡರ್ ಅಳಿಸಲಾಗುವುದು. ಈ ಫೋಲ್ಡರ್‌ನಲ್ಲಿನ ಅನ್ವಯಿಸುವಿಕೆಗಳು, ಹೋಮ್ ಸ್ಕ್ರೀನ್‌ನಲ್ಲಿ ಇನ್ನೂ ಲಭ್ಯವಾಗಿಲ್ಲ.</string>
+    <string name="quick_option_delete_folder_home_only_alert_no_title">ಈ ಫೋಲ್ಡರ್ ಅಳಿಸಲಾಗುವುದು. ಈ ಫೋಲ್ಡರ್‌ನಲ್ಲಿನ ಅನ್ವಯಿಸುವಿಕೆಗಳು, ಹೋಮ್ ಸ್ಕ್ರೀನ್‌ನಲ್ಲಿ ಇನ್ನೂ ಲಭ್ಯವಾಗಿರುತ್ತವೆ.</string>
     <string name="quick_option_dimmed_disable">ನಿಶಕ್ತಗೊಳಿಸಿ</string>
     <string name="quick_option_disable">ನಿಶಕ್ತಗೊಳಿಸಿ</string>
     <string name="quick_option_install_dual_im">ಎರಡನೇ ಅನ್ವಯಿಸುವಿಕೆ ಸ್ಥಾಪಿಸಿ</string>

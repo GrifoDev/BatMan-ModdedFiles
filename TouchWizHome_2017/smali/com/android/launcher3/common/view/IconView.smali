@@ -69,6 +69,8 @@
 
 .field protected final mLauncher:Lcom/android/launcher3/Launcher;
 
+.field private final mLongKeyHelper:Lcom/android/launcher3/util/event/CheckLongKeyHelper;
+
 .field private final mLongPressHelper:Lcom/android/launcher3/util/event/CheckLongPressHelper;
 
 .field private mMarkToRemove:Z
@@ -175,6 +177,14 @@
     invoke-direct {v1, p0}, Lcom/android/launcher3/util/event/CheckLongPressHelper;-><init>(Landroid/view/View;)V
 
     iput-object v1, p0, Lcom/android/launcher3/common/view/IconView;->mLongPressHelper:Lcom/android/launcher3/util/event/CheckLongPressHelper;
+
+    new-instance v1, Lcom/android/launcher3/util/event/CheckLongKeyHelper;
+
+    iget-object v2, p0, Lcom/android/launcher3/common/view/IconView;->mLauncher:Lcom/android/launcher3/Launcher;
+
+    invoke-direct {v1, p0, v2}, Lcom/android/launcher3/util/event/CheckLongKeyHelper;-><init>(Landroid/view/View;Lcom/android/launcher3/Launcher;)V
+
+    iput-object v1, p0, Lcom/android/launcher3/common/view/IconView;->mLongKeyHelper:Lcom/android/launcher3/util/event/CheckLongKeyHelper;
 
     new-instance v1, Lcom/android/launcher3/util/event/StylusEventHelper;
 
@@ -529,7 +539,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090043
+    const v3, 0x7f090045
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -580,7 +590,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f0900af
+    const v4, 0x7f0900b4
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -611,7 +621,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f09007b
+    const v4, 0x7f09007e
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1119,10 +1129,6 @@
     :goto_0
     invoke-virtual {p0, p1, p3, v0}, Lcom/android/launcher3/common/view/IconView;->refreshIcon(Lcom/android/launcher3/common/base/item/IconInfo;ZLandroid/graphics/Bitmap;)V
 
-    iget-object v2, p1, Lcom/android/launcher3/common/base/item/IconInfo;->title:Ljava/lang/CharSequence;
-
-    invoke-virtual {p0, v2}, Lcom/android/launcher3/common/view/IconView;->setContentDescription(Ljava/lang/CharSequence;)V
-
     invoke-static {}, Lcom/android/launcher3/util/WhiteBgManager;->isWhiteBg()Z
 
     move-result v2
@@ -1245,7 +1251,7 @@
 
     move-result-object v0
 
-    goto/16 :goto_0
+    goto :goto_0
 
     :cond_4
     invoke-virtual {p1, p2}, Lcom/android/launcher3/common/base/item/IconInfo;->getIcon(Lcom/android/launcher3/common/model/IconCache;)Landroid/graphics/Bitmap;
@@ -2203,7 +2209,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0098
+    const v3, 0x7f0a0099
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2742,7 +2748,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0104
+    const v2, 0x7f0a0108
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2786,7 +2792,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0d001a
+    const v1, 0x7f0b001b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getInteger(I)I
 
@@ -2844,6 +2850,49 @@
     .packed-switch 0x0
         :pswitch_0
     .end packed-switch
+.end method
+
+.method public onKeyDown(ILandroid/view/KeyEvent;)Z
+    .locals 2
+
+    invoke-super {p0, p1, p2}, Landroid/widget/FrameLayout;->onKeyDown(ILandroid/view/KeyEvent;)Z
+
+    move-result v0
+
+    const/16 v1, 0x17
+
+    if-ne p1, v1, :cond_0
+
+    invoke-virtual {p2}, Landroid/view/KeyEvent;->startTracking()V
+
+    const/4 v0, 0x1
+
+    :cond_0
+    return v0
+.end method
+
+.method public onKeyLongPress(ILandroid/view/KeyEvent;)Z
+    .locals 1
+
+    const/16 v0, 0x17
+
+    if-ne p1, v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/launcher3/common/view/IconView;->mLongKeyHelper:Lcom/android/launcher3/util/event/CheckLongKeyHelper;
+
+    invoke-virtual {v0}, Lcom/android/launcher3/util/event/CheckLongKeyHelper;->postCheckForLongKey()V
+
+    const/4 v0, 0x1
+
+    :goto_0
+    return v0
+
+    :cond_0
+    invoke-super {p0, p1, p2}, Landroid/widget/FrameLayout;->onKeyLongPress(ILandroid/view/KeyEvent;)Z
+
+    move-result v0
+
+    goto :goto_0
 .end method
 
 .method protected onLayout(ZIIII)V
@@ -3534,7 +3583,7 @@
 
     move-result-object v9
 
-    const v11, 0x7f090075
+    const v11, 0x7f090077
 
     invoke-virtual {v9, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3638,7 +3687,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f090076
+    const v12, 0x7f090078
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3730,7 +3779,7 @@
 
     move-result-object v8
 
-    const v10, 0x7f0900af
+    const v10, 0x7f0900b4
 
     invoke-virtual {v8, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3754,7 +3803,7 @@
 
     move-result-object v8
 
-    const v10, 0x7f09007b
+    const v10, 0x7f09007e
 
     invoke-virtual {v8, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4110,7 +4159,7 @@
 .method protected updateBadgeLayout()V
     .locals 11
 
-    const/4 v10, 0x0
+    const/4 v9, 0x0
 
     iget-object v8, p0, Lcom/android/launcher3/common/view/IconView;->mBadgeView:Landroid/widget/TextView;
 
@@ -4154,11 +4203,11 @@
 
     invoke-virtual {v8}, Landroid/widget/TextView;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
 
-    move-result-object v3
+    move-result-object v4
 
-    check-cast v3, Landroid/widget/FrameLayout$LayoutParams;
+    check-cast v4, Landroid/widget/FrameLayout$LayoutParams;
 
-    if-eqz v3, :cond_0
+    if-eqz v4, :cond_0
 
     invoke-virtual {p0}, Lcom/android/launcher3/common/view/IconView;->getWidth()I
 
@@ -4189,57 +4238,65 @@
 
     int-to-float v8, v8
 
-    sget v9, Lcom/android/launcher3/common/view/IconView;->mBadgePositionFactor:F
+    sget v10, Lcom/android/launcher3/common/view/IconView;->mBadgePositionFactor:F
 
-    mul-float/2addr v8, v9
+    mul-float/2addr v8, v10
 
-    float-to-int v4, v8
+    float-to-int v5, v8
 
-    sub-int v7, v2, v4
+    sub-int v7, v2, v5
 
-    sub-int v5, v1, v4
+    sub-int v6, v1, v5
 
-    if-lez v7, :cond_3
-
-    if-lez v5, :cond_3
-
-    iput v7, v3, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I
-
-    iput v5, v3, Landroid/widget/FrameLayout$LayoutParams;->rightMargin:I
-
-    :cond_2
-    :goto_1
     sget-boolean v8, Lcom/android/launcher3/Utilities;->sIsRtl:Z
 
-    if-eqz v8, :cond_0
+    if-eqz v8, :cond_3
 
-    iget v6, v3, Landroid/widget/FrameLayout$LayoutParams;->leftMargin:I
+    if-ltz v6, :cond_2
 
-    iget v8, v3, Landroid/widget/FrameLayout$LayoutParams;->rightMargin:I
+    :goto_1
+    iput v6, v4, Landroid/widget/FrameLayout$LayoutParams;->leftMargin:I
 
-    iput v8, v3, Landroid/widget/FrameLayout$LayoutParams;->leftMargin:I
+    :goto_2
+    invoke-virtual {p0}, Lcom/android/launcher3/common/view/IconView;->getResources()Landroid/content/res/Resources;
 
-    iput v6, v3, Landroid/widget/FrameLayout$LayoutParams;->rightMargin:I
+    move-result-object v8
+
+    const v9, 0x7f0a0098
+
+    invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
+
+    move-result v3
+
+    if-lt v7, v3, :cond_5
+
+    :goto_3
+    iput v7, v4, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I
 
     goto :goto_0
 
-    :cond_3
-    if-gtz v7, :cond_4
-
-    iput v10, v3, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I
-
-    iput v5, v3, Landroid/widget/FrameLayout$LayoutParams;->rightMargin:I
+    :cond_2
+    move v6, v9
 
     goto :goto_1
+
+    :cond_3
+    if-ltz v6, :cond_4
+
+    :goto_4
+    iput v6, v4, Landroid/widget/FrameLayout$LayoutParams;->rightMargin:I
+
+    goto :goto_2
 
     :cond_4
-    if-gtz v5, :cond_2
+    move v6, v9
 
-    iput v10, v3, Landroid/widget/FrameLayout$LayoutParams;->rightMargin:I
+    goto :goto_4
 
-    iput v7, v3, Landroid/widget/FrameLayout$LayoutParams;->topMargin:I
+    :cond_5
+    move v7, v3
 
-    goto :goto_1
+    goto :goto_3
 .end method
 
 .method public updateCheckBox(Z)V

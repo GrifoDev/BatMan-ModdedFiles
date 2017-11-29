@@ -64,13 +64,20 @@
     :goto_1
     array-length v6, p0
 
-    if-ge v3, v6, :cond_4
+    if-lt v3, v6, :cond_1
 
+    invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
+
+    move-result-object v6
+
+    goto :goto_0
+
+    :cond_1
     aget-byte v0, p0, v3
 
     sget-byte v6, Lcom/android/vcard/VCardUtils$QuotedPrintableCodecPort;->ESCAPE_CHAR:B
 
-    if-ne v0, v6, :cond_3
+    if-ne v0, v6, :cond_4
 
     add-int/lit8 v3, v3, 0x1
 
@@ -97,11 +104,11 @@
 
     move-result v4
 
-    if-eq v5, v8, :cond_1
+    if-eq v5, v8, :cond_2
 
-    if-ne v4, v8, :cond_2
+    if-ne v4, v8, :cond_3
 
-    :cond_1
+    :cond_2
     new-instance v6, Lcom/android/vcard/VCardUtils$DecoderException;
 
     const-string v7, "Invalid quoted-printable encoding"
@@ -123,7 +130,7 @@
 
     throw v6
 
-    :cond_2
+    :cond_3
     shl-int/lit8 v6, v5, 0x4
 
     add-int/2addr v6, v4
@@ -140,15 +147,8 @@
 
     goto :goto_1
 
-    :cond_3
+    :cond_4
     invoke-virtual {v1, v0}, Ljava/io/ByteArrayOutputStream;->write(I)V
 
     goto :goto_2
-
-    :cond_4
-    invoke-virtual {v1}, Ljava/io/ByteArrayOutputStream;->toByteArray()[B
-
-    move-result-object v6
-
-    goto :goto_0
 .end method
