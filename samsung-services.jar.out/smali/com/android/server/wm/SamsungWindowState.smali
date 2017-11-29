@@ -1704,6 +1704,14 @@
     return-void
 .end method
 
+.method public setNonImmersiveWindow(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/server/wm/SamsungWindowState;->mNonImmersive:Z
+
+    return-void
+.end method
+
 .method public setOwner(Ljava/lang/Object;)V
     .locals 2
 

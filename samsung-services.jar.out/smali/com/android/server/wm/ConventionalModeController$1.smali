@@ -53,7 +53,7 @@
 
     iget-object v1, v1, Lcom/android/server/wm/SamsungWindowManagerService;->mContext:Landroid/content/Context;
 
-    const v2, 0x1040933
+    const v2, 0x1040935
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

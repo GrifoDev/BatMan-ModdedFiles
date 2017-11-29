@@ -148,7 +148,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/server/wm/ConventionalModeController$VerticalTextView;->setBackgroundColor(I)V
 
-    const v1, 0x1040935
+    const v1, 0x1040937
 
     invoke-virtual {v0, v1}, Lcom/android/server/wm/ConventionalModeController$VerticalTextView;->setText(I)V
 
@@ -266,7 +266,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/server/wm/ConventionalModeController$ChangeRatioButtonView;->mChangeRatioButton:Lcom/android/server/wm/ConventionalModeController$VerticalTextView;
 
-    const v1, 0x1040935
+    const v1, 0x1040937
 
     invoke-virtual {v0, v1}, Lcom/android/server/wm/ConventionalModeController$VerticalTextView;->setText(I)V
 
