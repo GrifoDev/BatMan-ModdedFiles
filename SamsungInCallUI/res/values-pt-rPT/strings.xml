@@ -24,7 +24,7 @@
     <string name="audio_mode_speaker">Altifalante</string>
     <string name="audio_mode_wired_headset">Auscultadores com fios</string>
     <string name="calling_via_template">A chamar via %s</string>
-    <string name="card_title_call_ended">Cham. terminada</string>
+    <string name="card_title_call_ended">Chamada terminada</string>
     <string name="card_title_callback_number">"O seu número de retorno de chamadas
  %1$s"</string>
     <string name="card_title_callback_number_emergency">"O seu número de retorno de chamadas de emergência
@@ -178,12 +178,13 @@
     <string name="account_phone">Dispositivo</string>
     <string name="acs">Chamada de voz</string>
     <string name="active_calls">Chamada activa</string>
-    <string name="add_reminder">Adic. lembrete</string>
+    <string name="add_reminder">Adicionar lembrete</string>
     <string name="agif_button_close_description">Fechar</string>
     <string name="agif_decline_message">Lamento, mas não posso falar neste momento.</string>
     <string name="agif_decline_sticker_header">Recusar com um autocolante</string>
     <string name="agif_decline_text_header">Recusar com um texto</string>
     <string name="agif_decline_toast">Autocolante enviado para %s.</string>
+    <string name="agif_outgoing_bubble_tip">Envie um autocolante para mostrar como se sente.</string>
     <string name="agif_pickers_add_tab_description">Adicion.</string>
     <string name="agif_pickers_find_more">Localizar mais</string>
     <string name="agif_pickers_item_usage_hints_description">Toque duas vezes para seleccionar</string>
@@ -192,10 +193,12 @@
     <string name="agif_pickers_tab_select_description">Seleccionado</string>
     <string name="agif_pickers_title">Começar com um autocolante</string>
     <string name="agif_pickers_title_recommended">Recomendados</string>
+    <string name="agif_random_send_message">Toque aqui para enviar este autocolante.</string>
     <string name="agif_read_permission_description">Permitir que a aplicação Telefone leia conteúdo AGIF.</string>
     <string name="agif_read_permission_label">Ler conteúdo AGIF</string>
     <string name="agif_receive_no_id">Impossível mostrar autocolante. Actualize %s após a chamada.</string>
     <string name="agif_receive_no_id_upsupport_update">Impossível mostrar autocolante. Mais autocolantes disponíveis após a próxima actualização de sistema.</string>
+    <string name="agif_receive_toast">Autocolante de %s.</string>
     <string name="agif_sent_fail_message">Impossível enviar GIF animado. Tente novamente mais tarde.</string>
     <string name="agif_sent_toast">Autocolante enviado.</string>
     <string name="agif_write_permission_description">Permitir que a aplicação Telefone modifique conteúdo AGIF.</string>
@@ -885,8 +888,8 @@ Unidirec."</string>
     <string name="tts_pager">Página %1$d de %2$d</string>
     <string name="tts_seconds">%d segundos</string>
     <string name="tty_mode_option_title">Modo TTY</string>
-    <string name="tutorial_incoming_call_app_answer">Toque para atender a chamada.</string>
-    <string name="tutorial_incoming_call_app_reject">Toque em recusar a chamada.</string>
+    <string name="tutorial_incoming_call_app_answer">Tocar duas vezes para atender.</string>
+    <string name="tutorial_incoming_call_app_reject">Tocar duas vezes para rejeitar.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Impossível estabelecer ligação à rede. Verifique as suas definições de ligação e tente novamente.</string>
     <string name="units_kb">KB</string>
@@ -896,7 +899,7 @@ Unidirec."</string>
     <string name="upload_using_wlan_only">Carregar apenas via WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Carregamento via Wi-Fi ou rede móvel</string>
     <string name="upload_wlan_and_mobile_nw">Carregar via WLAN ou rede móvel</string>
-    <string name="usa_att_connected_as_voice">Chamada ligada apenas como voz.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">A Utilização de Dados definida no seu dispositivo está quase a atingir o limite. A Chamada de vídeo vai precisar de dados.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Chamada não pode ser efectuada via Wi-Fi, ligação estabelecida via rede celular. Vão ser cobradas taxas de voz e de dados.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -946,11 +949,15 @@ vídeo unidirec."</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Utilizar Dados Móveis</string>
     <string name="usa_vzw_volte_weak_wifi_text">"Tentámos, mas não conseguimos mudar a sua chamada de vídeo para o Wi-Fi neste momento.
 
-A sua chamada de vídeo continua a ser executada na rede móvel. (Utilização de dados aplicável se optar por continuar.)"</string>
+A sua chamada de vídeo continua a ser executada na rede móvel.
+
+Se optar por continuar, isso pode implicar a cobrança de taxas de utilização de dados."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">A sua chamada de vídeo continua a ser executada na rede móvel. (Utilização de dados aplicável.)</string>
     <string name="usa_vzw_vowifi_wifi_low_signal_text">"O sinal de Wi-Fi não foi suficientemente forte para continuar a chamada de vídeo.
 
-A sua chamada de vídeo está agora a ser executada na rede móvel. (Utilização de dados aplicável se optar por continuar.)"</string>
+A sua chamada de vídeo está agora a ser executada na rede móvel.
+
+Se optar por continuar, isso pode implicar a cobrança de taxas de utilização de dados."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Perdeu-se a ligação Wi-Fi. Chamada terminada.</string>
     <string name="use_wifi_and_mobile_nw">Utilizar Wi-Fi e redes móveis</string>
     <string name="use_wlan_and_mobile_nw">Utilizar WLAN e redes móveis</string>

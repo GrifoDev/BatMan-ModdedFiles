@@ -16,7 +16,7 @@
 .method public getAppIconResourceId()I
     .locals 1
 
-    const v0, 0x7f020424
+    const v0, 0x7f020485
 
     return v0
 .end method

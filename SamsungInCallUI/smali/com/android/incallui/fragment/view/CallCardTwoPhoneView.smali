@@ -78,7 +78,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f100251
+    const v1, 0x7f100255
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -267,7 +267,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f1002d4
+    const v0, 0x7f1002da
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -285,7 +285,7 @@
 
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    const v0, 0x7f10016f
+    const v0, 0x7f100173
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -295,7 +295,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/view/CallCardTwoPhoneView;->mTwophoneIcon:Landroid/widget/ImageView;
 
-    const v0, 0x7f100170
+    const v0, 0x7f100174
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -320,9 +320,9 @@
 .method private updateTwoPhoneColor(Lcom/android/incallui/fragment/CallCardFragment;I)V
     .locals 6
 
-    const v5, 0x7f0e0174
+    const v5, 0x7f0e018c
 
-    const v4, 0x7f0e016e
+    const v4, 0x7f0e0186
 
     const/high16 v3, 0x3f800000    # 1.0f
 
@@ -421,9 +421,9 @@
 .method private updateTwoPhoneLayout(Lcom/android/incallui/fragment/CallCardFragment;)V
     .locals 8
 
-    const v7, 0x7f0900f6
+    const v7, 0x7f0900f9
 
-    const v6, 0x7f02042d
+    const v6, 0x7f02048e
 
     const/16 v3, 0x8
 
@@ -681,7 +681,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f02042c
+    const v2, 0x7f02048d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -700,7 +700,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0900f5
+    const v2, 0x7f0900f8
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

@@ -192,7 +192,7 @@
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f04006f
+    const v0, 0x7f040070
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/OpenSourceLicenseActivity;->setContentView(I)V
 
@@ -209,7 +209,7 @@
     invoke-virtual {v0, v1, v1}, Landroid/app/ActionBar;->setDisplayOptions(II)V
 
     :cond_0
-    const v0, 0x7f1001aa
+    const v0, 0x7f1001ae
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/OpenSourceLicenseActivity;->findViewById(I)Landroid/view/View;
 

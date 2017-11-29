@@ -178,12 +178,13 @@
     <string name="account_phone">Urządzenie</string>
     <string name="acs">Połączenie głosowe</string>
     <string name="active_calls">Aktywne połączenie</string>
-    <string name="add_reminder">Dodaj przyp.</string>
+    <string name="add_reminder">Dodaj przypomnienie</string>
     <string name="agif_button_close_description">Zamknij</string>
     <string name="agif_decline_message">Nie mogę teraz rozmawiać.</string>
     <string name="agif_decline_sticker_header">Odrzucanie z naklejką</string>
     <string name="agif_decline_text_header">Odrzucanie z SMS-em</string>
     <string name="agif_decline_toast">Wysłano naklejkę do użytkownika %s.</string>
+    <string name="agif_outgoing_bubble_tip">Wyślij naklejkę, aby pokazać, jak się czujesz.</string>
     <string name="agif_pickers_add_tab_description">Dodaj</string>
     <string name="agif_pickers_find_more">Znajdź więcej</string>
     <string name="agif_pickers_item_usage_hints_description">Dotknij dwukrotnie, aby wybrać</string>
@@ -192,10 +193,12 @@
     <string name="agif_pickers_tab_select_description">Wybrane</string>
     <string name="agif_pickers_title">Zaczynanie z naklejką</string>
     <string name="agif_pickers_title_recommended">Polecane</string>
+    <string name="agif_random_send_message">Dotknij tutaj, aby wysłać tę naklejkę.</string>
     <string name="agif_read_permission_description">Zezwala aplikacji Telefon na odczytywanie zawartości AGIF.</string>
     <string name="agif_read_permission_label">Odczytuj zawartość AGIF</string>
     <string name="agif_receive_no_id">Nie można pokazać naklejki. Zaktualizuj aplikację %s po połączeniu.</string>
     <string name="agif_receive_no_id_upsupport_update">Nie można pokazać naklejki. Kolejne naklejki zostaną udostępnione po następnej aktualizacji systemu.</string>
+    <string name="agif_receive_toast">Naklejka od rozmówcy %s.</string>
     <string name="agif_sent_fail_message">Nie można wysłać animowanego pliku GIF. Spróbuj ponownie później.</string>
     <string name="agif_sent_toast">Wysłano naklejkę.</string>
     <string name="agif_write_permission_description">Zezwala aplikacji Telefon na modyfikowanie zawartości AGIF.</string>
@@ -885,8 +888,8 @@ jednokier."</string>
     <string name="tts_pager">Strona %1$d z %2$d</string>
     <string name="tts_seconds">%d sek.</string>
     <string name="tty_mode_option_title">Tryb TTY</string>
-    <string name="tutorial_incoming_call_app_answer">Dotknij, aby odebrać połączenie.</string>
-    <string name="tutorial_incoming_call_app_reject">Dotknij, aby odrzucić połączenie.</string>
+    <string name="tutorial_incoming_call_app_answer">Dotknij dwukrotnie, aby odpowiedzieć.</string>
+    <string name="tutorial_incoming_call_app_reject">Dotknij dwukrotnie, aby odrzucić.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Nie można nawiązać połączenia z siecią. Sprawdź ustawienia połączenia i spróbuj ponownie.</string>
     <string name="units_kb">kB</string>
@@ -896,7 +899,7 @@ jednokier."</string>
     <string name="upload_using_wlan_only">Przesyłaj tylko przez sieć WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Przekaż przez Wi-Fi lub sieć komórkową</string>
     <string name="upload_wlan_and_mobile_nw">Przesyłaj przez sieć WLAN lub sieć komórkową</string>
-    <string name="usa_att_connected_as_voice">Połączenie nawiązane w trybie głosowym.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Wkrótce zostanie osiągnięty limit Wykorzystania danych skonfigurowany na urządzeniu. Połączenie wideo wymaga danych.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Nie można nawiązać połączenia przez sieć Wi-Fi. Łączenie przez sieć komórkową. Obowiązują opłaty za połączenie głosowe i dane.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -946,11 +949,15 @@ jednokierunkowe"</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Używanie Danych komórkowych</string>
     <string name="usa_vzw_volte_weak_wifi_text">"Pomimo podjętej próby nie udało się przełączyć połączenia wideo do sieci Wi-Fi w tym momencie.
 
-Połączenie wideo jest nadal realizowane w sieci komórkowej. (Jeśli będziesz kontynuować, zostaną naliczone opłaty za wykorzystanie danych)."</string>
+Połączenie wideo jest nadal realizowane w sieci komórkowej.
+
+Jeśli będziesz kontynuować, mogą zostać naliczone opłaty za wykorzystanie danych."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Połączenie wideo działa nadal w sieci komórkowej. Zostaną naliczone opłaty za wykorzystanie danych.</string>
     <string name="usa_vzw_vowifi_wifi_low_signal_text">"Sygnał Wi-Fi nie był wystarczająco silny, aby kontynuować połączenie wideo.
 
-Połączenie wideo jest teraz realizowane w sieci komórkowej. (Jeśli będziesz kontynuować, zostaną naliczone opłaty za wykorzystanie danych)."</string>
+Połączenie wideo jest teraz realizowane w sieci komórkowej.
+
+Jeśli będziesz kontynuować, mogą zostać naliczone opłaty za wykorzystanie danych."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Połączenie Wi-Fi zostało utracone. Połączenie zakończone.</string>
     <string name="use_wifi_and_mobile_nw">Używaj Wi-Fi i sieci komórkowych</string>
     <string name="use_wlan_and_mobile_nw">Użyj sieci WLAN i sieci komórkowych</string>

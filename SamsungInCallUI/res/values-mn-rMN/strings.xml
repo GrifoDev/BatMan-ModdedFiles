@@ -120,12 +120,13 @@
     <string name="account_phone">Төхөөрөмж</string>
     <string name="acs">Дуут дуудлга</string>
     <string name="active_calls">Идэвхтэй дуудлага</string>
-    <string name="add_reminder">Сануулга нэм</string>
+    <string name="add_reminder">Сануулга нэмэх</string>
     <string name="agif_button_close_description">Хаах</string>
     <string name="agif_decline_message">Уучлаарай. Би одоо ярих боломжгүй.</string>
     <string name="agif_decline_sticker_header">Наалт ашиглан татгалзах</string>
     <string name="agif_decline_text_header">Бичвэр илгээж татгалзах</string>
     <string name="agif_decline_toast">%s рүү наалтыг илгээлээ.</string>
+    <string name="agif_outgoing_bubble_tip">Стикер илгээж ямар өнгө төрхтэй байгаагаа харуул.</string>
     <string name="agif_pickers_add_tab_description">Нэмэх</string>
     <string name="agif_pickers_find_more">Илүүг олох</string>
     <string name="agif_pickers_item_usage_hints_description">Давхар товшоод сонго</string>
@@ -134,10 +135,12 @@
     <string name="agif_pickers_tab_select_description">Сонгогдсон</string>
     <string name="agif_pickers_title">Наалт ашиглаж эхлэх</string>
     <string name="agif_pickers_title_recommended">Санал болгосон</string>
+    <string name="agif_random_send_message">Энд товшоод энэхүү стикерийг илгээ.</string>
     <string name="agif_read_permission_description">AGIF контентыг уншихыг Утаст зөвшөөрнө.</string>
     <string name="agif_read_permission_label">AGIF контентийг унших</string>
     <string name="agif_receive_no_id">Наалтыг харуулах боломжгүй. Дуудлагын дараа %s-г шинэчилнэ үү.</string>
     <string name="agif_receive_no_id_upsupport_update">Наалтыг харуулах боломжгүй. Системийн шинэчлэлтийн дараа нэмэлт наалтуудыг хэрэглэх боломжтой.</string>
+    <string name="agif_receive_toast">%s-н стикер.</string>
     <string name="agif_sent_fail_message">Хөдөлгөөнт GIF илгээх боломжгүй. Дараа дахин оролд.</string>
     <string name="agif_sent_toast">Наалтыг илгээлээ.</string>
     <string name="agif_write_permission_description">AGIF контентыг өөрчлөхийг Утаст зөвшөөрнө.</string>
@@ -827,8 +830,8 @@ IVR дуудлагын дэлгэцийн цэс “Dianhuabang” хэмээх 
     <string name="tts_pager">Хуудас %1$d / %2$d</string>
     <string name="tts_seconds">%d секунд</string>
     <string name="tty_mode_option_title">TTY горим</string>
-    <string name="tutorial_incoming_call_app_answer">Товшиж дуудлагад хариул.</string>
-    <string name="tutorial_incoming_call_app_reject">Товшоод дуудлагаас татгалзана уу.</string>
+    <string name="tutorial_incoming_call_app_answer">Хариулахдаа хоёр товш</string>
+    <string name="tutorial_incoming_call_app_reject">Татгалзахдаа хоёр товш</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Сүлжээнд холбогдох боломжгүй. Холболтын тохиргоогоо шалгаж, дахин оролд.</string>
     <string name="units_kb">KB</string>
@@ -838,7 +841,7 @@ IVR дуудлагын дэлгэцийн цэс “Dianhuabang” хэмээх 
     <string name="upload_using_wlan_only">Зөвхөн WLAN-р байршуул</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fi эсвэл мобайл сүлжээгээр байршуул</string>
     <string name="upload_wlan_and_mobile_nw">WLAN эсвэл мобайл сүлжээгээр байршуул</string>
-    <string name="usa_att_connected_as_voice">Зөвхөн яриан дуудлагаар холбогдсон.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Таны Дата ашиглалт төхөөрөмж дээрээ тохируулсан хязгаарт хүрлээ. Видео дуудлага дата ашигладаг.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Wi-Fi-гаар дуудлага хийх боломжгүй тул үүрэн холбооны сүлжээгээр холбогдож байна. Яриа ба дата төлбөр тооцогдоно.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -886,13 +889,17 @@ IVR дуудлагын дэлгэцийн цэс “Dianhuabang” хэмээх 
     <string name="usa_vzw_voice_incoming_during_wifi_video">Ирсэн дуудлагад хариулбал одоогийн дуудлагыг тасална.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_text">Wi-Fi сүлжээ дуудлагыг үргэлжлүүлэхэд хүрэлцэхгүй байна. Мобайл сүлжээг ашиглаж дуудлагаа үргэлжлүүлэх нь таны дата багцыг хэрэглэнэ.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Мобайл дата ашиглах</string>
-    <string name="usa_vzw_volte_weak_wifi_text">"Бид оролдсон хэдий ч яг одоо видео дуудлагыг Wi-Fi руу шилжүүлэх боломжгүй байна.
+    <string name="usa_vzw_volte_weak_wifi_text">"Бид оролдсон ч одоогоор Wi-Fi-д видео дуудлага шилжүүлэх боломжгүй.
 
-Таны дуудлага мобайл сүлжээгээр дамжиж байна. (Та үргэлжлүүлэхээр сонгосон нөхцөлд дата ашиглана.)"</string>
+Таны видео дуудлага одоо хүртэл мобайл сүлжээгээр ажиллаж байна.
+
+Хэрэв та үргэлжлүүлэх сонголт хийхэд өгөгдлийн ашиглалтын төлбөрийг ашиглаж болно."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Таны видео дуудлага мобайл сүлжээгээр дамжиж байна. (Дата хэрэглээ тооцогдоно.)</string>
     <string name="usa_vzw_vowifi_wifi_low_signal_text">"Wi-Fi дохио нь таны видео дуудлагыг үргэлжлүүлэх хэмжээний хүчтэй байсангүй.
 
-Таны видео дуудлага одоо мобайл сүлжээгээр дамжиж байна. (Та үргэлжлүүлэхээр сонгосон нөхцөлд дата хэрэглээ тооцогдоно.)"</string>
+Таны видео дуудлага одоо мобайл сүлжээгээр дамжиж байна.
+
+Хэрэв та үргэлжлүүлэх сонголт хийхэд өгөгдлийн ашиглалтын төлбөрийг ашиглаж болно."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi холболт тасарлаа. Дуудлага дууслаа.</string>
     <string name="use_wifi_and_mobile_nw">Wi-Fi ба мобайл сүлжээ ашигла</string>
     <string name="use_wlan_and_mobile_nw">WLAN ба мобайл сүлжээ ашигла</string>

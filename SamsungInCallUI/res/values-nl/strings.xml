@@ -178,12 +178,13 @@
     <string name="account_phone">Apparaat</string>
     <string name="acs">Spraakoproep</string>
     <string name="active_calls">Actieve oproep</string>
-    <string name="add_reminder">Herinn. toev.</string>
+    <string name="add_reminder">Herinnering toevoegen</string>
     <string name="agif_button_close_description">Sluiten</string>
     <string name="agif_decline_message">Sorry, ik kan nu niet praten.</string>
     <string name="agif_decline_sticker_header">Weigeren met een sticker</string>
     <string name="agif_decline_text_header">Weigeren met een sms</string>
     <string name="agif_decline_toast">Sticker verzonden naar %s.</string>
+    <string name="agif_outgoing_bubble_tip">Verzend een sticker om te laten zien hoe u zich voelt.</string>
     <string name="agif_pickers_add_tab_description">Voeg toe</string>
     <string name="agif_pickers_find_more">Meer zoeken</string>
     <string name="agif_pickers_item_usage_hints_description">Tik twee keer om te selecteren</string>
@@ -192,10 +193,12 @@
     <string name="agif_pickers_tab_select_description">Geselecteerd</string>
     <string name="agif_pickers_title">Starten met een sticker</string>
     <string name="agif_pickers_title_recommended">Aanbevolen</string>
+    <string name="agif_random_send_message">Tik hier om deze sticker te verzenden.</string>
     <string name="agif_read_permission_description">Telefoon mag AGIF-inhoud lezen.</string>
     <string name="agif_read_permission_label">AGIF-inhoud lezen</string>
     <string name="agif_receive_no_id">Sticker kan niet worden weergeven. Werk %s bij na de oproep.</string>
     <string name="agif_receive_no_id_upsupport_update">Sticker kan niet worden weergegeven. Er zijn meer stickers beschikbaar na de volgende systeemupdate.</string>
+    <string name="agif_receive_toast">Sticker van %s.</string>
     <string name="agif_sent_fail_message">Kan GIF-animatie niet verzenden. Probeer het later opnieuw.</string>
     <string name="agif_sent_toast">Sticker verzonden.</string>
     <string name="agif_write_permission_description">Telefoon mag AGIF-inhoud wijzigen.</string>
@@ -885,8 +888,8 @@ Schermmenu IVR-oproep gebruikt inhoud van een externe serviceleverancier, Dianhu
     <string name="tts_pager">Pagina %1$d van %2$d</string>
     <string name="tts_seconds">%d seconden</string>
     <string name="tty_mode_option_title">TTY-stand</string>
-    <string name="tutorial_incoming_call_app_answer">Tik om de oproep te beantwoorden.</string>
-    <string name="tutorial_incoming_call_app_reject">Tik om de oproep te weigeren.</string>
+    <string name="tutorial_incoming_call_app_answer">Tik tweemaal voor antwoord.</string>
+    <string name="tutorial_incoming_call_app_reject">Tik tweemaal voor afwijzen.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Kan geen verbinding maken met het netwerk. Controleer uw verbindingsinstellingen en probeer het opnieuw.</string>
     <string name="units_kb">KB</string>
@@ -896,7 +899,7 @@ Schermmenu IVR-oproep gebruikt inhoud van een externe serviceleverancier, Dianhu
     <string name="upload_using_wlan_only">Alleen uploaden via WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Uploaden via Wi-Fi of mobiel netwerk</string>
     <string name="upload_wlan_and_mobile_nw">Uploaden via WLAN of mobiel netwerk</string>
-    <string name="usa_att_connected_as_voice">Oproep alleen verbonden als spraak.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Het gegevensgebruik dat u hebt ingesteld op uw apparaat bereikt bijna de limiet. Voor video-oproep zijn gegevens vereist.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Oproep kan niet via Wi-Fi worden gedaan, verbinding wordt gemaakt via mobiel netwerk. Er zijn spraak- en gegevenskosten van toepassing.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -946,11 +949,15 @@ eenrichtingsvideo"</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Mobiele gegevens gebruiken</string>
     <string name="usa_vzw_volte_weak_wifi_text">"We hebben het geprobeerd, maar we kunnen uw video-oproep nu niet overschakelen naar Wi-Fi.
 
-Uw video-oproep wordt voortgezet op het mobiele netwerk. (Gegevensgebruik is van toepassing als u verdergaat.)"</string>
+Uw video-oproep wordt voortgezet op het mobiele netwerk.
+
+Er kunnen kosten voor gegevensgebruik van toepassing zijn als u verdergaat."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Uw video-oproep is nog actief op het mobiele netwerk. (Kosten voor gegevensgebruik zijn van toepassing.)</string>
     <string name="usa_vzw_vowifi_wifi_low_signal_text">"Het Wi-Fi-signaal is niet sterk genoeg om uw video-oproep voort te zetten.
 
-Uw video-oproep wordt nu gevoerd via het mobiele netwerk. (Gegevensgebruik is van toepassing als u verdergaat.)"</string>
+Uw video-oproep wordt nu gevoerd via het mobiele netwerk.
+
+Er kunnen kosten voor gegevensgebruik van toepassing zijn als u verdergaat."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi-verbinding is verbroken. Oproep beëindigd.</string>
     <string name="use_wifi_and_mobile_nw">Wi-Fi en mobiele netwerken gebruiken</string>
     <string name="use_wlan_and_mobile_nw">WLAN- en mobiele netwerken gebruiken</string>

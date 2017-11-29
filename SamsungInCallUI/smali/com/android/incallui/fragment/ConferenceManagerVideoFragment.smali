@@ -260,7 +260,7 @@
 
     aget-object v0, v0, p1
 
-    const v1, 0x7f1000db
+    const v1, 0x7f1000df
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -272,7 +272,7 @@
 
     aget-object v1, v1, p1
 
-    const v2, 0x7f1000dc
+    const v2, 0x7f1000e0
 
     invoke-virtual {v1, v2}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -284,7 +284,7 @@
 
     aget-object v2, v2, p1
 
-    const v3, 0x7f1000dd
+    const v3, 0x7f1000e1
 
     invoke-virtual {v2, v3}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -296,7 +296,7 @@
 
     aget-object v3, v3, p1
 
-    const v4, 0x7f1000de
+    const v4, 0x7f1000e2
 
     invoke-virtual {v3, v4}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -322,7 +322,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f02026b
+    const v6, 0x7f02029f
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -366,7 +366,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f020103
+    const v6, 0x7f02012e
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -432,13 +432,13 @@
 
     const/4 v1, 0x0
 
-    const v0, 0x7f040036
+    const v0, 0x7f040037
 
     invoke-virtual {p1, v0, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
     move-result-object v2
 
-    const v0, 0x7f1000ef
+    const v0, 0x7f1000f3
 
     invoke-virtual {v2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -448,7 +448,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/ConferenceManagerVideoFragment;->mConferencePanel:Landroid/widget/FrameLayout;
 
-    const v0, 0x7f1000f7
+    const v0, 0x7f1000fb
 
     invoke-virtual {v2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -550,11 +550,11 @@
 
     :array_0
     .array-data 4
-        0x7f1000f2
-        0x7f1000f3
-        0x7f1000f4
-        0x7f1000f5
         0x7f1000f6
+        0x7f1000f7
+        0x7f1000f8
+        0x7f1000f9
+        0x7f1000fa
     .end array-data
 .end method
 
@@ -691,7 +691,7 @@
 
     aget-object v0, v0, p1
 
-    const v1, 0x7f1000e0
+    const v1, 0x7f1000e4
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 

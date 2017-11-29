@@ -92,7 +92,7 @@
 
     check-cast v0, Landroid/view/LayoutInflater;
 
-    const v1, 0x7f040196
+    const v1, 0x7f040198
 
     invoke-virtual {v0, v1, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -102,7 +102,7 @@
 
     invoke-direct {v1, p0, v2}, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$listAdapter$ViewHolder;-><init>(Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$listAdapter;Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$1;)V
 
-    const v0, 0x7f1004c3
+    const v0, 0x7f1004ca
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

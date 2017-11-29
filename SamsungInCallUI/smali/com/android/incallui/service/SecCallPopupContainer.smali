@@ -180,7 +180,7 @@
 
 .field private mRejectMsgBtnContainer:Landroid/view/View;
 
-.field mRejectMsgContent:Lcom/android/incallui/RejectMsgContentPopup;
+.field public mRejectMsgContent:Lcom/android/incallui/RejectMsgContentPopup;
 
 .field private mResumeCallBtn:Landroid/widget/Button;
 
@@ -213,6 +213,10 @@
 .field private mSpeakerBtn:Landroid/widget/ToggleButton;
 
 .field private mSpeakerLayout:Landroid/widget/RelativeLayout;
+
+.field private mSubIconLabel:Landroid/widget/ImageView;
+
+.field private mSubIconLabelStub:Landroid/widget/ImageView;
 
 .field private mTwoPhonePopupUI:Lcom/android/incallui/service/ui/TwoPhonePopupUI;
 
@@ -1182,7 +1186,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0a050b
+    const v3, 0x7f0a0545
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1194,7 +1198,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0a050a
+    const v3, 0x7f0a0544
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1206,7 +1210,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0a0508
+    const v3, 0x7f0a0542
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1216,7 +1220,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f0a0507
+    const v4, 0x7f0a0541
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1416,7 +1420,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f02029e
+    const v1, 0x7f0202d2
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1436,7 +1440,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0202a3
+    const v2, 0x7f0202d7
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1491,7 +1495,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f02029f
+    const v0, 0x7f0202d3
 
     :goto_0
     invoke-virtual {v1, v0}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -1514,7 +1518,7 @@
 
     if-eqz v0, :cond_2
 
-    const v0, 0x7f0202a5
+    const v0, 0x7f0202d9
 
     :goto_1
     invoke-virtual {v2, v0}, Landroid/content/res/Resources;->getColor(I)I
@@ -1537,12 +1541,12 @@
     return-void
 
     :cond_1
-    const v0, 0x7f0202a0
+    const v0, 0x7f0202d4
 
     goto :goto_0
 
     :cond_2
-    const v0, 0x7f0202a4
+    const v0, 0x7f0202d8
 
     goto :goto_1
 .end method
@@ -1792,7 +1796,7 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x7f10029a
+    const v0, 0x7f10029f
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -1807,7 +1811,7 @@
 
     if-nez v0, :cond_1
 
-    const v0, 0x7f100297
+    const v0, 0x7f10029b
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -1818,32 +1822,61 @@
     iput-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSimIconLabelLargeStub:Landroid/view/ViewStub;
 
     :cond_1
-    :try_start_0
-    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSimIconLabelStub:Landroid/view/ViewStub;
+    const-string v0, "multi_number_cmcc"
+
+    invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v0
 
     if-eqz v0, :cond_2
 
-    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSimIconLabelStub:Landroid/view/ViewStub;
+    const v0, 0x7f1002a0
 
-    invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
+    invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/ImageView;
+
+    iput-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSubIconLabel:Landroid/widget/ImageView;
+
+    const v0, 0x7f10029c
+
+    invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Landroid/widget/ImageView;
+
+    iput-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSubIconLabelStub:Landroid/widget/ImageView;
 
     :cond_2
-    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSimIconLabelLargeStub:Landroid/view/ViewStub;
+    :try_start_0
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSimIconLabelStub:Landroid/view/ViewStub;
 
     if-eqz v0, :cond_3
 
-    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSimIconLabelLargeStub:Landroid/view/ViewStub;
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSimIconLabelStub:Landroid/view/ViewStub;
 
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
     :cond_3
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSimIconLabelLargeStub:Landroid/view/ViewStub;
+
+    if-eqz v0, :cond_4
+
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSimIconLabelLargeStub:Landroid/view/ViewStub;
+
+    invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
+
+    :cond_4
     const-string v0, "feature_chn"
 
     invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-nez v0, :cond_4
+    if-nez v0, :cond_5
 
     const-string v0, "feature_hktw"
 
@@ -1851,10 +1884,10 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_6
 
-    :cond_4
-    const v0, 0x7f1004be
+    :cond_5
+    const v0, 0x7f1004c5
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -1865,7 +1898,7 @@
     iput-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSimIconLabel:Landroid/widget/ImageView;
 
     :goto_0
-    const v0, 0x7f1004bf
+    const v0, 0x7f1004c6
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -1878,8 +1911,8 @@
     :goto_1
     return-void
 
-    :cond_5
-    const v0, 0x7f10028b
+    :cond_6
+    const v0, 0x7f10028f
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -1926,7 +1959,7 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x7f10028f
+    const v0, 0x7f100293
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -1944,7 +1977,7 @@
 
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    const v0, 0x7f1002dd
+    const v0, 0x7f1002e3
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -1954,7 +1987,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mRecordIcon:Landroid/widget/ImageView;
 
-    const v0, 0x7f1002de
+    const v0, 0x7f1002e4
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -1964,7 +1997,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mRecordText:Landroid/widget/TextView;
 
-    const v0, 0x7f1002a1
+    const v0, 0x7f1002a7
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -1974,7 +2007,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mDivider:Landroid/widget/TextView;
 
-    const v0, 0x7f1002df
+    const v0, 0x7f1002e5
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -2277,6 +2310,38 @@
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mCallTimeAnimatorSet:Landroid/animation/AnimatorSet;
 
     invoke-virtual {v0}, Landroid/animation/AnimatorSet;->end()V
+
+    :cond_1
+    return-void
+.end method
+
+.method private removeSubImage()V
+    .locals 3
+
+    const/16 v2, 0x8
+
+    const-string v0, "SecCallPopupContainer"
+
+    const-string v1, "removeSubImage"
+
+    invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSubIconLabel:Landroid/widget/ImageView;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSubIconLabel:Landroid/widget/ImageView;
+
+    invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSubIconLabelStub:Landroid/widget/ImageView;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSubIconLabelStub:Landroid/widget/ImageView;
+
+    invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setVisibility(I)V
 
     :cond_1
     return-void
@@ -2977,6 +3042,99 @@
     goto :goto_0
 .end method
 
+.method private setPrimarySubImage(ZII)V
+    .locals 5
+
+    const/4 v4, 0x1
+
+    const/4 v3, 0x0
+
+    const/16 v2, 0x8
+
+    const-string v0, "SecCallPopupContainer"
+
+    const-string v1, "setPrimarySubImage"
+
+    invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    if-eqz p1, :cond_4
+
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSubIconLabelStub:Landroid/widget/ImageView;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSubIconLabelStub:Landroid/widget/ImageView;
+
+    invoke-static {p1, p3, p2, v4}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->getSubIdIcon(ZIIZ)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
+
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSubIconLabelStub:Landroid/widget/ImageView;
+
+    invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSubIconLabel:Landroid/widget/ImageView;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSubIconLabel:Landroid/widget/ImageView;
+
+    invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    :cond_1
+    :goto_0
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSimIconLabelLarge:Landroid/widget/ImageView;
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSimIconLabelLarge:Landroid/widget/ImageView;
+
+    invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    :cond_2
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSimIconLabel:Landroid/widget/ImageView;
+
+    if-eqz v0, :cond_3
+
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSimIconLabel:Landroid/widget/ImageView;
+
+    invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    :cond_3
+    return-void
+
+    :cond_4
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSubIconLabel:Landroid/widget/ImageView;
+
+    if-eqz v0, :cond_5
+
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSubIconLabel:Landroid/widget/ImageView;
+
+    invoke-static {p1, p3, p2, v4}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->getSubIdIcon(ZIIZ)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
+
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSubIconLabel:Landroid/widget/ImageView;
+
+    invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    :cond_5
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSubIconLabelStub:Landroid/widget/ImageView;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSubIconLabelStub:Landroid/widget/ImageView;
+
+    invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    goto :goto_0
+.end method
+
 .method private setPrimarylabelAndNumber(Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;Ljava/lang/String;)V
     .locals 4
 
@@ -3063,7 +3221,7 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x7f100294
+    const v0, 0x7f100298
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -3081,7 +3239,7 @@
 
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    const v0, 0x7f100212
+    const v0, 0x7f100216
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -3136,7 +3294,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mProfileIcon:Landroid/widget/ImageView;
 
-    const v1, 0x7f02042b
+    const v1, 0x7f02048c
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -3163,7 +3321,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mProfileIcon:Landroid/widget/ImageView;
 
-    const v1, 0x7f020425
+    const v1, 0x7f020486
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -3178,7 +3336,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mProfileIcon:Landroid/widget/ImageView;
 
-    const v1, 0x7f020429
+    const v1, 0x7f02048a
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -3254,7 +3412,7 @@
 
     iget-object v4, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f090365
+    const v8, 0x7f090368
 
     invoke-virtual {v4, v8}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -3274,7 +3432,7 @@
 
     iget-object v5, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f090367
+    const v8, 0x7f09036a
 
     invoke-virtual {v5, v8}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -3300,7 +3458,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f090364
+    const v2, 0x7f090367
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -3401,7 +3559,7 @@
 
     iget-object v4, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f090365
+    const v8, 0x7f090368
 
     invoke-virtual {v4, v8}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -3421,7 +3579,7 @@
 
     iget-object v5, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mContext:Landroid/content/Context;
 
-    const v8, 0x7f090367
+    const v8, 0x7f09036a
 
     invoke-virtual {v5, v8}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -3447,7 +3605,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f090364
+    const v2, 0x7f090367
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getText(I)Ljava/lang/CharSequence;
 
@@ -3659,7 +3817,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a04fe
+    const v2, 0x7f0a0538
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -4632,7 +4790,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f090318
+    const v2, 0x7f09031b
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4817,7 +4975,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e0179
+    const v2, 0x7f0e0195
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -4840,7 +4998,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e0161
+    const v2, 0x7f0e0179
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -4859,7 +5017,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e0162
+    const v2, 0x7f0e017a
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -4999,7 +5157,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mRejectMsgBtnContainer:Landroid/view/View;
 
-    const v1, 0x7f020211
+    const v1, 0x7f020245
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 
@@ -5013,7 +5171,7 @@
 
     const/4 v7, 0x4
 
-    const v6, 0x7f0a0519
+    const v6, 0x7f0a0553
 
     const/4 v1, 0x1
 
@@ -5128,7 +5286,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a0501
+    const v4, 0x7f0a053b
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -5196,7 +5354,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mRejectMsgBtnContainer:Landroid/view/View;
 
-    const v1, 0x7f020210
+    const v1, 0x7f020244
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 
@@ -5522,9 +5680,27 @@
     invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
     :cond_3
-    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mGradientAnimationView:Lcom/android/incallui/widget/GradientAnimationView;
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSubIconLabel:Landroid/widget/ImageView;
 
     if-eqz v0, :cond_4
+
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSubIconLabel:Landroid/widget/ImageView;
+
+    invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    :cond_4
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSubIconLabelStub:Landroid/widget/ImageView;
+
+    if-eqz v0, :cond_5
+
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSubIconLabelStub:Landroid/widget/ImageView;
+
+    invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
+
+    :cond_5
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mGradientAnimationView:Lcom/android/incallui/widget/GradientAnimationView;
+
+    if-eqz v0, :cond_6
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mGradientAnimationView:Lcom/android/incallui/widget/GradientAnimationView;
 
@@ -5532,10 +5708,10 @@
 
     iput-object v2, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mGradientAnimationView:Lcom/android/incallui/widget/GradientAnimationView;
 
-    :cond_4
+    :cond_6
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mAgifMgr:Lcom/android/incallui/agif/AgifImageManager;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_7
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mAgifMgr:Lcom/android/incallui/agif/AgifImageManager;
 
@@ -5545,7 +5721,7 @@
 
     invoke-virtual {v0}, Lcom/android/incallui/agif/AgifImageManager;->clear()V
 
-    :cond_5
+    :cond_7
     return-void
 .end method
 
@@ -5646,17 +5822,17 @@
 .method init()V
     .locals 9
 
-    const v8, 0x7f0902c9
+    const v8, 0x7f0902cc
 
     const/4 v7, 0x1
 
-    const v6, 0x7f020377
+    const v6, 0x7f0203ab
 
     const/16 v5, 0x8
 
     const/4 v4, 0x0
 
-    const v0, 0x7f10024d
+    const v0, 0x7f100251
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -5695,7 +5871,7 @@
     invoke-virtual {v1, v0}, Landroid/widget/RelativeLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     :cond_0
-    const v0, 0x7f1001ef
+    const v0, 0x7f1001f3
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -5705,7 +5881,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mCallPopupInfo:Landroid/widget/RelativeLayout;
 
-    const v0, 0x7f10024b
+    const v0, 0x7f10024f
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -5757,7 +5933,7 @@
 
     invoke-virtual {v0}, Lcom/android/incallui/service/ui/JanskyPopupUI;->updateJanskyinfo()V
 
-    const v0, 0x7f100274
+    const v0, 0x7f100278
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -5765,7 +5941,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mRingingCallPopupButtons:Landroid/view/View;
 
-    const v0, 0x7f10027b
+    const v0, 0x7f10027f
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -5781,7 +5957,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f10027c
+    const v0, 0x7f100280
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -5795,7 +5971,7 @@
 
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    const v0, 0x7f1001ee
+    const v0, 0x7f1001f2
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -5808,7 +5984,7 @@
 
     invoke-virtual {v0, v5}, Landroid/view/View;->setVisibility(I)V
 
-    const v0, 0x7f10027e
+    const v0, 0x7f100282
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -5816,7 +5992,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mEndCallPopupButtons:Landroid/view/View;
 
-    const v0, 0x7f100280
+    const v0, 0x7f100284
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -5832,7 +6008,7 @@
 
     if-eqz v0, :cond_2
 
-    const v0, 0x7f100281
+    const v0, 0x7f100285
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -5846,7 +6022,7 @@
 
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    const v0, 0x7f1001f6
+    const v0, 0x7f1001fa
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -5863,7 +6039,7 @@
 
     invoke-virtual {v0, v5}, Landroid/view/View;->setVisibility(I)V
 
-    const v0, 0x7f100282
+    const v0, 0x7f100286
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -5879,7 +6055,7 @@
 
     if-eqz v0, :cond_3
 
-    const v0, 0x7f100284
+    const v0, 0x7f100288
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -5893,7 +6069,7 @@
 
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    const v0, 0x7f1001fd
+    const v0, 0x7f100201
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -5906,7 +6082,7 @@
 
     invoke-virtual {v0, v5}, Landroid/view/View;->setVisibility(I)V
 
-    const v0, 0x7f100251
+    const v0, 0x7f100255
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -5914,7 +6090,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mPhotoContainer:Landroid/view/View;
 
-    const v0, 0x7f1000d0
+    const v0, 0x7f1000d4
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -5924,7 +6100,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mPhoto:Landroid/widget/ImageView;
 
-    const v0, 0x7f100252
+    const v0, 0x7f100256
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -5934,7 +6110,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mPrimaryPhotoText:Landroid/widget/TextView;
 
-    const v0, 0x7f10020a
+    const v0, 0x7f10020e
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -5944,7 +6120,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mCallStateLabel:Landroid/widget/TextView;
 
-    const v0, 0x7f100250
+    const v0, 0x7f100254
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -5954,7 +6130,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mCallTime:Landroid/widget/Chronometer;
 
-    const v0, 0x7f100253
+    const v0, 0x7f100257
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -5964,7 +6140,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mNameLayout:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f10012a
+    const v0, 0x7f10012e
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -5974,7 +6150,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mName:Landroid/widget/TextView;
 
-    const v0, 0x7f10020e
+    const v0, 0x7f100212
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -5982,7 +6158,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mCallNumberAndLabel:Landroid/view/View;
 
-    const v0, 0x7f10014f
+    const v0, 0x7f100153
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -5992,7 +6168,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mNumberLabel:Landroid/widget/TextView;
 
-    const v0, 0x7f10020f
+    const v0, 0x7f100213
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -6022,7 +6198,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mCallerNumberForTalkBack:Landroid/widget/TextView;
 
-    const v0, 0x7f100292
+    const v0, 0x7f100296
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -6044,7 +6220,7 @@
 
     invoke-virtual {v0, v5}, Landroid/view/ViewStub;->setVisibility(I)V
 
-    const v0, 0x7f1002a2
+    const v0, 0x7f1002a8
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -6055,7 +6231,7 @@
     iput-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mHoldCallText:Landroid/widget/TextView;
 
     :cond_4
-    const v0, 0x7f100293
+    const v0, 0x7f100297
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -6065,7 +6241,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mEriInfoText:Landroid/widget/TextView;
 
-    const v0, 0x7f100286
+    const v0, 0x7f10028a
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -6075,7 +6251,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mAgifPhoto:Landroid/widget/ImageView;
 
-    const v0, 0x7f100285
+    const v0, 0x7f100289
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -6083,7 +6259,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mAgifPhotoContainer:Landroid/view/View;
 
-    const v0, 0x7f100275
+    const v0, 0x7f100279
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -6103,7 +6279,7 @@
 
     invoke-virtual {v0, v5}, Landroid/view/View;->setVisibility(I)V
 
-    const v0, 0x7f100278
+    const v0, 0x7f10027c
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -6117,7 +6293,7 @@
 
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    const v0, 0x7f1001eb
+    const v0, 0x7f1001ef
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -6140,7 +6316,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mAcceptRejectBtnContainer:Landroid/view/View;
 
-    const v1, 0x7f100277
+    const v1, 0x7f10027b
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6152,7 +6328,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mAcceptRejectBtnContainer:Landroid/view/View;
 
-    const v1, 0x7f100276
+    const v1, 0x7f10027a
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6203,7 +6379,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a058d
+    const v1, 0x7f0a05cc
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -6244,7 +6420,7 @@
     invoke-virtual {v1, v0, v2, v0, v3}, Landroid/widget/Button;->setPadding(IIII)V
 
     :cond_8
-    const v0, 0x7f100279
+    const v0, 0x7f10027d
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -6270,7 +6446,7 @@
 
     const/4 v1, 0x3
 
-    const v2, 0x7f1001eb
+    const v2, 0x7f1001ef
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/RelativeLayout$LayoutParams;->addRule(II)V
 
@@ -6285,7 +6461,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f10027a
+    const v0, 0x7f10027e
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -6336,7 +6512,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0501
+    const v2, 0x7f0a053b
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -6360,7 +6536,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mDuringCallPopupButtons:Landroid/view/View;
 
-    const v1, 0x7f1001f0
+    const v1, 0x7f1001f4
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6372,7 +6548,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mDuringCallPopupButtons:Landroid/view/View;
 
-    const v1, 0x7f1001f2
+    const v1, 0x7f1001f6
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6384,7 +6560,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mDuringCallPopupButtons:Landroid/view/View;
 
-    const v1, 0x7f1001f4
+    const v1, 0x7f1001f8
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6396,7 +6572,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mResumeCallPopupButtons:Landroid/view/View;
 
-    const v1, 0x7f1001fe
+    const v1, 0x7f100202
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6408,7 +6584,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mResumeCallPopupButtons:Landroid/view/View;
 
-    const v1, 0x7f100200
+    const v1, 0x7f100204
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6420,7 +6596,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mEndCallPopupButtons:Landroid/view/View;
 
-    const v1, 0x7f1001f7
+    const v1, 0x7f1001fb
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6432,7 +6608,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mEndCallPopupButtons:Landroid/view/View;
 
-    const v1, 0x7f1001f9
+    const v1, 0x7f1001fd
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6444,7 +6620,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mEndCallPopupButtons:Landroid/view/View;
 
-    const v1, 0x7f1001fb
+    const v1, 0x7f1001ff
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6532,7 +6708,7 @@
     invoke-virtual {v0, v6}, Landroid/widget/RelativeLayout;->setBackgroundResource(I)V
 
     :cond_12
-    const v0, 0x7f100290
+    const v0, 0x7f100294
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -6555,7 +6731,7 @@
     :cond_13
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mDuringCallPopupButtons:Landroid/view/View;
 
-    const v1, 0x7f1001f1
+    const v1, 0x7f1001f5
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6619,7 +6795,7 @@
     :cond_15
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mDuringCallPopupButtons:Landroid/view/View;
 
-    const v1, 0x7f1001f3
+    const v1, 0x7f1001f7
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6637,7 +6813,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mDuringCallPopupButtons:Landroid/view/View;
 
-    const v1, 0x7f1001f5
+    const v1, 0x7f1001f9
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6667,7 +6843,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mResumeCallPopupButtons:Landroid/view/View;
 
-    const v1, 0x7f100201
+    const v1, 0x7f100205
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6697,7 +6873,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mEndCallPopupButtons:Landroid/view/View;
 
-    const v1, 0x7f1001fa
+    const v1, 0x7f1001fe
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6720,7 +6896,7 @@
     :cond_16
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mEndCallPopupButtons:Landroid/view/View;
 
-    const v1, 0x7f1001f8
+    const v1, 0x7f1001fc
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6738,7 +6914,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mEndCallPopupButtons:Landroid/view/View;
 
-    const v1, 0x7f1001fc
+    const v1, 0x7f100200
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6756,7 +6932,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mResumeCallPopupButtons:Landroid/view/View;
 
-    const v1, 0x7f1001ff
+    const v1, 0x7f100203
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -6772,7 +6948,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f10022d
+    const v0, 0x7f100231
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -6884,7 +7060,7 @@
     if-eqz v0, :cond_1d
 
     :cond_1c
-    const v0, 0x7f10029d
+    const v0, 0x7f1002a3
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -6913,7 +7089,7 @@
 
     if-eqz v0, :cond_1e
 
-    const v0, 0x7f1001c5
+    const v0, 0x7f1001c9
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -6935,7 +7111,7 @@
 
     invoke-virtual {v0, v4}, Landroid/view/ViewStub;->setVisibility(I)V
 
-    const v0, 0x7f1001c6
+    const v0, 0x7f1001ca
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -6954,7 +7130,7 @@
 
     if-eqz v0, :cond_1f
 
-    const v0, 0x7f10029f
+    const v0, 0x7f1002a5
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -6972,7 +7148,7 @@
 
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    const v0, 0x7f1000fe
+    const v0, 0x7f100102
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -6989,7 +7165,7 @@
 
     if-eqz v0, :cond_20
 
-    const v0, 0x7f100291
+    const v0, 0x7f100295
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -7011,7 +7187,7 @@
 
     invoke-virtual {v0, v4}, Landroid/view/ViewStub;->setVisibility(I)V
 
-    const v0, 0x7f1002c4
+    const v0, 0x7f1002ca
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -7041,7 +7217,7 @@
 
     if-eqz v0, :cond_22
 
-    const v0, 0x7f10028a
+    const v0, 0x7f10028e
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -7060,7 +7236,7 @@
 
     if-eqz v0, :cond_23
 
-    const v0, 0x7f100289
+    const v0, 0x7f10028d
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -7120,7 +7296,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mAcceptBtn:Landroid/widget/Button;
 
-    const v1, 0x7f020113
+    const v1, 0x7f02013e
 
     invoke-virtual {v0, v1, v4, v4, v4}, Landroid/widget/Button;->setCompoundDrawablesRelativeWithIntrinsicBounds(IIII)V
 
@@ -7147,7 +7323,7 @@
     :cond_27
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mAcceptRejectBtnContainer:Landroid/view/View;
 
-    const v1, 0x7f1001ec
+    const v1, 0x7f1001f0
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -7159,7 +7335,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mAcceptRejectBtnContainer:Landroid/view/View;
 
-    const v1, 0x7f1001ed
+    const v1, 0x7f1001f1
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -7175,8 +7351,8 @@
 
     :array_0
     .array-data 4
-        0x7f090321
-        0x7f090316
+        0x7f090324
+        0x7f090319
     .end array-data
 .end method
 
@@ -7408,7 +7584,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f02047e
+    const v2, 0x7f0204df
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -7426,7 +7602,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f0202b2
+    const v3, 0x7f0202e6
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -7638,10 +7814,8 @@
     return-void
 .end method
 
-.method public onSelectAgifContents(Landroid/net/Uri;)V
+.method public onSelectAgifContents(Landroid/net/Uri;Ljava/io/File;)V
     .locals 7
-
-    const/4 v5, 0x0
 
     const/4 v6, 0x1
 
@@ -7658,7 +7832,7 @@
     return-void
 
     :cond_1
-    if-eqz p1, :cond_4
+    if-eqz p1, :cond_6
 
     sget-object v0, Lcom/android/incallui/agif/AgifCallContract;->AGIF_DUMMY_URI:Landroid/net/Uri;
 
@@ -7666,7 +7840,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_6
 
     sget-object p1, Lcom/android/incallui/agif/AgifCallContract;->AGIF_DUMMY_SMALL_URI:Landroid/net/Uri;
 
@@ -7679,7 +7853,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mAgifMgr:Lcom/android/incallui/agif/AgifImageManager;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mAgifPhotoContainer:Landroid/view/View;
 
@@ -7687,7 +7861,11 @@
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3
+
+    const/4 v0, 0x0
+
+    invoke-direct {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->setPhotoContainerVisibility(Z)V
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mAgifMgr:Lcom/android/incallui/agif/AgifImageManager;
 
@@ -7709,9 +7887,13 @@
 
     if-eqz v0, :cond_2
 
-    const/4 v0, 0x0
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mAgifMgr:Lcom/android/incallui/agif/AgifImageManager;
 
-    invoke-direct {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->setPhotoContainerVisibility(Z)V
+    invoke-virtual {v0}, Lcom/android/incallui/agif/AgifImageManager;->getFile()Ljava/io/File;
+
+    move-result-object v0
+
+    if-nez v0, :cond_2
 
     const-string v0, "onSelectAgifContents - same uri is already exist "
 
@@ -7722,9 +7904,38 @@
     :cond_2
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mAgifMgr:Lcom/android/incallui/agif/AgifImageManager;
 
+    invoke-virtual {v0}, Lcom/android/incallui/agif/AgifImageManager;->getFile()Ljava/io/File;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_3
+
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mAgifMgr:Lcom/android/incallui/agif/AgifImageManager;
+
+    invoke-virtual {v0}, Lcom/android/incallui/agif/AgifImageManager;->getFile()Ljava/io/File;
+
+    move-result-object v0
+
+    invoke-virtual {v0, p2}, Ljava/io/File;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    const-string v0, "onSelectAgifContents - same file is already exist "
+
+    invoke-static {p0, v0, v6}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Z)V
+
+    goto :goto_0
+
+    :cond_3
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mAgifMgr:Lcom/android/incallui/agif/AgifImageManager;
+
     invoke-virtual {v0}, Lcom/android/incallui/agif/AgifImageManager;->stopAgifAnimate()V
 
-    iput-object v5, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mAgifMgr:Lcom/android/incallui/agif/AgifImageManager;
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mAgifMgr:Lcom/android/incallui/agif/AgifImageManager;
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mAgifPhotoContainer:Landroid/view/View;
 
@@ -7732,17 +7943,20 @@
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
-    :cond_3
+    :cond_4
+    if-eqz p2, :cond_5
+
     invoke-virtual {p0}, Lcom/android/incallui/service/SecCallPopupContainer;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    invoke-static {v0, v4}, Lcom/android/incallui/gif/GifDrawable;->getMovie(Landroid/content/Context;Landroid/net/Uri;)Landroid/graphics/Movie;
+    invoke-static {v0, p2}, Lcom/android/incallui/gif/GifDrawable;->getMovie(Landroid/content/Context;Ljava/io/File;)Landroid/graphics/Movie;
 
     move-result-object v0
 
     iput-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->movie:Landroid/graphics/Movie;
 
+    :goto_2
     new-instance v0, Lcom/android/incallui/agif/AgifImageManager;
 
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mAgifPhoto:Landroid/widget/ImageView;
@@ -7752,6 +7966,8 @@
     invoke-virtual {p0}, Lcom/android/incallui/service/SecCallPopupContainer;->getContext()Landroid/content/Context;
 
     move-result-object v3
+
+    move-object v5, p2
 
     invoke-direct/range {v0 .. v5}, Lcom/android/incallui/agif/AgifImageManager;-><init>(Landroid/widget/ImageView;Landroid/view/View;Landroid/content/Context;Landroid/net/Uri;Ljava/io/File;)V
 
@@ -7787,10 +8003,23 @@
 
     goto/16 :goto_0
 
-    :cond_4
+    :cond_5
+    invoke-virtual {p0}, Lcom/android/incallui/service/SecCallPopupContainer;->getContext()Landroid/content/Context;
+
+    move-result-object v0
+
+    invoke-static {v0, v4}, Lcom/android/incallui/gif/GifDrawable;->getMovie(Landroid/content/Context;Landroid/net/Uri;)Landroid/graphics/Movie;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->movie:Landroid/graphics/Movie;
+
+    goto :goto_2
+
+    :cond_6
     move-object v4, p1
 
-    goto :goto_1
+    goto/16 :goto_1
 .end method
 
 .method onStateChange(Lcom/android/incallui/InCallPresenter$InCallState;Lcom/android/incallui/InCallPresenter$InCallState;Lcom/android/incallui/CallList;Lcom/android/incallui/Call;)V
@@ -8626,9 +8855,9 @@
 .method public setAMView(Z)V
     .locals 6
 
-    const v5, 0x7f100265
+    const v5, 0x7f100269
 
-    const v2, 0x7f100264
+    const v2, 0x7f100268
 
     const/high16 v4, 0x41600000    # 14.0f
 
@@ -8669,7 +8898,7 @@
 
     if-nez v0, :cond_1
 
-    const v0, 0x7f10029c
+    const v0, 0x7f1002a2
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -8728,7 +8957,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mAmStatusImage:Landroid/widget/ImageView;
 
-    const v1, 0x7f020065
+    const v1, 0x7f020067
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -8741,7 +8970,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0900c9
+    const v2, 0x7f0900cc
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -8754,7 +8983,7 @@
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setAlpha(F)V
 
     :cond_3
-    const v0, 0x7f10028f
+    const v0, 0x7f100293
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -8773,7 +9002,7 @@
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
     :cond_4
-    const v0, 0x7f1002de
+    const v0, 0x7f1002e4
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -8783,7 +9012,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mAmRecordText:Landroid/widget/TextView;
 
-    const v0, 0x7f1002df
+    const v0, 0x7f1002e5
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->findViewById(I)Landroid/view/View;
 
@@ -8824,7 +9053,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mAmStatusImage:Landroid/widget/ImageView;
 
-    const v1, 0x7f020064
+    const v1, 0x7f020066
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -8837,7 +9066,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0900c8
+    const v2, 0x7f0900cb
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -8894,7 +9123,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_7
 
     :cond_2
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mPhoneNumber:Landroid/widget/TextView;
@@ -8903,8 +9132,21 @@
 
     move-result v0
 
+    if-eqz v0, :cond_4
+
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSubIconLabelStub:Landroid/widget/ImageView;
+
     if-eqz v0, :cond_3
 
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSubIconLabelStub:Landroid/widget/ImageView;
+
+    invoke-virtual {v0}, Landroid/widget/ImageView;->getVisibility()I
+
+    move-result v0
+
+    if-eqz v0, :cond_4
+
+    :cond_3
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSimIconLabelLarge:Landroid/widget/ImageView;
 
     invoke-static {p1, v1}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->getSimImage(II)I
@@ -8923,7 +9165,7 @@
 
     goto :goto_0
 
-    :cond_3
+    :cond_4
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mPhoneNumber:Landroid/widget/TextView;
 
     invoke-virtual {v0}, Landroid/widget/TextView;->getVisibility()I
@@ -8932,32 +9174,17 @@
 
     if-nez v0, :cond_0
 
-    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSimIconLabel:Landroid/widget/ImageView;
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSubIconLabel:Landroid/widget/ImageView;
 
-    invoke-static {p1, v1}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->getSimImage(II)I
+    if-eqz v0, :cond_5
 
-    move-result v1
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSubIconLabel:Landroid/widget/ImageView;
 
-    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
+    invoke-virtual {v0}, Landroid/widget/ImageView;->getVisibility()I
 
-    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSimIconLabelLarge:Landroid/widget/ImageView;
+    move-result v0
 
-    invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setVisibility(I)V
-
-    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mCallNumberAndLabel:Landroid/view/View;
-
-    if-eqz v0, :cond_4
-
-    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mCallNumberAndLabel:Landroid/view/View;
-
-    invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
-
-    :cond_4
-    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSimIconLabel:Landroid/widget/ImageView;
-
-    invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setVisibility(I)V
-
-    goto :goto_0
+    if-eqz v0, :cond_0
 
     :cond_5
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSimIconLabel:Landroid/widget/ImageView;
@@ -8968,15 +9195,43 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
-    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSimIconLabelLargeStub:Landroid/view/ViewStub;
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSimIconLabelLarge:Landroid/widget/ImageView;
+
+    invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mCallNumberAndLabel:Landroid/view/View;
 
     if-eqz v0, :cond_6
+
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mCallNumberAndLabel:Landroid/view/View;
+
+    invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
+
+    :cond_6
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSimIconLabel:Landroid/widget/ImageView;
+
+    invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    goto :goto_0
+
+    :cond_7
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSimIconLabel:Landroid/widget/ImageView;
+
+    invoke-static {p1, v1}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->getSimImage(II)I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
+
+    iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSimIconLabelLargeStub:Landroid/view/ViewStub;
+
+    if-eqz v0, :cond_8
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSimIconLabelLargeStub:Landroid/view/ViewStub;
 
     invoke-virtual {v0, v3}, Landroid/view/ViewStub;->setVisibility(I)V
 
-    :cond_6
+    :cond_8
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSimIconLabelLarge:Landroid/widget/ImageView;
 
     invoke-virtual {v0, v3}, Landroid/widget/ImageView;->setVisibility(I)V
@@ -8984,6 +9239,90 @@
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSimIconLabel:Landroid/widget/ImageView;
 
     invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setVisibility(I)V
+
+    goto/16 :goto_0
+.end method
+
+.method public setCallPopupSubIconLabel(Ljava/lang/String;ZLjava/lang/String;Lcom/android/incallui/Call;)V
+    .locals 3
+
+    const/4 v0, 0x0
+
+    const-string v1, "feature_multisim_display_sim_icon"
+
+    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-static {p4}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->getPhoneId(Lcom/android/incallui/Call;)I
+
+    move-result v0
+
+    :cond_0
+    invoke-static {v0}, Lcom/android/incallui/InCallUISystemDB;->getOSMNState(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    if-eqz p2, :cond_2
+
+    invoke-static {p1}, Lcom/android/incallui/util/InCallUtils;->needToRemoveThePrefixOSMN(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    invoke-static {}, Lcom/android/incallui/util/InCallUtils;->getSubNumberNo()I
+
+    move-result v1
+
+    invoke-static {p1}, Lcom/android/incallui/util/InCallUtils;->removeThePrefixOSMN(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {p0, v2, p2}, Lcom/android/incallui/service/SecCallPopupContainer;->setPrimaryName(Ljava/lang/String;Z)V
+
+    invoke-direct {p0, p2, v0, v1}, Lcom/android/incallui/service/SecCallPopupContainer;->setPrimarySubImage(ZII)V
+
+    :goto_0
+    return-void
+
+    :cond_1
+    invoke-direct {p0}, Lcom/android/incallui/service/SecCallPopupContainer;->removeSubImage()V
+
+    goto :goto_0
+
+    :cond_2
+    invoke-static {p3}, Lcom/android/incallui/util/InCallUtils;->needToRemoveThePrefixOSMN(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    invoke-static {}, Lcom/android/incallui/util/InCallUtils;->getSubNumberNo()I
+
+    move-result v1
+
+    invoke-static {p3}, Lcom/android/incallui/util/InCallUtils;->removeThePrefixOSMN(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-direct {p0, v2}, Lcom/android/incallui/service/SecCallPopupContainer;->setPrimaryPhoneNumber(Ljava/lang/String;)V
+
+    invoke-direct {p0, p2, v0, v1}, Lcom/android/incallui/service/SecCallPopupContainer;->setPrimarySubImage(ZII)V
+
+    goto :goto_0
+
+    :cond_3
+    invoke-direct {p0}, Lcom/android/incallui/service/SecCallPopupContainer;->removeSubImage()V
+
+    goto :goto_0
+
+    :cond_4
+    invoke-direct {p0}, Lcom/android/incallui/service/SecCallPopupContainer;->removeSubImage()V
 
     goto :goto_0
 .end method
@@ -9093,9 +9432,13 @@
 
     invoke-virtual {v0}, Lcom/android/incallui/Call;->getAgifUri()Landroid/net/Uri;
 
+    move-result-object v1
+
+    invoke-virtual {v0}, Lcom/android/incallui/Call;->getAgifImageFile()Ljava/io/File;
+
     move-result-object v0
 
-    invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->onSelectAgifContents(Landroid/net/Uri;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->onSelectAgifContents(Landroid/net/Uri;Ljava/io/File;)V
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mAgifPhoto:Landroid/widget/ImageView;
 
@@ -9166,7 +9509,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0529
+    const v1, 0x7f0a0563
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -9276,7 +9619,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a0529
+    const v4, 0x7f0a0563
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -9345,9 +9688,13 @@
 
     invoke-virtual {v0}, Lcom/android/incallui/Call;->getAgifUri()Landroid/net/Uri;
 
+    move-result-object v1
+
+    invoke-virtual {v0}, Lcom/android/incallui/Call;->getAgifImageFile()Ljava/io/File;
+
     move-result-object v0
 
-    invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->onSelectAgifContents(Landroid/net/Uri;)V
+    invoke-virtual {p0, v1, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->onSelectAgifContents(Landroid/net/Uri;Ljava/io/File;)V
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mAgifPhoto:Landroid/widget/ImageView;
 
@@ -9381,7 +9728,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f02046c
+    const v1, 0x7f0204cd
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -10956,7 +11303,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0530
+    const v2, 0x7f0a056a
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -11138,9 +11485,9 @@
 
     const/4 v2, 0x0
 
-    if-eqz p2, :cond_8
+    if-eqz p2, :cond_9
 
-    if-eqz p1, :cond_8
+    if-eqz p1, :cond_9
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -11187,13 +11534,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_a
 
     invoke-virtual {p0}, Lcom/android/incallui/service/SecCallPopupContainer;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const v3, 0x7f0902bc
+    const v3, 0x7f0902bf
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -11242,7 +11589,7 @@
     move-object v4, v0
 
     :goto_0
-    if-eqz v3, :cond_a
+    if-eqz v3, :cond_b
 
     iget-object v0, p2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->number:Ljava/lang/String;
 
@@ -11250,7 +11597,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_b
 
     move v0, v1
 
@@ -11261,23 +11608,23 @@
 
     move-result v5
 
-    if-eqz v5, :cond_e
+    if-eqz v5, :cond_f
 
     iget-boolean v5, p2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->contactExists:Z
 
-    if-eqz v5, :cond_e
+    if-eqz v5, :cond_f
 
     invoke-static {}, Lcom/android/incallui/util/InCallUtils;->isExistsSuguden()Z
 
     move-result v5
 
-    if-eqz v5, :cond_e
+    if-eqz v5, :cond_f
 
     iget-object v5, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSecCallPopupService:Lcom/android/incallui/service/SecCallPopupService;
 
     iget-object v5, v5, Lcom/android/incallui/service/SecCallPopupService;->mContactInfo:Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
 
-    if-eqz v5, :cond_e
+    if-eqz v5, :cond_f
 
     iget-object v5, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSecCallPopupService:Lcom/android/incallui/service/SecCallPopupService;
 
@@ -11285,7 +11632,7 @@
 
     iget-boolean v5, v5, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->hide_status:Z
 
-    if-eqz v5, :cond_e
+    if-eqz v5, :cond_f
 
     invoke-virtual {p1}, Lcom/android/incallui/Call;->getState()I
 
@@ -11293,7 +11640,7 @@
 
     const/4 v6, 0x4
 
-    if-ne v5, v6, :cond_e
+    if-ne v5, v6, :cond_f
 
     const-string v3, "name is changed empty value because this is suguden concept"
 
@@ -11302,105 +11649,45 @@
     const-string v1, ""
 
     :goto_2
+    const-string v3, "feature_multisim"
+
+    invoke-static {v3}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_1
+
+    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
+
+    move-result-object v3
+
+    invoke-static {v3, v8, v2}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
+
+    move-result-object v2
+
+    invoke-static {v2}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->getPhoneId(Lcom/android/incallui/Call;)I
+
+    move-result v2
+
+    invoke-virtual {p0, v2}, Lcom/android/incallui/service/SecCallPopupContainer;->setCallPopupSimIconLabel(I)V
+
+    :cond_1
     invoke-direct {p0, v1, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->setPrimaryName(Ljava/lang/String;Z)V
 
     invoke-direct {p0, v4}, Lcom/android/incallui/service/SecCallPopupContainer;->setPrimaryPhoneNumber(Ljava/lang/String;)V
 
-    const-string v1, "ecid_enable"
+    const-string v2, "multi_number_cmcc"
 
-    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    invoke-static {v2}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v2
 
-    if-eqz v1, :cond_1
+    if-eqz v2, :cond_2
 
-    const-string v1, "feature_vzw"
-
-    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_c
-
-    if-nez v0, :cond_b
-
-    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_b
-
-    iget-object v1, p2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->location:Ljava/lang/String;
-
-    invoke-virtual {v4, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_b
-
-    iget-object v1, p2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->location:Ljava/lang/String;
-
-    invoke-direct {p0, v1}, Lcom/android/incallui/service/SecCallPopupContainer;->setCityInfo(Ljava/lang/String;)V
-
-    :cond_1
-    :goto_3
-    const-string v1, "callprotect_enable"
-
-    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    iget-object v1, p2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->callProtectInfo:Lcom/whitepages/nameid/b;
-
-    if-eqz v1, :cond_2
-
-    iget-object v1, p2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->callProtectInfo:Lcom/whitepages/nameid/b;
-
-    iget-object v1, v1, Lcom/whitepages/nameid/b;->e:Ljava/lang/String;
-
-    if-eqz v1, :cond_2
-
-    iget-object v1, p2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->callProtectInfo:Lcom/whitepages/nameid/b;
-
-    iget-object v1, v1, Lcom/whitepages/nameid/b;->e:Ljava/lang/String;
-
-    invoke-direct {p0, v1}, Lcom/android/incallui/service/SecCallPopupContainer;->setCityInfo(Ljava/lang/String;)V
+    invoke-virtual {p0, v1, v0, v4, p1}, Lcom/android/incallui/service/SecCallPopupContainer;->setCallPopupSubIconLabel(Ljava/lang/String;ZLjava/lang/String;Lcom/android/incallui/Call;)V
 
     :cond_2
-    iget-object v1, p2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->label:Ljava/lang/String;
-
-    invoke-direct {p0, v1}, Lcom/android/incallui/service/SecCallPopupContainer;->setPrimaryLabel(Ljava/lang/String;)V
-
-    iget-object v1, p2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->gifPhoto:Lcom/android/incallui/gif/GifDrawable;
-
-    if-eqz v1, :cond_d
-
-    invoke-virtual {p0, p2}, Lcom/android/incallui/service/SecCallPopupContainer;->setPrimaryGifImage(Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)V
-
-    :goto_4
-    iget-wide v6, p2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->userType:J
-
-    invoke-direct {p0, v6, v7}, Lcom/android/incallui/service/SecCallPopupContainer;->setProfileIcon(J)V
-
     const-string v1, "ecid_enable"
-
-    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_3
-
-    const-string v1, "geo_description_disable"
-
-    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_3
-
-    const-string v1, "feature_spr"
 
     invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
@@ -11408,12 +11695,37 @@
 
     if-eqz v1, :cond_3
 
-    iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mCityId:Landroid/widget/TextView;
+    const-string v1, "feature_vzw"
 
-    invoke-static {v1, p2}, Lcom/android/incallui/operator/usa/InCallUIExtension;->setPrimaryGeoDescription(Landroid/widget/TextView;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)V
+    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_d
+
+    if-nez v0, :cond_c
+
+    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_c
+
+    iget-object v1, p2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->location:Ljava/lang/String;
+
+    invoke-virtual {v4, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_c
+
+    iget-object v1, p2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->location:Ljava/lang/String;
+
+    invoke-direct {p0, v1}, Lcom/android/incallui/service/SecCallPopupContainer;->setCityInfo(Ljava/lang/String;)V
 
     :cond_3
-    const-string v1, "ims_support_multimedia_caller_id"
+    :goto_3
+    const-string v1, "callprotect_enable"
 
     invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
@@ -11421,37 +11733,106 @@
 
     if-eqz v1, :cond_4
 
+    iget-object v1, p2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->callProtectInfo:Lcom/whitepages/nameid/b;
+
+    if-eqz v1, :cond_4
+
+    iget-object v1, p2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->callProtectInfo:Lcom/whitepages/nameid/b;
+
+    iget-object v1, v1, Lcom/whitepages/nameid/b;->e:Ljava/lang/String;
+
+    if-eqz v1, :cond_4
+
+    iget-object v1, p2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->callProtectInfo:Lcom/whitepages/nameid/b;
+
+    iget-object v1, v1, Lcom/whitepages/nameid/b;->e:Ljava/lang/String;
+
+    invoke-direct {p0, v1}, Lcom/android/incallui/service/SecCallPopupContainer;->setCityInfo(Ljava/lang/String;)V
+
+    :cond_4
+    iget-object v1, p2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->label:Ljava/lang/String;
+
+    invoke-direct {p0, v1}, Lcom/android/incallui/service/SecCallPopupContainer;->setPrimaryLabel(Ljava/lang/String;)V
+
+    iget-object v1, p2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->gifPhoto:Lcom/android/incallui/gif/GifDrawable;
+
+    if-eqz v1, :cond_e
+
+    invoke-virtual {p0, p2}, Lcom/android/incallui/service/SecCallPopupContainer;->setPrimaryGifImage(Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)V
+
+    :goto_4
+    iget-wide v2, p2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->userType:J
+
+    invoke-direct {p0, v2, v3}, Lcom/android/incallui/service/SecCallPopupContainer;->setProfileIcon(J)V
+
+    const-string v1, "ecid_enable"
+
+    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_5
+
+    const-string v1, "geo_description_disable"
+
+    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_5
+
+    const-string v1, "feature_spr"
+
+    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_5
+
+    iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mCityId:Landroid/widget/TextView;
+
+    invoke-static {v1, p2}, Lcom/android/incallui/operator/usa/InCallUIExtension;->setPrimaryGeoDescription(Landroid/widget/TextView;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)V
+
+    :cond_5
+    const-string v1, "ims_support_multimedia_caller_id"
+
+    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_6
+
     iget-object v1, p2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->message:Ljava/lang/String;
 
     invoke-virtual {p0, v1, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->setPrimaryMessage(Ljava/lang/String;Z)V
 
-    :cond_4
+    :cond_6
     invoke-direct {p0, p2, v4}, Lcom/android/incallui/service/SecCallPopupContainer;->setPrimarylabelAndNumber(Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;Ljava/lang/String;)V
 
     invoke-virtual {p0, p2}, Lcom/android/incallui/service/SecCallPopupContainer;->updateLayout(Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)V
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSmartCallPopupUI:Lcom/android/incallui/service/ui/SmartCallPopupUI;
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_7
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mSmartCallPopupUI:Lcom/android/incallui/service/ui/SmartCallPopupUI;
 
     invoke-virtual {v0, p1, p2}, Lcom/android/incallui/service/ui/SmartCallPopupUI;->updatePrimaryDisplayInfo(Lcom/android/incallui/Call;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)V
 
-    :cond_5
+    :cond_7
     const-string v0, "phone_number_locator"
 
     invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_8
 
     invoke-static {}, Lcom/android/incallui/InCallUISystemDB;->isPhoneNumberLocatorOn()Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_8
 
     invoke-virtual {p1}, Lcom/android/incallui/Call;->getState()I
 
@@ -11459,36 +11840,13 @@
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->managePhoneNumberLocator(I)V
 
-    :cond_6
-    const-string v0, "feature_multisim"
-
-    invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_7
-
-    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
-
-    move-result-object v0
-
-    invoke-static {v0, v8, v2}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
-
-    move-result-object v0
-
-    invoke-static {v0}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->getPhoneId(Lcom/android/incallui/Call;)I
-
-    move-result v0
-
-    invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecCallPopupContainer;->setCallPopupSimIconLabel(I)V
-
-    :cond_7
+    :cond_8
     invoke-virtual {p0}, Lcom/android/incallui/service/SecCallPopupContainer;->updateTextSize()V
 
-    :cond_8
+    :cond_9
     return-void
 
-    :cond_9
+    :cond_a
     invoke-direct {p0, p2}, Lcom/android/incallui/service/SecCallPopupContainer;->getNameForCall(Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)Ljava/lang/String;
 
     move-result-object v3
@@ -11505,7 +11863,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_f
+    if-eqz v4, :cond_10
 
     invoke-static {}, Lcom/android/incallui/coreapps/CoreAppsContactManager;->getInstance()Lcom/android/incallui/coreapps/CoreAppsContactManager;
 
@@ -11519,7 +11877,7 @@
 
     move-result-object v4
 
-    if-eqz v4, :cond_f
+    if-eqz v4, :cond_10
 
     iget-object v5, v4, Lcom/android/incallui/coreapps/CoreAppsContact;->name:Ljava/lang/String;
 
@@ -11527,7 +11885,7 @@
 
     move-result v5
 
-    if-nez v5, :cond_f
+    if-nez v5, :cond_10
 
     iget-object v3, v4, Lcom/android/incallui/coreapps/CoreAppsContact;->name:Ljava/lang/String;
 
@@ -11537,38 +11895,38 @@
 
     goto/16 :goto_0
 
-    :cond_a
+    :cond_b
     move v0, v2
 
     goto/16 :goto_1
 
-    :cond_b
+    :cond_c
     const-string v1, ""
 
     invoke-direct {p0, v1}, Lcom/android/incallui/service/SecCallPopupContainer;->setCityInfo(Ljava/lang/String;)V
 
     goto/16 :goto_3
 
-    :cond_c
+    :cond_d
     const-string v1, "feature_spr"
 
     invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3
 
     iget-object v1, p2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->location:Ljava/lang/String;
 
     invoke-direct {p0, v1}, Lcom/android/incallui/service/SecCallPopupContainer;->setCityInfo(Ljava/lang/String;)V
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_3
 
     invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    if-nez v1, :cond_1
+    if-nez v1, :cond_3
 
     iget-object v1, p2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->location:Ljava/lang/String;
 
@@ -11576,7 +11934,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_3
 
     const-string v1, ""
 
@@ -11584,17 +11942,17 @@
 
     goto/16 :goto_3
 
-    :cond_d
+    :cond_e
     invoke-virtual {p0, p2}, Lcom/android/incallui/service/SecCallPopupContainer;->setPrimaryImage(Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;)V
 
     goto/16 :goto_4
 
-    :cond_e
+    :cond_f
     move-object v1, v3
 
     goto/16 :goto_2
 
-    :cond_f
+    :cond_10
     move-object v4, v0
 
     goto/16 :goto_0
@@ -11729,7 +12087,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090191
+    const v3, 0x7f090194
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -11745,7 +12103,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090193
+    const v3, 0x7f090196
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -11785,7 +12143,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f090316
+    const v5, 0x7f090319
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -11840,7 +12198,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090321
+    const v2, 0x7f090324
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -11873,8 +12231,8 @@
 
     :array_0
     .array-data 4
-        0x7f090321
-        0x7f090316
+        0x7f090324
+        0x7f090319
     .end array-data
 .end method
 
@@ -11938,7 +12296,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090334
+    const v2, 0x7f090337
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -12133,7 +12491,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0e01a2
+    const v1, 0x7f0e01bf
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -12143,7 +12501,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0e019c
+    const v2, 0x7f0e01b8
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -12153,7 +12511,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f0e015d
+    const v3, 0x7f0e0175
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -12163,7 +12521,7 @@
 
     move-result-object v0
 
-    const v4, 0x7f0e0170
+    const v4, 0x7f0e0188
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -12173,7 +12531,7 @@
 
     move-result-object v0
 
-    const v5, 0x7f0e016e
+    const v5, 0x7f0e0186
 
     invoke-virtual {v0, v5}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -12183,7 +12541,7 @@
 
     move-result-object v0
 
-    const v6, 0x7f0e0162
+    const v6, 0x7f0e017a
 
     invoke-virtual {v0, v6}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -12193,7 +12551,7 @@
 
     move-result-object v0
 
-    const v7, 0x7f0e0161
+    const v7, 0x7f0e0179
 
     invoke-virtual {v0, v7}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -12290,7 +12648,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mFullScreenBtn:Landroid/widget/ImageButton;
 
-    const v2, 0x7f02046d
+    const v2, 0x7f0204ce
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageButton;->setImageResource(I)V
 
@@ -12552,7 +12910,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/service/SecCallPopupContainer;->mFullScreenBtn:Landroid/widget/ImageButton;
 
-    const v2, 0x7f02046e
+    const v2, 0x7f0204cf
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageButton;->setImageResource(I)V
 
@@ -12945,7 +13303,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a052f
+    const v1, 0x7f0a0569
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -12959,7 +13317,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0a050d
+    const v2, 0x7f0a0547
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -12989,7 +13347,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0531
+    const v2, 0x7f0a056b
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 

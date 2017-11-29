@@ -126,6 +126,7 @@
     <string name="agif_decline_sticker_header">ಸ್ಟಿಕರ್ ಮೂಲಕ ನಿರಾಕರಿಸಿ</string>
     <string name="agif_decline_text_header">ಪಠ್ಯ ಮೂಲಕ ನಿರಾಕರಿಸಿ</string>
     <string name="agif_decline_toast">%sಗೆ ಸ್ಟಿಕರ್ ಕಳುಹಿಸಲಾಗಿದೆ.</string>
+    <string name="agif_outgoing_bubble_tip">ನಿಮ್ಮ ಭಾವನೆ ವ್ಯಕ್ತಪಡಿಸಲು ಸ್ಟಿಕರ್ ಕಳುಹಿಸಿ.</string>
     <string name="agif_pickers_add_tab_description">ಸೇರಿಸಿ</string>
     <string name="agif_pickers_find_more">ಇನ್ನಷ್ಟು ಹುಡುಕಿ</string>
     <string name="agif_pickers_item_usage_hints_description">ಆಯ್ಕೆ ಮಾಡಲು ಎರಡುಬಾರಿ ತಟ್ಟಿ</string>
@@ -134,10 +135,12 @@
     <string name="agif_pickers_tab_select_description">ಆಯ್ಕೆ ಮಾಡಿದೆ</string>
     <string name="agif_pickers_title">ಸ್ಟಿಕರ್ ಮೂಲಕ ಪ್ರಾರಂಭಿಸು</string>
     <string name="agif_pickers_title_recommended">ಶಿಫಾರಸು ಮಾಡಲಾಗಿದೆ</string>
+    <string name="agif_random_send_message">ಈ ಸ್ಟಿಕರ್ ಕಳುಹಿಸಲು ಇಲ್ಲಿ ತಟ್ಟಿ.</string>
     <string name="agif_read_permission_description">AGIF ಒಳಾಂಶವನ್ನು ಓದಲು ಫೋನ್‍ಗೆ ಅನುಮತಿಸಿ.</string>
     <string name="agif_read_permission_label">AGIF ಒಳಾಂಶ ಓದಿರಿ</string>
     <string name="agif_receive_no_id">ಸ್ಟಿಕರ್‌ಗಳನ್ನು ತೋರಿಸಲಾಗುವುದಿಲ್ಲ. ಕರೆಯ ನಂತರ %s ನವೀಕರಿಸಿ.</string>
     <string name="agif_receive_no_id_upsupport_update">ಸ್ಟಿಕರ್‌ಗಳನ್ನು ತೋರಿಸಲಾಗುವುದಿಲ್ಲ. ಮುಂದಿನ ಸಿಸ್ಟಮ್ ನವೀಕರಣದ ನಂತರ ಹೆಚ್ಚಿನ ಸ್ಟಿಕರ್ ಲಭ್ಯವಾಗುತ್ತವೆ.</string>
+    <string name="agif_receive_toast">%sನಿಂದ ಸ್ಟಿಕರ್.</string>
     <string name="agif_sent_fail_message">ಅನಿಮೇಶನ್ GIF ಕಳುಹಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ. ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.</string>
     <string name="agif_sent_toast">ಸ್ಟಿಕರ್ ಕಳುಹಿಸಿದೆ.</string>
     <string name="agif_write_permission_description">AGIF ಒಳಾಂಶವನ್ನು ಮಾರ್ಪಡಿಸಲು ಫೋನ್‍ಗೆ ಅನುಮತಿಸಿ.</string>
@@ -827,8 +830,8 @@ IVR ಕರೆಯ ಸ್ಕ್ರೀನ್ ಮೆನು Dianhuabang ಎಂದು 
     <string name="tts_pager">ಪುಟ %1$d ರ %2$d</string>
     <string name="tts_seconds">%d ಸೆಕೆಂಡುಗಳು</string>
     <string name="tty_mode_option_title">TTY ಮೋಡ್</string>
-    <string name="tutorial_incoming_call_app_answer">ಕರೆಗೆ ಉತ್ತರಿಸಲು ತಟ್ಟಿ.</string>
-    <string name="tutorial_incoming_call_app_reject">ಕರೆ ನಿರಾಕರಿಸಲು ತಟ್ಟಿ.</string>
+    <string name="tutorial_incoming_call_app_answer">ಉತ್ತರಿಸಲು ಎರಡು ಬಾರಿ ತಟ್ಟಿ.</string>
+    <string name="tutorial_incoming_call_app_reject">ನಿರಾಕರಿಸಲು ಎರಡು ಬಾರಿ ತಟ್ಟಿ.</string>
     <string name="twmobile_operator_name">TW ಮೊಬೈಲ್</string>
     <string name="unable_to_connect_to_the_network">ನೆಟ್‌ವರ್ಕ್‌‌ಗೆ ಸಂಪರ್ಕಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ. ನಿಮ್ಮ ನೆಟ್‌‌‌‌‌ವರ್ಕ್ ಸಂಪರ್ಕವನ್ನು ಪರೀಕ್ಷಿಸಿ ಹಾಗೂ ಮತ್ತೊಮ್ಮೆ ಪ್ರಯತ್ನಿಸಿ.</string>
     <string name="units_kb">KB</string>
@@ -838,7 +841,7 @@ IVR ಕರೆಯ ಸ್ಕ್ರೀನ್ ಮೆನು Dianhuabang ಎಂದು 
     <string name="upload_using_wlan_only">WLAN ಮೂಲಕ ಮಾತ್ರ ಅಪ್‌ಲೋಡ್ ಮಾಡಿ</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fi ಅಥವಾ ಮೊಬೈಲ್ ನೆಟ್‌ವರ್ಕ್ ಮೂಲಕ ಅಪ್‌ಲೋಡ್ ಮಾಡಿ</string>
     <string name="upload_wlan_and_mobile_nw">WLAN ಅಥವಾ ಮೊಬೈಲ್ ನೆಟ್‌ವರ್ಕ್ ಮೂಲಕ ಅಪ್‌ಲೋಡ್ ಮಾಡಿ</string>
-    <string name="usa_att_connected_as_voice">ದ್ವನಿ ಮಾತ್ರ ಎಂಬಂತೆ ಕರೆ ಸಂಪರ್ಕಗೊಂಡಿದೆ.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">ನೀವು ನಿಮ್ಮ ಸಾಧನದಲ್ಲಿ ನಿಗದಿಪಡಿಸಿರುವ ನಿಮ್ಮ ಡೇಟಾ ಬಳಕೆಯ ಮಿತಿಯು ತನ್ನ ಮಿತಿಯನ್ನು ತಲುಪಲಿದೆ. ನಿಮ್ಮ ವೀಡಿಯೊ ಕರೆಗೆ ಡೇಟಾ ಅಗತ್ಯವಿದೆ.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Wi-Fi ಮೂಲಕ ಕರೆ ಸಂಪರ್ಕಿಸಲಾಗುತ್ತಿಲ್ಲ, ಸೆಲ್ಯುಲಾರ್ ನೆಟ್‌ವರ್ಕ್ ಮೂಲಕ ಸಂಪರ್ಕಿಸಲಾಗುತ್ತಿದೆ. ಧ್ವನಿ ಹಾಗೂ ಡೇಟ್ ಶುಲ್ಕಗಳು ಅನ್ವಯವಾಗುತ್ತವೆ.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -888,11 +891,15 @@ IVR ಕರೆಯ ಸ್ಕ್ರೀನ್ ಮೆನು Dianhuabang ಎಂದು 
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">ಮೊಬೈಲ್ ಡೇಟಾ ಬಳಸಿ</string>
     <string name="usa_vzw_volte_weak_wifi_text">"ನಾವೂ ಸದ್ಯಕ್ಕೆ ಎಷ್ಟೇ ಪ್ರಯತ್ನಿಸಿದರೂ ಕೂಡ ನಿಮ್ಮ ವೀಡಿಯೊ ಕರೆಯನ್ನು Wi-Fiಗೆ ಬದಲಿಸಲಾಗುತ್ತಿಲ್ಲ.
 
-ನಿಮ್ಮ ವೀಡಿಯೊ ಕರೆಯು ಈಗಲೂ ಮೊಬೈಲ್ ನೆಟ್‌ವರ್ಕ್‌ನಲ್ಲಿಯೇ ರನ್ ಆಗುತ್ತಿದೆ. (ನೀವು ಮುಂದುವರಿಸಿದ್ದೇ ಆದಲ್ಲಿ ಡೇಟಾ ಯೋಜನೆ ಅನ್ವಯವಾಗುತ್ತದೆ.)"</string>
-    <string name="usa_vzw_volte_weak_wifi_toast">ನಿಮ್ಮ ವೀಡಿಯೊ ಕರೆಯು ಇನ್ನೂ ಮೊಬೈಲ್ ನೆಟ್‍ವರ್ಕ್‍ನಲ್ಲಿ ರನ್ ಆಗುತ್ತಿದೆ. (ಡೇಟಾ ಬಳಕೆ ಅನ್ವಯವಾಗುತ್ತದೆ.)</string>
-    <string name="usa_vzw_vowifi_wifi_low_signal_text">"ನಿಮ್ಮ ವೀಡಿಯೊ ಕರೆಯನ್ನು ಮುಂದುವರಿಸಲು Wi-Fi ಸಿಗ್ನಲ್ ಸಾಕಷ್ಟು ಪ್ರಬಲವಾಗಿಲ್ಲ.
+ನಿಮ್ಮ ವೀಡಿಯೊ ಕರೆಯು ಈಗಲೂ ಮೊಬೈಲ್ ನೆಟ್‌ವರ್ಕ್‌ನಲ್ಲಿಯೇ ರನ್ ಆಗುತ್ತಿದೆ.
 
- ನಿಮ್ಮ ವೀಡಿಯೊ ಕರೆಯು ಇದೀಗ ಮೊಬೈಲ್ ನೆಟ್‌ವರ್ಕ್‌ನಲ್ಲಿ ರನ್ ಆಗುತ್ತಿದೆ. (ನೀವು ಮುಂದುವರಿಸಿದ್ದೇ ಆದಲ್ಲಿ ಡೇಟಾ ಯೋಜನೆ ಅನ್ವಯವಾಗುತ್ತದೆ.)"</string>
+ನೀವು ಮುಂದುವರೆಸು ಎಂದು ಆಯ್ಕೆಮಾಡಿದ್ದಲ್ಲಿ ಡೇಟಾ ಬಳಕೆ ಶುಲ್ಕಗಳನ್ನು ಅನ್ವಯವಾಗಬಹುದು."</string>
+    <string name="usa_vzw_volte_weak_wifi_toast">ನಿಮ್ಮ ವೀಡಿಯೊ ಕರೆಯು ಇನ್ನೂ ಮೊಬೈಲ್ ನೆಟ್‍ವರ್ಕ್‍ನಲ್ಲಿ ರನ್ ಆಗುತ್ತಿದೆ. (ಡೇಟಾ ಬಳಕೆ ಅನ್ವಯವಾಗುತ್ತದೆ.)</string>
+    <string name="usa_vzw_vowifi_wifi_low_signal_text">"ವೀಡಿಯೊ ಕರೆಯನ್ನು ಮುಂದುವರಿಸಲು Wi-Fi ಸಿಗ್ನಲ್ ಸಾಕಷ್ಟು ಬಲವಾಗಿಲ್ಲ.
+
+ನಿಮ್ಮವೀಡಿಯೊ ಕರೆಯು ಮೊಬೈಲ್ ನೆಟ್‍ವರ್ಕ್‍ನಲ್ಲಿ ರನ್ ಆಗುತ್ತಿದೆ.
+
+ನೀವು ಮುಂದುವರೆಸು ಎಂದು ಆರಿಸಿದಲ್ಲಿ ಡೇಟಾ ಬಳಕೆ ಶುಲ್ಕಗಳು ಅನ್ವಯವಾಗಬಹುದು."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi ಸಂಪರ್ಕ ಕಳೆದಿದೆ. ಕರೆ ಮುಕ್ತಾಯಗೊಂಡಿದೆ.</string>
     <string name="use_wifi_and_mobile_nw">Wi-Fi ಮತ್ತು ಮೊಬೈಲ್ ನೆಟ್‌‌ವರ್ಕ್‌ಗಳನ್ನು ಬಳಸಿ</string>
     <string name="use_wlan_and_mobile_nw">WLAN ಮತ್ತು ಮೊಬೈಲ್ ನೆಟ್‍ವರ್ಕ್‍ಗಳನ್ನು ಬಳಸಿ</string>

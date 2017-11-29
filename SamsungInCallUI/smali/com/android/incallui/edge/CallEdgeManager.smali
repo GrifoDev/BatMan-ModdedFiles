@@ -369,6 +369,56 @@
     return v0
 .end method
 
+.method private isEnableQuickReply()Z
+    .locals 4
+
+    const/4 v0, 0x1
+
+    const/4 v1, 0x0
+
+    iget-object v2, p0, Lcom/android/incallui/edge/CallEdgeManager;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v2}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v2
+
+    sget-object v3, Lcom/android/incallui/edge/CallEdgeManager;->GLANCE_REPLY_STATE:Ljava/lang/String;
+
+    invoke-static {v2, v3, v0}, Landroid/provider/Settings$Global;->getInt(Landroid/content/ContentResolver;Ljava/lang/String;I)I
+
+    move-result v2
+
+    if-ne v2, v0, :cond_0
+
+    :goto_0
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "isEnableQuickReply :"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {p0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
+
+    return v0
+
+    :cond_0
+    move v0, v1
+
+    goto :goto_0
+.end method
+
 .method private isEnableTurnOverLighting()Z
     .locals 4
 
@@ -482,13 +532,13 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/util/AppLogging;->insertLog(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)V
 
-    const v0, 0x7f09048e
+    const v0, 0x7f090491
 
     invoke-static {v0}, Lcom/android/incallui/util/SALogging;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v1, 0x7f09048f
+    const v1, 0x7f090492
 
     invoke-static {v1}, Lcom/android/incallui/util/SALogging;->getString(I)Ljava/lang/String;
 
@@ -987,19 +1037,40 @@
     goto :goto_0
 
     :cond_2
+    const-string v0, "edge_lighting"
+
+    invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_3
+
+    invoke-direct {p0}, Lcom/android/incallui/edge/CallEdgeManager;->isEnableQuickReply()Z
+
+    move-result v0
+
+    if-nez v0, :cond_3
+
+    const-string v0, "glance quick reply disabled , return"
+
+    invoke-static {p0, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_3
     const-string v0, "support_tphone"
 
     invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     invoke-static {}, Lcom/android/incallui/InCallUISystemDB;->isTPhoneRelaxMode()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     const-string v0, "glance reply disabled or turn over lighting disabled when tphone RelaxMode"
 
@@ -1007,7 +1078,7 @@
 
     goto :goto_0
 
-    :cond_3
+    :cond_4
     iput-object p1, p0, Lcom/android/incallui/edge/CallEdgeManager;->mCall:Lcom/android/incallui/Call;
 
     iget-object v0, p0, Lcom/android/incallui/edge/CallEdgeManager;->mCall:Lcom/android/incallui/Call;

@@ -287,7 +287,7 @@
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f04003c
+    const v0, 0x7f04003d
 
     invoke-virtual {p0, v0}, Lcom/android/contacts/common/list/AccountFilterActivity;->setContentView(I)V
 

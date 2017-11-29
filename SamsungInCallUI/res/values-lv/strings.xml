@@ -178,12 +178,13 @@
     <string name="account_phone">Ierīce</string>
     <string name="acs">Balss zvans</string>
     <string name="active_calls">Aktīva saruna</string>
-    <string name="add_reminder">Piev. atgād.</string>
+    <string name="add_reminder">Pievienot atgādinājumu</string>
     <string name="agif_button_close_description">Aizvērt</string>
     <string name="agif_decline_message">Diemžēl šobrīd nevaru runāt.</string>
     <string name="agif_decline_sticker_header">Noraidīt ar uzlīmi</string>
     <string name="agif_decline_text_header">Noraidīt ar īsziņu</string>
     <string name="agif_decline_toast">Uzlīme ir nosūtīta adresātam %s.</string>
+    <string name="agif_outgoing_bubble_tip">Nosūtiet uzlīmi, lai parādītu, kā jūtaties.</string>
     <string name="agif_pickers_add_tab_description">Pievien.</string>
     <string name="agif_pickers_find_more">Atrast vēl</string>
     <string name="agif_pickers_item_usage_hints_description">Veiciet dubultskārienu, lai izvēlētos</string>
@@ -192,10 +193,12 @@
     <string name="agif_pickers_tab_select_description">Izvēlēts</string>
     <string name="agif_pickers_title">Sākt ar uzlīmi</string>
     <string name="agif_pickers_title_recommended">Ieteiktie</string>
+    <string name="agif_random_send_message">Pieskarieties šeit, lai nosūtītu šo uzlīmi.</string>
     <string name="agif_read_permission_description">Atļauj tālrunim lasīt AGIF saturu.</string>
     <string name="agif_read_permission_label">Lasīt AGIF saturu</string>
     <string name="agif_receive_no_id">Nevar parādīt uzlīmi. Pēc sarunas atjauniniet %s.</string>
     <string name="agif_receive_no_id_upsupport_update">Nevar parādīt uzlīmi. Citas uzlīmes būs pieejamas pēc nākamā sistēmas atjauninājuma.</string>
+    <string name="agif_receive_toast">Uzlīme no %s.</string>
     <string name="agif_sent_fail_message">Nevar nosūtīt animēto GIF. Mēģiniet vēlreiz vēlāk.</string>
     <string name="agif_sent_toast">Uzlīme ir nosūtīta.</string>
     <string name="agif_write_permission_description">Atļauj tālrunim mainīt AGIF saturu.</string>
@@ -886,8 +889,8 @@ kamera"</string>
     <string name="tts_pager">%1$d. lapa no %2$d</string>
     <string name="tts_seconds">%d sekundes</string>
     <string name="tty_mode_option_title">TTY režīms</string>
-    <string name="tutorial_incoming_call_app_answer">Pieskarieties, lai atbildētu uz zvanu.</string>
-    <string name="tutorial_incoming_call_app_reject">Pieskarieties, lai noraidītu zvanu.</string>
+    <string name="tutorial_incoming_call_app_answer">Pieskarieties divreiz, lai atbildētu.</string>
+    <string name="tutorial_incoming_call_app_reject">Pieskarieties divreiz, lai noraidītu.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Nevar izveidot savienojumu ar tīklu. Pārbaudiet savienojuma iestatījumus un mēģiniet vēlreiz.</string>
     <string name="units_kb">KB</string>
@@ -897,7 +900,7 @@ kamera"</string>
     <string name="upload_using_wlan_only">Augšupielādēt, izmantojot tikai WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Augšupielādēt, izmantojot Wi-Fi vai mobilo tīklu</string>
     <string name="upload_wlan_and_mobile_nw">Augšupielādēt, izmantojot WLAN vai mobilo tīklu</string>
-    <string name="usa_att_connected_as_voice">Zvans savienots tikai kā balss zvans.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Datu lietojums, ko iestatījāt ierīcē, drīz sasniegs ierobežojumu. Lai veiktu videozvanu, nepieciešams datu savienojums.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Zvanu nevar veikt Wi-Fi tīklā; notiek savienojuma izveide mobilajā tīklā. Tiks aprēķināta maksa par balss zvanu un datu savienojumu.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -945,13 +948,17 @@ vienpusēju video"</string>
     <string name="usa_vzw_voice_incoming_during_wifi_video">Ja atbildēsit kā uz ienākošo zvanu, tiks pārtraukta pašreizējā saruna.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_text">Wi-Fi signāls nav pietiekami spēcīgs, lai turpinātu zvanu. Ja zvana turpināšanai izmantosit mobilos tīklus, tiks lietots jūsu datu plāns.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Lietot mobilos datus</string>
-    <string name="usa_vzw_volte_weak_wifi_text">"Šoreiz mums neizdevās pārslēgt jūsu videozvanu uz Wi-Fi savienojumu.
+    <string name="usa_vzw_volte_weak_wifi_text">"Mums šobrīd neizdodas pārslēgt jūsu videozvanu uz Wi-Fi.
 
-Jūsu videozvans izmanto mobilo tīklu. (Ja izvēlēsities turpināt, būs spēkā maksa par datu pārraidi.)"</string>
+Jūsu videozvans vēl arvien darbojas mobilajā tīklā.
+
+Ja izvēlēsities turpināt, var tikt aprēķināta maksa par datu lietojumu."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Jūsu videozvans joprojām izmanto mobilo tīklu. (Būs spēkā maksa par datu pārraidi.)</string>
     <string name="usa_vzw_vowifi_wifi_low_signal_text">"Wi-Fi signāls nebija pietiekami spēcīgs, lai turpinātu jūsu videozvanu.
 
-Jūsu videozvans tagad izmanto mobilo tīklu. (Ja izvēlēsities turpināt, būs spēkā maksa par datu pārraidi.)"</string>
+Jūsu videozvans tagad izmanto mobilo tīklu.
+
+Ja izvēlēsities turpināt, var tikt aprēķināta maksa par datu lietojumu."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Zaudēts Wi-Fi savienojums. Saruna ir pabeigta.</string>
     <string name="use_wifi_and_mobile_nw">Lietot Wi-Fi un mobilos tīklus</string>
     <string name="use_wlan_and_mobile_nw">Lietot WLAN un mobilos tīklus</string>

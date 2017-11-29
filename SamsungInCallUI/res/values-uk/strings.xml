@@ -178,12 +178,13 @@
     <string name="account_phone">Пристрій</string>
     <string name="acs">Голосовий виклик</string>
     <string name="active_calls">Активний виклик</string>
-    <string name="add_reminder">Дод. нагад.</string>
+    <string name="add_reminder">Додати нагадування</string>
     <string name="agif_button_close_description">Закрити</string>
     <string name="agif_decline_message">Вибачте, зараз я не можу розмовляти.</string>
     <string name="agif_decline_sticker_header">Відхилення з надсиланням стікеру</string>
     <string name="agif_decline_text_header">Відхилення з надсиланням текстового повідомлення</string>
     <string name="agif_decline_toast">Стікер надіслано користувачу %s.</string>
+    <string name="agif_outgoing_bubble_tip">Надішліть стікер, щоб висловити свої почуття.</string>
     <string name="agif_pickers_add_tab_description">Додати</string>
     <string name="agif_pickers_find_more">Продовжити пошук</string>
     <string name="agif_pickers_item_usage_hints_description">Двічі торкнутися для вибору</string>
@@ -192,10 +193,12 @@
     <string name="agif_pickers_tab_select_description">Вибрано</string>
     <string name="agif_pickers_title">Додавання стікера</string>
     <string name="agif_pickers_title_recommended">Рекомендоване</string>
+    <string name="agif_random_send_message">Торкніться тут, щоб надіслати цей стікер.</string>
     <string name="agif_read_permission_description">Дозволяє програмі «Телефон» зчитувати вміст AGIF-файлів.</string>
     <string name="agif_read_permission_label">Читання вмісту AGIF-файлів</string>
     <string name="agif_receive_no_id">Неможливо відобразити стікер. Після завершення виклику оновіть %s.</string>
     <string name="agif_receive_no_id_upsupport_update">Неможливо відобразити стікер. Нові стікери стануть доступними після оновлення системи.</string>
+    <string name="agif_receive_toast">Стікер від %s.</string>
     <string name="agif_sent_fail_message">Неможливо надіслати GIF-анімацію. Спробуйте ще раз пізніше.</string>
     <string name="agif_sent_toast">Стікер надіслано.</string>
     <string name="agif_write_permission_description">Дозволяє програмі «Телефон» змінювати вміст AGIF-файлів.</string>
@@ -884,10 +887,10 @@
     <string name="tts_hours">%d годин</string>
     <string name="tts_minutes">%d хвилин</string>
     <string name="tts_pager">Сторінка %1$d з %2$d</string>
-    <string name="tts_seconds">%d секунд</string>
+    <string name="tts_seconds">%d секунди</string>
     <string name="tty_mode_option_title">Режим TTY</string>
-    <string name="tutorial_incoming_call_app_answer">Натисніть, щоб відповісти на виклик.</string>
-    <string name="tutorial_incoming_call_app_reject">Торкніться, щоб відхилити виклик.</string>
+    <string name="tutorial_incoming_call_app_answer">Двічі натисніть, щоб відповісти.</string>
+    <string name="tutorial_incoming_call_app_reject">Двічі натисніть, щоб відхилити.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Неможливо підключитися до мережі. Перевірте установки підключення та спробуйте ще раз.</string>
     <string name="units_kb">КБ</string>
@@ -897,7 +900,7 @@
     <string name="upload_using_wlan_only">Завантажувати лише через WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Завантаження через мережу Wi-Fi або мобільну мережу</string>
     <string name="upload_wlan_and_mobile_nw">Завантажувати через мережу WLAN або мобільну мережу</string>
-    <string name="usa_att_connected_as_voice">Підключено тільки голосовий виклик.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">На вашому пристрої майже досягнуто ліміт використання даних. Для здійснення відеовиклику потрібно передавати та отримувати дані.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Неможливо перенести виклик до Wi-Fi, виконується підключення до мережі стільникового зв’язку. За передачу голосу і даних буде стягуватися плата.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -945,13 +948,17 @@
     <string name="usa_vzw_voice_incoming_during_wifi_video">Якщо ви відповісте на цей виклик, активний виклик буде завершено.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_text">Занадто слабкий сигнал Wi-Fi для продовження розмови. Використання мобільних мереж для продовження виклику призведе до використання вашого плану передачі даних.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Використання мобільних даних</string>
-    <string name="usa_vzw_volte_weak_wifi_text">"Нам не вдалося переключити відеовиклик на Wi-Fi.
+    <string name="usa_vzw_volte_weak_wifi_text">"На жаль, наразі не вдається переключити відеовиклик на Wi-Fi.
 
-Ваш відеовиклик здійснюється за допомогою мережі мобільного зв’язку. (Якщо ви продовжите, за використання даних буде стягуватися плата.)"</string>
+Наразі відеовиклик здійснюється через мобільну мережу.
+
+Якщо продовжити, за використання даних може стягуватися плата."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Ваш відеовиклик все ще використовує мобільну мережу. (Стягується плата за використання мобільних даних.)</string>
     <string name="usa_vzw_vowifi_wifi_low_signal_text">"Потужності сигналу Wi-Fi недостатньо для продовження відеовиклику.
 
-В даний момент ваш відеовиклик здійснюється за допомогою мережі мобільного зв’язку. (Якщо ви продовжите, за використання даних буде стягуватися плата.)"</string>
+Наразі відеовиклик здійснюється через мобільну мережу.
+
+Якщо продовжити, за використання даних може стягуватися плата."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Помилка підключення до Wi-Fi. Виклик завершено.</string>
     <string name="use_wifi_and_mobile_nw">Використовувати Wi-Fi та мобільні мережі</string>
     <string name="use_wlan_and_mobile_nw">Використовувати WLAN та мобільні мережі</string>

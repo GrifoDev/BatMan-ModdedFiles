@@ -178,12 +178,13 @@
     <string name="account_phone">Enhet</string>
     <string name="acs">Röstsamtal</string>
     <string name="active_calls">Aktivt samtal</string>
-    <string name="add_reminder">L. t. påmin.</string>
+    <string name="add_reminder">Lägg till påminnelse</string>
     <string name="agif_button_close_description">Stäng</string>
     <string name="agif_decline_message">Jag kan inte prata just nu.</string>
     <string name="agif_decline_sticker_header">Avböj med ett klistermärke</string>
     <string name="agif_decline_text_header">Avböj med text</string>
     <string name="agif_decline_toast">Klistermärke har skickats till %s.</string>
+    <string name="agif_outgoing_bubble_tip">Skicka ett klistermärke om du vill visa hur du känner.</string>
     <string name="agif_pickers_add_tab_description">Lägg till</string>
     <string name="agif_pickers_find_more">Hitta mer</string>
     <string name="agif_pickers_item_usage_hints_description">Dubbeltryck för att markera</string>
@@ -192,10 +193,12 @@
     <string name="agif_pickers_tab_select_description">Valt</string>
     <string name="agif_pickers_title">Börja med ett klistermärke</string>
     <string name="agif_pickers_title_recommended">Rekommenderat</string>
+    <string name="agif_random_send_message">Tryck här för att skicka klistermärket.</string>
     <string name="agif_read_permission_description">Tillåt alltid Telefon att läsa AGIF-innehåll.</string>
     <string name="agif_read_permission_label">Läs AGIF-innehåll</string>
     <string name="agif_receive_no_id">Klistermärket går inte att visa. Uppdatera %s efter samtalet.</string>
     <string name="agif_receive_no_id_upsupport_update">Klistermärket går inte att visa. Fler klistermärken blir tillgängliga efter nästa systemuppdatering.</string>
+    <string name="agif_receive_toast">Klistermärke från %s.</string>
     <string name="agif_sent_fail_message">Det går inte att skicka animerad GIF. Försök igen senare.</string>
     <string name="agif_sent_toast">Klistermärke har skickats.</string>
     <string name="agif_write_permission_description">Tillåt alltid Telefon att ändra AGIF-innehåll.</string>
@@ -885,8 +888,8 @@ kamera"</string>
     <string name="tts_pager">Sidan %1$d av %2$d</string>
     <string name="tts_seconds">%d sekunder</string>
     <string name="tty_mode_option_title">TTY-läge</string>
-    <string name="tutorial_incoming_call_app_answer">Tryck för att svara på samtalet.</string>
-    <string name="tutorial_incoming_call_app_reject">Tryck för att avvisa samtalet.</string>
+    <string name="tutorial_incoming_call_app_answer">Dubbeltryck för att svara.</string>
+    <string name="tutorial_incoming_call_app_reject">Dubbeltryck för att avböja.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Det går inte att ansluta till nätverket. Kontrollera anslutningsinställningarna och försök igen.</string>
     <string name="units_kb">kB</string>
@@ -896,7 +899,7 @@ kamera"</string>
     <string name="upload_using_wlan_only">Överför endast via WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Överför via Wi-Fi eller mobilnät</string>
     <string name="upload_wlan_and_mobile_nw">Överför via WLAN eller mobilnät</string>
-    <string name="usa_att_connected_as_voice">Samtalet kopplades upp som ett röstsamtal.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Dataanvändningen som du har ställt in på enheten når snart upp till gränsen. Videosamtalet kräver data.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Samtalet går inte att koppla upp via Wi-Fi. Anslutningen sker via mobilnätet. Röst- och dataavgifter tillkommer.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -944,13 +947,17 @@ envägsvideo"</string>
     <string name="usa_vzw_voice_incoming_during_wifi_video">Om du svarar på ett inkommande samtal avslutas det aktuella samtalet.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_text">Wi-Fi-signalen är inte stark nog för att fortsätta samtalet. Om du väljer att prata vidare via mobilnätet förbrukar du data.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Använd Mobildata</string>
-    <string name="usa_vzw_volte_weak_wifi_text">"Vi har försökt men kan inte växla över videosamtalet till Wi-Fi för närvarande.
+    <string name="usa_vzw_volte_weak_wifi_text">"Vi har försökt, men just nu kan vi inte växla över videosamtalet till Wi-Fi.
 
-Videosamtalet körs fortfarande i mobilnätet. (Om du väljer att fortsätta förbrukar du data.)"</string>
+Videosamtalet körs fortfarande i mobilnätet.
+
+Om du väljer att fortsätta kan avgifter för dataförbrukning tillkomma."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Videosamtalet genomförs i mobilnätet. (Det förbrukar mobildata.)</string>
-    <string name="usa_vzw_vowifi_wifi_low_signal_text">"Wi-Fi-signalen var inte stark nog för att fortsätta videosamtalet.
+    <string name="usa_vzw_vowifi_wifi_low_signal_text">"Wi-Fi-signalen var inte stark nog för att videosamtalet skulle kunna fortsätta.
 
-Videosamtalet körs nu i mobilnätet. (Om du väljer att fortsätta förbrukar du data.)"</string>
+Videosamtalet körs nu i mobilnätet.
+
+Om du väljer att fortsätta kan avgifter för dataförbrukning tillkomma."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi-anslutningen förlorades. Samtalet har avslutats.</string>
     <string name="use_wifi_and_mobile_nw">Använd Wi-Fi och mobilnät</string>
     <string name="use_wlan_and_mobile_nw">Använd WLAN och mobilnät</string>

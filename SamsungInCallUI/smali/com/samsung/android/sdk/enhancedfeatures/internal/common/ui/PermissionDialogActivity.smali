@@ -382,7 +382,7 @@
 
     if-eq v5, v9, :cond_8
 
-    const-string v5, "android.permission.READ_SMS"
+    const-string v5, "android.permission.RECEIVE_SMS"
 
     move-object/from16 v0, p0
 

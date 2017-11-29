@@ -47,7 +47,7 @@
 
     check-cast v0, Landroid/widget/ImageView;
 
-    const v1, 0x7f1000a8
+    const v1, 0x7f1000ac
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -55,7 +55,7 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    const v2, 0x7f1000a9
+    const v2, 0x7f1000ad
 
     invoke-virtual {p1, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

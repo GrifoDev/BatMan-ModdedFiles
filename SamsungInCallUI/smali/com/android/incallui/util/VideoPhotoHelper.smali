@@ -143,12 +143,12 @@
     return-object v0
 
     :pswitch_0
-    const v0, 0x7f020497
+    const v0, 0x7f0204f8
 
     goto :goto_0
 
     :pswitch_1
-    const v0, 0x7f0203bb
+    const v0, 0x7f0203ef
 
     goto :goto_0
 
@@ -259,7 +259,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0e01e6
+    const v2, 0x7f0e0205
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -402,7 +402,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0e01e6
+    const v2, 0x7f0e0205
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getColor(I)I
 

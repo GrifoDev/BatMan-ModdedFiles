@@ -178,12 +178,13 @@
     <string name="account_phone">Dispozitiv</string>
     <string name="acs">Apel vocal</string>
     <string name="active_calls">Apel activ</string>
-    <string name="add_reminder">Ad. memento</string>
+    <string name="add_reminder">Adăugare memento</string>
     <string name="agif_button_close_description">Închide</string>
     <string name="agif_decline_message">Îmi pare rău, nu pot vorbi acum.</string>
     <string name="agif_decline_sticker_header">Refuz cu abțibild</string>
     <string name="agif_decline_text_header">Refuz cu un text</string>
     <string name="agif_decline_toast">Abțibild trimis către %s.</string>
+    <string name="agif_outgoing_bubble_tip">Trimiteți un abțibild pentru a arăta cum vă simțiți.</string>
     <string name="agif_pickers_add_tab_description">Adăug.</string>
     <string name="agif_pickers_find_more">Aflați mai multe</string>
     <string name="agif_pickers_item_usage_hints_description">Atingeți de două ori pentru a selecta</string>
@@ -192,10 +193,12 @@
     <string name="agif_pickers_tab_select_description">Selectată</string>
     <string name="agif_pickers_title">Începeți cu un abțibild</string>
     <string name="agif_pickers_title_recommended">Recomandate</string>
+    <string name="agif_random_send_message">Atingeți aici pentru a trimite acest abțibild.</string>
     <string name="agif_read_permission_description">Permite aplicației Telefon să citească conținutul fișierelor AGIF.</string>
     <string name="agif_read_permission_label">Citiți conținut AGIF</string>
     <string name="agif_receive_no_id">Nu se poate afișa abțibildul. Actualizați %s după apel.</string>
     <string name="agif_receive_no_id_upsupport_update">Nu se poate afișa abțibildul. La următoarea actualizare de sist. vor fi disp. mai multe abțibilduri.</string>
+    <string name="agif_receive_toast">Abțibild de la %s.</string>
     <string name="agif_sent_fail_message">Nu se pot trimite imagini GIF animate. Încercați din nou mai târziu.</string>
     <string name="agif_sent_toast">Abțibild trimis.</string>
     <string name="agif_write_permission_description">Permite aplicației Telefon să modifice conținutul fișierelor AGIF.</string>
@@ -885,8 +888,8 @@ Cameră foto"</string>
     <string name="tts_pager">Pagina %1$d din %2$d</string>
     <string name="tts_seconds">%d secunde</string>
     <string name="tty_mode_option_title">Mod TTY</string>
-    <string name="tutorial_incoming_call_app_answer">Atingeți pentru a prelua apelul.</string>
-    <string name="tutorial_incoming_call_app_reject">Atingeți pentru a respinge apelul.</string>
+    <string name="tutorial_incoming_call_app_answer">Atingeți de două ori pentru a răspunde.</string>
+    <string name="tutorial_incoming_call_app_reject">Atingeți de două ori pentru a refuza.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Nu se poate stabili conexiunea la reţea. Verificaţi setările conexiunii şi încercaţi din nou.</string>
     <string name="units_kb">KB</string>
@@ -896,7 +899,7 @@ Cameră foto"</string>
     <string name="upload_using_wlan_only">Încărcare doar prin WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Încărcați prin Wi-Fi sau prin rețeaua mobilă</string>
     <string name="upload_wlan_and_mobile_nw">Încărcați prin WLAN sau prin rețele mobile</string>
-    <string name="usa_att_connected_as_voice">Apel conectat doar vocal.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Valoarea setată pentru Utilizare date pe dispozitiv este pe punctul de a-și atinge limita. Aplicația Apel video necesită date.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Nu se poate efectua apelul prin Wi-Fi, se realizează conectarea prin rețeaua celulară. Pot fi aplicate costuri pentru date.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -944,13 +947,17 @@ video unidir."</string>
     <string name="usa_vzw_voice_incoming_during_wifi_video">Preluarea apelului de intrare va încheia apelul actual.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_text">Semnalul Wi-Fi nu este suficient de puternic pentru a se continua apelul. Utilizarea rețelelor mobile pentru continuarea apelului va utiliza planul dvs. de date.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Utilizare date mobile</string>
-    <string name="usa_vzw_volte_weak_wifi_text">"Am încercat, dar nu putem comuta apelul Wi-Fi de această dată.
+    <string name="usa_vzw_volte_weak_wifi_text">"Am încercat, dar, momentan, nu putem comuta apelul video la Wi-Fi.
 
-Apelul dvs. video se desfășoară în continuare pe rețeaua mobilă. (Dacă decideți să continuați, se aplică tarife pentru utilizarea datelor.)"</string>
+Apelul dvs. video se desfășoară în continuare pe rețeaua mobilă.
+
+Dacă decideți să continuați, se pot aplica taxe pentru utilizarea datelor."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Apelul dvs. video funcționează în continuare prin rețeaua mobilă. (Se aplică tarife pentru utilizarea datelor.)</string>
-    <string name="usa_vzw_vowifi_wifi_low_signal_text">"Semnalul Wi-Fi nu a fost suficient de puternic pentru a se continua apelul video.
+    <string name="usa_vzw_vowifi_wifi_low_signal_text">"Semnalul Wi-Fi nu a fost suficient de puternic pentru continuarea apelului video.
 
-Acesta se desfășoară acum pe rețeaua mobilă. (Dacă decideți să continuați, se aplică tarifele pentru utilizarea datelor.)"</string>
+Acesta se desfășoară acum pe rețeaua mobilă.
+
+Se pot aplica taxe pentru utilizarea datelor."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Conexiune Wi-Fi întreruptă. Apel încheiat.</string>
     <string name="use_wifi_and_mobile_nw">Utilizare Wi-Fi și rețele mobile</string>
     <string name="use_wlan_and_mobile_nw">Utilizare WLAN și rețele mobile</string>

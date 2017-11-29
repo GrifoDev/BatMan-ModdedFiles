@@ -20,29 +20,12 @@
 
 .field private final mUri:Landroid/net/Uri;
 
-.field private final observers:Ljava/util/ArrayList;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/ArrayList",
-            "<",
-            "Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/RSetting$SettingContentObserver;",
-            ">;"
-        }
-    .end annotation
-.end field
-
 
 # direct methods
 .method public constructor <init>(Landroid/net/Uri;Ljava/lang/String;Ljava/lang/String;)V
-    .locals 1
+    .locals 0
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
-
-    new-instance v0, Ljava/util/ArrayList;
-
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-
-    iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/RSetting$NameValueCache;->observers:Ljava/util/ArrayList;
 
     iput-object p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/RSetting$NameValueCache;->mUri:Landroid/net/Uri;
 
@@ -59,14 +42,6 @@
     invoke-direct {p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/RSetting$NameValueCache;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
-
-    return-object v0
-.end method
-
-.method static synthetic access$100(Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/RSetting$NameValueCache;)Ljava/util/ArrayList;
-    .locals 1
-
-    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/RSetting$NameValueCache;->observers:Ljava/util/ArrayList;
 
     return-object v0
 .end method

@@ -6,8 +6,6 @@
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
         Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/RSetting$NameValueCache;,
-        Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/RSetting$SettingContentObserver;,
-        Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/RSetting$OnSettingChangeListener;,
         Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/RSetting$Global;,
         Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/RSetting$SettingNotFoundException;,
         Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/RSetting$NameValueTable;

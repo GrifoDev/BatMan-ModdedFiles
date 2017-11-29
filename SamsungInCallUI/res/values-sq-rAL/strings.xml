@@ -120,12 +120,13 @@
     <string name="account_phone">Pajisja</string>
     <string name="acs">Thirrje zanore</string>
     <string name="active_calls">Telefonatë aktive</string>
-    <string name="add_reminder">Shto përkujt.</string>
+    <string name="add_reminder">Shto përkujtesë</string>
     <string name="agif_button_close_description">Mbyll</string>
     <string name="agif_decline_message">"Më fal, s'flas dot tani."</string>
     <string name="agif_decline_sticker_header">Refuzo me adeziv</string>
     <string name="agif_decline_text_header">Refuzo me mesazh tekst</string>
     <string name="agif_decline_toast">Adezivi u dërgua te %s.</string>
+    <string name="agif_outgoing_bubble_tip">Dërgo një adeziv për të treguar si ndihesh.</string>
     <string name="agif_pickers_add_tab_description">Shto</string>
     <string name="agif_pickers_find_more">Gjej të tjera</string>
     <string name="agif_pickers_item_usage_hints_description">Dy-trokit për të përzgjedhur</string>
@@ -134,10 +135,12 @@
     <string name="agif_pickers_tab_select_description">Përzgjedhur</string>
     <string name="agif_pickers_title">Filloje me një adeziv</string>
     <string name="agif_pickers_title_recommended">Rekomandohet</string>
+    <string name="agif_random_send_message">Trokit këtu për ta dërguar këtë adeziv.</string>
     <string name="agif_read_permission_description">Lejon që Telefoni të lexojë materiale AGIF.</string>
     <string name="agif_read_permission_label">Lexo materiale AGIF</string>
     <string name="agif_receive_no_id">Adezivi s’mund të tregohet. Përditëso %s pas thirrjes.</string>
     <string name="agif_receive_no_id_upsupport_update">Adezivi s’mund të tregohet. Pas përditësimit tjetër të sistemit, do të kesh më shumë adezivë.</string>
+    <string name="agif_receive_toast">Adeziv nga %s.</string>
     <string name="agif_sent_fail_message">S’mund të dërgoj GIF të animuar. Provo sërish më vonë.</string>
     <string name="agif_sent_toast">Adezivi u dërgua.</string>
     <string name="agif_write_permission_description">Lejon që Telefoni të modifikojë materiale AGIF.</string>
@@ -827,8 +830,8 @@ njëkahshe"</string>
     <string name="tts_pager">Faqja %1$d nga %2$d</string>
     <string name="tts_seconds">%d sekonda</string>
     <string name="tty_mode_option_title">ProfiliTTY</string>
-    <string name="tutorial_incoming_call_app_answer">"Trokit për t'iu përgjigjur thirrjes."</string>
-    <string name="tutorial_incoming_call_app_reject">Trokit për ta refuzuar thirrjen.</string>
+    <string name="tutorial_incoming_call_app_answer">"Prek dy herë për t'u përgjigjur."</string>
+    <string name="tutorial_incoming_call_app_reject">Prek dy herë për të refuzuar.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Nuk mund të lidhem me rrjetin. Kontrollo cilësimet e lidhjes dhe provo sërish.</string>
     <string name="units_kb">Kb</string>
@@ -838,7 +841,7 @@ njëkahshe"</string>
     <string name="upload_using_wlan_only">Ngarko vetëm me WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Ngarko me Wi-Fi ose rrjetin celular</string>
     <string name="upload_wlan_and_mobile_nw">Ngarko me WLAN ose rrjet celular</string>
-    <string name="usa_att_connected_as_voice">Thirrja u lidh si zanore vetëm.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Përdorimi i të dhënave që ke caktuar për këtë pajisje është duke arritur cakun e lejuar. Thirrja jote video ka nevojë për të dhëna.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Thirrja nuk mund të kryhet përmes Wi-Fi, po lidhem me rrjetin celular. Do të zbatohen tarifa zanore dhe për të dhëna.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -888,11 +891,15 @@ video njëkahshe"</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Përdor Të dhënat celulare</string>
     <string name="usa_vzw_volte_weak_wifi_text">"U përpoqëm, por nuk arritëm ta kalojmë thirrjen tënde video në Wi-Fi në këtë moment.
 
-Thirrja jote video ende po përcillet në rrjetin celular. (Do të zbatohen tarifa të dhënash, nëse vendos të vazhdosh.)"</string>
+Thirrja jote video ende po përcillet në rrjetin celular.
+
+Mund të zbatohen tarifa të dhënash, nëse vendos të vazhdosh."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Thirrja video ende po kryhet përmes rrjetit celular. (Zbatohen tarifa të dhënash.)</string>
     <string name="usa_vzw_vowifi_wifi_low_signal_text">"Sinjali Wi-Fi nuk ishte mjaftueshëm i fortë për të vazhduar thirrjen tënde video.
 
-Thirrja jote video tani po kryhet në rrjetin celular. (Do të përdoren të dhëna, në qoftë se vendos të vazhdosh.)"</string>
+Thirrja jote video tani po kryhet në rrjetin celular.
+
+Mund të zbatohen tarifa të dhënash, nëse vendos të vazhdosh."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Lidhja Wi-Fi humbi. Thirrja përfundoi.</string>
     <string name="use_wifi_and_mobile_nw">Përdor Wi-Fi dhe rrjetet celulare</string>
     <string name="use_wlan_and_mobile_nw">Përdor WLAN dhe rrjetet celulare</string>

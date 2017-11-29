@@ -398,7 +398,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0419
+    const v3, 0x7f0a0423
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -496,7 +496,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0426
+    const v1, 0x7f0a0430
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1262,7 +1262,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090545
+    const v2, 0x7f090548
 
     const/4 v3, 0x1
 
@@ -1406,7 +1406,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090546
+    const v2, 0x7f090549
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1416,7 +1416,7 @@
 
     iget-object v0, p0, Lcom/android/contacts/common/list/ContactListItemView;->K:Landroid/widget/ImageView;
 
-    const v1, 0x7f020188
+    const v1, 0x7f0201b3
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -1772,7 +1772,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b01a6
+    const v2, 0x7f0b01a8
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
 
@@ -1874,7 +1874,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b01a6
+    const v2, 0x7f0b01a8
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
 
@@ -2217,7 +2217,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090545
+    const v2, 0x7f090548
 
     const/4 v3, 0x1
 
@@ -4191,7 +4191,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0e0125
+    const v3, 0x7f0e013d
 
     invoke-static {v2, v3}, Landroid/support/v4/content/a;->c(Landroid/content/Context;I)I
 
@@ -4388,7 +4388,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0167
+    const v2, 0x7f0b0169
 
     invoke-virtual {v0, v1, v2}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
 
@@ -4614,7 +4614,7 @@
 
     iget-object v1, p0, Lcom/android/contacts/common/list/ContactListItemView;->L:Landroid/widget/ImageView;
 
-    const v2, 0x7f020199
+    const v2, 0x7f0201c4
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 

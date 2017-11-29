@@ -1195,18 +1195,6 @@
 
     if-eqz v0, :cond_1
 
-    invoke-static {}, Lcom/android/incallui/util/CallTypeUtils;->isVideoCall()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_1
-
-    invoke-static {}, Lcom/android/incallui/util/VideoCallUtils;->isQCIF()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
     invoke-virtual {p0}, Lcom/android/incallui/fragment/manager/DialpadFragmentManager;->restoreDtmfDelayed()V
 
     :cond_1
@@ -1304,7 +1292,7 @@
 .method protected setFragment(Ljava/lang/Enum;Z)V
     .locals 4
 
-    const v1, 0x7f100320
+    const v1, 0x7f100326
 
     const/4 v0, 0x0
 

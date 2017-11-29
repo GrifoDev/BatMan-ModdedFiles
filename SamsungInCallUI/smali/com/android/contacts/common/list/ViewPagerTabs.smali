@@ -174,7 +174,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040199
+    const v1, 0x7f04019b
 
     const/4 v2, 0x0
 
@@ -196,7 +196,7 @@
 
     invoke-virtual {v2, p1}, Landroid/view/View;->setContentDescription(Ljava/lang/CharSequence;)V
 
-    const v0, 0x7f100151
+    const v0, 0x7f100155
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -327,7 +327,7 @@
 
     invoke-virtual {v0, p1}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v1, 0x7f0203c4
+    const v1, 0x7f0203f8
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setBackgroundResource(I)V
 

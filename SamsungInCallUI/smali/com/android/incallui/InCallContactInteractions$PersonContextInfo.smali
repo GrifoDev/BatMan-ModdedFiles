@@ -39,7 +39,7 @@
 
     const/16 v4, 0x14
 
-    const v0, 0x7f1000fe
+    const v0, 0x7f100102
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -47,7 +47,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    const v1, 0x7f1000a9
+    const v1, 0x7f1000ad
 
     invoke-virtual {p1, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -72,7 +72,7 @@
 
     if-eqz v2, :cond_2
 
-    const v2, 0x7f0201b7
+    const v2, 0x7f0201eb
 
     :goto_1
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setBackgroundResource(I)V
@@ -120,7 +120,7 @@
     goto :goto_0
 
     :cond_2
-    const v2, 0x7f0201eb
+    const v2, 0x7f02021f
 
     goto :goto_1
 

@@ -119,12 +119,13 @@
     <string name="account_phone">Dispositivo</string>
     <string name="acs">Chamada de voz</string>
     <string name="active_calls">Chamada activa</string>
-    <string name="add_reminder">Enga. recordat.</string>
+    <string name="add_reminder">Engadir recordatorio</string>
     <string name="agif_button_close_description">Cerrar</string>
     <string name="agif_decline_message">Non podo falar agora.</string>
     <string name="agif_decline_sticker_header">Rexeitar cun adhesivo</string>
     <string name="agif_decline_text_header">Rexeitar cun texto</string>
     <string name="agif_decline_toast">Enviouse o adhesivo a %s.</string>
+    <string name="agif_outgoing_bubble_tip">Envía un sticker para mostrar como te sentes.</string>
     <string name="agif_pickers_add_tab_description">Eng.</string>
     <string name="agif_pickers_find_more">Máis información</string>
     <string name="agif_pickers_item_usage_hints_description">Toca dúas veces para seleccionar</string>
@@ -133,10 +134,12 @@
     <string name="agif_pickers_tab_select_description">Seleccionado</string>
     <string name="agif_pickers_title">Comezar cun adhesivo</string>
     <string name="agif_pickers_title_recommended">Recomendado</string>
+    <string name="agif_random_send_message">Toca aquí para enviar este sticker.</string>
     <string name="agif_read_permission_description">Permite que Teléfono lea o contido AGIF.</string>
     <string name="agif_read_permission_label">Ler contido AGIF</string>
     <string name="agif_receive_no_id">Non se pode amosar o adhesivo. Actualiza %s despois da chamada.</string>
     <string name="agif_receive_no_id_upsupport_update">Non se pode amosar o adhesivo. Haberá máis adhesivos despois da seguinte actualización do sistema.</string>
+    <string name="agif_receive_toast">Sticker de %s.</string>
     <string name="agif_sent_fail_message">Non se pode enviar o GIF animado. Téntao máis tarde.</string>
     <string name="agif_sent_toast">Enviouse o adhesivo.</string>
     <string name="agif_write_permission_description">Permite que Teléfono modifique o contido AGIF.</string>
@@ -826,8 +829,8 @@ unidireccional"</string>
     <string name="tts_pager">Páxina %1$d de %2$d</string>
     <string name="tts_seconds">%d segundos</string>
     <string name="tty_mode_option_title">Modo TTY</string>
-    <string name="tutorial_incoming_call_app_answer">Toca aquí para responder unha chamada.</string>
-    <string name="tutorial_incoming_call_app_reject">Toca para rexeitar a chamada.</string>
+    <string name="tutorial_incoming_call_app_answer">Toca dúas veces para contestar</string>
+    <string name="tutorial_incoming_call_app_reject">Toca dúas veces para rexeitar</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Non se pode conectar coa rede. Comproba os axustes de conexión e téntao de novo.</string>
     <string name="units_kb">KB</string>
@@ -837,7 +840,7 @@ unidireccional"</string>
     <string name="upload_using_wlan_only">Cargar só por WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Cargar por Wi-Fi ou rede móbil</string>
     <string name="upload_wlan_and_mobile_nw">Cargar por WLAN ou rede móbil</string>
-    <string name="usa_att_connected_as_voice">Chamada conectada como só de voz.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Estás a punto de alcanzar o límite do uso de datos que definiches no dispositivo. A Videochamada require datos.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Non se pode realizar a chamada a través da Wi-Fi. Está a ser conectada a través da rede móbil. Aplicaranse tarifas de voz e datos.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -887,11 +890,15 @@ dunha dirección"</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Usar Datos móbiles</string>
     <string name="usa_vzw_volte_weak_wifi_text">"Tentámolo, pero non podemos cambiar a túa videochamada á Wi-Fi neste momento.
 
-A videochamada aínda se está efectuando a través da rede móbil. (Consumiranse datos se desexas continuar)."</string>
+A videochamada aínda se está efectuando a través da rede móbil.
+
+É posible que se carrexen tarifas polo consumo de datos se decides continuar."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">A videochamada aínda se está efectuando a través da rede móbil. (Consumiranse datos).</string>
     <string name="usa_vzw_vowifi_wifi_low_signal_text">"O sinal da Wi-Fi non era forte dabondo para continuar coa videochamada.
 
-A videochamada estase efectuando a través da rede móbil. (Consumiranse datos se desexas continuar)."</string>
+A videochamada estase efectuando a través da rede móbil.
+
+É posible que se carrexen tarifas polo consumo de datos se continúas."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Perdeuse a conexión Wi-Fi. Chamada finalizada.</string>
     <string name="use_wifi_and_mobile_nw">Usar redes Wi-Fi e móbiles</string>
     <string name="use_wlan_and_mobile_nw">Usar WLAN e redes móbiles</string>

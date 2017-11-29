@@ -94,7 +94,7 @@
 
     iget-object v0, p0, Lcom/android/contacts/common/list/ContactTileAdapter;->m:Landroid/content/Context;
 
-    const v1, 0x7f09059c
+    const v1, 0x7f09059f
 
     invoke-static {v0, v1}, Lcom/android/contacts/common/MoreContactUtils;->a(Landroid/content/Context;I)Landroid/widget/TextView;
 
@@ -178,18 +178,18 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f040042
+    const v0, 0x7f040043
 
     :goto_0
     return v0
 
     :cond_0
-    const v0, 0x7f040041
+    const v0, 0x7f040042
 
     goto :goto_0
 
     :pswitch_2
-    const v0, 0x7f04003f
+    const v0, 0x7f040040
 
     goto :goto_0
 
@@ -416,7 +416,7 @@
     :cond_3
     iget-object v0, p0, Lcom/android/contacts/common/list/ContactTileAdapter;->n:Landroid/content/res/Resources;
 
-    const v8, 0x7f0905f3
+    const v8, 0x7f0905f6
 
     invoke-virtual {v0, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

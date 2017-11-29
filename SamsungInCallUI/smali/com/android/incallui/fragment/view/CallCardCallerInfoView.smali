@@ -448,7 +448,7 @@
     if-eqz v0, :cond_3
 
     :cond_1
-    const v0, 0x7f1003bd
+    const v0, 0x7f1003c1
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -503,7 +503,7 @@
 
     if-eqz v0, :cond_3
 
-    const v0, 0x7f1003b4
+    const v0, 0x7f1003b8
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -513,7 +513,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/view/CallCardCallerInfoView;->mSlash:Landroid/widget/TextView;
 
-    const v0, 0x7f1003b5
+    const v0, 0x7f1003b9
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -545,7 +545,7 @@
 
     if-nez v0, :cond_5
 
-    const v0, 0x7f10029f
+    const v0, 0x7f1002a5
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -576,7 +576,7 @@
 
     if-nez v0, :cond_6
 
-    const v0, 0x7f1002c6
+    const v0, 0x7f1002cc
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -607,7 +607,7 @@
 
     if-nez v0, :cond_7
 
-    const v0, 0x7f10036f
+    const v0, 0x7f100375
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -626,7 +626,7 @@
 
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    const v0, 0x7f100293
+    const v0, 0x7f100297
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -645,7 +645,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1000d9
+    const v1, 0x7f1000dd
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -667,7 +667,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1000da
+    const v1, 0x7f1000de
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1063,7 +1063,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f1000d7
+    const v3, 0x7f1000db
 
     invoke-virtual {v0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1090,7 +1090,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f1000d8
+    const v3, 0x7f1000dc
 
     invoke-virtual {v0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1119,7 +1119,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0900db
+    const v3, 0x7f0900de
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1157,7 +1157,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0900da
+    const v3, 0x7f0900dd
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1368,7 +1368,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f1002c6
+    const v3, 0x7f1002cc
 
     invoke-virtual {v0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1440,7 +1440,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f1002c8
+    const v3, 0x7f1002ce
 
     invoke-virtual {v0, v3}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1526,7 +1526,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f10029f
+    const v1, 0x7f1002a5
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1612,7 +1612,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1000fe
+    const v1, 0x7f100102
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1709,7 +1709,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f100390
+    const v1, 0x7f100396
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1731,7 +1731,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f100391
+    const v1, 0x7f100397
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1807,7 +1807,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f0e0173
+    const v3, 0x7f0e018b
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1819,7 +1819,7 @@
 
     move-result-object v0
 
-    const v4, 0x7f0e016e
+    const v4, 0x7f0e0186
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -2074,7 +2074,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f09067b
+    const v3, 0x7f09067e
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2152,7 +2152,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1003a8
+    const v1, 0x7f1003ae
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2181,7 +2181,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f100337
+    const v1, 0x7f10033d
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

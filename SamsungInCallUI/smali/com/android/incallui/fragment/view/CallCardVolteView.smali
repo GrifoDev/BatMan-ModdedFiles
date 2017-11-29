@@ -421,7 +421,7 @@
 .method private onViewCreated(Lcom/android/incallui/fragment/CallCardFragment;Landroid/view/View;)V
     .locals 1
 
-    const v0, 0x7f10028a
+    const v0, 0x7f10028e
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -439,7 +439,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f100289
+    const v0, 0x7f10028d
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -462,7 +462,7 @@
 
     if-nez v0, :cond_1
 
-    const v0, 0x7f1003ee
+    const v0, 0x7f1003f2
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -481,7 +481,7 @@
 
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    const v0, 0x7f100315
+    const v0, 0x7f10031b
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -504,7 +504,7 @@
 
     if-nez v0, :cond_3
 
-    const v0, 0x7f10036d
+    const v0, 0x7f100373
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -523,7 +523,7 @@
 
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    const v0, 0x7f1004ad
+    const v0, 0x7f1004b4
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -550,7 +550,7 @@
 
     if-nez v0, :cond_5
 
-    const v0, 0x7f10038b
+    const v0, 0x7f100391
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -569,7 +569,7 @@
 
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    const v0, 0x7f100364
+    const v0, 0x7f10036a
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -579,7 +579,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/view/CallCardVolteView;->mModifyStateInfoTextName:Landroid/widget/TextView;
 
-    const v0, 0x7f100365
+    const v0, 0x7f10036b
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -602,7 +602,7 @@
 
     if-nez v0, :cond_7
 
-    const v0, 0x7f100393
+    const v0, 0x7f100399
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -621,7 +621,7 @@
 
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    const v0, 0x7f100394
+    const v0, 0x7f10039a
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -631,7 +631,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/view/CallCardVolteView;->mOnholdLayoutForwardSlash:Landroid/widget/TextView;
 
-    const v0, 0x7f100395
+    const v0, 0x7f10039b
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -654,7 +654,7 @@
 
     if-nez v0, :cond_9
 
-    const v0, 0x7f100389
+    const v0, 0x7f10038f
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -673,7 +673,7 @@
 
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    const v0, 0x7f1002e4
+    const v0, 0x7f1002ea
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -696,7 +696,7 @@
 
     if-nez v0, :cond_b
 
-    const v0, 0x7f1003a2
+    const v0, 0x7f1003a8
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -715,7 +715,7 @@
 
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    const v0, 0x7f1003c7
+    const v0, 0x7f1003cb
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1076,7 +1076,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0900d3
+    const v2, 0x7f0900d6
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1569,7 +1569,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f100382
+    const v2, 0x7f100388
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1629,7 +1629,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f0e0162
+    const v3, 0x7f0e017a
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1641,7 +1641,7 @@
 
     move-result-object v0
 
-    const v4, 0x7f0e0161
+    const v4, 0x7f0e0179
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -2373,7 +2373,7 @@
     goto :goto_0
 
     :pswitch_data_0
-    .packed-switch 0x7f1004ad
+    .packed-switch 0x7f1004b4
         :pswitch_0
     .end packed-switch
 .end method

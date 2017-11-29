@@ -7,7 +7,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->showModifyErrorDialog()V
+    value = Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->showVoLTESettingErrorDialog(I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

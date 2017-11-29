@@ -52,7 +52,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0a0426
+    const v5, 0x7f0a0430
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -68,7 +68,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0167
+    const v1, 0x7f0b0169
 
     invoke-virtual {p0, v0, v1}, Lcom/android/contacts/common/list/ContactListPinnedHeaderView;->setTextAppearance(Landroid/content/Context;I)V
 

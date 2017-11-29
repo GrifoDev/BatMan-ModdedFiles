@@ -7,7 +7,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/incallui/agif/AgifFragment;->startOutgoingCallAnimation()V
+    value = Lcom/android/incallui/agif/AgifFragment;->createAgifSlidingTrayIcons(I)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;

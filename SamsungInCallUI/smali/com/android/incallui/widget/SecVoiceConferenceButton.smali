@@ -84,7 +84,7 @@
 .method private init(Landroid/content/Context;)V
     .locals 3
 
-    const v2, 0x7f0a0414
+    const v2, 0x7f0a041e
 
     const/4 v1, 0x0
 
@@ -128,7 +128,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f020230
+    const v1, 0x7f020264
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -155,7 +155,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f020385
+    const v0, 0x7f0203b9
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/widget/SecVoiceConferenceButton;->setBackgroundResource(I)V
 
@@ -252,7 +252,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f020385
+    const v1, 0x7f0203b9
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

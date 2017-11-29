@@ -94,7 +94,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0400fc
+    const v1, 0x7f0400fd
 
     invoke-virtual {v0, v1, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -257,7 +257,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0905b0
+    const v9, 0x7f0905b3
 
     invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -382,7 +382,7 @@
 
     if-eqz v0, :cond_6
 
-    const v0, 0x7f100339
+    const v0, 0x7f10033f
 
     invoke-virtual {v7, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -398,7 +398,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f040196
+    const v3, 0x7f040198
 
     invoke-static {p1}, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->access$200(Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;)Ljava/util/ArrayList;
 
@@ -433,7 +433,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->setChoiceMode(I)V
 
     :cond_6
-    const v0, 0x7f10033b
+    const v0, 0x7f100341
 
     invoke-virtual {v7, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -460,7 +460,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/AutoCompleteTextView;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
     :cond_7
-    const v0, 0x7f10033a
+    const v0, 0x7f100340
 
     invoke-virtual {v7, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -509,7 +509,7 @@
     :cond_8
     invoke-virtual {p0, v7}, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;->setView(Landroid/view/View;)V
 
-    const v0, 0x7f0905b1
+    const v0, 0x7f0905b4
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;->setTitle(I)V
 
@@ -523,7 +523,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0902d5
+    const v2, 0x7f0902d8
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -545,7 +545,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090105
+    const v2, 0x7f090108
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

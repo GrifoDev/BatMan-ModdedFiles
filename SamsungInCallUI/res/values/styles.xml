@@ -821,6 +821,13 @@
         <item name="android:isIndicator">true</item>
     </style>
     <style name="CardView" parent="@style/Base.CardView" />
+    <style name="AgifBubbleTipText">
+        <item name="android:textSize">@dimen/agif_bubble_tip_text_size</item>
+        <item name="android:textColor">@color/agif_list_text_color</item>
+        <item name="android:layout_gravity">start|center|top</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:fontFamily">sec-roboto-light</item>
+    </style>
     <style name="AgifFindMoreText">
         <item name="android:textSize">@dimen/agif_recommend_text_size</item>
         <item name="android:textStyle">bold</item>
@@ -856,6 +863,21 @@
         <item name="android:fontFamily">sec-roboto-light</item>
         <item name="android:paddingStart">@dimen/agif_no_id_text_padding_side</item>
         <item name="android:paddingEnd">@dimen/agif_no_id_text_padding_side</item>
+        <item name="android:breakStrategy">balanced</item>
+    </style>
+    <style name="AgifRandomSendText">
+        <item name="android:textSize">@dimen/agif_random_send_text_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/agif_random_send_text_color</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:layout_gravity">bottom</item>
+        <item name="android:layout_marginTop">@dimen/agif_random_send_text_pdding_top</item>
+        <item name="android:layout_marginBottom">@dimen/agif_random_send_text_pdding_bottom</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:fontFamily">sec-roboto-condensed</item>
+        <item name="android:layout_marginStart">@dimen/agif_random_send_text_pdding_side</item>
+        <item name="android:layout_marginEnd">@dimen/agif_random_send_text_pdding_side</item>
         <item name="android:breakStrategy">balanced</item>
     </style>
     <style name="AgifRecommendItemName">
@@ -1895,7 +1917,7 @@
         <item name="android:textSize">@dimen/sec_quick_panel_app_name_text_size</item>
         <item name="android:textColor">@color/sec_quick_panel_app_name_text_color</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">@dimen/sec_quick_panel_app_name_height</item>
         <item name="android:singleLine">true</item>
         <item name="android:includeFontPadding">false</item>

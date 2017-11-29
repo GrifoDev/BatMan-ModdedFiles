@@ -126,6 +126,7 @@
     <string name="agif_decline_sticker_header">បដិសេធ​ជាមួយ​ស្ទីកឃ័រ</string>
     <string name="agif_decline_text_header">បដិសេធ​ជាមួយ​អត្ថបទ</string>
     <string name="agif_decline_toast">បាន​ផ្ញើ​ស្ទីកឃ័រ​ទៅ %s។</string>
+    <string name="agif_outgoing_bubble_tip">ផ្ញើ​ស្ទីកឃ័រ​មួយ ដើម្បី​បង្ហាញ​ពី​អារម្មណ៍​របស់​អ្នក។</string>
     <string name="agif_pickers_add_tab_description">ថែម</string>
     <string name="agif_pickers_find_more">ស្វែងរក​ច្រើនទៀត</string>
     <string name="agif_pickers_item_usage_hints_description">ប៉ះ​ពីរដង ដើម្បី​ជ្រើស</string>
@@ -134,10 +135,12 @@
     <string name="agif_pickers_tab_select_description">បាន​ជ្រើស</string>
     <string name="agif_pickers_title">ចាប់ផ្ដើម​ជាមួយ​ស្ទីកឃ័រ</string>
     <string name="agif_pickers_title_recommended">បាន​ឲ្យ​យោបល់</string>
+    <string name="agif_random_send_message">ប៉ះ​ទីនេះ ដើម្បី​ផ្ញើ​ស្ទីកឃ័រ​នេះ។</string>
     <string name="agif_read_permission_description">អនុញ្ញាត​ឲ្យ​ទូរសព្ទ​អាន​ខ្លឹមព័ត៌មាន AGIF។</string>
     <string name="agif_read_permission_label">អាន​ខ្លឹមព័ត៌មាន AGIF</string>
     <string name="agif_receive_no_id">ស្ទីកឃ័រ​មិន​អាច​បង្ហាញ​ឡើយ។ អាប់ដេត %s បន្ទាប់​ពី​ការហៅ។</string>
     <string name="agif_receive_no_id_upsupport_update">ស្ទីកឃ័រ​មិន​អាច​បង្ហាញ​ឡើយ។ ស្ទីកឃ័រ​ច្រើនទៀត​នឹង​អាច​ប្រើ​បាន បន្ទាប់​ពី​អាប់ដេត​ប្រព័ន្ធ​លើកក្រោយ។</string>
+    <string name="agif_receive_toast">ស្ទីកឃ័រ​ពី %s។</string>
     <string name="agif_sent_fail_message">មិន​អាច​ផ្ញើ GIF ជីវចល។ សាកល្បង​ម្ដងទៀត​ពេលក្រោយ។</string>
     <string name="agif_sent_toast">បាន​ផ្ញើ​ស្ទីកឃ័រ។</string>
     <string name="agif_write_permission_description">អនុញ្ញាត​ឲ្យ​ទូរសព្ទ​កែ​ខ្លឹមព័ត៌មាន AGIF។</string>
@@ -827,8 +830,8 @@
     <string name="tts_pager">ទំព័រ %1$d នៃ %2$d</string>
     <string name="tts_seconds">%d វិនាទី</string>
     <string name="tty_mode_option_title">ទម្រង់ TTY</string>
-    <string name="tutorial_incoming_call_app_answer">ប៉ះ​ដើម្បី​ឆ្លើយ​ការហៅ។</string>
-    <string name="tutorial_incoming_call_app_reject">ប៉ះ ដើម្បី​បដិសេធ​ការហៅ។</string>
+    <string name="tutorial_incoming_call_app_answer">ប៉ះ​ពីរ​ដង​ដើម្បី​ឆ្លើយ។</string>
+    <string name="tutorial_incoming_call_app_reject">ប៉ះ​ពីរ​ដង​ដើម្បី​បដិសេធ។</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">មិន​អាច​ភ្ជាប់​ទៅ​បណ្ដាញ។ ពិនិត្យ​ការកំណត់​ការភ្ជាប់​របស់​អ្នក ហើយ​សាកល្បង​ម្ដងទៀត។</string>
     <string name="units_kb">KB</string>
@@ -838,7 +841,7 @@
     <string name="upload_using_wlan_only">បញ្ជូន​តាម WLAN ប៉ុណ្ណោះ</string>
     <string name="upload_wifi_and_mobile_nw">បញ្ជូន​តាម Wi-Fi ឬ បណ្ដាញ​ចល័ត</string>
     <string name="upload_wlan_and_mobile_nw">បញ្ជូន​តាម WLAN ឬ បណ្ដាញ​ចល័ត</string>
-    <string name="usa_att_connected_as_voice">ការហៅ​ត្រូវ​បាន​ភ្ជាប់​ជា​សំឡេង​ប៉ុណ្ណោះ។</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">ការប្រើប្រាស់​ទិន្នន័យ​របស់​អ្នក​ដែល​អ្នក​កំណត់​លើ​ឧបករណ៍​របស់​អ្នក​ជិត​ដល់​ដែនកំណត់​របស់​វា។ ការហៅ​វីដេអូ​របស់​អ្នក​ត្រូវការ​ទិន្នន័យ។</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">ការហៅ​មិន​អាច​ធ្វើ​តាម Wi-Fi, កំពុង​ភ្ជាប់​តាម​បណ្ដាញ​ចល័ត។ នឹង​គិត​ថ្លៃ​សំឡេង​និង​ទិន្នន័យ។</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -886,13 +889,17 @@
     <string name="usa_vzw_voice_incoming_during_wifi_video">ការឆ្លើយ​ការហៅ​ចូល​នឹង​បញ្ចប់​ការហៅ​បច្ចុប្បន្ន។</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_text">រលកសញ្ញា Wi-Fi មិន​ខ្លាំង​ល្មម ដើម្បី​បន្ត​ការហៅ។ ការប្រើ​បណ្ដាញ​ចល័ត​ដើម្បី​បន្ត​ការហៅ​របស់​អ្នក​នឹង​ប្រើ​គម្រោង​ទិន្នន័យ​របស់​អ្នក។</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">ប្រើ​ទិន្នន័យ​ចល័ត</string>
-    <string name="usa_vzw_volte_weak_wifi_text">"យើង​បាន​ព្យាយាម ប៉ុន្តែ​យើង​មិន​អាច​ប្ដូរ​ការហៅ​វីដេអូ​របស់​អ្នក​ទៅ Wi-Fi នៅ​ពេល​នេះ​ទេ។
+    <string name="usa_vzw_volte_weak_wifi_text">"យើង​បាន​ព្យាយាម ប៉ុន្តែ​យើង​មិន​អាច​ប្ដូរ​ការហៅ​វីដេអូ​របស់​អ្នក​ទៅ Wi-Fi ទេ នៅ​ពេល​នេះ។
 
-ការហៅ​វីដេអូ​របស់​អ្នក​នៅ​កំពុង​ដំណើរការ​តាម​បណ្ដាញ​ចល័ត​ដដែល។ (ការប្រើប្រាស់​ទិន្នន័យ​នឹង​អនុវត្ត បើ​អ្នក​ជ្រើសរើស​បន្ត។)"</string>
+ការហៅ​វីដេអូ​របស់​អ្នក​នៅ​កំពុង​ដំណើរការ​តាម​បណ្ដាញ​ចល័ត​ដដែល។
+
+អាច​គិត​ថ្លៃ​ប្រើប្រាស់​ទិន្នន័យ បើ​អ្នក​ជ្រើសរើស​បន្ត។"</string>
     <string name="usa_vzw_volte_weak_wifi_toast">ការហៅ​វីដេអូ​របស់​អ្នក​នៅ​កំពុង​ដំណើរការ​តាម​បណ្ដាញ​ចល័ត​ដដែល។ (គិត​ការប្រើប្រាស់​ទិន្នន័យ។)</string>
-    <string name="usa_vzw_vowifi_wifi_low_signal_text">"រលកសញ្ញា Wi-Fi មិន​ខ្លាំង​ល្មម ដើម្បី​បន្ត​ការហៅ​វីដេអូ​របស់​អ្នក។
+    <string name="usa_vzw_vowifi_wifi_low_signal_text">"រលកសញ្ញា Wi-Fi មិន​ខ្លាំង​គ្រប់គ្រាន់ ដើម្បី​បន្ត​ការហៅ​វីដេអូ​របស់​អ្នក។
 
-ឥឡូវ ការហៅ​វីដេអូ​របស់​អ្នក​កំពុង​ដំណើរការ​លើ​បណ្ដាញ​ចល័ត។ (ការប្រើប្រាស់​ទិន្នន័យ​នឹង​អនុវត្ត បើ​អ្នក​ជ្រើសរើស​បន្ត។)"</string>
+ឥឡូវ ការហៅ​វីដេអូ​របស់​អ្នក​កំពុង​ដំណើរការ​តាម​បណ្ដាញ​ចល័ត។
+
+អាច​គិត​ថ្លៃ​ប្រើប្រាស់​ទិន្នន័យ បើ​អ្នក​ជ្រើសរើស​បន្ត។"</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">ការភ្ជាប់ Wi-Fi បាន​បាត់។ ការហៅ​បាន​បញ្ចប់។</string>
     <string name="use_wifi_and_mobile_nw">ប្រើ Wi-Fi និង បណ្ដាញ​ចល័ត</string>
     <string name="use_wlan_and_mobile_nw">ប្រើ WLAN និង បណ្ដាញ​ចល័ត</string>

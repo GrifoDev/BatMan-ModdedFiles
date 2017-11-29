@@ -7,7 +7,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->getWebURLs(Ljava/lang/String;[Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
+    value = Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->getOrsPolicy(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -19,20 +19,16 @@
 # instance fields
 .field final synthetic this$0:Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;
 
-.field final synthetic val$contentToken:Ljava/lang/String;
-
-.field final synthetic val$listener:Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;
+.field final synthetic val$getORSPolicyListener:Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;
 
 
 # direct methods
-.method constructor <init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
+.method constructor <init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;)V
     .locals 0
 
     iput-object p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$64;->this$0:Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;
 
-    iput-object p2, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$64;->val$contentToken:Ljava/lang/String;
-
-    iput-object p3, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$64;->val$listener:Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;
+    iput-object p2, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$64;->val$getORSPolicyListener:Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -44,23 +40,19 @@
 .method public run()V
     .locals 3
 
-    const/16 v0, -0x2e
+    const/16 v0, -0xd
 
-    const-string v1, "Security Exception"
+    const-string v1, "authentication failed"
 
-    const-string v2, "Security Exception"
+    const-string v2, "unable to authenticate user"
 
     invoke-static {v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
 
     move-result-object v0
 
-    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$64;->val$contentToken:Ljava/lang/String;
+    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$64;->val$getORSPolicyListener:Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;
 
-    invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;->setContentToken(Ljava/lang/String;)V
-
-    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$64;->val$listener:Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;
-
-    invoke-interface {v1, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;->onError(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
+    invoke-interface {v1, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;->onError(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
 
     return-void
 .end method

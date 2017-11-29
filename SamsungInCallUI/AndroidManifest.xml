@@ -2,7 +2,6 @@
     <protected-broadcast android:name="com.android.phone.CALLER_NAME"/>
     <protected-broadcast android:name="com.android.phone.ACTION_HD_VOICE_CALL"/>
     <protected-broadcast android:name="com.sec.android.phone.action.ACTION_CALL_TIME"/>
-    <protected-broadcast android:name="com.samsung.android.communicationservice.ACTION_BACKGROUND_SEND"/>
     <permission android:label="UPDATE_MUTE_STATUS" android:name="com.sec.android.phone.permission.UPDATE_MUTE_STATUS" android:protectionLevel="signatureOrSystem"/>
     <uses-permission android:name="com.sec.android.phone.permission.UPDATE_MUTE_STATUS"/>
     <permission android:description="@string/permission_transporting_caller_name_description" android:label="@string/permission_transporting_caller_name_label" android:name="com.sec.android.phone.permission.TRANSPORTING_CALLER_NAME" android:protectionLevel="signatureOrSystem"/>
@@ -344,6 +343,7 @@
         <activity android:configChanges="keyboardHidden|orientation|screenSize" android:excludeFromRecents="true" android:exported="false" android:launchMode="singleTop" android:name="com.samsung.android.sdk.enhancedfeatures.internal.common.ui.PermissionActivity" android:singleUser="true" android:theme="@style/Theme.DimBGTheme.Dialog"/>
         <activity android:name="com.samsung.android.sdk.enhancedfeatures.internal.common.ui.PermissionDialogActivity" android:theme="@style/Theme.DimBGTheme"/>
         <service android:exported="false" android:name="com.samsung.android.sdk.enhancedfeatures.internal.common.transaction.SppAckService"/>
+        <service android:exported="false" android:name="com.samsung.android.sdk.enhancedfeatures.internal.common.transaction.SppAckJob" android:permission="android.permission.BIND_JOB_SERVICE"/>
         <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:excludeFromRecents="true" android:exported="false" android:launchMode="singleTop" android:name="com.samsung.android.sdk.enhancedfeatures.easysignup.internal.ui.AcsAuthenticatorActivity" android:singleUser="true" android:theme="@style/Theme.ICS_White" android:uiOptions="splitActionBarWhenNarrow" android:windowSoftInputMode="stateHidden"/>
         <activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize" android:excludeFromRecents="true" android:exported="false" android:launchMode="singleTop" android:name="com.samsung.android.sdk.enhancedfeatures.easysignup.internal.ui.SmsAuthenticatorActivity" android:singleUser="true" android:theme="@style/Theme.ICS_White" android:uiOptions="splitActionBarWhenNarrow" android:windowSoftInputMode="stateAlwaysVisible"/>
         <activity android:excludeFromRecents="true" android:exported="false" android:launchMode="singleTop" android:name="com.samsung.android.sdk.enhancedfeatures.easysignup.internal.ui.CountryActivity" android:singleUser="true" android:theme="@style/Theme.ICS_White"/>
@@ -383,7 +383,7 @@
         </receiver>
         <activity android:exported="false" android:name="com.google.android.gms.common.api.GoogleApiActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
         <provider android:authorities="com.samsung.android.incallui.firebaseinitprovider" android:exported="false" android:initOrder="100" android:name="com.google.firebase.provider.FirebaseInitProvider"/>
-        <meta-data android:name="SPDE.build.signature" android:value="4338631/15629191/release/SamsungInCallUI-214036-2.1.04"/>
-        <meta-data android:name="SPDE.env.version" android:value="2.2.3/L24.3.7/24.3.4"/>
+        <meta-data android:name="SPDE.build.signature" android:value="4761106/18256822/release/SamsungInCallUI-214021-2.3.02"/>
+        <meta-data android:name="SPDE.env.version" android:value="2.2.3/L24.3.7/24.3.5"/>
     </application>
 </manifest>

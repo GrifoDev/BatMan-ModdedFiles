@@ -178,12 +178,13 @@
     <string name="account_phone">本体</string>
     <string name="acs">音声通話</string>
     <string name="active_calls">現在の通話</string>
-    <string name="add_reminder">ﾘﾏｲﾝﾀﾞｰ追加</string>
+    <string name="add_reminder">リマインダーを追加</string>
     <string name="agif_button_close_description">閉じる</string>
     <string name="agif_decline_message">ただいま電話に出ることができません。</string>
     <string name="agif_decline_sticker_header">拒否してスタンプ送信</string>
     <string name="agif_decline_text_header">拒否してテキスト送信</string>
     <string name="agif_decline_toast">%sさんにスタンプを送信しました。</string>
+    <string name="agif_outgoing_bubble_tip">スタンプを送信して、今の気分を伝えましょう。</string>
     <string name="agif_pickers_add_tab_description">追加</string>
     <string name="agif_pickers_find_more">さらに検索</string>
     <string name="agif_pickers_item_usage_hints_description">ダブルタップして選択</string>
@@ -192,10 +193,12 @@
     <string name="agif_pickers_tab_select_description">選択中</string>
     <string name="agif_pickers_title">スタンプ付きで発信</string>
     <string name="agif_pickers_title_recommended">おすすめ</string>
+    <string name="agif_random_send_message">このスタンプを送信するには、ここをタップしてください。</string>
     <string name="agif_read_permission_description">AGIFコンテンツの読み取りを端末に許可します。</string>
     <string name="agif_read_permission_label">AGIFコンテンツの読み取り</string>
     <string name="agif_receive_no_id">スタンプを表示できません。通話後に%sを更新してください。</string>
     <string name="agif_receive_no_id_upsupport_update">スタンプを表示できません。次回のシステム更新後にさまざまな種類のスタンプが利用可能になります。</string>
+    <string name="agif_receive_toast">%sさんからのスタンプです。</string>
     <string name="agif_sent_fail_message">アニメーションGIFを送信できません。後ほどお試しください。</string>
     <string name="agif_sent_toast">スタンプを送信しました。</string>
     <string name="agif_write_permission_description">AGIFコンテンツの変更を端末に許可します。</string>
@@ -885,8 +888,8 @@ IVR通話画面メニューには、Dianhuabangという第三者サービスプ
     <string name="tts_pager">%1$d/%2$dページ</string>
     <string name="tts_seconds">%d秒</string>
     <string name="tty_mode_option_title">TTYモード</string>
-    <string name="tutorial_incoming_call_app_answer">着信に応答するには、タップします。</string>
-    <string name="tutorial_incoming_call_app_reject">着信を拒否するには、タップしてください。</string>
+    <string name="tutorial_incoming_call_app_answer">2回タップして応答</string>
+    <string name="tutorial_incoming_call_app_reject">2回タップして拒否</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">ネットワークに接続できません。接続設定を確認し、再度実行してください。</string>
     <string name="units_kb">KB</string>
@@ -896,7 +899,7 @@ IVR通話画面メニューには、Dianhuabangという第三者サービスプ
     <string name="upload_using_wlan_only">WLAN接続時のみアップロード</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fiおよびモバイルネットワークでアップロード</string>
     <string name="upload_wlan_and_mobile_nw">WLANまたはモバイルネットワークでアップロード</string>
-    <string name="usa_att_connected_as_voice">音声通話で接続します。</string>
+    <string name="usa_att_connected_as_voice">この通話ではビデオコールを使用できません。音声通話で接続しました。</string>
     <string name="usa_att_data_usage_charge_alert">まもなく端末に設定したデータ使用量の上限に達します。このビデオコールにはデータの使用が必要です。</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">セルラーネットワークで接続中に、Wi-Fiで通話することはできません。音声およびデータの料金が適用されます。</string>
     <string name="usa_att_modify_receive_to_video">%sがビデオコールへの切り替えを要求しています。</string>
@@ -946,11 +949,15 @@ IVR通話画面メニューには、Dianhuabangという第三者サービスプ
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">モバイルデータを使用</string>
     <string name="usa_vzw_volte_weak_wifi_text">"ビデオコールをWi-Fiに切り替えようとしましたが、切り替えることができませんでした。
 
-ビデオコールをモバイルネットワークで続行します。(続行すると、データ使用量が適用されます。)"</string>
+ビデオコールをモバイルネットワークで続行します。
+
+続行すると、データ使用量の料金が発生する可能性があります。"</string>
     <string name="usa_vzw_volte_weak_wifi_toast">ビデオコールはモバイルネットワークで実行中です。(データ使用量が適用されます。)</string>
     <string name="usa_vzw_vowifi_wifi_low_signal_text">"Wi-Fiの電波強度が、ビデオコールを続行するのに十分ではありません。
 
-ビデオコールをモバイルネットワークで続行します。(続行すると、データ使用量が適用されます。)"</string>
+ビデオコールをモバイルネットワークで続行します。
+
+続行すると、データ使用量の料金が発生する可能性があります。"</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi接続が切断されました。通話を終了しました。</string>
     <string name="use_wifi_and_mobile_nw">Wi-Fiおよびモバイルネットワークを使用</string>
     <string name="use_wlan_and_mobile_nw">WLANおよびモバイルネットワークを使用</string>
@@ -980,5 +987,5 @@ IVR通話画面メニューには、Dianhuabangという第三者サービスプ
     <string name="yellow_pages">イエローページ</string>
     <string name="you_have_entered_incorrect_code">入力した認証コードが正しくありません。再度入力してください。</string>
     <string name="you_have_reached_your_daily_sms_limit">SMS認証を試行できる最大回数に達しました。%d時間後に再度お試しください。</string>
-    <string name="you_have_reached_your_daliy_voice_limit">1日の音声認証の上限回数に達しました。%d時間後に再度お試しください。</string>
+    <string name="you_have_reached_your_daliy_voice_limit">1日の音声認証上限回数に達しました。%d時間後に再度お試しください。</string>
 </resources>

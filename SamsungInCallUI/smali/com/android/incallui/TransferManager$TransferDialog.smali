@@ -68,13 +68,13 @@
 
     move-result-object v0
 
-    const v5, 0x7f040136
+    const v5, 0x7f040138
 
     invoke-virtual {v0, v5, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v2
 
-    const v0, 0x7f10033b
+    const v0, 0x7f100341
 
     invoke-virtual {v2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -101,7 +101,7 @@
     invoke-virtual {v0, v5}, Landroid/widget/AutoCompleteTextView;->setOnFocusChangeListener(Landroid/view/View$OnFocusChangeListener;)V
 
     :cond_0
-    const v0, 0x7f100414
+    const v0, 0x7f100418
 
     invoke-virtual {v2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -193,7 +193,7 @@
     :goto_1
     invoke-virtual {p0, v2}, Lcom/android/incallui/TransferManager$TransferDialog;->setView(Landroid/view/View;)V
 
-    const v0, 0x7f090194
+    const v0, 0x7f090197
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/TransferManager$TransferDialog;->setTitle(I)V
 
@@ -207,7 +207,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0902d5
+    const v2, 0x7f0902d8
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -229,7 +229,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090105
+    const v2, 0x7f090108
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

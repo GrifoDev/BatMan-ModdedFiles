@@ -48,6 +48,8 @@
 # instance fields
 .field private final GSM_CONFERENCECALL_MAX_SIZE:I
 
+.field private final RJIO_CONFERENCECALL_MAX_SIZE:I
+
 .field private mAnsVTasVoiceAfterConfCallDisconnect:Z
 
 .field private mAnswerCallAfterThisDisconnect:I
@@ -111,17 +113,21 @@
 
     iput v0, p0, Lcom/android/incallui/AnswerPresenter;->GSM_CONFERENCECALL_MAX_SIZE:I
 
+    const/4 v0, 0x3
+
+    iput v0, p0, Lcom/android/incallui/AnswerPresenter;->RJIO_CONFERENCECALL_MAX_SIZE:I
+
     return-void
 .end method
 
 .method private DisplayWaitingCallDialogWhenDoNotHaveHoldingCall(I)V
-    .locals 13
+    .locals 14
 
-    const v12, 0x7f0903b9
+    const v13, 0x7f0903bb
 
-    const v11, 0x7f0903b8
+    const/4 v12, 0x3
 
-    const/4 v10, 0x2
+    const/4 v11, 0x2
 
     const/4 v3, 0x1
 
@@ -139,17 +145,17 @@
 
     invoke-virtual {v0}, Lcom/android/incallui/CallList;->getActiveCall()Lcom/android/incallui/Call;
 
-    move-result-object v5
+    move-result-object v6
 
-    iget-object v6, p0, Lcom/android/incallui/AnswerPresenter;->mCall:Lcom/android/incallui/Call;
+    iget-object v7, p0, Lcom/android/incallui/AnswerPresenter;->mCall:Lcom/android/incallui/Call;
 
-    invoke-static {v5}, Lcom/android/incallui/util/CallTypeUtils;->isPSVideoCall(Lcom/android/incallui/Call;)Z
+    invoke-static {v6}, Lcom/android/incallui/util/CallTypeUtils;->isPSVideoCall(Lcom/android/incallui/Call;)Z
 
     move-result v0
 
     if-nez v0, :cond_0
 
-    invoke-static {v6}, Lcom/android/incallui/util/CallTypeUtils;->isPSVideoCall(Lcom/android/incallui/Call;)Z
+    invoke-static {v7}, Lcom/android/incallui/util/CallTypeUtils;->isPSVideoCall(Lcom/android/incallui/Call;)Z
 
     move-result v0
 
@@ -165,27 +171,27 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v7, "isVideoCallActiveOrRinging : "
+    const-string v5, "isVideoCallActiveOrRinging : "
 
-    invoke-virtual {v4, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
     invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v0
+    move-result-object v4
 
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v4
 
-    invoke-static {v1, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v1, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/android/incallui/AnswerPresenter;->getContext()Landroid/content/Context;
 
-    move-result-object v7
+    move-result-object v8
 
-    if-nez v5, :cond_3
+    if-nez v6, :cond_3
 
     :cond_1
     :goto_1
@@ -197,77 +203,168 @@
     goto :goto_0
 
     :cond_3
-    invoke-virtual {v5}, Lcom/android/incallui/Call;->isConferenceCall()Z
+    invoke-virtual {v6}, Lcom/android/incallui/Call;->isConferenceCall()Z
 
-    move-result v0
+    move-result v1
 
-    if-eqz v0, :cond_6
+    if-eqz v1, :cond_9
 
-    invoke-virtual {v5}, Lcom/android/incallui/Call;->getChildCallIds()Ljava/util/List;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Ljava/util/List;->size()I
-
-    move-result v0
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "("
-
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6}, Lcom/android/incallui/Call;->getChildCallIds()Ljava/util/List;
 
     move-result-object v1
 
-    const-string v4, "%d"
+    invoke-interface {v1}, Ljava/util/List;->size()I
 
-    new-array v8, v3, [Ljava/lang/Object;
-
-    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v9
-
-    aput-object v9, v8, v2
-
-    invoke-static {v4, v8}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v4, ")"
-
-    invoke-virtual {v1, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
+    move-result v1
 
     new-instance v4, Ljava/lang/StringBuilder;
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    const-string v5, "("
 
-    move-result-object v8
-
-    const v9, 0x7f0900ad
-
-    invoke-virtual {v8, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v4, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
-    invoke-virtual {v4, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v5, "%d"
+
+    new-array v9, v3, [Ljava/lang/Object;
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v10
+
+    aput-object v10, v9, v2
+
+    invoke-static {v5, v9}, Ljava/lang/String;->format(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string v5, ")"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {v8}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v9
+
+    const v10, 0x7f0900ad
+
+    invoke-virtual {v9, v10}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v9
+
+    invoke-virtual {v5, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    move v5, v1
+
+    move-object v1, v4
+
+    :goto_2
+    if-nez v1, :cond_4
+
+    const-string v1, " "
+
+    :cond_4
+    const-string v4, "%s"
+
+    const-string v4, "att_volte_ui"
+
+    invoke-static {v4}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v4
+
+    if-eqz v4, :cond_b
+
+    invoke-static {}, Lcom/android/incallui/util/CallTypeUtils;->hasVideoOneway()Z
+
+    move-result v4
+
+    if-nez v4, :cond_5
+
+    sget v4, Lcom/android/incallui/service/vt/SecVideoState;->VIDEO_ONEWAY_TX:I
+
+    if-eq p1, v4, :cond_5
+
+    sget v4, Lcom/android/incallui/service/vt/SecVideoState;->VIDEO_ONEWAY_RX:I
+
+    if-ne p1, v4, :cond_a
+
+    :cond_5
+    sget-object v4, Lcom/android/incallui/AnswerPresenter;->TAG:Ljava/lang/String;
+
+    const-string v6, "not support mrge option with one way vt(ATT)"
+
+    invoke-static {v4, v6}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    move v4, v2
+
+    :cond_6
+    :goto_3
+    sget-object v6, Lcom/android/incallui/AnswerPresenter;->TAG:Ljava/lang/String;
+
+    new-instance v7, Ljava/lang/StringBuilder;
+
+    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v9, "show Merge Option : "
+
+    invoke-virtual {v7, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v7
+
+    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v7
+
+    invoke-static {v6, v7}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    new-instance v6, Ljava/lang/StringBuilder;
+
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v7, "\u2068"
+
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v6
+
+    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    const-string v6, "\u2069"
+
+    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
@@ -275,159 +372,87 @@
 
     move-result-object v1
 
-    move v4, v0
+    const-string v6, "common_volte_in"
 
-    move-object v0, v1
+    invoke-static {v6}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
-    :goto_2
-    if-nez v0, :cond_4
+    move-result v6
 
-    const-string v0, " "
+    if-eqz v6, :cond_d
 
-    :cond_4
-    const-string v1, "%s"
+    if-eqz v0, :cond_7
 
-    const-string v1, "att_volte_ui"
+    if-eqz v4, :cond_7
 
-    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    if-lt v5, v12, :cond_8
 
-    move-result v1
+    :cond_7
+    if-nez v0, :cond_d
 
-    if-eqz v1, :cond_8
+    if-eqz v4, :cond_d
 
-    invoke-static {}, Lcom/android/incallui/util/CallTypeUtils;->hasVideoOneway()Z
+    const/4 v0, 0x5
 
-    move-result v1
+    if-ge v5, v0, :cond_d
 
-    if-nez v1, :cond_5
+    :cond_8
+    new-array v4, v12, [Ljava/lang/String;
 
-    sget v1, Lcom/android/incallui/service/vt/SecVideoState;->VIDEO_ONEWAY_TX:I
-
-    if-eq p1, v1, :cond_5
-
-    sget v1, Lcom/android/incallui/service/vt/SecVideoState;->VIDEO_ONEWAY_RX:I
-
-    if-ne p1, v1, :cond_7
-
-    :cond_5
-    sget-object v1, Lcom/android/incallui/AnswerPresenter;->TAG:Ljava/lang/String;
-
-    const-string v5, "not support mrge option with one way vt(ATT)"
-
-    invoke-static {v1, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    move v1, v2
-
-    :goto_3
-    sget-object v5, Lcom/android/incallui/AnswerPresenter;->TAG:Ljava/lang/String;
-
-    new-instance v6, Ljava/lang/StringBuilder;
-
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v8, "show Merge Option : "
-
-    invoke-virtual {v6, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6, v1}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v6
-
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-static {v5, v6}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "\u2068"
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    const-string v5, "\u2069"
+    const v5, 0x7f0903bc
 
-    invoke-virtual {v0, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
-
-    if-eqz v1, :cond_9
-
-    const/4 v1, 0x5
-
-    if-ge v4, v1, :cond_9
-
-    const/4 v1, 0x3
-
-    new-array v4, v1, [Ljava/lang/String;
-
-    invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v12}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
 
     const-string v5, "%s"
 
-    invoke-virtual {v1, v5, v0}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
-
-    move-result-object v1
-
-    aput-object v1, v4, v2
-
-    invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v5, 0x7f0903ba
-
-    invoke-virtual {v1, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string v5, "%s"
-
-    invoke-virtual {v1, v5, v0}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
-
-    move-result-object v1
-
-    aput-object v1, v4, v3
-
-    invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string v5, "%s"
-
-    invoke-virtual {v1, v5, v0}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    invoke-virtual {v0, v5, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
 
     move-result-object v0
 
-    aput-object v0, v4, v10
+    aput-object v0, v4, v2
 
-    const v0, 0x7f0903bd
+    invoke-virtual {v8}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    invoke-virtual {v7, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    move-result-object v0
+
+    const v5, 0x7f0903bd
+
+    invoke-virtual {v0, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v5, "%s"
+
+    invoke-virtual {v0, v5, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v0
+
+    aput-object v0, v4, v3
+
+    invoke-virtual {v8}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v13}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v5, "%s"
+
+    invoke-virtual {v0, v5, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v0
+
+    aput-object v0, v4, v11
+
+    const v0, 0x7f0903c0
+
+    invoke-virtual {v8, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
@@ -447,7 +472,7 @@
 
     aget-object v3, v4, v3
 
-    aget-object v4, v4, v10
+    aget-object v4, v4, v11
 
     move v5, p1
 
@@ -455,87 +480,145 @@
 
     goto/16 :goto_1
 
-    :cond_6
-    invoke-virtual {p0, v5}, Lcom/android/incallui/AnswerPresenter;->getCallerName(Lcom/android/incallui/Call;)Ljava/lang/String;
+    :cond_9
+    invoke-virtual {p0, v6}, Lcom/android/incallui/AnswerPresenter;->getCallerName(Lcom/android/incallui/Call;)Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v1
 
-    move v4, v2
+    move v5, v2
 
     goto/16 :goto_2
 
-    :cond_7
-    move v1, v3
+    :cond_a
+    move v4, v3
 
     goto/16 :goto_3
 
-    :cond_8
-    const-string v1, "support_merge_option_waitingcall_dialog"
+    :cond_b
+    const-string v4, "support_merge_option_waitingcall_dialog"
 
-    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    invoke-static {v4}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v4
 
-    if-eqz v1, :cond_b
+    if-eqz v4, :cond_c
 
-    const-string v1, "jansky_info_for_tmo"
+    const-string v4, "jansky_info_for_tmo"
 
-    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    invoke-static {v4}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
-    move-result v1
+    move-result v4
 
-    if-eqz v1, :cond_a
+    if-eqz v4, :cond_f
 
-    invoke-static {v5, v6}, Lcom/android/incallui/util/InCallUtils;->checkIsShowMergeforJansky(Lcom/android/incallui/Call;Lcom/android/incallui/Call;)Z
+    invoke-static {v6, v7}, Lcom/android/incallui/util/InCallUtils;->checkIsShowMergeforJansky(Lcom/android/incallui/Call;Lcom/android/incallui/Call;)Z
 
-    move-result v1
+    move-result v4
 
-    if-nez v1, :cond_a
+    if-nez v4, :cond_f
 
-    move v1, v2
+    move v4, v2
+
+    :goto_4
+    const-string v7, "common_volte_in"
+
+    invoke-static {v7}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v7
+
+    if-eqz v7, :cond_6
+
+    invoke-static {v6}, Lcom/android/incallui/util/CallTypeUtils;->isPSDomain(Lcom/android/incallui/Call;)Z
+
+    move-result v6
+
+    if-nez v6, :cond_6
+
+    sget-object v4, Lcom/android/incallui/AnswerPresenter;->TAG:Ljava/lang/String;
+
+    const-string v6, "not support merge option with CS call"
+
+    invoke-static {v4, v6}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_c
+    move v4, v2
 
     goto/16 :goto_3
 
-    :cond_9
-    new-array v1, v10, [Ljava/lang/String;
+    :cond_d
+    const-string v0, "common_volte_in"
 
-    invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+    invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
-    move-result-object v4
+    move-result v0
 
-    invoke-virtual {v4, v12}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+    if-nez v0, :cond_e
 
-    move-result-object v4
+    if-eqz v4, :cond_e
 
-    const-string v5, "%s"
+    const/4 v0, 0x5
 
-    invoke-virtual {v4, v5, v0}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    if-ge v5, v0, :cond_e
 
-    move-result-object v4
+    new-array v4, v12, [Ljava/lang/String;
 
-    aput-object v4, v1, v2
-
-    invoke-virtual {v7}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    const-string v5, "%s"
-
-    invoke-virtual {v4, v5, v0}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+    invoke-virtual {v8}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
     move-result-object v0
 
-    aput-object v0, v1, v3
+    const v5, 0x7f0903bc
 
-    const v0, 0x7f0903bd
+    invoke-virtual {v0, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
-    invoke-virtual {v7, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v4
+    const-string v5, "%s"
+
+    invoke-virtual {v0, v5, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v0
+
+    aput-object v0, v4, v2
+
+    invoke-virtual {v8}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    const v5, 0x7f0903bd
+
+    invoke-virtual {v0, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v5, "%s"
+
+    invoke-virtual {v0, v5, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v0
+
+    aput-object v0, v4, v3
+
+    invoke-virtual {v8}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v13}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v5, "%s"
+
+    invoke-virtual {v0, v5, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v0
+
+    aput-object v0, v4, v11
+
+    const v0, 0x7f0903c0
+
+    invoke-virtual {v8, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
 
     invoke-virtual {p0}, Lcom/android/incallui/AnswerPresenter;->getUi()Lcom/android/incallui/Ui;
 
@@ -549,31 +632,93 @@
 
     check-cast v0, Lcom/android/incallui/AnswerUi;
 
-    aget-object v2, v1, v2
+    aget-object v2, v4, v2
 
-    aget-object v1, v1, v3
+    aget-object v3, v4, v3
 
-    invoke-interface {v0, v4, v2, v1, p1}, Lcom/android/incallui/AnswerUi;->showWaitingCallDialog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
+    aget-object v4, v4, v11
+
+    move v5, p1
+
+    invoke-interface/range {v0 .. v5}, Lcom/android/incallui/AnswerUi;->showWaitingCallDialogGSM(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
 
     goto/16 :goto_1
 
-    :cond_a
-    move v1, v3
+    :cond_e
+    new-array v4, v11, [Ljava/lang/String;
 
-    goto/16 :goto_3
+    invoke-virtual {v8}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
-    :cond_b
-    move v1, v2
+    move-result-object v0
 
-    goto/16 :goto_3
+    const v5, 0x7f0903bc
+
+    invoke-virtual {v0, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v5, "%s"
+
+    invoke-virtual {v0, v5, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v0
+
+    aput-object v0, v4, v2
+
+    invoke-virtual {v8}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v13}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v5, "%s"
+
+    invoke-virtual {v0, v5, v1}, Ljava/lang/String;->replace(Ljava/lang/CharSequence;Ljava/lang/CharSequence;)Ljava/lang/String;
+
+    move-result-object v0
+
+    aput-object v0, v4, v3
+
+    const v0, 0x7f0903c0
+
+    invoke-virtual {v8, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {p0}, Lcom/android/incallui/AnswerPresenter;->getUi()Lcom/android/incallui/Ui;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/incallui/AnswerPresenter;->getUi()Lcom/android/incallui/Ui;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/incallui/AnswerUi;
+
+    aget-object v2, v4, v2
+
+    aget-object v3, v4, v3
+
+    invoke-interface {v0, v1, v2, v3, p1}, Lcom/android/incallui/AnswerUi;->showWaitingCallDialog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;I)V
+
+    goto/16 :goto_1
+
+    :cond_f
+    move v4, v3
+
+    goto/16 :goto_4
 .end method
 
 .method private DisplayWaitingCallDialogWhenHaveHoldingCall(I)V
     .locals 12
 
-    const v11, 0x7f0903bd
+    const v11, 0x7f0903c0
 
-    const v1, 0x7f0903b8
+    const v1, 0x7f0903bb
 
     const/4 v10, 0x2
 
@@ -599,7 +744,7 @@
 
     move-result-object v4
 
-    const v0, 0x7f090165
+    const v0, 0x7f090168
 
     invoke-virtual {p0}, Lcom/android/incallui/AnswerPresenter;->getContext()Landroid/content/Context;
 
@@ -796,7 +941,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090166
+    const v1, 0x7f090169
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -897,7 +1042,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f09017a
+    const v7, 0x7f09017d
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2500,7 +2645,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0902bc
+    const v1, 0x7f0902bf
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3365,7 +3510,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f090129
+    const v2, 0x7f09012c
 
     invoke-static {v0, v2, v1}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

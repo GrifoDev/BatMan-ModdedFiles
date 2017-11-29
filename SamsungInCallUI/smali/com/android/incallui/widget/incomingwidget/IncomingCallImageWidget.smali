@@ -538,7 +538,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a043e
+    const v3, 0x7f0a0448
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1296,7 +1296,7 @@
 .method private makeHintView()V
     .locals 7
 
-    const v6, 0x7f0400f6
+    const v6, 0x7f0400f7
 
     const/4 v5, 0x0
 
@@ -1320,7 +1320,7 @@
 
     iput-object v1, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageWidget;->mLeftHintTextView:Landroid/widget/TextView;
 
-    const v1, 0x7f0400f7
+    const v1, 0x7f0400f8
 
     invoke-virtual {v0, v1, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -2227,9 +2227,9 @@
 .method initHandle()V
     .locals 6
 
-    const v5, 0x7f020390
+    const v5, 0x7f0203c4
 
-    const v4, 0x7f0201c1
+    const v4, 0x7f0201f5
 
     const/4 v3, 0x2
 
@@ -2279,7 +2279,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageWidget;->mRightHandle:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
-    const v1, 0x7f0200d1
+    const v1, 0x7f0200fc
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->setHandleImageResource(I)V
 
@@ -2294,7 +2294,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageWidget;->mRightHandle:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
-    const v1, 0x7f0200d4
+    const v1, 0x7f0200ff
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->setHandleImageResource(I)V
 
@@ -2348,7 +2348,7 @@
     :cond_3
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageWidget;->mLeftHandle:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
-    const v1, 0x7f02024f
+    const v1, 0x7f020283
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->setHandleImageResource(I)V
 
@@ -2358,13 +2358,13 @@
 
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageWidget;->mLeftHandle:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
-    const v1, 0x7f0201bf
+    const v1, 0x7f0201f3
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->setTargetImageResource(I)V
 
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageWidget;->mRightHandle:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
-    const v1, 0x7f020251
+    const v1, 0x7f020285
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->setHandleImageResource(I)V
 
@@ -2374,19 +2374,19 @@
 
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageWidget;->mRightHandle:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
-    const v1, 0x7f02038e
+    const v1, 0x7f0203c2
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->setTargetImageResource(I)V
 
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageWidget;->mLeftHandle:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
-    const v1, 0x7f02008e
+    const v1, 0x7f0200b9
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->setLeftHandleArrowResource(I)V
 
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageWidget;->mRightHandle:Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;
 
-    const v1, 0x7f02008f
+    const v1, 0x7f0200ba
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageHandle;->setRightHandleArrowResource(I)V
 
@@ -2805,7 +2805,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090331
+    const v1, 0x7f090334
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2815,7 +2815,7 @@
 
     move-result-object v0
 
-    const v4, 0x7f090330
+    const v4, 0x7f090333
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2880,7 +2880,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f09012d
+    const v1, 0x7f090130
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2890,7 +2890,7 @@
 
     move-result-object v0
 
-    const v4, 0x7f09012e
+    const v4, 0x7f090131
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2908,7 +2908,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f090356
+    const v4, 0x7f090359
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2931,7 +2931,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090369
+    const v1, 0x7f09036c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2941,7 +2941,7 @@
 
     move-result-object v0
 
-    const v4, 0x7f09036a
+    const v4, 0x7f09036d
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2999,7 +2999,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090355
+    const v1, 0x7f090358
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3034,7 +3034,7 @@
 
     move-result-object v0
 
-    const v4, 0x7f09012c
+    const v4, 0x7f09012f
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3047,7 +3047,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f09012f
+    const v4, 0x7f090132
 
     invoke-virtual {v1, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3634,7 +3634,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0a055c
+    const v2, 0x7f0a0596
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -3646,7 +3646,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f0a055b
+    const v3, 0x7f0a0595
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -3836,7 +3836,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0595
+    const v3, 0x7f0a05d4
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 

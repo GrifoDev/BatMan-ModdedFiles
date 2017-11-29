@@ -100,12 +100,13 @@
     <string name="account_phone">Дастгоҳ</string>
     <string name="acs">Занги овозӣ</string>
     <string name="active_calls">Занги фаъол</string>
-    <string name="add_reminder">Ёдрас илов к</string>
+    <string name="add_reminder">Иловаи ёдрас</string>
     <string name="agif_button_close_description">Пӯшидан</string>
     <string name="agif_decline_message">Бубахшед, ман ҳозир гап зада наметавонам.</string>
     <string name="agif_decline_sticker_header">Бо стикер рад кардан</string>
     <string name="agif_decline_text_header">Бо паёми матнӣ рад кардан</string>
     <string name="agif_decline_toast">Стикер ба %s фиристода шуд.</string>
+    <string name="agif_outgoing_bubble_tip">Руҳияи худро бо стикер ифода кунед.</string>
     <string name="agif_pickers_add_tab_description">Илова кардан</string>
     <string name="agif_pickers_find_more">Бештар ёфтан</string>
     <string name="agif_pickers_item_usage_hints_description">Барои танзим ду бор зарба занед</string>
@@ -114,10 +115,12 @@
     <string name="agif_pickers_tab_select_description">Интихоб шуд</string>
     <string name="agif_pickers_title">Бо стикер оғоз кардан</string>
     <string name="agif_pickers_title_recommended">Тавсияшуда</string>
+    <string name="agif_random_send_message">Барои ин стикерро фиристодан, инҷо зарба занед.</string>
     <string name="agif_read_permission_description">Ба Телефон имконияти хондани муҳтавои AGIF медиҳад.</string>
     <string name="agif_read_permission_label">Хондани муҳтавои AGIF</string>
     <string name="agif_receive_no_id">Нишон додани стикер ғайриимкон аст. %s-ро баъди анҷоми занг навсозӣ кунед.</string>
     <string name="agif_receive_no_id_upsupport_update">Нишон додани стикер ғайриимкон аст. Баъди навсозии системавии навбатӣ стикерҳои бештар дастрас меш.</string>
+    <string name="agif_receive_toast">Стикер аз %s.</string>
     <string name="agif_sent_fail_message">Фиристодани GIF-и ҳаракатдор ғайриимкон аст. Кӯшишро дертар такрор кунед.</string>
     <string name="agif_sent_toast">Стикер фиристода шуд.</string>
     <string name="agif_write_permission_description">Ба Телефон имконияти тағйир додани муҳтавои AGIF медиҳад.</string>
@@ -808,8 +811,8 @@
     <string name="tts_pager">Саҳифаи %1$d аз %2$d</string>
     <string name="tts_seconds">%d сония</string>
     <string name="tty_mode_option_title">Реҷаи TTY</string>
-    <string name="tutorial_incoming_call_app_answer">Барои ҷавоб додан ба занг зарба занед.</string>
-    <string name="tutorial_incoming_call_app_reject">Барои рад кардани занг зарба занед.</string>
+    <string name="tutorial_incoming_call_app_answer">Барои ҷавоб додан, ду маротиба зарба занед.</string>
+    <string name="tutorial_incoming_call_app_reject">Барои рад кардан, ду маротиба зарба занед.</string>
     <string name="twmobile_operator_name">TW-и мобилӣ</string>
     <string name="unable_to_connect_to_the_network">Ба шабака пайваст шуда наметавонад. Танзимоти пайвастагиро санҷед ва аз нав кӯшиш кунед.</string>
     <string name="units_kb">KБ</string>
@@ -819,7 +822,7 @@
     <string name="upload_using_wlan_only">Боркунӣ танҳо бо WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Боркунӣ тавассути шабакаи Wi-Fi ё мобилӣ</string>
     <string name="upload_wlan_and_mobile_nw">Боркунӣ бо шабакаи WLAN ё мобилӣ</string>
-    <string name="usa_att_connected_as_voice">Занг ҳамчун занги овозӣ пайваст карда шуд.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Истифодаи иттилооте, ки шумо дар дастгоҳи худ танзим кардед, ба маҳдудият рафта мерасад. Занги видеоии шумо иттилоотро талаб мекунад.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Ҳангоми пайвастшавӣ ба шабакаи мобилӣ, занг тавассути Wi-Fi иҷро карда намешавад. Барои овоз ва иттилоот маблағ ситонида мешавад.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -867,13 +870,17 @@
     <string name="usa_vzw_voice_incoming_during_wifi_video">Ҷавоб ба занги даромад занги ҷориро хотима медиҳад.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_text">Барои идомаи занг, сигнали Wi-Fi он қадар қавӣ нест. Барои идомаи занг шабакаи мобилиро интихоб кунед, аммо нақшаи тарофавии шуморо истифода мекунад.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Истифодаи иттилооти мобилӣ</string>
-    <string name="usa_vzw_volte_weak_wifi_text">"Мо кӯшиш кардем, аммо айни ҳол занги видеоии шуморо ба Wi-Fi гузаронда натавонистем.
+    <string name="usa_vzw_volte_weak_wifi_text">"Мо кӯшиш кардем, аммо занги видеоии шуморо айни ҳол ба Wi-Fi гузаронидан ғайриимкон аст.
 
-Занги видеоии шумо ҳоло ҳам аз шабакаи мобилӣ истифода карда истодааст. (Агар шумо идомаро интихоб кунед истифодаи иттилоот татбиқ мешавад.)"</string>
+Занги видеоӣ то ҳол тавассути шабакаи мобилӣ гузаронида мешавад.
+
+Агар идома диҳед, барои истифодаи иттилоот маблағ метавонад ситонида шавад."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Занги видеоии шумо ҳоло ҳам тавассути шабакаи мобилӣ иҷро мегардад. (Истифодаи иттилоот татбиқ мешавад.)</string>
-    <string name="usa_vzw_vowifi_wifi_low_signal_text">"Барои идомаи занги видеоии худ сигнали Wi-Fi ба дараҷаи кофӣ қавӣ набуд.
+    <string name="usa_vzw_vowifi_wifi_low_signal_text">"Шиддати сигнали Wi-Fi барои идома додани занги видеоӣ ғайрикофӣ буд.
 
-Занги видеоии шумо аз шабакаи мобилӣ истифода мебарад. (Агар шумо идомаро интихоб кунед истифодаи иттилоот татбиқ мешавад.)"</string>
+Занги видеоӣ ба шабакаи мобилӣ гузаронида шуд.
+
+Агар идома диҳед, барои истифодаи иттилоот маблағ метавонад ситонида шавад."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Пайвасти Wi-Fi гум шуд. Занг анҷом ёфт.</string>
     <string name="use_wifi_and_mobile_nw">Истифодаи шабакаҳои Wi-Fi мобилӣ</string>
     <string name="use_wlan_and_mobile_nw">Истифодаи шабакаҳои WLAN ва мобилӣ</string>

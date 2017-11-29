@@ -1567,7 +1567,7 @@
 
     invoke-super {p0}, Landroid/widget/RelativeLayout;->onFinishInflate()V
 
-    const v0, 0x7f1002ae
+    const v0, 0x7f1002b4
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->findViewById(I)Landroid/view/View;
 
@@ -1577,7 +1577,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mTopView:Landroid/view/ViewGroup;
 
-    const v0, 0x7f1002af
+    const v0, 0x7f1002b5
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->findViewById(I)Landroid/view/View;
 
@@ -1587,7 +1587,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mTopIcon:Landroid/widget/ImageView;
 
-    const v0, 0x7f1002b0
+    const v0, 0x7f1002b6
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->findViewById(I)Landroid/view/View;
 
@@ -1597,7 +1597,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mTopContent:Landroid/widget/TextView;
 
-    const v0, 0x7f1002b2
+    const v0, 0x7f1002b8
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->findViewById(I)Landroid/view/View;
 
@@ -1607,7 +1607,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mTopSubContent:Landroid/widget/TextView;
 
-    const v0, 0x7f1002b1
+    const v0, 0x7f1002b7
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->findViewById(I)Landroid/view/View;
 
@@ -1617,7 +1617,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mTopDate:Landroid/widget/TextView;
 
-    const v0, 0x7f1002b3
+    const v0, 0x7f1002b9
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->findViewById(I)Landroid/view/View;
 
@@ -1644,7 +1644,7 @@
     if-eqz v0, :cond_2
 
     :cond_0
-    const v0, 0x7f1002b4
+    const v0, 0x7f1002ba
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->findViewById(I)Landroid/view/View;
 
@@ -1658,7 +1658,7 @@
 
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    const v0, 0x7f1002b6
+    const v0, 0x7f1002bc
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->findViewById(I)Landroid/view/View;
 
@@ -1668,7 +1668,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mCallPlusImportance:Landroid/widget/ImageView;
 
-    const v0, 0x7f1002ba
+    const v0, 0x7f1002c0
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->findViewById(I)Landroid/view/View;
 
@@ -1678,7 +1678,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mCallPlusSubject:Landroid/widget/TextView;
 
-    const v0, 0x7f1002b8
+    const v0, 0x7f1002be
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->findViewById(I)Landroid/view/View;
 
@@ -1688,7 +1688,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mCallPlusImportanceText:Landroid/widget/TextView;
 
-    const v0, 0x7f1002b9
+    const v0, 0x7f1002bf
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->findViewById(I)Landroid/view/View;
 
@@ -1698,7 +1698,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mCallPlusSubjectIcon:Landroid/widget/ImageView;
 
-    const v0, 0x7f1002be
+    const v0, 0x7f1002c4
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->findViewById(I)Landroid/view/View;
 
@@ -1708,7 +1708,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mCallPlusAddress:Landroid/widget/TextView;
 
-    const v0, 0x7f1002c0
+    const v0, 0x7f1002c6
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->findViewById(I)Landroid/view/View;
 
@@ -1718,7 +1718,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mCallPlusImageMap:Landroid/widget/ImageView;
 
-    const v0, 0x7f1002bb
+    const v0, 0x7f1002c1
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->findViewById(I)Landroid/view/View;
 
@@ -1746,7 +1746,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0470
+    const v2, 0x7f0a047a
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1783,7 +1783,7 @@
     invoke-virtual {v1, v0}, Landroid/widget/LinearLayout;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     :cond_1
-    const v0, 0x7f1002bd
+    const v0, 0x7f1002c3
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->findViewById(I)Landroid/view/View;
 
@@ -1946,9 +1946,9 @@
 .method public setCallPlusMap(ZLjava/lang/String;Z)V
     .locals 6
 
-    const v1, 0x7f1002bf
+    const v1, 0x7f1002c5
 
-    const v0, 0x7f1002bc
+    const v0, 0x7f1002c2
 
     const/16 v4, 0x8
 
@@ -2065,9 +2065,9 @@
 .method public setCallPlusMapImage(ZLjava/lang/String;Z)V
     .locals 6
 
-    const v1, 0x7f1002bf
+    const v1, 0x7f1002c5
 
-    const v0, 0x7f1002bc
+    const v0, 0x7f1002c2
 
     const/16 v4, 0x8
 
@@ -2439,7 +2439,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->mSmartCallItem:Lcom/android/incallui/callerinfocard/item/CallerInfoCardItem;
 
-    const v1, 0x7f020426
+    const v1, 0x7f020487
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/callerinfocard/item/CallerInfoCardItem;->setIconRes(I)V
 
@@ -2515,7 +2515,7 @@
 
     iput-boolean p1, p0, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->isInMultiWindow:Z
 
-    const v0, 0x7f1002b7
+    const v0, 0x7f1002bd
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/callerinfocard/CallerInfoCardView;->findViewById(I)Landroid/view/View;
 

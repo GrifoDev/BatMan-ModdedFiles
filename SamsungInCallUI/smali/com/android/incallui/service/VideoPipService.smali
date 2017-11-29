@@ -990,7 +990,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04019d
+    const v1, 0x7f04019f
 
     invoke-virtual {v0, v1, p1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -1333,7 +1333,7 @@
 
     invoke-static {v0}, Lcom/android/incallui/service/vt/VideoCallLog;->pip(Ljava/lang/String;)V
 
-    const v0, 0x7f1004ce
+    const v0, 0x7f1004d5
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -1343,7 +1343,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/service/VideoPipService;->mPipVideoContainer:Landroid/widget/RelativeLayout;
 
-    const v0, 0x7f1004cf
+    const v0, 0x7f1004d6
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -1353,7 +1353,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/service/VideoPipService;->mPipVideoImage:Landroid/widget/ImageView;
 
-    const v0, 0x7f1004d0
+    const v0, 0x7f1004d7
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -1372,7 +1372,7 @@
     invoke-virtual {v0, p0}, Landroid/view/TextureView;->setSurfaceTextureListener(Landroid/view/TextureView$SurfaceTextureListener;)V
 
     :cond_0
-    const v0, 0x7f1004d1
+    const v0, 0x7f1004d8
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -1380,7 +1380,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/service/VideoPipService;->mCallInfoContainter:Landroid/view/View;
 
-    const v0, 0x7f1004d2
+    const v0, 0x7f1004d9
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -1390,7 +1390,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/service/VideoPipService;->mCallIcon:Landroid/widget/ImageView;
 
-    const v0, 0x7f1004d3
+    const v0, 0x7f1004da
 
     invoke-virtual {p1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -1451,7 +1451,7 @@
 
     const v0, 0x7f090065
 
-    const v1, 0x7f090105
+    const v1, 0x7f090108
 
     new-instance v2, Landroid/app/AlertDialog$Builder;
 
@@ -1966,7 +1966,7 @@
 
     aput-object v4, v7, v2
 
-    const v4, 0x7f090365
+    const v4, 0x7f090368
 
     invoke-virtual {p0, v4}, Lcom/android/incallui/service/VideoPipService;->getText(I)Ljava/lang/CharSequence;
 
@@ -1984,7 +1984,7 @@
 
     aput-object v5, v7, v2
 
-    const v5, 0x7f090367
+    const v5, 0x7f09036a
 
     invoke-virtual {p0, v5}, Lcom/android/incallui/service/VideoPipService;->getText(I)Ljava/lang/CharSequence;
 
@@ -2008,7 +2008,7 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f090364
+    const v1, 0x7f090367
 
     invoke-virtual {p0, v1}, Lcom/android/incallui/service/VideoPipService;->getText(I)Ljava/lang/CharSequence;
 
@@ -2225,7 +2225,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/service/VideoPipService;->mCallInfoContainter:Landroid/view/View;
 
-    const v1, 0x7f020393
+    const v1, 0x7f0203c7
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 
@@ -2235,7 +2235,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e01d3
+    const v2, 0x7f0e01f2
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -2278,7 +2278,7 @@
     :cond_2
     iget-object v0, p0, Lcom/android/incallui/service/VideoPipService;->mCallInfoContainter:Landroid/view/View;
 
-    const v1, 0x7f020394
+    const v1, 0x7f0203c8
 
     invoke-virtual {v0, v1}, Landroid/view/View;->setBackgroundResource(I)V
 
@@ -2288,7 +2288,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e01d2
+    const v2, 0x7f0e01f1
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 

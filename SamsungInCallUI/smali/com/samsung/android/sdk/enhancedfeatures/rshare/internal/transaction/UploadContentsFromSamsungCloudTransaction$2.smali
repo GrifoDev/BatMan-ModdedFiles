@@ -47,6 +47,8 @@
 
     move-result-object v0
 
+    instance-of v0, v0, Ljava/lang/Long;
+
     if-eqz v0, :cond_0
 
     iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsFromSamsungCloudTransaction$2;->this$0:Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsFromSamsungCloudTransaction;

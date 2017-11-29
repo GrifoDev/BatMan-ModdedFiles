@@ -184,7 +184,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/operator/dcm/AnswerMemoController;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0900c6
+    const v1, 0x7f0900c9
 
     const/4 v2, 0x0
 

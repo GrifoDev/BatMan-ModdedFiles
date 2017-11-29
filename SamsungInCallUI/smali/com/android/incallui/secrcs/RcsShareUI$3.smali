@@ -19,20 +19,12 @@
 # instance fields
 .field final synthetic this$0:Lcom/android/incallui/secrcs/RcsShareUI;
 
-.field final synthetic val$ctx:Landroid/content/Context;
-
-.field final synthetic val$mnewcall:Lcom/android/incallui/Call;
-
 
 # direct methods
-.method constructor <init>(Lcom/android/incallui/secrcs/RcsShareUI;Landroid/content/Context;Lcom/android/incallui/Call;)V
+.method constructor <init>(Lcom/android/incallui/secrcs/RcsShareUI;)V
     .locals 0
 
     iput-object p1, p0, Lcom/android/incallui/secrcs/RcsShareUI$3;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
-
-    iput-object p2, p0, Lcom/android/incallui/secrcs/RcsShareUI$3;->val$ctx:Landroid/content/Context;
-
-    iput-object p3, p0, Lcom/android/incallui/secrcs/RcsShareUI$3;->val$mnewcall:Lcom/android/incallui/Call;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -42,72 +34,34 @@
 
 # virtual methods
 .method public onClick(Landroid/content/DialogInterface;I)V
-    .locals 4
+    .locals 2
 
-    const/4 v3, 0x1
+    packed-switch p2, :pswitch_data_0
 
-    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$000()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v1, "Accept Invite on Incall "
-
-    invoke-static {v0, v1, v3}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    iget-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI$3;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
-
-    iget-object v1, p0, Lcom/android/incallui/secrcs/RcsShareUI$3;->val$ctx:Landroid/content/Context;
-
-    iget-object v2, p0, Lcom/android/incallui/secrcs/RcsShareUI$3;->val$mnewcall:Lcom/android/incallui/Call;
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/incallui/secrcs/RcsShareUI;->acceptInvitation(Landroid/content/Context;Lcom/android/incallui/Call;)V
-
-    iget-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI$3;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
-
-    invoke-static {v0}, Lcom/android/incallui/secrcs/RcsShareUI;->access$2400(Lcom/android/incallui/secrcs/RcsShareUI;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI$3;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
-
-    iget-object v1, p0, Lcom/android/incallui/secrcs/RcsShareUI$3;->val$ctx:Landroid/content/Context;
-
-    invoke-virtual {v0, v1}, Lcom/android/incallui/secrcs/RcsShareUI;->acquireSessionInfo(Landroid/content/Context;)Lcom/android/incallui/secrcs/RcsShareUI$SessionState;
-
-    move-result-object v0
-
-    iget v0, v0, Lcom/android/incallui/secrcs/RcsShareUI$SessionState;->type:I
-
-    sget-object v1, Lcom/android/incallui/secrcs/RcsTransferConstants$SessionType;->IMAGE_SHARE:Lcom/android/incallui/secrcs/RcsTransferConstants$SessionType;
-
-    invoke-virtual {v1}, Lcom/android/incallui/secrcs/RcsTransferConstants$SessionType;->getValue()I
-
-    move-result v1
-
-    if-eq v0, v1, :cond_0
-
-    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$000()Ljava/lang/String;
-
-    move-result-object v0
-
-    const-string v1, "builder 2 "
-
-    invoke-static {v0, v1, v3}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    iget-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI$3;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
-
-    iget-object v1, p0, Lcom/android/incallui/secrcs/RcsShareUI$3;->val$ctx:Landroid/content/Context;
-
-    iget-object v2, p0, Lcom/android/incallui/secrcs/RcsShareUI$3;->val$mnewcall:Lcom/android/incallui/Call;
-
-    invoke-virtual {v0, v1, v2}, Lcom/android/incallui/secrcs/RcsShareUI;->startLiveVideo(Landroid/content/Context;Lcom/android/incallui/Call;)V
-
-    :cond_0
-    iget-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI$3;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
-
-    invoke-virtual {v0}, Lcom/android/incallui/secrcs/RcsShareUI;->dismissIncomingInvitationDialog()V
-
+    :goto_0
     return-void
+
+    :pswitch_0
+    iget-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI$3;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
+
+    const/4 v1, 0x1
+
+    invoke-static {v0, v1}, Lcom/android/incallui/secrcs/RcsShareUI;->access$2602(Lcom/android/incallui/secrcs/RcsShareUI;Z)Z
+
+    goto :goto_0
+
+    :pswitch_1
+    iget-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI$3;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/incallui/secrcs/RcsShareUI;->access$2602(Lcom/android/incallui/secrcs/RcsShareUI;Z)Z
+
+    goto :goto_0
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+        :pswitch_1
+    .end packed-switch
 .end method

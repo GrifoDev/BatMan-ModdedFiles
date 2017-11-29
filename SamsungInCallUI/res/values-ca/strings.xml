@@ -178,12 +178,13 @@
     <string name="account_phone">Dispositiu</string>
     <string name="acs">Trucada de veu</string>
     <string name="active_calls">Trucada activa</string>
-    <string name="add_reminder">Afeg record</string>
+    <string name="add_reminder">Afegir recordatori</string>
     <string name="agif_button_close_description">Tancar</string>
     <string name="agif_decline_message">Ho sento, ara no puc parlar.</string>
     <string name="agif_decline_sticker_header">Rebutjar amb un adhesiu</string>
     <string name="agif_decline_text_header">Rebutjar amb un text</string>
     <string name="agif_decline_toast">"L'adhesiu s'ha enviat a %s."</string>
+    <string name="agif_outgoing_bubble_tip">Envia un adhesiu per mostrar com et sents.</string>
     <string name="agif_pickers_add_tab_description">Afegir</string>
     <string name="agif_pickers_find_more">Cercar més</string>
     <string name="agif_pickers_item_usage_hints_description">Toqui dos cops per seleccionar</string>
@@ -192,10 +193,12 @@
     <string name="agif_pickers_tab_select_description">Seleccionat</string>
     <string name="agif_pickers_title">Iniciar amb un adhesiu</string>
     <string name="agif_pickers_title_recommended">Recomanat</string>
+    <string name="agif_random_send_message">Toca aquí per enviar aquest adhesiu.</string>
     <string name="agif_read_permission_description">Permet que Telèfon llegeixi el contingut AGIF.</string>
     <string name="agif_read_permission_label">"Llegir el contingut d'AGIF"</string>
     <string name="agif_receive_no_id">"No es pot mostrar l'adhesiu. Actualitza %s després de la trucada."</string>
     <string name="agif_receive_no_id_upsupport_update">No es pot mostrar adhesiu. Hi haurà més adhesius disponibles després propera actualització sistema.</string>
+    <string name="agif_receive_toast">Adhesiu de %s.</string>
     <string name="agif_sent_fail_message">No es pot enviar el GIF animat. Torna-ho a intentar més tard.</string>
     <string name="agif_sent_toast">"S'ha enviat l'adhesiu."</string>
     <string name="agif_write_permission_description">Permet que Telèfon modifiqui el contingut AGIF.</string>
@@ -211,7 +214,7 @@
     <string name="app_update_dialog_message">Hi ha una nova versió de %s disponible.</string>
     <string name="app_update_dialog_negative">Després</string>
     <string name="app_update_dialog_positive">Actualitzar</string>
-    <string name="app_update_dialog_title">Vol actualitzar %s?</string>
+    <string name="app_update_dialog_title">Vols actualitzar %s?</string>
     <string name="application_not_found">"No s'ha trobat l'aplicació"</string>
     <string name="auto_update_database_via_wlan">Auto update database via WLAN</string>
     <string name="banner_calls_have_been_merged">"S'han fusionat les trucades."</string>
@@ -885,8 +888,8 @@ unidirecc"</string>
     <string name="tts_pager">Pàgina %1$d de %2$d</string>
     <string name="tts_seconds">%d segons</string>
     <string name="tty_mode_option_title">Mode TTY</string>
-    <string name="tutorial_incoming_call_app_answer">Toqui per respondre la trucada</string>
-    <string name="tutorial_incoming_call_app_reject">Toqui per rebutjar la trucada.</string>
+    <string name="tutorial_incoming_call_app_answer">Toqui dues vegades per respondre</string>
+    <string name="tutorial_incoming_call_app_reject">Toqui dues vegades per rebutjar</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Error de connexió a la xarxa. Comprovi els seus ajustaments de connexió i torni-ho a intentar.</string>
     <string name="units_kb">KB</string>
@@ -896,7 +899,7 @@ unidirecc"</string>
     <string name="upload_using_wlan_only">Carregar només mitjançant WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Carregar mitjançant Wi-Fi o xarxa mòbil</string>
     <string name="upload_wlan_and_mobile_nw">Carregar mitjançant WLAN o xarxa mòbil</string>
-    <string name="usa_att_connected_as_voice">Trucada connectada com a només veu.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">"Està a punt d'assolir el límit de l'Ús de dades que va establir al dispositiu. La seva Videotrucada requereix dades."</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">"La trucada no es pot fer amb Wi-Fi, es connecta mitjançant una xarxa mòbil. S'aplicaran càrrecs de veu i dades."</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -944,13 +947,17 @@ unidireccional"</string>
     <string name="usa_vzw_voice_incoming_during_wifi_video">"Si respon a la trucada d'entrada finalitzarà la trucada actual."</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_text">El senyal Wi-Fi no és prou fort per continuar la trucada. Si utilitza xarxes mòbils per continuar la trucada, utilitzarà el seu pla de dades.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Utilitzar les Dades mòbils</string>
-    <string name="usa_vzw_volte_weak_wifi_text">"Ho hem intentat, però no podem canviar la seva videotrucada a la connexió Wi-Fi en aquest moment.
+    <string name="usa_vzw_volte_weak_wifi_text">"Ho hem intentat, però no podem commutar la teva videotrucada a la connexió Wi-Fi en aquest moment.
 
-La seva videotrucada encara està en curs a la xarxa mòbil. (S'aplicarà l'ús de dades si tria continuar.)"</string>
+La teva videotrucada encara està en curs a la xarxa mòbil.
+
+Es poden aplicar càrrecs per l'ús de dades si decideixes continuar."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">"La videotrucada encara s'està executant amb la xarxa mòbil. (S'aplicarà l'ús de dades.)"</string>
     <string name="usa_vzw_vowifi_wifi_low_signal_text">"El senyal Wi-Fi no era prou potent per continuar la videotrucada.
 
-Actualment, la seva videotrucada està en curs a la xarxa mòbil. (S'aplicarà l'ús de dades si tria continuar.)"</string>
+Actualment, la teva videotrucada està en curs a la xarxa mòbil.
+
+Es poden aplicar càrrecs per l'ús de dades si decideixes continuar."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">"S'ha perdut la connexió Wi-Fi. La trucada ha finalitzat."</string>
     <string name="use_wifi_and_mobile_nw">Utilitzar Wi-Fi i xarxes mòbils</string>
     <string name="use_wlan_and_mobile_nw">Utilitzar WLAN i xarxes mòbils</string>

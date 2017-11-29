@@ -3,34 +3,31 @@
 
 
 # static fields
+.field public static final HAS_MAIN:Ljava/lang/String; = "has_main"
+
 .field public static final ITEMS:Ljava/lang/String; = "items"
 
 .field public static final NUMBER:Ljava/lang/String; = "number"
 
 .field public static final SIM_ID:Ljava/lang/String; = "sim_id"
 
-.field public static final SUB_ID_LIST:Ljava/lang/String; = "sub_id_list"
-
 .field private static final TAG:Ljava/lang/String;
 
 
 # instance fields
+.field private emptyDialog:Landroid/app/AlertDialog;
+
+.field private hasMainNumber:Z
+
+.field private itemDialog:Landroid/app/AlertDialog;
+
 .field private mItems:[Ljava/lang/String;
 
 .field private mNumber:Ljava/lang/String;
 
-.field private mSimId:I
+.field private mPosition:[Ljava/lang/String;
 
-.field private mSubIdList:Ljava/util/ArrayList;
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "Ljava/util/ArrayList",
-            "<",
-            "Ljava/lang/Integer;",
-            ">;"
-        }
-    .end annotation
-.end field
+.field private mSimId:I
 
 
 # direct methods
@@ -68,15 +65,23 @@
     return-object v0
 .end method
 
-.method static synthetic access$100(Lcom/android/incallui/util/SecSubNumberDialogActivity;)Ljava/util/ArrayList;
+.method static synthetic access$100(Lcom/android/incallui/util/SecSubNumberDialogActivity;)Z
     .locals 1
 
-    iget-object v0, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity;->mSubIdList:Ljava/util/ArrayList;
+    iget-boolean v0, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity;->hasMainNumber:Z
+
+    return v0
+.end method
+
+.method static synthetic access$200(Lcom/android/incallui/util/SecSubNumberDialogActivity;)[Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity;->mPosition:[Ljava/lang/String;
 
     return-object v0
 .end method
 
-.method static synthetic access$200(Lcom/android/incallui/util/SecSubNumberDialogActivity;)Ljava/lang/String;
+.method static synthetic access$300(Lcom/android/incallui/util/SecSubNumberDialogActivity;)Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity;->mNumber:Ljava/lang/String;
@@ -84,7 +89,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$300(Lcom/android/incallui/util/SecSubNumberDialogActivity;)I
+.method static synthetic access$400(Lcom/android/incallui/util/SecSubNumberDialogActivity;)I
     .locals 1
 
     iget v0, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity;->mSimId:I
@@ -99,13 +104,13 @@
 
     invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f090253
+    const v1, 0x7f090256
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f090254
+    const v1, 0x7f090257
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -125,13 +130,19 @@
 
     move-result-object v0
 
+    iput-object v0, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity;->emptyDialog:Landroid/app/AlertDialog;
+
+    iget-object v0, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity;->emptyDialog:Landroid/app/AlertDialog;
+
     invoke-virtual {v0}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
 
-    move-result-object v1
+    move-result-object v0
 
-    const/4 v2, 0x2
+    const/4 v1, 0x2
 
-    invoke-virtual {v1, v2}, Landroid/view/Window;->addFlags(I)V
+    invoke-virtual {v0, v1}, Landroid/view/Window;->addFlags(I)V
+
+    iget-object v0, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity;->emptyDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
 
@@ -155,7 +166,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090167
+    const v1, 0x7f09016a
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -173,13 +184,19 @@
 
     move-result-object v0
 
+    iput-object v0, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity;->itemDialog:Landroid/app/AlertDialog;
+
+    iget-object v0, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity;->itemDialog:Landroid/app/AlertDialog;
+
     invoke-virtual {v0}, Landroid/app/AlertDialog;->getWindow()Landroid/view/Window;
 
-    move-result-object v1
+    move-result-object v0
 
-    const/4 v2, 0x2
+    const/4 v1, 0x2
 
-    invoke-virtual {v1, v2}, Landroid/view/Window;->addFlags(I)V
+    invoke-virtual {v0, v1}, Landroid/view/Window;->addFlags(I)V
+
+    iget-object v0, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity;->itemDialog:Landroid/app/AlertDialog;
 
     invoke-virtual {v0}, Landroid/app/AlertDialog;->show()V
 
@@ -193,11 +210,33 @@
 
     const/4 v2, 0x0
 
+    const/4 v1, 0x0
+
+    iget-object v0, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity;->itemDialog:Landroid/app/AlertDialog;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity;->itemDialog:Landroid/app/AlertDialog;
+
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+
+    iput-object v1, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity;->itemDialog:Landroid/app/AlertDialog;
+
+    :cond_0
+    iget-object v0, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity;->emptyDialog:Landroid/app/AlertDialog;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity;->emptyDialog:Landroid/app/AlertDialog;
+
+    invoke-virtual {v0}, Landroid/app/AlertDialog;->dismiss()V
+
+    iput-object v1, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity;->emptyDialog:Landroid/app/AlertDialog;
+
+    :cond_1
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
     move-result-object v0
-
-    const/4 v1, 0x0
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/InCallPresenter;->setSubNumberDialog(Lcom/android/incallui/util/SecSubNumberDialogActivity;)V
 
@@ -209,7 +248,11 @@
 .end method
 
 .method protected onCreate(Landroid/os/Bundle;)V
-    .locals 3
+    .locals 5
+
+    const/4 v1, 0x1
+
+    const/4 v2, 0x0
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
@@ -217,9 +260,9 @@
 
     move-result-object v0
 
-    const-string v1, "number"
+    const-string v3, "number"
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0, v3}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -227,17 +270,15 @@
 
     iget-object v0, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity;->mNumber:Ljava/lang/String;
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     invoke-virtual {p0}, Lcom/android/incallui/util/SecSubNumberDialogActivity;->getIntent()Landroid/content/Intent;
 
     move-result-object v0
 
-    const-string v1, "sim_id"
+    const-string v3, "sim_id"
 
-    const/4 v2, 0x0
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
+    invoke-virtual {v0, v3, v2}, Landroid/content/Intent;->getIntExtra(Ljava/lang/String;I)I
 
     move-result v0
 
@@ -247,9 +288,9 @@
 
     move-result-object v0
 
-    const-string v1, "items"
+    const-string v3, "items"
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-virtual {v0, v3}, Landroid/content/Intent;->getStringArrayExtra(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v0
 
@@ -259,17 +300,73 @@
 
     move-result-object v0
 
-    const-string v1, "sub_id_list"
+    const-string v3, "has_main"
 
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->getIntegerArrayListExtra(Ljava/lang/String;)Ljava/util/ArrayList;
+    invoke-virtual {v0, v3, v2}, Landroid/content/Intent;->getBooleanExtra(Ljava/lang/String;Z)Z
 
-    move-result-object v0
+    move-result v0
 
-    iput-object v0, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity;->mSubIdList:Ljava/util/ArrayList;
+    iput-boolean v0, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity;->hasMainNumber:Z
 
-    invoke-direct {p0}, Lcom/android/incallui/util/SecSubNumberDialogActivity;->showItemDialog()V
+    iget-object v0, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity;->mItems:[Ljava/lang/String;
+
+    array-length v0, v0
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    iput-object v0, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity;->mPosition:[Ljava/lang/String;
+
+    iget-boolean v0, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity;->hasMainNumber:Z
+
+    if-eqz v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity;->mPosition:[Ljava/lang/String;
+
+    const-string v3, "0"
+
+    aput-object v3, v0, v2
+
+    move v0, v1
 
     :goto_0
+    iget-object v3, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity;->mItems:[Ljava/lang/String;
+
+    array-length v3, v3
+
+    if-ge v0, v3, :cond_0
+
+    iget-object v3, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity;->mPosition:[Ljava/lang/String;
+
+    iget-object v4, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity;->mItems:[Ljava/lang/String;
+
+    aget-object v4, v4, v0
+
+    invoke-virtual {v4, v2, v1}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v4
+
+    aput-object v4, v3, v0
+
+    iget-object v3, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity;->mItems:[Ljava/lang/String;
+
+    iget-object v4, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity;->mItems:[Ljava/lang/String;
+
+    aget-object v4, v4, v0
+
+    invoke-virtual {v4, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object v4
+
+    aput-object v4, v3, v0
+
+    add-int/lit8 v0, v0, 0x1
+
+    goto :goto_0
+
+    :cond_0
+    invoke-direct {p0}, Lcom/android/incallui/util/SecSubNumberDialogActivity;->showItemDialog()V
+
+    :goto_1
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
     move-result-object v0
@@ -278,8 +375,13 @@
 
     return-void
 
-    :cond_0
+    :cond_1
     invoke-direct {p0}, Lcom/android/incallui/util/SecSubNumberDialogActivity;->showEmptyDialog()V
+
+    goto :goto_1
+
+    :cond_2
+    move v0, v2
 
     goto :goto_0
 .end method

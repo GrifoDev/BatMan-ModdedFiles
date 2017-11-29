@@ -153,8 +153,8 @@
     <string name="DivertToVoice_disable">Cuộc gọi video không có sẵn cho số này. Thay vào đó, thử cuộc gọi thoại bây giờ?</string>
     <string name="DivertToVoice_enable">Cuộc gọi video không có sẵn cho số này. Chuyển sang cuộc gọi thoại…</string>
     <string name="Lunar_anniversary_passedDays1">Lễ kỷ niệm âm lịch hôm qua</string>
-    <string name="Lunar_anniversary_remainedDays0">Lễ kỷ niệm Hôm nay</string>
-    <string name="Lunar_anniversary_remainedDays1">Lễ kỷ niệm Ngày mai</string>
+    <string name="Lunar_anniversary_remainedDays0">Lễ kỷ niệm âm lịch hôm nay</string>
+    <string name="Lunar_anniversary_remainedDays1">Lễ kỷ niệm âm lịch ngày mai</string>
     <string name="Lunar_anniversary_remainedDays7">Lễ kỷ niệm âm lịch: 1 tuần</string>
     <string name="Lunar_anniversary_remainedDaysEtc">Lễ kỷ niệm âm lịch: %d ngày</string>
     <string name="Lunar_birthDay_passedDays1">Sinh nhật âm lịch hôm qua</string>
@@ -184,6 +184,7 @@
     <string name="agif_decline_sticker_header">Từ chối bằng sticker</string>
     <string name="agif_decline_text_header">Từ chối bằng tin nhắn</string>
     <string name="agif_decline_toast">Sticker đã được gửi đến %s.</string>
+    <string name="agif_outgoing_bubble_tip">Gửi sticker để thể hiện cảm xúc của bạn.</string>
     <string name="agif_pickers_add_tab_description">Thêm</string>
     <string name="agif_pickers_find_more">Tìm thêm</string>
     <string name="agif_pickers_item_usage_hints_description">Chạm hai lần để chọn</string>
@@ -192,10 +193,12 @@
     <string name="agif_pickers_tab_select_description">Đã chọn</string>
     <string name="agif_pickers_title">Bắt đầu với sticker</string>
     <string name="agif_pickers_title_recommended">Đề xuất</string>
+    <string name="agif_random_send_message">Chạm vào đây để gửi sticker này.</string>
     <string name="agif_read_permission_description">Cho phép Điện thoại đọc nội dung AGIF.</string>
     <string name="agif_read_permission_label">Đọc nội dung AGIF</string>
     <string name="agif_receive_no_id">Không thể hiển thị sticker. Hãy cập nhật %s sau cuộc gọi.</string>
     <string name="agif_receive_no_id_upsupport_update">Không thể hiển thị sticker. Sẽ có thêm các sticker khác sau lần cập nhật hệ thống tiếp theo.</string>
+    <string name="agif_receive_toast">Sticker từ %s.</string>
     <string name="agif_sent_fail_message">Không thể gửi ảnh GIF động. Hãy thử lại sau.</string>
     <string name="agif_sent_toast">Đã gửi sticker.</string>
     <string name="agif_write_permission_description">Cho phép Điện thoại sửa đổi nội dung AGIF.</string>
@@ -823,7 +826,7 @@ một chiều"</string>
     <string name="settings_glance_reply_reached_maximum_text">Đã đạt số ký tự tối đa (%d).</string>
     <string name="settings_glance_reply_text">Tin nhắn Trả lời nhanh</string>
     <string name="settings_subappbar_switch_dimmed">Tối</string>
-    <string name="settings_subappbar_switch_off">\"TẮT\"</string>
+    <string name="settings_subappbar_switch_off">TẮT</string>
     <string name="settings_subappbar_switch_on">Bật</string>
     <string name="simple_sharing">Link sharing</string>
     <string name="skip">Bỏ qua</string>
@@ -885,8 +888,8 @@ một chiều"</string>
     <string name="tts_pager">Trang %1$d / %2$d</string>
     <string name="tts_seconds">%d giây</string>
     <string name="tty_mode_option_title">Chế độ TTY</string>
-    <string name="tutorial_incoming_call_app_answer">Chạm để trả lời cuộc gọi.</string>
-    <string name="tutorial_incoming_call_app_reject">Chạm để từ chối cuộc gọi.</string>
+    <string name="tutorial_incoming_call_app_answer">Chạm hai lần để trả lời.</string>
+    <string name="tutorial_incoming_call_app_reject">Chạm hai lần để từ chối.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Không thể kết nối với mạng. Hãy kiểm tra cài đặt kết nối của bạn và thử lại.</string>
     <string name="units_kb">KB</string>
@@ -896,7 +899,7 @@ một chiều"</string>
     <string name="upload_using_wlan_only">Chỉ tải lên qua WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Tải lên qua mạng Wi-Fi hoặc di động</string>
     <string name="upload_wlan_and_mobile_nw">Tải lên qua WLAN hoặc mạng di động</string>
-    <string name="usa_att_connected_as_voice">Cuộc gọi được kết nối chỉ ở dạng thoại.</string>
+    <string name="usa_att_connected_as_voice">Không có video cho cuộc gọi này. Cuộc gọi được kết nối như cuộc gọi thoại.</string>
     <string name="usa_att_data_usage_charge_alert">Mức sử dụng dữ liệu mà bạn đặt trên thiết bị sắp đạt đến giới hạn. Cuộc gọi video của bạn cần có dữ liệu.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Không thể thực hiện cuộc gọi qua Wi-Fi, đang kết nối qua mạng di động. Phí dữ liệu và cuộc gọi sẽ áp dụng.</string>
     <string name="usa_att_modify_receive_to_video">%s đang yêu cầu chuyển sang cuộc gọi video.</string>
@@ -944,13 +947,17 @@ video một chiều"</string>
     <string name="usa_vzw_voice_incoming_during_wifi_video">Trả lời cuộc gọi đến sẽ kết thúc cuộc gọi hiện tại.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_text">Tín hiệu Wi-Fi không đủ mạnh để tiếp tục cuộc gọi. Sử dụng mạng di động để tiếp tục cuộc gọi sẽ sử dụng gói dữ liệu của bạn.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Sử dụng Dữ liệu di động</string>
-    <string name="usa_vzw_volte_weak_wifi_text">"Chúng tôi đã thử nhưng không thể chuyển cuộc gọi video của bạn sang Wi-Fi lúc này.
+    <string name="usa_vzw_volte_weak_wifi_text">"Chúng tôi đã thử nhưng không thể chuyển cuộc gọi video của bạn sang Wi-Fi lần này.
 
-Cuộc gọi video của bạn vẫn đang chạy trên mạng di động. (Tính phí sử dụng dữ liệu nếu bạn chọn tiếp tục.)"</string>
+Cuộc gọi video của bạn vẫn đang chạy trên mạng di động.
+
+Phí sử dụng dữ liệu có thể áp dụng nếu bạn chọn tiếp tục."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Cuộc gọi video của bạn vẫn đang chạy trên mạng di động. (Áp dụng phí sử dụng dữ liệu.)</string>
     <string name="usa_vzw_vowifi_wifi_low_signal_text">"Tín hiệu Wi-Fi không đủ mạnh để tiếp tục cuộc gọi video của bạn.
 
-Cuộc gọi video của bạn hiện đang chạy trên mạng di động. (Tính phí sử dụng dữ liệu nếu bạn chọn tiếp tục.)"</string>
+Cuộc gọi video của bạn đang chạy trên mạng di động.
+
+Phí sử dụng dữ liệu có thể áp dụng nếu bạn chọn tiếp tục."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Đã mất kết nối Wi-Fi. Cuộc gọi đã kết thúc.</string>
     <string name="use_wifi_and_mobile_nw">Sử dụng mạng di động và Wi-Fi</string>
     <string name="use_wlan_and_mobile_nw">Sử dụng WLAN và mạng di động</string>

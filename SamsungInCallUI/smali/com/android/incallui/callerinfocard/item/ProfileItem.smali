@@ -18,7 +18,7 @@
 
     iput v0, p0, Lcom/android/incallui/callerinfocard/item/ProfileItem;->mAppType:I
 
-    const v0, 0x7f02042a
+    const v0, 0x7f02048b
 
     iput v0, p0, Lcom/android/incallui/callerinfocard/item/ProfileItem;->mIconRes:I
 
@@ -38,7 +38,7 @@
 .method protected setItem(Landroid/content/Context;Landroid/net/Uri;Landroid/database/Cursor;Ljava/lang/Object;)V
     .locals 2
 
-    const v0, 0x7f02042a
+    const v0, 0x7f02048b
 
     iput v0, p0, Lcom/android/incallui/callerinfocard/item/ProfileItem;->mIconRes:I
 

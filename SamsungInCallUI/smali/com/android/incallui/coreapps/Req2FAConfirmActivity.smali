@@ -50,7 +50,7 @@
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f040037
+    const v0, 0x7f040038
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/coreapps/Req2FAConfirmActivity;->setContentView(I)V
 
@@ -72,7 +72,7 @@
 
     move-result-object v2
 
-    const v0, 0x7f1000fa
+    const v0, 0x7f1000fe
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/coreapps/Req2FAConfirmActivity;->findViewById(I)Landroid/view/View;
 
@@ -82,7 +82,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v0, 0x7f1000fb
+    const v0, 0x7f1000ff
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/coreapps/Req2FAConfirmActivity;->findViewById(I)Landroid/view/View;
 
@@ -100,7 +100,7 @@
 
     invoke-direct {v3, p0}, Lcom/android/incallui/coreapps/Req2FAConfirmActivity$2;-><init>(Lcom/android/incallui/coreapps/Req2FAConfirmActivity;)V
 
-    const v0, 0x7f1000fc
+    const v0, 0x7f100100
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/coreapps/Req2FAConfirmActivity;->findViewById(I)Landroid/view/View;
 
@@ -118,7 +118,7 @@
 
     invoke-virtual {v0, v4}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f1000fd
+    const v0, 0x7f100101
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/coreapps/Req2FAConfirmActivity;->findViewById(I)Landroid/view/View;
 

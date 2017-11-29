@@ -42,9 +42,99 @@
 .method static synthetic access$000(Lcom/android/incallui/Call;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;Lcom/android/incallui/util/SecCallerInfoUtils$NumberChangedListener;)V
     .locals 0
 
-    invoke-static {p0, p1, p2}, Lcom/android/incallui/util/SecCallerInfoUtils;->makeQueryAfterRemovePreviousInfo(Lcom/android/incallui/Call;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;Lcom/android/incallui/util/SecCallerInfoUtils$NumberChangedListener;)V
+    invoke-static {p0, p1, p2}, Lcom/android/incallui/util/SecCallerInfoUtils;->checkToMakeQuery(Lcom/android/incallui/Call;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;Lcom/android/incallui/util/SecCallerInfoUtils$NumberChangedListener;)V
 
     return-void
+.end method
+
+.method private static checkToMakeQuery(Lcom/android/incallui/Call;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;Lcom/android/incallui/util/SecCallerInfoUtils$NumberChangedListener;)V
+    .locals 4
+
+    const/4 v2, 0x0
+
+    if-nez p0, :cond_0
+
+    :goto_0
+    return-void
+
+    :cond_0
+    iget-boolean v0, p1, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->queryCompleted:Z
+
+    if-nez v0, :cond_1
+
+    sget v0, Lcom/android/incallui/util/SecCallerInfoUtils;->sQueryWaitCount:I
+
+    const/4 v1, 0x5
+
+    if-ge v0, v1, :cond_1
+
+    new-instance v0, Landroid/os/Handler;
+
+    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
+
+    new-instance v1, Lcom/android/incallui/util/SecCallerInfoUtils$1;
+
+    invoke-direct {v1, p0, p1, p2}, Lcom/android/incallui/util/SecCallerInfoUtils$1;-><init>(Lcom/android/incallui/Call;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;Lcom/android/incallui/util/SecCallerInfoUtils$NumberChangedListener;)V
+
+    const-wide/16 v2, 0xc8
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
+
+    sget v0, Lcom/android/incallui/util/SecCallerInfoUtils;->sQueryWaitCount:I
+
+    add-int/lit8 v0, v0, 0x1
+
+    sput v0, Lcom/android/incallui/util/SecCallerInfoUtils;->sQueryWaitCount:I
+
+    const-string v0, "SecCallerInfoUtils"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "checkToMakeQuery: Now querying about previous number, update later, "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    sget v2, Lcom/android/incallui/util/SecCallerInfoUtils;->sQueryWaitCount:I
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    goto :goto_0
+
+    :cond_1
+    iget-boolean v0, p1, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->numberChanged:Z
+
+    if-eqz v0, :cond_3
+
+    iget-boolean v0, p1, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->contactExists:Z
+
+    if-nez v0, :cond_2
+
+    invoke-static {p0, p1, p2}, Lcom/android/incallui/util/SecCallerInfoUtils;->makeQueryAfterRemovePreviousInfo(Lcom/android/incallui/Call;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;Lcom/android/incallui/util/SecCallerInfoUtils$NumberChangedListener;)V
+
+    :cond_2
+    iput-boolean v2, p1, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->numberChanged:Z
+
+    :goto_1
+    sput v2, Lcom/android/incallui/util/SecCallerInfoUtils;->sQueryWaitCount:I
+
+    goto :goto_0
+
+    :cond_3
+    invoke-static {p0, p1, p2}, Lcom/android/incallui/util/SecCallerInfoUtils;->makeQueryAfterRemovePreviousInfo(Lcom/android/incallui/Call;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;Lcom/android/incallui/util/SecCallerInfoUtils$NumberChangedListener;)V
+
+    goto :goto_1
 .end method
 
 .method public static getNameFromFDN(Landroid/content/Context;Ljava/lang/String;)Ljava/lang/String;
@@ -283,124 +373,53 @@
 .end method
 
 .method private static makeQueryAfterRemovePreviousInfo(Lcom/android/incallui/Call;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;Lcom/android/incallui/util/SecCallerInfoUtils$NumberChangedListener;)V
-    .locals 5
-
-    const/4 v1, 0x0
+    .locals 4
 
     const/4 v0, 0x1
 
-    if-nez p0, :cond_0
+    const-string v1, "SecCallerInfoUtils"
 
-    :goto_0
-    return-void
+    const-string v2, "makeQueryAfterRemovePreviousInfo"
 
-    :cond_0
-    const-string v2, "SecCallerInfoUtils"
-
-    const-string v3, "makeQueryAfterRemovePreviousInfo"
-
-    invoke-static {v2, v3, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    iget-boolean v2, p1, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->queryCompleted:Z
-
-    if-nez v2, :cond_1
-
-    sget v2, Lcom/android/incallui/util/SecCallerInfoUtils;->sQueryWaitCount:I
-
-    const/4 v3, 0x5
-
-    if-ge v2, v3, :cond_1
-
-    new-instance v0, Landroid/os/Handler;
-
-    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
-
-    new-instance v1, Lcom/android/incallui/util/SecCallerInfoUtils$1;
-
-    invoke-direct {v1, p0, p1, p2}, Lcom/android/incallui/util/SecCallerInfoUtils$1;-><init>(Lcom/android/incallui/Call;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;Lcom/android/incallui/util/SecCallerInfoUtils$NumberChangedListener;)V
-
-    const-wide/16 v2, 0xc8
-
-    invoke-virtual {v0, v1, v2, v3}, Landroid/os/Handler;->postDelayed(Ljava/lang/Runnable;J)Z
-
-    sget v0, Lcom/android/incallui/util/SecCallerInfoUtils;->sQueryWaitCount:I
-
-    add-int/lit8 v0, v0, 0x1
-
-    sput v0, Lcom/android/incallui/util/SecCallerInfoUtils;->sQueryWaitCount:I
-
-    const-string v0, "SecCallerInfoUtils"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "makeQueryAfterRemovePreviousInfo: Now querying about previous number, update later, "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    sget v2, Lcom/android/incallui/util/SecCallerInfoUtils;->sQueryWaitCount:I
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    goto :goto_0
-
-    :cond_1
-    const-string v2, "SecCallerInfoUtils"
-
-    const-string v3, "makeQueryAfterRemovePreviousInfo"
-
-    invoke-static {v2, v3, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v1, v2, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
     invoke-static {}, Lcom/android/incallui/InCallApp;->getInstance()Lcom/android/incallui/InCallApp;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v2}, Lcom/android/incallui/InCallApp;->getApplicationContext()Landroid/content/Context;
+    invoke-virtual {v1}, Lcom/android/incallui/InCallApp;->getApplicationContext()Landroid/content/Context;
 
-    move-result-object v2
+    move-result-object v1
 
     invoke-virtual {p0}, Lcom/android/incallui/Call;->getState()I
 
-    move-result v3
+    move-result v2
 
-    const/4 v4, 0x4
+    const/4 v3, 0x4
 
-    if-ne v3, v4, :cond_2
+    if-ne v2, v3, :cond_0
 
-    :goto_1
-    invoke-static {v2, p0, v0}, Lcom/android/incallui/ContactInfoCache;->buildCacheEntryFromCall(Landroid/content/Context;Lcom/android/incallui/Call;Z)Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
+    :goto_0
+    invoke-static {v1, p0, v0}, Lcom/android/incallui/ContactInfoCache;->buildCacheEntryFromCall(Landroid/content/Context;Lcom/android/incallui/Call;Z)Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
 
-    invoke-static {v2}, Lcom/android/incallui/ContactInfoCache;->getInstance(Landroid/content/Context;)Lcom/android/incallui/ContactInfoCache;
+    invoke-static {v1}, Lcom/android/incallui/ContactInfoCache;->getInstance(Landroid/content/Context;)Lcom/android/incallui/ContactInfoCache;
 
     move-result-object v0
 
     invoke-virtual {p0}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v1
 
-    invoke-virtual {v0, v2}, Lcom/android/incallui/ContactInfoCache;->clearCache(Ljava/lang/String;)V
+    invoke-virtual {v0, v1}, Lcom/android/incallui/ContactInfoCache;->clearCache(Ljava/lang/String;)V
 
     invoke-interface {p2, p0}, Lcom/android/incallui/util/SecCallerInfoUtils$NumberChangedListener;->onNumberChanged(Lcom/android/incallui/Call;)V
 
-    sput v1, Lcom/android/incallui/util/SecCallerInfoUtils;->sQueryWaitCount:I
+    return-void
+
+    :cond_0
+    const/4 v0, 0x0
 
     goto :goto_0
-
-    :cond_2
-    move v0, v1
-
-    goto :goto_1
 .end method
 
 .method public static refreshContactInfoCache(Lcom/android/incallui/Call;Lcom/android/incallui/Call;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;Lcom/android/incallui/util/SecCallerInfoUtils$NumberChangedListener;)V
@@ -432,15 +451,37 @@
 
     invoke-static {v2, v3}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    if-eqz p0, :cond_2
+    if-eqz p0, :cond_3
 
+    if-eqz p2, :cond_1
+
+    iget-boolean v2, p2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->isVoiceMail:Z
+
+    if-eqz v2, :cond_1
+
+    move v2, v1
+
+    :goto_0
+    if-eqz v2, :cond_3
+
+    const-string v0, "SecCallerInfoUtils"
+
+    const-string v1, "no update (voicemail) "
+
+    invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    :cond_0
+    :goto_1
+    return-void
+
+    :cond_1
     const-string v2, "feature_multisim"
 
     invoke-static {v2}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2
 
     invoke-static {p0}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->getSubId(Lcom/android/incallui/Call;)I
 
@@ -454,20 +495,9 @@
 
     move-result v2
 
-    :goto_0
-    if-eqz v2, :cond_2
+    goto :goto_0
 
-    const-string v0, "SecCallerInfoUtils"
-
-    const-string v1, "no update (voicemail) "
-
-    invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    :cond_0
-    :goto_1
-    return-void
-
-    :cond_1
+    :cond_2
     invoke-virtual {p0}, Lcom/android/incallui/Call;->getNumber()Ljava/lang/String;
 
     move-result-object v2
@@ -478,7 +508,7 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
     invoke-static {p0, p1}, Lcom/android/incallui/Call;->areSame(Lcom/android/incallui/Call;Lcom/android/incallui/Call;)Z
 
     move-result v2
@@ -537,45 +567,75 @@
 
     invoke-static {v4, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
+    const-string v4, "SecCallerInfoUtils"
+
+    new-instance v5, Ljava/lang/StringBuilder;
+
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "newCallAddress : "
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {p1}, Lcom/android/incallui/Call;->getSecCall()Lcom/android/incallui/SecCall;
+
+    move-result-object v6
+
+    invoke-virtual {v6}, Lcom/android/incallui/SecCall;->getAddress()Ljava/lang/String;
+
+    move-result-object v6
+
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v5
+
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v5
+
+    invoke-static {v4, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_3
+    if-eqz v4, :cond_4
 
     invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v4
 
-    if-eqz v4, :cond_5
-
-    :cond_3
-    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_4
-
-    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_5
+    if-eqz v4, :cond_6
 
     :cond_4
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v4
 
-    if-nez v4, :cond_7
+    if-nez v4, :cond_5
+
+    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_6
+
+    :cond_5
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_9
 
     invoke-virtual {v2, v3}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-nez v2, :cond_7
+    if-nez v2, :cond_9
 
-    :cond_5
+    :cond_6
     invoke-virtual {p1}, Lcom/android/incallui/Call;->getSecCall()Lcom/android/incallui/SecCall;
 
     move-result-object v2
@@ -584,11 +644,44 @@
 
     move-result-object v2
 
+    if-eqz v2, :cond_7
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-virtual {p1}, Lcom/android/incallui/Call;->getNumber()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-static {p1}, Lcom/android/incallui/util/SecCallExtraUtils;->getPostDialString(Lcom/android/incallui/Call;)Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_8
+
+    :cond_7
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
-    if-nez v3, :cond_e
+    if-nez v3, :cond_12
 
     const-string v3, ","
 
@@ -596,7 +689,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_6
+    if-nez v3, :cond_8
 
     const-string v3, ";"
 
@@ -604,20 +697,20 @@
 
     move-result v2
 
-    if-eqz v2, :cond_e
+    if-eqz v2, :cond_12
 
-    :cond_6
+    :cond_8
     iget-boolean v2, p2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->queryCompleted:Z
 
-    if-eqz v2, :cond_e
+    if-eqz v2, :cond_11
 
     iget-boolean v2, p2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->contactExists:Z
 
-    if-eqz v2, :cond_e
+    if-eqz v2, :cond_10
 
     const-string v2, "SecCallerInfoUtils"
 
-    const-string v3, "has dtmf"
+    const-string v3, "postDial string, ignore repeated query"
 
     invoke-static {v2, v3}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
@@ -632,7 +725,7 @@
 
     invoke-virtual {v2, v3}, Lcom/android/incallui/SecCall;->setAddress(Ljava/lang/String;)V
 
-    :cond_7
+    :cond_9
     invoke-virtual {p1}, Lcom/android/incallui/Call;->getSecCall()Lcom/android/incallui/SecCall;
 
     move-result-object v2
@@ -681,41 +774,41 @@
 
     move-result v4
 
-    if-eqz v4, :cond_8
-
-    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v4
-
     if-eqz v4, :cond_a
 
-    :cond_8
-    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_9
-
     invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v4
 
-    if-nez v4, :cond_a
+    if-eqz v4, :cond_c
 
-    :cond_9
+    :cond_a
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v4
 
     if-nez v4, :cond_b
 
+    invoke-static {v3}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_c
+
+    :cond_b
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v4
+
+    if-nez v4, :cond_d
+
     invoke-virtual {v2, v3}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-nez v2, :cond_b
+    if-nez v2, :cond_d
 
-    :cond_a
+    :cond_c
     invoke-virtual {p1}, Lcom/android/incallui/Call;->getSecCall()Lcom/android/incallui/SecCall;
 
     move-result-object v0
@@ -728,26 +821,26 @@
 
     move v0, v1
 
-    :cond_b
+    :cond_d
     const-string v2, "emergency_call_state_update_after_dial"
 
     invoke-static {v2}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_c
+    if-eqz v2, :cond_e
 
     invoke-static {p1}, Lcom/android/incallui/util/InCallUtils;->needToUpdateEmerencyCallState(Lcom/android/incallui/Call;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_c
+    if-eqz v2, :cond_e
 
     invoke-virtual {p1}, Lcom/android/incallui/Call;->getEmergencyCallUpdateState()Z
 
     move-result v2
 
-    if-nez v2, :cond_c
+    if-nez v2, :cond_e
 
     invoke-virtual {p1, v1}, Lcom/android/incallui/Call;->setEmergencyCallUpdateState(Z)V
 
@@ -775,7 +868,7 @@
 
     move v0, v1
 
-    :cond_c
+    :cond_e
     invoke-virtual {p0}, Lcom/android/incallui/Call;->getDomain()I
 
     move-result v2
@@ -784,7 +877,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_d
+    if-eqz v2, :cond_f
 
     invoke-virtual {p1}, Lcom/android/incallui/Call;->getDomain()I
 
@@ -794,7 +887,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_d
+    if-eqz v2, :cond_f
 
     invoke-virtual {p1}, Lcom/android/incallui/Call;->getState()I
 
@@ -802,11 +895,11 @@
 
     const/4 v3, 0x4
 
-    if-ne v2, v3, :cond_d
+    if-ne v2, v3, :cond_f
 
     move v0, v1
 
-    :cond_d
+    :cond_f
     const-string v1, "SecCallerInfoUtils"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -831,11 +924,29 @@
 
     if-eqz v0, :cond_0
 
-    invoke-static {p1, p2, p3}, Lcom/android/incallui/util/SecCallerInfoUtils;->makeQueryAfterRemovePreviousInfo(Lcom/android/incallui/Call;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;Lcom/android/incallui/util/SecCallerInfoUtils$NumberChangedListener;)V
+    invoke-static {p1, p2, p3}, Lcom/android/incallui/util/SecCallerInfoUtils;->checkToMakeQuery(Lcom/android/incallui/Call;Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;Lcom/android/incallui/util/SecCallerInfoUtils$NumberChangedListener;)V
 
     goto/16 :goto_1
 
-    :cond_e
+    :cond_10
+    move v0, v1
+
+    goto/16 :goto_2
+
+    :cond_11
+    iput-boolean v1, p2, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->numberChanged:Z
+
+    const-string v0, "SecCallerInfoUtils"
+
+    const-string v2, "postDial string, query is not completed."
+
+    invoke-static {v0, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    move v0, v1
+
+    goto/16 :goto_2
+
+    :cond_12
     move v0, v1
 
     goto/16 :goto_2

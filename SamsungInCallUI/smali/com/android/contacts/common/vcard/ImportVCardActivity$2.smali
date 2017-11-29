@@ -40,7 +40,7 @@
 
     iget-object v1, p0, Lcom/android/contacts/common/vcard/ImportVCardActivity$2;->a:Lcom/android/contacts/common/vcard/ImportVCardActivity;
 
-    const v2, 0x7f09068e
+    const v2, 0x7f090691
 
     invoke-virtual {v1, v2}, Lcom/android/contacts/common/vcard/ImportVCardActivity;->getString(I)Ljava/lang/String;
 

@@ -178,12 +178,13 @@
     <string name="account_phone">Enhed</string>
     <string name="acs">Stemmeopkald</string>
     <string name="active_calls">Aktivt opkald</string>
-    <string name="add_reminder">Tilføj påmi.</string>
+    <string name="add_reminder">Tilføj påmindelse</string>
     <string name="agif_button_close_description">Luk</string>
     <string name="agif_decline_message">Beklager, jeg kan ikke tale lige nu.</string>
     <string name="agif_decline_sticker_header">Afslå med en sticker</string>
     <string name="agif_decline_text_header">Afslå med en tekst</string>
     <string name="agif_decline_toast">Sticker er sendt til %s.</string>
+    <string name="agif_outgoing_bubble_tip">Send en sticker for at vise, hvordan du har det.</string>
     <string name="agif_pickers_add_tab_description">Tilføj</string>
     <string name="agif_pickers_find_more">Find mere</string>
     <string name="agif_pickers_item_usage_hints_description">Dobbelttryk for at vælge</string>
@@ -192,10 +193,12 @@
     <string name="agif_pickers_tab_select_description">Valgt</string>
     <string name="agif_pickers_title">Start med en sticker</string>
     <string name="agif_pickers_title_recommended">Anbefalet</string>
+    <string name="agif_random_send_message">Tryk her for at sende denne sticker.</string>
     <string name="agif_read_permission_description">Giver Telefon mulighed for at læse AGIF-indhold.</string>
     <string name="agif_read_permission_label">Læs AGIF-indhold</string>
     <string name="agif_receive_no_id">Stickeren kan ikke vises. Opdater %s efter opkaldet.</string>
     <string name="agif_receive_no_id_upsupport_update">Stickeren kan ikke vises. Flere stickers vil være tilgængelige efter næste systemopdatering.</string>
+    <string name="agif_receive_toast">Sticker fra %s.</string>
     <string name="agif_sent_fail_message">Kan ikke sende animeret GIF-fil. Prøv igen senere.</string>
     <string name="agif_sent_toast">Sticker sendt.</string>
     <string name="agif_write_permission_description">Giver Telefon mulighed for at ændre AGIF-indhold.</string>
@@ -212,7 +215,7 @@
     <string name="app_update_dialog_negative">Senere</string>
     <string name="app_update_dialog_positive">Opdater</string>
     <string name="app_update_dialog_title">Vil du opdatere %s?</string>
-    <string name="application_not_found">Program ikke fundet.</string>
+    <string name="application_not_found">Applikation ikke fundet.</string>
     <string name="auto_update_database_via_wlan">Opdater database automatisk via WLAN</string>
     <string name="banner_calls_have_been_merged">Opkald er flettet.</string>
     <string name="banner_conferenc_call_with">I konferenceopkald med %s</string>
@@ -353,7 +356,7 @@ Dette videoopkald bruger nu data, og Mobile data vil blive deaktiveret, når opk
     <string name="downloading_via_wi_fi">Download filer via Wi-Fi</string>
     <string name="downloading_via_wlan">Download filer via WLAN</string>
     <string name="effect_beauty">Smukt ans.</string>
-    <string name="effect_mono">Gråskala</string>
+    <string name="effect_mono">Gråtoner</string>
     <string name="effect_negative">Negativ</string>
     <string name="effect_none">Ingen</string>
     <string name="effect_sepia">Sepia</string>
@@ -613,7 +616,7 @@ IVR-opkaldsskærmmenuen bruger indhold, som er leveret af tredjepartsserviceudby
     <string name="onscreenBluetoothTextOn_att">Skift til telefon</string>
     <string name="onscreenBluetoothTextOn_tmo">Skift til telefon</string>
     <string name="onscreenWebexText">WebEx</string>
-    <string name="open_folder_for_speakeroff">Åbn flip-telefonen for at slå højttalertelefonen fra.</string>
+    <string name="open_folder_for_speakeroff">Åbn klaptelefonen for at slå højttalertelefonen fra.</string>
     <string name="open_the_cover">Åbn coveret.</string>
     <string name="open_the_cover_incoming">Åbn omslaget for at besvare eller afvise videoopkaldet.</string>
     <string name="open_the_cover_modify_call">Den kaldte part ønsker at skifte til videoopkald. Åbn omslaget for at acceptere/afvise anmodningen.</string>
@@ -886,8 +889,8 @@ stillinger"</string>
     <string name="tts_pager">Side %1$d af %2$d</string>
     <string name="tts_seconds">%d sekunder</string>
     <string name="tty_mode_option_title">TTY-tilstand</string>
-    <string name="tutorial_incoming_call_app_answer">Tryk for at besvare opkaldet.</string>
-    <string name="tutorial_incoming_call_app_reject">Tryk for at afvise opkaldet.</string>
+    <string name="tutorial_incoming_call_app_answer">Dobbelttryk for at svare.</string>
+    <string name="tutorial_incoming_call_app_reject">Dobbelttryk for at afvise.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Kan ikke oprette forbindelse til netværket. Kontroller dine forbindelsesindstillinger, og prøv igen.</string>
     <string name="units_kb">KB</string>
@@ -897,7 +900,7 @@ stillinger"</string>
     <string name="upload_using_wlan_only">Upload ved hjælp af Kun via WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Upload via Wi-Fi eller mobilt netværk</string>
     <string name="upload_wlan_and_mobile_nw">Upload via WLAN eller mobilt netværk</string>
-    <string name="usa_att_connected_as_voice">Opkald tilsluttet som kun stemme.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Databrug, som du har indstillet på denne enhed, er ved at nå grænsen. Videoopkald kræver data.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Opkald kan ikke foretages via Wi-Fi. Der oprettes forbindelse via mobilt netværk. Dette medfører gebyrer for taletid og data.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -947,11 +950,15 @@ envejsvideo"</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Brug Mobile data</string>
     <string name="usa_vzw_volte_weak_wifi_text">"Vi har forsøgt men kan ikke skifte dit videoopkald over til Wi-Fi lige nu.
 
-Dit videoopkald kører stadig på det mobile netværk. (Der sker et dataforbrug, hvis du fortsætter)."</string>
+Dit videoopkald kører stadig på det mobile netværk.
+
+Det kan medføre gebyrer for databrug, hvis du fortsætter."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Dit videoopkald kører stadig på det mobile netværk. (Det medfører brug af data).</string>
     <string name="usa_vzw_vowifi_wifi_low_signal_text">"Wi-Fi-signalet var ikke stærkt nok til at fortsætte dit videoopkald.
 
-Dit videoopkald kører nu på det mobile netværk. (Der sker et dataforbrug, hvis du fortsætter)."</string>
+Dit videoopkald kører nu på det mobile netværk.
+
+Det kan medføre gebyrer for databrug, hvis du fortsætter."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi-forbindelse er mistet. Opkald er afsluttet.</string>
     <string name="use_wifi_and_mobile_nw">Brug Wi-Fi og mobile netværk</string>
     <string name="use_wlan_and_mobile_nw">Brug WLAN og mobile netværk</string>

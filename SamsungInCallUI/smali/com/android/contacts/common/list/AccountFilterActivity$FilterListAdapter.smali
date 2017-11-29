@@ -173,7 +173,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/contacts/common/list/AccountFilterActivity$FilterListAdapter;->b:Landroid/view/LayoutInflater;
 
-    const v3, 0x7f04003e
+    const v3, 0x7f04003f
 
     invoke-virtual {v0, v3, p3, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 

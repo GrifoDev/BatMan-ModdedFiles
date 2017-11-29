@@ -115,7 +115,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f04014a
+    const v1, 0x7f04014c
 
     invoke-virtual {v0, v1, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -246,6 +246,10 @@
 
     invoke-virtual {v0}, Lcom/android/incallui/service/vt/VideoCallManager;->resetFullScreenMode()V
 
+    const/4 v0, 0x0
+
+    sput-boolean v0, Lcom/android/incallui/util/CameraEffect;->mCameraEffectLayoutVisible:Z
+
     :cond_0
     invoke-direct {p0}, Lcom/android/incallui/util/CameraEffect;->updateInviteGroupVideoButtonLayout()V
 
@@ -255,7 +259,7 @@
 .method protected init()V
     .locals 1
 
-    const v0, 0x7f100447
+    const v0, 0x7f10044b
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/util/CameraEffect;->findViewById(I)Landroid/view/View;
 
@@ -265,7 +269,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/util/CameraEffect;->mEffectLayout:Landroid/view/ViewGroup;
 
-    const v0, 0x7f100449
+    const v0, 0x7f10044d
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/util/CameraEffect;->findViewById(I)Landroid/view/View;
 
@@ -284,7 +288,7 @@
     invoke-virtual {v0, p0}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :cond_0
-    const v0, 0x7f10044c
+    const v0, 0x7f100450
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/util/CameraEffect;->findViewById(I)Landroid/view/View;
 
@@ -303,7 +307,7 @@
     invoke-virtual {v0, p0}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :cond_1
-    const v0, 0x7f10044f
+    const v0, 0x7f100453
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/util/CameraEffect;->findViewById(I)Landroid/view/View;
 
@@ -322,7 +326,7 @@
     invoke-virtual {v0, p0}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :cond_2
-    const v0, 0x7f100452
+    const v0, 0x7f100456
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/util/CameraEffect;->findViewById(I)Landroid/view/View;
 
@@ -341,7 +345,7 @@
     invoke-virtual {v0, p0}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :cond_3
-    const v0, 0x7f100455
+    const v0, 0x7f100459
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/util/CameraEffect;->findViewById(I)Landroid/view/View;
 
@@ -360,7 +364,7 @@
     invoke-virtual {v0, p0}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :cond_4
-    const v0, 0x7f100458
+    const v0, 0x7f10045c
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/util/CameraEffect;->findViewById(I)Landroid/view/View;
 
@@ -379,7 +383,7 @@
     invoke-virtual {v0, p0}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :cond_5
-    const v0, 0x7f10045a
+    const v0, 0x7f10045e
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/util/CameraEffect;->findViewById(I)Landroid/view/View;
 
@@ -528,13 +532,13 @@
 
     :sswitch_data_0
     .sparse-switch
-        0x7f100449 -> :sswitch_0
-        0x7f10044c -> :sswitch_1
-        0x7f10044f -> :sswitch_2
-        0x7f100452 -> :sswitch_3
-        0x7f100455 -> :sswitch_4
-        0x7f100458 -> :sswitch_5
-        0x7f10045a -> :sswitch_6
+        0x7f10044d -> :sswitch_0
+        0x7f100450 -> :sswitch_1
+        0x7f100453 -> :sswitch_2
+        0x7f100456 -> :sswitch_3
+        0x7f100459 -> :sswitch_4
+        0x7f10045c -> :sswitch_5
+        0x7f10045e -> :sswitch_6
     .end sparse-switch
 .end method
 

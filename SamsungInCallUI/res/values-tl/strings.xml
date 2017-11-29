@@ -153,6 +153,7 @@
     <string name="agif_decline_sticker_header">Tanggihan gamit ang isang sticker</string>
     <string name="agif_decline_text_header">Tanggihan gamit ang isang text</string>
     <string name="agif_decline_toast">Naipadala ang sticker kay %s.</string>
+    <string name="agif_outgoing_bubble_tip">Magpadala ng sticker para ipakita ang nadarama mo.</string>
     <string name="agif_pickers_add_tab_description">Idagdag</string>
     <string name="agif_pickers_find_more">Humanap pa</string>
     <string name="agif_pickers_item_usage_hints_description">I-tap nang dalawang beses para piliin</string>
@@ -161,10 +162,12 @@
     <string name="agif_pickers_tab_select_description">Napili</string>
     <string name="agif_pickers_title">Magsimula gamit ang isang sticker</string>
     <string name="agif_pickers_title_recommended">Inirekomenda</string>
+    <string name="agif_random_send_message">I-tap dito para ipadala ang sticker na ito.</string>
     <string name="agif_read_permission_description">Pinapahintulot na basahin ng Phone ang AGIF content.</string>
     <string name="agif_read_permission_label">Basahin ang content ng AGIF</string>
     <string name="agif_receive_no_id">Hindi maipapakita ang sticker. I-update ang %s pagkatapos ng tawag.</string>
     <string name="agif_receive_no_id_upsupport_update">Hindi maipapakita ang sticker. Mas maraming sticker ang magagamit pagkatapos ng susunod na pag-update sa system.</string>
+    <string name="agif_receive_toast">Sticker mula kay %s.</string>
     <string name="agif_sent_fail_message">Hindi maipadala ang animated GIF. Subukan muli mamaya.</string>
     <string name="agif_sent_toast">Naipadala ang sticker.</string>
     <string name="agif_write_permission_description">Pinahihintulot na baguhin ng Phone ang AGIF content.</string>
@@ -854,8 +857,8 @@ Camera"</string>
     <string name="tts_pager">Pahina %1$d ng %2$d</string>
     <string name="tts_seconds">%d (na) segundo</string>
     <string name="tty_mode_option_title">TTY mode</string>
-    <string name="tutorial_incoming_call_app_answer">I-tap upang sagutin ang tawag.</string>
-    <string name="tutorial_incoming_call_app_reject">I-tap para tanggihan ang tawag.</string>
+    <string name="tutorial_incoming_call_app_answer">I-tap nang dalawang beses upang sagutin.</string>
+    <string name="tutorial_incoming_call_app_reject">I-tap nang dalawang beses upang tanggihan.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Hindi makakonekta sa network. Tingnan ang mga setting ng iyong koneksyon at subukang muli.</string>
     <string name="units_kb">KB</string>
@@ -865,7 +868,7 @@ Camera"</string>
     <string name="upload_using_wlan_only">I-upload sa pamamagitan lang ng WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Mag-upload sa pamamagitan ng Wi-Fi o mobile network</string>
     <string name="upload_wlan_and_mobile_nw">Mag-upload sa pamamagitan ng WLAN o mobile network</string>
-    <string name="usa_att_connected_as_voice">Nakakonekta ang tawag bilang voice lang.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Malapit nang maabot ang limit ng Data Usage na nai-set mo sa device mo. Kailangan ng Video call mo ng data.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Hindi maidadaan ang tawag sa Wi-Fi, kumokonekta sa cellular network. May ilalapat na mga singil sa voice at data.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -913,13 +916,17 @@ one-way video"</string>
     <string name="usa_vzw_voice_incoming_during_wifi_video">Wawakasan ng pagsagot sa tawag ang kasalukuyang tawag.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_text">Hindi sapat ang lakas ng signal ng Wi-Fi para ituloy ang tawag. Ang paggamit ng mga mobile network para ituloy ang tawag mo ay gagamit ng data plan mo.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Gamitin ang Mobile Data</string>
-    <string name="usa_vzw_volte_weak_wifi_text">"Sinubukan namin, pero hindi namin mailipat ang iyong video call sa Wi-Fi sa oras na ito.
+    <string name="usa_vzw_volte_weak_wifi_text">"Sinubukan namin, pero hindi namin mailipat ang video call sa Wi-Fi sa oras na ito.
 
-Tumatakbo pa rin sa mobile network ang video call mo. (Malalapat ang paggamit ng data kung piliin mong magpatuloy.)"</string>
+Tumatakbo pa rin sa mobile network ang iyong video call.
+
+Nalalapat ang singil sa data kung piliin mong magpatuloy."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Tumatakbo pa rin sa mobile network ang video call mo. (Nalalapat ang paggamit ng data.)</string>
-    <string name="usa_vzw_vowifi_wifi_low_signal_text">"Hindi gaanong malakas ang Wi-Fi signal para maituloy ang video call mo.
+    <string name="usa_vzw_vowifi_wifi_low_signal_text">"Hindi sapat ang lakas ng Wi-Fi signal para ituloy ang video call mo.
 
-Tumatakbo na ngayon ang video call mo sa mobile network. (Iiral ang paggamit sa data kung piliin mong magpatuloy.)"</string>
+Umaandar ngayon ang video call mo gamit ang mobile network.
+
+Maaaring malapat ang singil sa paggamit ng data kung pipiliin mong magpatuloy."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Nawala ang koneksiyon sa Wi-Fi. Nagwakas ang tawag.</string>
     <string name="use_wifi_and_mobile_nw">Gumamit ng Wi-Fi at mga mobile network</string>
     <string name="use_wlan_and_mobile_nw">Gamitin ang WLAN at mga mobile network</string>

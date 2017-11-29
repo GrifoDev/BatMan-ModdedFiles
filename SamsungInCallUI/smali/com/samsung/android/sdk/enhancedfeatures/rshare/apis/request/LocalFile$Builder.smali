@@ -47,6 +47,19 @@
 .method public build()Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LocalFile;
     .locals 2
 
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LocalFile$Builder;->mInputStream:Ljava/io/InputStream;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LocalFile$Builder;->mInputStream:Ljava/io/InputStream;
+
+    iget v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LocalFile$Builder;->mFileSize:I
+
+    add-int/lit8 v1, v1, 0x1
+
+    invoke-virtual {v0, v1}, Ljava/io/InputStream;->mark(I)V
+
+    :cond_0
     new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LocalFile;
 
     invoke-direct {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LocalFile;-><init>()V
@@ -149,7 +162,7 @@
 .end method
 
 .method public setInputStream(Ljava/io/InputStream;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LocalFile$Builder;
-    .locals 2
+    .locals 1
 
     invoke-virtual {p1}, Ljava/io/InputStream;->markSupported()Z
 
@@ -160,14 +173,6 @@
     iput-object p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LocalFile$Builder;->mInputStream:Ljava/io/InputStream;
 
     :goto_0
-    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LocalFile$Builder;->mInputStream:Ljava/io/InputStream;
-
-    iget v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LocalFile$Builder;->mFileSize:I
-
-    add-int/lit8 v1, v1, 0x1
-
-    invoke-virtual {v0, v1}, Ljava/io/InputStream;->mark(I)V
-
     const/4 v0, 0x1
 
     iput-boolean v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LocalFile$Builder;->mIsUseInputStream:Z

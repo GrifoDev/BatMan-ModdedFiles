@@ -262,7 +262,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f040188
+    const v5, 0x7f04018a
 
     iget-object v6, p0, Lcom/android/contacts/common/widget/SelectPhoneAccountDialogFragment;->c:Ljava/util/List;
 
@@ -294,7 +294,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040049
+    const v1, 0x7f04004a
 
     const/4 v4, 0x0
 
@@ -304,7 +304,7 @@
 
     check-cast v0, Landroid/widget/LinearLayout;
 
-    const v1, 0x7f100126
+    const v1, 0x7f10012a
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->findViewById(I)Landroid/view/View;
 

@@ -100,12 +100,13 @@
     <string name="account_phone">ডিভাইস</string>
     <string name="acs">ভয়েস কল</string>
     <string name="active_calls">সক্রিয় কল</string>
-    <string name="add_reminder">রিমাই. যোগ</string>
+    <string name="add_reminder">রিমাইন্ডার যোগ করুন</string>
     <string name="agif_button_close_description">বন্ধ</string>
     <string name="agif_decline_message">দুঃখিত, আমি এখন কথা বলতে পারছি না।</string>
     <string name="agif_decline_sticker_header">একটি স্টিকার দ্বারা অস্বীকার করুন</string>
     <string name="agif_decline_text_header">একটি পাঠ্য দ্বারা অস্বীকার করুন</string>
     <string name="agif_decline_toast">%s-এ স্টিকার পাঠানো হয়েছে।</string>
+    <string name="agif_outgoing_bubble_tip">আপনি কেমন অনুভব করেন তা দেখাতে একটি স্টিকার পাঠান।</string>
     <string name="agif_pickers_add_tab_description">যোগ করুন</string>
     <string name="agif_pickers_find_more">আরও খুঁজুন</string>
     <string name="agif_pickers_item_usage_hints_description">নির্বাচন করতে দুবার ট্যাপ করুন</string>
@@ -114,10 +115,12 @@
     <string name="agif_pickers_tab_select_description">নির্বাচিত</string>
     <string name="agif_pickers_title">একটি স্টিকার দ্বারা শুরু করুন</string>
     <string name="agif_pickers_title_recommended">সুপারিশকৃত</string>
+    <string name="agif_random_send_message">এই স্টিকার পাঠাতে এখানে ট্যাপ করুন।</string>
     <string name="agif_read_permission_description">ফোনকে AGIF সামগ্রী পড়তে অনুমতি দেয়।</string>
     <string name="agif_read_permission_label">AGIF সামগ্রী পড়ুন</string>
     <string name="agif_receive_no_id">স্টিকারটি দেখানো যাবে না। কলের পরে %s আপডেট করুন।</string>
     <string name="agif_receive_no_id_upsupport_update">স্টিকারটি দেখানো যাবে না। পরের সিস্টেম আপডেট করার পরে আরও স্টিকার সুলভ হবে।</string>
+    <string name="agif_receive_toast">%s-এর স্টিকার।</string>
     <string name="agif_sent_fail_message">অ্যানিমেটেড GIF পাঠানো যাচ্ছে না। পরে আবার চেষ্টা করুন।</string>
     <string name="agif_sent_toast">স্টিকার পাঠানো হয়েছে।</string>
     <string name="agif_write_permission_description">ফোনকে AGIF সামগ্রী সংশোধন করতে অনুমতি দেয়।</string>
@@ -252,8 +255,8 @@
     <string name="device_info_not_available">অসুলভ</string>
     <string name="dial_warning">ডায়াল করতে অক্ষম।</string>
     <string name="dialling_video_call">ভিডিও কল ডায়াল করা হচ্ছে</string>
-    <string name="dialog_permission_app_desc">%s খুলতে অক্ষম। সেটিংস > অনুমতিগুলি-এ যান তারপর নিম্নলিখিত অনুমতিগুলির অনুমতি দিন এবং পুনরায় চেষ্টা করুন:</string>
-    <string name="dialog_permission_function_desc">%s ব্যবহার করতে অক্ষম। সেটিংস > অনুমতিগুলি-এ যান তারপর নিম্নলিখিত অনুমতিগুলির অনুমতি দিন এবং পুনরায় চেষ্টা করুন:</string>
+    <string name="dialog_permission_app_desc">%s খুলতে অক্ষম। সেটিংস > অনুমতিগুলি-এ যান তারপর নিম্নলিখিত অনুমতিগুলির মঞ্জুরি দিন এবং পুনরায় চেষ্টা করুন:</string>
+    <string name="dialog_permission_function_desc">%s ব্যবহার করতে অক্ষম। সেটিংস > অনুমতিগুলি-এ যান তারপর নিম্নলিখিত অনুমতিগুলির মঞ্জুরি দিন এবং পুনরায় চেষ্টা করুন:</string>
     <string name="dialpad_2_sub_letters">ABC</string>
     <string name="dialpad_3_sub_letters">DEF</string>
     <string name="dialpad_4_sub_letters">GHI</string>
@@ -807,8 +810,8 @@ IVR কল স্ক্রীণের মেনু Dianhuabang নামক এ
     <string name="tts_pager">%2$dটির মধ্যে %1$dটি পৃষ্ঠা</string>
     <string name="tts_seconds">%d সেকেন্ড</string>
     <string name="tty_mode_option_title">TTY মোড</string>
-    <string name="tutorial_incoming_call_app_answer">কলের উত্তর দিতে ট্যাপ করুন।</string>
-    <string name="tutorial_incoming_call_app_reject">কলটি অস্বীকার করতে ট্যাপ করুন।</string>
+    <string name="tutorial_incoming_call_app_answer">উত্তর দিতে দুবার ট্যাপ করুন।</string>
+    <string name="tutorial_incoming_call_app_reject">অস্বীকার করতে দুবার ট্যাপ করুন।</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">নেটওয়ার্কে সংযোগ করতে অক্ষম। আপনার সংযোগ সেটিংস পরীক্ষা করুন ও আবার চেষ্টা করুন।</string>
     <string name="units_kb">KB</string>
@@ -818,7 +821,7 @@ IVR কল স্ক্রীণের মেনু Dianhuabang নামক এ
     <string name="upload_using_wlan_only">কেবলমাত্র WLAN-এর মাধ্যমে আপলোড</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fi বা মোবাইল নেটওয়ার্কের মাধ্যমে আপলোড করুন</string>
     <string name="upload_wlan_and_mobile_nw">WLAN বা মোবাইল নেটওয়ার্কের মাধ্যমে আপলোড করুন</string>
-    <string name="usa_att_connected_as_voice">কল কেবলমাত্র ভয়েস হিসাবে সংযুক্ত হয়েছে।</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">আপনার ডিভাইসে আপনি যে তথ্য ব্যবহার সেট করেছেন তা এর সীমায় পৌঁছাতে চলেছে। আপনার ভিডিও কলের জন্য তথ্য প্রয়োজন।</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Wi-Fi ব্যবহার করে কল করা যাচ্ছে না, সেলুলার নেটওয়ার্ক ব্যবহার করে সংযোগ করা হচ্ছে। ভয়েস এবং তথ্য চার্জগুলি প্রযোজ্য হবে।</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -868,11 +871,15 @@ IVR কল স্ক্রীণের মেনু Dianhuabang নামক এ
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">মোবাইল তথ্য ব্যবহার</string>
     <string name="usa_vzw_volte_weak_wifi_text">"আমরা চেষ্টা করেছি কিন্তু আমরা এই সময়ে আপনার ভিডিও কলটি Wi-Fi-এ স্যুইচ করতে পারব না।
 
-আপনার ভিডিও কলটি তবুও মোবাইল নেটওয়ার্কে চলছে। (আপনি অবিরত রাখা বেছে নিলে তথ্য ব্যবহার প্রযোজ্য হয়।)"</string>
-    <string name="usa_vzw_volte_weak_wifi_toast">আপনার ভিডিও কল এখনও মোবাইল নেটওয়ার্কে চলছে। (তথ্য ব্যবহার প্রয়োগ হয়।)</string>
-    <string name="usa_vzw_vowifi_wifi_low_signal_text">"আপনার ভিডিও কলটি অবিরত রাখতে Wi-Fi সিগন্যাল পর্যাপ্ত শক্তিশালী ছিল না।
+আপনার ভিডিও কলটি তবুও মোবাইল নেটওয়ার্কে চলছে।
 
-আপনার ভিডিও কল এখন মোবাইল নেটওয়ার্কে চলছে। (আপনি অবিরত রাখা বেছে নিলে তথ্য ব্যবহার প্রযোজ্য হয়।)"</string>
+আপনি অবিরত থাকা বেছে নিলে তথ্য ব্যবহারের চার্জ প্রযোজ্য হতে পারে।"</string>
+    <string name="usa_vzw_volte_weak_wifi_toast">আপনার ভিডিও কল এখনও মোবাইল নেটওয়ার্কে চলছে। (তথ্য ব্যবহার প্রয়োগ হয়।)</string>
+    <string name="usa_vzw_vowifi_wifi_low_signal_text">"আপনার ভিডিও কল অবিরত রাখতে Wi-Fi সিগন্যাল ততটা শক্তিশালী ছিল না।
+
+আপনার ভিডিও কল এখন মোবাইল নেটওয়ার্কে চলছে।
+
+আপনি অবিরত থাকা বেছে নিলে তথ্য ব্যবহারের চার্জ প্রযোজ্য হতে পারে।"</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi সংযোগ হারিয়েছে। কল শেষ হয়েছে।</string>
     <string name="use_wifi_and_mobile_nw">Wi-Fi ও মোবাইল নেটওয়ার্কগুলি ব্যবহার করুন</string>
     <string name="use_wlan_and_mobile_nw">WLAN এবং মোবাইল নেটওয়ার্কগুলি ব্যবহার করুন</string>

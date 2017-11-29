@@ -124,7 +124,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0902aa
+    const v3, 0x7f0902ad
 
     invoke-virtual {v1, v3}, Lcom/android/incallui/InCallApp;->getText(I)Ljava/lang/CharSequence;
 
@@ -178,7 +178,7 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x7f10022a
+    const v0, 0x7f10022e
 
     iput v0, p0, Lcom/android/incallui/BaseRejectMsgContent$RejectMsgContentArrayAdapter;->mTextViewResourceId:I
 

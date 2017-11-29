@@ -184,6 +184,7 @@
     <string name="agif_decline_sticker_header">الرفض باستخدام ملصق</string>
     <string name="agif_decline_text_header">الرفض باستخدام نص</string>
     <string name="agif_decline_toast">تم إرسال الملصق إلى %s.</string>
+    <string name="agif_outgoing_bubble_tip">أرسل ملصقاً لإظهار ما تشعر به.</string>
     <string name="agif_pickers_add_tab_description">إضافة</string>
     <string name="agif_pickers_find_more">اكتشاف المزيد</string>
     <string name="agif_pickers_item_usage_hints_description">النقر نقراً مزدوجاً للتحديد</string>
@@ -192,10 +193,12 @@
     <string name="agif_pickers_tab_select_description">تم التحديد</string>
     <string name="agif_pickers_title">البدء باستخدام ملصق</string>
     <string name="agif_pickers_title_recommended">موصى بها</string>
+    <string name="agif_random_send_message">انقر هنا لإرسال هذا الملصق.</string>
     <string name="agif_read_permission_description">يتيح للهاتف قراءة محتوى AGIF.</string>
     <string name="agif_read_permission_label">قراءة محتوى AGIF</string>
     <string name="agif_receive_no_id">يتعذر إظهار الملصق. تحديث %s بعد المكالمة.</string>
     <string name="agif_receive_no_id_upsupport_update">يتعذر إظهار الملصق. سيتوفر المزيد من الملصقات بعد عملية تحديث النظام التالية.</string>
+    <string name="agif_receive_toast">ملصق من %s.</string>
     <string name="agif_sent_fail_message">يتعذر إرسال صور GIF متحركة. حاول مرة أخرى لاحقاً.</string>
     <string name="agif_sent_toast">تم إرسال الملصق.</string>
     <string name="agif_write_permission_description">يتيح للهاتف تعديل محتوى AGIF.</string>
@@ -217,7 +220,7 @@
     <string name="banner_calls_have_been_merged">تم دمج المكالمات.</string>
     <string name="banner_conferenc_call_with">في مكالمة جماعية مع %s</string>
     <string name="bluetooth_popup_title">تحديد جهاز الصوت</string>
-    <string name="button">الزر</string>
+    <string name="button">زر</string>
     <string name="call_accept_reject_tip1">اضغط على أحد طرفي مفتاح مستوى الصوت لكتم نغمة الرنين للمكالمات الواردة.</string>
     <string name="call_drug_up_panel_for_kk">اسحب زر إرسال رسالة إلى الأعلى لإرسال رسالة سريعة ورفض مكالمة واردة.</string>
     <string name="call_drug_up_panel_for_kk_tts">اسحب المكالمة التي تم رفضها مع توجيه لوحة الرسالة للأعلى لإرسال رسالة رفض مكالمات عند رفض مكالمة واردة.</string>
@@ -885,8 +888,8 @@
     <string name="tts_pager">صفحة %1$d من %2$d</string>
     <string name="tts_seconds">%d ثانية</string>
     <string name="tty_mode_option_title">وضع TTY</string>
-    <string name="tutorial_incoming_call_app_answer">انقر للرد على المكالمة.</string>
-    <string name="tutorial_incoming_call_app_reject">انقر لرفض المكالمة.</string>
+    <string name="tutorial_incoming_call_app_answer">اضغط ضغطًا مزدوجًا للرد.</string>
+    <string name="tutorial_incoming_call_app_reject">اضغط ضغطًا مزدوجَا للرفض.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">يتعذر الاتصال بالشبكة. تحقق من ضبط الاتصال وحاول مرةً أخرى.</string>
     <string name="units_kb">ك.ب</string>
@@ -896,7 +899,7 @@
     <string name="upload_using_wlan_only">التحميل عبر شبكة WLAN فقط</string>
     <string name="upload_wifi_and_mobile_nw">التحميل عبر شبكة Wi-Fi أو شبكة هاتف محمول</string>
     <string name="upload_wlan_and_mobile_nw">التحميل عبر شبكة WLAN أو شبكة الهاتف المحمول</string>
-    <string name="usa_att_connected_as_voice">تم توصيل المكالمة كمكالمة صوتية فقط.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">يوشك الجهاز على بلوغ حد استخدام البيانات المضبوط. تتطلب مكالمة الفيديو توفر بيانات.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">لا يمكن إجراء المكالمة عبر شبكة Wi-Fi، جارٍ الاتصال عبر شبكة خلوية. سيتم تطبيق رسوم المكالمات الصوتية والبيانات.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -944,13 +947,17 @@
     <string name="usa_vzw_voice_incoming_during_wifi_video">سيتم إنهاء المكالمة الحالية عند الرد على المكالمة الواردة.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_text">إشارة Wi-Fi ليست قوية بما يكفي لمتابعة المكالمة. سيؤدي استخدام شبكات الهاتف المحمول لمتابعة المكالمة إلى استخدام خطة البيانات.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">استخدام بيانات الهاتف المحمول</string>
-    <string name="usa_vzw_volte_weak_wifi_text">"لقد حاولنا، ولكننا لا نستطيع تبديل مكالمة الفيديو إلى Wi-Fi هذه المرة.
+    <string name="usa_vzw_volte_weak_wifi_text">"لقد حاولنا، ولكننا لا نستطيع تبديل مكالمة الفيديو إلى شبكة Wi-Fi هذه المرة.
 
-لا تزال مكالمة الفيديو قيد التشغيل على شبكة الهاتف المحمول. (ينطبق استخدام البيانات إذا اخترت المتابعة)."</string>
+لا تزال مكالمة الفيديو قيد التشغيل على شبكة الهاتف المحمول.
+
+قد يتم فرض رسوم على استخدام البيانات إذا اخترت المتابعة."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">لا تزال مكالمة الفيديو قيد التشغيل على شبكة الهاتف المحمول. (يسري استخدام البيانات.)</string>
-    <string name="usa_vzw_vowifi_wifi_low_signal_text">"لم تكن إشارة شبكة Wi-Fi قوية بما يكفي لمتابعة مكالمة الفيديو.
+    <string name="usa_vzw_vowifi_wifi_low_signal_text">"لم تكن إشارة Wi-Fi قوية بما يكفي لمتابعة مكالمة الفيديو.
 
-يتم تشغيل مكالمة الفيديو الآن على شبكة الهاتف المحمول. (ينطبق استخدام البيانات إذا اخترت المتابعة)."</string>
+مكالمة الفيديو قيد التشغيل الآن على شبكة الهاتف المحمول.
+
+قد يتم فرض رسوم على استخدام البيانات إذا اخترت المتابعة."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">تم فقدان اتصال Wi-Fi. تم إنهاء المكالمة.</string>
     <string name="use_wifi_and_mobile_nw">استخدام شبكتي Wi-Fi والجهاز المحمول</string>
     <string name="use_wlan_and_mobile_nw">استخدام شبكة WLAN وشبكات الهاتف المحمول</string>

@@ -645,7 +645,7 @@
 
     if-eqz v0, :cond_3
 
-    const v0, 0x7f09023e
+    const v0, 0x7f090241
 
     invoke-static {v0, p1}, Lcom/android/incallui/util/NameNumberUtils;->displayToastLongwithName(ILcom/android/incallui/Call;)V
 
@@ -685,7 +685,7 @@
 
     if-eqz v0, :cond_4
 
-    const v0, 0x7f0903b3
+    const v0, 0x7f0903b6
 
     invoke-static {v0}, Lcom/android/incallui/util/InCallUtils;->displayToastLong(I)V
 
@@ -700,14 +700,14 @@
 
     if-eqz v0, :cond_5
 
-    const v0, 0x7f0903b2
+    const v0, 0x7f090377
 
     invoke-static {v0}, Lcom/android/incallui/util/InCallUtils;->displayToastLong(I)V
 
     goto :goto_1
 
     :cond_5
-    const v0, 0x7f0903b1
+    const v0, 0x7f0903b4
 
     invoke-static {v0}, Lcom/android/incallui/util/InCallUtils;->displayToastLong(I)V
 
@@ -1376,6 +1376,22 @@
     return v0
 .end method
 
+.method public getPrimaryCall()Lcom/android/incallui/Call;
+    .locals 2
+
+    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/android/incallui/CallList;->getFirstCallToDisplay(Lcom/android/incallui/Call;)Lcom/android/incallui/Call;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public getVideoCallStatus()Lcom/android/incallui/service/vt/VideoCallManager$VideoCallStatus;
     .locals 1
 
@@ -1393,103 +1409,79 @@
 .end method
 
 .method public getVideoTypeIcon(Lcom/android/incallui/Call;)I
-    .locals 6
+    .locals 5
 
-    const v1, 0x7f020395
+    const v0, 0x7f0203c9
 
-    const v0, 0x7f020085
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Lcom/android/incallui/CallList;->isAlive(Lcom/android/incallui/Call;)Z
+
+    move-result v2
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "getVideoTypeIcon - isAlive="
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->isJpnUX()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    invoke-static {p1}, Lcom/android/incallui/util/InCallUtils;->isHasEVSSWB(Lcom/android/incallui/Call;)Z
+
+    move-result v0
 
     new-instance v2, Ljava/lang/StringBuilder;
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
-
-    move-result-object v3
-
-    invoke-virtual {v3, p1}, Lcom/android/incallui/CallList;->isAlive(Lcom/android/incallui/Call;)Z
-
-    move-result v3
-
-    new-instance v4, Ljava/lang/StringBuilder;
-
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v5, "getVideoTypeIcon - isAlive="
-
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
+    const-string v3, ", isHasEVSSWB="
 
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {p1}, Lcom/android/incallui/util/CallTypeUtils;->isEpdgCall(Lcom/android/incallui/Call;)Z
+    move-result-object v2
 
-    move-result v3
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    move-result-object v2
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const-string v5, ", isEpdgCall="
+    move-result-object v2
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    if-eqz v0, :cond_1
 
-    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v4
-
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v2, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->CONCEPT_USA_VZW()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_2
-
-    const v1, 0x7f020397
+    const v0, 0x7f020468
 
     :cond_0
     :goto_0
-    if-eqz v3, :cond_5
-
-    invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->CONCEPT_USA_VZW()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    invoke-virtual {p1}, Lcom/android/incallui/Call;->isVideoCall()Z
-
-    move-result v0
-
-    if-nez v0, :cond_4
-
-    invoke-virtual {p1}, Lcom/android/incallui/Call;->isModifyProgressing()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_4
-
-    const v0, 0x7f02048c
-
-    :cond_1
-    :goto_1
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object v1
 
@@ -1497,41 +1489,66 @@
 
     return v0
 
+    :cond_1
+    const v0, 0x7f020467
+
+    goto :goto_0
+
     :cond_2
-    sget-boolean v4, Lcom/android/incallui/service/vt/VideoCallConfig;->UI_SOFTPHONE:Z
+    invoke-static {p1}, Lcom/android/incallui/util/CallTypeUtils;->isEpdgCall(Lcom/android/incallui/Call;)Z
 
-    if-eqz v4, :cond_0
+    move-result v2
 
-    invoke-static {}, Lcom/android/incallui/util/SystemServiceUtils;->isDeviceOnWiFi()Z
+    new-instance v3, Ljava/lang/StringBuilder;
 
-    move-result v4
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    if-eqz v4, :cond_3
+    const-string v4, ", isEpdgCall="
 
-    move v1, v0
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    if-eqz v2, :cond_0
+
+    const v0, 0x7f0200b0
+
+    invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->CONCEPT_USA_VZW()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {p1}, Lcom/android/incallui/Call;->isVideoCall()Z
+
+    move-result v0
+
+    if-nez v0, :cond_3
+
+    invoke-virtual {p1}, Lcom/android/incallui/Call;->isModifyProgressing()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    const v0, 0x7f0204ed
 
     goto :goto_0
 
     :cond_3
-    invoke-static {}, Lcom/android/incallui/util/SystemServiceUtils;->isDeviceOnLTE()Z
-
-    move-result v4
-
-    if-nez v4, :cond_0
-
-    const/4 v1, 0x0
+    const v0, 0x7f0200b2
 
     goto :goto_0
-
-    :cond_4
-    const v0, 0x7f020087
-
-    goto :goto_1
-
-    :cond_5
-    move v0, v1
-
-    goto :goto_1
 .end method
 
 .method public isEnabledRoationEventListener()Z
@@ -2059,27 +2076,33 @@
 .end method
 
 .method public onVideoCallUiEvent(I)V
-    .locals 3
+    .locals 2
 
-    packed-switch p1, :pswitch_data_0
+    invoke-virtual {p0}, Lcom/android/incallui/service/vt/VideoCallManager;->getPrimaryCall()Lcom/android/incallui/Call;
 
+    move-result-object v0
+
+    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Lcom/android/incallui/CallList;->isAlive(Lcom/android/incallui/Call;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    const/4 v0, 0x0
+
+    :cond_0
+    sparse-switch p1, :sswitch_data_0
+
+    :cond_1
     :goto_0
     return-void
 
-    :pswitch_0
-    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
-
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1, v2}, Lcom/android/incallui/util/VideoCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
-
-    move-result-object v0
-
-    if-eqz v0, :cond_0
+    :sswitch_0
+    if-eqz v0, :cond_2
 
     invoke-direct {p0, v0}, Lcom/android/incallui/service/vt/VideoCallManager;->updateRoationEventListener(Lcom/android/incallui/Call;)V
 
@@ -2087,19 +2110,41 @@
 
     goto :goto_0
 
-    :cond_0
+    :cond_2
     const-string v0, "VideoCallManager - ACCELEROMETER_CHANGED : Alive call is NULL"
 
     invoke-static {v0}, Lcom/android/incallui/service/vt/VideoCallLog;->base(Ljava/lang/String;)V
 
     goto :goto_0
 
-    nop
+    :sswitch_1
+    if-eqz v0, :cond_1
 
-    :pswitch_data_0
-    .packed-switch 0x1f4
-        :pswitch_0
-    .end packed-switch
+    invoke-virtual {v0}, Lcom/android/incallui/Call;->getVideoAdapter()Lcom/android/incallui/service/vt/VideoCallAdapter;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/incallui/service/vt/VideoCallAdapter;->stopCamera()V
+
+    goto :goto_0
+
+    :sswitch_2
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0}, Lcom/android/incallui/Call;->getVideoAdapter()Lcom/android/incallui/service/vt/VideoCallAdapter;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/incallui/service/vt/VideoCallAdapter;->startCamera()V
+
+    goto :goto_0
+
+    :sswitch_data_0
+    .sparse-switch
+        0x67 -> :sswitch_1
+        0x68 -> :sswitch_2
+        0x1f4 -> :sswitch_0
+    .end sparse-switch
 .end method
 
 .method public pauseCameraForActivityState()V

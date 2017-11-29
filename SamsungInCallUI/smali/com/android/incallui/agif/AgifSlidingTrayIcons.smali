@@ -1361,7 +1361,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a03e7
+    const v1, 0x7f0a03f1
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1375,7 +1375,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a03eb
+    const v1, 0x7f0a03f5
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1393,7 +1393,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0904f0
+    const v1, 0x7f0904f3
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1410,7 +1410,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/agif/AgifSlidingTrayIcons;->mInflater:Landroid/view/LayoutInflater;
 
-    const v7, 0x7f040027
+    const v7, 0x7f040028
 
     const/4 v8, 0x0
 
@@ -1436,7 +1436,7 @@
 
     iget-object v0, v6, Lcom/android/incallui/agif/AgifSlidingTrayIcons$TayIconView;->trayContainer:Landroid/view/View;
 
-    const v7, 0x7f1000a7
+    const v7, 0x7f1000ab
 
     invoke-virtual {v0, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1448,7 +1448,7 @@
 
     iget-object v0, v6, Lcom/android/incallui/agif/AgifSlidingTrayIcons$TayIconView;->trayContainer:Landroid/view/View;
 
-    const v7, 0x7f1000a6
+    const v7, 0x7f1000aa
 
     invoke-virtual {v0, v7}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1504,7 +1504,7 @@
 
     check-cast v0, Lcom/android/incallui/agif/AgifLoader$AgifPackageInfo;
 
-    iget-object v0, v0, Lcom/android/incallui/agif/AgifLoader$AgifPackageInfo;->packageName:Ljava/lang/String;
+    iget-object v0, v0, Lcom/android/incallui/agif/AgifLoader$AgifPackageInfo;->contentName:Ljava/lang/String;
 
     invoke-virtual {v8, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -1567,6 +1567,18 @@
     invoke-direct {p0, v0}, Lcom/android/incallui/agif/AgifSlidingTrayIcons;->startTrayIconAnimation(Z)V
 
     goto/16 :goto_0
+.end method
+
+.method public getChildImageView(I)Landroid/view/View;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/incallui/agif/AgifSlidingTrayIcons;->mTrayIconViews:[Lcom/android/incallui/agif/AgifSlidingTrayIcons$TayIconView;
+
+    aget-object v0, v0, p1
+
+    iget-object v0, v0, Lcom/android/incallui/agif/AgifSlidingTrayIcons$TayIconView;->trayImage:Landroid/widget/ImageView;
+
+    return-object v0
 .end method
 
 .method protected getRandomReturnDelay()J
@@ -1672,7 +1684,7 @@
 
     check-cast v0, Lcom/android/incallui/agif/AgifLoader$AgifPackageInfo;
 
-    iget-object v0, v0, Lcom/android/incallui/agif/AgifLoader$AgifPackageInfo;->packageName:Ljava/lang/String;
+    iget-object v0, v0, Lcom/android/incallui/agif/AgifLoader$AgifPackageInfo;->contentName:Ljava/lang/String;
 
     invoke-static {v0}, Lcom/android/incallui/util/VoiceCallAppLogging;->agifScreen_selectAgifSet(Ljava/lang/String;)V
 

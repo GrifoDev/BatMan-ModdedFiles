@@ -9,7 +9,7 @@
     <string name="card_title_hanging_up">ଉପରେ ଝୁଲାଇବା</string>
     <string name="card_title_in_call">କଲରେ</string>
     <string name="card_title_incoming_call">ଆଗମନ କଲ୍</string>
-    <string name="card_title_my_phone_number">ମୋ ନମ୍ବର ହେଉଛି %s।</string>
+    <string name="card_title_my_phone_number">ମୋ ନମ୍ବର୍ ହେଉଛି %s।</string>
     <string name="card_title_on_hold">ହୋଲ୍ଡରେ ଅଛି</string>
     <string name="card_title_video_call">ଭିଡିଓ କଲ୍</string>
     <string name="contactPhoto">ସମ୍ପର୍କ ଫଟୋ</string>
@@ -48,7 +48,7 @@
     <string name="overflowHoldMenuItemText">କଲ୍ ଧରି ରଖନ୍ତୁ</string>
     <string name="overflowMergeMenuItemText">କଲଗୁଡିକୁ ମିଶ୍ରଣ</string>
     <string name="overflowResumeMenuItemText">କଲ୍ ପୁନଃଆରମ୍ଭ</string>
-    <string name="overflowSwapMenuItemText">କଲ୍‌ଗୁଡିକୁ ସ୍ଵାପ୍ କରନ୍ତୁ</string>
+    <string name="overflowSwapMenuItemText">କଲଗୁଡିକ ସ୍ଵାପ୍ କରନ୍ତୁ</string>
     <string name="pause_prompt_no">ନା</string>
     <string name="pause_prompt_yes">ହଁ</string>
     <string name="payphone">ପେଫୋନ୍</string>
@@ -72,8 +72,8 @@
     <string name="BirthDay_remainedDays1">ଆସନ୍ତାକାଲି ଜନ୍ମଦିନ</string>
     <string name="BirthDay_remainedDays7">ଜନ୍ମଦିନ 1 ସପ୍ତାହରେ</string>
     <string name="BirthDay_remainedDaysEtc">%d ଦିନ ପରେ ଜନ୍ମଦିନ</string>
-    <string name="DivertToVoice_disable">ଭିଡିଓ କଲ୍‌ଗୁଡିକ ଏହି ନମ୍ଵର୍ ପାଇଁ ଉପଲବ୍ଧ ନାହିଁ। ପରିବର୍ତ୍ତେ ଭଏସ୍‍୍ କଲ୍ ବର୍ତ୍ତମାନ ଚେଷ୍ଟା କରିବେ?</string>
-    <string name="DivertToVoice_enable">ଭିଡିଓ କଲ୍‌ଗୁଡିକ ଏହି ନମ୍ଵର୍ ପାଇଁ ଉପଲବ୍ଧ ନାହିଁ। ଭଏସ୍ କଲ୍‌କୁ ସୁଇଚ୍ କରୁଛି…</string>
+    <string name="DivertToVoice_disable">ଭିଡିଓ କଲଗୁଡିକ ଏହି ନମ୍ଵର୍ ପାଇଁ ଉପଲବ୍ଧ ନାହିଁ। ପରିବର୍ତ୍ତେ ଭଏସ୍‍୍ କଲ୍ ବର୍ତ୍ତମାନ ଚେଷ୍ଟା କରିବେ?</string>
+    <string name="DivertToVoice_enable">ଭିଡିଓ କଲଗୁଡିକ ଏହି ନମ୍ଵର୍ ପାଇଁ ଉପଲବ୍ଧ ନାହିଁ। ଭଏସ୍ କଲକୁ ସ୍ଵିଚ୍ କରୁଛି…</string>
     <string name="Lunar_anniversary_passedDays1">ଗତକାଲି ଚନ୍ଦ୍ର ବାର୍ଷିକ</string>
     <string name="Lunar_anniversary_remainedDays0">ଚନ୍ଦ୍ର ବାର୍ଷିକ: ଆଜି</string>
     <string name="Lunar_anniversary_remainedDays1">ଚନ୍ଦ୍ର ବାର୍ଷିକ: ଆସନ୍ତାକାଲି</string>
@@ -89,7 +89,7 @@
     <string name="RAD_mofat_call_center">MOFAT call center</string>
     <string name="RAD_roaming_KT_customer_center">Olleh ରୋମିଂ ଗ୍ରାହାକ ସେବାଗୁଡିକ</string>
     <string name="RAD_roaming_customer_center">T Roaming call center</string>
-    <string name="SS_CONTENTS_SHARING_STOPPED_BATTERY_LOW">ବିଷୟବସ୍ତୁ ଅଂଶୀଦାର କରିବା ବନ୍ଦ ହେଲା। ବ୍ୟାଟେରୀ କମ୍‍ ଅଟେ।</string>
+    <string name="SS_CONTENTS_SHARING_STOPPED_BATTERY_LOW">ବିଷୟବସ୍ତୁ ଅଂଶୀଦାର କରିବା ବନ୍ଦ ହେଲା। ବ୍ୟାଟେରୀ କମ ଅଟେ।</string>
     <string name="SS_UNABLE_TO_RECEIVE_FILE_IT_EXCEEDS_MAXIMUM_FILE_SIZE">ଫାଇଲ୍ ପ୍ରାପ୍ତ କରିବାକୁ ଅସମର୍ଥ। ଏହା ସର୍ବାଧିକ ଫାଇଲ୍ ଆକାର ଅତିକ୍ରମ କରିଛି।</string>
     <string name="TS_ADD_REASON_BUTTON_ABB_VODA">କାରଣ ଯୋଡନ୍ତୁ</string>
     <string name="TS_IMPORTANT_CALL_BODY_VODA">ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ କଲ୍</string>
@@ -106,6 +106,7 @@
     <string name="agif_decline_sticker_header">ଏକ ଷ୍ଟିକର୍ ସହ ପ୍ରତ୍ୟାଖ୍ୟାନ କରନ୍ତୁ</string>
     <string name="agif_decline_text_header">ଏକ ଟେକ୍ସଟ୍ ସହ ପ୍ରତ୍ୟାଖ୍ୟାନ କରନ୍ତୁ</string>
     <string name="agif_decline_toast">%sକୁ ପ୍ରେରଣ ହୋଇଥିଲା।</string>
+    <string name="agif_outgoing_bubble_tip">ଆପଣ କିପରି ଅନୁଭବ କରନ୍ତି ଦେଖାଇବାକୁ ଏକ ଷ୍ଟିକର୍ ପ୍ରେରଣ କରନ୍ତୁ।</string>
     <string name="agif_pickers_add_tab_description">ଯୋଡନ୍ତୁ</string>
     <string name="agif_pickers_find_more">ଅଧିକ ସନ୍ଧାନ</string>
     <string name="agif_pickers_item_usage_hints_description">ଚୟନ କରିବାକୁ ଦୁଇଥର ଟ୍ୟାପ୍ କରନ୍ତୁ</string>
@@ -114,10 +115,12 @@
     <string name="agif_pickers_tab_select_description">ଚୟନିତ</string>
     <string name="agif_pickers_title">ଏକ ଷ୍ଟିକର୍ ସହ ଆରମ୍ଭ କରନ୍ତୁ</string>
     <string name="agif_pickers_title_recommended">ସୁପାରିଶ କରାଯାଇଥିବା</string>
+    <string name="agif_random_send_message">ଏହି ଷ୍ଟିକର୍ ପ୍ରେରଣ କରିବାକୁ ଏଠାରେ ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
     <string name="agif_read_permission_description">ଫୋନକୁ AGIF ବିଷୟବସ୍ତୁ ପଢିବାକୁ ଅନୁମତି ଦିଅନ୍ତୁ।</string>
     <string name="agif_read_permission_label">AGIF ବିଷୟବସ୍ତୁ ପଢନ୍ତୁ</string>
     <string name="agif_receive_no_id">ଷ୍ଟିକର୍ ଦେଖିପାରିବେ ନାହିଁ। କଲ ପରେ %s ଅପଡେଟ୍ କରନ୍ତୁ।</string>
     <string name="agif_receive_no_id_upsupport_update">ଷ୍ଟିକର୍ ଦେଖିପାରିବେ ନାହିଁ। ପରବର୍ତ୍ତୀ ସିଷ୍ଟମ୍ ଅପଡେଟ୍ ହେବା ପରେ ଅଧିକ ଷ୍ଟିକର୍ ଉପଲବ୍ଧ ହେବ।</string>
+    <string name="agif_receive_toast">%sରୁ ଷ୍ଟିକର୍।</string>
     <string name="agif_sent_fail_message">ଆନିମେଟ୍ ହୋଇଥିବା GIF ପ୍ରେରଣ କରିପାରିବେ ନାହିଁ। ପରେ ପୁନଃଚେଷ୍ଟା କରନ୍ତୁ।</string>
     <string name="agif_sent_toast">ଷ୍ଟିକର୍ ପ୍ରେରଣ କରନ୍ତୁ।</string>
     <string name="agif_write_permission_description">ଫୋନକୁ AGIF ବିଷୟବସ୍ତୁ ରୂପାନ୍ତରଣ କରିବାକୁ ଅନୁମତି ଦିଅନ୍ତୁ।</string>
@@ -156,19 +159,19 @@
     <string name="call_incoming_voice_call_for_kk_2_tts">ଏକ କଲ୍‌ ଅଗ୍ରାହ୍ୟ କରିବାକୁ ଡାହାଣରୁ ବାମକୁ ଅଗ୍ରାହ୍ୟ ବଟନ୍‌ ସ୍ଵାଇପ୍ କରନ୍ତୁ।</string>
     <string name="call_incoming_voice_title2">ଅନ୍ୟ ଆପ୍‌ ବ୍ୟବହାର କରିବା ସମୟରେ କଲଗୁ. ଉତ୍ତର ଦେବା ଏବଂ ଗ୍ରହଣ କରିବା</string>
     <string name="call_menu_during_call_detail">କଲ୍ ବେଳେ ଆପଣ ନିମ୍ନ କ୍ରିୟାଗୁଡିକ କରିପାରିବେ:</string>
-    <string name="call_menu_during_call_list1">ଏକ କଲ୍ ବେଳେ ନମ୍ବର ପ୍ରବେଶ କରିବାକୁ %s ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
+    <string name="call_menu_during_call_list1">ଏକ କଲ୍ ବେଳେ ନମ୍ବର୍ ପ୍ରବେଶ କରିବାକୁ %s ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
     <string name="call_menu_during_call_list1_tts">ଏକ କଲ୍ ବେଳେ ନମ୍ବର ପ୍ରବେଶ କରିବାକୁ କୀପ୍ୟାଡ୍ ବଟନ୍ ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
     <string name="call_menu_during_call_list2">ସ୍ପିକର୍ ଟର୍ନ୍ ଅନ୍ କରିବାକୁ %s ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
     <string name="call_menu_during_call_list2_tts">ମାଇକ୍ରୋଫୋନ୍ ଟର୍ନ୍ ଅନ୍ କରିବାକୁ ସ୍ପିକର୍ ବଟନ୍ ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
-    <string name="call_menu_during_call_list3">ଏକ କଲର ଆପଣଙ୍କ ପକ୍ଷରୁ ସମସ୍ତ ଧ୍ଵନି ମ୍ୟୁଟ୍ କରିବାକୁ %s ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
+    <string name="call_menu_during_call_list3">ଏକ କଲର୍ ଆପଣଙ୍କ ପକ୍ଷରୁ ସମସ୍ତ ଧ୍ଵନି ମ୍ୟୁଟ୍ କରିବାକୁ %s ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
     <string name="call_menu_during_call_list3_tts">କଲର ଆପଣଙ୍କ ପକ୍ଷରୁ ସମସ୍ତ ଧ୍ଵନି ମ୍ୟୁଟ୍ କରିବାକୁ ମ୍ୟୁଟ୍ ବଟନ୍ ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
     <string name="call_menu_during_call_list4">ଏକ ସଂଯୋଜିତ ବ୍ଲୁଟୁଥ୍ ଡିଭାଇସରେ ଏକ କଲ୍ ଜାରି ରଖିବାକୁ %s ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
-    <string name="call_menu_during_call_list4_tts">ଏକ ସଂଯୋଜିତ ବ୍ଲୁଟୁଥ୍ ଡିଭାଇସ୍‌ରେ ଏକ କଲ୍ ଜାରି ରଖିବାକୁ ବ୍ଲୁଟୁଥ୍ ବଟନ୍ ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
+    <string name="call_menu_during_call_list4_tts">ଏକ ସଂଯୋଜିତ ବ୍ଲୁଟୁଥ୍ ଡିଭାଇସରେ ଏକ କଲ୍ ଜାରି ରଖିବାକୁ ବ୍ଲୁଟୁଥ୍ ବଟନ୍ ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
     <string name="call_menu_during_call_list5">ଏକ କଲ୍ ସମାପ୍ତ କରିବାକୁ %s ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
     <string name="call_menu_during_call_list5_tts">ଏକ କଲ୍ ସମାପ୍ତ କରିବାକୁ ସମାପ୍ତ କଲ୍ ବଟନ୍ ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
     <string name="call_menu_during_call_list6">ଭଲ୍ୟୁମ୍ ବଢାଇବାକୁ %s ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
     <string name="call_menu_during_call_list6_tts">ଭଲ୍ୟୁମ୍ ବଢାଇବାକୁ ଅତିରିକ୍ତ ଭଲ୍ୟୁମ୍ ବଟନ୍‌ ଟ୍ୟାପ୍‌ କରନ୍ତୁ।</string>
-    <string name="call_menu_during_call_list7">ଅନ୍ୟ ବ୍ୟକ୍ତିଙ୍କୁ କଲ୍ କରିବାକୁ %s ଟ୍ୟାପ୍ କରି ସେମାନଙ୍କୁ ସମ୍ପ୍ରତି କଲ୍‌ରେ ଯୋଡନ୍ତୁ।</string>
+    <string name="call_menu_during_call_list7">ଅନ୍ୟ ବ୍ୟକ୍ତିଙ୍କୁ କଲ୍ କରିବାକୁ %s ଟ୍ୟାପ୍ କରି ସେମାନଙ୍କୁ ସମ୍ପ୍ରତି କଲରେ ଯୋଡନ୍ତୁ।</string>
     <string name="call_menu_during_call_list7_tts">ଅନ୍ୟ ବ୍ୟକ୍ତିଙ୍କୁ କଲ୍ କରିବାକୁ କଲ୍ ବଟନ୍ ଯୋଡିବା ଟ୍ୟାପ୍ କରି ସେମାନଙ୍କୁ ସମ୍ପ୍ରତି କଲରେ ଯୋଡନ୍ତୁ।</string>
     <string name="call_out_duration">କଲ୍ ଅବଧି</string>
     <string name="call_twophone_one_phone">ମୂଳ ନମ୍ଵର୍</string>
@@ -188,7 +191,7 @@
     <string name="camera_start_failed">କ୍ୟାମେରା ବିଫଳ ହୋଇଛି।</string>
     <string name="can_not_use_receiver">Samsung DeXରେ %s ବ୍ୟବହାର କରିପାରିବେ ନାହିଁ।</string>
     <string name="cancel">ବାତିଲ୍</string>
-    <string name="capture_failure">ସ୍କ୍ରିନ୍ କ୍ୟାପ୍‌ଚର୍ କରିବାକୁ ବିଫଳ ହୋଇଛି।</string>
+    <string name="capture_failure">ସ୍କ୍ରିନ୍ କ୍ୟାପଚର୍ କରିବାକୁ ବିଫଳ ହୋଇଛି।</string>
     <string name="captured">ବନ୍ଦୀକରଣ</string>
     <string name="card_title_dialing_for_quick_panel">ଡାୟଲିଂ…</string>
     <string name="card_title_dialing_to_korea">ଦକ୍ଷିଣ କୋରିଆକୁ କଲ୍‌ କରୁଛି</string>
@@ -207,9 +210,9 @@
     <string name="carrier_matching_dialog_title">SIM କାର୍ଡ ଚୟନ</string>
     <string name="carrier_matching_dialog_video_call">ଏହି ଭିଡିଓ କଲ୍ ପାଇଁ ଏକ SIM କାର୍ଡ ବ୍ୟବହାର କରିବା ଚୟନ କରନ୍ତୁ।</string>
     <string name="carrier_matching_switch_to_call_by_other_sim">SIM ସ୍ଵିଚ୍</string>
-    <string name="cdnip_service_prefix">ମୋ ନମ୍ୱର</string>
+    <string name="cdnip_service_prefix">ମୋ ନମ୍ୱର୍</string>
     <string name="chat">ଚାଟ୍</string>
-    <string name="chat_aim">AIM ବ୍ୟବହାରକରି ଚାଟ୍ କରନ୍ତୁ।</string>
+    <string name="chat_aim">AIM ବ୍ୟବହାରକରି ଚାଟ୍ କରନ୍ତୁ</string>
     <string name="chat_gtalk">Google Talk ବ୍ୟବହାର କରି ଚାଟ୍ କରନ୍ତୁ</string>
     <string name="chat_icq">ICQ ବ୍ୟବହାର କରି ଚାଟ୍ କରନ୍ତୁ</string>
     <string name="chat_jabber">ଜାବର୍ ବ୍ୟବହାର କରି ଚାଟ୍ କରନ୍ତୁ</string>
@@ -222,7 +225,7 @@
     <string name="choose_verification_method">ଆପଣଙ୍କ ଅଗ୍ରାଧିକାର ଯାଞ୍ଚକରଣ ପଦ୍ଧତି ଚୟନ କରନ୍ତୁ।</string>
     <string name="chunghwa_operator_name">ଚୁଙ୍ଗହ୍ୱା</string>
     <string name="cmcc_operator_name">CMCC</string>
-    <string name="conference_maximum_participants_reached">ସର୍ବାଧିକ ସଂଖ୍ୟକ ପ୍ରତିଭାଗୀ (%dଟି) ପହଞ୍ଚିଛନ୍ତି।</string>
+    <string name="conference_maximum_participants_reached">ସର୍ବାଧିକ ସଂଖ୍ୟକ ପ୍ରତିଭାଗୀ (%dଟି)ରେ ପହଞ୍ଚିଛନ୍ତି।</string>
     <string name="conferencing_dialog_Available_for_VoiceCalls">ଭଏସ୍ କଲ୍ ପାଇଁ କେବଳ କନଫରେନ୍ସିଂ ଉପଲବ୍ଧ।</string>
     <string name="contact_device_owner">ଡିଭାଇ. ମାଲିକଙ୍କୁ ସମ୍ପର୍କ</string>
     <string name="conversation_duration">ବର୍ତ୍ତାଳାପ ଅବଧି</string>
@@ -244,11 +247,11 @@
     <string name="date_day">ଦିନ</string>
     <string name="decline">ପ୍ରତ୍ୟାଖ୍ୟାନ</string>
     <string name="deregister">ଅଣପଞ୍ଜିକରଣ ଫୋନ୍ ନମ୍ଵର୍</string>
-    <string name="description_create_message">ନୂତନ ସନ୍ଦେଶ ରଚନା</string>
+    <string name="description_create_message">ନୂତନ ସନ୍ଦେଶ କମ୍ପୋଜ୍</string>
     <string name="description_hidedial_button">କୀପ୍ୟାଡ୍ ଲୁଚାନ୍ତୁ</string>
     <string name="description_secOnscreenMessageText">ସନ୍ଦେଶ</string>
     <string name="description_secOnscreenVideoCallText">ଭିଡିଓ କଲ୍</string>
-    <string name="description_secOnscreenViewContactText">ସମ୍ପର୍କ ବିବରଣୀଗୁଡିକୁ ଦର୍ଶନ କରନ୍ତୁ</string>
+    <string name="description_secOnscreenViewContactText">ସମ୍ପର୍କ ବିବରଣୀ ଦର୍ଶନ କରନ୍ତୁ</string>
     <string name="device_info_not_available">ଉପଲବ୍ଧ ନାହିଁ</string>
     <string name="dial_warning">ଡାୟଲ୍ କରିବାକୁ ଅସମର୍ଥ।</string>
     <string name="dialling_video_call">ଭିଡିଓ କଲ୍ ଡାୟଲ୍ ହେଉଛି</string>
@@ -267,7 +270,7 @@
     <string name="disable_video_call_while_ultra_saving_mode">ଅଲଟ୍ରା ପାୱାର୍ ସଞ୍ଚୟ ମୋଡ୍ ସକ୍ଷମ ଥିବା ସମୟରେ ଭିଡିଓ କଲଗୁଡିକ ପ୍ରସ୍ତୁତ କିମ୍ୱା ପ୍ରାପ୍ତ କରିବାକୁ ଅସମର୍ଥ।</string>
     <string name="disagree">ଅରାଜି</string>
     <string name="do_not_show_again">ପୁନଃ ଦେଖାନ୍ତୁ ନାହିଁ</string>
-    <string name="download">ଡାଉନ୍‌‌ଲୋଡ୍ କରନ୍ତୁ</string>
+    <string name="download">ଡାଉନଲୋଡ୍ କରନ୍ତୁ</string>
     <string name="download_application">ଆପ୍ଲିକେସନ୍ ଡାଉନଲୋଡ୍</string>
     <string name="download_application_description">"ଏହି ପ୍ରକାର୍ଯ୍ୟ ବ୍ୟବହାର କରିବାକୁ, ନିମ୍ନୋକ୍ତ ଆପ୍ଲିକେସନ୍ ଡାଉନଲୋଡ୍ କରନ୍ତୁ:
 
@@ -343,7 +346,7 @@
     <string name="interactive_tutorial_call_answer_reject_complete">କଲ୍ କିପରି ଉତ୍ତର ଦେବେ ଏବଂ ପ୍ରତ୍ୟାଖ୍ୟାନ କରିବେ ତାହା ବର୍ତ୍ତମାନ ଆପଣ ଜାଣନ୍ତି।</string>
     <string name="interactive_tutorial_drag_up">ଏକ ସନ୍ଦେଶ ସହ କଲ୍ ଅଗ୍ରାହ୍ୟ କରିବାକୁ ଉପରକୁ ସ୍ଵାଇପ୍ କରନ୍ତୁ।</string>
     <string name="interactive_tutorial_endcall">କଲ୍ ସମାପ୍ତ କରିବାକୁ ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
-    <string name="interactive_tutorial_invaild_action">ଅବୈଧ କ୍ରିୟା। ପୁନଃ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
+    <string name="interactive_tutorial_invaild_action">ଅବୈଧ କ୍ରିୟା। ପୁନଃଚେଷ୍ଟା କରନ୍ତୁ।</string>
     <string name="interactive_tutorial_message_send">ତାଲିକାରୁ ଏକ ସନ୍ଦେଶ ଚୟନ କରନ୍ତୁ କିମ୍ବା ଗୋଟିଏ ରଚନା କରନ୍ତୁ।</string>
     <string name="interactive_tutorial_reject">କଲ୍ ଅଗ୍ରାହ୍ୟ କରିବାକୁ ଡାହାଣରୁ ବାମକୁ ସ୍ଵାଇପ୍ କରନ୍ତୁ।</string>
     <string name="interactive_tutorial_reject_with_msg_complete">ବର୍ତ୍ତମାନ ସନ୍ଦେଶ ସହ କିପରି କଲ୍ ପ୍ରତ୍ୟାଖ୍ୟାନ କରାଯାଇ ପାରିବ ତାହା ତାହା ଆପଣ ଜାଣନ୍ତି।</string>
@@ -355,28 +358,28 @@
     <string name="kor_psvt_data_connection_lost_lgt_uicc">କଲ୍ ଶେଷ ହୋଇଛି।</string>
     <string name="kor_psvt_invite_timeout_ktt">ଭିଡିଓ କଲଗୁଡିକ ଉପଲବ୍ଧ ନାହିଁ। ଭଏସ୍ କଲକୁ ସ୍ଵିଚ୍ ହେଉଛି…</string>
     <string name="kor_psvt_invite_timeout_skt_divert_auto_uicc">ଭିଡିଓ କଲଗୁଡିକ ଉପଲବ୍ଧ ନାହିଁ। ଭଏସ୍ କଲକୁ ସ୍ଵିଚ୍ ହେଉଛି…</string>
-    <string name="kor_psvt_invite_timeout_skt_divert_uicc">ଭିଡିଓ କଲ୍‌ଗୁଡିକ ଉପଲବ୍ଧ ନାହିଁ। ଭଏସ୍‍୍ କଲ୍ ପରିବର୍ତ୍ତେ ଚେଷ୍ଟା କରିବେ?</string>
-    <string name="kor_psvt_low_quality_by_far">ପ୍ରାପ୍ତେସୁଙ୍କ ଡିଭାଇସ୍‌ରେ ଅଧିକ ରିଜୋଲ୍ୟୁସନ ଭିଡିଓ କଲ୍‌ଗୁଡିକ ସମର୍ଥିତ ନୁହେଁ। ନିମ୍ନ ରିଜୋଲ୍ୟୁସନ୍ ବିଶିଷ୍ଟ ଭିଡିଓ କଲଗୁଡିକ ସ୍ଵିଚ୍ କରୁଛି…</string>
-    <string name="kor_psvt_low_quality_by_far_vzw">ପ୍ରାପ୍ତେସୁଙ୍କ ଡିଭାଇସ୍‌ରେ ଅଧିକ ରିଜୋଲ୍ୟୁସନ ଭିଡିଓ କଲ୍‌ଗୁଡିକ ସମର୍ଥିତ ନୁହେଁ। ନିମ୍ନ ରିଜୋଲ୍ୟୁସନ୍ ବିଶିଷ୍ଟ ଭିଡିଓ କଲଗୁଡିକ ସ୍ଵିଚ୍ କରୁଛି…</string>
+    <string name="kor_psvt_invite_timeout_skt_divert_uicc">ଭିଡିଓ କଲଗୁଡିକ ଉପଲବ୍ଧ ନାହିଁ। ଭଏସ୍‍୍ କଲ୍ ପରିବର୍ତ୍ତେ ଚେଷ୍ଟା କରିବେ?</string>
+    <string name="kor_psvt_low_quality_by_far">ପ୍ରାପ୍ତେସୁଙ୍କ ଡିଭାଇସ୍‌ରେ ଅଧିକ ରିଜୋଲ୍ୟୁସନ ଭିଡିଓ କଲଗୁଡିକ ସମର୍ଥିତ ନୁହେଁ। ନିମ୍ନ ରିଜୋଲ୍ୟୁସନ୍ ବିଶିଷ୍ଟ ଭିଡିଓ କଲଗୁଡିକ ସ୍ଵିଚ୍ କରୁଛି…</string>
+    <string name="kor_psvt_low_quality_by_far_vzw">ପ୍ରାପ୍ତେସୁଙ୍କ ଡିଭାଇସ୍‌ରେ ଅଧିକ ରିଜୋଲ୍ୟୁସନ ଭିଡିଓ କଲଗୁଡିକ ସମର୍ଥିତ ନୁହେଁ। ନିମ୍ନ ରିଜୋଲ୍ୟୁସନ୍ ବିଶିଷ୍ଟ ଭିଡିଓ କଲଗୁଡିକ ସ୍ଵିଚ୍ କରୁଛି…</string>
     <string name="kor_psvt_low_quality_by_near">ଯଦି ଆପଣ LTE ନେଟୱାର୍କ୍ ବ୍ୟବହାର କରୁନଥିବେ, ଅଡିଓ ଏବଂ ଭିଡିଓର ଗୁଣବତ୍ତା ନେଟୱାର୍କ୍ ପରିବେଶ ଉପରେ ନିର୍ଭର କରେ।</string>
     <string name="kor_psvt_network_handover_ktt">ଭିଡିଓ କଲ୍ ଶେଷ ହୋଇଛି। ଅନ୍ୟ ବ୍ୟକ୍ତି LTE କଭର୍ କ୍ଷେତ୍ର ବାହାରେ ଅଛନ୍ତି।</string>
     <string name="kor_psvt_network_handover_lgt_uicc">କଲ୍ ଶେଷ ହୋଇଛି।</string>
     <string name="kor_psvt_quality_qcif_3g">ଯଦି ଆପଣ LTE ନେଟୱାର୍କ୍ ବ୍ୟବହାର କରୁନଥିବେ, ଅଡିଓ ଏବଂ ଭିଡିଓର ଗୁଣବତ୍ତା ନେଟୱାର୍କ୍ ପରିବେଶ ଉପରେ ନିର୍ଭର କରେ।</string>
-    <string name="kor_psvt_quality_qcif_4g">ପ୍ରାପ୍ତେସୁଙ୍କ ଡିଭାଇସ୍‌ରେ ଅଧିକ ରିଜୋଲ୍ୟୁସନ ଭିଡିଓ କଲ୍‌ଗୁଡିକ ସମର୍ଥିତ ନୁହେଁ। ନିମ୍ନ ରିଜୋଲ୍ୟୁସନ୍ ବିଶିଷ୍ଟ ଭିଡିଓ କଲଗୁଡିକ ସ୍ଵିଚ୍ କରୁଛି…</string>
-    <string name="kor_psvt_quality_qcif_4g_vzw">ପ୍ରାପ୍ତେସୁଙ୍କ ଡିଭାଇସ୍‌ରେ ଅଧିକ ରିଜୋଲ୍ୟୁସନ ଭିଡିଓ କଲ୍‌ଗୁଡିକ ସମର୍ଥିତ ନୁହେଁ। ନିମ୍ନ ରିଜୋଲ୍ୟୁସନ୍ ବିଶିଷ୍ଟ ଭିଡିଓ କଲଗୁଡିକ ସ୍ଵିଚ୍ କରୁଛି…</string>
+    <string name="kor_psvt_quality_qcif_4g">ପ୍ରାପ୍ତେସୁଙ୍କ ଡିଭାଇସ୍‌ରେ ଅଧିକ ରିଜୋଲ୍ୟୁସନ ଭିଡିଓ କଲଗୁଡିକ ସମର୍ଥିତ ନୁହେଁ। ନିମ୍ନ ରିଜୋଲ୍ୟୁସନ୍ ବିଶିଷ୍ଟ ଭିଡିଓ କଲଗୁଡିକ ସ୍ଵିଚ୍ କରୁଛି…</string>
+    <string name="kor_psvt_quality_qcif_4g_vzw">ପ୍ରାପ୍ତେସୁଙ୍କ ଡିଭାଇସ୍‌ରେ ଅଧିକ ରିଜୋଲ୍ୟୁସନ ଭିଡିଓ କଲଗୁଡିକ ସମର୍ଥିତ ନୁହେଁ। ନିମ୍ନ ରିଜୋଲ୍ୟୁସନ୍ ବିଶିଷ୍ଟ ଭିଡିଓ କଲଗୁଡିକ ସ୍ଵିଚ୍ କରୁଛି…</string>
     <string name="kor_psvt_registration_failure_general_divert_auto_ktt">ଭିଡିଓ କଲଗୁଡିକ ଉପଲବ୍ଧ ନାହିଁ। ଭଏସ୍ କଲକୁ ସ୍ଵିଚ୍ ହେଉଛି…</string>
     <string name="kor_psvt_registration_failure_general_divert_auto_skt">ଭିଡିଓ କଲଗୁଡିକ ଉପଲବ୍ଧ ନାହିଁ। ଭଏସ୍ କଲକୁ ସ୍ଵିଚ୍ ହେଉଛି…</string>
-    <string name="kor_psvt_registration_failure_general_divert_ktt">ଭିଡିଓ କଲ୍‌ଗୁଡିକ ଉପଲବ୍ଧ ନାହିଁ। ଭଏସ୍‍୍ କଲ୍ ପରିବର୍ତ୍ତେ ଚେଷ୍ଟା କରିବେ?</string>
-    <string name="kor_psvt_registration_failure_general_divert_skt">ଭିଡିଓ କଲ୍‌ଗୁଡିକ ଉପଲବ୍ଧ ନାହିଁ। ଭଏସ୍‍୍ କଲ୍ ପରିବର୍ତ୍ତେ ଚେଷ୍ଟା କରିବେ?</string>
+    <string name="kor_psvt_registration_failure_general_divert_ktt">ଭିଡିଓ କଲଗୁଡିକ ଉପଲବ୍ଧ ନାହିଁ। ଭଏସ୍‍୍ କଲ୍ ପରିବର୍ତ୍ତେ ଚେଷ୍ଟା କରିବେ?</string>
+    <string name="kor_psvt_registration_failure_general_divert_skt">ଭିଡିଓ କଲଗୁଡିକ ଉପଲବ୍ଧ ନାହିଁ। ଭଏସ୍‍୍ କଲ୍ ପରିବର୍ତ୍ତେ ଚେଷ୍ଟା କରିବେ?</string>
     <string name="kor_psvt_rtp_timeout">ଭିଡିଓ କଲ୍ ଶେଷ ହେବ। ନିର୍ଦ୍ଧିଷ୍ଟ ସମୟରେ କୌଣସି ଡାଟା ପ୍ରାପ୍ତ ହୋଇନାହିଁ।</string>
-    <string name="kor_psvt_session_380_divert">ଭିଡିଓ କଲ୍‌ଗୁଡିକ ଉପଲବ୍ଧ ନାହିଁ। ଭଏସ୍‍୍ କଲ୍ ପରିବର୍ତ୍ତେ ଚେଷ୍ଟା କରିବେ?</string>
+    <string name="kor_psvt_session_380_divert">ଭିଡିଓ କଲଗୁଡିକ ଉପଲବ୍ଧ ନାହିଁ। ଭଏସ୍‍୍ କଲ୍ ପରିବର୍ତ୍ତେ ଚେଷ୍ଟା କରିବେ?</string>
     <string name="kor_psvt_session_380_divert_auto">ଭିଡିଓ କଲଗୁଡିକ ଉପଲବ୍ଧ ନାହିଁ। ଭଏସ୍ କଲକୁ ସ୍ଵିଚ୍ ହେଉଛି…</string>
     <string name="kor_psvt_session_380_divert_auto_lgt_uicc">ଭିଡିଓ କଲଗୁଡିକ ଅସ୍ଥାୟୀ ଭାବେ ଉପଲବ୍ଧ ନାହିଁ। ଭଏସ୍ କଲକୁ କଲ୍ ସ୍ଵିଚ୍ ହୋଇଛି।</string>
     <string name="kor_psvt_session_403">ନେଟୱାର୍କ୍ ଉପଲବ୍ଧ ନାହିଁ କିମ୍ଵା ଏହି ନମ୍ଵର୍ ଆଗମନ କଲ୍ କରିବା ଠାରୁ ଅବରୋଧିତ କରିଛି।</string>
     <string name="kor_psvt_session_403_cause1107">କଲ୍‌ କରିବାକୁ ଅସମର୍ଥ। ଆପଣଙ୍କ ଚୁକ୍ତି ସମୟସୀମା ସମାପ୍ତ ହୋଇଛି।</string>
-    <string name="kor_psvt_session_403_cause2065">କଲ୍‌ କରିବାକୁ ଅସମର୍ଥ। ଅସ୍ଥାୟୀ ନେଟ୍‌ୱାର୍କ୍ ତ୍ରୁଟି ଘଟିଛି। ସେଟିଂରେ 3G/4G ଡାଟା ନେଟ୍‌ୱାର୍କ୍ ଅକ୍ଷମ କରନ୍ତୁ, ତାପରେ ଏହା ସକ୍ଷମ କରନ୍ତୁ ଏବଂ ପୁନଃ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
+    <string name="kor_psvt_session_403_cause2065">କଲ୍‌ କରିବାକୁ ଅସମର୍ଥ। ଅସ୍ଥାୟୀ ନେଟୱାର୍କ୍ ତ୍ରୁଟି ଘଟିଛି। ସେଟିଂସରେ 3G/4G ଡାଟା ନେଟୱାର୍କ୍ ଅକ୍ଷମ କରନ୍ତୁ, ତାପରେ ଏହା ସକ୍ଷମ କରି ପୁନଃଚେଷ୍ଟା କରନ୍ତୁ।</string>
     <string name="kor_psvt_session_403_cause2065_single">ଭଏସ୍ କିମ୍ଵା ଭିଡିଓ କଲ୍ କରିବାକୁ ଅସମର୍ଥ। ଆପଣଙ୍କ ଡିଭାଇସ୍ ପୁନଃଆରମ୍ଭ କରିବା ପରେ ଯଦି ଅସୁବିଧା ବିଦ୍ୟମାନ ରହିଛି, ଗ୍ରାହାକ ସେବା କେନ୍ଦ୍ର (%s) ସହିତ ସମ୍ପର୍କ କରନ୍ତୁ।</string>
-    <string name="kor_psvt_session_403_cause2065_vzw">କଲ୍‌ କରିବାକୁ ଅସମର୍ଥ। ଅସ୍ଥାୟୀ ନେଟ୍‌ୱାର୍କ୍ ତ୍ରୁଟି ଘଟିଛି। ସେଟିଂରେ 3G/4G ଡାଟା ନେଟ୍‌ୱାର୍କ୍ ଅକ୍ଷମ କରନ୍ତୁ, ତାପରେ ଏହା ସକ୍ଷମ କରନ୍ତୁ ଏବଂ ପୁନଃ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
+    <string name="kor_psvt_session_403_cause2065_vzw">କଲ୍‌ କରିବାକୁ ଅସମର୍ଥ। ଅସ୍ଥାୟୀ ନେଟୱାର୍କ୍ ତ୍ରୁଟି ଘଟିଛି। ସେଟିଂସରେ 3G/4G ଡାଟା ନେଟୱାର୍କ୍ ଅକ୍ଷମ କରନ୍ତୁ, ତାପରେ ଏହା ସକ୍ଷମ କରି ପୁନଃଚେଷ୍ଟା କରନ୍ତୁ।</string>
     <string name="kor_psvt_session_403_cause4021">ଏକ ସେବା ପ୍ଲାନ୍‌କୁ ଗୋଷ୍ଠୀ କଲିଂ ଏକ ଗ୍ରହିତା ଆବଶ୍ୟକ କରେ। ଗ୍ରହିତାକୁ ଗ୍ରାହାକ କେନ୍ଦ୍ର ସମ୍ପର୍କ କରନ୍ତୁ।</string>
     <string name="kor_psvt_session_403_cause4021_single">ଆପଣଙ୍କ ଡିଭାଇସ୍‌ ପଞ୍ଜିକୃତ ହୋଇନାହିଁ। ଆପଣଙ୍କ ଡିଭାଇସ୍‌ ଟର୍ନ୍ ଅଫ୍ କରନ୍ତୁ, ତାପରେ ପୁନଃ ଏହାକୁ ଫେରାନ୍ତୁ। ଯଦି ଏହି ସନ୍ଦେଶ ପୁଣି ଦୃଶ୍ୟଲବ୍ଧ ହେବ, ଗ୍ରାହାକ କେନ୍ଦ୍ର (%s) ସହିତ ଯୋଗାଯୋଗ କରନ୍ତୁ।</string>
     <string name="kor_psvt_session_403_cause4053">ନେଟୱାର୍କ୍ ଉପଲବ୍ଧ ନାହିଁ କିମ୍ଵା ଏହି ନମ୍ଵର୍ ଆଗମନ କଲ୍ କରିବା ଠାରୁ ଅବରୋଧିତ କରିଛି।</string>
@@ -391,8 +394,8 @@
     <string name="kor_psvt_session_406_divert_auto_lgt_uicc">ଭିଡିଓ କଲଗୁଡିକ ଅସ୍ଥାୟୀ ଭାବେ ଉପଲବ୍ଧ ନାହିଁ। ଭଏସ୍ କଲକୁ କଲ୍ ସ୍ଵିଚ୍ ହୋଇଛି।</string>
     <string name="kor_psvt_session_408">କୌଣସି ଉତ୍ତର ନାହିଁ। ପରେ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
     <string name="kor_psvt_session_408_lgt_uicc">ଭିଡିଓ କଲ୍ ପ୍ରାପ୍ତେସୁରୁ କୌଣସି ଉତ୍ତର ନାହିଁ। ପରେ ପୁନଃଚେଷ୍ଟା କରନ୍ତୁ।</string>
-    <string name="kor_psvt_session_415_divert">ଭିଡିଓ କଲ୍‌ଗୁଡିକ ଏହି ପ୍ରାପ୍ତେସୁ ପାଇଁ ଉପଲବ୍ଧ ନାହିଁ। ପରିବର୍ତ୍ତେ ଭଏସ୍‍୍ କଲ୍ ବର୍ତ୍ତମାନ ଚେଷ୍ଟା କରିବେ?</string>
-    <string name="kor_psvt_session_415_divert_auto">ଭିଡିଓ କଲ୍‌ଗୁଡିକ ଏହି ପ୍ରାପ୍ତେସୁ ପାଇଁ ଉପଲବ୍ଧ ନାହିଁ। ଭଏସ୍ କଲ୍‌କୁ ସୁଇଚ୍ କରୁଛି…</string>
+    <string name="kor_psvt_session_415_divert">ଭିଡିଓ କଲଗୁଡିକ ଏହି ପ୍ରାପ୍ତେସୁ ପାଇଁ ଉପଲବ୍ଧ ନାହିଁ। ପରିବର୍ତ୍ତେ ଭଏସ୍‍୍ କଲ୍ ବର୍ତ୍ତମାନ ଚେଷ୍ଟା କରିବେ?</string>
+    <string name="kor_psvt_session_415_divert_auto">ଭିଡିଓ କଲଗୁଡିକ ଏହି ପ୍ରାପ୍ତେସୁ ପାଇଁ ଉପଲବ୍ଧ ନାହିଁ। ଭଏସ୍ କଲକୁ ସ୍ଵିଚ୍ କରୁଛି…</string>
     <string name="kor_psvt_session_415_divert_auto_lgt_uicc">ପ୍ରାପ୍ତେସୁଙ୍କ ଡିଭାଇସ୍ ଦ୍ଵାରା ଭିଡିଓ କଲଗୁଡିକ ସମର୍ଥିତ ନୁହେଁ। ଭଏସ୍ କଲକୁ କଲ୍ ସ୍ଵିଚ୍ ହୋଇଛି।</string>
     <string name="kor_psvt_session_415_divert_lgt">ପ୍ରାପ୍ତେସୁଙ୍କ ଡିଭାଇସ୍‌ ଦ୍ଵାରା ଭିଡିଓ କଲ୍ ସମର୍ଥିତ ନୁହେଁ। ଭଏସ୍‍୍ କଲ୍ ପରିବର୍ତ୍ତେ ଚେଷ୍ଟା କରିବେ?</string>
     <string name="kor_psvt_session_415_divert_lgt_uicc">ପ୍ରାପ୍ତେସୁଙ୍କ ଡିଭାଇସ୍ ଦ୍ଵାରା ଭିଡିଓ କଲଗୁଡିକ ସମର୍ଥିତ ନୁହେଁ। ଭଏସ୍ କଲକୁ କଲ୍ ସ୍ଵିଚ୍ ହେବ।</string>
@@ -402,8 +405,8 @@
     <string name="kor_psvt_session_420_divert_auto_lgt_uicc">ଭିଡିଓ କଲଗୁଡିକ ଅସ୍ଥାୟୀ ଭାବେ ଉପଲବ୍ଧ ନାହିଁ। ଭଏସ୍ କଲକୁ କଲ୍ ସ୍ଵିଚ୍ ହୋଇଛି।</string>
     <string name="kor_psvt_session_420_divert_lgt_uicc">ଭିଡିଓ କଲଗୁଡିକ ଅସ୍ଥାୟୀ ଭାବରେ ଉପଲବ୍ଧ ନାହିଁ। କଲ୍ ଏକ ଭଏସ୍‌ କଲକୁ ସ୍ଵିଚ୍ ହେବ।</string>
     <string name="kor_psvt_session_480_cause415_divert_auto">ଭିଡିଓ କଲଗୁଡିକ ଉପଲବ୍ଧ ନାହିଁ। ଭଏସ୍ କଲକୁ ସ୍ଵିଚ୍ ହେଉଛି…</string>
-    <string name="kor_psvt_session_480_divert">ଭିଡିଓ କଲ୍‌ଗୁଡିକ ଏହି ପ୍ରାପ୍ତେସୁ ପାଇଁ ଉପଲବ୍ଧ ନାହିଁ। ପରିବର୍ତ୍ତେ ଭଏସ୍‍୍ କଲ୍ ବର୍ତ୍ତମାନ ଚେଷ୍ଟା କରିବେ?</string>
-    <string name="kor_psvt_session_480_divert_auto">ଭିଡିଓ କଲ୍‌ଗୁଡିକ ଏହି ପ୍ରାପ୍ତେସୁ ପାଇଁ ଉପଲବ୍ଧ ନାହିଁ। ଭଏସ୍ କଲ୍‌କୁ ସୁଇଚ୍ କରୁଛି…</string>
+    <string name="kor_psvt_session_480_divert">ଭିଡିଓ କଲଗୁଡିକ ଏହି ପ୍ରାପ୍ତେସୁ ପାଇଁ ଉପଲବ୍ଧ ନାହିଁ। ପରିବର୍ତ୍ତେ ଭଏସ୍‍୍ କଲ୍ ବର୍ତ୍ତମାନ ଚେଷ୍ଟା କରିବେ?</string>
+    <string name="kor_psvt_session_480_divert_auto">ଭିଡିଓ କଲଗୁଡିକ ଏହି ପ୍ରାପ୍ତେସୁ ପାଇଁ ଉପଲବ୍ଧ ନାହିଁ। ଭଏସ୍ କଲକୁ ସ୍ଵିଚ୍ କରୁଛି…</string>
     <string name="kor_psvt_session_480_divert_auto_lgt_uicc">ଭିଡିଓ କଲଗୁଡିକ ଅସ୍ଥାୟୀ ଭାବେ ଉପଲବ୍ଧ ନାହିଁ। ଭଏସ୍ କଲକୁ କଲ୍ ସ୍ଵିଚ୍ ହୋଇଛି।</string>
     <string name="kor_psvt_session_480_divert_lgt_uicc">ଭିଡିଓ କଲଗୁଡିକ ଅସ୍ଥାୟୀ ଭାବରେ ଉପଲବ୍ଧ ନାହିଁ। କଲ୍ ଏକ ଭଏସ୍‌ କଲକୁ ସ୍ଵିଚ୍ ହେବ।</string>
     <string name="kor_psvt_session_484">ପ୍ରାପ୍ତେସୁ ନମ୍ଵର୍ ବୈଧ ନୁହେଁ।</string>
@@ -413,11 +416,11 @@
     <string name="kor_psvt_session_487_lgt_uicc">ଭିଡିଓ କଲ୍ ପ୍ରାପ୍ତେସୁରୁ କୌଣସି ଉତ୍ତର ନାହିଁ। ପରେ ପୁନଃଚେଷ୍ଟା କରନ୍ତୁ।</string>
     <string name="kor_psvt_session_488_divert_auto_lgt_uicc">ଭିଡିଓ କଲଗୁଡିକ ଅସ୍ଥାୟୀ ଭାବେ ଉପଲବ୍ଧ ନାହିଁ। ଭଏସ୍ କଲକୁ କଲ୍ ସ୍ଵିଚ୍ ହୋଇଛି।</string>
     <string name="kor_psvt_session_488_divert_lgt_uicc">ଭିଡିଓ କଲଗୁଡିକ ଅସ୍ଥାୟୀ ଭାବରେ ଉପଲବ୍ଧ ନାହିଁ। କଲ୍ ଏକ ଭଏସ୍‌ କଲକୁ ସ୍ଵିଚ୍ ହେବ।</string>
-    <string name="kor_psvt_session_499_divert">ଭିଡିଓ କଲ୍‌ଗୁଡିକ ଏହି ପ୍ରାପ୍ତେସୁ ପାଇଁ ଉପଲବ୍ଧ ନାହିଁ। ପରିବର୍ତ୍ତେ ଭଏସ୍‍୍ କଲ୍ ବର୍ତ୍ତମାନ ଚେଷ୍ଟା କରିବେ?</string>
-    <string name="kor_psvt_session_499_divert_auto">ଭିଡିଓ କଲ୍‌ଗୁଡିକ ଏହି ପ୍ରାପ୍ତେସୁ ପାଇଁ ଉପଲବ୍ଧ ନାହିଁ। ଭଏସ୍ କଲ୍‌କୁ ସୁଇଚ୍ କରୁଛି…</string>
+    <string name="kor_psvt_session_499_divert">ଭିଡିଓ କଲଗୁଡିକ ଏହି ପ୍ରାପ୍ତେସୁ ପାଇଁ ଉପଲବ୍ଧ ନାହିଁ। ପରିବର୍ତ୍ତେ ଭଏସ୍‍୍ କଲ୍ ବର୍ତ୍ତମାନ ଚେଷ୍ଟା କରିବେ?</string>
+    <string name="kor_psvt_session_499_divert_auto">ଭିଡିଓ କଲଗୁଡିକ ଏହି ପ୍ରାପ୍ତେସୁ ପାଇଁ ଉପଲବ୍ଧ ନାହିଁ। ଭଏସ୍ କଲକୁ ସ୍ଵିଚ୍ କରୁଛି…</string>
     <string name="kor_psvt_session_499_divert_auto_lgt_uicc">ଭିଡିଓ କଲଗୁଡିକ ଅସ୍ଥାୟୀ ଭାବେ ଉପଲବ୍ଧ ନାହିଁ। ଭଏସ୍ କଲକୁ କଲ୍ ସ୍ଵିଚ୍ ହୋଇଛି।</string>
     <string name="kor_psvt_session_499_divert_lgt_uicc">ଭିଡିଓ କଲଗୁଡିକ ଅସ୍ଥାୟୀ ଭାବରେ ଉପଲବ୍ଧ ନାହିଁ। କଲ୍ ଏକ ଭଏସ୍‌ କଲକୁ ସ୍ଵିଚ୍ ହେବ।</string>
-    <string name="kor_psvt_session_500">ଭିଡିଓ କଲ୍‌ଗୁଡିକ ଉପଲବ୍ଧ ନାହିଁ। ପରେ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
+    <string name="kor_psvt_session_500">ଭିଡିଓ କଲଗୁଡିକ ଉପଲବ୍ଧ ନାହିଁ। ପରେ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
     <string name="kor_psvt_session_500_divert_auto_lgt_uicc">ଭିଡିଓ କଲଗୁଡିକ ଅସ୍ଥାୟୀ ଭାବେ ଉପଲବ୍ଧ ନାହିଁ। ଭଏସ୍ କଲକୁ କଲ୍ ସ୍ଵିଚ୍ ହୋଇଛି।</string>
     <string name="kor_psvt_session_500_divert_lgt_uicc">ଭିଡିଓ କଲଗୁଡିକ ଅସ୍ଥାୟୀ ଭାବରେ ଉପଲବ୍ଧ ନାହିଁ। କଲ୍ ଏକ ଭଏସ୍‌ କଲକୁ ସ୍ଵିଚ୍ ହେବ।</string>
     <string name="kor_psvt_session_500_ktt">ଭିଡିଓ କଲଗୁଡିକ ଉପଲବ୍ଧ ନାହିଁ। ଭଏସ୍ କଲକୁ ସ୍ଵିଚ୍ ହେଉଛି…</string>
@@ -425,7 +428,7 @@
     <string name="kor_psvt_session_503_divert_auto_lgt_uicc">ଭିଡିଓ କଲଗୁଡିକ ଅସ୍ଥାୟୀ ଭାବେ ଉପଲବ୍ଧ ନାହିଁ। ଭଏସ୍ କଲକୁ କଲ୍ ସ୍ଵିଚ୍ ହୋଇଛି।</string>
     <string name="kor_psvt_session_503_divert_lgt_uicc">ଭିଡିଓ କଲଗୁଡିକ ଅସ୍ଥାୟୀ ଭାବରେ ଉପଲବ୍ଧ ନାହିଁ। କଲ୍ ଏକ ଭଏସ୍‌ କଲକୁ ସ୍ଵିଚ୍ ହେବ।</string>
     <string name="kor_psvt_session_503_ktt">ଭିଡିଓ କଲଗୁଡିକ ଉପଲବ୍ଧ ନାହିଁ। ଭଏସ୍ କଲକୁ ସ୍ଵିଚ୍ ହେଉଛି…</string>
-    <string name="kor_psvt_session_504">ଭିଡିଓ କଲ୍‌ଗୁଡିକ ଉପଲବ୍ଧ ନାହିଁ। ପରେ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
+    <string name="kor_psvt_session_504">ଭିଡିଓ କଲଗୁଡିକ ଉପଲବ୍ଧ ନାହିଁ। ପରେ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
     <string name="kor_psvt_session_504_divert_auto_lgt_uicc">ଭିଡିଓ କଲଗୁଡିକ ଅସ୍ଥାୟୀ ଭାବେ ଉପଲବ୍ଧ ନାହିଁ। ଭଏସ୍ କଲକୁ କଲ୍ ସ୍ଵିଚ୍ ହୋଇଛି।</string>
     <string name="kor_psvt_session_504_divert_lgt_uicc">ଭିଡିଓ କଲଗୁଡିକ ଅସ୍ଥାୟୀ ଭାବରେ ଉପଲବ୍ଧ ନାହିଁ। କଲ୍ ଏକ ଭଏସ୍‌ କଲକୁ ସ୍ଵିଚ୍ ହେବ।</string>
     <string name="kor_psvt_session_504_ktt">ଭିଡିଓ କଲଗୁଡିକ ଉପଲବ୍ଧ ନାହିଁ। ଭଏସ୍ କଲକୁ ସ୍ଵିଚ୍ ହେଉଛି…</string>
@@ -443,9 +446,9 @@
     <string name="kor_volte_network_handover">ନେଟୱାର୍କ୍‌ ସଂଯୋଜନା ତ୍ରୁଟି। କଲ୍ ଶେଷ ହୋଇଛି।</string>
     <string name="kor_volte_rtp_timeout">HD ଭଏସ୍ କଲ୍ ଶେଷ ହେବ। ନିର୍ଦ୍ଧିଷ୍ଟ ସମୟ ମଧ୍ୟରେ କୌଣସି ଡାଟା ପ୍ରାପ୍ତ ହୋଇନାହିଁ।</string>
     <string name="kor_volte_session_403_cause1107">କଲ୍‌ କରିବାକୁ ଅସମର୍ଥ। ଆପଣଙ୍କ ଚୁକ୍ତି ସମୟସୀମା ସମାପ୍ତ ହୋଇଛି।</string>
-    <string name="kor_volte_session_403_cause2065">କଲ୍‌ କରିବାକୁ ଅସମର୍ଥ। ଅସ୍ଥାୟୀ ନେଟ୍‌ୱାର୍କ୍ ତ୍ରୁଟି ଘଟିଛି। ସେଟିଂରେ 3G/4G ଡାଟା ନେଟ୍‌ୱାର୍କ୍ ଅକ୍ଷମ କରନ୍ତୁ, ତାପରେ ଏହା ସକ୍ଷମ କରନ୍ତୁ ଏବଂ ପୁନଃ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
+    <string name="kor_volte_session_403_cause2065">କଲ୍‌ କରିବାକୁ ଅସମର୍ଥ। ଅସ୍ଥାୟୀ ନେଟୱାର୍କ୍ ତ୍ରୁଟି ଘଟିଛି। ସେଟିଂସରେ 3G/4G ଡାଟା ନେଟୱାର୍କ୍ ଅକ୍ଷମ କରନ୍ତୁ, ତାପରେ ଏହା ସକ୍ଷମ କରି ପୁନଃଚେଷ୍ଟା କରନ୍ତୁ।</string>
     <string name="kor_volte_session_403_cause2065_single">ଭଏସ୍ କିମ୍ଵା ଭିଡିଓ କଲ୍ କରିବାକୁ ଅସମର୍ଥ। ଆପଣଙ୍କ ଡିଭାଇସ୍ ପୁନଃଆରମ୍ଭ କରିବା ପରେ ଯଦି ଅସୁବିଧା ବିଦ୍ୟମାନ ରହିଛି, ଗ୍ରାହାକ ସେବା କେନ୍ଦ୍ର (%s) ସହିତ ସମ୍ପର୍କ କରନ୍ତୁ।</string>
-    <string name="kor_volte_session_403_cause2065_vzw">କଲ୍‌ କରିବାକୁ ଅସମର୍ଥ। ଅସ୍ଥାୟୀ ନେଟ୍‌ୱାର୍କ୍ ତ୍ରୁଟି ଘଟିଛି। ସେଟିଂରେ 3G/4G ଡାଟା ନେଟ୍‌ୱାର୍କ୍ ଅକ୍ଷମ କରନ୍ତୁ, ତାପରେ ଏହା ସକ୍ଷମ କରନ୍ତୁ ଏବଂ ପୁନଃ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
+    <string name="kor_volte_session_403_cause2065_vzw">କଲ୍‌ କରିବାକୁ ଅସମର୍ଥ। ଅସ୍ଥାୟୀ ନେଟୱାର୍କ୍ ତ୍ରୁଟି ଘଟିଛି। ସେଟିଂସରେ 3G/4G ଡାଟା ନେଟୱାର୍କ୍ ଅକ୍ଷମ କରନ୍ତୁ, ତାପରେ ଏହା ସକ୍ଷମ କରି ପୁନଃଚେଷ୍ଟା କରନ୍ତୁ।</string>
     <string name="kor_volte_session_403_cause4021">ଏକ ସେବା ପ୍ଲାନ୍‌କୁ ଗୋଷ୍ଠୀ କଲିଂ ଏକ ଗ୍ରହିତା ଆବଶ୍ୟକ କରେ। ଗ୍ରହିତାକୁ ଗ୍ରାହାକ କେନ୍ଦ୍ର ସମ୍ପର୍କ କରନ୍ତୁ।</string>
     <string name="kor_volte_session_403_cause4021_single">ଆପଣଙ୍କ ଡିଭାଇସ୍‌ ପଞ୍ଜିକୃତ ହୋଇନାହିଁ। ଆପଣଙ୍କ ଡିଭାଇସ୍‌ ଟର୍ନ୍ ଅଫ୍ କରନ୍ତୁ, ତାପରେ ପୁନଃ ଏହାକୁ ଫେରାନ୍ତୁ। ଯଦି ଏହି ସନ୍ଦେଶ ପୁଣି ଦୃଶ୍ୟଲବ୍ଧ ହେବ, ଗ୍ରାହାକ କେନ୍ଦ୍ର (%s) ସହିତ ଯୋଗାଯୋଗ କରନ୍ତୁ।</string>
     <string name="kor_volte_session_403_cause4053">ନେଟୱାର୍କ୍ ଉପଲବ୍ଧ ନାହିଁ କିମ୍ଵା ଏହି ନମ୍ଵର୍ ଆଗମନ କଲ୍ କରିବା ଠାରୁ ଅବରୋଧିତ କରିଛି।</string>
@@ -455,7 +458,7 @@
     <string name="kor_volte_session_404">HD ଭଏସ୍ କଲ୍ ଉପଲବ୍ଧ ନାହିଁ। ଏହି କଲ୍ ସଧାରଣ ଗୁଣବତ୍ତାକୁ ସ୍ଵିଚ୍ ହେବ।</string>
     <string name="kor_volte_session_408">HD ଭଏସ୍ କଲ୍ ଉପଲବ୍ଧ ନାହିଁ। ପରେ ପୁନଃଚେଷ୍ଟା କରନ୍ତୁ।</string>
     <string name="kor_volte_session_415">HD ଭଏସ୍ କଲ୍ ଉପଲବ୍ଧ ନାହିଁ। ଏହି କଲ୍ ସଧାରଣ ଗୁଣବତ୍ତାକୁ ସ୍ଵିଚ୍ ହେବ।</string>
-    <string name="kor_volte_session_415_divert_lgt">VoLTE କଲ୍‌ଗୁଡିକ ଏହି ନମ୍ଵର୍ ପାଇଁ ଉପଲବ୍ଧ ନାହିଁ। ପରିବର୍ତ୍ତେ ଭଏସ୍ କଲ୍ ଚେଷ୍ଟା କରିବେ?</string>
+    <string name="kor_volte_session_415_divert_lgt">VoLTE କଲଗୁଡିକ ଏହି ନମ୍ଵର୍ ପାଇଁ ଉପଲବ୍ଧ ନାହିଁ। ପରିବର୍ତ୍ତେ ଭଏସ୍ କଲ୍ ଚେଷ୍ଟା କରିବେ?</string>
     <string name="kor_volte_session_415_ktt">HD ଭଏସ୍ କଲ୍ ଉପଲବ୍ଧ ନାହିଁ। ଏହି କଲ୍ ସଧାରଣ ଗୁଣବତ୍ତାକୁ ସ୍ଵିଚ୍ ହେବ।</string>
     <string name="kor_volte_session_415_lgt_single">ଭଏସ୍ କିମ୍ଵା ଭିଡିଓ କଲଗୁଡିକ ପ୍ରସ୍ତୁତ କରିବାକୁ ଅସମର୍ଥ। ନେଟୱାର୍କ୍‌ ଅସ୍ଥାୟୀ ଭାବେ ଅନୁପଲବ୍ଧ ଅଛି। ପରେ ପୁନଃଚେଷ୍ଟା କରନ୍ତୁ।</string>
     <string name="kor_volte_session_480">HD ଭଏସ୍ କଲ୍ ଉପଲବ୍ଧ ନାହିଁ। ପରେ ପୁନଃଚେଷ୍ଟା କରନ୍ତୁ।</string>
@@ -472,10 +475,10 @@
     <string name="kor_volte_session_603">କୌଣସି ଉତ୍ତର ନାହିଁ। ପରେ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
     <string name="kor_volte_session_timeout">HD ଭଏସ୍ କଲ୍ ଶେଷ ହେବ। ନିର୍ଦ୍ଧାରିତ ସମୟ ମଧ୍ୟରେ କୌଣସି ଡାଟା ପ୍ରାପ୍ତ ହୋଇନାହିଁ।</string>
     <string name="kt_mo_nomal_quality_video_call">କଲ୍ ପାଇଁ କେବଳ ସାଧାରଣ ଗୁଣବତ୍ତା ଉପଲବ୍ଧ। ଡିଭାଇସ୍ 3G ନେଟୱାର୍କକୁ ପ୍ରତିବନ୍ଧିତ।</string>
-    <string name="kt_mo_requested_video_call">ଯଦି ଆପଣ ଏହି ଭିଡିଓ କଲର ଉତ୍ତର ଦିଅନ୍ତି, ତେବେ ଆପଣଙ୍କୁ ପ୍ରଦାନର କରାଯାଇଥିବା ପରିକଳ୍ପନା ଅନୁସାରେ ଆପଣଙ୍କୁ ଦେୟ ଯୋଜନା ଲାଗୁ ହେବ।</string>
+    <string name="kt_mo_requested_video_call">ଯଦି ଆପଣ ଏହି ଭିଡିଓ କଲର ଉତ୍ତର ଦିଅନ୍ତି, ତେବେ ଆପଣଙ୍କୁ ପ୍ରଦାନ କରାଯାଇଥିବା ପରିକଳ୍ପନା ଅନୁସାରେ ଆପଣଙ୍କୁ ଦେୟ ଯୋଜନା ଲାଗୁ ହେବ।</string>
     <string name="kt_mo_upgrade_request">ଏହି ଭିଡିଓ କଲ୍ ପାଇଁ ଆପଣଙ୍କୁ ଆପଣଙ୍କ ଦେୟ ଯୋଜନା ଅନୁସାରେ ଚାର୍ଜ ହେବ।</string>
     <string name="kt_mt_requested_video_call">ଭିଡିଓ କଲ୍ ସଂଯୋଜିତ ହେବ।</string>
-    <string name="kt_nomal_quality_video_call">ଅନ୍ୟ ପକ୍ଷରେ ସଂଯୋଜନା ସ୍ଥିତିର କାରଣରେ କଲ୍‌ ପାଇଁ କେବଳ ସାଧାରଣ ଗୁଣବତ୍ତା ଉପଲବ୍ଧ।</string>
+    <string name="kt_nomal_quality_video_call">ଅନ୍ୟ ପକ୍ଷରେ ସଂଯୋଜନା ସ୍ଥିତିର କାରଣ କଲ୍‌ ପାଇଁ କେବଳ ସାଧାରଣ ଗୁଣବତ୍ତା ଉପଲବ୍ଧ।</string>
     <string name="kt_nomal_quality_video_call_3g">କଲ୍ ପାଇଁ କେବଳ ସାଧାରଣ ଗୁଣବତ୍ତା ଉପଲବ୍ଧ। ଅନ୍ୟ ପକ୍ଷରେ ଡିଭାଇସ୍ 3G ନେଟୱାର୍କକୁ ପ୍ରତିବନ୍ଧିତ।</string>
     <string name="label_notes">ଟିପ୍ପଣୀଗୁଡିକ</string>
     <string name="label_sip_address">ଇଣ୍ଟର୍ନେଟ୍ କଲ୍</string>
@@ -486,12 +489,12 @@ IVR କଲ୍‌ ସ୍କ୍ରିନ୍‌ ମେନୁ Dianhuabang ନାମ�
     <string name="legal_pupup_title">ଆଇନଗତ ସୂଚନା</string>
     <string name="lock_screen_during_call_double_tab">ଅନଲକ୍ କରିବାକୁ ଦୁଇଥର ଟ୍ୟାପ୍ କରନ୍ତୁ</string>
     <string name="long_click_guide">ଟର୍ନ୍ ଅନ୍/ଅଫ୍ କରିବାକୁ ଟ୍ୟାପ୍ ଏବଂ ହୋଲ୍ଡ କରନ୍ତୁ।</string>
-    <string name="low_batt_upgrade_disallowed">ଭିଡିଓ କଲ୍‌କୁ ସୁଇଚ୍ କରିବାକୁ ଅସମର୍ଥ। ବ୍ୟାଟେରୀ କମ୍ ହୋଇଛି।</string>
+    <string name="low_batt_upgrade_disallowed">ଭିଡିଓ କଲକୁ ସ୍ଵିଚ୍ କରିବାକୁ ଅସମର୍ଥ। ବ୍ୟାଟେରୀ କମ ହୋଇଛି।</string>
     <string name="main_number_item">ମୁଖ୍ୟ</string>
-    <string name="map_custom">%s ଠିକଣା ଦର୍ଶନ କରନ୍ତୁ।</string>
+    <string name="map_custom">%s ଠିକଣା ଦର୍ଶନ କରନ୍ତୁ</string>
     <string name="map_home">ଘର ଠିକଣା ଦେଖନ୍ତୁ</string>
     <string name="map_other">ଠିକଣା ଦେଖନ୍ତୁ</string>
-    <string name="map_work">କାର୍ଯ୍ୟ ଠିକଣା ଦର୍ଶନ କରନ୍ତୁ।</string>
+    <string name="map_work">କାର୍ଯ୍ୟ ଠିକଣା ଦର୍ଶନ କରନ୍ତୁ</string>
     <string name="mcidshowme_block_toast">Show me ମାଧ୍ୟମରେ ଆପଣଙ୍କୁ ପ୍ରେରିତ ମିଡିଆରୁ ସମ୍ପର୍କ ଅବରୋଧ ହୋଇଛି।</string>
     <string name="mcidshowme_toast_mobile_data_off">ଆପଣ ଏକ ମୋବାଇଲ୍‌ ନେଟୱାର୍କ୍ ସହ ସଂଯୋଜିତ ହୋଇନାହାଁନ୍ତି Show me ମାଧ୍ୟମରେ ଅନ୍ୟ ପକ୍ଷ ଦ୍ୱାରା ଆପଣଙ୍କୁ ଏପରି ବିଷୟବସ୍ତୁ ପ୍ରେରିତ ହୋଇଥାଇପାରେ ଆପଣ ଯାହା ଦର୍ଶନ କରିବାକୁ ଅସମର୍ଥ।</string>
     <string name="mcidshowme_unblock_toast">Show me ମାଧ୍ୟମରେ ଆପଣଙ୍କୁ ପ୍ରେରିତ ମିଡିଆରୁ ସମ୍ପର୍କ ଅନାବରୋଧିତ ହୋଇଛି।</string>
@@ -503,7 +506,7 @@ IVR କଲ୍‌ ସ୍କ୍ରିନ୍‌ ମେନୁ Dianhuabang ନାମ�
     <string name="message_content_without_auth_other_new">"ସରଳ ଅଂଶୀଦାର ମାଧ୍ୟମରେ ଫାଇଲଗୁଡିକ ଅଂଶୀଦାର ହୋଇଛି:
 %1$s (ସମୟସୀମା ସମାପ୍ତ: %2$s)"</string>
     <string name="message_greeting">ଅଭିନନ୍ଦନ</string>
-    <string name="modify_to_video_start">ଭିଡିଓ କଲ୍‌କୁ ସୁଇଚ୍ କରିବାକୁ ଅନୁରୋଧ କରୁଛି…</string>
+    <string name="modify_to_video_start">ଭିଡିଓ କଲ୍‌କୁ ସ୍ଵିଚ୍ କରିବାକୁ ଅନୁରୋଧ କରୁଛି…</string>
     <string name="modify_to_voice_start">ଭଏସ୍ କଲକୁ ସ୍ଵିଚ୍ ହେଉଛି…</string>
     <string name="msg_for_video_show_never_again">କିଛି ଫାଇଲ୍ ଫର୍ମାଟ୍‌ ସମର୍ଥିତ ନୁହେଁ। କେବଳ ସମର୍ଥିତ ଫାଇଲ୍‌ ଗ୍ୟାଲେରୀରେ ଦେଖାଯିବ।</string>
     <string name="mt_dialog_progress">ସ୍ୱତଃସ୍ପୃତ ଭାବେ ଆପଣଙ୍କ SMS କୋଡ୍ ଯାଞ୍ଚକରଣ ହେଉଛି…</string>
@@ -536,9 +539,9 @@ IVR କଲ୍‌ ସ୍କ୍ରିନ୍‌ ମେନୁ Dianhuabang ନାମ�
     <string name="onscreenBluetoothTextOn_tmo">ଫୋନକୁ ସ୍ଵିଚ୍</string>
     <string name="onscreenWebexText">WebEx</string>
     <string name="open_folder_for_speakeroff">ସ୍ପିକରଫୋନ୍ ଟର୍ନ୍ ଅଫ୍ କରିବାକୁ, ଫ୍ଲିପ୍ ଫୋନ୍ ଖୋଲନ୍ତୁ।</string>
-    <string name="open_the_cover">ଆବୃତ୍ତ ଖୋଲନ୍ତୁ।</string>
+    <string name="open_the_cover">କଭର୍ ଖୋଲନ୍ତୁ।</string>
     <string name="open_the_cover_incoming">ଭିଡିଓ କଲ୍ ଉତ୍ତର ଦେବା ପାଇଁ କିମ୍ବା ଅଗ୍ରାହ୍ୟ କରିବା ପାଇଁ କଭର୍ ଖୋଲନ୍ତୁ।</string>
-    <string name="open_the_cover_modify_call">କଲ୍‌ କରିଥିବା ପକ୍ଷ ଭିଡିଓ କଲ୍ ସୁଇଚ୍ କରିବାକୁ ଚାହୁଁଛନ୍ତି। ଅନୁରୋଧ ସ୍ଵୀକାର/ପ୍ରତ୍ୟାଖ୍ୟାନ କରିବାକୁ କଭର୍ ଖୋଲନ୍ତୁ।</string>
+    <string name="open_the_cover_modify_call">କଲ୍‌ କରିଥିବା ପକ୍ଷ ଭିଡିଓ କଲ୍ ସ୍ଵିଚ୍ କରିବାକୁ ଚାହୁଁଛନ୍ତି। ଅନୁରୋଧ ଗ୍ରହଣ/ଅଗ୍ରାହ୍ୟ କରିବାକୁ କଭର୍ ଖୋଲନ୍ତୁ।</string>
     <string name="open_the_cover_swis_call">See what I see ଅନୁରୋଧ ଗ୍ରହଣ କିମ୍ୱା ପ୍ରତ୍ୟାଖ୍ୟାନ କରିବାକୁ କଭର୍ ଖୋଲନ୍ତୁ।</string>
     <string name="open_the_cover_view_details">ବିବରଣୀ ଦର୍ଶନ କରିବାକୁ କଭର୍ ଖୋଲନ୍ତୁ।</string>
     <string name="open_the_cover_when_flightmode_on">ଫ୍ଲାଇଟ୍ ମୋଡ୍ ଅନ୍ କରନ୍ତୁ। କଲ୍ କରିବା ପାଇଁ ଫ୍ଲାଇଟ୍ ମୋଡ୍ ଟର୍ନ୍ ଅଫ୍ କରନ୍ତୁ।</string>
@@ -571,7 +574,7 @@ IVR କଲ୍‌ ସ୍କ୍ରିନ୍‌ ମେନୁ Dianhuabang ନାମ�
     <string name="pre_img_during_call">ପୂର୍ବସେଟ୍ ଫଟୋ</string>
     <string name="preferred_sim_for_callback">କଲଗୁ. ପାଇଁ ଅଗ୍ରାଧିକାର SIM</string>
     <string name="prepareOtherVideo">ଭିଡିଓ ଫଟୋ ପ୍ରସ୍ତୁତ କରୁଛି…</string>
-    <string name="previous_call_is_held_when_you_accept_call">ଯେତେବେଳେ ଆପଣ ଏକ ନୂତନ କଲ୍ ନେବେ ସେତେବେଳେ ଚାଳନ୍ତା କଲ୍ ହୋଲ୍ଡରେ ରହିବ।</string>
+    <string name="previous_call_is_held_when_you_accept_call">ଯେତେବେଳେ ଆପଣ ଏକ ନୂତନ କଲ୍ ଗ୍ରହଣ କରିବେ ସେତେବେଳେ ସମ୍ପ୍ରତି କଲ୍ ହୋଲ୍ଡରେ ରହିବ।</string>
     <string name="private_num_cdma">ପ୍ରତିବନ୍ଧିତ</string>
     <string name="private_num_sbm">ପ୍ରତ୍ୟାହାର ହୋଇଥିବା ନମ୍ଵର୍</string>
     <string name="profile_sharing">ପ୍ରୋଫାଇଲ୍ ଅଂଶୀଦାର ହେଉଛି</string>
@@ -583,7 +586,7 @@ IVR କଲ୍‌ ସ୍କ୍ରିନ୍‌ ମେନୁ Dianhuabang ନାମ�
     <string name="rcs_share">ଅଂଶୀଦାର</string>
     <string name="rcs_share_donot_send_my_video">ମୋତେ ଲୁଚାନ୍ତୁ</string>
     <string name="rcs_share_image">ଅନୁରୋଧ ସ୍ଵୀକାର କରିବେ?</string>
-    <string name="rcs_share_image_sharing">ଫଟୋ ଅଂଶାଦାର (%s)</string>
+    <string name="rcs_share_image_sharing">ଫଟୋ ଅଂଶୀଦାର (%s)</string>
     <string name="rcs_share_image_sharing_new">ଫଟୋ ଅଂଶୀଦାର</string>
     <string name="rcs_share_live">ଅନୁରୋଧ ସ୍ଵୀକାର କରିବେ?</string>
     <string name="rcs_share_live_video">ଲାଇଭ୍ ଭିଡିଓ</string>
@@ -621,9 +624,9 @@ IVR କଲ୍‌ ସ୍କ୍ରିନ୍‌ ମେନୁ Dianhuabang ନାମ�
     <string name="rejected_call_notification_title">ଅଗ୍ରାହ୍ୟ ହୋଇଥିବା କଲ୍</string>
     <string name="relationLabelsGroup">ସମ୍ପର୍କ</string>
     <string name="request_explain_text">ଯଦି ଆପଣ ଏକ ମିନିଟ୍ ମଧ୍ୟରେ କୋଡ୍ ପ୍ରବେଶ କରି ନାହାଁନ୍ତି‌, ତେବେ ଏକ ନୂତନ କୋଡ୍ ଅନୁରୋଧ କରନ୍ତୁ।</string>
-    <string name="requested_video_call">କଲ୍‌ କରିଥିବ ପକ୍ଷ ଭିଡିଓ କଲ୍ ସୁଇଚ୍ କରିବାକୁ ଚାହୁଁଛନ୍ତି। ସ୍ଵୀକର କରିବେ?</string>
+    <string name="requested_video_call">କଲ୍‌ କରିଥିବ ପକ୍ଷ ଭିଡିଓ କଲ୍ ସ୍ଵିଚ୍ କରିବାକୁ ଚାହୁଁଛନ୍ତି। ସ୍ଵୀକର କରିବେ?</string>
     <string name="resend">ପୁନଃପ୍ରେରଣ</string>
-    <string name="returnToInCallScreen">ପୂର୍ଣ୍ଣ ସ୍କ୍ରିନକୁ ସୁଇଚ୍</string>
+    <string name="returnToInCallScreen">ପୂର୍ଣ୍ଣ ସ୍କ୍ରିନକୁ ସ୍ଵିଚ୍</string>
     <string name="rich_screen_save_fail">କଲର୍ ID ଫଟୋ/ଭିଡିଓ ସଞ୍ଚୟ କରିବାକୁ ବିଫଳ ହୋଇଛି।</string>
     <string name="rich_screen_save_success">କଲର୍ ID ଫଟୋ/ଭିଡିଓ ସଞ୍ଚୟ ହୋଇଛି।</string>
     <string name="save_record_msg_myfiles">ମୋ ଫାଇଲରେ ରେକର୍ଡିଂ ସଞ୍ଚୟ ହୋଇଛି।</string>
@@ -649,7 +652,7 @@ IVR କଲ୍‌ ସ୍କ୍ରିନ୍‌ ମେନୁ Dianhuabang ନାମ�
     <string name="secOnscreenEndCallText">କଲ୍ ଶେଷ</string>
     <string name="secOnscreenExtraVolumeText">ଅତିରିକ୍ତ ଭଲ୍ୟୁମ୍</string>
     <string name="secOnscreenGalleryText">ଗ୍ୟାଲେରୀ</string>
-    <string name="secOnscreenHideCallOption">କଲ୍ ବିକଳ୍ପଗୁଡିକ ଲୁଚାନ୍ତୁ</string>
+    <string name="secOnscreenHideCallOption">କଲ୍ ବିକଳ୍ପ ଲୁଚାନ୍ତୁ</string>
     <string name="secOnscreenInternetText">ଇଣ୍ଟର୍ନେଟ୍</string>
     <string name="secOnscreenInternetText_vzw">ବ୍ରାଉଜର୍</string>
     <string name="secOnscreenKeypadHideText">ଲୁଚାନ୍ତୁ</string>
@@ -683,8 +686,8 @@ IVR କଲ୍‌ ସ୍କ୍ରିନ୍‌ ମେନୁ Dianhuabang ନାମ�
     <string name="secOnscreenMenuSwitchToPhoneText">ଫୋନକୁ ସ୍ଵିଚ୍</string>
     <string name="secOnscreenMenuSwitchToPhoneText_att">ଫୋନକୁ ସ୍ଵିଚ୍</string>
     <string name="secOnscreenMenuSwitchToPhoneText_tmo">ଫୋନକୁ ସ୍ଵିଚ୍</string>
-    <string name="secOnscreenMenuSwitchToVideoCallText">ଭିଡିଓ କଲକୁ ସୁଇଚ୍</string>
-    <string name="secOnscreenMenuSwitchToVoiceCallText">ଭଏସ୍ କଲକୁ ସୁଇଚ୍</string>
+    <string name="secOnscreenMenuSwitchToVideoCallText">ଭିଡିଓ କଲକୁ ସ୍ଵିଚ୍</string>
+    <string name="secOnscreenMenuSwitchToVoiceCallText">ଭଏସ୍ କଲକୁ ସ୍ଵିଚ୍</string>
     <string name="secOnscreenMenuSwitchVideoDisplay">ଭିଡିଓ ପ୍ରଦର୍ଶନଗୁଡିକ ସ୍ଵିଚ୍</string>
     <string name="secOnscreenMenuUnmuteText">ଅନମ୍ୟୁଟ୍</string>
     <string name="secOnscreenMenuVideoConfCallText">ନୂତନ ଅଂଶଗ୍ରହଣକାରୀ ଆମନ୍ତ୍ରଣ କରନ୍ତୁ</string>
@@ -705,7 +708,7 @@ IVR କଲ୍‌ ସ୍କ୍ରିନ୍‌ ମେନୁ Dianhuabang ନାମ�
     <string name="secOnscreenPopupReject">ପ୍ରତ୍ୟାଖ୍ୟାନ</string>
     <string name="secOnscreenRecordText">ରେକର୍ଡ୍</string>
     <string name="secOnscreenResumeCallText">ପୁନରାରମ୍ଭ</string>
-    <string name="secOnscreenShowCallOption">କଲ୍‌ ବିକଳ୍ପଗୁଡିକ ଦେଖାନ୍ତୁ</string>
+    <string name="secOnscreenShowCallOption">କଲ୍‌ ବିକଳ୍ପ ଦେଖାନ୍ତୁ</string>
     <string name="secOnscreenSpeaker">ସ୍ପିକର୍</string>
     <string name="secOnscreenStopText">ରେକର୍ଡିଂ ସ୍ଥଗିତ</string>
     <string name="secOnscreenSwapText">ସ୍ଵାପ୍</string>
@@ -749,7 +752,7 @@ IVR କଲ୍‌ ସ୍କ୍ରିନ୍‌ ମେନୁ Dianhuabang ନାମ�
     <string name="settings_subappbar_switch_on">ଅନ୍</string>
     <string name="simple_sharing">Link sharing</string>
     <string name="skip">ସ୍କିପ୍</string>
-    <string name="skip_verification">ଆପଣ ଯାଞ୍ଚକରଣ ସ୍କିପ୍ କରି ସାମସଙ୍ଗ ସେବା ଦ୍ୱାରା ଯେକୌଣସି ସମୟରେ ଏହାର ଆବଶ୍ୟକ ହେଲେ ପରେ ଆପଣଙ୍କ ଫୋନ୍ ନମ୍ୱର୍ ଯାଞ୍ଚ କରିପାରିବେ।</string>
+    <string name="skip_verification">ଆପଣ ଯାଞ୍ଚକରଣ ସ୍କିପ୍ କରି ସାମସଙ୍ଗ ସେବା ଦ୍ୱାରା ଯେକୌଣସି ସମୟରେ ଏହାର ଆବଶ୍ୟକ ହେଲା ପରେ ଆପଣଙ୍କ ଫୋନ୍ ନମ୍ୱର୍ ଯାଞ୍ଚ କରିପାରିବେ।</string>
     <string name="slide_left_to_reject_content_description">କଲ୍ ଅଗ୍ରାହ୍ୟ କରିବାକୁ ଦୁଇ ଆଙ୍ଗୁଠିରେ ବାମକୁ ଡ୍ରାଗ୍ କରନ୍ତୁ।</string>
     <string name="slide_right_to_answer_content_description">କଲ୍ ଉତ୍ତର ଦେବାକୁ ଦୁଇ ଆଙ୍ଗୁଠିକରେ ଡାହାଣକୁ ଡ୍ରାଗ୍ କରନ୍ତୁ।</string>
     <string name="smart_call_block_button">ଅବରୋଧ</string>
@@ -789,13 +792,13 @@ IVR କଲ୍‌ ସ୍କ୍ରିନ୍‌ ମେନୁ Dianhuabang ନାମ�
     <string name="swipe_right">ଡାହାଣକୁ ସ୍ଵାଇପ୍।</string>
     <string name="swipe_right_to_answer_call_with_video">ଭିଡିଓ ସହ କଲ୍ ଉତ୍ତର ଦେବାକୁ ଡାହାଣକୁ ସ୍ଵାଇପ୍ କରନ୍ତୁ।</string>
     <string name="swipe_right_to_answer_call_without_video">ଭିଡିଓ ବିନା କଲ୍ ଉତ୍ତର ଦେବାକୁ ଡାହାଣକୁ ସ୍ଵାଇପ୍ କରନ୍ତୁ।</string>
-    <string name="switch_rejected_by_mt">ଭିଡିଓ କଲ୍ ଅଗ୍ରାହ୍ୟକୁ ସୁଇଚ୍‌ କରିବାକୁ ଅନୁରୋଧ।</string>
+    <string name="switch_rejected_by_mt">ଭିଡିଓ କଲ୍ ଅଗ୍ରାହ୍ୟକୁ ସ୍ଵିଚ୍ କରିବାକୁ ଅନୁରୋଧ।</string>
     <string name="switch_rejected_by_mt_att">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="switch_to_video_call_failed">ଭିଡିଓ କଲକୁ ସ୍ଵିଚ୍‌ କରିବା ଅନୁରୋଧ ବିଫଳ ହୋଇଛି।</string>
     <string name="switch_to_video_call_failed_tmo">ଭିଡିଓ କଲକୁ ସ୍ଵିଚ୍‌ କରିବା ଅନୁରୋଧ ପ୍ରତ୍ୟାଖ୍ୟାନ ହୋଇଛି।</string>
     <string name="switch_to_voice_call_failed">ଭଏସ୍ କଲକୁ ସ୍ଵିଚ୍ କରିବାକୁ ଅନୁରୋଧ ବିଫଳ ହୋଇଛି।</string>
-    <string name="switched_to_voip_mo">ଭଏସ୍ କଲ୍‌‌କୁ ସୁଇଚ୍ କରନ୍ତୁ।</string>
-    <string name="switched_to_voip_mt">କଲ୍ କରିଥିବା ପକ୍ଷଙ୍କ ଠାରୁ ଅନୁରୋଧ ଯୋଗୁଁ ଭଏସ୍ କଲ୍‌କୁ ସୁଇଚ୍ କରନ୍ତୁ।</string>
+    <string name="switched_to_voip_mo">ଭଏସ୍ କଲ‌କୁ ସ୍ଵିଚ୍ କରନ୍ତୁ।</string>
+    <string name="switched_to_voip_mt">କଲ୍ କରିଥିବା ପକ୍ଷଙ୍କ ଠାରୁ ଅନୁରୋଧ ଯୋଗୁଁ ଭଏସ୍ କଲକୁ ସ୍ଵିଚ୍ କରନ୍ତୁ।</string>
     <string name="switched_to_voip_mt_att">Call switched to voice only.</string>
     <string name="switched_to_voip_mt_att_tmo">%s ଭିଡିଓ ଟର୍ନ୍‌ ଅଫ୍ କରନ୍ତୁ।</string>
     <string name="switching_camera_failed">କ୍ୟାମେରା ସ୍ଵିଚ୍ କରିବାକୁ ବିଫଳ ହୋଇଛି।</string>
@@ -804,11 +807,11 @@ IVR କଲ୍‌ ସ୍କ୍ରିନ୍‌ ମେନୁ Dianhuabang ନାମ�
     <string name="toast_text_max_Length">ସର୍ବାଧିକ ବର୍ଣ୍ଣ ସୀମା ଅତିକ୍ରମ ହୋଇଛି।</string>
     <string name="tts_hours">%d ଘଣ୍ଟା</string>
     <string name="tts_minutes">%d ମିନିଟ୍</string>
-    <string name="tts_pager">%1$d ରୁ %2$d ପୃଷ୍ଠା</string>
+    <string name="tts_pager">%1$dରୁ %2$d ପୃଷ୍ଠା</string>
     <string name="tts_seconds">%d ସେକେଣ୍ଡ</string>
     <string name="tty_mode_option_title">TTY ମୋଡ୍</string>
-    <string name="tutorial_incoming_call_app_answer">କଲ୍ ଉତ୍ତର ଦେବାକୁ ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
-    <string name="tutorial_incoming_call_app_reject">କଲ୍ ପ୍ରତ୍ୟାଖ୍ୟାନ କରିବାକୁ ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
+    <string name="tutorial_incoming_call_app_answer">ଉତ୍ତର ଦେବାକୁ ଦୁଇଥର ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
+    <string name="tutorial_incoming_call_app_reject">ଅଗ୍ରାହ୍ୟ କରିବାକୁ ଦୁଇଥର ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
     <string name="twmobile_operator_name">TW ମୋବାଇଲ୍</string>
     <string name="unable_to_connect_to_the_network">ନେଟୱାର୍କକୁ ସଂଯୋଗ କରିବାରେ ଅସମର୍ଥ। ଆପଣଙ୍କ ସଂଯୋଜନା ସେଟିଂସ୍ ଯାଞ୍ଚ କରି ପୁନଃଚେଷ୍ଟା କରନ୍ତୁ।</string>
     <string name="units_kb">KB</string>
@@ -818,7 +821,7 @@ IVR କଲ୍‌ ସ୍କ୍ରିନ୍‌ ମେନୁ Dianhuabang ନାମ�
     <string name="upload_using_wlan_only">କେବଳ WLAN ମାଧ୍ୟମରେ ଅପଲୋଡ୍</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fi କିମ୍ୱା ମୋବାଇଲ୍ ନେଟୱାର୍କ୍ ମାଧ୍ୟମରେ ଅପଲୋଡ୍ କରନ୍ତୁ</string>
     <string name="upload_wlan_and_mobile_nw">WLAN କିମ୍ୱା ମୋବାଇଲ୍ ନେଟୱାର୍କ୍ ମାଧ୍ୟମରେ ଅପଲୋଡ୍</string>
-    <string name="usa_att_connected_as_voice">କେବଳ ଭଏସ୍‌ ଭାବେ କଲ୍ ସଂଯୋଜିତ।</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">ଆପଣଙ୍କ ଡାଟା ବ୍ୟବହାର ଯାହା ଆପଣ ଆପଣଙ୍କ ଡିଭାଇସରେ ସେଟ୍ କରିଛନ୍ତି ତାହାର ସୀମାରେ ପହଞ୍ଚିଛି। ଆପଣଙ୍କ ଭିଡିଓ କଲ୍‌ ଡାଟା ଆବଶ୍ୟକ କରେ।</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Wi-Fi ମାଧ୍ୟମରେ କଲ୍ ପ୍ରକ୍ରିୟା କରିପାରିବେ ନାହିଁ, ସେଲ୍ୟୁଲାର୍ ନେଟୱାର୍କରେ ସଂଯୋଗ ହୋଇଛି। ଭଏସ୍‌ ଏବଂ ଡାଟା ପ୍ରୟୋଗ ହୋଇପାରେ।</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -857,7 +860,7 @@ IVR କଲ୍‌ ସ୍କ୍ରିନ୍‌ ମେନୁ Dianhuabang ନାମ�
     <string name="usa_vzw_secondary_is_hold">%s ହୋଲ୍ଡରେ ଅଛି।</string>
     <string name="usa_vzw_stay_on_voice">ଭଏସରେ ରହିବ</string>
     <string name="usa_vzw_switched_to_voice_call">%s ଭଏସ୍ କଲକୁ ସ୍ଵିଚ୍ ହୋଇଛି।</string>
-    <string name="usa_vzw_switched_to_voice_call_rx">ଭଏସ୍ କଲ୍‌‌କୁ ସୁଇଚ୍ କରନ୍ତୁ।</string>
+    <string name="usa_vzw_switched_to_voice_call_rx">ଭଏସ୍ କଲ‌କୁ ସ୍ଵିଚ୍ କରନ୍ତୁ।</string>
     <string name="usa_vzw_switching_to_voice_call">ଭଏସ୍ କଲକୁ ସ୍ଵିଚ୍ ହେଉଛି…</string>
     <string name="usa_vzw_ugrade_request_rejected_by_caller">%s ଭଏସରେ ରହିବାକୁ ଚାହୁଁଛନ୍ତି।</string>
     <string name="usa_vzw_upgrade_receive_reject">କଲ୍ ଭଏସରେ ରହିବ।</string>
@@ -868,11 +871,15 @@ IVR କଲ୍‌ ସ୍କ୍ରିନ୍‌ ମେନୁ Dianhuabang ନାମ�
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">ମୋବାଇଲ୍ ଡାଟା ବ୍ୟବହାର</string>
     <string name="usa_vzw_volte_weak_wifi_text">"ଆମେ ଚେଷ୍ଟା କରିଛୁ, କିନ୍ତୁ ଆମେ ଏହି ସମୟରେ Wi-Fiକୁ ଆପଣଙ୍କ ଭିଡିଓ କଲ୍‌ ସ୍ଵିଚ୍ କରିପାରିବୁ ନାହିଁ।
 
-ଆପଣଙ୍କ ଭିଡିଓ କଲ୍‌ ବର୍ତ୍ତମାନ ପର୍ଯ୍ୟନ୍ତ ମୋବାଇଲ୍ ନେଟୱାର୍କରେ ଚାଲୁଛି। (ଯଦି ଆପଣ ଜାରି ରଖିବାକୁ ଚାହାଁନ୍ତି ଡାଟା ବ୍ୟବହାର ପ୍ରୟୋଗ ହେବ।)"</string>
+ଆପଣଙ୍କ ଭିଡିଓ କଲ୍‌ ବର୍ତ୍ତମାନ ପର୍ଯ୍ୟନ୍ତ ମୋବାଇଲ୍ ନେଟୱାର୍କରେ ଚାଲୁଛି।
+
+ଯଦି ଆପଣ ଜାରି ରଖିବାକୁ ଚାହାଁନ୍ତି ଡାଟା ବ୍ୟବହାର ଦେୟଗୁଡିକ ପ୍ରୟୋଗ ହୋଇପାରେ।"</string>
     <string name="usa_vzw_volte_weak_wifi_toast">ଆପଣଙ୍କ ଭିଡିଓ କଲ୍‌ ବର୍ତ୍ତମାନ ପର୍ଯ୍ୟନ୍ତ ମୋବାଇଲ୍ ନେଟୱାର୍କରେ ଚାଲୁଛି। (ଡାଟା ବ୍ୟବହାର ପ୍ରୟୋଗ ହୋଇଛି।)</string>
     <string name="usa_vzw_vowifi_wifi_low_signal_text">"ଆପଣଙ୍କ ଭିଡିଓ କଲ୍‌ ଜାରି ରଖିବାକୁ Wi-Fi ସିଗନାଲ୍ ପର୍ଯ୍ୟାପ୍ତ ଦୃଢ ନୁହେଁ।
 
-ଆପଣଙ୍କ ଭିଡିଓ କଲ୍‌ ବର୍ତମାନ ମୋବାଇଲ୍ ନେଟୱାର୍କରେ ଚାଲୁଛି। (ଯଦି ଆପଣ ଜାରି ରଖିବାକୁ ଚାହାଁନ୍ତି ଡାଟା ବ୍ୟବହାର ପ୍ରୟୋଗ ହେବ।)"</string>
+ଆପଣଙ୍କ ଭିଡିଓ କଲ୍‌ ବର୍ତମାନ ମୋବାଇଲ୍ ନେଟୱାର୍କରେ ଚାଲୁଛି।
+
+ଯଦି ଆପଣ ଜାରି ରଖିବାକୁ ଚାହାଁନ୍ତି ଡାଟା ବ୍ୟବହାର ଦେୟଗୁଡିକ ପ୍ରୟୋଗ ହୋଇପାରେ।"</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi ସଂଯୋଜନା ହରାଇବ। କଲ୍ ଶେଷ ହୋଇଛି।</string>
     <string name="use_wifi_and_mobile_nw">Wi-Fi ଏବଂ ମୋବାଇଲ୍ ନେଟୱାର୍କଗୁଡିକ ବ୍ୟବହାର କରନ୍ତୁ</string>
     <string name="use_wlan_and_mobile_nw">WLAN ଏବଂ ମୋବାଇଲ୍ ନେଟୱାର୍କଗୁଡିକ ବ୍ୟବହାର</string>
@@ -885,7 +892,7 @@ IVR କଲ୍‌ ସ୍କ୍ରିନ୍‌ ମେନୁ Dianhuabang ନାମ�
     <string name="video_calling_incoming">ଭିଡିଓ କଲ୍</string>
     <string name="video_calls_quality_poor_tmo">ସଂଯୋଜନା ଗୁଣବତ୍ତା ଦୁର୍ବଳ ଅଛି। ଭିଡିଓ କଲ୍‌ ଭଏସ୍ କଲକୁ ସ୍ଵିଚ୍ ହୋଇପାରେ।</string>
     <string name="video_calls_temporarily_not_available">ଭିଡିଓ କଲ୍ ଅସ୍ଥାୟୀ ଭାବେ ଉପଲବ୍ଧ ନାହିଁ। ଭଏସ୍ କଲକୁ କଲ୍ ସ୍ଵିଚ୍ ହୋଇଛି।</string>
-    <string name="video_calls_temporarily_not_available_att">ଏହି ସମୟରେ ଆପଣ କଲିଂ କରିଥିବା ନମ୍ଵର୍ ଭିଡିଓ କଲ୍ ପ୍ରାପ୍ତ କରିପାରିବ ନାହିଁ। ଏକ ଭଏସ୍ କଲ୍ ଭାବେ କଲ୍ ସଂଯୋଜିତ।</string>
+    <string name="video_calls_temporarily_not_available_att">ଏହି ସମୟରେ ଆପଣ କଲିଂ କରିଥିବା ନମ୍ଵର୍ ଭିଡିଓ କଲ୍ ପ୍ରାପ୍ତ କରିପାରିରେ ନାହିଁ। ଏକ ଭଏସ୍ କଲ୍ ଭାବେ କଲ୍ ସଂଯୋଜିତ।</string>
     <string name="video_calls_temporarily_not_available_tmo">ଭିଡିଓ କଲିଂ ଅନୁପଲବ୍ଧ ହେବ।</string>
     <string name="video_paused_info_text">ଭିଡିଓ ବିରତ</string>
     <string name="video_saved">%sକୁ ଭିଡିଓ ସଞ୍ଚୟ ହୋଇଛି।</string>
@@ -901,6 +908,6 @@ IVR କଲ୍‌ ସ୍କ୍ରିନ୍‌ ମେନୁ Dianhuabang ନାମ�
     <string name="websiteLabelsGroup">ୱେବ୍ ଠିକଣା</string>
     <string name="yellow_pages">ହଳଦୀ ପୃଷ୍ଟାଗୁଡିକ</string>
     <string name="you_have_entered_incorrect_code">ଆପଣ ଏକ ଭୁଲ୍ ଯାଞ୍ଚକରଣ କୋଡ୍ ପ୍ରବେଶ କରିଛନ୍ତି। ପୁନଃଚେଷ୍ଟା କରନ୍ତୁ।</string>
-    <string name="you_have_reached_your_daily_sms_limit">ଆପଣ ଆପଣଙ୍କର ଦୈନିକ SMS ସୀମାରେ ପହଞ୍ଚିଛନ୍ତି । %d ଘଣ୍ଟାରେ ପୁନଃ ଚେଷ୍ଟା କରନ୍ତୁ</string>
-    <string name="you_have_reached_your_daliy_voice_limit">ଆପଣ ଆପଣଙ୍କର ଦୈନିକ ଭଏସ୍ ଯାଞ୍ଚକରଣ ସୀମାରେ ପହଞ୍ଚିଛନ୍ତି। %d ଘଣ୍ଟା‌ରେ ପୁଣି ଚେଷ୍ଟା କରନ୍ତୁ</string>
+    <string name="you_have_reached_your_daily_sms_limit">ଆପଣ ଆପଣଙ୍କର ଦୈନିକ SMS ସୀମାରେ ପହଞ୍ଚିଛନ୍ତି। %d ଘଣ୍ଟାରେ ପୁନଃଚେଷ୍ଟା କରନ୍ତୁ।</string>
+    <string name="you_have_reached_your_daliy_voice_limit">ଆପଣ ଆପଣଙ୍କର ଦୈନିକ ଭଏସ୍ ଯାଞ୍ଚକରଣ ସୀମାରେ ପହଞ୍ଚିଛନ୍ତି। %d ଘଣ୍ଟା‌ରେ ପୁନଃଚେଷ୍ଟା କରନ୍ତୁ</string>
 </resources>

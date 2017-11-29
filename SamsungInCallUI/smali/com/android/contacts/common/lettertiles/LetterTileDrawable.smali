@@ -112,7 +112,7 @@
 
     sput-object v0, Lcom/android/contacts/common/lettertiles/LetterTileDrawable;->c:Landroid/content/res/TypedArray;
 
-    const v0, 0x7f0e00dd
+    const v0, 0x7f0e00e3
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -120,7 +120,7 @@
 
     sput v0, Lcom/android/contacts/common/lettertiles/LetterTileDrawable;->d:I
 
-    const v0, 0x7f0e00de
+    const v0, 0x7f0e00e4
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -128,7 +128,7 @@
 
     sput v0, Lcom/android/contacts/common/lettertiles/LetterTileDrawable;->e:I
 
-    const v0, 0x7f0a04bc
+    const v0, 0x7f0a04c6
 
     invoke-virtual {p1, v0, v2, v2}, Landroid/content/res/Resources;->getFraction(III)F
 
@@ -136,7 +136,7 @@
 
     sput v0, Lcom/android/contacts/common/lettertiles/LetterTileDrawable;->f:F
 
-    const v0, 0x7f020185
+    const v0, 0x7f0201b0
 
     invoke-static {p1, v0}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -144,7 +144,7 @@
 
     sput-object v0, Lcom/android/contacts/common/lettertiles/LetterTileDrawable;->g:Landroid/graphics/Bitmap;
 
-    const v0, 0x7f02015f
+    const v0, 0x7f02018a
 
     invoke-static {p1, v0}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -152,7 +152,7 @@
 
     sput-object v0, Lcom/android/contacts/common/lettertiles/LetterTileDrawable;->h:Landroid/graphics/Bitmap;
 
-    const v0, 0x7f020198
+    const v0, 0x7f0201c3
 
     invoke-static {p1, v0}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -162,7 +162,7 @@
 
     sget-object v0, Lcom/android/contacts/common/lettertiles/LetterTileDrawable;->j:Landroid/graphics/Paint;
 
-    const v1, 0x7f0905c2
+    const v1, 0x7f0905c5
 
     invoke-virtual {p1, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

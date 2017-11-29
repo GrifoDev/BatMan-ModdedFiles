@@ -133,7 +133,7 @@
 
     iget-object v1, p0, Lcom/android/contacts/common/list/ShortcutIntentBuilder;->i:Landroid/content/res/Resources;
 
-    const v2, 0x7f0a067d
+    const v2, 0x7f0a06c0
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -160,7 +160,7 @@
 
     iget-object v0, p0, Lcom/android/contacts/common/list/ShortcutIntentBuilder;->i:Landroid/content/res/Resources;
 
-    const v1, 0x7f0e0214
+    const v1, 0x7f0e0236
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -338,7 +338,7 @@
 
     invoke-direct {v8, v5}, Landroid/text/TextPaint;-><init>(I)V
 
-    const v5, 0x7f0a067f
+    const v5, 0x7f0a06c2
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -346,7 +346,7 @@
 
     invoke-virtual {v8, v5}, Landroid/text/TextPaint;->setTextSize(F)V
 
-    const v5, 0x7f0e0233
+    const v5, 0x7f0e0257
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -360,7 +360,7 @@
 
     const/high16 v7, 0x40000000    # 2.0f
 
-    const v14, 0x7f0e0234
+    const v14, 0x7f0e0258
 
     invoke-virtual {v3, v14}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -386,7 +386,7 @@
 
     invoke-virtual {v5, v6}, Landroid/graphics/Paint;->setStyle(Landroid/graphics/Paint$Style;)V
 
-    const v6, 0x7f0a067e
+    const v6, 0x7f0a06c1
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimensionPixelOffset(I)I
 
@@ -637,7 +637,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0905f3
+    const v3, 0x7f0905f6
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -687,7 +687,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f020161
+    const v2, 0x7f02018c
 
     invoke-direct {p0, v1, p6, p7, v2}, Lcom/android/contacts/common/list/ShortcutIntentBuilder;->a(Landroid/graphics/drawable/Drawable;ILjava/lang/String;I)Landroid/graphics/Bitmap;
 
@@ -726,7 +726,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0905f3
+    const v2, 0x7f0905f6
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -749,7 +749,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0904f8
+    const v3, 0x7f0904fb
 
     new-array v4, v4, [Ljava/lang/Object;
 
@@ -776,7 +776,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f020183
+    const v2, 0x7f0201ae
 
     invoke-direct {p0, v1, p6, p7, v2}, Lcom/android/contacts/common/list/ShortcutIntentBuilder;->a(Landroid/graphics/drawable/Drawable;ILjava/lang/String;I)Landroid/graphics/Bitmap;
 
@@ -801,7 +801,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f09064e
+    const v3, 0x7f090651
 
     new-array v4, v4, [Ljava/lang/Object;
 

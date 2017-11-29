@@ -80,7 +80,9 @@
 
 # virtual methods
 .method public activeBTDevice(I)V
-    .locals 4
+    .locals 5
+
+    const/4 v4, 0x0
 
     iget-object v0, p0, Lcom/android/incallui/fragment/CallButtonFragment$BluetoothArrayAdapter;->this$0:Lcom/android/incallui/fragment/CallButtonFragment;
 
@@ -110,9 +112,7 @@
 
     const/4 v1, 0x0
 
-    const/4 v2, 0x0
-
-    invoke-static {v0, v1, v2}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
+    invoke-static {v0, v1, v4}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
 
     move-result-object v0
 
@@ -174,7 +174,7 @@
 
     invoke-virtual {v0}, Lcom/android/incallui/BluetoothProfileManager;->getBluetoothHeadset()Landroid/bluetooth/BluetoothHeadset;
 
-    move-result-object v1
+    move-result-object v2
 
     iget-object v0, p0, Lcom/android/incallui/fragment/CallButtonFragment$BluetoothArrayAdapter;->this$0:Lcom/android/incallui/fragment/CallButtonFragment;
 
@@ -186,26 +186,51 @@
 
     check-cast v0, Landroid/bluetooth/BluetoothDevice;
 
-    if-eqz v1, :cond_0
+    if-eqz v2, :cond_0
 
     if-eqz v0, :cond_0
 
-    invoke-static {v1, v0}, Lcom/android/incallui/wrapper/BluetoothHeadsetWrapper;->connectAudio(Landroid/bluetooth/BluetoothHeadset;Landroid/bluetooth/BluetoothDevice;)Z
+    iget-object v1, p0, Lcom/android/incallui/fragment/CallButtonFragment$BluetoothArrayAdapter;->this$0:Lcom/android/incallui/fragment/CallButtonFragment;
+
+    const/16 v3, 0x8
+
+    invoke-virtual {v1, v3}, Lcom/android/incallui/fragment/CallButtonFragment;->isAudio(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    iget-object v1, p0, Lcom/android/incallui/fragment/CallButtonFragment$BluetoothArrayAdapter;->mContext:Landroid/content/Context;
+
+    const-string v3, "audio"
+
+    invoke-virtual {v1, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Landroid/media/AudioManager;
+
+    if-eqz v1, :cond_3
+
+    invoke-virtual {v1, v4}, Landroid/media/AudioManager;->setSpeakerphoneOn(Z)V
+
+    :cond_3
+    invoke-static {v2, v0}, Lcom/android/incallui/wrapper/BluetoothHeadsetWrapper;->connectAudio(Landroid/bluetooth/BluetoothHeadset;Landroid/bluetooth/BluetoothDevice;)Z
 
     invoke-static {}, Lcom/android/incallui/util/CallTypeUtils;->isVoiceCall()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
-    const v0, 0x7f0904a1
+    const v0, 0x7f0904a4
 
     invoke-static {v0}, Lcom/android/incallui/util/SALogging;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
     :goto_1
-    const v1, 0x7f09049f
+    const v1, 0x7f0904a2
 
     invoke-static {v1}, Lcom/android/incallui/util/SALogging;->getString(I)Ljava/lang/String;
 
@@ -217,10 +242,10 @@
 
     invoke-static {v0, v1, v2}, Lcom/android/incallui/util/SALogging;->sendSAEventLog(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    :cond_3
-    const v0, 0x7f0904a0
+    :cond_4
+    const v0, 0x7f0904a3
 
     invoke-static {v0}, Lcom/android/incallui/util/SALogging;->getString(I)Ljava/lang/String;
 
@@ -299,7 +324,7 @@
 
     invoke-direct {v1, p0, v2}, Lcom/android/incallui/fragment/CallButtonFragment$BluetoothArrayAdapter$ViewHolder;-><init>(Lcom/android/incallui/fragment/CallButtonFragment$BluetoothArrayAdapter;Lcom/android/incallui/fragment/CallButtonFragment$1;)V
 
-    const v0, 0x7f100271
+    const v0, 0x7f100275
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -309,7 +334,7 @@
 
     iput-object v0, v1, Lcom/android/incallui/fragment/CallButtonFragment$BluetoothArrayAdapter$ViewHolder;->mBTItemHolder:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f100272
+    const v0, 0x7f100276
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -319,7 +344,7 @@
 
     iput-object v0, v1, Lcom/android/incallui/fragment/CallButtonFragment$BluetoothArrayAdapter$ViewHolder;->mBTImageView:Landroid/widget/ImageView;
 
-    const v0, 0x7f100273
+    const v0, 0x7f100277
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

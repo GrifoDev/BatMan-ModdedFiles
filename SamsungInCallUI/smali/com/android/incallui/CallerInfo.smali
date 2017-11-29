@@ -2588,7 +2588,7 @@
 
     iput-object p2, p0, Lcom/android/incallui/CallerInfo;->originalNumber:Ljava/lang/String;
 
-    const v0, 0x7f020132
+    const v0, 0x7f02015d
 
     iput v0, p0, Lcom/android/incallui/CallerInfo;->photoResource:I
 
@@ -2606,18 +2606,18 @@
 
     sput-boolean v0, Lcom/android/incallui/CallerInfo;->mIsVoiceMail:Z
 
-    :try_start_0
-    const-string v0, "feature_ctc"
-
-    invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
     invoke-static {p1}, Lcom/android/contacts/common/util/TelephonyManagerUtils;->a(Landroid/content/Context;)Ljava/lang/String;
 
     move-result-object v0
+
+    :try_start_0
+    const-string v1, "feature_ctc"
+
+    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
 
     iput-object v0, p0, Lcom/android/incallui/CallerInfo;->name:Ljava/lang/String;
 
@@ -2638,9 +2638,11 @@
     return-object p0
 
     :cond_0
-    invoke-static {p1}, Lcom/android/contacts/common/util/TelephonyManagerUtils;->a(Landroid/content/Context;)Ljava/lang/String;
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result-object v0
+    move-result v1
+
+    if-nez v1, :cond_1
 
     iput-object v0, p0, Lcom/android/incallui/CallerInfo;->phoneNumber:Ljava/lang/String;
     :try_end_0
@@ -2658,6 +2660,20 @@
     invoke-static {v1, v2, v0}, Lcom/android/incallui/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Exception;)V
 
     goto :goto_1
+
+    :cond_1
+    :try_start_1
+    const-string v0, "CallerInfo"
+
+    const-string v1, "markAsVoiceMail voiceMailAlphaTag is null"
+
+    const/4 v2, 0x1
+
+    invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->v(Ljava/lang/String;Ljava/lang/String;Z)V
+    :try_end_1
+    .catch Ljava/lang/SecurityException; {:try_start_1 .. :try_end_1} :catch_0
+
+    goto :goto_0
 .end method
 
 .method public toString()Ljava/lang/String;

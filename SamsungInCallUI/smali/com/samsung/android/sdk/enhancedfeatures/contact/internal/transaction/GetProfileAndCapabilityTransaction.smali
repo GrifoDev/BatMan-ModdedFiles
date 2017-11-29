@@ -135,19 +135,11 @@
     :catch_0
     move-exception v0
 
-    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/transaction/GetProfileAndCapabilityTransaction;->listener:Lcom/samsung/android/sdk/enhancedfeatures/contact/apis/listener/GetProfileAndCapabilityListener;
+    new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/transaction/GetProfileAndCapabilityTransaction$2;
 
-    new-instance v2, Lcom/samsung/android/sdk/enhancedfeatures/contact/apis/response/ProfileErrorResponse;
+    invoke-direct {v1, p0, v0}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/transaction/GetProfileAndCapabilityTransaction$2;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/transaction/GetProfileAndCapabilityTransaction;Ljava/lang/IllegalArgumentException;)V
 
-    const/16 v3, 0x753c
-
-    invoke-virtual {v0}, Ljava/lang/IllegalArgumentException;->toString()Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {v2, v3, v0}, Lcom/samsung/android/sdk/enhancedfeatures/contact/apis/response/ProfileErrorResponse;-><init>(ILjava/lang/String;)V
-
-    invoke-interface {v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/contact/apis/listener/GetProfileAndCapabilityListener;->onError(Lcom/samsung/android/sdk/enhancedfeatures/contact/apis/response/ProfileErrorResponse;)V
+    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
     goto :goto_0
 .end method

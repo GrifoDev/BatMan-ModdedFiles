@@ -454,7 +454,7 @@
 .method protected setFragment(Ljava/lang/Enum;Z)V
     .locals 4
 
-    const v1, 0x7f10031f
+    const v1, 0x7f100325
 
     const/4 v0, 0x0
 

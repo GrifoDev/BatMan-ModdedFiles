@@ -184,6 +184,7 @@
     <string name="agif_decline_sticker_header">Decline with a sticker</string>
     <string name="agif_decline_text_header">Decline with a text</string>
     <string name="agif_decline_toast">Sticker sent to %s.</string>
+    <string name="agif_outgoing_bubble_tip">Send a sticker to show how you feel.</string>
     <string name="agif_pickers_add_tab_description">Add</string>
     <string name="agif_pickers_find_more">Find more</string>
     <string name="agif_pickers_item_usage_hints_description">Double tap to select</string>
@@ -193,10 +194,12 @@
     <string name="agif_pickers_tab_select_description">Selected</string>
     <string name="agif_pickers_title">Start with a sticker.</string>
     <string name="agif_pickers_title_recommended">Recommended</string>
+    <string name="agif_random_send_message">Tap here to send this sticker.</string>
     <string name="agif_read_permission_description">Allows Phone to read AGIF content.</string>
     <string name="agif_read_permission_label">Read AGIF content</string>
     <string name="agif_receive_no_id">"The sticker can't be shown. Update %s after the call."</string>
     <string name="agif_receive_no_id_upsupport_update">"The sticker can't be shown. More stickers will be available after the next system update."</string>
+    <string name="agif_receive_toast">Sticker from %s.</string>
     <string name="agif_sent_fail_message">"Can't send animated GIF. Try again later."</string>
     <string name="agif_sent_toast">Sticker sent.</string>
     <string name="agif_write_permission_description">Allows Phone to modify AGIF content.</string>
@@ -897,7 +900,7 @@ Camera"</string>
     <string name="upload_using_wlan_only">Upload via WLAN only</string>
     <string name="upload_wifi_and_mobile_nw">Upload via Wi-Fi or mobile network</string>
     <string name="upload_wlan_and_mobile_nw">Upload via WLAN or mobile network</string>
-    <string name="usa_att_connected_as_voice">Call connected as voice only.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Your Data Usage that you set on your device is about to reach its limit. Your Video call requires data.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Call cannot be placed over Wi-Fi, connecting over cellular network. Voice and data charges will apply.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -945,13 +948,17 @@ one-way video"</string>
     <string name="usa_vzw_voice_incoming_during_wifi_video">Answering incoming call will end current call.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_text">The Wi-Fi signal is not strong enough to continue the call. Using mobile networks to continue your call will use your data plan.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Use Mobile Data</string>
-    <string name="usa_vzw_volte_weak_wifi_text">"We tried, but we can’t switch your video call to Wi-Fi at this time.
+    <string name="usa_vzw_volte_weak_wifi_text">"We tried, but we can not switch your video call to Wi-Fi at this time.
 
-Your video call is still running on the mobile network. (Data usage applies if you choose to continue.)"</string>
+Your video call is still running on the mobile network.
+
+Data usage charges may apply if you choose to continue."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Your video call is still running on the mobile network. (Data usage applies.)</string>
     <string name="usa_vzw_vowifi_wifi_low_signal_text">"The Wi-Fi signal was not strong enough to continue your video call.
 
-Your video call is now running on the mobile network. (Data usage applies if you choose to continue.)"</string>
+Your video call is now running on the mobile network.
+
+Data usage charges may apply if you choose to continue."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi connection lost. Call ended.</string>
     <string name="use_wifi_and_mobile_nw">Use Wi-Fi and mobile networks</string>
     <string name="use_wlan_and_mobile_nw">Use WLAN and mobile networks</string>

@@ -149,9 +149,7 @@
 .end method
 
 .method protected onPostExecute(Landroid/database/Cursor;)V
-    .locals 7
-
-    const/4 v6, 0x1
+    .locals 6
 
     const-string v0, "feature_chn"
 
@@ -204,7 +202,7 @@
 
     const-string v1, "onPostExecute "
 
-    invoke-static {v0, v1, v6}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$000()Ljava/lang/String;
 
@@ -250,7 +248,9 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1, v6}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    const/4 v2, 0x1
+
+    invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
     if-eqz p1, :cond_1
 

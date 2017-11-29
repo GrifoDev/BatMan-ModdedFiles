@@ -110,7 +110,7 @@
 
     const/4 v5, 0x0
 
-    const v4, 0x7f1000a2
+    const v4, 0x7f1000a6
 
     const/4 v6, 0x0
 
@@ -219,13 +219,13 @@
 
     iget-object v0, p0, Lcom/android/incallui/agif/AgifPagerAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x7f040024
+    const v1, 0x7f040025
 
     invoke-virtual {v0, v1, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
     move-result-object v1
 
-    const v0, 0x7f1000a1
+    const v0, 0x7f1000a5
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -277,7 +277,7 @@
     :cond_2
     iget-object v0, p0, Lcom/android/incallui/agif/AgifPagerAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x7f040026
+    const v1, 0x7f040027
 
     invoke-virtual {v0, v1, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -391,7 +391,7 @@
     nop
 
     :pswitch_data_0
-    .packed-switch 0x7f1000a1
+    .packed-switch 0x7f1000a5
         :pswitch_0
     .end packed-switch
 .end method

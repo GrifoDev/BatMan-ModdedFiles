@@ -139,7 +139,7 @@
 
     iget-object v1, v1, Lcom/android/incallui/TransferManager$TransferDialog;->this$0:Lcom/android/incallui/TransferManager;
 
-    const v2, 0x7f09016a
+    const v2, 0x7f09016d
 
     invoke-virtual {v1, v2}, Lcom/android/incallui/TransferManager;->getString(I)Ljava/lang/String;
 

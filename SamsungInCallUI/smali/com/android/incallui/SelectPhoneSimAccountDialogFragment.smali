@@ -11,6 +11,8 @@
 
 
 # static fields
+.field private static TAG:Ljava/lang/String;
+
 .field private static fragment:Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;
 
 .field private static mIsDisplayCallbackDialog:Z
@@ -38,6 +40,16 @@
 
 
 # direct methods
+.method static constructor <clinit>()V
+    .locals 1
+
+    const-string v0, "SelectPhoneSimAccountDialogFragment"
+
+    sput-object v0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->TAG:Ljava/lang/String;
+
+    return-void
+.end method
+
 .method public constructor <init>()V
     .locals 0
 
@@ -95,15 +107,37 @@
 .end method
 
 .method public static dismissDialog(Z)V
-    .locals 1
+    .locals 4
+
+    const/4 v3, 0x1
+
+    sget-object v0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "dismissDialog cancelAccount = "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1, v3}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
     sget-object v0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->fragment:Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;
 
     if-eqz v0, :cond_3
 
-    const/4 v0, 0x1
-
-    if-ne p0, v0, :cond_0
+    if-ne p0, v3, :cond_0
 
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
@@ -177,7 +211,7 @@
 .method public onCreateDialog(Landroid/os/Bundle;)Landroid/app/Dialog;
     .locals 9
 
-    const v8, 0x7f09031d
+    const v8, 0x7f090320
 
     const/4 v7, 0x0
 
@@ -270,7 +304,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f04018e
+    const v4, 0x7f040190
 
     iget-object v5, p0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->mAccountHandles:Ljava/util/List;
 
@@ -332,7 +366,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f04018d
+    const v3, 0x7f04018f
 
     const/4 v4, 0x0
 
@@ -356,7 +390,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/ListView;->setOnItemClickListener(Landroid/widget/AdapterView$OnItemClickListener;)V
 
-    const v0, 0x7f09031a
+    const v0, 0x7f09031d
 
     invoke-virtual {v1, v0}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -432,17 +466,41 @@
 .end method
 
 .method public onPause()V
-    .locals 2
+    .locals 4
 
-    const/4 v1, 0x1
+    const/4 v3, 0x1
+
+    sget-object v0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "onPause mIsSelected = "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-boolean v2, p0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->mIsSelected:Z
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1, v3}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
     iget-boolean v0, p0, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->mIsSelected:Z
 
     if-nez v0, :cond_0
 
-    invoke-static {v1}, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->dismissDialog(Z)V
+    invoke-static {v3}, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment;->dismissDialog(Z)V
 
-    invoke-static {v1}, Lcom/android/incallui/bike/BikeModeUtils;->setIsBMOutCallHandled(I)V
+    invoke-static {v3}, Lcom/android/incallui/bike/BikeModeUtils;->setIsBMOutCallHandled(I)V
 
     :cond_0
     invoke-super {p0}, Landroid/app/DialogFragment;->onPause()V

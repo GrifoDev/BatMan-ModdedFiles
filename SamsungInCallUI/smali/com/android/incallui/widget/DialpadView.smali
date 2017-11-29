@@ -38,18 +38,18 @@
 
     :array_0
     .array-data 4
+        0x7f100147
         0x7f100143
-        0x7f10013f
-        0x7f100135
-        0x7f100136
-        0x7f100137
-        0x7f100138
         0x7f100139
         0x7f10013a
         0x7f10013b
         0x7f10013c
-        0x7f100142
-        0x7f100141
+        0x7f10013d
+        0x7f10013e
+        0x7f10013f
+        0x7f100140
+        0x7f100146
+        0x7f100145
     .end array-data
 .end method
 
@@ -76,18 +76,18 @@
 
     :array_0
     .array-data 4
+        0x7f100147
         0x7f100143
-        0x7f10013f
-        0x7f100135
-        0x7f100136
-        0x7f100137
-        0x7f100138
         0x7f100139
         0x7f10013a
         0x7f10013b
         0x7f10013c
-        0x7f100142
-        0x7f100141
+        0x7f10013d
+        0x7f10013e
+        0x7f10013f
+        0x7f100140
+        0x7f100146
+        0x7f100145
     .end array-data
 .end method
 
@@ -114,18 +114,18 @@
 
     :array_0
     .array-data 4
+        0x7f100147
         0x7f100143
-        0x7f10013f
-        0x7f100135
-        0x7f100136
-        0x7f100137
-        0x7f100138
         0x7f100139
         0x7f10013a
         0x7f10013b
         0x7f10013c
-        0x7f100142
-        0x7f100141
+        0x7f10013d
+        0x7f10013e
+        0x7f10013f
+        0x7f100140
+        0x7f100146
+        0x7f100145
     .end array-data
 .end method
 
@@ -219,7 +219,7 @@
 
     if-eqz v4, :cond_f
 
-    const v3, 0x7f10013d
+    const v3, 0x7f100141
 
     invoke-virtual {v4, v3}, Lcom/android/phone/common/dialpad/DialpadKeyButton;->findViewById(I)Landroid/view/View;
 
@@ -227,7 +227,7 @@
 
     check-cast v3, Landroid/widget/TextView;
 
-    const v5, 0x7f10013e
+    const v5, 0x7f100142
 
     invoke-virtual {v4, v5}, Lcom/android/phone/common/dialpad/DialpadKeyButton;->findViewById(I)Landroid/view/View;
 
@@ -235,7 +235,7 @@
 
     check-cast v5, Landroid/widget/TextView;
 
-    const v6, 0x7f1002fa
+    const v6, 0x7f100300
 
     invoke-virtual {v4, v6}, Lcom/android/phone/common/dialpad/DialpadKeyButton;->findViewById(I)Landroid/view/View;
 
@@ -370,7 +370,7 @@
 
     move-result-object v3
 
-    const v5, 0x7f0a0579
+    const v5, 0x7f0a05b3
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -515,7 +515,7 @@
 
     move-result-object v3
 
-    const v6, 0x7f0a0632
+    const v6, 0x7f0a0675
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -533,7 +533,7 @@
 
     move-result-object v3
 
-    const v6, 0x7f0a064a
+    const v6, 0x7f0a068d
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -543,7 +543,7 @@
 
     move-result-object v3
 
-    const v6, 0x7f0a0649
+    const v6, 0x7f0a068c
 
     invoke-virtual {v3, v6}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -555,7 +555,7 @@
 
     move-result-object v3
 
-    const v9, 0x7f0a0648
+    const v9, 0x7f0a068b
 
     invoke-virtual {v3, v9}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -725,7 +725,7 @@
 
     move-result-object v6
 
-    const v9, 0x7f0a0631
+    const v9, 0x7f0a0674
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -770,9 +770,24 @@
 
     :array_0
     .array-data 4
-        0x7f090554
         0x7f090557
         0x7f09055a
+        0x7f09055d
+        0x7f09055f
+        0x7f090561
+        0x7f090563
+        0x7f090565
+        0x7f090567
+        0x7f090569
+        0x7f09056b
+        0x7f090571
+        0x7f09056e
+    .end array-data
+
+    :array_1
+    .array-data 4
+        0x7f090556
+        0x7f090559
         0x7f09055c
         0x7f09055e
         0x7f090560
@@ -780,40 +795,25 @@
         0x7f090564
         0x7f090566
         0x7f090568
-        0x7f09056e
-        0x7f09056b
-    .end array-data
-
-    :array_1
-    .array-data 4
-        0x7f090553
-        0x7f090556
-        0x7f090559
-        0x7f09055b
-        0x7f09055d
-        0x7f09055f
-        0x7f090561
-        0x7f090563
-        0x7f090565
-        0x7f090567
-        0x7f09056d
         0x7f09056a
+        0x7f090570
+        0x7f09056d
     .end array-data
 
     :array_2
     .array-data 4
-        0x7f090555
         0x7f090558
-        0x7f090147
-        0x7f090148
-        0x7f090149
+        0x7f09055b
         0x7f09014a
         0x7f09014b
         0x7f09014c
         0x7f09014d
         0x7f09014e
+        0x7f09014f
+        0x7f090150
+        0x7f090151
+        0x7f090572
         0x7f09056f
-        0x7f09056c
     .end array-data
 .end method
 
@@ -858,7 +858,7 @@
 
     invoke-direct {p0}, Lcom/android/incallui/widget/DialpadView;->setupKeypad()V
 
-    const v0, 0x7f10014c
+    const v0, 0x7f100150
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/widget/DialpadView;->findViewById(I)Landroid/view/View;
 
@@ -868,7 +868,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/widget/DialpadView;->mDigits:Landroid/widget/EditText;
 
-    const v0, 0x7f10014d
+    const v0, 0x7f100151
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/widget/DialpadView;->findViewById(I)Landroid/view/View;
 
@@ -878,7 +878,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/widget/DialpadView;->mDelete:Landroid/widget/ImageButton;
 
-    const v0, 0x7f10014b
+    const v0, 0x7f10014f
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/widget/DialpadView;->findViewById(I)Landroid/view/View;
 

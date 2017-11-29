@@ -54,7 +54,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverViewManager;->mActivity:Lcom/android/incallui/InCallActivity;
 
-    const v1, 0x7f100323
+    const v1, 0x7f100329
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/InCallActivity;->findViewById(I)Landroid/view/View;
 
@@ -69,7 +69,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverViewManager;->mActivity:Lcom/android/incallui/InCallActivity;
 
-    const v1, 0x7f100319
+    const v1, 0x7f10031f
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/InCallActivity;->findViewById(I)Landroid/view/View;
 
@@ -85,7 +85,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverViewManager;->mCoverScreen:Lcom/android/incallui/accessory/CoverScreen;
 
-    const v1, 0x7f10031a
+    const v1, 0x7f100320
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -215,7 +215,7 @@
     :cond_3
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverViewManager;->mActivity:Lcom/android/incallui/InCallActivity;
 
-    const v1, 0x7f100322
+    const v1, 0x7f100328
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/InCallActivity;->findViewById(I)Landroid/view/View;
 
@@ -523,6 +523,18 @@
     move-result-object v3
 
     invoke-virtual {v1, v2, v2, v3}, Lcom/android/incallui/accessory/CoverScreen;->onStateChange(Lcom/android/incallui/InCallPresenter$InCallState;Lcom/android/incallui/InCallPresenter$InCallState;Lcom/android/incallui/CallList;)V
+
+    invoke-static {}, Lcom/android/incallui/accessory/AccessoryEventHandler;->getInstance()Lcom/android/incallui/accessory/AccessoryEventHandler;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Lcom/android/incallui/accessory/AccessoryEventHandler;->getCoverType()I
+
+    move-result v1
+
+    const/16 v2, 0x8
+
+    if-ne v1, v2, :cond_4
 
     const/4 v1, 0x0
 

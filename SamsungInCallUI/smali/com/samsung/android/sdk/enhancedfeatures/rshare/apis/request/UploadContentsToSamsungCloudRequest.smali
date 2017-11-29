@@ -11,6 +11,8 @@
 
 
 # instance fields
+.field private mAddQuota:Z
+
 .field private mRequestToken:J
 
 .field private mUploadContentList:Ljava/util/List;
@@ -29,9 +31,13 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContentsToSamsungCloudRequest;->mAddQuota:Z
 
     return-void
 .end method
@@ -58,6 +64,14 @@
     iput-wide p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContentsToSamsungCloudRequest;->mRequestToken:J
 
     return-wide p1
+.end method
+
+.method static synthetic access$302(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContentsToSamsungCloudRequest;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContentsToSamsungCloudRequest;->mAddQuota:Z
+
+    return p1
 .end method
 
 
@@ -93,4 +107,12 @@
     iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContentsToSamsungCloudRequest;->mUploadDirectory:Ljava/lang/String;
 
     return-object v0
+.end method
+
+.method public isAddQuota()Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContentsToSamsungCloudRequest;->mAddQuota:Z
+
+    return v0
 .end method

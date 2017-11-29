@@ -120,7 +120,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f020381
+    const v0, 0x7f0203b5
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/widget/SecMenuButton;->setBackgroundResource(I)V
 
@@ -138,14 +138,14 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f020377
+    const v0, 0x7f0203ab
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/widget/SecMenuButton;->setBackgroundResource(I)V
 
     goto :goto_0
 
     :cond_1
-    const v0, 0x7f020375
+    const v0, 0x7f0203a9
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/widget/SecMenuButton;->setBackgroundResource(I)V
 

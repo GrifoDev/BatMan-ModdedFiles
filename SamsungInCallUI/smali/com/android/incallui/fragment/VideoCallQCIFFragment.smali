@@ -307,7 +307,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1002d0
+    const v1, 0x7f1002d6
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -321,7 +321,7 @@
 
     if-eqz p1, :cond_0
 
-    const v0, 0x7f100400
+    const v0, 0x7f100404
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -329,7 +329,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallQCIFFragment;->mVideoViewsContainer:Landroid/view/View;
 
-    const v0, 0x7f100401
+    const v0, 0x7f100405
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -339,7 +339,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallQCIFFragment;->mVideoContainer:Landroid/view/ViewGroup;
 
-    const v0, 0x7f10040a
+    const v0, 0x7f10040e
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -349,7 +349,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallQCIFFragment;->mPreviewContainer:Landroid/view/ViewGroup;
 
-    const v0, 0x7f10043b
+    const v0, 0x7f10043f
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -359,7 +359,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallQCIFFragment;->mFarEndContainerTemplate:Landroid/view/ViewGroup;
 
-    const v0, 0x7f10043c
+    const v0, 0x7f100440
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -369,7 +369,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallQCIFFragment;->mFarEndContainerResizeTemplate:Landroid/view/ViewGroup;
 
-    const v0, 0x7f10043d
+    const v0, 0x7f100441
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -379,7 +379,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallQCIFFragment;->mNearEndContainerTemplate:Landroid/view/ViewGroup;
 
-    const v0, 0x7f100403
+    const v0, 0x7f100407
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -387,7 +387,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallQCIFFragment;->mPreparingAnimation:Landroid/view/View;
 
-    const v0, 0x7f100406
+    const v0, 0x7f10040a
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -395,7 +395,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallQCIFFragment;->mFarEndPhotoContainer:Landroid/view/View;
 
-    const v0, 0x7f100407
+    const v0, 0x7f10040b
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -405,7 +405,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallQCIFFragment;->mFarEndPhoto:Landroid/widget/ImageView;
 
-    const v0, 0x7f100408
+    const v0, 0x7f10040c
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -415,7 +415,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallQCIFFragment;->mFarEndDefaultImage:Landroid/widget/ImageView;
 
-    const v0, 0x7f100409
+    const v0, 0x7f10040d
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -423,7 +423,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallQCIFFragment;->mFarEndCaptureAnimatinoView:Landroid/view/View;
 
-    const v0, 0x7f10040d
+    const v0, 0x7f100411
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -431,7 +431,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallQCIFFragment;->mNearEndCaptureAnimatinoView:Landroid/view/View;
 
-    const v0, 0x7f10040c
+    const v0, 0x7f100410
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -439,7 +439,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallQCIFFragment;->mNearEndSwitchAnimationView:Landroid/view/View;
 
-    const v0, 0x7f10040f
+    const v0, 0x7f100413
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -447,7 +447,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallQCIFFragment;->mIncomingHideMeImageContainer:Landroid/view/View;
 
-    const v0, 0x7f100410
+    const v0, 0x7f100414
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -457,7 +457,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallQCIFFragment;->mIncomingHideMePhoto:Landroid/widget/ImageView;
 
-    const v0, 0x7f100411
+    const v0, 0x7f100415
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -531,7 +531,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f040145
+    const v0, 0x7f040147
 
     invoke-virtual {p1, v0, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -541,7 +541,7 @@
     return-object v0
 
     :cond_0
-    const v0, 0x7f040144
+    const v0, 0x7f040146
 
     invoke-virtual {p1, v0, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -699,7 +699,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a043e
+    const v1, 0x7f0a0448
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -900,7 +900,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a043e
+    const v1, 0x7f0a0448
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1144,7 +1144,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a05b4
+    const v2, 0x7f0a05f4
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1254,7 +1254,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0e01f6
+    const v4, 0x7f0e0218
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1296,7 +1296,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0e01ea
+    const v3, 0x7f0e0209
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1334,7 +1334,7 @@
 .method protected setPreviewPosition()V
     .locals 6
 
-    const v4, 0x7f0a05b4
+    const v4, 0x7f0a05f4
 
     const/4 v2, 0x0
 
@@ -1915,7 +1915,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a05b4
+    const v2, 0x7f0a05f4
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 

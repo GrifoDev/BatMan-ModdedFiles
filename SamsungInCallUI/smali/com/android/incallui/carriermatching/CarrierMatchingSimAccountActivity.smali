@@ -380,7 +380,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0403
+    const v1, 0x7f0a040d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -390,7 +390,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0a0409
+    const v2, 0x7f0a0413
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -827,7 +827,7 @@
 
     check-cast v0, Landroid/view/LayoutInflater;
 
-    const v1, 0x7f040034
+    const v1, 0x7f040035
 
     const/4 v2, 0x0
 
@@ -835,7 +835,7 @@
 
     move-result-object v3
 
-    const v0, 0x7f1000e7
+    const v0, 0x7f1000eb
 
     invoke-virtual {v3, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -843,7 +843,7 @@
 
     check-cast v0, Landroid/widget/RelativeLayout;
 
-    const v1, 0x7f1000eb
+    const v1, 0x7f1000ef
 
     invoke-virtual {v3, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -851,7 +851,7 @@
 
     check-cast v1, Landroid/widget/RelativeLayout;
 
-    const v2, 0x7f1000e5
+    const v2, 0x7f1000e9
 
     invoke-virtual {v3, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -861,7 +861,7 @@
 
     iput-object v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mTextCallingSim:Landroid/widget/TextView;
 
-    const v2, 0x7f1000e6
+    const v2, 0x7f1000ea
 
     invoke-virtual {v3, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -871,7 +871,7 @@
 
     iput-object v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mTextSuggestSim:Landroid/widget/TextView;
 
-    const v2, 0x7f1000e8
+    const v2, 0x7f1000ec
 
     invoke-virtual {v3, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -881,7 +881,7 @@
 
     iput-object v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mImageSim1:Landroid/widget/ImageView;
 
-    const v2, 0x7f1000ec
+    const v2, 0x7f1000f0
 
     invoke-virtual {v3, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -891,7 +891,7 @@
 
     iput-object v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mImageSim2:Landroid/widget/ImageView;
 
-    const v2, 0x7f1000ea
+    const v2, 0x7f1000ee
 
     invoke-virtual {v3, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -901,7 +901,7 @@
 
     iput-object v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mTextOperatorSim1:Landroid/widget/TextView;
 
-    const v2, 0x7f1000ee
+    const v2, 0x7f1000f2
 
     invoke-virtual {v3, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -911,7 +911,7 @@
 
     iput-object v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mTextOperatorSim2:Landroid/widget/TextView;
 
-    const v2, 0x7f1000e9
+    const v2, 0x7f1000ed
 
     invoke-virtual {v3, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -921,7 +921,7 @@
 
     iput-object v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->mProgressBarSim1:Lcom/android/incallui/carriermatching/CircularCountDownProgress;
 
-    const v2, 0x7f1000ed
+    const v2, 0x7f1000f1
 
     invoke-virtual {v3, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1040,7 +1040,7 @@
     if-eqz v1, :cond_3
 
     :cond_1
-    const v1, 0x7f09010e
+    const v1, 0x7f090111
 
     invoke-virtual {p0, v1}, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->getString(I)Ljava/lang/String;
 
@@ -1148,7 +1148,7 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f090116
+    const v1, 0x7f090119
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -1256,7 +1256,7 @@
     goto/16 :goto_0
 
     :cond_3
-    const v0, 0x7f09010c
+    const v0, 0x7f09010f
 
     new-array v1, v7, [Ljava/lang/Object;
 
@@ -1276,7 +1276,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v4, 0x7f09010e
+    const v4, 0x7f090111
 
     invoke-virtual {p0, v4}, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->getString(I)Ljava/lang/String;
 
@@ -1305,13 +1305,13 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f090111
+    const v0, 0x7f090114
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    const v0, 0x7f090115
+    const v0, 0x7f090118
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->getString(I)Ljava/lang/String;
 
@@ -1320,13 +1320,13 @@
     goto/16 :goto_2
 
     :pswitch_2
-    const v0, 0x7f090110
+    const v0, 0x7f090113
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    const v0, 0x7f090114
+    const v0, 0x7f090117
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->getString(I)Ljava/lang/String;
 
@@ -1335,7 +1335,7 @@
     goto/16 :goto_2
 
     :pswitch_3
-    const v0, 0x7f090112
+    const v0, 0x7f090115
 
     new-array v2, v7, [Ljava/lang/Object;
 
@@ -1362,7 +1362,7 @@
 
     if-eqz v2, :cond_4
 
-    const v0, 0x7f090113
+    const v0, 0x7f090116
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->getString(I)Ljava/lang/String;
 
@@ -1379,7 +1379,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f090113
+    const v2, 0x7f090116
 
     invoke-virtual {p0, v2}, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->getString(I)Ljava/lang/String;
 
@@ -1404,7 +1404,7 @@
 
     if-eqz v2, :cond_5
 
-    const v0, 0x7f09010f
+    const v0, 0x7f090112
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->getString(I)Ljava/lang/String;
 
@@ -1421,7 +1421,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f09010f
+    const v2, 0x7f090112
 
     invoke-virtual {p0, v2}, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->getString(I)Ljava/lang/String;
 
@@ -1438,7 +1438,7 @@
     goto/16 :goto_2
 
     :pswitch_6
-    const v0, 0x7f09010d
+    const v0, 0x7f090110
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/carriermatching/CarrierMatchingSimAccountActivity;->getString(I)Ljava/lang/String;
 
@@ -1960,8 +1960,8 @@
 
     :sswitch_data_0
     .sparse-switch
-        0x7f1000e7 -> :sswitch_0
-        0x7f1000eb -> :sswitch_1
+        0x7f1000eb -> :sswitch_0
+        0x7f1000ef -> :sswitch_1
     .end sparse-switch
 .end method
 

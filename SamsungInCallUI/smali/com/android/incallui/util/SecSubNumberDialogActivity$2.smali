@@ -70,20 +70,27 @@
 
     iget-object v0, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity$2;->this$0:Lcom/android/incallui/util/SecSubNumberDialogActivity;
 
-    invoke-static {v0}, Lcom/android/incallui/util/SecSubNumberDialogActivity;->access$100(Lcom/android/incallui/util/SecSubNumberDialogActivity;)Ljava/util/ArrayList;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/Integer;
-
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
+    invoke-static {v0}, Lcom/android/incallui/util/SecSubNumberDialogActivity;->access$100(Lcom/android/incallui/util/SecSubNumberDialogActivity;)Z
 
     move-result v0
 
+    if-nez v0, :cond_2
+
+    iget-object v0, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity$2;->this$0:Lcom/android/incallui/util/SecSubNumberDialogActivity;
+
+    invoke-static {v0}, Lcom/android/incallui/util/SecSubNumberDialogActivity;->access$200(Lcom/android/incallui/util/SecSubNumberDialogActivity;)[Ljava/lang/String;
+
+    move-result-object v0
+
+    add-int/lit8 v1, p2, -0x1
+
+    aget-object v0, v0, v1
+
+    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    :goto_0
     new-instance v1, Landroid/content/Intent;
 
     const-string v2, "android.intent.action.CALL_PRIVILEGED"
@@ -92,7 +99,7 @@
 
     iget-object v4, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity$2;->this$0:Lcom/android/incallui/util/SecSubNumberDialogActivity;
 
-    invoke-static {v4}, Lcom/android/incallui/util/SecSubNumberDialogActivity;->access$200(Lcom/android/incallui/util/SecSubNumberDialogActivity;)Ljava/lang/String;
+    invoke-static {v4}, Lcom/android/incallui/util/SecSubNumberDialogActivity;->access$300(Lcom/android/incallui/util/SecSubNumberDialogActivity;)Ljava/lang/String;
 
     move-result-object v4
 
@@ -133,7 +140,7 @@
 
     iget-object v2, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity$2;->this$0:Lcom/android/incallui/util/SecSubNumberDialogActivity;
 
-    invoke-static {v2}, Lcom/android/incallui/util/SecSubNumberDialogActivity;->access$300(Lcom/android/incallui/util/SecSubNumberDialogActivity;)I
+    invoke-static {v2}, Lcom/android/incallui/util/SecSubNumberDialogActivity;->access$400(Lcom/android/incallui/util/SecSubNumberDialogActivity;)I
 
     move-result v2
 
@@ -149,4 +156,19 @@
     invoke-virtual {v0}, Lcom/android/incallui/util/SecSubNumberDialogActivity;->finish()V
 
     return-void
+
+    :cond_2
+    iget-object v0, p0, Lcom/android/incallui/util/SecSubNumberDialogActivity$2;->this$0:Lcom/android/incallui/util/SecSubNumberDialogActivity;
+
+    invoke-static {v0}, Lcom/android/incallui/util/SecSubNumberDialogActivity;->access$200(Lcom/android/incallui/util/SecSubNumberDialogActivity;)[Ljava/lang/String;
+
+    move-result-object v0
+
+    aget-object v0, v0, p2
+
+    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    goto :goto_0
 .end method

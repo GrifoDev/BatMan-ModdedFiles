@@ -108,7 +108,7 @@
     invoke-virtual {v0, v1}, Landroid/app/ActionBar;->setDisplayShowHomeEnabled(Z)V
 
     :cond_0
-    const v0, 0x7f04002a
+    const v0, 0x7f04002b
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/AnsweringAndRejectingCallsActivity;->setContentView(I)V
 

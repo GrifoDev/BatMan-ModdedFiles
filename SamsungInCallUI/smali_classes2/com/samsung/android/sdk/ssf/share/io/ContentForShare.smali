@@ -5,6 +5,8 @@
 # instance fields
 .field private content_type:Ljava/lang/String;
 
+.field private extra_attribute:I
+
 .field private original:Ljava/lang/String;
 
 
@@ -13,6 +15,10 @@
     .locals 2
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/4 v0, 0x0
+
+    iput v0, p0, Lcom/samsung/android/sdk/ssf/share/io/ContentForShare;->extra_attribute:I
 
     invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
@@ -51,6 +57,54 @@
     return-void
 .end method
 
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;I)V
+    .locals 2
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    const/4 v0, 0x0
+
+    iput v0, p0, Lcom/samsung/android/sdk/ssf/share/io/ContentForShare;->extra_attribute:I
+
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string v1, "Original file content can not be null or empty"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_0
+    invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    new-instance v0, Ljava/lang/IllegalArgumentException;
+
+    const-string v1, "Content type can not be null or empty"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_1
+    iput-object p1, p0, Lcom/samsung/android/sdk/ssf/share/io/ContentForShare;->original:Ljava/lang/String;
+
+    iput-object p2, p0, Lcom/samsung/android/sdk/ssf/share/io/ContentForShare;->content_type:Ljava/lang/String;
+
+    iput p3, p0, Lcom/samsung/android/sdk/ssf/share/io/ContentForShare;->extra_attribute:I
+
+    return-void
+.end method
+
 
 # virtual methods
 .method public getContent_type()Ljava/lang/String;
@@ -73,6 +127,14 @@
     .locals 0
 
     iput-object p1, p0, Lcom/samsung/android/sdk/ssf/share/io/ContentForShare;->content_type:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method public setExtra_attribute(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/samsung/android/sdk/ssf/share/io/ContentForShare;->extra_attribute:I
 
     return-void
 .end method
@@ -119,6 +181,22 @@
     iget-object v1, p0, Lcom/samsung/android/sdk/ssf/share/io/ContentForShare;->content_type:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v1, ", extra_attribute=\'"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/samsung/android/sdk/ssf/share/io/ContentForShare;->extra_attribute:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v0
 

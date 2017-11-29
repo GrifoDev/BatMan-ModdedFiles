@@ -472,7 +472,7 @@
 
     const/4 v5, 0x0
 
-    const v4, 0x7f100484
+    const v4, 0x7f100488
 
     const/16 v3, 0x8
 
@@ -617,7 +617,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mParentView:Landroid/view/View;
 
-    const v1, 0x7f100485
+    const v1, 0x7f100489
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -704,7 +704,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f10016e
+    const v0, 0x7f100172
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -752,7 +752,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f10016d
+    const v0, 0x7f100171
 
     :try_start_1
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
@@ -784,7 +784,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mParentView:Landroid/view/View;
 
-    const v1, 0x7f100484
+    const v1, 0x7f100488
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1185,11 +1185,11 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0114
+    const v3, 0x7f0b0116
 
     invoke-direct {v1, v2, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;I)V
 
-    const v2, 0x7f04019b
+    const v2, 0x7f04019d
 
     invoke-virtual {v0, v2, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -1200,7 +1200,7 @@
     move-object v3, v1
 
     :goto_0
-    const v0, 0x7f1004c7
+    const v0, 0x7f1004ce
 
     invoke-virtual {v2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1216,7 +1216,7 @@
 
     if-eqz v1, :cond_2
 
-    const v1, 0x7f0905c1
+    const v1, 0x7f0905c4
 
     invoke-virtual {p0, v1}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->getString(I)Ljava/lang/String;
 
@@ -1239,7 +1239,7 @@
 
     move-result-object v4
 
-    const v1, 0x7f090227
+    const v1, 0x7f09022a
 
     invoke-virtual {p0, v1}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->getString(I)Ljava/lang/String;
 
@@ -1297,7 +1297,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setMovementMethod(Landroid/text/method/MovementMethod;)V
 
-    const v0, 0x7f1004c9
+    const v0, 0x7f1004d0
 
     invoke-virtual {v2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1307,7 +1307,7 @@
 
     invoke-virtual {v0, v8}, Landroid/widget/CheckBox;->setChecked(Z)V
 
-    const v1, 0x7f1004c8
+    const v1, 0x7f1004cf
 
     invoke-virtual {v2, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1329,7 +1329,7 @@
 
     invoke-virtual {v1, v8}, Landroid/widget/CheckBox;->setChecked(Z)V
 
-    const v4, 0x7f1004cb
+    const v4, 0x7f1004d2
 
     invoke-virtual {v2, v4}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1343,11 +1343,11 @@
 
     invoke-virtual {v3, v2}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    const v2, 0x7f090228
+    const v2, 0x7f09022b
 
     invoke-virtual {v3, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    const v2, 0x7f0900c4
+    const v2, 0x7f0900c7
 
     new-instance v4, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$9;
 
@@ -1355,7 +1355,7 @@
 
     invoke-virtual {v3, v2, v4}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    const v0, 0x7f090152
+    const v0, 0x7f090155
 
     new-instance v2, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$10;
 
@@ -1390,7 +1390,7 @@
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f04019a
+    const v2, 0x7f04019c
 
     invoke-virtual {v0, v2, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -1403,7 +1403,7 @@
     goto/16 :goto_0
 
     :cond_2
-    const v1, 0x7f090226
+    const v1, 0x7f090229
 
     invoke-virtual {p0, v1}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->getString(I)Ljava/lang/String;
 
@@ -1510,7 +1510,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090366
+    const v1, 0x7f090369
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1555,9 +1555,9 @@
 .method private updatePagerIndicatorIVR(I)V
     .locals 3
 
-    const v0, 0x7f02025d
+    const v0, 0x7f020291
 
-    const v1, 0x7f02025c
+    const v1, 0x7f020290
 
     if-nez p1, :cond_2
 
@@ -2106,7 +2106,7 @@
 
     const/4 v3, 0x1
 
-    const v0, 0x7f040174
+    const v0, 0x7f040176
 
     invoke-virtual {p1, v0, p2, v4}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -2118,7 +2118,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mParentView:Landroid/view/View;
 
-    const v1, 0x7f100418
+    const v1, 0x7f10041c
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2128,7 +2128,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mParentView:Landroid/view/View;
 
-    const v1, 0x7f10030a
+    const v1, 0x7f100310
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2138,7 +2138,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mParentView:Landroid/view/View;
 
-    const v1, 0x7f10041e
+    const v1, 0x7f100422
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2161,7 +2161,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mParentView:Landroid/view/View;
 
-    const v1, 0x7f100467
+    const v1, 0x7f10046b
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2171,7 +2171,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mParentView:Landroid/view/View;
 
-    const v1, 0x7f100229
+    const v1, 0x7f10022d
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2273,7 +2273,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mParentView:Landroid/view/View;
 
-    const v1, 0x7f10047e
+    const v1, 0x7f100482
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2283,7 +2283,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mParentView:Landroid/view/View;
 
-    const v1, 0x7f100481
+    const v1, 0x7f100485
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2293,7 +2293,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mParentView:Landroid/view/View;
 
-    const v1, 0x7f100483
+    const v1, 0x7f100487
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2357,7 +2357,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mParentView:Landroid/view/View;
 
-    const v1, 0x7f100491
+    const v1, 0x7f100495
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2367,7 +2367,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->mPowerByBreeze:Landroid/widget/TextView;
 
-    const v0, 0x7f090615
+    const v0, 0x7f090618
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment;->getString(I)Ljava/lang/String;
 

@@ -119,12 +119,13 @@
     <string name="account_phone">Cihaz</string>
     <string name="acs">Səsli zəng</string>
     <string name="active_calls">Aktiv zəng</string>
-    <string name="add_reminder">Xatır əlv et</string>
+    <string name="add_reminder">Xatırladıcı əlavə et</string>
     <string name="agif_button_close_description">Bağla</string>
     <string name="agif_decline_message">Üzr istəyirəm, indi danışa bilmirəm.</string>
     <string name="agif_decline_sticker_header">Yapışqanla rədd et</string>
     <string name="agif_decline_text_header">Mətnlə rədd et</string>
     <string name="agif_decline_toast">Yapışqan %s göndərildi.</string>
+    <string name="agif_outgoing_bubble_tip">Necə hiss etdiyinizi göstərmək üçün yapışqan göndərin.</string>
     <string name="agif_pickers_add_tab_description">Əlv et</string>
     <string name="agif_pickers_find_more">Digərlərini tap</string>
     <string name="agif_pickers_item_usage_hints_description">Seçmək üçün iki dəfə vur</string>
@@ -133,10 +134,12 @@
     <string name="agif_pickers_tab_select_description">Seçildi</string>
     <string name="agif_pickers_title">Yapışqanla başla</string>
     <string name="agif_pickers_title_recommended">Tövsiyə edilən</string>
+    <string name="agif_random_send_message">Bu yapışqanı göndərmək üçün bura vurun.</string>
     <string name="agif_read_permission_description">Telefona AGIF məzmununu oxumaq imkanı verir.</string>
     <string name="agif_read_permission_label">AGIF məzmununu oxuyun</string>
     <string name="agif_receive_no_id">Yapışqan göstərilə bilməz. Zəngdən sonra %s yenilə.</string>
     <string name="agif_receive_no_id_upsupport_update">Yapışqan göstərilə bilməz. Növbəti dəfə sistem yeniləndikdən sonra daha çox yapışqan olacaq.</string>
+    <string name="agif_receive_toast">%s-dan yapışqan.</string>
     <string name="agif_sent_fail_message">Animasiyalı GIF göndərmək olmur. Daha sonra yenidən cəhd et.</string>
     <string name="agif_sent_toast">Yapışqan göndərildi.</string>
     <string name="agif_write_permission_description">Telefona AGIF məzmununu dəyişmək imkanı verir.</string>
@@ -827,8 +830,8 @@ Kamera"</string>
     <string name="tts_pager">Səhifə %1$d/%2$d</string>
     <string name="tts_seconds">%d saniyə</string>
     <string name="tty_mode_option_title">TTY rejimi</string>
-    <string name="tutorial_incoming_call_app_answer">Zəngə cavab vermək üçün vurun.</string>
-    <string name="tutorial_incoming_call_app_reject">Zəngi rədd etmək üçün vur.</string>
+    <string name="tutorial_incoming_call_app_answer">Cavab vermək üçün iki dəfə vur.</string>
+    <string name="tutorial_incoming_call_app_reject">İmtina üçün iki dəfə vur.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Şəbəkəyə qoşulmaq mümkün olmadı. Bağlantı parametrlərinizi yoxlayın və yenidən cəhd edin.</string>
     <string name="units_kb">KB</string>
@@ -838,7 +841,7 @@ Kamera"</string>
     <string name="upload_using_wlan_only">Yalnız WLAN ilə yüklə</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fi və ya mobil şəbəkə ilə yüklə</string>
     <string name="upload_wlan_and_mobile_nw">WLAN və ya mobil şəbəkə ilə yüklə</string>
-    <string name="usa_att_connected_as_voice">Zəng yalnız səs kimi qoşulub.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Cihazınızda təyin etdiyiniz Məlumatların İstifadəsi limitinə çatmaq üzərədir. Video zənginiz məlumatlar tələb edir.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Zəngi Wi-Fi vasitəsilə etmək mümkün deyil, mobil şəbəkə ilə qoşulur. Səs və məlumatlar xərci tətbiq ediləcək.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -886,13 +889,17 @@ videoya dəyişdir"</string>
     <string name="usa_vzw_voice_incoming_during_wifi_video">Daxil olan zəngə cavab vermək cari zəngi bitirəcək.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_text">Wi-Fi siqnalı zəngə davam etmək üçün kifayət qədər güclü deyil. Zənginizə davam etmək üçün mobil şəbəkələrdən istifadə tarif planınızdan istifadə edəcək.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Mobil Məlumatlardan istifadə et</string>
-    <string name="usa_vzw_volte_weak_wifi_text">"Cəhd etdik, lakin video zənginizi hazırda Wi-Fi-a keçirmək mümkün deyil.
+    <string name="usa_vzw_volte_weak_wifi_text">"Biz çalışdıq, lakin video zəngi hazırda Wi-Fi-ya keçirə bilmədik.
 
-Video zənginiz hələ də mobil şəbəkədə icra olunur. (Əgər davam etməyi seçsəniz, məlumatlardan istifadə tətbiq edilir.)"</string>
+Video zənginiz hələ də mobil şəbəkədə işləyir.
+
+Davam etməyi seçsəniz data istifadə xərcləri tətbiq edilə bilər."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Video zənginiz hələ də mobil şəbəkədə icra olunur. (Məlumatlardan istifadə tətbiq olunur.)</string>
-    <string name="usa_vzw_vowifi_wifi_low_signal_text">"Wi-Fi siqnalı video zənginizə davam etmək üçün kifayət qədər güclü deyildi.
+    <string name="usa_vzw_vowifi_wifi_low_signal_text">"Wi-Fi siqnalı video zəngə davam etmək üçün kifayət qədər güclü deyildi.
 
-Video zənginiz indi mobil şəbəkədə icra olunur. (Əgər davam etməyi seçsəniz, məlumatlardan istifadə tətbiq edilir.)"</string>
+Video zənginiz mobil şəbəkədə gedir.
+
+Davam etməyi seçsəniz data istifadə xərcləri tətbiq edilə bilər."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi bağlantısı itib. Zəng bitdi.</string>
     <string name="use_wifi_and_mobile_nw">Wi-Fi və mobil şəbəkələrdən istifadə</string>
     <string name="use_wlan_and_mobile_nw">WLAN və mobil şəbəkələrdən istifadə edin</string>

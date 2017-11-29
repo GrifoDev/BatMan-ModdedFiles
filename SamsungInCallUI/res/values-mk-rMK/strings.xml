@@ -118,12 +118,13 @@
     <string name="account_phone">Уред</string>
     <string name="acs">Говорен повик</string>
     <string name="active_calls">Активен повик</string>
-    <string name="add_reminder">Дод. потсет.</string>
+    <string name="add_reminder">Додај потсетник</string>
     <string name="agif_button_close_description">Затвори</string>
     <string name="agif_decline_message">Извинете, не можам да зборувам во моментов.</string>
     <string name="agif_decline_sticker_header">Одбивање со налепница</string>
     <string name="agif_decline_text_header">Одбивање со текст</string>
     <string name="agif_decline_toast">Налепницата е пратена до %s.</string>
+    <string name="agif_outgoing_bubble_tip">Испратете налепница за да прикажете како се чувствувате.</string>
     <string name="agif_pickers_add_tab_description">Додај</string>
     <string name="agif_pickers_find_more">Најди повеќе</string>
     <string name="agif_pickers_item_usage_hints_description">Допри двапати за бирање</string>
@@ -132,10 +133,12 @@
     <string name="agif_pickers_tab_select_description">Избрано</string>
     <string name="agif_pickers_title">Започнете со налепница</string>
     <string name="agif_pickers_title_recommended">Препорачано</string>
+    <string name="agif_random_send_message">Допрете тука за ја испратите оваа налепница.</string>
     <string name="agif_read_permission_description">Дозволете Телефон да ја чита содржината AGIF.</string>
     <string name="agif_read_permission_label">Прочитајте содржина AGIF</string>
     <string name="agif_receive_no_id">Налепницата не може да се прикаже. Ажурирајте ја %s по повикот.</string>
     <string name="agif_receive_no_id_upsupport_update">Налепницата не може да се прикаже. Ќе бидат достапни повеќе налепници по следното ажур. на системот.</string>
+    <string name="agif_receive_toast">Налепница од %s.</string>
     <string name="agif_sent_fail_message">Не може да се прати анимиран GIF. Обидете се повторно подоцна.</string>
     <string name="agif_sent_toast">Пратена е налепница.</string>
     <string name="agif_write_permission_description">Дозволете Телефон да ја измени содржината AGIF.</string>
@@ -825,8 +828,8 @@
     <string name="tts_pager">Страница %1$d од %2$d</string>
     <string name="tts_seconds">%d секунди</string>
     <string name="tty_mode_option_title">Режим TTY</string>
-    <string name="tutorial_incoming_call_app_answer">Допрете за да одговорите на повикот.</string>
-    <string name="tutorial_incoming_call_app_reject">Допрете за да го отфрлите повикот.</string>
+    <string name="tutorial_incoming_call_app_answer">Двоен допир за одговор.</string>
+    <string name="tutorial_incoming_call_app_reject">Двоен допир за одбивање.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Не може да се поврзе со мрежата. Проверете ги поставките за поврзување и обидете се повторно.</string>
     <string name="units_kb">KB</string>
@@ -836,7 +839,7 @@
     <string name="upload_using_wlan_only">Прати само преку WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Праќај преку Wi-Fi или мобилна мрежа</string>
     <string name="upload_wlan_and_mobile_nw">Прати преку WLAN или мобилна мрежа</string>
-    <string name="usa_att_connected_as_voice">Повикот е поврзан како само со глас.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Користењето податоци што сте го поставиле на Вашиот уред тукушто ќе го достигне своето ограничување. Вашиот Видео повик бара податоци.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Повикот не може да се оствари преку Wi-Fi, се поврзува преку мобилна мрежа. Говорот и податоците ќе се наплаќаат.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -886,11 +889,15 @@
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Користење Мобилни податоци</string>
     <string name="usa_vzw_volte_weak_wifi_text">"Се обидовме, но не можеме да го префрлиме видео повикот на Wi-Fi во моментов.
 
-Вашиот видео повик сѐ уште работи на мобилната мрежа. (Користењето на податоци важи ако изберете да продолжите)."</string>
+Вашиот видео повик сѐ уште работи на мобилната мрежа.
+
+Може да важат тарифи за користење податоци ако одберете да продолжите."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Видео повикувањето сѐ уште работи на мобилна мрежа. (Важи користењето податоци).</string>
     <string name="usa_vzw_vowifi_wifi_low_signal_text">"Сигналот Wi-Fi не беше доволно силен за да продолжи Вашиот видео повик.
 
-Вашиот видео повик сега работи на мобилната мрежа. (Користењето на податоци важи ако изберете да продолжите.)"</string>
+Вашиот видео повик сега работи на мобилната мрежа.
+
+Ако одберете да продолжите може да важат тарифите за користење податоци."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Поврзувањето со Wi-Fi е изгубено. Повикот заврши.</string>
     <string name="use_wifi_and_mobile_nw">Користи Wi-Fi и мобилни мрежи</string>
     <string name="use_wlan_and_mobile_nw">Користете WLAN и мобилни мрежи</string>

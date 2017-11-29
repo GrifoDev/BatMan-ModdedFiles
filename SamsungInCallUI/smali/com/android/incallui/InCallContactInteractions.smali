@@ -151,7 +151,7 @@
         }
     .end annotation
 
-    const v12, 0x7f090611
+    const v12, 0x7f090614
 
     const/4 v11, 0x6
 
@@ -182,7 +182,7 @@
 
     invoke-direct {v7}, Lcom/android/incallui/InCallContactInteractions$BusinessContextInfo;-><init>()V
 
-    const v0, 0x7f020187
+    const v0, 0x7f0201b2
 
     iput v0, v7, Lcom/android/incallui/InCallContactInteractions$BusinessContextInfo;->iconId:I
 
@@ -273,7 +273,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/InCallContactInteractions;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f09060d
+    const v1, 0x7f090610
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -307,7 +307,7 @@
     :cond_5
     iget-object v0, p0, Lcom/android/incallui/InCallContactInteractions;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f090520
+    const v1, 0x7f090523
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -320,7 +320,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/InCallContactInteractions;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f09060f
+    const v2, 0x7f090612
 
     new-array v4, v10, [Ljava/lang/Object;
 
@@ -365,7 +365,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/InCallContactInteractions;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f090522
+    const v2, 0x7f090525
 
     new-array v5, v6, [Ljava/lang/Object;
 
@@ -478,7 +478,7 @@
     :cond_a
     iget-object v2, p0, Lcom/android/incallui/InCallContactInteractions;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f090521
+    const v4, 0x7f090524
 
     new-array v5, v6, [Ljava/lang/Object;
 
@@ -515,7 +515,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/InCallContactInteractions;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f090610
+    const v2, 0x7f090613
 
     new-array v5, v6, [Ljava/lang/Object;
 
@@ -573,7 +573,7 @@
 
     invoke-direct {v0}, Lcom/android/incallui/InCallContactInteractions$BusinessContextInfo;-><init>()V
 
-    const v1, 0x7f02016f
+    const v1, 0x7f02019a
 
     iput v1, v0, Lcom/android/incallui/InCallContactInteractions$BusinessContextInfo;->iconId:I
 
@@ -593,7 +593,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/InCallContactInteractions;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f09057e
+    const v2, 0x7f090581
 
     new-array v3, v6, [Ljava/lang/Object;
 
@@ -623,7 +623,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/InCallContactInteractions;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f090573
+    const v2, 0x7f090576
 
     const/4 v3, 0x2
 
@@ -652,7 +652,7 @@
     :cond_2
     iget-object v1, p0, Lcom/android/incallui/InCallContactInteractions;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f09057f
+    const v2, 0x7f090582
 
     new-array v3, v6, [Ljava/lang/Object;
 
@@ -693,7 +693,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/InCallContactInteractions;->mInflater:Landroid/view/LayoutInflater;
 
-    const v1, 0x7f040028
+    const v1, 0x7f040029
 
     const/4 v2, 0x0
 
@@ -722,7 +722,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0904f3
+    const v1, 0x7f0904f6
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -738,7 +738,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090614
+    const v1, 0x7f090617
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -791,7 +791,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/InCallContactInteractions;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f09060e
+    const v2, 0x7f090611
 
     const/4 v0, 0x2
 
@@ -902,7 +902,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f040029
+    const v0, 0x7f04002a
 
     :goto_0
     invoke-direct {v1, p0, v2, v0}, Lcom/android/incallui/InCallContactInteractions$InCallContactInteractionsListAdapter;-><init>(Lcom/android/incallui/InCallContactInteractions;Landroid/content/Context;I)V
@@ -915,7 +915,7 @@
     return v0
 
     :cond_1
-    const v0, 0x7f040082
+    const v0, 0x7f040083
 
     goto :goto_0
 

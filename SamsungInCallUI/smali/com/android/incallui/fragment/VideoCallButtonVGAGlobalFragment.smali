@@ -50,7 +50,7 @@
 
     invoke-super {p0, p1}, Lcom/android/incallui/fragment/VideoCallButtonVGAFragment;->onFinishInflate(Landroid/view/View;)V
 
-    const v0, 0x7f100425
+    const v0, 0x7f100429
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -69,7 +69,7 @@
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
     :cond_0
-    const v0, 0x7f100461
+    const v0, 0x7f100465
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -77,7 +77,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAGlobalFragment;->mModifyCallButtonView:Landroid/view/View;
 
-    const v0, 0x7f100460
+    const v0, 0x7f100464
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -85,7 +85,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAGlobalFragment;->mModifyCallButtonContainer:Landroid/view/View;
 
-    const v0, 0x7f10046a
+    const v0, 0x7f10046e
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -93,7 +93,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAGlobalFragment;->mAcceptButtonContainer:Landroid/view/View;
 
-    const v0, 0x7f10046c
+    const v0, 0x7f100470
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -101,7 +101,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/VideoCallButtonVGAGlobalFragment;->mDeclineButtonContainer:Landroid/view/View;
 
-    const v0, 0x7f10046b
+    const v0, 0x7f10046f
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -120,7 +120,7 @@
     invoke-virtual {v0, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :cond_1
-    const v0, 0x7f10046d
+    const v0, 0x7f100471
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -149,7 +149,7 @@
 
     if-eqz v0, :cond_4
 
-    const v0, 0x7f100470
+    const v0, 0x7f100474
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -166,7 +166,7 @@
     invoke-virtual {v0, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :cond_3
-    const v0, 0x7f100475
+    const v0, 0x7f100479
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

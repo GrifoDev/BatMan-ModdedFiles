@@ -29,6 +29,8 @@
 
 .field public static final SIM_ICON_TYPE_END_CALL_SCREEN_ONE_HAND_MODE:I = 0x16
 
+.field public static final SIM_ICON_TYPE_END_CALL_SCREEN_SUB_NUMBER:I = 0x19
+
 .field public static final SIM_ICON_TYPE_END_CALL_SCREEN_VOWIFI:I = 0x18
 
 .field public static final SIM_ICON_TYPE_MINI_CALL_SCREEN:I = 0x2
@@ -65,6 +67,8 @@
 
 .field static simIconTypeEndCallScreenOneHandMode:[I
 
+.field static simIconTypeEndCallSubNumber:[I
+
 .field static simIconTypeMiniCallScreen:[I
 
 .field static simIconTypeQuickPanel:[I
@@ -72,6 +76,18 @@
 .field static simIconTypeSimSelectPopupMode:[I
 
 .field static simIconTypeSimTabDuringCall:[I
+
+.field static simIconTypeSubOneLarge:[I
+
+.field static simIconTypeSubOneMini:[I
+
+.field static simIconTypeSubThreeLarge:[I
+
+.field static simIconTypeSubThreeMini:[I
+
+.field static simIconTypeSubTwoLarge:[I
+
+.field static simIconTypeSubTwoMini:[I
 
 .field static simIconTypeVoWifiCall:[I
 
@@ -168,125 +184,256 @@
 
     sput-object v0, Lcom/android/incallui/util/InCallUtilsMultiSIM;->simIconTypeVoWifiCall:[I
 
-    return-void
+    new-array v0, v5, [I
 
-    nop
+    fill-array-data v0, :array_9
+
+    sput-object v0, Lcom/android/incallui/util/InCallUtilsMultiSIM;->simIconTypeSubOneMini:[I
+
+    new-array v0, v5, [I
+
+    fill-array-data v0, :array_a
+
+    sput-object v0, Lcom/android/incallui/util/InCallUtilsMultiSIM;->simIconTypeSubOneLarge:[I
+
+    new-array v0, v5, [I
+
+    fill-array-data v0, :array_b
+
+    sput-object v0, Lcom/android/incallui/util/InCallUtilsMultiSIM;->simIconTypeSubTwoMini:[I
+
+    new-array v0, v5, [I
+
+    fill-array-data v0, :array_c
+
+    sput-object v0, Lcom/android/incallui/util/InCallUtilsMultiSIM;->simIconTypeSubTwoLarge:[I
+
+    new-array v0, v5, [I
+
+    fill-array-data v0, :array_d
+
+    sput-object v0, Lcom/android/incallui/util/InCallUtilsMultiSIM;->simIconTypeSubThreeMini:[I
+
+    new-array v0, v5, [I
+
+    fill-array-data v0, :array_e
+
+    sput-object v0, Lcom/android/incallui/util/InCallUtilsMultiSIM;->simIconTypeSubThreeLarge:[I
+
+    new-array v0, v5, [I
+
+    fill-array-data v0, :array_f
+
+    sput-object v0, Lcom/android/incallui/util/InCallUtilsMultiSIM;->simIconTypeEndCallSubNumber:[I
+
+    return-void
 
     :array_0
     .array-data 4
-        0x7f020301
-        0x7f020305
-        0x7f0202fc
-        0x7f020324
-        0x7f02031a
-        0x7f020315
-        0x7f020310
-        0x7f02031f
-        0x7f02030b
+        0x7f020335
+        0x7f020339
+        0x7f020330
+        0x7f020358
+        0x7f02034e
+        0x7f020349
+        0x7f020344
+        0x7f020353
+        0x7f02033f
     .end array-data
 
     :array_1
     .array-data 4
-        0x7f020096
-        0x7f020097
-        0x7f02009e
-        0x7f02009c
-        0x7f02009d
-        0x7f02009f
-        0x7f020099
-        0x7f02009b
-        0x7f02009a
+        0x7f0200c1
+        0x7f0200c2
+        0x7f0200c9
+        0x7f0200c7
+        0x7f0200c8
+        0x7f0200ca
+        0x7f0200c4
+        0x7f0200c6
+        0x7f0200c5
     .end array-data
 
     :array_2
     .array-data 4
-        0x7f020302
-        0x7f020306
-        0x7f0202fd
-        0x7f020325
-        0x7f02031b
-        0x7f020316
-        0x7f020311
-        0x7f020320
-        0x7f02030c
+        0x7f020336
+        0x7f02033a
+        0x7f020331
+        0x7f020359
+        0x7f02034f
+        0x7f02034a
+        0x7f020345
+        0x7f020354
+        0x7f020340
     .end array-data
 
     :array_3
     .array-data 4
-        0x7f0200a5
-        0x7f0200a7
-        0x7f0200ab
-        0x7f0200b7
-        0x7f0200b3
-        0x7f0200b1
-        0x7f0200af
-        0x7f0200b5
-        0x7f0200ad
+        0x7f0200d0
+        0x7f0200d2
+        0x7f0200d6
+        0x7f0200e2
+        0x7f0200de
+        0x7f0200dc
+        0x7f0200da
+        0x7f0200e0
+        0x7f0200d8
     .end array-data
 
     :array_4
     .array-data 4
-        0x7f020303
-        0x7f020307
-        0x7f0202ff
-        0x7f020327
-        0x7f02031d
-        0x7f020318
-        0x7f020313
-        0x7f020322
-        0x7f02030e
+        0x7f020337
+        0x7f02033b
+        0x7f020333
+        0x7f02035b
+        0x7f020351
+        0x7f02034c
+        0x7f020347
+        0x7f020356
+        0x7f020342
     .end array-data
 
     :array_5
     .array-data 4
-        0x7f0201b2
-        0x7f0201b3
-        0x7f0201a3
-        0x7f0201b4
-        0x7f0201a7
-        0x7f0201a6
-        0x7f0201a5
-        0x7f0201a8
-        0x7f0201a4
+        0x7f0201e3
+        0x7f0201e5
+        0x7f0201ce
+        0x7f0201e7
+        0x7f0201d6
+        0x7f0201d4
+        0x7f0201d2
+        0x7f0201d8
+        0x7f0201d0
     .end array-data
 
     :array_6
     .array-data 4
-        0x7f0201af
-        0x7f0201b0
-        0x7f0201a9
-        0x7f0201b1
-        0x7f0201ad
-        0x7f0201ac
-        0x7f0201ab
-        0x7f0201ae
-        0x7f0201aa
+        0x7f0201e0
+        0x7f0201e1
+        0x7f0201da
+        0x7f0201e2
+        0x7f0201de
+        0x7f0201dd
+        0x7f0201dc
+        0x7f0201df
+        0x7f0201db
     .end array-data
 
     :array_7
     .array-data 4
-        0x7f020309
-        0x7f02030a
-        0x7f0202fe
-        0x7f020326
-        0x7f02031c
-        0x7f020317
-        0x7f020312
-        0x7f020321
-        0x7f02030d
+        0x7f02033d
+        0x7f02033e
+        0x7f020332
+        0x7f02035a
+        0x7f020350
+        0x7f02034b
+        0x7f020346
+        0x7f020355
+        0x7f020341
     .end array-data
 
     :array_8
     .array-data 4
-        0x7f020135
-        0x7f020136
-        0x7f020134
-        0x7f02013c
-        0x7f02013a
-        0x7f020139
-        0x7f020138
-        0x7f02013b
-        0x7f020137
+        0x7f020160
+        0x7f020161
+        0x7f02015f
+        0x7f020167
+        0x7f020165
+        0x7f020164
+        0x7f020163
+        0x7f020166
+        0x7f020162
+    .end array-data
+
+    :array_9
+    .array-data 4
+        0x7f02040c
+        0x7f020410
+        0x7f02041d
+        0x7f020435
+        0x7f02042d
+        0x7f020429
+        0x7f020425
+        0x7f020431
+        0x7f020421
+    .end array-data
+
+    :array_a
+    .array-data 4
+        0x7f02008b
+        0x7f02008f
+        0x7f020093
+        0x7f0200ab
+        0x7f0200a3
+        0x7f02009f
+        0x7f02009b
+        0x7f0200a7
+        0x7f020097
+    .end array-data
+
+    :array_b
+    .array-data 4
+        0x7f02040d
+        0x7f020411
+        0x7f02041e
+        0x7f020436
+        0x7f02042e
+        0x7f02042a
+        0x7f020426
+        0x7f020432
+        0x7f020422
+    .end array-data
+
+    :array_c
+    .array-data 4
+        0x7f02008c
+        0x7f020090
+        0x7f020094
+        0x7f0200ac
+        0x7f0200a4
+        0x7f0200a0
+        0x7f02009c
+        0x7f0200a8
+        0x7f020098
+    .end array-data
+
+    :array_d
+    .array-data 4
+        0x7f02040e
+        0x7f020412
+        0x7f02041f
+        0x7f020437
+        0x7f02042f
+        0x7f02042b
+        0x7f020427
+        0x7f020433
+        0x7f020423
+    .end array-data
+
+    :array_e
+    .array-data 4
+        0x7f02008d
+        0x7f020091
+        0x7f020095
+        0x7f0200ad
+        0x7f0200a5
+        0x7f0200a1
+        0x7f02009d
+        0x7f0200a9
+        0x7f020099
+    .end array-data
+
+    :array_f
+    .array-data 4
+        0x7f0201e4
+        0x7f0201e6
+        0x7f0201cf
+        0x7f0201e8
+        0x7f0201d7
+        0x7f0201d5
+        0x7f0201d3
+        0x7f0201d9
+        0x7f0201d1
     .end array-data
 .end method
 
@@ -1198,9 +1345,20 @@
     :cond_8
     const/16 v2, 0x18
 
-    if-ne p1, v2, :cond_0
+    if-ne p1, v2, :cond_9
 
     sget-object v0, Lcom/android/incallui/util/InCallUtilsMultiSIM;->simIconTypeVoWifiCall:[I
+
+    aget v0, v0, v1
+
+    goto :goto_0
+
+    :cond_9
+    const/16 v2, 0x19
+
+    if-ne p1, v2, :cond_0
+
+    sget-object v0, Lcom/android/incallui/util/InCallUtilsMultiSIM;->simIconTypeEndCallSubNumber:[I
 
     aget v0, v0, v1
 
@@ -1228,13 +1386,13 @@
     return-object v0
 
     :cond_0
-    const v2, 0x7f090248
+    const v2, 0x7f09024b
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    const v3, 0x7f090249
+    const v3, 0x7f09024c
 
     invoke-virtual {v0, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1381,7 +1539,7 @@
     goto :goto_0
 .end method
 
-.method private static getSlotId(I)I
+.method public static getSlotId(I)I
     .locals 6
 
     const/4 v1, -0x1
@@ -1587,6 +1745,126 @@
     invoke-static {v1}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->log(Ljava/lang/String;)V
 
     goto :goto_0
+.end method
+
+.method public static getSubIdIcon(ZIIZ)I
+    .locals 3
+
+    const-string v0, "InCallUtilsMultiSIM"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "getSubIdIcon subId ="
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {p2}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->getSimIconIndex(I)I
+
+    move-result v1
+
+    packed-switch p1, :pswitch_data_0
+
+    sget-object v0, Lcom/android/incallui/util/InCallUtilsMultiSIM;->simIconTypeSubOneLarge:[I
+
+    const/4 v1, 0x1
+
+    aget v0, v0, v1
+
+    :cond_0
+    :goto_0
+    return v0
+
+    :pswitch_0
+    if-eqz p0, :cond_1
+
+    sget-object v0, Lcom/android/incallui/util/InCallUtilsMultiSIM;->simIconTypeSubOneLarge:[I
+
+    aget v0, v0, v1
+
+    :goto_1
+    if-eqz p3, :cond_0
+
+    sget-object v0, Lcom/android/incallui/util/InCallUtilsMultiSIM;->simIconTypeSubOneMini:[I
+
+    aget v0, v0, v1
+
+    goto :goto_0
+
+    :cond_1
+    sget-object v0, Lcom/android/incallui/util/InCallUtilsMultiSIM;->simIconTypeSubOneMini:[I
+
+    aget v0, v0, v1
+
+    goto :goto_1
+
+    :pswitch_1
+    if-eqz p0, :cond_2
+
+    sget-object v0, Lcom/android/incallui/util/InCallUtilsMultiSIM;->simIconTypeSubTwoLarge:[I
+
+    aget v0, v0, v1
+
+    :goto_2
+    if-eqz p3, :cond_0
+
+    sget-object v0, Lcom/android/incallui/util/InCallUtilsMultiSIM;->simIconTypeSubTwoMini:[I
+
+    aget v0, v0, v1
+
+    goto :goto_0
+
+    :cond_2
+    sget-object v0, Lcom/android/incallui/util/InCallUtilsMultiSIM;->simIconTypeSubTwoMini:[I
+
+    aget v0, v0, v1
+
+    goto :goto_2
+
+    :pswitch_2
+    if-eqz p0, :cond_3
+
+    sget-object v0, Lcom/android/incallui/util/InCallUtilsMultiSIM;->simIconTypeSubThreeLarge:[I
+
+    aget v0, v0, v1
+
+    :goto_3
+    if-eqz p3, :cond_0
+
+    sget-object v0, Lcom/android/incallui/util/InCallUtilsMultiSIM;->simIconTypeSubThreeMini:[I
+
+    aget v0, v0, v1
+
+    goto :goto_0
+
+    :cond_3
+    sget-object v0, Lcom/android/incallui/util/InCallUtilsMultiSIM;->simIconTypeSubThreeMini:[I
+
+    aget v0, v0, v1
+
+    goto :goto_3
+
+    nop
+
+    :pswitch_data_0
+    .packed-switch 0x1
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+    .end packed-switch
 .end method
 
 .method public static getSubIdUsingPhoneId(I)I
@@ -2452,6 +2730,62 @@
     move-result-object v1
 
     invoke-static {v2, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    return v0
+.end method
+
+.method public static isTDCSIM(Lcom/android/incallui/Call;)Z
+    .locals 3
+
+    const/4 v0, 0x0
+
+    invoke-static {p0}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->getPhoneId(Lcom/android/incallui/Call;)I
+
+    move-result v1
+
+    invoke-static {v1}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->getMultiSimNumeric(I)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "23801"
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const-string v2, "23810"
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    :cond_0
+    const/4 v0, 0x1
+
+    :cond_1
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "isTDCSIM: "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->log(Ljava/lang/String;)V
 
     return v0
 .end method

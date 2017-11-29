@@ -448,7 +448,7 @@
 
     if-nez v7, :cond_d
 
-    const v5, 0x7f090145
+    const v5, 0x7f090148
 
     move-object/from16 v0, p0
 
@@ -462,7 +462,7 @@
 
     const/4 v7, 0x0
 
-    const v8, 0x7f0900cb
+    const v8, 0x7f0900ce
 
     move-object/from16 v0, p0
 
@@ -491,7 +491,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f04006c
+    const v6, 0x7f04006d
 
     const/4 v7, 0x0
 
@@ -505,7 +505,7 @@
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setView(Landroid/view/View;)Landroid/app/AlertDialog$Builder;
 
-    const v5, 0x7f100189
+    const v5, 0x7f10018d
 
     move-object/from16 v0, v16
 
@@ -515,7 +515,7 @@
 
     check-cast v5, Landroid/widget/LinearLayout;
 
-    const v6, 0x7f100180
+    const v6, 0x7f100184
 
     move-object/from16 v0, v16
 
@@ -525,7 +525,7 @@
 
     check-cast v6, Landroid/widget/LinearLayout;
 
-    const v7, 0x7f100186
+    const v7, 0x7f10018a
 
     move-object/from16 v0, v16
 
@@ -535,7 +535,7 @@
 
     check-cast v7, Landroid/widget/LinearLayout;
 
-    const v8, 0x7f100183
+    const v8, 0x7f100187
 
     move-object/from16 v0, v16
 
@@ -545,7 +545,7 @@
 
     check-cast v8, Landroid/widget/LinearLayout;
 
-    const v9, 0x7f10018a
+    const v9, 0x7f10018e
 
     move-object/from16 v0, v16
 
@@ -555,7 +555,7 @@
 
     check-cast v9, Landroid/widget/ImageView;
 
-    const v10, 0x7f10018b
+    const v10, 0x7f10018f
 
     move-object/from16 v0, v16
 
@@ -565,7 +565,7 @@
 
     check-cast v10, Landroid/widget/TextView;
 
-    const v11, 0x7f100181
+    const v11, 0x7f100185
 
     move-object/from16 v0, v16
 
@@ -575,7 +575,7 @@
 
     check-cast v11, Landroid/widget/ImageView;
 
-    const v12, 0x7f100182
+    const v12, 0x7f100186
 
     move-object/from16 v0, v16
 
@@ -585,7 +585,7 @@
 
     check-cast v12, Landroid/widget/TextView;
 
-    const v13, 0x7f100187
+    const v13, 0x7f10018b
 
     move-object/from16 v0, v16
 
@@ -595,7 +595,7 @@
 
     check-cast v13, Landroid/widget/ImageView;
 
-    const v14, 0x7f100188
+    const v14, 0x7f10018c
 
     move-object/from16 v0, v16
 
@@ -605,7 +605,7 @@
 
     check-cast v14, Landroid/widget/TextView;
 
-    const v15, 0x7f100184
+    const v15, 0x7f100188
 
     move-object/from16 v0, v16
 
@@ -615,7 +615,7 @@
 
     check-cast v15, Landroid/widget/ImageView;
 
-    const v17, 0x7f100185
+    const v17, 0x7f100189
 
     invoke-virtual/range {v16 .. v17}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -690,7 +690,7 @@
     goto :goto_5
 
     :cond_d
-    const v5, 0x7f090146
+    const v5, 0x7f090149
 
     move-object/from16 v0, p0
 
@@ -1047,7 +1047,7 @@
     goto/16 :goto_7
 
     :cond_e
-    const v4, 0x7f090323
+    const v4, 0x7f090326
 
     new-instance v5, Lcom/android/incallui/coreapps/PermissionDialogActivity$1;
 
@@ -1059,7 +1059,7 @@
 
     invoke-virtual {v0, v4, v5}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
-    const v4, 0x7f090105
+    const v4, 0x7f090108
 
     new-instance v5, Lcom/android/incallui/coreapps/PermissionDialogActivity$2;
 

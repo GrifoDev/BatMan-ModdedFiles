@@ -120,12 +120,13 @@
     <string name="account_phone">Құрылғы</string>
     <string name="acs">Дауыстық қоңырау</string>
     <string name="active_calls">Белсенді қоңырау</string>
-    <string name="add_reminder">Еске сал.қ-у</string>
+    <string name="add_reminder">Еске салғышты қосу</string>
     <string name="agif_button_close_description">Жабу</string>
     <string name="agif_decline_message">Кешіріңіз, дәл қазір сөйлесе алмаймын.</string>
     <string name="agif_decline_sticker_header">Жапсырма арқылы қабылдамау</string>
     <string name="agif_decline_text_header">Мәтін арқылы қабылдамау</string>
     <string name="agif_decline_toast">Жапсырма %s пайдаланушыға жіберілді.</string>
+    <string name="agif_outgoing_bubble_tip">Сезіміңізді көрсету үшін жапсырманы жіберіңіз.</string>
     <string name="agif_pickers_add_tab_description">Қосу</string>
     <string name="agif_pickers_find_more">Көбірек табу</string>
     <string name="agif_pickers_item_usage_hints_description">Таңдау үшін екі рет түртіңіз</string>
@@ -134,10 +135,12 @@
     <string name="agif_pickers_tab_select_description">Таңдалған</string>
     <string name="agif_pickers_title">Жапсырмамен бастау</string>
     <string name="agif_pickers_title_recommended">Ұсынылған</string>
+    <string name="agif_random_send_message">Бұл жапсырманы жіберу үшін осы жерді түртіңіз.</string>
     <string name="agif_read_permission_description">“Телефон” қолданбасына AGIF мазмұнын оқуға рұқсат береді.</string>
     <string name="agif_read_permission_label">AGIF мазмұнын оқу</string>
     <string name="agif_receive_no_id">Жапсырманы көрсету мүмкін емес. Қоңыраудан кейін %s қолданбасын жаңартыңыз.</string>
     <string name="agif_receive_no_id_upsupport_update">Жапсырманы көрсету мүмкін емес. Келесі жүйе жаңартуынан кейін қосымша жапсырмалар қолжетімді болады.</string>
+    <string name="agif_receive_toast">%s жіберген жапсырма.</string>
     <string name="agif_sent_fail_message">Анимациялық GIF файлын жіберу мүмкін емес. Әрекетті кейінірек қайталаңыз.</string>
     <string name="agif_sent_toast">Жапсырма жіберілді.</string>
     <string name="agif_write_permission_description">“Телефон” қолданбасына AGIF мазмұнын өзгертуге рұқсат береді.</string>
@@ -827,8 +830,8 @@ IVR қоңыраулар экранының мәзірі “Dianhuabang” де�
     <string name="tts_pager">%2$d ішіндегі %1$d-бет</string>
     <string name="tts_seconds">%d секунд</string>
     <string name="tty_mode_option_title">TTY режимі</string>
-    <string name="tutorial_incoming_call_app_answer">Қоңырауға жауап беру үшін, түртіңіз.</string>
-    <string name="tutorial_incoming_call_app_reject">Қоңырауды қабылдамау үшін, түртіңіз.</string>
+    <string name="tutorial_incoming_call_app_answer">Жауап беру үшін екі рет түртіңіз.</string>
+    <string name="tutorial_incoming_call_app_reject">Бас тарту үшін екі рет түртіңіз.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Желіге қосылу мүмкін емес. Қосылым параметрлерін тексеріп, әрекетті қайталаңыз.</string>
     <string name="units_kb">KБ</string>
@@ -838,7 +841,7 @@ IVR қоңыраулар экранының мәзірі “Dianhuabang” де�
     <string name="upload_using_wlan_only">Тек WLAN арқылы кері жүктеу</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fi не ұялы желі арқылы кері жүктеу</string>
     <string name="upload_wlan_and_mobile_nw">WLAN не ұялы желі арқылы кері жүктеу</string>
-    <string name="usa_att_connected_as_voice">Қоңырау тек дауыстық ретінде қосылды.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Құрылғыңызда орнатылған деректерді пайдалану көлемі өзінің шегіне жетуге жақын қалды. Бейне қоңырау шалу үшін деректер қажет.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Wi-Fi арқылы қоңырау шалу мүмкін емес, ұялы байланыс желісіне қосылуда. Дауыстық және деректік ақы алынады.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -886,13 +889,17 @@ IVR қоңыраулар экранының мәзірі “Dianhuabang” де�
     <string name="usa_vzw_voice_incoming_during_wifi_video">Кіріс қоңырауға жауап беру ағымдағы қоңырауды аяқтайды.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_text">Қоңырауды жалғастыру үшін Wi-Fi сигналы әлсіз. Ұялы байланыс желілері арқылы қоңырауды жалғастыру үшін деректер жоспары пайдаланылады.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Ұялы деректерді пайдалану</string>
-    <string name="usa_vzw_volte_weak_wifi_text">"Бейне қоңырауды қазір Wi-Fi желісіне ауыстыру мүмкін болмады.
+    <string name="usa_vzw_volte_weak_wifi_text">"Біз байқап көрдік, бірақ бейне қоңырауыңызды дәл қазір Wi-Fi желісіне ауыстыра алмадық.
 
-Бейне қоңырау әлі де ұялы байланыс желісінде. (Егер жалғастырсаңыз, деректер пайдаланылады)."</string>
+Бейне қоңырауыңыз әлі ұялы байланыс желісімен іске қосылып тұр.
+
+Егер жалғастыруды таңдасаңыз, онда деректерді пайдалану үшін ақылар алынуы мүмкін."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Бейне қоңырау әлі де ұялы байланыс желісінде. (Деректер пайдаланылады).</string>
-    <string name="usa_vzw_vowifi_wifi_low_signal_text">"Бейне қоңырауды жалғастыру үшін Wi-Fi сигналы әлсіз болды.
+    <string name="usa_vzw_vowifi_wifi_low_signal_text">"Wi-Fi сигналы бейне қоңырауды жалғастыру үшін жеткілікті деңгейде жоғары болмады.
 
-Бейне қоңырау қазір ұялы байланыс желісі арқылы жасалуда. (Егер жалғастырсаңыз, деректер пайдаланылады)."</string>
+Бейне қоңырауыңыз қазір ұялы байланыс желісінде іске қосылып жатыр.
+
+Егер жалғастыруды таңдасаңыз, онда деректерді пайдалану үшін ақылар алынуы мүмкін."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi қосылымы жоғалды. Қоңырау аяқталды.</string>
     <string name="use_wifi_and_mobile_nw">Wi-Fi және ұялы желілерді пайдаланыңыз</string>
     <string name="use_wlan_and_mobile_nw">WLAN және ұялы желілерді пайдалану</string>

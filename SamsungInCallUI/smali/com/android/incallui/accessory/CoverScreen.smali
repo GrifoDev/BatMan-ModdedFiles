@@ -503,7 +503,7 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x7f10031b
+    const v0, 0x7f100321
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -1221,7 +1221,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0900c8
+    const v1, 0x7f0900cb
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1336,7 +1336,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0900c9
+    const v1, 0x7f0900cc
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1602,7 +1602,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f090144
+    const v2, 0x7f090147
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1651,7 +1651,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090196
+    const v1, 0x7f090199
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1669,7 +1669,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090197
+    const v1, 0x7f09019a
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1682,7 +1682,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090198
+    const v1, 0x7f09019b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1815,7 +1815,7 @@
 
     invoke-static {p0, v0, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Z)V
 
-    const v0, 0x7f100268
+    const v0, 0x7f10026c
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1834,7 +1834,7 @@
     invoke-virtual {v0, p0}, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageWidget;->setOnTriggerListener(Lcom/android/incallui/widget/incomingwidget/IncomingCallImageWidget$OnTriggerListener;)V
 
     :cond_0
-    const v0, 0x7f10022b
+    const v0, 0x7f10022f
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1913,7 +1913,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0566
+    const v2, 0x7f0a05a0
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1950,7 +1950,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0565
+    const v2, 0x7f0a059f
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2017,7 +2017,7 @@
     invoke-virtual {v0, v1}, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->setOnDrawerAnimateListener(Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer$OnDrawerAnimateListener;)V
 
     :cond_5
-    const v0, 0x7f100269
+    const v0, 0x7f10026d
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2080,7 +2080,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0564
+    const v2, 0x7f0a059e
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2105,7 +2105,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/accessory/CoverScreen;->mRejectCallWithMsgOpenIcon:Landroid/widget/ImageView;
 
-    const v0, 0x7f10022d
+    const v0, 0x7f100231
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2161,7 +2161,7 @@
 .method private onFinishInflateForEndCall(Landroid/view/View;)V
     .locals 3
 
-    const v0, 0x7f1002cd
+    const v0, 0x7f1002d3
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2200,7 +2200,7 @@
 .method private onFinishInflateForInCall(Landroid/view/View;)V
     .locals 3
 
-    const v0, 0x7f1002cb
+    const v0, 0x7f1002d1
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2247,7 +2247,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f1002ce
+    const v0, 0x7f1002d4
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -2276,7 +2276,7 @@
 .method private onFinishInflateForPhoneNumberLocator()V
     .locals 4
 
-    const v0, 0x7f1001c7
+    const v0, 0x7f1001cb
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -2286,7 +2286,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/accessory/CoverScreen;->mPhoneNumberLocatorName:Landroid/widget/TextView;
 
-    const v0, 0x7f1001c8
+    const v0, 0x7f1001cc
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -2296,7 +2296,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/accessory/CoverScreen;->mPhoneNumberLocatorNumber:Landroid/widget/TextView;
 
-    const v0, 0x7f1001c5
+    const v0, 0x7f1001c9
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -2314,7 +2314,7 @@
 
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    const v0, 0x7f1001c6
+    const v0, 0x7f1001ca
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -2337,7 +2337,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a055f
+    const v3, 0x7f0a0599
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2364,7 +2364,7 @@
 .method private onFinishInflateForSmartCall()V
     .locals 4
 
-    const v0, 0x7f100298
+    const v0, 0x7f10029d
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -2374,7 +2374,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/accessory/CoverScreen;->mSmartCallName:Landroid/widget/TextView;
 
-    const v0, 0x7f10029b
+    const v0, 0x7f1002a1
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -2396,7 +2396,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a055f
+    const v3, 0x7f0a0599
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2417,7 +2417,7 @@
     invoke-virtual {v0, v1, v2}, Landroid/widget/TextView;->setTextSize(IF)V
 
     :cond_0
-    const v0, 0x7f100287
+    const v0, 0x7f10028b
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -2427,7 +2427,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/accessory/CoverScreen;->mSmartCallPhoto:Landroid/widget/ImageView;
 
-    const v0, 0x7f1002d5
+    const v0, 0x7f1002db
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -2445,7 +2445,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f1002d6
+    const v0, 0x7f1002dc
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -2463,7 +2463,7 @@
 
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    const v0, 0x7f1002da
+    const v0, 0x7f1002e0
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -2480,7 +2480,7 @@
 .method private onFinishInflateForVideoCall(Landroid/view/View;)V
     .locals 1
 
-    const v0, 0x7f1002dc
+    const v0, 0x7f1002e2
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2569,7 +2569,7 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x7f1002e7
+    const v0, 0x7f1002ed
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -2602,7 +2602,7 @@
     invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
 
     :cond_2
-    const v0, 0x7f10025c
+    const v0, 0x7f100260
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -2612,7 +2612,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/accessory/CoverScreen;->mAmStatusImage:Landroid/widget/ImageView;
 
-    const v0, 0x7f10025d
+    const v0, 0x7f100261
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -2654,7 +2654,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0900c8
+    const v1, 0x7f0900cb
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2668,7 +2668,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen;->mAmStatusImage:Landroid/widget/ImageView;
 
-    const v1, 0x7f02005e
+    const v1, 0x7f020060
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -2726,7 +2726,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0900c9
+    const v1, 0x7f0900cc
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2740,7 +2740,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/accessory/CoverScreen;->mAmStatusImage:Landroid/widget/ImageView;
 
-    const v1, 0x7f02005f
+    const v1, 0x7f020061
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -3003,7 +3003,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090321
+    const v2, 0x7f090324
 
     invoke-virtual {v1, v2}, Lcom/android/incallui/InCallApp;->getText(I)Ljava/lang/CharSequence;
 
@@ -3017,7 +3017,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0902a9
+    const v2, 0x7f0902ac
 
     invoke-virtual {v1, v2}, Lcom/android/incallui/InCallApp;->getText(I)Ljava/lang/CharSequence;
 
@@ -3045,7 +3045,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0902a8
+    const v2, 0x7f0902ab
 
     invoke-virtual {v1, v2}, Lcom/android/incallui/InCallApp;->getText(I)Ljava/lang/CharSequence;
 
@@ -3098,7 +3098,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0e00b7
+    const v1, 0x7f0e00bd
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -3388,7 +3388,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f020486
+    const v2, 0x7f0204e7
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -3694,7 +3694,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0e0221
+    const v3, 0x7f0e0243
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -4595,7 +4595,7 @@
 .method private updateCarrierInfo(I)V
     .locals 4
 
-    const v3, 0x7f02042d
+    const v3, 0x7f02048e
 
     const/16 v2, 0x8
 
@@ -4722,7 +4722,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f02042c
+    const v2, 0x7f02048d
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -5078,7 +5078,7 @@
 
     if-nez v0, :cond_2
 
-    const v0, 0x7f1002d1
+    const v0, 0x7f1002d7
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -5092,7 +5092,7 @@
 
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    const v0, 0x7f1002a2
+    const v0, 0x7f1002a8
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -5129,7 +5129,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f090318
+    const v4, 0x7f09031b
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -5268,7 +5268,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e0174
+    const v2, 0x7f0e018c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -5282,7 +5282,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e0173
+    const v2, 0x7f0e018b
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -5361,7 +5361,7 @@
 
     move-result-object v0
 
-    const v4, 0x7f0902bc
+    const v4, 0x7f0902bf
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -5631,7 +5631,7 @@
 
     if-eqz p1, :cond_4
 
-    const v0, 0x7f0203d1
+    const v0, 0x7f020405
 
     :goto_0
     invoke-virtual {v2, v0}, Landroid/widget/ImageView;->setImageResource(I)V
@@ -5694,7 +5694,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0566
+    const v1, 0x7f0a05a0
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -5720,7 +5720,7 @@
     return-void
 
     :cond_4
-    const v0, 0x7f0203d5
+    const v0, 0x7f020409
 
     goto :goto_0
 
@@ -5953,7 +5953,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0e0174
+    const v1, 0x7f0e018c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -5963,7 +5963,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e0173
+    const v2, 0x7f0e018b
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -5973,7 +5973,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0e016f
+    const v3, 0x7f0e0187
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -5983,7 +5983,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0e016e
+    const v4, 0x7f0e0186
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -6162,7 +6162,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e0136
+    const v2, 0x7f0e014e
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -6176,7 +6176,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e0136
+    const v2, 0x7f0e014e
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -6194,7 +6194,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e013c
+    const v2, 0x7f0e0154
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -6208,7 +6208,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e013c
+    const v2, 0x7f0e0154
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -6223,7 +6223,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0e0174
+    const v1, 0x7f0e018c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -6233,7 +6233,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e0173
+    const v2, 0x7f0e018b
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -6243,7 +6243,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0e015d
+    const v3, 0x7f0e0175
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -6253,7 +6253,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0e016f
+    const v4, 0x7f0e0187
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -6263,7 +6263,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0e016e
+    const v5, 0x7f0e0186
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -6496,7 +6496,7 @@
 .method private updateTwoPhoneColor(I)V
     .locals 3
 
-    const v2, 0x7f0e0174
+    const v2, 0x7f0e018c
 
     iget-boolean v0, p0, Lcom/android/incallui/accessory/CoverScreen;->mIsClearFlipCover:Z
 
@@ -6554,7 +6554,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e014b
+    const v2, 0x7f0e0163
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -6728,14 +6728,14 @@
     if-ne v0, v3, :cond_5
 
     :cond_4
-    const v0, 0x7f0e0174
+    const v0, 0x7f0e018c
 
     :goto_1
     if-ne v1, v2, :cond_6
 
     iget-object v1, p0, Lcom/android/incallui/accessory/CoverScreen;->mVideoCallGuideText:Landroid/widget/TextView;
 
-    const v2, 0x7f09025c
+    const v2, 0x7f09025f
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
@@ -6757,14 +6757,14 @@
     goto :goto_0
 
     :cond_5
-    const v0, 0x7f0e014d
+    const v0, 0x7f0e0165
 
     goto :goto_1
 
     :cond_6
     iget-object v1, p0, Lcom/android/incallui/accessory/CoverScreen;->mVideoCallGuideText:Landroid/widget/TextView;
 
-    const v2, 0x7f09025f
+    const v2, 0x7f090262
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
@@ -6807,7 +6807,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090260
+    const v2, 0x7f090263
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -7063,7 +7063,7 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x7f10028f
+    const v0, 0x7f100293
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -7081,7 +7081,7 @@
 
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    const v0, 0x7f1002dd
+    const v0, 0x7f1002e3
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -7091,7 +7091,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/accessory/CoverScreen;->mRecordIcon:Landroid/widget/ImageView;
 
-    const v0, 0x7f1002de
+    const v0, 0x7f1002e4
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -7101,7 +7101,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/accessory/CoverScreen;->mRecordText:Landroid/widget/TextView;
 
-    const v0, 0x7f1002df
+    const v0, 0x7f1002e5
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -7531,7 +7531,7 @@
 .method protected onFinishInflate()V
     .locals 5
 
-    const v4, 0x7f0a055f
+    const v4, 0x7f0a0599
 
     const/16 v2, 0x8
 
@@ -7568,7 +7568,7 @@
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->setBackgroundColor(I)V
 
     :cond_0
-    const v0, 0x7f10024b
+    const v0, 0x7f10024f
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -7601,7 +7601,7 @@
 
     invoke-virtual {p0}, Lcom/android/incallui/accessory/CoverScreen;->updateGradientBackground()V
 
-    const v0, 0x7f1002cf
+    const v0, 0x7f1002d5
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -7613,7 +7613,7 @@
 
     invoke-virtual {p0}, Lcom/android/incallui/accessory/CoverScreen;->updateCallCardHeight()V
 
-    const v0, 0x7f10020a
+    const v0, 0x7f10020e
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -7623,7 +7623,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/accessory/CoverScreen;->mCallStateLabel:Landroid/widget/TextView;
 
-    const v0, 0x7f100210
+    const v0, 0x7f100214
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -7637,7 +7637,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/Chronometer;->setVisibility(I)V
 
-    const v0, 0x7f1002e9
+    const v0, 0x7f1002ef
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -7647,7 +7647,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/accessory/CoverScreen;->mDivider:Landroid/widget/TextView;
 
-    const v0, 0x7f100251
+    const v0, 0x7f100255
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -7655,7 +7655,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/accessory/CoverScreen;->mPhotoContainer:Landroid/view/View;
 
-    const v0, 0x7f1000d0
+    const v0, 0x7f1000d4
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -7665,7 +7665,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/accessory/CoverScreen;->mPhoto:Landroid/widget/ImageView;
 
-    const v0, 0x7f1002d3
+    const v0, 0x7f1002d9
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -7679,7 +7679,7 @@
 
     invoke-virtual {v0, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f100253
+    const v0, 0x7f100257
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -7689,7 +7689,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/accessory/CoverScreen;->mNameLayout:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f10012a
+    const v0, 0x7f10012e
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -7699,7 +7699,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/accessory/CoverScreen;->mPrimaryName:Landroid/widget/TextView;
 
-    const v0, 0x7f10020e
+    const v0, 0x7f100212
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -7709,7 +7709,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/accessory/CoverScreen;->mLabelAndNumber:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f10014f
+    const v0, 0x7f100153
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -7748,7 +7748,7 @@
     invoke-virtual {v0, v3, v1}, Landroid/widget/TextView;->setTextSize(IF)V
 
     :cond_2
-    const v0, 0x7f10020f
+    const v0, 0x7f100213
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -7795,7 +7795,7 @@
 
     if-eqz v0, :cond_4
 
-    const v0, 0x7f1002d4
+    const v0, 0x7f1002da
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -7813,7 +7813,7 @@
 
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    const v0, 0x7f10016f
+    const v0, 0x7f100173
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -7855,7 +7855,7 @@
     invoke-direct {p0}, Lcom/android/incallui/accessory/CoverScreen;->onFinishInflateForPhoneNumberLocator()V
 
     :cond_7
-    const v0, 0x7f1002c9
+    const v0, 0x7f1002cf
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -7867,7 +7867,7 @@
 
     invoke-direct {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->onFinishInflateForAnswer(Landroid/view/View;)V
 
-    const v0, 0x7f1002ca
+    const v0, 0x7f1002d0
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -7879,7 +7879,7 @@
 
     invoke-direct {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->onFinishInflateForInCall(Landroid/view/View;)V
 
-    const v0, 0x7f1002cc
+    const v0, 0x7f1002d2
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -7891,7 +7891,7 @@
 
     invoke-direct {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->onFinishInflateForEndCall(Landroid/view/View;)V
 
-    const v0, 0x7f1002db
+    const v0, 0x7f1002e1
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -8055,6 +8055,8 @@
 .method public onStateChange(Lcom/android/incallui/InCallPresenter$InCallState;Lcom/android/incallui/InCallPresenter$InCallState;Lcom/android/incallui/CallList;)V
     .locals 9
 
+    const/16 v5, 0xa
+
     const/4 v8, 0x3
 
     const/4 v2, 0x0
@@ -8141,6 +8143,15 @@
     if-nez v0, :cond_0
 
     :cond_2
+    invoke-virtual {v4}, Lcom/android/incallui/Call;->getState()I
+
+    move-result v0
+
+    if-ne v0, v5, :cond_3
+
+    iput-boolean v2, p0, Lcom/android/incallui/accessory/CoverScreen;->isCallRejected:Z
+
+    :cond_3
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v0
@@ -8149,20 +8160,18 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_4
 
     iget-boolean v0, p0, Lcom/android/incallui/accessory/CoverScreen;->isCallRejected:Z
 
     if-nez v0, :cond_0
 
-    :cond_3
+    :cond_4
     invoke-virtual {v4}, Lcom/android/incallui/Call;->getState()I
 
     move-result v0
 
-    const/16 v3, 0xa
-
-    if-ne v0, v3, :cond_5
+    if-ne v0, v5, :cond_6
 
     move v0, v1
 
@@ -8183,11 +8192,11 @@
 
     move-result v3
 
-    if-nez v5, :cond_4
+    if-nez v5, :cond_5
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_7
 
-    :cond_4
+    :cond_5
     const-string v0, "CoverScreen"
 
     new-instance v2, Ljava/lang/StringBuilder;
@@ -8222,22 +8231,22 @@
 
     goto :goto_0
 
-    :cond_5
+    :cond_6
     move v0, v2
 
     goto :goto_1
 
-    :cond_6
+    :cond_7
     invoke-static {}, Lcom/android/incallui/bike/BikeModeUtils;->isBikeCall()Z
 
     move-result v3
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_8
 
     sget-object p2, Lcom/android/incallui/InCallPresenter$InCallState;->INCOMING:Lcom/android/incallui/InCallPresenter$InCallState;
 
-    :cond_7
-    if-nez v0, :cond_9
+    :cond_8
+    if-nez v0, :cond_a
 
     invoke-virtual {p0}, Lcom/android/incallui/accessory/CoverScreen;->getContext()Landroid/content/Context;
 
@@ -8263,20 +8272,20 @@
 
     move-result v3
 
-    if-nez v3, :cond_f
+    if-nez v3, :cond_10
 
     move v3, v1
 
     :goto_2
-    if-eqz v4, :cond_10
+    if-eqz v4, :cond_11
 
-    if-nez v3, :cond_8
+    if-nez v3, :cond_9
 
     iget-object v3, p0, Lcom/android/incallui/accessory/CoverScreen;->mContactInfo:Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
 
-    if-nez v3, :cond_10
+    if-nez v3, :cond_11
 
-    :cond_8
+    :cond_9
     const-string v3, "CoverScreen"
 
     const-string v6, "need to find contactinfo"
@@ -8285,19 +8294,19 @@
 
     invoke-direct {p0, v4}, Lcom/android/incallui/accessory/CoverScreen;->startContactInfoSearch(Lcom/android/incallui/Call;)V
 
-    :cond_9
+    :cond_a
     :goto_3
     sget-object v3, Lcom/android/incallui/InCallPresenter$InCallState;->INCOMING:Lcom/android/incallui/InCallPresenter$InCallState;
 
-    if-ne p1, v3, :cond_12
+    if-ne p1, v3, :cond_13
 
     sget-object v3, Lcom/android/incallui/InCallPresenter$InCallState;->INCALL:Lcom/android/incallui/InCallPresenter$InCallState;
 
-    if-ne p2, v3, :cond_12
+    if-ne p2, v3, :cond_13
 
     invoke-virtual {p0}, Lcom/android/incallui/accessory/CoverScreen;->animateForShrinkBackground()V
 
-    :cond_a
+    :cond_b
     :goto_4
     iput-object v4, p0, Lcom/android/incallui/accessory/CoverScreen;->mPrimaryCall:Lcom/android/incallui/Call;
 
@@ -8345,7 +8354,7 @@
 
     move-result v3
 
-    if-eqz v3, :cond_b
+    if-eqz v3, :cond_c
 
     invoke-virtual {v4}, Lcom/android/incallui/Call;->getState()I
 
@@ -8369,26 +8378,26 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_b
+    if-eqz v3, :cond_c
 
     invoke-static {}, Lcom/android/incallui/smartcall/SmartCallUtil;->isSpamEnable()Z
 
     move-result v3
 
-    if-eqz v3, :cond_b
+    if-eqz v3, :cond_c
 
     invoke-virtual {p0}, Lcom/android/incallui/accessory/CoverScreen;->updateSmartCallInfo()V
 
     invoke-virtual {p0, v4}, Lcom/android/incallui/accessory/CoverScreen;->setSmartCallEndState(Lcom/android/incallui/Call;)V
 
-    :cond_b
+    :cond_c
     const-string v3, "phone_number_locator"
 
     invoke-static {v3}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_c
+    if-eqz v3, :cond_d
 
     invoke-virtual {v4}, Lcom/android/incallui/Call;->getPhoneNumberLocator()Ljava/lang/String;
 
@@ -8402,14 +8411,14 @@
 
     invoke-direct {p0}, Lcom/android/incallui/accessory/CoverScreen;->updatePhoneNumberLocatorTextColor()V
 
-    :cond_c
+    :cond_d
     const-string v3, "automatic_answering_machine"
 
     invoke-static {v3}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_e
+    if-eqz v3, :cond_f
 
     const-string v3, "CoverScreen"
 
@@ -8441,32 +8450,32 @@
 
     move-result v3
 
-    if-eqz v3, :cond_d
+    if-eqz v3, :cond_e
 
     invoke-virtual {v4}, Lcom/android/incallui/Call;->getState()I
 
     move-result v3
 
-    if-ne v3, v8, :cond_d
+    if-ne v3, v8, :cond_e
 
     invoke-virtual {p0, v1, v2}, Lcom/android/incallui/accessory/CoverScreen;->manageAMRecordInfo(ZZ)V
 
     iget-boolean v1, p0, Lcom/android/incallui/accessory/CoverScreen;->mIsClearFlipCover:Z
 
-    if-nez v1, :cond_d
+    if-nez v1, :cond_e
 
     invoke-direct {p0}, Lcom/android/incallui/accessory/CoverScreen;->setAMView()V
 
-    :cond_d
-    if-eqz v0, :cond_e
+    :cond_e
+    if-eqz v0, :cond_f
 
     iget-boolean v0, p0, Lcom/android/incallui/accessory/CoverScreen;->mIsClearFlipCover:Z
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_f
 
     invoke-direct {p0}, Lcom/android/incallui/accessory/CoverScreen;->clearAMView()V
 
-    :cond_e
+    :cond_f
     invoke-virtual {v4}, Lcom/android/incallui/Call;->getState()I
 
     move-result v0
@@ -8475,17 +8484,23 @@
 
     goto/16 :goto_0
 
-    :cond_f
+    :cond_10
     move v3, v2
 
     goto/16 :goto_2
 
-    :cond_10
+    :cond_11
     invoke-static {}, Lcom/android/incallui/util/ImsCommonUtils;->isAvailableIMSConferenceInfo()Z
 
     move-result v3
 
-    if-eqz v3, :cond_9
+    if-eqz v3, :cond_a
+
+    invoke-static {}, Lcom/android/incallui/util/CallTypeUtils;->isVolteGroupCall()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_a
 
     invoke-virtual {p0}, Lcom/android/incallui/accessory/CoverScreen;->getContext()Landroid/content/Context;
 
@@ -8497,7 +8512,7 @@
 
     const/4 v7, 0x4
 
-    if-ne v3, v7, :cond_11
+    if-ne v3, v7, :cond_12
 
     move v3, v1
 
@@ -8510,23 +8525,23 @@
 
     goto/16 :goto_3
 
-    :cond_11
+    :cond_12
     move v3, v2
 
     goto :goto_5
 
-    :cond_12
+    :cond_13
     iget v3, p0, Lcom/android/incallui/accessory/CoverScreen;->mPreviousCallState:I
 
     const/4 v6, 0x6
 
-    if-ne v3, v6, :cond_a
+    if-ne v3, v6, :cond_b
 
     invoke-virtual {v4}, Lcom/android/incallui/Call;->getState()I
 
     move-result v3
 
-    if-ne v3, v8, :cond_a
+    if-ne v3, v8, :cond_b
 
     invoke-virtual {p0}, Lcom/android/incallui/accessory/CoverScreen;->animateForShrinkBackground()V
 
@@ -9426,7 +9441,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f09034d
+    const v2, 0x7f090350
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -9463,7 +9478,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0e0173
+    const v3, 0x7f0e018b
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -9493,7 +9508,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f09034f
+    const v2, 0x7f090352
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -9539,7 +9554,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0e014a
+    const v3, 0x7f0e0162
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -10341,7 +10356,7 @@
 .method public updateGuideText()V
     .locals 9
 
-    const v8, 0x7f090133
+    const v8, 0x7f090136
 
     const/16 v7, 0x8
 
@@ -10364,7 +10379,7 @@
 
     if-nez v0, :cond_2
 
-    const v0, 0x7f1002d9
+    const v0, 0x7f1002df
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/accessory/CoverScreen;->findViewById(I)Landroid/view/View;
 
@@ -10406,7 +10421,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090260
+    const v1, 0x7f090263
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -10478,7 +10493,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f090130
+    const v3, 0x7f090133
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -10508,7 +10523,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f09027e
+    const v4, 0x7f090281
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -10539,7 +10554,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0902bc
+    const v1, 0x7f0902bf
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -10681,7 +10696,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f09025d
+    const v3, 0x7f090260
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -10700,13 +10715,13 @@
 .method public updateRecordInfoColor(Z)V
     .locals 8
 
-    const v7, 0x7f0e0174
+    const v7, 0x7f0e018c
 
-    const v6, 0x7f0e013c
+    const v6, 0x7f0e0154
 
-    const v5, 0x7f0e0137
+    const v5, 0x7f0e014f
 
-    const v4, 0x7f02047f
+    const v4, 0x7f0204e0
 
     const/4 v1, 0x0
 
@@ -10791,7 +10806,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f020214
+    const v3, 0x7f020248
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -10897,7 +10912,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f0202b2
+    const v3, 0x7f0202e6
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -10910,7 +10925,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0e01bc
+    const v2, 0x7f0e01d9
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -10923,7 +10938,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0e01bc
+    const v2, 0x7f0e01d9
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -11542,7 +11557,7 @@
 
     iget-object v5, p0, Lcom/android/incallui/accessory/CoverScreen;->mPhotoContainer:Landroid/view/View;
 
-    const v8, 0x7f020286
+    const v8, 0x7f0202ba
 
     invoke-virtual {v5, v8}, Landroid/view/View;->setBackgroundResource(I)V
 
@@ -11675,7 +11690,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f09033b
+    const v4, 0x7f09033e
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -11752,7 +11767,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f09064c
+    const v2, 0x7f09064f
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

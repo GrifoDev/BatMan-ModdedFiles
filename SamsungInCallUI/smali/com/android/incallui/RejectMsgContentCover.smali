@@ -40,7 +40,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040099
+    const v1, 0x7f04009a
 
     const/4 v2, 0x1
 
@@ -102,7 +102,7 @@
 
     iget-object v2, p0, Lcom/android/incallui/RejectMsgContentCover;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f04009c
+    const v3, 0x7f04009d
 
     invoke-direct {v1, v2, v3, p1}, Lcom/android/incallui/BaseRejectMsgContent$RejectMsgContentArrayAdapter;-><init>(Landroid/content/Context;ILjava/util/List;)V
 
@@ -245,7 +245,7 @@
 
     if-eqz v0, :cond_2
 
-    const v0, 0x7f100223
+    const v0, 0x7f100227
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/RejectMsgContentCover;->findViewById(I)Landroid/view/View;
 
@@ -264,7 +264,7 @@
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
     :cond_0
-    const v0, 0x7f10025e
+    const v0, 0x7f100262
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/RejectMsgContentCover;->findViewById(I)Landroid/view/View;
 
@@ -274,7 +274,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/RejectMsgContentCover;->mAnsMemoButton:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f10025f
+    const v0, 0x7f100263
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/RejectMsgContentCover;->findViewById(I)Landroid/view/View;
 
@@ -290,7 +290,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/RejectMsgContentCover;->mAnsMemoImg:Landroid/widget/ImageView;
 
-    const v1, 0x7f020060
+    const v1, 0x7f020062
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
@@ -316,7 +316,7 @@
 
     if-eqz v0, :cond_3
 
-    const v0, 0x7f1003e7
+    const v0, 0x7f1003eb
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/RejectMsgContentCover;->findViewById(I)Landroid/view/View;
 

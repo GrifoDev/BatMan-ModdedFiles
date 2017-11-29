@@ -178,12 +178,13 @@
     <string name="account_phone">Zařízení</string>
     <string name="acs">Hlasový hovor</string>
     <string name="active_calls">Aktivní hovor</string>
-    <string name="add_reminder">Přidat přip.</string>
+    <string name="add_reminder">Přidat připomenutí</string>
     <string name="agif_button_close_description">Zavřít</string>
     <string name="agif_decline_message">Omlouvám se, teď nemohu mluvit.</string>
     <string name="agif_decline_sticker_header">Odmítnout s nálepkou</string>
     <string name="agif_decline_text_header">Odmítnout s textem</string>
     <string name="agif_decline_toast">Nálepka byla odeslána uživateli %s.</string>
+    <string name="agif_outgoing_bubble_tip">Pošlete nálepku ukazující, jak se cítíte.</string>
     <string name="agif_pickers_add_tab_description">Přid.</string>
     <string name="agif_pickers_find_more">Najít další</string>
     <string name="agif_pickers_item_usage_hints_description">Poklepejte a vyberte</string>
@@ -192,10 +193,12 @@
     <string name="agif_pickers_tab_select_description">Vybráno</string>
     <string name="agif_pickers_title">Zahájit s nálepkou</string>
     <string name="agif_pickers_title_recommended">Doporučené</string>
+    <string name="agif_random_send_message">Klepnutím sem pošlete tuto nálepku.</string>
     <string name="agif_read_permission_description">Povolí aplikaci Telefon číst obsah AGIF.</string>
     <string name="agif_read_permission_label">Číst obsah AGIF</string>
     <string name="agif_receive_no_id">Nálepku nelze zobrazit. Aktualizujte %s po dokončení hovoru.</string>
     <string name="agif_receive_no_id_upsupport_update">Nálepku nelze zobrazit. Další nálepky budou dostupné po příští aktualizaci systému.</string>
+    <string name="agif_receive_toast">Nálepka od volajícího %s.</string>
     <string name="agif_sent_fail_message">Animovaný GIF nelze odeslat. Opakujte akci později.</string>
     <string name="agif_sent_toast">Nálepka byla odeslána.</string>
     <string name="agif_write_permission_description">Povolí aplikaci Telefon upravit obsah AGIF.</string>
@@ -885,8 +888,8 @@ fotoaparát"</string>
     <string name="tts_pager">Stránka %1$d z %2$d</string>
     <string name="tts_seconds">Počet sekund: %d</string>
     <string name="tty_mode_option_title">Režim TTY</string>
-    <string name="tutorial_incoming_call_app_answer">Klepnutím přijmete hovor.</string>
-    <string name="tutorial_incoming_call_app_reject">Klepnutím odmítnete hovor.</string>
+    <string name="tutorial_incoming_call_app_answer">Poklepat pro odpověď.</string>
+    <string name="tutorial_incoming_call_app_reject">Poklepáním odmítnout.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Připojení k síti se nezdařilo. Zkontrolujte nastavení připojení a opakujte akci.</string>
     <string name="units_kb">kB</string>
@@ -896,7 +899,7 @@ fotoaparát"</string>
     <string name="upload_using_wlan_only">Ukládat pouze přes WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Uložit přes Wi-Fi nebo mobilní síť</string>
     <string name="upload_wlan_and_mobile_nw">Uložit přes WLAN nebo mobilní síť</string>
-    <string name="usa_att_connected_as_voice">Hovor byl spojen pouze jako hlasový.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Využití dat nastavené v zařízení brzy dosáhne svého limitu. Videohovor vyžaduje data.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Hovor nelze uskutečnit pomocí Wi-Fi, probíhá připojení přes mobilní síť. Budou účtovány poplatky za hlasové a datové služby.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -946,11 +949,15 @@ jednosm. video"</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Použít mobilní data</string>
     <string name="usa_vzw_volte_weak_wifi_text">"Zkusili jsme to, ale tentokrát se nám nepodařilo přepnout videohovor na síť Wi-Fi.
 
-Videohovor nyní stále probíhá přes mobilní síť. (Pokud budete pokračovat, budou účtovány poplatky za data.)"</string>
+Videohovor nyní stále probíhá přes mobilní síť.
+
+Pokud budete pokračovat, mohou být účtovány poplatky za data."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Videohovor stále probíhá přes mobilní síť. (Budou účtovány poplatky za data.)</string>
     <string name="usa_vzw_vowifi_wifi_low_signal_text">"Signál Wi-Fi nebyl dostatečně silný, aby bylo možné pokračovat ve videohovoru.
 
-Videohovor nyní probíhá přes mobilní síť. (Pokud budete pokračovat, budou účtovány poplatky za data.)"</string>
+Videohovor nyní probíhá přes mobilní síť.
+
+Pokud budete pokračovat, mohou být účtovány poplatky za data."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Připojení Wi-Fi bylo přerušeno. Hovor byl ukončen.</string>
     <string name="use_wifi_and_mobile_nw">Použít Wi-Fi a mobilní sítě</string>
     <string name="use_wlan_and_mobile_nw">Použít WLAN a mobilní sítě</string>

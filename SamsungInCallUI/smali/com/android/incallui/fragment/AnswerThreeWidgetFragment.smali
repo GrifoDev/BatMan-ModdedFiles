@@ -222,7 +222,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f10026b
+    const v0, 0x7f10026f
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -255,7 +255,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/AnswerThreeWidgetFragment;->mhideShowMeFloatingButtonView:Landroid/view/View;
 
-    const v1, 0x7f1004e1
+    const v1, 0x7f1004e8
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -286,7 +286,7 @@
 
     const/4 v2, 0x1
 
-    const v0, 0x7f10026c
+    const v0, 0x7f100270
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -317,7 +317,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f10042f
+    const v0, 0x7f100433
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -329,7 +329,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/AnswerThreeWidgetFragment;->mIncomingHideShowView:Landroid/view/View;
 
-    const v1, 0x7f100432
+    const v1, 0x7f100436
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -349,7 +349,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/AnswerThreeWidgetFragment;->mIncomingHideShowView:Landroid/view/View;
 
-    const v1, 0x7f100431
+    const v1, 0x7f100435
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -908,7 +908,7 @@
 
     if-eqz v0, :cond_3
 
-    const v0, 0x7f090102
+    const v0, 0x7f090105
 
     invoke-static {v0}, Lcom/android/incallui/util/InCallUtils;->displayToast(I)V
 
@@ -1220,7 +1220,7 @@
 
     if-eqz v0, :cond_3
 
-    const v0, 0x7f0400b1
+    const v0, 0x7f0400b2
 
     iget-object v3, p0, Lcom/android/incallui/fragment/AnswerThreeWidgetFragment;->mContainer:Landroid/view/ViewGroup;
 
@@ -1236,7 +1236,7 @@
     goto :goto_1
 
     :cond_3
-    const v0, 0x7f0400b0
+    const v0, 0x7f0400b1
 
     iget-object v3, p0, Lcom/android/incallui/fragment/AnswerThreeWidgetFragment;->mContainer:Landroid/view/ViewGroup;
 
@@ -1247,7 +1247,7 @@
     goto :goto_0
 
     :cond_4
-    const v0, 0x7f0400b2
+    const v0, 0x7f0400b3
 
     iget-object v3, p0, Lcom/android/incallui/fragment/AnswerThreeWidgetFragment;->mContainer:Landroid/view/ViewGroup;
 
@@ -1470,9 +1470,9 @@
 
     :sswitch_data_0
     .sparse-switch
-        0x7f100431 -> :sswitch_1
-        0x7f100432 -> :sswitch_0
-        0x7f1004e1 -> :sswitch_2
+        0x7f100435 -> :sswitch_1
+        0x7f100436 -> :sswitch_0
+        0x7f1004e8 -> :sswitch_2
     .end sparse-switch
 .end method
 
@@ -1594,7 +1594,7 @@
 
     iput-object p2, p0, Lcom/android/incallui/fragment/AnswerThreeWidgetFragment;->mContainer:Landroid/view/ViewGroup;
 
-    const v0, 0x7f0400d2
+    const v0, 0x7f0400d3
 
     iget-object v1, p0, Lcom/android/incallui/fragment/AnswerThreeWidgetFragment;->mContainer:Landroid/view/ViewGroup;
 
@@ -1645,7 +1645,7 @@
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/AnswerThreeWidgetFragment;->updateNavigationBar()V
 
-    const v0, 0x7f10026a
+    const v0, 0x7f10026e
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1653,7 +1653,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/AnswerThreeWidgetFragment;->mIncomingCallImageWidgetContainer:Landroid/view/View;
 
-    const v0, 0x7f100267
+    const v0, 0x7f10026b
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -2311,7 +2311,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e011a
+    const v2, 0x7f0e0120
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -2326,7 +2326,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/AnswerThreeWidgetFragment;->mRejectCallWithMsgHandler:Landroid/widget/LinearLayout;
 
-    const v1, 0x7f0203b7
+    const v1, 0x7f0203eb
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setBackgroundResource(I)V
 
@@ -2482,7 +2482,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f020144
+    const v2, 0x7f02016f
 
     invoke-virtual {v1, v2, v6}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
@@ -2551,7 +2551,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e01e1
+    const v2, 0x7f0e0200
 
     invoke-virtual {v1, v2, v6}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -2707,7 +2707,7 @@
 
     move-result-object v1
 
-    const v7, 0x7f0a0593
+    const v7, 0x7f0a05d2
 
     invoke-virtual {v1, v7}, Landroid/content/res/Resources;->getDimension(I)F
 

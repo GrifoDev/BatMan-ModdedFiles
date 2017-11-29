@@ -69,7 +69,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f04004b
+    const v0, 0x7f04004c
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/SmartIVRDialogActivity;->setContentView(I)V
 
@@ -182,7 +182,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f100131
+    const v0, 0x7f100135
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/SmartIVRDialogActivity;->findViewById(I)Landroid/view/View;
 
@@ -322,7 +322,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/SmartIVRDialogActivity;->builder:Landroid/app/AlertDialog$Builder;
 
-    const v1, 0x7f0905f6
+    const v1, 0x7f0905f9
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -330,7 +330,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0400a7
+    const v1, 0x7f0400a8
 
     const/4 v2, 0x0
 
@@ -338,7 +338,7 @@
 
     move-result-object v1
 
-    const v0, 0x7f100256
+    const v0, 0x7f10025a
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

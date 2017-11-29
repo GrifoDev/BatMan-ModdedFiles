@@ -511,7 +511,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->mCallCard:Landroid/widget/RelativeLayout;
 
-    const v1, 0x7f10012a
+    const v1, 0x7f10012e
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -534,7 +534,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->mCallCard:Landroid/widget/RelativeLayout;
 
-    const v1, 0x7f10020f
+    const v1, 0x7f100213
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -557,7 +557,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->mCallCard:Landroid/widget/RelativeLayout;
 
-    const v1, 0x7f100251
+    const v1, 0x7f100255
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -583,7 +583,7 @@
     :goto_0
     iget-object v0, p0, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->mCallCard:Landroid/widget/RelativeLayout;
 
-    const v1, 0x7f10020a
+    const v1, 0x7f10020e
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -594,7 +594,7 @@
     iput-object v0, p0, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->mCallStateLabel:Landroid/widget/TextView;
 
     :cond_3
-    const v0, 0x7f1002d0
+    const v0, 0x7f1002d6
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->findViewById(I)Landroid/view/View;
 
@@ -604,7 +604,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->mIndicatorArea:Landroid/view/ViewGroup;
 
-    const v0, 0x7f100203
+    const v0, 0x7f100207
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->findViewById(I)Landroid/view/View;
 
@@ -651,7 +651,7 @@
     invoke-virtual {v1, v0}, Landroid/view/ViewGroup;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     :cond_4
-    const v0, 0x7f100318
+    const v0, 0x7f10031e
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->findViewById(I)Landroid/view/View;
 
@@ -670,7 +670,7 @@
     invoke-virtual {v0, v3}, Landroid/widget/Button;->setClickable(Z)V
 
     :cond_5
-    const v0, 0x7f100484
+    const v0, 0x7f100488
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->findViewById(I)Landroid/view/View;
 
@@ -687,7 +687,7 @@
     invoke-virtual {v0, v3}, Landroid/view/View;->setVisibility(I)V
 
     :cond_6
-    const v0, 0x7f100424
+    const v0, 0x7f100428
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->findViewById(I)Landroid/view/View;
 
@@ -697,7 +697,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->mAddButton:Landroid/widget/Button;
 
-    const v0, 0x7f1003e6
+    const v0, 0x7f1003ea
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->findViewById(I)Landroid/view/View;
 
@@ -707,7 +707,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->mRecordButton:Landroid/widget/Button;
 
-    const v0, 0x7f10041e
+    const v0, 0x7f100422
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->findViewById(I)Landroid/view/View;
 
@@ -753,7 +753,7 @@
     invoke-virtual {v0, p0}, Landroid/widget/ImageButton;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :cond_9
-    const v0, 0x7f10047e
+    const v0, 0x7f100482
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->findViewById(I)Landroid/view/View;
 
@@ -809,11 +809,11 @@
 .method private initIncomingCallPopup()V
     .locals 8
 
-    const v7, 0x7f1001eb
+    const v7, 0x7f1001ef
 
     const/4 v3, 0x0
 
-    const v0, 0x7f10015c
+    const v0, 0x7f100160
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->findViewById(I)Landroid/view/View;
 
@@ -856,7 +856,7 @@
 
     invoke-virtual {v0, v3}, Landroid/widget/RelativeLayout;->setVisibility(I)V
 
-    const v0, 0x7f10012a
+    const v0, 0x7f10012e
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->findViewById(I)Landroid/view/View;
 
@@ -866,7 +866,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->mPopupCallerName:Landroid/widget/TextView;
 
-    const v0, 0x7f10020f
+    const v0, 0x7f100213
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->findViewById(I)Landroid/view/View;
 
@@ -876,7 +876,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->mPopupCallerNumberOrLocation:Landroid/widget/TextView;
 
-    const v0, 0x7f1000d0
+    const v0, 0x7f1000d4
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->findViewById(I)Landroid/view/View;
 
@@ -886,7 +886,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->mPopupCallerPhoto:Landroid/widget/ImageView;
 
-    const v0, 0x7f10020a
+    const v0, 0x7f10020e
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->findViewById(I)Landroid/view/View;
 
@@ -896,7 +896,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->mPopupCallStateLabel:Landroid/widget/TextView;
 
-    const v0, 0x7f10027a
+    const v0, 0x7f10027e
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->findViewById(I)Landroid/view/View;
 
@@ -944,7 +944,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f020103
+    const v1, 0x7f02012e
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -954,7 +954,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0529
+    const v2, 0x7f0a0563
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1000,7 +1000,7 @@
     :cond_5
     iget-object v0, p0, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->mIncomingCallPopup:Landroid/widget/RelativeLayout;
 
-    const v1, 0x7f1001f1
+    const v1, 0x7f1001f5
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -1060,7 +1060,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a0501
+    const v4, 0x7f0a053b
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1112,7 +1112,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->mIncomingCallPopup:Landroid/widget/RelativeLayout;
 
-    const v1, 0x7f100275
+    const v1, 0x7f100279
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -1132,7 +1132,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->mIncomingCallPopup:Landroid/widget/RelativeLayout;
 
-    const v1, 0x7f100278
+    const v1, 0x7f10027c
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -1151,7 +1151,7 @@
     move-object v1, v0
 
     :goto_1
-    const v0, 0x7f1001ec
+    const v0, 0x7f1001f0
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1159,7 +1159,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->mTutorialPopupCallAnswer:Landroid/view/View;
 
-    const v0, 0x7f1001ed
+    const v0, 0x7f1001f1
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1494,7 +1494,7 @@
 .method private showToast()V
     .locals 3
 
-    const v2, 0x7f09019e
+    const v2, 0x7f0901a1
 
     sget-object v0, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->mToast:Landroid/widget/Toast;
 
@@ -1611,10 +1611,10 @@
 
     :sswitch_data_0
     .sparse-switch
-        0x7f1001ec -> :sswitch_0
-        0x7f1001ed -> :sswitch_1
-        0x7f1001f5 -> :sswitch_2
-        0x7f10041e -> :sswitch_2
+        0x7f1001f0 -> :sswitch_0
+        0x7f1001f1 -> :sswitch_1
+        0x7f1001f9 -> :sswitch_2
+        0x7f100422 -> :sswitch_2
     .end sparse-switch
 .end method
 
@@ -1635,12 +1635,12 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f040060
+    const v0, 0x7f040061
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->setContentView(I)V
 
     :goto_0
-    const v0, 0x7f10015e
+    const v0, 0x7f100162
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->findViewById(I)Landroid/view/View;
 
@@ -1650,7 +1650,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->mTutorialPopupCallAnswerTap:Landroid/widget/ImageView;
 
-    const v0, 0x7f100166
+    const v0, 0x7f10016a
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->findViewById(I)Landroid/view/View;
 
@@ -1660,7 +1660,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->mTutorialPopupCallRejectTap:Landroid/widget/ImageView;
 
-    const v0, 0x7f100162
+    const v0, 0x7f100166
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->findViewById(I)Landroid/view/View;
 
@@ -1670,7 +1670,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->mTutorialPopupCallEndcallTap:Landroid/widget/ImageView;
 
-    const v0, 0x7f10015f
+    const v0, 0x7f100163
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->findViewById(I)Landroid/view/View;
 
@@ -1680,7 +1680,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->mTutorialTipAnswerMsg:Landroid/widget/FrameLayout;
 
-    const v0, 0x7f100167
+    const v0, 0x7f10016b
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->findViewById(I)Landroid/view/View;
 
@@ -1690,7 +1690,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->mTutorialTipRejectMsg:Landroid/widget/FrameLayout;
 
-    const v0, 0x7f100163
+    const v0, 0x7f100167
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->findViewById(I)Landroid/view/View;
 
@@ -1710,7 +1710,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->mTipComplete:Landroid/widget/FrameLayout;
 
-    const v0, 0x7f100274
+    const v0, 0x7f100278
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->findViewById(I)Landroid/view/View;
 
@@ -1720,7 +1720,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->mTutorialPopupRingingCallButtons:Landroid/view/View;
 
-    const v0, 0x7f100279
+    const v0, 0x7f10027d
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->findViewById(I)Landroid/view/View;
 
@@ -1752,7 +1752,7 @@
 
     invoke-direct {p0, v0}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->setIncomingCallTutorialMode(Lcom/android/incallui/help/IncomingCallWhileUsingApp$IncomingCallTutorialStep;)V
 
-    const v0, 0x7f10015b
+    const v0, 0x7f10015f
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->findViewById(I)Landroid/view/View;
 
@@ -1768,7 +1768,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e00bd
+    const v2, 0x7f0e00c3
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1803,7 +1803,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f04005f
+    const v0, 0x7f040060
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/IncomingCallWhileUsingApp;->setContentView(I)V
 

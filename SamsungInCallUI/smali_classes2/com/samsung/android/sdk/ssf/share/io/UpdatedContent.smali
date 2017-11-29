@@ -7,6 +7,8 @@
 
 .field public content_type:Ljava/lang/String;
 
+.field public extra_attribute:I
+
 .field public name:Ljava/lang/String;
 
 .field public original:Ljava/lang/String;

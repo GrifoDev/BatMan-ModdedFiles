@@ -126,6 +126,7 @@
     <string name="agif_decline_sticker_header">စတစ်ကာသုံးပြီး ပယ်ချပါ</string>
     <string name="agif_decline_text_header">စာပို့ပြီး ပယ်ချပါ</string>
     <string name="agif_decline_toast">စတစ်ကာကို %s သို့ ပို့လိုက်သည်။</string>
+    <string name="agif_outgoing_bubble_tip">သင့်ခံစားချက်ကိုပြရန် စတစ်ကာ တစ်ခု ပေးပို့ပါ။</string>
     <string name="agif_pickers_add_tab_description">ထည့်ပါ</string>
     <string name="agif_pickers_find_more">နောက်ထပ် ရှာပါ</string>
     <string name="agif_pickers_item_usage_hints_description">ရွေးရန် နှစ်ချက်နှိပ်ပါ</string>
@@ -134,10 +135,12 @@
     <string name="agif_pickers_tab_select_description">ရွေးထားသည်</string>
     <string name="agif_pickers_title">စတစ်ကာဖြင့် စတင်ပါ</string>
     <string name="agif_pickers_title_recommended">အကြံပြုထားသည်</string>
+    <string name="agif_random_send_message">ဤစတစ်ကာကို ပေးပို့ရန် ဤနေရာကို နှိပ်ပါ။</string>
     <string name="agif_read_permission_description">ဖုန်းအား AGIF အကြောင်းအရာကို ဖတ်ရှုခွင့်ပြုသည်။</string>
     <string name="agif_read_permission_label">AGIF အကြောင်းအရာကို ဖတ်ပါ</string>
     <string name="agif_receive_no_id">စတစ်ကာကို ပြသ၍မရနိုင်ပါ။ ဖုန်းခေါ်ပြီးချိန်တွင် %s ကို အပ်ဒိတ်လုပ်ပါ။</string>
     <string name="agif_receive_no_id_upsupport_update">စတစ်ကာကို ပြသ၍မရနိုင်ပါ။ နောက်ထပ် စနစ်အပ်ဒိတ်လုပ်ပြီးနောက်တွင် စတစ်ကာများ ပိုမိုရရှိနိုင်ပါမည်။</string>
+    <string name="agif_receive_toast">%s မှ စတစ်ကာ။</string>
     <string name="agif_sent_fail_message">လှုပ်ရှား GIF ကို ပေးပို့၍ မရနိုင်ပါ။ နောက်မှ ထပ်မံကြိုးစားပါ။</string>
     <string name="agif_sent_toast">စတစ်ကာ ပို့ပြီး။</string>
     <string name="agif_write_permission_description">ဖုန်းအား AGIF အကြောင်းအရာကို ပြင်ဆင်မွမ်းမံခွင့်ပြုသည်။</string>
@@ -827,8 +830,8 @@ IVR ဖုန်းခေါ်ဆို ဖန်သားပြင် မီ�
     <string name="tts_pager">%2$d ၏ %1$d စာမျက်နှာ</string>
     <string name="tts_seconds">%d စက္ကန့်</string>
     <string name="tty_mode_option_title">TTY အနေအထား</string>
-    <string name="tutorial_incoming_call_app_answer">ဖုန်းပြန်ပြောရန် နှိပ်ပါ။</string>
-    <string name="tutorial_incoming_call_app_reject">ခေါ်ဆိုမှုကို ငြင်းပယ်ရန် နှိပ်လိုက်ပါ။</string>
+    <string name="tutorial_incoming_call_app_answer">ဖြေရန်နှစ်ခါနှိပ်ပါ။</string>
+    <string name="tutorial_incoming_call_app_reject">ငြင်းပယ်ရန်နှစ်ခါနှိပ်ပါ။</string>
     <string name="twmobile_operator_name">TW မိုဘိုင်းလ်</string>
     <string name="unable_to_connect_to_the_network">ကွန်ယက်သို့ချိတ်ဆက်၍မရနိုင်ပါ။ ချိတ်ဆက်မှုသတ်မှတ်ချက်များကို စစ်ဆေးပြီး ထပ်မံကြိုးစားပါ။</string>
     <string name="units_kb">KB</string>
@@ -838,7 +841,7 @@ IVR ဖုန်းခေါ်ဆို ဖန်သားပြင် မီ�
     <string name="upload_using_wlan_only">WLAN မှ သာလျှင် အပ်လုဒ်လုပ်ပါ</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fi (သို့) မိုဘိုင်း ကွန်ယက်မှတဆင့် အပ်လုဒ်လုပ်ပါ</string>
     <string name="upload_wlan_and_mobile_nw">WLAN (သို့) မိုဘိုင်း ကွန်ရက်မှတဆင့် အပ်လုဒ်လုပ်ပါ</string>
-    <string name="usa_att_connected_as_voice">ခေါ်ဖုန်းက အသံဖြင့်သာပုံစံအနေနှင့် ချိတ်ဆက်နေသည်။</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">သင့်ကိရိယာတွင် သတ်မှတ်ခဲ့သည့် ဒေတာအသုံးပြုမှုသည် ၎င်း၏ကန့်သတ်ပမာဏကို ရောက်ခါနီးပါပြီ။ ဗီဒီယိုဖုန်းအတွက် ဒေတာ လိုအပ်သည်။</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">ခေါ်ဖုန်းကို ဆယ်လူလာကွန်ရက်ဖြင့် ချိတ်ဆက်နေသာ Wi-Fi ပေါ်တွင် ထား၍မရပါ။ အသံခနှင့် ဒေတာခအတွက် တောင်းခံပါမည်။</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -886,13 +889,17 @@ IVR ဖုန်းခေါ်ဆို ဖန်သားပြင် မီ�
     <string name="usa_vzw_voice_incoming_during_wifi_video">အဝင်ဖုန်းဖြေကြားလျှင် လက်ရှိပြောနေသောဖုန်းကို အဆုံးသတ်ပါမည်။</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_text">Wi-Fi အချက်ပြလှိုင်းတွင် ဖုန်းဆက်ခေါ်ရန်အတွက် လုံလောက်သော လှိုင်းအားမရှိပါ။ မိုဘိုင်းကွန်ရက်များသုံး၍ ဆက်လက်ဖုန်းခေါ်လျှင် သင့်ဒေတာအစီအစဉ်ကို အသုံးပြုပါမည်။</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">မိုဘိုင်းဒေတာ သုံးပါ</string>
-    <string name="usa_vzw_volte_weak_wifi_text">"ကျွန်ုပ်တို့ ကြိုးစားဆက်သွယ်ပေးခဲ့သည်၊ သို့သော် ဒီတစ်ကြိမ်တော့ သင့် ဗီဒီယို ဖုန်းခေါ်ဆိုမှုကို Wi-Fi ဖြင့် ချိတ်ဆက်၍မရပါ။
+    <string name="usa_vzw_volte_weak_wifi_text">"ကျွန်ုပ်တို့ ကြိုးစားခဲ့သော်လည်း ဤတစ်ကြိမ်တွင် သင့်ဗီဒီယို ဖုန်းခေါ်ဆိုမှုကို Wi-Fi သို့ ပြောင်း၍မရနိုင်ပါ။
 
-မိုဘိုင်းကွန်ရက်တွင် ဗီဒီယိုဖုန်း အလုပ်လုပ်နေဆဲ ဖြစ်သည်။ (ဆက်လုပ်မည်ဟု သင်ရွေးလျှင် ဒေတာအသုံးပြုမှုကို အသုံးချပါမည်။)"</string>
+သင့်ဗီဒီယို ဖုန်းခေါ်ဆိုမှုကို မိုဘိုင်းကွန်ရက်သုံးပြီး ဆောင်ရွက်နေဆဲဖြစ်ပါသည်။
+
+ဆက်လက်လုပ်ဆောင်ရန် သင်ရွေးချယ်ပါက ဒေတာသုံးစွဲခများ ကျသင့်နိုင်ပါသည်။"</string>
     <string name="usa_vzw_volte_weak_wifi_toast">သင့် ဗီဒီယို ဖုန်းခေါ်ဆိုမှုသည် မိုဘိုင်းကွန်ရက်တွင် အလုပ်လုပ်နေဆဲ ဖြစ်သည်။ (ဒေတာအသုံးပြုခ တောင်းခံပါမည်။)</string>
-    <string name="usa_vzw_vowifi_wifi_low_signal_text">"ဗီဒီယို ဖုန်းခေါ်ဆိုမှုကို ဆက်သုံးရန် Wi-Fi အချက်ပြလှိုင်းသည် လုံလောက်စွာ အားမကောင်းပါ။
+    <string name="usa_vzw_vowifi_wifi_low_signal_text">"သင့်ဗီဒီယို ဖုန်းခေါ်ဆိုမှုကို ဆက်လက်လုပ်ဆောင်နိုင်လောက်အောင် Wi-Fi လိုင်း မကောင်းပါ။
 
-ဗီဒီယို ဖုန်းခေါ်ဆိုမှုသည် ယခု မိုဘိုင်း ကွန်ရက်ပေါ်တွင် အလုပ်လုပ်နေသည်။ (ဆက်လုပ်မည်ဟု သင်ရွေးလျှင် ဒေတာအသုံးပြုမှုကို အသုံးချပါမည်။)"</string>
+သင့်ဗီဒီယို ဖုန်းခေါ်ဆိုမှုကို ယခု မိုဘိုင်းကွန်ရက်သုံးပြီး လုပ်ဆောင်နေပါသည်။
+
+ဆက်လက်ဆောင်ရွက်ရန် ရွေးချယ်ပါက ဒေတာသုံးစွဲခများ ကျသင့်နိုင်ပါသည်။"</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi ချိတ်ဆက်ပြတ်နေသည်။ ခေါ်ဖုန်း အသုံးသတ်ပါပြီ။</string>
     <string name="use_wifi_and_mobile_nw">Wi-Fi နှင့် မိုဘိုင်း ကွန်ယက်များ သုံးပါ</string>
     <string name="use_wlan_and_mobile_nw">WLAN နှင့် မိုဘိုင်း ကွန်ရက်များကို သုံးပါ</string>

@@ -184,6 +184,7 @@
     <string name="agif_decline_sticker_header">דחה בעזרת מדבקה</string>
     <string name="agif_decline_text_header">דחה בעזרת טקסט</string>
     <string name="agif_decline_toast">מדבקה נשלחה אל %s.</string>
+    <string name="agif_outgoing_bubble_tip">שלח מדבקה כדי להביע את הרגשתך.</string>
     <string name="agif_pickers_add_tab_description">הוספה</string>
     <string name="agif_pickers_find_more">אתר עוד</string>
     <string name="agif_pickers_item_usage_hints_description">הקש הקשה כפולה כדי לבחור</string>
@@ -192,10 +193,12 @@
     <string name="agif_pickers_tab_select_description">נבחר</string>
     <string name="agif_pickers_title">התחלה עם מדבקה</string>
     <string name="agif_pickers_title_recommended">מומלצים</string>
+    <string name="agif_random_send_message">הקש כאן כדי לשלוח את המדבקה.</string>
     <string name="agif_read_permission_description">הרשאה המאפשרת לטלפון לקרוא תוכן AGIF.</string>
     <string name="agif_read_permission_label">קרא תוכן AGIF</string>
     <string name="agif_receive_no_id">לא ניתן להציג את המדבקה. עדכן את %s לאחר השיחה.</string>
     <string name="agif_receive_no_id_upsupport_update">לא ניתן להציג את המדבקה. מדבקות נוספות יהיו זמינות לאחר עדכון המערכת הבא.</string>
+    <string name="agif_receive_toast">מדבקה מאת %s.</string>
     <string name="agif_sent_fail_message">לא ניתן לשלוח GIF עם הנפשה. נסה שוב מאוחר יותר.</string>
     <string name="agif_sent_toast">המדבקה נשלחה.</string>
     <string name="agif_write_permission_description">הרשאה המאפשרת לטלפון לשנות תוכן AGIF.</string>
@@ -885,8 +888,8 @@
     <string name="tts_pager">עמוד %1$d מתוך %2$d</string>
     <string name="tts_seconds">%d שניות</string>
     <string name="tty_mode_option_title">מצב TTY</string>
-    <string name="tutorial_incoming_call_app_answer">הקש כדי להשיב את השיחה.</string>
-    <string name="tutorial_incoming_call_app_reject">הקש כדי לדחות את השיחה.</string>
+    <string name="tutorial_incoming_call_app_answer">הקש הקשה כפולה כדי לענות.</string>
+    <string name="tutorial_incoming_call_app_reject">הקש הקשה כפולה כדי לדחות.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">לא ניתן להתחבר אל הרשת. בדוק את הגדרות החיבור לרשת ונסה שוב.</string>
     <string name="units_kb">ק״ב</string>
@@ -896,7 +899,7 @@
     <string name="upload_using_wlan_only">העלה באמצעות ’WLAN בלבד‘</string>
     <string name="upload_wifi_and_mobile_nw">העלה באמצעות Wi-Fi או רשת סלולרית</string>
     <string name="upload_wlan_and_mobile_nw">העלה באמצעות ’WLAN או רשת סלולרית‘</string>
-    <string name="usa_att_connected_as_voice">השיחה בוצעה כשיחת קול בלבד.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">אתה קרוב למגבלת השימוש בנתונים שהגדרת במכשיר שלך. שיחת וידאו כרוכה בהעברת נתונים.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">לא ניתן לבצע דרך Wi-Fi, מתחבר דרך רשת סלולרית. השירות כרוך בחיוב על קול ונתונים.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -946,11 +949,15 @@
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">"שימוש ב'נתונים ניידים'"</string>
     <string name="usa_vzw_volte_weak_wifi_text">"ניסינו, אך לא ניתן כרגע להעביר את שיחת הווידאו שלך ל-Wi-Fi.
 
-שיחת הווידאו ממשיכה להתנהל דרך הרשת הסלולרית. (אם תבחר להמשיך בשיחה, תחויב על שימוש בנתונים.)"</string>
-    <string name="usa_vzw_volte_weak_wifi_toast">שיחת הווידאו שלך נמשכת - דרך הרשת הסלולרית. (יחול חיוב על שימוש בנתונים.)</string>
-    <string name="usa_vzw_vowifi_wifi_low_signal_text">"קליטת ה-Wi-Fi לא מספיקה להמשך שיחת הווידאו.
+שיחת הווידאו ממשיכה להתנהל ברשת הסלולרית.
 
-שיחת הווידאו שלך מועברת כעת דרך רשת סלולרית. (אם תבחר להמשיך בשיחה, תחויב על שימוש בנתונים.)"</string>
+חיובים עבור שימוש בנתונים עשויים לחול אם תבחר להמשיך."</string>
+    <string name="usa_vzw_volte_weak_wifi_toast">שיחת הווידאו שלך נמשכת - דרך הרשת הסלולרית. (יחול חיוב על שימוש בנתונים.)</string>
+    <string name="usa_vzw_vowifi_wifi_low_signal_text">"אות ה-Wi-Fi לא היה חזק מספיק כדי להמשיך את שיחת הווידאו.
+
+שיחת הווידאו שלך פועלת כעת ברשת הסלולרית.
+
+חיובים עבור שימוש בנתונים עשויים לחול אם תבחר להמשיך."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">נותק חיבור ה-Wi-Fi. השיחה הסתיימה.</string>
     <string name="use_wifi_and_mobile_nw">השתמש ברשתות Wi-Fi ורשתות סלולריות</string>
     <string name="use_wlan_and_mobile_nw">השתמש ברשתות WLAN ורשתות סלולריות</string>

@@ -2248,9 +2248,9 @@
 
     invoke-virtual {v2}, Lcom/android/incallui/CallList;->getWaitingForAccountCall()Lcom/android/incallui/Call;
 
-    move-result-object v2
+    move-result-object v3
 
-    const-string v3, "CarrierMatchingUtils"
+    const-string v2, "CarrierMatchingUtils"
 
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -2262,7 +2262,7 @@
 
     move-result-object v4
 
-    invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
@@ -2270,86 +2270,99 @@
 
     move-result-object v4
 
-    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v2, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-direct {p0}, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->init()V
 
-    if-eqz v2, :cond_0
+    if-eqz v3, :cond_0
 
-    invoke-virtual {v2}, Lcom/android/incallui/Call;->getNumber()Ljava/lang/String;
+    invoke-virtual {v3}, Lcom/android/incallui/Call;->getNumber()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    iput-object v3, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->dialNumber:Ljava/lang/String;
+    iput-object v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->dialNumber:Ljava/lang/String;
 
     :cond_0
+    invoke-virtual {v3}, Lcom/android/incallui/Call;->getIntentExtras()Landroid/os/Bundle;
+
+    move-result-object v2
+
+    const-string v4, "listNumber"
+
+    invoke-virtual {v2, v4}, Landroid/os/Bundle;->getStringArrayList(Ljava/lang/String;)Ljava/util/ArrayList;
+
+    move-result-object v2
+
+    if-nez v2, :cond_1
+
     invoke-static {}, Lcom/android/incallui/TelecomAdapter;->getInstance()Lcom/android/incallui/TelecomAdapter;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Lcom/android/incallui/TelecomAdapter;->getListNumber()Ljava/util/ArrayList;
+    invoke-virtual {v2}, Lcom/android/incallui/TelecomAdapter;->getListNumber()Ljava/util/ArrayList;
 
-    move-result-object v3
+    move-result-object v2
 
-    if-eqz v2, :cond_1
+    :cond_1
+    if-eqz v3, :cond_2
 
     iget-object v4, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v2, v4}, Lcom/android/incallui/Call;->isVideoCall(Landroid/content/Context;)Z
+    invoke-virtual {v3, v4}, Lcom/android/incallui/Call;->isVideoCall(Landroid/content/Context;)Z
 
-    move-result v2
+    move-result v3
 
-    if-eqz v2, :cond_1
+    if-eqz v3, :cond_2
 
-    const-string v2, "CarrierMatchingUtils"
+    const-string v3, "CarrierMatchingUtils"
 
     const-string v4, "No Matching for video call"
 
-    invoke-static {v2, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-direct {p0}, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->getDefaultIdToCalls()I
 
-    move-result v2
+    move-result v3
 
-    iput v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->slotIdCarrierMatching:I
+    iput v3, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->slotIdCarrierMatching:I
 
-    const/4 v2, 0x5
+    const/4 v3, 0x5
 
-    iput v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->carrierMatchingBy:I
+    iput v3, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->carrierMatchingBy:I
 
-    :cond_1
-    iget v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->carrierMatchingBy:I
+    :cond_2
+    iget v3, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->carrierMatchingBy:I
 
-    if-nez v2, :cond_2
+    if-nez v3, :cond_3
 
-    iget-object v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->dialNumber:Ljava/lang/String;
+    iget-object v3, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->dialNumber:Ljava/lang/String;
 
-    if-nez v2, :cond_2
+    if-nez v3, :cond_3
 
-    const-string v2, "CarrierMatchingUtils"
+    const-string v3, "CarrierMatchingUtils"
 
     const-string v4, "No Matching for voice mail"
 
-    invoke-static {v2, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-direct {p0}, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->getDefaultIdToCalls()I
 
-    move-result v2
+    move-result v3
 
-    iput v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->slotIdCarrierMatching:I
+    iput v3, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->slotIdCarrierMatching:I
 
-    const/4 v2, 0x6
+    const/4 v3, 0x6
 
-    iput v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->carrierMatchingBy:I
+    iput v3, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->carrierMatchingBy:I
 
-    :cond_2
-    iget v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->carrierMatchingBy:I
+    :cond_3
+    iget v3, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->carrierMatchingBy:I
 
-    if-nez v2, :cond_6
+    if-nez v3, :cond_7
 
     invoke-direct {p0, v0}, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->isCanMakeCall(I)Z
 
-    move-result v2
+    move-result v3
 
     invoke-direct {p0, v1}, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->isCanMakeCall(I)Z
 
@@ -2367,7 +2380,7 @@
 
     move-result-object v6
 
-    invoke-virtual {v6, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v6, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v6
 
@@ -2387,36 +2400,36 @@
 
     invoke-static {v5, v6}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    if-eqz v2, :cond_3
+    if-eqz v3, :cond_4
 
-    if-nez v4, :cond_3
+    if-nez v4, :cond_4
 
     iput v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->carrierMatchingBy:I
 
     iput v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->slotIdCarrierMatching:I
 
-    :cond_3
-    if-nez v2, :cond_4
+    :cond_4
+    if-nez v3, :cond_5
 
-    if-eqz v4, :cond_4
+    if-eqz v4, :cond_5
 
     iput v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->carrierMatchingBy:I
 
     iput v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->slotIdCarrierMatching:I
 
-    :cond_4
-    if-nez v2, :cond_5
+    :cond_5
+    if-nez v3, :cond_6
 
-    if-nez v4, :cond_5
+    if-nez v4, :cond_6
 
     iput v8, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->slotIdCarrierMatching:I
 
-    const/4 v2, 0x7
+    const/4 v3, 0x7
 
-    iput v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->carrierMatchingBy:I
+    iput v3, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->carrierMatchingBy:I
 
-    :cond_5
-    const-string v2, "CarrierMatchingUtils"
+    :cond_6
+    const-string v3, "CarrierMatchingUtils"
 
     new-instance v4, Ljava/lang/StringBuilder;
 
@@ -2438,22 +2451,22 @@
 
     move-result-object v4
 
-    invoke-static {v2, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
-
-    :cond_6
-    iget v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->carrierMatchingBy:I
-
-    if-nez v2, :cond_9
-
-    if-eqz v3, :cond_7
-
-    invoke-virtual {v3}, Ljava/util/ArrayList;->isEmpty()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_c
+    invoke-static {v3, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_7
+    iget v3, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->carrierMatchingBy:I
+
+    if-nez v3, :cond_a
+
+    if-eqz v2, :cond_8
+
+    invoke-virtual {v2}, Ljava/util/ArrayList;->isEmpty()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_d
+
+    :cond_8
     iget-object v2, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->dialNumber:Ljava/lang/String;
 
     invoke-direct {p0, v2}, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->carrierMatchingBySimAndCallLog(Ljava/lang/String;)[I
@@ -2470,18 +2483,18 @@
 
     aget v2, v2, v9
 
-    if-ne v2, v1, :cond_8
+    if-ne v2, v1, :cond_9
 
     move v0, v1
 
-    :cond_8
+    :cond_9
     iput-boolean v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->isNoMatchingBySimCarrier:Z
 
-    :cond_9
+    :cond_a
     :goto_0
     iget v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->carrierMatchingBy:I
 
-    if-nez v0, :cond_a
+    if-nez v0, :cond_b
 
     const-string v0, "CarrierMatchingUtils"
 
@@ -2497,13 +2510,13 @@
 
     iget v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->slotIdCarrierMatching:I
 
-    if-eq v0, v8, :cond_a
+    if-eq v0, v8, :cond_b
 
     const/4 v0, 0x4
 
     iput v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->carrierMatchingBy:I
 
-    :cond_a
+    :cond_b
     iget-object v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->dialNumber:Ljava/lang/String;
 
     invoke-direct {p0, v0}, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->getDialOperatorNameFromNumber(Ljava/lang/String;)Ljava/lang/String;
@@ -2514,7 +2527,7 @@
 
     iget v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->slotIdCarrierMatching:I
 
-    if-eq v0, v8, :cond_b
+    if-eq v0, v8, :cond_c
 
     iget v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->slotIdCarrierMatching:I
 
@@ -2526,7 +2539,7 @@
 
     iput-boolean v1, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->needShowDialingInfo:Z
 
-    :cond_b
+    :cond_c
     const-string v0, "CarrierMatchingUtils"
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -2589,8 +2602,8 @@
 
     return-void
 
-    :cond_c
-    invoke-direct {p0, v3, v8}, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->carrierMatchingBySimAndCallLog(Ljava/util/ArrayList;I)Landroid/os/Bundle;
+    :cond_d
+    invoke-direct {p0, v2, v8}, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->carrierMatchingBySimAndCallLog(Ljava/util/ArrayList;I)Landroid/os/Bundle;
 
     move-result-object v2
 
@@ -2600,7 +2613,7 @@
 
     move-result-object v3
 
-    if-eqz v3, :cond_e
+    if-eqz v3, :cond_f
 
     aget v4, v3, v0
 
@@ -2612,14 +2625,14 @@
 
     aget v3, v3, v9
 
-    if-ne v3, v1, :cond_d
+    if-ne v3, v1, :cond_e
 
     move v0, v1
 
-    :cond_d
+    :cond_e
     iput-boolean v0, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->isNoMatchingBySimCarrier:Z
 
-    :cond_e
+    :cond_f
     const-string v0, "keyNewNumber"
 
     iget-object v3, p0, Lcom/android/incallui/carriermatching/CarrierMatchingUtils;->dialNumber:Ljava/lang/String;

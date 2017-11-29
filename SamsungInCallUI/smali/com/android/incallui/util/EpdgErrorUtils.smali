@@ -183,7 +183,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0903b3
+    const v0, 0x7f0903b6
 
     invoke-static {v0}, Lcom/android/incallui/util/EpdgErrorUtils;->displayToast(I)V
 
@@ -191,7 +191,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f0903b1
+    const v0, 0x7f0903b4
 
     invoke-static {v0}, Lcom/android/incallui/util/EpdgErrorUtils;->displayToast(I)V
 
@@ -213,7 +213,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090433
+    const v1, 0x7f090436
 
     invoke-static {v1}, Lcom/android/incallui/util/SALogging;->getString(I)Ljava/lang/String;
 
@@ -234,7 +234,7 @@
     if-eqz v0, :cond_2
 
     :cond_0
-    const v0, 0x7f090391
+    const v0, 0x7f090394
 
     invoke-static {v0}, Lcom/android/incallui/util/EpdgErrorUtils;->displayToast(I)V
 
@@ -249,7 +249,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f09067d
+    const v0, 0x7f090680
 
     invoke-static {v0}, Lcom/android/incallui/util/EpdgErrorUtils;->displayToast(I)V
 
@@ -297,7 +297,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090432
+    const v1, 0x7f090435
 
     invoke-static {v1}, Lcom/android/incallui/util/SALogging;->getString(I)Ljava/lang/String;
 
@@ -329,7 +329,7 @@
 
     if-eqz v0, :cond_2
 
-    const v0, 0x7f090682
+    const v0, 0x7f090685
 
     invoke-static {v0}, Lcom/android/incallui/util/EpdgErrorUtils;->displayToast(I)V
 
@@ -350,7 +350,7 @@
 
     if-eqz v0, :cond_2
 
-    const v0, 0x7f090379
+    const v0, 0x7f09037c
 
     invoke-static {v0}, Lcom/android/incallui/util/EpdgErrorUtils;->displayToast(I)V
 
@@ -379,7 +379,7 @@
 
     invoke-static {v0}, Lcom/android/incallui/service/vt/VideoCallControl;->sendSessionModifyRequest(I)V
 
-    const v0, 0x7f090382
+    const v0, 0x7f090385
 
     invoke-static {v0}, Lcom/android/incallui/util/EpdgErrorUtils;->displayToast(I)V
 
@@ -457,19 +457,19 @@
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f090689
+    const v0, 0x7f09068c
 
     invoke-virtual {v1, v0}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0903a5
+    const v1, 0x7f0903a8
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f090680
+    const v1, 0x7f090683
 
     new-instance v2, Lcom/android/incallui/util/EpdgErrorUtils$8;
 
@@ -479,7 +479,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090681
+    const v1, 0x7f090684
 
     new-instance v2, Lcom/android/incallui/util/EpdgErrorUtils$7;
 
@@ -583,19 +583,19 @@
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v0, 0x7f090685
+    const v0, 0x7f090688
 
     invoke-virtual {v1, v0}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0903a3
+    const v1, 0x7f0903a6
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f090680
+    const v1, 0x7f090683
 
     new-instance v2, Lcom/android/incallui/util/EpdgErrorUtils$4;
 
@@ -605,7 +605,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090681
+    const v1, 0x7f090684
 
     new-instance v2, Lcom/android/incallui/util/EpdgErrorUtils$3;
 
@@ -715,7 +715,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090698
+    const v1, 0x7f09069b
 
     invoke-virtual {v0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

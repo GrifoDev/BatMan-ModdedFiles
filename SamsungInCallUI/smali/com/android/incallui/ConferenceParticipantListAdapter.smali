@@ -950,7 +950,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a0551
+    const v4, 0x7f0a058b
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1417,7 +1417,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f02045d
+    const v4, 0x7f0204be
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -2555,7 +2555,7 @@
 
     iget-object v2, v0, Lcom/android/incallui/ConferenceParticipantListAdapter;->mLayoutInflater:Landroid/view/LayoutInflater;
 
-    const v3, 0x7f0400b8
+    const v3, 0x7f0400b9
 
     const/4 v4, 0x0
 
@@ -2575,7 +2575,7 @@
 
     iput-object v0, v3, Lcom/android/incallui/ConferenceParticipantListAdapter$ViewHolder;->parentView:Landroid/view/View;
 
-    const v2, 0x7f1002a4
+    const v2, 0x7f1002aa
 
     move-object/from16 v0, p2
 
@@ -2585,7 +2585,7 @@
 
     iput-object v2, v3, Lcom/android/incallui/ConferenceParticipantListAdapter$ViewHolder;->conferenceCallerInfo:Landroid/view/View;
 
-    const v2, 0x7f1002a5
+    const v2, 0x7f1002ab
 
     move-object/from16 v0, p2
 
@@ -2595,7 +2595,7 @@
 
     iput-object v2, v3, Lcom/android/incallui/ConferenceParticipantListAdapter$ViewHolder;->photoContainerView:Landroid/view/View;
 
-    const v2, 0x7f1000db
+    const v2, 0x7f1000df
 
     move-object/from16 v0, p2
 
@@ -2607,7 +2607,7 @@
 
     iput-object v2, v3, Lcom/android/incallui/ConferenceParticipantListAdapter$ViewHolder;->photoView:Landroid/widget/ImageView;
 
-    const v2, 0x7f1002a6
+    const v2, 0x7f1002ac
 
     move-object/from16 v0, p2
 
@@ -2619,7 +2619,7 @@
 
     iput-object v2, v3, Lcom/android/incallui/ConferenceParticipantListAdapter$ViewHolder;->photoTextView:Landroid/widget/TextView;
 
-    const v2, 0x7f1000dc
+    const v2, 0x7f1000e0
 
     move-object/from16 v0, p2
 
@@ -2631,7 +2631,7 @@
 
     iput-object v2, v3, Lcom/android/incallui/ConferenceParticipantListAdapter$ViewHolder;->nameTextView:Landroid/widget/TextView;
 
-    const v2, 0x7f1000dd
+    const v2, 0x7f1000e1
 
     move-object/from16 v0, p2
 
@@ -2643,7 +2643,7 @@
 
     iput-object v2, v3, Lcom/android/incallui/ConferenceParticipantListAdapter$ViewHolder;->numberTextView:Landroid/widget/TextView;
 
-    const v2, 0x7f1000de
+    const v2, 0x7f1000e2
 
     move-object/from16 v0, p2
 
@@ -2655,7 +2655,7 @@
 
     iput-object v2, v3, Lcom/android/incallui/ConferenceParticipantListAdapter$ViewHolder;->numberTypeTextView:Landroid/widget/TextView;
 
-    const v2, 0x7f1002a8
+    const v2, 0x7f1002ae
 
     move-object/from16 v0, p2
 
@@ -2667,7 +2667,7 @@
 
     iput-object v2, v3, Lcom/android/incallui/ConferenceParticipantListAdapter$ViewHolder;->conferenceRowCallStateLabel:Landroid/widget/TextView;
 
-    const v2, 0x7f1002a7
+    const v2, 0x7f1002ad
 
     move-object/from16 v0, p2
 
@@ -2679,7 +2679,7 @@
 
     iput-object v2, v3, Lcom/android/incallui/ConferenceParticipantListAdapter$ViewHolder;->hdIconView:Landroid/widget/ImageView;
 
-    const v2, 0x7f1002aa
+    const v2, 0x7f1002b0
 
     move-object/from16 v0, p2
 
@@ -2689,7 +2689,7 @@
 
     iput-object v2, v3, Lcom/android/incallui/ConferenceParticipantListAdapter$ViewHolder;->endButtonContainerView:Landroid/view/View;
 
-    const v2, 0x7f1000e0
+    const v2, 0x7f1000e4
 
     move-object/from16 v0, p2
 
@@ -2699,7 +2699,7 @@
 
     iput-object v2, v3, Lcom/android/incallui/ConferenceParticipantListAdapter$ViewHolder;->endButton:Landroid/view/View;
 
-    const v2, 0x7f1002a9
+    const v2, 0x7f1002af
 
     move-object/from16 v0, p2
 
@@ -2709,7 +2709,7 @@
 
     iput-object v2, v3, Lcom/android/incallui/ConferenceParticipantListAdapter$ViewHolder;->separateLayout:Landroid/view/View;
 
-    const v2, 0x7f1000df
+    const v2, 0x7f1000e3
 
     move-object/from16 v0, p2
 
@@ -2719,7 +2719,7 @@
 
     iput-object v2, v3, Lcom/android/incallui/ConferenceParticipantListAdapter$ViewHolder;->separateButton:Landroid/view/View;
 
-    const v2, 0x7f1002ab
+    const v2, 0x7f1002b1
 
     move-object/from16 v0, p2
 

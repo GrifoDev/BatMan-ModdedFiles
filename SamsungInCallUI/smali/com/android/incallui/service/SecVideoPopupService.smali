@@ -242,7 +242,7 @@
 .method private setCallPhoto()V
     .locals 5
 
-    const v4, 0x7f020103
+    const v4, 0x7f02012e
 
     iget-object v0, p0, Lcom/android/incallui/service/SecVideoPopupService;->mImageView:Landroid/widget/ImageView;
 
@@ -545,7 +545,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecVideoPopupService;->mOverlayCallLinearLayout:Landroid/widget/LinearLayout;
 
-    const v1, 0x7f0202d0
+    const v1, 0x7f020304
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setBackgroundResource(I)V
 
@@ -568,7 +568,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecVideoPopupService;->mOverlayCallLinearLayout:Landroid/widget/LinearLayout;
 
-    const v1, 0x7f0202d1
+    const v1, 0x7f020305
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setBackgroundResource(I)V
 
@@ -669,7 +669,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040143
+    const v1, 0x7f040145
 
     invoke-virtual {v0, v1, p1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -681,7 +681,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecVideoPopupService;->mOverlayCall:Landroid/widget/RelativeLayout;
 
-    const v1, 0x7f100433
+    const v1, 0x7f100437
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -693,7 +693,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecVideoPopupService;->mOverlayCall:Landroid/widget/RelativeLayout;
 
-    const v1, 0x7f100438
+    const v1, 0x7f10043c
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -703,7 +703,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecVideoPopupService;->mOverlayCall:Landroid/widget/RelativeLayout;
 
-    const v1, 0x7f100434
+    const v1, 0x7f100438
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -715,7 +715,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecVideoPopupService;->mOverlayCall:Landroid/widget/RelativeLayout;
 
-    const v1, 0x7f100439
+    const v1, 0x7f10043d
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -727,7 +727,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecVideoPopupService;->mOverlayCall:Landroid/widget/RelativeLayout;
 
-    const v1, 0x7f10043a
+    const v1, 0x7f10043e
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -739,7 +739,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecVideoPopupService;->mOverlayCall:Landroid/widget/RelativeLayout;
 
-    const v1, 0x7f100437
+    const v1, 0x7f10043b
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -751,7 +751,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecVideoPopupService;->mOverlayCall:Landroid/widget/RelativeLayout;
 
-    const v1, 0x7f100436
+    const v1, 0x7f10043a
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -763,7 +763,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecVideoPopupService;->mOverlayCall:Landroid/widget/RelativeLayout;
 
-    const v1, 0x7f100435
+    const v1, 0x7f100439
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -990,7 +990,7 @@
 
     const v0, 0x7f090065
 
-    const v1, 0x7f090105
+    const v1, 0x7f090108
 
     new-instance v2, Landroid/app/AlertDialog$Builder;
 
@@ -1149,7 +1149,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecVideoPopupService;->mOverlayCallLinearLayout:Landroid/widget/LinearLayout;
 
-    const v1, 0x7f0202cf
+    const v1, 0x7f020303
 
     invoke-virtual {v0, v1}, Landroid/widget/LinearLayout;->setBackgroundResource(I)V
 
@@ -1519,7 +1519,7 @@
 
     aput-object v4, v7, v2
 
-    const v4, 0x7f090365
+    const v4, 0x7f090368
 
     invoke-virtual {p0, v4}, Lcom/android/incallui/service/SecVideoPopupService;->getText(I)Ljava/lang/CharSequence;
 
@@ -1537,7 +1537,7 @@
 
     aput-object v5, v7, v2
 
-    const v5, 0x7f090367
+    const v5, 0x7f09036a
 
     invoke-virtual {p0, v5}, Lcom/android/incallui/service/SecVideoPopupService;->getText(I)Ljava/lang/CharSequence;
 
@@ -1561,7 +1561,7 @@
 
     aput-object v1, v0, v2
 
-    const v1, 0x7f090364
+    const v1, 0x7f090367
 
     invoke-virtual {p0, v1}, Lcom/android/incallui/service/SecVideoPopupService;->getText(I)Ljava/lang/CharSequence;
 
@@ -1638,7 +1638,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f09018f
+    const v2, 0x7f090192
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1696,7 +1696,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_2
 
     const/4 v0, 0x1
 
@@ -1729,7 +1729,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/service/SecVideoPopupService;->controlOverlayCallLayout(Z)V
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_6
 
     const-string v0, "QCIF"
 
@@ -1741,7 +1741,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     invoke-virtual {p0}, Lcom/android/incallui/service/SecVideoPopupService;->setQCIFOverlayCallVideoLayout()V
 
@@ -1760,6 +1760,13 @@
     return-void
 
     :cond_2
+    invoke-virtual {p0}, Lcom/android/incallui/service/SecVideoPopupService;->hidePopup()V
+
+    move v0, v1
+
+    goto :goto_0
+
+    :cond_3
     const-string v0, "QVGA"
 
     invoke-static {}, Lcom/android/incallui/util/VideoCallUtils;->getFrameSize()Ljava/lang/String;
@@ -1770,7 +1777,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_3
+    if-nez v0, :cond_4
 
     const-string v0, "QVGALAND"
 
@@ -1782,14 +1789,14 @@
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
-    :cond_3
+    :cond_4
     invoke-virtual {p0}, Lcom/android/incallui/service/SecVideoPopupService;->setQVGAOverlayCallVideoLayout()V
 
     goto :goto_1
 
-    :cond_4
+    :cond_5
     const-string v0, "VGALAND"
 
     invoke-static {}, Lcom/android/incallui/util/VideoCallUtils;->getFrameSize()Ljava/lang/String;
@@ -1806,7 +1813,7 @@
 
     goto :goto_1
 
-    :cond_5
+    :cond_6
     iget-object v0, p0, Lcom/android/incallui/service/SecVideoPopupService;->mImageView:Landroid/widget/ImageView;
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
@@ -1816,11 +1823,6 @@
     invoke-virtual {v0, v5}, Landroid/view/ViewGroup;->setVisibility(I)V
 
     goto :goto_2
-
-    :cond_6
-    move v0, v1
-
-    goto :goto_0
 .end method
 
 .method public showPopup()V

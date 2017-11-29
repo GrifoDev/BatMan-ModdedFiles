@@ -136,9 +136,9 @@
     <string name="unknown">번호정보 없음</string>
     <string name="wait_prompt_str">"다음 톤을 보낼까요?
 "</string>
-    <string name="Anniversary_passedDays1">어제 기념일</string>
-    <string name="Anniversary_passedDays7">1주 전 기념일</string>
-    <string name="Anniversary_passedDaysEtc">%d일 전 기념일</string>
+    <string name="Anniversary_passedDays1">기념일 1일 지남</string>
+    <string name="Anniversary_passedDays7">기념일 1주일 지남</string>
+    <string name="Anniversary_passedDaysEtc">기념일 %d일 지남</string>
     <string name="Anniversary_remainedDays0">오늘 기념일</string>
     <string name="Anniversary_remainedDays1">내일 기념일</string>
     <string name="Anniversary_remainedDays7">1주 후 기념일</string>
@@ -184,6 +184,7 @@
     <string name="agif_decline_sticker_header">스티커로 거절</string>
     <string name="agif_decline_text_header">문자로 거절</string>
     <string name="agif_decline_toast">%s 님에게 스티커를 보냈습니다.</string>
+    <string name="agif_outgoing_bubble_tip">스티커를 보내 지금 기분을 표현해 보세요.</string>
     <string name="agif_pickers_add_tab_description">추가</string>
     <string name="agif_pickers_find_more">더보기</string>
     <string name="agif_pickers_item_usage_hints_description">선택하려면 두 번 누르세요.</string>
@@ -192,14 +193,16 @@
     <string name="agif_pickers_tab_select_description">선택됨</string>
     <string name="agif_pickers_title">스티커 보내기</string>
     <string name="agif_pickers_title_recommended">추천</string>
-    <string name="agif_read_permission_description">전화 앱에서 AGIF 콘텐츠를 읽을 수 있도록 허용합니다.</string>
-    <string name="agif_read_permission_label">AGIF 콘텐츠 읽기</string>
+    <string name="agif_random_send_message">이 스티커를 보내려면 여기를 누르세요.</string>
+    <string name="agif_read_permission_description">전화 앱에서 움직이는 GIF 사진 콘텐츠를 읽을 수 있도록 허용합니다.</string>
+    <string name="agif_read_permission_label">움직이는 GIF 사진 콘텐츠 읽기</string>
     <string name="agif_receive_no_id">스티커를 표시할 수 없습니다. 통화를 종료한 후 %s 앱을 업데이트하세요.</string>
     <string name="agif_receive_no_id_upsupport_update">스티커를 표시할 수 없습니다. 다음 시스템 업데이트 후 더 다양한 스티커를 사용할 수 있습니다.</string>
+    <string name="agif_receive_toast">%s 님이 보낸 스티커예요.</string>
     <string name="agif_sent_fail_message">움직이는 GIF 파일을 보낼 수 없습니다. 나중에 다시 시도하세요.</string>
     <string name="agif_sent_toast">스티커를 보냈습니다.</string>
-    <string name="agif_write_permission_description">전화 앱에서 AGIF 콘텐츠를 수정할 수 있도록 허용합니다.</string>
-    <string name="agif_write_permission_label">AGIF 콘텐츠 수정</string>
+    <string name="agif_write_permission_description">전화 앱에서 움직이는 GIF 사진 콘텐츠를 수정할 수 있도록 허용합니다.</string>
+    <string name="agif_write_permission_label">움직이는 GIF 사진 콘텐츠 수정</string>
     <string name="agree">동의</string>
     <string name="am_cover_toggle_string">전화를 받거나 거절하려면 커버를 여세요.</string>
     <string name="am_device_memory_full_warning">음성 메시지 저장공간이 부족하여 [메시지로 자동 전화받기]를 사용할 수 없습니다. 일부 항목을 삭제하고 다시 시도하세요.</string>
@@ -885,8 +888,8 @@ IVR 통화 화면 메뉴는 제3자 서비스 제공자인 Dianhuabang에서 제
     <string name="tts_pager">%2$d페이지 중 %1$d페이지</string>
     <string name="tts_seconds">%d초</string>
     <string name="tty_mode_option_title">TTY 모드</string>
-    <string name="tutorial_incoming_call_app_answer">전화를 받으려면 누르세요.</string>
-    <string name="tutorial_incoming_call_app_reject">전화를 거절하려면 누르세요.</string>
+    <string name="tutorial_incoming_call_app_answer">전화를 받으려면 두 번 누르세요.</string>
+    <string name="tutorial_incoming_call_app_reject">거절하려면 두 번 누르세요.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">네트워크에 연결할 수 없습니다. 연결 설정을 확인한 후 다시 시도하세요.</string>
     <string name="units_kb">KB</string>
@@ -896,7 +899,7 @@ IVR 통화 화면 메뉴는 제3자 서비스 제공자인 Dianhuabang에서 제
     <string name="upload_using_wlan_only">WLAN 연결 시 업로드</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fi 또는 모바일 네트워크로 업로드</string>
     <string name="upload_wlan_and_mobile_nw">WLAN 또는 모바일 네트워크로 업로드</string>
-    <string name="usa_att_connected_as_voice">음성통화로 연결했습니다.</string>
+    <string name="usa_att_connected_as_voice">영상통화를 사용할 수 없어 음성통화로 연결했습니다.</string>
     <string name="usa_att_data_usage_charge_alert">설정된 데이터 사용한도에 거의 도달했습니다. 영상통화를 하려면 데이터를 사용해야 합니다.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Wi-Fi 네트워크에서는 전화를 걸 수 없습니다. 이동통신 네트워크를 이용하세요. 음성 및 데이터 요금이 적용됩니다.</string>
     <string name="usa_att_modify_receive_to_video">%s 님이 영상통화 전환을 요청합니다.</string>
@@ -945,11 +948,15 @@ IVR 통화 화면 메뉴는 제3자 서비스 제공자인 Dianhuabang에서 제
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">모바일 데이터 사용</string>
     <string name="usa_vzw_volte_weak_wifi_text">"Wi-Fi를 사용하여 영상통화를 할 수 없습니다.
 
-모바일 네트워크로 영상통화를 계속합니다. 계속하면 데이터 요금제가 사용됩니다."</string>
+모바일 네트워크로 영상통화를 계속합니다.
+
+계속하면 데이터 요금이 부과될 수 있습니다."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">모바일 네트워크에서 영상통화를 계속합니다. 데이터를 사용합니다.</string>
     <string name="usa_vzw_vowifi_wifi_low_signal_text">"Wi-Fi 신호가 약해 영상통화를 할 수 없습니다.
 
-모바일 네트워크를 사용하여 영상통화를 계속합니다. 계속하면 데이터 요금제를 사용합니다."</string>
+모바일 네트워크를 사용하여 영상통화를 계속합니다.
+
+계속하면 데이터 요금이 부과될 수 있습니다."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi 연결이 해제되어 통화를 종료했습니다.</string>
     <string name="use_wifi_and_mobile_nw">Wi-Fi 및 모바일 네트워크 사용</string>
     <string name="use_wlan_and_mobile_nw">WLAN 및 모바일 네트워크 사용</string>

@@ -184,6 +184,7 @@
     <string name="agif_decline_sticker_header">拒接并发送贴纸</string>
     <string name="agif_decline_text_header">拒接并发送短信</string>
     <string name="agif_decline_toast">贴纸已发送至%s</string>
+    <string name="agif_outgoing_bubble_tip">发送贴纸来表达您的感受。</string>
     <string name="agif_pickers_add_tab_description">添加</string>
     <string name="agif_pickers_find_more">查找更多</string>
     <string name="agif_pickers_item_usage_hints_description">双击以选择</string>
@@ -192,10 +193,12 @@
     <string name="agif_pickers_tab_select_description">已选中</string>
     <string name="agif_pickers_title">从贴纸开始</string>
     <string name="agif_pickers_title_recommended">推荐</string>
+    <string name="agif_random_send_message">点击此处发送该贴纸。</string>
     <string name="agif_read_permission_description">允许【电话】读取 AGIF 内容。</string>
     <string name="agif_read_permission_label">读取 AGIF 内容</string>
     <string name="agif_receive_no_id">贴纸无法显示。请在通话后更新%s。</string>
     <string name="agif_receive_no_id_upsupport_update">贴纸无法显示。下次系统更新时将推出更多贴纸。</string>
+    <string name="agif_receive_toast">来自%s的贴纸。</string>
     <string name="agif_sent_fail_message">无法发送动画 GIF，请稍后重试。</string>
     <string name="agif_sent_toast">贴纸已发送</string>
     <string name="agif_write_permission_description">允许【电话】修改 AGIF 内容。</string>
@@ -885,8 +888,8 @@
     <string name="tts_pager">第 %1$d 页，共 %2$d 页。</string>
     <string name="tts_seconds">%d秒</string>
     <string name="tty_mode_option_title">TTY模式</string>
-    <string name="tutorial_incoming_call_app_answer">点击以接听来电。</string>
-    <string name="tutorial_incoming_call_app_reject">点击可拒绝来电。</string>
+    <string name="tutorial_incoming_call_app_answer">双击并接听。</string>
+    <string name="tutorial_incoming_call_app_reject">双击并拒绝。</string>
     <string name="twmobile_operator_name">台湾大哥大</string>
     <string name="unable_to_connect_to_the_network">无法连接至网络。请检查您的连接设置并重试。</string>
     <string name="units_kb">KB</string>
@@ -896,7 +899,7 @@
     <string name="upload_using_wlan_only">只通过 WLAN 上传</string>
     <string name="upload_wifi_and_mobile_nw">通过 <cst>Wi-Fi</cst> 或移动网络上传</string>
     <string name="upload_wlan_and_mobile_nw">通过 WLAN 或移动网络上传</string>
-    <string name="usa_att_connected_as_voice">通话仅以语音连接</string>
+    <string name="usa_att_connected_as_voice">已连接语音通话，此通话不能使用视频。</string>
     <string name="usa_att_data_usage_charge_alert">您在手机上设置的数据使用量即将达到限制。您的视频通话需要使用数据。</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">无法通过 <cst>Wi-Fi</cst> 拨打电话，正在通过手机网络连接。本次通话将产生语音和流量费用。</string>
     <string name="usa_att_modify_receive_to_video">%s 正在请求切换至视频通话</string>
@@ -946,11 +949,15 @@
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">使用移动数据</string>
     <string name="usa_vzw_volte_weak_wifi_text">我们已尝试将您的视频通话切换至 <cst>Wi-Fi</cst>"，但此时无法完成切换。
 
-您的视频通话仍在使用移动网络。(如果您选择继续，将使用您的流量。)"</string>
+您的视频通话仍在使用移动网络。
+
+如果您选择继续，可能会产生流量费用。"</string>
     <string name="usa_vzw_volte_weak_wifi_toast">您的视频通话仍在移动网络上运行。(将产生数据使用量)</string>
     <string name="usa_vzw_vowifi_wifi_low_signal_text"><cst>Wi-Fi</cst>" 信号强度不足以继续视频通话。
 
-您的视频通话正在使用移动网络。(如果您选择继续，将使用您的流量。)"</string>
+您的视频通话正在使用移动网络。
+
+如果您选择继续，可能会产生流量费用。"</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast"><cst>Wi-Fi</cst> 连接丢失。通话已结束。</string>
     <string name="use_wifi_and_mobile_nw">使用 <cst>Wi-Fi</cst> 和移动网络</string>
     <string name="use_wlan_and_mobile_nw">使用 WLAN 和移动网络</string>

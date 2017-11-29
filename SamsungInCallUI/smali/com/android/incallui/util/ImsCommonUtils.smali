@@ -1197,13 +1197,20 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-eqz v0, :cond_0
 
+    invoke-static {}, Lcom/android/incallui/util/CallTypeUtils;->isVolteGroupCall()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    :cond_0
     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_3
 
     const-string v0, "$"
 
@@ -1211,9 +1218,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
-    :cond_0
+    :cond_1
     const/4 v0, 0x1
 
     :goto_0
@@ -1223,13 +1230,13 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2
 
     invoke-static {p0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v2
 
-    if-nez v2, :cond_1
+    if-nez v2, :cond_2
 
     const-string v2, "$"
 
@@ -1237,14 +1244,14 @@
 
     move-result v2
 
-    if-eqz v2, :cond_1
+    if-eqz v2, :cond_2
 
     move v0, v1
 
-    :cond_1
+    :cond_2
     return v0
 
-    :cond_2
+    :cond_3
     move v0, v1
 
     goto :goto_0

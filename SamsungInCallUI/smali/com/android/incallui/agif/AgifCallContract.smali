@@ -53,6 +53,10 @@
 
 .field public static final AUTHORITY:Ljava/lang/String; = "com.samsung.android.provider.agifcallprovider"
 
+.field public static final CALL_STATE_CALLING:Ljava/lang/String; = "call_state_calling"
+
+.field public static final CALL_STATE_REJECT:Ljava/lang/String; = "call_state_reject"
+
 .field public static final CATEGORY:Ljava/lang/String; = "category"
 
 .field public static final CATEGORYCALLING:Ljava/lang/String; = "0000005250"
@@ -60,6 +64,8 @@
 .field public static final CATEGORYLIST:Ljava/lang/String; = "CategoryList"
 
 .field public static final CATEGORY_CALLING:Ljava/lang/String; = "calling"
+
+.field public static final CATEGORY_NONE:Ljava/lang/String; = "none"
 
 .field public static final CATEGORY_REJECT:Ljava/lang/String; = "reject"
 
@@ -71,9 +77,13 @@
 
 .field public static final CONTENT_URI_RECOMMENDED:Landroid/net/Uri;
 
+.field public static final CONTENT_URI_STICKER_LOG:Landroid/net/Uri;
+
 .field public static final DATE:Ljava/lang/String; = "date"
 
 .field public static final EXTRA_ENHANCED_FEATURE:Ljava/lang/String; = "extra_enhanced_feature"
+
+.field public static final EXTRA_FEATURE_INDUCE:Ljava/lang/String; = "induce"
 
 .field public static final EXTRA_FEATURE_RECOMMEND:Ljava/lang/String; = "recommend"
 
@@ -93,11 +103,15 @@
 
 .field public static final INCALLUI_PACKAGE_NAME:Ljava/lang/String;
 
+.field public static final LAST_DATE:Ljava/lang/String; = "last_date"
+
 .field public static final NOTIFY_INSTALL:Ljava/lang/String; = "notify_install"
 
 .field public static final NOTIFY_RECOMMENDED_LIST:Ljava/lang/String; = "notify_recommended_list"
 
 .field public static final NOTIFY_UNINSTALL:Ljava/lang/String; = "notify_uninstall"
+
+.field public static final NUMBER:Ljava/lang/String; = "number"
 
 .field public static final PACKAGES:Ljava/lang/String; = "packages"
 
@@ -117,9 +131,15 @@
 
 .field public static final SELLERDETAIL:Ljava/lang/String; = "SellerDetail"
 
+.field public static final SENT_COUNT:Ljava/lang/String; = "sent_count"
+
 .field public static final SEPARATOR:Ljava/lang/String; = "-"
 
 .field public static final STICKER_CENTER_PACKAGE_NAME:Ljava/lang/String; = "com.samsung.android.stickercenter"
+
+.field public static final STICKER_LOG:Ljava/lang/String; = "sticker_log"
+
+.field public static final TITLE:Ljava/lang/String; = "title"
 
 .field public static final _DATA:Ljava/lang/String; = "_data"
 
@@ -185,6 +205,20 @@
     move-result-object v0
 
     sput-object v0, Lcom/android/incallui/agif/AgifCallContract;->CONTENT_URI_RECOMMENDED:Landroid/net/Uri;
+
+    const-string v0, "content://com.samsung.android.provider.agifcallprovider"
+
+    invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v0
+
+    const-string v1, "sticker_log"
+
+    invoke-static {v0, v1}, Landroid/net/Uri;->withAppendedPath(Landroid/net/Uri;Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/android/incallui/agif/AgifCallContract;->CONTENT_URI_STICKER_LOG:Landroid/net/Uri;
 
     const-string v0, "samsungapps://CategoryList"
 
@@ -292,7 +326,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0200bc
+    const v1, 0x7f0200e7
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -330,7 +364,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0200bd
+    const v1, 0x7f0200e8
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 

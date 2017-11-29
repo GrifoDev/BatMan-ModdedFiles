@@ -87,7 +87,7 @@
 .method public instantiateItem(Landroid/view/View;I)Ljava/lang/Object;
     .locals 4
 
-    const v3, 0x7f040175
+    const v3, 0x7f040177
 
     const/4 v0, 0x0
 
@@ -137,7 +137,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$VisualCallPagerAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v2, 0x7f040063
+    const v2, 0x7f040064
 
     invoke-virtual {v1, v2, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -162,7 +162,7 @@
     :cond_1
     iget-object v1, p0, Lcom/android/incallui/visualcallcenter/VoiceCallButtonVCCFragment$VisualCallPagerAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v2, 0x7f040062
+    const v2, 0x7f040063
 
     invoke-virtual {v1, v2, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 

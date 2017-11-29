@@ -91,7 +91,7 @@
 
     invoke-direct {v1, p0, v2}, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment$SelectAccountListAdapter$ViewHolder;-><init>(Lcom/android/incallui/SelectPhoneSimAccountDialogFragment$SelectAccountListAdapter;Lcom/android/incallui/SelectPhoneSimAccountDialogFragment$1;)V
 
-    const v0, 0x7f1004bc
+    const v0, 0x7f1004c3
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -101,7 +101,7 @@
 
     iput-object v0, v1, Lcom/android/incallui/SelectPhoneSimAccountDialogFragment$SelectAccountListAdapter$ViewHolder;->simcardName:Landroid/widget/TextView;
 
-    const v0, 0x7f1004bd
+    const v0, 0x7f1004c4
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -186,7 +186,7 @@
 
     move-result-object v0
 
-    const v4, 0x7f090298
+    const v4, 0x7f09029b
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -248,7 +248,7 @@
 
     move-result-object v0
 
-    const v4, 0x7f09027c
+    const v4, 0x7f09027f
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -314,7 +314,7 @@
 
     move-result-object v0
 
-    const v4, 0x7f090127
+    const v4, 0x7f09012a
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -346,7 +346,7 @@
 
     move-result-object v0
 
-    const v4, 0x7f090132
+    const v4, 0x7f090135
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -369,7 +369,7 @@
 
     move-result-object v0
 
-    const v4, 0x7f090131
+    const v4, 0x7f090134
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -392,7 +392,7 @@
 
     move-result-object v0
 
-    const v4, 0x7f090126
+    const v4, 0x7f090129
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -415,7 +415,7 @@
 
     move-result-object v0
 
-    const v4, 0x7f090173
+    const v4, 0x7f090176
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -438,7 +438,7 @@
 
     move-result-object v0
 
-    const v4, 0x7f0903ac
+    const v4, 0x7f0903af
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -461,7 +461,7 @@
 
     move-result-object v0
 
-    const v4, 0x7f09036b
+    const v4, 0x7f09036e
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

@@ -402,7 +402,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090104
+    const v1, 0x7f090107
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -414,7 +414,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090297
+    const v3, 0x7f09029a
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -543,7 +543,7 @@
 
     invoke-virtual {v0, p1}, Lcom/android/incallui/InCallPresenter;->hangUpOngoingCall(Landroid/content/Context;)V
 
-    const v0, 0x7f0900d9
+    const v0, 0x7f0900dc
 
     invoke-static {v0}, Lcom/android/incallui/util/InCallUtils;->displayToast(I)V
 

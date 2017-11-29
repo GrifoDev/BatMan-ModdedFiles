@@ -202,9 +202,15 @@
 
     invoke-virtual {v0}, Lcom/samsung/android/sdk/ssf/share/io/ContentsTokenDetail;->getThumbnail()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v4
 
-    invoke-virtual {v3, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/data/ContentItem;->setThumbnail(Ljava/lang/String;)V
+    invoke-virtual {v3, v4}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/data/ContentItem;->setThumbnail(Ljava/lang/String;)V
+
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/ssf/share/io/ContentsTokenDetail;->getExtraAttr()I
+
+    move-result v0
+
+    invoke-virtual {v3, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/data/ContentItem;->setExtraAttr(I)V
 
     invoke-virtual {v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/ContentsInfoResponse;->getContentItems()Ljava/util/ArrayList;
 

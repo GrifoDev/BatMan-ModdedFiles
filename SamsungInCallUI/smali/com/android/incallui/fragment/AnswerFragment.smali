@@ -511,7 +511,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090321
+    const v2, 0x7f090324
 
     invoke-virtual {v1, v2}, Lcom/android/incallui/InCallApp;->getText(I)Ljava/lang/CharSequence;
 
@@ -529,7 +529,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0902a9
+    const v2, 0x7f0902ac
 
     invoke-virtual {v1, v2}, Lcom/android/incallui/InCallApp;->getText(I)Ljava/lang/CharSequence;
 
@@ -551,7 +551,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0902a8
+    const v2, 0x7f0902ab
 
     invoke-virtual {v1, v2}, Lcom/android/incallui/InCallApp;->getText(I)Ljava/lang/CharSequence;
 
@@ -951,7 +951,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0903bc
+    const v3, 0x7f0903bf
 
     const/4 v4, 0x2
 
@@ -1289,7 +1289,7 @@
 .method protected onFinishInflate(Landroid/view/View;)V
     .locals 5
 
-    const v2, 0x7f090334
+    const v2, 0x7f090337
 
     const/4 v4, 0x1
 
@@ -1301,7 +1301,7 @@
 
     invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    const v0, 0x7f100268
+    const v0, 0x7f10026c
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1320,7 +1320,7 @@
     invoke-virtual {v0, p0}, Lcom/android/incallui/widget/incomingwidget/IncomingCallImageWidget;->setOnTriggerListener(Lcom/android/incallui/widget/incomingwidget/IncomingCallImageWidget$OnTriggerListener;)V
 
     :cond_0
-    const v0, 0x7f10022b
+    const v0, 0x7f10022f
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1406,7 +1406,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->setOnDrawerAnimateListener(Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer$OnDrawerAnimateListener;)V
 
-    const v0, 0x7f100269
+    const v0, 0x7f10026d
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1493,7 +1493,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/AnswerFragment;->mRejectCallWithMsgHandle:Landroid/view/View;
 
-    const v0, 0x7f10022d
+    const v0, 0x7f100231
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1587,7 +1587,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v1, 0x7f090191
+    const v1, 0x7f090194
 
     invoke-virtual {p0, v1}, Lcom/android/incallui/fragment/AnswerFragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -1599,7 +1599,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const v1, 0x7f090193
+    const v1, 0x7f090196
 
     invoke-virtual {p0, v1}, Lcom/android/incallui/fragment/AnswerFragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -2699,7 +2699,7 @@
 .method public updateSmartCallRejectMsg(Lcom/android/incallui/Call;)V
     .locals 4
 
-    const v2, 0x7f090334
+    const v2, 0x7f090337
 
     const/4 v3, 0x0
 
@@ -2772,7 +2772,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090321
+    const v2, 0x7f090324
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2831,7 +2831,7 @@
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v1, 0x7f090191
+    const v1, 0x7f090194
 
     invoke-virtual {p0, v1}, Lcom/android/incallui/fragment/AnswerFragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -2843,7 +2843,7 @@
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const v1, 0x7f090193
+    const v1, 0x7f090196
 
     invoke-virtual {p0, v1}, Lcom/android/incallui/fragment/AnswerFragment;->getText(I)Ljava/lang/CharSequence;
 
@@ -2900,7 +2900,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090321
+    const v2, 0x7f090324
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

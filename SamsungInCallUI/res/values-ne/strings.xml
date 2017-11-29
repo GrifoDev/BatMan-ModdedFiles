@@ -131,12 +131,13 @@
     <string name="account_phone">उपकरण</string>
     <string name="acs">भ्वाइस कल</string>
     <string name="active_calls">सक्रिय कल</string>
-    <string name="add_reminder">रिमाइन्डर थप्नु</string>
+    <string name="add_reminder">रिमाइन्डर थप्नुहोस्</string>
     <string name="agif_button_close_description">बन्द गर्नुहोस्</string>
     <string name="agif_decline_message">माफ गर्नुहोस्, म अहिले कुरा गर्न सक्दिन।</string>
     <string name="agif_decline_sticker_header">स्टिकर मार्फत अस्वीकार गर्नुहोस्</string>
     <string name="agif_decline_text_header">पाठ संदेश मार्फत अस्वीकार गर्नुहोस्</string>
     <string name="agif_decline_toast">स्टिकर %s मा पठाइयो।</string>
+    <string name="agif_outgoing_bubble_tip">तपाईको अनुभव दर्शाने स्टिकर चयन गर्नुहोस्।</string>
     <string name="agif_pickers_add_tab_description">जोड्नु</string>
     <string name="agif_pickers_find_more">थप फेला पार्नुहोस्</string>
     <string name="agif_pickers_item_usage_hints_description">चयन गर्न दुईपटक ट्याप गर्नुहोस्</string>
@@ -145,10 +146,12 @@
     <string name="agif_pickers_tab_select_description">चयन गरियो</string>
     <string name="agif_pickers_title">कुनै स्टिकर मार्फत सुरु गर्नुहोस्</string>
     <string name="agif_pickers_title_recommended">सिफारिस गरिएको</string>
+    <string name="agif_random_send_message">यो स्टिकर पठाउन यहाँ ट्याप गर्नुहोस्।</string>
     <string name="agif_read_permission_description">फोनलाई AGIF सामग्री पढ्ने अनुमति दिन्छ।</string>
     <string name="agif_read_permission_label">AGIF सामग्री पढ्ने</string>
     <string name="agif_receive_no_id">यो स्टिकर देखाउन सकिँदैन। कलपछि %s लाई अपडेट गर्नुहोस्।</string>
     <string name="agif_receive_no_id_upsupport_update">यो स्टिकर देखाउन सकिँदैन। अर्को सिस्टम अपडेट पछि थप स्टिकरहरू उपलब्ध हुनेछन्।</string>
+    <string name="agif_receive_toast">%s बाट पठाइएको स्टिकर।</string>
     <string name="agif_sent_fail_message">एनिमेटेड GIF थप्न सकिँदैन। पछि फेरि प्रयास गर्नुहोस्।</string>
     <string name="agif_sent_toast">स्टिकर पठाइयो।</string>
     <string name="agif_write_permission_description">फोनलाई AGIF सामग्री परिमार्जन गर्ने अनुमति दिन्छ।</string>
@@ -512,7 +515,7 @@
     <string name="label_sip_address">इन्टरनेट कल</string>
     <string name="legal_popup_content">"समय खर्च गर्ने भ्वाइस प्रतिक्रिया कल सेन्टरहरू प्रयोग गर्दा समस्या भएको छ? IVR(इन्टरएक्टिभ भ्वाइस रेस्पोन्स) कल स्क्रिन मेनुले तपाईंको स्क्रिनमा सेवा मेनु प्रदर्शन गरी कल सेन्टरहरूका लागि प्रयोग गर्न उत्तम वातावरण उपलब्ध गराउँछ।
 
-IVR कल स्क्रिन मेनुले Dianhuabang भनिने तेस्रो-पक्षीय सेवा प्रदायकद्वारा उपलब्ध गराइएको सामग्रीहरू प्रयोग गर्दछ। IVR कल स्क्रिन मेनुको प्रयोग गरी तपाईं Dianhuabang को %1$sनियमहरू र सर्तहरू%2$s मा सहमत हुनुहुन्छ।"</string>
+IVR कल स्क्रीन मेनुले Dianhuabang भनिने तेस्रो-पक्षीय सेवा प्रदायकद्वारा उपलब्ध गराइएको सामग्रीहरू प्रयोग गर्दछ। IVR कल स्क्रिन मेनुको प्रयोग गरी तपाईं Dianhuabang को %1$sनियमहरू र सर्तहरू%2$s मा सहमत हुनुहुन्छ।"</string>
     <string name="legal_popup_terms_conditions">शर्त तथा नियमहरू</string>
     <string name="legal_pupup_title">कानुनी जानकारी</string>
     <string name="lock_screen_during_call_double_tab">अनलक गर्न दुईपटक ट्याप गर्नुहोस्</string>
@@ -838,8 +841,8 @@ IVR कल स्क्रिन मेनुले Dianhuabang भनिने 
     <string name="tts_pager">%2$d को %1$d पृष्ठहरू</string>
     <string name="tts_seconds">%d सेकेन्डहरु</string>
     <string name="tty_mode_option_title">TTY प्रणाली</string>
-    <string name="tutorial_incoming_call_app_answer">कलको जवाफ दिन ट्याप गर्नुहोस्।</string>
-    <string name="tutorial_incoming_call_app_reject">कल अस्वीकार गर्न ट्याप गर्नुहोस्।</string>
+    <string name="tutorial_incoming_call_app_answer">उत्तरलाई दोब्बर टैप गर्नुहोस्।</string>
+    <string name="tutorial_incoming_call_app_reject">रद्द गर्न दुईपटक ट्याप गर्नुहोस्।</string>
     <string name="twmobile_operator_name">TW मोबाइल</string>
     <string name="unable_to_connect_to_the_network">नेटवर्कमा जडान गर्न असक्षम। तपाईको जडान सेटिङहरू जाँच्नुहोस् र फेरि प्रयास गर्नुहोस्।</string>
     <string name="units_kb">KB</string>
@@ -849,7 +852,7 @@ IVR कल स्क्रिन मेनुले Dianhuabang भनिने 
     <string name="upload_using_wlan_only">WLAN मार्फत मात्र अपलोड गर्नुहोस्</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fi वा मोबाइल नेटवर्क मार्फत अपलोड गर्नुहोस्</string>
     <string name="upload_wlan_and_mobile_nw">WLAN वा मोबाइल नेटवर्क मार्फत अपलोड गर्नुहोस्</string>
-    <string name="usa_att_connected_as_voice">कल भ्वाइस मात्रको रूपमा जडान गरिएको छ।</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">तपाईले आफ्नो यन्त्रमा सेट गनुभएको डाटा प्रयोग यसको सीमामा पुग्न जादैछ। तपाईको भिडियो कललाई डाटाको आवश्यकता पर्छ।</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Wi-Fi मार्फत कल गर्न सकिँदैन, सेलुलर नेटवर्क मार्फत कल गर्दै। भ्वाइस र डाटा शुल्कहरू लागू हुन सक्छन्।</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -897,13 +900,17 @@ IVR कल स्क्रिन मेनुले Dianhuabang भनिने 
     <string name="usa_vzw_voice_incoming_during_wifi_video">कलको उत्तर दिनाले सक्रिय कल समाप्त हुनेछ।</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_text">कल जारी राख्न का लागि Wi-Fi को सिग्नल पर्याप्त बलियो छैन। आफ्नो कल जारी राख्नका लागि मोबाइल नेटवर्कहरू प्रयोग गर्नुले तपाईको डाटा योजना प्रयोग गर्नेछ।</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">मोबाइल डाटा प्रयोग गर्नुहोस्</string>
-    <string name="usa_vzw_volte_weak_wifi_text">"हामीले प्रयास गर्यौ तर यस बेला हामी तपाईको भिडियो कललाई Wi-Fi मा स्विच गर्न सक्दैनौं।
+    <string name="usa_vzw_volte_weak_wifi_text">"हामीले प्रयास गर्यौं, तर हामी तपाईको भिडियो कललाई Wi-Fi मा यो समय स्विच गर्न सक्दैनौं।
 
-तपाईको भिडियो कल अझैं पनि मोबाइल नेटवर्कमा चलिरहेको छ। (तपाईले जारी राख्नको लागि छनौट गर्नुभयो भने डाटा प्रयोग लागू हुन्छ।)"</string>
+तपाईको भिडियो कल अझै पनि मोबाइल नेटवर्कमा चालू हुनेछ।
+
+तपाईले जारी राख्न छनोट गर्नुभएमा डाटा प्रयोग शुल्कहरू लागू हुन सक्छन्।"</string>
     <string name="usa_vzw_volte_weak_wifi_toast">तपाईको भिडियो कल अझै पनि मोबाइल नेटवर्कमा चल्दैछ। (डाटाको प्रयोग लागू हुन्छ।)</string>
-    <string name="usa_vzw_vowifi_wifi_low_signal_text">"तपाईको भिडियो कल जारी राख्नको लागि Wi-Fi सिग्नल प्रर्याप्त बलियो भएन।
+    <string name="usa_vzw_vowifi_wifi_low_signal_text">"तपाईको भिडियो कल जारी राख्नलाई Wi-Fi सिग्नल पर्याप्त रूपमा बलियो थिएन।
 
-तपाईको भिडियो कल अहिले मोबाइल नेटवर्कमा चलिरहेको छ। (तपाईले जारी राख्नको लागि छनौट गर्नुभयो भने डाटा प्रयोग लागू हुन्छ।)"</string>
+तपाईको भिडियो कल अब मोबाइल डाटामा चालू भइरहेको छ।
+
+तपाईले जारी राख्न छनोट गर्नुभएमा डाटा प्रयोग शुल्कहरू लागू हुन सक्छन्।"</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi जडान गुम्यो। कल समाप्त भयो।</string>
     <string name="use_wifi_and_mobile_nw">Wi-Fi र मोबाइल नेटवर्कहरूको प्रयोग गर्नुहोस्</string>
     <string name="use_wlan_and_mobile_nw">WLAN र मोबाइल नेटवर्कहरू प्रयोग गर्नुहोस्</string>

@@ -386,7 +386,7 @@
 
     move-result-object v2
 
-    invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/DeviceUtils;->getIMEI()Ljava/lang/String;
+    invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/DeviceUtils;->getImei()Ljava/lang/String;
 
     move-result-object v1
 
@@ -406,9 +406,11 @@
 
     move-result-object v0
 
-    const-string v3, "com.samsung.android.coreapps"
+    sget-object v3, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/DeviceUtils;->mContext:Landroid/content/Context;
 
-    invoke-static {v3}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/PackageUtils;->getAppVersionCode(Ljava/lang/String;)I
+    const-string v4, "com.samsung.android.coreapps"
+
+    invoke-static {v3, v4}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/PackageUtils;->getAppVersionCode(Landroid/content/Context;Ljava/lang/String;)I
 
     move-result v3
 
@@ -584,7 +586,7 @@
 
     move-result-object v2
 
-    invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/DeviceUtils;->getIMEI()Ljava/lang/String;
+    invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/DeviceUtils;->getImei()Ljava/lang/String;
 
     move-result-object v1
 
@@ -866,7 +868,7 @@
     .end packed-switch
 .end method
 
-.method public static getIMEI()Ljava/lang/String;
+.method public static getImei()Ljava/lang/String;
     .locals 5
 
     const/16 v4, 0xe
@@ -899,7 +901,7 @@
 
     if-nez v1, :cond_1
 
-    const-string v1, "getIMEI. Invalid Context."
+    const-string v1, "getImei. Invalid Context."
 
     sget-object v2, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/DeviceUtils;->TAG:Ljava/lang/String;
 
@@ -1686,6 +1688,24 @@
     const/4 v0, 0x0
 
     goto :goto_0
+.end method
+
+.method public static isShipBinary()Z
+    .locals 2
+
+    const-string v0, "true"
+
+    const-string v1, "ro.product_ship"
+
+    invoke-static {v1}, Lcom/samsung/android/sdk/ssf/apiInterface/SystemPropertiesRef;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v0
+
+    return v0
 .end method
 
 .method private static sha1Hash(Ljava/lang/String;)Ljava/lang/String;

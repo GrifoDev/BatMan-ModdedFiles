@@ -178,12 +178,13 @@
     <string name="account_phone">Eszköz</string>
     <string name="acs">Hanghívás</string>
     <string name="active_calls">Aktív hívás</string>
-    <string name="add_reminder">Emlék. h.ad.</string>
+    <string name="add_reminder">Emlékeztető hozzáadása</string>
     <string name="agif_button_close_description">Bezárás</string>
     <string name="agif_decline_message">Sajnos most nem tudok beszélni.</string>
     <string name="agif_decline_sticker_header">Elutasítás matricával</string>
     <string name="agif_decline_text_header">Elutasítás szöveges üzenettel</string>
     <string name="agif_decline_toast">Elküldte a matricát %s számára.</string>
+    <string name="agif_outgoing_bubble_tip">Matrica küldésével megmutathatja, milyen a kedve.</string>
     <string name="agif_pickers_add_tab_description">Hozzáad</string>
     <string name="agif_pickers_find_more">Továbbiak keresése</string>
     <string name="agif_pickers_item_usage_hints_description">Érintse meg kétszer a kijelöléshez</string>
@@ -192,10 +193,12 @@
     <string name="agif_pickers_tab_select_description">Kijelölve</string>
     <string name="agif_pickers_title">Indítás matricával</string>
     <string name="agif_pickers_title_recommended">Javasolt</string>
+    <string name="agif_random_send_message">Érintse meg itt a matrica küldéséhez.</string>
     <string name="agif_read_permission_description">Az AGIF-tartalom olvasásának engedélyezése a Telefon számára.</string>
     <string name="agif_read_permission_label">AGIF-tartalom olvasása</string>
     <string name="agif_receive_no_id">Nem jeleníthető meg a matrica. A hívás után frissítse a(z) %s alkalmazást.</string>
     <string name="agif_receive_no_id_upsupport_update">Nem jeleníthető meg a matrica. További matricák a következő rendszerfrissítéssel érkeznek.</string>
+    <string name="agif_receive_toast">%s matricát küldött.</string>
     <string name="agif_sent_fail_message">Nem lehet animált GIF-képet küldeni. Próbálja meg később.</string>
     <string name="agif_sent_toast">Matricát küldött.</string>
     <string name="agif_write_permission_description">Az AGIF-tartalom módosításának engedélyezése a Telefon számára.</string>
@@ -885,8 +888,8 @@ kamera"</string>
     <string name="tts_pager">%1$d. oldal, összesen: %2$d</string>
     <string name="tts_seconds">%d másodperc</string>
     <string name="tty_mode_option_title">TTY üzemmód</string>
-    <string name="tutorial_incoming_call_app_answer">Érintse meg a hívás fogadásához.</string>
-    <string name="tutorial_incoming_call_app_reject">Érintéssel elutasíthatja a hívást.</string>
+    <string name="tutorial_incoming_call_app_answer">Érintse meg kétszer a válaszhoz.</string>
+    <string name="tutorial_incoming_call_app_reject">Érintse meg kétszer az elutasításhoz.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Nem sikerült kapcsolódni a hálózathoz. Ellenőrizze a kapcsolatbeállításokat, és próbálja újra.</string>
     <string name="units_kb">KB</string>
@@ -896,7 +899,7 @@ kamera"</string>
     <string name="upload_using_wlan_only">Feltöltés csak WLAN-on</string>
     <string name="upload_wifi_and_mobile_nw">Feltöltés Wi-Fi-n vagy mobilhálózaton</string>
     <string name="upload_wlan_and_mobile_nw">Feltöltés WLAN-on vagy mobilhálózaton</string>
-    <string name="usa_att_connected_as_voice">Csak hanghívásként lehetett kapcsolni a hívást.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Hamarosan eléri az eszközön beállított Adathasználat korlátját. A Videohívás adathasználattal jár.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Wi-Fi-n keresztül nem lehet megvalósítani a hívást, a kapcsolása mobilhálózaton keresztül történik. Ez hanghívási és adatforgalmi költségekkel jár.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -946,11 +949,15 @@ irányú videóra"</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Mobilinternet használata</string>
     <string name="usa_vzw_volte_weak_wifi_text">"Próbálkozásunk ellenére nem sikerült Wi-Fi-re kapcsolnunk a videohívást.
 
-A videohívás továbbra is mobilhálózaton zajlik. (Ha a folytatás mellett dönt, az adatforgalommal jár.)"</string>
+A videohívás továbbra is mobilhálózaton zajlik.
+
+Ha a folytatás mellett dönt, az adatforgalomi költséggel járhat."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">A videohívás továbbra is mobilhálózaton zajlik. (Ez adatforgalommal jár.)</string>
     <string name="usa_vzw_vowifi_wifi_low_signal_text">"A Wi-Fi-jel nem volt elég erős a videohívás folytatásához.
 
-A videohívás jelenleg a mobilhálózaton zajlik. (Ha a folytatás mellett dönt, az adatforgalommal jár.)"</string>
+A videohívás jelenleg a mobilhálózaton zajlik.
+
+Ha a folytatás mellett dönt, az adatforgalomi költséggel járhat."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Megszakadt a Wi-Fi-kapcsolat. A hívás befejeződött.</string>
     <string name="use_wifi_and_mobile_nw">Wi-Fi és mobilhálózat használata</string>
     <string name="use_wlan_and_mobile_nw">WLAN és mobilhálózat használata</string>

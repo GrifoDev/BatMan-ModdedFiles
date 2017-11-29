@@ -178,12 +178,13 @@
     <string name="account_phone">Gerät</string>
     <string name="acs">Sprachanruf</string>
     <string name="active_calls">Aktiver Anruf</string>
-    <string name="add_reminder">Neue Erinnerung</string>
+    <string name="add_reminder">Erinnerung hinzufügen</string>
     <string name="agif_button_close_description">Schließen</string>
     <string name="agif_decline_message">Ich kann leider gerade nicht sprechen.</string>
     <string name="agif_decline_sticker_header">Ablehnen mit einem Sticker</string>
     <string name="agif_decline_text_header">Ablehnen mit einem Text</string>
     <string name="agif_decline_toast">Sticker an %s gesendet.</string>
+    <string name="agif_outgoing_bubble_tip">Senden Sie einen Sticker, um zu zeigen, wie Sie sich fühlen.</string>
     <string name="agif_pickers_add_tab_description">Hzfg.</string>
     <string name="agif_pickers_find_more">Weiter suchen</string>
     <string name="agif_pickers_item_usage_hints_description">Zum Auswählen zweimal tippen</string>
@@ -192,10 +193,12 @@
     <string name="agif_pickers_tab_select_description">Ausgewählt</string>
     <string name="agif_pickers_title">Verwenden von Stickern</string>
     <string name="agif_pickers_title_recommended">Empfohlen</string>
+    <string name="agif_random_send_message">Tippen Sie hier um diesen Sticker zu senden.</string>
     <string name="agif_read_permission_description">Ermöglicht dem Telefon das Lesen von AGIF-Inhalt.</string>
     <string name="agif_read_permission_label">AGIF-Inhalt lesen</string>
     <string name="agif_receive_no_id">Sticker kann nicht angezeigt werden. Aktualisieren Sie %s nach dem Anruf.</string>
     <string name="agif_receive_no_id_upsupport_update">Sticker kann nicht angezeigt werden. Nach dem nächsten System-Update sind weitere Sticker verfügbar.</string>
+    <string name="agif_receive_toast">Sticker von %s.</string>
     <string name="agif_sent_fail_message">Animiertes GIF kann nicht gesendet werden. Versuchen Sie es später erneut.</string>
     <string name="agif_sent_toast">Sticker gesendet.</string>
     <string name="agif_write_permission_description">Ermöglicht dem Telefon das Modifizieren von AGIF-Inhalt.</string>
@@ -738,11 +741,11 @@ Das Bildschirmmenü für IVR-Anruf nutzt Inhalte eines Drittanbieters namens Dia
     <string name="secOnscreenMenuAddCallText">Anruf hinzufügen</string>
     <string name="secOnscreenMenuCallTransfer">Übertragen</string>
     <string name="secOnscreenMenuCaptureImageText">Foto aufnehmen</string>
-    <string name="secOnscreenMenuDisableExtraVolume">Extralautst. deakt.</string>
+    <string name="secOnscreenMenuDisableExtraVolume">Extralautstärke deaktiv.</string>
     <string name="secOnscreenMenuDisableExtraVolumeTTS">Extralautstärke deaktivieren</string>
     <string name="secOnscreenMenuDualCameraOffText">Dual Camera deaktivieren</string>
     <string name="secOnscreenMenuDualCameraOnText">Dual Camera aktivieren</string>
-    <string name="secOnscreenMenuEnableExtraVolume">Extralautst. aktiv.</string>
+    <string name="secOnscreenMenuEnableExtraVolume">Extralautstärke aktiv.</string>
     <string name="secOnscreenMenuEnableExtraVolumeTTS">Extralautstärke aktivieren</string>
     <string name="secOnscreenMenuHideMeText">Mich verbergen</string>
     <string name="secOnscreenMenuImageEffectText">Bildeffekt</string>
@@ -791,7 +794,7 @@ Kamera"</string>
     <string name="secOnscreenSwitchCameraText">Kamera wechseln</string>
     <string name="secOnscreenSwitchText">Wechseln</string>
     <string name="secOnscreenUpdateContactText">Vorhandene aktualisieren</string>
-    <string name="secOnscreenUpdateContactText_tts">Vorhandene aktualisieren</string>
+    <string name="secOnscreenUpdateContactText_tts">Aktualisieren</string>
     <string name="secOnscreenVideoCallText">Videoanruf</string>
     <string name="secOnscreenVideoStopText">Stopp</string>
     <string name="secOnscreenViewContactText">Kontakt anzeigen</string>
@@ -885,8 +888,8 @@ Kamera"</string>
     <string name="tts_pager">Seite %1$d von %2$d</string>
     <string name="tts_seconds">%d Sekunden</string>
     <string name="tty_mode_option_title">TTY-Modus</string>
-    <string name="tutorial_incoming_call_app_answer">Tippen, um den Anruf anzunehmen.</string>
-    <string name="tutorial_incoming_call_app_reject">Tippen, um den Anruf abzulehnen.</string>
+    <string name="tutorial_incoming_call_app_answer">Doppelt tippen, um zu antworten.</string>
+    <string name="tutorial_incoming_call_app_reject">Doppelt tippen, um abzulehnen.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Es kann keine Verbindung mit dem Netzwerk hergestellt werden. Überprüfen Sie die Verbindungseinstellungen und versuchen Sie es erneut.</string>
     <string name="units_kb">KB</string>
@@ -896,7 +899,7 @@ Kamera"</string>
     <string name="upload_using_wlan_only">Nur über WLAN hochladen</string>
     <string name="upload_wifi_and_mobile_nw">Über WLAN oder mobiles Netzwerk hochladen</string>
     <string name="upload_wlan_and_mobile_nw">Über WLAN oder mobiles Netz hochladen</string>
-    <string name="usa_att_connected_as_voice">Anruf als Sprachanruf verbunden.</string>
+    <string name="usa_att_connected_as_voice">Video ist für diesen Anruf nicht verfügbar. Anruf ist als Sprachanruf verbunden.</string>
     <string name="usa_att_data_usage_charge_alert">Die von Ihnen auf Ihrem Gerät festgelegte maximale Datennutzung ist bald erreicht. Der Videoanruf erfordert Datennutzung.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Anruf kann nicht über WLAN getätigt werden. Mobilnetzverbindung wird hergestellt. Es fallen Kosten für Sprache und Daten an.</string>
     <string name="usa_att_modify_receive_to_video">%s möchte zu einem Videoanruf wechseln.</string>
@@ -946,11 +949,15 @@ umschalten"</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Verwenden von mobilen Daten</string>
     <string name="usa_vzw_volte_weak_wifi_text">"Der Videoanruf kann derzeit nicht auf WLAN umgeschaltet werden.
 
-Ihr Videoanruf wird weiterhin über das Mobilnetz durchgeführt. (Datennutzung fällt an, wenn Sie entscheiden, fortzufahren)."</string>
+Ihr Videoanruf wird weiterhin über das Mobilnetz durchgeführt.
+
+Es können Kosten für die Datennutzung entstehen, wenn Sie sich entscheiden, fortzufahren."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Ihr Videoanruf wird noch immer im mobilen Netzwerk ausgeführt. (Datennutzung wird in Anspruch genommen.)</string>
     <string name="usa_vzw_vowifi_wifi_low_signal_text">"Das WLAN-Signal war nicht stark genug, um den Videoanruf fortzuführen.
 
-Ihr Videoanruf wird jetzt über das Mobilnetz durchgeführt. (Datennutzung fällt an, wenn Sie entscheiden, fortzufahren)."</string>
+Ihr Videoanruf wird jetzt über das Mobilnetz durchgeführt.
+
+Es können Kosten für die Datennutzung entstehen, wenn Sie sich entscheiden, fortzufahren."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Die WLAN-Verbindung ist abgebrochen. Anruf beendet.</string>
     <string name="use_wifi_and_mobile_nw">WLAN und mobile Netzwerke verwenden</string>
     <string name="use_wlan_and_mobile_nw">WLAN und mobile Netze verwenden</string>

@@ -1483,6 +1483,7 @@
     .catch Ljava/lang/IllegalArgumentException; {:try_start_6 .. :try_end_6} :catch_4
     .catch Ljava/lang/SecurityException; {:try_start_6 .. :try_end_6} :catch_5
     .catch Ljava/lang/InterruptedException; {:try_start_6 .. :try_end_6} :catch_6
+    .catch Ljava/lang/IllegalStateException; {:try_start_6 .. :try_end_6} :catch_7
     .catchall {:try_start_6 .. :try_end_6} :catchall_2
 
     :goto_4
@@ -1503,6 +1504,7 @@
     .catch Ljava/lang/IllegalArgumentException; {:try_start_7 .. :try_end_7} :catch_4
     .catch Ljava/lang/SecurityException; {:try_start_7 .. :try_end_7} :catch_5
     .catch Ljava/lang/InterruptedException; {:try_start_7 .. :try_end_7} :catch_6
+    .catch Ljava/lang/IllegalStateException; {:try_start_7 .. :try_end_7} :catch_7
     .catchall {:try_start_7 .. :try_end_7} :catchall_2
 
     goto :goto_3
@@ -1569,6 +1571,7 @@
     .catch Ljava/lang/IllegalArgumentException; {:try_start_9 .. :try_end_9} :catch_4
     .catch Ljava/lang/SecurityException; {:try_start_9 .. :try_end_9} :catch_5
     .catch Ljava/lang/InterruptedException; {:try_start_9 .. :try_end_9} :catch_6
+    .catch Ljava/lang/IllegalStateException; {:try_start_9 .. :try_end_9} :catch_7
     .catchall {:try_start_9 .. :try_end_9} :catchall_2
 
     goto :goto_4
@@ -1638,6 +1641,7 @@
 
     move-object v1, v0
 
+    :goto_6
     :try_start_c
     sget-object v0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/sync/ContactSingleSyncAdapter;->TAG:Ljava/lang/String;
 
@@ -1645,9 +1649,9 @@
 
     new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/response/ContactSyncResponse;
 
-    const/4 v2, -0x1
+    const/4 v2, -0x4
 
-    invoke-virtual {v1}, Ljava/lang/InterruptedException;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/Exception;->toString()Ljava/lang/String;
 
     move-result-object v1
 
@@ -1673,4 +1677,11 @@
     invoke-static {v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/contact/internal/util/CLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
     throw v0
+
+    :catch_7
+    move-exception v0
+
+    move-object v1, v0
+
+    goto :goto_6
 .end method

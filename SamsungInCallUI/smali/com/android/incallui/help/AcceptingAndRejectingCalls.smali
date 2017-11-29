@@ -504,7 +504,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e00b9
+    const v2, 0x7f0e00bf
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -516,7 +516,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->setContentView(I)V
 
-    const v0, 0x7f100203
+    const v0, 0x7f100207
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->findViewById(I)Landroid/view/View;
 
@@ -563,7 +563,7 @@
     invoke-virtual {v1, v0}, Landroid/view/ViewGroup;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     :cond_0
-    const v0, 0x7f1002d2
+    const v0, 0x7f1002d8
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->findViewById(I)Landroid/view/View;
 
@@ -587,7 +587,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->setGravity(I)V
 
-    const v0, 0x7f10020a
+    const v0, 0x7f10020e
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->findViewById(I)Landroid/view/View;
 
@@ -597,7 +597,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->mCallStateLabel:Landroid/widget/TextView;
 
-    const v0, 0x7f10012a
+    const v0, 0x7f10012e
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->findViewById(I)Landroid/view/View;
 
@@ -607,7 +607,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->mPrimaryName:Landroid/widget/TextView;
 
-    const v0, 0x7f10020f
+    const v0, 0x7f100213
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->findViewById(I)Landroid/view/View;
 
@@ -617,7 +617,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->mPhoneNumber:Landroid/widget/TextView;
 
-    const v0, 0x7f100251
+    const v0, 0x7f100255
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->findViewById(I)Landroid/view/View;
 
@@ -625,7 +625,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->mPhotoContainer:Landroid/view/View;
 
-    const v0, 0x7f100484
+    const v0, 0x7f100488
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->findViewById(I)Landroid/view/View;
 
@@ -633,7 +633,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->mOutgoingPager:Landroid/view/View;
 
-    const v0, 0x7f100318
+    const v0, 0x7f10031e
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->findViewById(I)Landroid/view/View;
 
@@ -652,7 +652,7 @@
     invoke-virtual {v0, v3}, Landroid/widget/Button;->setClickable(Z)V
 
     :cond_1
-    const v0, 0x7f10048c
+    const v0, 0x7f100490
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->findViewById(I)Landroid/view/View;
 
@@ -671,7 +671,7 @@
     invoke-virtual {v0, v3}, Landroid/widget/ToggleButton;->setClickable(Z)V
 
     :cond_2
-    const v0, 0x7f100211
+    const v0, 0x7f100215
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->findViewById(I)Landroid/view/View;
 
@@ -767,7 +767,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->mHelpTabView:Landroid/widget/ImageView;
 
-    const v0, 0x7f10047e
+    const v0, 0x7f100482
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->findViewById(I)Landroid/view/View;
 
@@ -808,7 +808,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->mHelpTapReject:Landroid/widget/ImageView;
 
-    const v0, 0x7f10041e
+    const v0, 0x7f100422
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->findViewById(I)Landroid/view/View;
 
@@ -1186,7 +1186,7 @@
 .method private showToast()V
     .locals 3
 
-    const v2, 0x7f09019e
+    const v2, 0x7f0901a1
 
     sget-object v0, Lcom/android/incallui/help/AcceptingAndRejectingCalls;->mToast:Landroid/widget/Toast;
 
@@ -1222,7 +1222,7 @@
 .method private updateCallCard()V
     .locals 6
 
-    const v5, 0x7f0e00bd
+    const v5, 0x7f0e00c3
 
     const/4 v4, 0x0
 
@@ -1486,7 +1486,7 @@
     goto :goto_0
 
     :pswitch_data_0
-    .packed-switch 0x7f10041e
+    .packed-switch 0x7f100422
         :pswitch_0
     .end packed-switch
 .end method

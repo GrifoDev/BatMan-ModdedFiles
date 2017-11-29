@@ -1287,9 +1287,7 @@
 
     const-string v6, "data3"
 
-    invoke-virtual {v2}, Lcom/samsung/android/sdk/ssf/contact/io/EventInfo;->getLabel()Ljava/lang/String;
-
-    move-result-object v7
+    const/4 v7, 0x0
 
     invoke-virtual {v4, v6, v7}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;->withValue(Ljava/lang/String;Ljava/lang/Object;)Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/CustomCPO$Builder;
 

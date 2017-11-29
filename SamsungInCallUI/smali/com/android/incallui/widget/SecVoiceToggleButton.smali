@@ -141,7 +141,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0506
+    const v1, 0x7f0a0540
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -159,7 +159,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a053e
+    const v1, 0x7f0a0578
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -172,7 +172,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f020230
+    const v1, 0x7f020264
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -243,7 +243,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0674
+    const v1, 0x7f0a06b7
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -255,7 +255,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0673
+    const v1, 0x7f0a06b6
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -281,7 +281,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0a0672
+    const v5, 0x7f0a06b5
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -503,7 +503,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f020377
+    const v0, 0x7f0203ab
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/widget/SecVoiceToggleButton;->setBackgroundResource(I)V
 
@@ -516,7 +516,7 @@
 
     if-eqz v0, :cond_2
 
-    const v0, 0x7f020389
+    const v0, 0x7f0203bd
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/widget/SecVoiceToggleButton;->setBackgroundResource(I)V
 
@@ -533,14 +533,14 @@
 
     if-eqz v0, :cond_3
 
-    const v0, 0x7f020387
+    const v0, 0x7f0203bb
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/widget/SecVoiceToggleButton;->setBackgroundResource(I)V
 
     goto :goto_0
 
     :cond_3
-    const v0, 0x7f020383
+    const v0, 0x7f0203b7
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/widget/SecVoiceToggleButton;->setBackgroundResource(I)V
 
@@ -600,7 +600,7 @@
 
     if-nez v0, :cond_2
 
-    const v0, 0x7f0e016b
+    const v0, 0x7f0e0183
 
     invoke-static {p0, v0}, Lcom/android/incallui/util/GraphicResourceUtils;->setRippleColor(Landroid/view/View;I)V
 
@@ -614,7 +614,7 @@
 
     move-result v0
 
-    const v1, 0x7f1003e6
+    const v1, 0x7f1003ea
 
     if-eq v0, v1, :cond_1
 
@@ -625,7 +625,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0e027b
+    const v1, 0x7f0e029f
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColorStateList(I)Landroid/content/res/ColorStateList;
 
@@ -641,7 +641,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0e0163
+    const v1, 0x7f0e017b
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColorStateList(I)Landroid/content/res/ColorStateList;
 
@@ -652,7 +652,7 @@
     goto :goto_0
 
     :cond_2
-    const v0, 0x7f0e016a
+    const v0, 0x7f0e0182
 
     invoke-static {p0, v0}, Lcom/android/incallui/util/GraphicResourceUtils;->setRippleColor(Landroid/view/View;I)V
 
@@ -662,7 +662,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0e027c
+    const v1, 0x7f0e02a0
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColorStateList(I)Landroid/content/res/ColorStateList;
 
@@ -768,7 +768,7 @@
 
     if-eqz v2, :cond_2
 
-    const v2, 0x7f09032c
+    const v2, 0x7f09032f
 
     :goto_1
     const/16 v3, 0x4000
@@ -789,7 +789,7 @@
 
     iget-object v4, p0, Lcom/android/incallui/widget/SecVoiceToggleButton;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0900d5
+    const v5, 0x7f0900d8
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -821,7 +821,7 @@
 
     iget-object v2, p0, Lcom/android/incallui/widget/SecVoiceToggleButton;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f09032a
+    const v4, 0x7f09032d
 
     invoke-virtual {v2, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -843,7 +843,7 @@
     goto :goto_0
 
     :cond_2
-    const v2, 0x7f09032b
+    const v2, 0x7f09032e
 
     goto :goto_1
 

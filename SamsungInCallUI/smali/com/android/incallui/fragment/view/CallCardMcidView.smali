@@ -573,7 +573,7 @@
 .method private doPhotoringBlock()V
     .locals 10
 
-    const v9, 0x7f09026f
+    const v9, 0x7f090272
 
     const/4 v8, 0x1
 
@@ -671,7 +671,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardMcidView;->mBlockImg:Landroid/widget/ImageView;
 
-    const v1, 0x7f020090
+    const v1, 0x7f0200bb
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -689,7 +689,7 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    const v0, 0x7f090270
+    const v0, 0x7f090273
 
     invoke-static {v6, v0, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -710,7 +710,7 @@
 
     if-eqz v0, :cond_2
 
-    const v0, 0x7f090233
+    const v0, 0x7f090236
 
     invoke-static {v6, v0, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -718,7 +718,7 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    const v0, 0x7f090234
+    const v0, 0x7f090237
 
     invoke-static {v6, v0, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -735,7 +735,7 @@
 
     invoke-virtual {v0}, Landroid/widget/Toast;->show()V
 
-    const v0, 0x7f090270
+    const v0, 0x7f090273
 
     invoke-static {v6, v0, v5}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -818,7 +818,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardMcidView;->mBlockImg:Landroid/widget/ImageView;
 
-    const v2, 0x7f020091
+    const v2, 0x7f0200bc
 
     invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -917,7 +917,7 @@
 
     if-eqz v0, :cond_a
 
-    const v0, 0x7f09026d
+    const v0, 0x7f090270
 
     const/4 v2, 0x0
 
@@ -980,7 +980,7 @@
 
     if-eqz v0, :cond_c
 
-    const v0, 0x7f090231
+    const v0, 0x7f090234
 
     const/4 v2, 0x0
 
@@ -1006,7 +1006,7 @@
     throw v0
 
     :cond_c
-    const v0, 0x7f09026d
+    const v0, 0x7f090270
 
     const/4 v2, 0x0
 
@@ -1067,7 +1067,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f10039d
+    const v2, 0x7f1003a3
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1117,7 +1117,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a04d1
+    const v3, 0x7f0a04db
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1138,7 +1138,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1001e1
+    const v1, 0x7f1001e5
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1150,7 +1150,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1001e2
+    const v1, 0x7f1001e6
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1164,7 +1164,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1001e4
+    const v1, 0x7f1001e8
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1178,7 +1178,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1001e3
+    const v1, 0x7f1001e7
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1194,7 +1194,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1001e5
+    const v1, 0x7f1001e9
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1208,7 +1208,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1001e6
+    const v1, 0x7f1001ea
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1222,7 +1222,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1001e8
+    const v1, 0x7f1001ec
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1236,7 +1236,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1001e7
+    const v1, 0x7f1001eb
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1252,7 +1252,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1001e9
+    const v1, 0x7f1001ed
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1270,7 +1270,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f1001ea
+    const v1, 0x7f1001ee
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1840,7 +1840,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardMcidView;->mSndImg:Landroid/widget/ImageView;
 
-    const v1, 0x7f020093
+    const v1, 0x7f0200be
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -1855,7 +1855,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardMcidView;->mSndImg:Landroid/widget/ImageView;
 
-    const v1, 0x7f020094
+    const v1, 0x7f0200bf
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -1871,7 +1871,7 @@
     nop
 
     :pswitch_data_0
-    .packed-switch 0x7f1001e3
+    .packed-switch 0x7f1001e7
         :pswitch_1
         :pswitch_0
         :pswitch_0
@@ -2100,7 +2100,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f09026e
+    const v1, 0x7f090271
 
     invoke-static {v0, v1, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -2123,7 +2123,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090232
+    const v1, 0x7f090235
 
     invoke-static {v0, v1, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -2138,7 +2138,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f09026e
+    const v1, 0x7f090271
 
     invoke-static {v0, v1, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -2162,7 +2162,7 @@
 
     if-nez p3, :cond_8
 
-    const v0, 0x7f020090
+    const v0, 0x7f0200bb
 
     :goto_1
     invoke-virtual {v1, v0}, Landroid/widget/ImageView;->setImageResource(I)V
@@ -2170,7 +2170,7 @@
     goto/16 :goto_0
 
     :cond_8
-    const v0, 0x7f020091
+    const v0, 0x7f0200bc
 
     goto :goto_1
 
@@ -2382,7 +2382,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardMcidView;->mSndImg:Landroid/widget/ImageView;
 
-    const v1, 0x7f020094
+    const v1, 0x7f0200bf
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setImageResource(I)V
 

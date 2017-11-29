@@ -126,6 +126,7 @@
     <string name="agif_decline_sticker_header">ປະຕິເສດດ້ວຍສະຕິກເກີ</string>
     <string name="agif_decline_text_header">ປະຕິເສດດ້ວຍຂໍ້ຄວາມ</string>
     <string name="agif_decline_toast">ສົ່ງສະຕິກເກີຫາ %s ແລ້ວ.</string>
+    <string name="agif_outgoing_bubble_tip">ສົ່ງສະຕິກເກີເພື່ອສະແດງເຖິງຄວາມຮູ້ສຶກຂອງທ່ານ.</string>
     <string name="agif_pickers_add_tab_description">ເພີ່ມ</string>
     <string name="agif_pickers_find_more">ຊອກຫາເພີ່ມເຕີມ</string>
     <string name="agif_pickers_item_usage_hints_description">ແຕະສອງເທື່ອ ເພື່ອເລືອກ</string>
@@ -134,10 +135,12 @@
     <string name="agif_pickers_tab_select_description">​ເລືອກ​ແລ້ວ</string>
     <string name="agif_pickers_title">ເລີ່ມຕົ້ນດ້ວຍສະຕິກເກີ</string>
     <string name="agif_pickers_title_recommended">ແນະນໍາ</string>
+    <string name="agif_random_send_message">ແຕະທີ່ນີ້ເພື່ອສົ່ງສະຕິກເກີນີ້.</string>
     <string name="agif_read_permission_description">ອະນຸຍາດໃຫ້ໂທລະສັບອ່ານເນື້ອໃນ AGIF.</string>
     <string name="agif_read_permission_label">ອ່ານເນື້ອໃນ AGIF</string>
     <string name="agif_receive_no_id">ສະຕິກເກີບໍ່ສາມາດຖືກສະແດງຂຶ້ນໄດ້. ອັບເດດ %s ຫຼັງຈາກໂທ.</string>
     <string name="agif_receive_no_id_upsupport_update">ສະຕິກເກີບໍ່ສາມາດຖືກສະແດງຂຶ້ນໄດ້. ຈະມີສະຕິກເກີເພີ່ມເຕີມຫຼັງຈາກການອັບເດດລະບົບຄັ້ງຕໍ່ໄປ.</string>
+    <string name="agif_receive_toast">ສະຕິກເກີຈາກ %s.</string>
     <string name="agif_sent_fail_message">ບໍ່ສາມາດສົ່ງ GIF ເຄື່ອນໄຫວໄດ້. ລອງໃໝ່ພາຍຫຼັງ.</string>
     <string name="agif_sent_toast">ສົ່ງສະຕິກເກີແລ້ວ.</string>
     <string name="agif_write_permission_description">ອະນຸຍາດໃຫ້ໂທລະສັບແກ້ໄຂເນື້ອໃນ AGIF.</string>
@@ -827,8 +830,8 @@ IVR ເມນູໜ້າຈໍການໂທ ໃຊ້ເນື້ອໃນທ
     <string name="tts_pager">ໜ້າ %1$d ໃນ %2$d</string>
     <string name="tts_seconds">%d ວິນາທີ</string>
     <string name="tty_mode_option_title">ໂໝດ TTY</string>
-    <string name="tutorial_incoming_call_app_answer">ແຕະເພື່ອຮັບສາຍ.</string>
-    <string name="tutorial_incoming_call_app_reject">ແຕະເພື່ອບໍ່ຮັບສາຍ.</string>
+    <string name="tutorial_incoming_call_app_answer">ແຕະສອງບາດເພື່ອຮັບສາຍ.</string>
+    <string name="tutorial_incoming_call_app_reject">ແຕະສອງບາດເພື່ອປະຕິເສດສາຍ.</string>
     <string name="twmobile_operator_name">TW ມືຖື</string>
     <string name="unable_to_connect_to_the_network">ບໍ່ສາມາດເຊື່ອມຕໍ່ກັບເຄືອຂ່າຍໄດ້. ກວດເບິ່ງການຕັ້ງຄ່າການເຊື່ອມຕໍ່ຂອງທ່ານ ແລະລອງໃໝ່ອີກ.</string>
     <string name="units_kb">KB</string>
@@ -838,7 +841,7 @@ IVR ເມນູໜ້າຈໍການໂທ ໃຊ້ເນື້ອໃນທ
     <string name="upload_using_wlan_only">ອັບໂຫຼດຜ່ານ WLAN ເທົ່ານັ້ນ</string>
     <string name="upload_wifi_and_mobile_nw">ອັບໂຫຼດຜ່ານ Wi-Fi ຫຼື​ເຄືອ​ຂ່າຍ​ມື​ຖື</string>
     <string name="upload_wlan_and_mobile_nw">ອັບໂຫຼດຜ່ານ WLAN ຫຼື​ ເຄືອ​ຂ່າຍ​ມື​ຖື</string>
-    <string name="usa_att_connected_as_voice">ການໂທຖືກເຊື່ອມຕໍ່ເປັນສຽງເທົ່ານັ້ນ.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">ການນຳໃຊ້ຂໍ້ມູນຂອງທ່ານທີ່ທ່ານໄດ້ຕັ້ງໃນອຸປະກອນຂອງທ່ານກຳລັງຈະຮອດຂີດຈຳກັດຂອງມັນ. ການໂທວິດີໂອຂອງທ່ານຈຳເປັນຕ້ອງມີຂໍ້ມູນ.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">ການໂທບໍ່ສາມາດໃຊ້ໄດ້ຜ່ານ Wi-Fi ໄດ້, ການເຊື່ອມຕໍ່ຜ່ານເຄືອຂ່າຍມືຖື. ອາດ​ຈະ​ມີການເກັບ​ຄ່າບໍລິການສຽງແລະ​ຂໍ້​ມູນ.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -888,11 +891,15 @@ IVR ເມນູໜ້າຈໍການໂທ ໃຊ້ເນື້ອໃນທ
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">ໃຊ້ຂໍ້ມູນມືຖື</string>
     <string name="usa_vzw_volte_weak_wifi_text">"ພວກເຮົາໄດ້ລອງແລ້ວ, ແຕ່ວ່າພວກເຮົາບໍ່ສາມາດສັບປ່ຽນໂທວິດີໂອຂອງທ່ານເປັນ Wi-Fi ໄດ້ໃນເວລານີ້.
 
-ໂທວິດີໂອຂອງທ່ານຍັງຄົງແລ່ນຢູ່ໃນເຄືອຂ່າຍມືຖື. (ອາດຈະມີຄ່າໃຊ້ຈ່າຍຂໍ້ມູນ ຖ້າທ່ານເລືອກທີ່ຈະສືບຕໍ່.)"</string>
-    <string name="usa_vzw_volte_weak_wifi_toast">ການໂທວິດີໂອຂອງທ່ານຍັງຄົງກຳລັງໃຊ້ງານຢູ່ໃນເຄືອຂ່າຍມືຖື. (ຄ່າໃຊ້ຈ່າຍການນໍາໃຊ້ຂໍ້ມູນ.)</string>
-    <string name="usa_vzw_vowifi_wifi_low_signal_text">"ສັນຍານ Wi-Fi ບໍ່ແຮງພໍທີ່ຈະສືບຕໍ່ການໂທວິດີໂອຂອງທ່ານ.
+ໂທວິດີໂອຂອງທ່ານຍັງຄົງໃຊ້ງານຢູ່ໃນເຄືອຂ່າຍມືຖື.
 
-ການໂທວິດີໂອຂອງທ່ານດຽວນີ້ກຳລັງແລ່ນຢູ່ໃນເຄືອຂ່າຍມືຖື. (ຈະມີການນຳໃຊ້ຂໍ້ມູນ ຖ້າທ່ານເລືອກທີ່ຈະສືບຕໍ່.)"</string>
+ອາດຈະມີຄ່າໃຊ້ຈ່າຍຂໍ້ມູນ ຖ້າທ່ານເລືອກທີ່ຈະສືບຕໍ່."</string>
+    <string name="usa_vzw_volte_weak_wifi_toast">ການໂທວິດີໂອຂອງທ່ານຍັງຄົງກຳລັງໃຊ້ງານຢູ່ໃນເຄືອຂ່າຍມືຖື. (ຄ່າໃຊ້ຈ່າຍການນໍາໃຊ້ຂໍ້ມູນ.)</string>
+    <string name="usa_vzw_vowifi_wifi_low_signal_text">"ສັນຍານ Wi-Fi ບໍ່ແຮງພໍທີ່ຈະສືບຕໍ່ໂທວິດີໂອຂອງທ່ານ.
+
+ດຽວນີ້ ໂທວິດີໂອຂອງທ່ານກຳລັງໃຊ້ງານໃນເຄືອຂ່າຍມືຖືຢູ່.
+
+ອາດຈະມີຄ່າໃຊ້ຈ່າຍການນຳໃຊ້ຂໍ້ມູນ ຖ້າທ່ານເລືອກທີ່ຈະສືບຕໍ່."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">ສູນ​ເສຍການເຊື່ອມຕໍ່ Wi-Fi ແລ້ວ. ສິ້ນສຸດການໂທແລ້ວ.</string>
     <string name="use_wifi_and_mobile_nw">ໃຊ້ Wi-Fi ແລະເຄືອຂ່າຍມືຖື</string>
     <string name="use_wlan_and_mobile_nw">ໃຊ້ WLAN ແລະ ເຄືອຂ່າຍມືຖື</string>

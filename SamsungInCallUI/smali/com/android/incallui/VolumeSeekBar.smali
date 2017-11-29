@@ -68,7 +68,7 @@
 
     new-instance v0, Landroid/view/ContextThemeWrapper;
 
-    const v1, 0x7f0b0135
+    const v1, 0x7f0b0137
 
     invoke-direct {v0, p1, v1}, Landroid/view/ContextThemeWrapper;-><init>(Landroid/content/Context;I)V
 
@@ -210,7 +210,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/VolumeSeekBar;->mAudioManager:Landroid/media/AudioManager;
 
-    const v0, 0x7f040134
+    const v0, 0x7f040136
 
     invoke-virtual {v1, v0, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -228,7 +228,7 @@
 
     if-eqz v2, :cond_1
 
-    const v0, 0x7f040135
+    const v0, 0x7f040137
 
     invoke-virtual {v1, v0, v5}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -251,7 +251,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0202b4
+    const v2, 0x7f0202e8
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -263,7 +263,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/VolumeSeekBar;->setElevation(F)V
 
-    const v0, 0x7f100412
+    const v0, 0x7f100416
 
     invoke-virtual {v1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -308,7 +308,7 @@
     invoke-virtual {v0, v4}, Landroid/widget/SeekBar;->semSetFluidEnabled(Z)V
 
     :cond_0
-    const v0, 0x7f100413
+    const v0, 0x7f100417
 
     invoke-virtual {v1, v0}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -324,7 +324,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0e0249
+    const v1, 0x7f0e026d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -342,7 +342,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0e0248
+    const v1, 0x7f0e026c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
 

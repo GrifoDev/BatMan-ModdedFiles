@@ -18,6 +18,8 @@
 
 
 # static fields
+.field private static final ACTION_CAPABILITY_CHANGED:Ljava/lang/String; = "com.samsung.android.incalllui.rcsshareui.action.ACTION_CAPABILITY_CHANGED"
+
 .field private static final ACTION_MENU_CHANGE:Ljava/lang/String; = "com.samsung.android.incalllui.rcsshareui.action.ACTION_MENU_CHANGE"
 
 .field public static final ACTION_MUTE_UPDATE:Ljava/lang/String; = "com.samsung.rcs.intent.action.MUTE_UPDATE"
@@ -132,6 +134,10 @@
 
 .field public static isCraneRemote:Z
 
+.field public static isISHRemote:Z
+
+.field public static isISHSelf:Z
+
 .field public static isInCallRemote:Z
 
 .field public static isInCallSelf:Z
@@ -146,7 +152,13 @@
 
 .field public static isPreCallSelf:Z
 
+.field public static isRcsServiceRegistered:Z
+
 .field public static isRcsSwtich:Z
+
+.field public static isVSHRemote:Z
+
+.field public static isVSHSelf:Z
 
 .field private static mAddCallButton:Landroid/widget/Button;
 
@@ -202,8 +214,6 @@
 
 
 # instance fields
-.field protected INCALL_HORIZONTAL_MW_MARGIN_SUM:F
-
 .field private isVSHEnable:I
 
 .field private mBatteryLevel:I
@@ -247,6 +257,8 @@
 .field private mTwoWayShare:Z
 
 .field private mtSideNumber:Ljava/lang/String;
+
+.field private showSwitch:Z
 
 
 # direct methods
@@ -327,6 +339,8 @@
 
     sput-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isMT:Z
 
+    sput-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isRcsServiceRegistered:Z
+
     sput-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isBB:Z
 
     sput-object v3, Lcom/android/incallui/secrcs/RcsShareUI;->sMe:Lcom/android/incallui/secrcs/RcsShareUI;
@@ -349,13 +363,21 @@
 
     sput-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isPostCallRemote:Z
 
-    new-instance v0, Lcom/android/incallui/secrcs/RcsShareUI$8;
+    sput-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isVSHSelf:Z
+
+    sput-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isVSHRemote:Z
+
+    sput-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isISHSelf:Z
+
+    sput-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isISHRemote:Z
+
+    new-instance v0, Lcom/android/incallui/secrcs/RcsShareUI$9;
 
     new-instance v1, Landroid/os/Handler;
 
     invoke-direct {v1}, Landroid/os/Handler;-><init>()V
 
-    invoke-direct {v0, v1}, Lcom/android/incallui/secrcs/RcsShareUI$8;-><init>(Landroid/os/Handler;)V
+    invoke-direct {v0, v1}, Lcom/android/incallui/secrcs/RcsShareUI$9;-><init>(Landroid/os/Handler;)V
 
     sput-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->rcsEnableObserver:Landroid/database/ContentObserver;
 
@@ -371,37 +393,39 @@
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
-    iput-object v1, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mServiceApi:Lcom/gsma/services/rcs/RcsService;
+    iput-boolean v1, p0, Lcom/android/incallui/secrcs/RcsShareUI;->showSwitch:Z
+
+    iput-object v2, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mServiceApi:Lcom/gsma/services/rcs/RcsService;
 
     const/4 v0, 0x1
 
     iput v0, p0, Lcom/android/incallui/secrcs/RcsShareUI;->isVSHEnable:I
 
-    iput-object v1, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mPhoneNumber:Ljava/lang/String;
+    iput-object v2, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mPhoneNumber:Ljava/lang/String;
 
-    iput-object v1, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mtSideNumber:Ljava/lang/String;
+    iput-object v2, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mtSideNumber:Ljava/lang/String;
 
-    iput-object v1, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIncomingInvitationDialog:Landroid/app/AlertDialog;
+    iput-object v2, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIncomingInvitationDialog:Landroid/app/AlertDialog;
 
-    iput-object v1, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIncomingDialog:Landroid/app/Dialog;
+    iput-object v2, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIncomingDialog:Landroid/app/Dialog;
 
-    iput-object v1, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mRcsContentObserver:Lcom/android/incallui/secrcs/RcsContentObserver;
+    iput-object v2, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mRcsContentObserver:Lcom/android/incallui/secrcs/RcsContentObserver;
 
-    iput-object v1, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mRcsCapaObserver:Lcom/android/incallui/secrcs/RcsCapaObserver;
+    iput-object v2, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mRcsCapaObserver:Lcom/android/incallui/secrcs/RcsCapaObserver;
 
-    iput-boolean v2, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mPromotedService:Z
+    iput-boolean v1, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mPromotedService:Z
 
-    iput-boolean v2, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mTwoWayShare:Z
+    iput-boolean v1, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mTwoWayShare:Z
 
-    iput-boolean v2, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsOwnFtCapable:Z
+    iput-boolean v1, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsOwnFtCapable:Z
 
-    iput-boolean v2, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsOwnVshCapable:Z
+    iput-boolean v1, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsOwnVshCapable:Z
 
-    iput-boolean v2, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsOwnIshCapable:Z
+    iput-boolean v1, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsOwnIshCapable:Z
 
-    iput-boolean v2, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsHold:Z
+    iput-boolean v1, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsHold:Z
 
-    iput-boolean v2, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mImsServiceDeregistered:Z
+    iput-boolean v1, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mImsServiceDeregistered:Z
 
     const/4 v0, -0x1
 
@@ -411,15 +435,11 @@
 
     iput v0, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mBatteryLevel:I
 
-    const/high16 v0, 0x41400000    # 12.0f
+    iput-object v2, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mCapabilityManager:Lcom/sec/ims/options/CapabilityManager;
 
-    iput v0, p0, Lcom/android/incallui/secrcs/RcsShareUI;->INCALL_HORIZONTAL_MW_MARGIN_SUM:F
+    new-instance v0, Lcom/android/incallui/secrcs/RcsShareUI$10;
 
-    iput-object v1, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mCapabilityManager:Lcom/sec/ims/options/CapabilityManager;
-
-    new-instance v0, Lcom/android/incallui/secrcs/RcsShareUI$9;
-
-    invoke-direct {v0, p0}, Lcom/android/incallui/secrcs/RcsShareUI$9;-><init>(Lcom/android/incallui/secrcs/RcsShareUI;)V
+    invoke-direct {v0, p0}, Lcom/android/incallui/secrcs/RcsShareUI$10;-><init>(Lcom/android/incallui/secrcs/RcsShareUI;)V
 
     iput-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mListener:Lcom/sec/ims/options/CapabilityListener;
 
@@ -490,12 +510,28 @@
     return v0
 .end method
 
+.method static synthetic access$1502(Lcom/android/incallui/secrcs/RcsShareUI;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsVSHButtonAvailable:Z
+
+    return p1
+.end method
+
 .method static synthetic access$1600(Lcom/android/incallui/secrcs/RcsShareUI;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsISHButtonAvailable:Z
 
     return v0
+.end method
+
+.method static synthetic access$1602(Lcom/android/incallui/secrcs/RcsShareUI;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsISHButtonAvailable:Z
+
+    return p1
 .end method
 
 .method static synthetic access$1700()Landroid/database/Cursor;
@@ -538,7 +574,23 @@
     return-object p0
 .end method
 
-.method static synthetic access$2400(Lcom/android/incallui/secrcs/RcsShareUI;)Z
+.method static synthetic access$2200()Z
+    .locals 1
+
+    sget-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->mUltraPowerMode:Z
+
+    return v0
+.end method
+
+.method static synthetic access$2300(Lcom/android/incallui/secrcs/RcsShareUI;)Z
+    .locals 1
+
+    iget-boolean v0, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mPromotedService:Z
+
+    return v0
+.end method
+
+.method static synthetic access$2600(Lcom/android/incallui/secrcs/RcsShareUI;)Z
     .locals 1
 
     iget-boolean v0, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mTwoWayShare:Z
@@ -546,7 +598,7 @@
     return v0
 .end method
 
-.method static synthetic access$2402(Lcom/android/incallui/secrcs/RcsShareUI;Z)Z
+.method static synthetic access$2602(Lcom/android/incallui/secrcs/RcsShareUI;Z)Z
     .locals 0
 
     iput-boolean p1, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mTwoWayShare:Z
@@ -554,7 +606,7 @@
     return p1
 .end method
 
-.method static synthetic access$2500(Lcom/android/incallui/secrcs/RcsShareUI;)Landroid/app/Dialog;
+.method static synthetic access$2700(Lcom/android/incallui/secrcs/RcsShareUI;)Landroid/app/Dialog;
     .locals 1
 
     iget-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIncomingDialog:Landroid/app/Dialog;
@@ -562,26 +614,18 @@
     return-object v0
 .end method
 
-.method static synthetic access$2600(Lcom/android/incallui/secrcs/RcsShareUI;)Lcom/sec/ims/options/CapabilityManager;
+.method static synthetic access$2800(Lcom/android/incallui/secrcs/RcsShareUI;Landroid/content/Context;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/android/incallui/secrcs/RcsShareUI;->checkRcsServiceRegistered(Landroid/content/Context;)V
+
+    return-void
+.end method
+
+.method static synthetic access$2900(Lcom/android/incallui/secrcs/RcsShareUI;)Lcom/sec/ims/options/CapabilityManager;
     .locals 1
 
     iget-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mCapabilityManager:Lcom/sec/ims/options/CapabilityManager;
-
-    return-object v0
-.end method
-
-.method static synthetic access$2700(Lcom/android/incallui/secrcs/RcsShareUI;)Ljava/lang/String;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mtSideNumber:Ljava/lang/String;
-
-    return-object v0
-.end method
-
-.method static synthetic access$2800(Lcom/android/incallui/secrcs/RcsShareUI;)Lcom/sec/ims/options/CapabilityListener;
-    .locals 1
-
-    iget-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mListener:Lcom/sec/ims/options/CapabilityListener;
 
     return-object v0
 .end method
@@ -590,6 +634,14 @@
     .locals 1
 
     sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->myCapabilities1:Lcom/gsma/services/rcs/capability/Capabilities;
+
+    return-object v0
+.end method
+
+.method static synthetic access$3000(Lcom/android/incallui/secrcs/RcsShareUI;)Lcom/sec/ims/options/CapabilityListener;
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mListener:Lcom/sec/ims/options/CapabilityListener;
 
     return-object v0
 .end method
@@ -841,7 +893,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "new applyNonCallPlus mShare "
+    const-string v2, "applyNonCallPlus mShare "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -871,11 +923,7 @@
 
     invoke-static {v0, v1, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    sget-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->mHasRcsServices:Z
-
-    if-eqz v0, :cond_2
-
-    sget-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsSelfCapable:Z
+    sget-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->isRcsServiceRegistered:Z
 
     if-eqz v0, :cond_2
 
@@ -887,7 +935,17 @@
 
     if-nez v0, :cond_2
 
-    sget-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
+    const-string v0, "ims_crane"
+
+    invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_2
+
+    invoke-static {}, Lcom/android/incallui/util/PhoneModeUtils;->isEmergencyMode()Z
+
+    move-result v0
 
     if-nez v0, :cond_2
 
@@ -951,12 +1009,6 @@
 
     if-eqz v0, :cond_1
 
-    invoke-static {}, Lcom/android/incallui/util/ImsCommonUtils;->isAvailablePSVT()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
     sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
 
     const-string v1, " applyNonCallPlus mBluetoothButton.setVisibility(View.VISIBLE); 2 "
@@ -970,16 +1022,187 @@
     goto :goto_0
 .end method
 
+.method private checkRcsServiceRegistered(Landroid/content/Context;)V
+    .locals 8
+
+    const/4 v7, 0x1
+
+    const/4 v6, 0x0
+
+    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+
+    const-string v1, "RcsServiceRegistered called "
+
+    invoke-static {v0, v1, v7}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    :try_start_0
+    invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    sget-object v1, Lcom/android/incallui/secrcs/RcsTransferConstants;->SERVICE_OWN_URI:Landroid/net/Uri;
+
+    const/4 v2, 0x0
+
+    const/4 v3, 0x0
+
+    const/4 v4, 0x0
+
+    const/4 v5, 0x0
+
+    invoke-virtual/range {v0 .. v5}, Landroid/content/ContentResolver;->query(Landroid/net/Uri;[Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;Ljava/lang/String;)Landroid/database/Cursor;
+    :try_end_0
+    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_1
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    move-result-object v1
+
+    if-eqz v1, :cond_2
+
+    :try_start_1
+    invoke-interface {v1}, Landroid/database/Cursor;->getCount()I
+
+    move-result v0
+
+    if-lez v0, :cond_2
+
+    const/4 v0, 0x1
+
+    sput-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->isRcsServiceRegistered:Z
+    :try_end_1
+    .catch Ljava/lang/IllegalStateException; {:try_start_1 .. :try_end_1} :catch_0
+    .catchall {:try_start_1 .. :try_end_1} :catchall_1
+
+    :goto_0
+    if-eqz v1, :cond_0
+
+    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+
+    :cond_0
+    :goto_1
+    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/incallui/InCallPresenter;->getActivity()Lcom/android/incallui/InCallActivity;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {v0}, Lcom/android/incallui/InCallActivity;->refreshFragmentForRcs()V
+
+    :cond_1
+    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "RcsServiceRegistered isRcsServiceRegistered : "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    sget-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isRcsServiceRegistered:Z
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1, v7}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    return-void
+
+    :cond_2
+    const/4 v0, 0x0
+
+    :try_start_2
+    sput-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->isRcsServiceRegistered:Z
+    :try_end_2
+    .catch Ljava/lang/IllegalStateException; {:try_start_2 .. :try_end_2} :catch_0
+    .catchall {:try_start_2 .. :try_end_2} :catchall_1
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v0
+
+    :goto_2
+    const/4 v2, 0x0
+
+    :try_start_3
+    sput-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isRcsServiceRegistered:Z
+
+    sget-object v2, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "RcsServiceRegistered : RCS Query Failed - "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v2, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    :try_end_3
+    .catchall {:try_start_3 .. :try_end_3} :catchall_1
+
+    if-eqz v1, :cond_0
+
+    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+
+    goto :goto_1
+
+    :catchall_0
+    move-exception v0
+
+    move-object v1, v6
+
+    :goto_3
+    if-eqz v1, :cond_3
+
+    invoke-interface {v1}, Landroid/database/Cursor;->close()V
+
+    :cond_3
+    throw v0
+
+    :catchall_1
+    move-exception v0
+
+    goto :goto_3
+
+    :catch_1
+    move-exception v0
+
+    move-object v1, v6
+
+    goto :goto_2
+.end method
+
 .method private connectToService(Landroid/content/Context;)V
     .locals 3
-
-    const/4 v2, 0x1
 
     sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
 
     const-string v1, "Try to connect to service API"
 
-    invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     :try_start_0
     invoke-static {p1}, Lcom/gsma/services/rcs/d;->a(Landroid/content/Context;)Lcom/gsma/services/rcs/d;
@@ -996,9 +1219,7 @@
 
     const-string v1, "RCS service not yet started"
 
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_0
     :goto_0
@@ -1042,9 +1263,9 @@
 .method private connectionListener()Lcom/sec/ims/options/CapabilityManager$ConnectionListener;
     .locals 1
 
-    new-instance v0, Lcom/android/incallui/secrcs/RcsShareUI$10;
+    new-instance v0, Lcom/android/incallui/secrcs/RcsShareUI$11;
 
-    invoke-direct {v0, p0}, Lcom/android/incallui/secrcs/RcsShareUI$10;-><init>(Lcom/android/incallui/secrcs/RcsShareUI;)V
+    invoke-direct {v0, p0}, Lcom/android/incallui/secrcs/RcsShareUI$11;-><init>(Lcom/android/incallui/secrcs/RcsShareUI;)V
 
     return-object v0
 .end method
@@ -1937,9 +2158,7 @@
 .end method
 
 .method private queryInCallServiceProvider(Landroid/content/Context;Lcom/android/incallui/Call;)Landroid/database/Cursor;
-    .locals 9
-
-    const/4 v8, 0x1
+    .locals 8
 
     const/4 v7, 0x0
 
@@ -1974,6 +2193,32 @@
     move-result-object v1
 
     :goto_0
+    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "uri is "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v1}, Landroid/net/Uri;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v0, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
     :try_start_0
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -2062,7 +2307,7 @@
 
     const-string v2, "Bad RCS query, No go for RCS"
 
-    invoke-static {v1, v2, v8}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     sput-boolean v7, Lcom/android/incallui/secrcs/RcsShareUI;->mHasRcsServices:Z
 
@@ -2219,19 +2464,21 @@
 .end method
 
 .method private setupPromotedServiceButton(Landroid/content/Context;Landroid/view/ViewStub;Landroid/widget/Button;Landroid/database/Cursor;Z)V
-    .locals 7
+    .locals 8
+
+    const/high16 v7, 0x10000000
 
     const/16 v6, 0x8
 
-    const/4 v1, 0x0
+    const/4 v2, 0x0
 
-    const/4 v5, 0x1
+    const/4 v1, 0x1
 
     sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
 
-    const-string v2, "setupPromotedServiceButton"
+    const-string v3, "setupPromotedServiceButton"
 
-    invoke-static {v0, v2, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v0, v3, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
     if-eqz p2, :cond_0
 
@@ -2240,36 +2487,114 @@
     :cond_0
     sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
 
-    const-string v1, "setupPromotedServiceButton null button"
+    const-string v2, "setupPromotedServiceButton null button"
 
-    invoke-static {v0, v1, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v0, v2, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
     :cond_1
     :goto_0
     return-void
 
     :cond_2
-    new-instance v0, Landroid/content/Intent;
+    const-string v0, "common_volte_in"
 
-    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
+    invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
-    const-string v2, "com.samsung.android.incalllui.rcsshareui.action.ACTION_MENU_CHANGE"
+    move-result v0
 
-    invoke-virtual {v0, v2}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+    if-eqz v0, :cond_7
 
-    sget-object v2, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+
+    const-string v3, "hasFeature(InCallUIFeature.VOLTE.COMMON_VOLTE_IN): true"
+
+    invoke-static {v0, v3, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
+
+    move-result-object v0
+
+    const/4 v3, 0x0
+
+    invoke-static {v0, v3, v2}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
+
+    move-result-object v3
+
+    if-nez v3, :cond_3
+
+    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+
+    const-string v2, "call == null"
+
+    invoke-static {v0, v2, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    goto :goto_0
+
+    :cond_3
+    invoke-virtual {v3, v7}, Lcom/android/incallui/Call;->can(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_5
+
+    invoke-virtual {v3}, Lcom/android/incallui/Call;->getState()I
+
+    move-result v0
+
+    const/4 v4, 0x3
+
+    if-ne v0, v4, :cond_5
+
+    invoke-static {}, Lcom/android/incallui/util/PhoneModeUtils;->isSafetyAssistanceMode()Z
+
+    move-result v0
+
+    if-nez v0, :cond_5
+
+    move v0, v1
+
+    :goto_1
+    iput-boolean v0, p0, Lcom/android/incallui/secrcs/RcsShareUI;->showSwitch:Z
+
+    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "call.can(CapabilityWrapper.CAPABILITY_SESSION_MODIFY) :"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v3, v7}, Lcom/android/incallui/Call;->can(I)Z
+
+    move-result v3
+
+    invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v0, v3, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
 
     new-instance v3, Ljava/lang/StringBuilder;
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "mIsCallPlusAvailable"
+    const-string v4, "showSwitch :"
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v3
 
-    sget-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->mIsCallPlusAvailable:Z
+    iget-boolean v4, p0, Lcom/android/incallui/secrcs/RcsShareUI;->showSwitch:Z
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
@@ -2279,258 +2604,157 @@
 
     move-result-object v3
 
-    invoke-static {v2, v3, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    if-eqz p4, :cond_3
-
-    invoke-interface {p4}, Landroid/database/Cursor;->isClosed()Z
-
-    move-result v2
-
-    if-nez v2, :cond_3
-
-    sget-object v2, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "CursorCount "
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-interface {p4}, Landroid/database/Cursor;->getCount()I
-
-    move-result v4
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    :cond_3
-    sget-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->mHasRcsServices:Z
-
-    if-eqz v2, :cond_4
-
-    sget-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->mIsSelfCapable:Z
-
-    if-eqz v2, :cond_4
-
-    sget-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->mUltraPowerMode:Z
-
-    if-nez v2, :cond_4
-
-    sget-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->mIsConference:Z
-
-    if-nez v2, :cond_4
-
-    invoke-virtual {p0}, Lcom/android/incallui/secrcs/RcsShareUI;->isVoiceMail()Z
-
-    move-result v2
-
-    if-eqz v2, :cond_6
-
-    :cond_4
-    sget-object v2, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
-
-    const-string v3, "cursor not null, show Rcs buttons"
-
-    invoke-static {v2, v3, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    iput-boolean v1, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsVSHButtonAvailable:Z
-
-    invoke-virtual {p3, v6}, Landroid/widget/Button;->setVisibility(I)V
-
-    invoke-virtual {p2, v6}, Landroid/view/ViewStub;->setVisibility(I)V
-
-    const-string v2, "MENU_STRING"
-
-    const-string v3, "HOLD"
-
-    invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    const-string v0, "voice_call_recording"
-
-    invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_5
+    invoke-static {v0, v3, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
     sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->mAddCallButton:Landroid/widget/Button;
 
-    if-eqz v0, :cond_5
-
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->mAddCallButton:Landroid/widget/Button;
-
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setVisibility(I)V
-
-    :cond_5
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->mAddCallButton:Landroid/widget/Button;
-
-    invoke-virtual {p0, v0}, Lcom/android/incallui/secrcs/RcsShareUI;->addCorrectionMargin(Landroid/widget/Button;)V
-
-    goto/16 :goto_0
-
-    :cond_6
-    sget-object v2, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
-
-    const-string v3, "cursor not null, show Rcs buttons"
-
-    invoke-static {v2, v3, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    iput-boolean v5, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsVSHButtonAvailable:Z
-
-    invoke-virtual {p2, v1}, Landroid/view/ViewStub;->setVisibility(I)V
-
-    invoke-virtual {p3, v1}, Landroid/widget/Button;->setVisibility(I)V
-
-    const-string v2, "MENU_STRING"
-
-    const-string v3, ""
-
-    invoke-virtual {v0, v2, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    sget-object v2, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
-
-    new-instance v3, Ljava/lang/StringBuilder;
-
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v4, "Value mAddCallButton="
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    sget-object v4, Lcom/android/incallui/secrcs/RcsShareUI;->mAddCallButton:Landroid/widget/Button;
-
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v2, v3, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    sget-object v2, Lcom/android/incallui/secrcs/RcsShareUI;->mAddCallButton:Landroid/widget/Button;
-
-    if-eqz v2, :cond_7
-
-    sget-object v2, Lcom/android/incallui/secrcs/RcsShareUI;->mAddCallButton:Landroid/widget/Button;
-
-    invoke-virtual {v2, v6}, Landroid/widget/Button;->setVisibility(I)V
-
-    :cond_7
-    invoke-virtual {p0, p2}, Lcom/android/incallui/secrcs/RcsShareUI;->addCorrectionMargin(Landroid/view/ViewStub;)V
-
-    sget-object v2, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
-
-    if-eqz v2, :cond_8
-
-    sget-object v2, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v2, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
-
-    :cond_8
-    if-eqz p4, :cond_9
-
-    invoke-interface {p4}, Landroid/database/Cursor;->isClosed()Z
-
-    move-result v0
-
-    if-nez v0, :cond_9
-
-    invoke-interface {p4}, Landroid/database/Cursor;->moveToFirst()Z
-
-    move-result v0
-
-    if-nez v0, :cond_9
+    if-eqz v0, :cond_4
 
     sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
 
-    const-string v2, "code return from setupPromotedServiceButton"
+    const-string v3, "mAddCallButton.setVisibility(View.GONE)"
 
-    invoke-static {v0, v2, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v0, v3, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    iget-boolean v0, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsVSHButtonAvailable:Z
+    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->mAddCallButton:Landroid/widget/Button;
 
-    if-eqz v0, :cond_1
+    invoke-virtual {v0, v6}, Landroid/widget/Button;->setVisibility(I)V
+
+    :cond_4
+    iget-boolean v0, p0, Lcom/android/incallui/secrcs/RcsShareUI;->showSwitch:Z
+
+    if-eqz v0, :cond_6
+
+    invoke-virtual {p2, v2}, Landroid/view/ViewStub;->setVisibility(I)V
+
+    invoke-virtual {p3, v2}, Landroid/widget/Button;->setVisibility(I)V
+
+    invoke-virtual {p2, v1}, Landroid/view/ViewStub;->setEnabled(Z)V
 
     invoke-virtual {p3, v1}, Landroid/widget/Button;->setEnabled(Z)V
 
-    iput v5, p0, Lcom/android/incallui/secrcs/RcsShareUI;->isVSHEnable:I
+    goto/16 :goto_0
+
+    :cond_5
+    move v0, v2
+
+    goto :goto_1
+
+    :cond_6
+    invoke-virtual {p2, v2}, Landroid/view/ViewStub;->setVisibility(I)V
+
+    invoke-virtual {p3, v2}, Landroid/widget/Button;->setVisibility(I)V
+
+    invoke-virtual {p2, v2}, Landroid/view/ViewStub;->setEnabled(Z)V
+
+    invoke-virtual {p3, v2}, Landroid/widget/Button;->setEnabled(Z)V
 
     goto/16 :goto_0
 
+    :cond_7
+    new-instance v0, Landroid/content/Intent;
+
+    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
+
+    const-string v3, "com.samsung.android.incalllui.rcsshareui.action.ACTION_MENU_CHANGE"
+
+    invoke-virtual {v0, v3}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+
+    sget-object v3, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "mIsCallPlusAvailable"
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    sget-boolean v5, Lcom/android/incallui/secrcs/RcsShareUI;->mIsCallPlusAvailable:Z
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    if-eqz p4, :cond_8
+
+    invoke-interface {p4}, Landroid/database/Cursor;->isClosed()Z
+
+    move-result v3
+
+    if-nez v3, :cond_8
+
+    sget-object v3, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "CursorCount "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-interface {p4}, Landroid/database/Cursor;->getCount()I
+
+    move-result v5
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    :cond_8
+    sget-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->isRcsServiceRegistered:Z
+
+    if-eqz v3, :cond_9
+
+    sget-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->mUltraPowerMode:Z
+
+    if-nez v3, :cond_9
+
+    sget-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->mIsConference:Z
+
+    if-nez v3, :cond_9
+
+    invoke-virtual {p0}, Lcom/android/incallui/secrcs/RcsShareUI;->isVoiceMail()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_a
+
     :cond_9
-    const-string v2, " "
+    sget-object v3, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
 
-    const-string v0, ""
+    const-string v4, "cursor not null, show Rcs buttons"
 
-    if-eqz p4, :cond_a
+    invoke-static {v3, v4, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    const-string v0, "feature_tag"
-
-    invoke-interface {p4, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
-
-    move-result v0
-
-    invoke-interface {p4, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
-
-    move-result-object v2
-
-    const-string v0, "int_name"
-
-    invoke-interface {p4, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
-
-    move-result v0
-
-    invoke-interface {p4, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    :cond_a
-    if-nez p5, :cond_b
-
-    const-string v3, "+g.3gpp.cs-voice"
-
-    invoke-virtual {v2, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_b
-
-    const-string v2, "com.samsung.rcs.contentsharing.action.VIDEO_SHARE_CAMERA"
-
-    invoke-virtual {v0, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_c
-
-    :cond_b
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
-
-    const-string v2, "setupPromotedServiceButton not promoted"
-
-    invoke-static {v0, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    iput-boolean v1, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mPromotedService:Z
+    iput-boolean v2, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsVSHButtonAvailable:Z
 
     invoke-virtual {p3, v6}, Landroid/widget/Button;->setVisibility(I)V
 
     invoke-virtual {p2, v6}, Landroid/view/ViewStub;->setVisibility(I)V
+
+    const-string v1, "MENU_STRING"
+
+    const-string v3, "HOLD"
+
+    invoke-virtual {v0, v1, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
 
     const-string v0, "voice_call_recording"
 
@@ -2546,14 +2770,136 @@
 
     sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->mAddCallButton:Landroid/widget/Button;
 
-    invoke-virtual {v0, v1}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v0, v2}, Landroid/widget/Button;->setVisibility(I)V
 
     goto/16 :goto_0
 
-    :cond_c
-    iput-boolean v5, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mPromotedService:Z
+    :cond_a
+    sget-object v3, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
 
-    if-eqz p4, :cond_f
+    const-string v4, "cursor not null, show Rcs buttons"
+
+    invoke-static {v3, v4, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    iput-boolean v1, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsVSHButtonAvailable:Z
+
+    invoke-virtual {p2, v2}, Landroid/view/ViewStub;->setVisibility(I)V
+
+    invoke-virtual {p3, v2}, Landroid/widget/Button;->setVisibility(I)V
+
+    const-string v3, "MENU_STRING"
+
+    const-string v4, ""
+
+    invoke-virtual {v0, v3, v4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    sget-object v3, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, "Value mAddCallButton="
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    sget-object v5, Lcom/android/incallui/secrcs/RcsShareUI;->mAddCallButton:Landroid/widget/Button;
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    sget-object v3, Lcom/android/incallui/secrcs/RcsShareUI;->mAddCallButton:Landroid/widget/Button;
+
+    if-eqz v3, :cond_b
+
+    sget-object v3, Lcom/android/incallui/secrcs/RcsShareUI;->mAddCallButton:Landroid/widget/Button;
+
+    invoke-virtual {v3, v6}, Landroid/widget/Button;->setVisibility(I)V
+
+    :cond_b
+    sget-object v3, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
+
+    if-eqz v3, :cond_c
+
+    sget-object v3, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v3, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+
+    :cond_c
+    if-eqz p4, :cond_d
+
+    invoke-interface {p4}, Landroid/database/Cursor;->isClosed()Z
+
+    move-result v0
+
+    if-nez v0, :cond_d
+
+    invoke-interface {p4}, Landroid/database/Cursor;->moveToFirst()Z
+
+    move-result v0
+
+    if-nez v0, :cond_d
+
+    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+
+    const-string v3, "code return from setupPromotedServiceButton"
+
+    invoke-static {v0, v3, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    iget-boolean v0, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsVSHButtonAvailable:Z
+
+    if-eqz v0, :cond_d
+
+    iput v1, p0, Lcom/android/incallui/secrcs/RcsShareUI;->isVSHEnable:I
+
+    :cond_d
+    const-string v0, " "
+
+    const-string v0, ""
+
+    if-eqz p4, :cond_e
+
+    invoke-interface {p4}, Landroid/database/Cursor;->moveToFirst()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_e
+
+    const-string v0, "feature_tag"
+
+    invoke-interface {p4, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+
+    move-result v0
+
+    invoke-interface {p4, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    const-string v0, "int_name"
+
+    invoke-interface {p4, v0}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+
+    move-result v0
+
+    invoke-interface {p4, v0}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+
+    :cond_e
+    iput-boolean v1, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mPromotedService:Z
+
+    if-eqz p4, :cond_10
+
+    invoke-interface {p4}, Landroid/database/Cursor;->moveToFirst()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_10
 
     const-string v0, "is_enabled"
 
@@ -2565,115 +2911,115 @@
 
     move-result v0
 
-    :goto_1
-    sget-object v2, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+    :goto_2
+    sget-object v3, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "enabled? "
+    const-string v5, "enabled? "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v0
 
     const-string v4, " mIsActiveCall?"
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v0
 
     sget-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->mIsActiveCall:Z
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v0
 
     const-string v4, ", isRcsServiceAvailable()? "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v0
 
     invoke-virtual {p0}, Lcom/android/incallui/secrcs/RcsShareUI;->isRcsServiceAvailable()Z
 
     move-result v4
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v0
 
     const-string v4, ", mImsServiceDeregistered? "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v0
 
     iget-boolean v4, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mImsServiceDeregistered:Z
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v0
 
     const-string v4, ", mIsHold? "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v0
 
     iget-boolean v4, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsHold:Z
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v0
 
-    invoke-static {v2, v3, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v3, v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    if-eqz v0, :cond_e
+    sget-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->isVSHSelf:Z
 
-    invoke-virtual {p0}, Lcom/android/incallui/secrcs/RcsShareUI;->isRcsServiceAvailable()Z
+    if-eqz v0, :cond_f
 
-    move-result v0
+    sget-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->isVSHRemote:Z
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_f
 
     sget-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsActiveCall:Z
 
-    if-eqz v0, :cond_e
+    if-eqz v0, :cond_f
 
     iget-boolean v0, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsHold:Z
 
-    if-nez v0, :cond_e
+    if-nez v0, :cond_f
 
     sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
 
-    const-string v2, "VSH service enabled"
+    const-string v3, "VSH service enabled"
 
-    invoke-static {v0, v2, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v0, v3, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    invoke-virtual {p3, v5}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {p3, v1}, Landroid/widget/Button;->setEnabled(Z)V
 
     const/4 v0, 0x2
 
     iput v0, p0, Lcom/android/incallui/secrcs/RcsShareUI;->isVSHEnable:I
 
-    :goto_2
+    :goto_3
     const-string v0, "ims_rcs_bb"
 
     invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_d
+    if-eqz v0, :cond_1
 
     const-string v0, "feature_org"
 
@@ -2681,60 +3027,51 @@
 
     move-result v0
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_1
 
-    if-eqz p2, :cond_d
+    if-eqz p2, :cond_1
 
-    if-eqz p3, :cond_d
+    if-eqz p3, :cond_1
 
-    const v0, 0x7f0201b6
+    const v0, 0x7f0201ea
 
-    invoke-virtual {p3, v1, v0, v1, v1}, Landroid/widget/Button;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
-
-    :cond_d
-    invoke-virtual {p2, v1}, Landroid/view/ViewStub;->setVisibility(I)V
-
-    invoke-virtual {p3, v1}, Landroid/widget/Button;->setVisibility(I)V
-
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->mAddCallButton:Landroid/widget/Button;
-
-    if-eqz v0, :cond_1
-
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->mAddCallButton:Landroid/widget/Button;
-
-    invoke-virtual {v0, v6}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {p3, v2, v0, v2, v2}, Landroid/widget/Button;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
 
     goto/16 :goto_0
 
-    :cond_e
-    invoke-virtual {p3, v1}, Landroid/widget/Button;->setEnabled(Z)V
+    :cond_f
+    invoke-virtual {p3, v2}, Landroid/widget/Button;->setEnabled(Z)V
 
-    iput v5, p0, Lcom/android/incallui/secrcs/RcsShareUI;->isVSHEnable:I
+    iput v1, p0, Lcom/android/incallui/secrcs/RcsShareUI;->isVSHEnable:I
 
     sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
 
-    const-string v2, "VSH service disabled"
+    const-string v3, "VSH service disabled"
 
-    invoke-static {v0, v2, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v0, v3, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    goto :goto_2
+    goto :goto_3
 
-    :cond_f
-    move v0, v1
+    :cond_10
+    move v0, v2
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 .end method
 
 .method private setupRcsServicesButton(Landroid/content/Context;Landroid/view/ViewStub;Landroid/widget/Button;Landroid/database/Cursor;)V
-    .locals 9
+    .locals 11
+
+    const/16 v4, 0x8
+
+    const/4 v3, 0x0
+
+    const/4 v10, 0x1
 
     sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
 
     const-string v1, "setupRcsServicesButton()"
 
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v0, v1, v10}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
     if-eqz p2, :cond_0
 
@@ -2752,38 +3089,31 @@
     return-void
 
     :cond_2
-    sget-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->mHasRcsServices:Z
+    sget-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->isRcsServiceRegistered:Z
 
-    if-eqz v0, :cond_3
+    if-nez v0, :cond_3
 
-    sget-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsSelfCapable:Z
-
-    if-nez v0, :cond_4
-
-    :cond_3
     sget-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsCallPlusAvailable:Z
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_4
 
-    :cond_4
+    :cond_3
     sget-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->mUltraPowerMode:Z
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_4
 
     invoke-virtual {p0}, Lcom/android/incallui/secrcs/RcsShareUI;->isVoiceMail()Z
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_5
 
-    :cond_5
+    :cond_4
     sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
 
     const-string v1, "cursor value null or empty, show legacy buttons"
 
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v0, v1, v10}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
     sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
 
@@ -2807,9 +3137,7 @@
 
     move-result-object v1
 
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v0, v1, v10}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
     sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
 
@@ -2835,116 +3163,58 @@
 
     move-result-object v1
 
-    const/4 v2, 0x1
+    invoke-static {v0, v1, v10}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    iput-boolean v3, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsISHButtonAvailable:Z
 
-    const/4 v0, 0x0
+    invoke-virtual {p3, v4}, Landroid/widget/Button;->setVisibility(I)V
 
-    iput-boolean v0, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsISHButtonAvailable:Z
-
-    const/16 v0, 0x8
-
-    invoke-virtual {p3, v0}, Landroid/widget/Button;->setVisibility(I)V
-
-    const/16 v0, 0x8
-
-    invoke-virtual {p2, v0}, Landroid/view/ViewStub;->setVisibility(I)V
+    invoke-virtual {p2, v4}, Landroid/view/ViewStub;->setVisibility(I)V
 
     sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->mBluetoothButton:Landroid/widget/ToggleButton;
 
-    if-eqz v0, :cond_8
-
-    sget-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsSelfCapable:Z
-
-    if-eqz v0, :cond_8
-
-    sget-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsExtraVolumeAvailable:Z
-
-    if-eqz v0, :cond_8
-
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
-
-    const-string v1, " setupRcsServicesButton mBluetoothButton.setVisibility(View.VISIBLE); "
-
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->mBluetoothButton:Landroid/widget/ToggleButton;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/widget/ToggleButton;->setVisibility(I)V
-
-    :cond_6
-    :goto_1
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->mBluetoothButton:Landroid/widget/ToggleButton;
-
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_1
 
     invoke-static {}, Lcom/android/incallui/util/ImsCommonUtils;->isAvailablePSVT()Z
 
     move-result v0
 
-    if-nez v0, :cond_7
+    if-nez v0, :cond_1
 
     sget-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsExtraVolumeAvailable:Z
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_1
 
     sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
 
-    const-string v1, " setupRcsServicesButton mBluetoothButton.setVisibility(View.VISIBLE); 2 "
+    const-string v1, " setupRcsServicesButton mBluetoothButton.setVisibility(View.VISIBLE) "
 
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v0, v1, v10}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
     sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->mBluetoothButton:Landroid/widget/ToggleButton;
 
-    const/4 v1, 0x0
+    invoke-virtual {v0, v3}, Landroid/widget/ToggleButton;->setVisibility(I)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/ToggleButton;->setVisibility(I)V
+    goto :goto_0
 
-    :cond_7
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->mBluetoothButton:Landroid/widget/ToggleButton;
-
-    invoke-virtual {p0, v0}, Lcom/android/incallui/secrcs/RcsShareUI;->addCorrectionMargin(Landroid/widget/Button;)V
-
-    goto/16 :goto_0
-
-    :cond_8
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->mBluetoothButton:Landroid/widget/ToggleButton;
-
-    if-eqz v0, :cond_6
-
-    sget-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsSelfCapable:Z
-
-    if-nez v0, :cond_6
-
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->mBluetoothButton:Landroid/widget/ToggleButton;
-
-    const/16 v1, 0x8
-
-    invoke-virtual {v0, v1}, Landroid/widget/ToggleButton;->setVisibility(I)V
-
-    goto :goto_1
-
-    :cond_9
+    :cond_5
     sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "isCrane supported : "
+    const-string v2, "InCallUIFeature.hasFeature(InCallUIFeature.IMS.IMS_CRANE) : "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
-    sget-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
+    const-string v2, "ims_crane"
+
+    invoke-static {v2}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v2
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
@@ -2954,37 +3224,31 @@
 
     move-result-object v1
 
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v0, v1, v10}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
     sget-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsCallPlusAvailable:Z
 
-    if-nez v0, :cond_b
+    if-nez v0, :cond_c
 
-    sget-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
+    const-string v0, "ims_crane"
 
-    if-nez v0, :cond_b
+    invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_c
 
     sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
 
     const-string v1, "cursor value not null, show RCS buttons"
 
-    const/4 v2, 0x1
+    invoke-static {v0, v1, v10}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    iput-boolean v10, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsISHButtonAvailable:Z
 
-    const/4 v0, 0x1
+    invoke-virtual {p2, v3}, Landroid/view/ViewStub;->setVisibility(I)V
 
-    iput-boolean v0, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsISHButtonAvailable:Z
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p2, v0}, Landroid/view/ViewStub;->setVisibility(I)V
-
-    const/4 v0, 0x0
-
-    invoke-virtual {p3, v0}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {p3, v3}, Landroid/widget/Button;->setVisibility(I)V
 
     sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
 
@@ -3008,144 +3272,83 @@
 
     move-result-object v1
 
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v0, v1, v10}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
     sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->mBluetoothButton:Landroid/widget/ToggleButton;
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_6
 
     sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->mBluetoothButton:Landroid/widget/ToggleButton;
 
-    const/16 v1, 0x8
+    invoke-virtual {v0, v4}, Landroid/widget/ToggleButton;->setVisibility(I)V
 
-    invoke-virtual {v0, v1}, Landroid/widget/ToggleButton;->setVisibility(I)V
-
-    :cond_a
-    invoke-virtual {p0, p2}, Lcom/android/incallui/secrcs/RcsShareUI;->addCorrectionMargin(Landroid/view/ViewStub;)V
-
-    if-eqz p4, :cond_d
+    :cond_6
+    if-eqz p4, :cond_7
 
     invoke-interface {p4}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v0
 
-    if-nez v0, :cond_d
+    if-nez v0, :cond_7
 
     sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
 
     const-string v1, "code returning from setupRcsServicesButton "
 
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v0, v1, v10}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
     iget-boolean v0, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsISHButtonAvailable:Z
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_7
 
-    const/4 v0, 0x0
-
-    invoke-virtual {p3, v0}, Landroid/widget/Button;->setEnabled(Z)V
-
-    goto/16 :goto_0
-
-    :cond_b
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
-
-    const-string v1, "cursor value null,call disconnecting show legacy buttons"
-
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    const/4 v0, 0x0
-
-    iput-boolean v0, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsISHButtonAvailable:Z
-
-    const/16 v0, 0x8
-
-    invoke-virtual {p3, v0}, Landroid/widget/Button;->setVisibility(I)V
-
-    const/16 v0, 0x8
-
-    invoke-virtual {p2, v0}, Landroid/view/ViewStub;->setVisibility(I)V
-
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->mBluetoothButton:Landroid/widget/ToggleButton;
-
-    if-eqz v0, :cond_c
-
-    sget-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->mNoShowVolumeAvailable:Z
-
-    if-eqz v0, :cond_c
-
-    invoke-static {}, Lcom/android/incallui/util/ImsCommonUtils;->isAvailablePSVT()Z
-
-    move-result v0
-
-    if-nez v0, :cond_c
-
-    sget-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsExtraVolumeAvailable:Z
-
-    if-eqz v0, :cond_c
-
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
-
-    const-string v1, " setupRcsServicesButton mBluetoothButton.setVisibility(View.VISIBLE); 3 "
-
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->mBluetoothButton:Landroid/widget/ToggleButton;
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, v1}, Landroid/widget/ToggleButton;->setVisibility(I)V
-
-    :cond_c
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->mBluetoothButton:Landroid/widget/ToggleButton;
-
-    invoke-virtual {p0, v0}, Lcom/android/incallui/secrcs/RcsShareUI;->addCorrectionMargin(Landroid/widget/Button;)V
-
-    goto/16 :goto_0
-
-    :cond_d
-    const/4 v5, 0x0
-
-    const/4 v4, 0x0
-
-    const/4 v3, 0x0
-
+    :cond_7
     const-string v2, " "
-
-    const/4 v1, 0x0
 
     const-string v0, " "
 
-    if-eqz p4, :cond_e
+    if-eqz p4, :cond_f
 
-    const-string v3, "service_name"
+    invoke-interface {p4}, Landroid/database/Cursor;->moveToFirst()Z
 
-    invoke-interface {p4, v3}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    move-result v1
+
+    if-eqz v1, :cond_f
+
+    const-string v1, "service_name"
+
+    invoke-interface {p4, v1}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
     move-result v4
 
-    const-string v3, "is_enabled"
+    const-string v1, "is_enabled"
 
-    invoke-interface {p4, v3}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
+    invoke-interface {p4, v1}, Landroid/database/Cursor;->getColumnIndex(Ljava/lang/String;)I
 
-    move-result v3
+    move-result v1
 
-    :cond_e
-    if-eqz p4, :cond_f
+    move v5, v4
 
-    invoke-interface {p4, v4}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
+    move v6, v3
+
+    move v4, v1
+
+    move v1, v3
+
+    :cond_8
+    :goto_1
+    if-eqz p4, :cond_9
+
+    invoke-interface {p4}, Landroid/database/Cursor;->moveToFirst()Z
+
+    move-result v7
+
+    if-eqz v7, :cond_9
+
+    invoke-interface {p4, v5}, Landroid/database/Cursor;->getString(I)Ljava/lang/String;
 
     move-result-object v2
 
-    invoke-interface {p4, v3}, Landroid/database/Cursor;->getInt(I)I
+    invoke-interface {p4, v4}, Landroid/database/Cursor;->getInt(I)I
 
     move-result v1
 
@@ -3159,88 +3362,88 @@
 
     move-result-object v0
 
-    :cond_f
-    sget-object v6, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+    :cond_9
+    sget-object v7, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v8, "serviceName: "
+    const-string v9, "serviceName: "
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-virtual {v7, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v8
 
-    const-string v8, "isEnabled? "
+    const-string v9, "isEnabled? "
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-virtual {v7, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-static {v6, v7}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v7, v8}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string v6, "+g.3gpp.cs-voice"
+    const-string v7, "+g.3gpp.cs-voice"
 
-    invoke-virtual {v0, v6}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v7}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
-    move-result v6
+    move-result v7
 
-    if-eqz v6, :cond_13
+    if-eqz v7, :cond_d
 
-    sget-object v6, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+    sget-object v7, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
 
-    new-instance v7, Ljava/lang/StringBuilder;
+    new-instance v8, Ljava/lang/StringBuilder;
 
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v8, "featureTag: "
+    const-string v9, "featureTag: "
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-virtual {v7, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v8
 
-    const-string v8, " skip!"
+    const-string v9, " skip!"
 
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v8, v9}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-virtual {v7}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v8}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v7
+    move-result-object v8
 
-    invoke-static {v6, v7}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v7, v8}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_10
+    :cond_a
     :goto_2
-    if-eqz p4, :cond_11
+    if-eqz p4, :cond_b
 
     invoke-interface {p4}, Landroid/database/Cursor;->moveToNext()Z
 
-    move-result v6
+    move-result v7
 
-    if-eqz v6, :cond_11
+    if-eqz v7, :cond_b
 
-    if-eqz v5, :cond_e
+    if-eqz v6, :cond_8
 
-    :cond_11
+    :cond_b
     sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
 
     new-instance v1, Ljava/lang/StringBuilder;
@@ -3253,7 +3456,7 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v6}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v1
 
@@ -3311,37 +3514,31 @@
 
     move-result-object v1
 
-    const/4 v2, 0x1
+    invoke-static {v0, v1, v10}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    sget-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->isISHRemote:Z
 
-    if-eqz v5, :cond_14
+    if-eqz v0, :cond_e
 
-    invoke-virtual {p0}, Lcom/android/incallui/secrcs/RcsShareUI;->isRcsServiceAvailable()Z
+    sget-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->isISHSelf:Z
 
-    move-result v0
-
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_e
 
     sget-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsActiveCall:Z
 
-    if-eqz v0, :cond_14
+    if-eqz v0, :cond_e
 
     iget-boolean v0, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsHold:Z
 
-    if-nez v0, :cond_14
+    if-nez v0, :cond_e
 
-    const/4 v0, 0x1
-
-    invoke-virtual {p3, v0}, Landroid/widget/Button;->setEnabled(Z)V
+    invoke-virtual {p3, v10}, Landroid/widget/Button;->setEnabled(Z)V
 
     sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
 
     const-string v1, "ISH service enabled "
 
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v0, v1, v10}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
     :goto_3
     const-string v0, "ims_rcs_bb"
@@ -3350,7 +3547,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_12
+    if-eqz v0, :cond_1
 
     const-string v0, "feature_org"
 
@@ -3358,72 +3555,95 @@
 
     move-result v0
 
-    if-nez v0, :cond_12
+    if-nez v0, :cond_1
 
-    if-eqz p2, :cond_12
+    if-eqz p2, :cond_1
 
-    if-eqz p3, :cond_12
+    if-eqz p3, :cond_1
 
-    const/4 v0, 0x0
+    const v0, 0x7f0201e9
 
-    const v1, 0x7f0201b5
+    invoke-virtual {p3, v3, v0, v3, v3}, Landroid/widget/Button;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
 
-    const/4 v2, 0x0
+    goto/16 :goto_0
 
-    const/4 v3, 0x0
+    :cond_c
+    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
 
-    invoke-virtual {p3, v0, v1, v2, v3}, Landroid/widget/Button;->setCompoundDrawablesWithIntrinsicBounds(IIII)V
+    const-string v1, "cursor value null,call disconnecting show legacy buttons"
 
-    :cond_12
-    const/4 v0, 0x0
+    invoke-static {v0, v1, v10}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    invoke-virtual {p2, v0}, Landroid/view/ViewStub;->setVisibility(I)V
+    iput-boolean v3, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsISHButtonAvailable:Z
 
-    const/4 v0, 0x0
+    invoke-virtual {p3, v4}, Landroid/widget/Button;->setVisibility(I)V
 
-    invoke-virtual {p3, v0}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {p2, v4}, Landroid/view/ViewStub;->setVisibility(I)V
 
     sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->mBluetoothButton:Landroid/widget/ToggleButton;
 
     if-eqz v0, :cond_1
 
+    sget-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->mNoShowVolumeAvailable:Z
+
+    if-eqz v0, :cond_1
+
+    invoke-static {}, Lcom/android/incallui/util/ImsCommonUtils;->isAvailablePSVT()Z
+
+    move-result v0
+
+    if-nez v0, :cond_1
+
+    sget-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsExtraVolumeAvailable:Z
+
+    if-eqz v0, :cond_1
+
+    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+
+    const-string v1, " setupRcsServicesButton mBluetoothButton.setVisibility(View.VISIBLE); 3 "
+
+    invoke-static {v0, v1, v10}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
     sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->mBluetoothButton:Landroid/widget/ToggleButton;
 
-    const/16 v1, 0x8
-
-    invoke-virtual {v0, v1}, Landroid/widget/ToggleButton;->setVisibility(I)V
+    invoke-virtual {v0, v3}, Landroid/widget/ToggleButton;->setVisibility(I)V
 
     goto/16 :goto_0
 
-    :cond_13
-    if-eqz v1, :cond_10
+    :cond_d
+    if-eqz v1, :cond_a
 
-    sget-object v5, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+    sget-object v6, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
 
-    const-string v6, "setupRcsServicesButton found enabled"
+    const-string v7, "setupRcsServicesButton found enabled"
 
-    const/4 v7, 0x1
+    invoke-static {v6, v7}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    invoke-static {v5, v6, v7}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    move v5, v1
+    move v6, v1
 
     goto/16 :goto_2
 
-    :cond_14
-    const/4 v0, 0x0
-
-    invoke-virtual {p3, v0}, Landroid/widget/Button;->setEnabled(Z)V
+    :cond_e
+    invoke-virtual {p3, v3}, Landroid/widget/Button;->setEnabled(Z)V
 
     sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
 
     const-string v1, "ISH service disabled "
 
-    const/4 v2, 0x1
-
-    invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v0, v1, v10}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
     goto :goto_3
+
+    :cond_f
+    move v1, v3
+
+    move v4, v3
+
+    move v5, v3
+
+    move v6, v3
+
+    goto/16 :goto_1
 .end method
 
 .method public static stripSeparators(Ljava/lang/String;)Ljava/lang/String;
@@ -3472,9 +3692,7 @@
 
     const-string v1, "striping done...."
 
-    const/4 v3, 0x1
-
-    invoke-static {v0, v1, v3}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
@@ -3747,440 +3965,6 @@
     goto :goto_2
 .end method
 
-.method addCorrectionMargin(Landroid/view/ViewStub;)V
-    .locals 5
-
-    const/4 v4, 0x1
-
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "addCorrectionMargin :  "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/incallui/UiAdapter;->isShowMultiWindowMode()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    invoke-static {}, Lcom/android/incallui/util/InCallUtils;->isMobileKeyboardCovered()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "addCorrectionMargin return:  "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
-    const/4 v0, 0x0
-
-    invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/incallui/UiAdapter;->getContentViewSize()Landroid/graphics/Point;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_2
-
-    invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/incallui/UiAdapter;->getContentViewSize()Landroid/graphics/Point;
-
-    move-result-object v0
-
-    iget v0, v0, Landroid/graphics/Point;->x:I
-
-    :cond_2
-    if-gtz v0, :cond_3
-
-    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_3
-
-    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/incallui/InCallPresenter;->getActivity()Lcom/android/incallui/InCallActivity;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/incallui/InCallActivity;->getWindowManager()Landroid/view/WindowManager;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_3
-
-    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/incallui/InCallPresenter;->getActivity()Lcom/android/incallui/InCallActivity;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/incallui/InCallActivity;->getWindowManager()Landroid/view/WindowManager;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_3
-
-    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/incallui/InCallPresenter;->getActivity()Lcom/android/incallui/InCallActivity;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/incallui/InCallActivity;->getWindowManager()Landroid/view/WindowManager;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/view/Display;->getWidth()I
-
-    move-result v0
-
-    :cond_3
-    sget-object v1, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v2, 0x7f0a0585
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v1
-
-    float-to-int v1, v1
-
-    mul-int/lit8 v1, v1, 0x6
-
-    sub-int/2addr v0, v1
-
-    int-to-float v0, v0
-
-    iget v1, p0, Lcom/android/incallui/secrcs/RcsShareUI;->INCALL_HORIZONTAL_MW_MARGIN_SUM:F
-
-    div-float/2addr v0, v1
-
-    float-to-int v1, v0
-
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "addCorrectionMargin marginWidth:  "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v0, v2, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    if-eqz p1, :cond_0
-
-    invoke-virtual {p1}, Landroid/view/ViewStub;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/LinearLayout$LayoutParams;
-
-    iput v1, v0, Landroid/widget/LinearLayout$LayoutParams;->rightMargin:I
-
-    invoke-virtual {p1, v0}, Landroid/view/ViewStub;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    goto/16 :goto_0
-.end method
-
-.method addCorrectionMargin(Landroid/widget/Button;)V
-    .locals 5
-
-    const/4 v4, 0x1
-
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "addCorrectionMargin :  "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/incallui/UiAdapter;->isShowMultiWindowMode()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    invoke-static {}, Lcom/android/incallui/util/InCallUtils;->isMobileKeyboardCovered()Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "addCorrectionMargin return:  "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    :cond_0
-    :goto_0
-    return-void
-
-    :cond_1
-    const/4 v0, 0x0
-
-    invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/incallui/UiAdapter;->getContentViewSize()Landroid/graphics/Point;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_2
-
-    invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/incallui/UiAdapter;->getContentViewSize()Landroid/graphics/Point;
-
-    move-result-object v0
-
-    iget v0, v0, Landroid/graphics/Point;->x:I
-
-    :cond_2
-    if-gtz v0, :cond_3
-
-    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_3
-
-    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/incallui/InCallPresenter;->getActivity()Lcom/android/incallui/InCallActivity;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/incallui/InCallActivity;->getWindowManager()Landroid/view/WindowManager;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_3
-
-    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/incallui/InCallPresenter;->getActivity()Lcom/android/incallui/InCallActivity;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Lcom/android/incallui/InCallActivity;->getWindowManager()Landroid/view/WindowManager;
-
-    move-result-object v1
-
-    invoke-interface {v1}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
-
-    move-result-object v1
-
-    if-eqz v1, :cond_3
-
-    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/incallui/InCallPresenter;->getActivity()Lcom/android/incallui/InCallActivity;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/incallui/InCallActivity;->getWindowManager()Landroid/view/WindowManager;
-
-    move-result-object v0
-
-    invoke-interface {v0}, Landroid/view/WindowManager;->getDefaultDisplay()Landroid/view/Display;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Landroid/view/Display;->getWidth()I
-
-    move-result v0
-
-    :cond_3
-    sget-object v1, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v2, 0x7f0a0585
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
-
-    move-result v1
-
-    float-to-int v1, v1
-
-    mul-int/lit8 v1, v1, 0x6
-
-    sub-int/2addr v0, v1
-
-    int-to-float v0, v0
-
-    iget v1, p0, Lcom/android/incallui/secrcs/RcsShareUI;->INCALL_HORIZONTAL_MW_MARGIN_SUM:F
-
-    div-float/2addr v0, v1
-
-    float-to-int v1, v0
-
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "addCorrectionMargin marginWidth:  "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v0, v2, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    if-eqz p1, :cond_0
-
-    invoke-virtual {p1}, Landroid/widget/Button;->getLayoutParams()Landroid/view/ViewGroup$LayoutParams;
-
-    move-result-object v0
-
-    check-cast v0, Landroid/widget/LinearLayout$LayoutParams;
-
-    iput v1, v0, Landroid/widget/LinearLayout$LayoutParams;->rightMargin:I
-
-    invoke-virtual {p1, v0}, Landroid/widget/Button;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
-
-    goto/16 :goto_0
-.end method
-
 .method public checkIfCapableOfRcsFileTransfer(Landroid/content/Context;Lcom/android/incallui/Call;)Z
     .locals 8
 
@@ -4395,11 +4179,11 @@
 .end method
 
 .method public disconnect(Landroid/content/Context;)V
-    .locals 5
+    .locals 6
 
-    const/4 v2, 0x0
+    const/4 v2, 0x1
 
-    const/4 v3, 0x1
+    const/4 v5, 0x0
 
     const/4 v4, 0x0
 
@@ -4407,11 +4191,11 @@
 
     const-string v1, "disconnected! "
 
-    invoke-static {v0, v1, v3}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    sput-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->mReConnect:Z
+    sput-boolean v5, Lcom/android/incallui/secrcs/RcsShareUI;->mReConnect:Z
 
-    sput-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isMT:Z
+    sput-boolean v5, Lcom/android/incallui/secrcs/RcsShareUI;->isMT:Z
 
     invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
@@ -4423,7 +4207,7 @@
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {v0, v2}, Lcom/android/incallui/ProximitySensor;->setFromRcsShare(Z)V
+    invoke-virtual {v0, v5}, Lcom/android/incallui/ProximitySensor;->setFromRcsShare(Z)V
 
     :cond_0
     sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
@@ -4447,36 +4231,6 @@
     sput-object v4, Lcom/android/incallui/secrcs/RcsShareUI;->mBluetoothButton:Landroid/widget/ToggleButton;
 
     :cond_3
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "disconnected! CallList.getInstance().hasHoldCall() :  "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Lcom/android/incallui/CallList;->hasHoldCall()Z
-
-    move-result v2
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1, v3}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
     iget-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mCapabilityManager:Lcom/sec/ims/options/CapabilityManager;
 
     if-eqz v0, :cond_5
@@ -4488,16 +4242,6 @@
     move-result v0
 
     if-eqz v0, :cond_5
-
-    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/incallui/CallList;->hasHoldCall()Z
-
-    move-result v0
-
-    if-nez v0, :cond_5
 
     iget-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mListener:Lcom/sec/ims/options/CapabilityListener;
 
@@ -4536,6 +4280,23 @@
     .catchall {:try_start_1 .. :try_end_1} :catchall_0
 
     :cond_5
+    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/incallui/CallList;->getBackgroundCall()Lcom/android/incallui/Call;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_6
+
+    invoke-virtual {v0}, Lcom/android/incallui/Call;->getNumber()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/incallui/secrcs/RcsShareUI;->stripSeparators(Ljava/lang/String;)Ljava/lang/String;
+
+    :cond_6
     new-instance v0, Landroid/content/Intent;
 
     const-string v1, "com.samsung.rcs.contentsharing.action.DISCONNECT_SHARE"
@@ -4546,11 +4307,11 @@
 
     sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->mCnxManager:Lcom/b/a/a/a/a;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_7
 
     sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->capabilitiesListener:Lcom/android/incallui/secrcs/RcsShareUI$MyCapabilitiesListener;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_7
 
     :try_start_2
     sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->mCnxManager:Lcom/b/a/a/a/a;
@@ -4579,10 +4340,12 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    :cond_6
+    :cond_7
+    sput-boolean v5, Lcom/android/incallui/secrcs/RcsShareUI;->isRcsServiceRegistered:Z
+
     iget-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mServiceApi:Lcom/gsma/services/rcs/RcsService;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_8
 
     iget-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mServiceApi:Lcom/gsma/services/rcs/RcsService;
 
@@ -4590,7 +4353,7 @@
 
     iput-object v4, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mServiceApi:Lcom/gsma/services/rcs/RcsService;
 
-    :cond_7
+    :cond_8
     return-void
 
     :catch_0
@@ -4598,7 +4361,7 @@
 
     const-string v1, "RemoteException ConnectionListener :"
 
-    invoke-static {p0, v1, v3}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Z)V
+    invoke-static {p0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Z)V
 
     invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
@@ -4948,6 +4711,217 @@
     throw v0
 .end method
 
+.method public fetchOwnCapabilities()V
+    .locals 6
+
+    const/4 v5, 0x1
+
+    const/4 v4, 0x0
+
+    const/4 v0, 0x0
+
+    :try_start_0
+    iget-object v1, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mCapabilityManager:Lcom/sec/ims/options/CapabilityManager;
+
+    invoke-virtual {v1}, Lcom/sec/ims/options/CapabilityManager;->getOwnCapabilities()Lcom/sec/ims/options/Capabilities;
+    :try_end_0
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
+
+    move-result-object v0
+
+    :goto_0
+    sget-object v1, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "myCapabilities : "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    if-nez v0, :cond_1
+
+    :cond_0
+    :goto_1
+    return-void
+
+    :catch_0
+    move-exception v1
+
+    invoke-virtual {v1}, Landroid/os/RemoteException;->printStackTrace()V
+
+    goto :goto_0
+
+    :cond_1
+    if-eqz v0, :cond_0
+
+    invoke-virtual {v0}, Lcom/sec/ims/options/Capabilities;->isAvailable()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_9
+
+    sget-wide v2, Lcom/sec/ims/options/Capabilities;->FEATURE_ENRICHED_CALL_COMPOSER:J
+
+    invoke-virtual {v0, v2, v3}, Lcom/sec/ims/options/Capabilities;->hasFeature(J)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    sput-boolean v5, Lcom/android/incallui/secrcs/RcsShareUI;->isPreCallSelf:Z
+
+    :goto_2
+    sget-wide v2, Lcom/sec/ims/options/Capabilities;->FEATURE_ENRICHED_SHARED_SKETCH:J
+
+    invoke-virtual {v0, v2, v3}, Lcom/sec/ims/options/Capabilities;->hasFeature(J)Z
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    sget-wide v2, Lcom/sec/ims/options/Capabilities;->FEATURE_ENRICHED_SHARED_MAP:J
+
+    invoke-virtual {v0, v2, v3}, Lcom/sec/ims/options/Capabilities;->hasFeature(J)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    :cond_2
+    sput-boolean v5, Lcom/android/incallui/secrcs/RcsShareUI;->isInCallSelf:Z
+
+    sput-boolean v5, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
+
+    :goto_3
+    sget-wide v2, Lcom/sec/ims/options/Capabilities;->FEATURE_ENRICHED_POST_CALL:J
+
+    invoke-virtual {v0, v2, v3}, Lcom/sec/ims/options/Capabilities;->hasFeature(J)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_6
+
+    sput-boolean v5, Lcom/android/incallui/secrcs/RcsShareUI;->isPostCallSelf:Z
+
+    :goto_4
+    sget v1, Lcom/sec/ims/options/Capabilities;->FEATURE_ISH:I
+
+    invoke-virtual {v0, v1}, Lcom/sec/ims/options/Capabilities;->hasFeature(I)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_7
+
+    sput-boolean v5, Lcom/android/incallui/secrcs/RcsShareUI;->isISHSelf:Z
+
+    :goto_5
+    sget v1, Lcom/sec/ims/options/Capabilities;->FEATURE_VSH:I
+
+    invoke-virtual {v0, v1}, Lcom/sec/ims/options/Capabilities;->hasFeature(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_8
+
+    sput-boolean v5, Lcom/android/incallui/secrcs/RcsShareUI;->isVSHSelf:Z
+
+    goto :goto_1
+
+    :cond_3
+    sput-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->isPreCallSelf:Z
+
+    goto :goto_2
+
+    :cond_4
+    sget-boolean v1, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
+
+    if-eqz v1, :cond_5
+
+    sget-object v1, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
+
+    if-eqz v1, :cond_5
+
+    sget-object v1, Lcom/android/incallui/secrcs/RcsShareUI;->mCall:Lcom/android/incallui/Call;
+
+    if-eqz v1, :cond_5
+
+    sget-object v1, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
+
+    sget-object v2, Lcom/android/incallui/secrcs/RcsShareUI;->mCall:Lcom/android/incallui/Call;
+
+    invoke-direct {p0, v1, v2}, Lcom/android/incallui/secrcs/RcsShareUI;->queryInCallServiceProvider(Landroid/content/Context;Lcom/android/incallui/Call;)Landroid/database/Cursor;
+
+    :cond_5
+    sput-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->isInCallSelf:Z
+
+    sput-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
+
+    goto :goto_3
+
+    :cond_6
+    sput-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->isPostCallSelf:Z
+
+    goto :goto_4
+
+    :cond_7
+    sput-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->isISHSelf:Z
+
+    goto :goto_5
+
+    :cond_8
+    sput-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->isVSHSelf:Z
+
+    goto :goto_1
+
+    :cond_9
+    sget-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
+
+    if-eqz v0, :cond_a
+
+    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
+
+    if-eqz v0, :cond_a
+
+    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->mCall:Lcom/android/incallui/Call;
+
+    if-eqz v0, :cond_a
+
+    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
+
+    sget-object v1, Lcom/android/incallui/secrcs/RcsShareUI;->mCall:Lcom/android/incallui/Call;
+
+    invoke-direct {p0, v0, v1}, Lcom/android/incallui/secrcs/RcsShareUI;->queryInCallServiceProvider(Landroid/content/Context;Lcom/android/incallui/Call;)Landroid/database/Cursor;
+
+    :cond_a
+    sput-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
+
+    sput-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->isPreCallSelf:Z
+
+    sput-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->isInCallSelf:Z
+
+    sput-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->isPostCallSelf:Z
+
+    sput-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->isVSHRemote:Z
+
+    sput-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->isISHRemote:Z
+
+    goto/16 :goto_1
+.end method
+
 .method public generateTelUri(Ljava/lang/String;Landroid/content/Context;)Ljava/lang/String;
     .locals 4
 
@@ -5094,7 +5068,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_5
+    if-eqz v0, :cond_7
 
     invoke-virtual {p1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
@@ -5147,7 +5121,7 @@
     invoke-static {v0, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     :goto_0
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_6
 
     sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
 
@@ -5179,13 +5153,13 @@
 
     move-result v0
 
-    if-lez v0, :cond_2
+    if-lez v0, :cond_3
 
     invoke-interface {v1}, Landroid/database/Cursor;->moveToFirst()Z
 
     move-result v0
 
-    if-eqz v0, :cond_2
+    if-eqz v0, :cond_3
 
     const/4 v0, 0x0
 
@@ -5215,7 +5189,7 @@
 
     invoke-static {v2, v3}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     const-string v2, "1"
 
@@ -5223,7 +5197,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_1
+    if-eqz v0, :cond_2
 
     const/4 v0, 0x1
 
@@ -5239,98 +5213,111 @@
     move v0, v6
 
     :goto_1
-    move v7, v0
-
-    :goto_2
     if-eqz v1, :cond_0
 
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
 
     :cond_0
-    :goto_3
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+    :goto_2
+    const-string v1, "common_volte_in"
 
-    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    move-result v1
 
-    const-string v2, "craneavailable: "
+    if-eqz v1, :cond_1
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    sput-boolean v6, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
 
-    move-result-object v1
+    sput-boolean v7, Lcom/android/incallui/secrcs/RcsShareUI;->isBB:Z
 
-    invoke-virtual {v1, v7}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1, v6}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "isCrane: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    sget-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1, v6}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, " isBB: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    sget-boolean v2, Lcom/android/incallui/secrcs/RcsShareUI;->isBB:Z
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1, v6}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    return v7
+    move v0, v6
 
     :cond_1
+    sget-object v1, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "craneavailable: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2, v6}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    sget-object v1, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, "isCrane: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    sget-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2, v6}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    sget-object v1, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v2, Ljava/lang/StringBuilder;
+
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v3, " isBB: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    sget-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->isBB:Z
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2, v6}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    return v0
+
+    :cond_2
     const/4 v0, 0x1
 
     :try_start_2
     sput-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->isBB:Z
 
+    :goto_3
     move v0, v7
 
     goto :goto_1
 
-    :cond_2
+    :cond_3
     const/4 v0, 0x1
 
     sput-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->isBB:Z
@@ -5338,7 +5325,7 @@
     .catch Ljava/lang/Exception; {:try_start_2 .. :try_end_2} :catch_0
     .catchall {:try_start_2 .. :try_end_2} :catchall_1
 
-    goto :goto_2
+    goto :goto_3
 
     :catch_0
     move-exception v0
@@ -5377,11 +5364,13 @@
     :try_end_3
     .catchall {:try_start_3 .. :try_end_3} :catchall_1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_5
 
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
 
-    goto :goto_3
+    move v0, v7
+
+    goto/16 :goto_2
 
     :catchall_0
     move-exception v0
@@ -5389,11 +5378,11 @@
     move-object v1, v8
 
     :goto_5
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4
 
     invoke-interface {v1}, Landroid/database/Cursor;->close()V
 
-    :cond_3
+    :cond_4
     throw v0
 
     :catchall_1
@@ -5408,12 +5397,17 @@
 
     goto :goto_4
 
-    :cond_4
-    move v7, v9
+    :cond_5
+    move v0, v7
 
     goto/16 :goto_2
 
-    :cond_5
+    :cond_6
+    move v0, v9
+
+    goto/16 :goto_1
+
+    :cond_7
     move-object v1, v8
 
     goto/16 :goto_0
@@ -6108,7 +6102,7 @@
 .method public getInvitationText(Landroid/content/res/Resources;Lcom/android/incallui/secrcs/RcsTransferConstants$SessionType;)Ljava/lang/CharSequence;
     .locals 2
 
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI$11;->$SwitchMap$com$android$incallui$secrcs$RcsTransferConstants$SessionType:[I
+    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI$12;->$SwitchMap$com$android$incallui$secrcs$RcsTransferConstants$SessionType:[I
 
     invoke-virtual {p2}, Lcom/android/incallui/secrcs/RcsTransferConstants$SessionType;->ordinal()I
 
@@ -6124,7 +6118,7 @@
     return-object v0
 
     :pswitch_0
-    const v0, 0x7f090620
+    const v0, 0x7f090623
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -6133,15 +6127,6 @@
     goto :goto_0
 
     :pswitch_1
-    const v0, 0x7f090289
-
-    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :pswitch_2
     const v0, 0x7f09028c
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
@@ -6150,8 +6135,17 @@
 
     goto :goto_0
 
+    :pswitch_2
+    const v0, 0x7f09028f
+
+    invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
+
+    move-result-object v0
+
+    goto :goto_0
+
     :pswitch_3
-    const v0, 0x7f090621
+    const v0, 0x7f090624
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -6160,7 +6154,7 @@
     goto :goto_0
 
     :pswitch_4
-    const v0, 0x7f090622
+    const v0, 0x7f090625
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -7128,7 +7122,7 @@
 
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "prepareRcsUiElements() promotedButton : "
+    const-string v4, "prepareRcsUiElements() promotedButton 1: rahhul 1"
 
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -8319,6 +8313,10 @@
     return-void
 
     :cond_1
+    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
+
+    invoke-direct {p0, v0}, Lcom/android/incallui/secrcs/RcsShareUI;->checkRcsServiceRegistered(Landroid/content/Context;)V
+
     invoke-static {}, Lcom/b/a/a/a/a;->a()Lcom/b/a/a/a/a;
 
     move-result-object v0
@@ -8477,7 +8475,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIncomingDialog:Landroid/app/Dialog;
 
-    const v1, 0x7f100219
+    const v1, 0x7f10021d
 
     invoke-virtual {v0, v1}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
 
@@ -8487,7 +8485,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIncomingDialog:Landroid/app/Dialog;
 
-    const v2, 0x7f10021a
+    const v2, 0x7f10021e
 
     invoke-virtual {v1, v2}, Landroid/app/Dialog;->findViewById(I)Landroid/view/View;
 
@@ -8539,15 +8537,15 @@
 
     if-eqz v1, :cond_0
 
-    new-instance v4, Lcom/android/incallui/secrcs/RcsShareUI$6;
+    new-instance v4, Lcom/android/incallui/secrcs/RcsShareUI$7;
 
-    invoke-direct {v4, p0, p3}, Lcom/android/incallui/secrcs/RcsShareUI$6;-><init>(Lcom/android/incallui/secrcs/RcsShareUI;Lcom/android/incallui/Call;)V
+    invoke-direct {v4, p0, p3}, Lcom/android/incallui/secrcs/RcsShareUI$7;-><init>(Lcom/android/incallui/secrcs/RcsShareUI;Lcom/android/incallui/Call;)V
 
     invoke-virtual {v0, v4}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    new-instance v0, Lcom/android/incallui/secrcs/RcsShareUI$7;
+    new-instance v0, Lcom/android/incallui/secrcs/RcsShareUI$8;
 
-    invoke-direct {v0, p0, v2, v3, p2}, Lcom/android/incallui/secrcs/RcsShareUI$7;-><init>(Lcom/android/incallui/secrcs/RcsShareUI;Ljava/lang/String;Ljava/lang/String;Lcom/android/incallui/secrcs/RcsInvitation;)V
+    invoke-direct {v0, p0, v2, v3, p2}, Lcom/android/incallui/secrcs/RcsShareUI$8;-><init>(Lcom/android/incallui/secrcs/RcsShareUI;Ljava/lang/String;Ljava/lang/String;Lcom/android/incallui/secrcs/RcsInvitation;)V
 
     invoke-virtual {v1, v0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
@@ -8556,13 +8554,7 @@
 .end method
 
 .method public setupLegacyInCallButtons(Landroid/widget/Button;Landroid/widget/ToggleButton;Landroid/view/ViewStub;Landroid/widget/Button;Landroid/view/ViewStub;Landroid/widget/Button;)V
-    .locals 7
-
-    const/16 v6, 0x8
-
-    const/4 v5, 0x0
-
-    const/4 v4, 0x1
+    .locals 10
 
     sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
 
@@ -8570,7 +8562,7 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "setupLegacyInCallButtons() mPromotedButton: "
+    const-string v2, "setupLegacyInCallButtons() runOnUiThread mPromotedButton: "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -8584,7 +8576,9 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    const/4 v2, 0x1
+
+    invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
@@ -8592,501 +8586,73 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1, v5}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
+    const/4 v2, 0x0
+
+    invoke-static {v0, v1, v2}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
+
+    move-result-object v2
+
+    if-eqz v2, :cond_0
+
+    invoke-virtual {v2}, Lcom/android/incallui/Call;->isConferenceCall()Z
+
+    move-result v0
+
+    sput-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsConference:Z
+
+    :cond_0
+    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
     move-result-object v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
-    invoke-virtual {v0}, Lcom/android/incallui/Call;->isConferenceCall()Z
+    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
-    move-result v1
+    move-result-object v0
 
-    sput-boolean v1, Lcom/android/incallui/secrcs/RcsShareUI;->mIsConference:Z
+    invoke-virtual {v0}, Lcom/android/incallui/InCallPresenter;->getActivity()Lcom/android/incallui/InCallActivity;
 
-    :cond_0
-    sput-object p1, Lcom/android/incallui/secrcs/RcsShareUI;->mAddCallButton:Landroid/widget/Button;
+    move-result-object v0
 
-    sput-object p2, Lcom/android/incallui/secrcs/RcsShareUI;->mBluetoothButton:Landroid/widget/ToggleButton;
+    if-eqz v0, :cond_1
 
-    if-eqz v0, :cond_2
+    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
 
-    invoke-virtual {v0}, Lcom/android/incallui/Call;->getState()I
+    move-result-object v0
 
-    move-result v0
+    invoke-virtual {v0}, Lcom/android/incallui/InCallPresenter;->getActivity()Lcom/android/incallui/InCallActivity;
 
-    const/4 v1, 0x3
+    move-result-object v9
 
-    if-eq v0, v1, :cond_2
+    new-instance v0, Lcom/android/incallui/secrcs/RcsShareUI$2;
 
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->mAddCallButton:Landroid/widget/Button;
+    move-object v1, p0
 
-    if-eqz v0, :cond_2
+    move-object v3, p1
 
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->mBluetoothButton:Landroid/widget/ToggleButton;
+    move-object v4, p2
 
-    if-eqz v0, :cond_2
+    move-object/from16 v5, p6
 
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+    move-object v6, p3
 
-    const-string v1, "State = Dialing  or Hold"
+    move-object v7, p4
 
-    invoke-static {v0, v1, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+    move-object v8, p5
 
-    if-eqz p4, :cond_1
+    invoke-direct/range {v0 .. v8}, Lcom/android/incallui/secrcs/RcsShareUI$2;-><init>(Lcom/android/incallui/secrcs/RcsShareUI;Lcom/android/incallui/Call;Landroid/widget/Button;Landroid/widget/ToggleButton;Landroid/widget/Button;Landroid/view/ViewStub;Landroid/widget/Button;Landroid/view/ViewStub;)V
 
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->mAddCallButton:Landroid/widget/Button;
-
-    invoke-virtual {v0, v5}, Landroid/widget/Button;->setVisibility(I)V
+    invoke-virtual {v9, v0}, Lcom/android/incallui/InCallActivity;->runOnUiThread(Ljava/lang/Runnable;)V
 
     :cond_1
-    if-eqz p6, :cond_2
-
-    sget-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsExtraVolumeAvailable:Z
-
-    if-eqz v0, :cond_2
-
-    invoke-static {}, Lcom/android/incallui/util/ImsCommonUtils;->isAvailablePSVT()Z
-
-    move-result v0
-
-    if-nez v0, :cond_2
-
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
-
-    const-string v1, " setupLegacyInCallButtons mBluetoothButton.setVisibility(View.VISIBLE); "
-
-    invoke-static {v0, v1, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->mBluetoothButton:Landroid/widget/ToggleButton;
-
-    invoke-virtual {v0, v5}, Landroid/widget/ToggleButton;->setVisibility(I)V
-
-    :cond_2
-    new-instance v0, Landroid/content/Intent;
-
-    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
-
-    const-string v1, "com.samsung.android.incalllui.rcsshareui.action.ACTION_MENU_CHANGE"
-
-    invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
-
-    sget-object v1, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "mIsConference"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    sget-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->mIsConference:Z
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    sget-boolean v1, Lcom/android/incallui/secrcs/RcsShareUI;->mHasRcsServices:Z
-
-    if-eqz v1, :cond_e
-
-    sget-boolean v1, Lcom/android/incallui/secrcs/RcsShareUI;->mIsSelfCapable:Z
-
-    if-eqz v1, :cond_e
-
-    sget-boolean v1, Lcom/android/incallui/secrcs/RcsShareUI;->mIsConference:Z
-
-    if-nez v1, :cond_e
-
-    sget-boolean v1, Lcom/android/incallui/secrcs/RcsShareUI;->mUltraPowerMode:Z
-
-    if-nez v1, :cond_e
-
-    invoke-virtual {p0}, Lcom/android/incallui/secrcs/RcsShareUI;->isVoiceMail()Z
-
-    move-result v1
-
-    if-nez v1, :cond_e
-
-    sget-object v1, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
-
-    const-string v2, "setupLegacyInCallButtons ,Cursor not null"
-
-    invoke-static {v1, v2, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    if-eqz p3, :cond_7
-
-    if-eqz p4, :cond_7
-
-    iput-boolean v4, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsVSHButtonAvailable:Z
-
-    const-string v1, "MENU_STRING"
-
-    const-string v2, ""
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    sget-object v1, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "setupLegacyInCallButtons mIsVSHButtonAvailable: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget-boolean v3, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsVSHButtonAvailable:Z
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    sget-object v1, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "setupLegacyInCallButtons mPromotedService: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget-boolean v3, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mPromotedService:Z
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    invoke-virtual {p3, v5}, Landroid/view/ViewStub;->setVisibility(I)V
-
-    invoke-virtual {p4, v5}, Landroid/widget/Button;->setVisibility(I)V
-
-    if-eqz p1, :cond_3
-
-    invoke-virtual {p1, v6}, Landroid/widget/Button;->setVisibility(I)V
-
-    :cond_3
-    invoke-virtual {p0, p3}, Lcom/android/incallui/secrcs/RcsShareUI;->addCorrectionMargin(Landroid/view/ViewStub;)V
-
-    :cond_4
-    :goto_0
-    if-eqz p5, :cond_9
-
-    if-eqz p6, :cond_9
-
-    sget-boolean v1, Lcom/android/incallui/secrcs/RcsShareUI;->mIsCallPlusAvailable:Z
-
-    if-nez v1, :cond_9
-
-    sget-boolean v1, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
-
-    if-nez v1, :cond_9
-
-    sget-boolean v1, Lcom/android/incallui/secrcs/RcsShareUI;->mIsConference:Z
-
-    if-nez v1, :cond_9
-
-    sget-boolean v1, Lcom/android/incallui/secrcs/RcsShareUI;->mUltraPowerMode:Z
-
-    if-nez v1, :cond_9
-
-    iput-boolean v4, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsISHButtonAvailable:Z
-
-    const-string v1, "MENU_STRING"
-
-    const-string v2, ""
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    sget-object v1, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "setupLegacyInCallButtons mIsISHButtonAvailable: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget-boolean v3, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsISHButtonAvailable:Z
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, "mIsCallPlusAvailable:"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    sget-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->mIsCallPlusAvailable:Z
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    if-eqz p2, :cond_5
-
-    invoke-virtual {p2, v6}, Landroid/widget/ToggleButton;->setVisibility(I)V
-
-    :cond_5
-    invoke-virtual {p5, v5}, Landroid/view/ViewStub;->setVisibility(I)V
-
-    invoke-virtual {p6, v5}, Landroid/widget/Button;->setVisibility(I)V
-
-    invoke-virtual {p0, p5}, Lcom/android/incallui/secrcs/RcsShareUI;->addCorrectionMargin(Landroid/view/ViewStub;)V
-
-    :cond_6
-    :goto_1
-    sget-object v1, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
-
-    const-string v2, "broadcast sent for menu change"
-
-    invoke-static {v1, v2, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    sget-object v1, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
-
     return-void
-
-    :cond_7
-    if-eqz p1, :cond_4
-
-    iput-boolean v5, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsVSHButtonAvailable:Z
-
-    const-string v1, "MENU_STRING"
-
-    const-string v2, "HOLD"
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    sget-object v1, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "setupLegacyInCallButtons mIsVSHButtonAvailable: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget-boolean v3, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsVSHButtonAvailable:Z
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    invoke-virtual {p1, v5}, Landroid/widget/Button;->setVisibility(I)V
-
-    if-eqz p4, :cond_8
-
-    invoke-virtual {p4, v6}, Landroid/widget/Button;->setVisibility(I)V
-
-    :cond_8
-    invoke-virtual {p0, p1}, Lcom/android/incallui/secrcs/RcsShareUI;->addCorrectionMargin(Landroid/widget/Button;)V
-
-    goto/16 :goto_0
-
-    :cond_9
-    if-eqz p2, :cond_6
-
-    invoke-static {}, Lcom/android/incallui/util/ImsCommonUtils;->isAvailablePSVT()Z
-
-    move-result v1
-
-    if-nez v1, :cond_6
-
-    iput-boolean v5, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsISHButtonAvailable:Z
-
-    iget-boolean v1, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsVSHButtonAvailable:Z
-
-    if-nez v1, :cond_a
-
-    const-string v1, "MENU_STRING"
-
-    const-string v2, "HOLD"
-
-    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
-
-    :cond_a
-    sget-object v1, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "setupLegacyInCallButtons mIsISHButtonAvailable: "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    iget-boolean v3, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIsISHButtonAvailable:Z
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    const-string v3, "mIsCallPlusAvailable:"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    sget-boolean v3, Lcom/android/incallui/secrcs/RcsShareUI;->mIsCallPlusAvailable:Z
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    sget-boolean v1, Lcom/android/incallui/secrcs/RcsShareUI;->mIsExtraVolumeAvailable:Z
-
-    if-eqz v1, :cond_b
-
-    sget-object v1, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
-
-    const-string v2, " setupLegacyInCallButtons mBluetoothButton.setVisibility(View.VISIBLE); 2 "
-
-    invoke-static {v1, v2, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    invoke-virtual {p2, v5}, Landroid/widget/ToggleButton;->setVisibility(I)V
-
-    :cond_b
-    if-eqz p5, :cond_c
-
-    invoke-virtual {p5, v6}, Landroid/view/ViewStub;->setVisibility(I)V
-
-    :cond_c
-    if-eqz p6, :cond_d
-
-    invoke-virtual {p6, v6}, Landroid/widget/Button;->setVisibility(I)V
-
-    :cond_d
-    invoke-virtual {p0, p2}, Lcom/android/incallui/secrcs/RcsShareUI;->addCorrectionMargin(Landroid/widget/Button;)V
-
-    goto/16 :goto_1
-
-    :cond_e
-    sget-object v1, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
-
-    const-string v2, "setupLegacyInCallButtons no RCS"
-
-    invoke-static {v1, v2, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    const-string v1, "voice_call_recording"
-
-    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_f
-
-    if-eqz p1, :cond_f
-
-    invoke-virtual {p1, v5}, Landroid/widget/Button;->setVisibility(I)V
-
-    invoke-virtual {p0, p1}, Lcom/android/incallui/secrcs/RcsShareUI;->addCorrectionMargin(Landroid/widget/Button;)V
-
-    :cond_f
-    if-eqz p2, :cond_10
-
-    invoke-static {}, Lcom/android/incallui/util/ImsCommonUtils;->isAvailablePSVT()Z
-
-    move-result v1
-
-    if-nez v1, :cond_10
-
-    sget-boolean v1, Lcom/android/incallui/secrcs/RcsShareUI;->mIsExtraVolumeAvailable:Z
-
-    if-eqz v1, :cond_10
-
-    sget-object v1, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
-
-    const-string v2, " setupLegacyInCallButtons mBluetoothButton.setVisibility(View.VISIBLE); 3 "
-
-    invoke-static {v1, v2, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
-
-    invoke-virtual {p2, v5}, Landroid/widget/ToggleButton;->setVisibility(I)V
-
-    invoke-virtual {p0, p2}, Lcom/android/incallui/secrcs/RcsShareUI;->addCorrectionMargin(Landroid/widget/Button;)V
-
-    :cond_10
-    if-eqz p3, :cond_12
-
-    if-eqz p4, :cond_11
-
-    invoke-virtual {p4, v6}, Landroid/widget/Button;->setVisibility(I)V
-
-    :cond_11
-    invoke-virtual {p3, v6}, Landroid/view/ViewStub;->setVisibility(I)V
-
-    :cond_12
-    if-eqz p5, :cond_6
-
-    if-eqz p6, :cond_13
-
-    invoke-virtual {p6, v6}, Landroid/widget/Button;->setVisibility(I)V
-
-    :cond_13
-    invoke-virtual {p5, v6}, Landroid/view/ViewStub;->setVisibility(I)V
-
-    goto/16 :goto_1
 .end method
 
 .method public setupRcsCallCard(Landroid/content/Context;Lcom/android/incallui/secrcs/RcsInvitation;Lcom/android/incallui/Call;)V
     .locals 11
 
-    const v10, 0x7f090288
+    const v10, 0x7f09028b
 
     const v9, 0x7f0900aa
 
@@ -9277,7 +8843,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIncomingDialog:Landroid/app/Dialog;
 
-    const v3, 0x7f040093
+    const v3, 0x7f040094
 
     invoke-virtual {v0, v3}, Landroid/app/Dialog;->setContentView(I)V
 
@@ -9434,7 +9000,7 @@
 
     move-result-object v0
 
-    sget-object v1, Lcom/android/incallui/secrcs/RcsShareUI$11;->$SwitchMap$com$android$incallui$secrcs$RcsTransferConstants$SessionType:[I
+    sget-object v1, Lcom/android/incallui/secrcs/RcsShareUI$12;->$SwitchMap$com$android$incallui$secrcs$RcsTransferConstants$SessionType:[I
 
     invoke-virtual {v0}, Lcom/android/incallui/secrcs/RcsTransferConstants$SessionType;->ordinal()I
 
@@ -9453,7 +9019,7 @@
     :goto_1
     new-array v1, v8, [Ljava/lang/CharSequence;
 
-    const v0, 0x7f090290
+    const v0, 0x7f090293
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -9511,7 +9077,7 @@
 
     iput-boolean v7, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mTwoWayShare:Z
 
-    const v0, 0x7f09028c
+    const v0, 0x7f09028f
 
     invoke-virtual {v2, v0}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -9553,19 +9119,19 @@
 
     if-gez v0, :cond_9
 
-    new-instance v0, Lcom/android/incallui/secrcs/RcsShareUI$3;
+    new-instance v0, Lcom/android/incallui/secrcs/RcsShareUI$4;
 
-    invoke-direct {v0, p0, v3, p3}, Lcom/android/incallui/secrcs/RcsShareUI$3;-><init>(Lcom/android/incallui/secrcs/RcsShareUI;Landroid/content/Context;Lcom/android/incallui/Call;)V
+    invoke-direct {v0, p0, v3, p3}, Lcom/android/incallui/secrcs/RcsShareUI$4;-><init>(Lcom/android/incallui/secrcs/RcsShareUI;Landroid/content/Context;Lcom/android/incallui/Call;)V
 
     invoke-virtual {v2, v9, v0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
     :cond_9
     :goto_3
-    const v0, 0x7f0902a6
+    const v0, 0x7f0902a9
 
-    new-instance v1, Lcom/android/incallui/secrcs/RcsShareUI$5;
+    new-instance v1, Lcom/android/incallui/secrcs/RcsShareUI$6;
 
-    invoke-direct {v1, p0, v3}, Lcom/android/incallui/secrcs/RcsShareUI$5;-><init>(Lcom/android/incallui/secrcs/RcsShareUI;Landroid/content/Context;)V
+    invoke-direct {v1, p0, v3}, Lcom/android/incallui/secrcs/RcsShareUI$6;-><init>(Lcom/android/incallui/secrcs/RcsShareUI;Landroid/content/Context;)V
 
     invoke-virtual {v2, v0, v1}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -9639,7 +9205,7 @@
 
     if-eqz v0, :cond_11
 
-    const v0, 0x7f090289
+    const v0, 0x7f09028c
 
     invoke-virtual {v2, v0}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -9768,11 +9334,11 @@
     :cond_e
     iget-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIncomingDialog:Landroid/app/Dialog;
 
-    const v1, 0x7f09028b
+    const v1, 0x7f09028e
 
     invoke-virtual {v0, v1}, Landroid/app/Dialog;->setTitle(I)V
 
-    const v0, 0x7f09028b
+    const v0, 0x7f09028e
 
     invoke-virtual {v2, v0}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -9787,11 +9353,11 @@
 
     iget-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI;->mIncomingDialog:Landroid/app/Dialog;
 
-    const v1, 0x7f09028d
+    const v1, 0x7f090290
 
     invoke-virtual {v0, v1}, Landroid/app/Dialog;->setTitle(I)V
 
-    const v0, 0x7f09028d
+    const v0, 0x7f090290
 
     invoke-virtual {v2, v0}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -9811,9 +9377,9 @@
     if-ne v4, v6, :cond_13
 
     :goto_6
-    new-instance v1, Lcom/android/incallui/secrcs/RcsShareUI$2;
+    new-instance v1, Lcom/android/incallui/secrcs/RcsShareUI$3;
 
-    invoke-direct {v1, p0}, Lcom/android/incallui/secrcs/RcsShareUI$2;-><init>(Lcom/android/incallui/secrcs/RcsShareUI;)V
+    invoke-direct {v1, p0}, Lcom/android/incallui/secrcs/RcsShareUI$3;-><init>(Lcom/android/incallui/secrcs/RcsShareUI;)V
 
     invoke-virtual {v2, v0, v7, v1}, Landroid/app/AlertDialog$Builder;->setSingleChoiceItems([Ljava/lang/CharSequence;ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -9826,9 +9392,9 @@
     goto/16 :goto_2
 
     :cond_10
-    new-instance v0, Lcom/android/incallui/secrcs/RcsShareUI$4;
+    new-instance v0, Lcom/android/incallui/secrcs/RcsShareUI$5;
 
-    invoke-direct {v0, p0, v3, p3}, Lcom/android/incallui/secrcs/RcsShareUI$4;-><init>(Lcom/android/incallui/secrcs/RcsShareUI;Landroid/content/Context;Lcom/android/incallui/Call;)V
+    invoke-direct {v0, p0, v3, p3}, Lcom/android/incallui/secrcs/RcsShareUI$5;-><init>(Lcom/android/incallui/secrcs/RcsShareUI;Landroid/content/Context;Lcom/android/incallui/Call;)V
 
     invoke-virtual {v2, v9, v0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -9844,7 +9410,7 @@
 
     if-nez v0, :cond_b
 
-    const v0, 0x7f09028c
+    const v0, 0x7f09028f
 
     invoke-virtual {v2, v0}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -10484,4 +10050,207 @@
 
     :cond_0
     return-void
+.end method
+
+.method public updateRemoteCapabilities(Lcom/sec/ims/options/Capabilities;)V
+    .locals 6
+
+    const/4 v5, 0x1
+
+    const/4 v4, 0x0
+
+    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI;->LOG_TAG:Ljava/lang/String;
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "updateRemoteCapabilities remoteCapabilities = "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    new-instance v0, Landroid/content/Intent;
+
+    invoke-direct {v0}, Landroid/content/Intent;-><init>()V
+
+    const-string v1, "com.samsung.android.incalllui.rcsshareui.action.ACTION_CAPABILITY_CHANGED"
+
+    invoke-virtual {v0, v1}, Landroid/content/Intent;->setAction(Ljava/lang/String;)Landroid/content/Intent;
+
+    if-eqz p1, :cond_2
+
+    invoke-virtual {p1}, Lcom/sec/ims/options/Capabilities;->isAvailable()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_9
+
+    sget-wide v2, Lcom/sec/ims/options/Capabilities;->FEATURE_ENRICHED_CALL_COMPOSER:J
+
+    invoke-virtual {p1, v2, v3}, Lcom/sec/ims/options/Capabilities;->hasFeature(J)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_3
+
+    sput-boolean v5, Lcom/android/incallui/secrcs/RcsShareUI;->isPreCallRemote:Z
+
+    :goto_0
+    sget-wide v2, Lcom/sec/ims/options/Capabilities;->FEATURE_ENRICHED_SHARED_SKETCH:J
+
+    invoke-virtual {p1, v2, v3}, Lcom/sec/ims/options/Capabilities;->hasFeature(J)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    sget-wide v2, Lcom/sec/ims/options/Capabilities;->FEATURE_ENRICHED_SHARED_MAP:J
+
+    invoke-virtual {p1, v2, v3}, Lcom/sec/ims/options/Capabilities;->hasFeature(J)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_4
+
+    :cond_0
+    sget-object v1, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string v2, "isSketch"
+
+    invoke-static {v1, v2, v5}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    if-eqz v0, :cond_1
+
+    const-string v1, "isSketch"
+
+    const-string v2, "1"
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    :cond_1
+    sput-boolean v5, Lcom/android/incallui/secrcs/RcsShareUI;->isInCallRemote:Z
+
+    sput-boolean v5, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneRemote:Z
+
+    sget-object v1, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+
+    :goto_1
+    sget-wide v0, Lcom/sec/ims/options/Capabilities;->FEATURE_ENRICHED_POST_CALL:J
+
+    invoke-virtual {p1, v0, v1}, Lcom/sec/ims/options/Capabilities;->hasFeature(J)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_6
+
+    sput-boolean v5, Lcom/android/incallui/secrcs/RcsShareUI;->isPostCallRemote:Z
+
+    :goto_2
+    sget v0, Lcom/sec/ims/options/Capabilities;->FEATURE_ISH:I
+
+    invoke-virtual {p1, v0}, Lcom/sec/ims/options/Capabilities;->hasFeature(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_7
+
+    sput-boolean v5, Lcom/android/incallui/secrcs/RcsShareUI;->isISHRemote:Z
+
+    :goto_3
+    sget v0, Lcom/sec/ims/options/Capabilities;->FEATURE_VSH:I
+
+    invoke-virtual {p1, v0}, Lcom/sec/ims/options/Capabilities;->hasFeature(I)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_8
+
+    sput-boolean v5, Lcom/android/incallui/secrcs/RcsShareUI;->isVSHRemote:Z
+
+    :cond_2
+    :goto_4
+    return-void
+
+    :cond_3
+    sput-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->isPreCallRemote:Z
+
+    goto :goto_0
+
+    :cond_4
+    sget-object v1, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string v2, "isSketch"
+
+    invoke-static {v1, v2, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    if-eqz v0, :cond_5
+
+    const-string v1, "isSketch"
+
+    const-string v2, "0"
+
+    invoke-virtual {v0, v1, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+
+    :cond_5
+    sput-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->isInCallRemote:Z
+
+    sput-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneRemote:Z
+
+    sget-object v1, Lcom/android/incallui/secrcs/RcsShareUI;->mContext:Landroid/content/Context;
+
+    invoke-virtual {v1, v0}, Landroid/content/Context;->sendBroadcast(Landroid/content/Intent;)V
+
+    goto :goto_1
+
+    :cond_6
+    sput-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->isPostCallRemote:Z
+
+    goto :goto_2
+
+    :cond_7
+    sput-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->isISHRemote:Z
+
+    goto :goto_3
+
+    :cond_8
+    sput-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->isVSHRemote:Z
+
+    goto :goto_4
+
+    :cond_9
+    sput-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->isCraneRemote:Z
+
+    sput-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->isPreCallRemote:Z
+
+    sput-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->isInCallRemote:Z
+
+    sput-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->isPostCallRemote:Z
+
+    sput-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->isVSHRemote:Z
+
+    sput-boolean v4, Lcom/android/incallui/secrcs/RcsShareUI;->isISHRemote:Z
+
+    goto :goto_4
 .end method

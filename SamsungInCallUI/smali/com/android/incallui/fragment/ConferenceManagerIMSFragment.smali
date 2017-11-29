@@ -497,7 +497,7 @@
 
     invoke-static {p0, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
-    const v0, 0x7f0400cc
+    const v0, 0x7f0400cd
 
     const/4 v1, 0x0
 
@@ -521,7 +521,7 @@
 
     if-eqz v1, :cond_0
 
-    const v0, 0x7f1000f0
+    const v0, 0x7f1000f4
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -531,7 +531,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/ConferenceManagerIMSFragment;->mConferenceParticipantList:Landroid/widget/ListView;
 
-    const v0, 0x7f1000ef
+    const v0, 0x7f1000f3
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

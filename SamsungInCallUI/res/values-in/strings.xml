@@ -178,12 +178,13 @@
     <string name="account_phone">Perangkat</string>
     <string name="acs">Panggilan suara</string>
     <string name="active_calls">Panggilan aktif</string>
-    <string name="add_reminder">Tbh pngingat</string>
+    <string name="add_reminder">Tambah pengingat</string>
     <string name="agif_button_close_description">Tutup</string>
     <string name="agif_decline_message">Maaf, tidak bisa bicara sekarang.</string>
     <string name="agif_decline_sticker_header">Tolak dengan stiker</string>
     <string name="agif_decline_text_header">Tolak dengan teks</string>
     <string name="agif_decline_toast">Stiker dikirim ke %s.</string>
+    <string name="agif_outgoing_bubble_tip">Kirim stiker untuk menunjukkan perasaan Anda.</string>
     <string name="agif_pickers_add_tab_description">Tambahkn</string>
     <string name="agif_pickers_find_more">Temukan selengkapnya</string>
     <string name="agif_pickers_item_usage_hints_description">Ketuk dua kali untuk memilih</string>
@@ -192,10 +193,12 @@
     <string name="agif_pickers_tab_select_description">Terpilih</string>
     <string name="agif_pickers_title">Mulai dengan stiker</string>
     <string name="agif_pickers_title_recommended">Disarankan</string>
+    <string name="agif_random_send_message">Ketuk di sini untuk mengirimkan stiker ini.</string>
     <string name="agif_read_permission_description">Izinkan Ponsel membaca konten AGIF.</string>
     <string name="agif_read_permission_label">Baca konten AGIF</string>
     <string name="agif_receive_no_id">Stiker tidak dapat ditampilkan. Perbarui %s setelah panggilan.</string>
     <string name="agif_receive_no_id_upsupport_update">Stiker tidak dapat ditampilkan. Stiker lainnya akan tersedia setelah pembaruan sistem berikutnya.</string>
+    <string name="agif_receive_toast">Stiker dari %s.</string>
     <string name="agif_sent_fail_message">Tidak dapat mengirim GIF animasi. Coba lagi nanti.</string>
     <string name="agif_sent_toast">Stiker dikirim.</string>
     <string name="agif_write_permission_description">Izinkan Ponsel memodifikasi konten AGIF.</string>
@@ -885,8 +888,8 @@ Satu Arah"</string>
     <string name="tts_pager">Halaman %1$d dari %2$d</string>
     <string name="tts_seconds">%d detik</string>
     <string name="tty_mode_option_title">Mode TTY</string>
-    <string name="tutorial_incoming_call_app_answer">Ketuk untuk menerima panggilan.</string>
-    <string name="tutorial_incoming_call_app_reject">Ketuk untuk menolak panggilan.</string>
+    <string name="tutorial_incoming_call_app_answer">Ketuk dua kali untuk menjawab.</string>
+    <string name="tutorial_incoming_call_app_reject">Ketuk dua kali untuk menolak.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Tidak dapat menyambung ke jaringan. Periksa pengaturan koneksi Anda dan coba lagi.</string>
     <string name="units_kb">KB</string>
@@ -896,7 +899,7 @@ Satu Arah"</string>
     <string name="upload_using_wlan_only">Unggah lewat WLAN saja</string>
     <string name="upload_wifi_and_mobile_nw">Unggah lewat Wi-Fi atau jaringan seluler</string>
     <string name="upload_wlan_and_mobile_nw">Unggah lewat WLAN atau jaringan seluler</string>
-    <string name="usa_att_connected_as_voice">Panggilan dihubungkan hanya sebagai suara.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Penggunaan Data yang Anda atur di perangkat hampir mencapai batas. Panggilan video Anda memerlukan data.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Panggilan tidak dapat dilakukan melalui Wi-Fi, menyambung lewat jaringan seluler. Biaya suara dan data akan berlaku.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -946,11 +949,15 @@ video satu arah"</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Gunakan Data Seluler</string>
     <string name="usa_vzw_volte_weak_wifi_text">"Kami telah mencoba, tetapi kami tidak dapat mengalihkan panggilan video ke Wi-Fi pada saat ini.
 
-Panggilan video Anda masih berjalan melalui jaringan seluler. (Penggunaan data berlaku jika Anda memilih untuk melanjutkan.)"</string>
-    <string name="usa_vzw_volte_weak_wifi_toast">Panggilan video Anda masih berjalan di jaringan seluler. (Penggunaan data berlaku.)</string>
-    <string name="usa_vzw_vowifi_wifi_low_signal_text">"Sinyal Wi-Fi tidak cukup kuat untuk melanjutkan panggilan video.
+Panggilan video Anda masih berjalan melalui jaringan seluler.
 
-Panggilan video saat ini menggunakan jaringan seluler. (Penggunaan data berlaku jika Anda memilih untuk melanjutkan.)"</string>
+Dapat dikenakan biaya penggunaan data jika Anda memilih untuk melanjutkan."</string>
+    <string name="usa_vzw_volte_weak_wifi_toast">Panggilan video Anda masih berjalan di jaringan seluler. (Penggunaan data berlaku.)</string>
+    <string name="usa_vzw_vowifi_wifi_low_signal_text">"Sinyal Wi-Fi tidak cukup kuat untuk melanjutkan panggilan video Anda.
+
+Panggilan video Anda sekarang berjalan di jaringan seluler.
+
+Dapat dikenakan biaya penggunaan data jika Anda memilih untuk melanjutkan."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Koneksi Wi-Fi hilang. Panggilan berakhir.</string>
     <string name="use_wifi_and_mobile_nw">Gunakan Wi-Fi dan jaringan seluler</string>
     <string name="use_wlan_and_mobile_nw">Gunakan WLAN dan jaringan seluler</string>

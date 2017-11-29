@@ -130,7 +130,7 @@
 
     if-eqz v2, :cond_0
 
-    const v0, 0x7f090164
+    const v0, 0x7f090167
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -180,7 +180,7 @@
 
     if-eqz v3, :cond_5
 
-    const v0, 0x7f0903c5
+    const v0, 0x7f0903c8
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -240,7 +240,7 @@
     if-eqz v3, :cond_2
 
     :cond_0
-    const v0, 0x7f090164
+    const v0, 0x7f090167
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -265,7 +265,7 @@
 
     if-eqz v2, :cond_1
 
-    const v0, 0x7f09012a
+    const v0, 0x7f09012d
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -415,7 +415,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0902bc
+    const v1, 0x7f0902bf
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

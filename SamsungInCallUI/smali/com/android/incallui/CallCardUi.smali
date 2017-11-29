@@ -279,6 +279,9 @@
 .method public abstract updateAgifImage()V
 .end method
 
+.method public abstract updateAgifRandomContainer()V
+.end method
+
 .method public abstract updateBelowButtonMargin(Z)V
 .end method
 

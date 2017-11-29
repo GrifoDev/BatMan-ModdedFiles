@@ -1166,6 +1166,24 @@
     goto :goto_0
 
     :cond_5
+    invoke-static {}, Lcom/android/incallui/bike/BikeModeUtils;->isBikeModeOn()Z
+
+    move-result v2
+
+    if-nez v2, :cond_6
+
+    invoke-static {}, Lcom/android/incallui/bike/BikeModeUtils;->isBikeModeOutgoingCall()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_7
+
+    :cond_6
+    move v0, v1
+
+    goto :goto_0
+
+    :cond_7
     invoke-static {}, Lcom/android/incallui/util/ImsCommonUtils;->isAvailablePSVT()Z
 
     move-result v2
@@ -1176,11 +1194,15 @@
 
     move-result v3
 
-    if-eqz v3, :cond_8
+    if-eqz v3, :cond_a
 
-    move v2, v0
+    const-string v2, "mmtel-video"
 
-    :cond_6
+    invoke-static {v2}, Lcom/android/incallui/util/ImsCommonUtils;->isServiceAvailable(Ljava/lang/String;)Z
+
+    move-result v2
+
+    :cond_8
     :goto_1
     const-string v3, "show_switch_icon_in_button"
 
@@ -1188,9 +1210,9 @@
 
     move-result v3
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_9
 
-    if-eqz v2, :cond_7
+    if-eqz v2, :cond_9
 
     invoke-static {}, Lcom/android/incallui/util/DesktopModeManager;->getInstance()Lcom/android/incallui/util/DesktopModeManager;
 
@@ -1200,7 +1222,7 @@
 
     if-eqz v2, :cond_0
 
-    :cond_7
+    :cond_9
     invoke-static {}, Lcom/android/incallui/util/InCallUtils;->isShowVZWVoLTEUI()Z
 
     move-result v2
@@ -1211,14 +1233,14 @@
 
     goto :goto_0
 
-    :cond_8
+    :cond_a
     const-string v3, "feature_multisim"
 
     invoke-static {v3}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_6
+    if-eqz v3, :cond_8
 
     invoke-static {}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->getDefaultVoiceSubscriptionId()I
 
@@ -1885,7 +1907,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090305
+    const v1, 0x7f090308
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1901,7 +1923,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090301
+    const v1, 0x7f090304
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1978,7 +2000,7 @@
 
     if-eqz v1, :cond_0
 
-    const v2, 0x7f090641
+    const v2, 0x7f090644
 
     const/4 v3, 0x1
 
@@ -2077,7 +2099,7 @@
 .method private manageBluetoothMenu(Landroid/view/MenuItem;Landroid/view/MenuItem;)V
     .locals 7
 
-    const v6, 0x7f020349
+    const v6, 0x7f02037d
 
     const/4 v5, 0x2
 
@@ -2693,7 +2715,7 @@
 .method public holdClicked(Z)V
     .locals 4
 
-    const v3, 0x7f090187
+    const v3, 0x7f09018a
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
@@ -3209,7 +3231,7 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x7f1004ff
+    const v0, 0x7f100506
 
     iput v0, p0, Lcom/android/incallui/InCallMenu;->mUniqueMenuId:I
 
@@ -3307,7 +3329,7 @@
     goto :goto_0
 
     :pswitch_data_0
-    .packed-switch 0x7f1004ff
+    .packed-switch 0x7f100506
         :pswitch_0
     .end packed-switch
 .end method
@@ -3649,23 +3671,23 @@
 
     :sswitch_data_0
     .sparse-switch
-        0x7f1000c1 -> :sswitch_0
-        0x7f1000c3 -> :sswitch_3
-        0x7f1003e6 -> :sswitch_4
-        0x7f100424 -> :sswitch_2
-        0x7f1004fe -> :sswitch_c
-        0x7f1004ff -> :sswitch_d
-        0x7f100500 -> :sswitch_e
-        0x7f100501 -> :sswitch_5
-        0x7f100502 -> :sswitch_5
-        0x7f100503 -> :sswitch_6
-        0x7f100504 -> :sswitch_7
-        0x7f100505 -> :sswitch_8
-        0x7f100506 -> :sswitch_9
-        0x7f100508 -> :sswitch_a
-        0x7f100509 -> :sswitch_b
-        0x7f10050a -> :sswitch_b
-        0x7f10050b -> :sswitch_1
+        0x7f1000c5 -> :sswitch_0
+        0x7f1000c7 -> :sswitch_3
+        0x7f1003ea -> :sswitch_4
+        0x7f100428 -> :sswitch_2
+        0x7f100505 -> :sswitch_c
+        0x7f100506 -> :sswitch_d
+        0x7f100507 -> :sswitch_e
+        0x7f100508 -> :sswitch_5
+        0x7f100509 -> :sswitch_5
+        0x7f10050a -> :sswitch_6
+        0x7f10050b -> :sswitch_7
+        0x7f10050c -> :sswitch_8
+        0x7f10050d -> :sswitch_9
+        0x7f10050f -> :sswitch_a
+        0x7f100510 -> :sswitch_b
+        0x7f100511 -> :sswitch_b
+        0x7f100512 -> :sswitch_1
     .end sparse-switch
 .end method
 
@@ -3707,13 +3729,13 @@
 
     if-eqz v0, :cond_2
 
-    const v0, 0x7f1000c1
+    const v0, 0x7f1000c5
 
     invoke-interface {p1, v0}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v0
 
-    const v1, 0x7f10050b
+    const v1, 0x7f100512
 
     invoke-interface {p1, v1}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -3751,7 +3773,7 @@
     goto :goto_0
 
     :sswitch_1
-    const v2, 0x7f100424
+    const v2, 0x7f100428
 
     invoke-interface {p1, v2}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -3762,7 +3784,7 @@
     goto :goto_1
 
     :sswitch_2
-    const v2, 0x7f1000c3
+    const v2, 0x7f1000c7
 
     invoke-interface {p1, v2}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -3773,7 +3795,7 @@
     goto :goto_1
 
     :sswitch_3
-    const v2, 0x7f1003e6
+    const v2, 0x7f1003ea
 
     invoke-interface {p1, v2}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -3784,13 +3806,13 @@
     goto :goto_1
 
     :sswitch_4
-    const v2, 0x7f100501
+    const v2, 0x7f100508
 
     invoke-interface {p1, v2}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v2
 
-    const v3, 0x7f100502
+    const v3, 0x7f100509
 
     invoke-interface {p1, v3}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -3801,7 +3823,7 @@
     goto :goto_1
 
     :sswitch_5
-    const v2, 0x7f100503
+    const v2, 0x7f10050a
 
     invoke-interface {p1, v2}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -3812,7 +3834,7 @@
     goto :goto_1
 
     :sswitch_6
-    const v2, 0x7f100504
+    const v2, 0x7f10050b
 
     invoke-interface {p1, v2}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -3823,7 +3845,7 @@
     goto :goto_1
 
     :sswitch_7
-    const v2, 0x7f100505
+    const v2, 0x7f10050c
 
     invoke-interface {p1, v2}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -3834,7 +3856,7 @@
     goto :goto_1
 
     :sswitch_8
-    const v2, 0x7f100506
+    const v2, 0x7f10050d
 
     invoke-interface {p1, v2}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -3848,7 +3870,7 @@
 
     if-eqz v3, :cond_3
 
-    const v3, 0x7f0902d1
+    const v3, 0x7f0902d4
 
     invoke-interface {v2, v3}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
 
@@ -3858,13 +3880,13 @@
     goto :goto_1
 
     :sswitch_9
-    const v2, 0x7f100508
+    const v2, 0x7f10050f
 
     invoke-interface {p1, v2}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v2
 
-    const v3, 0x7f02034a
+    const v3, 0x7f02037e
 
     invoke-interface {v2, v3}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -3932,13 +3954,13 @@
     goto/16 :goto_1
 
     :sswitch_a
-    const v2, 0x7f100509
+    const v2, 0x7f100510
 
     invoke-interface {p1, v2}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
     move-result-object v2
 
-    const v3, 0x7f10050a
+    const v3, 0x7f100511
 
     invoke-interface {p1, v3}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -3949,7 +3971,7 @@
     goto/16 :goto_1
 
     :sswitch_b
-    const v2, 0x7f1004fe
+    const v2, 0x7f100505
 
     invoke-interface {p1, v2}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -3960,7 +3982,7 @@
     goto/16 :goto_1
 
     :sswitch_c
-    const v2, 0x7f1004ff
+    const v2, 0x7f100506
 
     invoke-interface {p1, v2}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -3979,7 +4001,7 @@
     goto/16 :goto_1
 
     :sswitch_d
-    const v2, 0x7f100500
+    const v2, 0x7f100507
 
     invoke-interface {p1, v2}, Landroid/view/Menu;->findItem(I)Landroid/view/MenuItem;
 
@@ -3993,21 +4015,21 @@
 
     :sswitch_data_0
     .sparse-switch
-        0x7f1000c3 -> :sswitch_2
-        0x7f1003e6 -> :sswitch_3
-        0x7f100424 -> :sswitch_1
-        0x7f1004fe -> :sswitch_b
-        0x7f1004ff -> :sswitch_c
-        0x7f100500 -> :sswitch_d
-        0x7f100501 -> :sswitch_0
-        0x7f100502 -> :sswitch_4
-        0x7f100503 -> :sswitch_5
-        0x7f100504 -> :sswitch_6
-        0x7f100505 -> :sswitch_7
-        0x7f100506 -> :sswitch_8
-        0x7f100508 -> :sswitch_9
-        0x7f100509 -> :sswitch_0
-        0x7f10050a -> :sswitch_a
+        0x7f1000c7 -> :sswitch_2
+        0x7f1003ea -> :sswitch_3
+        0x7f100428 -> :sswitch_1
+        0x7f100505 -> :sswitch_b
+        0x7f100506 -> :sswitch_c
+        0x7f100507 -> :sswitch_d
+        0x7f100508 -> :sswitch_0
+        0x7f100509 -> :sswitch_4
+        0x7f10050a -> :sswitch_5
+        0x7f10050b -> :sswitch_6
+        0x7f10050c -> :sswitch_7
+        0x7f10050d -> :sswitch_8
+        0x7f10050f -> :sswitch_9
+        0x7f100510 -> :sswitch_0
+        0x7f100511 -> :sswitch_a
     .end sparse-switch
 .end method
 

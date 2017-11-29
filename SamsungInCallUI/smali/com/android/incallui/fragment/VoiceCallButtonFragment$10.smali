@@ -229,7 +229,7 @@
 
     iget-object v0, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mParentView:Landroid/view/View;
 
-    const v5, 0x7f100307
+    const v5, 0x7f10030d
 
     invoke-virtual {v0, v5}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -261,7 +261,7 @@
 
     iget-object v0, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mParentView:Landroid/view/View;
 
-    const v2, 0x7f100308
+    const v2, 0x7f10030e
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -295,7 +295,7 @@
 
     iget-object v0, v0, Lcom/android/incallui/fragment/VoiceCallButtonFragment;->mParentView:Landroid/view/View;
 
-    const v2, 0x7f100309
+    const v2, 0x7f10030f
 
     invoke-virtual {v0, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

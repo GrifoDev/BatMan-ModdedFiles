@@ -849,30 +849,6 @@
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v2, "- number: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget-object v2, p2, Lcom/android/incallui/CallerInfo;->phoneNumber:Ljava/lang/String;
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    const-string v0, "CallerInfoAsyncQuery"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
     const-string v2, "- cookie: "
 
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -929,6 +905,12 @@
 
     if-nez v2, :cond_0
 
+    invoke-virtual {p2}, Lcom/android/incallui/CallerInfo;->isVoiceMailNumber()Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
     const-string v2, "sip"
 
     invoke-virtual {v0}, Lcom/android/incallui/Call;->getHandle()Landroid/net/Uri;
@@ -947,25 +929,49 @@
 
     :cond_0
     :goto_0
+    const-string v2, "CallerInfoAsyncQuery"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v6, "- number: "
+
+    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    iget-object v6, p2, Lcom/android/incallui/CallerInfo;->phoneNumber:Ljava/lang/String;
+
+    invoke-virtual {v3, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
     const-string v2, "support_twophone"
 
     invoke-static {v2}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_7
 
     invoke-static {}, Lcom/android/incallui/InCallUISystemDB;->isTwoPhoneRegistered()Z
 
     move-result v2
 
-    if-eqz v2, :cond_6
+    if-eqz v2, :cond_7
 
     invoke-static {}, Lcom/android/incallui/util/InCallUtils;->isActiveTwoPhone()Z
 
     move-result v2
 
-    if-eqz v2, :cond_5
+    if-eqz v2, :cond_6
 
     invoke-static {p1}, Lcom/android/incallui/util/InCallUtils;->getTwoPhoneUserId(Landroid/content/Context;)I
 
@@ -1180,7 +1186,7 @@
 
     move-result v7
 
-    if-eqz v7, :cond_a
+    if-eqz v7, :cond_b
 
     if-eqz v0, :cond_2
 
@@ -1196,7 +1202,7 @@
     move-result v0
 
     :goto_3
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_8
 
     const/4 v0, 0x4
 
@@ -1209,13 +1215,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_a
 
     invoke-static {}, Lcom/android/incallui/InCallUISystemDB;->isTwoPhoneRegistered()Z
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_a
 
     invoke-static {v3, v6}, Lcom/android/incallui/CallerInfoAsyncQuery;->getTwoPhoneCallerInfoQueryProjection(Landroid/net/Uri;I)[Ljava/lang/String;
 
@@ -1291,7 +1297,7 @@
 
     move-result v2
 
-    if-eqz v2, :cond_0
+    if-eqz v2, :cond_5
 
     :cond_4
     iget-object v2, p2, Lcom/android/incallui/CallerInfo;->phoneNumber:Ljava/lang/String;
@@ -1302,6 +1308,7 @@
 
     iput-object v2, p2, Lcom/android/incallui/CallerInfo;->phoneNumber:Ljava/lang/String;
 
+    :goto_6
     invoke-virtual {v0}, Lcom/android/incallui/Call;->getState()I
 
     move-result v2
@@ -1317,11 +1324,22 @@
     goto/16 :goto_0
 
     :cond_5
+    iget-object v2, p2, Lcom/android/incallui/CallerInfo;->phoneNumber:Ljava/lang/String;
+
+    invoke-static {v2}, Landroid/telephony/PhoneNumberUtils;->normalizeNumber(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v2
+
+    iput-object v2, p2, Lcom/android/incallui/CallerInfo;->phoneNumber:Ljava/lang/String;
+
+    goto :goto_6
+
+    :cond_6
     move v2, v4
 
     goto/16 :goto_1
 
-    :cond_6
+    :cond_7
     sget-object v2, Landroid/provider/ContactsContract;->AUTHORITY_URI:Landroid/net/Uri;
 
     const-string v3, "phone_lookup_enterprise"
@@ -1334,12 +1352,12 @@
 
     goto/16 :goto_2
 
-    :cond_7
+    :cond_8
     invoke-virtual {p2}, Lcom/android/incallui/CallerInfo;->isVoiceMailNumber()Z
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_9
 
     const/4 v0, 0x5
 
@@ -1347,21 +1365,21 @@
 
     goto/16 :goto_4
 
-    :cond_8
+    :cond_9
     const/4 v0, 0x1
 
     iput v0, v2, Lcom/android/incallui/CallerInfoAsyncQuery$CookieWrapper;->event:I
 
     goto/16 :goto_4
 
-    :cond_9
+    :cond_a
     invoke-static {v3}, Lcom/android/incallui/CallerInfoAsyncQuery;->getCallerInfoQueryProjection(Landroid/net/Uri;)[Ljava/lang/String;
 
     move-result-object v4
 
-    goto :goto_5
+    goto/16 :goto_5
 
-    :cond_a
+    :cond_b
     move v0, v1
 
     goto/16 :goto_3

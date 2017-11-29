@@ -1,13 +1,10 @@
 .class Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$9;
-.super Ljava/lang/Object;
-
-# interfaces
-.implements Landroid/widget/CompoundButton$OnCheckedChangeListener;
+.super Landroid/animation/AnimatorListenerAdapter;
 
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->inflateInCallButtons(Landroid/view/View;)V
+    value = Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->animateForRevealEndCallButton()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -26,38 +23,57 @@
 
     iput-object p1, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$9;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
 
-    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+    invoke-direct {p0}, Landroid/animation/AnimatorListenerAdapter;-><init>()V
 
     return-void
 .end method
 
 
 # virtual methods
-.method public onCheckedChanged(Landroid/widget/CompoundButton;Z)V
+.method public onAnimationEnd(Landroid/animation/Animator;)V
     .locals 2
 
-    invoke-static {}, Lcom/android/incallui/util/DesktopModeManager;->isDesktopDockConnected()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$9;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
+    const/high16 v1, 0x3f800000    # 1.0f
 
     iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$9;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
 
-    invoke-virtual {v0}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->getPresenter()Lcom/android/incallui/Presenter;
+    iget-object v0, v0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->mEndCallButtonContainer:Landroid/view/View;
 
-    move-result-object v0
+    if-eqz v0, :cond_0
 
-    check-cast v0, Lcom/android/incallui/CallButtonPresenter;
+    iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$9;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
 
-    invoke-virtual {v0}, Lcom/android/incallui/CallButtonPresenter;->getSupportedAudio()I
+    iget-object v0, v0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->mEndCallButtonContainer:Landroid/view/View;
 
-    move-result v0
+    invoke-virtual {v0, v1}, Landroid/view/View;->setAlpha(F)V
 
-    invoke-static {v1, v0}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$3100(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;I)V
+    iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$9;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
+
+    iget-object v0, v0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->mEndCallButtonContainer:Landroid/view/View;
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setScaleX(F)V
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$9;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
+
+    iget-object v0, v0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->mEndCallButtonContainer:Landroid/view/View;
+
+    invoke-virtual {v0, v1}, Landroid/view/View;->setScaleY(F)V
 
     :cond_0
+    iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$9;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
+
+    iget-object v0, v0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->mEndCallButton:Landroid/widget/ImageButton;
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$9;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
+
+    iget-object v0, v0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->mEndCallButton:Landroid/widget/ImageButton;
+
+    const v1, 0x7f020316
+
+    invoke-virtual {v0, v1}, Landroid/widget/ImageButton;->setImageResource(I)V
+
+    :cond_1
     return-void
 .end method

@@ -34,10 +34,36 @@
 
 # virtual methods
 .method public onClick(Landroid/view/View;)V
-    .locals 2
+    .locals 3
+
+    const/4 v1, 0x1
+
+    const-string v0, "mPromotedButton onClick"
+
+    invoke-static {p0, v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Z)V
 
     check-cast p1, Landroid/widget/Button;
 
+    const-string v0, "common_volte_in"
+
+    invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "hasFeature(InCallUIFeature.VOLTE.COMMON_VOLTE_IN): true"
+
+    invoke-static {p0, v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Z)V
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$7;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
+
+    invoke-static {v0}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->access$3000(Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;)V
+
+    :goto_0
+    return-void
+
+    :cond_0
     iget-object v0, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$7;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
 
     invoke-virtual {v0}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->getPresenter()Lcom/android/incallui/Presenter;
@@ -48,19 +74,17 @@
 
     invoke-virtual {p1}, Landroid/widget/Button;->isSelected()Z
 
-    move-result v1
+    move-result v2
 
-    if-nez v1, :cond_0
+    if-nez v2, :cond_1
 
-    const/4 v1, 0x1
-
-    :goto_0
+    :goto_1
     invoke-virtual {v0, v1}, Lcom/android/incallui/CallButtonPresenter;->promotedClicked(Z)V
 
-    return-void
+    goto :goto_0
 
-    :cond_0
+    :cond_1
     const/4 v1, 0x0
 
-    goto :goto_0
+    goto :goto_1
 .end method

@@ -1860,7 +1860,7 @@
 .method private updateHandlerAlphaAndTextColor(Z)V
     .locals 4
 
-    const v3, 0x7f0e0118
+    const v3, 0x7f0e011e
 
     iget-object v0, p0, Lcom/android/incallui/widget/incomingwidget/IncomingCallSlidingDrawer;->mRejectCallWithMsgHandler:Landroid/widget/LinearLayout;
 
@@ -1897,7 +1897,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e011b
+    const v2, 0x7f0e0121
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 

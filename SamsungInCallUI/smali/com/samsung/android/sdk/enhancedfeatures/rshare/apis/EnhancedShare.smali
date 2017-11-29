@@ -294,9 +294,9 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$13;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$16;
 
-    invoke-direct {v0, p0, p1, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$13;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
+    invoke-direct {v0, p0, p1, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$16;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 
     invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
     :try_end_0
@@ -317,9 +317,9 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$14;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$17;
 
-    invoke-direct {v0, p0, p1, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$14;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
+    invoke-direct {v0, p0, p1, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$17;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 
     invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
@@ -743,13 +743,13 @@
 .method private writeFolderInDB(Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
     .locals 2
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$65;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$78;
 
-    invoke-direct {v0, p0, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$65;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
+    invoke-direct {v0, p0, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$78;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 
-    new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$66;
+    new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$79;
 
-    invoke-direct {v1, p0, p2, p1, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$66;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
+    invoke-direct {v1, p0, p2, p1, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$79;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 
     invoke-virtual {p0, p1, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->getORSServerURL(Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 
@@ -869,9 +869,9 @@
     :cond_1
     if-nez v0, :cond_3
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$17;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$28;
 
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$17;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;JLcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
+    invoke-direct {v0, p0, p1, p2, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$28;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;JLcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 
     invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
@@ -910,9 +910,9 @@
     invoke-virtual {v0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/TransactionMap;->remove(J)Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/Transaction;
 
     :cond_3
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$18;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$29;
 
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$18;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;JLcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
+    invoke-direct {v0, p0, p1, p2, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$29;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;JLcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 
     invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
@@ -1146,13 +1146,13 @@
     goto/16 :goto_1
 
     :cond_5
-    new-instance v2, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$69;
+    new-instance v2, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$82;
 
     move-object/from16 v0, p0
 
     move-object/from16 v1, p1
 
-    invoke-direct {v2, v0, v12, v1, v13}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$69;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Ljava/util/ArrayList;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;Ljava/util/ArrayList;)V
+    invoke-direct {v2, v0, v12, v1, v13}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$82;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Ljava/util/ArrayList;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;Ljava/util/ArrayList;)V
 
     invoke-static {v2}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
@@ -1172,7 +1172,7 @@
 .end method
 
 .method public createPublicFolderToken(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/CreatePublicFolderTokenRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
-    .locals 3
+    .locals 2
 
     const-string v0, "20.CREATE PUBLIC FOLDER TOKEN"
 
@@ -1197,21 +1197,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v0, -0xd
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$58;
 
-    const-string v1, "authentication failed"
+    invoke-direct {v0, p0, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$58;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 
-    const-string v2, "unable to authenticate user"
-
-    invoke-static {v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$45;
-
-    invoke-direct {v1, p0, p2, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$45;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
     :try_end_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1230,21 +1220,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v0, -0x2e
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$59;
 
-    const-string v1, "Security Exception"
+    invoke-direct {v0, p0, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$59;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 
-    const-string v2, "Security Exception"
-
-    invoke-static {v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$46;
-
-    invoke-direct {v1, p0, p2, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$46;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
     goto :goto_0
 
@@ -1348,9 +1328,9 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$15;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$22;
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$15;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/DeleteContentsRequestPublicMode;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$22;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/DeleteContentsRequestPublicMode;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 
     invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
     :try_end_0
@@ -1371,9 +1351,9 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$16;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$23;
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$16;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/DeleteContentsRequestPublicMode;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$23;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/DeleteContentsRequestPublicMode;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 
     invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
@@ -1408,8 +1388,6 @@
 .method public downloadContentsPrivateMode(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/DownloadContentsRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/DownloadContentsListener;)V
     .locals 6
 
-    const-wide/16 v4, -0x1
-
     const-string v0, "10.DOWNLOAD CONTENTS PRIVATE MODE"
 
     sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->TAG:Ljava/lang/String;
@@ -1433,31 +1411,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$24;
 
-    const/16 v1, -0xd
+    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$24;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/DownloadContentsRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/DownloadContentsListener;)V
 
-    const-string v2, "authentication failed"
-
-    const-string v3, "unable to authenticate user"
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;-><init>(ILjava/lang/String;Ljava/lang/String;)V
-
-    invoke-virtual {p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/DownloadContentsRequest;->getRequestToken()J
-
-    move-result-wide v2
-
-    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;->setRequestToken(Ljava/lang/Long;)V
-
-    const-wide/16 v2, -0x1
-
-    invoke-virtual {v0, v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;->setShareId(J)V
-
-    invoke-interface {p2, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/DownloadContentsListener;->onError(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
     :try_end_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1475,19 +1433,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$25;
 
-    const/16 v1, -0x2e
+    invoke-direct {v0, p0, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$25;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/DownloadContentsListener;)V
 
-    const-string v2, "Security permission error"
-
-    const-string v3, "Security permission error"
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;-><init>(ILjava/lang/String;Ljava/lang/String;)V
-
-    invoke-virtual {v0, v4, v5}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;->setShareId(J)V
-
-    invoke-interface {p2, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/DownloadContentsListener;->onError(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
     goto :goto_0
 
@@ -1828,8 +1778,6 @@
 .method public downloadContentsPublicMode(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/DownloadContentsRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/DownloadContentsListener;)V
     .locals 6
 
-    const-wide/16 v4, -0x1
-
     const-string v0, "9.DOWNLOAD CONTENTS PUBLIC MODE"
 
     sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->TAG:Ljava/lang/String;
@@ -1853,31 +1801,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$26;
 
-    const/16 v1, -0xd
+    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$26;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/DownloadContentsRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/DownloadContentsListener;)V
 
-    const-string v2, "authentication failed"
-
-    const-string v3, "unable to authenticate user"
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;-><init>(ILjava/lang/String;Ljava/lang/String;)V
-
-    invoke-virtual {p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/DownloadContentsRequest;->getRequestToken()J
-
-    move-result-wide v2
-
-    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;->setRequestToken(Ljava/lang/Long;)V
-
-    const-wide/16 v2, -0x1
-
-    invoke-virtual {v0, v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;->setShareId(J)V
-
-    invoke-interface {p2, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/DownloadContentsListener;->onError(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
     :try_end_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -1895,19 +1823,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$27;
 
-    const/16 v1, -0x2e
+    invoke-direct {v0, p0, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$27;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/DownloadContentsListener;)V
 
-    const-string v2, "Security permission error"
-
-    const-string v3, "Security permission error"
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;-><init>(ILjava/lang/String;Ljava/lang/String;)V
-
-    invoke-virtual {v0, v4, v5}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;->setShareId(J)V
-
-    invoke-interface {p2, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/DownloadContentsListener;->onError(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
     goto :goto_0
 
@@ -2370,9 +2290,7 @@
 .end method
 
 .method public downloadFilePublicToken(Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/DownloadContentsListener;)V
-    .locals 6
-
-    const-wide/16 v4, -0x1
+    .locals 2
 
     const-string v0, "17.DOWNLOAD FILE PUBLIC TOKEN"
 
@@ -2437,21 +2355,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$52;
 
-    const/16 v1, -0xd
+    invoke-direct {v0, p0, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$52;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/DownloadContentsListener;)V
 
-    const-string v2, "authentication failed"
-
-    const-string v3, "unable to authenticate user"
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;-><init>(ILjava/lang/String;Ljava/lang/String;)V
-
-    const-wide/16 v2, -0x1
-
-    invoke-virtual {v0, v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;->setShareId(J)V
-
-    invoke-interface {p3, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/DownloadContentsListener;->onError(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
     :try_end_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -2469,19 +2377,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$53;
 
-    const/16 v1, -0x2e
+    invoke-direct {v0, p0, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$53;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/DownloadContentsListener;)V
 
-    const-string v2, "Security permission error"
-
-    const-string v3, "Security permission error"
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;-><init>(ILjava/lang/String;Ljava/lang/String;)V
-
-    invoke-virtual {v0, v4, v5}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;->setShareId(J)V
-
-    invoke-interface {p3, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/DownloadContentsListener;->onError(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
     goto :goto_0
 
@@ -2500,9 +2400,9 @@
 .method public folderSyncUseGroupId(Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
     .locals 2
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$67;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$80;
 
-    invoke-direct {v0, p0, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$67;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
+    invoke-direct {v0, p0, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$80;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 
     new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentListRequest$Builder;
 
@@ -2564,9 +2464,9 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$70;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$83;
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$70;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/CloudContentsInfoRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$83;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/CloudContentsInfoRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;)V
 
     invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
     :try_end_0
@@ -2587,9 +2487,9 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$71;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$84;
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$71;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/CloudContentsInfoRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$84;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/CloudContentsInfoRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;)V
 
     invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
@@ -2723,7 +2623,7 @@
 .end method
 
 .method public getFileInformationUsingPublicToken(Ljava/lang/String;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;)V
-    .locals 3
+    .locals 2
 
     const-string v0, "16.GET FILE INFORMATION USING PUBLIC TOKEN "
 
@@ -2788,23 +2688,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v0, -0xd
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$50;
 
-    const-string v1, "authentication failed"
+    invoke-direct {v0, p0, p1, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$50;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;)V
 
-    const-string v2, "unable to authenticate user"
-
-    invoke-static {v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;->setPublicToken(Ljava/lang/String;)V
-
-    new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$39;
-
-    invoke-direct {v1, p0, p3, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$39;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
     :try_end_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -2823,21 +2711,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v0, -0x2e
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$51;
 
-    const-string v1, "Security exception"
+    invoke-direct {v0, p0, p1, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$51;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;)V
 
-    const-string v2, "Security exception"
-
-    invoke-static {v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$40;
-
-    invoke-direct {v1, p0, v0, p1, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$40;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;)V
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
     goto :goto_0
 
@@ -2896,21 +2774,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v0, -0xd
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$72;
 
-    const-string v1, "authentication failed"
+    invoke-direct {v0, p0, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$72;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 
-    const-string v2, "unable to authenticate user"
-
-    invoke-static {v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$59;
-
-    invoke-direct {v1, p0, p2, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$59;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
     :try_end_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -2937,21 +2805,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v0, -0x2e
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$73;
 
-    const-string v1, "Security Exception"
+    invoke-direct {v0, p0, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$73;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 
-    const-string v2, "Security Exception"
-
-    invoke-static {v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$60;
-
-    invoke-direct {v1, p0, p2, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$60;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
     goto :goto_0
 
@@ -2976,7 +2834,7 @@
 .end method
 
 .method public getFolderInfo(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/FolderInfoRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;)V
-    .locals 3
+    .locals 2
 
     const-string v0, "19.GET FOLDER INFO"
 
@@ -3001,21 +2859,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v0, -0xd
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$56;
 
-    const-string v1, "authentication failed"
+    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$56;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/FolderInfoRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;)V
 
-    const-string v2, "unable to authenticate user"
-
-    invoke-static {v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$43;
-
-    invoke-direct {v1, p0, v0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$43;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/FolderInfoRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;)V
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
     :try_end_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -3034,21 +2882,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v0, -0x2e
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$57;
 
-    const-string v1, "Security Exception"
+    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$57;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/FolderInfoRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;)V
 
-    const-string v2, "Security Exception"
-
-    invoke-static {v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$44;
-
-    invoke-direct {v1, p0, v0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$44;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/FolderInfoRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;)V
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
     goto :goto_0
 
@@ -3119,9 +2957,9 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$61;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$74;
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$61;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$74;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 
     invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
     :try_end_0
@@ -3142,9 +2980,9 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$62;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$75;
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$62;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$75;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 
     invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
@@ -3173,8 +3011,6 @@
 .method public getOrsPolicy(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;)V
     .locals 4
 
-    const/16 v3, -0xd
-
     const-string v0, "23.GET ORS POLICY"
 
     sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->TAG:Ljava/lang/String;
@@ -3198,21 +3034,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v0, -0xd
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$64;
 
-    const-string v1, "authentication failed"
+    invoke-direct {v0, p0, p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$64;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;)V
 
-    const-string v2, "unable to authenticate user"
-
-    invoke-static {v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$51;
-
-    invoke-direct {v1, p0, p1, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$51;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
     :try_end_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -3231,19 +3057,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string v0, "Security Exception"
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$65;
 
-    const-string v1, "Security Exception"
+    invoke-direct {v0, p0, p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$65;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;)V
 
-    invoke-static {v3, v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$52;
-
-    invoke-direct {v1, p0, p1, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$52;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
     goto :goto_0
 
@@ -3306,9 +3124,9 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$47;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$60;
 
-    invoke-direct {v0, p0, p1, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$47;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
+    invoke-direct {v0, p0, p1, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$60;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 
     invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
     :try_end_0
@@ -3329,9 +3147,9 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$48;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$61;
 
-    invoke-direct {v0, p0, p1, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$48;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
+    invoke-direct {v0, p0, p1, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$61;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 
     invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
@@ -3358,7 +3176,7 @@
 .end method
 
 .method public getServerTimeStamp(Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
-    .locals 3
+    .locals 2
 
     if-nez p1, :cond_0
 
@@ -3400,21 +3218,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v0, -0xd
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$54;
 
-    const-string v1, "authentication failed"
+    invoke-direct {v0, p0, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$54;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 
-    const-string v2, "unable to authenticate user"
-
-    invoke-static {v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$41;
-
-    invoke-direct {v1, p0, v0, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$41;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
     :try_end_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -3433,21 +3241,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v0, -0x2e
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$55;
 
-    const-string v1, "Security Exception"
+    invoke-direct {v0, p0, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$55;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 
-    const-string v2, "Security Exception"
-
-    invoke-static {v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$42;
-
-    invoke-direct {v1, p0, v0, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$42;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
     goto :goto_0
 
@@ -3465,8 +3263,6 @@
 
 .method public getSharePolicy(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/GetSharePolicyListener;)V
     .locals 4
-
-    const/16 v3, -0xd
 
     const-string v0, "24. GET SHARE POLICY"
 
@@ -3491,21 +3287,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v0, -0xd
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$66;
 
-    const-string v1, "authentication failed"
+    invoke-direct {v0, p0, p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$66;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/GetSharePolicyListener;)V
 
-    const-string v2, "unable to authenticate user"
-
-    invoke-static {v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$53;
-
-    invoke-direct {v1, p0, p1, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$53;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/GetSharePolicyListener;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
     :try_end_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -3524,19 +3310,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string v0, "Security Exception"
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$67;
 
-    const-string v1, "Security Exception"
+    invoke-direct {v0, p0, p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$67;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/GetSharePolicyListener;)V
 
-    invoke-static {v3, v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$54;
-
-    invoke-direct {v1, p0, p1, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$54;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/GetSharePolicyListener;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
     goto :goto_0
 
@@ -3584,9 +3362,9 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$35;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$46;
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$35;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentChangeInfoRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ContentsInfoListener;)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$46;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentChangeInfoRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ContentsInfoListener;)V
 
     invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
     :try_end_0
@@ -3607,9 +3385,9 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$36;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$47;
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$36;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentChangeInfoRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ContentsInfoListener;)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$47;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentChangeInfoRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ContentsInfoListener;)V
 
     invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
@@ -3653,9 +3431,9 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$33;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$44;
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$33;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ContentsInfoListener;)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$44;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ContentsInfoListener;)V
 
     invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
@@ -3685,9 +3463,9 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$34;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$45;
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$34;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ContentsInfoListener;)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$45;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentInfoRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ContentsInfoListener;)V
 
     invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
@@ -3891,9 +3669,9 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$31;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$42;
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$31;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentListRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ContentsInfoListener;)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$42;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentListRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ContentsInfoListener;)V
 
     invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
@@ -3923,9 +3701,9 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$32;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$43;
 
-    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$32;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentListRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ContentsInfoListener;)V
+    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$43;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/ContentListRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ContentsInfoListener;)V
 
     invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
@@ -4119,9 +3897,9 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$63;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$76;
 
-    invoke-direct {v0, p0, p1, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$63;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
+    invoke-direct {v0, p0, p1, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$76;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 
     invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
     :try_end_0
@@ -4142,9 +3920,9 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$64;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$77;
 
-    invoke-direct {v0, p0, p1, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$64;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
+    invoke-direct {v0, p0, p1, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$77;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 
     invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
@@ -4173,7 +3951,7 @@
 .end method
 
 .method public lockObject(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LockObjectRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;)V
-    .locals 3
+    .locals 2
 
     const-string v0, "25.LOCK OBJECT"
 
@@ -4198,21 +3976,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v0, -0xd
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$68;
 
-    const-string v1, "authentication failed"
+    invoke-direct {v0, p0, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$68;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;)V
 
-    const-string v2, "unable to authenticate user"
-
-    invoke-static {v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$55;
-
-    invoke-direct {v1, p0, p2, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$55;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
     :try_end_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -4231,21 +3999,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v0, -0x2e
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$69;
 
-    const-string v1, "Security Exception"
+    invoke-direct {v0, p0, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$69;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;)V
 
-    const-string v2, "Security Exception"
-
-    invoke-static {v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$56;
-
-    invoke-direct {v1, p0, p2, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$56;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
     goto :goto_0
 
@@ -4322,9 +4080,9 @@
 
     if-nez v0, :cond_0
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$21;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$32;
 
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$21;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;JLcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
+    invoke-direct {v0, p0, p1, p2, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$32;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;JLcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 
     invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
@@ -4362,9 +4120,9 @@
 
     invoke-virtual {v0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/TransactionMap;->remove(J)Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/Transaction;
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$22;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$33;
 
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$22;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;JLcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
+    invoke-direct {v0, p0, p1, p2, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$33;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;JLcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 
     invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
@@ -4506,9 +4264,57 @@
     goto :goto_2
 
     :cond_2
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$68;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$81;
 
-    invoke-direct {v0, p0, v4, p1, v5}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$68;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Ljava/util/ArrayList;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;Ljava/util/ArrayList;)V
+    invoke-direct {v0, p0, v4, p1, v5}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$81;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Ljava/util/ArrayList;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;Ljava/util/ArrayList;)V
+
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
+
+    goto :goto_0
+.end method
+
+.method public pauseUploadContentsToSamsungCloud(JLcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
+    .locals 3
+
+    const-string v0, "pause to samsung cloud"
+
+    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->TAG:Ljava/lang/String;
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->mTrBusyMap:Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/TransactionMap;
+
+    invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/TransactionMap;->get(Ljava/lang/Object;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/Transaction;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/Transaction;->pause(I)V
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->mTrBusyMap:Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/TransactionMap;
+
+    invoke-virtual {v0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/TransactionMap;->remove(J)Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/Transaction;
+
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$89;
+
+    invoke-direct {v0, p0, p1, p2, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$89;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;JLcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
+
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
+
+    :goto_0
+    return-void
+
+    :cond_0
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$90;
+
+    invoke-direct {v0, p0, p1, p2, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$90;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;JLcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 
     invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
@@ -4570,8 +4376,6 @@
 .method public removeDirectoryPrivate(Ljava/lang/String;ZJLcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
     .locals 9
 
-    const/4 v3, 0x0
-
     const-string v0, "4. REMOVE DIRECTORY PRIVATE"
 
     sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->TAG:Ljava/lang/String;
@@ -4632,19 +4436,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v0, -0xd
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$18;
 
-    const-string v1, "user not authenticated"
+    invoke-direct {v0, p0, p1, p5}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$18;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 
-    const/4 v2, 0x0
-
-    invoke-static {v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;->setDirectory(Ljava/lang/String;)V
-
-    invoke-interface {p5, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;->onError(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
     :try_end_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -4662,17 +4458,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v0, -0x2e
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$19;
 
-    const-string v1, "Permission exception"
+    invoke-direct {v0, p0, p1, p5}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$19;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 
-    invoke-static {v0, v1, v3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
-
-    move-result-object v0
-
-    invoke-virtual {v0, p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;->setDirectory(Ljava/lang/String;)V
-
-    invoke-interface {p5, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;->onError(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
     goto :goto_0
 
@@ -4757,21 +4547,13 @@
 
     invoke-static {v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v2, -0xd
-
-    const-string v3, "user not authenticated"
-
-    const/4 v4, 0x0
-
-    invoke-static {v2, v3, v4}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;->setDirectory(Ljava/lang/String;)V
+    new-instance v2, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$20;
 
     move-object/from16 v0, p6
 
-    invoke-interface {v0, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;->onError(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
+    invoke-direct {v2, p0, p1, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$20;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
+
+    invoke-static {v2}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
     :try_end_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -4789,21 +4571,13 @@
 
     invoke-static {v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v2, -0x2e
-
-    const-string v3, "Permission exception"
-
-    const/4 v4, 0x0
-
-    invoke-static {v2, v3, v4}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
-
-    move-result-object v2
-
-    invoke-virtual {v2, p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;->setDirectory(Ljava/lang/String;)V
+    new-instance v2, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$21;
 
     move-object/from16 v0, p6
 
-    invoke-interface {v0, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;->onError(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
+    invoke-direct {v2, p0, p1, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$21;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
+
+    invoke-static {v2}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
     goto :goto_0
 
@@ -4930,8 +4704,6 @@
 .method public resumeDownload(JLcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/DownloadContentsListener;Landroid/os/Bundle;)V
     .locals 11
 
-    const-wide/16 v4, -0x1
-
     const-string v0, "11. RESUME DOWNLOAD"
 
     sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->TAG:Ljava/lang/String;
@@ -4955,27 +4727,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$40;
 
-    const/16 v1, -0xd
+    invoke-direct {v0, p0, p4, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$40;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Landroid/os/Bundle;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/DownloadContentsListener;)V
 
-    const-string v2, "authentication failed"
-
-    const-string v3, "unable to authenticate user"
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;-><init>(ILjava/lang/String;Ljava/lang/String;)V
-
-    invoke-virtual {v0, p4}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;->setUserData(Landroid/os/Bundle;)V
-
-    const-wide/16 v2, -0x1
-
-    invoke-virtual {v0, v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;->setShareId(J)V
-
-    new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$29;
-
-    invoke-direct {v1, p0, p3, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$29;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/DownloadContentsListener;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
     :try_end_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -4993,25 +4749,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$41;
 
-    const/16 v1, -0x2e
+    invoke-direct {v0, p0, p4, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$41;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Landroid/os/Bundle;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/DownloadContentsListener;)V
 
-    const-string v2, "Security permission error"
-
-    const-string v3, "Security permission error"
-
-    invoke-direct {v0, v1, v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;-><init>(ILjava/lang/String;Ljava/lang/String;)V
-
-    invoke-virtual {v0, p4}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;->setUserData(Landroid/os/Bundle;)V
-
-    invoke-virtual {v0, v4, v5}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;->setShareId(J)V
-
-    new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$30;
-
-    invoke-direct {v1, p0, p3, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$30;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/DownloadContentsListener;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
     goto :goto_0
 
@@ -5095,21 +4837,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v0, -0xd
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$34;
 
-    const-string v1, "authentication failed"
+    invoke-direct {v0, p0, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$34;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadShareContentsListener;)V
 
-    const-string v2, "unable to authenticate user"
-
-    invoke-static {v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$23;
-
-    invoke-direct {v1, p0, p3, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$23;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadShareContentsListener;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
     :try_end_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -5130,21 +4862,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v0, -0x2e
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$35;
 
-    const-string v1, "Security permission error"
+    invoke-direct {v0, p0, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$35;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadShareContentsListener;)V
 
-    const-string v2, "Security permission error"
-
-    invoke-static {v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$24;
-
-    invoke-direct {v1, p0, p3, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$24;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadShareContentsListener;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
     goto :goto_0
 
@@ -5218,21 +4940,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v0, -0xd
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$38;
 
-    const-string v1, "authentication failed"
+    invoke-direct {v0, p0, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$38;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadContentsListener;)V
 
-    const-string v2, "unable to authenticate user"
-
-    invoke-static {v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$27;
-
-    invoke-direct {v1, p0, p3, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$27;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadContentsListener;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
     :try_end_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -5251,21 +4963,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v0, -0x2e
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$39;
 
-    const-string v1, "Security permission error"
+    invoke-direct {v0, p0, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$39;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadContentsListener;)V
 
-    const-string v2, "Security permission error"
-
-    invoke-static {v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$28;
-
-    invoke-direct {v1, p0, p3, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$28;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadContentsListener;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
     goto :goto_0
 
@@ -5341,21 +5043,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v0, -0xd
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$36;
 
-    const-string v1, "authentication failed"
+    invoke-direct {v0, p0, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$36;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadShareContentsListener;)V
 
-    const-string v2, "unable to authenticate user"
-
-    invoke-static {v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$25;
-
-    invoke-direct {v1, p0, p3, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$25;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadShareContentsListener;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
     :try_end_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -5376,21 +5068,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v0, -0x2e
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$37;
 
-    const-string v1, "Security permission error"
+    invoke-direct {v0, p0, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$37;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadShareContentsListener;)V
 
-    const-string v2, "Security permission error"
-
-    invoke-static {v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$26;
-
-    invoke-direct {v1, p0, p3, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$26;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadShareContentsListener;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
     goto :goto_0
 
@@ -5725,7 +5407,7 @@
 .end method
 
 .method public shareMessage(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/MessageShareRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
-    .locals 3
+    .locals 2
 
     const-string v0, "15.SHARE MESSAGE"
 
@@ -5750,21 +5432,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v0, -0xd
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$48;
 
-    const-string v1, "authentication failed"
+    invoke-direct {v0, p0, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$48;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 
-    const-string v2, "unable to authenticate user"
-
-    invoke-static {v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$37;
-
-    invoke-direct {v1, p0, p2, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$37;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
     :try_end_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -5783,21 +5455,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v0, -0x2e
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$49;
 
-    const-string v1, "Security Exception"
+    invoke-direct {v0, p0, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$49;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 
-    const-string v2, "Security Exception"
-
-    invoke-static {v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$38;
-
-    invoke-direct {v1, p0, p2, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$38;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
     goto :goto_0
 
@@ -5858,9 +5520,9 @@
 
     if-nez v1, :cond_1
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$19;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$30;
 
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$19;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;JLcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
+    invoke-direct {v0, p0, p1, p2, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$30;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;JLcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 
     invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
@@ -5899,9 +5561,9 @@
     invoke-virtual {v0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/TransactionMap;->remove(J)Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/Transaction;
 
     :cond_1
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$20;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$31;
 
-    invoke-direct {v0, p0, p1, p2, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$20;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;JLcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
+    invoke-direct {v0, p0, p1, p2, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$31;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;JLcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 
     invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
@@ -5937,35 +5599,27 @@
 
     invoke-virtual {v0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/TransactionMap;->remove(J)Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/Transaction;
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/ShareResponse;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$87;
 
-    invoke-direct {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/ShareResponse;-><init>()V
+    invoke-direct {v0, p0, p1, p2, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$87;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;JLcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 
-    invoke-static {p1, p2}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/ShareResponse;->setShareId(Ljava/lang/Long;)V
-
-    invoke-interface {p3, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;->onSuccess(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/ShareResponse;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
     :goto_0
     return-void
 
     :cond_0
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$88;
 
-    invoke-direct {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;-><init>()V
+    invoke-direct {v0, p0, p1, p2, p3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$88;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;JLcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 
-    invoke-virtual {v0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;->setShareId(J)V
-
-    invoke-interface {p3, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;->onError(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
     goto :goto_0
 .end method
 
 .method public touchObject(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/TouchObjectRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;)V
-    .locals 3
+    .locals 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -5992,21 +5646,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v0, -0xd
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$62;
 
-    const-string v1, "authentication failed"
+    invoke-direct {v0, p0, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$62;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;)V
 
-    const-string v2, "unable to authenticate user"
-
-    invoke-static {v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$49;
-
-    invoke-direct {v1, p0, p2, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$49;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
     :try_end_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -6025,21 +5669,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v0, -0x2e
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$63;
 
-    const-string v1, "Security exception"
+    invoke-direct {v0, p0, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$63;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;)V
 
-    const-string v2, "Security exception"
-
-    invoke-static {v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$50;
-
-    invoke-direct {v1, p0, p2, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$50;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
     goto :goto_0
 
@@ -6056,7 +5690,7 @@
 .end method
 
 .method public unlockObject(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LockObjectRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;)V
-    .locals 3
+    .locals 2
 
     const-string v0, "26.UNLOCK OBJECT"
 
@@ -6081,21 +5715,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v0, -0xd
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$70;
 
-    const-string v1, "authentication failed"
+    invoke-direct {v0, p0, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$70;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;)V
 
-    const-string v2, "unable to authenticate user"
-
-    invoke-static {v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$57;
-
-    invoke-direct {v1, p0, p2, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$57;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
     :try_end_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -6122,21 +5746,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v0, -0x2e
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$71;
 
-    const-string v1, "Security Exception"
+    invoke-direct {v0, p0, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$71;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;)V
 
-    const-string v2, "Security Exception"
-
-    invoke-static {v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
-
-    move-result-object v0
-
-    new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$58;
-
-    invoke-direct {v1, p0, p2, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$58;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/CloudListener;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
     goto :goto_0
 
@@ -6252,11 +5866,11 @@
 
     invoke-static {v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v2, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$11;
+    new-instance v2, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$14;
 
     move-object/from16 v0, p7
 
-    invoke-direct {v2, p0, p1, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$11;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
+    invoke-direct {v2, p0, p1, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$14;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 
     invoke-static {v2}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
     :try_end_0
@@ -6277,11 +5891,11 @@
 
     invoke-static {v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    new-instance v2, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$12;
+    new-instance v2, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$15;
 
     move-object/from16 v0, p7
 
-    invoke-direct {v2, p0, p1, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$12;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
+    invoke-direct {v2, p0, p1, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$15;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 
     invoke-static {v2}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
@@ -6357,7 +5971,7 @@
 .end method
 
 .method public updateSharedContents(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadShareContentsRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadShareContentsListener;)V
-    .locals 4
+    .locals 2
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 
@@ -6384,27 +5998,11 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v0, -0xd
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$11;
 
-    const-string v1, "authentication failed"
+    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$11;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadShareContentsRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadShareContentsListener;)V
 
-    const-string v2, "unable to authenticate user"
-
-    invoke-static {v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
-
-    move-result-object v0
-
-    invoke-virtual {p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadShareContentsRequest;->getRequestToken()J
-
-    move-result-wide v2
-
-    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;->setRequestToken(Ljava/lang/Long;)V
-
-    invoke-interface {p2, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadShareContentsListener;->onError(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
     :try_end_0
     .catch Ljava/lang/SecurityException; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -6422,44 +6020,22 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    const/16 v0, -0x2e
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$12;
 
-    const-string v1, "Security Permission"
+    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$12;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadShareContentsRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadShareContentsListener;)V
 
-    const-string v2, "Security Permission"
-
-    invoke-static {v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
-
-    move-result-object v0
-
-    invoke-virtual {p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadShareContentsRequest;->getRequestToken()J
-
-    move-result-wide v2
-
-    invoke-static {v2, v3}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;->setRequestToken(Ljava/lang/Long;)V
-
-    invoke-interface {p2, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadShareContentsListener;->onError(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
     goto :goto_0
 
     :cond_0
     if-eqz p2, :cond_1
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/ShareResponse;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$13;
 
-    invoke-direct {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/ShareResponse;-><init>()V
+    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$13;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadShareContentsRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadShareContentsListener;)V
 
-    invoke-virtual {p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadShareContentsRequest;->getRequestToken()J
-
-    move-result-wide v2
-
-    invoke-virtual {v0, v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/ShareResponse;->initPreparingShareResponse(J)V
-
-    invoke-interface {p2, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadShareContentsListener;->onPreparingShare(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/ShareResponse;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
     :cond_1
     invoke-direct {p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->startUploading(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/BasicUploadRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/BasicListener;)V
@@ -6508,7 +6084,7 @@
 .end method
 
 .method public uploadContentsFromSamsungCloud(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContentsFromSamsungCloudRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadShareContentsListener;)V
-    .locals 4
+    .locals 2
 
     const-string v0, "3.25 LINK FILE"
 
@@ -6536,19 +6112,11 @@
     throw v0
 
     :cond_1
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/ShareResponse;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$85;
 
-    invoke-direct {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/ShareResponse;-><init>()V
+    invoke-direct {v0, p0, p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$85;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContentsFromSamsungCloudRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadShareContentsListener;)V
 
-    invoke-virtual {p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContentsFromSamsungCloudRequest;->getRequestToken()I
-
-    move-result v1
-
-    int-to-long v2, v1
-
-    invoke-virtual {v0, v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/ShareResponse;->initPreparingShareResponse(J)V
-
-    invoke-interface {p2, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadShareContentsListener;->onPreparingShare(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/ShareResponse;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
     new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsFromSamsungCloudTransaction;
 
@@ -6767,7 +6335,7 @@
 .end method
 
 .method public uploadContentsToSamsungCloud(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContentsToSamsungCloudRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadSamsungCloudListener;)V
-    .locals 6
+    .locals 10
 
     const-string v0, "3.26.1, 3.26.2, 3.26.3, 3.25 combine api"
 
@@ -6819,11 +6387,19 @@
 
     invoke-virtual {v1, v4, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/TransactionMap;->add(Ljava/lang/Object;Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/Transaction;)V
 
-    invoke-virtual {p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContentsToSamsungCloudRequest;->getRequestToken()J
+    new-instance v4, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$86;
 
-    move-result-wide v0
+    move-object v5, p0
 
-    invoke-interface {p2, v0, v1, v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadSamsungCloudListener;->onPreparingUpload(JJ)V
+    move-object v6, p2
+
+    move-object v7, p1
+
+    move-wide v8, v2
+
+    invoke-direct/range {v4 .. v9}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare$86;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadSamsungCloudListener;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContentsToSamsungCloudRequest;J)V
+
+    invoke-static {v4}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
     return-void
 .end method

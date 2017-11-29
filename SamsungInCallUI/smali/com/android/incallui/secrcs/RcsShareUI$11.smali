@@ -1,140 +1,153 @@
-.class synthetic Lcom/android/incallui/secrcs/RcsShareUI$11;
+.class Lcom/android/incallui/secrcs/RcsShareUI$11;
 .super Ljava/lang/Object;
+
+# interfaces
+.implements Lcom/sec/ims/options/CapabilityManager$ConnectionListener;
 
 
 # annotations
-.annotation system Ldalvik/annotation/EnclosingClass;
-    value = Lcom/android/incallui/secrcs/RcsShareUI;
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lcom/android/incallui/secrcs/RcsShareUI;->connectionListener()Lcom/sec/ims/options/CapabilityManager$ConnectionListener;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
-    accessFlags = 0x1008
+    accessFlags = 0x0
     name = null
 .end annotation
 
 
-# static fields
-.field static final synthetic $SwitchMap$com$android$incallui$secrcs$RcsTransferConstants$SessionType:[I
+# instance fields
+.field final synthetic this$0:Lcom/android/incallui/secrcs/RcsShareUI;
 
 
 # direct methods
-.method static constructor <clinit>()V
+.method constructor <init>(Lcom/android/incallui/secrcs/RcsShareUI;)V
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/incallui/secrcs/RcsShareUI$11;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public onConnected()V
     .locals 3
-
-    invoke-static {}, Lcom/android/incallui/secrcs/RcsTransferConstants$SessionType;->values()[Lcom/android/incallui/secrcs/RcsTransferConstants$SessionType;
-
-    move-result-object v0
-
-    array-length v0, v0
-
-    new-array v0, v0, [I
-
-    sput-object v0, Lcom/android/incallui/secrcs/RcsShareUI$11;->$SwitchMap$com$android$incallui$secrcs$RcsTransferConstants$SessionType:[I
-
-    :try_start_0
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI$11;->$SwitchMap$com$android$incallui$secrcs$RcsTransferConstants$SessionType:[I
-
-    sget-object v1, Lcom/android/incallui/secrcs/RcsTransferConstants$SessionType;->IMAGE_SHARE:Lcom/android/incallui/secrcs/RcsTransferConstants$SessionType;
-
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
-
-    move-result v1
 
     const/4 v2, 0x1
 
-    aput v2, v0, v1
+    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$000()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "CapabilityManager connected"
+
+    invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/incallui/InCallPresenter;->getActivity()Lcom/android/incallui/InCallActivity;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/incallui/InCallPresenter;->getActivity()Lcom/android/incallui/InCallActivity;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/incallui/InCallActivity;->getCallButtonFragment()Lcom/android/incallui/CallButtonUi;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-static {}, Lcom/android/incallui/InCallPresenter;->getInstance()Lcom/android/incallui/InCallPresenter;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/incallui/InCallPresenter;->getActivity()Lcom/android/incallui/InCallActivity;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/incallui/InCallActivity;->getCallButtonFragment()Lcom/android/incallui/CallButtonUi;
+
+    move-result-object v0
+
+    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$500()Lcom/android/incallui/Call;
+
+    move-result-object v1
+
+    invoke-interface {v0, v1}, Lcom/android/incallui/CallButtonUi;->updateCallButtons(Lcom/android/incallui/Call;)V
+
+    :cond_0
+    :try_start_0
+    iget-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI$11;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
+
+    invoke-static {v0}, Lcom/android/incallui/secrcs/RcsShareUI;->access$2900(Lcom/android/incallui/secrcs/RcsShareUI;)Lcom/sec/ims/options/CapabilityManager;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_1
+
+    iget-object v0, p0, Lcom/android/incallui/secrcs/RcsShareUI$11;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
+
+    invoke-static {v0}, Lcom/android/incallui/secrcs/RcsShareUI;->access$2900(Lcom/android/incallui/secrcs/RcsShareUI;)Lcom/sec/ims/options/CapabilityManager;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/android/incallui/secrcs/RcsShareUI$11;->this$0:Lcom/android/incallui/secrcs/RcsShareUI;
+
+    invoke-static {v1}, Lcom/android/incallui/secrcs/RcsShareUI;->access$3000(Lcom/android/incallui/secrcs/RcsShareUI;)Lcom/sec/ims/options/CapabilityListener;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/sec/ims/options/CapabilityManager;->registerListener(Lcom/sec/ims/options/CapabilityListener;)V
     :try_end_0
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_0 .. :try_end_0} :catch_4
+    .catch Landroid/os/RemoteException; {:try_start_0 .. :try_end_0} :catch_0
 
+    :cond_1
     :goto_0
-    :try_start_1
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI$11;->$SwitchMap$com$android$incallui$secrcs$RcsTransferConstants$SessionType:[I
-
-    sget-object v1, Lcom/android/incallui/secrcs/RcsTransferConstants$SessionType;->VIDEO_SHARE:Lcom/android/incallui/secrcs/RcsTransferConstants$SessionType;
-
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x2
-
-    aput v2, v0, v1
-    :try_end_1
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_1 .. :try_end_1} :catch_3
-
-    :goto_1
-    :try_start_2
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI$11;->$SwitchMap$com$android$incallui$secrcs$RcsTransferConstants$SessionType:[I
-
-    sget-object v1, Lcom/android/incallui/secrcs/RcsTransferConstants$SessionType;->FILE_TRANSFER:Lcom/android/incallui/secrcs/RcsTransferConstants$SessionType;
-
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x3
-
-    aput v2, v0, v1
-    :try_end_2
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_2 .. :try_end_2} :catch_2
-
-    :goto_2
-    :try_start_3
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI$11;->$SwitchMap$com$android$incallui$secrcs$RcsTransferConstants$SessionType:[I
-
-    sget-object v1, Lcom/android/incallui/secrcs/RcsTransferConstants$SessionType;->IM:Lcom/android/incallui/secrcs/RcsTransferConstants$SessionType;
-
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x4
-
-    aput v2, v0, v1
-    :try_end_3
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_3 .. :try_end_3} :catch_1
-
-    :goto_3
-    :try_start_4
-    sget-object v0, Lcom/android/incallui/secrcs/RcsShareUI$11;->$SwitchMap$com$android$incallui$secrcs$RcsTransferConstants$SessionType:[I
-
-    sget-object v1, Lcom/android/incallui/secrcs/RcsTransferConstants$SessionType;->IM_GROUP:Lcom/android/incallui/secrcs/RcsTransferConstants$SessionType;
-
-    invoke-virtual {v1}, Ljava/lang/Enum;->ordinal()I
-
-    move-result v1
-
-    const/4 v2, 0x5
-
-    aput v2, v0, v1
-    :try_end_4
-    .catch Ljava/lang/NoSuchFieldError; {:try_start_4 .. :try_end_4} :catch_0
-
-    :goto_4
     return-void
 
     :catch_0
     move-exception v0
 
-    goto :goto_4
+    const-string v1, "RemoteException ConnectionListener :"
 
-    :catch_1
-    move-exception v0
+    invoke-static {p0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Z)V
 
-    goto :goto_3
-
-    :catch_2
-    move-exception v0
-
-    goto :goto_2
-
-    :catch_3
-    move-exception v0
-
-    goto :goto_1
-
-    :catch_4
-    move-exception v0
+    invoke-virtual {v0}, Landroid/os/RemoteException;->printStackTrace()V
 
     goto :goto_0
+.end method
+
+.method public onDisconnected()V
+    .locals 3
+
+    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->access$000()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "CapabilityManager disconnected"
+
+    const/4 v2, 0x1
+
+    invoke-static {v0, v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
+
+    return-void
 .end method

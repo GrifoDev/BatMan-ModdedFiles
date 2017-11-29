@@ -53,7 +53,7 @@
 
     if-eqz v0, :cond_2
 
-    const v0, 0x7f1003a9
+    const v0, 0x7f1003af
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -72,7 +72,7 @@
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
     :cond_0
-    const v0, 0x7f100369
+    const v0, 0x7f10036f
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -82,7 +82,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/view/CallCardJanskyView;->mMultiLineName:Landroid/widget/TextView;
 
-    const v0, 0x7f100368
+    const v0, 0x7f10036e
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -92,7 +92,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/view/CallCardJanskyView;->mMultiLineIcon:Landroid/widget/ImageView;
 
-    const v0, 0x7f1003be
+    const v0, 0x7f1003c2
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -111,7 +111,7 @@
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
     :cond_1
-    const v0, 0x7f1003f3
+    const v0, 0x7f1003f7
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -621,7 +621,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f0e0161
+    const v3, 0x7f0e0179
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -633,7 +633,7 @@
 
     move-result-object v0
 
-    const v4, 0x7f0e0162
+    const v4, 0x7f0e017a
 
     invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getColor(I)I
 

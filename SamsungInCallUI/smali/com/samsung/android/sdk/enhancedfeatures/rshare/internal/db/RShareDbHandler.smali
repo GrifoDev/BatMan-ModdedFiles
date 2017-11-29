@@ -1581,22 +1581,6 @@
     goto/16 :goto_0
 .end method
 
-.method private notifyChange(Landroid/net/Uri;)V
-    .locals 2
-
-    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/db/RShareDbHandler;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const/4 v1, 0x0
-
-    invoke-virtual {v0, p1, v1}, Landroid/content/ContentResolver;->notifyChange(Landroid/net/Uri;Landroid/database/ContentObserver;)V
-
-    return-void
-.end method
-
 .method public static open(Landroid/content/Context;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/db/RShareDbHandler;
     .locals 1
 

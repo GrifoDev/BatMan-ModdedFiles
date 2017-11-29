@@ -184,6 +184,7 @@
     <string name="agif_decline_sticker_header">Zavrnitev z nalepko</string>
     <string name="agif_decline_text_header">Zavrnitev z besedilom</string>
     <string name="agif_decline_toast">Nalepka poslana osebi %s.</string>
+    <string name="agif_outgoing_bubble_tip">Izberite nalepko, ki kaže vaše počutje.</string>
     <string name="agif_pickers_add_tab_description">Dodaj</string>
     <string name="agif_pickers_find_more">Najdi več</string>
     <string name="agif_pickers_item_usage_hints_description">Dvakrat pritisnite, da izberete</string>
@@ -192,10 +193,12 @@
     <string name="agif_pickers_tab_select_description">Izbrano</string>
     <string name="agif_pickers_title">Začnite z nalepko</string>
     <string name="agif_pickers_title_recommended">Priporočeno</string>
+    <string name="agif_random_send_message">Pritisnite tukaj, da pošljete to nalepko.</string>
     <string name="agif_read_permission_description">Telefonu omogoča branje vsebine AGIF.</string>
     <string name="agif_read_permission_label">Branje vsebine AGIF</string>
     <string name="agif_receive_no_id">Nalepke ni mogoče prikazati. Po klicu posodobite aplikacijo %s.</string>
     <string name="agif_receive_no_id_upsupport_update">Nalepke ni mogoče prikazati. Več nalepk bo na voljo po naslednji posodobitvi sistema.</string>
+    <string name="agif_receive_toast">Oseba %s je poslala nalepko.</string>
     <string name="agif_sent_fail_message">Animirane datoteke GIF ni mogoče poslati. Poskusite znova pozneje.</string>
     <string name="agif_sent_toast">Nalepka je bila poslana.</string>
     <string name="agif_write_permission_description">Telefonu omogoča spreminjanje vsebine AGIF.</string>
@@ -885,8 +888,8 @@ kamera"</string>
     <string name="tts_pager">Stran %1$d od %2$d</string>
     <string name="tts_seconds">%d sekund</string>
     <string name="tty_mode_option_title">Način TTY</string>
-    <string name="tutorial_incoming_call_app_answer">Pritisnite, da sprejmete klic.</string>
-    <string name="tutorial_incoming_call_app_reject">Pritisnite, da zavrnete klic.</string>
+    <string name="tutorial_incoming_call_app_answer">Dvakrat pritisnite za odgovor.</string>
+    <string name="tutorial_incoming_call_app_reject">Dvakrat pritisnite za zavrnitev.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Z omrežjem se ni mogoče povezati. Preverite nastavitve povezave in poskusite znova.</string>
     <string name="units_kb">KB</string>
@@ -896,7 +899,7 @@ kamera"</string>
     <string name="upload_using_wlan_only">Prenos samo prek WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Naloži prek omrežja Wi-Fi ali mobilnega omrežja</string>
     <string name="upload_wlan_and_mobile_nw">Naloži prek WLAN ali mobilnega omrežja</string>
-    <string name="usa_att_connected_as_voice">Vzpostavljen je samo glasovni klic.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Poraba podatkov, ki ste jo nastavili v napravi, bo kmalu dosegla omejitev. Video klic zahteva podatke.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Klicanje prek omrežja Wi-Fi ni mogoče, povezovanje z mobilnim omrežjem. Zaračunani bodo stroški za glasovne storitve in prenos podatkov.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -946,11 +949,15 @@ enosmerni video"</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Uporaba funkcije Prenos podatkov prek mobilnega omrežja</string>
     <string name="usa_vzw_volte_weak_wifi_text">"Poskusili smo, vendar video klica ni mogoče preklopiti v omrežje Wi-Fi.
 
-Video klic še vedno poteka prek mobilnega omrežja. (Če se odločite nadaljevati, bodo veljali stroški porabe podatkov.)"</string>
+Video klic še vedno poteka prek mobilnega omrežja.
+
+Če se odločite nadaljevati, lahko nastanejo stroški porabe podatkov."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Video klic še vedno poteka prek mobilnega omrežja. (Veljajo stroški porabe podatkov.)</string>
     <string name="usa_vzw_vowifi_wifi_low_signal_text">"Signal omrežja Wi-Fi ni bil dovolj močan za nadaljevanje video klica.
 
-Video klic zdaj poteka prek mobilnega omrežja. (Če se odločite nadaljevati, bodo veljali stroški porabe podatkov.)"</string>
+Video klic zdaj poteka prek mobilnega omrežja.
+
+Če se odločite nadaljevati, lahko nastanejo stroški porabe podatkov."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Povezava Wi-Fi je prekinjena. Klic je končan.</string>
     <string name="use_wifi_and_mobile_nw">Uporabi Wi-Fi in mobilna omrežja</string>
     <string name="use_wlan_and_mobile_nw">Uporabi omrežje WLAN in mobilna omrežja</string>

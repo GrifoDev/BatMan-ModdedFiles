@@ -168,7 +168,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0529
+    const v2, 0x7f0a0563
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -437,7 +437,7 @@
 .method private updateCallStateLabel(Lcom/android/incallui/remotecall/remotecall/RemoteCall;)V
     .locals 4
 
-    const v2, 0x7f09062b
+    const v2, 0x7f09062e
 
     const/4 v3, 0x0
 
@@ -522,7 +522,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f090629
+    const v2, 0x7f09062c
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -562,7 +562,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f09062e
+    const v2, 0x7f090631
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -591,7 +591,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f09062c
+    const v2, 0x7f09062f
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -932,7 +932,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0400a6
+    const v1, 0x7f0400a7
 
     invoke-virtual {v0, v1, p1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -956,7 +956,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/remotecall/RemoteCallPopupService;->mRemoteCallPopup:Landroid/widget/RelativeLayout;
 
-    const v1, 0x7f1001ef
+    const v1, 0x7f1001f3
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -968,7 +968,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/remotecall/RemoteCallPopupService;->mRemoteCallPopup:Landroid/widget/RelativeLayout;
 
-    const v1, 0x7f10024b
+    const v1, 0x7f10024f
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -984,7 +984,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/remotecall/RemoteCallPopupService;->mRemoteCallPopup:Landroid/widget/RelativeLayout;
 
-    const v1, 0x7f100251
+    const v1, 0x7f100255
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -994,7 +994,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/remotecall/RemoteCallPopupService;->mRemoteCallPopup:Landroid/widget/RelativeLayout;
 
-    const v1, 0x7f1000d0
+    const v1, 0x7f1000d4
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -1006,7 +1006,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/remotecall/RemoteCallPopupService;->mRemoteCallPopup:Landroid/widget/RelativeLayout;
 
-    const v1, 0x7f100252
+    const v1, 0x7f100256
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -1018,7 +1018,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/remotecall/RemoteCallPopupService;->mRemoteCallPopup:Landroid/widget/RelativeLayout;
 
-    const v1, 0x7f100253
+    const v1, 0x7f100257
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -1030,7 +1030,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/remotecall/RemoteCallPopupService;->mRemoteCallPopup:Landroid/widget/RelativeLayout;
 
-    const v1, 0x7f10012a
+    const v1, 0x7f10012e
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -1042,7 +1042,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/remotecall/RemoteCallPopupService;->mRemoteCallPopup:Landroid/widget/RelativeLayout;
 
-    const v1, 0x7f10014f
+    const v1, 0x7f100153
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -1054,7 +1054,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/remotecall/RemoteCallPopupService;->mRemoteCallPopup:Landroid/widget/RelativeLayout;
 
-    const v1, 0x7f10020f
+    const v1, 0x7f100213
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -1066,7 +1066,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/remotecall/RemoteCallPopupService;->mRemoteCallPopup:Landroid/widget/RelativeLayout;
 
-    const v1, 0x7f10020a
+    const v1, 0x7f10020e
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 
@@ -1078,7 +1078,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/remotecall/RemoteCallPopupService;->mRemoteCallPopup:Landroid/widget/RelativeLayout;
 
-    const v1, 0x7f100254
+    const v1, 0x7f100258
 
     invoke-virtual {v0, v1}, Landroid/widget/RelativeLayout;->findViewById(I)Landroid/view/View;
 

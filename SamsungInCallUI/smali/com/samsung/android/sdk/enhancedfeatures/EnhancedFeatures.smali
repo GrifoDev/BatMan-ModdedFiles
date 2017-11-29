@@ -1941,6 +1941,27 @@
 
     invoke-static {v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/SDKLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
+    sget v1, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    const/16 v2, 0x1a
+
+    if-lt v1, v2, :cond_2
+
+    invoke-static {p1, v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/transaction/SppAckJob;->startJobService(Landroid/content/Context;Ljava/lang/String;)V
+
+    :cond_0
+    :goto_0
+    invoke-static {p2}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/RecentPushList;->isDuplicated(Landroid/content/Intent;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    :cond_1
+    :goto_1
+    return-void
+
+    :cond_2
     new-instance v1, Landroid/content/Intent;
 
     const-class v2, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/transaction/SppAckService;
@@ -1953,18 +1974,9 @@
 
     invoke-virtual {p1, v1}, Landroid/content/Context;->startService(Landroid/content/Intent;)Landroid/content/ComponentName;
 
-    :cond_0
-    invoke-static {p2}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/RecentPushList;->isDuplicated(Landroid/content/Intent;)Z
+    goto :goto_0
 
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    :cond_1
-    :goto_0
-    return-void
-
-    :cond_2
+    :cond_3
     const-string v0, "sessionInfo"
 
     invoke-virtual {p2, v0}, Landroid/content/Intent;->getStringExtra(Ljava/lang/String;)Ljava/lang/String;
@@ -1983,9 +1995,9 @@
 
     div-int v0, v1, v3
 
-    if-lez v0, :cond_3
+    if-lez v0, :cond_4
 
-    :goto_1
+    :goto_2
     new-instance v1, Ljava/lang/StringBuilder;
 
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
@@ -2027,17 +2039,17 @@
 
     move-result-object v0
 
-    :goto_2
+    :goto_3
     if-eqz v0, :cond_1
 
     invoke-interface {v0, p1, p2, p3}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/EnhancedFeatureInterface;->onPushReceive(Landroid/content/Context;Landroid/content/Intent;I)V
 
-    goto :goto_0
+    goto :goto_1
 
-    :cond_3
+    :cond_4
     rem-int v0, v1, v3
 
-    goto :goto_1
+    goto :goto_2
 
     :catch_0
     move-exception v3
@@ -2084,12 +2096,12 @@
 
     move-result-object v2
 
-    :goto_3
+    :goto_4
     invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
     invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -2123,14 +2135,14 @@
 
     invoke-static {v0, v4}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/SDKLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    goto :goto_3
+    goto :goto_4
 
-    :cond_4
+    :cond_5
     invoke-virtual {v3}, Ljava/lang/NullPointerException;->printStackTrace()V
 
     move-object v0, v1
 
-    goto :goto_2
+    goto :goto_3
 .end method
 
 .method public registerFeature(ILcom/samsung/android/sdk/enhancedfeatures/internal/common/EnhancedFeatureInterface;)V

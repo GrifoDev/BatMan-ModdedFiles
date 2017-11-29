@@ -94,7 +94,7 @@
 
     if-eqz v1, :cond_2
 
-    const v1, 0x7f0900b9
+    const v1, 0x7f0900ba
 
     :goto_0
     const/16 v2, 0x4000
@@ -123,7 +123,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0900d5
+    const v5, 0x7f0900d8
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -153,7 +153,7 @@
     return-void
 
     :cond_2
-    const v1, 0x7f0900b8
+    const v1, 0x7f0900b9
 
     goto :goto_0
 .end method

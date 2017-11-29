@@ -17,6 +17,8 @@
 
 
 # instance fields
+.field private endPhotocolorAnimator:Landroid/animation/ValueAnimator;
+
 .field private final mFragment:Lcom/android/incallui/fragment/CallCardFragment;
 
 .field private mNameLayout:Landroid/view/View;
@@ -827,7 +829,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f1003bb
+    const v0, 0x7f1003bf
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -845,7 +847,7 @@
 
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    const v0, 0x7f1002da
+    const v0, 0x7f1002e0
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -901,7 +903,7 @@
     if-eqz v0, :cond_4
 
     :cond_1
-    const v0, 0x7f100253
+    const v0, 0x7f100257
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -909,7 +911,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->mNameLayout:Landroid/view/View;
 
-    const v0, 0x7f100298
+    const v0, 0x7f10029d
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -919,7 +921,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->mSmartCallName:Landroid/widget/TextView;
 
-    const v0, 0x7f1003b1
+    const v0, 0x7f1003b6
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -929,7 +931,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->mSmartCallSearchingMessage:Landroid/widget/TextView;
 
-    const v0, 0x7f10029b
+    const v0, 0x7f1002a1
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -968,7 +970,7 @@
     invoke-virtual {v0, v3, v1}, Landroid/widget/TextView;->setTextSize(IF)V
 
     :cond_2
-    const v0, 0x7f1003b3
+    const v0, 0x7f1003b7
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -978,7 +980,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->mSmartCallLabelView:Landroid/widget/ImageView;
 
-    const v0, 0x7f100287
+    const v0, 0x7f10028b
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -988,7 +990,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->mSmartCallPhoto:Landroid/widget/ImageView;
 
-    const v0, 0x7f1003ac
+    const v0, 0x7f1003b2
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -998,7 +1000,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->mSmartCallSmallIcon:Landroid/widget/ImageView;
 
-    const v0, 0x7f1003b9
+    const v0, 0x7f1003bd
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1006,7 +1008,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->mSmartCallInfoView:Landroid/view/View;
 
-    const v0, 0x7f1003ba
+    const v0, 0x7f1003be
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1024,7 +1026,7 @@
 
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    const v0, 0x7f1004c0
+    const v0, 0x7f1004c7
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1063,7 +1065,7 @@
     invoke-virtual {v0, v3, v1}, Landroid/widget/TextView;->setTextSize(IF)V
 
     :cond_3
-    const v0, 0x7f1004c1
+    const v0, 0x7f1004c8
 
     invoke-virtual {p2, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1645,7 +1647,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f09034d
+    const v3, 0x7f090350
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1715,7 +1717,7 @@
 
     if-eqz v2, :cond_6
 
-    const v0, 0x7f020285
+    const v0, 0x7f0202b9
 
     invoke-virtual {v4, v0}, Landroid/view/View;->setBackgroundResource(I)V
 
@@ -1771,7 +1773,7 @@
 
     move-result-object v0
 
-    const v7, 0x7f09034f
+    const v7, 0x7f090352
 
     invoke-virtual {v0, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2027,17 +2029,11 @@
 .end method
 
 .method private setSmartCallPhotoFilter(Lcom/android/incallui/fragment/VoiceCallCardFragment;IZ)V
-    .locals 7
-
-    const v6, 0x7f0f004b
+    .locals 5
 
     const/16 v1, 0x8
 
-    const/4 v5, 0x1
-
     const/high16 v4, 0x3f800000    # 1.0f
-
-    const/4 v3, 0x0
 
     if-ne p2, v1, :cond_0
 
@@ -2063,7 +2059,11 @@
 
     sget-object v1, Landroid/view/View;->ALPHA:Landroid/util/Property;
 
-    new-array v2, v5, [F
+    const/4 v2, 0x1
+
+    new-array v2, v2, [F
+
+    const/4 v3, 0x0
 
     aput v4, v2, v3
 
@@ -2083,7 +2083,9 @@
 
     move-result-object v1
 
-    invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getInteger(I)I
+    const v2, 0x7f0f004b
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
 
     move-result v1
 
@@ -2102,63 +2104,13 @@
 
     if-eqz p3, :cond_2
 
-    new-instance v0, Landroid/animation/ArgbEvaluator;
-
-    invoke-direct {v0}, Landroid/animation/ArgbEvaluator;-><init>()V
-
-    const/4 v1, 0x2
-
-    new-array v1, v1, [Ljava/lang/Object;
-
-    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    aput-object v2, v1, v3
-
-    invoke-virtual {p1}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v2
-
-    const v3, 0x7f0e0221
-
-    invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
-
-    move-result v2
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v2
-
-    aput-object v2, v1, v5
-
-    invoke-static {v0, v1}, Landroid/animation/ValueAnimator;->ofObject(Landroid/animation/TypeEvaluator;[Ljava/lang/Object;)Landroid/animation/ValueAnimator;
-
-    move-result-object v0
-
-    invoke-virtual {p1}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    invoke-virtual {v1, v6}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v1
-
-    int-to-long v2, v1
-
-    invoke-virtual {v0, v2, v3}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
-
-    new-instance v1, Lcom/android/incallui/fragment/view/CallCardSmartCallView$10;
-
-    invoke-direct {v1, p0}, Lcom/android/incallui/fragment/view/CallCardSmartCallView$10;-><init>(Lcom/android/incallui/fragment/view/CallCardSmartCallView;)V
-
-    invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
-
-    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->start()V
+    invoke-direct {p0, p1}, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->startPhotoFilterEndCallAnimation(Lcom/android/incallui/fragment/VoiceCallCardFragment;)V
 
     goto :goto_0
 
     :cond_2
+    invoke-direct {p0}, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->stopPhotoFilterEndCallAnimation()V
+
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->mSmartCallPhoto:Landroid/widget/ImageView;
 
     invoke-virtual {v0, v4}, Landroid/widget/ImageView;->setAlpha(F)V
@@ -2323,6 +2275,109 @@
     move v2, v4
 
     goto :goto_4
+.end method
+
+.method private startPhotoFilterEndCallAnimation(Lcom/android/incallui/fragment/VoiceCallCardFragment;)V
+    .locals 5
+
+    const/4 v3, 0x0
+
+    if-nez p1, :cond_0
+
+    :goto_0
+    return-void
+
+    :cond_0
+    new-instance v0, Landroid/animation/ArgbEvaluator;
+
+    invoke-direct {v0}, Landroid/animation/ArgbEvaluator;-><init>()V
+
+    const/4 v1, 0x2
+
+    new-array v1, v1, [Ljava/lang/Object;
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v2
+
+    aput-object v2, v1, v3
+
+    const/4 v2, 0x1
+
+    invoke-virtual {p1}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v3
+
+    const v4, 0x7f0e0243
+
+    invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getColor(I)I
+
+    move-result v3
+
+    invoke-static {v3}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v3
+
+    aput-object v3, v1, v2
+
+    invoke-static {v0, v1}, Landroid/animation/ValueAnimator;->ofObject(Landroid/animation/TypeEvaluator;[Ljava/lang/Object;)Landroid/animation/ValueAnimator;
+
+    move-result-object v0
+
+    iput-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->endPhotocolorAnimator:Landroid/animation/ValueAnimator;
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->endPhotocolorAnimator:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {p1}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    const v2, 0x7f0f004b
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
+
+    move-result v1
+
+    int-to-long v2, v1
+
+    invoke-virtual {v0, v2, v3}, Landroid/animation/ValueAnimator;->setDuration(J)Landroid/animation/ValueAnimator;
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->endPhotocolorAnimator:Landroid/animation/ValueAnimator;
+
+    new-instance v1, Lcom/android/incallui/fragment/view/CallCardSmartCallView$10;
+
+    invoke-direct {v1, p0}, Lcom/android/incallui/fragment/view/CallCardSmartCallView$10;-><init>(Lcom/android/incallui/fragment/view/CallCardSmartCallView;)V
+
+    invoke-virtual {v0, v1}, Landroid/animation/ValueAnimator;->addUpdateListener(Landroid/animation/ValueAnimator$AnimatorUpdateListener;)V
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->endPhotocolorAnimator:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->start()V
+
+    goto :goto_0
+.end method
+
+.method private stopPhotoFilterEndCallAnimation()V
+    .locals 1
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->endPhotocolorAnimator:Landroid/animation/ValueAnimator;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->endPhotocolorAnimator:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->end()V
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->endPhotocolorAnimator:Landroid/animation/ValueAnimator;
+
+    invoke-virtual {v0}, Landroid/animation/ValueAnimator;->removeAllUpdateListeners()V
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->endPhotocolorAnimator:Landroid/animation/ValueAnimator;
+
+    :cond_0
+    return-void
 .end method
 
 .method private updateSmartCallPhoto(Lcom/android/incallui/fragment/VoiceCallCardFragment;Lcom/android/incallui/Call;Lcom/android/incallui/smartcall/SmartCallInfo;)V
@@ -2518,7 +2573,7 @@
 
     if-eqz v2, :cond_5
 
-    const v0, 0x7f020285
+    const v0, 0x7f0202b9
 
     invoke-virtual {v4, v0}, Landroid/view/View;->setBackgroundResource(I)V
 
@@ -2592,7 +2647,7 @@
 
     const/16 v5, 0x9
 
-    if-eq v0, v5, :cond_6
+    if-eq v0, v5, :cond_7
 
     invoke-virtual {p1}, Lcom/android/incallui/Call;->getState()I
 
@@ -2600,13 +2655,13 @@
 
     const/16 v5, 0xa
 
-    if-eq v0, v5, :cond_6
+    if-eq v0, v5, :cond_7
 
     invoke-virtual {p1}, Lcom/android/incallui/Call;->getSmartCallSearching()Z
 
     move-result v0
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_7
 
     invoke-virtual {p1}, Lcom/android/incallui/Call;->getNumber()Ljava/lang/String;
 
@@ -2620,7 +2675,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->mSmartCallName:Landroid/widget/TextView;
 
@@ -2656,7 +2711,7 @@
 
     iget-object v5, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->mSmartCallSearchingMessage:Landroid/widget/TextView;
 
-    if-eqz p3, :cond_4
+    if-eqz p3, :cond_5
 
     move v0, v1
 
@@ -2679,13 +2734,14 @@
 
     move-result v0
 
-    if-nez v0, :cond_5
+    if-nez v0, :cond_6
 
-    if-nez p3, :cond_5
+    if-nez p3, :cond_6
 
     :goto_3
     invoke-virtual {v4, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
+    :cond_3
     :goto_4
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->mSmartCallInfoView:Landroid/view/View;
 
@@ -2701,7 +2757,7 @@
 
     goto :goto_0
 
-    :cond_3
+    :cond_4
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->mSmartCallName:Landroid/widget/TextView;
 
     invoke-virtual {p1}, Lcom/android/incallui/Call;->getNumber()Ljava/lang/String;
@@ -2724,17 +2780,17 @@
 
     goto :goto_1
 
-    :cond_4
+    :cond_5
     move v0, v2
 
     goto :goto_2
 
-    :cond_5
+    :cond_6
     move v2, v1
 
     goto :goto_3
 
-    :cond_6
+    :cond_7
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->mSmartCallName:Landroid/widget/TextView;
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
@@ -2752,6 +2808,20 @@
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setVisibility(I)V
 
     invoke-virtual {v3, v2}, Landroid/widget/TextView;->setVisibility(I)V
+
+    invoke-virtual {v4}, Landroid/widget/TextView;->getText()Ljava/lang/CharSequence;
+
+    move-result-object v0
+
+    invoke-interface {v0}, Ljava/lang/CharSequence;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-nez v0, :cond_3
 
     invoke-virtual {v4, v2}, Landroid/widget/TextView;->setVisibility(I)V
 
@@ -2782,7 +2852,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0e0174
+    const v1, 0x7f0e018c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -2792,7 +2862,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e0173
+    const v2, 0x7f0e018b
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -2802,7 +2872,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0e021c
+    const v3, 0x7f0e023e
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -2812,7 +2882,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0e016f
+    const v4, 0x7f0e0187
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -2822,7 +2892,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0e016e
+    const v5, 0x7f0e0186
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -2832,7 +2902,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0e021d
+    const v6, 0x7f0e023f
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -4253,7 +4323,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/view/CallCardSmartCallView;->mSmartCallStatusText:Landroid/widget/TextView;
 
-    const v3, 0x7f09033a
+    const v3, 0x7f09033d
 
     invoke-virtual {p2, v3}, Lcom/android/incallui/fragment/VoiceCallCardFragment;->getString(I)Ljava/lang/String;
 

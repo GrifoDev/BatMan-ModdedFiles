@@ -184,6 +184,7 @@
     <string name="agif_decline_sticker_header">رد کردن با برچسب</string>
     <string name="agif_decline_text_header">رد کردن با نوشتار</string>
     <string name="agif_decline_toast">برچسب به %s ارسال شد.</string>
+    <string name="agif_outgoing_bubble_tip">برای نمایش احساس خود، برچسب ارسال کنید.</string>
     <string name="agif_pickers_add_tab_description">افزودن</string>
     <string name="agif_pickers_find_more">بیشتر بدانید</string>
     <string name="agif_pickers_item_usage_hints_description">برای انتخاب دو بار ضربه بزنید</string>
@@ -192,10 +193,12 @@
     <string name="agif_pickers_tab_select_description">انتخاب شد</string>
     <string name="agif_pickers_title">شروع با یک برچسب</string>
     <string name="agif_pickers_title_recommended">توصیه شده</string>
+    <string name="agif_random_send_message">برای ارسال این برچسب، اینجا ضربه بزنید.</string>
     <string name="agif_read_permission_description">به تلفن اجازه می‌دهد محتوای AGIF را بخواند.</string>
     <string name="agif_read_permission_label">خواندن محتوای AGIF</string>
     <string name="agif_receive_no_id">برچسب نمی‌تواند نشان داده شود. پس از تماس، %s را به‌روز کنید.</string>
     <string name="agif_receive_no_id_upsupport_update">برچسب نمی‌تواند نشان داده شود. برچسب‌های بیشتری پس از به‌روزرسانی بعدی سیستم در دسترس خواهند بود.</string>
+    <string name="agif_receive_toast">برچسب از طرف %s.</string>
     <string name="agif_sent_fail_message">ارسال GIF متحرک ممکن نیست. بعداً دوباره امتحان کنید.</string>
     <string name="agif_sent_toast">برچسب ارسال شد.</string>
     <string name="agif_write_permission_description">به تلفن اجازه می‌دهد محتوای AGIF را تغییر دهد.</string>
@@ -885,8 +888,8 @@
     <string name="tts_pager">صفحه %1$d از %2$d</string>
     <string name="tts_seconds">%dثانیه</string>
     <string name="tty_mode_option_title">حالت TTY</string>
-    <string name="tutorial_incoming_call_app_answer">برای پاسخ به تماس ضربه بزنید.</string>
-    <string name="tutorial_incoming_call_app_reject">برای رد کردن تماس ضربه بزنید.</string>
+    <string name="tutorial_incoming_call_app_answer">برای جواب دادن دوبار ضربه بزنید.</string>
+    <string name="tutorial_incoming_call_app_reject">برای صرفنظر از این کار دوبار ضربه بزنید.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">اتصال به شبکه ممکن نیست. تنظیمات اتصال خود را بررسی کرده و دوباره امتحان کنید.</string>
     <string name="units_kb">کیلوبایت</string>
@@ -896,7 +899,7 @@
     <string name="upload_using_wlan_only">آپلود فقط از طریق WLAN</string>
     <string name="upload_wifi_and_mobile_nw">آپلود از طریق Wi-Fi یا شبکه تلفن همراه</string>
     <string name="upload_wlan_and_mobile_nw">آپلود از طریق WLAN یا شبکه تلفن همراه</string>
-    <string name="usa_att_connected_as_voice">تماس به‌صورت فقط صوتی وصل شد.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">به زودی به محدودیتی که برای میزان مصرف اینترنت همراه در دستگاهتان تنظیم کرده‌اید می‌رسید. برای تماس ویدیویی به اینترنت نیاز دارید.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">امکان برقراری تماس با Wi-Fi وجود ندارد، اتصال توسط شبکه سلولی برقرار می‌شود. هزینه تماس صوتی و اینترنت همراه اعمال خواهد شد.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -944,13 +947,17 @@
     <string name="usa_vzw_voice_incoming_during_wifi_video">پاسخ به تماس ورودی، تماس فعلی را پایان می‌دهد.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_text">قدرت سیگنال Wi-Fi برای ادامه تماس کافی نیست. استفاده از شبکه‌های تلفن همراه برای ادامه تماس از طرح قرارداد اینترنت همراه شما استفاده می‌کند.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">استفاده از اینترنت همراه</string>
-    <string name="usa_vzw_volte_weak_wifi_text">"ما تلاش کردیم اما در حال حاضر امکان تغییر تماس ویدیویی شما به Wi-Fi وجود ندارد.
+    <string name="usa_vzw_volte_weak_wifi_text">"سعی کردیم ولی در حال حاضر امکان تغییر تماس ویدیویی شما به Wi-Fi وجود ندارد.
 
-تماس ویدیویی شما هنوز از طریق شبکه همراه درحال اجرا است. (در صورتی که ادامه دهید، مصرف اینترنت همراه اعمال می‌شود.)"</string>
+تماس ویدیویی شما هنوز از طریق شبکه همراه درحال اجرا است.
+
+اگر به این کار ادامه دهید، ممکن است هزینه‌های مصرف اینترنت همراه اعمال شود."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">تماس ویدیویی شما همچنان در شبکه تلفن همراه درحال اجرا است. (هزینه‌های استفاده از داده اعمال می‌شود.)</string>
-    <string name="usa_vzw_vowifi_wifi_low_signal_text">"سیگنال Wi-Fi برای ادامه تماس ویدیویی به حد کافی قوی نیست.
+    <string name="usa_vzw_vowifi_wifi_low_signal_text">"سیگنال Wi-Fi برای ادامه تماس ویدیویی به اندازه کافی قوی نبود.
 
-اکنون تماس ویدیویی شما ازطریق شبکه اینترنت همراه درحال اجرا است. (در صورتی که ادامه دهید، مصرف اینترنت همراه اعمال می‌شود.)"</string>
+هم‌اکنون، تماس ویدیویی شما با شبکه تلفن همراه در حال انجام است.
+
+اگر به این کار ادامه دهید، ممکن است هزینه‌های مصرف اینترنت همراه اعمال شود."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">اتصال Wi-Fi قطع شد. تماس پایان یافت.</string>
     <string name="use_wifi_and_mobile_nw">استفاده از Wi-Fi و شبکه تلفن همراه</string>
     <string name="use_wlan_and_mobile_nw">استفاده از WLAN و شبکه‌های تلفن همراه</string>

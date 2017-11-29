@@ -936,7 +936,7 @@
     if-eqz v0, :cond_4
 
     :cond_2
-    const v0, 0x7f090280
+    const v0, 0x7f090283
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -978,7 +978,7 @@
 
     if-eqz v0, :cond_6
 
-    const v0, 0x7f090268
+    const v0, 0x7f09026b
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1968,7 +1968,7 @@
 
     iput-boolean v6, v0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->isYellowPage:Z
 
-    const v6, 0x7f0903c0
+    const v6, 0x7f0903c3
 
     invoke-virtual {p0, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2001,7 +2001,7 @@
 
     if-ne v8, v11, :cond_17
 
-    const v6, 0x7f0903c0
+    const v6, 0x7f0903c3
 
     invoke-virtual {p0, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -2352,6 +2352,12 @@
 
     :goto_7
     invoke-static {}, Lcom/android/incallui/util/ImsCommonUtils;->isAvailableIMSConferenceInfo()Z
+
+    move-result v9
+
+    if-eqz v9, :cond_1e
+
+    invoke-static {}, Lcom/android/incallui/util/CallTypeUtils;->isVolteGroupCall()Z
 
     move-result v9
 
@@ -3359,7 +3365,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f02019e
+    const v1, 0x7f0201c9
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -3386,7 +3392,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0201a0
+    const v1, 0x7f0201cb
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

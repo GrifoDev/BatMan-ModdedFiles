@@ -14,6 +14,8 @@
 
 
 # instance fields
+.field private mAddQuota:Z
+
 .field private mRequestToken:J
 
 .field private mUploadContentList:Ljava/util/List;
@@ -45,6 +47,10 @@
     const-string v0, ""
 
     iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContentsToSamsungCloudRequest$Builder;->mUploadDirectory:Ljava/lang/String;
+
+    const/4 v0, 0x1
+
+    iput-boolean v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContentsToSamsungCloudRequest$Builder;->mAddQuota:Z
 
     return-void
 .end method
@@ -80,7 +86,19 @@
 
     invoke-static {v0, v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContentsToSamsungCloudRequest;->access$202(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContentsToSamsungCloudRequest;J)J
 
+    iget-boolean v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContentsToSamsungCloudRequest$Builder;->mAddQuota:Z
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContentsToSamsungCloudRequest;->access$302(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContentsToSamsungCloudRequest;Z)Z
+
     return-object v0
+.end method
+
+.method public setAddQuota(Z)V
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContentsToSamsungCloudRequest$Builder;->mAddQuota:Z
+
+    return-void
 .end method
 
 .method public setRequestToken(J)V

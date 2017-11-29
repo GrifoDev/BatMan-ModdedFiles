@@ -181,23 +181,26 @@
     <string name="add_reminder">เพิ่มการเตือน</string>
     <string name="agif_button_close_description">ปิด</string>
     <string name="agif_decline_message">ขอโทษด้วย ฉันไม่สามารถคุยได้ตอนนี้</string>
-    <string name="agif_decline_sticker_header">ปฏิเสธด้วยสติกเกอร์</string>
+    <string name="agif_decline_sticker_header">ปฏิเสธด้วยสติ๊กเกอร์</string>
     <string name="agif_decline_text_header">ปฏิเสธด้วยข้อความ</string>
-    <string name="agif_decline_toast">ส่งสติกเกอร์ไปยัง %s แล้ว</string>
+    <string name="agif_decline_toast">ส่งสติ๊กเกอร์ไปยัง %s แล้ว</string>
+    <string name="agif_outgoing_bubble_tip">ส่งสติกเกอร์เพื่อแสดงความรู้สึกของคุณ</string>
     <string name="agif_pickers_add_tab_description">เพิ่ม</string>
     <string name="agif_pickers_find_more">ค้นหาเพิ่มเติม</string>
     <string name="agif_pickers_item_usage_hints_description">แตะสองครั้งเพื่อเลือก</string>
-    <string name="agif_pickers_sub_title">ทำให้การโทรของคุณมีสีสันด้วยสติกเกอร์ %s จะเห็นสติกเกอร์บนหน้าจอการโทร</string>
+    <string name="agif_pickers_sub_title">ทำให้การโทรของคุณมีสีสันด้วยสติ๊กเกอร์ %s จะเห็นสติ๊กเกอร์บนหน้าจอการโทร</string>
     <string name="agif_pickers_tab_not_select_description">ไม่ได้เลือก</string>
     <string name="agif_pickers_tab_select_description">เลือก​ไว้</string>
-    <string name="agif_pickers_title">เริ่มด้วยสติกเกอร์</string>
+    <string name="agif_pickers_title">เริ่มด้วยสติ๊กเกอร์</string>
     <string name="agif_pickers_title_recommended">ที่แนะนำ</string>
+    <string name="agif_random_send_message">แตะที่นี่เพื่อส่งสติกเกอร์นี้</string>
     <string name="agif_read_permission_description">อนุญาตให้โทรศัพท์อ่านคอนเทนท์ AGIF</string>
     <string name="agif_read_permission_label">อ่านคอนเทนท์ AGIF</string>
-    <string name="agif_receive_no_id">ไม่สามารถแสดงสติกเกอร์ได้ อัพเดท %s หลังการโทร</string>
-    <string name="agif_receive_no_id_upsupport_update">ไม่สามารถแสดงสติกเกอร์ได้ ในการอัพเดทระบบครั้งถัดไปจะมีสติกเกอร์ให้พร้อมใช้งานเพิ่มขึ้น</string>
+    <string name="agif_receive_no_id">ไม่สามารถแสดงสติ๊กเกอร์ได้ อัพเดท %s หลังการโทร</string>
+    <string name="agif_receive_no_id_upsupport_update">ไม่สามารถแสดงสติ๊กเกอร์ได้ ในการอัพเดทระบบครั้งถัดไปจะมีสติ๊กเกอร์ให้พร้อมใช้งานเพิ่มขึ้น</string>
+    <string name="agif_receive_toast">สติกเกอร์จาก %s</string>
     <string name="agif_sent_fail_message">ไม่สามารถส่ง GIF เคลื่อนไหว ลองอีกครั้งภายหลัง</string>
-    <string name="agif_sent_toast">ส่งสติกเกอร์แล้ว</string>
+    <string name="agif_sent_toast">ส่งสติ๊กเกอร์แล้ว</string>
     <string name="agif_write_permission_description">อนุญาตให้โทรศัพท์แก้ไขคอนเทนท์ AGIF</string>
     <string name="agif_write_permission_label">แก้ไขคอนเทนท์ AGIF</string>
     <string name="agree">ยินยอม</string>
@@ -665,8 +668,8 @@
     <string name="rcs_share_image_sharing">การ​แชร์​รูป​ภาพ (%s)</string>
     <string name="rcs_share_image_sharing_new">การแชร์รูปภาพ</string>
     <string name="rcs_share_live">ยอมรับคำขอ?</string>
-    <string name="rcs_share_live_video">วิดีโอสด</string>
-    <string name="rcs_share_live_video_sharing">การแชร์วิดีโอสด</string>
+    <string name="rcs_share_live_video">ไลฟ์วิดีโอ</string>
+    <string name="rcs_share_live_video_sharing">การแชร์ไลฟ์วิดีโอ</string>
     <string name="rcs_share_requesting">กำลังร้องขอ…</string>
     <string name="rcs_share_send_my_video">แสดงตัวเอง</string>
     <string name="rcs_share_toast_canceled">ยกเลิกการแชร์แล้ว</string>
@@ -886,8 +889,8 @@
     <string name="tts_pager">หน้า %1$d จาก %2$d</string>
     <string name="tts_seconds">%d ​วินาที</string>
     <string name="tty_mode_option_title">โหมด TTY</string>
-    <string name="tutorial_incoming_call_app_answer">แตะเพื่อรับสาย</string>
-    <string name="tutorial_incoming_call_app_reject">แตะเพื่อปฏิเสธสาย</string>
+    <string name="tutorial_incoming_call_app_answer">แตะ​สอง​ครั้ง​เพื่อ​รับ​สาย</string>
+    <string name="tutorial_incoming_call_app_reject">แตะ​สอง​ครั้ง​เพื่อ​ปฏิเสธ</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">ไม่สามารถเชื่อมต่อกับเครือข่ายได้ ตรวจสอบการตั้งค่าการเชื่อมต่อของคุณ แล้วลองอีกครั้ง</string>
     <string name="units_kb">KB</string>
@@ -897,7 +900,7 @@
     <string name="upload_using_wlan_only">อัพโหลดผ่าน WLAN เท่านั้น</string>
     <string name="upload_wifi_and_mobile_nw">อัพโหลดผ่าน Wi-Fi หรือเครือข่ายมือถือ</string>
     <string name="upload_wlan_and_mobile_nw">อัพโหลดผ่าน WLAN หรือเครือข่ายมือถือ</string>
-    <string name="usa_att_connected_as_voice">การโทรเชื่อมต่อในฐานะการโทรปกติเท่านั้น</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">ปริมาณการใช้ข้อมูลที่คุณกำหนดไว้บนอุปกรณ์ของคุณกำลังจะถึงขีดจำกัด การโทรวิดีโอจำเป็นต้องใช้ข้อมูล</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">ไม่สามารถส่งการโทรผ่าน Wi-Fi กำลังเชื่อมต่อผ่านเครือข่ายมือถือ จะมีค่าใช้จ่ายการโทรปกติและข้อมูล</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -947,11 +950,15 @@
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">ใช้ข้อมูลมือถือ</string>
     <string name="usa_vzw_volte_weak_wifi_text">"เราพยายามแล้ว แต่เราไม่สามารถสลับไปยังการโทรวิดีโอผ่าน Wi-Fi ในขณะนี้
 
-การโทรวิธีโอของคุณยังคงดำเนินต่อไปบนเครือข่ายมือถือ (มีการเก็บค่าบริการข้อมูลหากคุณเลือกที่จะดำเนินการต่อ)"</string>
-    <string name="usa_vzw_volte_weak_wifi_toast">การโทรวิดีโอของคุณยังคงดำเนินไปบนเครือข่ายมือถือ (คิดค่าบริการข้อมูล)</string>
-    <string name="usa_vzw_vowifi_wifi_low_signal_text">"สัญญาณ Wi-Fi ไม่เข้มพอที่จะทำการโทรวิดีโอของคุณต่อ
+การโทรวิธีโอของคุณยังคงดำเนินต่อไปบนเครือข่ายมือถือ
 
-การโทรวิดีโอของคุณกำลังดำเนินการบนเครือข่ายมือถือ (มีการเก็บค่าบริการข้อมูลหากคุณเลือกที่จะดำเนินการต่อ)"</string>
+อาจมีค่าใช้จ่ายการใช้ข้อมูลหากคุณเลือกดำเนินการต่อ"</string>
+    <string name="usa_vzw_volte_weak_wifi_toast">การโทรวิดีโอของคุณยังคงดำเนินไปบนเครือข่ายมือถือ (คิดค่าบริการข้อมูล)</string>
+    <string name="usa_vzw_vowifi_wifi_low_signal_text">"สัญญาณ Wi-Fi ไม่แรงพอจะดำเนินการโทรวิดีโอต่อ
+
+การโทรวิดีโอของคุณจะใช้งานเครือข่ายมือถือ
+
+อาจมีค่าใช้จ่ายการใช้ข้อมูลหากคุณเลือกดำเนินการต่อ"</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">การเชื่อมต่อ Wi-Fi สูญหาย จบการสนทนา</string>
     <string name="use_wifi_and_mobile_nw">ใช้ Wi-Fi และเครือข่ายมือถือ</string>
     <string name="use_wlan_and_mobile_nw">ใช้เครือข่าย WLAN และเครือข่ายมือถือ</string>

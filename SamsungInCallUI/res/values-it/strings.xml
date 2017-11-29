@@ -178,12 +178,13 @@
     <string name="account_phone">Dispositivo</string>
     <string name="acs">Chiamata vocale</string>
     <string name="active_calls">Chiamata attiva</string>
-    <string name="add_reminder">Agg. promem.</string>
+    <string name="add_reminder">Aggiungi promemoria</string>
     <string name="agif_button_close_description">Chiudi</string>
     <string name="agif_decline_message">Scusa, ora non posso parlare.</string>
     <string name="agif_decline_sticker_header">Rifiuta con adesivo</string>
     <string name="agif_decline_text_header">Rifiuta con un messaggio</string>
     <string name="agif_decline_toast">Adesivo inviato a %s.</string>
+    <string name="agif_outgoing_bubble_tip">Inviate un adesivo che esprime il vostro umore.</string>
     <string name="agif_pickers_add_tab_description">Aggiungi</string>
     <string name="agif_pickers_find_more">Altre informazioni</string>
     <string name="agif_pickers_item_usage_hints_description">Tocca due volte per selezionare</string>
@@ -192,10 +193,12 @@
     <string name="agif_pickers_tab_select_description">Selezionate</string>
     <string name="agif_pickers_title">Avvio con adesivo</string>
     <string name="agif_pickers_title_recommended">Consigliate</string>
+    <string name="agif_random_send_message">Toccate qui per inviare questo adesivo.</string>
     <string name="agif_read_permission_description">Consente a Telefono di leggere i contenuti della clip animata.</string>
     <string name="agif_read_permission_label">Legge contenuto clip animate</string>
     <string name="agif_receive_no_id">"Impossibile mostrare l'adesivo. Aggiornate %s dopo la chiamata."</string>
     <string name="agif_receive_no_id_upsupport_update">"Impossibile mostrare l'adesivo. Più adesivi saranno disponibili dopo il prossimo aggiorn. di sistema."</string>
+    <string name="agif_receive_toast">Adesivo da %s.</string>
     <string name="agif_sent_fail_message">Impossibile inviare la clip animata. Riprovate più tardi.</string>
     <string name="agif_sent_toast">Adesivo inviato.</string>
     <string name="agif_write_permission_description">Consente a Telefono di modificare i contenuti della clip animata.</string>
@@ -885,8 +888,8 @@ a 1 via"</string>
     <string name="tts_pager">Pagina %1$d di %2$d</string>
     <string name="tts_seconds">%d secondi</string>
     <string name="tty_mode_option_title">Modalità TTY</string>
-    <string name="tutorial_incoming_call_app_answer">Toccate per rispondere alla chiamata.</string>
-    <string name="tutorial_incoming_call_app_reject">Toccate per rifiutare la chiamata.</string>
+    <string name="tutorial_incoming_call_app_answer">Toccare due volte per rispondere.</string>
+    <string name="tutorial_incoming_call_app_reject">Toccare due volte per rifiutare.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Impossibile connettersi alla rete. Verificate le impostazioni di connessione e riprovate.</string>
     <string name="units_kb">KB</string>
@@ -896,7 +899,7 @@ a 1 via"</string>
     <string name="upload_using_wlan_only">Carica solo con rete WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Carica con Wi-Fi o rete mobile</string>
     <string name="upload_wlan_and_mobile_nw">Carica con WLAN o rete mobile</string>
-    <string name="usa_att_connected_as_voice">Chiamata connessa soltanto come chiamata vocale.</string>
+    <string name="usa_att_connected_as_voice">Il video non è disponibile per questa chiamata. La chiamata è stata connessa come chiamata vocale.</string>
     <string name="usa_att_data_usage_charge_alert">"L'utilizzo dei dati impostato sul dispositivo sta per raggiungere il limite. La videochiamata richiede i dati."</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Non è possibile effettuare la chiamata sulla rete Wi-Fi; connessione alla rete cellulare in corso. Verranno applicati i costi relativi a voce e dati.</string>
     <string name="usa_att_modify_receive_to_video">%s chiede passare alla videochiamata.</string>
@@ -946,11 +949,15 @@ unidirezionale"</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Usa connessione dati</string>
     <string name="usa_vzw_volte_weak_wifi_text">"Al momento non è possibile passare la videochiamata sulla rete Wi-Fi.
 
-La videochiamata è ancora in esecuzione sulla rete mobile (se scegliete di continuare, verrà applicato l'uso dei dati)."</string>
+La videochiamata è ancora in esecuzione sulla rete mobile.
+
+Se scegliete di continuare, potranno essere addebitati costi per l’uso dei dati."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">"La videochiamata è ancora in esecuzione nella rete mobile. (Viene applicato l'utilizzo dei dati)."</string>
     <string name="usa_vzw_vowifi_wifi_low_signal_text">"Il segnale Wi-Fi non era abbastanza forte per proseguire con la videochiamata.
 
-La videochiamata adesso è in corso sulla rete mobile (se scegliete di continuare, verrà applicato l'uso dei dati)."</string>
+La videochiamata adesso è in corso sulla rete mobile.
+
+Se scegliete di continuare, potranno essere addebitati costi per l’uso dei dati."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Connessione Wi-Fi interrotta. Chiamata terminata.</string>
     <string name="use_wifi_and_mobile_nw">Usa Wi-Fi e connessione dati</string>
     <string name="use_wlan_and_mobile_nw">Usa WLAN e reti mobili</string>

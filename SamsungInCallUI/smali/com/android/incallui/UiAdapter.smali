@@ -1221,6 +1221,21 @@
     return v0
 .end method
 
+.method public onCallButtonViewChanged()V
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/incallui/UiAdapter;->getDialpadUi()Lcom/android/incallui/DialpadUi;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v0}, Lcom/android/incallui/DialpadUi;->onCallButtonViewChanged()V
+
+    :cond_0
+    return-void
+.end method
+
 .method public onSelectAgifContents(Landroid/net/Uri;)V
     .locals 4
 

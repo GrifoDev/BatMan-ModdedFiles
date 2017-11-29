@@ -33,6 +33,8 @@
 
 .field private static final LOG_TAG:Ljava/lang/String; = "InCallUtils"
 
+.field private static final MULTI_NUMVER_PREFIX:Ljava/lang/String; = "12583"
+
 .field public static final NO_ICON:I = 0x0
 
 .field public static final PERMISSION_GET_STATUS:Ljava/lang/String; = "com.nttdocomo.android.phonemotion.permission.GET_STATUS"
@@ -61,6 +63,8 @@
 
 .field private static sPrevHQTShowState:Z
 
+.field public static subNumberNo:I
+
 
 # direct methods
 .method static constructor <clinit>()V
@@ -75,6 +79,10 @@
     sput v0, Lcom/android/incallui/util/InCallUtils;->sOldCallState:I
 
     sput-boolean v1, Lcom/android/incallui/util/InCallUtils;->sPrevHQTShowState:Z
+
+    const/4 v0, 0x1
+
+    sput v0, Lcom/android/incallui/util/InCallUtils;->subNumberNo:I
 
     sput-boolean v1, Lcom/android/incallui/util/InCallUtils;->sMakeMergeAfterAnswer:Z
 
@@ -506,7 +514,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f09024e
+    const v2, 0x7f090251
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1642,7 +1650,7 @@
 
     if-eqz v2, :cond_1
 
-    const v0, 0x7f090109
+    const v0, 0x7f09010c
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -3013,6 +3021,14 @@
     invoke-static {v0}, Lcom/android/incallui/util/SecCallExtraUtils;->getSubNumberId(Lcom/android/incallui/Call;)I
 
     move-result v0
+
+    return v0
+.end method
+
+.method public static getSubNumberNo()I
+    .locals 1
+
+    sget v0, Lcom/android/incallui/util/InCallUtils;->subNumberNo:I
 
     return v0
 .end method
@@ -5310,16 +5326,20 @@
     return v0
 .end method
 
-.method public static isHDiconNotSupportUsim()Z
-    .locals 1
+.method public static isHDiconNotSupportUsim(Lcom/android/incallui/Call;)Z
+    .locals 2
 
-    invoke-static {}, Lcom/android/incallui/util/InCallUtils;->isTDCSIM()Z
+    invoke-static {p0}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->getPhoneId(Lcom/android/incallui/Call;)I
 
     move-result v0
 
-    if-nez v0, :cond_0
+    invoke-static {}, Lcom/android/incallui/util/InCallUtils;->isTDCSIM()Z
 
-    invoke-static {}, Lcom/android/incallui/InCallUIConfig;->isSMARTSIM()Z
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    invoke-static {v0}, Lcom/android/incallui/InCallUIConfig;->isSMARTSIM(I)Z
 
     move-result v0
 
@@ -6106,6 +6126,44 @@
     throw v0
 .end method
 
+.method public static isRoaming()Z
+    .locals 2
+
+    const-string v0, "gsm.sim.state"
+
+    invoke-static {v0}, Landroid/os/SemSystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "READY"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string v0, "true"
+
+    sget-object v1, Lcom/android/incallui/wrapper/TelephonyPropertiesWrapper;->PROPERTY_OPERATOR_ISROAMING:Ljava/lang/String;
+
+    invoke-static {v1}, Landroid/os/SemSystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    :goto_0
+    return v0
+
+    :cond_0
+    const/4 v0, 0x0
+
+    goto :goto_0
+.end method
+
 .method public static isRoamingArea()Z
     .locals 7
 
@@ -6734,7 +6792,7 @@
     return v0
 
     :cond_0
-    invoke-static {}, Lcom/android/incallui/util/InCallUtils;->isHDiconNotSupportUsim()Z
+    invoke-static {p0}, Lcom/android/incallui/util/InCallUtils;->isHDiconNotSupportUsim(Lcom/android/incallui/Call;)Z
 
     move-result v3
 
@@ -7510,60 +7568,83 @@
 .end method
 
 .method public static isTDCSIM()Z
-    .locals 4
+    .locals 5
 
-    const-string v0, "gsm.sim.operator.numeric"
+    const/4 v0, 0x0
 
-    invoke-static {v0}, Landroid/os/SemSystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+    const-string v1, "feature_multisim"
 
-    move-result-object v0
-
-    const-string v1, "InCallUtils"
-
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v3, "simOperator : "
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v2
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-static {v1, v2}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    const-string v1, "23801"
-
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-nez v1, :cond_0
+    if-eqz v1, :cond_1
 
-    const-string v1, "23810"
+    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
-    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    move-result-object v1
+
+    const/4 v2, 0x0
+
+    invoke-static {v1, v2, v0}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
+
+    move-result-object v0
+
+    invoke-static {v0}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->isTDCSIM(Lcom/android/incallui/Call;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_1
-
     :cond_0
-    const/4 v0, 0x1
-
     :goto_0
     return v0
 
     :cond_1
-    const/4 v0, 0x0
+    const-string v1, "gsm.sim.operator.numeric"
+
+    invoke-static {v1}, Landroid/os/SemSystemProperties;->get(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "InCallUtils"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "simOperator : "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v2, "23801"
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_2
+
+    const-string v2, "23810"
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    :cond_2
+    const/4 v0, 0x1
 
     goto :goto_0
 .end method
@@ -8191,6 +8272,73 @@
     invoke-static {v2, v3, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;Z)V
 
     goto :goto_0
+.end method
+
+.method public static needToRemoveThePrefixOSMN(Ljava/lang/String;)Z
+    .locals 6
+
+    const/4 v0, 0x0
+
+    const/4 v5, 0x5
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Ljava/lang/String;->length()I
+
+    move-result v1
+
+    if-lt v1, v5, :cond_0
+
+    invoke-virtual {p0, v0, v5}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string v2, "InCallUtils"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "needToRemoveThePrefixOSMN-prefixNumber: "
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v2, v3}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    const-string v2, "12583"
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    const/4 v0, 0x6
+
+    invoke-virtual {p0, v5, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+
+    move-result-object v0
+
+    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
+
+    move-result v0
+
+    sput v0, Lcom/android/incallui/util/InCallUtils;->subNumberNo:I
+
+    const/4 v0, 0x1
+
+    :cond_0
+    return v0
 .end method
 
 .method public static needToShowAsFullScreen()Z
@@ -9341,6 +9489,27 @@
     move-result v0
 
     return v0
+.end method
+
+.method public static removeThePrefixOSMN(Ljava/lang/String;)Ljava/lang/String;
+    .locals 2
+
+    const/4 v1, 0x6
+
+    if-eqz p0, :cond_0
+
+    invoke-virtual {p0}, Ljava/lang/String;->length()I
+
+    move-result v0
+
+    if-lt v0, v1, :cond_0
+
+    invoke-virtual {p0, v1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object p0
+
+    :cond_0
+    return-object p0
 .end method
 
 .method public static sendBroadcastContactCallState(Landroid/content/Context;)V

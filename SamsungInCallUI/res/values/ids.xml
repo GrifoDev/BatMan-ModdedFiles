@@ -103,6 +103,10 @@
     <item type="id" name="list">false</item>
     <item type="id" name="country_scrollview">false</item>
     <item type="id" name="country_list_no_search_result">false</item>
+    <item type="id" name="sem_tip_popup_balloon_bg_shadow">false</item>
+    <item type="id" name="sem_tip_popup_balloon_bg_l">false</item>
+    <item type="id" name="sem_tip_popup_balloon_bg_r">false</item>
+    <item type="id" name="sem_tip_popup_message">false</item>
     <item type="id" name="agif_container">false</item>
     <item type="id" name="agif_list_container">false</item>
     <item type="id" name="agif_pickers_container">false</item>
@@ -625,9 +629,11 @@
     <item type="id" name="callPlus_importance_layout">false</item>
     <item type="id" name="kt_two_phone_stub">false</item>
     <item type="id" name="simiconlabellarge_stub">false</item>
+    <item type="id" name="subiconlabel_stub">false</item>
     <item type="id" name="smart_call_name">false</item>
     <item type="id" name="smartCallIcon">false</item>
     <item type="id" name="simiconlabel_stub">false</item>
+    <item type="id" name="subiconlabel">false</item>
     <item type="id" name="smart_call_number">false</item>
     <item type="id" name="answer_memo_view">false</item>
     <item type="id" name="popup_cityid">false</item>
@@ -904,10 +910,8 @@
     <item type="id" name="smartcall_small_icon">false</item>
     <item type="id" name="bizInOutPhoto">false</item>
     <item type="id" name="bizPhoto">false</item>
-    <item type="id" name="subiconlabel_stub">false</item>
     <item type="id" name="smart_call_name_layout">false</item>
     <item type="id" name="smart_call_searching_message">false</item>
-    <item type="id" name="subiconlabel">false</item>
     <item type="id" name="smart_call_label">false</item>
     <item type="id" name="slash">false</item>
     <item type="id" name="mk_cityid">false</item>
@@ -1156,6 +1160,9 @@
     <item type="id" name="callPlusMap_incall_popup">false</item>
     <item type="id" name="call_plus_address_popup">false</item>
     <item type="id" name="agifNoIdText">false</item>
+    <item type="id" name="agifSendContainer">false</item>
+    <item type="id" name="agifSendImage">false</item>
+    <item type="id" name="agifSendText">false</item>
     <item type="id" name="dummy_primary_call_banner_stub">false</item>
     <item type="id" name="sugudenGuideStub">false</item>
     <item type="id" name="addCallMenuText">false</item>

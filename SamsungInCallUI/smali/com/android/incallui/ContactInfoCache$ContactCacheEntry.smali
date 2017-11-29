@@ -100,6 +100,8 @@
 
 .field public number:Ljava/lang/String;
 
+.field public numberChanged:Z
+
 .field public openingHours:Ljava/util/List;
     .annotation system Ldalvik/annotation/Signature;
         value = {
@@ -176,6 +178,8 @@
     iput-wide v4, p0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->agifStartTime:J
 
     iput-object v3, p0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->recentSendingUrl:Ljava/lang/String;
+
+    iput-boolean v2, p0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->numberChanged:Z
 
     return-void
 .end method

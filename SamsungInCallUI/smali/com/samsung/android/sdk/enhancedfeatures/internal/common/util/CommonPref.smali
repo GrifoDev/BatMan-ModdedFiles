@@ -75,8 +75,6 @@
 
 .field public static final PREF_UPDATED_APP_VERSION:Ljava/lang/String; = "updated_app_version"
 
-.field public static final PREF_WRITE_CURRENT_STATUS:Ljava/lang/String; = "write_current_status"
-
 .field private static final SEED_INDEX_END:I = 0x7
 
 .field private static final SEED_INDEX_START:I = 0x3

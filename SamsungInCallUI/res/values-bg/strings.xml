@@ -178,12 +178,13 @@
     <string name="account_phone">Устройство</string>
     <string name="acs">Гласово повикване</string>
     <string name="active_calls">Активно повикване</string>
-    <string name="add_reminder">Доб. напом.</string>
+    <string name="add_reminder">Добавяне на напомняне</string>
     <string name="agif_button_close_description">Затвори</string>
     <string name="agif_decline_message">Съжалявам, не мога да говоря в момента.</string>
     <string name="agif_decline_sticker_header">Отказ със стикер</string>
     <string name="agif_decline_text_header">Отказ с текст</string>
     <string name="agif_decline_toast">Стикерът е изпратен до %s.</string>
+    <string name="agif_outgoing_bubble_tip">Изберете стикер, за да покажете как се чувствате.</string>
     <string name="agif_pickers_add_tab_description">Добави</string>
     <string name="agif_pickers_find_more">Търсене на още</string>
     <string name="agif_pickers_item_usage_hints_description">Двукратно докосване за избор</string>
@@ -192,10 +193,12 @@
     <string name="agif_pickers_tab_select_description">Избрани</string>
     <string name="agif_pickers_title">Стартиране със стикер</string>
     <string name="agif_pickers_title_recommended">Препоръчани</string>
+    <string name="agif_random_send_message">Докоснете тук, за да изпратите този стикер.</string>
     <string name="agif_read_permission_description">Позволява на „Телефон“ да чете AGIF съдържание.</string>
     <string name="agif_read_permission_label">Прочитане на AGIF съдържание</string>
     <string name="agif_receive_no_id">Стикерът не може да се покаже. Актуализирайте %s след повикването.</string>
     <string name="agif_receive_no_id_upsupport_update">Стикерът не може да се покаже. Още стикери ще са налични след следващата актуализация на системата.</string>
+    <string name="agif_receive_toast">Стикер от %s.</string>
     <string name="agif_sent_fail_message">Не може да се изпрати анимиран GIF. Опитайте отново по-късно.</string>
     <string name="agif_sent_toast">Стикерът е изпратен.</string>
     <string name="agif_write_permission_description">Позволява на „Телефон“ да променя AGIF съдържание.</string>
@@ -885,8 +888,8 @@
     <string name="tts_pager">Страница %1$d от %2$d</string>
     <string name="tts_seconds">%d секунди</string>
     <string name="tty_mode_option_title">Режим TTY</string>
-    <string name="tutorial_incoming_call_app_answer">Чукнете, за да отговорите на повикване.</string>
-    <string name="tutorial_incoming_call_app_reject">Докоснете, за да отхвърлите повикването.</string>
+    <string name="tutorial_incoming_call_app_answer">Чукнете двукратно за отговор.</string>
+    <string name="tutorial_incoming_call_app_reject">Чукнете двукратно за отклоняване.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Невъзможно свързване с мрежата. Проверете настройките си за свързване и опитайте отново.</string>
     <string name="units_kb">KB</string>
@@ -896,7 +899,7 @@
     <string name="upload_using_wlan_only">Качване само по WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Качване през Wi-Fi или мобилна мрежа</string>
     <string name="upload_wlan_and_mobile_nw">Качване по WLAN или мобилна мрежа</string>
-    <string name="usa_att_connected_as_voice">Повикването е свързано само като глас.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Използването на данни, което сте задали на устройството, скоро ще достигне ограничението. Вашето видеоповикване изисква данни.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Повикването не може да се извърши чрез Wi-Fi, свързване към мобилна мрежа. Ще се начислят такси за глас и данни.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -946,11 +949,15 @@
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Използване на „Мобилни данни“</string>
     <string name="usa_vzw_volte_weak_wifi_text">"Опитахме, но не можем да превключим видеоповикването към Wi-Fi в момента.
 
-Видеоповикването все още се извършва чрез мобилната мрежа. (Използването на данни се прилага, ако изберете да продължите.)"</string>
+Видеоповикването все още се провежда през мобилната мрежа.
+
+Може да се начислят такси за използване на данни, ако продължите."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Видеоповикването все още се осъществява в мобилната мрежа. (Прилага се използване на данни.)</string>
     <string name="usa_vzw_vowifi_wifi_low_signal_text">"Wi-Fi сигналът не беше достатъчно силен, за да продължи видеоповикването.
 
-Видеоповикването сега се извършва чрез мобилната мрежа. (Използването на данни се прилага, ако изберете да продължите.)"</string>
+Видеоповикването сега се провежда чрез мобилната мрежа.
+
+Може да се начислят такси за данни, ако изберете да продължите."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi връзката е изгубена. Разговорът приключи.</string>
     <string name="use_wifi_and_mobile_nw">Използване на Wi-Fi и мобилни мрежи</string>
     <string name="use_wlan_and_mobile_nw">Използване на WLAN и мобилни мрежи</string>

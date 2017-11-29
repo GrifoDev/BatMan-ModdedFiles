@@ -9,7 +9,13 @@
 
 
 # instance fields
+.field private hashingListener:Lcom/samsung/android/sdk/ssf/common/util/HashUtils$HashingListener;
+
 .field private mConnectionTimeout:Lcom/samsung/android/sdk/ssf/common/ConnectTimeout;
+
+.field private mHandler:Landroid/os/Handler;
+
+.field private mHashingAsyncTask:Lcom/samsung/android/sdk/ssf/common/util/HashUtils$Sha256HashAsyncTask;
 
 .field private mListener:Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadBinaryListener;
 
@@ -46,6 +52,12 @@
 
     iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;->mSsfListener:Lcom/samsung/android/sdk/ssf/SsfListener;
 
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction$4;
+
+    invoke-direct {v0, p0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction$4;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;)V
+
+    iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;->hashingListener:Lcom/samsung/android/sdk/ssf/common/util/HashUtils$HashingListener;
+
     const-wide/16 v0, 0x0
 
     invoke-direct {p0, p2, p3, v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;->initTransaction(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LookUpFilesInServerRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadBinaryListener;J)V
@@ -76,6 +88,12 @@
 
     iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;->mSsfListener:Lcom/samsung/android/sdk/ssf/SsfListener;
 
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction$4;
+
+    invoke-direct {v0, p0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction$4;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;)V
+
+    iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;->hashingListener:Lcom/samsung/android/sdk/ssf/common/util/HashUtils$HashingListener;
+
     invoke-direct {p0, p2, p3, p4, p5}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;->initTransaction(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LookUpFilesInServerRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadBinaryListener;J)V
 
     return-void
@@ -105,6 +123,30 @@
     return-void
 .end method
 
+.method static synthetic access$300(Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LookUpFilesInServerRequest;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;->mRequest:Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LookUpFilesInServerRequest;
+
+    return-object v0
+.end method
+
+.method static synthetic access$400(Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;Ljava/util/List;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;->proceedTransactionOnHashingComplete(Ljava/util/List;)V
+
+    return-void
+.end method
+
+.method static synthetic access$500(Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;)Landroid/os/Handler;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;->mHandler:Landroid/os/Handler;
+
+    return-object v0
+.end method
+
 .method private initTransaction(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LookUpFilesInServerRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadBinaryListener;J)V
     .locals 3
 
@@ -131,11 +173,27 @@
     :cond_0
     iput-wide p3, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;->mTransactionId:J
 
+    new-instance v0, Landroid/os/Handler;
+
+    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
+
+    iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;->mHandler:Landroid/os/Handler;
+
     return-void
 .end method
 
-.method private makeRequest()Lcom/samsung/android/sdk/ssf/file/io/IssueUploadTokenRequest;
-    .locals 11
+.method private makeRequest(Ljava/util/List;)Lcom/samsung/android/sdk/ssf/file/io/IssueUploadTokenRequest;
+    .locals 10
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;)",
+            "Lcom/samsung/android/sdk/ssf/file/io/IssueUploadTokenRequest;"
+        }
+    .end annotation
 
     new-instance v3, Lcom/samsung/android/sdk/ssf/file/io/IssueUploadTokenRequest;
 
@@ -151,20 +209,75 @@
 
     move-result-object v1
 
+    if-nez p1, :cond_1
+
+    :try_start_0
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    const-string v1, "Hash values are not loaded"
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+    :try_end_0
+    .catch Ljava/lang/IllegalStateException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :catch_0
+    move-exception v0
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v2, "makeRequest Error "
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "LookUpFilesInServerTransaction"
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+
+    const/16 v0, -0x1e
+
+    invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v0
+
+    const-string v1, "File hashing failed"
+
+    invoke-direct {p0, v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;->stopByError(Ljava/lang/Integer;Ljava/lang/String;)V
+
+    :cond_0
+    invoke-virtual {v3, v4}, Lcom/samsung/android/sdk/ssf/file/io/IssueUploadTokenRequest;->setFileList(Ljava/util/List;)V
+
+    return-object v3
+
+    :cond_1
     const/4 v0, 0x0
 
+    :try_start_1
     invoke-interface {v1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
     move-result-object v5
 
-    move v1, v0
+    move v2, v0
 
     :goto_0
     invoke-interface {v5}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_0
 
     invoke-interface {v5}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
@@ -172,35 +285,27 @@
 
     check-cast v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LookUpFilesInServerRequest$FileData;
 
-    :try_start_0
-    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LookUpFilesInServerRequest$FileData;->isUseInputStream()Z
+    invoke-interface {p1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
-    move-result v2
+    move-result-object v1
 
-    if-eqz v2, :cond_1
+    check-cast v1, Ljava/lang/String;
 
-    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LookUpFilesInServerRequest$FileData;->getInputStream()Ljava/io/InputStream;
-
-    move-result-object v2
-
-    invoke-static {v2}, Lcom/samsung/android/sdk/ssf/common/util/HashUtils;->getFileSHA256(Ljava/io/InputStream;)Ljava/lang/String;
-
-    move-result-object v2
-
-    :goto_1
-    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LookUpFilesInServerRequest$FileData;->isUseInputStream()Z
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v6
 
-    if-eqz v6, :cond_0
+    if-eqz v6, :cond_2
 
-    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LookUpFilesInServerRequest$FileData;->getInputStream()Ljava/io/InputStream;
+    new-instance v0, Ljava/lang/IllegalStateException;
 
-    move-result-object v6
+    const-string v1, "Hash value for a file is missing "
 
-    invoke-virtual {v6}, Ljava/io/InputStream;->reset()V
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
-    :cond_0
+    throw v0
+
+    :cond_2
     invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LookUpFilesInServerRequest$FileData;->getFileSize()I
 
     move-result v6
@@ -213,7 +318,7 @@
 
     invoke-direct {v8}, Lcom/samsung/android/sdk/ssf/file/io/IssueUploadTokenRequest$File;-><init>()V
 
-    invoke-virtual {v8, v2}, Lcom/samsung/android/sdk/ssf/file/io/IssueUploadTokenRequest$File;->setHash(Ljava/lang/String;)V
+    invoke-virtual {v8, v1}, Lcom/samsung/android/sdk/ssf/file/io/IssueUploadTokenRequest$File;->setHash(Ljava/lang/String;)V
 
     invoke-virtual {v8, v6}, Lcom/samsung/android/sdk/ssf/file/io/IssueUploadTokenRequest$File;->setSize(I)V
 
@@ -227,125 +332,106 @@
 
     const-string v9, "hash"
 
-    invoke-virtual {v8, v9, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v8, v9, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string v2, "contenttype"
+    const-string v1, "contenttype"
 
-    invoke-virtual {v8, v2, v7}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v8, v1, v7}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string v2, "filename"
+    const-string v1, "filename"
 
     invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LookUpFilesInServerRequest$FileData;->getFileName()Ljava/lang/String;
 
     move-result-object v7
 
-    invoke-virtual {v8, v2, v7}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v8, v1, v7}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string v2, "filepath"
+    const-string v1, "filepath"
 
     invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LookUpFilesInServerRequest$FileData;->isUseInputStream()Z
 
     move-result v7
 
-    if-eqz v7, :cond_2
+    if-eqz v7, :cond_3
 
     const/4 v0, 0x0
 
-    :goto_2
-    invoke-virtual {v8, v2, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
+    :goto_1
+    invoke-virtual {v8, v1, v0}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
     const-string v0, "size"
 
     invoke-virtual {v8, v0, v6}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    iget-object v2, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;->mUserData:Landroid/os/Bundle;
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;->mUserData:Landroid/os/Bundle;
 
-    add-int/lit8 v0, v1, 0x1
+    add-int/lit8 v0, v2, 0x1
 
-    :try_start_1
-    invoke-static {v1}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
+    invoke-static {v2}, Ljava/lang/String;->valueOf(I)Ljava/lang/String;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v2, v1, v8}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
-    :try_end_1
-    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_1
+    invoke-virtual {v1, v2, v8}, Landroid/os/Bundle;->putBundle(Ljava/lang/String;Landroid/os/Bundle;)V
 
-    :goto_3
-    move v1, v0
+    move v2, v0
 
     goto :goto_0
 
-    :cond_1
-    :try_start_2
-    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LookUpFilesInServerRequest$FileData;->getFile()Ljava/io/File;
-
-    move-result-object v2
-
-    invoke-static {v2}, Lcom/samsung/android/sdk/ssf/common/util/HashUtils;->getFileSHA256(Ljava/io/File;)Ljava/lang/String;
-
-    move-result-object v2
-
-    goto :goto_1
-
-    :cond_2
+    :cond_3
     invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LookUpFilesInServerRequest$FileData;->getFile()Ljava/io/File;
 
     move-result-object v0
 
     invoke-virtual {v0}, Ljava/io/File;->getAbsolutePath()Ljava/lang/String;
-    :try_end_2
-    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+    :try_end_1
+    .catch Ljava/lang/IllegalStateException; {:try_start_1 .. :try_end_1} :catch_0
 
     move-result-object v0
 
-    goto :goto_2
+    goto :goto_1
+.end method
 
-    :catch_0
-    move-exception v0
+.method private proceedTransactionOnHashingComplete(Ljava/util/List;)V
+    .locals 8
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List",
+            "<",
+            "Ljava/lang/String;",
+            ">;)V"
+        }
+    .end annotation
 
-    move-object v10, v0
+    const-string v0, "Proceed transaction after file hashing"
 
-    move v0, v1
+    const-string v1, "LookUpFilesInServerTransaction"
 
-    move-object v1, v10
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
-    :goto_4
-    new-instance v2, Ljava/lang/StringBuilder;
-
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "makeRequest Error "
-
-    invoke-virtual {v2, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {p0, p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;->makeRequest(Ljava/util/List;)Lcom/samsung/android/sdk/ssf/file/io/IssueUploadTokenRequest;
 
     move-result-object v2
 
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/Object;)Ljava/lang/StringBuilder;
+    const/4 v0, 0x0
 
-    move-result-object v1
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->getSsfClient(Ljava/lang/String;)Lcom/samsung/android/sdk/ssf/SsfClient;
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
 
-    move-result-object v1
+    const/4 v1, 0x1
 
-    const-string v2, "LookUpFilesInServerTransaction"
+    iget-object v3, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;->mSsfListener:Lcom/samsung/android/sdk/ssf/SsfListener;
 
-    invoke-static {v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->e(Ljava/lang/String;Ljava/lang/String;)V
+    iget-object v4, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;->mUserData:Landroid/os/Bundle;
 
-    goto :goto_3
+    iget-object v5, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;->mConnectionTimeout:Lcom/samsung/android/sdk/ssf/common/ConnectTimeout;
 
-    :cond_3
-    invoke-virtual {v3, v4}, Lcom/samsung/android/sdk/ssf/file/io/IssueUploadTokenRequest;->setFileList(Ljava/util/List;)V
+    iget-wide v6, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;->mTransactionId:J
 
-    return-object v3
+    invoke-static/range {v0 .. v7}, Lcom/samsung/android/sdk/ssf/file/FileManager;->issueUploadToken(Lcom/samsung/android/sdk/ssf/SsfClient;ILcom/samsung/android/sdk/ssf/file/io/IssueUploadTokenRequest;Lcom/samsung/android/sdk/ssf/SsfListener;Landroid/os/Bundle;Lcom/samsung/android/sdk/ssf/common/ConnectTimeout;J)V
 
-    :catch_1
-    move-exception v1
-
-    goto :goto_4
+    return-void
 .end method
 
 .method private stop(IILjava/lang/String;)V
@@ -419,6 +505,21 @@
 
     invoke-super {p0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/Transaction;->cancel()V
 
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;->mHashingAsyncTask:Lcom/samsung/android/sdk/ssf/common/util/HashUtils$Sha256HashAsyncTask;
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;->mHashingAsyncTask:Lcom/samsung/android/sdk/ssf/common/util/HashUtils$Sha256HashAsyncTask;
+
+    const/4 v1, 0x1
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/ssf/common/util/HashUtils$Sha256HashAsyncTask;->cancel(Z)Z
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;->mHashingAsyncTask:Lcom/samsung/android/sdk/ssf/common/util/HashUtils$Sha256HashAsyncTask;
+
+    :cond_0
     invoke-static {}, Lcom/samsung/android/sdk/ssf/common/model/RequestManager;->getRequestQueue()Lcom/android/volley/RequestQueue;
 
     move-result-object v0
@@ -457,29 +558,135 @@
 .end method
 
 .method public start()V
-    .locals 8
+    .locals 5
 
-    const/4 v0, 0x0
+    new-instance v0, Lcom/samsung/android/sdk/ssf/common/util/HashUtils$Sha256HashAsyncTask;
 
-    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->getSsfClient(Ljava/lang/String;)Lcom/samsung/android/sdk/ssf/SsfClient;
+    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;->hashingListener:Lcom/samsung/android/sdk/ssf/common/util/HashUtils$HashingListener;
 
-    move-result-object v0
+    invoke-direct {v0, v1}, Lcom/samsung/android/sdk/ssf/common/util/HashUtils$Sha256HashAsyncTask;-><init>(Lcom/samsung/android/sdk/ssf/common/util/HashUtils$HashingListener;)V
 
-    const/4 v1, 0x1
+    iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;->mHashingAsyncTask:Lcom/samsung/android/sdk/ssf/common/util/HashUtils$Sha256HashAsyncTask;
 
-    invoke-direct {p0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;->makeRequest()Lcom/samsung/android/sdk/ssf/file/io/IssueUploadTokenRequest;
+    const/4 v1, 0x0
+
+    :try_start_0
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;->mRequest:Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LookUpFilesInServerRequest;
+
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LookUpFilesInServerRequest;->getFileDataList()Ljava/util/List;
 
     move-result-object v2
 
-    iget-object v3, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;->mSsfListener:Lcom/samsung/android/sdk/ssf/SsfListener;
+    invoke-interface {v2}, Ljava/util/List;->size()I
 
-    iget-object v4, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;->mUserData:Landroid/os/Bundle;
+    move-result v0
 
-    iget-object v5, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;->mConnectionTimeout:Lcom/samsung/android/sdk/ssf/common/ConnectTimeout;
+    new-array v1, v0, [Ljava/io/InputStream;
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_1
 
-    iget-wide v6, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;->mTransactionId:J
+    const/4 v0, 0x0
 
-    invoke-static/range {v0 .. v7}, Lcom/samsung/android/sdk/ssf/file/FileManager;->issueUploadToken(Lcom/samsung/android/sdk/ssf/SsfClient;ILcom/samsung/android/sdk/ssf/file/io/IssueUploadTokenRequest;Lcom/samsung/android/sdk/ssf/SsfListener;Landroid/os/Bundle;Lcom/samsung/android/sdk/ssf/common/ConnectTimeout;J)V
+    :try_start_1
+    invoke-interface {v2}, Ljava/util/List;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    move v3, v0
+
+    :goto_0
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LookUpFilesInServerRequest$FileData;
+
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LookUpFilesInServerRequest$FileData;->isUseInputStream()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LookUpFilesInServerRequest$FileData;->getInputStream()Ljava/io/InputStream;
+
+    move-result-object v0
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Ljava/io/IOException;
+
+    invoke-direct {v0}, Ljava/io/IOException;-><init>()V
+
+    throw v0
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+
+    :catch_0
+    move-exception v0
+
+    move-object v0, v1
+
+    :goto_1
+    const/16 v1, -0x1e
+
+    invoke-static {v1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object v1
+
+    const-string v2, "IO Exception while opening file input stream"
+
+    invoke-direct {p0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;->stopByError(Ljava/lang/Integer;Ljava/lang/String;)V
+
+    :goto_2
+    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/LookUpFilesInServerTransaction;->mHashingAsyncTask:Lcom/samsung/android/sdk/ssf/common/util/HashUtils$Sha256HashAsyncTask;
+
+    invoke-virtual {v1, v0}, Lcom/samsung/android/sdk/ssf/common/util/HashUtils$Sha256HashAsyncTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
 
     return-void
+
+    :cond_0
+    :try_start_2
+    invoke-virtual {v0}, Ljava/io/InputStream;->reset()V
+
+    :goto_3
+    add-int/lit8 v2, v3, 0x1
+
+    aput-object v0, v1, v3
+
+    move v3, v2
+
+    goto :goto_0
+
+    :cond_1
+    new-instance v2, Ljava/io/FileInputStream;
+
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LookUpFilesInServerRequest$FileData;->getFile()Ljava/io/File;
+
+    move-result-object v0
+
+    invoke-direct {v2, v0}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_0
+
+    move-object v0, v2
+
+    goto :goto_3
+
+    :cond_2
+    move-object v0, v1
+
+    goto :goto_2
+
+    :catch_1
+    move-exception v0
+
+    move-object v0, v1
+
+    goto :goto_1
 .end method

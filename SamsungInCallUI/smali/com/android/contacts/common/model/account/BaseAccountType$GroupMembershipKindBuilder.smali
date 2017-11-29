@@ -66,7 +66,7 @@
 
     const-string v5, "vnd.android.cursor.item/group_membership"
 
-    const v7, 0x7f090179
+    const v7, 0x7f09017c
 
     const/16 v8, 0x96
 

@@ -112,7 +112,7 @@
     <string name="SS_CONTENTS_SHARING_STOPPED_BATTERY_LOW">కంటెంట్లు పంచుకోవడం ఆగినది. బ్యాటరీ తక్కువగా ఉంది.</string>
     <string name="SS_UNABLE_TO_RECEIVE_FILE_IT_EXCEEDS_MAXIMUM_FILE_SIZE">ఫైల్‌ను స్వీకరించడం సాధ్యం కాదు. ఇది గరిష్ఠ ఫైల్ సైజ్ కు మించిపోయింది.</string>
     <string name="TS_ADD_REASON_BUTTON_ABB_VODA">కారణం జోడించు</string>
-    <string name="TS_IMPORTANT_CALL_BODY_VODA">అత్యవసర కాల్</string>
+    <string name="TS_IMPORTANT_CALL_BODY_VODA">ముఖ్యమైన కాల్</string>
     <string name="TS_SHARING_INVITATION_DECLINED_TPOP_VODA">భాగస్వామ్యం చేయడానికి ఆహానం తిరస్కరించబడింది.</string>
     <string name="a_verification_code_will_be_sent">దిగువ నంబర్‌కు ధృవీకరణ కోడ్ పంపబడుతుంది.</string>
     <string name="about_open_source_licenses">ఓపెన్ సోర్స్ లైసెన్స్‌లు</string>
@@ -126,6 +126,7 @@
     <string name="agif_decline_sticker_header">స్టిక్కర్‌తో తిరస్కరించండి</string>
     <string name="agif_decline_text_header">టెక్స్ట్‌తో తిరస్కరించండి</string>
     <string name="agif_decline_toast">%sకు స్టిక్కర్ పంపబడింది.</string>
+    <string name="agif_outgoing_bubble_tip">మీరు ఎలా ఉన్నాయో తెలియజేయడానికి స్టిక్కర్‌ని పంపండి.</string>
     <string name="agif_pickers_add_tab_description">జోడించు</string>
     <string name="agif_pickers_find_more">మరిన్ని కనుగొను</string>
     <string name="agif_pickers_item_usage_hints_description">ఎంచుకోవడానికి రెండుసార్లు ట్యాప్ చేయండి</string>
@@ -134,10 +135,12 @@
     <string name="agif_pickers_tab_select_description">ఎంచుకోబడ్డాయి</string>
     <string name="agif_pickers_title">స్టిక్కర్‌తో ప్రారంభించండి</string>
     <string name="agif_pickers_title_recommended">సిఫార్సు చేయబడింది</string>
+    <string name="agif_random_send_message">మీ స్టిక్కర్‌ని పంపడానికి ఇక్కడ నొక్కండి.</string>
     <string name="agif_read_permission_description">AGIF కంటెంట్‌ను చదవడానికి ఫోన్‌ను అనుమతిస్తుంది.</string>
     <string name="agif_read_permission_label">AGIF కంటెంట్‌ను చదవండి</string>
     <string name="agif_receive_no_id">స్టిక్కర్ చూపబడదు. కాల్ తర్వాత %sని అప్‌డేట్ చేయండి.</string>
     <string name="agif_receive_no_id_upsupport_update">స్టిక్కర్ చూపబడదు. సిస్టమ్ అప్‌డేట్ చేయబడిన తర్వాత మరిన్ని స్టిక్కర్‌లు అందుబాటులో ఉంటాయి.</string>
+    <string name="agif_receive_toast">%s నుండి స్టిక్కర్.</string>
     <string name="agif_sent_fail_message">యానిమేట్ చేసిన GIFను పంపలేరు. తర్వాత మళ్లీ ప్రయత్నించండి.</string>
     <string name="agif_sent_toast">స్టిక్కర్ పంపబడింది.</string>
     <string name="agif_write_permission_description">AGIF కంటెంట్‌ను సవరించడానికి ఫోన్‌ను అనుమతిస్తుంది.</string>
@@ -327,7 +330,7 @@
     <string name="ghostData_title">ఉద్యోగ శీర్షిక</string>
     <string name="group_voice_call">సమూహ కాల్</string>
     <string name="groupsLabel">గుంపులు</string>
-    <string name="held_calls">హెల్డ్ కాల్స్</string>
+    <string name="held_calls">హెల్డ్ కాల్</string>
     <string name="help_text_more_info">మరింత సమాచారం</string>
     <string name="high_quality_sound">HD</string>
     <string name="if_your_registered_for_dnd_service">మీరు DND సేవ కోసం నమోదు చేస్తే, వాయిస్ ధృవీకరణని ఉపయోగించండి.</string>
@@ -827,8 +830,8 @@ Dianhuabang అనే మూడవ పక్ష సేవా ప్రదాత 
     <string name="tts_pager">%2$d లో %1$d పేజీ</string>
     <string name="tts_seconds">%d సెకన్లు</string>
     <string name="tty_mode_option_title">TTY మోడ్</string>
-    <string name="tutorial_incoming_call_app_answer">కాల్‌కు సమాధానమివ్వడానికి ట్యాప్ చేయండి.</string>
-    <string name="tutorial_incoming_call_app_reject">కాల్‌కు తిరస్కరించడానికి ట్యాప్ చేయండి.</string>
+    <string name="tutorial_incoming_call_app_answer">సమాధానం ఇచ్చేందుకు డబుల్ నొక్కండి.</string>
+    <string name="tutorial_incoming_call_app_reject">నిరాకరించేందుకు డబుల్ నొక్కండి.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">నెట్‌వర్క్‌కు కనెక్ట్ చేయడం సాధ్యం కాదు. మీ కనెక్షన్ సెట్టింగ్‌లను తనిఖీ చేసి, మళ్లీ ప్రయత్నించండి.</string>
     <string name="units_kb">KB</string>
@@ -838,7 +841,7 @@ Dianhuabang అనే మూడవ పక్ష సేవా ప్రదాత 
     <string name="upload_using_wlan_only">WLAN ద్వారా మాత్రమే అప్‌లోడ్ చేయండి</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fi లేదా మొబైల్ నెట్‌వర్క్ ద్వారా అప్‌లోడ్ చేయండి</string>
     <string name="upload_wlan_and_mobile_nw">WLAN లేదా మొబైల్ నెట్‌వర్క్‌తో అప్‌లోడ్ చేయి</string>
-    <string name="usa_att_connected_as_voice">కాల్ వాయిస్‌గా మాత్రమే కనెక్ట్ చేయబడింది.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">మీ పరికరంలో సెట్ చేసిన మీ డేటా వినియోగం దాని పరిమితిని చేరుకుంది. మీ వీడియో కాల్‌కు డేటా అవసరం.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Wi-Fi ద్వారా కాల్ చేయలేరు, కాబట్టి సెల్యులార్ నెట్‌వర్క్ ద్వారా కనెక్ట్ చేయబడుతోంది. వాయిస్ మరియు డేటా ఛార్జీలు వర్తించవచ్చు.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -888,11 +891,15 @@ Dianhuabang అనే మూడవ పక్ష సేవా ప్రదాత 
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">మొబైల్ డేటాను ఉపయోగించు</string>
     <string name="usa_vzw_volte_weak_wifi_text">"మేము ప్రయత్నించాము, కానీ మేము ప్రస్తుతం మీ వీడియో కాల్‌ని Wi-Fiకి మార్చలేము.
 
-మీ వీడియో కాల్ మొబైల్ నెట్‌వర్క్‌లో ఇంకా అమలవుతోంది. (మీరు కొనసాగించాలని ఎంచుకుంటే డేటా వినియోగం వర్తిస్తుంది.)"</string>
-    <string name="usa_vzw_volte_weak_wifi_toast">మొబైల్ నెట్‌వర్క్‌లో మీ వీడియో కాలింగ్ ఇప్పటికీ అమలవుతోంది. (డేటా వినియోగం వర్తిస్తుంది.)</string>
-    <string name="usa_vzw_vowifi_wifi_low_signal_text">"వీడియో కాల్‌ను కొనసాగించేంతగా Wi-Fi సిగ్నల్ బలంగా లేదు.
+మీ వీడియో కాల్ మొబైల్ నెట్‌వర్క్‌లో ఇంకా అమలవుతోంది.
 
-మీ వీడియో కాల్ ఇప్పుడు మొబైల్ డేటాను ఉపయోగిస్తుంది. (మీరు కొనసాగించాలని ఎంచుకుంటే డేటా వినియోగం వర్తిస్తుంది.)"</string>
+మీరు కొనసాగించాలనుకుంటే డేటా ఉపయోగ ఛార్జీలు వర్తించవచ్చు."</string>
+    <string name="usa_vzw_volte_weak_wifi_toast">మొబైల్ నెట్‌వర్క్‌లో మీ వీడియో కాలింగ్ ఇప్పటికీ అమలవుతోంది. (డేటా వినియోగం వర్తిస్తుంది.)</string>
+    <string name="usa_vzw_vowifi_wifi_low_signal_text">"మీ వీడియో కాల్‌ని కొనసాగించడానికి Wi-Fi సిగ్నల్ తగినంత దృఢంగా లేదు.
+
+ఇప్పుడు మీ వీడియో కాల్ మొబైల్ నెట్‌వర్క్‌లో అమలవుతోంది.
+
+మీరు కొనసాగించాలనుకుంటే డేటా ఉపయోగ ఛార్జీలు వర్తించవచ్చు."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi కనెక్షన్ కోల్పోయింది. కాల్ ముగిసింది.</string>
     <string name="use_wifi_and_mobile_nw">Wi-Fi మరియు మొబైల్ నెట్‌వర్క్‌లను ఉపయోగించు</string>
     <string name="use_wlan_and_mobile_nw">WLAN మరియు మొబైల్ నెట్‌వర్క్‌లను ఉపయోగించండి</string>

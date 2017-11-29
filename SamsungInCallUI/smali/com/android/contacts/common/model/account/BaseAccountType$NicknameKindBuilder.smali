@@ -62,7 +62,7 @@
 
     const/4 v4, 0x0
 
-    const v7, 0x7f09024c
+    const v7, 0x7f09024f
 
     const-string v5, "vnd.android.cursor.item/nickname"
 

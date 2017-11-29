@@ -40,23 +40,28 @@
 
     const/4 v0, 0x0
 
-    if-eqz p0, :cond_0
+    if-eqz p0, :cond_1
 
     invoke-virtual {p0}, Lcom/android/incallui/Call;->hasVideoState()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     invoke-virtual {p0}, Lcom/android/incallui/Call;->isPSDomain()Z
 
     move-result v1
 
-    if-eqz v1, :cond_0
+    if-nez v1, :cond_0
 
+    sget-boolean v1, Lcom/android/incallui/service/vt/VideoCallConfig;->TABLET_DEVICE:Z
+
+    if-eqz v1, :cond_1
+
+    :cond_0
     sget-boolean v1, Lcom/android/incallui/service/vt/VideoCallConfig;->DEVICE_ROTATION:Z
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallControl;->isEnabledAutoRotation()Z
 
@@ -96,13 +101,13 @@
 
     invoke-static {v3}, Lcom/android/incallui/service/vt/VideoCallControl;->log(Ljava/lang/String;)V
 
-    if-eqz v1, :cond_0
+    if-eqz v1, :cond_1
 
-    if-nez v2, :cond_0
+    if-nez v2, :cond_1
 
     const/4 v0, 0x1
 
-    :cond_0
+    :cond_1
     return v0
 .end method
 
@@ -1292,7 +1297,7 @@
 .method public static showModifyCallException(ILcom/android/incallui/Call;Landroid/telecom/VideoProfile;)V
     .locals 3
 
-    const v2, 0x7f090357
+    const v2, 0x7f09035a
 
     const/4 v0, 0x1
 
@@ -1374,7 +1379,7 @@
 
     if-eqz v0, :cond_5
 
-    const v0, 0x7f090358
+    const v0, 0x7f09035b
 
     invoke-static {v0}, Lcom/android/incallui/util/InCallUtils;->displayToast(I)V
 
@@ -1400,7 +1405,7 @@
 
     if-nez v0, :cond_7
 
-    const v0, 0x7f09035b
+    const v0, 0x7f09035e
 
     invoke-static {v0}, Lcom/android/incallui/util/InCallUtils;->displayToast(I)V
 
@@ -1425,14 +1430,14 @@
 
     if-eqz v0, :cond_8
 
-    const v0, 0x7f09035a
+    const v0, 0x7f09035d
 
     invoke-static {v0}, Lcom/android/incallui/util/InCallUtils;->displayToast(I)V
 
     goto :goto_0
 
     :cond_8
-    const v0, 0x7f090359
+    const v0, 0x7f09035c
 
     invoke-static {v0}, Lcom/android/incallui/util/InCallUtils;->displayToast(I)V
 

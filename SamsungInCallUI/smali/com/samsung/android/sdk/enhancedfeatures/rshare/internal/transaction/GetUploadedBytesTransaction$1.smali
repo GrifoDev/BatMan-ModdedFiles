@@ -53,6 +53,31 @@
 
     move-result-object v0
 
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p1}, Lcom/android/volley/Request;->getTag()Ljava/lang/Object;
+
+    move-result-object v0
+
+    if-nez v0, :cond_1
+
+    :cond_0
+    const/4 v0, 0x0
+
+    :goto_0
+    return v0
+
+    :cond_1
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/GetUploadedBytesTransaction$1;->this$0:Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/GetUploadedBytesTransaction;
+
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/GetUploadedBytesTransaction;->access$000(Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/GetUploadedBytesTransaction;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/GetUploadedBytesRequest;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/GetUploadedBytesRequest;->getUrl()Ljava/lang/String;
+
+    move-result-object v0
+
     invoke-virtual {p1}, Lcom/android/volley/Request;->getTag()Ljava/lang/Object;
 
     move-result-object v1
@@ -65,5 +90,5 @@
 
     move-result v0
 
-    return v0
+    goto :goto_0
 .end method

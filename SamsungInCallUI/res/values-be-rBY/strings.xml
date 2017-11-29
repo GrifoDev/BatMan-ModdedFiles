@@ -118,12 +118,13 @@
     <string name="account_phone">Прылада</string>
     <string name="acs">Галасавы выклік</string>
     <string name="active_calls">Актыўны выклік</string>
-    <string name="add_reminder">Дад. напамін</string>
+    <string name="add_reminder">Дадаць напамін</string>
     <string name="agif_button_close_description">Закрыць</string>
     <string name="agif_decline_message">Прабачце, зараз я не магу гаварыць.</string>
     <string name="agif_decline_sticker_header">Адхіліць з дапамогай стыкера</string>
     <string name="agif_decline_text_header">Адхіліць з дапамогай тэксту</string>
     <string name="agif_decline_toast">Стыкер адпраўлены карыстальніку %s.</string>
+    <string name="agif_outgoing_bubble_tip">Адпраўце налепку, каб паказаць, як вы адчуваеце сябе.</string>
     <string name="agif_pickers_add_tab_description">Дадаць</string>
     <string name="agif_pickers_find_more">Знайсці больш</string>
     <string name="agif_pickers_item_usage_hints_description">Двойчы націсніце, каб выбраць</string>
@@ -132,10 +133,12 @@
     <string name="agif_pickers_tab_select_description">Выбрана</string>
     <string name="agif_pickers_title">Пачаць са стыкера</string>
     <string name="agif_pickers_title_recommended">Рэкамендуецца</string>
+    <string name="agif_random_send_message">Націсніце тут, каб адправіць гэту налепку.</string>
     <string name="agif_read_permission_description">Дазваляе тэлефону чытаць змесціва AGIF.</string>
     <string name="agif_read_permission_label">Чытаць змесціва AGIF</string>
     <string name="agif_receive_no_id">Нельга паказаць наклейку. Абнавіць %s пасля выкліку.</string>
     <string name="agif_receive_no_id_upsupport_update">Нельга паказаць наклейку. Іншыя наклейкі стануць даступныя пасля наступнага абнаўлення сістэмы.</string>
+    <string name="agif_receive_toast">Стыкер ад %s.</string>
     <string name="agif_sent_fail_message">Немагчыма адправіць аніміраваны GIF. Паўтарыце спробу пазней.</string>
     <string name="agif_sent_toast">Стыкер адпраўлены.</string>
     <string name="agif_write_permission_description">Дазваляе тэлефону змяняць змесціва AGIF.</string>
@@ -822,8 +825,8 @@
     <string name="tts_pager">Старонка %1$d з %2$d</string>
     <string name="tts_seconds">%d секунд(ы)</string>
     <string name="tty_mode_option_title">Рэжым TTY</string>
-    <string name="tutorial_incoming_call_app_answer">Націсніце, каб адказаць на выклік.</string>
-    <string name="tutorial_incoming_call_app_reject">Націсніце, каб адхіліць выклік.</string>
+    <string name="tutorial_incoming_call_app_answer">Двойчы націсніце, каб адказаць.</string>
+    <string name="tutorial_incoming_call_app_reject">Двойчы націсніце, каб адхіліць.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Не атрымліваецца падлучыцца да сеткі. Праверце параметры падлучэння і паспрабуйце яшчэ раз.</string>
     <string name="units_kb">КБ</string>
@@ -833,7 +836,7 @@
     <string name="upload_using_wlan_only">Запампоўванне толькі праз WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Загрузіць праз Wi-Fi або мабільную сетку</string>
     <string name="upload_wlan_and_mobile_nw">Запампоўванне праз WLAN або мабільную сетку</string>
-    <string name="usa_att_connected_as_voice">Выклік прыняты як толькі галасавы.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Ліміт трафіку, які вы задалі на вашай прыладзе, хутка будзе дасягнуты. Ваш відэавыклік патрабуе трафіку.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Нельга здзейсніць выклік праз Wi-Fi, ажыццяўляецца падлучэнне да мабільнай сеткі. Будзе спаганяцца плата за галасавы выклік і трафік.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -881,13 +884,17 @@
     <string name="usa_vzw_voice_incoming_during_wifi_video">Калі адказаць на ўваходны выклік, бягучая размова скончыцца.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_text">Сігнал Wi-Fi недастаткова моцны, каб працягваць выклік. Калі выкарыстоўваць мабільныя сеткі для працягу выкліку, будзе спажывацца трафік вашага тарыфнага плана.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Выкарыстоўваць Мабільную перадачу даных</string>
-    <string name="usa_vzw_volte_weak_wifi_text">"На жаль, пакуль не атрымліваецца пераключыць відэавыклік на Wi-Fi.
+    <string name="usa_vzw_volte_weak_wifi_text">"Мы спрабавалі, але не змаглі на гэта раз перавесці ваш відэавыклік на Wi-Fi.
 
-Відэавыклік пакуль выконваецца праз мабільную сетку. (Калі вы выбераце працягнуць, будзе спажывацца трафік.)"</string>
+Відэавыклік пакуль што выконваецца праз мабільную сетку.
+
+Калі вы выбераце працягнуць, будзе спажывацца трафік."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Відэавыклік пакуль што выконваецца праз мабільную сетку. (Спажываецца трафік.)</string>
-    <string name="usa_vzw_vowifi_wifi_low_signal_text">"Сігнал Wi-Fi быў недастаткова моцным, каб забяспечыць відэавыклік.
+    <string name="usa_vzw_vowifi_wifi_low_signal_text">"Сігнал Wi-Fi недастаткова моцны, каб працягваць відэвыклік.
 
-Відэавыклік цяпер выконваецца праз мабільную сетку. (Калі вы выбераце працягнуць, будзе спажывацца трафік.)"</string>
+Відэавыклік цяпер выконваецца праз мабільную сетку.
+
+Калі вы выбераце працягнуць, будзе спажывацца трафік."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Страчана злучэнне з сеткай Wi-Fi. Выклік завершаны.</string>
     <string name="use_wifi_and_mobile_nw">Ужываць Wi-Fi і мабільныя сеткі</string>
     <string name="use_wlan_and_mobile_nw">Выкарыстоўваць WLAN і мабільныя сеткі</string>

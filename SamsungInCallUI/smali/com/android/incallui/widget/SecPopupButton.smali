@@ -78,7 +78,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a05c3
+    const v1, 0x7f0a0603
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -90,7 +90,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a05c2
+    const v1, 0x7f0a0602
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -137,7 +137,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f020373
+    const v0, 0x7f0203a7
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/widget/SecPopupButton;->setBackgroundResource(I)V
 

@@ -201,7 +201,7 @@
 .end method
 
 .method public start()V
-    .locals 7
+    .locals 8
 
     const/4 v1, 0x0
 
@@ -322,9 +322,13 @@
 
     invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/data/ContentItem;->getContentType()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v7
 
-    invoke-direct {v5, v6, v0}, Lcom/samsung/android/sdk/ssf/share/io/ContentForShare;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/data/ContentItem;->getExtraAttr()I
+
+    move-result v0
+
+    invoke-direct {v5, v6, v7, v0}, Lcom/samsung/android/sdk/ssf/share/io/ContentForShare;-><init>(Ljava/lang/String;Ljava/lang/String;I)V
 
     invoke-virtual {v2, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 

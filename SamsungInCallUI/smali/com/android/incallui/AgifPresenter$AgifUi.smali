@@ -65,6 +65,9 @@
 .method public abstract showAgifList(Z)V
 .end method
 
+.method public abstract showBubbleTip()V
+.end method
+
 .method public abstract startOutgoingCallAnimation()V
 .end method
 

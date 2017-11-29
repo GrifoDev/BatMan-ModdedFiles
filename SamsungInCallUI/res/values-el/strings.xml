@@ -178,12 +178,13 @@
     <string name="account_phone">Συσκευή</string>
     <string name="acs">Φωνητική κλήση</string>
     <string name="active_calls">Ενεργή κλήση</string>
-    <string name="add_reminder">Προσθ.υπενθ.</string>
+    <string name="add_reminder">Προσθήκη υπενθύμισης</string>
     <string name="agif_button_close_description">Κλείσιμο</string>
     <string name="agif_decline_message">Δυστυχώς, δεν μπορώ να μιλήσω αυτήν τη στιγμή.</string>
     <string name="agif_decline_sticker_header">Απόρριψη με αυτοκόλλητο</string>
     <string name="agif_decline_text_header">Απόρριψη με κείμενο</string>
     <string name="agif_decline_toast">Το αυτοκόλλητο στάλθηκε στο χρήστη %s.</string>
+    <string name="agif_outgoing_bubble_tip">Στείλτε ένα αυτοκόλλητο για δείξετε πώς νιώθετε.</string>
     <string name="agif_pickers_add_tab_description">Προσθ.</string>
     <string name="agif_pickers_find_more">Βρείτε περισσότερα</string>
     <string name="agif_pickers_item_usage_hints_description">Πατήστε δύο φορές για επιλογή</string>
@@ -192,10 +193,12 @@
     <string name="agif_pickers_tab_select_description">Επιλέχθηκε</string>
     <string name="agif_pickers_title">Ξεκινήστε με ένα αυτοκόλλητο</string>
     <string name="agif_pickers_title_recommended">Προτείνεται</string>
+    <string name="agif_random_send_message">Πατήστε εδώ για να στείλετε αυτό το αυτοκόλλητο.</string>
     <string name="agif_read_permission_description">Επιτρέπει στην εφαρμογή Τηλέφωνο να διαβάζει περιεχόμενο AGIF.</string>
     <string name="agif_read_permission_label">Ανάγνωση περιεχομένου AGIF</string>
     <string name="agif_receive_no_id">Αδύνατη η εμφάνιση του αυτοκόλλητου. Ενημερώστε την εφαρμογή %s μετά την κλήση.</string>
     <string name="agif_receive_no_id_upsupport_update">Αδύν. η εμφάν. του αυτοκόλλητου. Μετά την επόμενη ενημέρ. συστήμ. θα διατεθούν κι άλλα αυτοκόλλητα.</string>
+    <string name="agif_receive_toast">Αυτοκόλλητο από %s.</string>
     <string name="agif_sent_fail_message">Δεν είναι δυνατή η αποστολή κινούμενης εικόνας GIF. Δοκιμάστε ξανά αργότερα.</string>
     <string name="agif_sent_toast">Το αυτοκόλλητο στάλθηκε.</string>
     <string name="agif_write_permission_description">Επιτρέπει στην εφαρμογή Τηλέφωνο να τροποποιεί περιεχόμενο AGIF.</string>
@@ -744,12 +747,12 @@
     <string name="secOnscreenMenuDualCameraOnText">Ενεργοποίηση διπλής κάμερας</string>
     <string name="secOnscreenMenuEnableExtraVolume">Ενεργ. επιπλ.έντασης</string>
     <string name="secOnscreenMenuEnableExtraVolumeTTS">Ενεργοποίηση επιπλέον έντασης</string>
-    <string name="secOnscreenMenuHideMeText">Απόκρυψη εικόνας μου</string>
+    <string name="secOnscreenMenuHideMeText">Απόκρυψη</string>
     <string name="secOnscreenMenuImageEffectText">Εφέ εικόνας</string>
     <string name="secOnscreenMenuMuteText">Σίγαση</string>
     <string name="secOnscreenMenuOutgoingImageSettingText">Εξερχόμενη εικόνα</string>
     <string name="secOnscreenMenuOutgoingImageText">Εξερχόμενη εικόνα</string>
-    <string name="secOnscreenMenuShowMeText">Εμφάνιση</string>
+    <string name="secOnscreenMenuShowMeText">Εμφάνισε με</string>
     <string name="secOnscreenMenuSpeakerOffText">Απενεργοπ. ηχείου</string>
     <string name="secOnscreenMenuSpeakerOnText">Ενεργοποίηση ηχείου</string>
     <string name="secOnscreenMenuStartRecordText">Εγγραφή βίντεο</string>
@@ -800,10 +803,10 @@
     <string name="secOnscreenVolumeText">Ένταση</string>
     <string name="secVolteCall">Κλήση</string>
     <string name="secVolteCall_lgt">Κλήση VoLTE</string>
-    <string name="sec_hideme_text">Απόκρυψη εικόνας μου</string>
+    <string name="sec_hideme_text">Απόκρυψη</string>
     <string name="sec_popup_reject_call_with_msg_content_description_close">Πατήστε δύο φορές για κλείσιμο της λίστας.</string>
     <string name="sec_popup_reject_call_with_msg_content_description_open">Πατήστε δύο φορές για άνοιγμα της λίστας.</string>
-    <string name="sec_showme_text">Εμφάνιση</string>
+    <string name="sec_showme_text">Εμφάνισε με</string>
     <string name="second_screen_hold_text">%d σε ανα.</string>
     <string name="section_contacts_only_summary">Δημιουργία και διαχείριση επαφών.</string>
     <string name="select_callback_sim_card">Επιλογή κάρτας SIM για επιστροφή κλήσης</string>
@@ -885,8 +888,8 @@
     <string name="tts_pager">Σελίδα %1$d από %2$d</string>
     <string name="tts_seconds">%d δευτερόλεπτα</string>
     <string name="tty_mode_option_title">Λειτουργία TTY</string>
-    <string name="tutorial_incoming_call_app_answer">Πατήστε για να απαντήσετε στην κλήση.</string>
-    <string name="tutorial_incoming_call_app_reject">Πατήστε για απόρριψη της κλήσης.</string>
+    <string name="tutorial_incoming_call_app_answer">Πατήστε δύο φορές για να απαντήσετε.</string>
+    <string name="tutorial_incoming_call_app_reject">Πατήστε δύο φορές για απόρριψη.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Δεν είναι δυνατή η σύνδεση στο δίκτυο. Ελέγξτε τις ρυθμίσεις σύνδεσης και προσπαθήστε ξανά.</string>
     <string name="units_kb">KB</string>
@@ -896,7 +899,7 @@
     <string name="upload_using_wlan_only">Αποστολή μόνο μέσω WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Αποστολή μέσω Wi-Fi ή δικτύου κινητής τηλεφωνίας</string>
     <string name="upload_wlan_and_mobile_nw">Αποστολή μέσω WLAN ή δικτύων κινητής τηλεφωνίας</string>
-    <string name="usa_att_connected_as_voice">Η κλήση συνδέθηκε μόνο ως φωνητική κλήση.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Πρόκειται να συμπληρώσετε το όριο για τη χρήση δεδομένων που έχετε ορίσει στη συσκευή. Η κλήση βίντεο απαιτεί δεδομένα.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Η κλήση δεν μπορεί να πραγματοποιηθεί μέσω Wi-Fi, γίνεται σύνδεση μέσω δικτύου κινητής τηλεφωνίας. Ισχύουν χρεώσεις φωνής και δεδομένων.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -944,13 +947,17 @@
     <string name="usa_vzw_voice_incoming_during_wifi_video">Αν απαντήσετε στην εισερχόμενη κλήση, θα τερματιστεί η τρέχουσα κλήση.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_text">Το σήμα Wi-Fi δεν είναι αρκετά ισχυρό για τη συνέχιση της κλήσης. Αν συνεχίσετε την κλήση μέσω δικτύου κινητής τηλεφωνίας, θα χρησιμοποιήσετε το πρόγραμμα δεδομένων σας.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Χρήση δεδομένων κινητής τηλεφωνίας</string>
-    <string name="usa_vzw_volte_weak_wifi_text">"Έγινε προσπάθεια, αλλά δεν είναι δυνατή η αλλαγή του δικτύου της κλήσης βίντεο σε Wi-Fi αυτήν τη στιγμή.
+    <string name="usa_vzw_volte_weak_wifi_text">"Έγινε προσπάθεια, αλλά δεν είναι δυνατή αυτήν τη στιγμή η αλλαγή του δικτύου της κλήσης βίντεο σε Wi-Fi.
 
-Η κλήση βίντεο εξακολουθεί να πραγματοποιείται μέσω του δικτύου κινητής τηλεφωνίας. (Ισχύει η χρέωση για τη χρήση δεδομένων αν επιλέξετε να συνεχίσετε.)"</string>
+Η κλήση βίντεο εξακολουθεί να πραγματοποιείται μέσω του δικτύου κινητής τηλεφωνίας.
+
+Αν επιλέξετε να συνεχίσετε, ενδέχεται να ισχύσουν χρεώσεις χρήσης δεδομένων."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Η κλήση βίντεο εξακολουθεί να χρησιμοποιεί το δίκτυο κινητής τηλεφωνίας. (Ισχύουν χρεώσεις για τη χρήση δεδομένων.)</string>
     <string name="usa_vzw_vowifi_wifi_low_signal_text">"Το σήμα Wi-Fi δεν ήταν αρκετά ισχυρό για τη συνέχιση της κλήσης βίντεο.
 
-Η κλήση βίντεο εκτελείται τώρα στο δίκτυο κινητής τηλεφωνίας. (Ισχύει χρήση δεδομένων αν επιλέξετε να συνεχίσετε.)"</string>
+Η κλήση βίντεο εκτελείται τώρα στο δίκτυο κινητής τηλεφωνίας.
+
+Αν επιλέξετε να συνεχίσετε, ενδέχεται να ισχύσουν χρεώσεις χρήσης δεδομένων."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Η σύνδεση Wi-Fi χάθηκε. Η κλήση τερματίστηκε.</string>
     <string name="use_wifi_and_mobile_nw">Χρήση Wi-Fi και δικτύων κινητής τηλεφωνίας</string>
     <string name="use_wlan_and_mobile_nw">Χρήση WLAN και δικτύων κινητής τηλεφωνίας</string>

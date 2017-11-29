@@ -30,7 +30,7 @@
     <string name="card_title_incoming_call">Chamada recebida</string>
     <string name="card_title_my_phone_number">Meu número é %s.</string>
     <string name="card_title_on_hold">Espera</string>
-    <string name="card_title_video_call">Videocham.</string>
+    <string name="card_title_video_call">Videochamada</string>
     <string name="common_google_play_services_api_unavailable_text">%1$s exige um ou mais serviços do Google Play que não estão disponíveis no momento. Entre em contato com o desenvolvedor para receber ajuda.</string>
     <string name="common_google_play_services_enable_button">Ativar o Google Play Services</string>
     <string name="common_google_play_services_enable_text">%1$s só funciona com o Google Play Services ativado.</string>
@@ -93,7 +93,7 @@
     <string name="onscreenShowDialpadText">Teclado</string>
     <string name="onscreenSwapCallsText">Trocar</string>
     <string name="onscreenSwitchCameraText">Alternar câmera</string>
-    <string name="onscreenVideoCallText">Videocham.</string>
+    <string name="onscreenVideoCallText">Videochamada</string>
     <string name="overflowAddMenuItemText">Adicionar chamada</string>
     <string name="overflowHoldMenuItemText">Espera</string>
     <string name="overflowMergeMenuItemText">Conferência</string>
@@ -151,12 +151,13 @@
     <string name="account_phone">Dispositivo</string>
     <string name="acs">Chamada de voz</string>
     <string name="active_calls">Chamada ativa</string>
-    <string name="add_reminder">Ad. lembrete</string>
+    <string name="add_reminder">Adicionar lembrete</string>
     <string name="agif_button_close_description">Fechar</string>
     <string name="agif_decline_message">Não posso falar agora.</string>
     <string name="agif_decline_sticker_header">Recusar com um adesivo</string>
     <string name="agif_decline_text_header">Recusar com um texto</string>
     <string name="agif_decline_toast">Adesivo enviado para %s.</string>
+    <string name="agif_outgoing_bubble_tip">Envie um adesivo para mostrar como se sente.</string>
     <string name="agif_pickers_add_tab_description">Adicionar</string>
     <string name="agif_pickers_find_more">Encontrar mais</string>
     <string name="agif_pickers_item_usage_hints_description">Toque duas vezes para selecionar</string>
@@ -165,10 +166,12 @@
     <string name="agif_pickers_tab_select_description">Selecionado</string>
     <string name="agif_pickers_title">Começar com um adesivo</string>
     <string name="agif_pickers_title_recommended">Recomendados</string>
+    <string name="agif_random_send_message">Toque aqui para enviar este adesivo.</string>
     <string name="agif_read_permission_description">Permite que o Telefone leia o conteúdo AGIF.</string>
     <string name="agif_read_permission_label">Ler o conteúdo AGIF</string>
     <string name="agif_receive_no_id">O adesivo não pode ser exibido. Atualize %s depois da chamada.</string>
     <string name="agif_receive_no_id_upsupport_update">Impossível exibir adesivo. Mais adesivos serão disponibilizados após próxima atualização do sistema.</string>
+    <string name="agif_receive_toast">Adesivo de %s.</string>
     <string name="agif_sent_fail_message">Não é possível enviar GIF animado. Tente novamente mais tarde.</string>
     <string name="agif_sent_toast">Adesivo enviado.</string>
     <string name="agif_write_permission_description">Permite que o Telefone modifique o conteúdo AGIF.</string>
@@ -765,7 +768,7 @@ unidirec."</string>
     <string name="secOnscreenSwitchText">Altern.</string>
     <string name="secOnscreenUpdateContactText">Atualiz. exist.</string>
     <string name="secOnscreenUpdateContactText_tts">Atualizar existente</string>
-    <string name="secOnscreenVideoCallText">Videocham.</string>
+    <string name="secOnscreenVideoCallText">Videochamada</string>
     <string name="secOnscreenVideoStopText">Parar</string>
     <string name="secOnscreenViewContactText">Exibir contato</string>
     <string name="secOnscreenVoiceCallText">Chamar</string>
@@ -858,8 +861,8 @@ unidirec."</string>
     <string name="tts_pager">Página %1$d de %2$d</string>
     <string name="tts_seconds">%d segundos</string>
     <string name="tty_mode_option_title">Modo TTY</string>
-    <string name="tutorial_incoming_call_app_answer">Toque para atender a chamada.</string>
-    <string name="tutorial_incoming_call_app_reject">Toque para recusar a chamada.</string>
+    <string name="tutorial_incoming_call_app_answer">Toque duas vezes para atender.</string>
+    <string name="tutorial_incoming_call_app_reject">Toque duas vezes para rejeitar.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Não é possível se conectar a rede. Verifique as configurações de conexão e tente novamente.</string>
     <string name="units_kb">KB</string>
@@ -869,7 +872,7 @@ unidirec."</string>
     <string name="upload_using_wlan_only">Carregar apenas via WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Carregar por Wi-Fi ou rede móvel</string>
     <string name="upload_wlan_and_mobile_nw">Carregar via WLAN ou rede móvel</string>
-    <string name="usa_att_connected_as_voice">Chamada conectada como voz apenas.</string>
+    <string name="usa_att_connected_as_voice">Vídeo indisponível para esta chamada. Chamada conectada como chamada de voz.</string>
     <string name="usa_att_data_usage_charge_alert">O seu Uso de dados definido no aparelho está prestes a atingir o limite. Sua videochamada requer dados.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">A chamada não pode ser colocada em Wi-Fi. Conectando à rede celular. As cobranças de voz e dados serão aplicadas.</string>
     <string name="usa_att_modify_receive_to_video">%s está solicitando alternar para videochamada.</string>
@@ -919,11 +922,15 @@ unidirecional"</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Usar Dados móveis</string>
     <string name="usa_vzw_volte_weak_wifi_text">"Tentamos, mas não conseguimos alternar sua videochamada para Wi-Fi neste momento.
 
-Sua videochamada continua em execução na rede móvel. (O uso de dados será aplicável se você decidir continuar.)"</string>
+Sua videochamada ainda está em andamento na rede móvel.
+
+Se você decidir continuar, poderão ser aplicadas cobranças pelo uso de dados."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Sua videochamada continua em execução na rede móvel. (O uso de dados será aplicável.)</string>
     <string name="usa_vzw_vowifi_wifi_low_signal_text">"O sinal do Wi-Fi não estava forte o bastante para continuar sua videochamada.
 
-Sua videochamada agora está em execução na rede móvel. (O uso de dados será aplicável se você decidir continuar.)"</string>
+Sua videochamada agora está em andamento na rede móvel.
+
+Se você decidir continuar, poderão ser aplicada cobranças pelo uso de dados."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Conexão Wi-Fi perdida. Chamada encerrada.</string>
     <string name="use_wifi_and_mobile_nw">Usar redes Wi-Fi e móvel</string>
     <string name="use_wlan_and_mobile_nw">Usar WLAN e redes móveis</string>

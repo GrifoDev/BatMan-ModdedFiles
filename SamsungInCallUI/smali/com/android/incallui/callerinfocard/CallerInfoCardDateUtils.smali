@@ -419,13 +419,13 @@
 
     invoke-direct {v0, v1}, Ljava/lang/String;-><init>([C)V
 
-    const v1, 0x7f09069a
+    const v1, 0x7f09069d
 
     invoke-virtual {p0, v1}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
-    const v2, 0x7f09053b
+    const v2, 0x7f09053e
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -477,7 +477,7 @@
 
     if-eqz v1, :cond_0
 
-    const v0, 0x7f09069c
+    const v0, 0x7f09069f
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -495,7 +495,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f09053c
+    const v0, 0x7f09053f
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -504,7 +504,7 @@
     goto :goto_0
 
     :cond_1
-    const v0, 0x7f0905f5
+    const v0, 0x7f0905f8
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -772,7 +772,7 @@
 .method public static getLocalizedDateFormat(Landroid/content/Context;)Ljava/text/SimpleDateFormat;
     .locals 3
 
-    const v2, 0x7f09013a
+    const v2, 0x7f09013d
 
     invoke-static {}, Ljava/util/Locale;->getDefault()Ljava/util/Locale;
 

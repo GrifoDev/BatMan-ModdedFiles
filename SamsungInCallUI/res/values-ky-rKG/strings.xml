@@ -120,12 +120,13 @@
     <string name="account_phone">Түзмөк</string>
     <string name="acs">Үн чалуу</string>
     <string name="active_calls">Активдүү чалуу</string>
-    <string name="add_reminder">Эскер. кошуу</string>
+    <string name="add_reminder">Эскертүүнү кошуу</string>
     <string name="agif_button_close_description">Жабуу</string>
     <string name="agif_decline_message">Кечириңиз, мен азыр сүйлөй албайм.</string>
     <string name="agif_decline_sticker_header">Стикер менен четке кагуу</string>
     <string name="agif_decline_text_header">Текст менен четке кагуу</string>
     <string name="agif_decline_toast">Стикер %s жөнөтүлдү.</string>
+    <string name="agif_outgoing_bubble_tip">Сезимиңизди көрсөтүү үчүн стикерди жөнөтүңүз.</string>
     <string name="agif_pickers_add_tab_description">Кошуу</string>
     <string name="agif_pickers_find_more">Дагы табуу</string>
     <string name="agif_pickers_item_usage_hints_description">Тандоого эки эселенте басыңыз</string>
@@ -134,10 +135,12 @@
     <string name="agif_pickers_tab_select_description">Тандалган</string>
     <string name="agif_pickers_title">Стикер менен баштоо</string>
     <string name="agif_pickers_title_recommended">Сунушталган</string>
+    <string name="agif_random_send_message">Бул стикерди жөнөтүү үчүн бул жерди басыңыз.</string>
     <string name="agif_read_permission_description">AGIF мазмунун окуу үчүн Телефонго уруксат бериңиз.</string>
     <string name="agif_read_permission_label">AGIF мазмунун окуңуз</string>
     <string name="agif_receive_no_id">Стикер көрсөтүлбөйт. Чалуудан кийин %s жаңыртыңыз.</string>
     <string name="agif_receive_no_id_upsupport_update">Стикер көрсөтүлбөйт. Дагы көбүрөөк стикерлер кийинки системалык жаңыртуудан кийин байкалат.</string>
+    <string name="agif_receive_toast">%s дегенден стикер.</string>
     <string name="agif_sent_fail_message">Анимацияланган GIF жүктөөгө болбойт. Кийинчерээк дагы аракеттениңиз.</string>
     <string name="agif_sent_toast">Чаптама жөнөтүлдү.</string>
     <string name="agif_write_permission_description">AGIF мазмунун өзгөртүү үчүн Телефонго уруксат бериңиз.</string>
@@ -827,8 +830,8 @@ IVR чалуу экран менюсу Dianhuabang деп аталган үчү�
     <string name="tts_pager">%2$d ичинен %1$d бет</string>
     <string name="tts_seconds">%d секунда</string>
     <string name="tty_mode_option_title">TTY режими</string>
-    <string name="tutorial_incoming_call_app_answer">Чакырууну алууга таптаңыз.</string>
-    <string name="tutorial_incoming_call_app_reject">Чалууну четке кагуу үчүн басыңыз.</string>
+    <string name="tutorial_incoming_call_app_answer">Жооп берүү үчүн эки жолу басыңыз.</string>
+    <string name="tutorial_incoming_call_app_reject">Баш тартуу үчүн эки жолу басыңыз.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Тармакка байланышуу мүмкүн эмес. Туташуу орнотууларыңызды текшерип, кайра аракет кылыңыз.</string>
     <string name="units_kb">КБ</string>
@@ -838,7 +841,7 @@ IVR чалуу экран менюсу Dianhuabang деп аталган үчү�
     <string name="upload_using_wlan_only">WLAN аркылуу гана жүктөп киргизүү</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fi же мобилдик тармак аркылуу жүктөп киргизүү</string>
     <string name="upload_wlan_and_mobile_nw">WLAN же мобилдик тармак аркылуу жүктөп киргизүү</string>
-    <string name="usa_att_connected_as_voice">Чалуу үн гана катары туташылды.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Түзмөгүңүздөн орноткон Маалымат Керектөөңүз чегине жетээрине аз калды. Видео чалууңуз маалыматтарды талап кылат.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Чалууну Wi-Fi аркылуу жасоого болбойт, уюлдук тармак аркылуу туташууда. Үн жана берилмелер үчүн төлөмдөр алынышы мүмкүн.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -886,13 +889,17 @@ IVR чалуу экран менюсу Dianhuabang деп аталган үчү�
     <string name="usa_vzw_voice_incoming_during_wifi_video">Кирүүчү чалууга жооп берүү, учурдагы чалууну аягына чыгарат.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_text">Чалууну улантуу үчүн Wi-Fi сигналдары жетээрлик күчтүү эмес. Чалууңузду улантуу үчүн мобилдик тармактарды колдонсоңуз, ал маалыматтар планыңызды колдонот.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Мобилдик Маалыматтарды колдонуу</string>
-    <string name="usa_vzw_volte_weak_wifi_text">"Биз аракеттендик, бирок биз азырынча видео чалууңузду Wi-Fi'га которо албайбыз.
+    <string name="usa_vzw_volte_weak_wifi_text">"Биз аракет кылдык, бирок азыр биз видео чалууңузду Wi-Fi'га которо албайбыз.
 
-Видео чалууңуз дагы деле мобилдик тармакта аткарылууда. (Улантууну тандай турган болсоңуз маалымат керектөөсү колдонулат.)"</string>
+Видео чалууңыз мобилдик тармакта аткарылып жатат.
+
+Эгер улантууну тандасаңыз, кошумча төлөмдөр колдонулушу мүмкүн."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Видео чалууңуз дагы эле мобилдик тармакта аткарылууда. (Маалыматты керектөө колдонулат.)</string>
-    <string name="usa_vzw_vowifi_wifi_low_signal_text">"Видео чалууңузду улантуу үчүн, Wi-Fi сигналынын күчү жетишсиз болду.
+    <string name="usa_vzw_vowifi_wifi_low_signal_text">"Wi-Fi сигналы видео чалууңузду улантуу үчүн жетишээрлик күчтүү эмес.
 
-Видео чалууңуз азыр мобилдик тармакта аткарылууда. (Улантууну тандай турган болсоңуз маалымат керектөөсү колдонулат.)"</string>
+Видео чалууңуз азыр мобилдик тармактарды колдонуу менен иштеп жатат.
+
+Эгер улантууну тандасаңыз, кошумча төлөмдөр колдонулушу мүмкүн."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi туташуусу жоголду. Чалуу бүттү.</string>
     <string name="use_wifi_and_mobile_nw">Wi-Fi жана мобилдик тармактарды колдонуу</string>
     <string name="use_wlan_and_mobile_nw">WLAN жана мобилдик тармактарды колдонуу</string>

@@ -414,7 +414,7 @@
     goto :goto_0
 
     :cond_1
-    const v0, 0x7f020427
+    const v0, 0x7f020488
 
     iput v0, p0, Lcom/android/incallui/callerinfocard/item/MessageItem;->mIconRes:I
 
@@ -503,7 +503,7 @@
 
     if-eqz v0, :cond_4
 
-    const v0, 0x7f0900f8
+    const v0, 0x7f0900fb
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

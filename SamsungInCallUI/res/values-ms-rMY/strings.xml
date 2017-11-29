@@ -120,12 +120,13 @@
     <string name="account_phone">Peranti</string>
     <string name="acs">Panggilan suara</string>
     <string name="active_calls">Panggilan aktif</string>
-    <string name="add_reminder">Tmbh peringatan</string>
+    <string name="add_reminder">Tambah peringatan</string>
     <string name="agif_button_close_description">Tutup</string>
     <string name="agif_decline_message">Maaf, saya tak boleh bercakap sekarang.</string>
     <string name="agif_decline_sticker_header">Tolak dengan pelekat</string>
     <string name="agif_decline_text_header">Tolak dengan teks</string>
     <string name="agif_decline_toast">Pelekat dihantar kepada %s.</string>
+    <string name="agif_outgoing_bubble_tip">Hantar pelekat untuk menunjukkan perasaan anda.</string>
     <string name="agif_pickers_add_tab_description">Tambah</string>
     <string name="agif_pickers_find_more">Cari lagi</string>
     <string name="agif_pickers_item_usage_hints_description">Dwiketik untuk pilih</string>
@@ -134,10 +135,12 @@
     <string name="agif_pickers_tab_select_description">Dipilih</string>
     <string name="agif_pickers_title">Mula dengan pelekat</string>
     <string name="agif_pickers_title_recommended">Disyorkan</string>
+    <string name="agif_random_send_message">Ketik di sini untuk menghantar pelekat ini.</string>
     <string name="agif_read_permission_description">Membenarkan Telefon untuk membaca kandungan AGIF.</string>
     <string name="agif_read_permission_label">Baca kandungan AGIF</string>
     <string name="agif_receive_no_id">Pelekat tidak dapat ditunjukkan. Kemas kini %s selepas panggilan.</string>
     <string name="agif_receive_no_id_upsupport_update">Pelekat tidak dapat ditunjukkan. Lbh byk pelekat akan tersedia selepas kemas kini sistem berikutnya.</string>
+    <string name="agif_receive_toast">Pelekat daripada %s.</string>
     <string name="agif_sent_fail_message">Tidak dapat menghantar GIF animasi. Cuba lagi kemudian.</string>
     <string name="agif_sent_toast">Pelekat telah dihantar.</string>
     <string name="agif_write_permission_description">Membenarkan Telefon untuk mengubah suai kandungan AGIF.</string>
@@ -827,8 +830,8 @@ sehala"</string>
     <string name="tts_pager">Halaman %1$d daripada %2$d</string>
     <string name="tts_seconds">%d saat</string>
     <string name="tty_mode_option_title">Mod TTY</string>
-    <string name="tutorial_incoming_call_app_answer">Ketik untuk menjawab panggilan.</string>
-    <string name="tutorial_incoming_call_app_reject">Ketik untuk menolak panggilan.</string>
+    <string name="tutorial_incoming_call_app_answer">Ketik dua kali untuk menjawab.</string>
+    <string name="tutorial_incoming_call_app_reject">Ketik dua kali untuk menolak.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Tidak dapat menyambung ke rangkaian. Semak aturan sambungan rangkaian anda dan cuba lagi.</string>
     <string name="units_kb">KB</string>
@@ -838,7 +841,7 @@ sehala"</string>
     <string name="upload_using_wlan_only">Muat naik melalui WLAN shj</string>
     <string name="upload_wifi_and_mobile_nw">Muat naik melalui Wi-Fi atau rangkaian mudah alih</string>
     <string name="upload_wlan_and_mobile_nw">Muat naik melalui WLAN atau rangkaian mudah alih</string>
-    <string name="usa_att_connected_as_voice">Panggilan disambungkan sebagai suara sahaja.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Penggunaan Data yang anda tetapkan pada peranti anda hampir mencapai hadnya. Panggilan video anda memerlukan data.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Panggilan tidak dapat dibuat melalui Wi-Fi, menyambung melalui rangkaian selular. Caj suara dan data mungkin dikenakan.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -886,13 +889,17 @@ video sehala"</string>
     <string name="usa_vzw_voice_incoming_during_wifi_video">Menjawab panggilan masuk akan menamatkan panggilan semasa.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_text">Isyarat Wi-Fi tidak cukup kuat untuk meneruskan panggilan. Menggunakan rangkaian mudah alih untuk meneruskan panggilan anda akan menggunakan pelan data anda.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Guna Data Mudah Alih</string>
-    <string name="usa_vzw_volte_weak_wifi_text">"Kami telah mencuba tetapi kami tidak dapat menukar panggilan video anda kepada Wi-Fi pada masa ini.
+    <string name="usa_vzw_volte_weak_wifi_text">"Kami telah mencuba tetapi kami tidak dapat menukar panggilan video anda kepada Wi-Fi buat masa ini.
 
-Panggilan video anda masih dijalankan pada rangkaian mudah alih. (Penggunaan data dikenakan jika anda memilih untuk teruskan.)"</string>
+Panggilan video anda masih dijalankan pada rangkaian mudah alih.
+
+Caj penggunaan data dikenakan jika anda memilih untuk meneruskan."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Panggilan video anda masih berjalan pada rangkaian mudah alih. (Penggunaan data dikenakan.)</string>
-    <string name="usa_vzw_vowifi_wifi_low_signal_text">"Isyarat Wi-Fi tidak cukup kuat untuk meneruskan panggilan video anda.
+    <string name="usa_vzw_vowifi_wifi_low_signal_text">"Isyarat Wi-Fi tidak cukup kuat untuk terus menggunakan panggilan video anda.
 
-Panggilan video anda sedang berjalan pada rangkaian mudah alih. (Penggunaan data dikenakan jika anda memilih untuk teruskan.)"</string>
+Panggilan video anda kini berjalan pada rangkaian mudah alih.
+
+Caj penggunaan data mungkin dikenakan jika anda memilih untuk meneruskan."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Sambungan Wi-Fi terputus. Panggilan ditamatkan.</string>
     <string name="use_wifi_and_mobile_nw">Gunakan Wi-Fi dan rangkaian mudah alih</string>
     <string name="use_wlan_and_mobile_nw">Guna WLAN dan rangkaian mudah alih</string>

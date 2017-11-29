@@ -120,12 +120,13 @@
     <string name="account_phone">Seade</string>
     <string name="acs">Häälkõne</string>
     <string name="active_calls">Aktiivne kõne</string>
-    <string name="add_reminder">Lisa meeld.</string>
+    <string name="add_reminder">Lisa meeldetuletus</string>
     <string name="agif_button_close_description">Sulge</string>
     <string name="agif_decline_message">Vabandust, ma ei saa praegu rääkida.</string>
     <string name="agif_decline_sticker_header">Kleebisega keeldumine</string>
     <string name="agif_decline_text_header">Tekstiga keeldumine</string>
     <string name="agif_decline_toast">Kleebis on saadetud isikule %s.</string>
+    <string name="agif_outgoing_bubble_tip">Saate kleebise saata, et oma tundeid väljendada.</string>
     <string name="agif_pickers_add_tab_description">Lisa</string>
     <string name="agif_pickers_find_more">Veel</string>
     <string name="agif_pickers_item_usage_hints_description">Toksake kaks korda, et valida</string>
@@ -134,10 +135,12 @@
     <string name="agif_pickers_tab_select_description">Valitud</string>
     <string name="agif_pickers_title">Kleebisega alustamine</string>
     <string name="agif_pickers_title_recommended">Soovitatud</string>
+    <string name="agif_random_send_message">Toksake siin, et saata see kleebis.</string>
     <string name="agif_read_permission_description">Võimaldab telefonil lugeda AGIF-sisu.</string>
     <string name="agif_read_permission_label">AGIF-sisu lugemine</string>
     <string name="agif_receive_no_id">Kleebist ei saa kuvada. Värskendage rakendust %s pärast kõnet.</string>
     <string name="agif_receive_no_id_upsupport_update">Kleebist ei saa kuvada. Pärast järgmist süsteemivärskendus saate kasutada rohkem kleebiseid.</string>
+    <string name="agif_receive_toast">Kleebis helistajalt %s.</string>
     <string name="agif_sent_fail_message">Animeeritud GIF-i ei saa saata. Proovige hiljem taas.</string>
     <string name="agif_sent_toast">Kleebis on saadetud.</string>
     <string name="agif_write_permission_description">Võimaldab telefonil muuta AGIF-sisu.</string>
@@ -827,8 +830,8 @@ kaamera"</string>
     <string name="tts_pager">Leht %1$d/%2$d</string>
     <string name="tts_seconds">%d sekundit</string>
     <string name="tty_mode_option_title">TTY-režiim</string>
-    <string name="tutorial_incoming_call_app_answer">Toksake, et vastata kõnele.</string>
-    <string name="tutorial_incoming_call_app_reject">Toksake, et kõnest keelduda.</string>
+    <string name="tutorial_incoming_call_app_answer">Vastamiseks puudutage kaks korda.</string>
+    <string name="tutorial_incoming_call_app_reject">Keeldumiseks puudutage kaks korda.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Võrguühendust ei saa luua. Kontrollige oma ühenduse seadeid ja proovige uuesti.</string>
     <string name="units_kb">kB</string>
@@ -838,7 +841,7 @@ kaamera"</string>
     <string name="upload_using_wlan_only">Üleslaadimine ainult WLAN-võrgu kaudu</string>
     <string name="upload_wifi_and_mobile_nw">Laadi üles Wi-Fi või mobiilsidevõrgu kaudu</string>
     <string name="upload_wlan_and_mobile_nw">Laadi üles WLANi/mobiilside kaudu</string>
-    <string name="usa_att_connected_as_voice">Kõne ühendatud ainult tavakõnena.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Teie seadmes määratud andmekasutuse limiit hakkab otsa saama. Teie videokõne nõuab andmeid.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Wi-Fi võrgu kaudu ei saa helistada, loome ühenduse mobiilsidevõrgu kaudu. Rakendatakse tavakõne- ja andmesidetasusid.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -886,13 +889,17 @@ kaamera"</string>
     <string name="usa_vzw_voice_incoming_during_wifi_video">Saabuvale kõnele vastamine lõpetab aktiivse kõne.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_text">Wi-Fi-signaal on kõne jätkamiseks piisavalt tugev. Mobiilsidevõrkude kasutamine kõne jätkamiseks kasutab teie andmesidepaketti.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Kasuta mobiilset andmesidet</string>
-    <string name="usa_vzw_volte_weak_wifi_text">"Me proovisime, aga me ei saa teie videokõnet seekord Wi-Fi võrgus aktiveerida.
+    <string name="usa_vzw_volte_weak_wifi_text">"Püüdsime, kuid me ei saa teie videokõnet praegu Wi-Fi-ühendusele lülitada.
 
-Teie videokõne töötab ikka veel mobiilsidevõrgus. (Kui otsustate jätkata, kehtivad andmesidetasud.)"</string>
+Videokõne töötab ikka veel mobiilsidevõrgus.
+
+Kui otsustate jätkata, kehtivad andmesidetasud."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Videokõne töötab ikka veel mobiilsidevõrgus. (Rakenduvad andmesidekasutustasud.)</string>
-    <string name="usa_vzw_vowifi_wifi_low_signal_text">"Wi-Fi signaal polnud videokõne jätkamiseks piisavalt tugev.
+    <string name="usa_vzw_vowifi_wifi_low_signal_text">"Wi-Fi-signaal polnud videokõne jätkamiseks piisavalt tugev.
 
-Teie videokõne toimub nüüd mobiilsidevõrgus. (Kui otsustate jätkata, kehtivad andmesidetasud)"</string>
+Teie videokõne toimub nüüd mobiilsidevõrgus.
+
+Kui otsustate jätkata, kehtivad andmesidetasud."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi ühendus on katkenud. Kõne lõppes.</string>
     <string name="use_wifi_and_mobile_nw">Kasuta Wi-Fi võrku ja mobiilsidevõrkusid</string>
     <string name="use_wlan_and_mobile_nw">Kasuta WLANi ja mobiilsidevõrke</string>

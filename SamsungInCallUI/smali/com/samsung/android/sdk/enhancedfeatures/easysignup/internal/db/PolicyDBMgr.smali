@@ -616,8 +616,15 @@
     goto :goto_2
 
     :cond_6
+    invoke-static {v3}, Lcom/samsung/android/sdk/enhancedfeatures/EnhancedFeatures;->isCoreAppsAgent(Landroid/content/Context;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_7
+
     invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/PolicyDBMgr;->sendPolicyChangedBroadcast()V
 
+    :cond_7
     new-instance v1, Ljava/util/ArrayList;
 
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
@@ -626,12 +633,12 @@
 
     move-result v4
 
-    if-eqz v4, :cond_8
+    if-eqz v4, :cond_9
 
     :goto_3
     const/4 v3, 0x3
 
-    if-gt v0, v3, :cond_9
+    if-gt v0, v3, :cond_a
 
     invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->getContext()Landroid/content/Context;
 
@@ -641,7 +648,7 @@
 
     move-result v3
 
-    if-gez v3, :cond_7
+    if-gez v3, :cond_8
 
     invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->getContext()Landroid/content/Context;
 
@@ -651,7 +658,7 @@
 
     move-result v3
 
-    if-ne v3, v12, :cond_7
+    if-ne v3, v12, :cond_8
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -659,19 +666,19 @@
 
     invoke-virtual {v1, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_7
+    :cond_8
     add-int/lit8 v0, v0, 0x1
 
     goto :goto_3
 
-    :cond_8
+    :cond_9
     invoke-static {v3}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/PackageUtils;->getServiceId(Landroid/content/Context;)I
 
     move-result v0
 
     const/4 v3, -0x1
 
-    if-le v0, v3, :cond_9
+    if-le v0, v3, :cond_a
 
     invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->getContext()Landroid/content/Context;
 
@@ -681,7 +688,7 @@
 
     move-result v3
 
-    if-gez v3, :cond_9
+    if-gez v3, :cond_a
 
     invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->getContext()Landroid/content/Context;
 
@@ -691,7 +698,7 @@
 
     move-result v3
 
-    if-ne v3, v12, :cond_9
+    if-ne v3, v12, :cond_a
 
     invoke-static {v0}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
 
@@ -699,7 +706,7 @@
 
     invoke-virtual {v1, v0}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
-    :cond_9
+    :cond_a
     invoke-virtual {v1}, Ljava/util/ArrayList;->isEmpty()Z
 
     move-result v0

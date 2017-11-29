@@ -7,6 +7,8 @@
 
 .field private content_type:Ljava/lang/String;
 
+.field private extra_attribute:I
+
 .field private mid_thumbnail:Ljava/lang/String;
 
 .field private name:Ljava/lang/String;
@@ -35,6 +37,14 @@
     iget-object v0, p0, Lcom/samsung/android/sdk/ssf/share/io/ContentsTokenDetail;->content_type:Ljava/lang/String;
 
     return-object v0
+.end method
+
+.method public getExtraAttr()I
+    .locals 1
+
+    iget v0, p0, Lcom/samsung/android/sdk/ssf/share/io/ContentsTokenDetail;->extra_attribute:I
+
+    return v0
 .end method
 
 .method public getMid_thumbnail()Ljava/lang/String;
@@ -89,6 +99,14 @@
     .locals 0
 
     iput-object p1, p0, Lcom/samsung/android/sdk/ssf/share/io/ContentsTokenDetail;->content_type:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method public setExtraAttr(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/samsung/android/sdk/ssf/share/io/ContentsTokenDetail;->extra_attribute:I
 
     return-void
 .end method

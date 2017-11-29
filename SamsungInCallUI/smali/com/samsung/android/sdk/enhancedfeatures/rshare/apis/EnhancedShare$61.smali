@@ -7,7 +7,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->getORSServerURL(Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
+    value = Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/EnhancedShare;->getPublicFolderToken(Ljava/lang/String;[Ljava/lang/String;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/ShareListener;)V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -44,11 +44,11 @@
 .method public run()V
     .locals 3
 
-    const/16 v0, -0xd
+    const/16 v0, -0x2e
 
-    const-string v1, "authentication failed"
+    const-string v1, "Security Exception"
 
-    const-string v2, "unable to authenticate user"
+    const-string v2, "Security Exception"
 
     invoke-static {v0, v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;Ljava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
 

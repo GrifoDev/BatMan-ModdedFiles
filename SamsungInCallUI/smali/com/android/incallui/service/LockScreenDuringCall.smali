@@ -359,7 +359,7 @@
     if-eqz v1, :cond_2
 
     :cond_0
-    const v1, 0x7f1001af
+    const v1, 0x7f1001b3
 
     if-ne v0, v1, :cond_1
 
@@ -442,7 +442,7 @@
 
     check-cast v0, Landroid/view/LayoutInflater;
 
-    const v1, 0x7f040074
+    const v1, 0x7f040075
 
     invoke-virtual {v0, v1, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -454,7 +454,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/LockScreenDuringCall;->mViewGroupLockScreen:Landroid/view/ViewGroup;
 
-    const v1, 0x7f1001af
+    const v1, 0x7f1001b3
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 
@@ -466,7 +466,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/LockScreenDuringCall;->mViewGroupLockScreen:Landroid/view/ViewGroup;
 
-    const v1, 0x7f1001ae
+    const v1, 0x7f1001b2
 
     invoke-virtual {v0, v1}, Landroid/view/ViewGroup;->findViewById(I)Landroid/view/View;
 

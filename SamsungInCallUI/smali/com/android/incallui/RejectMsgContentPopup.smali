@@ -100,7 +100,7 @@
 
     if-nez v1, :cond_0
 
-    const v1, 0x7f040098
+    const v1, 0x7f040099
 
     invoke-virtual {v0, v1, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -108,7 +108,7 @@
     return-void
 
     :cond_0
-    const v1, 0x7f04009a
+    const v1, 0x7f04009b
 
     invoke-virtual {v0, v1, p0, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -145,7 +145,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a03b7
+    const v1, 0x7f0a03bc
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -396,7 +396,7 @@
 
     iget-object v3, p0, Lcom/android/incallui/RejectMsgContentPopup;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f04009b
+    const v4, 0x7f04009c
 
     iget-object v5, p0, Lcom/android/incallui/RejectMsgContentPopup;->mTextResponses:Ljava/util/List;
 
@@ -435,10 +435,6 @@
     invoke-virtual {v0, v2}, Landroid/widget/ListView;->removeFooterView(Landroid/view/View;)Z
 
     :cond_2
-    iget-object v0, p0, Lcom/android/incallui/RejectMsgContentPopup;->mRejectMsgList:Landroid/widget/ListView;
-
-    invoke-virtual {p0, v0}, Lcom/android/incallui/RejectMsgContentPopup;->setListViewHeightBasedOnChildren(Landroid/widget/ListView;)V
-
     invoke-static {}, Lcom/android/incallui/util/InCallUtils;->isMobileKeyboardCovered()Z
 
     move-result v0
@@ -471,7 +467,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0536
+    const v3, 0x7f0a0570
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -668,7 +664,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040121
+    const v1, 0x7f040123
 
     const/4 v2, 0x0
 
@@ -684,7 +680,7 @@
 
     invoke-virtual {v0, v1}, Landroid/widget/ListView;->addFooterView(Landroid/view/View;)V
 
-    const v0, 0x7f1003e9
+    const v0, 0x7f1003ed
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/RejectMsgContentPopup;->findViewById(I)Landroid/view/View;
 
@@ -710,7 +706,7 @@
 
     if-eqz v0, :cond_2
 
-    const v0, 0x7f100223
+    const v0, 0x7f100227
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/RejectMsgContentPopup;->findViewById(I)Landroid/view/View;
 
@@ -729,7 +725,7 @@
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
     :cond_0
-    const v0, 0x7f10025e
+    const v0, 0x7f100262
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/RejectMsgContentPopup;->findViewById(I)Landroid/view/View;
 
@@ -739,7 +735,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/RejectMsgContentPopup;->mAnsMemoButton:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f10025f
+    const v0, 0x7f100263
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/RejectMsgContentPopup;->findViewById(I)Landroid/view/View;
 
@@ -755,7 +751,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/RejectMsgContentPopup;->mAnsMemoImg:Landroid/widget/ImageView;
 
-    const v1, 0x7f020060
+    const v1, 0x7f020062
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
@@ -779,9 +775,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_8
 
-    const v0, 0x7f100226
+    const v0, 0x7f10022a
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/RejectMsgContentPopup;->findViewById(I)Landroid/view/View;
 
@@ -789,7 +785,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/RejectMsgContentPopup;->mRejectListContainer:Landroid/view/View;
 
-    const v0, 0x7f100227
+    const v0, 0x7f10022b
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/RejectMsgContentPopup;->findViewById(I)Landroid/view/View;
 
@@ -808,7 +804,7 @@
     invoke-virtual {v0, v4}, Landroid/widget/TextView;->setVisibility(I)V
 
     :cond_3
-    const v0, 0x7f1003e7
+    const v0, 0x7f1003eb
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/RejectMsgContentPopup;->findViewById(I)Landroid/view/View;
 
@@ -840,7 +836,7 @@
     iput v0, p0, Lcom/android/incallui/RejectMsgContentPopup;->mAgifListPage:I
 
     :cond_5
-    const v0, 0x7f100099
+    const v0, 0x7f10009d
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/RejectMsgContentPopup;->findViewById(I)Landroid/view/View;
 
@@ -864,7 +860,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/RejectMsgContentPopup;->mAgifPagerAdapter:Lcom/android/incallui/agif/AgifPagerAdapter;
 
-    const v0, 0x7f10009a
+    const v0, 0x7f10009e
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/RejectMsgContentPopup;->findViewById(I)Landroid/view/View;
 
@@ -874,7 +870,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/RejectMsgContentPopup;->mAgifSlidingTabLayout:Lcom/android/incallui/agif/AgifSlidingTabLayout;
 
-    const v0, 0x7f10009b
+    const v0, 0x7f10009f
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/RejectMsgContentPopup;->findViewById(I)Landroid/view/View;
 
@@ -886,7 +882,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/RejectMsgContentPopup;->mAgifViewPager:Lcom/android/incallui/agif/AgifViewPager;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_7
 
     iget-object v0, p0, Lcom/android/incallui/RejectMsgContentPopup;->mAgifViewPager:Lcom/android/incallui/agif/AgifViewPager;
 
@@ -953,6 +949,20 @@
     invoke-virtual {v0, v1}, Lcom/android/incallui/agif/AgifSlidingTabLayout;->setViewPager(Landroid/support/v4/view/ViewPager;)V
 
     :cond_6
+    invoke-static {}, Lcom/android/incallui/InCallPresenter;->isRtl()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_9
+
+    iget-object v0, p0, Lcom/android/incallui/RejectMsgContentPopup;->mAgifViewPager:Lcom/android/incallui/agif/AgifViewPager;
+
+    const/high16 v1, 0x43340000    # 180.0f
+
+    invoke-virtual {v0, v1}, Lcom/android/incallui/agif/AgifViewPager;->setRotationY(F)V
+
+    :cond_7
+    :goto_0
     invoke-virtual {p0}, Lcom/android/incallui/RejectMsgContentPopup;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -963,8 +973,17 @@
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/RejectMsgContentPopup;->showAgifList(Z)V
 
-    :cond_7
+    :cond_8
     return-void
+
+    :cond_9
+    iget-object v0, p0, Lcom/android/incallui/RejectMsgContentPopup;->mAgifViewPager:Lcom/android/incallui/agif/AgifViewPager;
+
+    const/4 v1, 0x0
+
+    invoke-virtual {v0, v1}, Lcom/android/incallui/agif/AgifViewPager;->setRotationY(F)V
+
+    goto :goto_0
 .end method
 
 .method public refreshAgifPage()V
@@ -1149,7 +1168,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0536
+    const v2, 0x7f0a0570
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 

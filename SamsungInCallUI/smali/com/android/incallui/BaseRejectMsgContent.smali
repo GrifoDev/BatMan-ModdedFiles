@@ -150,7 +150,7 @@
 
     invoke-super {p0}, Landroid/widget/LinearLayout;->onFinishInflate()V
 
-    const v0, 0x7f100224
+    const v0, 0x7f100228
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/BaseRejectMsgContent;->findViewById(I)Landroid/view/View;
 
@@ -181,7 +181,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/CheckBox;->setOnCheckedChangeListener(Landroid/widget/CompoundButton$OnCheckedChangeListener;)V
 
     :cond_0
-    const v0, 0x7f100225
+    const v0, 0x7f100229
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/BaseRejectMsgContent;->findViewById(I)Landroid/view/View;
 
@@ -204,7 +204,7 @@
     invoke-virtual {v0, v1}, Landroid/view/View;->setVisibility(I)V
 
     :cond_1
-    const v0, 0x7f100228
+    const v0, 0x7f10022c
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/BaseRejectMsgContent;->findViewById(I)Landroid/view/View;
 

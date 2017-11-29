@@ -126,6 +126,7 @@
     <string name="agif_decline_sticker_header">Ukatu pegatina batekin</string>
     <string name="agif_decline_text_header">Ukatu testuarekin</string>
     <string name="agif_decline_toast">%s erabiltzaileari bidali zaio pegatina.</string>
+    <string name="agif_outgoing_bubble_tip">Bidali sticker bat zure umorea ezagutarazteko.</string>
     <string name="agif_pickers_add_tab_description">Gehitu</string>
     <string name="agif_pickers_find_more">Aurkitu gehiago</string>
     <string name="agif_pickers_item_usage_hints_description">Ukitu bi aldiz hautatzeko</string>
@@ -134,10 +135,12 @@
     <string name="agif_pickers_tab_select_description">Hautatuta</string>
     <string name="agif_pickers_title">Hasi pegatina bat erabiliz</string>
     <string name="agif_pickers_title_recommended">Gomendatuak</string>
+    <string name="agif_random_send_message">Ukitu hau sticker hau bidaltzeko.</string>
     <string name="agif_read_permission_description">AGIF edukia irakurtzea baimentzen dio Telefonoari.</string>
     <string name="agif_read_permission_label">Irakurri AGIF edukia</string>
     <string name="agif_receive_no_id">Ezin da erakutsi pegatina. Deia amaitzean, eguneratu %s.</string>
     <string name="agif_receive_no_id_upsupport_update">Ezin da erakutsi pegatina. Pegatina gehiago izango dira eskuragarri hurrengo sistema eguneraketan.</string>
+    <string name="agif_receive_toast">%s deitzailearen pegatina.</string>
     <string name="agif_sent_fail_message">Ezin da bidali GIF animatua. Saiatu berriz geroago.</string>
     <string name="agif_sent_toast">Bidali da pegatina.</string>
     <string name="agif_write_permission_description">AGIF edukia aldatzea baimentzen dio Telefonoari.</string>
@@ -827,8 +830,8 @@ kamera"</string>
     <string name="tts_pager">%1$d. orria %2$d-(e)tik</string>
     <string name="tts_seconds">%d segundo</string>
     <string name="tty_mode_option_title">TTY modua</string>
-    <string name="tutorial_incoming_call_app_answer">Ukitu, deia erantzuteko.</string>
-    <string name="tutorial_incoming_call_app_reject">Ukitu deia ukatzeko.</string>
+    <string name="tutorial_incoming_call_app_answer">Bi aldiz klikatu erantzuteko</string>
+    <string name="tutorial_incoming_call_app_reject">Bi aldiz sakatu ukatzeko</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Ezin da sarera konektatu. Egiaztatu zure konexioaren ezarpenak eta saiatu berriz.</string>
     <string name="units_kb">KB</string>
@@ -838,7 +841,7 @@ kamera"</string>
     <string name="upload_using_wlan_only">Kargatu WLAN bidez soilik</string>
     <string name="upload_wifi_and_mobile_nw">Kargatu Wi-Fi edo sare mugikorraren bidez</string>
     <string name="upload_wlan_and_mobile_nw">Kargatu WLAN edo sare mugikorraren bidez</string>
-    <string name="usa_att_connected_as_voice">Ahots gisa soilik konektatu da deia.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Gailuan ezarri duzun Datu erabilera mugara iristear da. Bideo deiak egiteko, datuak behar dituzu.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Ezin da Wi-Fi bidez deitu; hori dela eta, sare mugikorren bidez konektatuko da. Ahots eta datuengatiko gastuak aplikatuko dira.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -888,11 +891,15 @@ bakarr. Bideora"</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Erabili Datu mugikorrak</string>
     <string name="usa_vzw_volte_weak_wifi_text">"Saiatu garen arren, ezin izan dugu aldatu bideo deia Wi-Fi konexiora.
 
-Bideo deia sare mugikorraren bidez egiten ari da oraindik. (Aurrera eginez gero, datu erabileragatiko kostuak sortuko dira.)"</string>
+Bideo deia sare mugikorraren bidez dago abian oraindik.
+
+Aurrera eginez gero, datu erabileragatiko kostuak aplika litezke."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Bideo deia sare mugikorra erabiltzen ari da oraindik. (Datuengatiko kostuak aplikatuko dira.)</string>
     <string name="usa_vzw_vowifi_wifi_low_signal_text">"Wi-Fi seinaleak ez du bideo deiarekin jarraitzeko behar adina indar.
 
-Bideo deia sare mugikorraren bidez egiten ari da. (Aurrera eginez gero, datu erabileragatiko kostuak sortuko dira.)"</string>
+Bideo deia sare mugikorraren bidez egiten ari da.
+
+Aurrera eginez gero, datu erabileragatiko kostuak aplika litezke."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi konexioa galdu da eta deia amaitu da.</string>
     <string name="use_wifi_and_mobile_nw">Erabili Wi-Fi eta sare mugikorrak</string>
     <string name="use_wlan_and_mobile_nw">Erabili WLAN eta sare mugikorrak</string>

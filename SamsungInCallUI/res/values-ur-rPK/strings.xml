@@ -126,6 +126,7 @@
     <string name="agif_decline_sticker_header">کسی اسٹکر کے ذریعے مسترد کریں</string>
     <string name="agif_decline_text_header">کسی متن کے ذریعے مسترد کریں</string>
     <string name="agif_decline_toast">%s کو اسٹکر بھیجا گیا۔</string>
+    <string name="agif_outgoing_bubble_tip">آپ کیسا محسوس کرتے ہیں یہ دکھانے کے لیے کوئی اسٹکر بھیجیں۔</string>
     <string name="agif_pickers_add_tab_description">اضافہ</string>
     <string name="agif_pickers_find_more">مزید ڈھونڈیں</string>
     <string name="agif_pickers_item_usage_hints_description">منتخب کرنے کے لیے دوہری تھپکی دیں</string>
@@ -134,10 +135,12 @@
     <string name="agif_pickers_tab_select_description">منتخب شدہ</string>
     <string name="agif_pickers_title">کسی اسٹکر کے ساتھ شروع کریں</string>
     <string name="agif_pickers_title_recommended">تجویز کردہ</string>
+    <string name="agif_random_send_message">یہ sticker بھیجنے کے لیے یہاں تھپکی دیں۔</string>
     <string name="agif_read_permission_description">فون کو AGIF مواد پڑھنے کی اجازت دیں۔</string>
     <string name="agif_read_permission_label">‏AGIF مواد پڑھیں</string>
     <string name="agif_receive_no_id">اسٹکر نہیں دکھایا جاسکتا ہے۔ کال کے بعد %s اپ ڈیٹ کریں۔</string>
     <string name="agif_receive_no_id_upsupport_update">اسٹکر نہیں دکھایا جاسکتا ہے۔ اگلا سسٹم اپ ڈیٹ کرنے کے بعد مزید اسٹکرز دستیاب ہوں گے۔</string>
+    <string name="agif_receive_toast">%s سے اسٹکر۔</string>
     <string name="agif_sent_fail_message">متحرک GIF نہیں بھیجا جاسکتا۔ بعد میں دوبارہ کوشش کریں۔</string>
     <string name="agif_sent_toast">اسٹکر بھیجا گيا۔</string>
     <string name="agif_write_permission_description">فون کو AGIF مواد ترمیم کرنے کی اجازت دیں۔</string>
@@ -827,8 +830,8 @@ IVR کال اسکرین مینیو ایک تیسرے فریق خدمت فراہ�
     <string name="tts_pager">صفحہ %1$d از %2$d</string>
     <string name="tts_seconds">%d سیکنڈ</string>
     <string name="tty_mode_option_title">‏TTY موڈ</string>
-    <string name="tutorial_incoming_call_app_answer">کال کا جواب دینے کے لیے ٹیپ کریں۔</string>
-    <string name="tutorial_incoming_call_app_reject">کال مسترد کرنے کے لیے تھپکی دیں۔</string>
+    <string name="tutorial_incoming_call_app_answer">جواب دینے کے لئے دوبار تھپتھپائیں</string>
+    <string name="tutorial_incoming_call_app_reject">انکار کے لئے دوبار تھپکیں</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">نیٹ ورک سے رابطہ کرنے سے قاصر۔ اپنے کنکشن کی سیٹنگز چیک کر یں اور دوبارہ کوشش کریں۔</string>
     <string name="units_kb">کیلوبائٹ</string>
@@ -838,7 +841,7 @@ IVR کال اسکرین مینیو ایک تیسرے فریق خدمت فراہ�
     <string name="upload_using_wlan_only">صرف WLAN کے ذریعے اپ لوڈ کریں</string>
     <string name="upload_wifi_and_mobile_nw">‏Wi-Fi یا موبائل نیٹ ورک کے ذریعے اپ لوڈ کریں</string>
     <string name="upload_wlan_and_mobile_nw">‏WLAN یا موبائل نیٹ ورک کے ذریعے اپ لوڈ کریں</string>
-    <string name="usa_att_connected_as_voice">صرف وائس کے طورپر کال مربوط ہوا ہے۔</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">آپ کا ڈیٹا استعمال ہے جسے آپ اپنے آلہ پر تقریبا اس کی حد پوری ہونے کے لیے سیٹ کیا ہے۔ آپ کے ویڈیو کال کو ڈیٹا کی ضرورت ہے۔</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">سیلولر نیٹ ورک پر جوڑ کر، Wi-Fi پر کال نہیں رکھا جاسکتا۔ وائس اور ڈیٹا کے اخراجات عائد ہوسکتے ہیں۔</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -886,13 +889,17 @@ IVR کال اسکرین مینیو ایک تیسرے فریق خدمت فراہ�
     <string name="usa_vzw_voice_incoming_during_wifi_video">آنے والے کال کا جواب دینے سے موجودہ کال ختم ہوجائے گی۔</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_text">کال جاری رکھنے کے لیے Wi-Fi سگنل کافی مضبوط نہیں ہے۔ آپ کی کال جاری رکھنے کے لیے موبائل نیٹ ورک استعمال کرکے آپ کے ڈیٹا پلان کو استعمال کرے گا۔</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">موبائل ڈیٹا استعمال کریں</string>
-    <string name="usa_vzw_volte_weak_wifi_text">"ہم نے کوشش کی، لیکن اس وقت ہم Wi-Fi سے ویڈیو کال بند نہیں کرسکتے۔
+    <string name="usa_vzw_volte_weak_wifi_text">"ہم نے کوشش کی، لیکن ہم اس وقت آپ کی ویڈیو کال Wi-Fi پر سوئچ نہیں کرسکتے ہیں۔
 
-آپ کا ویڈیو کال اب بھی موبائل نیٹ ورک پر چل رہا ہے۔ (اگر آپ جاری رکھنے کو منتخب کرتے ہیں تو ڈیٹا استعمال کا اطلاق ہوتا ہے۔)"</string>
+آپ کا ویڈیو کال اب بھی موبائل نیٹ ورک پر چل رہا ہے۔
+
+اگر آپ جاری رکھنے چاہتے ہیں تو ڈیٹا استعمال چارجز اطلاق ہوسکتے ہیں۔"</string>
     <string name="usa_vzw_volte_weak_wifi_toast">آپ کا ویڈیو کال اب بھی موبائل نیٹ ورک پر چل رہا ہے۔ (ڈیٹا استعمال اطلاق ہوتا ہے۔)</string>
-    <string name="usa_vzw_vowifi_wifi_low_signal_text">"‏Wi-Fi سگنل آپ کے ویڈیو کال کو جاری رکھنے کے لیے کافی مضبوط نہیں ہے۔
+    <string name="usa_vzw_vowifi_wifi_low_signal_text">"آپ کی ویڈیو کال جاری رکھنے کے واسطے Wi-Fi سگنل مضبوط کافی نہیں تھا۔
 
-آپ کا ویڈیو کال ابھی موبائل نیٹ ورک پر چل رہا ہے۔ (اگر آپ جاری رکھنے کو منتخب کرتے ہیں تو ڈیٹا استعمال کا اطلاق ہوتا ہے۔)"</string>
+آپ کا ویڈیو کال اب موبائل نیٹ ورک پر چل رہا ہے۔
+
+اگر آپ جاری رکھنا چاہتے ہیں تو ڈیٹا استعمال چارجز اطلاق ہوسکتے ہیں۔"</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">‏Wi-Fi کنیکشن ضائع ہوگیا۔ کال ختم ہو گئی۔</string>
     <string name="use_wifi_and_mobile_nw">‏Wi-Fi اور موبائل نیٹ ورکس استعمال کریں</string>
     <string name="use_wlan_and_mobile_nw">‏WLAN اور موبائل نیٹ ورکس کا استعمال کریں</string>

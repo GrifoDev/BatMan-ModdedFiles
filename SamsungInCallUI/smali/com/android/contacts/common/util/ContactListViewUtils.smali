@@ -34,7 +34,7 @@
 
     invoke-virtual {p2, v3}, Landroid/view/View;->setBackgroundResource(I)V
 
-    const v2, 0x7f100102
+    const v2, 0x7f100106
 
     invoke-virtual {p2, v2}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

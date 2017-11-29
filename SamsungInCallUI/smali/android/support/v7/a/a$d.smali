@@ -156,18 +156,18 @@
 
 .field public static final abc_text_size_title_material_toolbar:I = 0x7f0a0015
 
-.field public static final disabled_alpha_material_dark:I = 0x7f0a0463
+.field public static final disabled_alpha_material_dark:I = 0x7f0a046d
 
-.field public static final disabled_alpha_material_light:I = 0x7f0a0464
+.field public static final disabled_alpha_material_light:I = 0x7f0a046e
 
-.field public static final highlight_alpha_material_colored:I = 0x7f0a049d
+.field public static final highlight_alpha_material_colored:I = 0x7f0a04a7
 
-.field public static final highlight_alpha_material_dark:I = 0x7f0a049e
+.field public static final highlight_alpha_material_dark:I = 0x7f0a04a8
 
-.field public static final highlight_alpha_material_light:I = 0x7f0a049f
+.field public static final highlight_alpha_material_light:I = 0x7f0a04a9
 
-.field public static final notification_large_icon_height:I = 0x7f0a04d2
+.field public static final notification_large_icon_height:I = 0x7f0a04dc
 
-.field public static final notification_large_icon_width:I = 0x7f0a04d3
+.field public static final notification_large_icon_width:I = 0x7f0a04dd
 
-.field public static final notification_subtext_size:I = 0x7f0a04d4
+.field public static final notification_subtext_size:I = 0x7f0a04de

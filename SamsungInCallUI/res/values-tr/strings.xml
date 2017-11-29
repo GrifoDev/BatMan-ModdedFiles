@@ -178,12 +178,13 @@
     <string name="account_phone">Cihaz</string>
     <string name="acs">Sesli arama</string>
     <string name="active_calls">Etkin arama</string>
-    <string name="add_reminder">Htrltcı ekle</string>
+    <string name="add_reminder">Hatırlatıcı ekle</string>
     <string name="agif_button_close_description">Kapat</string>
     <string name="agif_decline_message">Maalesef şu anda müsait değilim.</string>
     <string name="agif_decline_sticker_header">Etiketle reddet</string>
     <string name="agif_decline_text_header">Metinle reddet</string>
     <string name="agif_decline_toast">Etiket %s adlı kişiye gönderildi.</string>
+    <string name="agif_outgoing_bubble_tip">Nasıl hissettiğinizi göstermek için bir etiket gönderin.</string>
     <string name="agif_pickers_add_tab_description">Ekle</string>
     <string name="agif_pickers_find_more">Daha fazla bilgi</string>
     <string name="agif_pickers_item_usage_hints_description">Seçmek için çift dokunun</string>
@@ -192,17 +193,19 @@
     <string name="agif_pickers_tab_select_description">Seçildi</string>
     <string name="agif_pickers_title">Bir etiketle başla</string>
     <string name="agif_pickers_title_recommended">Önerilen</string>
+    <string name="agif_random_send_message">Bu etiketi göndermek için buraya dokunun.</string>
     <string name="agif_read_permission_description">Telefonun AGIF içeriğini okumasına izin verir.</string>
     <string name="agif_read_permission_label">AGIF içeriğini oku</string>
     <string name="agif_receive_no_id">Etiket gösterilemiyor. Aramadan sonra %s uygulamasını güncelleyin.</string>
     <string name="agif_receive_no_id_upsupport_update">Etiket gösterilemiyor. Sonraki sistem güncellemesinden sonra daha fazla etiket sunulacak.</string>
+    <string name="agif_receive_toast">%s adlı arayandan gelen etiket.</string>
     <string name="agif_sent_fail_message">Animasyonlu GIF gönderilemiyor. Daha sonra tekrar deneyin.</string>
     <string name="agif_sent_toast">Etiket gönderildi.</string>
     <string name="agif_write_permission_description">Telefonun AGIF içeriğini değiştirmesine izin verir.</string>
     <string name="agif_write_permission_label">AGIF içeriğini değiştir</string>
     <string name="agree">Onayla</string>
     <string name="am_cover_toggle_string">Aramyı yanıtlmk veya reddtmk içn kapağı açn.</string>
-    <string name="am_device_memory_full_warning">Mesajla otomatik yanıtla özelliği kullanılamıyor. Sesli mesajları kaydetmek için cihazınızın hafızasında yeterli alan yok. Bazı öğeleri silip tekrar deneyin.</string>
+    <string name="am_device_memory_full_warning">Mesajla otomatik yanıtla özelliği kullanılamıyor. Sesli mesajları kaydetmek için cihazınızın hafızasında yeterli alan yok. Bazı ögeleri silip tekrar deneyin.</string>
     <string name="another_device_pickup_message">Bu arama başka bir cihazda yanıtlandı.</string>
     <string name="answering_memo_Playing_text">Cevaplama mesajı çalınıyor…</string>
     <string name="answering_memo_Recording_text">Mesaj kaydediliyor…</string>
@@ -885,8 +888,8 @@ Kamera"</string>
     <string name="tts_pager">Sayfa %1$d / %2$d</string>
     <string name="tts_seconds">%d saniye</string>
     <string name="tty_mode_option_title">TTY modu</string>
-    <string name="tutorial_incoming_call_app_answer">Aramayı yanıtlamak için dokunun.</string>
-    <string name="tutorial_incoming_call_app_reject">Aramayı reddetmek için dokunun.</string>
+    <string name="tutorial_incoming_call_app_answer">Yanıtlamak için çift dokunun.</string>
+    <string name="tutorial_incoming_call_app_reject">Reddetmek için çift dokunun.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Ağa bağlanılamıyor. Bağlantı ayarlarınızı kontrol edin ve tekrar deneyin.</string>
     <string name="units_kb">KB</string>
@@ -896,7 +899,7 @@ Kamera"</string>
     <string name="upload_using_wlan_only">Sadece WLAN ile yükle</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fi veya mobil ağ ile yükle</string>
     <string name="upload_wlan_and_mobile_nw">WLAN veya mobil ağ ile yükle</string>
-    <string name="usa_att_connected_as_voice">Arama sadece sesli olarak bağlandı.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Cihazınızda belirlediğiniz Veri Kullanımı sınıra ulaşmak üzere. Görüntülü aramanız veri gerektirir.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Arama Wi-Fi üzerinden yapılamıyor, hücresel ağa bağlanılıyor. Konuşma ve veri ücretleri uygulanır.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -946,11 +949,15 @@ videoya geç"</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Mobil Veri kullan</string>
     <string name="usa_vzw_volte_weak_wifi_text">"Denedik ancak şu anda görüntülü aramanızı Wi-Fi'a geçiremiyoruz.
 
-Görüntülü aramanız hala mobil ağ üzerinden sürüyor. (Devam etmeyi seçerseniz veri kullanımı uygulanır.)"</string>
-    <string name="usa_vzw_volte_weak_wifi_toast">Görüntülü aramanız hala mobil ağ üzerinden yürütülüyor. (Veri kullanımı uygulanır.)</string>
-    <string name="usa_vzw_vowifi_wifi_low_signal_text">"Wi-Fi sinyali, görüntülü aramanıza devam etmek için yeterince güçlü değildi.
+Görüntülü aramanız hala mobil ağ üzerinden sürüyor.
 
-Görüntülü aramanız şu anda mobil ağ üzerinden çalışıyor. (Devam etmeyi seçerseniz veri kullanımı uygulanır.)"</string>
+Devam etmeyi seçerseniz veri kullanım ücretleri uygulanabilir."</string>
+    <string name="usa_vzw_volte_weak_wifi_toast">Görüntülü aramanız hala mobil ağ üzerinden yürütülüyor. (Veri kullanımı uygulanır.)</string>
+    <string name="usa_vzw_vowifi_wifi_low_signal_text">"Wi-Fi sinyali görüntülü aramanıza devam etmek için yeterince güçlü değildi.
+
+Görüntülü aramanız şu anda mobil ağ üzerinde çalışıyor.
+
+Devam etmeyi seçerseniz veri kullanım ücretleri uygulanabilir."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi bağlantısı kesildi. Arama bitti.</string>
     <string name="use_wifi_and_mobile_nw">Wi-Fi ve mobil ağları kullan</string>
     <string name="use_wlan_and_mobile_nw">WLAN ve mobil ağları kullan</string>

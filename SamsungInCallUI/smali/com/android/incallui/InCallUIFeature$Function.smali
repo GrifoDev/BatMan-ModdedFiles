@@ -28,6 +28,8 @@
 
 .field public static final AGIF_ENHANCED_SERVICE:Ljava/lang/String; = "agif_enhanced_service"
 
+.field public static final AGIF_INDUCE_SERVICE:Ljava/lang/String; = "agif_induce_service"
+
 .field public static final AGIF_RECOMMEND_SERVICE:Ljava/lang/String; = "agif_recommend_service"
 
 .field public static final AGIF_REJECT_SERVICE:Ljava/lang/String; = "agif_reject_service"

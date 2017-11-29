@@ -95,7 +95,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mView:Landroid/view/View;
 
-    const v1, 0x7f100301
+    const v1, 0x7f100307
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -116,7 +116,7 @@
     :cond_0
     iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallDialpadVGAFragment;->mView:Landroid/view/View;
 
-    const v1, 0x7f10047c
+    const v1, 0x7f100480
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -239,7 +239,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0400f1
+    const v0, 0x7f0400f2
 
     invoke-virtual {p1, v0, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -257,7 +257,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f04016e
+    const v0, 0x7f040170
 
     invoke-virtual {p1, v0, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -266,7 +266,7 @@
     goto :goto_0
 
     :cond_1
-    const v0, 0x7f040168
+    const v0, 0x7f04016a
 
     invoke-virtual {p1, v0, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -440,7 +440,7 @@
 
     move-result v6
 
-    const v0, 0x7f10038f
+    const v0, 0x7f100395
 
     invoke-virtual {p1, v0}, Lcom/android/phone/common/dialpad/DialpadKeyButton;->findViewById(I)Landroid/view/View;
 
@@ -476,7 +476,7 @@
     move v2, v1
 
     :goto_2
-    const v0, 0x7f10013d
+    const v0, 0x7f100141
 
     invoke-virtual {p1, v0}, Lcom/android/phone/common/dialpad/DialpadKeyButton;->findViewById(I)Landroid/view/View;
 
@@ -524,7 +524,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setLayoutParams(Landroid/view/ViewGroup$LayoutParams;)V
 
     :goto_4
-    const v0, 0x7f10013e
+    const v0, 0x7f100142
 
     invoke-virtual {p1, v0}, Lcom/android/phone/common/dialpad/DialpadKeyButton;->findViewById(I)Landroid/view/View;
 
@@ -550,7 +550,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a0661
+    const v3, 0x7f0a06a4
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -778,7 +778,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0a0668
+    const v2, 0x7f0a06ab
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -916,7 +916,7 @@
 
     move-result-object v2
 
-    const v4, 0x7f0e01e0
+    const v4, 0x7f0e01ff
 
     invoke-virtual {v2, v4}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -992,7 +992,7 @@
 
     move-result-object v4
 
-    const v8, 0x7f0a065a
+    const v8, 0x7f0a069d
 
     invoke-virtual {v4, v8}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1109,7 +1109,7 @@
 
     move-result-object v4
 
-    const v8, 0x7f0a0667
+    const v8, 0x7f0a06aa
 
     invoke-virtual {v4, v8}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -1148,7 +1148,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a065f
+    const v1, 0x7f0a06a2
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1252,18 +1252,18 @@
 
     :array_0
     .array-data 4
+        0x7f100147
         0x7f100143
-        0x7f10013f
-        0x7f100135
-        0x7f100136
-        0x7f100137
-        0x7f100138
         0x7f100139
         0x7f10013a
         0x7f10013b
         0x7f10013c
-        0x7f100142
-        0x7f100141
+        0x7f10013d
+        0x7f10013e
+        0x7f10013f
+        0x7f100140
+        0x7f100146
+        0x7f100145
     .end array-data
 .end method
 

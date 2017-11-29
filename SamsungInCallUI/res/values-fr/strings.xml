@@ -178,12 +178,13 @@
     <string name="account_phone">Appareil</string>
     <string name="acs">Appel vocal</string>
     <string name="active_calls">Appel en cours</string>
-    <string name="add_reminder">Ajouter rappel</string>
+    <string name="add_reminder">Ajouter un rappel</string>
     <string name="agif_button_close_description">Fermer</string>
     <string name="agif_decline_message">Désolé, je suis occupé.</string>
     <string name="agif_decline_sticker_header">Refus avec un symbole</string>
     <string name="agif_decline_text_header">Refus avec un texte</string>
     <string name="agif_decline_toast">Le symbole a été envoyé à %s.</string>
+    <string name="agif_outgoing_bubble_tip">Envoyez un symbole pour indiquer comment vous vous sentez.</string>
     <string name="agif_pickers_add_tab_description">Ajouter</string>
     <string name="agif_pickers_find_more">"Plus d'informations"</string>
     <string name="agif_pickers_item_usage_hints_description">Appuyez deux fois pour sélectionner</string>
@@ -192,10 +193,12 @@
     <string name="agif_pickers_tab_select_description">Sélectionné</string>
     <string name="agif_pickers_title">Démarrage avec un symbole</string>
     <string name="agif_pickers_title_recommended">Recommandé</string>
+    <string name="agif_random_send_message">Appuyez ici pour envoyer ce symbole.</string>
     <string name="agif_read_permission_description">"Autorise l'application Téléphone à lire le contenu AGIF."</string>
     <string name="agif_read_permission_label">Lecture du contenu AGIF</string>
     <string name="agif_receive_no_id">"Le symbole ne peut pas être affiché. Mettez à jour %s après l'appel."</string>
     <string name="agif_receive_no_id_upsupport_update">"Le symbole ne peut pas être affiché. D'autres seront disponibles après prochaine mise à jour système."</string>
+    <string name="agif_receive_toast">Symbole de %s.</string>
     <string name="agif_sent_fail_message">"Impossible d'envoyer le fichier GIF animé. Réessayez ultérieurement."</string>
     <string name="agif_sent_toast">Le symbole a été envoyé.</string>
     <string name="agif_write_permission_description">"Autorise l'application Téléphone à modifier le contenu AGIF."</string>
@@ -790,7 +793,7 @@ sens uniq."</string>
     <string name="secOnscreenSwisText">See what I see</string>
     <string name="secOnscreenSwitchCameraText">Changer Objectif</string>
     <string name="secOnscreenSwitchText">Permuter</string>
-    <string name="secOnscreenUpdateContactText">MAJ cont. exist.</string>
+    <string name="secOnscreenUpdateContactText">MÀJ cont. exist.</string>
     <string name="secOnscreenUpdateContactText_tts">Mettre à jour les contacts existants</string>
     <string name="secOnscreenVideoCallText">Appel visio</string>
     <string name="secOnscreenVideoStopText">Arrêter</string>
@@ -885,8 +888,8 @@ sens uniq."</string>
     <string name="tts_pager">Page %1$d sur %2$d</string>
     <string name="tts_seconds">%d secondes</string>
     <string name="tty_mode_option_title">Mode TTY</string>
-    <string name="tutorial_incoming_call_app_answer">"Appuyez pour répondre à l'appel."</string>
-    <string name="tutorial_incoming_call_app_reject">"Appuyez pour refuser l'appel."</string>
+    <string name="tutorial_incoming_call_app_answer">Appuyez deux fois pour répondre.</string>
+    <string name="tutorial_incoming_call_app_reject">Appuyez deux fois pour refuser.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Connexion au réseau impossible. Vérifiez vos paramètres de connexion, puis réessayez.</string>
     <string name="units_kb">Ko</string>
@@ -896,7 +899,7 @@ sens uniq."</string>
     <string name="upload_using_wlan_only">Ne charger que par WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Charger via le Wi-Fi ou le réseau mobile</string>
     <string name="upload_wlan_and_mobile_nw">Charger via le WLAN ou le réseau mobile</string>
-    <string name="usa_att_connected_as_voice">Appel connecté en tant que voix uniquement.</string>
+    <string name="usa_att_connected_as_voice">"La fonction Vidéo n'est pas disponible pour cet appel. Celui-ci est basculé en appel vocal."</string>
     <string name="usa_att_data_usage_charge_alert">"Vous avez presque atteint la limite d'utilisation des données que vous avez définie sur votre appareil. Des données sont nécessaires pour votre appel visio."</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">"L'appel ne peut pas être passé par Wi-Fi. Il sera passé sur le réseau cellulaire. Des frais de voix et de données seront facturés."</string>
     <string name="usa_att_modify_receive_to_video">%s demande à basculer en mode Appel visio.</string>
@@ -944,13 +947,17 @@ vidéo unidirect."</string>
     <string name="usa_vzw_voice_incoming_during_wifi_video">"Répondre à l'appel entrant mettra fin à l'appel en cours."</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_text">"Le signal Wi-Fi n'est pas assez puissant pour continuer l'appel. Le fait d'utiliser les réseaux mobiles pour poursuivre cet appel va puiser dans votre forfait."</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Utiliser les données mobiles</string>
-    <string name="usa_vzw_volte_weak_wifi_text">"Nous avons tenté de basculer votre appel visio sur le réseau Wi-Fi. Cette opération est actuellement impossible.
+    <string name="usa_vzw_volte_weak_wifi_text">"Nous avons tenté de basculer votre appel visio sur le réseau Wi-Fi.
 
-Votre appel visio est toujours effectué via le réseau mobile (l'utilisation des données s'applique si vous choisissez de continuer)."</string>
+Votre appel visio est toujours effectué via le réseau mobile.
+
+Des frais d'utilisation des données peuvent s'appliquer si vous choisissez de continuer."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Votre appel vidéo est toujours en cours sur le réseau mobile. (Utilisation des données prise en compte.)</string>
     <string name="usa_vzw_vowifi_wifi_low_signal_text">"Le signal Wi-Fi n'était pas assez puissant pour poursuivre votre appel visio.
 
-Votre appel visio est maintenant effectué via le réseau mobile (l'utilisation des données s'applique si vous choisissez de continuer)."</string>
+Votre appel visio est maintenant effectué via le réseau mobile.
+
+Des frais d'utilisation des données peuvent s'appliquer si vous choisissez de continuer."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">"La connexion Wi-Fi a été perdue. Fin de l'appel."</string>
     <string name="use_wifi_and_mobile_nw">Utiliser le Wi-Fi et les réseaux mobiles</string>
     <string name="use_wlan_and_mobile_nw">Utiliser le réseau WLAN et les réseaux mobiles</string>

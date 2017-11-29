@@ -2154,6 +2154,10 @@
 
     if-eqz v1, :cond_2
 
+    sget-boolean v1, Lcom/android/incallui/secrcs/RcsShareUI;->isRcsServiceRegistered:Z
+
+    if-eqz v1, :cond_2
+
     iget-object v1, p0, Lcom/android/incallui/CallButtonPresenter;->mCall:Lcom/android/incallui/Call;
 
     invoke-direct {p0, v1}, Lcom/android/incallui/CallButtonPresenter;->updateRcsElelements(Lcom/android/incallui/Call;)V
@@ -2412,6 +2416,10 @@
     invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v1
+
+    if-eqz v1, :cond_f
+
+    sget-boolean v1, Lcom/android/incallui/secrcs/RcsShareUI;->isRcsServiceRegistered:Z
 
     if-eqz v1, :cond_f
 
@@ -2766,6 +2774,10 @@
     invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v0
+
+    if-eqz v0, :cond_0
+
+    sget-boolean v0, Lcom/android/incallui/secrcs/RcsShareUI;->isRcsServiceRegistered:Z
 
     if-eqz v0, :cond_0
 
@@ -3655,7 +3667,7 @@
 
     if-eqz p1, :cond_1
 
-    const v1, 0x7f100320
+    const v1, 0x7f100326
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/InCallActivity;->findViewById(I)Landroid/view/View;
 
@@ -3698,7 +3710,7 @@
 
     if-nez v0, :cond_0
 
-    const v0, 0x7f09025a
+    const v0, 0x7f09025d
 
     invoke-static {v0}, Lcom/android/incallui/util/InCallUtils;->displayToast(I)V
 

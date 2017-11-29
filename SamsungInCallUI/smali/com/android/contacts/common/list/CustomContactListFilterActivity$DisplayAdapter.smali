@@ -170,7 +170,7 @@
 
     iget-object v0, p0, Lcom/android/contacts/common/list/CustomContactListFilterActivity$DisplayAdapter;->b:Landroid/view/LayoutInflater;
 
-    const v1, 0x7f040045
+    const v1, 0x7f040046
 
     invoke-virtual {v0, v1, p5, v6}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -241,7 +241,7 @@
     :cond_1
     invoke-virtual {v2, v5}, Landroid/widget/CheckBox;->setVisibility(I)V
 
-    const v2, 0x7f090575
+    const v2, 0x7f090578
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(I)V
 
@@ -351,7 +351,7 @@
 
     iget-object v0, p0, Lcom/android/contacts/common/list/CustomContactListFilterActivity$DisplayAdapter;->b:Landroid/view/LayoutInflater;
 
-    const v1, 0x7f040044
+    const v1, 0x7f040045
 
     invoke-virtual {v0, v1, p4, v3}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 

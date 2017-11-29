@@ -109,7 +109,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a066d
+    const v1, 0x7f0a06b0
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -153,7 +153,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f02037f
+    const v0, 0x7f0203b3
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/widget/SecMenuImageButton;->setBackgroundResource(I)V
 
@@ -161,14 +161,14 @@
     return-void
 
     :cond_0
-    const v0, 0x7f02037b
+    const v0, 0x7f0203af
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/widget/SecMenuImageButton;->setBackgroundResource(I)V
 
     goto :goto_0
 
     :cond_1
-    const v0, 0x7f02034f
+    const v0, 0x7f020383
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/widget/SecMenuImageButton;->setBackgroundResource(I)V
 
@@ -187,7 +187,7 @@
 
     if-nez v0, :cond_3
 
-    const v0, 0x7f0202d6
+    const v0, 0x7f02030a
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/widget/SecMenuImageButton;->setBackgroundResource(I)V
 

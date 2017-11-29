@@ -120,12 +120,13 @@
     <string name="account_phone">Tæki</string>
     <string name="acs">Símtal</string>
     <string name="active_calls">Símtal í gangi</string>
-    <string name="add_reminder">Ný áminning</string>
+    <string name="add_reminder">Bæta við áminningu</string>
     <string name="agif_button_close_description">Loka</string>
     <string name="agif_decline_message">Því miður get ég ekki talað núna.</string>
     <string name="agif_decline_sticker_header">Hafna með límmiða</string>
     <string name="agif_decline_text_header">Hafna með skilaboðum</string>
     <string name="agif_decline_toast">Límmiði sendur til %s.</string>
+    <string name="agif_outgoing_bubble_tip">Sendu límmiða til að sýna hvernig þér líður.</string>
     <string name="agif_pickers_add_tab_description">Bæta</string>
     <string name="agif_pickers_find_more">Finna fleiri</string>
     <string name="agif_pickers_item_usage_hints_description">Pikkaðu tvisvar til að velja</string>
@@ -134,10 +135,12 @@
     <string name="agif_pickers_tab_select_description">Valið</string>
     <string name="agif_pickers_title">Hefja með límmiða</string>
     <string name="agif_pickers_title_recommended">Mælt með</string>
+    <string name="agif_random_send_message">Pikkaðu hér til að senda þennan límmiða.</string>
     <string name="agif_read_permission_description">Gerir forritinu „Sími“ kleift að lesa AGIF-efni.</string>
     <string name="agif_read_permission_label">Lesa AGIF-efni</string>
     <string name="agif_receive_no_id">Ekki er hægt að sýna límmiðann. Uppfærðu %s eftir að símtalinu er lokið.</string>
     <string name="agif_receive_no_id_upsupport_update">Ekki er hægt að sýna límmiðann. Fleiri límmiðar verða tiltækir eftir næstu kerfisuppfærslu.</string>
+    <string name="agif_receive_toast">Límmiði frá %s.</string>
     <string name="agif_sent_fail_message">Ekki er hægt að senda GIF-hreyfimyndir. Reyndu aftur síðar.</string>
     <string name="agif_sent_toast">Límmiði sendur.</string>
     <string name="agif_write_permission_description">Gerir forritinu „Sími“ kleift að breyta AGIF-efni.</string>
@@ -827,8 +830,8 @@ mín megin"</string>
     <string name="tts_pager">Síða %1$d af %2$d</string>
     <string name="tts_seconds">%d sekúndur</string>
     <string name="tty_mode_option_title">TTY-stilling</string>
-    <string name="tutorial_incoming_call_app_answer">Pikkaðu til að svara símtalinu.</string>
-    <string name="tutorial_incoming_call_app_reject">Pikkaðu til að hafna símtalinu.</string>
+    <string name="tutorial_incoming_call_app_answer">Pikkaðu tvisvar til að svara.</string>
+    <string name="tutorial_incoming_call_app_reject">Pikkaðu tvisvar til að hafna.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Ekki var hægt að tengjast netinu. Kannaðu tengistillingarnar og reyndu aftur.</string>
     <string name="units_kb">KB</string>
@@ -838,7 +841,7 @@ mín megin"</string>
     <string name="upload_using_wlan_only">Hlaða aðeins upp um WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Hlaða upp um Wi-Fi eða farsímakerfi</string>
     <string name="upload_wlan_and_mobile_nw">Hlaða upp um WLAN eða farsímakerfi</string>
-    <string name="usa_att_connected_as_voice">Símtal tengt sem venjulegt símtal.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Gagnanotkunin sem stillt er í tækinu er að ná hámarki. Myndsímtalið krefst gagna.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Ekki tókst að hringja í gegnum Wi-Fi. Tengist farsímakerfi. Gjöld verða innheimt fyrir símtöl og gagnanotkun.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -888,11 +891,15 @@ einst.myndsk."</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Nota farsímagögn</string>
     <string name="usa_vzw_volte_weak_wifi_text">"Við reyndum en gátum ekki fært myndsímtalið þitt yfir á Wi-Fi að svo stöddu.
 
-Myndsímtalið notast enn við farsímakerfi. (Gagnanotkun á við ef þú velur að halda áfram.)"</string>
+Myndsímtalið notast enn við farsímakerfi.
+
+Gagnaflutningsgjöld kunna að eiga við ef þú velur að halda áfram."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Myndsímtalið notast enn við farsímakerfi. (Gagnanotkun á við.)</string>
     <string name="usa_vzw_vowifi_wifi_low_signal_text">"Wi-Fi merkið var ekki nógu sterkt til að halda myndsímtalinu áfram.
 
-Myndsímtalið notast nú við farsímakerfi. (Gagnanotkun á við ef þú velur að halda áfram.)"</string>
+Myndsímtalið notast nú við farsímakerfi.
+
+Gjöld fyrir gagnanotkun kunna að eiga við ef þú velur að halda áfram."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi tenging slitnaði. Símtali lokið.</string>
     <string name="use_wifi_and_mobile_nw">Nota Wi-Fi og farsímakerfi</string>
     <string name="use_wlan_and_mobile_nw">Nota WLAN og farsímakerfi</string>

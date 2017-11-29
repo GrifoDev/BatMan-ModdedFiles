@@ -107,9 +107,9 @@
 .method public instantiateItem(Landroid/view/View;I)Ljava/lang/Object;
     .locals 9
 
-    const v8, 0x7f0a046b
+    const v8, 0x7f0a0475
 
-    const v7, 0x7f0a0466
+    const v7, 0x7f0a0470
 
     const/4 v6, 0x0
 
@@ -169,22 +169,6 @@
 
     if-eqz v1, :cond_2
 
-    const-string v1, "ims_crane"
-
-    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_2
-
-    const-string v1, "ims_rcs_bb"
-
-    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_2
-
     iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$OutgoingPagerAdapter;->this$0:Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;
 
     invoke-virtual {v1}, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment;->getActivity()Landroid/app/Activity;
@@ -199,7 +183,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$OutgoingPagerAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v2, 0x7f040179
+    const v2, 0x7f04017b
 
     invoke-virtual {v1, v2, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -246,7 +230,7 @@
     :cond_2
     iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$OutgoingPagerAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v2, 0x7f040178
+    const v2, 0x7f04017a
 
     invoke-virtual {v1, v2, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -283,22 +267,6 @@
 
     if-eqz v1, :cond_5
 
-    const-string v1, "ims_crane"
-
-    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_5
-
-    const-string v1, "ims_rcs_bb"
-
-    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_5
-
     const-string v1, "OutgoingPagerAdapter isInMultiWindowMode() position : PAGE_INCALL"
 
     invoke-static {p0, v1, v3}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;Z)V
@@ -317,7 +285,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$OutgoingPagerAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v2, 0x7f040173
+    const v2, 0x7f040175
 
     invoke-virtual {v1, v2, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -387,7 +355,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a046c
+    const v1, 0x7f0a0476
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -401,7 +369,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f0a0467
+    const v3, 0x7f0a0471
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -453,7 +421,7 @@
     :cond_5
     iget-object v1, p0, Lcom/android/incallui/fragment/VoiceCallButtonCallPlusFragment$OutgoingPagerAdapter;->mInflater:Landroid/view/LayoutInflater;
 
-    const v2, 0x7f040175
+    const v2, 0x7f040177
 
     invoke-virtual {v1, v2, v0}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 

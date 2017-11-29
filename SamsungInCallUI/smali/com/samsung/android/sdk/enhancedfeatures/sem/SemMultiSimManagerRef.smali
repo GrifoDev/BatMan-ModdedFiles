@@ -210,9 +210,7 @@
     :cond_0
     packed-switch p1, :pswitch_data_0
 
-    sget-object v0, Lcom/samsung/android/sdk/enhancedfeatures/sem/SemMultiSimManagerRef;->sSubscriptionManagerInstance:Landroid/telephony/SubscriptionManager;
-
-    invoke-static {}, Landroid/telephony/SubscriptionManager;->semGetDefaultSubscriptionId()I
+    invoke-static {}, Landroid/telephony/SubscriptionManager;->getDefaultSubscriptionId()I
 
     move-result v0
 
@@ -220,36 +218,28 @@
     return v0
 
     :pswitch_0
-    sget-object v0, Lcom/samsung/android/sdk/enhancedfeatures/sem/SemMultiSimManagerRef;->sSubscriptionManagerInstance:Landroid/telephony/SubscriptionManager;
-
-    invoke-static {}, Landroid/telephony/SubscriptionManager;->semGetDefaultSmsSubscriptionId()I
+    invoke-static {}, Landroid/telephony/SubscriptionManager;->getDefaultSmsSubscriptionId()I
 
     move-result v0
 
     goto :goto_0
 
     :pswitch_1
-    sget-object v0, Lcom/samsung/android/sdk/enhancedfeatures/sem/SemMultiSimManagerRef;->sSubscriptionManagerInstance:Landroid/telephony/SubscriptionManager;
-
-    invoke-static {}, Landroid/telephony/SubscriptionManager;->semGetDefaultVoiceSubscriptionId()I
+    invoke-static {}, Landroid/telephony/SubscriptionManager;->getDefaultVoiceSubscriptionId()I
 
     move-result v0
 
     goto :goto_0
 
     :pswitch_2
-    sget-object v0, Lcom/samsung/android/sdk/enhancedfeatures/sem/SemMultiSimManagerRef;->sSubscriptionManagerInstance:Landroid/telephony/SubscriptionManager;
-
-    invoke-static {}, Landroid/telephony/SubscriptionManager;->semGetDefaultDataSubscriptionId()I
+    invoke-static {}, Landroid/telephony/SubscriptionManager;->getDefaultDataSubscriptionId()I
 
     move-result v0
 
     goto :goto_0
 
     :pswitch_3
-    sget-object v0, Lcom/samsung/android/sdk/enhancedfeatures/sem/SemMultiSimManagerRef;->sSubscriptionManagerInstance:Landroid/telephony/SubscriptionManager;
-
-    invoke-static {}, Landroid/telephony/SubscriptionManager;->semGetDefaultSubscriptionId()I
+    invoke-static {}, Landroid/telephony/SubscriptionManager;->getDefaultSubscriptionId()I
 
     move-result v0
 

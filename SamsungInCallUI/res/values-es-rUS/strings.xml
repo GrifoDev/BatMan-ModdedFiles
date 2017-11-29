@@ -178,12 +178,13 @@
     <string name="account_phone">Dispositivo</string>
     <string name="acs">Llamada de voz</string>
     <string name="active_calls">Llamada activa</string>
-    <string name="add_reminder">Recordatorio</string>
+    <string name="add_reminder">Añadir recordatorio</string>
     <string name="agif_button_close_description">Cerrar</string>
     <string name="agif_decline_message">Lo siento, no puedo hablar ahora mismo.</string>
     <string name="agif_decline_sticker_header">Rechazar con un adhesivo</string>
     <string name="agif_decline_text_header">Rechazar con un mensaje</string>
     <string name="agif_decline_toast">Se envió un adhesivo a %s.</string>
+    <string name="agif_outgoing_bubble_tip">Envíe un adhesivo para mostrar cómo se siente.</string>
     <string name="agif_pickers_add_tab_description">Añadir</string>
     <string name="agif_pickers_find_more">Buscar más</string>
     <string name="agif_pickers_item_usage_hints_description">Pulsar dos veces para seleccionar</string>
@@ -192,10 +193,12 @@
     <string name="agif_pickers_tab_select_description">Seleccionado</string>
     <string name="agif_pickers_title">Comience con un adhesivo</string>
     <string name="agif_pickers_title_recommended">Recomendados</string>
+    <string name="agif_random_send_message">Pulse aquí para enviar este adhesivo.</string>
     <string name="agif_read_permission_description">Permitir que Teléfono lea contenidos AGIF.</string>
     <string name="agif_read_permission_label">Leer contenido AGIF</string>
     <string name="agif_receive_no_id">No es posible mostrar el adhesivo. Actualice %s cuando finalice la llamada.</string>
     <string name="agif_receive_no_id_upsupport_update">No es posible mostrar el adhesivo. Habrá nuevos adhesivos tras la próxima actualización del sistema.</string>
+    <string name="agif_receive_toast">Adhesivo de %s.</string>
     <string name="agif_sent_fail_message">No es posible enviar el GIF animado. Inténtelo de nuevo más tarde.</string>
     <string name="agif_sent_toast">Se envió el adhesivo.</string>
     <string name="agif_write_permission_description">Permitir que Teléfono modifique contenidos AGIF.</string>
@@ -884,8 +887,8 @@ El menú IVR de la pantalla de llamada utiliza contenidos proporcionados por un 
     <string name="tts_pager">Página %1$d de %2$d</string>
     <string name="tts_seconds">%d segundos</string>
     <string name="tty_mode_option_title">Modo TTY</string>
-    <string name="tutorial_incoming_call_app_answer">Pulse para responder la llamada.</string>
-    <string name="tutorial_incoming_call_app_reject">Pulse para rechazar la llamada.</string>
+    <string name="tutorial_incoming_call_app_answer">Pulse dos veces para contestar.</string>
+    <string name="tutorial_incoming_call_app_reject">Pulse dos veces para rechazar.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">No es posible conectar a la red. Revise su configuración de conexión e inténtelo de nuevo.</string>
     <string name="units_kb">KB</string>
@@ -895,7 +898,7 @@ El menú IVR de la pantalla de llamada utiliza contenidos proporcionados por un 
     <string name="upload_using_wlan_only">Cargar solo vía WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Cargar vía Wi-Fi o red móvil</string>
     <string name="upload_wlan_and_mobile_nw">Cargar vía WLAN o la red móvil</string>
-    <string name="usa_att_connected_as_voice">Conexión de llamada solo de voz.</string>
+    <string name="usa_att_connected_as_voice">Esta llamada no puede usar video. La llamada se ha conectado como llamada de voz.</string>
     <string name="usa_att_data_usage_charge_alert">Está por alcanzar el límite de Uso de datos que ha definido en el dispositivo. La videollamada usa datos.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">No es posible conectar la llamada mediante la red Wi-Fi; conectando mediante la red celular. Se aplicarán costos por datos y voz.</string>
     <string name="usa_att_modify_receive_to_video">%s está solicitando cambiar a videollamada.</string>
@@ -945,11 +948,15 @@ unidireccional"</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Usar Datos móviles</string>
     <string name="usa_vzw_volte_weak_wifi_text">"Lo intentamos, pero no podemos pasar la videollamada a la red Wi-Fi en este momento.
 
-La videollamada sigue usando la red móvil. (Si decide continuar, se generarán cargos por el uso de datos)."</string>
+La videollamada sigue usando la red móvil.
+
+Si decide continuar, es posible que se apliquen cargos por el uso de datos."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Su videollamada aún se ejecuta en la red móvil. (Aplica el uso de datos.)</string>
     <string name="usa_vzw_vowifi_wifi_low_signal_text">"La señal Wi-Fi no era lo suficientemente buena como para continuar la videollamada.
 
-La videollamada está usando la red móvil. (Si decide continuar, se generarán cargos por el uso de datos)."</string>
+La videollamada está usando la red móvil.
+
+Si decide continuar, es posible que se apliquen cargos por el uso de datos."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Se perdió la conexión Wi-Fi. Se finalizó la llamada.</string>
     <string name="use_wifi_and_mobile_nw">Usar redes móviles y Wi-Fi</string>
     <string name="use_wlan_and_mobile_nw">Usar WLAN y redes móviles</string>

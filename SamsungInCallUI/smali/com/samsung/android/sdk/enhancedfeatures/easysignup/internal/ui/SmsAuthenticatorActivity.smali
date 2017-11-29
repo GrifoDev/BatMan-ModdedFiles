@@ -628,10 +628,6 @@
 
     move-result-object v2
 
-    invoke-static {p1, p2}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/NumberUtils;->getNationalNumber(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v4
-
     invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/DeviceUtils;->getDefaultLocale()Ljava/lang/String;
 
     move-result-object v5
@@ -641,6 +637,8 @@
     iget-object v8, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/ui/SmsAuthenticatorActivity;->reqAuthCodeHandler:Landroid/os/Handler;
 
     move-object v3, p2
+
+    move-object v4, p1
 
     move-object v6, p3
 

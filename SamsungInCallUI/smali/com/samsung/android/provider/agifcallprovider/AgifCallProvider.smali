@@ -27,11 +27,17 @@
 
 .field public static final l:Landroid/net/Uri;
 
-.field private static final n:Landroid/content/UriMatcher;
+.field public static final m:Landroid/net/Uri;
+
+.field public static final n:Landroid/net/Uri;
+
+.field private static final o:Landroid/content/UriMatcher;
+
+.field private static final p:[Ljava/lang/String;
 
 
 # instance fields
-.field private m:Lcom/samsung/android/provider/agifcallprovider/a;
+.field private q:Lcom/samsung/android/provider/agifcallprovider/a;
 
 
 # direct methods
@@ -134,15 +140,43 @@
 
     sput-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->l:Landroid/net/Uri;
 
+    const-string v0, "content://com.samsung.android.provider.agifcallprovider/sticker_log"
+
+    invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->m:Landroid/net/Uri;
+
+    const-string v0, "content://com.samsung.android.provider.agifcallprovider/sticker_log/#"
+
+    invoke-static {v0}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v0
+
+    sput-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->n:Landroid/net/Uri;
+
     new-instance v0, Landroid/content/UriMatcher;
 
     const/4 v1, -0x1
 
     invoke-direct {v0, v1}, Landroid/content/UriMatcher;-><init>(I)V
 
-    sput-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->n:Landroid/content/UriMatcher;
+    sput-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->o:Landroid/content/UriMatcher;
 
-    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->n:Landroid/content/UriMatcher;
+    const/4 v0, 0x1
+
+    new-array v0, v0, [Ljava/lang/String;
+
+    const/4 v1, 0x0
+
+    const-string v2, "dream"
+
+    aput-object v2, v0, v1
+
+    sput-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->p:[Ljava/lang/String;
+
+    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->o:Landroid/content/UriMatcher;
 
     const-string v1, "com.samsung.android.provider.agifcallprovider"
 
@@ -152,7 +186,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
 
-    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->n:Landroid/content/UriMatcher;
+    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->o:Landroid/content/UriMatcher;
 
     const-string v1, "com.samsung.android.provider.agifcallprovider"
 
@@ -162,7 +196,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
 
-    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->n:Landroid/content/UriMatcher;
+    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->o:Landroid/content/UriMatcher;
 
     const-string v1, "com.samsung.android.provider.agifcallprovider"
 
@@ -172,7 +206,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
 
-    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->n:Landroid/content/UriMatcher;
+    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->o:Landroid/content/UriMatcher;
 
     const-string v1, "com.samsung.android.provider.agifcallprovider"
 
@@ -182,7 +216,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
 
-    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->n:Landroid/content/UriMatcher;
+    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->o:Landroid/content/UriMatcher;
 
     const-string v1, "com.samsung.android.provider.agifcallprovider"
 
@@ -192,7 +226,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
 
-    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->n:Landroid/content/UriMatcher;
+    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->o:Landroid/content/UriMatcher;
 
     const-string v1, "com.samsung.android.provider.agifcallprovider"
 
@@ -202,7 +236,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
 
-    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->n:Landroid/content/UriMatcher;
+    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->o:Landroid/content/UriMatcher;
 
     const-string v1, "com.samsung.android.provider.agifcallprovider"
 
@@ -212,7 +246,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
 
-    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->n:Landroid/content/UriMatcher;
+    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->o:Landroid/content/UriMatcher;
 
     const-string v1, "com.samsung.android.provider.agifcallprovider"
 
@@ -222,7 +256,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
 
-    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->n:Landroid/content/UriMatcher;
+    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->o:Landroid/content/UriMatcher;
 
     const-string v1, "com.samsung.android.provider.agifcallprovider"
 
@@ -232,7 +266,7 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
 
-    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->n:Landroid/content/UriMatcher;
+    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->o:Landroid/content/UriMatcher;
 
     const-string v1, "com.samsung.android.provider.agifcallprovider"
 
@@ -242,13 +276,33 @@
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
 
-    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->n:Landroid/content/UriMatcher;
+    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->o:Landroid/content/UriMatcher;
 
     const-string v1, "com.samsung.android.provider.agifcallprovider"
 
     const-string v2, "packages/#"
 
     const/16 v3, 0x3f2
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
+
+    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->o:Landroid/content/UriMatcher;
+
+    const-string v1, "com.samsung.android.provider.agifcallprovider"
+
+    const-string v2, "sticker_log"
+
+    const/16 v3, 0x3f7
+
+    invoke-virtual {v0, v1, v2, v3}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
+
+    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->o:Landroid/content/UriMatcher;
+
+    const-string v1, "com.samsung.android.provider.agifcallprovider"
+
+    const-string v2, "sticker_log/#"
+
+    const/16 v3, 0x3f8
 
     invoke-virtual {v0, v1, v2, v3}, Landroid/content/UriMatcher;->addURI(Ljava/lang/String;Ljava/lang/String;I)V
 
@@ -284,7 +338,7 @@
 
     const-string v0, "extra_support_service"
 
-    invoke-direct {p0}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->k()Z
+    invoke-direct {p0}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->l()Z
 
     move-result v1
 
@@ -311,7 +365,7 @@
 
     move-result v0
 
-    sget-object v1, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->n:Landroid/content/UriMatcher;
+    sget-object v1, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->o:Landroid/content/UriMatcher;
 
     invoke-virtual {v1, p1}, Landroid/content/UriMatcher;->match(Landroid/net/Uri;)I
 
@@ -702,70 +756,7 @@
     .end sparse-switch
 .end method
 
-.method private b(Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
-    .locals 5
-
-    const-string v0, "extra_support_enhanced_service"
-
-    const-string v1, "extra_enhanced_feature"
-
-    const-string v2, "recommend"
-
-    const-string v3, "reject"
-
-    invoke-direct {p0}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->g()Z
-
-    move-result v4
-
-    if-eqz v4, :cond_0
-
-    invoke-virtual {p2, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_0
-
-    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v2
-
-    if-eqz v2, :cond_1
-
-    invoke-direct {p0}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->k()Z
-
-    move-result v0
-
-    if-eqz v0, :cond_0
-
-    :cond_0
-    :goto_0
-    return-object p2
-
-    :cond_1
-    invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-direct {p0}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->l()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    const/4 v1, 0x1
-
-    invoke-virtual {p2, v0, v1}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
-
-    goto :goto_0
-.end method
-
-.method public static b()Z
+.method public static a()Z
     .locals 2
 
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
@@ -804,6 +795,88 @@
     goto :goto_0
 .end method
 
+.method private b(Ljava/lang/String;Landroid/os/Bundle;)Landroid/os/Bundle;
+    .locals 7
+
+    const/4 v6, 0x1
+
+    const-string v0, "extra_support_enhanced_service"
+
+    const-string v1, "extra_enhanced_feature"
+
+    const-string v2, "recommend"
+
+    const-string v3, "reject"
+
+    const-string v4, "induce"
+
+    invoke-direct {p0}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->h()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    invoke-virtual {p2, v1}, Landroid/os/Bundle;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v5
+
+    if-nez v5, :cond_0
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
+
+    invoke-direct {p0}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->l()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    :cond_0
+    :goto_0
+    return-object p2
+
+    :cond_1
+    invoke-virtual {v3, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    invoke-direct {p0}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->m()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {p2, v0, v6}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+
+    goto :goto_0
+
+    :cond_2
+    invoke-virtual {v4, v1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-static {}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->c()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_0
+
+    invoke-virtual {p2, v0, v6}, Landroid/os/Bundle;->putBoolean(Ljava/lang/String;Z)V
+
+    goto :goto_0
+.end method
+
 .method private b(Landroid/net/Uri;)[Ljava/lang/String;
     .locals 8
 
@@ -821,7 +894,7 @@
 
     move-result v0
 
-    sget-object v1, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->n:Landroid/content/UriMatcher;
+    sget-object v1, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->o:Landroid/content/UriMatcher;
 
     invoke-virtual {v1, p1}, Landroid/content/UriMatcher;->match(Landroid/net/Uri;)I
 
@@ -976,7 +1049,74 @@
     .end sparse-switch
 .end method
 
-.method private c()V
+.method private static c()Z
+    .locals 6
+
+    const/4 v0, 0x0
+
+    sget-object v1, Landroid/os/Build;->DEVICE:Ljava/lang/String;
+
+    invoke-virtual {v1}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+
+    move-result-object v2
+
+    const-string v1, "AgifCallProvider"
+
+    new-instance v3, Ljava/lang/StringBuilder;
+
+    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "isInduceServiceSupportedDevice for-"
+
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v3
+
+    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-static {v1, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    if-nez v2, :cond_1
+
+    :cond_0
+    :goto_0
+    return v0
+
+    :cond_1
+    sget-object v3, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->p:[Ljava/lang/String;
+
+    array-length v4, v3
+
+    move v1, v0
+
+    :goto_1
+    if-ge v1, v4, :cond_0
+
+    aget-object v5, v3, v1
+
+    invoke-virtual {v2, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v5
+
+    if-eqz v5, :cond_2
+
+    const/4 v0, 0x1
+
+    goto :goto_0
+
+    :cond_2
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_1
+.end method
+
+.method private d()V
     .locals 5
 
     const/4 v4, 0x0
@@ -1057,7 +1197,7 @@
     return-void
 .end method
 
-.method private d()Ljava/lang/String;
+.method private e()Ljava/lang/String;
     .locals 3
 
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
@@ -1108,7 +1248,7 @@
     goto :goto_0
 .end method
 
-.method private e()Ljava/lang/String;
+.method private f()Ljava/lang/String;
     .locals 1
 
     invoke-static {}, Landroid/os/Looper;->myLooper()Landroid/os/Looper;
@@ -1129,7 +1269,7 @@
     return-object v0
 .end method
 
-.method private f()Z
+.method private g()Z
     .locals 3
 
     const/4 v0, 0x0
@@ -1181,24 +1321,24 @@
     return v0
 .end method
 
-.method private g()Z
+.method private h()Z
     .locals 2
 
     const/4 v0, 0x0
 
-    invoke-virtual {p0}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->a()Z
+    invoke-virtual {p0}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->b()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    invoke-static {}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->b()Z
+    invoke-static {}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->a()Z
 
     move-result v1
 
     if-nez v1, :cond_0
 
-    invoke-direct {p0}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->f()Z
+    invoke-direct {p0}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->g()Z
 
     move-result v1
 
@@ -1207,93 +1347,13 @@
     const/4 v0, 0x1
 
     :cond_0
-    return v0
-.end method
-
-.method private h()Z
-    .locals 3
-
-    invoke-direct {p0}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->d()Ljava/lang/String;
-
-    move-result-object v1
-
-    const/4 v0, 0x0
-
-    const-string v2, "CTC"
-
-    invoke-virtual {v2, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    const-string v2, "XAS"
-
-    invoke-virtual {v2, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    const-string v2, "SPR"
-
-    invoke-virtual {v2, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    const-string v2, "USC"
-
-    invoke-virtual {v2, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    const-string v2, "ACG"
-
-    invoke-virtual {v2, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    const-string v2, "LRA"
-
-    invoke-virtual {v2, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    const-string v2, "BST"
-
-    invoke-virtual {v2, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_0
-
-    const-string v2, "VMU"
-
-    invoke-virtual {v2, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    :cond_0
-    const/4 v0, 0x1
-
-    :cond_1
     return v0
 .end method
 
 .method private i()Z
     .locals 3
 
-    invoke-direct {p0}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->d()Ljava/lang/String;
+    invoke-direct {p0}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->e()Ljava/lang/String;
 
     move-result-object v1
 
@@ -1371,17 +1431,97 @@
 .end method
 
 .method private j()Z
+    .locals 3
+
+    invoke-direct {p0}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->e()Ljava/lang/String;
+
+    move-result-object v1
+
+    const/4 v0, 0x0
+
+    const-string v2, "CTC"
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const-string v2, "XAS"
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const-string v2, "SPR"
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const-string v2, "USC"
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const-string v2, "ACG"
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const-string v2, "LRA"
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const-string v2, "BST"
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v2
+
+    if-nez v2, :cond_0
+
+    const-string v2, "VMU"
+
+    invoke-virtual {v2, v1}, Ljava/lang/String;->equalsIgnoreCase(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    :cond_0
+    const/4 v0, 0x1
+
+    :cond_1
+    return v0
+.end method
+
+.method private k()Z
     .locals 5
 
     const/4 v1, 0x0
 
     const/4 v2, 0x1
 
-    invoke-direct {p0}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->e()Ljava/lang/String;
+    invoke-direct {p0}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->f()Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {p0}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->d()Ljava/lang/String;
+    invoke-direct {p0}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->e()Ljava/lang/String;
 
     move-result-object v3
 
@@ -1730,13 +1870,13 @@
     :goto_2
     if-nez v0, :cond_4
 
-    invoke-direct {p0}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->h()Z
+    invoke-direct {p0}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->i()Z
 
     move-result v1
 
     if-eqz v1, :cond_4
 
-    invoke-direct {p0}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->i()Z
+    invoke-direct {p0}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->j()Z
 
     move-result v1
 
@@ -1766,18 +1906,18 @@
     goto :goto_2
 .end method
 
-.method private k()Z
+.method private l()Z
     .locals 2
 
     const/4 v0, 0x0
 
-    invoke-direct {p0}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->g()Z
+    invoke-direct {p0}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->h()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    invoke-direct {p0}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->h()Z
+    invoke-direct {p0}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->i()Z
 
     move-result v1
 
@@ -1789,18 +1929,18 @@
     return v0
 .end method
 
-.method private l()Z
+.method private m()Z
     .locals 2
 
     const/4 v0, 0x0
 
-    invoke-direct {p0}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->g()Z
+    invoke-direct {p0}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->h()Z
 
     move-result v1
 
     if-eqz v1, :cond_0
 
-    invoke-direct {p0}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->j()Z
+    invoke-direct {p0}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->k()Z
 
     move-result v1
 
@@ -1814,7 +1954,7 @@
 
 
 # virtual methods
-.method public a()Z
+.method public b()Z
     .locals 4
 
     const/4 v0, 0x0
@@ -1956,13 +2096,13 @@
 .method public delete(Landroid/net/Uri;Ljava/lang/String;[Ljava/lang/String;)I
     .locals 5
 
-    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->n:Landroid/content/UriMatcher;
+    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->o:Landroid/content/UriMatcher;
 
     invoke-virtual {v0, p1}, Landroid/content/UriMatcher;->match(Landroid/net/Uri;)I
 
     move-result v1
 
-    iget-object v0, p0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->m:Lcom/samsung/android/provider/agifcallprovider/a;
+    iget-object v0, p0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->q:Lcom/samsung/android/provider/agifcallprovider/a;
 
     invoke-virtual {v0}, Lcom/samsung/android/provider/agifcallprovider/a;->getWritableDatabase()Landroid/database/sqlite/SQLiteDatabase;
 
@@ -2054,6 +2194,17 @@
 
     goto :goto_0
 
+    :pswitch_5
+    const-string v0, "sticker_log"
+
+    invoke-virtual {v2, v0, p2, p3}, Landroid/database/sqlite/SQLiteDatabase;->delete(Ljava/lang/String;Ljava/lang/String;[Ljava/lang/String;)I
+
+    move-result v0
+
+    goto :goto_0
+
+    nop
+
     :pswitch_data_0
     .packed-switch 0x3e8
         :pswitch_2
@@ -2066,13 +2217,19 @@
         :pswitch_0
         :pswitch_0
         :pswitch_4
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_5
     .end packed-switch
 .end method
 
 .method public getStreamTypes(Landroid/net/Uri;Ljava/lang/String;)[Ljava/lang/String;
     .locals 4
 
-    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->n:Landroid/content/UriMatcher;
+    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->o:Landroid/content/UriMatcher;
 
     invoke-virtual {v0, p1}, Landroid/content/UriMatcher;->match(Landroid/net/Uri;)I
 
@@ -2108,7 +2265,7 @@
 .method public getType(Landroid/net/Uri;)Ljava/lang/String;
     .locals 4
 
-    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->n:Landroid/content/UriMatcher;
+    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->o:Landroid/content/UriMatcher;
 
     invoke-virtual {v0, p1}, Landroid/content/UriMatcher;->match(Landroid/net/Uri;)I
 
@@ -2146,13 +2303,13 @@
 
     const/4 v0, 0x0
 
-    sget-object v1, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->n:Landroid/content/UriMatcher;
+    sget-object v1, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->o:Landroid/content/UriMatcher;
 
     invoke-virtual {v1, p1}, Landroid/content/UriMatcher;->match(Landroid/net/Uri;)I
 
     move-result v1
 
-    iget-object v2, p0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->m:Lcom/samsung/android/provider/agifcallprovider/a;
+    iget-object v2, p0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->q:Lcom/samsung/android/provider/agifcallprovider/a;
 
     invoke-virtual {v2}, Lcom/samsung/android/provider/agifcallprovider/a;->getWritableDatabase()Landroid/database/sqlite/SQLiteDatabase;
 
@@ -2224,20 +2381,30 @@
 
     goto :goto_1
 
+    :sswitch_3
+    const-string v1, "sticker_log"
+
+    invoke-virtual {v2, v1, v0, p2}, Landroid/database/sqlite/SQLiteDatabase;->insert(Ljava/lang/String;Ljava/lang/String;Landroid/content/ContentValues;)J
+
+    move-result-wide v2
+
+    goto :goto_1
+
+    nop
+
     :sswitch_data_0
     .sparse-switch
         0x3e8 -> :sswitch_0
         0x3ee -> :sswitch_1
         0x3f1 -> :sswitch_2
+        0x3f7 -> :sswitch_3
     .end sparse-switch
 .end method
 
 .method public onCreate()Z
     .locals 5
 
-    const/4 v4, 0x1
-
-    invoke-direct {p0}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->c()V
+    invoke-direct {p0}, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->d()V
 
     new-instance v0, Lcom/samsung/android/provider/agifcallprovider/a;
 
@@ -2249,11 +2416,15 @@
 
     const/4 v3, 0x0
 
+    const/4 v4, 0x3
+
     invoke-direct {v0, v1, v2, v3, v4}, Lcom/samsung/android/provider/agifcallprovider/a;-><init>(Landroid/content/Context;Ljava/lang/String;Landroid/database/sqlite/SQLiteDatabase$CursorFactory;I)V
 
-    iput-object v0, p0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->m:Lcom/samsung/android/provider/agifcallprovider/a;
+    iput-object v0, p0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->q:Lcom/samsung/android/provider/agifcallprovider/a;
 
-    return v4
+    const/4 v0, 0x1
+
+    return v0
 .end method
 
 .method public openAssetFile(Landroid/net/Uri;Ljava/lang/String;)Landroid/content/res/AssetFileDescriptor;
@@ -2270,7 +2441,7 @@
     move-result-wide v6
 
     :try_start_1
-    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->n:Landroid/content/UriMatcher;
+    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->o:Landroid/content/UriMatcher;
 
     invoke-virtual {v0, p1}, Landroid/content/UriMatcher;->match(Landroid/net/Uri;)I
 
@@ -2484,7 +2655,7 @@
 
     move-result-wide v2
 
-    sget-object v1, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->n:Landroid/content/UriMatcher;
+    sget-object v1, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->o:Landroid/content/UriMatcher;
 
     invoke-virtual {v1, p1}, Landroid/content/UriMatcher;->match(Landroid/net/Uri;)I
 
@@ -2657,13 +2828,13 @@
 
     const/4 v5, 0x0
 
-    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->n:Landroid/content/UriMatcher;
+    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->o:Landroid/content/UriMatcher;
 
     invoke-virtual {v0, p1}, Landroid/content/UriMatcher;->match(Landroid/net/Uri;)I
 
     move-result v1
 
-    iget-object v0, p0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->m:Lcom/samsung/android/provider/agifcallprovider/a;
+    iget-object v0, p0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->q:Lcom/samsung/android/provider/agifcallprovider/a;
 
     invoke-virtual {v0}, Lcom/samsung/android/provider/agifcallprovider/a;->getReadableDatabase()Landroid/database/sqlite/SQLiteDatabase;
 
@@ -2728,6 +2899,13 @@
 
     goto :goto_0
 
+    :pswitch_4
+    const-string v1, "sticker_log"
+
+    goto :goto_0
+
+    nop
+
     :pswitch_data_0
     .packed-switch 0x3e8
         :pswitch_1
@@ -2741,13 +2919,19 @@
         :pswitch_0
         :pswitch_3
         :pswitch_3
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_0
+        :pswitch_4
+        :pswitch_4
     .end packed-switch
 .end method
 
 .method public update(Landroid/net/Uri;Landroid/content/ContentValues;Ljava/lang/String;[Ljava/lang/String;)I
     .locals 7
 
-    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->n:Landroid/content/UriMatcher;
+    sget-object v0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->o:Landroid/content/UriMatcher;
 
     invoke-virtual {v0, p1}, Landroid/content/UriMatcher;->match(Landroid/net/Uri;)I
 
@@ -2755,7 +2939,7 @@
 
     const/4 v0, 0x0
 
-    iget-object v1, p0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->m:Lcom/samsung/android/provider/agifcallprovider/a;
+    iget-object v1, p0, Lcom/samsung/android/provider/agifcallprovider/AgifCallProvider;->q:Lcom/samsung/android/provider/agifcallprovider/a;
 
     invoke-virtual {v1}, Lcom/samsung/android/provider/agifcallprovider/a;->getWritableDatabase()Landroid/database/sqlite/SQLiteDatabase;
 
@@ -2813,7 +2997,10 @@
 
     goto :goto_0
 
-    nop
+    :sswitch_4
+    const-string v1, "sticker_log"
+
+    goto :goto_0
 
     :sswitch_data_0
     .sparse-switch
@@ -2821,5 +3008,6 @@
         0x3e9 -> :sswitch_0
         0x3ee -> :sswitch_2
         0x3f1 -> :sswitch_3
+        0x3f7 -> :sswitch_4
     .end sparse-switch
 .end method

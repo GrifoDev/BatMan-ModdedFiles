@@ -120,12 +120,13 @@
     <string name="account_phone">Սարք</string>
     <string name="acs">Ձայնականչ</string>
     <string name="active_calls">Ակտիվ զանգ</string>
-    <string name="add_reminder">Ավլցնել հշցմ</string>
+    <string name="add_reminder">Ավելացնել հիշեցում</string>
     <string name="agif_button_close_description">Փակել</string>
     <string name="agif_decline_message">Կներեք, այս պահին չեմ կարող խոսել:</string>
     <string name="agif_decline_sticker_header">Մերժել կպչուն պիտակով</string>
     <string name="agif_decline_text_header">Մերժել տեքստով</string>
     <string name="agif_decline_toast">Կպչուն պիտակն ուղարկվեց %s-ին:</string>
+    <string name="agif_outgoing_bubble_tip">Ուղարկեք կպչուն պիտակ՝ Ձեր ինքնազգացողությունը ցույց տալու համար:</string>
     <string name="agif_pickers_add_tab_description">Ավլնլ</string>
     <string name="agif_pickers_find_more">Գտնել ավելին</string>
     <string name="agif_pickers_item_usage_hints_description">Կրկնակի թակեք ընտրելու համար</string>
@@ -134,10 +135,12 @@
     <string name="agif_pickers_tab_select_description">Ընտրված</string>
     <string name="agif_pickers_title">Սկսել կպչուն պիտակով</string>
     <string name="agif_pickers_title_recommended">Խորհուրդ տրվող</string>
+    <string name="agif_random_send_message">Թակեք այստեղ՝ այս կպչուն պիտակն ուղարկելու համար:</string>
     <string name="agif_read_permission_description">Թույլ է տալիս, որ Հեռախոսը կարդա AGIF բովանդակությունը:</string>
     <string name="agif_read_permission_label">Կարդալ AGIF բովանդակություն</string>
     <string name="agif_receive_no_id">Հնարավոր չէ ցույց տալ կպչուն պիտակը: Կանչից հետո թարմացրեք %s-ը:</string>
     <string name="agif_receive_no_id_upsupport_update">Հն. չէ ցույց տալ կպչուն պիտակը: Ավելի շատ պիտակներ մատչելի կլինեն համակարգի հաջորդ թարմացումից հետո:</string>
+    <string name="agif_receive_toast">Կպչուն պիտակ՝ %s-ից:</string>
     <string name="agif_sent_fail_message">Հնարավոր չէ շարժապատկերային GIF ուղարկել: Ավելի ուշ նորից փորձեք:</string>
     <string name="agif_sent_toast">Կպչուն պիտակն ուղարկվեց:</string>
     <string name="agif_write_permission_description">Թույլ է տալիս, որ Հեռախոսը փոփոխի AGIF բովանդակությունը:</string>
@@ -828,8 +831,8 @@ IVR կանչի էկրանի ընտրացանկն օգտագործում է եր�
     <string name="tts_pager">Էջ %1$d՝ %2$d-ից</string>
     <string name="tts_seconds">%d վայրկյան</string>
     <string name="tty_mode_option_title">TTY ռեժիմ</string>
-    <string name="tutorial_incoming_call_app_answer">Թակեք՝ կանչին պատասխանելու համար:</string>
-    <string name="tutorial_incoming_call_app_reject">Թակեք՝ կանչը մերժելու համար:</string>
+    <string name="tutorial_incoming_call_app_answer">Կրկնակի թակել պատասխանելու համար:</string>
+    <string name="tutorial_incoming_call_app_reject">Կրկնակի թակել մերժելու համար:</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Անհնար է միանալ ցանցին: Ստուգեք կապի դրվածքները և նորից փորձեք:</string>
     <string name="units_kb">ԿԲ</string>
@@ -839,7 +842,7 @@ IVR կանչի էկրանի ընտրացանկն օգտագործում է եր�
     <string name="upload_using_wlan_only">Վերբեռնել միայն WLAN-ով</string>
     <string name="upload_wifi_and_mobile_nw">Վերբեռնել Wi-Fi-ի կամ շարժական կապի ցանցի միջոցով</string>
     <string name="upload_wlan_and_mobile_nw">Վերբեռնել WLAN-ով կամ շարժական կապի ցանցով</string>
-    <string name="usa_att_connected_as_voice">Կանչը միացվեց որպես միայն ձայնականչ:</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Ձեր Տվյալների օգտագործումը, որը նախադրել եք սարքում, մոտենում է իր սահմանաչափին: Ձեր Տեսականչը պահանջում է տվյալներ:</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Հնարավոր չէ կանչ կատարել Wi-Fi-ով, միանում է բջջային ցանցի միջոցով: Վճարներ կգանձվեն ձայնի և տվյալների հաղորդման համար:</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -889,11 +892,15 @@ IVR կանչի էկրանի ընտրացանկն օգտագործում է եր�
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Օգտագործել Շարժական տվյալներ</string>
     <string name="usa_vzw_volte_weak_wifi_text">"Մենք փորձեցինք, բայց այս պահին հնարավոր չէ Ձեր տեսականչը փոխել Wi-Fi-ի:
 
-Տեսականչը դեռևս կատարվում է շարժական կապի ցանցում: (Կկիրառվեն վճարներ տվյալների օգտագործման համար, եթե որոշեք շարունակել):"</string>
-    <string name="usa_vzw_volte_weak_wifi_toast">Տեսականչը դեռևս կատարվում է շարժական կապի ցանցում: (Կկիրառվեն վճարներ տվյալների օգտագործման համար):</string>
-    <string name="usa_vzw_vowifi_wifi_low_signal_text">"Wi-Fi ազդանշանը բավականաչափ ուժեղ չէր ձեր տեսականչը շարունակելու համար:
+Տեսականչը դեռևս կատարվում է շարժական կապի ցանցում:
 
-Տեսականչն այժմ կատարվում է շարժական կապի ցանցում: (Կկիրառվեն վճարներ տվյալների օգտագործման համար, եթե որոշեք շարունակել):"</string>
+Կարող են վճարներ կիրառվել տվյալների օգտագործման համար, եթե որոշեք շարունակել:"</string>
+    <string name="usa_vzw_volte_weak_wifi_toast">Տեսականչը դեռևս կատարվում է շարժական կապի ցանցում: (Կկիրառվեն վճարներ տվյալների օգտագործման համար):</string>
+    <string name="usa_vzw_vowifi_wifi_low_signal_text">"Wi-Fi ազդանշանը բավականաչափ ուժեղ չէր Ձեր տեսականչը շարունակելու համար:
+
+Տեսականչն այժմ կատարվում է շարժական կապի ցանցում:
+
+Կարող են վճարներ կիրառվել տվյալների օգտագործման համար, եթե որոշեք շարունակել:"</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi կապը կորավ: Կանչն ավարտվեց:</string>
     <string name="use_wifi_and_mobile_nw">Օգտագործել Wi-Fi և շարժական կապի ցանցեր</string>
     <string name="use_wlan_and_mobile_nw">Օգտագործել WLAN և շարժական կապի ցանցեր</string>

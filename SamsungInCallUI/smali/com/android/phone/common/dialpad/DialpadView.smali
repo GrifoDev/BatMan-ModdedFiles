@@ -100,7 +100,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f0a0455
+    const v3, 0x7f0a045f
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -156,18 +156,18 @@
 
     :array_0
     .array-data 4
+        0x7f100147
         0x7f100143
-        0x7f10013f
-        0x7f100135
-        0x7f100136
-        0x7f100137
-        0x7f100138
         0x7f100139
         0x7f10013a
         0x7f10013b
         0x7f10013c
-        0x7f100142
-        0x7f100141
+        0x7f10013d
+        0x7f10013e
+        0x7f10013f
+        0x7f100140
+        0x7f100146
+        0x7f100145
     .end array-data
 .end method
 
@@ -220,7 +220,7 @@
 
     if-eqz v5, :cond_c
 
-    const v5, 0x7f100136
+    const v5, 0x7f10013a
 
     if-ne p1, v5, :cond_1
 
@@ -229,7 +229,7 @@
     return v0
 
     :cond_1
-    const v0, 0x7f100139
+    const v0, 0x7f10013d
 
     if-ne p1, v0, :cond_2
 
@@ -238,7 +238,7 @@
     goto :goto_0
 
     :cond_2
-    const v0, 0x7f10013c
+    const v0, 0x7f100140
 
     if-ne p1, v0, :cond_3
 
@@ -247,7 +247,7 @@
     goto :goto_0
 
     :cond_3
-    const v0, 0x7f100141
+    const v0, 0x7f100145
 
     if-ne p1, v0, :cond_4
 
@@ -256,7 +256,7 @@
     goto :goto_0
 
     :cond_4
-    const v0, 0x7f100135
+    const v0, 0x7f100139
 
     if-ne p1, v0, :cond_5
 
@@ -265,7 +265,7 @@
     goto :goto_0
 
     :cond_5
-    const v0, 0x7f100138
+    const v0, 0x7f10013c
 
     if-ne p1, v0, :cond_6
 
@@ -274,7 +274,7 @@
     goto :goto_0
 
     :cond_6
-    const v0, 0x7f10013b
+    const v0, 0x7f10013f
 
     if-ne p1, v0, :cond_7
 
@@ -283,7 +283,7 @@
     goto :goto_0
 
     :cond_7
-    const v0, 0x7f100143
+    const v0, 0x7f100147
 
     if-ne p1, v0, :cond_8
 
@@ -292,7 +292,7 @@
     goto :goto_0
 
     :cond_8
-    const v0, 0x7f10013f
+    const v0, 0x7f100143
 
     if-ne p1, v0, :cond_9
 
@@ -301,7 +301,7 @@
     goto :goto_0
 
     :cond_9
-    const v0, 0x7f100137
+    const v0, 0x7f10013b
 
     if-ne p1, v0, :cond_a
 
@@ -310,11 +310,11 @@
     goto :goto_0
 
     :cond_a
-    const v0, 0x7f10013a
+    const v0, 0x7f10013e
 
     if-eq p1, v0, :cond_b
 
-    const v0, 0x7f100142
+    const v0, 0x7f100146
 
     if-ne p1, v0, :cond_22
 
@@ -324,11 +324,11 @@
     goto :goto_0
 
     :cond_c
-    const v5, 0x7f10013f
+    const v5, 0x7f100143
 
     if-eq p1, v5, :cond_0
 
-    const v0, 0x7f100137
+    const v0, 0x7f10013b
 
     if-ne p1, v0, :cond_d
 
@@ -337,7 +337,7 @@
     goto :goto_0
 
     :cond_d
-    const v0, 0x7f10013a
+    const v0, 0x7f10013e
 
     if-ne p1, v0, :cond_e
 
@@ -346,7 +346,7 @@
     goto :goto_0
 
     :cond_e
-    const v0, 0x7f100142
+    const v0, 0x7f100146
 
     if-ne p1, v0, :cond_f
 
@@ -355,7 +355,7 @@
     goto :goto_0
 
     :cond_f
-    const v0, 0x7f100135
+    const v0, 0x7f100139
 
     if-ne p1, v0, :cond_10
 
@@ -364,7 +364,7 @@
     goto :goto_0
 
     :cond_10
-    const v0, 0x7f100138
+    const v0, 0x7f10013c
 
     if-ne p1, v0, :cond_11
 
@@ -373,7 +373,7 @@
     goto :goto_0
 
     :cond_11
-    const v0, 0x7f10013b
+    const v0, 0x7f10013f
 
     if-ne p1, v0, :cond_12
 
@@ -382,7 +382,7 @@
     goto/16 :goto_0
 
     :cond_12
-    const v0, 0x7f100143
+    const v0, 0x7f100147
 
     if-ne p1, v0, :cond_13
 
@@ -391,7 +391,7 @@
     goto/16 :goto_0
 
     :cond_13
-    const v0, 0x7f100136
+    const v0, 0x7f10013a
 
     if-ne p1, v0, :cond_14
 
@@ -400,7 +400,7 @@
     goto/16 :goto_0
 
     :cond_14
-    const v0, 0x7f100139
+    const v0, 0x7f10013d
 
     if-ne p1, v0, :cond_15
 
@@ -409,11 +409,11 @@
     goto/16 :goto_0
 
     :cond_15
-    const v0, 0x7f10013c
+    const v0, 0x7f100140
 
     if-eq p1, v0, :cond_16
 
-    const v0, 0x7f100141
+    const v0, 0x7f100145
 
     if-ne p1, v0, :cond_22
 
@@ -423,11 +423,11 @@
     goto/16 :goto_0
 
     :cond_17
-    const v5, 0x7f10013f
+    const v5, 0x7f100143
 
     if-eq p1, v5, :cond_0
 
-    const v0, 0x7f100135
+    const v0, 0x7f100139
 
     if-ne p1, v0, :cond_18
 
@@ -436,7 +436,7 @@
     goto/16 :goto_0
 
     :cond_18
-    const v0, 0x7f100136
+    const v0, 0x7f10013a
 
     if-ne p1, v0, :cond_19
 
@@ -445,7 +445,7 @@
     goto/16 :goto_0
 
     :cond_19
-    const v0, 0x7f100137
+    const v0, 0x7f10013b
 
     if-ne p1, v0, :cond_1a
 
@@ -454,7 +454,7 @@
     goto/16 :goto_0
 
     :cond_1a
-    const v0, 0x7f100138
+    const v0, 0x7f10013c
 
     if-ne p1, v0, :cond_1b
 
@@ -463,7 +463,7 @@
     goto/16 :goto_0
 
     :cond_1b
-    const v0, 0x7f100139
+    const v0, 0x7f10013d
 
     if-ne p1, v0, :cond_1c
 
@@ -472,7 +472,7 @@
     goto/16 :goto_0
 
     :cond_1c
-    const v0, 0x7f10013a
+    const v0, 0x7f10013e
 
     if-ne p1, v0, :cond_1d
 
@@ -481,7 +481,7 @@
     goto/16 :goto_0
 
     :cond_1d
-    const v0, 0x7f10013b
+    const v0, 0x7f10013f
 
     if-ne p1, v0, :cond_1e
 
@@ -490,7 +490,7 @@
     goto/16 :goto_0
 
     :cond_1e
-    const v0, 0x7f10013c
+    const v0, 0x7f100140
 
     if-ne p1, v0, :cond_1f
 
@@ -499,7 +499,7 @@
     goto/16 :goto_0
 
     :cond_1f
-    const v0, 0x7f100142
+    const v0, 0x7f100146
 
     if-ne p1, v0, :cond_20
 
@@ -508,11 +508,11 @@
     goto/16 :goto_0
 
     :cond_20
-    const v0, 0x7f100143
+    const v0, 0x7f100147
 
     if-eq p1, v0, :cond_21
 
-    const v0, 0x7f100141
+    const v0, 0x7f100145
 
     if-ne p1, v0, :cond_22
 
@@ -536,9 +536,9 @@
 .method private getKeyButtonAnimationDuration(I)I
     .locals 6
 
-    const v5, 0x7f100136
+    const v5, 0x7f10013a
 
-    const v4, 0x7f100135
+    const v4, 0x7f100139
 
     const/16 v0, 0x14a
 
@@ -554,19 +554,19 @@
 
     if-eqz v3, :cond_6
 
-    const v3, 0x7f10013f
+    const v3, 0x7f100143
 
     if-eq p1, v3, :cond_0
 
-    const v3, 0x7f100137
+    const v3, 0x7f10013b
 
     if-eq p1, v3, :cond_0
 
-    const v3, 0x7f10013a
+    const v3, 0x7f10013e
 
     if-eq p1, v3, :cond_0
 
-    const v3, 0x7f100142
+    const v3, 0x7f100146
 
     if-ne p1, v3, :cond_2
 
@@ -580,15 +580,15 @@
     :cond_2
     if-eq p1, v4, :cond_3
 
-    const v2, 0x7f100138
+    const v2, 0x7f10013c
 
     if-eq p1, v2, :cond_3
 
-    const v2, 0x7f10013b
+    const v2, 0x7f10013f
 
     if-eq p1, v2, :cond_3
 
-    const v2, 0x7f100143
+    const v2, 0x7f100147
 
     if-ne p1, v2, :cond_4
 
@@ -600,15 +600,15 @@
     :cond_4
     if-eq p1, v5, :cond_1
 
-    const v1, 0x7f100139
+    const v1, 0x7f10013d
 
     if-eq p1, v1, :cond_1
 
-    const v1, 0x7f10013c
+    const v1, 0x7f100140
 
     if-eq p1, v1, :cond_1
 
-    const v1, 0x7f100141
+    const v1, 0x7f100145
 
     if-eq p1, v1, :cond_1
 
@@ -624,33 +624,33 @@
     goto :goto_0
 
     :cond_6
-    const v3, 0x7f10013f
+    const v3, 0x7f100143
 
     if-eq p1, v3, :cond_1
 
-    const v3, 0x7f100137
+    const v3, 0x7f10013b
 
     if-eq p1, v3, :cond_1
 
-    const v3, 0x7f10013a
+    const v3, 0x7f10013e
 
     if-eq p1, v3, :cond_1
 
-    const v3, 0x7f100142
+    const v3, 0x7f100146
 
     if-eq p1, v3, :cond_1
 
     if-eq p1, v4, :cond_7
 
-    const v0, 0x7f100138
+    const v0, 0x7f10013c
 
     if-eq p1, v0, :cond_7
 
-    const v0, 0x7f10013b
+    const v0, 0x7f10013f
 
     if-eq p1, v0, :cond_7
 
-    const v0, 0x7f100143
+    const v0, 0x7f100147
 
     if-ne p1, v0, :cond_8
 
@@ -662,15 +662,15 @@
     :cond_8
     if-eq p1, v5, :cond_9
 
-    const v0, 0x7f100139
+    const v0, 0x7f10013d
 
     if-eq p1, v0, :cond_9
 
-    const v0, 0x7f10013c
+    const v0, 0x7f100140
 
     if-eq p1, v0, :cond_9
 
-    const v0, 0x7f100141
+    const v0, 0x7f100145
 
     if-ne p1, v0, :cond_5
 
@@ -680,7 +680,7 @@
     goto :goto_0
 
     :cond_a
-    const v3, 0x7f10013f
+    const v3, 0x7f100143
 
     if-eq p1, v3, :cond_1
 
@@ -688,27 +688,27 @@
 
     if-eq p1, v5, :cond_1
 
-    const v3, 0x7f100137
+    const v3, 0x7f10013b
 
     if-eq p1, v3, :cond_1
 
-    const v3, 0x7f100138
+    const v3, 0x7f10013c
 
     if-eq p1, v3, :cond_1
 
-    const v3, 0x7f100139
+    const v3, 0x7f10013d
 
     if-eq p1, v3, :cond_1
 
-    const v0, 0x7f10013a
+    const v0, 0x7f10013e
 
     if-eq p1, v0, :cond_b
 
-    const v0, 0x7f10013b
+    const v0, 0x7f10013f
 
     if-eq p1, v0, :cond_b
 
-    const v0, 0x7f10013c
+    const v0, 0x7f100140
 
     if-ne p1, v0, :cond_c
 
@@ -718,15 +718,15 @@
     goto/16 :goto_0
 
     :cond_c
-    const v0, 0x7f100142
+    const v0, 0x7f100146
 
     if-eq p1, v0, :cond_d
 
-    const v0, 0x7f100143
+    const v0, 0x7f100147
 
     if-eq p1, v0, :cond_d
 
-    const v0, 0x7f100141
+    const v0, 0x7f100145
 
     if-ne p1, v0, :cond_5
 
@@ -805,7 +805,7 @@
 
     check-cast v0, Lcom/android/phone/common/dialpad/DialpadKeyButton;
 
-    const v1, 0x7f10013d
+    const v1, 0x7f100141
 
     invoke-virtual {v0, v1}, Lcom/android/phone/common/dialpad/DialpadKeyButton;->findViewById(I)Landroid/view/View;
 
@@ -813,7 +813,7 @@
 
     check-cast v1, Landroid/widget/TextView;
 
-    const v2, 0x7f10013e
+    const v2, 0x7f100142
 
     invoke-virtual {v0, v2}, Lcom/android/phone/common/dialpad/DialpadKeyButton;->findViewById(I)Landroid/view/View;
 
@@ -825,11 +825,11 @@
 
     aget v3, v3, v5
 
-    const v7, 0x7f100141
+    const v7, 0x7f100145
 
     if-ne v3, v7, :cond_3
 
-    const v3, 0x7f09056b
+    const v3, 0x7f09056e
 
     invoke-virtual {v9, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -854,7 +854,7 @@
 
     move-result-object v3
 
-    const v10, 0x7f020080
+    const v10, 0x7f020082
 
     invoke-direct {p0, v3, v10}, Lcom/android/phone/common/dialpad/DialpadView;->getDrawableCompat(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
 
@@ -917,11 +917,11 @@
 
     aget v3, v3, v5
 
-    const v7, 0x7f100142
+    const v7, 0x7f100146
 
     if-ne v3, v7, :cond_4
 
-    const v3, 0x7f09056e
+    const v3, 0x7f090571
 
     invoke-virtual {v9, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1013,7 +1013,7 @@
 
     move-result-object v3
 
-    const v10, 0x7f0202d6
+    const v10, 0x7f02030a
 
     invoke-direct {p0, v3, v10}, Lcom/android/phone/common/dialpad/DialpadView;->getDrawableCompat(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
 
@@ -1028,7 +1028,7 @@
 
     move-result-object v3
 
-    const v10, 0x7f020078
+    const v10, 0x7f02007a
 
     invoke-direct {p0, v3, v10}, Lcom/android/phone/common/dialpad/DialpadView;->getDrawableCompat(Landroid/content/Context;I)Landroid/graphics/drawable/Drawable;
 
@@ -1039,22 +1039,6 @@
     goto/16 :goto_3
 
     :cond_7
-    const v0, 0x7f10013f
-
-    invoke-virtual {p0, v0}, Lcom/android/phone/common/dialpad/DialpadView;->findViewById(I)Landroid/view/View;
-
-    move-result-object v0
-
-    check-cast v0, Lcom/android/phone/common/dialpad/DialpadKeyButton;
-
-    const v1, 0x7f09054c
-
-    invoke-virtual {v9, v1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/android/phone/common/dialpad/DialpadKeyButton;->setLongHoverContentDescription(Ljava/lang/CharSequence;)V
-
     const v0, 0x7f100143
 
     invoke-virtual {p0, v0}, Lcom/android/phone/common/dialpad/DialpadView;->findViewById(I)Landroid/view/View;
@@ -1063,7 +1047,23 @@
 
     check-cast v0, Lcom/android/phone/common/dialpad/DialpadKeyButton;
 
-    const v1, 0x7f090543
+    const v1, 0x7f09054f
+
+    invoke-virtual {v9, v1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
+
+    move-result-object v1
+
+    invoke-virtual {v0, v1}, Lcom/android/phone/common/dialpad/DialpadKeyButton;->setLongHoverContentDescription(Ljava/lang/CharSequence;)V
+
+    const v0, 0x7f100147
+
+    invoke-virtual {p0, v0}, Lcom/android/phone/common/dialpad/DialpadView;->findViewById(I)Landroid/view/View;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/phone/common/dialpad/DialpadKeyButton;
+
+    const v1, 0x7f090546
 
     invoke-virtual {v9, v1}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1075,18 +1075,18 @@
 
     :array_0
     .array-data 4
-        0x7f090553
         0x7f090556
         0x7f090559
-        0x7f09055b
-        0x7f09055d
-        0x7f09055f
-        0x7f090561
-        0x7f090563
-        0x7f090565
-        0x7f090567
-        0x7f09056d
+        0x7f09055c
+        0x7f09055e
+        0x7f090560
+        0x7f090562
+        0x7f090564
+        0x7f090566
+        0x7f090568
         0x7f09056a
+        0x7f090570
+        0x7f09056d
     .end array-data
 .end method
 
@@ -1267,7 +1267,7 @@
 
     invoke-direct {p0}, Lcom/android/phone/common/dialpad/DialpadView;->setupKeypad()V
 
-    const v0, 0x7f10014c
+    const v0, 0x7f100150
 
     invoke-virtual {p0, v0}, Lcom/android/phone/common/dialpad/DialpadView;->findViewById(I)Landroid/view/View;
 
@@ -1277,7 +1277,7 @@
 
     iput-object v0, p0, Lcom/android/phone/common/dialpad/DialpadView;->mDigits:Landroid/widget/EditText;
 
-    const v0, 0x7f10014d
+    const v0, 0x7f100151
 
     invoke-virtual {p0, v0}, Lcom/android/phone/common/dialpad/DialpadView;->findViewById(I)Landroid/view/View;
 
@@ -1287,7 +1287,7 @@
 
     iput-object v0, p0, Lcom/android/phone/common/dialpad/DialpadView;->mDelete:Landroid/widget/ImageButton;
 
-    const v0, 0x7f10014b
+    const v0, 0x7f10014f
 
     invoke-virtual {p0, v0}, Lcom/android/phone/common/dialpad/DialpadView;->findViewById(I)Landroid/view/View;
 
@@ -1295,7 +1295,7 @@
 
     iput-object v0, p0, Lcom/android/phone/common/dialpad/DialpadView;->mOverflowMenuButton:Landroid/view/View;
 
-    const v0, 0x7f100145
+    const v0, 0x7f100149
 
     invoke-virtual {p0, v0}, Lcom/android/phone/common/dialpad/DialpadView;->findViewById(I)Landroid/view/View;
 
@@ -1390,7 +1390,7 @@
 
     const/4 v1, 0x0
 
-    const v0, 0x7f10014d
+    const v0, 0x7f100151
 
     invoke-virtual {p0, v0}, Lcom/android/phone/common/dialpad/DialpadView;->findViewById(I)Landroid/view/View;
 
@@ -1403,7 +1403,7 @@
     :goto_0
     invoke-virtual {v3, v0}, Landroid/view/View;->setVisibility(I)V
 
-    const v0, 0x7f10014b
+    const v0, 0x7f10014f
 
     invoke-virtual {p0, v0}, Lcom/android/phone/common/dialpad/DialpadView;->findViewById(I)Landroid/view/View;
 
@@ -1416,7 +1416,7 @@
     :cond_0
     invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
 
-    const v0, 0x7f10014c
+    const v0, 0x7f100150
 
     invoke-virtual {p0, v0}, Lcom/android/phone/common/dialpad/DialpadView;->findViewById(I)Landroid/view/View;
 
@@ -1445,7 +1445,7 @@
 .method public setShowVoicemailButton(Z)V
     .locals 2
 
-    const v0, 0x7f100140
+    const v0, 0x7f100144
 
     invoke-virtual {p0, v0}, Lcom/android/phone/common/dialpad/DialpadView;->findViewById(I)Landroid/view/View;
 

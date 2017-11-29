@@ -80,10 +80,6 @@
 
     invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/EPref;->remove(Ljava/lang/String;)V
 
-    const-string v0, "policy_check_interval"
-
-    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/EPref;->remove(Ljava/lang/String;)V
-
     const-string v0, "last_access_token_refresh_time"
 
     invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/util/EPref;->remove(Ljava/lang/String;)V

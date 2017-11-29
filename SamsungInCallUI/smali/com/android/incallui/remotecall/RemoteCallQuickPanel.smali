@@ -14,7 +14,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0400a2
+    const v1, 0x7f0400a3
 
     invoke-direct {p0, v0, v1}, Landroid/widget/RemoteViews;-><init>(Ljava/lang/String;I)V
 
@@ -26,9 +26,9 @@
 .method private setNameStatus(Lcom/android/incallui/remotecall/remotecall/RemoteCall;Z)V
     .locals 4
 
-    const v1, 0x7f10023e
+    const v1, 0x7f100242
 
-    const v3, 0x7f10023c
+    const v3, 0x7f100240
 
     const/4 v2, 0x0
 
@@ -85,18 +85,18 @@
 
     move-result-object v0
 
-    const v2, 0x7f09062b
+    const v2, 0x7f09062e
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
     :goto_3
-    const v2, 0x7f100241
+    const v2, 0x7f100245
 
     invoke-virtual {p0, v2, v1}, Lcom/android/incallui/remotecall/RemoteCallQuickPanel;->setTextViewText(ILjava/lang/CharSequence;)V
 
-    const v1, 0x7f100242
+    const v1, 0x7f100246
 
     invoke-virtual {p0, v1, v0}, Lcom/android/incallui/remotecall/RemoteCallQuickPanel;->setTextViewText(ILjava/lang/CharSequence;)V
 
@@ -106,7 +106,7 @@
 
     if-eqz v0, :cond_3
 
-    const v0, 0x7f020442
+    const v0, 0x7f0204a3
 
     invoke-virtual {p0, v3, v0}, Lcom/android/incallui/remotecall/RemoteCallQuickPanel;->setImageViewResource(II)V
 
@@ -134,7 +134,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f09062d
+    const v2, 0x7f090630
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -143,7 +143,7 @@
     goto :goto_3
 
     :cond_3
-    const v0, 0x7f020443
+    const v0, 0x7f0204a4
 
     invoke-virtual {p0, v3, v0}, Lcom/android/incallui/remotecall/RemoteCallQuickPanel;->setImageViewResource(II)V
 
@@ -184,7 +184,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f10023f
+    const v1, 0x7f100243
 
     invoke-virtual {p0, v1, v0}, Lcom/android/incallui/remotecall/RemoteCallQuickPanel;->setOnClickPendingIntent(ILandroid/app/PendingIntent;)V
 
@@ -198,7 +198,7 @@
 
     const/16 v7, 0x8
 
-    const v6, 0x7f100243
+    const v6, 0x7f100247
 
     const/4 v2, 0x1
 

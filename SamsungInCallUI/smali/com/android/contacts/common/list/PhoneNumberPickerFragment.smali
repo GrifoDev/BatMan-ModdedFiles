@@ -360,7 +360,7 @@
 .method protected a(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;)Landroid/view/View;
     .locals 2
 
-    const v0, 0x7f04003b
+    const v0, 0x7f04003c
 
     const/4 v1, 0x0
 
@@ -559,7 +559,7 @@
 
     invoke-super {p0, p1, p2}, Lcom/android/contacts/common/list/ContactEntryListFragment;->b(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;)V
 
-    const v0, 0x7f040039
+    const v0, 0x7f04003a
 
     const/4 v1, 0x0
 
@@ -569,7 +569,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f100101
+    const v1, 0x7f100105
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 

@@ -151,6 +151,7 @@
     return v0
 
     :cond_1
+    :try_start_0
     invoke-static {p0}, Landroid/provider/BlockedNumberContract;->canCurrentUserBlockNumbers(Landroid/content/Context;)Z
 
     move-result v1
@@ -158,8 +159,19 @@
     if-eqz v1, :cond_0
 
     invoke-static {p0, p1}, Landroid/provider/BlockedNumberContract;->isBlocked(Landroid/content/Context;Ljava/lang/String;)Z
+    :try_end_0
+    .catch Ljava/lang/IllegalArgumentException; {:try_start_0 .. :try_end_0} :catch_0
 
     move-result v0
+
+    goto :goto_0
+
+    :catch_0
+    move-exception v1
+
+    const-string v1, "IllegalArgumentException "
+
+    invoke-static {v1}, Lcom/android/incallui/smartcall/SmartCallUtil;->log(Ljava/lang/String;)V
 
     goto :goto_0
 .end method
@@ -327,7 +339,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f090333
+    const v2, 0x7f090336
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -432,7 +444,7 @@
 
     if-ne p0, v2, :cond_1
 
-    const v0, 0x7f09033c
+    const v0, 0x7f09033f
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -447,7 +459,7 @@
 
     if-ne p0, v2, :cond_2
 
-    const v0, 0x7f09033d
+    const v0, 0x7f090340
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -460,7 +472,7 @@
 
     if-ne p0, v2, :cond_0
 
-    const v0, 0x7f09033e
+    const v0, 0x7f090341
 
     invoke-virtual {v1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -486,7 +498,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f020480
+    const v1, 0x7f0204e1
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -505,7 +517,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f020483
+    const v1, 0x7f0204e4
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -522,7 +534,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f020482
+    const v1, 0x7f0204e3
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -548,7 +560,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f020480
+    const v2, 0x7f0204e1
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -571,7 +583,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f020483
+    const v2, 0x7f0204e4
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -592,7 +604,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f020482
+    const v2, 0x7f0204e3
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

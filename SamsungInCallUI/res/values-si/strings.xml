@@ -103,7 +103,7 @@
     <string name="BirthDay_remainedDays1">හෙ‍ට උපන්දිනය</string>
     <string name="BirthDay_remainedDays7">සති 1 කින් උපන්දිනය</string>
     <string name="BirthDay_remainedDaysEtc">දින %d කින් උපන්දිනය</string>
-    <string name="DivertToVoice_disable">මෙම අංකයට විඩියෝ ඇමතුම් භාවිතයට නැත. ඒ වෙනුවට හඬ ඇමතුම උත්සාහ කරන්නද?</string>
+    <string name="DivertToVoice_disable">මෙම අංකය සඳහා විඩියෝ ඇමතුම් නොමැත. ඒ වෙනුවට හඬ ඇමතුම උත්සාහ කරන්නද?</string>
     <string name="DivertToVoice_enable">මෙම අංකයට විඩියෝ ඇමතුම් භාවිතයට නැත. හඬ ඇමතුම් වෙත මාරු වෙමින්…</string>
     <string name="Lunar_anniversary_passedDays1">චන්ද්‍ර සං. ඊයේ</string>
     <string name="Lunar_anniversary_remainedDays0">චන්ද්‍ර සංවත්. අද</string>
@@ -131,12 +131,13 @@
     <string name="account_phone">උපාංගය</string>
     <string name="acs">හඬ ඇමතුම</string>
     <string name="active_calls">සක්‍රිය ඇමතුම</string>
-    <string name="add_reminder">සිහික. එ. ක.</string>
+    <string name="add_reminder">සිහිකැඳවීම එක් කරන්න</string>
     <string name="agif_button_close_description">වසන්න</string>
     <string name="agif_decline_message">සමාවන්න, මට දැන් කතා කළ නොහැක.</string>
     <string name="agif_decline_sticker_header">ස්ටිකරයක් සමග ප්‍රතික්ෂේපය</string>
     <string name="agif_decline_text_header">පෙළක් සමග ප්‍රතික්ෂේපය</string>
     <string name="agif_decline_toast">ස්ටිකරය %s වෙත යැවිණි.</string>
+    <string name="agif_outgoing_bubble_tip">ඔබට හැඟෙන ආකාරය පෙන්වීමට ස්ටිකරයක් යවන්න.</string>
     <string name="agif_pickers_add_tab_description">එක් කර.</string>
     <string name="agif_pickers_find_more">වැඩිදුර සොයා ගන්න</string>
     <string name="agif_pickers_item_usage_hints_description">තේරීමට දෙවරක් තට්ටු කරන්න</string>
@@ -145,10 +146,12 @@
     <string name="agif_pickers_tab_select_description">තෝරා ගැනිණි</string>
     <string name="agif_pickers_title">ස්ටිකරයක් සමග ඇරඹීම</string>
     <string name="agif_pickers_title_recommended">නිර්දේශිත</string>
+    <string name="agif_random_send_message">මෙම ස්ටිකරය යැවීමට මෙතැන තට්ටු කරන්න.</string>
     <string name="agif_read_permission_description">දුරකථනයට AGIF අන්තර්ගතය කියවීමට ඉඩ දෙයි.</string>
     <string name="agif_read_permission_label">AGIF අන්තර්ගතය කියවන්න</string>
     <string name="agif_receive_no_id">ස්ටිකරය පෙන්විය නොහැක. ඇමතුමෙන් පසුව %s යාවත්කාල කරන්න.</string>
     <string name="agif_receive_no_id_upsupport_update">ස්ටිකරය පෙන්විය නොහැක. තවත් ස්ටිකර් ඊළඟ පද්ධති යාවත්කාලයෙන් පසුව ලබා ගත හැකි වනු ඇත.</string>
+    <string name="agif_receive_toast">%s වෙතින් ස්ටිකරයක්.</string>
     <string name="agif_sent_fail_message">සජීවීකෘත GIF යැවිය නොහැක. පසුව නැවත උත්සාහ කරන්න.</string>
     <string name="agif_sent_toast">ස්ටිකරය යැවිණි.</string>
     <string name="agif_write_permission_description">දුරකථනයට AGIF අන්තර්ගතය වෙනස් කිරීමට ඉඩ දෙයි.</string>
@@ -164,7 +167,7 @@
     <string name="app_update_dialog_message">%s හි නව අනුවාදයක් ලද හැක.</string>
     <string name="app_update_dialog_negative">පසුව</string>
     <string name="app_update_dialog_positive">යාවත්කාලය</string>
-    <string name="app_update_dialog_title">%s යාවත්කාල කරන්න ද?</string>
+    <string name="app_update_dialog_title">%s යාවත්කාල කරන්නද?</string>
     <string name="application_not_found">යෙදුම හමු නොවිණි.</string>
     <string name="auto_update_database_via_wlan">Auto update database via WLAN</string>
     <string name="banner_calls_have_been_merged">ඇමතුම් ඒකාබද්ධ කර ඇත.</string>
@@ -320,7 +323,7 @@
     <string name="end">අවසානය</string>
     <string name="end_all_calls">සියලු වත්මන් ඇමතුම් අවසන් ක.</string>
     <string name="endncall_select_sub_number">අංකය තෝරන්න</string>
-    <string name="enhanced_messaging">ඉහළ නැංවූ පණිවිඩකරණය</string>
+    <string name="enhanced_messaging">ඉහළ නැංවූ පණිවුඩකරණය</string>
     <string name="enter_code">කේතය ඇතුළු කිරීම</string>
     <string name="enter_number">අංක ඇතුළත් කරන්න.</string>
     <string name="enter_phone_country_number">මෙම දුරකථනයේ රටේ කේතය සහ දුරකථන අංකය ඇතුළු කරන්න.</string>
@@ -838,8 +841,8 @@ IVR ඇමතුම් තිර මෙනුව විසින් Dianhuabang 
     <string name="tts_pager">%2$d න් %1$d වැනි පිටුව</string>
     <string name="tts_seconds">තත්පර %d</string>
     <string name="tty_mode_option_title">TTY ප්‍රකාරය</string>
-    <string name="tutorial_incoming_call_app_answer">ඇමතුමට පිළිතුරු දීමට තට්ටු කරන්න.</string>
-    <string name="tutorial_incoming_call_app_reject">ඇමතුමට ප්‍රතික්ෂේප කිරීමට තට්ටු කරන්න.</string>
+    <string name="tutorial_incoming_call_app_answer">පිළිතුරු දීමට දෙවරක් තට්ටු කරන්න.</string>
+    <string name="tutorial_incoming_call_app_reject">ප්‍රතික්ෂේප කිරීමට දෙවරක් තට්ටු කරන්න.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">ජාලයට සම්බන්ධ විය නොහැක. ඔබගේ සම්බන්ධතා සැකසුම් පිරික්සා නැවත උත්සාහ කරන්න.</string>
     <string name="units_kb">KB</string>
@@ -849,7 +852,7 @@ IVR ඇමතුම් තිර මෙනුව විසින් Dianhuabang 
     <string name="upload_using_wlan_only">WLAN ඔස්සේ පමණක් උඩුගත කරන්න</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fi හෝ ජංගම ජාලය ඔස්සේ උඩුගත කරන්න</string>
     <string name="upload_wlan_and_mobile_nw">WLAN හෝ ජංගම ජාලය ඔස්සේ උඩුගත කරන්න</string>
-    <string name="usa_att_connected_as_voice">ඇමතුම හඬ පමණක් ලෙස සම්බන්ධ කරන ලදී.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">ඔබ ඔබේ උපාංගය මත තැබූ ඔබේ දත්ත භාවිතය එහි සීමාව කරා ළඟා වීමට ආසන්නයි. ඔබේ වීඩියෝ ඇමතුමට දත්ත අවශ්‍ය වේ.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">ඇමතුම Wi-Fi හරහා ගත නොහැක, සෙලියුලර් ජාලයක් හරහා සම්බන්ධ වෙමින්. හඬ සහ දත්ත ගාස්තු අදාළ වනු ඇත.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -899,11 +902,15 @@ IVR ඇමතුම් තිර මෙනුව විසින් Dianhuabang 
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">ජංගම දත්ත භාවිතය</string>
     <string name="usa_vzw_volte_weak_wifi_text">"අපි උත්සාහ කළා, නමුත් අපිට මේ අවස්ථාවේ දී Wi-Fi වෙත ඔබේ වීඩියෝ ඇමතුම මාරු කළ නොහැක.
 
-ඔබේ වීඩියෝ ඇමතුම තවමත් ජංගම ජාලය මත ධාවනය වෙයි. (දත්ත භාවිතය ඔබ ඉදිරියට යාමට තෝරයි නම් අදාළ වේ.)"</string>
-    <string name="usa_vzw_volte_weak_wifi_toast">ඔබේ වීඩියෝ ඇමතුම තවම ජංගම ජාලය මත ධාවනය වේ. (දත්ත භාවිතය අදාළ වේ.)</string>
-    <string name="usa_vzw_vowifi_wifi_low_signal_text">"Wi-Fi සංඥාව ඔබේ වීඩියෝ ඇමතුම කර ගෙන යාමට ප්‍රමාණවත් තරම් ශක්තිමත් වූයේ නැත.
+ඔබේ වීඩියෝ ඇමතුම තවමත් ජංගම ජාලය මත ධාවනය වෙයි.
 
-ඔබේ වීඩියෝ ඇමතුම දැන් ජංගම ජාලය මත ධාවනය වේ. (දත්ත භාවිතය ඔබ ඉදිරියට යාමට තෝරයි නම් අදාළ වේ.)"</string>
+ඔබ ඉදිරියට යාමට තෝරා ගත්තොත් දත්ත භාවිත ගාස්තු අදාළ විය හැක."</string>
+    <string name="usa_vzw_volte_weak_wifi_toast">ඔබේ වීඩියෝ ඇමතුම තවම ජංගම ජාලය මත ධාවනය වේ. (දත්ත භාවිතය අදාළ වේ.)</string>
+    <string name="usa_vzw_vowifi_wifi_low_signal_text">"ඔබේ වීඩියෝ ඇමතුම කරගෙන යාමට Wi-Fi සංඥාව ප්‍රමාණවත් තරම් ප්‍රබල වූයේ නැත.
+
+ඔබේ වීඩියෝ ඇමතුම දැන් ජංගම ජාලයේ ධාවනය වේ.
+
+ඔබ ඉදිරියට යාමට තෝරා ගත්තොත් දත්ත භාවිත ගාස්තු අදාළ විය හැක."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi සම්බන්ධතාව බිඳ වැටිණි. ඇමතුම අවසන් විය.</string>
     <string name="use_wifi_and_mobile_nw">Wi-Fi හා ජංගම ජාල භාවිතා කරන්න</string>
     <string name="use_wlan_and_mobile_nw">WLAN සහ ජංගම ජාල භාවිතය</string>
@@ -933,5 +940,5 @@ IVR ඇමතුම් තිර මෙනුව විසින් Dianhuabang 
     <string name="yellow_pages">කහ පිටු</string>
     <string name="you_have_entered_incorrect_code">ඔබ වැරදි තහවුරුකරණ කේතයක් ඇතුළත් කර තිබේ. නැවත උත්සාහ කරන්න.</string>
     <string name="you_have_reached_your_daily_sms_limit">ඔබ දෛනික SMS සීමාව වෙත ළඟා වී තිබේ. පැය %d කින් නැවත උත්සාහ කරන්න</string>
-    <string name="you_have_reached_your_daliy_voice_limit">ඔබ ඔබේ දෛනික හඬ තහවුරු කිරීමේ සීමාවට ළඟා වී ඇත. පැය %d කින් නැවත උත්සාහ කරන්න</string>
+    <string name="you_have_reached_your_daliy_voice_limit">ඔබ ඔබේ දෛනික හඬ තහවුරුකිරීමේ සීමාවට ළඟා වී ඇත. පැය %d කින් නැවත උත්සාහ කරන්න</string>
 </resources>

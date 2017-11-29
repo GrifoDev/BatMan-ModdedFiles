@@ -110,7 +110,7 @@
 .method private q(Landroid/content/Context;)Lcom/android/contacts/common/model/dataitem/DataKind;
     .locals 6
 
-    const v5, 0x7f0902ae
+    const v5, 0x7f0902b1
 
     const/16 v4, 0xe
 
@@ -348,7 +348,7 @@
 .method private r(Landroid/content/Context;)Lcom/android/contacts/common/model/dataitem/DataKind;
     .locals 7
 
-    const v6, 0x7f09016e
+    const v6, 0x7f090171
 
     const/4 v5, 0x3
 
@@ -642,7 +642,7 @@
 
     const-string v3, "data1"
 
-    const v4, 0x7f090269
+    const v4, 0x7f09026c
 
     invoke-direct {v2, v3, v4, v5}, Lcom/android/contacts/common/model/account/AccountType$EditField;-><init>(Ljava/lang/String;II)V
 
@@ -738,7 +738,7 @@
 
     const-string v3, "data1"
 
-    const v4, 0x7f09015f
+    const v4, 0x7f090162
 
     const/16 v5, 0x21
 

@@ -54,7 +54,7 @@
 
 .field private isAleadyBlockedNumber:Z
 
-.field private isMultiNmber:Z
+.field private isNeedToShowSubNumber:Z
 
 .field private isUiEntery:Z
 
@@ -151,7 +151,7 @@
 
     iput v0, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->SIM_SLOT_2:I
 
-    iput-boolean v1, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->isMultiNmber:Z
+    iput-boolean v1, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->isNeedToShowSubNumber:Z
 
     iput v1, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->multiSimId:I
 
@@ -820,13 +820,15 @@
 .end method
 
 .method private updateMultiSimEndCallButtonDrawable()V
-    .locals 7
+    .locals 8
 
-    const/16 v6, 0x18
-
-    const/16 v5, 0x16
+    const/16 v7, 0x16
 
     const/16 v3, 0x14
+
+    const/4 v6, 0x1
+
+    const/4 v5, 0x0
 
     const/4 v4, 0x0
 
@@ -870,7 +872,7 @@
 
     iget v1, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->SIM_SLOT_1:I
 
-    invoke-static {v1, v5}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->getSimImage(II)I
+    invoke-static {v1, v7}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->getSimImage(II)I
 
     move-result v1
 
@@ -884,7 +886,7 @@
 
     iget v2, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->SIM_SLOT_2:I
 
-    invoke-static {v2, v5}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->getSimImage(II)I
+    invoke-static {v2, v7}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->getSimImage(II)I
 
     move-result v2
 
@@ -913,13 +915,17 @@
 
     if-eqz v2, :cond_1
 
-    invoke-static {}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->getDefaultDataSlotId()I
+    invoke-static {}, Lcom/android/incallui/util/ImsCommonUtils;->getImsRegisteredSubId()I
+
+    move-result v2
+
+    invoke-static {v2}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->getSlotId(I)I
 
     move-result v2
 
     iget v3, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->SIM_SLOT_1:I
 
-    if-ne v2, v3, :cond_4
+    if-ne v2, v3, :cond_5
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->getResources()Landroid/content/res/Resources;
 
@@ -927,7 +933,9 @@
 
     iget v2, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->SIM_SLOT_1:I
 
-    invoke-static {v2, v6}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->getSimImage(II)I
+    const/16 v3, 0x18
+
+    invoke-static {v2, v3}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->getSimImage(II)I
 
     move-result v2
 
@@ -937,27 +945,67 @@
 
     :cond_1
     :goto_0
-    iget-object v2, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallSim1Button:Landroid/widget/Button;
+    const-string v2, "multi_number_cmcc"
+
+    invoke-static {v2}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v2
 
     if-eqz v2, :cond_2
+
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->checkSubNumberState()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    const-string v2, "osmn_exist_available_number_0"
+
+    invoke-static {v2, v5}, Lcom/android/incallui/InCallUISystemDB;->getSettingDB(Ljava/lang/String;I)I
+
+    move-result v2
+
+    if-ne v2, v6, :cond_6
+
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    iget v2, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->SIM_SLOT_1:I
+
+    const/16 v3, 0x19
+
+    invoke-static {v2, v3}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->getSimImage(II)I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v1
+
+    :cond_2
+    :goto_1
+    iget-object v2, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallSim1Button:Landroid/widget/Button;
+
+    if-eqz v2, :cond_3
 
     iget-object v2, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallSim1Button:Landroid/widget/Button;
 
     invoke-virtual {v2, v4, v1, v4, v4}, Landroid/widget/Button;->setCompoundDrawablesWithIntrinsicBounds(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
-    :cond_2
+    :cond_3
     iget-object v1, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallSim2Button:Landroid/widget/Button;
 
-    if-eqz v1, :cond_3
+    if-eqz v1, :cond_4
 
     iget-object v1, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallSim2Button:Landroid/widget/Button;
 
     invoke-virtual {v1, v4, v0, v4, v4}, Landroid/widget/Button;->setCompoundDrawablesWithIntrinsicBounds(Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;Landroid/graphics/drawable/Drawable;)V
 
-    :cond_3
+    :cond_4
     return-void
 
-    :cond_4
+    :cond_5
     iget v3, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->SIM_SLOT_2:I
 
     if-ne v2, v3, :cond_1
@@ -968,7 +1016,9 @@
 
     iget v2, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->SIM_SLOT_2:I
 
-    invoke-static {v2, v6}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->getSimImage(II)I
+    const/16 v3, 0x18
+
+    invoke-static {v2, v3}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->getSimImage(II)I
 
     move-result v2
 
@@ -977,6 +1027,33 @@
     move-result-object v0
 
     goto :goto_0
+
+    :cond_6
+    const-string v2, "osmn_exist_available_number_1"
+
+    invoke-static {v2, v5}, Lcom/android/incallui/InCallUISystemDB;->getSettingDB(Ljava/lang/String;I)I
+
+    move-result v2
+
+    if-ne v2, v6, :cond_2
+
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->getResources()Landroid/content/res/Resources;
+
+    move-result-object v1
+
+    iget v2, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->SIM_SLOT_2:I
+
+    const/16 v3, 0x19
+
+    invoke-static {v2, v3}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->getSimImage(II)I
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
+
+    move-result-object v1
+
+    goto :goto_1
 .end method
 
 .method private updateSmartCallBlockButton()V
@@ -1079,6 +1156,8 @@
     return-void
 
     :cond_0
+    invoke-direct {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->unMute()V
+
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v0
@@ -1093,6 +1172,21 @@
 
     invoke-virtual {v1, v0}, Lcom/android/incallui/CallList;->setRedialCall(Lcom/android/incallui/Call;)V
 
+    const-string v0, "agif_induce_service"
+
+    invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-static {}, Lcom/android/incallui/agif/AgifManager;->getInstance()Lcom/android/incallui/agif/AgifManager;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/incallui/agif/AgifManager;->redial()V
+
+    :cond_1
     invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -1129,13 +1223,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
     const-string v1, "simSlot"
 
     invoke-virtual {v2, v1, p1}, Landroid/os/Bundle;->putInt(Ljava/lang/String;I)V
 
-    :cond_1
+    :cond_2
     invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->getActivity()Landroid/app/Activity;
 
     move-result-object v1
@@ -1156,18 +1250,18 @@
 
     move-result v3
 
-    if-eqz v3, :cond_2
+    if-eqz v3, :cond_3
 
     const-string v3, "setUseSpamCallCache"
 
-    if-ne v1, v5, :cond_3
+    if-ne v1, v5, :cond_4
 
     const-string v1, "true"
 
     :goto_1
     invoke-virtual {v2, v3, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_2
+    :cond_3
     const-string v1, "tel"
 
     invoke-static {v1, p2, v6}, Landroid/net/Uri;->fromParts(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
@@ -1188,9 +1282,9 @@
 
     invoke-virtual {v0}, Lcom/android/incallui/CallList;->delayToNotify()V
 
-    goto :goto_0
+    goto/16 :goto_0
 
-    :cond_3
+    :cond_4
     const-string v1, "false"
 
     goto :goto_1
@@ -1219,6 +1313,8 @@
     return-void
 
     :cond_0
+    invoke-direct {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->unMute()V
+
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v0
@@ -1233,6 +1329,21 @@
 
     invoke-virtual {v1, v0}, Lcom/android/incallui/CallList;->setRedialCall(Lcom/android/incallui/Call;)V
 
+    const-string v0, "agif_induce_service"
+
+    invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-static {}, Lcom/android/incallui/agif/AgifManager;->getInstance()Lcom/android/incallui/agif/AgifManager;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/incallui/agif/AgifManager;->redial()V
+
+    :cond_1
     invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -1255,13 +1366,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
     invoke-static {}, Lcom/android/incallui/util/InCallUtils;->isRoamingArea()Z
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
     const-string v1, "feature_lgt"
 
@@ -1269,7 +1380,7 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_2
 
     const-string v3, "RADDialOption"
 
@@ -1277,27 +1388,27 @@
 
     move-result v1
 
-    if-eqz v1, :cond_5
+    if-eqz v1, :cond_6
 
     const-string v1, "korea"
 
     :goto_1
     invoke-virtual {v2, v3, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_1
+    :cond_2
     const-string v1, "support_twophone"
 
     invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3
 
     invoke-static {}, Lcom/android/incallui/InCallUISystemDB;->isTwoPhoneRegistered()Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_3
 
     const-string v3, "TwoPhoneDialOption"
 
@@ -1305,21 +1416,21 @@
 
     move-result v1
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_7
 
     const-string v1, "twophone"
 
     :goto_2
     invoke-virtual {v2, v3, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_2
+    :cond_3
     const-string v1, "feature_multisim"
 
     invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_9
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->getContext()Landroid/content/Context;
 
@@ -1350,25 +1461,25 @@
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_4
 
     const-string v3, "setUseSpamCallCache"
 
-    if-ne v2, v5, :cond_7
+    if-ne v2, v5, :cond_8
 
     const-string v2, "true"
 
     :goto_4
     invoke-virtual {v1, v3, v2}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_3
+    :cond_4
     const-string v2, "jansky_info_for_tmo"
 
     invoke-static {v2}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v2
 
-    if-eqz v2, :cond_4
+    if-eqz v2, :cond_5
 
     const-string v2, "jansky_msisdn"
 
@@ -1378,7 +1489,7 @@
 
     invoke-virtual {v1, v2, v3}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_4
+    :cond_5
     const-string v2, "tel"
 
     invoke-static {v2, p1, v6}, Landroid/net/Uri;->fromParts(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
@@ -1389,22 +1500,22 @@
 
     goto/16 :goto_0
 
-    :cond_5
+    :cond_6
     const-string v1, "abroad"
 
     goto :goto_1
 
-    :cond_6
+    :cond_7
     const-string v1, "onephone"
 
     goto :goto_2
 
-    :cond_7
+    :cond_8
     const-string v2, "false"
 
     goto :goto_4
 
-    :cond_8
+    :cond_9
     move-object v1, v2
 
     goto :goto_3
@@ -1496,7 +1607,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f02021e
+    const v1, 0x7f020252
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1569,7 +1680,7 @@
 
     if-eqz v0, :cond_3
 
-    const v0, 0x7f020225
+    const v0, 0x7f020259
 
     :goto_1
     invoke-virtual {v1, v0}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
@@ -1583,7 +1694,7 @@
     goto :goto_0
 
     :cond_3
-    const v0, 0x7f020226
+    const v0, 0x7f02025a
 
     goto :goto_1
 
@@ -1627,56 +1738,86 @@
     goto :goto_0
 .end method
 
-.method public checkMultivalue()Z
-    .locals 4
+.method public checkSubNumberState()Z
+    .locals 6
 
     const/4 v1, 0x1
 
     const/4 v2, 0x0
 
-    const-string v0, "sub_number_enable_cmcc"
+    const-string v0, "osmn_exist_available_number_0"
 
     invoke-static {v0, v2}, Lcom/android/incallui/InCallUISystemDB;->getSettingDB(Ljava/lang/String;I)I
 
     move-result v0
 
-    if-ne v0, v1, :cond_0
+    if-ne v0, v1, :cond_2
 
     move v0, v1
 
     :goto_0
-    const-string v3, "sub_keypad_cmcc_preference"
+    const-string v3, "osmn_exist_available_number_1"
 
     invoke-static {v3, v2}, Lcom/android/incallui/InCallUISystemDB;->getSettingDB(Ljava/lang/String;I)I
 
     move-result v3
 
-    if-ne v3, v1, :cond_1
+    if-ne v3, v1, :cond_3
 
     move v3, v1
 
     :goto_1
-    if-eqz v0, :cond_2
+    const-string v4, "osmn_is_login"
 
-    if-eqz v3, :cond_2
+    invoke-static {v4, v2}, Lcom/android/incallui/InCallUISystemDB;->getSettingDB(Ljava/lang/String;I)I
+
+    move-result v4
+
+    if-ne v4, v1, :cond_4
+
+    move v4, v1
 
     :goto_2
-    return v1
+    const-string v5, "osmn_simslot"
+
+    invoke-static {v5, v2}, Lcom/android/incallui/InCallUISystemDB;->getSettingDB(Ljava/lang/String;I)I
+
+    move-result v5
+
+    if-eqz v4, :cond_5
+
+    if-nez v5, :cond_0
+
+    if-nez v0, :cond_1
 
     :cond_0
+    if-ne v5, v1, :cond_5
+
+    if-eqz v3, :cond_5
+
+    :cond_1
+    :goto_3
+    return v1
+
+    :cond_2
     move v0, v2
 
     goto :goto_0
 
-    :cond_1
+    :cond_3
     move v3, v2
 
     goto :goto_1
 
-    :cond_2
-    move v1, v2
+    :cond_4
+    move v4, v2
 
     goto :goto_2
+
+    :cond_5
+    move v1, v2
+
+    goto :goto_3
 .end method
 
 .method protected enableEndCallUpperButtons(Ljava/lang/Boolean;)V
@@ -2035,142 +2176,6 @@
     goto :goto_0
 .end method
 
-.method public getSubPhone(IILandroid/content/Context;)Ljava/lang/String;
-    .locals 3
-
-    const-string v0, "EndCallButtonFragment"
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "getSubPreNumber simId="
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, ";  subNumberId = "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
-
-    packed-switch p2, :pswitch_data_0
-
-    const/4 v0, 0x0
-
-    :goto_0
-    return-object v0
-
-    :pswitch_0
-    if-nez p1, :cond_0
-
-    invoke-virtual {p3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string v1, "SUB_PHONE_NUMBER_ONE"
-
-    invoke-static {v0, v1}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {p3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string v1, "SUB_PHONE_NUMBER_ONE_SIM2"
-
-    invoke-static {v0, v1}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :pswitch_1
-    if-nez p1, :cond_1
-
-    invoke-virtual {p3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string v1, "SUB_PHONE_NUMBER_TWO"
-
-    invoke-static {v0, v1}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_1
-    invoke-virtual {p3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string v1, "SUB_PHONE_NUMBER_TWO_SIM2"
-
-    invoke-static {v0, v1}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :pswitch_2
-    if-nez p1, :cond_2
-
-    invoke-virtual {p3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string v1, "SUB_PHONE_NUMBER_THREE"
-
-    invoke-static {v0, v1}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_2
-    invoke-virtual {p3}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
-
-    move-result-object v0
-
-    const-string v1, "SUB_PHONE_NUMBER_THREE_SIM2"
-
-    invoke-static {v0, v1}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    nop
-
-    :pswitch_data_0
-    .packed-switch 0x1
-        :pswitch_0
-        :pswitch_1
-        :pswitch_2
-    .end packed-switch
-.end method
-
 .method protected hideDelayedEndCallButtonsLayout()V
     .locals 5
 
@@ -2294,7 +2299,7 @@
 .method protected messageClicked()V
     .locals 8
 
-    const v7, 0x7f090142
+    const v7, 0x7f090145
 
     const/4 v2, 0x0
 
@@ -2557,68 +2562,56 @@
 .end method
 
 .method public multiNumberCall(I)V
-    .locals 6
+    .locals 5
 
-    const/4 v2, 0x0
+    const/4 v0, 0x0
 
-    invoke-virtual {p0, v2}, Lcom/android/incallui/fragment/EndCallButtonFragment;->setEnabled(Z)V
+    invoke-virtual {p0, v0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->setEnabled(Z)V
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->getNumber()Ljava/lang/String;
 
     move-result-object v0
 
-    const-string v1, "feature_multisim"
-
-    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    invoke-static {v0}, Lcom/android/incallui/util/InCallUtils;->needToRemoveThePrefixOSMN(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_2
+    if-eqz v1, :cond_0
 
-    invoke-direct {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->getCurrentPhoneId()I
-
-    move-result v1
-
-    invoke-direct {p0, v1, v0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->removeSubPrefix(ILjava/lang/String;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/android/incallui/util/InCallUtils;->removeThePrefixOSMN(Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    :goto_0
-    iget v1, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->multiSimId:I
+    :cond_0
+    if-eqz v0, :cond_2
 
-    if-lez p1, :cond_3
+    new-instance v1, Landroid/content/Intent;
 
-    if-eqz v0, :cond_1
+    const-string v2, "android.intent.action.CALL_PRIVILEGED"
 
-    if-lez p1, :cond_1
+    const-string v3, "tel"
 
-    new-instance v2, Landroid/content/Intent;
+    const/4 v4, 0x0
 
-    const-string v3, "android.intent.action.CALL_PRIVILEGED"
-
-    const-string v4, "tel"
-
-    const/4 v5, 0x0
-
-    invoke-static {v4, v0, v5}, Landroid/net/Uri;->fromParts(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
+    invoke-static {v3, v0, v4}, Landroid/net/Uri;->fromParts(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
 
     move-result-object v0
 
-    invoke-direct {v2, v3, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
+    invoke-direct {v1, v2, v0}, Landroid/content/Intent;-><init>(Ljava/lang/String;Landroid/net/Uri;)V
 
     const/high16 v0, 0x10000000
 
-    invoke-virtual {v2, v0}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
+    invoke-virtual {v1, v0}, Landroid/content/Intent;->setFlags(I)Landroid/content/Intent;
 
     const-string v0, "MultiSubCall"
 
-    const/4 v3, 0x1
+    const/4 v2, 0x1
 
-    invoke-virtual {v2, v0, v3}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
+    invoke-virtual {v1, v0, v2}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     const-string v0, "subNumberId"
 
-    invoke-virtual {v2, v0, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
+    invoke-virtual {v1, v0, p1}, Landroid/content/Intent;->putExtra(Ljava/lang/String;I)Landroid/content/Intent;
 
     const-string v0, "feature_multisim"
 
@@ -2626,15 +2619,15 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    const-string v3, "telecom"
+    const-string v2, "telecom"
 
-    invoke-virtual {v0, v3}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
+    invoke-virtual {v0, v2}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
 
     move-result-object v0
 
@@ -2644,47 +2637,23 @@
 
     move-result-object v0
 
-    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
+    iget v2, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->multiSimId:I
+
+    invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
 
     move-result-object v0
 
     check-cast v0, Landroid/telecom/PhoneAccountHandle;
 
-    const-string v1, "android.telecom.extra.PHONE_ACCOUNT_HANDLE"
+    const-string v2, "android.telecom.extra.PHONE_ACCOUNT_HANDLE"
 
-    invoke-virtual {v2, v1, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
-
-    :cond_0
-    invoke-virtual {p0, v2}, Lcom/android/incallui/fragment/EndCallButtonFragment;->startActivity(Landroid/content/Intent;)V
+    invoke-virtual {v1, v2, v0}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Landroid/os/Parcelable;)Landroid/content/Intent;
 
     :cond_1
-    :goto_1
-    return-void
+    invoke-virtual {p0, v1}, Lcom/android/incallui/fragment/EndCallButtonFragment;->startActivity(Landroid/content/Intent;)V
 
     :cond_2
-    invoke-direct {p0, v2, v0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->removeSubPrefix(ILjava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :cond_3
-    const-string v2, "feature_multisim"
-
-    invoke-static {v2}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v2
-
-    if-nez v2, :cond_4
-
-    invoke-direct {p0, v0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->voiceCallClicked(Ljava/lang/String;)V
-
-    goto :goto_1
-
-    :cond_4
-    invoke-direct {p0, v1, v0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->voiceCallClicked(ILjava/lang/String;)V
-
-    goto :goto_1
+    return-void
 .end method
 
 .method protected needToShowEndCallButtonsUpper()Z
@@ -3106,7 +3075,7 @@
 
     if-eqz v0, :cond_1
 
-    invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->checkMulitNumberServiceEnable()Z
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->checkSubNumberState()Z
 
     move-result v0
 
@@ -3136,7 +3105,7 @@
 
     if-eqz v0, :cond_2
 
-    invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->checkMulitNumberServiceEnable()Z
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->checkSubNumberState()Z
 
     move-result v0
 
@@ -3166,7 +3135,7 @@
 
     if-eqz v0, :cond_3
 
-    invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->checkMulitNumberServiceEnable()Z
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->checkSubNumberState()Z
 
     move-result v0
 
@@ -3426,17 +3395,17 @@
 
     :sswitch_data_0
     .sparse-switch
-        0x7f100156 -> :sswitch_1
-        0x7f100157 -> :sswitch_2
-        0x7f100158 -> :sswitch_6
-        0x7f100159 -> :sswitch_3
-        0x7f100214 -> :sswitch_4
-        0x7f100245 -> :sswitch_0
-        0x7f100246 -> :sswitch_5
-        0x7f100247 -> :sswitch_3
-        0x7f10030c -> :sswitch_7
-        0x7f10030d -> :sswitch_8
-        0x7f10030e -> :sswitch_9
+        0x7f10015a -> :sswitch_1
+        0x7f10015b -> :sswitch_2
+        0x7f10015c -> :sswitch_6
+        0x7f10015d -> :sswitch_3
+        0x7f100218 -> :sswitch_4
+        0x7f100249 -> :sswitch_0
+        0x7f10024a -> :sswitch_5
+        0x7f10024b -> :sswitch_3
+        0x7f100312 -> :sswitch_7
+        0x7f100313 -> :sswitch_8
+        0x7f100314 -> :sswitch_9
     .end sparse-switch
 .end method
 
@@ -3591,7 +3560,7 @@
 
     const/4 v2, 0x0
 
-    const v0, 0x7f0400e9
+    const v0, 0x7f0400ea
 
     invoke-virtual {p1, v0, p2, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -3614,7 +3583,7 @@
     if-eqz v1, :cond_13
 
     :cond_0
-    const v0, 0x7f0400ea
+    const v0, 0x7f0400eb
 
     invoke-virtual {p1, v0, p2, v2}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -3623,7 +3592,7 @@
     move-object v1, v0
 
     :goto_0
-    const v0, 0x7f100229
+    const v0, 0x7f10022d
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3641,11 +3610,11 @@
 
     if-eqz v0, :cond_1
 
-    invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->checkMultivalue()Z
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->checkSubNumberState()Z
 
     move-result v0
 
-    iput-boolean v0, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->isMultiNmber:Z
+    iput-boolean v0, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->isNeedToShowSubNumber:Z
 
     const-string v0, "EndCallButtonFragment"
 
@@ -3653,13 +3622,13 @@
 
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, "isMultiNmber="
+    const-string v5, "isNeedToShowSubNumber="
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v4
 
-    iget-boolean v5, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->isMultiNmber:Z
+    iget-boolean v5, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->isNeedToShowSubNumber:Z
 
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
@@ -3672,7 +3641,7 @@
     invoke-static {v0, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
     :cond_1
-    const v0, 0x7f100244
+    const v0, 0x7f100248
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3682,7 +3651,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mEndCallButtonsLayout:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f100313
+    const v0, 0x7f100319
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3690,7 +3659,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallCardDummyContainer:Landroid/view/View;
 
-    const v0, 0x7f10030a
+    const v0, 0x7f100310
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3698,7 +3667,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mEndCallButtonsContainer:Landroid/view/View;
 
-    const v0, 0x7f10030b
+    const v0, 0x7f100311
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3708,7 +3677,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mEndCallButtonsUpper:Landroid/view/ViewGroup;
 
-    const v0, 0x7f10030f
+    const v0, 0x7f100315
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3718,7 +3687,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mEndCallButtonsUnder:Landroid/view/ViewGroup;
 
-    const v0, 0x7f100245
+    const v0, 0x7f100249
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3741,7 +3710,7 @@
     invoke-virtual {v0, p0}, Landroid/widget/Button;->setOnLongClickListener(Landroid/view/View$OnLongClickListener;)V
 
     :cond_2
-    const v0, 0x7f100247
+    const v0, 0x7f10024b
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3760,7 +3729,7 @@
     invoke-virtual {v0, p0}, Landroid/widget/Button;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
     :cond_3
-    const v0, 0x7f100246
+    const v0, 0x7f10024a
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3804,7 +3773,7 @@
 
     if-eqz v0, :cond_5
 
-    const v0, 0x7f100310
+    const v0, 0x7f100316
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3822,7 +3791,7 @@
 
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    const v0, 0x7f100314
+    const v0, 0x7f10031a
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3832,7 +3801,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mEndCallButtonsMiddle:Landroid/view/ViewGroup;
 
-    const v0, 0x7f100214
+    const v0, 0x7f100218
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3855,7 +3824,7 @@
 
     if-eqz v0, :cond_6
 
-    const v0, 0x7f100312
+    const v0, 0x7f100318
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3869,7 +3838,7 @@
 
     if-eqz v0, :cond_6
 
-    iget-boolean v0, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->isMultiNmber:Z
+    iget-boolean v0, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->isNeedToShowSubNumber:Z
 
     if-eqz v0, :cond_6
 
@@ -3881,7 +3850,7 @@
 
     invoke-virtual {v0, v2}, Landroid/view/ViewStub;->setVisibility(I)V
 
-    const v0, 0x7f100158
+    const v0, 0x7f10015c
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3945,7 +3914,7 @@
     :goto_2
     iput-boolean v0, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->isAleadyBlockedNumber:Z
 
-    const v0, 0x7f10030c
+    const v0, 0x7f100312
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -3977,7 +3946,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f090191
+    const v5, 0x7f090194
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3987,7 +3956,7 @@
 
     :cond_7
     :goto_3
-    const v0, 0x7f10030d
+    const v0, 0x7f100313
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4019,7 +3988,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f090193
+    const v5, 0x7f090196
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4050,7 +4019,7 @@
 
     if-nez v0, :cond_9
 
-    const v0, 0x7f10030e
+    const v0, 0x7f100314
 
     invoke-virtual {v1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -4166,7 +4135,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f020222
+    const v5, 0x7f020256
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -4180,7 +4149,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f09033f
+    const v5, 0x7f090342
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4425,7 +4394,7 @@
     nop
 
     :pswitch_data_0
-    .packed-switch 0x7f100245
+    .packed-switch 0x7f100249
         :pswitch_0
     .end packed-switch
 .end method
@@ -4693,227 +4662,102 @@
 .end method
 
 .method public setMultiNumberCall(IZ)V
-    .locals 12
+    .locals 9
 
-    const/4 v3, 0x0
-
-    const/4 v1, 0x1
+    const/4 v8, 0x1
 
     const/4 v2, 0x0
 
     const-string v0, "EndCallButtonFragment"
 
-    new-instance v4, Ljava/lang/StringBuilder;
+    new-instance v1, Ljava/lang/StringBuilder;
 
-    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v5, " setMultiNumberCall isMain = "
+    const-string v3, " setMultiNumberCall isMain = "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v1
 
-    invoke-virtual {v4, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v1
 
-    const-string v5, "; simId = "
+    const-string v3, "; simId = "
 
-    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v1
 
-    invoke-virtual {v4, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
-    move-result-object v4
+    move-result-object v1
 
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v4
+    move-result-object v1
 
-    invoke-static {v0, v4}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    iget-object v0, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->subNumberIdList:Ljava/util/ArrayList;
+    const/4 v0, 0x5
 
-    invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
+    new-array v0, v0, [Ljava/lang/String;
 
     iget-object v0, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->subNumberPhoneList:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->clear()V
 
-    if-eqz p2, :cond_2
+    iget v0, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->SIM_SLOT_1:I
 
-    invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->checkMultivalue()Z
+    if-ne p1, v0, :cond_2
 
-    move-result v0
-
-    if-eqz v0, :cond_2
-
-    invoke-static {}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->checkMultiSim()Z
-
-    move-result v0
-
-    if-nez v0, :cond_2
-
-    const-string v0, "feature_multisim"
-
-    invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_1
-
-    invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->getNumber()Ljava/lang/String;
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->getContext()Landroid/content/Context;
 
     move-result-object v0
 
-    invoke-direct {p0, v2, v0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->removeSubPrefix(ILjava/lang/String;)Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    invoke-direct {p0, v0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->voiceCallClicked(Ljava/lang/String;)V
+    const-string v1, "osmn_sub_number_list_0"
 
-    :cond_0
+    invoke-static {v0, v1}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
     :goto_0
-    return-void
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->getContext()Landroid/content/Context;
 
-    :cond_1
+    move-result-object v1
+
+    invoke-virtual {v1}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v1
+
+    const-string v3, "osmn_main_number"
+
+    invoke-static {v1, v3}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
     invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->getNumber()Ljava/lang/String;
 
-    move-result-object v0
+    move-result-object v3
 
-    invoke-direct {p0, v2, v0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->removeSubPrefix(ILjava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {p0, p1, v0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->voiceCallClicked(ILjava/lang/String;)V
-
-    goto :goto_0
-
-    :cond_2
-    if-eqz p2, :cond_a
-
-    iget-object v0, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->subNumberIdList:Ljava/util/ArrayList;
-
-    invoke-static {v2}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v4
-
-    invoke-virtual {v0, v2, v4}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
-
-    iget-object v0, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->subNumberPhoneList:Ljava/util/ArrayList;
-
-    invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->getContext()Landroid/content/Context;
-
-    move-result-object v4
-
-    const v5, 0x7f09022c
-
-    invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
-
-    move-result-object v4
-
-    invoke-virtual {v0, v2, v4}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
-
-    move v0, v1
-
-    :goto_1
-    move v4, v2
-
-    :goto_2
-    const/4 v5, 0x3
-
-    if-ge v4, v5, :cond_4
-
-    add-int/lit8 v5, v4, 0x1
-
-    invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->getContext()Landroid/content/Context;
-
-    move-result-object v6
-
-    invoke-virtual {p0, p1, v5, v6}, Lcom/android/incallui/fragment/EndCallButtonFragment;->getSubPhone(IILandroid/content/Context;)Ljava/lang/String;
-
-    move-result-object v5
-
-    if-eqz v5, :cond_3
-
-    iget-object v6, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->subNumberPhoneList:Ljava/util/ArrayList;
-
-    new-instance v7, Ljava/lang/StringBuilder;
-
-    invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
-
-    invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->getContext()Landroid/content/Context;
-
-    move-result-object v8
-
-    const v9, 0x7f090350
-
-    new-array v10, v1, [Ljava/lang/Object;
-
-    add-int/lit8 v11, v4, 0x1
-
-    invoke-static {v11}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v11
-
-    aput-object v11, v10, v2
-
-    invoke-virtual {v8, v9, v10}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
-
-    move-result-object v8
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    const-string v8, " "
-
-    invoke-virtual {v7, v8}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v7
-
-    invoke-virtual {v7, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-virtual {v6, v0, v5}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
-
-    iget-object v5, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->subNumberIdList:Ljava/util/ArrayList;
-
-    add-int/lit8 v6, v4, 0x1
-
-    invoke-static {v6}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v0, v6}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
-
-    add-int/lit8 v0, v0, 0x1
-
-    :cond_3
-    add-int/lit8 v4, v4, 0x1
-
-    goto :goto_2
-
-    :cond_4
     const-string v4, "EndCallButtonFragment"
 
     new-instance v5, Ljava/lang/StringBuilder;
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v6, " setMultiNumberCall count = "
+    const-string v6, " setMultiNumberCall getnumber "
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
-    invoke-virtual {v5, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
     move-result-object v5
 
@@ -4923,100 +4767,144 @@
 
     invoke-static {v4, v5}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    if-nez v0, :cond_5
+    invoke-static {v3}, Lcom/android/incallui/util/InCallUtils;->needToRemoveThePrefixOSMN(Ljava/lang/String;)Z
 
+    move-result v4
+
+    if-eqz v4, :cond_0
+
+    invoke-static {v3}, Lcom/android/incallui/util/InCallUtils;->removeThePrefixOSMN(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v3
+
+    :cond_0
+    if-eqz p2, :cond_3
+
+    invoke-static {}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->checkMultiSim()Z
+
+    move-result v4
+
+    if-nez v4, :cond_3
+
+    invoke-direct {p0, p1, v3}, Lcom/android/incallui/fragment/EndCallButtonFragment;->voiceCallClicked(ILjava/lang/String;)V
+
+    :cond_1
+    :goto_1
+    return-void
+
+    :cond_2
     invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->getContext()Landroid/content/Context;
 
-    move-result-object v1
+    move-result-object v0
 
-    move-object v0, p0
-
-    move v2, p1
-
-    move-object v4, v3
-
-    move-object v5, v3
-
-    invoke-virtual/range {v0 .. v5}, Lcom/android/incallui/fragment/EndCallButtonFragment;->showSubNumberDialog(Landroid/content/Context;ILjava/lang/String;[Ljava/lang/String;Ljava/util/ArrayList;)V
-
-    goto/16 :goto_0
-
-    :cond_5
-    if-ne v0, v1, :cond_8
-
-    if-eqz p2, :cond_7
-
-    const-string v0, "feature_multisim"
-
-    invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
-
-    move-result v0
-
-    if-nez v0, :cond_6
-
-    invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->getNumber()Ljava/lang/String;
+    invoke-virtual {v0}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
 
     move-result-object v0
 
-    invoke-direct {p0, v2, v0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->removeSubPrefix(ILjava/lang/String;)Ljava/lang/String;
+    const-string v1, "osmn_sub_number_list_1"
+
+    invoke-static {v0, v1}, Landroid/provider/Settings$System;->getString(Landroid/content/ContentResolver;Ljava/lang/String;)Ljava/lang/String;
 
     move-result-object v0
 
-    invoke-direct {p0, v0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->voiceCallClicked(Ljava/lang/String;)V
+    goto :goto_0
 
-    goto/16 :goto_0
+    :cond_3
+    if-eqz p2, :cond_4
 
-    :cond_6
-    invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->getNumber()Ljava/lang/String;
+    iget-object v4, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->subNumberPhoneList:Ljava/util/ArrayList;
 
-    move-result-object v0
+    invoke-virtual {v4, v2, v1}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
 
-    invoke-direct {p0, v2, v0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->removeSubPrefix(ILjava/lang/String;)Ljava/lang/String;
-
-    move-result-object v0
-
-    invoke-direct {p0, p1, v0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->voiceCallClicked(ILjava/lang/String;)V
-
-    goto/16 :goto_0
-
-    :cond_7
-    iput p1, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->multiSimId:I
-
-    iget-object v0, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->subNumberIdList:Ljava/util/ArrayList;
-
-    invoke-virtual {v0, v2}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
-
-    move-result-object v0
-
-    check-cast v0, Ljava/lang/Integer;
-
-    invoke-virtual {v0}, Ljava/lang/Integer;->intValue()I
-
-    move-result v0
-
-    invoke-virtual {p0, v0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->multiNumberCall(I)V
-
-    goto/16 :goto_0
-
-    :cond_8
-    iget-object v1, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->subNumberPhoneList:Ljava/util/ArrayList;
-
-    invoke-virtual {v1}, Ljava/util/ArrayList;->size()I
+    :cond_4
+    invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
     move-result v1
 
-    new-array v4, v1, [Ljava/lang/String;
+    if-nez v1, :cond_5
 
-    if-lez v0, :cond_0
+    const-string v1, ";"
+
+    invoke-virtual {v0, v1}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+
+    move-result-object v4
+
+    array-length v5, v4
+
+    move v1, v2
+
+    :goto_2
+    if-ge v1, v5, :cond_5
+
+    if-eqz p2, :cond_9
+
+    add-int/lit8 v0, v1, 0x1
 
     :goto_3
+    iget-object v6, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->subNumberPhoneList:Ljava/util/ArrayList;
+
+    aget-object v7, v4, v1
+
+    invoke-virtual {v6, v0, v7}, Ljava/util/ArrayList;->add(ILjava/lang/Object;)V
+
+    add-int/lit8 v1, v1, 0x1
+
+    goto :goto_2
+
+    :cond_5
     iget-object v0, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->subNumberPhoneList:Ljava/util/ArrayList;
 
     invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
 
     move-result v0
 
-    if-ge v2, v0, :cond_9
+    new-array v4, v0, [Ljava/lang/String;
+
+    const-string v0, "EndCallButtonFragment"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v5, " setMultiNumberCall listsize "
+
+    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    iget-object v5, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->subNumberPhoneList:Ljava/util/ArrayList;
+
+    invoke-virtual {v5}, Ljava/util/ArrayList;->size()I
+
+    move-result v5
+
+    invoke-virtual {v1, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
+
+    if-nez p2, :cond_6
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->subNumberPhoneList:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    if-ne v0, v8, :cond_6
+
+    invoke-static {}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->checkMultiSim()Z
+
+    move-result v0
+
+    if-nez v0, :cond_6
+
+    iput p1, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->multiSimId:I
 
     iget-object v0, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->subNumberPhoneList:Ljava/util/ArrayList;
 
@@ -5026,35 +4914,88 @@
 
     check-cast v0, Ljava/lang/String;
 
-    aput-object v0, v4, v2
+    invoke-virtual {v0, v2, v8}, Ljava/lang/String;->substring(II)Ljava/lang/String;
 
-    add-int/lit8 v2, v2, 0x1
+    move-result-object v0
 
-    goto :goto_3
+    invoke-static {v0}, Ljava/lang/Integer;->parseInt(Ljava/lang/String;)I
 
-    :cond_9
+    move-result v0
+
+    invoke-virtual {p0, v0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->multiNumberCall(I)V
+
+    goto :goto_1
+
+    :cond_6
+    if-eqz p2, :cond_7
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->subNumberPhoneList:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    if-ne v0, v8, :cond_7
+
+    invoke-direct {p0, p1, v3}, Lcom/android/incallui/fragment/EndCallButtonFragment;->voiceCallClicked(ILjava/lang/String;)V
+
+    goto/16 :goto_1
+
+    :cond_7
+    iget-object v0, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->subNumberPhoneList:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    if-le v0, v8, :cond_1
+
+    move v1, v2
+
+    :goto_4
+    iget-object v0, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->subNumberPhoneList:Ljava/util/ArrayList;
+
+    invoke-virtual {v0}, Ljava/util/ArrayList;->size()I
+
+    move-result v0
+
+    if-ge v1, v0, :cond_8
+
+    iget-object v0, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->subNumberPhoneList:Ljava/util/ArrayList;
+
+    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Ljava/lang/String;
+
+    aput-object v0, v4, v1
+
+    add-int/lit8 v0, v1, 0x1
+
+    move v1, v0
+
+    goto :goto_4
+
+    :cond_8
     invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->getContext()Landroid/content/Context;
 
     move-result-object v1
-
-    invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->getNumber()Ljava/lang/String;
-
-    move-result-object v3
-
-    iget-object v5, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->subNumberIdList:Ljava/util/ArrayList;
 
     move-object v0, p0
 
     move v2, p1
 
-    invoke-virtual/range {v0 .. v5}, Lcom/android/incallui/fragment/EndCallButtonFragment;->showSubNumberDialog(Landroid/content/Context;ILjava/lang/String;[Ljava/lang/String;Ljava/util/ArrayList;)V
+    move v5, p2
 
-    goto/16 :goto_0
-
-    :cond_a
-    move v0, v2
+    invoke-virtual/range {v0 .. v5}, Lcom/android/incallui/fragment/EndCallButtonFragment;->showSubNumberDialog(Landroid/content/Context;ILjava/lang/String;[Ljava/lang/String;Z)V
 
     goto/16 :goto_1
+
+    :cond_9
+    move v0, v1
+
+    goto/16 :goto_3
 .end method
 
 .method public showDelayedEndCallButtonsLayout()V
@@ -5145,70 +5086,6 @@
     goto :goto_0
 .end method
 
-.method public showMultiCall(Z)V
-    .locals 4
-
-    const/16 v2, 0x8
-
-    const/4 v0, 0x0
-
-    const/16 v1, 0x80
-
-    invoke-static {v1}, Lcom/android/incallui/util/InCallUtils;->needToDisableForKnox(I)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    invoke-static {}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->checkMultiSim()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_1
-
-    :cond_0
-    move p1, v0
-
-    :cond_1
-    iget-object v1, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mSubVoiceCallButtonStub:Landroid/view/ViewStub;
-
-    if-eqz v1, :cond_2
-
-    iget-object v3, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mSubVoiceCallButtonStub:Landroid/view/ViewStub;
-
-    if-eqz p1, :cond_4
-
-    move v1, v0
-
-    :goto_0
-    invoke-virtual {v3, v1}, Landroid/view/ViewStub;->setVisibility(I)V
-
-    :cond_2
-    iget-object v1, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mSubVoiceCallButton:Landroid/widget/Button;
-
-    if-eqz v1, :cond_3
-
-    iget-object v1, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mSubVoiceCallButton:Landroid/widget/Button;
-
-    if-eqz p1, :cond_5
-
-    :goto_1
-    invoke-virtual {v1, v0}, Landroid/widget/Button;->setVisibility(I)V
-
-    :cond_3
-    return-void
-
-    :cond_4
-    move v1, v2
-
-    goto :goto_0
-
-    :cond_5
-    move v0, v2
-
-    goto :goto_1
-.end method
-
 .method protected showSmartCallButton(Z)V
     .locals 4
 
@@ -5290,22 +5167,72 @@
     goto :goto_0
 .end method
 
-.method public showSubNumberDialog(Landroid/content/Context;ILjava/lang/String;[Ljava/lang/String;Ljava/util/ArrayList;)V
+.method public showSubNumberButtons(Z)V
+    .locals 4
+
+    const/16 v2, 0x8
+
+    const/4 v0, 0x0
+
+    const/16 v1, 0x80
+
+    invoke-static {v1}, Lcom/android/incallui/util/InCallUtils;->needToDisableForKnox(I)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    invoke-static {}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->checkMultiSim()Z
+
+    move-result v1
+
+    if-eqz v1, :cond_1
+
+    :cond_0
+    move p1, v0
+
+    :cond_1
+    iget-object v1, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mSubVoiceCallButtonStub:Landroid/view/ViewStub;
+
+    if-eqz v1, :cond_2
+
+    iget-object v3, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mSubVoiceCallButtonStub:Landroid/view/ViewStub;
+
+    if-eqz p1, :cond_4
+
+    move v1, v0
+
+    :goto_0
+    invoke-virtual {v3, v1}, Landroid/view/ViewStub;->setVisibility(I)V
+
+    :cond_2
+    iget-object v1, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mSubVoiceCallButton:Landroid/widget/Button;
+
+    if-eqz v1, :cond_3
+
+    iget-object v1, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mSubVoiceCallButton:Landroid/widget/Button;
+
+    if-eqz p1, :cond_5
+
+    :goto_1
+    invoke-virtual {v1, v0}, Landroid/widget/Button;->setVisibility(I)V
+
+    :cond_3
+    return-void
+
+    :cond_4
+    move v1, v2
+
+    goto :goto_0
+
+    :cond_5
+    move v0, v2
+
+    goto :goto_1
+.end method
+
+.method public showSubNumberDialog(Landroid/content/Context;ILjava/lang/String;[Ljava/lang/String;Z)V
     .locals 2
-    .annotation system Ldalvik/annotation/Signature;
-        value = {
-            "(",
-            "Landroid/content/Context;",
-            "I",
-            "Ljava/lang/String;",
-            "[",
-            "Ljava/lang/String;",
-            "Ljava/util/ArrayList",
-            "<",
-            "Ljava/lang/Integer;",
-            ">;)V"
-        }
-    .end annotation
 
     new-instance v0, Landroid/content/Intent;
 
@@ -5327,9 +5254,9 @@
 
     invoke-virtual {v0, v1, p4}, Landroid/content/Intent;->putExtra(Ljava/lang/String;[Ljava/lang/String;)Landroid/content/Intent;
 
-    const-string v1, "sub_id_list"
+    const-string v1, "has_main"
 
-    invoke-virtual {v0, v1, p5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Ljava/io/Serializable;)Landroid/content/Intent;
+    invoke-virtual {v0, v1, p5}, Landroid/content/Intent;->putExtra(Ljava/lang/String;Z)Landroid/content/Intent;
 
     :cond_0
     const/high16 v1, 0x10000000
@@ -5526,9 +5453,9 @@
 .end method
 
 .method protected updateEndCallButtons()V
-    .locals 14
+    .locals 13
 
-    const/4 v13, 0x2
+    const/4 v12, 0x2
 
     const/4 v6, 0x4
 
@@ -5605,7 +5532,7 @@
 
     iget v10, v4, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->presentation:I
 
-    if-eq v10, v13, :cond_2
+    if-eq v10, v12, :cond_2
 
     iget v10, v4, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->presentation:I
 
@@ -5742,28 +5669,6 @@
     move-result-object v5
 
     invoke-virtual {p0, v5, v8}, Lcom/android/incallui/fragment/EndCallButtonFragment;->getPhoneNumber(Landroid/content/Context;Lcom/android/incallui/Call;)Ljava/lang/String;
-
-    move-result-object v5
-
-    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
-
-    move-result-object v10
-
-    const/16 v11, 0x67
-
-    const/16 v12, 0x66
-
-    invoke-virtual {v10, v11, v12, v5}, Lcom/android/incallui/secrcs/RcsShareUI;->getCraneCap(IILjava/lang/String;)V
-
-    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
-
-    move-result-object v10
-
-    const/16 v11, 0x68
-
-    const/16 v12, 0x66
-
-    invoke-virtual {v10, v11, v12, v5}, Lcom/android/incallui/secrcs/RcsShareUI;->getCraneCap(IILjava/lang/String;)V
 
     const-string v5, "EndCallButtonFragment"
 
@@ -5913,12 +5818,6 @@
 
     if-eqz v5, :cond_25
 
-    invoke-static {}, Lcom/android/incallui/secrcs/RcsShareUI;->getInstance()Lcom/android/incallui/secrcs/RcsShareUI;
-
-    sget-boolean v5, Lcom/android/incallui/secrcs/RcsShareUI;->isCrane:Z
-
-    if-eqz v5, :cond_25
-
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v5
@@ -5937,7 +5836,7 @@
 
     move-result v5
 
-    if-eq v5, v13, :cond_9
+    if-eq v5, v12, :cond_9
 
     :cond_8
     invoke-virtual {v8}, Lcom/android/incallui/Call;->getDisconnectCause()Landroid/telecom/DisconnectCause;
@@ -6095,98 +5994,63 @@
 
     :cond_f
     :goto_6
-    const-string v5, "multi_number_cmcc"
+    const-string v5, "EndCallButtonFragment"
 
-    invoke-static {v5}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    move-result v5
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    if-eqz v5, :cond_33
+    const-string v11, "isEmergency : "
 
-    invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->checkMultivalue()Z
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result v5
+    move-result-object v10
 
-    const-string v10, "EndCallButtonFragment"
+    invoke-virtual {v10, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    move-result-object v10
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const-string v12, "isMultiNmberShow : "
+    move-result-object v10
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v5, v10}, Lcom/android/incallui/Log;->v(Ljava/lang/String;Ljava/lang/String;)V
 
-    move-result-object v11
+    const-string v5, "EndCallButtonFragment"
 
-    invoke-virtual {v11, v5}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string v11, "isNumberExists : "
 
-    move-result-object v11
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v10, v11}, Lcom/android/incallui/Log;->v(Ljava/lang/String;Ljava/lang/String;)V
+    move-result-object v10
 
-    :goto_7
-    const-string v10, "EndCallButtonFragment"
+    invoke-virtual {v10, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
-    new-instance v11, Ljava/lang/StringBuilder;
+    move-result-object v10
 
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v10}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    const-string v12, "isEmergency : "
+    move-result-object v10
 
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-static {v5, v10}, Lcom/android/incallui/Log;->v(Ljava/lang/String;Ljava/lang/String;)V
 
-    move-result-object v11
+    const-string v5, "EndCallButtonFragment"
 
-    invoke-virtual {v11, v4}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    new-instance v10, Ljava/lang/StringBuilder;
 
-    move-result-object v11
+    invoke-direct {v10}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    const-string v11, "isUltraPowerSavingMode : "
 
-    move-result-object v11
+    invoke-virtual {v10, v11}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    invoke-static {v10, v11}, Lcom/android/incallui/Log;->v(Ljava/lang/String;Ljava/lang/String;)V
+    move-result-object v10
 
-    const-string v10, "EndCallButtonFragment"
-
-    new-instance v11, Ljava/lang/StringBuilder;
-
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v12, "isNumberExists : "
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11, v0}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v11
-
-    invoke-static {v10, v11}, Lcom/android/incallui/Log;->v(Ljava/lang/String;Ljava/lang/String;)V
-
-    const-string v10, "EndCallButtonFragment"
-
-    new-instance v11, Ljava/lang/StringBuilder;
-
-    invoke-direct {v11}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v12, "isUltraPowerSavingMode : "
-
-    invoke-virtual {v11, v12}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v11
-
-    invoke-virtual {v11, v9}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+    invoke-virtual {v10, v9}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
 
     move-result-object v9
 
@@ -6194,59 +6058,59 @@
 
     move-result-object v9
 
-    invoke-static {v10, v9}, Lcom/android/incallui/Log;->v(Ljava/lang/String;Ljava/lang/String;)V
+    invoke-static {v5, v9}, Lcom/android/incallui/Log;->v(Ljava/lang/String;Ljava/lang/String;)V
 
-    const-string v9, "support_smart_call"
+    const-string v5, "support_smart_call"
 
-    invoke-static {v9}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    invoke-static {v5}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
-    move-result v9
+    move-result v5
 
-    if-nez v9, :cond_10
+    if-nez v5, :cond_10
 
-    const-string v9, "support_spam_call_report"
+    const-string v5, "support_spam_call_report"
 
-    invoke-static {v9}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    invoke-static {v5}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
-    move-result v9
+    move-result v5
 
-    if-eqz v9, :cond_12
+    if-eqz v5, :cond_12
 
     :cond_10
     invoke-static {}, Lcom/android/incallui/smartcall/SmartCallUtil;->isSpamEnable()Z
 
-    move-result v9
+    move-result v5
 
-    if-eqz v9, :cond_12
+    if-eqz v5, :cond_12
 
     invoke-virtual {v8}, Lcom/android/incallui/Call;->getNumber()Ljava/lang/String;
 
-    move-result-object v9
+    move-result-object v5
 
-    invoke-static {v9}, Lcom/android/incallui/util/NameNumberUtils;->isUnknownNumber(Ljava/lang/String;)Z
+    invoke-static {v5}, Lcom/android/incallui/util/NameNumberUtils;->isUnknownNumber(Ljava/lang/String;)Z
 
-    move-result v9
+    move-result v5
 
-    if-nez v9, :cond_2b
+    if-nez v5, :cond_2b
 
     if-nez v3, :cond_2b
 
     move v3, v1
 
-    :goto_8
-    const-string v9, "support_smart_call"
+    :goto_7
+    const-string v5, "support_smart_call"
 
-    invoke-static {v9}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    invoke-static {v5}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
-    move-result v9
+    move-result v5
 
-    if-eqz v9, :cond_11
+    if-eqz v5, :cond_11
 
     invoke-static {v8}, Lcom/android/incallui/smartcall/SmartCallUtil;->getSmartCallState(Lcom/android/incallui/Call;)I
 
-    move-result v9
+    move-result v5
 
-    if-ne v9, v1, :cond_11
+    if-ne v5, v1, :cond_11
 
     move v3, v2
 
@@ -6262,7 +6126,7 @@
 
     move v0, v1
 
-    :goto_9
+    :goto_8
     invoke-static {}, Lcom/android/incallui/bike/BikeModeUtils;->isBikeMode()Z
 
     move-result v3
@@ -6434,7 +6298,7 @@
     invoke-virtual {v0, v2}, Landroid/widget/Button;->setEnabled(Z)V
 
     :cond_1d
-    :goto_a
+    :goto_9
     invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->updateVolteEndCallButtonIcon()V
 
     const-string v0, "emergency_find_lost_phone"
@@ -6509,7 +6373,7 @@
     invoke-virtual {p0, v0, v1}, Lcom/android/incallui/fragment/EndCallButtonFragment;->updateVoiceCallButton(Landroid/widget/Button;Z)V
 
     :cond_21
-    :goto_b
+    :goto_a
     const-string v0, "multi_number_cmcc"
 
     invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
@@ -6518,7 +6382,9 @@
 
     if-eqz v0, :cond_0
 
-    invoke-virtual {p0, v5}, Lcom/android/incallui/fragment/EndCallButtonFragment;->showMultiCall(Z)V
+    iget-boolean v0, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->isNeedToShowSubNumber:Z
+
+    invoke-virtual {p0, v0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->showSubNumberButtons(Z)V
 
     goto/16 :goto_0
 
@@ -6640,12 +6506,12 @@
     :cond_2b
     move v3, v2
 
-    goto/16 :goto_8
+    goto/16 :goto_7
 
     :cond_2c
     move v0, v2
 
-    goto/16 :goto_9
+    goto/16 :goto_8
 
     :cond_2d
     const-string v0, "att_volte_ui"
@@ -6666,7 +6532,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/Button;->setEnabled(Z)V
 
-    goto/16 :goto_a
+    goto/16 :goto_9
 
     :cond_2e
     const-string v0, "support_spr_svd"
@@ -6675,7 +6541,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_31
+    if-eqz v0, :cond_32
 
     iget-object v0, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallButton:Landroid/widget/Button;
 
@@ -6683,30 +6549,43 @@
 
     move-result v3
 
-    if-nez v3, :cond_2f
+    if-eqz v3, :cond_2f
 
+    invoke-static {}, Lcom/android/incallui/util/ImsCommonUtils;->isAvailableVoLTE()Z
+
+    move-result v3
+
+    if-nez v3, :cond_30
+
+    :cond_2f
     invoke-static {}, Lcom/android/incallui/InCallUISystemDB;->isWiFiCallEnable()Z
 
     move-result v3
 
-    if-eqz v3, :cond_30
+    if-eqz v3, :cond_31
 
-    :cond_2f
-    move v2, v1
+    invoke-static {}, Lcom/android/incallui/util/ImsCommonUtils;->isAvailableVoWFi()Z
+
+    move-result v3
+
+    if-eqz v3, :cond_31
 
     :cond_30
-    invoke-virtual {p0, v0, v2}, Lcom/android/incallui/fragment/EndCallButtonFragment;->updateVoiceCallButton(Landroid/widget/Button;Z)V
-
-    goto/16 :goto_b
+    move v2, v1
 
     :cond_31
+    invoke-virtual {p0, v0, v2}, Lcom/android/incallui/fragment/EndCallButtonFragment;->updateVoiceCallButton(Landroid/widget/Button;Z)V
+
+    goto/16 :goto_a
+
+    :cond_32
     const-string v0, "spr_vowifi_ui"
 
     invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-nez v0, :cond_32
+    if-nez v0, :cond_33
 
     const-string v0, "show_vowifi_voicecall_button"
 
@@ -6716,7 +6595,7 @@
 
     if-eqz v0, :cond_21
 
-    :cond_32
+    :cond_33
     iget-object v0, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallButton:Landroid/widget/Button;
 
     invoke-static {}, Lcom/android/incallui/util/ImsCommonUtils;->isAvailableVoWFi()Z
@@ -6725,12 +6604,7 @@
 
     invoke-virtual {p0, v0, v1}, Lcom/android/incallui/fragment/EndCallButtonFragment;->updateVoiceCallButton(Landroid/widget/Button;Z)V
 
-    goto/16 :goto_b
-
-    :cond_33
-    move v5, v2
-
-    goto/16 :goto_7
+    goto/16 :goto_a
 
     :cond_34
     move v4, v3
@@ -7019,7 +6893,7 @@
 
     if-eqz v0, :cond_2
 
-    const v0, 0x7f100311
+    const v0, 0x7f100317
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -7037,7 +6911,7 @@
 
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    const v0, 0x7f100156
+    const v0, 0x7f10015a
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -7047,7 +6921,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/fragment/EndCallButtonFragment;->mVoiceCallSim1Button:Landroid/widget/Button;
 
-    const v0, 0x7f100157
+    const v0, 0x7f10015b
 
     invoke-virtual {p1, v0}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -7523,7 +7397,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f020227
+    const v0, 0x7f02025b
 
     if-eqz p2, :cond_1
 
@@ -7535,7 +7409,7 @@
 
     if-eqz v0, :cond_2
 
-    const v0, 0x7f020228
+    const v0, 0x7f02025c
 
     :cond_1
     :goto_1
@@ -7571,12 +7445,12 @@
     if-eqz v0, :cond_4
 
     :cond_3
-    const v0, 0x7f02022a
+    const v0, 0x7f02025e
 
     goto :goto_1
 
     :cond_4
-    const v0, 0x7f020229
+    const v0, 0x7f02025d
 
     goto :goto_1
 .end method
@@ -7607,7 +7481,7 @@
     if-eqz v0, :cond_2
 
     :cond_0
-    const v0, 0x7f02020c
+    const v0, 0x7f020240
 
     const-string v1, "feature_skt"
 
@@ -7617,7 +7491,7 @@
 
     if-eqz v1, :cond_3
 
-    const v0, 0x7f02020f
+    const v0, 0x7f020243
 
     :cond_1
     :goto_0
@@ -7681,7 +7555,7 @@
 
     if-eqz v1, :cond_4
 
-    const v0, 0x7f02020d
+    const v0, 0x7f020241
 
     goto :goto_0
 
@@ -7694,7 +7568,7 @@
 
     if-eqz v1, :cond_1
 
-    const v0, 0x7f02020e
+    const v0, 0x7f020242
 
     goto :goto_0
 .end method
@@ -7741,7 +7615,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0903ae
+    const v1, 0x7f0903b1
 
     invoke-static {v0, v1, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -7758,7 +7632,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f09024f
+    const v1, 0x7f090252
 
     invoke-static {v0, v1, v3}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -7849,6 +7723,21 @@
 
     invoke-virtual {v1, v0}, Lcom/android/incallui/CallList;->setRedialCall(Lcom/android/incallui/Call;)V
 
+    const-string v0, "agif_induce_service"
+
+    invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_8
+
+    invoke-static {}, Lcom/android/incallui/agif/AgifManager;->getInstance()Lcom/android/incallui/agif/AgifManager;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Lcom/android/incallui/agif/AgifManager;->redial()V
+
+    :cond_8
     invoke-virtual {p0}, Lcom/android/incallui/fragment/EndCallButtonFragment;->getContext()Landroid/content/Context;
 
     move-result-object v0
@@ -7875,13 +7764,13 @@
 
     move-result v1
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_9
 
     invoke-static {}, Lcom/android/incallui/InCallUISystemDB;->isTwoPhoneRegistered()Z
 
     move-result v1
 
-    if-eqz v1, :cond_8
+    if-eqz v1, :cond_9
 
     const-string v4, "TwoPhoneDialOption"
 
@@ -7889,21 +7778,21 @@
 
     move-result v1
 
-    if-eqz v1, :cond_a
+    if-eqz v1, :cond_b
 
     const-string v1, "twophone"
 
     :goto_1
     invoke-virtual {v3, v4, v1}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_8
+    :cond_9
     const-string v1, "jansky_info_for_tmo"
 
     invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v1
 
-    if-eqz v1, :cond_9
+    if-eqz v1, :cond_a
 
     const-string v1, "jansky_msisdn"
 
@@ -7913,7 +7802,7 @@
 
     invoke-virtual {v3, v1, v4}, Landroid/os/Bundle;->putString(Ljava/lang/String;Ljava/lang/String;)V
 
-    :cond_9
+    :cond_a
     const-string v1, "tel"
 
     invoke-static {v1, v2, v5}, Landroid/net/Uri;->fromParts(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Landroid/net/Uri;
@@ -7924,7 +7813,7 @@
 
     goto/16 :goto_0
 
-    :cond_a
+    :cond_b
     const-string v1, "onephone"
 
     goto :goto_1

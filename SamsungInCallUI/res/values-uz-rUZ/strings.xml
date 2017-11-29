@@ -120,12 +120,13 @@
     <string name="account_phone">Qurilma</string>
     <string name="acs">Ovozli qo‘ng‘iroq</string>
     <string name="active_calls">Faol qo‘ng‘iroq</string>
-    <string name="add_reminder">Eslat. qo‘sh</string>
+    <string name="add_reminder">Eslatma qo‘shish</string>
     <string name="agif_button_close_description">Yopish</string>
     <string name="agif_decline_message">Kechirasiz, hozir gaplasha olmayman.</string>
     <string name="agif_decline_sticker_header">Stiker bilan rad etish</string>
     <string name="agif_decline_text_header">Matn bilan rad etish</string>
     <string name="agif_decline_toast">Stiker %s’ga yuborildi.</string>
+    <string name="agif_outgoing_bubble_tip">Kayfiyatingizni ko‘rsatish uchun stikerni yuboring.</string>
     <string name="agif_pickers_add_tab_description">Qo‘shish</string>
     <string name="agif_pickers_find_more">Qo‘shimcha ma’lumot</string>
     <string name="agif_pickers_item_usage_hints_description">Tanlash uchun ikki marta teging</string>
@@ -134,10 +135,12 @@
     <string name="agif_pickers_tab_select_description">Tanlangan</string>
     <string name="agif_pickers_title">Stiker bilan boshlash</string>
     <string name="agif_pickers_title_recommended">Tavsiya etilgan</string>
+    <string name="agif_random_send_message">Bu stikerni yuborish uchun bu yerga teging.</string>
     <string name="agif_read_permission_description">Telefonga AGIF tarkibni o‘qish imkonini beradi.</string>
     <string name="agif_read_permission_label">AGIF tarkibni o‘qish</string>
     <string name="agif_receive_no_id">Stikerni ko‘rsatib bo‘lmaydi. Qo‘ng‘iroqdan so‘ng %s’ni yangilang.</string>
     <string name="agif_receive_no_id_upsupport_update">Stiker ko‘rsatilmaydi. Keyingi tizim yangil. so‘ng ko‘proq stikerlardan foydalanish mumkin bo‘ladi.</string>
+    <string name="agif_receive_toast">%s’dan stiker.</string>
     <string name="agif_sent_fail_message">Animatsiyalangan GIF’ni yuborib bo‘lmaydi. Keyinroq qayta urinib ko‘ring.</string>
     <string name="agif_sent_toast">Stiker yuborildi.</string>
     <string name="agif_write_permission_description">Telefonga AGIF tarkibni o‘zgartirish imkonini beradi.</string>
@@ -828,8 +831,8 @@ Kamera"</string>
     <string name="tts_pager">Sahifa %1$d/%2$d</string>
     <string name="tts_seconds">%d soniya</string>
     <string name="tty_mode_option_title">TTY rejimi</string>
-    <string name="tutorial_incoming_call_app_answer">Qo‘ng‘iroqqa javob berish uchun teging.</string>
-    <string name="tutorial_incoming_call_app_reject">Qo‘ng‘iroqni rad etish uchun teging.</string>
+    <string name="tutorial_incoming_call_app_answer">Javob berish uchun ikki marta cherting.</string>
+    <string name="tutorial_incoming_call_app_reject">Rad etish uchun ikki marta bosing.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Tarmoqqa ulanib bo‘lmaydi. Ulanish parametrlaringizni tekshiring va qayta urinib ko‘ring.</string>
     <string name="units_kb">KB</string>
@@ -839,7 +842,7 @@ Kamera"</string>
     <string name="upload_using_wlan_only">Faqat WLAN orqali yuklash</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fi yoki mobil tarmoq orqali yuklash</string>
     <string name="upload_wlan_and_mobile_nw">WLAN yoki mobil tarmoq orqali yuklab olish</string>
-    <string name="usa_att_connected_as_voice">Qo‘ng‘iroq faqat ovoz bilan ulangan.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Qurilmaga o‘rnatilgan internetdan foydalanish chekloviga yaqin qoldi. Video qo‘ng‘iroq uchun internet talab etiladi.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Wi-Fi orqali qon‘giroqni davom ettirib bo‘lmaydi, uyali tarmoqda ulanish. Ovoz va internet uchun to‘lovlar olinadi.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -887,13 +890,17 @@ videoga o‘zgartir"</string>
     <string name="usa_vzw_voice_incoming_during_wifi_video">Kiruvchi qo‘ng‘iroqqa javob berish joriy qo‘ng‘iroqni yakunlaydi.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_text">Qo‘ng‘iroqni davom ettirish uchun Wi-Fi signalining kuchi yetarli emas. Qo‘ng‘iroqni davom ettirish uchun mobil tarmoqlardan foydalanish tarifdagi internetni sarflaydi.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Mobil internetdan foydalaning</string>
-    <string name="usa_vzw_volte_weak_wifi_text">"Video qo‘ng‘iroqni hozrda Wi-Fi tarmoqg‘iga o‘tkazib bo‘lmaydi.
+    <string name="usa_vzw_volte_weak_wifi_text">"Video qo‘ng‘iroqni ayni paytda Wi-Fi tarmog‘iga ulab bo‘lmadi.
 
-Video qo‘ng‘iroq hali ham mobil tarmoqda amalga oshirilmoqda. (Davom ettirsangiz internet uchun qo‘shimcha to‘lov olinishi mumkin.)"</string>
+Video qo‘ng‘iroq haligacha mobil tarmoqda amalga oshirilmoqda.
+
+Davom ettirsangiz internet uchun qo‘shimcha to‘lov olinishi mumkin."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Video qo‘ng‘iroq haligacha mobil tarmoqda amalga oshirilmoqda. (Mobil internet uchun to‘lov olinadi)</string>
-    <string name="usa_vzw_vowifi_wifi_low_signal_text">"Video qo‘ng‘iroqni davom ettirish uchun Wi-Fi signalining kuchi yetarli bo‘lmadi.
+    <string name="usa_vzw_vowifi_wifi_low_signal_text">"Wi-Fi signali video qo‘ng‘iroqni davom ettirish uchun yetarli darajada murakkab emas.
 
-Video-qo‘ng‘iroq hozir mobil tarmoq orqali amalga oshirilmoqda. (Davom ettirsangiz internet uchun qo‘shimcha to‘lov olinishi mumkin.)"</string>
+Hozirda video qo‘ng‘irog‘ingiz mobil tarmoq orqali amalga oshirilmoqda.
+
+Davom ettirishni tanlasangiz, to‘lov olinishi mumkin."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi ulanishi yo‘qotildi. Qo‘ng‘iroq yakunlandi.</string>
     <string name="use_wifi_and_mobile_nw">Wi-Fi va mobil tarmoqlardan foydalanish</string>
     <string name="use_wlan_and_mobile_nw">WLAN va mobil tarmoqlardan foydalanish</string>

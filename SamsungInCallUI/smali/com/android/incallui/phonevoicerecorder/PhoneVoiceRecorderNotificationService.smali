@@ -21,7 +21,7 @@
 
 .field public static final HEADS_UP_NEVER:I = 0x0
 
-.field public static final LARGE_ICON_DRAWABLE_ID:I = 0x7f02032b
+.field public static final LARGE_ICON_DRAWABLE_ID:I = 0x7f02035f
 
 .field public static final MYFILES_CLASS_PATH:Ljava/lang/String; = "samsung.myfiles.intent.action.LAUNCH_MY_FILES"
 
@@ -33,7 +33,9 @@
 
 .field public static final PHONE_VOICE_RECORDER_NOTIFICATION_ID:I = 0x461
 
-.field public static final SMALL_ICON_DRAWABLE_ID:I = 0x7f02032b
+.field public static final SMALL_ICON_DRAWABLE_ID:I = 0x7f02035f
+
+.field private static final TAG:Ljava/lang/String; = "RecorderNotificationService"
 
 .field private static mIsShowing:Z
 
@@ -239,7 +241,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f02032b
+    const v1, 0x7f02035f
 
     invoke-virtual {v0, v1}, Landroid/support/v4/app/ac$d;->a(I)Landroid/support/v4/app/ac$d;
 
@@ -536,7 +538,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f02032b
+    const v1, 0x7f02035f
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification$Builder;->setLargeIcon(I)Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotification$Builder;
 
@@ -614,7 +616,7 @@
 
     sput-boolean v0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;->mIsShowing:Z
 
-    const-string v0, "RecorderStorageManager"
+    const-string v0, "RecorderNotificationService"
 
     const-string v1, "animateForHidetoremoveHeadUpNotification"
 
@@ -628,7 +630,7 @@
 .method public cancelQuickPanelNotification()V
     .locals 2
 
-    const-string v0, "RecorderStorageManager"
+    const-string v0, "RecorderNotificationService"
 
     const-string v1, "cancelQuickPanelNotification"
 
@@ -745,15 +747,15 @@
 .method protected initValue(I)V
     .locals 7
 
-    const v6, 0x7f09029e
+    const v6, 0x7f0902a1
 
-    const v5, 0x7f09029d
+    const v5, 0x7f0902a0
 
-    const v4, 0x7f09029b
+    const v4, 0x7f09029e
 
-    const v3, 0x7f090299
+    const v3, 0x7f09029c
 
-    const-string v0, "RecorderStorageManager"
+    const-string v0, "RecorderNotificationService"
 
     new-instance v1, Ljava/lang/StringBuilder;
 
@@ -782,7 +784,7 @@
     return-void
 
     :pswitch_1
-    const v0, 0x7f09029f
+    const v0, 0x7f0902a2
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;->getString(I)Ljava/lang/String;
 
@@ -790,7 +792,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;->mContentTitle:Ljava/lang/CharSequence;
 
-    const v0, 0x7f09029c
+    const v0, 0x7f09029f
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;->getString(I)Ljava/lang/String;
 
@@ -798,7 +800,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;->mContentText:Ljava/lang/CharSequence;
 
-    const v0, 0x7f09029a
+    const v0, 0x7f09029d
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;->getString(I)Ljava/lang/String;
 
@@ -824,7 +826,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;->mButtonCloseIntent:Landroid/app/PendingIntent;
 
-    const v0, 0x7f0902b5
+    const v0, 0x7f0902b8
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;->getString(I)Ljava/lang/String;
 
@@ -835,7 +837,7 @@
     goto :goto_0
 
     :pswitch_2
-    const v0, 0x7f0902a0
+    const v0, 0x7f0902a3
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;->getString(I)Ljava/lang/String;
 
@@ -882,7 +884,7 @@
     goto :goto_0
 
     :pswitch_3
-    const v0, 0x7f0902a1
+    const v0, 0x7f0902a4
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;->getString(I)Ljava/lang/String;
 
@@ -1089,7 +1091,7 @@
 
     iput v0, p0, Lcom/android/incallui/phonevoicerecorder/PhoneVoiceRecorderNotificationService;->mNotificationType:I
 
-    const-string v0, "RecorderStorageManager"
+    const-string v0, "RecorderNotificationService"
 
     new-instance v1, Ljava/lang/StringBuilder;
 

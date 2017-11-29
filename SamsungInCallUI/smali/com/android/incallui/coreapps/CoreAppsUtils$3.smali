@@ -25,11 +25,11 @@
 
 # virtual methods
 .method protected doInBackground([Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 9
+    .locals 8
 
-    const/4 v8, 0x0
+    const/4 v7, 0x0
 
-    const/4 v7, 0x1
+    const/4 v6, 0x1
 
     invoke-static {}, Lcom/android/incallui/coreapps/CoreAppsManager;->getInstance()Lcom/android/incallui/coreapps/CoreAppsManager;
 
@@ -42,7 +42,7 @@
     if-nez v0, :cond_0
 
     :goto_0
-    return-object v8
+    return-object v7
 
     :cond_0
     const/4 v0, 0x0
@@ -51,7 +51,7 @@
 
     check-cast v0, Landroid/content/Context;
 
-    aget-object v1, p1, v7
+    aget-object v1, p1, v6
 
     check-cast v1, Ljava/lang/String;
 
@@ -61,11 +61,11 @@
 
     check-cast v2, Ljava/lang/String;
 
-    invoke-static {v0, v2}, Lcom/android/incallui/coreapps/CoreAppsUtils;->getPhonenumberInfo(Landroid/content/Context;Ljava/lang/String;)Lcom/google/i18n/phonenumbers/Phonenumber$PhoneNumber;
+    invoke-static {v0, v2, v1}, Lcom/android/incallui/coreapps/CoreAppsUtils;->getPhonenumberInfo(Landroid/content/Context;Ljava/lang/String;Ljava/lang/String;)Lcom/google/i18n/phonenumbers/Phonenumber$PhoneNumber;
 
     move-result-object v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_2
 
     invoke-static {}, Lcom/android/incallui/coreapps/CoreAppsUtils;->getContext()Landroid/content/Context;
 
@@ -79,64 +79,7 @@
 
     move-result-object v2
 
-    invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
-
-    move-result-object v3
-
-    invoke-virtual {v3, v1}, Lcom/android/incallui/CallList;->getCallById(Ljava/lang/String;)Lcom/android/incallui/Call;
-
-    move-result-object v3
-
-    invoke-static {v3}, Lcom/android/incallui/util/InCallUtilsMultiSIM;->getPhoneId(Lcom/android/incallui/Call;)I
-
-    move-result v3
-
-    const/4 v4, -0x1
-
-    if-eq v3, v4, :cond_1
-
-    const-string v4, "Agifflow-Agifflow-CoreAppsUtils"
-
-    new-instance v5, Ljava/lang/StringBuilder;
-
-    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v6, "networkiso = "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-static {v3}, Lcom/android/incallui/coreapps/CoreAppsUtils;->getNetworkCountryIso(I)Ljava/lang/String;
-
-    move-result-object v6
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    const-string v6, ", simiso = "
-
-    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v5
-
-    invoke-static {v3}, Lcom/android/incallui/coreapps/CoreAppsUtils;->getSimCountryIso(I)Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v3
-
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v3
-
-    invoke-static {v4, v3}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;)V
-
-    :cond_1
-    if-eqz v2, :cond_2
+    if-eqz v2, :cond_1
 
     invoke-virtual {v0}, Lcom/google/i18n/phonenumbers/Phonenumber$PhoneNumber;->getCountryCode()I
 
@@ -206,7 +149,7 @@
 
     move-result-object v2
 
-    invoke-static {v0, v2, v7}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v0, v2, v6}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
     invoke-static {}, Lcom/android/incallui/coreapps/CoreAppsManager;->getInstance()Lcom/android/incallui/coreapps/CoreAppsManager;
 
@@ -214,23 +157,23 @@
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/coreapps/CoreAppsManager;->checkOpponentState(Ljava/lang/String;)V
 
-    goto/16 :goto_0
+    goto :goto_0
 
-    :cond_2
+    :cond_1
     const-string v0, "Agifflow-Agifflow-CoreAppsUtils"
 
     const-string v1, "updateGeoDescriptionAsync: entry = null"
 
-    invoke-static {v0, v1, v7}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v0, v1, v6}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
-    goto/16 :goto_0
+    goto :goto_0
 
-    :cond_3
+    :cond_2
     const-string v0, "Agifflow-Agifflow-CoreAppsUtils"
 
     const-string v1, "updateGeoDescriptionAsync: phoneNumber = null"
 
-    invoke-static {v0, v1, v7}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
+    invoke-static {v0, v1, v6}, Lcom/android/incallui/Log;->i(Ljava/lang/String;Ljava/lang/String;Z)V
 
     goto/16 :goto_0
 .end method

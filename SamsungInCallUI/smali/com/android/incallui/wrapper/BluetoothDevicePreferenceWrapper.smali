@@ -126,7 +126,7 @@
 .method private static getAppearanceDrawable(Landroid/bluetooth/BluetoothDevice;I)I
     .locals 3
 
-    const v0, 0x7f0201d4
+    const v0, 0x7f020208
 
     sparse-switch p1, :sswitch_data_0
 
@@ -169,7 +169,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0201cf
+    const v0, 0x7f020203
 
     goto :goto_0
 
@@ -180,7 +180,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0201ce
+    const v0, 0x7f020202
 
     goto :goto_0
 
@@ -200,7 +200,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0201c9
+    const v0, 0x7f0201fd
 
     goto :goto_0
 
@@ -217,9 +217,9 @@
 .method public static getBtClassDrawable(Landroid/bluetooth/BluetoothDevice;)I
     .locals 9
 
-    const v1, 0x7f0201d3
+    const v1, 0x7f020207
 
-    const v2, 0x7f0201d1
+    const v2, 0x7f020205
 
     const/16 v8, 0xa
 
@@ -343,7 +343,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0201d4
+    const v0, 0x7f020208
 
     goto :goto_0
 
@@ -374,7 +374,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0201ce
+    const v0, 0x7f020202
 
     goto :goto_0
 
@@ -402,7 +402,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0201cf
+    const v0, 0x7f020203
 
     goto :goto_0
 
@@ -428,7 +428,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0201ca
+    const v0, 0x7f0201fe
 
     goto/16 :goto_0
 
@@ -445,7 +445,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0201cb
+    const v0, 0x7f0201ff
 
     goto/16 :goto_0
 
@@ -533,7 +533,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0201d0
+    const v0, 0x7f020204
 
     goto/16 :goto_0
 
@@ -616,7 +616,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0201cf
+    const v0, 0x7f020203
 
     goto :goto_0
 
@@ -627,7 +627,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0201d3
+    const v0, 0x7f020207
 
     goto :goto_0
 
@@ -638,7 +638,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0201d4
+    const v0, 0x7f020208
 
     goto :goto_0
 
@@ -666,7 +666,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0201ce
+    const v0, 0x7f020202
 
     goto :goto_0
 
@@ -677,7 +677,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0201ce
+    const v0, 0x7f020202
 
     goto :goto_0
 
@@ -700,7 +700,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0201c5
+    const v0, 0x7f0201f9
 
     goto :goto_0
 
@@ -715,7 +715,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0201d2
+    const v0, 0x7f020206
 
     goto :goto_0
 
@@ -730,7 +730,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0201c6
+    const v0, 0x7f0201fa
 
     goto :goto_0
 
@@ -745,7 +745,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0201c8
+    const v0, 0x7f0201fc
 
     goto/16 :goto_0
 
@@ -762,7 +762,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0201c7
+    const v0, 0x7f0201fb
 
     goto/16 :goto_0
 
@@ -773,7 +773,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0201c8
+    const v0, 0x7f0201fc
 
     goto/16 :goto_0
 
@@ -788,7 +788,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0201cc
+    const v0, 0x7f020200
 
     goto/16 :goto_0
 
@@ -803,7 +803,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0201d0
+    const v0, 0x7f020204
 
     goto/16 :goto_0
 
@@ -818,7 +818,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0201cd
+    const v0, 0x7f020201
 
     goto/16 :goto_0
 
@@ -829,7 +829,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0201cc
+    const v0, 0x7f020200
 
     goto/16 :goto_0
 
@@ -844,7 +844,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0201c8
+    const v0, 0x7f0201fc
 
     goto/16 :goto_0
 
@@ -855,7 +855,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0201d1
+    const v0, 0x7f020205
 
     goto/16 :goto_0
 
@@ -938,7 +938,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0201c8
+    const v0, 0x7f0201fc
 
     :goto_0
     return v0
@@ -950,7 +950,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0201cc
+    const v0, 0x7f020200
 
     goto :goto_0
 
@@ -975,7 +975,7 @@
 
     invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v0, 0x7f0201cd
+    const v0, 0x7f020201
 
     goto :goto_0
 

@@ -1220,7 +1220,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a0546
+    const v2, 0x7f0a0580
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -2442,7 +2442,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0400b5
+    const v1, 0x7f0400b6
 
     invoke-virtual {v0, v1, p1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;)Landroid/view/View;
 
@@ -3307,7 +3307,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/service/SecCallPopupService;->mSecCallPopupContainer:Lcom/android/incallui/service/SecCallPopupContainer;
 
-    invoke-virtual {v0, p1}, Lcom/android/incallui/service/SecCallPopupContainer;->onSelectAgifContents(Landroid/net/Uri;)V
+    invoke-virtual {v0, p1, p2}, Lcom/android/incallui/service/SecCallPopupContainer;->onSelectAgifContents(Landroid/net/Uri;Ljava/io/File;)V
 
     goto :goto_0
 .end method
@@ -3697,7 +3697,7 @@
 
     move-result-object v0
 
-    const v4, 0x7f090482
+    const v4, 0x7f090485
 
     invoke-static {v4}, Lcom/android/incallui/util/SALogging;->getString(I)Ljava/lang/String;
 
@@ -3724,7 +3724,7 @@
 
     move-result-object v0
 
-    const v4, 0x7f09043e
+    const v4, 0x7f090441
 
     invoke-static {v4}, Lcom/android/incallui/util/SALogging;->getString(I)Ljava/lang/String;
 
@@ -4409,7 +4409,7 @@
 
     if-nez v0, :cond_1
 
-    const v0, 0x7f09025a
+    const v0, 0x7f09025d
 
     invoke-static {v0}, Lcom/android/incallui/util/InCallUtils;->displayToast(I)V
 

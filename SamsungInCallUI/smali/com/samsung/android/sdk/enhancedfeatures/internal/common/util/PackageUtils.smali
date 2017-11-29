@@ -843,25 +843,25 @@
     :cond_0
     sget-object v0, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/PackageUtils;->mContext:Landroid/content/Context;
 
-    invoke-virtual {v0}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
+    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/PackageUtils;->mContext:Landroid/content/Context;
 
-    move-result-object v0
+    invoke-virtual {v1}, Landroid/content/Context;->getPackageName()Ljava/lang/String;
 
-    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/PackageUtils;->getAppVersionCode(Ljava/lang/String;)I
+    move-result-object v1
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/PackageUtils;->getAppVersionCode(Landroid/content/Context;Ljava/lang/String;)I
 
     move-result v0
 
     goto :goto_0
 .end method
 
-.method public static getAppVersionCode(Ljava/lang/String;)I
+.method public static getAppVersionCode(Landroid/content/Context;Ljava/lang/String;)I
     .locals 4
 
     const/4 v0, -0x1
 
-    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/PackageUtils;->mContext:Landroid/content/Context;
-
-    if-nez v1, :cond_0
+    if-nez p0, :cond_0
 
     const-string v1, "getAppVersionCode. Invalid Context."
 
@@ -874,9 +874,7 @@
 
     :cond_0
     :try_start_0
-    sget-object v1, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/util/PackageUtils;->mContext:Landroid/content/Context;
-
-    invoke-virtual {v1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+    invoke-virtual {p0}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
 
     move-result-object v1
 
@@ -884,7 +882,7 @@
 
     const/4 v2, 0x0
 
-    invoke-virtual {v1, p0, v2}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
+    invoke-virtual {v1, p1, v2}, Landroid/content/pm/PackageManager;->getPackageInfo(Ljava/lang/String;I)Landroid/content/pm/PackageInfo;
 
     move-result-object v1
 

@@ -527,7 +527,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0201a1
+    const v0, 0x7f0201cc
 
     :goto_0
     invoke-virtual {p0}, Lcom/android/incallui/CallCardPresenter;->getContext()Landroid/content/Context;
@@ -549,7 +549,7 @@
     return-object v0
 
     :cond_0
-    const v0, 0x7f02019d
+    const v0, 0x7f0201c8
 
     goto :goto_0
 .end method
@@ -6077,6 +6077,12 @@
 
     if-eqz v2, :cond_4
 
+    invoke-static {}, Lcom/android/incallui/util/CallTypeUtils;->isVolteGroupCall()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_4
+
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v2
@@ -6588,7 +6594,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f09051c
+    const v2, 0x7f09051f
 
     new-array v5, v4, [Ljava/lang/Object;
 

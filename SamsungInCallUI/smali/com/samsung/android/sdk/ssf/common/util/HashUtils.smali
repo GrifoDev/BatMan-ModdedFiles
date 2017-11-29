@@ -2,7 +2,24 @@
 .super Ljava/lang/Object;
 
 
+# annotations
+.annotation system Ldalvik/annotation/MemberClasses;
+    value = {
+        Lcom/samsung/android/sdk/ssf/common/util/HashUtils$HashingListener;,
+        Lcom/samsung/android/sdk/ssf/common/util/HashUtils$Sha256HashAsyncTask;
+    }
+.end annotation
+
+
 # static fields
+.field private static final DEVICEID_HASH_ALGORITHM:Ljava/lang/String; = "PBKDF2WithHmacSHA1"
+
+.field private static final DEVICEID_HASH_ITERATION_COUNT:I = 0x1e
+
+.field private static final DEVICEID_HASH_KEY_LENGTH:I = 0x80
+
+.field private static final DEVICEID_HASH_SALT:Ljava/lang/String; = "LINDOR"
+
 .field private static DIGITS:[C = null
 
 .field private static final SHA256:Ljava/lang/String; = "SHA-256"
@@ -51,6 +68,26 @@
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
     return-void
+.end method
+
+.method static synthetic access$000(Ljava/lang/String;)Ljava/security/MessageDigest;
+    .locals 1
+
+    invoke-static {p0}, Lcom/samsung/android/sdk/ssf/common/util/HashUtils;->getDigest(Ljava/lang/String;)Ljava/security/MessageDigest;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
+.method static synthetic access$100([B)[C
+    .locals 1
+
+    invoke-static {p0}, Lcom/samsung/android/sdk/ssf/common/util/HashUtils;->encodeHex([B)[C
+
+    move-result-object v0
+
+    return-object v0
 .end method
 
 .method private static calculateSha256(Ljava/lang/String;)[B
@@ -205,26 +242,26 @@
     return-object v3
 .end method
 
-.method private static generateStorngDeviceIDHash(Ljava/lang/String;)Ljava/lang/String;
+.method public static generateStrongDeviceIDHash(Ljava/lang/String;)Ljava/lang/String;
     .locals 5
-
-    const/16 v0, 0x1e
 
     invoke-virtual {p0}, Ljava/lang/String;->toCharArray()[C
 
+    move-result-object v0
+
+    const-string v1, "LINDOR"
+
+    invoke-virtual {v1}, Ljava/lang/String;->getBytes()[B
+
     move-result-object v1
 
-    const-string v2, "LINDOR"
+    new-instance v2, Ljavax/crypto/spec/PBEKeySpec;
 
-    invoke-virtual {v2}, Ljava/lang/String;->getBytes()[B
-
-    move-result-object v2
-
-    new-instance v3, Ljavax/crypto/spec/PBEKeySpec;
+    const/16 v3, 0x1e
 
     const/16 v4, 0x80
 
-    invoke-direct {v3, v1, v2, v0, v4}, Ljavax/crypto/spec/PBEKeySpec;-><init>([C[BII)V
+    invoke-direct {v2, v0, v1, v3, v4}, Ljavax/crypto/spec/PBEKeySpec;-><init>([C[BII)V
 
     const-string v0, "PBKDF2WithHmacSHA1"
 
@@ -232,7 +269,7 @@
 
     move-result-object v0
 
-    invoke-virtual {v0, v3}, Ljavax/crypto/SecretKeyFactory;->generateSecret(Ljava/security/spec/KeySpec;)Ljavax/crypto/SecretKey;
+    invoke-virtual {v0, v2}, Ljavax/crypto/SecretKeyFactory;->generateSecret(Ljava/security/spec/KeySpec;)Ljavax/crypto/SecretKey;
 
     move-result-object v0
 
@@ -267,159 +304,6 @@
     invoke-direct {v1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/Throwable;)V
 
     throw v1
-.end method
-
-.method public static getFileSHA256(Ljava/io/File;)Ljava/lang/String;
-    .locals 3
-
-    const/4 v2, 0x0
-
-    :try_start_0
-    new-instance v1, Ljava/io/FileInputStream;
-
-    invoke-direct {v1, p0}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
-
-    :try_start_1
-    invoke-static {v1}, Lcom/samsung/android/sdk/ssf/common/util/HashUtils;->getFileSHA256(Ljava/io/InputStream;)Ljava/lang/String;
-    :try_end_1
-    .catchall {:try_start_1 .. :try_end_1} :catchall_1
-
-    move-result-object v0
-
-    if-eqz v1, :cond_0
-
-    invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
-
-    :cond_0
-    return-object v0
-
-    :catchall_0
-    move-exception v0
-
-    move-object v1, v2
-
-    :goto_0
-    if-eqz v1, :cond_1
-
-    invoke-virtual {v1}, Ljava/io/FileInputStream;->close()V
-
-    :cond_1
-    throw v0
-
-    :catchall_1
-    move-exception v0
-
-    goto :goto_0
-.end method
-
-.method public static getFileSHA256(Ljava/io/InputStream;)Ljava/lang/String;
-    .locals 5
-
-    const/16 v4, 0x400
-
-    const/4 v3, 0x0
-
-    const-string v0, "SHA-256"
-
-    invoke-static {v0}, Lcom/samsung/android/sdk/ssf/common/util/HashUtils;->getDigest(Ljava/lang/String;)Ljava/security/MessageDigest;
-
-    move-result-object v0
-
-    new-array v1, v4, [B
-
-    :goto_0
-    invoke-virtual {p0, v1, v3, v4}, Ljava/io/InputStream;->read([BII)I
-
-    move-result v2
-
-    if-lez v2, :cond_0
-
-    invoke-virtual {v0, v1, v3, v2}, Ljava/security/MessageDigest;->update([BII)V
-
-    goto :goto_0
-
-    :cond_0
-    invoke-virtual {v0}, Ljava/security/MessageDigest;->digest()[B
-
-    move-result-object v0
-
-    new-instance v1, Ljava/lang/String;
-
-    invoke-static {v0}, Lcom/samsung/android/sdk/ssf/common/util/HashUtils;->encodeHex([B)[C
-
-    move-result-object v0
-
-    invoke-direct {v1, v0}, Ljava/lang/String;-><init>([C)V
-
-    return-object v1
-.end method
-
-.method public static getFileSHA256(Ljava/lang/String;)Ljava/lang/String;
-    .locals 1
-
-    new-instance v0, Ljava/io/File;
-
-    invoke-direct {v0, p0}, Ljava/io/File;-><init>(Ljava/lang/String;)V
-
-    invoke-static {v0}, Lcom/samsung/android/sdk/ssf/common/util/HashUtils;->getFileSHA256(Ljava/io/File;)Ljava/lang/String;
-
-    move-result-object v0
-
-    return-object v0
-.end method
-
-.method public static getHashFromLocalFile(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LocalFile;)Ljava/lang/String;
-    .locals 3
-
-    const/4 v0, 0x0
-
-    :try_start_0
-    invoke-virtual {p0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LocalFile;->isUseInputStream()Z
-
-    move-result v1
-
-    if-eqz v1, :cond_0
-
-    invoke-virtual {p0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LocalFile;->getInputStream()Ljava/io/InputStream;
-
-    move-result-object v1
-
-    invoke-virtual {v1}, Ljava/io/InputStream;->reset()V
-
-    invoke-virtual {p0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LocalFile;->getInputStream()Ljava/io/InputStream;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/ssf/common/util/HashUtils;->getFileSHA256(Ljava/io/InputStream;)Ljava/lang/String;
-
-    move-result-object v0
-
-    :goto_0
-    return-object v0
-
-    :cond_0
-    invoke-virtual {p0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LocalFile;->getFile()Ljava/io/File;
-
-    move-result-object v1
-
-    invoke-static {v1}, Lcom/samsung/android/sdk/ssf/common/util/HashUtils;->getFileSHA256(Ljava/io/File;)Ljava/lang/String;
-    :try_end_0
-    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
-
-    move-result-object v0
-
-    goto :goto_0
-
-    :catch_0
-    move-exception v1
-
-    const-string v2, "HashUtils"
-
-    invoke-static {v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->e(Ljava/lang/Throwable;Ljava/lang/String;)V
-
-    goto :goto_0
 .end method
 
 .method public static makeChecksum(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;

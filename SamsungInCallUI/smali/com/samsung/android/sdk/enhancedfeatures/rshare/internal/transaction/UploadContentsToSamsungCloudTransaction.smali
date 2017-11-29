@@ -17,6 +17,10 @@
 
 
 # instance fields
+.field private hashingListener:Lcom/samsung/android/sdk/ssf/common/util/HashUtils$HashingListener;
+
+.field private mAddQuota:Z
+
 .field private mCancel:Z
 
 .field private mCloudFileList:Ljava/util/List;
@@ -35,6 +39,10 @@
 .field private mCloudIndex:I
 
 .field private mGetUploadedBytesListener:Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/listener/SamsungCloudListener;
+
+.field private mHandler:Landroid/os/Handler;
+
+.field private mHashingAsyncTask:Lcom/samsung/android/sdk/ssf/common/util/HashUtils$Sha256HashAsyncTask;
 
 .field private mLinkFileListener:Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/listener/LinkFileListener;
 
@@ -91,9 +99,13 @@
     .end annotation
 .end field
 
+.field private mRestore:Z
+
 .field private mStep:Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction$Step;
 
 .field private mStepTransaction:Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/Transaction;
+
+.field private mTotalQuota:J
 
 .field private mTotalSize:I
 
@@ -119,9 +131,11 @@
 .method public constructor <init>(Landroid/content/Context;JLcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContentsToSamsungCloudRequest;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadSamsungCloudListener;)V
     .locals 4
 
-    const/4 v1, 0x0
+    const/4 v2, 0x1
 
     const/4 v0, -0x1
+
+    const/4 v1, 0x0
 
     invoke-direct {p0, p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/Transaction;-><init>(Landroid/content/Context;)V
 
@@ -161,6 +175,12 @@
 
     iput v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mProgress:I
 
+    iput-boolean v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mAddQuota:Z
+
+    const-wide/16 v0, 0x0
+
+    iput-wide v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mTotalQuota:J
+
     new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction$2;
 
     invoke-direct {v0, p0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction$2;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;)V
@@ -189,17 +209,23 @@
 
     invoke-direct {v0, p0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction$6;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;)V
 
-    iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mLinkPartialListener:Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/listener/LinkFileListener;
+    iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->hashingListener:Lcom/samsung/android/sdk/ssf/common/util/HashUtils$HashingListener;
 
     new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction$7;
 
     invoke-direct {v0, p0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction$7;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;)V
 
-    iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mUploadFileListener:Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadBinaryListener;
+    iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mLinkPartialListener:Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/listener/LinkFileListener;
 
     new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction$8;
 
     invoke-direct {v0, p0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction$8;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;)V
+
+    iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mUploadFileListener:Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadBinaryListener;
+
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction$9;
+
+    invoke-direct {v0, p0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction$9;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;)V
 
     iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mLinkFileListener:Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/listener/LinkFileListener;
 
@@ -219,11 +245,9 @@
 
     check-cast v0, Landroid/os/PowerManager;
 
-    const/4 v1, 0x1
+    const-string v1, "UploadContentsToSamsungCloudTransaction"
 
-    const-string v2, "UploadContentsToSamsungCloudTransaction"
-
-    invoke-virtual {v0, v1, v2}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
+    invoke-virtual {v0, v2, v1}, Landroid/os/PowerManager;->newWakeLock(ILjava/lang/String;)Landroid/os/PowerManager$WakeLock;
 
     move-result-object v0
 
@@ -240,6 +264,20 @@
     move-result-wide v0
 
     iput-wide v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mRequestToken:J
+
+    iput-boolean v2, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mRestore:Z
+
+    invoke-virtual {p4}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContentsToSamsungCloudRequest;->isAddQuota()Z
+
+    move-result v0
+
+    iput-boolean v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mAddQuota:Z
+
+    new-instance v0, Landroid/os/Handler;
+
+    invoke-direct {v0}, Landroid/os/Handler;-><init>()V
+
+    iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mHandler:Landroid/os/Handler;
 
     return-void
 .end method
@@ -311,7 +349,7 @@
 .method static synthetic access$1500(Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;)V
     .locals 0
 
-    invoke-direct {p0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->linkPartialFile()V
+    invoke-direct {p0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->getHashToLinkPartialFile()V
 
     return-void
 .end method
@@ -324,28 +362,28 @@
     return-object v0
 .end method
 
-.method static synthetic access$1700(Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;)I
+.method static synthetic access$1700(Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0, p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->linkPartialFile(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+.method static synthetic access$1800(Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;)Landroid/os/Handler;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mHandler:Landroid/os/Handler;
+
+    return-object v0
+.end method
+
+.method static synthetic access$1900(Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;)I
     .locals 1
 
     iget v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mLocalIndex:I
 
     return v0
-.end method
-
-.method static synthetic access$1800(Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->linkFile()V
-
-    return-void
-.end method
-
-.method static synthetic access$1900(Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;)V
-    .locals 0
-
-    invoke-direct {p0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->uploadLocalFileList()V
-
-    return-void
 .end method
 
 .method static synthetic access$200(Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;)J
@@ -354,6 +392,48 @@
     iget-wide v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mTransactionId:J
 
     return-wide v0
+.end method
+
+.method static synthetic access$2000(Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->linkFile()V
+
+    return-void
+.end method
+
+.method static synthetic access$2100(Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;)V
+    .locals 0
+
+    invoke-direct {p0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->uploadLocalFileList()V
+
+    return-void
+.end method
+
+.method static synthetic access$2200(Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;)I
+    .locals 1
+
+    iget v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mProgress:I
+
+    return v0
+.end method
+
+.method static synthetic access$2300(Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;)I
+    .locals 1
+
+    invoke-direct {p0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->getTotalSize()I
+
+    move-result v0
+
+    return v0
+.end method
+
+.method static synthetic access$2400(Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;)Ljava/util/List;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mResponseList:Ljava/util/List;
+
+    return-object v0
 .end method
 
 .method static synthetic access$300(Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;)I
@@ -480,7 +560,7 @@
 .end method
 
 .method private arrangeRequest()V
-    .locals 4
+    .locals 6
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -514,16 +594,16 @@
 
     invoke-interface {v0}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
-    move-result-object v1
+    move-result-object v2
 
     :goto_0
-    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+    invoke-interface {v2}, Ljava/util/Iterator;->hasNext()Z
 
     move-result v0
 
     if-eqz v0, :cond_3
 
-    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+    invoke-interface {v2}, Ljava/util/Iterator;->next()Ljava/lang/Object;
 
     move-result-object v0
 
@@ -531,64 +611,194 @@
 
     invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContent;->getState()Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContent$State;
 
-    move-result-object v2
+    move-result-object v1
 
     sget-object v3, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContent$State;->COMPLETED:Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContent$State;
 
-    if-ne v2, v3, :cond_0
+    if-ne v1, v3, :cond_0
 
-    iget v2, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mProgress:I
+    iget v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mProgress:I
+
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContent;->getFileSize()I
+
+    move-result v3
+
+    add-int/2addr v1, v3
+
+    iput v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mProgress:I
+
+    :goto_1
+    iget-wide v4, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mTotalQuota:J
 
     invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContent;->getFileSize()I
 
     move-result v0
 
-    add-int/2addr v0, v2
+    int-to-long v0, v0
 
-    iput v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mProgress:I
+    add-long/2addr v0, v4
+
+    iput-wide v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mTotalQuota:J
 
     goto :goto_0
 
     :cond_0
-    instance-of v2, v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/CloudFile;
+    instance-of v1, v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/CloudFile;
 
-    if-eqz v2, :cond_1
+    if-eqz v1, :cond_1
 
-    iget-object v2, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mCloudFileList:Ljava/util/List;
+    iget-object v3, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mCloudFileList:Ljava/util/List;
 
-    check-cast v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/CloudFile;
+    move-object v1, v0
 
-    invoke-interface {v2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    check-cast v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/CloudFile;
 
-    goto :goto_0
+    invoke-interface {v3, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :goto_1
 
     :cond_1
     invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContent;->getState()Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContent$State;
 
-    move-result-object v2
+    move-result-object v1
 
     sget-object v3, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContent$State;->ON_PROGRESS:Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContent$State;
 
-    if-ne v2, v3, :cond_2
+    if-ne v1, v3, :cond_2
 
-    iget-object v2, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mLocalOnProgressList:Ljava/util/List;
+    iget-object v3, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mLocalOnProgressList:Ljava/util/List;
 
-    check-cast v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LocalFile;
+    move-object v1, v0
 
-    invoke-interface {v2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    check-cast v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LocalFile;
 
-    goto :goto_0
+    invoke-interface {v3, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :goto_1
 
     :cond_2
-    iget-object v2, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mLocalFileList:Ljava/util/List;
+    iget-object v3, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mLocalFileList:Ljava/util/List;
 
-    check-cast v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LocalFile;
+    move-object v1, v0
 
-    invoke-interface {v2, v0}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    check-cast v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LocalFile;
 
-    goto :goto_0
+    invoke-interface {v3, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :goto_1
 
     :cond_3
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "total request : "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mRequest:Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContentsToSamsungCloudRequest;
+
+    invoke-virtual {v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContentsToSamsungCloudRequest;->getUploadContentList()Ljava/util/List;
+
+    move-result-object v1
+
+    invoke-interface {v1}, Ljava/util/List;->size()I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v1, " /cloud request : "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mCloudFileList:Ljava/util/List;
+
+    invoke-interface {v1}, Ljava/util/List;->size()I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v1, " /localOnProgress request : "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mLocalOnProgressList:Ljava/util/List;
+
+    invoke-interface {v1}, Ljava/util/List;->size()I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v1, " /localFile request : "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mLocalFileList:Ljava/util/List;
+
+    invoke-interface {v1}, Ljava/util/List;->size()I
+
+    move-result v1
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "UploadContentsToSamsungCloudTransaction"
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    iget-boolean v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mAddQuota:Z
+
+    if-eqz v0, :cond_4
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v1, "add total quota : "
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget-wide v2, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mTotalQuota:J
+
+    invoke-virtual {v0, v2, v3}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+
+    const-string v1, "UploadContentsToSamsungCloudTransaction"
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    invoke-direct {p0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->updateQuota()V
+
+    :cond_4
     return-void
 .end method
 
@@ -724,11 +934,11 @@
 
     invoke-interface {v0, p1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
 
-    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mListener:Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadSamsungCloudListener;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction$11;
 
-    iget-wide v2, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mRequestToken:J
+    invoke-direct {v0, p0, p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction$11;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/UploadContentsResponse;)V
 
-    invoke-interface {v0, v2, v3, p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadSamsungCloudListener;->onFileUploaded(JLcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/UploadContentsResponse;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -783,6 +993,120 @@
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
     return-void
+.end method
+
+.method private getHashToLinkPartialFile()V
+    .locals 3
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mHashingAsyncTask:Lcom/samsung/android/sdk/ssf/common/util/HashUtils$Sha256HashAsyncTask;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Lcom/samsung/android/sdk/ssf/common/util/HashUtils$Sha256HashAsyncTask;
+
+    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->hashingListener:Lcom/samsung/android/sdk/ssf/common/util/HashUtils$HashingListener;
+
+    invoke-direct {v0, v1}, Lcom/samsung/android/sdk/ssf/common/util/HashUtils$Sha256HashAsyncTask;-><init>(Lcom/samsung/android/sdk/ssf/common/util/HashUtils$HashingListener;)V
+
+    iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mHashingAsyncTask:Lcom/samsung/android/sdk/ssf/common/util/HashUtils$Sha256HashAsyncTask;
+
+    :cond_0
+    const/4 v1, 0x0
+
+    :try_start_0
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mLocalOnProgressList:Ljava/util/List;
+
+    iget v2, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mLocalOnProgressIndex:I
+
+    invoke-interface {v0, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LocalFile;
+
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LocalFile;->isUseInputStream()Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LocalFile;->getInputStream()Ljava/io/InputStream;
+
+    move-result-object v0
+
+    if-nez v0, :cond_1
+
+    new-instance v0, Ljava/io/IOException;
+
+    invoke-direct {v0}, Ljava/io/IOException;-><init>()V
+
+    throw v0
+    :try_end_0
+    .catch Ljava/io/IOException; {:try_start_0 .. :try_end_0} :catch_0
+
+    :catch_0
+    move-exception v0
+
+    move-object v0, v1
+
+    :goto_0
+    const/16 v1, -0x1e
+
+    const-string v2, "IO Exception while opening file input stream"
+
+    invoke-static {v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/Utils;->getError(ILjava/lang/String;)Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;
+
+    move-result-object v1
+
+    invoke-direct {p0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->stopByError(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/EnhancedShareErrorResponse;)V
+
+    :goto_1
+    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mHashingAsyncTask:Lcom/samsung/android/sdk/ssf/common/util/HashUtils$Sha256HashAsyncTask;
+
+    invoke-virtual {v1, v0}, Lcom/samsung/android/sdk/ssf/common/util/HashUtils$Sha256HashAsyncTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
+
+    return-void
+
+    :cond_1
+    :try_start_1
+    invoke-virtual {v0}, Ljava/io/InputStream;->reset()V
+
+    move-object v2, v0
+
+    :goto_2
+    const/4 v0, 0x1
+
+    new-array v0, v0, [Ljava/io/InputStream;
+    :try_end_1
+    .catch Ljava/io/IOException; {:try_start_1 .. :try_end_1} :catch_0
+
+    const/4 v1, 0x0
+
+    :try_start_2
+    aput-object v2, v0, v1
+    :try_end_2
+    .catch Ljava/io/IOException; {:try_start_2 .. :try_end_2} :catch_1
+
+    goto :goto_1
+
+    :catch_1
+    move-exception v1
+
+    goto :goto_0
+
+    :cond_2
+    :try_start_3
+    new-instance v2, Ljava/io/FileInputStream;
+
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LocalFile;->getFile()Ljava/io/File;
+
+    move-result-object v0
+
+    invoke-direct {v2, v0}, Ljava/io/FileInputStream;-><init>(Ljava/io/File;)V
+    :try_end_3
+    .catch Ljava/io/IOException; {:try_start_3 .. :try_end_3} :catch_0
+
+    goto :goto_2
 .end method
 
 .method private getTotalSize()I
@@ -1005,9 +1329,24 @@
     return-void
 .end method
 
-.method private linkPartialFile()V
+.method private linkPartialFile(Ljava/lang/String;)V
     .locals 6
 
+    invoke-static {p1}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    new-instance v0, Ljava/lang/IllegalStateException;
+
+    const-string v1, "Hash value for a local file is missing "
+
+    invoke-direct {v0, v1}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
+
+    throw v0
+
+    :cond_0
     new-instance v1, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/CloudInfo;
 
     invoke-direct {v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/CloudInfo;-><init>()V
@@ -1040,11 +1379,7 @@
 
     invoke-virtual {v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/CloudInfo;->setFilename(Ljava/lang/String;)V
 
-    invoke-static {v0}, Lcom/samsung/android/sdk/ssf/common/util/HashUtils;->getHashFromLocalFile(Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LocalFile;)Ljava/lang/String;
-
-    move-result-object v2
-
-    invoke-virtual {v1, v2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/CloudInfo;->setHash(Ljava/lang/String;)V
+    invoke-virtual {v1, p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/CloudInfo;->setHash(Ljava/lang/String;)V
 
     invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/LocalFile;->getFileSize()I
 
@@ -1327,43 +1662,11 @@
 
     iput v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mProgress:I
 
-    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/ProgressResponse;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction$10;
 
-    invoke-direct {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/ProgressResponse;-><init>()V
+    invoke-direct {v0, p0, p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction$10;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContent;)V
 
-    iget-wide v2, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mTransactionId:J
-
-    invoke-virtual {v0, v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/ProgressResponse;->setShareId(J)V
-
-    invoke-virtual {p2}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/request/UploadContent;->getFileName()Ljava/lang/String;
-
-    move-result-object v1
-
-    invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/ProgressResponse;->setCurrentProgressFileName(Ljava/lang/String;)V
-
-    iget v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mProgress:I
-
-    int-to-long v2, v1
-
-    invoke-virtual {v0, v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/ProgressResponse;->setOverallProgressBytes(J)V
-
-    invoke-direct {p0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->getTotalSize()I
-
-    move-result v1
-
-    int-to-long v2, v1
-
-    invoke-virtual {v0, v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/ProgressResponse;->setOverallTotalBytes(J)V
-
-    iget-wide v2, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mRequestToken:J
-
-    invoke-virtual {v0, v2, v3}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/ProgressResponse;->setRequestToken(J)V
-
-    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mListener:Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadSamsungCloudListener;
-
-    iget-wide v2, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mRequestToken:J
-
-    invoke-interface {v1, v2, v3, v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadSamsungCloudListener;->onProgress(JLcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/ProgressResponse;)V
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
     new-instance v0, Ljava/lang/StringBuilder;
 
@@ -1417,6 +1720,37 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
+    return-void
+.end method
+
+.method private restoreQuota()V
+    .locals 4
+
+    invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/RQuota;->get()Landroid/os/Bundle;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    const-string v1, "byte_usage"
+
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
+
+    move-result-wide v0
+
+    iget-wide v2, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mTotalQuota:J
+
+    sub-long/2addr v0, v2
+
+    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/RQuota;->putQuota(Ljava/lang/Long;Ljava/lang/Long;)Z
+
+    :cond_0
     return-void
 .end method
 
@@ -1556,14 +1890,29 @@
 .method private success()V
     .locals 4
 
-    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mListener:Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadSamsungCloudListener;
+    new-instance v0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction$12;
 
-    iget-wide v2, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mRequestToken:J
+    invoke-direct {v0, p0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction$12;-><init>(Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;)V
 
-    iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mResponseList:Ljava/util/List;
+    invoke-static {v0}, Lcom/samsung/android/sdk/enhancedfeatures/internal/common/CommonApplication;->post(Ljava/lang/Runnable;)V
 
-    invoke-interface {v0, v2, v3, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/listener/UploadSamsungCloudListener;->onSuccess(JLjava/util/List;)V
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mWakeLock:Landroid/os/PowerManager$WakeLock;
+
+    invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->isHeld()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mWakeLock:Landroid/os/PowerManager$WakeLock;
+
+    invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
+
+    :cond_0
     invoke-direct {p0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->closeInputStream()V
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1618,6 +1967,37 @@
 
     invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
 
+    return-void
+.end method
+
+.method private updateQuota()V
+    .locals 4
+
+    invoke-static {}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/RQuota;->get()Landroid/os/Bundle;
+
+    move-result-object v0
+
+    if-eqz v0, :cond_0
+
+    const-string v1, "byte_usage"
+
+    invoke-virtual {v0, v1}, Landroid/os/Bundle;->getLong(Ljava/lang/String;)J
+
+    move-result-wide v0
+
+    iget-wide v2, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mTotalQuota:J
+
+    add-long/2addr v0, v2
+
+    invoke-static {v0, v1}, Ljava/lang/Long;->valueOf(J)Ljava/lang/Long;
+
+    move-result-object v0
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/RQuota;->putQuota(Ljava/lang/Long;Ljava/lang/Long;)Z
+
+    :cond_0
     return-void
 .end method
 
@@ -2194,15 +2574,28 @@
 .method public cancel()V
     .locals 4
 
+    const/4 v1, 0x1
+
     invoke-super {p0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/Transaction;->cancel()V
 
-    const/4 v0, 0x1
+    iput-boolean v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mCancel:Z
 
-    iput-boolean v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mCancel:Z
-
-    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mWakeLock:Landroid/os/PowerManager$WakeLock;
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mHashingAsyncTask:Lcom/samsung/android/sdk/ssf/common/util/HashUtils$Sha256HashAsyncTask;
 
     if-eqz v0, :cond_0
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mHashingAsyncTask:Lcom/samsung/android/sdk/ssf/common/util/HashUtils$Sha256HashAsyncTask;
+
+    invoke-virtual {v0, v1}, Lcom/samsung/android/sdk/ssf/common/util/HashUtils$Sha256HashAsyncTask;->cancel(Z)Z
+
+    const/4 v0, 0x0
+
+    iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mHashingAsyncTask:Lcom/samsung/android/sdk/ssf/common/util/HashUtils$Sha256HashAsyncTask;
+
+    :cond_0
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mWakeLock:Landroid/os/PowerManager$WakeLock;
+
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
@@ -2210,13 +2603,13 @@
 
     move-result v0
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
     iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mWakeLock:Landroid/os/PowerManager$WakeLock;
 
     invoke-virtual {v0}, Landroid/os/PowerManager$WakeLock;->release()V
 
-    :cond_0
+    :cond_1
     new-instance v0, Ljava/lang/StringBuilder;
 
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
@@ -2262,6 +2655,37 @@
     invoke-virtual {v0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/Transaction;->cancel()V
 
     invoke-direct {p0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->closeInputStream()V
+
+    iget-boolean v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mRestore:Z
+
+    if-eqz v0, :cond_2
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mRestore:Z
+
+    invoke-direct {p0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->restoreQuota()V
+
+    :cond_2
+    return-void
+.end method
+
+.method public pause(I)V
+    .locals 2
+
+    invoke-super {p0, p1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/Transaction;->pause(I)V
+
+    const-string v0, "UploadContentsToSamsungCloudTransaction pause !!!"
+
+    const-string v1, "UploadContentsToSamsungCloudTransaction"
+
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/util/RLog;->i(Ljava/lang/String;Ljava/lang/String;)V
+
+    const/4 v0, 0x0
+
+    iput-boolean v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->mRestore:Z
+
+    invoke-virtual {p0}, Lcom/samsung/android/sdk/enhancedfeatures/rshare/internal/transaction/UploadContentsToSamsungCloudTransaction;->cancel()V
 
     return-void
 .end method

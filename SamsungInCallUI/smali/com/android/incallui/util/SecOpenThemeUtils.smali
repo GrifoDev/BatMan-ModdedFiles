@@ -96,7 +96,7 @@
 
     packed-switch v0, :pswitch_data_0
 
-    const v0, 0x7f020103
+    const v0, 0x7f02012e
 
     invoke-virtual {v1, v0, v2}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
@@ -106,7 +106,7 @@
     return-object v0
 
     :pswitch_0
-    const v0, 0x7f020104
+    const v0, 0x7f02012f
 
     invoke-virtual {v1, v0, v2}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
@@ -115,7 +115,7 @@
     goto :goto_0
 
     :pswitch_1
-    const v0, 0x7f020105
+    const v0, 0x7f020130
 
     invoke-virtual {v1, v0, v2}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
@@ -124,7 +124,7 @@
     goto :goto_0
 
     :pswitch_2
-    const v0, 0x7f020106
+    const v0, 0x7f020131
 
     invoke-virtual {v1, v0, v2}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
@@ -133,7 +133,7 @@
     goto :goto_0
 
     :pswitch_3
-    const v0, 0x7f020107
+    const v0, 0x7f020132
 
     invoke-virtual {v1, v0, v2}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
@@ -315,7 +315,7 @@
 .method public static setCoverBackgroundResource(Landroid/content/Context;)I
     .locals 3
 
-    const v2, 0x7f020263
+    const v2, 0x7f020297
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -343,7 +343,7 @@
 .method public static setCoverEmergencyBackgroundResource(Landroid/content/Context;)I
     .locals 3
 
-    const v2, 0x7f020268
+    const v2, 0x7f02029c
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -371,13 +371,13 @@
 .method public static setCoverScreenSmartCallBackgroundResource(Landroid/content/Context;I)I
     .locals 6
 
-    const v1, 0x7f020294
+    const v1, 0x7f0202c8
 
-    const v0, 0x7f02028e
+    const v0, 0x7f0202c2
 
-    const v2, 0x7f020288
+    const v2, 0x7f0202bc
 
-    const v3, 0x7f020280
+    const v3, 0x7f0202b4
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -419,44 +419,44 @@
     :pswitch_4
     packed-switch p1, :pswitch_data_3
 
-    const v0, 0x7f020282
+    const v0, 0x7f0202b6
 
     goto :goto_0
 
     :pswitch_5
-    const v0, 0x7f020290
+    const v0, 0x7f0202c4
 
     goto :goto_0
 
     :pswitch_6
-    const v0, 0x7f020296
+    const v0, 0x7f0202ca
 
     goto :goto_0
 
     :pswitch_7
-    const v0, 0x7f02028a
+    const v0, 0x7f0202be
 
     goto :goto_0
 
     :pswitch_8
     packed-switch p1, :pswitch_data_4
 
-    const v0, 0x7f020284
+    const v0, 0x7f0202b8
 
     goto :goto_0
 
     :pswitch_9
-    const v0, 0x7f020292
+    const v0, 0x7f0202c6
 
     goto :goto_0
 
     :pswitch_a
-    const v0, 0x7f020298
+    const v0, 0x7f0202cc
 
     goto :goto_0
 
     :pswitch_b
-    const v0, 0x7f02028c
+    const v0, 0x7f0202c0
 
     goto :goto_0
 
@@ -509,7 +509,7 @@
 .method public static setCoverYpBackgroundResource(Landroid/content/Context;)I
     .locals 3
 
-    const v0, 0x7f020264
+    const v0, 0x7f020298
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -528,12 +528,12 @@
     return v0
 
     :pswitch_1
-    const v0, 0x7f020265
+    const v0, 0x7f020299
 
     goto :goto_0
 
     :pswitch_2
-    const v0, 0x7f020266
+    const v0, 0x7f02029a
 
     goto :goto_0
 
@@ -548,7 +548,7 @@
 .method public static setFullScreenBackgroundResource(Landroid/content/Context;)I
     .locals 3
 
-    const v0, 0x7f020262
+    const v0, 0x7f020296
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -567,12 +567,12 @@
     return v0
 
     :pswitch_1
-    const v0, 0x7f020275
+    const v0, 0x7f0202a9
 
     goto :goto_0
 
     :pswitch_2
-    const v0, 0x7f02027a
+    const v0, 0x7f0202ae
 
     goto :goto_0
 
@@ -587,7 +587,7 @@
 .method public static setFullScreenEmergencyBackgroundResource(Landroid/content/Context;)I
     .locals 3
 
-    const v0, 0x7f020267
+    const v0, 0x7f02029b
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -606,12 +606,12 @@
     return v0
 
     :pswitch_1
-    const v0, 0x7f020269
+    const v0, 0x7f02029d
 
     goto :goto_0
 
     :pswitch_2
-    const v0, 0x7f02026a
+    const v0, 0x7f02029e
 
     goto :goto_0
 
@@ -684,7 +684,7 @@
 .method public static setFullScreenResumeBackgroundResource(Landroid/content/Context;)I
     .locals 3
 
-    const v0, 0x7f020276
+    const v0, 0x7f0202aa
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -703,12 +703,12 @@
     return v0
 
     :pswitch_1
-    const v0, 0x7f020277
+    const v0, 0x7f0202ab
 
     goto :goto_0
 
     :pswitch_2
-    const v0, 0x7f020278
+    const v0, 0x7f0202ac
 
     goto :goto_0
 
@@ -723,13 +723,13 @@
 .method public static setFullScreenSmartCallBackgroundResource(Landroid/content/Context;I)I
     .locals 6
 
-    const v1, 0x7f020293
+    const v1, 0x7f0202c7
 
-    const v0, 0x7f02028d
+    const v0, 0x7f0202c1
 
-    const v2, 0x7f020287
+    const v2, 0x7f0202bb
 
-    const v3, 0x7f02027f
+    const v3, 0x7f0202b3
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -771,44 +771,44 @@
     :pswitch_4
     packed-switch p1, :pswitch_data_3
 
-    const v0, 0x7f020281
+    const v0, 0x7f0202b5
 
     goto :goto_0
 
     :pswitch_5
-    const v0, 0x7f02028f
+    const v0, 0x7f0202c3
 
     goto :goto_0
 
     :pswitch_6
-    const v0, 0x7f020295
+    const v0, 0x7f0202c9
 
     goto :goto_0
 
     :pswitch_7
-    const v0, 0x7f020289
+    const v0, 0x7f0202bd
 
     goto :goto_0
 
     :pswitch_8
     packed-switch p1, :pswitch_data_4
 
-    const v0, 0x7f020283
+    const v0, 0x7f0202b7
 
     goto :goto_0
 
     :pswitch_9
-    const v0, 0x7f020291
+    const v0, 0x7f0202c5
 
     goto :goto_0
 
     :pswitch_a
-    const v0, 0x7f020297
+    const v0, 0x7f0202cb
 
     goto :goto_0
 
     :pswitch_b
-    const v0, 0x7f02028b
+    const v0, 0x7f0202bf
 
     goto :goto_0
 
@@ -861,9 +861,9 @@
 .method public static setPhotoIDShape(Landroid/content/Context;Landroid/view/View;IZ)V
     .locals 10
 
-    const v9, 0x7f02026b
+    const v9, 0x7f02029f
 
-    const v8, 0x7f02025f
+    const v8, 0x7f020293
 
     const/4 v7, 0x1
 
@@ -969,7 +969,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0e0145
+    const v4, 0x7f0e015d
 
     invoke-virtual {v1, v4, v6}, Landroid/content/res/Resources;->getColor(ILandroid/content/res/Resources$Theme;)I
 
@@ -1015,7 +1015,7 @@
     goto :goto_1
 
     :pswitch_1
-    const v0, 0x7f020260
+    const v0, 0x7f020294
 
     invoke-virtual {v1, v0, v6}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
@@ -1026,7 +1026,7 @@
     goto :goto_1
 
     :pswitch_2
-    const v0, 0x7f020261
+    const v0, 0x7f020295
 
     invoke-virtual {v1, v0, v6}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
@@ -1057,7 +1057,7 @@
     goto :goto_1
 
     :pswitch_4
-    const v0, 0x7f02026d
+    const v0, 0x7f0202a1
 
     invoke-virtual {v1, v0, v6}, Landroid/content/res/Resources;->getDrawable(ILandroid/content/res/Resources$Theme;)Landroid/graphics/drawable/Drawable;
 
@@ -1068,7 +1068,7 @@
     goto :goto_1
 
     :pswitch_5
-    const v0, 0x7f02026e
+    const v0, 0x7f0202a2
 
     invoke-virtual {v1, v0}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1096,7 +1096,7 @@
 .method public static setPopupBackgroundResource(Landroid/content/Context;)I
     .locals 3
 
-    const v0, 0x7f02026f
+    const v0, 0x7f0202a3
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -1115,12 +1115,12 @@
     return v0
 
     :pswitch_1
-    const v0, 0x7f020270
+    const v0, 0x7f0202a4
 
     goto :goto_0
 
     :pswitch_2
-    const v0, 0x7f020271
+    const v0, 0x7f0202a5
 
     goto :goto_0
 
@@ -1135,7 +1135,7 @@
 .method public static setPopupSmartBackgroundResource(Landroid/content/Context;Z)I
     .locals 3
 
-    const v0, 0x7f02027c
+    const v0, 0x7f0202b0
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -1149,7 +1149,7 @@
 
     if-eqz p1, :cond_0
 
-    const v0, 0x7f020299
+    const v0, 0x7f0202cd
 
     :goto_0
     :pswitch_0
@@ -1161,12 +1161,12 @@
     goto :goto_0
 
     :pswitch_1
-    const v0, 0x7f02027d
+    const v0, 0x7f0202b1
 
     goto :goto_0
 
     :pswitch_2
-    const v0, 0x7f02027e
+    const v0, 0x7f0202b2
 
     goto :goto_0
 
@@ -1181,7 +1181,7 @@
 .method public static setPopupYpBackgroundResource(Landroid/content/Context;)I
     .locals 3
 
-    const v0, 0x7f020272
+    const v0, 0x7f0202a6
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -1200,12 +1200,12 @@
     return v0
 
     :pswitch_1
-    const v0, 0x7f020273
+    const v0, 0x7f0202a7
 
     goto :goto_0
 
     :pswitch_2
-    const v0, 0x7f020274
+    const v0, 0x7f0202a8
 
     goto :goto_0
 
@@ -1224,28 +1224,28 @@
 
     packed-switch v0, :pswitch_data_0
 
-    const v0, 0x7f0e0145
+    const v0, 0x7f0e015d
 
     :goto_0
     return v0
 
     :pswitch_0
-    const v0, 0x7f0e0146
+    const v0, 0x7f0e015e
 
     goto :goto_0
 
     :pswitch_1
-    const v0, 0x7f0e0147
+    const v0, 0x7f0e015f
 
     goto :goto_0
 
     :pswitch_2
-    const v0, 0x7f0e0148
+    const v0, 0x7f0e0160
 
     goto :goto_0
 
     :pswitch_3
-    const v0, 0x7f0e0149
+    const v0, 0x7f0e0161
 
     goto :goto_0
 
@@ -1267,28 +1267,28 @@
 
     packed-switch v0, :pswitch_data_0
 
-    const v0, 0x7f020103
+    const v0, 0x7f02012e
 
     :goto_0
     return v0
 
     :pswitch_0
-    const v0, 0x7f020104
+    const v0, 0x7f02012f
 
     goto :goto_0
 
     :pswitch_1
-    const v0, 0x7f020105
+    const v0, 0x7f020130
 
     goto :goto_0
 
     :pswitch_2
-    const v0, 0x7f020106
+    const v0, 0x7f020131
 
     goto :goto_0
 
     :pswitch_3
-    const v0, 0x7f020107
+    const v0, 0x7f020132
 
     goto :goto_0
 
@@ -1306,7 +1306,7 @@
 .method public static setQuickPanelPhotoBackgroundResource(Landroid/content/Context;)I
     .locals 3
 
-    const v0, 0x7f0202ad
+    const v0, 0x7f0202e1
 
     invoke-virtual {p0}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
 
@@ -1325,12 +1325,12 @@
     return v0
 
     :pswitch_1
-    const v0, 0x7f0202ab
+    const v0, 0x7f0202df
 
     goto :goto_0
 
     :pswitch_2
-    const v0, 0x7f0202ac
+    const v0, 0x7f0202e0
 
     goto :goto_0
 

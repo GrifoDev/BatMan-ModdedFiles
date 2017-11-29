@@ -79,9 +79,17 @@
 
     goto :goto_0
 
+    :pswitch_2
+    iget-object v0, p0, Lcom/android/incallui/agif/AgifFragment$1;->this$0:Lcom/android/incallui/agif/AgifFragment;
+
+    invoke-virtual {v0}, Lcom/android/incallui/agif/AgifFragment;->showBubbleTip()V
+
+    goto :goto_0
+
     :pswitch_data_0
     .packed-switch 0xc8
         :pswitch_0
         :pswitch_1
+        :pswitch_2
     .end packed-switch
 .end method

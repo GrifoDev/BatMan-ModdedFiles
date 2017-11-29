@@ -351,7 +351,7 @@
 
     add-int/2addr v3, v11
 
-    const v10, 0x7f0a0595
+    const v10, 0x7f0a05d4
 
     invoke-virtual {p1, v10}, Lcom/android/incallui/service/vt/VideoCallMetrics;->getDimension(I)I
 
@@ -450,7 +450,7 @@
 
     iget v0, p0, Lcom/android/incallui/service/vt/VideoButtonMetrics;->answer_floating_button_bottom_offset:I
 
-    const v1, 0x7f0a0594
+    const v1, 0x7f0a05d3
 
     invoke-virtual {p1, v1}, Lcom/android/incallui/service/vt/VideoCallMetrics;->getDimension(I)I
 

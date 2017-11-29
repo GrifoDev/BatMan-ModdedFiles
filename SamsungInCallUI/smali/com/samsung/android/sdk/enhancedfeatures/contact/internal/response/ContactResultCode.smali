@@ -9,6 +9,8 @@
 
 .field public static final NETWORK_NO_CONNECTION:I = -0x3
 
+.field public static final SYNC_FAILED:I = -0x4
+
 .field public static final SYNC_SUCCESS:I
 
 

@@ -237,7 +237,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090104
+    const v1, 0x7f090107
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -251,7 +251,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090297
+    const v3, 0x7f09029a
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -539,25 +539,25 @@
 
     :sswitch_data_0
     .sparse-switch
-        0x7f1000c1 -> :sswitch_b
-        0x7f1000c2 -> :sswitch_a
-        0x7f1000c3 -> :sswitch_8
-        0x7f1002e5 -> :sswitch_2
-        0x7f100392 -> :sswitch_4
-        0x7f1003e6 -> :sswitch_3
-        0x7f1003fe -> :sswitch_6
-        0x7f10041e -> :sswitch_c
-        0x7f10041f -> :sswitch_9
-        0x7f100420 -> :sswitch_7
-        0x7f100424 -> :sswitch_1
-        0x7f100489 -> :sswitch_0
-        0x7f10048c -> :sswitch_5
-        0x7f10049e -> :sswitch_d
-        0x7f10049f -> :sswitch_e
-        0x7f1004a0 -> :sswitch_f
-        0x7f1004a1 -> :sswitch_10
-        0x7f1004a3 -> :sswitch_11
-        0x7f1004a4 -> :sswitch_12
-        0x7f1004a5 -> :sswitch_13
+        0x7f1000c5 -> :sswitch_b
+        0x7f1000c6 -> :sswitch_a
+        0x7f1000c7 -> :sswitch_8
+        0x7f1002eb -> :sswitch_2
+        0x7f100398 -> :sswitch_4
+        0x7f1003ea -> :sswitch_3
+        0x7f100402 -> :sswitch_6
+        0x7f100422 -> :sswitch_c
+        0x7f100423 -> :sswitch_9
+        0x7f100424 -> :sswitch_7
+        0x7f100428 -> :sswitch_1
+        0x7f10048d -> :sswitch_0
+        0x7f100490 -> :sswitch_5
+        0x7f1004a2 -> :sswitch_d
+        0x7f1004a3 -> :sswitch_e
+        0x7f1004a4 -> :sswitch_f
+        0x7f1004a5 -> :sswitch_10
+        0x7f1004a7 -> :sswitch_11
+        0x7f1004a8 -> :sswitch_12
+        0x7f1004a9 -> :sswitch_13
     .end sparse-switch
 .end method

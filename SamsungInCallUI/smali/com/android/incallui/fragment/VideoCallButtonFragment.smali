@@ -164,7 +164,7 @@
 
     invoke-static {v0, v1}, Lcom/android/incallui/Log;->d(Ljava/lang/String;Ljava/lang/String;)V
 
-    const v0, 0x7f090102
+    const v0, 0x7f090105
 
     invoke-static {v0}, Lcom/android/incallui/util/InCallUtils;->displayToast(I)V
 
@@ -709,7 +709,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f090104
+    const v1, 0x7f090107
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -721,7 +721,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f090297
+    const v3, 0x7f09029a
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -755,16 +755,16 @@
 
     :sswitch_data_0
     .sparse-switch
-        0x7f1000c1 -> :sswitch_5
-        0x7f1000c2 -> :sswitch_4
-        0x7f1000c6 -> :sswitch_2
-        0x7f100418 -> :sswitch_1
-        0x7f10041b -> :sswitch_6
-        0x7f10041c -> :sswitch_3
-        0x7f10041e -> :sswitch_7
-        0x7f10041f -> :sswitch_8
-        0x7f100470 -> :sswitch_0
-        0x7f100475 -> :sswitch_0
+        0x7f1000c5 -> :sswitch_5
+        0x7f1000c6 -> :sswitch_4
+        0x7f1000ca -> :sswitch_2
+        0x7f10041c -> :sswitch_1
+        0x7f10041f -> :sswitch_6
+        0x7f100420 -> :sswitch_3
+        0x7f100422 -> :sswitch_7
+        0x7f100423 -> :sswitch_8
+        0x7f100474 -> :sswitch_0
+        0x7f100479 -> :sswitch_0
     .end sparse-switch
 .end method
 
@@ -1064,7 +1064,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0902c9
+    const v2, 0x7f0902cc
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1484,7 +1484,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0902dd
+    const v2, 0x7f0902e0
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1503,7 +1503,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0902e2
+    const v2, 0x7f0902e5
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

@@ -178,12 +178,13 @@
     <string name="account_phone">裝置</string>
     <string name="acs">語音通話</string>
     <string name="active_calls">進行中通話</string>
-    <string name="add_reminder">新增Reminder</string>
+    <string name="add_reminder">新增提醒</string>
     <string name="agif_button_close_description">關閉</string>
     <string name="agif_decline_message">抱歉，現在不方便說話。</string>
     <string name="agif_decline_sticker_header">透過動態貼圖拒接</string>
     <string name="agif_decline_text_header">透過簡訊拒接</string>
     <string name="agif_decline_toast">已傳送動態貼圖給 %s。</string>
+    <string name="agif_outgoing_bubble_tip">傳送貼圖，表達您此刻的心情。</string>
     <string name="agif_pickers_add_tab_description">新增</string>
     <string name="agif_pickers_find_more">深入瞭解</string>
     <string name="agif_pickers_item_usage_hints_description">輕觸兩下來選擇</string>
@@ -192,10 +193,12 @@
     <string name="agif_pickers_tab_select_description">已選擇</string>
     <string name="agif_pickers_title">以動態貼圖開始通話</string>
     <string name="agif_pickers_title_recommended">推薦</string>
+    <string name="agif_random_send_message">輕觸此處以傳送此貼圖。</string>
     <string name="agif_read_permission_description">允許電話讀取 AGIF 內容。</string>
     <string name="agif_read_permission_label">讀取 AGIF 內容</string>
     <string name="agif_receive_no_id">無法顯示動態貼圖。請於通話結束後更新 %s。</string>
     <string name="agif_receive_no_id_upsupport_update">無法顯示動態貼圖。下次系統更新後將提供更多動態貼圖。</string>
+    <string name="agif_receive_toast">來自 %s 的貼圖。</string>
     <string name="agif_sent_fail_message">無法傳送 GIF 動畫。請稍後重試。</string>
     <string name="agif_sent_toast">已傳送動態貼圖。</string>
     <string name="agif_write_permission_description">允許電話修改 AGIF 內容。</string>
@@ -399,7 +402,7 @@
     <string name="incall_decline_simultaneous_call_limit_with_mdn_vzw">所有%s可用線路均在使用中。若要撥打電話，請掛斷行動電話或平板上的其中一個通話。</string>
     <string name="incall_decline_transferred_to_another_device">已將來電轉接到另一部裝置。</string>
     <string name="incall_error_supp_service_switch">無法切換通話。</string>
-    <string name="incall_extra_volume_disabled_BT">藍牙耳機連接時無法使用 [增強音量範圍]。</string>
+    <string name="incall_extra_volume_disabled_BT">藍牙耳機連接時無法使用 [增強音量]。</string>
     <string name="incall_extra_volume_disabled_HAC">[助聽器] 啟用時無法啟用 [最大音量]。</string>
     <string name="incall_extra_volume_disabled_HAC_vzw">[助聽器] 啟用時無法啟用 [最大音量]。</string>
     <string name="incall_extra_volume_disabled_headset">耳機連接時無法使用 [增強音量]。</string>
@@ -880,13 +883,15 @@
     <string name="switching_to_voice_call">正在切換為語音通話…</string>
     <string name="the_verification_has_failed">驗證失敗。請重試。</string>
     <string name="toast_text_max_Length">已達字元數量上限。</string>
-    <string name="tts_hours">%d 個小時</string>
+    <string name="tts_hours">%d 小時</string>
     <string name="tts_minutes">%d 分鐘</string>
     <string name="tts_pager">頁 %2$d 之 %1$d。</string>
     <string name="tts_seconds">%d 秒</string>
     <string name="tty_mode_option_title">TTY模式</string>
-    <string name="tutorial_incoming_call_app_answer">輕觸以接聽來電。</string>
-    <string name="tutorial_incoming_call_app_reject">輕觸以拒接來電。</string>
+    <string name="tutorial_incoming_call_app_answer">"輕觸兩下
+以接聽。"</string>
+    <string name="tutorial_incoming_call_app_reject">"輕按兩下
+以拒絕。"</string>
     <string name="twmobile_operator_name">台湾大哥大</string>
     <string name="unable_to_connect_to_the_network">無法連接至網路。請檢查您的連線設定並重試。</string>
     <string name="units_kb">KB</string>
@@ -896,7 +901,7 @@
     <string name="upload_using_wlan_only">僅經由 WLAN 上傳</string>
     <string name="upload_wifi_and_mobile_nw">經由 Wi-Fi 或行動網路上傳。</string>
     <string name="upload_wlan_and_mobile_nw">經由 WLAN 或行動網路上傳</string>
-    <string name="usa_att_connected_as_voice">僅以語音連接通話。</string>
+    <string name="usa_att_connected_as_voice">此通話無法使用視訊。已透過語音通話連接。</string>
     <string name="usa_att_data_usage_charge_alert">裝置設定的數據用量即將達到上限。視訊通話需使用數據。</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">通話無法經由 Wi-Fi 進行，改透過行動網路連接。將產生語音與數據費用。</string>
     <string name="usa_att_modify_receive_to_video">%s 正在要求切換為視訊通話。</string>
@@ -944,13 +949,17 @@
     <string name="usa_vzw_voice_incoming_during_wifi_video">接聽來電將結束目前通話。</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_text">Wi-Fi 訊號不夠強，無法繼續通話。使用行動網路來繼續通話將耗用您的數據方案。</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">使用行動數據</string>
-    <string name="usa_vzw_volte_weak_wifi_text">"我們已嘗試過，但目前無法將您的視訊通話切換至 Wi-Fi。
+    <string name="usa_vzw_volte_weak_wifi_text">"我們已盡力嘗試，但目前無法將您的視訊通話切換至 Wi-Fi。
 
-您的視訊通話仍透過行動網路執行。(若您選擇繼續，將產生數據用量。)"</string>
+目前仍會透過行動網路執行您的視訊通話。
+
+若您選擇繼續，可能產生數據用量費。"</string>
     <string name="usa_vzw_volte_weak_wifi_toast">您的視訊通話仍透過行動網路執行。(適用數據用量)</string>
     <string name="usa_vzw_vowifi_wifi_low_signal_text">"Wi-Fi 訊號不夠強，無法繼續視訊通話。
 
-您的視訊通話目前正透過行動網路執行。(若您選擇繼續，將產生數據用量。)"</string>
+目前正透過行動網路執行您的視訊通話。
+
+若您選擇繼續，可能產生數據用量費。"</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi 連線遺失。通話已結束。</string>
     <string name="use_wifi_and_mobile_nw">使用 Wi-Fi 與行動網路</string>
     <string name="use_wlan_and_mobile_nw">使用 WLAN 與行動網路</string>

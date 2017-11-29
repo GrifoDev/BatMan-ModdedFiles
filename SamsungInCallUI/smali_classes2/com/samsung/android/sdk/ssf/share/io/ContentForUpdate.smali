@@ -5,6 +5,8 @@
 # instance fields
 .field private content_type:Ljava/lang/String;
 
+.field private extra_attribute:I
+
 .field private original:Ljava/lang/String;
 
 .field private update_type:J
@@ -150,6 +152,14 @@
     .locals 0
 
     iput-object p1, p0, Lcom/samsung/android/sdk/ssf/share/io/ContentForUpdate;->content_type:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method public setExtra_attribute(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/samsung/android/sdk/ssf/share/io/ContentForUpdate;->extra_attribute:I
 
     return-void
 .end method

@@ -123,7 +123,7 @@
 .method public static a(Landroid/content/Context;I)Landroid/widget/TextView;
     .locals 2
 
-    const v0, 0x7f040073
+    const v0, 0x7f040074
 
     const/4 v1, 0x0
 
@@ -151,7 +151,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0483
+    const v1, 0x7f0a048d
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -181,7 +181,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a0482
+    const v1, 0x7f0a048c
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 

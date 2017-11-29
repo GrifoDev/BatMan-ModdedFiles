@@ -2,10 +2,18 @@
 .super Ljava/lang/Object;
 
 
+# static fields
+.field public static final EXTRA_ATTRIBUTE_360IMAGE:I = 0x1
+
+.field public static final EXTRA_ATTRIBUTE_DEFAULT:I
+
+
 # instance fields
 .field private bigThumbnail:Ljava/lang/String;
 
 .field private contentType:Ljava/lang/String;
+
+.field private extraAttr:I
 
 .field private name:Ljava/lang/String;
 
@@ -55,6 +63,14 @@
     iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/data/ContentItem;->contentType:Ljava/lang/String;
 
     return-object v0
+.end method
+
+.method public getExtraAttr()I
+    .locals 1
+
+    iget v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/data/ContentItem;->extraAttr:I
+
+    return v0
 .end method
 
 .method public getName()Ljava/lang/String;
@@ -109,6 +125,14 @@
     .locals 0
 
     iput-object p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/data/ContentItem;->contentType:Ljava/lang/String;
+
+    return-void
+.end method
+
+.method public setExtraAttr(I)V
+    .locals 0
+
+    iput p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/data/ContentItem;->extraAttr:I
 
     return-void
 .end method
@@ -243,6 +267,22 @@
     iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/data/ContentItem;->contentType:Ljava/lang/String;
 
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v2}, Ljava/lang/StringBuilder;->append(C)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    const-string v1, ", extraAttr=\'"
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v0
+
+    iget v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/data/ContentItem;->extraAttr:I
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
     move-result-object v0
 

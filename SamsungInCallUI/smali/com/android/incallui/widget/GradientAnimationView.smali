@@ -8,6 +8,7 @@
 # annotations
 .annotation system Ldalvik/annotation/MemberClasses;
     value = {
+        Lcom/android/incallui/widget/GradientAnimationView$UpdateTask;,
         Lcom/android/incallui/widget/GradientAnimationView$ScaleAnimationCallback;
     }
 .end annotation
@@ -18,7 +19,7 @@
 
 .field private static final GRADIENT_ANGLE:F = 30.0f
 
-.field private static final GRADIENT_HEIGHT_SCALE:F = 1.3f
+.field private static final GRADIENT_SCALE:F = 1.0f
 
 .field private static final ID_PREFIX:Ljava/lang/String; = "GradientAnimationView"
 
@@ -260,15 +261,7 @@
     return-void
 .end method
 
-.method static synthetic access$002(Lcom/android/incallui/widget/GradientAnimationView;F)F
-    .locals 0
-
-    iput p1, p0, Lcom/android/incallui/widget/GradientAnimationView;->mStreamFactor:F
-
-    return p1
-.end method
-
-.method static synthetic access$100(Lcom/android/incallui/widget/GradientAnimationView;)Ljava/lang/String;
+.method static synthetic access$000(Lcom/android/incallui/widget/GradientAnimationView;)Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/android/incallui/widget/GradientAnimationView;->TAG:Ljava/lang/String;
@@ -276,15 +269,15 @@
     return-object v0
 .end method
 
-.method static synthetic access$202(Lcom/android/incallui/widget/GradientAnimationView;Z)Z
-    .locals 0
+.method static synthetic access$100(Lcom/android/incallui/widget/GradientAnimationView;)Z
+    .locals 1
 
-    iput-boolean p1, p0, Lcom/android/incallui/widget/GradientAnimationView;->mIsScaleAnimationRunning:Z
+    iget-boolean v0, p0, Lcom/android/incallui/widget/GradientAnimationView;->mIsColorValid:Z
 
-    return p1
+    return v0
 .end method
 
-.method static synthetic access$300(Lcom/android/incallui/widget/GradientAnimationView;)Lcom/android/incallui/widget/GradientAnimationView$ScaleAnimationCallback;
+.method static synthetic access$1000(Lcom/android/incallui/widget/GradientAnimationView;)Lcom/android/incallui/widget/GradientAnimationView$ScaleAnimationCallback;
     .locals 1
 
     iget-object v0, p0, Lcom/android/incallui/widget/GradientAnimationView;->mScaleAnimationCallBack:Lcom/android/incallui/widget/GradientAnimationView$ScaleAnimationCallback;
@@ -292,19 +285,60 @@
     return-object v0
 .end method
 
-.method private getApproximateHeight(I)I
+.method static synthetic access$200(Lcom/android/incallui/widget/GradientAnimationView;)I
     .locals 1
 
-    rem-int/lit16 v0, p1, 0x100
+    iget v0, p0, Lcom/android/incallui/widget/GradientAnimationView;->mGradientWidth:I
 
-    sub-int v0, p1, v0
-
-    if-ge v0, p1, :cond_0
-
-    add-int/lit16 v0, v0, 0x100
-
-    :cond_0
     return v0
+.end method
+
+.method static synthetic access$300(Lcom/android/incallui/widget/GradientAnimationView;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/incallui/widget/GradientAnimationView;->mGradientHeight:I
+
+    return v0
+.end method
+
+.method static synthetic access$400(Lcom/android/incallui/widget/GradientAnimationView;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/incallui/widget/GradientAnimationView;->mStartColor:I
+
+    return v0
+.end method
+
+.method static synthetic access$500(Lcom/android/incallui/widget/GradientAnimationView;)I
+    .locals 1
+
+    iget v0, p0, Lcom/android/incallui/widget/GradientAnimationView;->mEndColor:I
+
+    return v0
+.end method
+
+.method static synthetic access$602(Lcom/android/incallui/widget/GradientAnimationView;Landroid/graphics/Bitmap;)Landroid/graphics/Bitmap;
+    .locals 0
+
+    iput-object p1, p0, Lcom/android/incallui/widget/GradientAnimationView;->mGradientBitmap:Landroid/graphics/Bitmap;
+
+    return-object p1
+.end method
+
+.method static synthetic access$802(Lcom/android/incallui/widget/GradientAnimationView;F)F
+    .locals 0
+
+    iput p1, p0, Lcom/android/incallui/widget/GradientAnimationView;->mStreamFactor:F
+
+    return p1
+.end method
+
+.method static synthetic access$902(Lcom/android/incallui/widget/GradientAnimationView;Z)Z
+    .locals 0
+
+    iput-boolean p1, p0, Lcom/android/incallui/widget/GradientAnimationView;->mIsScaleAnimationRunning:Z
+
+    return p1
 .end method
 
 .method private declared-synchronized updateGradient()V
@@ -465,112 +499,104 @@
 .end method
 
 .method private updateGradientSize(II)Z
-    .locals 3
+    .locals 4
 
-    iget v0, p0, Lcom/android/incallui/widget/GradientAnimationView;->mDisplayWidth:I
+    const/4 v0, 0x1
 
-    if-ne p1, v0, :cond_0
+    iget v1, p0, Lcom/android/incallui/widget/GradientAnimationView;->mDisplayWidth:I
 
-    iget v0, p0, Lcom/android/incallui/widget/GradientAnimationView;->mDisplayHeight:I
+    if-ne p1, v1, :cond_0
 
-    if-eq p2, v0, :cond_1
+    iget v1, p0, Lcom/android/incallui/widget/GradientAnimationView;->mDisplayHeight:I
+
+    if-eq p2, v1, :cond_1
 
     :cond_0
     iput p1, p0, Lcom/android/incallui/widget/GradientAnimationView;->mDisplayWidth:I
 
     iput p2, p0, Lcom/android/incallui/widget/GradientAnimationView;->mDisplayHeight:I
 
-    iget v0, p0, Lcom/android/incallui/widget/GradientAnimationView;->mDisplayHeight:I
+    iget v1, p0, Lcom/android/incallui/widget/GradientAnimationView;->mDisplayHeight:I
 
-    invoke-direct {p0, v0}, Lcom/android/incallui/widget/GradientAnimationView;->getApproximateHeight(I)I
-
-    move-result v0
-
-    iput v0, p0, Lcom/android/incallui/widget/GradientAnimationView;->mGradientHeight:I
-
-    iget v0, p0, Lcom/android/incallui/widget/GradientAnimationView;->mGradientHeight:I
-
-    div-int/lit16 v0, v0, 0x100
+    iput v1, p0, Lcom/android/incallui/widget/GradientAnimationView;->mGradientHeight:I
 
     iput v0, p0, Lcom/android/incallui/widget/GradientAnimationView;->mGradientDividedNumber:I
 
-    iget v0, p0, Lcom/android/incallui/widget/GradientAnimationView;->mDisplayWidth:I
-
-    iget v1, p0, Lcom/android/incallui/widget/GradientAnimationView;->mGradientDividedNumber:I
-
-    div-int/2addr v0, v1
-
-    iput v0, p0, Lcom/android/incallui/widget/GradientAnimationView;->mGradientWidth:I
-
-    iget-object v0, p0, Lcom/android/incallui/widget/GradientAnimationView;->TAG:Ljava/lang/String;
-
-    new-instance v1, Ljava/lang/StringBuilder;
-
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-
-    const-string v2, "updateGradientSize: "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, ", "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, ", "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget v2, p0, Lcom/android/incallui/widget/GradientAnimationView;->mGradientWidth:I
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, ", "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    iget v2, p0, Lcom/android/incallui/widget/GradientAnimationView;->mGradientHeight:I
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
-
-    move-result-object v1
-
-    const-string v2, ", "
-
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    move-result-object v1
+    iget v1, p0, Lcom/android/incallui/widget/GradientAnimationView;->mDisplayWidth:I
 
     iget v2, p0, Lcom/android/incallui/widget/GradientAnimationView;->mGradientDividedNumber:I
 
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    div-int/2addr v1, v2
 
-    move-result-object v1
+    iput v1, p0, Lcom/android/incallui/widget/GradientAnimationView;->mGradientWidth:I
 
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    iget-object v1, p0, Lcom/android/incallui/widget/GradientAnimationView;->TAG:Ljava/lang/String;
 
-    move-result-object v1
+    new-instance v2, Ljava/lang/StringBuilder;
 
-    invoke-static {v0, v1}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    const/4 v0, 0x1
+    const-string v3, "updateGradientSize: "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, ", "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, ", "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget v3, p0, Lcom/android/incallui/widget/GradientAnimationView;->mGradientWidth:I
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, ", "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget v3, p0, Lcom/android/incallui/widget/GradientAnimationView;->mGradientHeight:I
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    const-string v3, ", "
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    iget v3, p0, Lcom/android/incallui/widget/GradientAnimationView;->mGradientDividedNumber:I
+
+    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v2
+
+    invoke-static {v1, v2}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :goto_0
     return v0
@@ -1105,7 +1131,7 @@
 .end method
 
 .method protected onDraw(Landroid/graphics/Canvas;)V
-    .locals 18
+    .locals 17
 
     move-object/from16 v0, p0
 
@@ -1233,11 +1259,11 @@
 
     add-float/2addr v9, v10
 
-    int-to-float v10, v2
+    int-to-float v2, v2
 
-    div-float/2addr v9, v10
+    div-float v2, v9, v2
 
-    invoke-static {v9}, Ljava/lang/Math;->abs(F)F
+    invoke-static {v2}, Ljava/lang/Math;->abs(F)F
 
     move-result v9
 
@@ -1251,21 +1277,11 @@
 
     move-result-wide v10
 
-    double-to-float v7, v10
+    double-to-float v2, v10
 
     int-to-float v3, v3
 
-    mul-float/2addr v7, v3
-
-    int-to-float v2, v2
-
-    const v3, 0x3fa66666    # 1.3f
-
-    mul-float/2addr v2, v3
-
-    int-to-float v3, v4
-
-    div-float v10, v2, v3
+    mul-float v7, v3, v2
 
     mul-int/lit8 v2, v4, 0x2
 
@@ -1277,11 +1293,11 @@
 
     neg-float v3, v3
 
-    const/high16 v11, 0x3f800000    # 1.0f
+    const/high16 v10, 0x3f800000    # 1.0f
 
-    sub-float/2addr v2, v11
+    sub-float/2addr v2, v10
 
-    mul-float v11, v3, v2
+    mul-float v10, v3, v2
 
     const/4 v2, 0x0
 
@@ -1294,217 +1310,213 @@
 
     mul-int v2, v4, v3
 
-    int-to-float v12, v2
+    int-to-float v11, v2
 
     const/4 v2, 0x0
 
     :goto_1
     move-object/from16 v0, p0
 
-    iget v13, v0, Lcom/android/incallui/widget/GradientAnimationView;->mGradientDividedNumber:I
+    iget v12, v0, Lcom/android/incallui/widget/GradientAnimationView;->mGradientDividedNumber:I
 
-    if-ge v2, v13, :cond_1
+    if-ge v2, v12, :cond_1
 
-    rem-int/lit8 v13, v3, 0x2
+    rem-int/lit8 v12, v3, 0x2
 
-    const/4 v14, 0x1
+    const/4 v13, 0x1
 
-    if-ne v13, v14, :cond_0
+    if-ne v12, v13, :cond_0
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixA:Landroid/graphics/Matrix;
+    iget-object v12, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixA:Landroid/graphics/Matrix;
 
-    const/high16 v14, 0x43340000    # 180.0f
+    const/high16 v13, 0x43340000    # 180.0f
 
-    int-to-float v15, v5
+    int-to-float v14, v5
+
+    const/high16 v15, 0x40000000    # 2.0f
+
+    div-float/2addr v14, v15
+
+    int-to-float v15, v4
 
     const/high16 v16, 0x40000000    # 2.0f
 
     div-float v15, v15, v16
 
-    int-to-float v0, v4
-
-    move/from16 v16, v0
-
-    const/high16 v17, 0x40000000    # 2.0f
-
-    div-float v16, v16, v17
-
-    invoke-virtual/range {v13 .. v16}, Landroid/graphics/Matrix;->setRotate(FFF)V
+    invoke-virtual {v12, v13, v14, v15}, Landroid/graphics/Matrix;->setRotate(FFF)V
 
     :goto_2
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixB:Landroid/graphics/Matrix;
+    iget-object v12, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixB:Landroid/graphics/Matrix;
 
-    mul-int v14, v5, v2
+    mul-int v13, v5, v2
 
-    int-to-float v14, v14
+    int-to-float v13, v13
 
-    invoke-virtual {v13, v14, v12}, Landroid/graphics/Matrix;->setTranslate(FF)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixA:Landroid/graphics/Matrix;
+    invoke-virtual {v12, v13, v11}, Landroid/graphics/Matrix;->setTranslate(FF)V
 
     move-object/from16 v0, p0
 
-    iget-object v14, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixB:Landroid/graphics/Matrix;
-
-    move-object/from16 v0, p0
-
-    iget-object v15, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixA:Landroid/graphics/Matrix;
-
-    invoke-virtual {v13, v14, v15}, Landroid/graphics/Matrix;->setConcat(Landroid/graphics/Matrix;Landroid/graphics/Matrix;)Z
+    iget-object v12, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixA:Landroid/graphics/Matrix;
 
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixB:Landroid/graphics/Matrix;
 
-    const/4 v14, 0x0
+    move-object/from16 v0, p0
 
-    invoke-virtual {v13, v14, v11}, Landroid/graphics/Matrix;->setTranslate(FF)V
+    iget-object v14, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixA:Landroid/graphics/Matrix;
+
+    invoke-virtual {v12, v13, v14}, Landroid/graphics/Matrix;->setConcat(Landroid/graphics/Matrix;Landroid/graphics/Matrix;)Z
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixA:Landroid/graphics/Matrix;
+    iget-object v12, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixB:Landroid/graphics/Matrix;
+
+    const/4 v13, 0x0
+
+    invoke-virtual {v12, v13, v10}, Landroid/graphics/Matrix;->setTranslate(FF)V
 
     move-object/from16 v0, p0
 
-    iget-object v14, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixB:Landroid/graphics/Matrix;
-
-    move-object/from16 v0, p0
-
-    iget-object v15, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixA:Landroid/graphics/Matrix;
-
-    invoke-virtual {v13, v14, v15}, Landroid/graphics/Matrix;->setConcat(Landroid/graphics/Matrix;Landroid/graphics/Matrix;)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixB:Landroid/graphics/Matrix;
-
-    const v14, 0x3f8147ae    # 1.01f
-
-    invoke-virtual {v13, v14, v10}, Landroid/graphics/Matrix;->setScale(FF)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixA:Landroid/graphics/Matrix;
-
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixB:Landroid/graphics/Matrix;
-
-    move-object/from16 v0, p0
-
-    iget-object v15, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixA:Landroid/graphics/Matrix;
-
-    invoke-virtual {v13, v14, v15}, Landroid/graphics/Matrix;->setConcat(Landroid/graphics/Matrix;Landroid/graphics/Matrix;)Z
+    iget-object v12, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixA:Landroid/graphics/Matrix;
 
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixB:Landroid/graphics/Matrix;
 
-    invoke-virtual {v13, v8, v9}, Landroid/graphics/Matrix;->setScale(FF)V
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixA:Landroid/graphics/Matrix;
+
+    invoke-virtual {v12, v13, v14}, Landroid/graphics/Matrix;->setConcat(Landroid/graphics/Matrix;Landroid/graphics/Matrix;)Z
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixA:Landroid/graphics/Matrix;
+    iget-object v12, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixB:Landroid/graphics/Matrix;
+
+    const/high16 v13, 0x3f800000    # 1.0f
+
+    const/high16 v14, 0x3f800000    # 1.0f
+
+    invoke-virtual {v12, v13, v14}, Landroid/graphics/Matrix;->setScale(FF)V
 
     move-object/from16 v0, p0
 
-    iget-object v14, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixB:Landroid/graphics/Matrix;
-
-    move-object/from16 v0, p0
-
-    iget-object v15, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixA:Landroid/graphics/Matrix;
-
-    invoke-virtual {v13, v14, v15}, Landroid/graphics/Matrix;->setConcat(Landroid/graphics/Matrix;Landroid/graphics/Matrix;)Z
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixB:Landroid/graphics/Matrix;
-
-    const/4 v14, 0x0
-
-    neg-float v15, v7
-
-    invoke-virtual {v13, v14, v15}, Landroid/graphics/Matrix;->setTranslate(FF)V
-
-    move-object/from16 v0, p0
-
-    iget-object v13, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixA:Landroid/graphics/Matrix;
-
-    move-object/from16 v0, p0
-
-    iget-object v14, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixB:Landroid/graphics/Matrix;
-
-    move-object/from16 v0, p0
-
-    iget-object v15, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixA:Landroid/graphics/Matrix;
-
-    invoke-virtual {v13, v14, v15}, Landroid/graphics/Matrix;->setConcat(Landroid/graphics/Matrix;Landroid/graphics/Matrix;)Z
+    iget-object v12, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixA:Landroid/graphics/Matrix;
 
     move-object/from16 v0, p0
 
     iget-object v13, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixB:Landroid/graphics/Matrix;
 
-    invoke-virtual {v13, v6}, Landroid/graphics/Matrix;->setRotate(F)V
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixA:Landroid/graphics/Matrix;
+
+    invoke-virtual {v12, v13, v14}, Landroid/graphics/Matrix;->setConcat(Landroid/graphics/Matrix;Landroid/graphics/Matrix;)Z
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixA:Landroid/graphics/Matrix;
+    iget-object v12, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixB:Landroid/graphics/Matrix;
+
+    invoke-virtual {v12, v8, v9}, Landroid/graphics/Matrix;->setScale(FF)V
 
     move-object/from16 v0, p0
 
-    iget-object v14, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixB:Landroid/graphics/Matrix;
+    iget-object v12, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixA:Landroid/graphics/Matrix;
 
     move-object/from16 v0, p0
 
-    iget-object v15, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixA:Landroid/graphics/Matrix;
-
-    invoke-virtual {v13, v14, v15}, Landroid/graphics/Matrix;->setConcat(Landroid/graphics/Matrix;Landroid/graphics/Matrix;)Z
+    iget-object v13, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixB:Landroid/graphics/Matrix;
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixA:Landroid/graphics/Matrix;
+    iget-object v14, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixA:Landroid/graphics/Matrix;
+
+    invoke-virtual {v12, v13, v14}, Landroid/graphics/Matrix;->setConcat(Landroid/graphics/Matrix;Landroid/graphics/Matrix;)Z
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixB:Landroid/graphics/Matrix;
+
+    const/4 v13, 0x0
+
+    neg-float v14, v7
+
+    invoke-virtual {v12, v13, v14}, Landroid/graphics/Matrix;->setTranslate(FF)V
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixA:Landroid/graphics/Matrix;
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixB:Landroid/graphics/Matrix;
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixA:Landroid/graphics/Matrix;
+
+    invoke-virtual {v12, v13, v14}, Landroid/graphics/Matrix;->setConcat(Landroid/graphics/Matrix;Landroid/graphics/Matrix;)Z
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixB:Landroid/graphics/Matrix;
+
+    invoke-virtual {v12, v6}, Landroid/graphics/Matrix;->setRotate(F)V
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixA:Landroid/graphics/Matrix;
+
+    move-object/from16 v0, p0
+
+    iget-object v13, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixB:Landroid/graphics/Matrix;
+
+    move-object/from16 v0, p0
+
+    iget-object v14, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixA:Landroid/graphics/Matrix;
+
+    invoke-virtual {v12, v13, v14}, Landroid/graphics/Matrix;->setConcat(Landroid/graphics/Matrix;Landroid/graphics/Matrix;)Z
+
+    move-object/from16 v0, p0
+
+    iget-object v12, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixA:Landroid/graphics/Matrix;
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v13}, Landroid/graphics/Canvas;->setMatrix(Landroid/graphics/Matrix;)V
+    invoke-virtual {v0, v12}, Landroid/graphics/Canvas;->setMatrix(Landroid/graphics/Matrix;)V
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/incallui/widget/GradientAnimationView;->mGradientBitmap:Landroid/graphics/Bitmap;
+    iget-object v12, v0, Lcom/android/incallui/widget/GradientAnimationView;->mGradientBitmap:Landroid/graphics/Bitmap;
+
+    const/4 v13, 0x0
 
     const/4 v14, 0x0
 
-    const/4 v15, 0x0
-
     move-object/from16 v0, p0
 
-    iget-object v0, v0, Lcom/android/incallui/widget/GradientAnimationView;->mPaint:Landroid/graphics/Paint;
-
-    move-object/from16 v16, v0
+    iget-object v15, v0, Lcom/android/incallui/widget/GradientAnimationView;->mPaint:Landroid/graphics/Paint;
 
     move-object/from16 v0, p1
 
-    move-object/from16 v1, v16
-
-    invoke-virtual {v0, v13, v14, v15, v1}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
+    invoke-virtual {v0, v12, v13, v14, v15}, Landroid/graphics/Canvas;->drawBitmap(Landroid/graphics/Bitmap;FFLandroid/graphics/Paint;)V
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixA:Landroid/graphics/Matrix;
+    iget-object v12, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixA:Landroid/graphics/Matrix;
 
-    invoke-virtual {v13}, Landroid/graphics/Matrix;->reset()V
+    invoke-virtual {v12}, Landroid/graphics/Matrix;->reset()V
 
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixB:Landroid/graphics/Matrix;
+    iget-object v12, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixB:Landroid/graphics/Matrix;
 
-    invoke-virtual {v13}, Landroid/graphics/Matrix;->reset()V
+    invoke-virtual {v12}, Landroid/graphics/Matrix;->reset()V
 
     add-int/lit8 v2, v2, 0x1
 
@@ -1513,25 +1525,23 @@
     :cond_0
     move-object/from16 v0, p0
 
-    iget-object v13, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixA:Landroid/graphics/Matrix;
+    iget-object v12, v0, Lcom/android/incallui/widget/GradientAnimationView;->mMatrixA:Landroid/graphics/Matrix;
 
-    const/4 v14, 0x0
+    const/4 v13, 0x0
 
-    int-to-float v15, v5
+    int-to-float v14, v5
+
+    const/high16 v15, 0x40000000    # 2.0f
+
+    div-float/2addr v14, v15
+
+    int-to-float v15, v4
 
     const/high16 v16, 0x40000000    # 2.0f
 
     div-float v15, v15, v16
 
-    int-to-float v0, v4
-
-    move/from16 v16, v0
-
-    const/high16 v17, 0x40000000    # 2.0f
-
-    div-float v16, v16, v17
-
-    invoke-virtual/range {v13 .. v16}, Landroid/graphics/Matrix;->setRotate(FFF)V
+    invoke-virtual {v12, v13, v14, v15}, Landroid/graphics/Matrix;->setRotate(FFF)V
 
     goto/16 :goto_2
 
@@ -1843,23 +1853,23 @@
 .end method
 
 .method public updateGradientColor(Landroid/graphics/drawable/Drawable;Z)V
-    .locals 6
+    .locals 8
 
-    const/4 v5, 0x0
+    const/4 v7, 0x0
 
-    const/4 v2, 0x1
+    const/4 v2, 0x0
+
+    const/4 v3, 0x1
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v0
 
-    const/4 v1, 0x0
+    invoke-static {v0, v7, v2}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
 
-    invoke-static {v0, v1, v5}, Lcom/android/incallui/util/InCallUtils;->getCallToDisplay(Lcom/android/incallui/CallList;Lcom/android/incallui/Call;Z)Lcom/android/incallui/Call;
+    move-result-object v5
 
-    move-result-object v1
-
-    if-nez v1, :cond_0
+    if-nez v5, :cond_0
 
     iget-object v0, p0, Lcom/android/incallui/widget/GradientAnimationView;->TAG:Ljava/lang/String;
 
@@ -1883,19 +1893,19 @@
 
     move-result-object v0
 
-    invoke-virtual {v1}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
+    invoke-virtual {v5}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v0, v3}, Lcom/android/incallui/ContactInfoCache;->getInfo(Ljava/lang/String;)Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
+    invoke-virtual {v0, v1}, Lcom/android/incallui/ContactInfoCache;->getInfo(Ljava/lang/String;)Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;
 
     move-result-object v0
 
-    invoke-virtual {v1}, Lcom/android/incallui/Call;->isEmergencyCall()Z
+    invoke-virtual {v5}, Lcom/android/incallui/Call;->isEmergencyCall()Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_2
+    if-eqz v1, :cond_2
 
     iget-object v0, p0, Lcom/android/incallui/widget/GradientAnimationView;->TAG:Ljava/lang/String;
 
@@ -1907,7 +1917,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0e0031
+    const v1, 0x7f0e0037
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1917,79 +1927,107 @@
 
     move-result-object v0
 
-    const v3, 0x7f0e0030
+    const v4, 0x7f0e0036
 
-    invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getColor(I)I
+    invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getColor(I)I
 
     move-result v0
 
+    move v4, v1
+
+    move v1, v0
+
+    move v0, v2
+
     :goto_1
-    iget v3, p0, Lcom/android/incallui/widget/GradientAnimationView;->mStartColor:I
+    iget v6, p0, Lcom/android/incallui/widget/GradientAnimationView;->mStartColor:I
 
-    if-ne v3, v1, :cond_1
+    if-ne v6, v4, :cond_1
 
-    iget v3, p0, Lcom/android/incallui/widget/GradientAnimationView;->mEndColor:I
+    iget v6, p0, Lcom/android/incallui/widget/GradientAnimationView;->mEndColor:I
 
-    if-eq v3, v0, :cond_c
+    if-eq v6, v1, :cond_d
 
     :cond_1
-    iput v1, p0, Lcom/android/incallui/widget/GradientAnimationView;->mStartColor:I
+    iput v4, p0, Lcom/android/incallui/widget/GradientAnimationView;->mStartColor:I
 
-    iput v0, p0, Lcom/android/incallui/widget/GradientAnimationView;->mEndColor:I
+    iput v1, p0, Lcom/android/incallui/widget/GradientAnimationView;->mEndColor:I
 
-    iput-boolean v2, p0, Lcom/android/incallui/widget/GradientAnimationView;->mIsColorValid:Z
+    iput-boolean v3, p0, Lcom/android/incallui/widget/GradientAnimationView;->mIsColorValid:Z
 
-    invoke-direct {p0}, Lcom/android/incallui/widget/GradientAnimationView;->updateGradient()V
+    if-eqz v0, :cond_c
+
+    invoke-virtual {v5}, Lcom/android/incallui/Call;->getState()I
+
+    move-result v0
+
+    const/4 v1, 0x6
+
+    if-ne v0, v1, :cond_c
+
+    iget-object v0, p0, Lcom/android/incallui/widget/GradientAnimationView;->TAG:Ljava/lang/String;
+
+    const-string v1, "updateGradientColor in background"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    new-instance v0, Lcom/android/incallui/widget/GradientAnimationView$UpdateTask;
+
+    invoke-direct {v0, p0, v7}, Lcom/android/incallui/widget/GradientAnimationView$UpdateTask;-><init>(Lcom/android/incallui/widget/GradientAnimationView;Lcom/android/incallui/widget/GradientAnimationView$1;)V
+
+    new-array v1, v2, [Ljava/lang/Void;
+
+    invoke-virtual {v0, v1}, Lcom/android/incallui/widget/GradientAnimationView$UpdateTask;->execute([Ljava/lang/Object;)Landroid/os/AsyncTask;
 
     goto :goto_0
 
     :cond_2
-    invoke-static {v1}, Lcom/android/incallui/smartcall/SmartCallUtil;->getSmartCallState(Lcom/android/incallui/Call;)I
+    invoke-static {v5}, Lcom/android/incallui/smartcall/SmartCallUtil;->getSmartCallState(Lcom/android/incallui/Call;)I
 
-    move-result v3
+    move-result v1
 
     const/4 v4, 0x2
 
-    if-ge v3, v4, :cond_3
+    if-ge v1, v4, :cond_3
 
     invoke-static {}, Lcom/android/incallui/util/SpamCallUtils;->getisSpam()Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_4
+    if-eqz v1, :cond_4
 
     if-eqz v0, :cond_4
 
-    iget-boolean v3, v0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->contactExists:Z
+    iget-boolean v1, v0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->contactExists:Z
 
-    if-nez v3, :cond_4
+    if-nez v1, :cond_4
 
-    iget-boolean v3, v0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->queryCompleted:Z
+    iget-boolean v1, v0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->queryCompleted:Z
 
-    if-eqz v3, :cond_4
+    if-eqz v1, :cond_4
 
     :cond_3
     invoke-static {}, Lcom/android/incallui/util/PhoneModeUtils;->isEmergencyMode()Z
 
-    move-result v3
+    move-result v1
 
-    if-nez v3, :cond_4
+    if-nez v1, :cond_4
 
     invoke-static {}, Lcom/android/incallui/util/PhoneModeUtils;->isUltraPowerSavingMode()Z
 
-    move-result v3
+    move-result v1
 
-    if-nez v3, :cond_4
+    if-nez v1, :cond_4
 
     invoke-static {}, Lcom/android/incallui/UiAdapter;->getInstance()Lcom/android/incallui/UiAdapter;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-virtual {v3}, Lcom/android/incallui/UiAdapter;->isShowAgifImageView()Z
+    invoke-virtual {v1}, Lcom/android/incallui/UiAdapter;->isShowAgifImageView()Z
 
-    move-result v3
+    move-result v1
 
-    if-nez v3, :cond_4
+    if-nez v1, :cond_4
 
     iget-object v0, p0, Lcom/android/incallui/widget/GradientAnimationView;->TAG:Ljava/lang/String;
 
@@ -2001,7 +2039,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0e0033
+    const v1, 0x7f0e0039
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -2011,36 +2049,42 @@
 
     move-result-object v0
 
-    const v3, 0x7f0e0032
+    const v4, 0x7f0e0038
 
-    invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getColor(I)I
+    invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getColor(I)I
 
     move-result v0
+
+    move v4, v1
+
+    move v1, v0
+
+    move v0, v2
 
     goto :goto_1
 
     :cond_4
-    const-string v3, "callprotect_enable"
+    const-string v1, "callprotect_enable"
 
-    invoke-static {v3}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    invoke-static {v1}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v1
 
-    if-eqz v3, :cond_6
+    if-eqz v1, :cond_6
 
-    invoke-virtual {v1}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
+    invoke-virtual {v5}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v1
 
-    invoke-static {v3}, Lcom/whitepages/nameid/f;->b(Ljava/lang/String;)I
+    invoke-static {v1}, Lcom/whitepages/nameid/f;->b(Ljava/lang/String;)I
 
-    move-result v3
+    move-result v1
 
     const/4 v4, -0x1
 
-    if-le v3, v4, :cond_6
+    if-le v1, v4, :cond_6
 
-    invoke-virtual {v1}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
+    invoke-virtual {v5}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
 
     move-result-object v0
 
@@ -2056,7 +2100,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0e002b
+    const v1, 0x7f0e0031
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -2066,11 +2110,18 @@
 
     move-result-object v0
 
-    const v3, 0x7f0e002a
+    const v4, 0x7f0e0030
 
-    invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getColor(I)I
+    invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getColor(I)I
 
     move-result v0
+
+    :goto_2
+    move v4, v1
+
+    move v1, v0
+
+    move v0, v2
 
     goto/16 :goto_1
 
@@ -2079,7 +2130,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0e002d
+    const v1, 0x7f0e0033
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -2089,22 +2140,22 @@
 
     move-result-object v0
 
-    const v3, 0x7f0e002c
+    const v4, 0x7f0e0032
 
-    invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getColor(I)I
+    invoke-virtual {v0, v4}, Landroid/content/res/Resources;->getColor(I)I
 
     move-result v0
 
-    goto/16 :goto_1
+    goto :goto_2
 
     :cond_6
     if-eqz p1, :cond_8
 
     iget-object v0, p0, Lcom/android/incallui/widget/GradientAnimationView;->TAG:Ljava/lang/String;
 
-    const-string v3, "updateGradientColor: extract color from drawable"
+    const-string v1, "updateGradientColor: extract color from drawable"
 
-    invoke-static {v0, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     invoke-static {p1}, Lcom/android/incallui/util/GraphicResourceUtils;->getGradientColors(Landroid/graphics/drawable/Drawable;)[I
 
@@ -2112,7 +2163,7 @@
 
     if-nez v0, :cond_7
 
-    invoke-virtual {v1}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
+    invoke-virtual {v5}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
 
     move-result-object v0
 
@@ -2121,28 +2172,40 @@
     move-result-object v0
 
     :cond_7
-    aget v1, v0, v5
+    aget v1, v0, v2
 
-    aget v0, v0, v2
+    aget v0, v0, v3
+
+    move v4, v1
+
+    move v1, v0
+
+    move v0, v3
 
     goto/16 :goto_1
 
     :cond_8
     if-eqz v0, :cond_9
 
-    iget-boolean v3, v0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->isGradientColorExists:Z
+    iget-boolean v1, v0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->isGradientColorExists:Z
 
-    if-eqz v3, :cond_9
+    if-eqz v1, :cond_9
 
     iget-object v1, p0, Lcom/android/incallui/widget/GradientAnimationView;->TAG:Ljava/lang/String;
 
-    const-string v3, "updateGradientColor: color exists"
+    const-string v4, "updateGradientColor: color exists"
 
-    invoke-static {v1, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v1, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     iget v1, v0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->gradientStartColor:I
 
     iget v0, v0, Lcom/android/incallui/ContactInfoCache$ContactCacheEntry;->gradientEndColor:I
+
+    move v4, v1
+
+    move v1, v0
+
+    move v0, v3
 
     goto/16 :goto_1
 
@@ -2155,22 +2218,22 @@
 
     iget-object v0, p0, Lcom/android/incallui/widget/GradientAnimationView;->TAG:Ljava/lang/String;
 
-    const-string v3, "updateGradientColor: NameIDHelper is bound"
+    const-string v1, "updateGradientColor: NameIDHelper is bound"
 
-    invoke-static {v0, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    move p2, v2
+    move p2, v3
 
     :cond_a
     if-eqz p2, :cond_b
 
     iget-object v0, p0, Lcom/android/incallui/widget/GradientAnimationView;->TAG:Ljava/lang/String;
 
-    const-string v3, "updateGradientColor: default"
+    const-string v1, "updateGradientColor: default"
 
-    invoke-static {v0, v3}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
-    invoke-virtual {v1}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
+    invoke-virtual {v5}, Lcom/android/incallui/Call;->getId()Ljava/lang/String;
 
     move-result-object v0
 
@@ -2178,9 +2241,15 @@
 
     move-result-object v0
 
-    aget v1, v0, v5
+    aget v1, v0, v2
 
-    aget v0, v0, v2
+    aget v0, v0, v3
+
+    move v4, v1
+
+    move v1, v0
+
+    move v0, v2
 
     goto/16 :goto_1
 
@@ -2194,6 +2263,11 @@
     goto/16 :goto_0
 
     :cond_c
+    invoke-direct {p0}, Lcom/android/incallui/widget/GradientAnimationView;->updateGradient()V
+
+    goto/16 :goto_0
+
+    :cond_d
     iget-object v0, p0, Lcom/android/incallui/widget/GradientAnimationView;->TAG:Ljava/lang/String;
 
     const-string v1, "updateGradientColor: duplicated"

@@ -178,12 +178,13 @@
     <string name="account_phone">Uređaj</string>
     <string name="acs">Glasovni poziv</string>
     <string name="active_calls">Aktivan poziv</string>
-    <string name="add_reminder">Dodaj podsj.</string>
+    <string name="add_reminder">Dodaj podsjetnik</string>
     <string name="agif_button_close_description">Prekid</string>
     <string name="agif_decline_message">Nažalost, sada ne mogu razgovarati.</string>
     <string name="agif_decline_sticker_header">Odbijanje naljepnicom</string>
     <string name="agif_decline_text_header">Odbijanje tekstom</string>
     <string name="agif_decline_toast">Naljepnica poslana korisniku %s.</string>
+    <string name="agif_outgoing_bubble_tip">Pošaljite naljepnicu da biste pokazali kako se osjećate.</string>
     <string name="agif_pickers_add_tab_description">Dodaj</string>
     <string name="agif_pickers_find_more">Doznaj više</string>
     <string name="agif_pickers_item_usage_hints_description">Dvaput dodirnite za odabir</string>
@@ -192,10 +193,12 @@
     <string name="agif_pickers_tab_select_description">Odabrano</string>
     <string name="agif_pickers_title">Upotreba naljepnice</string>
     <string name="agif_pickers_title_recommended">Preporučeno</string>
+    <string name="agif_random_send_message">Dodirnite ovdje da biste poslali ovu naljepnicu.</string>
     <string name="agif_read_permission_description">Dopušta Telefonu da čita sadržaj AGIF-a.</string>
     <string name="agif_read_permission_label">Pročitaj sadržaj AGIF-a</string>
     <string name="agif_receive_no_id">Nije moguće prikazati naljepnicu. Aktualizirajte aplikaciju %s nakon poziva.</string>
     <string name="agif_receive_no_id_upsupport_update">Nije moguće prikazati naljepnicu. Više naljepnica bit će dostupno nakon iduće aktualizacije sustava.</string>
+    <string name="agif_receive_toast">Naljepnica od osobe %s.</string>
     <string name="agif_sent_fail_message">Nije moguće slati animirane GIF-ove. Pokušajte ponovno kasnije.</string>
     <string name="agif_sent_toast">Naljepnica poslana.</string>
     <string name="agif_write_permission_description">Dopušta Telefonu da mijenja sadržaj AGIF-a.</string>
@@ -885,8 +888,8 @@ kamera"</string>
     <string name="tts_pager">Stranica %1$d od %2$d</string>
     <string name="tts_seconds">%d sekundi</string>
     <string name="tty_mode_option_title">TTY način rada</string>
-    <string name="tutorial_incoming_call_app_answer">Dodirnite za preuzimanje poziva.</string>
-    <string name="tutorial_incoming_call_app_reject">Dodirnite za odbijanje poziva.</string>
+    <string name="tutorial_incoming_call_app_answer">Dvaput dotaknite za odgovor.</string>
+    <string name="tutorial_incoming_call_app_reject">Dvaput dotaknite za odbijanje.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Nije moguće povezati se s mrežom. Provjerite postavke veze i pokušajte ponovno.</string>
     <string name="units_kb">KB</string>
@@ -896,7 +899,7 @@ kamera"</string>
     <string name="upload_using_wlan_only">Šalji samo putem WLAN-a</string>
     <string name="upload_wifi_and_mobile_nw">Šalji putem Wi-Fi ili mobilne mreže</string>
     <string name="upload_wlan_and_mobile_nw">Šalji putem WLAN-a ili mobilne mreže</string>
-    <string name="usa_att_connected_as_voice">Poziv je povezan samo kao glasovni.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Upotreba podataka koju ste postavili na svojem uređaju uskoro će dosegnuti ograničenje. Potrebni su podaci za videopoziv.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Poziv se ne može uputiti putem Wi-Fi mreže, povezivanjem putem mobilne mreže. Primijenit će se naplata razgovora i podataka.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -944,13 +947,17 @@ jednosm. videoz."</string>
     <string name="usa_vzw_voice_incoming_during_wifi_video">Preuzimanjem dolaznih poziva prekinut će se trenutačni razgovor.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_text">Wi-Fi signal nije dovoljno jak za nastavak poziva. Vaša podatkovna tarifa upotrebljavat će se ako upotrebljavate mobilne mreže za nastavak poziva.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Upotreba Mobilnih podataka</string>
-    <string name="usa_vzw_volte_weak_wifi_text">"Pokušali smo, ali u ovom trenutku ne možemo prebaciti vaš videopoziv na Wi-Fi.
+    <string name="usa_vzw_volte_weak_wifi_text">"Pokušali smo, ali u ovom trenutku ne možemo prebaciti vaš videopoziv na Wi-Fi mrežu.
 
-Videopoziv i dalje traje na mobilnoj mreži. (Primjenjuje se upotreba podataka ako odaberete nastavak.)"</string>
+Videopoziv se i dalje prenosi putem mobilne mreže.
+
+Ako nastavite, mogu se primijeniti troškovi uporabe podataka."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Videopoziv još traje na mobilnoj mreži. (Primjenjuje se upotreba podataka.)</string>
     <string name="usa_vzw_vowifi_wifi_low_signal_text">"Wi-Fi signal nije bio dovoljno jak za nastavak vašeg videopoziva.
 
-Videopoziv sada traje na mobilnoj mreži. (Primjenjuje se upotreba podataka ako odaberete nastavak.)"</string>
+Videopoziv sada se prenosi putem mobilne mreže.
+
+Ako nastavite, mogu se primijeniti troškovi uporabe podataka."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Prekinula se Wi-Fi veza. Poziv je završio.</string>
     <string name="use_wifi_and_mobile_nw">Upotrijebi Wi-Fi i mobilne mreže</string>
     <string name="use_wlan_and_mobile_nw">Upotrijebi WLAN i mobilne mreže</string>

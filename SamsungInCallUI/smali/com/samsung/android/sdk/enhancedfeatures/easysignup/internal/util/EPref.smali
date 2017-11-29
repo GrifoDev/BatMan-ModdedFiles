@@ -25,8 +25,6 @@
 
 .field public static final PREF_LAST_POLICY_CHECK_TIME:Ljava/lang/String; = "last_policy_check_time"
 
-.field public static final PREF_POLICY_CHECK_INTERVAL:Ljava/lang/String; = "policy_check_interval"
-
 .field public static final PREF_POLICY_SET_TIME:Ljava/lang/String; = "policy_set_time"
 
 .field public static final PREF_SPP_APP_ID:Ljava/lang/String; = "PREFS_SPPID"

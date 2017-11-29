@@ -37,7 +37,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/widget/GradientAnimationView$2;->this$0:Lcom/android/incallui/widget/GradientAnimationView;
 
-    invoke-static {v0}, Lcom/android/incallui/widget/GradientAnimationView;->access$100(Lcom/android/incallui/widget/GradientAnimationView;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/android/incallui/widget/GradientAnimationView;->access$000(Lcom/android/incallui/widget/GradientAnimationView;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -49,11 +49,11 @@
 
     const/4 v1, 0x0
 
-    invoke-static {v0, v1}, Lcom/android/incallui/widget/GradientAnimationView;->access$202(Lcom/android/incallui/widget/GradientAnimationView;Z)Z
+    invoke-static {v0, v1}, Lcom/android/incallui/widget/GradientAnimationView;->access$902(Lcom/android/incallui/widget/GradientAnimationView;Z)Z
 
     iget-object v0, p0, Lcom/android/incallui/widget/GradientAnimationView$2;->this$0:Lcom/android/incallui/widget/GradientAnimationView;
 
-    invoke-static {v0}, Lcom/android/incallui/widget/GradientAnimationView;->access$300(Lcom/android/incallui/widget/GradientAnimationView;)Lcom/android/incallui/widget/GradientAnimationView$ScaleAnimationCallback;
+    invoke-static {v0}, Lcom/android/incallui/widget/GradientAnimationView;->access$1000(Lcom/android/incallui/widget/GradientAnimationView;)Lcom/android/incallui/widget/GradientAnimationView$ScaleAnimationCallback;
 
     move-result-object v0
 
@@ -61,7 +61,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/widget/GradientAnimationView$2;->this$0:Lcom/android/incallui/widget/GradientAnimationView;
 
-    invoke-static {v0}, Lcom/android/incallui/widget/GradientAnimationView;->access$300(Lcom/android/incallui/widget/GradientAnimationView;)Lcom/android/incallui/widget/GradientAnimationView$ScaleAnimationCallback;
+    invoke-static {v0}, Lcom/android/incallui/widget/GradientAnimationView;->access$1000(Lcom/android/incallui/widget/GradientAnimationView;)Lcom/android/incallui/widget/GradientAnimationView$ScaleAnimationCallback;
 
     move-result-object v0
 
@@ -78,7 +78,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/widget/GradientAnimationView$2;->this$0:Lcom/android/incallui/widget/GradientAnimationView;
 
-    invoke-static {v0}, Lcom/android/incallui/widget/GradientAnimationView;->access$100(Lcom/android/incallui/widget/GradientAnimationView;)Ljava/lang/String;
+    invoke-static {v0}, Lcom/android/incallui/widget/GradientAnimationView;->access$000(Lcom/android/incallui/widget/GradientAnimationView;)Ljava/lang/String;
 
     move-result-object v0
 
@@ -90,7 +90,7 @@
 
     const/4 v1, 0x1
 
-    invoke-static {v0, v1}, Lcom/android/incallui/widget/GradientAnimationView;->access$202(Lcom/android/incallui/widget/GradientAnimationView;Z)Z
+    invoke-static {v0, v1}, Lcom/android/incallui/widget/GradientAnimationView;->access$902(Lcom/android/incallui/widget/GradientAnimationView;Z)Z
 
     return-void
 .end method

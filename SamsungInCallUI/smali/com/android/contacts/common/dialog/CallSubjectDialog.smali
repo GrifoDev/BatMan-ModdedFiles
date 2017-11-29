@@ -248,7 +248,7 @@
 
     iget-object v0, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog;->g:Landroid/widget/TextView;
 
-    const v1, 0x7f09050c
+    const v1, 0x7f09050f
 
     const/4 v2, 0x2
 
@@ -542,7 +542,7 @@
 
     new-instance v1, Landroid/widget/ArrayAdapter;
 
-    const v2, 0x7f040030
+    const v2, 0x7f040031
 
     iget-object v3, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog;->p:Ljava/util/List;
 
@@ -729,7 +729,7 @@
     :goto_0
     iget-object v1, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog;->i:Landroid/widget/TextView;
 
-    const v2, 0x7f09050b
+    const v2, 0x7f09050e
 
     const/4 v3, 0x2
 
@@ -769,7 +769,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e004c
+    const v2, 0x7f0e0052
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -794,7 +794,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0e0082
+    const v2, 0x7f0e0088
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1013,7 +1013,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f0a03f6
+    const v3, 0x7f0a0400
 
     invoke-virtual {v0, v3}, Landroid/content/res/Resources;->getDimensionPixelSize(I)I
 
@@ -1033,7 +1033,7 @@
 
     iput-object v0, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog;->p:Ljava/util/List;
 
-    const v0, 0x7f04004a
+    const v0, 0x7f04004b
 
     invoke-virtual {p0, v0}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->setContentView(I)V
 
@@ -1043,7 +1043,7 @@
 
     invoke-virtual {v0, v4, v4}, Landroid/view/Window;->setLayout(II)V
 
-    const v0, 0x7f100127
+    const v0, 0x7f10012b
 
     invoke-virtual {p0, v0}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->findViewById(I)Landroid/view/View;
 
@@ -1057,7 +1057,7 @@
 
     invoke-virtual {v0, v3}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f100128
+    const v0, 0x7f10012c
 
     invoke-virtual {p0, v0}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->findViewById(I)Landroid/view/View;
 
@@ -1065,7 +1065,7 @@
 
     iput-object v0, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog;->d:Landroid/view/View;
 
-    const v0, 0x7f100129
+    const v0, 0x7f10012d
 
     invoke-virtual {p0, v0}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->findViewById(I)Landroid/view/View;
 
@@ -1075,7 +1075,7 @@
 
     iput-object v0, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog;->e:Landroid/widget/QuickContactBadge;
 
-    const v0, 0x7f10012a
+    const v0, 0x7f10012e
 
     invoke-virtual {p0, v0}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->findViewById(I)Landroid/view/View;
 
@@ -1085,7 +1085,7 @@
 
     iput-object v0, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog;->f:Landroid/widget/TextView;
 
-    const v0, 0x7f10012b
+    const v0, 0x7f10012f
 
     invoke-virtual {p0, v0}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->findViewById(I)Landroid/view/View;
 
@@ -1095,7 +1095,7 @@
 
     iput-object v0, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog;->g:Landroid/widget/TextView;
 
-    const v0, 0x7f10012c
+    const v0, 0x7f100130
 
     invoke-virtual {p0, v0}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->findViewById(I)Landroid/view/View;
 
@@ -1133,7 +1133,7 @@
 
     invoke-virtual {v3, v0}, Landroid/widget/EditText;->setFilters([Landroid/text/InputFilter;)V
 
-    const v0, 0x7f10012d
+    const v0, 0x7f100131
 
     invoke-virtual {p0, v0}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->findViewById(I)Landroid/view/View;
 
@@ -1143,7 +1143,7 @@
 
     iput-object v0, p0, Lcom/android/contacts/common/dialog/CallSubjectDialog;->i:Landroid/widget/TextView;
 
-    const v0, 0x7f10012e
+    const v0, 0x7f100132
 
     invoke-virtual {p0, v0}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->findViewById(I)Landroid/view/View;
 
@@ -1172,7 +1172,7 @@
     :goto_0
     invoke-virtual {v3, v0}, Landroid/view/View;->setVisibility(I)V
 
-    const v0, 0x7f10012f
+    const v0, 0x7f100133
 
     invoke-virtual {p0, v0}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->findViewById(I)Landroid/view/View;
 
@@ -1186,7 +1186,7 @@
 
     invoke-virtual {v0, v2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f100130
+    const v0, 0x7f100134
 
     invoke-virtual {p0, v0}, Lcom/android/contacts/common/dialog/CallSubjectDialog;->findViewById(I)Landroid/view/View;
 

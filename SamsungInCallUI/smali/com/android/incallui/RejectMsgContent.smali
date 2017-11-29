@@ -80,7 +80,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f040099
+    const v1, 0x7f04009a
 
     const/4 v2, 0x1
 
@@ -119,7 +119,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0a03b7
+    const v1, 0x7f0a03bc
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -373,7 +373,7 @@
 
     iget-object v3, p0, Lcom/android/incallui/RejectMsgContent;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f04009b
+    const v4, 0x7f04009c
 
     iget-object v5, p0, Lcom/android/incallui/RejectMsgContent;->mTextResponses:Ljava/util/List;
 
@@ -668,7 +668,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f040121
+    const v2, 0x7f040123
 
     invoke-virtual {v0, v2, v6, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -682,7 +682,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/ListView;->addFooterView(Landroid/view/View;)V
 
-    const v0, 0x7f1003e9
+    const v0, 0x7f1003ed
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/RejectMsgContent;->findViewById(I)Landroid/view/View;
 
@@ -706,9 +706,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
-    const v0, 0x7f100226
+    const v0, 0x7f10022a
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/RejectMsgContent;->findViewById(I)Landroid/view/View;
 
@@ -716,7 +716,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/RejectMsgContent;->mRejectListContainer:Landroid/view/View;
 
-    const v0, 0x7f100227
+    const v0, 0x7f10022b
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/RejectMsgContent;->findViewById(I)Landroid/view/View;
 
@@ -735,7 +735,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setVisibility(I)V
 
     :cond_0
-    const v0, 0x7f1003e7
+    const v0, 0x7f1003eb
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/RejectMsgContent;->findViewById(I)Landroid/view/View;
 
@@ -767,7 +767,7 @@
     iput v0, p0, Lcom/android/incallui/RejectMsgContent;->mAgifListPage:I
 
     :cond_2
-    const v0, 0x7f100099
+    const v0, 0x7f10009d
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/RejectMsgContent;->findViewById(I)Landroid/view/View;
 
@@ -791,7 +791,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/RejectMsgContent;->mAgifPagerAdapter:Lcom/android/incallui/agif/AgifPagerAdapter;
 
-    const v0, 0x7f10009a
+    const v0, 0x7f10009e
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/RejectMsgContent;->findViewById(I)Landroid/view/View;
 
@@ -801,7 +801,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/RejectMsgContent;->mAgifSlidingTabLayout:Lcom/android/incallui/agif/AgifSlidingTabLayout;
 
-    const v0, 0x7f10009b
+    const v0, 0x7f10009f
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/RejectMsgContent;->findViewById(I)Landroid/view/View;
 
@@ -813,7 +813,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/RejectMsgContent;->mAgifViewPager:Lcom/android/incallui/agif/AgifViewPager;
 
-    if-eqz v0, :cond_3
+    if-eqz v0, :cond_4
 
     iget-object v0, p0, Lcom/android/incallui/RejectMsgContent;->mAgifViewPager:Lcom/android/incallui/agif/AgifViewPager;
 
@@ -880,13 +880,27 @@
     invoke-virtual {v0, v2}, Lcom/android/incallui/agif/AgifSlidingTabLayout;->setViewPager(Landroid/support/v4/view/ViewPager;)V
 
     :cond_3
+    invoke-static {}, Lcom/android/incallui/InCallPresenter;->isRtl()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_6
+
+    iget-object v0, p0, Lcom/android/incallui/RejectMsgContent;->mAgifViewPager:Lcom/android/incallui/agif/AgifViewPager;
+
+    const/high16 v2, 0x43340000    # 180.0f
+
+    invoke-virtual {v0, v2}, Lcom/android/incallui/agif/AgifViewPager;->setRotationY(F)V
+
+    :cond_4
+    :goto_0
     const-string v0, "automatic_answering_machine"
 
     invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_a
 
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
@@ -898,7 +912,7 @@
 
     move-result v0
 
-    if-eqz v0, :cond_a
+    if-eqz v0, :cond_c
 
     invoke-virtual {v2}, Lcom/android/incallui/CallList;->getIncomingCall()Lcom/android/incallui/Call;
 
@@ -908,45 +922,54 @@
 
     move-result v0
 
-    :goto_0
+    :goto_1
     invoke-virtual {v2}, Lcom/android/incallui/CallList;->hasActiveCall()Z
 
     move-result v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_5
 
     invoke-static {}, Lcom/android/incallui/util/CallTypeUtils;->isVideoCall()Z
 
     move-result v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_5
 
     invoke-static {}, Lcom/android/incallui/util/PhoneModeUtils;->isEmergencyMode()Z
 
     move-result v3
 
-    if-nez v3, :cond_4
+    if-nez v3, :cond_5
 
     invoke-virtual {v2}, Lcom/android/incallui/CallList;->hasHoldCall()Z
 
     move-result v2
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_5
 
     invoke-static {}, Lcom/android/incallui/InCallUISystemDB;->isSystemSettingAllSoundOff()Z
 
     move-result v2
 
-    if-nez v2, :cond_4
+    if-nez v2, :cond_5
 
-    if-eqz v0, :cond_5
-
-    :cond_4
-    :goto_1
-    return-void
+    if-eqz v0, :cond_7
 
     :cond_5
-    const v0, 0x7f100223
+    :goto_2
+    return-void
+
+    :cond_6
+    iget-object v0, p0, Lcom/android/incallui/RejectMsgContent;->mAgifViewPager:Lcom/android/incallui/agif/AgifViewPager;
+
+    const/4 v2, 0x0
+
+    invoke-virtual {v0, v2}, Lcom/android/incallui/agif/AgifViewPager;->setRotationY(F)V
+
+    goto :goto_0
+
+    :cond_7
+    const v0, 0x7f100227
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/RejectMsgContent;->findViewById(I)Landroid/view/View;
 
@@ -958,14 +981,14 @@
 
     iget-object v0, p0, Lcom/android/incallui/RejectMsgContent;->amRejectStub:Landroid/view/ViewStub;
 
-    if-eqz v0, :cond_6
+    if-eqz v0, :cond_8
 
     iget-object v0, p0, Lcom/android/incallui/RejectMsgContent;->amRejectStub:Landroid/view/ViewStub;
 
     invoke-virtual {v0}, Landroid/view/ViewStub;->inflate()Landroid/view/View;
 
-    :cond_6
-    const v0, 0x7f10025e
+    :cond_8
+    const v0, 0x7f100262
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/RejectMsgContent;->findViewById(I)Landroid/view/View;
 
@@ -975,7 +998,7 @@
 
     iput-object v0, p0, Lcom/android/incallui/RejectMsgContent;->mAnsMemoButton:Landroid/widget/LinearLayout;
 
-    const v0, 0x7f10025f
+    const v0, 0x7f100263
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/RejectMsgContent;->findViewById(I)Landroid/view/View;
 
@@ -987,16 +1010,16 @@
 
     iget-object v0, p0, Lcom/android/incallui/RejectMsgContent;->mAnsMemoImg:Landroid/widget/ImageView;
 
-    if-eqz v0, :cond_7
+    if-eqz v0, :cond_9
 
     iget-object v0, p0, Lcom/android/incallui/RejectMsgContent;->mAnsMemoImg:Landroid/widget/ImageView;
 
-    const v2, 0x7f020060
+    const v2, 0x7f020062
 
     invoke-virtual {v0, v2}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
-    :cond_7
-    const v0, 0x7f100260
+    :cond_9
+    const v0, 0x7f100264
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/RejectMsgContent;->findViewById(I)Landroid/view/View;
 
@@ -1006,7 +1029,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/RejectMsgContent;->mAnsMemoButton:Landroid/widget/LinearLayout;
 
-    if-eqz v0, :cond_8
+    if-eqz v0, :cond_a
 
     iget-object v0, p0, Lcom/android/incallui/RejectMsgContent;->mAnsMemoButton:Landroid/widget/LinearLayout;
 
@@ -1016,7 +1039,7 @@
 
     invoke-virtual {v0, v2}, Landroid/widget/LinearLayout;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    :cond_8
+    :cond_a
     invoke-static {}, Lcom/android/incallui/CallList;->getInstance()Lcom/android/incallui/CallList;
 
     move-result-object v0
@@ -1025,7 +1048,7 @@
 
     move-result-object v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
     invoke-virtual {p0}, Lcom/android/incallui/RejectMsgContent;->getContext()Landroid/content/Context;
 
@@ -1035,9 +1058,9 @@
 
     move-result v0
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_b
 
-    const v0, 0x7f100229
+    const v0, 0x7f10022d
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/RejectMsgContent;->findViewById(I)Landroid/view/View;
 
@@ -1047,18 +1070,18 @@
 
     iget-object v0, p0, Lcom/android/incallui/RejectMsgContent;->mNavigationBarArea:Landroid/view/View;
 
-    if-eqz v0, :cond_9
+    if-eqz v0, :cond_b
 
     invoke-virtual {p0}, Lcom/android/incallui/RejectMsgContent;->updateNavitationArea()V
 
-    :cond_9
+    :cond_b
     const-string v0, "agif_reject_service"
 
     invoke-static {v0}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
     move-result v0
 
-    if-eqz v0, :cond_4
+    if-eqz v0, :cond_5
 
     invoke-virtual {p0}, Lcom/android/incallui/RejectMsgContent;->getContext()Landroid/content/Context;
 
@@ -1070,12 +1093,12 @@
 
     invoke-virtual {p0, v0}, Lcom/android/incallui/RejectMsgContent;->showAgifList(Z)V
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    :cond_a
+    :cond_c
     move v0, v1
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 .end method
 
 .method public onSelectAgifContents(Landroid/net/Uri;)V

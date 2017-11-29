@@ -106,6 +106,7 @@
     <string name="agif_decline_sticker_header">Ôdciepywanie z przilepkōm</string>
     <string name="agif_decline_text_header">Ôdciepywanie ze SMS-em</string>
     <string name="agif_decline_toast">Posłano przilepka do użytkownika %s.</string>
+    <string name="agif_outgoing_bubble_tip">Poślij przilepka, coby pokŏzać, jak sie czujesz.</string>
     <string name="agif_pickers_add_tab_description">Przidej</string>
     <string name="agif_pickers_find_more">Wysznupej wiyncyj</string>
     <string name="agif_pickers_item_usage_hints_description">Tyknij 2 razy coby ôbrać</string>
@@ -114,10 +115,12 @@
     <string name="agif_pickers_tab_select_description">Ôbrane</string>
     <string name="agif_pickers_title">Sztart z przilepkōm</string>
     <string name="agif_pickers_title_recommended">Rekōmandŏwane</string>
+    <string name="agif_random_send_message">Tyknij sam, coby posłać ta przilepka.</string>
     <string name="agif_read_permission_description">Przizwŏlo aplikacyji Mobilniŏk czytać treść AGIF.</string>
     <string name="agif_read_permission_label">Czytej treść AGIF</string>
     <string name="agif_receive_no_id">Niy idzie pokŏzać abcybildru. Zaktualizuj aplikacyjŏ %s po gŏdce.</string>
     <string name="agif_receive_no_id_upsupport_update">Niy idzie pokŏzać abcybildru. Dŏlsze abcybildry bydōm podŏwane po dŏlszyj aktualizacyji systymu.</string>
+    <string name="agif_receive_toast">Przilepka ôd rozmōwcy %s.</string>
     <string name="agif_sent_fail_message">Niy idzie posłać animowanego pliku GIF. Wybadej drugi rŏz niyskorzij.</string>
     <string name="agif_sent_toast">Posłano abcybilder.</string>
     <string name="agif_write_permission_description">Przizwŏlo aplikacyji Mobilniŏk na polepszanie treści AGIF.</string>
@@ -807,8 +810,8 @@ jednoker."</string>
     <string name="tts_pager">Zajta %1$d z %2$d</string>
     <string name="tts_seconds">%d sek.</string>
     <string name="tty_mode_option_title">Tryb TTY</string>
-    <string name="tutorial_incoming_call_app_answer">Tyknij, coby ôdebrać gŏdka</string>
-    <string name="tutorial_incoming_call_app_reject">Tyknij, coby ôdciepać gŏdka.</string>
+    <string name="tutorial_incoming_call_app_answer">Tyknij dwa rŏzy, coby ôdpedzieć.</string>
+    <string name="tutorial_incoming_call_app_reject">Tyknij dwa rŏzy, coby ôdciepnōńć,</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Niy idzie pożynić z necym. Badnij na nasztalowania neca i sprōbuj jeszcze rŏz.</string>
     <string name="units_kb">kB</string>
@@ -818,7 +821,7 @@ jednoker."</string>
     <string name="upload_using_wlan_only">Posyłej ino bez nec WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Poślij bez Wi-Fi abo nec mobilny</string>
     <string name="upload_wlan_and_mobile_nw">Posyłej bez nec WLAN abo mobilny</string>
-    <string name="usa_att_connected_as_voice">Gŏdka napoczyntŏ w trybie głosowym.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Hneda szafniesz limit Użyciŏ danych zrychtowany na maszinie. Wideo gŏdka potrzebuje danych.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Niy idzie napoczōńć pożyniyniŏ bez nec Wi-Fi. Pożyniynie bez nec mobilny. Ôbowiōnzujōm płaty za gŏdki głosowe i dane.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -866,13 +869,17 @@ jednokerunkowe"</string>
     <string name="usa_vzw_voice_incoming_during_wifi_video">Answering incoming call will end current call.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_text">Terŏzki siyła sygnału Wi-Fi niy styknie coby lecieć dalij z gŏdkōm. Używanie neca mobilnego coby dalij lecieć z gŏdkōm bydzie ekstra płatne podug taryfy.</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Używanie Danych mobilnych</string>
-    <string name="usa_vzw_volte_weak_wifi_text">"Ôkrōm podjyntyj prōby terŏzki niy podarziło sie przeciepniyńciŏ video do neca Wi-Fi.
+    <string name="usa_vzw_volte_weak_wifi_text">"Pomimo podjętej próby nie udało się przełączyć połączenia wideo do sieci Wi-Fi w tym momencie.
 
-Videogŏdka je dalij łōnaczōne w necu mobilnym. (Jak poleci dalij ôstanōm narachowane płaty za spotrzebowanie danych)."</string>
+Połączenie wideo jest nadal realizowane w sieci komórkowej.
+
+Jeśli będziesz kontynuować, mogą zostać naliczone opłaty za wykorzystanie danych."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Videogŏdka dalij leci w necu mobilnym. Bydzie ekstra płatne.</string>
-    <string name="usa_vzw_vowifi_wifi_low_signal_text">"Sygnoł Wi-Fi niy boł za tela mocny coby videogŏdka leciała dalij.
+    <string name="usa_vzw_vowifi_wifi_low_signal_text">"Sygnał Wi-Fi nie był wystarczająco silny, aby kontynuować połączenie wideo.
 
-Videogŏdka je terŏzki łōnaczōnŏ w necu mobilnym. (Jak bydzie leciało dalij to ôstanie narachowany płat za spotrzebowanie danych)."</string>
+Połączenie wideo jest teraz realizowane w sieci komórkowej.
+
+Jeśli będziesz kontynuować, mogą zostać naliczone opłaty za wykorzystanie danych."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Pożyniynie Wi-Fi ôstało stracōne. Pożynienie skōńczōne.</string>
     <string name="use_wifi_and_mobile_nw">Używej Wi-Fi i necōw mobilnych</string>
     <string name="use_wlan_and_mobile_nw">Użyj necōw WLAN abo mobilnych</string>

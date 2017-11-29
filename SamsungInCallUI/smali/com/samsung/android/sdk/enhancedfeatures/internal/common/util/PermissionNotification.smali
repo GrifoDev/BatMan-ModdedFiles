@@ -293,7 +293,7 @@
 
     if-eq v1, v4, :cond_6
 
-    const-string v1, "android.permission.READ_SMS"
+    const-string v1, "android.permission.RECEIVE_SMS"
 
     invoke-static {p1, v1}, Landroid/support/v4/app/a;->a(Landroid/content/Context;Ljava/lang/String;)I
 

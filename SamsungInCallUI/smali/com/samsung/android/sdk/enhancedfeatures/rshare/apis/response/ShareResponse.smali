@@ -70,9 +70,15 @@
 
 # direct methods
 .method public constructor <init>()V
-    .locals 0
+    .locals 1
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    new-instance v0, Ljava/util/ArrayList;
+
+    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+
+    iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/ShareResponse;->mContentsTokenDetails:Ljava/util/List;
 
     return-void
 .end method
@@ -406,7 +412,7 @@
 .end method
 
 .method public setContentsTokenDetails(Ljava/util/List;)V
-    .locals 0
+    .locals 6
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -417,8 +423,76 @@
         }
     .end annotation
 
-    iput-object p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/ShareResponse;->mContentsTokenDetails:Ljava/util/List;
+    invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
 
+    move-result-object v1
+
+    :goto_0
+    invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/samsung/android/sdk/ssf/share/io/ContentsTokenDetail;
+
+    new-instance v2, Lcom/samsung/android/sdk/ssf/share/io/ContentsTokenDetail;
+
+    invoke-direct {v2}, Lcom/samsung/android/sdk/ssf/share/io/ContentsTokenDetail;-><init>()V
+
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/ssf/share/io/ContentsTokenDetail;->getbigThumbnail()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Lcom/samsung/android/sdk/ssf/share/io/ContentsTokenDetail;->setbigThumbnail(Ljava/lang/String;)V
+
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/ssf/share/io/ContentsTokenDetail;->getContentType()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Lcom/samsung/android/sdk/ssf/share/io/ContentsTokenDetail;->setContentType(Ljava/lang/String;)V
+
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/ssf/share/io/ContentsTokenDetail;->getName()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Lcom/samsung/android/sdk/ssf/share/io/ContentsTokenDetail;->setName(Ljava/lang/String;)V
+
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/ssf/share/io/ContentsTokenDetail;->getOriginal()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Lcom/samsung/android/sdk/ssf/share/io/ContentsTokenDetail;->setOriginal(Ljava/lang/String;)V
+
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/ssf/share/io/ContentsTokenDetail;->getSize()J
+
+    move-result-wide v4
+
+    invoke-virtual {v2, v4, v5}, Lcom/samsung/android/sdk/ssf/share/io/ContentsTokenDetail;->setSize(J)V
+
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/ssf/share/io/ContentsTokenDetail;->getThumbnail()Ljava/lang/String;
+
+    move-result-object v3
+
+    invoke-virtual {v2, v3}, Lcom/samsung/android/sdk/ssf/share/io/ContentsTokenDetail;->setThumbnail(Ljava/lang/String;)V
+
+    invoke-virtual {v0}, Lcom/samsung/android/sdk/ssf/share/io/ContentsTokenDetail;->getExtraAttr()I
+
+    move-result v0
+
+    invoke-virtual {v2, v0}, Lcom/samsung/android/sdk/ssf/share/io/ContentsTokenDetail;->setExtraAttr(I)V
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/rshare/apis/response/ShareResponse;->mContentsTokenDetails:Ljava/util/List;
+
+    invoke-interface {v0, v2}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+
+    goto :goto_0
+
+    :cond_0
     return-void
 .end method
 

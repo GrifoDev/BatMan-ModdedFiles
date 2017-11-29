@@ -88,27 +88,29 @@
 .end method
 
 .method public static buildCallerInfo(Landroid/content/Context;Lcom/android/incallui/Call;)Lcom/android/incallui/CallerInfo;
-    .locals 5
+    .locals 6
+
+    const/4 v2, 0x1
 
     const/4 v1, 0x0
 
-    new-instance v2, Lcom/android/incallui/CallerInfo;
+    new-instance v3, Lcom/android/incallui/CallerInfo;
 
-    invoke-direct {v2}, Lcom/android/incallui/CallerInfo;-><init>()V
+    invoke-direct {v3}, Lcom/android/incallui/CallerInfo;-><init>()V
 
     invoke-virtual {p1}, Lcom/android/incallui/Call;->getCnapName()Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, v2, Lcom/android/incallui/CallerInfo;->cnapName:Ljava/lang/String;
+    iput-object v0, v3, Lcom/android/incallui/CallerInfo;->cnapName:Ljava/lang/String;
 
     invoke-static {}, Lcom/samsung/android/feature/SemCscFeature;->getInstance()Lcom/samsung/android/feature/SemCscFeature;
 
     move-result-object v0
 
-    const-string v3, "CscFeature_Contact_SupportWhitePages"
+    const-string v4, "CscFeature_Contact_SupportWhitePages"
 
-    invoke-virtual {v0, v3}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
+    invoke-virtual {v0, v4}, Lcom/samsung/android/feature/SemCscFeature;->getBoolean(Ljava/lang/String;)Z
 
     move-result v0
 
@@ -144,18 +146,18 @@
 
     move-result-object v0
 
-    iput-object v0, v2, Lcom/android/incallui/CallerInfo;->cnapName:Ljava/lang/String;
+    iput-object v0, v3, Lcom/android/incallui/CallerInfo;->cnapName:Ljava/lang/String;
 
-    const/4 v0, 0x1
+    move v0, v2
 
     :goto_0
-    const-string v3, "cnap_supplementary_service"
+    const-string v4, "cnap_supplementary_service"
 
-    invoke-static {v3}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
+    invoke-static {v4}, Lcom/android/incallui/InCallUIFeature;->hasFeature(Ljava/lang/String;)Z
 
-    move-result v3
+    move-result v4
 
-    if-nez v3, :cond_2
+    if-nez v4, :cond_2
 
     if-eqz v0, :cond_b
 
@@ -165,13 +167,13 @@
 
     move-result v0
 
-    iput v0, v2, Lcom/android/incallui/CallerInfo;->numberPresentation:I
+    iput v0, v3, Lcom/android/incallui/CallerInfo;->numberPresentation:I
 
     invoke-virtual {p1}, Lcom/android/incallui/Call;->getCallSubject()Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, v2, Lcom/android/incallui/CallerInfo;->callSubject:Ljava/lang/String;
+    iput-object v0, v3, Lcom/android/incallui/CallerInfo;->callSubject:Ljava/lang/String;
 
     const-string v0, "ims_call_message"
 
@@ -185,7 +187,7 @@
 
     move-result-object v0
 
-    iput-object v0, v2, Lcom/android/incallui/CallerInfo;->callMessage:Ljava/lang/String;
+    iput-object v0, v3, Lcom/android/incallui/CallerInfo;->callMessage:Ljava/lang/String;
 
     const-string v0, "ims_support_photo_ring"
 
@@ -197,9 +199,9 @@
 
     const-string v0, "<PhotoRing>"
 
-    iget-object v3, v2, Lcom/android/incallui/CallerInfo;->callMessage:Ljava/lang/String;
+    iget-object v4, v3, Lcom/android/incallui/CallerInfo;->callMessage:Ljava/lang/String;
 
-    invoke-virtual {v0, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v0, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v0
 
@@ -207,7 +209,7 @@
 
     const/4 v0, 0x0
 
-    iput-object v0, v2, Lcom/android/incallui/CallerInfo;->callMessage:Ljava/lang/String;
+    iput-object v0, v3, Lcom/android/incallui/CallerInfo;->callMessage:Ljava/lang/String;
 
     :cond_3
     const-string v0, "roaming_auto_dial"
@@ -222,7 +224,7 @@
 
     move-result-object v0
 
-    iput-object v0, v2, Lcom/android/incallui/CallerInfo;->radNumber:Ljava/lang/String;
+    iput-object v0, v3, Lcom/android/incallui/CallerInfo;->radNumber:Ljava/lang/String;
 
     :cond_4
     const-string v0, "cdnip_supplementary_service"
@@ -241,7 +243,7 @@
 
     move-result-object v0
 
-    iput-object v0, v2, Lcom/android/incallui/CallerInfo;->cdnipNumber:Ljava/lang/String;
+    iput-object v0, v3, Lcom/android/incallui/CallerInfo;->cdnipNumber:Ljava/lang/String;
 
     :cond_5
     const-string v0, "support_twophone"
@@ -268,33 +270,33 @@
 
     move-result-object v0
 
-    iput-object v0, v2, Lcom/android/incallui/CallerInfo;->twophoneNumber:Ljava/lang/String;
+    iput-object v0, v3, Lcom/android/incallui/CallerInfo;->twophoneNumber:Ljava/lang/String;
 
-    iput-boolean v1, v2, Lcom/android/incallui/CallerInfo;->canViewContactDetails:Z
+    iput-boolean v1, v3, Lcom/android/incallui/CallerInfo;->canViewContactDetails:Z
 
     sget-object v0, Lcom/android/incallui/CallerInfoUtils;->TAG:Ljava/lang/String;
 
-    new-instance v3, Ljava/lang/StringBuilder;
+    new-instance v4, Ljava/lang/StringBuilder;
 
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v4, "info.twophoneNumber : "
+    const-string v5, "info.twophoneNumber : "
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v4
 
-    iget-object v4, v2, Lcom/android/incallui/CallerInfo;->twophoneNumber:Ljava/lang/String;
+    iget-object v5, v3, Lcom/android/incallui/CallerInfo;->twophoneNumber:Ljava/lang/String;
 
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v4
 
-    invoke-static {v0, v3}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
+    invoke-static {v0, v4}, Landroid/util/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
     :cond_6
     invoke-virtual {p1}, Lcom/android/incallui/Call;->getNumber()Ljava/lang/String;
@@ -305,27 +307,31 @@
 
     invoke-static {v0}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result v3
+    move-result v4
 
-    if-nez v3, :cond_7
+    if-nez v4, :cond_7
 
-    const-string v3, "&"
+    const-string v4, "&"
 
-    invoke-virtual {v0, v3}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
+    invoke-virtual {v0, v4}, Ljava/lang/String;->split(Ljava/lang/String;)[Ljava/lang/String;
 
     move-result-object v0
 
     aget-object v0, v0, v1
 
-    iget v1, v2, Lcom/android/incallui/CallerInfo;->numberPresentation:I
+    iget v1, v3, Lcom/android/incallui/CallerInfo;->numberPresentation:I
 
-    invoke-static {p0, v2, v0, v1}, Lcom/android/incallui/CallerInfoUtils;->modifyForSpecialCnapCases(Landroid/content/Context;Lcom/android/incallui/CallerInfo;Ljava/lang/String;I)Ljava/lang/String;
+    invoke-static {p0, v3, v0, v1}, Lcom/android/incallui/CallerInfoUtils;->modifyForSpecialCnapCases(Landroid/content/Context;Lcom/android/incallui/CallerInfo;Ljava/lang/String;I)Ljava/lang/String;
 
     move-result-object v0
 
-    iput-object v0, v2, Lcom/android/incallui/CallerInfo;->phoneNumber:Ljava/lang/String;
+    iput-object v0, v3, Lcom/android/incallui/CallerInfo;->phoneNumber:Ljava/lang/String;
 
     :cond_7
+    iget v1, v3, Lcom/android/incallui/CallerInfo;->numberPresentation:I
+
+    if-ne v1, v2, :cond_a
+
     invoke-virtual {p1}, Lcom/android/incallui/Call;->getHandle()Landroid/net/Uri;
 
     move-result-object v1
@@ -336,13 +342,13 @@
 
     invoke-virtual {p1}, Lcom/android/incallui/Call;->getHandle()Landroid/net/Uri;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v3}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
+    invoke-virtual {v2}, Landroid/net/Uri;->getScheme()Ljava/lang/String;
 
-    move-result-object v3
+    move-result-object v2
 
-    invoke-virtual {v1, v3}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
     move-result v1
 
@@ -355,7 +361,19 @@
 
     if-nez v1, :cond_9
 
-    iget-object v1, v2, Lcom/android/incallui/CallerInfo;->phoneNumber:Ljava/lang/String;
+    iget-object v1, v3, Lcom/android/incallui/CallerInfo;->phoneNumber:Ljava/lang/String;
+
+    invoke-static {v1}, Landroid/telephony/PhoneNumberUtils;->isVoiceMailNumber(Ljava/lang/String;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_9
+
+    iget-object v1, v3, Lcom/android/incallui/CallerInfo;->phoneNumber:Ljava/lang/String;
+
+    invoke-static {v1}, Lcom/android/incallui/util/InCallUtilsWrapper;->extractNetworkPortionAlt(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
 
     invoke-static {v1}, Landroid/telephony/PhoneNumberUtils;->isVoiceMailNumber(Ljava/lang/String;)Z
 
@@ -364,15 +382,15 @@
     if-eqz v1, :cond_a
 
     :cond_9
-    invoke-virtual {v2, p0, v0}, Lcom/android/incallui/CallerInfo;->markAsVoiceMail(Landroid/content/Context;Ljava/lang/String;)Lcom/android/incallui/CallerInfo;
+    invoke-virtual {v3, p0, v0}, Lcom/android/incallui/CallerInfo;->markAsVoiceMail(Landroid/content/Context;Ljava/lang/String;)Lcom/android/incallui/CallerInfo;
 
     :cond_a
-    return-object v2
+    return-object v3
 
     :cond_b
-    iget-object v0, v2, Lcom/android/incallui/CallerInfo;->cnapName:Ljava/lang/String;
+    iget-object v0, v3, Lcom/android/incallui/CallerInfo;->cnapName:Ljava/lang/String;
 
-    iput-object v0, v2, Lcom/android/incallui/CallerInfo;->name:Ljava/lang/String;
+    iput-object v0, v3, Lcom/android/incallui/CallerInfo;->name:Ljava/lang/String;
 
     goto/16 :goto_1
 
@@ -672,7 +690,7 @@
     if-eqz v0, :cond_6
 
     :cond_4
-    const v0, 0x7f090280
+    const v0, 0x7f090283
 
     invoke-virtual {p0, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

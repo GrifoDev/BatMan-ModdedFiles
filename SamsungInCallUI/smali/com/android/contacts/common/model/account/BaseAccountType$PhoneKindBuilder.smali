@@ -448,7 +448,7 @@
         }
     .end annotation
 
-    const v7, 0x7f090269
+    const v7, 0x7f09026c
 
     const/4 v4, 0x0
 
@@ -480,11 +480,11 @@
 
     move-result-object v0
 
-    const v1, 0x7f020183
+    const v1, 0x7f0201ae
 
     iput v1, v0, Lcom/android/contacts/common/model/dataitem/DataKind;->d:I
 
-    const v1, 0x7f090340
+    const v1, 0x7f090343
 
     iput v1, v0, Lcom/android/contacts/common/model/dataitem/DataKind;->e:I
 

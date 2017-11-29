@@ -62,7 +62,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a056f
+    const v2, 0x7f0a05a9
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -74,7 +74,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0a057b
+    const v3, 0x7f0a05b5
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -86,7 +86,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a03fc
+    const v4, 0x7f0a0406
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -106,7 +106,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0a043e
+    const v4, 0x7f0a0448
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -310,7 +310,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a03fc
+    const v2, 0x7f0a0406
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -330,7 +330,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0a043e
+    const v2, 0x7f0a0448
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDimension(I)F
 
@@ -501,8 +501,24 @@
     return-void
 .end method
 
+.method public onCallButtonViewChanged()V
+    .locals 1
+
+    invoke-virtual {p0}, Lcom/android/incallui/fragment/VoiceCallDialpadFragment;->setupLayout()V
+
+    const-string v0, "onCallButtonViewChanged"
+
+    invoke-static {p0, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
+
+    return-void
+.end method
+
 .method public onContentViewChanged(Landroid/graphics/Point;)V
-    .locals 0
+    .locals 1
+
+    const-string v0, "onContentViewChanged"
+
+    invoke-static {p0, v0}, Lcom/android/incallui/Log;->d(Ljava/lang/Object;Ljava/lang/String;)V
 
     invoke-virtual {p0}, Lcom/android/incallui/fragment/VoiceCallDialpadFragment;->setupLayout()V
 
@@ -547,7 +563,7 @@
 
     if-eqz v3, :cond_1
 
-    const v0, 0x7f0400f1
+    const v0, 0x7f0400f2
 
     invoke-virtual {p1, v0, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -583,7 +599,7 @@
     if-eqz v2, :cond_3
 
     :cond_2
-    const v0, 0x7f0400e5
+    const v0, 0x7f0400e6
 
     invoke-virtual {p1, v0, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -605,7 +621,7 @@
     if-eqz v0, :cond_5
 
     :cond_4
-    const v0, 0x7f0400e6
+    const v0, 0x7f0400e7
 
     invoke-virtual {p1, v0, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -614,7 +630,7 @@
     goto :goto_1
 
     :cond_5
-    const v0, 0x7f0400e7
+    const v0, 0x7f0400e8
 
     invoke-virtual {p1, v0, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 

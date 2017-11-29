@@ -149,7 +149,7 @@
 
     iget-object v1, v1, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager$TransferDialog;->this$0:Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;
 
-    const v2, 0x7f09016a
+    const v2, 0x7f09016d
 
     invoke-virtual {v1, v2}, Lcom/android/incallui/operator/usa/jansky/JanskyTransferManager;->getString(I)Ljava/lang/String;
 

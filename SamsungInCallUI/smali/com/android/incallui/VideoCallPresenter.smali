@@ -154,7 +154,7 @@
 
     invoke-static {v0}, Lcom/android/incallui/util/VideoCallUtils;->mediaScan(Ljava/lang/String;)V
 
-    const v0, 0x7f090107
+    const v0, 0x7f09010a
 
     invoke-static {v0}, Lcom/android/incallui/util/InCallUtils;->displayToastLong(I)V
 
@@ -181,7 +181,7 @@
     return-void
 
     :cond_1
-    const v0, 0x7f090106
+    const v0, 0x7f090109
 
     invoke-static {v0}, Lcom/android/incallui/util/InCallUtils;->displayToastLong(I)V
 
@@ -449,7 +449,7 @@
 
     invoke-static {v2}, Lcom/android/incallui/service/vt/VideoCallControl;->sendStillImage(Z)V
 
-    const v0, 0x7f090107
+    const v0, 0x7f09010a
 
     invoke-static {v0}, Lcom/android/incallui/util/InCallUtils;->displayToastLong(I)V
 
@@ -465,7 +465,7 @@
 
     invoke-virtual {v0, v1}, Lcom/android/incallui/service/vt/VideoCallManager;->setLivePreview(Z)V
 
-    const v0, 0x7f090106
+    const v0, 0x7f090109
 
     invoke-static {v0}, Lcom/android/incallui/util/InCallUtils;->displayToastLong(I)V
 
@@ -648,7 +648,7 @@
     goto :goto_0
 
     :cond_3
-    const v0, 0x7f090236
+    const v0, 0x7f090239
 
     invoke-static {v0}, Lcom/android/incallui/util/InCallUtils;->displayToastLong(I)V
 
@@ -1591,7 +1591,11 @@
 
     if-eqz v0, :cond_0
 
-    const/4 v0, 0x5
+    sget-boolean v0, Lcom/android/incallui/service/vt/VideoCallConfig;->DEVICE_ROTATION:Z
+
+    if-nez v0, :cond_0
+
+    const/4 v0, 0x7
 
     invoke-static {v0}, Lcom/android/incallui/util/VideoCallUtils;->setRequestedOrientation(I)V
 
@@ -2258,36 +2262,25 @@
     goto :goto_0
 
     :sswitch_2
-    iget-object v0, p0, Lcom/android/incallui/VideoCallPresenter;->mPrimaryCall:Lcom/android/incallui/Call;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/incallui/VideoCallPresenter;->mPrimaryCall:Lcom/android/incallui/Call;
-
-    invoke-virtual {v0}, Lcom/android/incallui/Call;->getVideoAdapter()Lcom/android/incallui/service/vt/VideoCallAdapter;
+    invoke-virtual {p0}, Lcom/android/incallui/VideoCallPresenter;->getUi()Lcom/android/incallui/Ui;
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/incallui/service/vt/VideoCallAdapter;->stopCamera()V
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/incallui/VideoCallPresenter;->getUi()Lcom/android/incallui/Ui;
+
+    move-result-object v0
+
+    check-cast v0, Lcom/android/incallui/VideoCallUi;
+
+    iget-object v1, p0, Lcom/android/incallui/VideoCallPresenter;->mPrimaryCall:Lcom/android/incallui/Call;
+
+    invoke-interface {v0, v1}, Lcom/android/incallui/VideoCallUi;->setPrimaryCall(Lcom/android/incallui/Call;)V
 
     goto :goto_0
 
     :sswitch_3
-    iget-object v0, p0, Lcom/android/incallui/VideoCallPresenter;->mPrimaryCall:Lcom/android/incallui/Call;
-
-    if-eqz v0, :cond_0
-
-    iget-object v0, p0, Lcom/android/incallui/VideoCallPresenter;->mPrimaryCall:Lcom/android/incallui/Call;
-
-    invoke-virtual {v0}, Lcom/android/incallui/Call;->getVideoAdapter()Lcom/android/incallui/service/vt/VideoCallAdapter;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/incallui/service/vt/VideoCallAdapter;->startCamera()V
-
-    goto :goto_0
-
-    :sswitch_4
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->CONCEPT_USA_VZW()Z
 
     move-result v0
@@ -2339,7 +2332,7 @@
 
     goto :goto_0
 
-    :sswitch_5
+    :sswitch_4
     invoke-virtual {p0}, Lcom/android/incallui/VideoCallPresenter;->getUi()Lcom/android/incallui/Ui;
 
     move-result-object v0
@@ -2356,18 +2349,15 @@
 
     invoke-interface {v0, v1}, Lcom/android/incallui/VideoCallUi;->showSwitchCameraAnimation(Z)V
 
-    goto/16 :goto_0
-
-    nop
+    goto :goto_0
 
     :sswitch_data_0
     .sparse-switch
         0x64 -> :sswitch_0
         0x65 -> :sswitch_1
-        0x66 -> :sswitch_4
-        0x67 -> :sswitch_2
-        0x68 -> :sswitch_3
-        0x12c -> :sswitch_5
+        0x66 -> :sswitch_3
+        0x68 -> :sswitch_2
+        0x12c -> :sswitch_4
     .end sparse-switch
 .end method
 
@@ -2819,7 +2809,7 @@
     return v0
 
     :cond_2
-    const v1, 0x7f090236
+    const v1, 0x7f090239
 
     invoke-static {v1}, Lcom/android/incallui/util/InCallUtils;->displayToastLong(I)V
 

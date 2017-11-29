@@ -383,7 +383,7 @@
 .method protected setFragment(Ljava/lang/Enum;Z)V
     .locals 3
 
-    const v1, 0x7f100321
+    const v1, 0x7f100327
 
     sget-object v0, Lcom/android/incallui/fragment/manager/AnswerFragmentManager$1;->$SwitchMap$com$android$incallui$fragment$manager$AnswerFragmentManager$FragmentMode:[I
 

@@ -100,12 +100,13 @@
     <string name="account_phone">Enjamda</string>
     <string name="acs">Sesli jaň</string>
     <string name="active_calls">Işjeň jaň</string>
-    <string name="add_reminder">Ýatladj. goş</string>
+    <string name="add_reminder">Ýatladyjy goş</string>
     <string name="agif_button_close_description">Ýap</string>
     <string name="agif_decline_message">Bagyşlaň, şu wagt bolmaz.</string>
     <string name="agif_decline_sticker_header">Stikerli ret et</string>
     <string name="agif_decline_text_header">Tekstli ret et</string>
     <string name="agif_decline_toast">Stiker şuňa iberildi: %s.</string>
+    <string name="agif_outgoing_bubble_tip">Duýgyňyzy görkezmek üçin, stiker iberiň.</string>
     <string name="agif_pickers_add_tab_description">Goş</string>
     <string name="agif_pickers_find_more">Has köp tap</string>
     <string name="agif_pickers_item_usage_hints_description">Saýlamak üçin, iki gezek bas</string>
@@ -114,10 +115,12 @@
     <string name="agif_pickers_tab_select_description">Saýlanyldy</string>
     <string name="agif_pickers_title">Stikerli başla</string>
     <string name="agif_pickers_title_recommended">Maslahat berilýän</string>
+    <string name="agif_random_send_message">Bu stikeri ibermek üçin, şu ýere basyň.</string>
     <string name="agif_read_permission_description">Telefonyň AGIF materialy okamagyna rugsat berýär.</string>
     <string name="agif_read_permission_label">AGIF materialy okaň</string>
     <string name="agif_receive_no_id">Stikeri görkezip bolmaýar. Jaňdan soň, %s täzeläň.</string>
     <string name="agif_receive_no_id_upsupport_update">Stikeri görkezip bolmaýar. Indiki ulgam täzelemesinden soň, has köp stiker elýeterli bolar.</string>
+    <string name="agif_receive_toast">%s stikeri.</string>
     <string name="agif_sent_fail_message">Animirlenen GIF iberip bolmaýar. Soň ýene synanyşyň.</string>
     <string name="agif_sent_toast">Stiker iberildi.</string>
     <string name="agif_write_permission_description">Telefonyň AGIF materialy üýtgetmegine rugsat berýär.</string>
@@ -807,8 +810,8 @@ Kamera"</string>
     <string name="tts_pager">%2$d-dan %1$d sahypa</string>
     <string name="tts_seconds">%d sekunt</string>
     <string name="tty_mode_option_title">TTY režimi</string>
-    <string name="tutorial_incoming_call_app_answer">Jaňy almak üçin basyň.</string>
-    <string name="tutorial_incoming_call_app_reject">Jaňy ret etmek üçin basyň.</string>
+    <string name="tutorial_incoming_call_app_answer">Jogap bermek üçin iki gezek basyň</string>
+    <string name="tutorial_incoming_call_app_reject">Yzyna gaýtarmak üçin iki gezek basyň</string>
     <string name="twmobile_operator_name">TW Mobil</string>
     <string name="unable_to_connect_to_the_network">Tora birigip bolmaýar. Birikme sazlamalaryňyzy barlap, täzeden synanyşyň.</string>
     <string name="units_kb">KB</string>
@@ -818,7 +821,7 @@ Kamera"</string>
     <string name="upload_using_wlan_only">Diňe WLAN arkaly ýükle</string>
     <string name="upload_wifi_and_mobile_nw">Wi-Fi ýa-da mobil tor arkaly ýükle</string>
     <string name="upload_wlan_and_mobile_nw">WLAN ýa-da mobil tor arkaly ýükle</string>
-    <string name="usa_att_connected_as_voice">Jaň diňe sesli bolup birikdi.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Enjamyňyzda bellän maglumat ulanyşyňyz öz çägine ýetip barýar. Wideo jaňyňyz maglumat talap edýär.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Öýjükli toruň üsti bilen birigen Wi-Fi arkaly jaň edip bolmaýar. Ses we maglumat tölegleri bolar.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -868,11 +871,15 @@ Kamera"</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Mobil maglumat ulan</string>
     <string name="usa_vzw_volte_weak_wifi_text">"Biz synanyşdyk, ýöne wideo jaňyňyzy şu wagt Wi-Fi-a geçirip bilmeýäris.
 
-Wideo jaňyňyz henizem mobil torda gidip dur. (Dowam etmegi saýlasaňyz, maglumat ulanyş ulanylar.)"</string>
+Wideo jaňyňyz henizem mobil torda gidip dur.
+
+Dowam etmegi saýlasaňyz, maglumat ulanyş ulanylar."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Wideo jaň henizem mobil torda gidip dur. (Maglumat ulanyş degişli.)</string>
     <string name="usa_vzw_vowifi_wifi_low_signal_text">"Wi-Fi signalyň güýji wideo jaňy dowam etmäge ýetmeýär.
 
-Wideo jaň şu wagt mobil tordan gidip dur. (Dowam etmegi saýlasaňyz, maglumat ulanyş ulanylar.)"</string>
+Wideo jaň şu wagt mobil tordan gidip dur.
+
+Dowam etmegi saýlasaňyz, maglumat ulanyş ulanylar."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">Wi-Fi birikmesi ýitdi. Jaň gutardy.</string>
     <string name="use_wifi_and_mobile_nw">Wi-Fi we mobil torlary ulan</string>
     <string name="use_wlan_and_mobile_nw">WLAN we mobil torlary ulan</string>

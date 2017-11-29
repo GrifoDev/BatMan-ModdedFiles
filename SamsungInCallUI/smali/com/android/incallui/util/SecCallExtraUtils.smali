@@ -874,6 +874,18 @@
     return v0
 .end method
 
+.method public static getPostDialString(Lcom/android/incallui/Call;)Ljava/lang/String;
+    .locals 1
+
+    const-string v0, "PostDialString"
+
+    invoke-static {p0, v0}, Lcom/android/incallui/util/SecCallExtraUtils;->getStringValue(Lcom/android/incallui/Call;Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v0
+
+    return-object v0
+.end method
+
 .method public static getRadOriginalNumber(Landroid/telecom/Call;)Ljava/lang/String;
     .locals 1
 

@@ -196,7 +196,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f100444
+    const v1, 0x7f100448
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -225,7 +225,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallVGAUsaFragment;->mEpdgNotifyBannerView:Landroid/view/View;
 
-    const v1, 0x7f1003ee
+    const v1, 0x7f1003f2
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -235,7 +235,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallVGAUsaFragment;->mEpdgNotifyBannerView:Landroid/view/View;
 
-    const v1, 0x7f100315
+    const v1, 0x7f10031b
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -306,7 +306,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallVGAUsaFragment;->mVideoViews:Landroid/view/View;
 
-    const v1, 0x7f100440
+    const v1, 0x7f100444
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -458,7 +458,7 @@
 
     iget-object v1, p0, Lcom/android/incallui/fragment/VideoCallVGAUsaFragment;->mEpdgNotifyInfoText:Landroid/widget/TextView;
 
-    const v2, 0x7f09039f
+    const v2, 0x7f0903a2
 
     invoke-virtual {v0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -526,7 +526,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallVGAUsaFragment;->mVideoViews:Landroid/view/View;
 
-    const v1, 0x7f100443
+    const v1, 0x7f100447
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -1100,46 +1100,44 @@
 .end method
 
 .method protected getVideoStateMessage()I
-    .locals 7
+    .locals 6
+
+    const/16 v1, 0xa
 
     const/16 v0, 0x9
 
-    const/16 v5, 0x8
+    const/4 v4, 0x3
 
-    const/4 v4, 0x7
-
-    const/4 v3, 0x3
-
-    const/4 v2, 0x0
+    const/4 v3, 0x0
 
     invoke-static {}, Lcom/android/incallui/VideoBanner;->getInstance()Lcom/android/incallui/VideoBanner;
 
-    move-result-object v1
+    move-result-object v2
 
-    invoke-virtual {v1}, Lcom/android/incallui/VideoBanner;->getVideoBannerType()I
+    invoke-virtual {v2}, Lcom/android/incallui/VideoBanner;->getVideoBannerType()I
 
-    move-result v1
+    move-result v2
 
-    iget v6, p0, Lcom/android/incallui/fragment/VideoCallVGAUsaFragment;->mSecVideoState:I
+    iget v5, p0, Lcom/android/incallui/fragment/VideoCallVGAUsaFragment;->mSecVideoState:I
 
-    invoke-static {v6}, Lcom/android/incallui/service/vt/SecVideoState;->hasHolding(I)Z
+    invoke-static {v5}, Lcom/android/incallui/service/vt/SecVideoState;->hasHolding(I)Z
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_1
+    if-eqz v5, :cond_1
 
     :cond_0
     :goto_0
-    return v1
+    return v2
 
     :cond_1
-    iget v6, p0, Lcom/android/incallui/fragment/VideoCallVGAUsaFragment;->mSecVideoState:I
+    iget v5, p0, Lcom/android/incallui/fragment/VideoCallVGAUsaFragment;->mSecVideoState:I
 
-    invoke-static {v6}, Lcom/android/incallui/service/vt/SecVideoState;->hasHoldingTheOtherParty(I)Z
+    invoke-static {v5}, Lcom/android/incallui/service/vt/SecVideoState;->hasHoldingTheOtherParty(I)Z
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_2
+    if-eqz v5, :cond_2
 
     iget v0, p0, Lcom/android/incallui/fragment/VideoCallVGAUsaFragment;->mOldSecVideoState:I
 
@@ -1157,48 +1155,48 @@
 
     if-nez v0, :cond_0
 
-    const/16 v1, 0xf
+    const/16 v2, 0xf
 
     goto :goto_0
 
     :cond_2
-    iget v6, p0, Lcom/android/incallui/fragment/VideoCallVGAUsaFragment;->mSecVideoState:I
+    iget v5, p0, Lcom/android/incallui/fragment/VideoCallVGAUsaFragment;->mSecVideoState:I
 
-    invoke-static {v6}, Lcom/android/incallui/service/vt/SecVideoState;->isTwoWayVideo(I)Z
+    invoke-static {v5}, Lcom/android/incallui/service/vt/SecVideoState;->isTwoWayVideo(I)Z
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_9
+    if-eqz v5, :cond_9
 
-    iget v3, p0, Lcom/android/incallui/fragment/VideoCallVGAUsaFragment;->mSecVideoState:I
+    iget v4, p0, Lcom/android/incallui/fragment/VideoCallVGAUsaFragment;->mSecVideoState:I
 
-    invoke-static {v3}, Lcom/android/incallui/service/vt/SecVideoState;->isActiveTwoWayVideo(I)Z
+    invoke-static {v4}, Lcom/android/incallui/service/vt/SecVideoState;->isActiveTwoWayVideo(I)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_18
+    if-eqz v4, :cond_18
 
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->CONCEPT_USA_CDMA()Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_18
+    if-eqz v4, :cond_18
 
-    iget v3, p0, Lcom/android/incallui/fragment/VideoCallVGAUsaFragment;->mSecVideoState:I
+    iget v4, p0, Lcom/android/incallui/fragment/VideoCallVGAUsaFragment;->mSecVideoState:I
 
-    invoke-static {v3}, Lcom/android/incallui/service/vt/SecVideoState;->isTwoWayVideo(I)Z
+    invoke-static {v4}, Lcom/android/incallui/service/vt/SecVideoState;->isTwoWayVideo(I)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_8
+    if-eqz v4, :cond_8
 
-    iget v3, p0, Lcom/android/incallui/fragment/VideoCallVGAUsaFragment;->mOldSecVideoState:I
+    iget v4, p0, Lcom/android/incallui/fragment/VideoCallVGAUsaFragment;->mOldSecVideoState:I
 
-    invoke-static {v3}, Lcom/android/incallui/service/vt/SecVideoState;->isOneWayTx(I)Z
+    invoke-static {v4}, Lcom/android/incallui/service/vt/SecVideoState;->isOneWayTx(I)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_8
+    if-eqz v4, :cond_8
 
     :goto_1
     iget v1, p0, Lcom/android/incallui/fragment/VideoCallVGAUsaFragment;->mOldSecVideoState:I
@@ -1218,7 +1216,7 @@
     if-eqz v1, :cond_17
 
     :cond_3
-    move v1, v2
+    move v2, v3
 
     :cond_4
     :goto_2
@@ -1230,7 +1228,7 @@
 
     if-eqz v0, :cond_5
 
-    const/16 v1, 0x10
+    const/16 v2, 0x10
 
     :cond_5
     iget v0, p0, Lcom/android/incallui/fragment/VideoCallVGAUsaFragment;->mSecVideoState:I
@@ -1257,7 +1255,7 @@
 
     if-nez v0, :cond_6
 
-    move v1, v4
+    const/4 v2, 0x7
 
     :cond_6
     :goto_3
@@ -1278,7 +1276,7 @@
     if-eqz v0, :cond_0
 
     :cond_7
-    move v1, v2
+    move v2, v3
 
     goto/16 :goto_0
 
@@ -1299,42 +1297,42 @@
 
     if-eqz v0, :cond_18
 
-    const/16 v0, 0xa
+    move v0, v1
 
     goto :goto_1
 
     :cond_9
-    iget v6, p0, Lcom/android/incallui/fragment/VideoCallVGAUsaFragment;->mSecVideoState:I
+    iget v5, p0, Lcom/android/incallui/fragment/VideoCallVGAUsaFragment;->mSecVideoState:I
 
-    invoke-static {v6}, Lcom/android/incallui/service/vt/SecVideoState;->isOneWayTx(I)Z
+    invoke-static {v5}, Lcom/android/incallui/service/vt/SecVideoState;->isOneWayTx(I)Z
 
-    move-result v6
+    move-result v5
 
-    if-eqz v6, :cond_e
+    if-eqz v5, :cond_e
 
     invoke-static {}, Lcom/android/incallui/service/vt/VideoCallConfig;->CONCEPT_USA_CDMA()Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_d
+    if-eqz v4, :cond_d
 
-    iget v3, p0, Lcom/android/incallui/fragment/VideoCallVGAUsaFragment;->mSecVideoState:I
+    iget v4, p0, Lcom/android/incallui/fragment/VideoCallVGAUsaFragment;->mSecVideoState:I
 
-    invoke-static {v3}, Lcom/android/incallui/service/vt/SecVideoState;->isTwoWayVideo(I)Z
+    invoke-static {v4}, Lcom/android/incallui/service/vt/SecVideoState;->isTwoWayVideo(I)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_c
+    if-eqz v4, :cond_c
 
-    iget v3, p0, Lcom/android/incallui/fragment/VideoCallVGAUsaFragment;->mOldSecVideoState:I
+    iget v4, p0, Lcom/android/incallui/fragment/VideoCallVGAUsaFragment;->mOldSecVideoState:I
 
-    invoke-static {v3}, Lcom/android/incallui/service/vt/SecVideoState;->isOneWayTx(I)Z
+    invoke-static {v4}, Lcom/android/incallui/service/vt/SecVideoState;->isOneWayTx(I)Z
 
-    move-result v3
+    move-result v4
 
-    if-eqz v3, :cond_c
+    if-eqz v4, :cond_c
 
-    move v1, v0
+    move v2, v0
 
     :cond_a
     :goto_4
@@ -1355,7 +1353,7 @@
     if-eqz v0, :cond_4
 
     :cond_b
-    move v1, v2
+    move v2, v3
 
     goto :goto_2
 
@@ -1376,7 +1374,7 @@
 
     if-eqz v0, :cond_a
 
-    const/16 v1, 0xa
+    move v2, v1
 
     goto :goto_4
 
@@ -1389,7 +1387,7 @@
 
     if-eqz v0, :cond_a
 
-    const/4 v1, 0x6
+    const/4 v2, 0x6
 
     goto :goto_4
 
@@ -1406,23 +1404,13 @@
 
     move-result-object v0
 
-    invoke-virtual {v0}, Lcom/android/incallui/VideoBanner;->getVideoBannerType()I
+    invoke-virtual {v0}, Lcom/android/incallui/VideoBanner;->hasTimerToHideBanner()Z
 
     move-result v0
 
-    if-eq v0, v4, :cond_4
+    if-nez v0, :cond_4
 
-    invoke-static {}, Lcom/android/incallui/VideoBanner;->getInstance()Lcom/android/incallui/VideoBanner;
-
-    move-result-object v0
-
-    invoke-virtual {v0}, Lcom/android/incallui/VideoBanner;->getVideoBannerType()I
-
-    move-result v0
-
-    if-eq v0, v5, :cond_4
-
-    move v1, v2
+    move v2, v3
 
     goto/16 :goto_2
 
@@ -1443,7 +1431,7 @@
 
     if-eqz v0, :cond_10
 
-    const/4 v1, 0x5
+    const/4 v2, 0x5
 
     goto/16 :goto_2
 
@@ -1456,7 +1444,7 @@
 
     if-eqz v0, :cond_11
 
-    move v1, v3
+    move v2, v4
 
     goto/16 :goto_2
 
@@ -1469,7 +1457,7 @@
 
     if-eqz v0, :cond_12
 
-    const/4 v1, 0x4
+    const/4 v2, 0x4
 
     goto/16 :goto_2
 
@@ -1482,7 +1470,7 @@
 
     if-eqz v0, :cond_4
 
-    move v1, v3
+    move v2, v4
 
     goto/16 :goto_2
 
@@ -1503,7 +1491,7 @@
 
     if-eqz v0, :cond_14
 
-    const/16 v1, 0x11
+    const/16 v2, 0x11
 
     goto/16 :goto_2
 
@@ -1516,7 +1504,7 @@
 
     if-eqz v0, :cond_15
 
-    const/4 v1, 0x2
+    const/4 v2, 0x2
 
     goto/16 :goto_2
 
@@ -1529,7 +1517,7 @@
 
     if-eqz v0, :cond_4
 
-    const/4 v1, 0x1
+    const/4 v2, 0x1
 
     goto/16 :goto_2
 
@@ -1542,17 +1530,17 @@
 
     if-eqz v0, :cond_6
 
-    move v1, v5
+    const/16 v2, 0x8
 
     goto/16 :goto_3
 
     :cond_17
-    move v1, v0
+    move v2, v0
 
     goto/16 :goto_2
 
     :cond_18
-    move v0, v1
+    move v0, v2
 
     goto/16 :goto_1
 .end method
@@ -1923,7 +1911,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0e01c0
+    const v1, 0x7f0e01df
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
 
@@ -1973,7 +1961,7 @@
 
     move-result-object v0
 
-    const v2, 0x7f0203c1
+    const v2, 0x7f0203f5
 
     invoke-virtual {v0, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1985,7 +1973,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0e01e6
+    const v1, 0x7f0e0205
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getColor(I)I
 

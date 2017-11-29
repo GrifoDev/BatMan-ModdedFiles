@@ -240,7 +240,7 @@
 .method protected a(Landroid/view/ContextMenu;Lcom/android/contacts/common/list/CustomContactListFilterActivity$AccountDisplay;I)V
     .locals 4
 
-    const v0, 0x7f090552
+    const v0, 0x7f090555
 
     invoke-interface {p1, v0}, Landroid/view/ContextMenu;->setHeaderTitle(I)Landroid/view/ContextMenu;
 
@@ -299,7 +299,7 @@
 
     invoke-interface {p1, v5}, Landroid/view/ContextMenu;->setHeaderTitle(Ljava/lang/CharSequence;)Landroid/view/ContextMenu;
 
-    const v0, 0x7f0905ef
+    const v0, 0x7f0905f2
 
     invoke-interface {p1, v0}, Landroid/view/ContextMenu;->add(I)Landroid/view/MenuItem;
 
@@ -351,7 +351,7 @@
 
     invoke-direct {v0, p0}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f09057d
+    const v1, 0x7f090580
 
     const/4 v2, 0x1
 
@@ -363,7 +363,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0905ef
+    const v2, 0x7f0905f2
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -453,7 +453,7 @@
 
     move-result v0
 
-    const v1, 0x7f100106
+    const v1, 0x7f10010a
 
     if-ne v0, v1, :cond_1
 
@@ -468,7 +468,7 @@
 
     move-result v0
 
-    const v1, 0x7f100105
+    const v1, 0x7f100109
 
     if-ne v0, v1, :cond_0
 
@@ -484,7 +484,7 @@
 
     invoke-super {p0, p1}, Landroid/app/Activity;->onCreate(Landroid/os/Bundle;)V
 
-    const v0, 0x7f04003d
+    const v0, 0x7f04003e
 
     invoke-virtual {p0, v0}, Lcom/android/contacts/common/list/CustomContactListFilterActivity;->setContentView(I)V
 
@@ -520,7 +520,7 @@
 
     invoke-virtual {p0}, Lcom/android/contacts/common/list/CustomContactListFilterActivity;->getLayoutInflater()Landroid/view/LayoutInflater;
 
-    const v0, 0x7f100106
+    const v0, 0x7f10010a
 
     invoke-virtual {p0, v0}, Lcom/android/contacts/common/list/CustomContactListFilterActivity;->findViewById(I)Landroid/view/View;
 
@@ -528,7 +528,7 @@
 
     invoke-virtual {v0, p0}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
 
-    const v0, 0x7f100105
+    const v0, 0x7f100109
 
     invoke-virtual {p0, v0}, Lcom/android/contacts/common/list/CustomContactListFilterActivity;->findViewById(I)Landroid/view/View;
 

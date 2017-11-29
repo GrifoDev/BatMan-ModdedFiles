@@ -22,7 +22,7 @@
 
     const/4 v1, -0x1
 
-    const v0, 0x7f020423
+    const v0, 0x7f020484
 
     iput v0, p0, Lcom/android/incallui/callerinfocard/item/EmailItem;->mIconRes:I
 

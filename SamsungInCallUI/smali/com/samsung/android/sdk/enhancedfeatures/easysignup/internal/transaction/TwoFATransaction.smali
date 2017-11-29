@@ -415,7 +415,7 @@
 
     if-eqz v0, :cond_2
 
-    const-string v0, "JOIN"
+    const-string v0, "2FA_JOIN"
 
     iget-object v1, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/TwoFATransaction;->mAuthType:Ljava/lang/String;
 
@@ -1386,7 +1386,7 @@
 
     move-result-object v1
 
-    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/GldDBMgr;->setGldData(Landroid/content/Context;[Lcom/samsung/android/sdk/ssf/account/io/ServerInfo;)V
+    invoke-static {v0, v1}, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/db/GldDBMgr;->setGldData(Landroid/content/Context;[Lcom/samsung/android/sdk/ssf/account/io/ServerInfo;)Z
 
     const-string v0, "BR : com.samsung.android.coreapps.easysignup.ACTION_LOGIN_RESULT, result = 0"
 
@@ -2010,7 +2010,7 @@
     :cond_0
     iput p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/TwoFATransaction;->mpush_muid:I
 
-    const-string v0, "JOIN"
+    const-string v0, "2FA_JOIN"
 
     iput-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/TwoFATransaction;->mAuthType:Ljava/lang/String;
 

@@ -173,7 +173,7 @@
 
     iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallDialpadQCIFFragment;->mView:Landroid/view/View;
 
-    const v1, 0x7f100301
+    const v1, 0x7f100307
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -271,7 +271,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0400f1
+    const v0, 0x7f0400f2
 
     invoke-virtual {p1, v0, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -289,7 +289,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f040161
+    const v0, 0x7f040163
 
     invoke-virtual {p1, v0, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -298,7 +298,7 @@
     goto :goto_0
 
     :cond_1
-    const v0, 0x7f040151
+    const v0, 0x7f040153
 
     invoke-virtual {p1, v0, p2, v1}, Landroid/view/LayoutInflater;->inflate(ILandroid/view/ViewGroup;Z)Landroid/view/View;
 
@@ -344,7 +344,7 @@
     :cond_1
     iget-object v0, p0, Lcom/android/incallui/fragment/VideoCallDialpadQCIFFragment;->mView:Landroid/view/View;
 
-    const v1, 0x7f10045c
+    const v1, 0x7f100460
 
     invoke-virtual {v0, v1}, Landroid/view/View;->findViewById(I)Landroid/view/View;
 
@@ -542,7 +542,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0e01c2
+    const v5, 0x7f0e01e1
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getColor(I)I
 

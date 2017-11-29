@@ -178,12 +178,13 @@
     <string name="account_phone">Įrenginys</string>
     <string name="acs">Balso skambutis</string>
     <string name="active_calls">Aktyvus skambutis</string>
-    <string name="add_reminder">Prid. primin.</string>
+    <string name="add_reminder">Pridėti priminimą</string>
     <string name="agif_button_close_description">Uždaryti</string>
     <string name="agif_decline_message">Atsiprašau, negaliu kalbėti.</string>
     <string name="agif_decline_sticker_header">Atmesti lipduku</string>
     <string name="agif_decline_text_header">Atmesti teksto žinute</string>
     <string name="agif_decline_toast">Lipdukas nusiųstas %s.</string>
+    <string name="agif_outgoing_bubble_tip">Nusiųskite lipduką ir parodykite, kaip jaučiatės.</string>
     <string name="agif_pickers_add_tab_description">Įtrauk.</string>
     <string name="agif_pickers_find_more">Rasti daugiau</string>
     <string name="agif_pickers_item_usage_hints_description">Bakstelėkite du kartus, jei norite pasirinkti</string>
@@ -192,10 +193,12 @@
     <string name="agif_pickers_tab_select_description">Pasirinkta</string>
     <string name="agif_pickers_title">Pradėkite nuo lipduko</string>
     <string name="agif_pickers_title_recommended">Rekomenduojama</string>
+    <string name="agif_random_send_message">Bakstelėkite čia ir išsiųskite šį lipduką.</string>
     <string name="agif_read_permission_description">Leidžia telefonui nuskaityti AGIF turinį.</string>
     <string name="agif_read_permission_label">Skaityti AGIF turinį</string>
     <string name="agif_receive_no_id">Lipduko negalima parodyti. Po skambučio atnaujinkite %s.</string>
     <string name="agif_receive_no_id_upsupport_update">Lipduko negalima parodyti. Po kito sistemos atnaujinimo bus daugiau lipdukų.</string>
+    <string name="agif_receive_toast">Lipdukas iš %s.</string>
     <string name="agif_sent_fail_message">Negalima siųsti animuotojo GIF. Bandykit vėliau.</string>
     <string name="agif_sent_toast">Lipdukas nusiųstas.</string>
     <string name="agif_write_permission_description">Leidžia telefonui koreguoti AGIF turinį.</string>
@@ -886,8 +889,8 @@ fotoap."</string>
     <string name="tts_pager">Puslapis %1$d iš %2$d</string>
     <string name="tts_seconds">%d sek.</string>
     <string name="tty_mode_option_title">TTY režimas</string>
-    <string name="tutorial_incoming_call_app_answer">Bakstelėkite ir atsiliepkite į skambutį.</string>
-    <string name="tutorial_incoming_call_app_reject">Bakstelėkite ir atmeskite skambutį.</string>
+    <string name="tutorial_incoming_call_app_answer">Spustelėkite du kartus norėdami atsiliepti.</string>
+    <string name="tutorial_incoming_call_app_reject">Spustelėkite du kartus norėdami atmesti.</string>
     <string name="twmobile_operator_name">TW Mobile</string>
     <string name="unable_to_connect_to_the_network">Neįmanoma prisijungti prie tinklo. Patikrinkite prisijungimo nustatymus ir bandykite dar kartą.</string>
     <string name="units_kb">KB</string>
@@ -897,7 +900,7 @@ fotoap."</string>
     <string name="upload_using_wlan_only">Įkelti tik per WLAN</string>
     <string name="upload_wifi_and_mobile_nw">Įkelti per „Wi-Fi“ arba mobilųjį tinklą</string>
     <string name="upload_wlan_and_mobile_nw">Įkelt per WLAN arba mobilųjį tinklą</string>
-    <string name="usa_att_connected_as_voice">Sujungta tik kaip balso skambutis.</string>
+    <string name="usa_att_connected_as_voice">Video unavailable for this call. Call connected as a voice call.</string>
     <string name="usa_att_data_usage_charge_alert">Netrukus bus pasiektas duomenų naudojimo apribojimas, kurį nustatėte savo įrenginyje. Jūsų vaizdo skambučiui reikalingi duomenys.</string>
     <string name="usa_att_lte_to_wifi_handover_fail_toast">Skambinti „Wi-Fi“ ryšiu negalima. Jungiamasi per mobilųjį tinklą. Gali būti taikomi mokesčiai už balso minutes ir duomenis.</string>
     <string name="usa_att_modify_receive_to_video">%s is requesting to switch to video call.</string>
@@ -947,11 +950,15 @@ vienpusį vaizdą"</string>
     <string name="usa_vzw_volte_weak_wifi_during_epdg_title">Naudoti mobiliuosius duomenis</string>
     <string name="usa_vzw_volte_weak_wifi_text">"Atsiprašome, bet šiuo metu negalime perjungti jūsų vaizdo skambučio į „Wi-Fi“.
 
-Jūsų vaizdo skambutis ir toliau veikia mobiliajame tinkle. (Jei pasirinksite tęsti, bus naudojami duomenys.)"</string>
+Jūsų vaizdo skambutis ir toliau veikia mobiliajame tinkle.
+
+Jei pasirinksite tęsti, gali būti taikomi mokesčiai už duomenų naudojimą."</string>
     <string name="usa_vzw_volte_weak_wifi_toast">Vaizdo skambutis toliau vyksta naudojant mobilųjį tinklą. (Naudojami duomenys.)</string>
     <string name="usa_vzw_vowifi_wifi_low_signal_text">"„Wi-Fi“ signalas buvo nepakankamai stiprus vaizdo skambučiui tęsti.
 
-Vaizdo skambutis dabar perduodamas mobiliuoju tinklu. (Jei pasirinksite tęsti, bus naudojami duomenys.)"</string>
+Vaizdo skambutis dabar perduodamas mobiliuoju tinklu.
+
+Jei pasirinksite tęsti, gali būti taikomi mokesčiai už duomenų naudojimą."</string>
     <string name="usa_vzw_vowifi_wifi_signal_lost_toast">„Wi-Fi“ ryšys nutrūko. Skambutis baigtas.</string>
     <string name="use_wifi_and_mobile_nw">Naudoti „Wi-Fi“ mobiliojo ryšio tinklus</string>
     <string name="use_wlan_and_mobile_nw">Naudoti WLAN ir mobiliuosius tinklus</string>

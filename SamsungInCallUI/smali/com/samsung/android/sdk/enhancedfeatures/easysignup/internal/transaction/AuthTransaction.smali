@@ -244,7 +244,23 @@
     return p1
 .end method
 
-.method static synthetic access$1100(Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/AuthTransaction;)Lcom/samsung/android/sdk/ssf/common/transaction/HandlerState;
+.method static synthetic access$1100(Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/AuthTransaction;)Ljava/lang/String;
+    .locals 1
+
+    iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/AuthTransaction;->mAuthType:Ljava/lang/String;
+
+    return-object v0
+.end method
+
+.method static synthetic access$1102(Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/AuthTransaction;Ljava/lang/String;)Ljava/lang/String;
+    .locals 0
+
+    iput-object p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/AuthTransaction;->mAuthType:Ljava/lang/String;
+
+    return-object p1
+.end method
+
+.method static synthetic access$1200(Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/AuthTransaction;)Lcom/samsung/android/sdk/ssf/common/transaction/HandlerState;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/AuthTransaction;->mSaAuthState:Lcom/samsung/android/sdk/ssf/common/transaction/HandlerState;
@@ -252,7 +268,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$1200(Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/AuthTransaction;)Ljava/lang/String;
+.method static synthetic access$1300(Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/AuthTransaction;)Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/AuthTransaction;->mDeviceMsisdn:Ljava/lang/String;
@@ -260,7 +276,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$1202(Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/AuthTransaction;Ljava/lang/String;)Ljava/lang/String;
+.method static synthetic access$1302(Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/AuthTransaction;Ljava/lang/String;)Ljava/lang/String;
     .locals 0
 
     iput-object p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/AuthTransaction;->mDeviceMsisdn:Ljava/lang/String;
@@ -268,7 +284,7 @@
     return-object p1
 .end method
 
-.method static synthetic access$1300(Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/AuthTransaction;)Ljava/lang/String;
+.method static synthetic access$1400(Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/AuthTransaction;)Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/AuthTransaction;->mSaDuid:Ljava/lang/String;
@@ -276,7 +292,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$1400(Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/AuthTransaction;)Ljava/lang/String;
+.method static synthetic access$1500(Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/AuthTransaction;)Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/AuthTransaction;->mRequestedMsisdn:Ljava/lang/String;
@@ -284,7 +300,7 @@
     return-object v0
 .end method
 
-.method static synthetic access$1500(Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/AuthTransaction;)Ljava/lang/String;
+.method static synthetic access$1600(Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/AuthTransaction;)Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/AuthTransaction;->mRequestedAuthType:Ljava/lang/String;
@@ -292,20 +308,12 @@
     return-object v0
 .end method
 
-.method static synthetic access$1600(Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/AuthTransaction;)Ljava/lang/String;
+.method static synthetic access$1700(Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/AuthTransaction;)Ljava/lang/String;
     .locals 1
 
     iget-object v0, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/AuthTransaction;->mEntryPoint:Ljava/lang/String;
 
     return-object v0
-.end method
-
-.method static synthetic access$1702(Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/AuthTransaction;Ljava/lang/String;)Ljava/lang/String;
-    .locals 0
-
-    iput-object p1, p0, Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/AuthTransaction;->mAuthType:Ljava/lang/String;
-
-    return-object p1
 .end method
 
 .method static synthetic access$1800(Lcom/samsung/android/sdk/enhancedfeatures/easysignup/internal/transaction/AuthTransaction;)Z
@@ -1111,23 +1119,17 @@
 .method private startAuth()V
     .locals 3
 
-    const/4 v0, 0x3
+    const/4 v0, 0x2
 
     new-array v0, v0, [Ljava/lang/String;
 
     const/4 v1, 0x0
 
-    const-string v2, "android.permission.READ_SMS"
-
-    aput-object v2, v0, v1
-
-    const/4 v1, 0x1
-
     const-string v2, "android.permission.SEND_SMS"
 
     aput-object v2, v0, v1
 
-    const/4 v1, 0x2
+    const/4 v1, 0x1
 
     const-string v2, "android.permission.RECEIVE_SMS"
 
