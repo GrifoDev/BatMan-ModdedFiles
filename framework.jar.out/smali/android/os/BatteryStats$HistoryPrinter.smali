@@ -943,13 +943,13 @@
 
     move-object/from16 v0, p2
 
-    iget-byte v3, v0, Landroid/os/BatteryStats$HistoryItem;->batterySecEvent:B
+    iget v3, v0, Landroid/os/BatteryStats$HistoryItem;->batterySecEvent:I
 
     if-eq v2, v3, :cond_1c
 
     move-object/from16 v0, p2
 
-    iget-byte v2, v0, Landroid/os/BatteryStats$HistoryItem;->batterySecEvent:B
+    iget v2, v0, Landroid/os/BatteryStats$HistoryItem;->batterySecEvent:I
 
     move-object/from16 v0, p0
 
@@ -985,13 +985,13 @@
 
     move-object/from16 v0, p2
 
-    iget-short v3, v0, Landroid/os/BatteryStats$HistoryItem;->batterySecCurrentEvent:S
+    iget v3, v0, Landroid/os/BatteryStats$HistoryItem;->batterySecCurrentEvent:I
 
     if-eq v2, v3, :cond_1e
 
     move-object/from16 v0, p2
 
-    iget-short v2, v0, Landroid/os/BatteryStats$HistoryItem;->batterySecCurrentEvent:S
+    iget v2, v0, Landroid/os/BatteryStats$HistoryItem;->batterySecCurrentEvent:I
 
     move-object/from16 v0, p0
 

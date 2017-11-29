@@ -146,9 +146,9 @@
 
 .field private static final USE_OLD_HISTORY:Z = false
 
-.field private static final VERSION:I = 0x60093
+.field private static final VERSION:I = 0x70093
 
-.field static final VERSION_SEC:I = 0x60000
+.field static final VERSION_SEC:I = 0x70000
 
 .field private static final mKernelGpuSpeedReader:Lcom/android/internal/os/KernelGpuSpeedReader;
 
@@ -3420,27 +3420,19 @@
 .method private buildBatterySecInfo(Landroid/os/BatteryStats$HistoryItem;)I
     .locals 3
 
-    iget-short v0, p1, Landroid/os/BatteryStats$HistoryItem;->batterySecCurrentEvent:S
+    iget-byte v0, p1, Landroid/os/BatteryStats$HistoryItem;->batterySecOnline:B
 
-    shl-int/lit8 v0, v0, 0x10
+    shl-int/lit8 v0, v0, 0x18
 
-    const/high16 v1, -0x10000
+    const/high16 v1, -0x1000000
 
     and-int/2addr v0, v1
 
-    iget-byte v1, p1, Landroid/os/BatteryStats$HistoryItem;->batterySecOnline:B
+    iget v1, p1, Landroid/os/BatteryStats$HistoryItem;->batterySecEvent:I
 
-    shl-int/lit8 v1, v1, 0x8
-
-    const v2, 0xff00
+    const v2, 0xffffff
 
     and-int/2addr v1, v2
-
-    or-int/2addr v0, v1
-
-    iget-byte v1, p1, Landroid/os/BatteryStats$HistoryItem;->batterySecEvent:B
-
-    and-int/lit16 v1, v1, 0xff
 
     or-int/2addr v0, v1
 
@@ -6395,13 +6387,13 @@
 
     iget-boolean v3, v0, Lcom/android/internal/os/BatteryStatsImpl;->mHaveBatteryLevel:Z
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_b
 
     move-object/from16 v0, p0
 
     iget-boolean v3, v0, Lcom/android/internal/os/BatteryStatsImpl;->mRecordingHistory:Z
 
-    if-eqz v3, :cond_7
+    if-eqz v3, :cond_b
 
     move-object/from16 v0, p0
 
@@ -6698,11 +6690,11 @@
 
     iget-object v3, v0, Lcom/android/internal/os/BatteryStatsImpl;->mHistoryLastWritten:Landroid/os/BatteryStats$HistoryItem;
 
-    iget-byte v3, v3, Landroid/os/BatteryStats$HistoryItem;->batterySecEvent:B
+    iget v3, v3, Landroid/os/BatteryStats$HistoryItem;->batterySecEvent:I
 
     move-object/from16 v0, p5
 
-    iget-byte v4, v0, Landroid/os/BatteryStats$HistoryItem;->batterySecEvent:B
+    iget v4, v0, Landroid/os/BatteryStats$HistoryItem;->batterySecEvent:I
 
     if-ne v3, v4, :cond_6
 
@@ -6722,11 +6714,11 @@
 
     iget-object v3, v0, Lcom/android/internal/os/BatteryStatsImpl;->mHistoryLastWritten:Landroid/os/BatteryStats$HistoryItem;
 
-    iget-short v3, v3, Landroid/os/BatteryStats$HistoryItem;->batterySecCurrentEvent:S
+    iget v3, v3, Landroid/os/BatteryStats$HistoryItem;->batterySecCurrentEvent:I
 
     move-object/from16 v0, p5
 
-    iget-short v4, v0, Landroid/os/BatteryStats$HistoryItem;->batterySecCurrentEvent:S
+    iget v4, v0, Landroid/os/BatteryStats$HistoryItem;->batterySecCurrentEvent:I
 
     if-ne v3, v4, :cond_6
 
@@ -6888,6 +6880,8 @@
     invoke-virtual {v3, v4}, Landroid/os/BatteryStats$HistoryItem;->setTo(Landroid/os/BatteryStats$HistoryItem;)V
 
     :cond_6
+    const/16 v17, 0x0
+
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/internal/os/BatteryStatsImpl;->mHistoryBuffer:Landroid/os/Parcel;
@@ -6896,15 +6890,83 @@
 
     move-result v11
 
+    const/high16 v3, 0x1e0000
+
+    if-lt v11, v3, :cond_c
+
+    invoke-direct/range {p0 .. p0}, Lcom/android/internal/os/BatteryStatsImpl;->resetAllStatsLocked()V
+
+    const/16 v17, 0x1
+
+    :cond_7
+    if-eqz v11, :cond_8
+
+    if-eqz v17, :cond_a
+
+    :cond_8
+    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
+
+    move-result-wide v4
+
+    move-object/from16 v0, p5
+
+    iput-wide v4, v0, Landroid/os/BatteryStats$HistoryItem;->currentTime:J
+
+    if-eqz v17, :cond_9
+
+    const/4 v8, 0x6
+
+    move-object/from16 v3, p0
+
+    move-wide/from16 v4, p1
+
+    move-wide/from16 v6, p3
+
+    move-object/from16 v9, p5
+
+    invoke-direct/range {v3 .. v9}, Lcom/android/internal/os/BatteryStatsImpl;->addHistoryBufferLocked(JJBLandroid/os/BatteryStats$HistoryItem;)V
+
+    :cond_9
+    const/4 v8, 0x7
+
+    move-object/from16 v3, p0
+
+    move-wide/from16 v4, p1
+
+    move-wide/from16 v6, p3
+
+    move-object/from16 v9, p5
+
+    invoke-direct/range {v3 .. v9}, Lcom/android/internal/os/BatteryStatsImpl;->addHistoryBufferLocked(JJBLandroid/os/BatteryStats$HistoryItem;)V
+
+    :cond_a
+    const/4 v8, 0x0
+
+    move-object/from16 v3, p0
+
+    move-wide/from16 v4, p1
+
+    move-wide/from16 v6, p3
+
+    move-object/from16 v9, p5
+
+    invoke-direct/range {v3 .. v9}, Lcom/android/internal/os/BatteryStatsImpl;->addHistoryBufferLocked(JJBLandroid/os/BatteryStats$HistoryItem;)V
+
+    return-void
+
+    :cond_b
+    return-void
+
+    :cond_c
     const/high16 v3, 0x80000
 
-    if-lt v11, v3, :cond_10
+    if-lt v11, v3, :cond_7
 
     move-object/from16 v0, p0
 
     iget-boolean v3, v0, Lcom/android/internal/os/BatteryStatsImpl;->mHistoryOverflow:Z
 
-    if-nez v3, :cond_8
+    if-nez v3, :cond_d
 
     const/4 v3, 0x1
 
@@ -6938,11 +7000,8 @@
 
     return-void
 
-    :cond_7
-    return-void
-
-    :cond_8
-    const/16 v17, 0x0
+    :cond_d
+    const/16 v20, 0x0
 
     move-object/from16 v0, p5
 
@@ -6964,7 +7023,7 @@
 
     iget v3, v3, Landroid/os/BatteryStats$HistoryItem;->states:I
 
-    if-eq v3, v2, :cond_9
+    if-eq v3, v2, :cond_e
 
     move-object/from16 v0, p0
 
@@ -6992,11 +7051,11 @@
 
     move/from16 v0, v16
 
-    if-eq v0, v3, :cond_c
+    if-eq v0, v3, :cond_11
 
-    const/16 v17, 0x1
+    const/16 v20, 0x1
 
-    :cond_9
+    :cond_e
     :goto_0
     move-object/from16 v0, p5
 
@@ -7018,7 +7077,7 @@
 
     iget v3, v3, Landroid/os/BatteryStats$HistoryItem;->states2:I
 
-    if-eq v3, v10, :cond_a
+    if-eq v3, v10, :cond_f
 
     move-object/from16 v0, p0
 
@@ -7046,15 +7105,15 @@
 
     move/from16 v0, v16
 
-    if-eq v0, v3, :cond_d
+    if-eq v0, v3, :cond_12
 
     const/4 v3, 0x1
 
     :goto_1
-    or-int v17, v17, v3
+    or-int v20, v20, v3
 
-    :cond_a
-    if-nez v17, :cond_f
+    :cond_f
+    if-nez v20, :cond_14
 
     move-object/from16 v0, p0
 
@@ -7066,11 +7125,11 @@
 
     iget-byte v4, v0, Landroid/os/BatteryStats$HistoryItem;->batteryLevel:B
 
-    if-ne v3, v4, :cond_f
+    if-ne v3, v4, :cond_14
 
     const/high16 v3, 0xa0000
 
-    if-ge v11, v3, :cond_b
+    if-ge v11, v3, :cond_10
 
     move-object/from16 v0, p0
 
@@ -7088,22 +7147,22 @@
 
     and-int/2addr v3, v4
 
-    if-nez v3, :cond_e
+    if-nez v3, :cond_13
 
-    :cond_b
+    :cond_10
     return-void
 
-    :cond_c
-    const/16 v17, 0x0
+    :cond_11
+    const/16 v20, 0x0
 
     goto :goto_0
 
-    :cond_d
+    :cond_12
     const/4 v3, 0x0
 
     goto :goto_1
 
-    :cond_e
+    :cond_13
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/internal/os/BatteryStatsImpl;->mHistoryLastWritten:Landroid/os/BatteryStats$HistoryItem;
@@ -7120,47 +7179,9 @@
 
     and-int/2addr v3, v4
 
-    if-eqz v3, :cond_b
+    if-eqz v3, :cond_10
 
-    :cond_f
-    const/4 v8, 0x0
-
-    move-object/from16 v3, p0
-
-    move-wide/from16 v4, p1
-
-    move-wide/from16 v6, p3
-
-    move-object/from16 v9, p5
-
-    invoke-direct/range {v3 .. v9}, Lcom/android/internal/os/BatteryStatsImpl;->addHistoryBufferLocked(JJBLandroid/os/BatteryStats$HistoryItem;)V
-
-    return-void
-
-    :cond_10
-    if-nez v11, :cond_11
-
-    invoke-static {}, Ljava/lang/System;->currentTimeMillis()J
-
-    move-result-wide v4
-
-    move-object/from16 v0, p5
-
-    iput-wide v4, v0, Landroid/os/BatteryStats$HistoryItem;->currentTime:J
-
-    const/4 v8, 0x7
-
-    move-object/from16 v3, p0
-
-    move-wide/from16 v4, p1
-
-    move-wide/from16 v6, p3
-
-    move-object/from16 v9, p5
-
-    invoke-direct/range {v3 .. v9}, Lcom/android/internal/os/BatteryStatsImpl;->addHistoryBufferLocked(JJBLandroid/os/BatteryStats$HistoryItem;)V
-
-    :cond_11
+    :cond_14
     const/4 v8, 0x0
 
     move-object/from16 v3, p0
@@ -9522,7 +9543,7 @@
 .method public getParcelVersion()I
     .locals 1
 
-    const v0, 0x60093
+    const v0, 0x70093
 
     return v0
 .end method
@@ -18122,27 +18143,33 @@
 
     invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
 
-    move-result v7
-
-    shr-int/lit8 v19, v7, 0x10
-
-    const v20, 0xffff
-
-    and-int v19, v19, v20
-
-    move/from16 v0, v19
-
-    int-to-short v0, v0
-
-    move/from16 v19, v0
+    move-result v19
 
     move/from16 v0, v19
 
     move-object/from16 v1, p2
 
-    iput-short v0, v1, Landroid/os/BatteryStats$HistoryItem;->batterySecCurrentEvent:S
+    iput v0, v1, Landroid/os/BatteryStats$HistoryItem;->batterySecCurrentEvent:I
 
-    shr-int/lit8 v19, v7, 0x8
+    move-object/from16 v0, p2
+
+    iget v0, v0, Landroid/os/BatteryStats$HistoryItem;->numReadInts:I
+
+    move/from16 v19, v0
+
+    add-int/lit8 v19, v19, 0x1
+
+    move/from16 v0, v19
+
+    move-object/from16 v1, p2
+
+    iput v0, v1, Landroid/os/BatteryStats$HistoryItem;->numReadInts:I
+
+    invoke-virtual/range {p1 .. p1}, Landroid/os/Parcel;->readInt()I
+
+    move-result v7
+
+    shr-int/lit8 v19, v7, 0x18
 
     move/from16 v0, v19
 
@@ -18162,21 +18189,15 @@
 
     iput-byte v0, v1, Landroid/os/BatteryStats$HistoryItem;->batterySecOnline:B
 
-    and-int/lit16 v0, v7, 0xff
+    const v19, 0xffffff
 
-    move/from16 v19, v0
-
-    move/from16 v0, v19
-
-    int-to-byte v0, v0
-
-    move/from16 v19, v0
+    and-int v19, v19, v7
 
     move/from16 v0, v19
 
     move-object/from16 v1, p2
 
-    iput-byte v0, v1, Landroid/os/BatteryStats$HistoryItem;->batterySecEvent:B
+    iput v0, v1, Landroid/os/BatteryStats$HistoryItem;->batterySecEvent:I
 
     move-object/from16 v0, p2
 
@@ -18946,7 +18967,7 @@
 
     move-result v41
 
-    const v43, 0x60093
+    const v43, 0x70093
 
     move/from16 v0, v41
 
@@ -18980,7 +19001,7 @@
 
     move-result-object v44
 
-    const v45, 0x60093
+    const v45, 0x70093
 
     invoke-virtual/range {v44 .. v45}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
 
@@ -22567,9 +22588,7 @@
 
     move/from16 v0, p8
 
-    int-to-byte v8, v0
-
-    iput-byte v8, v3, Landroid/os/BatteryStats$HistoryItem;->batterySecEvent:B
+    iput v0, v3, Landroid/os/BatteryStats$HistoryItem;->batterySecEvent:I
 
     move-object/from16 v0, p0
 
@@ -22587,9 +22606,7 @@
 
     move/from16 v0, p10
 
-    int-to-short v8, v0
-
-    iput-short v8, v3, Landroid/os/BatteryStats$HistoryItem;->batterySecCurrentEvent:S
+    iput v0, v3, Landroid/os/BatteryStats$HistoryItem;->batterySecCurrentEvent:I
 
     move-object/from16 v0, p0
 
@@ -22996,7 +23013,7 @@
 
     iget-object v3, v0, Lcom/android/internal/os/BatteryStatsImpl;->mHistoryCur:Landroid/os/BatteryStats$HistoryItem;
 
-    iget-byte v3, v3, Landroid/os/BatteryStats$HistoryItem;->batterySecEvent:B
+    iget v3, v3, Landroid/os/BatteryStats$HistoryItem;->batterySecEvent:I
 
     move/from16 v0, p8
 
@@ -23008,9 +23025,7 @@
 
     move/from16 v0, p8
 
-    int-to-byte v8, v0
-
-    iput-byte v8, v3, Landroid/os/BatteryStats$HistoryItem;->batterySecEvent:B
+    iput v0, v3, Landroid/os/BatteryStats$HistoryItem;->batterySecEvent:I
 
     const/4 v2, 0x1
 
@@ -23042,7 +23057,7 @@
 
     iget-object v3, v0, Lcom/android/internal/os/BatteryStatsImpl;->mHistoryCur:Landroid/os/BatteryStats$HistoryItem;
 
-    iget-short v3, v3, Landroid/os/BatteryStats$HistoryItem;->batterySecCurrentEvent:S
+    iget v3, v3, Landroid/os/BatteryStats$HistoryItem;->batterySecCurrentEvent:I
 
     move/from16 v0, p10
 
@@ -23054,9 +23069,7 @@
 
     move/from16 v0, p10
 
-    int-to-short v8, v0
-
-    iput-short v8, v3, Landroid/os/BatteryStats$HistoryItem;->batterySecCurrentEvent:S
+    iput v0, v3, Landroid/os/BatteryStats$HistoryItem;->batterySecCurrentEvent:I
 
     const/4 v2, 0x1
 
@@ -26515,7 +26528,7 @@
 .end method
 
 .method public updateMobileRadioStateLocked(JLandroid/telephony/ModemActivityInfo;)V
-    .locals 35
+    .locals 37
 
     const/4 v9, 0x0
 
@@ -26556,13 +26569,13 @@
     return-void
 
     :catch_0
-    move-exception v14
+    move-exception v15
 
     const-string/jumbo v3, "BatteryStatsImpl"
 
     const-string/jumbo v4, "Failed to get mobile network stats"
 
-    invoke-static {v3, v4, v14}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
+    invoke-static {v3, v4, v15}, Landroid/util/Slog;->wtf(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
 
     return-void
 
@@ -26577,7 +26590,7 @@
 
     invoke-virtual {v3, v4, v5}, Lcom/android/internal/os/BatteryStatsImpl$StopwatchTimer;->getTimeSinceMarkLocked(J)J
 
-    move-result-wide v20
+    move-result-wide v22
 
     move-object/from16 v0, p0
 
@@ -26587,22 +26600,22 @@
 
     invoke-virtual {v3, v0, v1}, Lcom/android/internal/os/BatteryStatsImpl$StopwatchTimer;->setMark(J)V
 
-    const-wide/16 v28, 0x0
-
     const-wide/16 v30, 0x0
 
-    if-eqz v9, :cond_8
+    const-wide/16 v32, 0x0
+
+    if-eqz v9, :cond_b
 
     invoke-virtual {v9}, Landroid/net/NetworkStats;->size()I
 
-    move-result v24
+    move-result v26
 
-    const/16 v16, 0x0
+    const/16 v17, 0x0
 
     :goto_0
-    move/from16 v0, v16
+    move/from16 v0, v17
 
-    move/from16 v1, v24
+    move/from16 v1, v26
 
     if-ge v0, v1, :cond_3
 
@@ -26610,13 +26623,15 @@
 
     iget-object v3, v0, Lcom/android/internal/os/BatteryStatsImpl;->mTmpNetworkStatsEntry:Landroid/net/NetworkStats$Entry;
 
-    move/from16 v0, v16
+    move/from16 v0, v17
 
     invoke-virtual {v9, v0, v3}, Landroid/net/NetworkStats;->getValues(ILandroid/net/NetworkStats$Entry;)Landroid/net/NetworkStats$Entry;
 
-    move-result-object v15
+    move-result-object v16
 
-    iget-wide v4, v15, Landroid/net/NetworkStats$Entry;->rxPackets:J
+    move-object/from16 v0, v16
+
+    iget-wide v4, v0, Landroid/net/NetworkStats$Entry;->rxPackets:J
 
     const-wide/16 v6, 0x0
 
@@ -26624,7 +26639,9 @@
 
     if-nez v3, :cond_2
 
-    iget-wide v4, v15, Landroid/net/NetworkStats$Entry;->txPackets:J
+    move-object/from16 v0, v16
+
+    iget-wide v4, v0, Landroid/net/NetworkStats$Entry;->txPackets:J
 
     const-wide/16 v6, 0x0
 
@@ -26633,20 +26650,26 @@
     if-nez v3, :cond_2
 
     :goto_1
-    add-int/lit8 v16, v16, 0x1
+    add-int/lit8 v17, v17, 0x1
 
     goto :goto_0
 
     :cond_2
-    iget-wide v4, v15, Landroid/net/NetworkStats$Entry;->rxPackets:J
+    move-object/from16 v0, v16
 
-    add-long v28, v28, v4
-
-    iget-wide v4, v15, Landroid/net/NetworkStats$Entry;->txPackets:J
+    iget-wide v4, v0, Landroid/net/NetworkStats$Entry;->rxPackets:J
 
     add-long v30, v30, v4
 
-    iget v3, v15, Landroid/net/NetworkStats$Entry;->uid:I
+    move-object/from16 v0, v16
+
+    iget-wide v4, v0, Landroid/net/NetworkStats$Entry;->txPackets:J
+
+    add-long v32, v32, v4
+
+    move-object/from16 v0, v16
+
+    iget v3, v0, Landroid/net/NetworkStats$Entry;->uid:I
 
     move-object/from16 v0, p0
 
@@ -26660,17 +26683,25 @@
 
     move-result-object v2
 
-    iget-wide v4, v15, Landroid/net/NetworkStats$Entry;->rxBytes:J
+    move-object/from16 v0, v16
 
-    iget-wide v6, v15, Landroid/net/NetworkStats$Entry;->rxPackets:J
+    iget-wide v4, v0, Landroid/net/NetworkStats$Entry;->rxBytes:J
+
+    move-object/from16 v0, v16
+
+    iget-wide v6, v0, Landroid/net/NetworkStats$Entry;->rxPackets:J
 
     const/4 v3, 0x0
 
     invoke-virtual/range {v2 .. v7}, Lcom/android/internal/os/BatteryStatsImpl$Uid;->noteNetworkActivityLocked(IJJ)V
 
-    iget-wide v4, v15, Landroid/net/NetworkStats$Entry;->txBytes:J
+    move-object/from16 v0, v16
 
-    iget-wide v6, v15, Landroid/net/NetworkStats$Entry;->txPackets:J
+    iget-wide v4, v0, Landroid/net/NetworkStats$Entry;->txBytes:J
+
+    move-object/from16 v0, v16
+
+    iget-wide v6, v0, Landroid/net/NetworkStats$Entry;->txPackets:J
 
     const/4 v3, 0x1
 
@@ -26684,7 +26715,9 @@
 
     aget-object v3, v3, v4
 
-    iget-wide v4, v15, Landroid/net/NetworkStats$Entry;->rxBytes:J
+    move-object/from16 v0, v16
+
+    iget-wide v4, v0, Landroid/net/NetworkStats$Entry;->rxBytes:J
 
     invoke-virtual {v3, v4, v5}, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->addCountLocked(J)V
 
@@ -26696,7 +26729,9 @@
 
     aget-object v3, v3, v4
 
-    iget-wide v4, v15, Landroid/net/NetworkStats$Entry;->txBytes:J
+    move-object/from16 v0, v16
+
+    iget-wide v4, v0, Landroid/net/NetworkStats$Entry;->txBytes:J
 
     invoke-virtual {v3, v4, v5}, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->addCountLocked(J)V
 
@@ -26708,7 +26743,9 @@
 
     aget-object v3, v3, v4
 
-    iget-wide v4, v15, Landroid/net/NetworkStats$Entry;->rxPackets:J
+    move-object/from16 v0, v16
+
+    iget-wide v4, v0, Landroid/net/NetworkStats$Entry;->rxPackets:J
 
     invoke-virtual {v3, v4, v5}, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->addCountLocked(J)V
 
@@ -26720,41 +26757,45 @@
 
     aget-object v3, v3, v4
 
-    iget-wide v4, v15, Landroid/net/NetworkStats$Entry;->txPackets:J
+    move-object/from16 v0, v16
+
+    iget-wide v4, v0, Landroid/net/NetworkStats$Entry;->txPackets:J
 
     invoke-virtual {v3, v4, v5}, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->addCountLocked(J)V
 
     goto :goto_1
 
     :cond_3
-    add-long v26, v28, v30
+    add-long v28, v30, v32
 
     const-wide/16 v4, 0x0
 
-    cmp-long v3, v26, v4
+    cmp-long v3, v28, v4
 
-    if-lez v3, :cond_7
+    if-lez v3, :cond_a
 
-    const/16 v16, 0x0
+    const/16 v17, 0x0
 
     :goto_2
-    move/from16 v0, v16
+    move/from16 v0, v17
 
-    move/from16 v1, v24
+    move/from16 v1, v26
 
-    if-ge v0, v1, :cond_7
+    if-ge v0, v1, :cond_a
 
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/internal/os/BatteryStatsImpl;->mTmpNetworkStatsEntry:Landroid/net/NetworkStats$Entry;
 
-    move/from16 v0, v16
+    move/from16 v0, v17
 
     invoke-virtual {v9, v0, v3}, Landroid/net/NetworkStats;->getValues(ILandroid/net/NetworkStats$Entry;)Landroid/net/NetworkStats$Entry;
 
-    move-result-object v15
+    move-result-object v16
 
-    iget-wide v4, v15, Landroid/net/NetworkStats$Entry;->rxPackets:J
+    move-object/from16 v0, v16
+
+    iget-wide v4, v0, Landroid/net/NetworkStats$Entry;->rxPackets:J
 
     const-wide/16 v6, 0x0
 
@@ -26762,7 +26803,9 @@
 
     if-nez v3, :cond_5
 
-    iget-wide v4, v15, Landroid/net/NetworkStats$Entry;->txPackets:J
+    move-object/from16 v0, v16
+
+    iget-wide v4, v0, Landroid/net/NetworkStats$Entry;->txPackets:J
 
     const-wide/16 v6, 0x0
 
@@ -26771,12 +26814,158 @@
     if-nez v3, :cond_5
 
     :cond_4
-    add-int/lit8 v16, v16, 0x1
+    add-int/lit8 v17, v17, 0x1
 
     goto :goto_2
 
     :cond_5
-    iget v3, v15, Landroid/net/NetworkStats$Entry;->uid:I
+    const-wide/16 v4, 0x0
+
+    cmp-long v3, v28, v4
+
+    if-nez v3, :cond_8
+
+    const-string/jumbo v3, "BatteryStatsImpl"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "!@ updateMobileRadioStateLocked size : "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    move/from16 v0, v26
+
+    invoke-virtual {v4, v0}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, " totalRxPackets : "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    move-wide/from16 v0, v30
+
+    invoke-virtual {v4, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, " totalTxPackets : "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    move-wide/from16 v0, v32
+
+    invoke-virtual {v4, v0, v1}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    sget-boolean v3, Lcom/android/internal/os/BatteryStatsImpl;->SHIP_BUILD:Z
+
+    if-eqz v3, :cond_6
+
+    sget-boolean v3, Lcom/android/internal/os/BatteryStatsImpl;->ENG_MODE:Z
+
+    if-eqz v3, :cond_a
+
+    :cond_6
+    const/16 v18, 0x0
+
+    :goto_3
+    move/from16 v0, v18
+
+    move/from16 v1, v17
+
+    if-ge v0, v1, :cond_7
+
+    move-object/from16 v0, p0
+
+    iget-object v3, v0, Lcom/android/internal/os/BatteryStatsImpl;->mTmpNetworkStatsEntry:Landroid/net/NetworkStats$Entry;
+
+    move/from16 v0, v18
+
+    invoke-virtual {v9, v0, v3}, Landroid/net/NetworkStats;->getValues(ILandroid/net/NetworkStats$Entry;)Landroid/net/NetworkStats$Entry;
+
+    move-result-object v14
+
+    const-string/jumbo v3, "BatteryStatsImpl"
+
+    new-instance v4, Ljava/lang/StringBuilder;
+
+    invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v5, "!@ uid : "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget v5, v14, Landroid/net/NetworkStats$Entry;->uid:I
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, " rxPackets : "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget-wide v6, v14, Landroid/net/NetworkStats$Entry;->rxPackets:J
+
+    invoke-virtual {v4, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    const-string/jumbo v5, " txPackets : "
+
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    iget-wide v6, v14, Landroid/net/NetworkStats$Entry;->txPackets:J
+
+    invoke-virtual {v4, v6, v7}, Ljava/lang/StringBuilder;->append(J)Ljava/lang/StringBuilder;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v4
+
+    invoke-static {v3, v4}, Landroid/util/Slog;->d(Ljava/lang/String;Ljava/lang/String;)I
+
+    add-int/lit8 v18, v18, 0x1
+
+    goto :goto_3
+
+    :cond_7
+    new-instance v3, Ljava/lang/RuntimeException;
+
+    const-string/jumbo v4, "BatteryStatImpl updateMobileRadioStateLocked exception"
+
+    invoke-direct {v3, v4}, Ljava/lang/RuntimeException;-><init>(Ljava/lang/String;)V
+
+    throw v3
+
+    :cond_8
+    move-object/from16 v0, v16
+
+    iget v3, v0, Landroid/net/NetworkStats$Entry;->uid:I
 
     move-object/from16 v0, p0
 
@@ -26790,21 +26979,25 @@
 
     move-result-object v2
 
-    iget-wide v4, v15, Landroid/net/NetworkStats$Entry;->rxPackets:J
+    move-object/from16 v0, v16
 
-    iget-wide v6, v15, Landroid/net/NetworkStats$Entry;->txPackets:J
+    iget-wide v4, v0, Landroid/net/NetworkStats$Entry;->rxPackets:J
+
+    move-object/from16 v0, v16
+
+    iget-wide v6, v0, Landroid/net/NetworkStats$Entry;->txPackets:J
 
     add-long v10, v4, v6
 
-    mul-long v4, v20, v10
+    mul-long v4, v22, v10
 
-    div-long v12, v4, v26
+    div-long v12, v4, v28
 
     invoke-virtual {v2, v12, v13}, Lcom/android/internal/os/BatteryStatsImpl$Uid;->noteMobileRadioActiveTimeLocked(J)V
 
-    sub-long v20, v20, v12
+    sub-long v22, v22, v12
 
-    sub-long v26, v26, v10
+    sub-long v28, v28, v10
 
     if-eqz p3, :cond_4
 
@@ -26814,19 +27007,23 @@
 
     const-wide/16 v4, 0x0
 
-    cmp-long v3, v28, v4
+    cmp-long v3, v30, v4
 
-    if-lez v3, :cond_6
+    if-lez v3, :cond_9
 
-    iget-wide v4, v15, Landroid/net/NetworkStats$Entry;->rxPackets:J
+    move-object/from16 v0, v16
+
+    iget-wide v4, v0, Landroid/net/NetworkStats$Entry;->rxPackets:J
 
     const-wide/16 v6, 0x0
 
     cmp-long v3, v4, v6
 
-    if-lez v3, :cond_6
+    if-lez v3, :cond_9
 
-    iget-wide v4, v15, Landroid/net/NetworkStats$Entry;->rxPackets:J
+    move-object/from16 v0, v16
+
+    iget-wide v4, v0, Landroid/net/NetworkStats$Entry;->rxPackets:J
 
     invoke-virtual/range {p3 .. p3}, Landroid/telephony/ModemActivityInfo;->getRxTimeMillis()I
 
@@ -26836,24 +27033,26 @@
 
     mul-long/2addr v4, v6
 
-    div-long v22, v4, v28
+    div-long v24, v4, v30
 
     invoke-virtual {v8}, Lcom/android/internal/os/BatteryStatsImpl$ControllerActivityCounterImpl;->getRxTimeCounter()Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;
 
     move-result-object v3
 
-    move-wide/from16 v0, v22
+    move-wide/from16 v0, v24
 
     invoke-virtual {v3, v0, v1}, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->addCountLocked(J)V
 
-    :cond_6
+    :cond_9
     const-wide/16 v4, 0x0
 
-    cmp-long v3, v30, v4
+    cmp-long v3, v32, v4
 
     if-lez v3, :cond_4
 
-    iget-wide v4, v15, Landroid/net/NetworkStats$Entry;->txPackets:J
+    move-object/from16 v0, v16
+
+    iget-wide v4, v0, Landroid/net/NetworkStats$Entry;->txPackets:J
 
     const-wide/16 v6, 0x0
 
@@ -26861,55 +27060,57 @@
 
     if-lez v3, :cond_4
 
-    const/16 v17, 0x0
+    const/16 v19, 0x0
 
-    :goto_3
+    :goto_4
     const/4 v3, 0x5
 
-    move/from16 v0, v17
+    move/from16 v0, v19
 
     if-ge v0, v3, :cond_4
 
-    iget-wide v4, v15, Landroid/net/NetworkStats$Entry;->txPackets:J
+    move-object/from16 v0, v16
+
+    iget-wide v4, v0, Landroid/net/NetworkStats$Entry;->txPackets:J
 
     invoke-virtual/range {p3 .. p3}, Landroid/telephony/ModemActivityInfo;->getTxTimeMillis()[I
 
     move-result-object v3
 
-    aget v3, v3, v17
+    aget v3, v3, v19
 
     int-to-long v6, v3
 
-    mul-long v32, v4, v6
+    mul-long v34, v4, v6
 
-    div-long v32, v32, v30
+    div-long v34, v34, v32
 
     invoke-virtual {v8}, Lcom/android/internal/os/BatteryStatsImpl$ControllerActivityCounterImpl;->getTxTimeCounters()[Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;
 
     move-result-object v3
 
-    aget-object v3, v3, v17
+    aget-object v3, v3, v19
 
-    move-wide/from16 v0, v32
+    move-wide/from16 v0, v34
 
     invoke-virtual {v3, v0, v1}, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->addCountLocked(J)V
 
-    add-int/lit8 v17, v17, 0x1
+    add-int/lit8 v19, v19, 0x1
 
-    goto :goto_3
+    goto :goto_4
 
-    :cond_7
+    :cond_a
     const-wide/16 v4, 0x0
 
-    cmp-long v3, v20, v4
+    cmp-long v3, v22, v4
 
-    if-lez v3, :cond_8
+    if-lez v3, :cond_b
 
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/internal/os/BatteryStatsImpl;->mMobileRadioActiveUnknownTime:Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;
 
-    move-wide/from16 v0, v20
+    move-wide/from16 v0, v22
 
     invoke-virtual {v3, v0, v1}, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->addCountLocked(J)V
 
@@ -26921,8 +27122,8 @@
 
     invoke-virtual {v3, v4, v5}, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->addCountLocked(J)V
 
-    :cond_8
-    if-eqz p3, :cond_a
+    :cond_b
+    if-eqz p3, :cond_d
 
     const/4 v3, 0x1
 
@@ -26962,14 +27163,14 @@
 
     invoke-virtual {v3, v4, v5}, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->addCountLocked(J)V
 
-    const/16 v17, 0x0
+    const/16 v19, 0x0
 
-    :goto_4
+    :goto_5
     const/4 v3, 0x5
 
-    move/from16 v0, v17
+    move/from16 v0, v19
 
-    if-ge v0, v3, :cond_9
+    if-ge v0, v3, :cond_c
 
     move-object/from16 v0, p0
 
@@ -26979,23 +27180,23 @@
 
     move-result-object v3
 
-    aget-object v3, v3, v17
+    aget-object v3, v3, v19
 
     invoke-virtual/range {p3 .. p3}, Landroid/telephony/ModemActivityInfo;->getTxTimeMillis()[I
 
     move-result-object v4
 
-    aget v4, v4, v17
+    aget v4, v4, v19
 
     int-to-long v4, v4
 
     invoke-virtual {v3, v4, v5}, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->addCountLocked(J)V
 
-    add-int/lit8 v17, v17, 0x1
+    add-int/lit8 v19, v19, 0x1
 
-    goto :goto_4
+    goto :goto_5
 
-    :cond_9
+    :cond_c
     move-object/from16 v0, p0
 
     iget-object v3, v0, Lcom/android/internal/os/BatteryStatsImpl;->mPowerProfile:Lcom/android/internal/os/PowerProfile;
@@ -27008,13 +27209,13 @@
 
     const-wide v6, 0x408f400000000000L    # 1000.0
 
-    div-double v18, v4, v6
+    div-double v20, v4, v6
 
     const-wide/16 v4, 0x0
 
-    cmpl-double v3, v18, v4
+    cmpl-double v3, v20, v4
 
-    if-eqz v3, :cond_a
+    if-eqz v3, :cond_d
 
     move-object/from16 v0, p0
 
@@ -27030,13 +27231,13 @@
 
     int-to-double v4, v4
 
-    div-double v4, v4, v18
+    div-double v4, v4, v20
 
     double-to-long v4, v4
 
     invoke-virtual {v3, v4, v5}, Lcom/android/internal/os/BatteryStatsImpl$LongSamplingCounter;->addCountLocked(J)V
 
-    :cond_a
+    :cond_d
     return-void
 .end method
 
@@ -28072,26 +28273,26 @@
 
     iget-byte v0, v0, Landroid/os/BatteryStats$HistoryItem;->cmd:B
 
-    move/from16 v31, v0
+    move/from16 v32, v0
 
-    if-eqz v31, :cond_1
+    if-eqz v32, :cond_1
 
     :cond_0
-    const v31, 0x1fffd
+    const v32, 0x1fffd
 
     move-object/from16 v0, p1
 
-    move/from16 v1, v31
+    move/from16 v1, v32
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    const/16 v31, 0x0
+    const/16 v32, 0x0
 
     move-object/from16 v0, p2
 
     move-object/from16 v1, p1
 
-    move/from16 v2, v31
+    move/from16 v2, v32
 
     invoke-virtual {v0, v1, v2}, Landroid/os/BatteryStats$HistoryItem;->writeToParcel(Landroid/os/Parcel;I)V
 
@@ -28118,7 +28319,7 @@
 
     invoke-direct {v0, v1}, Lcom/android/internal/os/BatteryStatsImpl;->buildBatteryLevelInt(Landroid/os/BatteryStats$HistoryItem;)I
 
-    move-result v21
+    move-result v22
 
     move-object/from16 v0, p0
 
@@ -28126,7 +28327,7 @@
 
     invoke-direct {v0, v1}, Lcom/android/internal/os/BatteryStatsImpl;->buildStateInt(Landroid/os/BatteryStats$HistoryItem;)I
 
-    move-result v24
+    move-result v25
 
     move-object/from16 v0, p0
 
@@ -28134,7 +28335,7 @@
 
     invoke-direct {v0, v1}, Lcom/android/internal/os/BatteryStatsImpl;->buildCurrentNTemperature(Landroid/os/BatteryStats$HistoryItem;)I
 
-    move-result v23
+    move-result v24
 
     move-object/from16 v0, p0
 
@@ -28142,7 +28343,7 @@
 
     invoke-direct {v0, v1}, Lcom/android/internal/os/BatteryStatsImpl;->buildTemperature2(Landroid/os/BatteryStats$HistoryItem;)I
 
-    move-result v25
+    move-result v26
 
     move-object/from16 v0, p0
 
@@ -28150,68 +28351,68 @@
 
     invoke-direct {v0, v1}, Lcom/android/internal/os/BatteryStatsImpl;->buildBatterySecInfo(Landroid/os/BatteryStats$HistoryItem;)I
 
-    move-result v22
+    move-result v23
 
     const-wide/16 v32, 0x0
 
-    cmp-long v31, v16, v32
+    cmp-long v32, v16, v32
 
-    if-ltz v31, :cond_2
+    if-ltz v32, :cond_2
 
     const-wide/32 v32, 0x7fffffff
 
-    cmp-long v31, v16, v32
+    cmp-long v32, v16, v32
 
-    if-lez v31, :cond_1b
+    if-lez v32, :cond_1d
 
     :cond_2
-    const v15, 0x1ffff
+    const v18, 0x1ffff
 
     :goto_0
     move-object/from16 v0, p2
 
     iget v0, v0, Landroid/os/BatteryStats$HistoryItem;->states:I
 
-    move/from16 v31, v0
+    move/from16 v32, v0
 
-    const/high16 v32, -0x2000000
+    const/high16 v33, -0x2000000
 
-    and-int v31, v31, v32
+    and-int v32, v32, v33
 
-    or-int v18, v15, v31
+    or-int v19, v18, v32
 
     move-object/from16 v0, p0
 
     iget-byte v0, v0, Lcom/android/internal/os/BatteryStatsImpl;->mLastHistoryStepLevel:B
 
-    move/from16 v31, v0
+    move/from16 v32, v0
 
     move-object/from16 v0, p2
 
     iget-byte v0, v0, Landroid/os/BatteryStats$HistoryItem;->batteryLevel:B
 
-    move/from16 v32, v0
+    move/from16 v33, v0
 
-    move/from16 v0, v31
+    move/from16 v0, v32
 
-    move/from16 v1, v32
+    move/from16 v1, v33
 
-    if-le v0, v1, :cond_1d
+    if-le v0, v1, :cond_1f
 
-    const/16 v19, 0x1
+    const/16 v20, 0x1
 
     :goto_1
-    if-nez v19, :cond_1e
+    if-nez v20, :cond_20
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/os/BatteryStatsImpl;->mLastHistoryStepDetails:Landroid/os/BatteryStats$HistoryStepDetails;
 
-    move-object/from16 v31, v0
+    move-object/from16 v32, v0
 
-    if-nez v31, :cond_1f
+    if-nez v32, :cond_21
 
-    const/4 v14, 0x1
+    const/4 v15, 0x1
 
     :goto_2
     move-object/from16 v0, p0
@@ -28220,22 +28421,22 @@
 
     invoke-direct {v0, v1}, Lcom/android/internal/os/BatteryStatsImpl;->buildBatteryLevelInt(Landroid/os/BatteryStats$HistoryItem;)I
 
-    move-result v31
+    move-result v32
 
-    or-int v9, v31, v19
+    or-int v9, v32, v20
 
-    move/from16 v0, v21
+    move/from16 v0, v22
 
-    if-eq v9, v0, :cond_20
+    if-eq v9, v0, :cond_22
 
     const/4 v10, 0x1
 
     :goto_3
     if-eqz v10, :cond_3
 
-    const/high16 v31, 0x80000
+    const/high16 v32, 0x80000
 
-    or-int v18, v18, v31
+    or-int v19, v19, v32
 
     :cond_3
     move-object/from16 v0, p0
@@ -28246,18 +28447,18 @@
 
     move-result v4
 
-    move/from16 v0, v23
+    move/from16 v0, v24
 
-    if-eq v4, v0, :cond_21
+    if-eq v4, v0, :cond_23
 
     const/4 v5, 0x1
 
     :goto_4
     if-eqz v5, :cond_4
 
-    const/high16 v31, 0x40000
+    const/high16 v32, 0x40000
 
-    or-int v18, v18, v31
+    or-int v19, v19, v32
 
     :cond_4
     move-object/from16 v0, p0
@@ -28268,18 +28469,18 @@
 
     move-result v6
 
-    move/from16 v0, v25
+    move/from16 v0, v26
 
-    if-eq v6, v0, :cond_22
+    if-eq v6, v0, :cond_24
 
     const/4 v7, 0x1
 
     :goto_5
     if-eqz v7, :cond_5
 
-    const/high16 v31, 0x40000
+    const/high16 v32, 0x40000
 
-    or-int v18, v18, v31
+    or-int v19, v19, v32
 
     :cond_5
     move-object/from16 v0, p0
@@ -28288,181 +28489,213 @@
 
     invoke-direct {v0, v1}, Lcom/android/internal/os/BatteryStatsImpl;->buildBatterySecInfo(Landroid/os/BatteryStats$HistoryItem;)I
 
-    move-result v11
+    move-result v12
 
-    move/from16 v0, v22
+    move/from16 v0, v23
 
-    if-eq v11, v0, :cond_23
+    if-eq v12, v0, :cond_25
 
-    const/4 v12, 0x1
+    const/4 v13, 0x1
 
     :goto_6
-    if-eqz v12, :cond_6
+    if-eqz v13, :cond_6
 
-    const/high16 v31, 0x20000
+    const/high16 v32, 0x20000
 
-    or-int v18, v18, v31
+    or-int v19, v19, v32
 
     :cond_6
+    move-object/from16 v0, p2
+
+    iget v0, v0, Landroid/os/BatteryStats$HistoryItem;->batterySecCurrentEvent:I
+
+    move/from16 v32, v0
+
+    move-object/from16 v0, p3
+
+    iget v0, v0, Landroid/os/BatteryStats$HistoryItem;->batterySecCurrentEvent:I
+
+    move/from16 v33, v0
+
+    move/from16 v0, v32
+
+    move/from16 v1, v33
+
+    if-eq v0, v1, :cond_26
+
+    const/4 v11, 0x1
+
+    :goto_7
+    if-eqz v11, :cond_7
+
+    const/high16 v32, 0x20000
+
+    or-int v19, v19, v32
+
+    :cond_7
     move-object/from16 v0, p0
 
     move-object/from16 v1, p2
 
     invoke-direct {v0, v1}, Lcom/android/internal/os/BatteryStatsImpl;->buildStateInt(Landroid/os/BatteryStats$HistoryItem;)I
 
-    move-result v27
+    move-result v28
 
-    move/from16 v0, v27
+    move/from16 v0, v28
 
-    move/from16 v1, v24
+    move/from16 v1, v25
 
-    if-eq v0, v1, :cond_24
+    if-eq v0, v1, :cond_27
 
-    const/16 v28, 0x1
+    const/16 v29, 0x1
 
-    :goto_7
-    if-eqz v28, :cond_7
+    :goto_8
+    if-eqz v29, :cond_8
 
-    const/high16 v31, 0x100000
+    const/high16 v32, 0x100000
 
-    or-int v18, v18, v31
+    or-int v19, v19, v32
 
-    :cond_7
+    :cond_8
     move-object/from16 v0, p2
-
-    iget v0, v0, Landroid/os/BatteryStats$HistoryItem;->states2:I
-
-    move/from16 v31, v0
-
-    move-object/from16 v0, p3
 
     iget v0, v0, Landroid/os/BatteryStats$HistoryItem;->states2:I
 
     move/from16 v32, v0
 
-    move/from16 v0, v31
+    move-object/from16 v0, p3
 
-    move/from16 v1, v32
+    iget v0, v0, Landroid/os/BatteryStats$HistoryItem;->states2:I
 
-    if-eq v0, v1, :cond_25
+    move/from16 v33, v0
 
-    const/16 v26, 0x1
+    move/from16 v0, v32
 
-    :goto_8
-    if-eqz v26, :cond_8
+    move/from16 v1, v33
 
-    const/high16 v31, 0x200000
+    if-eq v0, v1, :cond_28
 
-    or-int v18, v18, v31
+    const/16 v27, 0x1
 
-    :cond_8
+    :goto_9
+    if-eqz v27, :cond_9
+
+    const/high16 v32, 0x200000
+
+    or-int v19, v19, v32
+
+    :cond_9
     move-object/from16 v0, p2
 
     iget-object v0, v0, Landroid/os/BatteryStats$HistoryItem;->wakelockTag:Landroid/os/BatteryStats$HistoryTag;
 
-    move-object/from16 v31, v0
+    move-object/from16 v32, v0
 
-    if-nez v31, :cond_9
+    if-nez v32, :cond_a
 
     move-object/from16 v0, p2
 
     iget-object v0, v0, Landroid/os/BatteryStats$HistoryItem;->wakeReasonTag:Landroid/os/BatteryStats$HistoryTag;
 
-    move-object/from16 v31, v0
+    move-object/from16 v32, v0
 
-    if-eqz v31, :cond_a
-
-    :cond_9
-    const/high16 v31, 0x400000
-
-    or-int v18, v18, v31
+    if-eqz v32, :cond_b
 
     :cond_a
-    move-object/from16 v0, p2
+    const/high16 v32, 0x400000
 
-    iget v0, v0, Landroid/os/BatteryStats$HistoryItem;->eventCode:I
-
-    move/from16 v31, v0
-
-    if-eqz v31, :cond_b
-
-    const/high16 v31, 0x800000
-
-    or-int v18, v18, v31
+    or-int v19, v19, v32
 
     :cond_b
     move-object/from16 v0, p2
 
-    iget v0, v0, Landroid/os/BatteryStats$HistoryItem;->batteryChargeUAh:I
+    iget v0, v0, Landroid/os/BatteryStats$HistoryItem;->eventCode:I
 
-    move/from16 v31, v0
+    move/from16 v32, v0
 
-    move-object/from16 v0, p3
+    if-eqz v32, :cond_c
+
+    const/high16 v32, 0x800000
+
+    or-int v19, v19, v32
+
+    :cond_c
+    move-object/from16 v0, p2
 
     iget v0, v0, Landroid/os/BatteryStats$HistoryItem;->batteryChargeUAh:I
 
     move/from16 v32, v0
 
-    move/from16 v0, v31
+    move-object/from16 v0, p3
 
-    move/from16 v1, v32
+    iget v0, v0, Landroid/os/BatteryStats$HistoryItem;->batteryChargeUAh:I
 
-    if-eq v0, v1, :cond_26
+    move/from16 v33, v0
+
+    move/from16 v0, v32
+
+    move/from16 v1, v33
+
+    if-eq v0, v1, :cond_29
 
     const/4 v8, 0x1
 
-    :goto_9
-    if-eqz v8, :cond_c
+    :goto_a
+    if-eqz v8, :cond_d
 
-    const/high16 v31, 0x1000000
+    const/high16 v32, 0x1000000
 
-    or-int v18, v18, v31
+    or-int v19, v19, v32
 
-    :cond_c
+    :cond_d
     move-object/from16 v0, p1
 
-    move/from16 v1, v18
+    move/from16 v1, v19
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    const v31, 0x1fffe
+    const v32, 0x1fffe
 
-    move/from16 v0, v31
+    move/from16 v0, v18
 
-    if-lt v15, v0, :cond_d
+    move/from16 v1, v32
 
-    const v31, 0x1fffe
+    if-lt v0, v1, :cond_e
 
-    move/from16 v0, v31
+    const v32, 0x1fffe
 
-    if-ne v15, v0, :cond_27
+    move/from16 v0, v18
+
+    move/from16 v1, v32
+
+    if-ne v0, v1, :cond_2a
 
     move-wide/from16 v0, v16
 
     long-to-int v0, v0
 
-    move/from16 v31, v0
+    move/from16 v32, v0
 
     move-object/from16 v0, p1
 
-    move/from16 v1, v31
+    move/from16 v1, v32
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    :cond_d
-    :goto_a
-    if-eqz v10, :cond_e
+    :cond_e
+    :goto_b
+    if-eqz v10, :cond_f
 
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v9}, Landroid/os/Parcel;->writeInt(I)V
 
-    :cond_e
-    if-nez v5, :cond_f
-
-    if-eqz v7, :cond_10
-
     :cond_f
+    if-nez v5, :cond_10
+
+    if-eqz v7, :cond_11
+
+    :cond_10
     move-object/from16 v0, p1
 
     invoke-virtual {v0, v4}, Landroid/os/Parcel;->writeInt(I)V
@@ -28471,168 +28704,169 @@
 
     invoke-virtual {v0, v6}, Landroid/os/Parcel;->writeInt(I)V
 
-    :cond_10
-    if-eqz v12, :cond_11
-
-    move-object/from16 v0, p1
-
-    invoke-virtual {v0, v11}, Landroid/os/Parcel;->writeInt(I)V
-
     :cond_11
-    if-eqz v28, :cond_12
+    if-nez v13, :cond_12
+
+    if-eqz v11, :cond_13
+
+    :cond_12
+    move-object/from16 v0, p2
+
+    iget v0, v0, Landroid/os/BatteryStats$HistoryItem;->batterySecCurrentEvent:I
+
+    move/from16 v32, v0
 
     move-object/from16 v0, p1
 
-    move/from16 v1, v27
+    move/from16 v1, v32
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    :cond_12
-    if-eqz v26, :cond_13
+    move-object/from16 v0, p1
+
+    invoke-virtual {v0, v12}, Landroid/os/Parcel;->writeInt(I)V
+
+    :cond_13
+    if-eqz v29, :cond_14
+
+    move-object/from16 v0, p1
+
+    move/from16 v1, v28
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    :cond_14
+    if-eqz v27, :cond_15
 
     move-object/from16 v0, p2
 
     iget v0, v0, Landroid/os/BatteryStats$HistoryItem;->states2:I
 
-    move/from16 v31, v0
+    move/from16 v32, v0
 
     move-object/from16 v0, p1
 
-    move/from16 v1, v31
-
-    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
-
-    :cond_13
-    move-object/from16 v0, p2
-
-    iget-object v0, v0, Landroid/os/BatteryStats$HistoryItem;->wakelockTag:Landroid/os/BatteryStats$HistoryTag;
-
-    move-object/from16 v31, v0
-
-    if-nez v31, :cond_14
-
-    move-object/from16 v0, p2
-
-    iget-object v0, v0, Landroid/os/BatteryStats$HistoryItem;->wakeReasonTag:Landroid/os/BatteryStats$HistoryTag;
-
-    move-object/from16 v31, v0
-
-    if-eqz v31, :cond_15
-
-    :cond_14
-    move-object/from16 v0, p2
-
-    iget-object v0, v0, Landroid/os/BatteryStats$HistoryItem;->wakelockTag:Landroid/os/BatteryStats$HistoryTag;
-
-    move-object/from16 v31, v0
-
-    if-eqz v31, :cond_28
-
-    move-object/from16 v0, p2
-
-    iget-object v0, v0, Landroid/os/BatteryStats$HistoryItem;->wakelockTag:Landroid/os/BatteryStats$HistoryTag;
-
-    move-object/from16 v31, v0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v31
-
-    invoke-direct {v0, v1}, Lcom/android/internal/os/BatteryStatsImpl;->writeHistoryTag(Landroid/os/BatteryStats$HistoryTag;)I
-
-    move-result v29
-
-    :goto_b
-    move-object/from16 v0, p2
-
-    iget-object v0, v0, Landroid/os/BatteryStats$HistoryItem;->wakeReasonTag:Landroid/os/BatteryStats$HistoryTag;
-
-    move-object/from16 v31, v0
-
-    if-eqz v31, :cond_29
-
-    move-object/from16 v0, p2
-
-    iget-object v0, v0, Landroid/os/BatteryStats$HistoryItem;->wakeReasonTag:Landroid/os/BatteryStats$HistoryTag;
-
-    move-object/from16 v31, v0
-
-    move-object/from16 v0, p0
-
-    move-object/from16 v1, v31
-
-    invoke-direct {v0, v1}, Lcom/android/internal/os/BatteryStatsImpl;->writeHistoryTag(Landroid/os/BatteryStats$HistoryTag;)I
-
-    move-result v30
-
-    :goto_c
-    shl-int/lit8 v31, v30, 0x10
-
-    or-int v31, v31, v29
-
-    move-object/from16 v0, p1
-
-    move/from16 v1, v31
+    move/from16 v1, v32
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
     :cond_15
     move-object/from16 v0, p2
 
+    iget-object v0, v0, Landroid/os/BatteryStats$HistoryItem;->wakelockTag:Landroid/os/BatteryStats$HistoryTag;
+
+    move-object/from16 v32, v0
+
+    if-nez v32, :cond_16
+
+    move-object/from16 v0, p2
+
+    iget-object v0, v0, Landroid/os/BatteryStats$HistoryItem;->wakeReasonTag:Landroid/os/BatteryStats$HistoryTag;
+
+    move-object/from16 v32, v0
+
+    if-eqz v32, :cond_17
+
+    :cond_16
+    move-object/from16 v0, p2
+
+    iget-object v0, v0, Landroid/os/BatteryStats$HistoryItem;->wakelockTag:Landroid/os/BatteryStats$HistoryTag;
+
+    move-object/from16 v32, v0
+
+    if-eqz v32, :cond_2b
+
+    move-object/from16 v0, p2
+
+    iget-object v0, v0, Landroid/os/BatteryStats$HistoryItem;->wakelockTag:Landroid/os/BatteryStats$HistoryTag;
+
+    move-object/from16 v32, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v32
+
+    invoke-direct {v0, v1}, Lcom/android/internal/os/BatteryStatsImpl;->writeHistoryTag(Landroid/os/BatteryStats$HistoryTag;)I
+
+    move-result v30
+
+    :goto_c
+    move-object/from16 v0, p2
+
+    iget-object v0, v0, Landroid/os/BatteryStats$HistoryItem;->wakeReasonTag:Landroid/os/BatteryStats$HistoryTag;
+
+    move-object/from16 v32, v0
+
+    if-eqz v32, :cond_2c
+
+    move-object/from16 v0, p2
+
+    iget-object v0, v0, Landroid/os/BatteryStats$HistoryItem;->wakeReasonTag:Landroid/os/BatteryStats$HistoryTag;
+
+    move-object/from16 v32, v0
+
+    move-object/from16 v0, p0
+
+    move-object/from16 v1, v32
+
+    invoke-direct {v0, v1}, Lcom/android/internal/os/BatteryStatsImpl;->writeHistoryTag(Landroid/os/BatteryStats$HistoryTag;)I
+
+    move-result v31
+
+    :goto_d
+    shl-int/lit8 v32, v31, 0x10
+
+    or-int v32, v32, v30
+
+    move-object/from16 v0, p1
+
+    move/from16 v1, v32
+
+    invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
+
+    :cond_17
+    move-object/from16 v0, p2
+
     iget v0, v0, Landroid/os/BatteryStats$HistoryItem;->eventCode:I
 
-    move/from16 v31, v0
+    move/from16 v32, v0
 
-    if-eqz v31, :cond_16
+    if-eqz v32, :cond_18
 
     move-object/from16 v0, p2
 
     iget-object v0, v0, Landroid/os/BatteryStats$HistoryItem;->eventTag:Landroid/os/BatteryStats$HistoryTag;
 
-    move-object/from16 v31, v0
+    move-object/from16 v32, v0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v31
+    move-object/from16 v1, v32
 
     invoke-direct {v0, v1}, Lcom/android/internal/os/BatteryStatsImpl;->writeHistoryTag(Landroid/os/BatteryStats$HistoryTag;)I
 
-    move-result v20
+    move-result v21
 
     move-object/from16 v0, p2
 
     iget v0, v0, Landroid/os/BatteryStats$HistoryItem;->eventCode:I
 
-    move/from16 v31, v0
+    move/from16 v32, v0
 
-    const v32, 0xffff
+    const v33, 0xffff
 
-    and-int v31, v31, v32
+    and-int v32, v32, v33
 
-    shl-int/lit8 v32, v20, 0x10
+    shl-int/lit8 v33, v21, 0x10
 
-    or-int v13, v31, v32
+    or-int v14, v32, v33
 
     move-object/from16 v0, p1
 
-    invoke-virtual {v0, v13}, Landroid/os/Parcel;->writeInt(I)V
+    invoke-virtual {v0, v14}, Landroid/os/Parcel;->writeInt(I)V
 
-    :cond_16
-    if-eqz v14, :cond_2a
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/internal/os/BatteryStatsImpl;->mPlatformIdleStateCallback:Lcom/android/internal/os/BatteryStatsImpl$PlatformIdleStateCallback;
-
-    move-object/from16 v31, v0
-
-    if-eqz v31, :cond_17
-
-    move-object/from16 v0, p0
-
-    iget-object v0, v0, Lcom/android/internal/os/BatteryStatsImpl;->mCurHistoryStepDetails:Landroid/os/BatteryStats$HistoryStepDetails;
-
-    move-object/from16 v31, v0
+    :cond_18
+    if-eqz v15, :cond_2d
 
     move-object/from16 v0, p0
 
@@ -28640,59 +28874,73 @@
 
     move-object/from16 v32, v0
 
-    invoke-interface/range {v32 .. v32}, Lcom/android/internal/os/BatteryStatsImpl$PlatformIdleStateCallback;->getPlatformLowPowerStats()Ljava/lang/String;
+    if-eqz v32, :cond_19
 
-    move-result-object v32
-
-    move-object/from16 v0, v32
-
-    move-object/from16 v1, v31
-
-    iput-object v0, v1, Landroid/os/BatteryStats$HistoryStepDetails;->statPlatformIdleState:Ljava/lang/String;
-
-    :cond_17
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/os/BatteryStatsImpl;->mCurHistoryStepDetails:Landroid/os/BatteryStats$HistoryStepDetails;
 
-    move-object/from16 v31, v0
+    move-object/from16 v32, v0
+
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/os/BatteryStatsImpl;->mPlatformIdleStateCallback:Lcom/android/internal/os/BatteryStatsImpl$PlatformIdleStateCallback;
+
+    move-object/from16 v33, v0
+
+    invoke-interface/range {v33 .. v33}, Lcom/android/internal/os/BatteryStatsImpl$PlatformIdleStateCallback;->getPlatformLowPowerStats()Ljava/lang/String;
+
+    move-result-object v33
+
+    move-object/from16 v0, v33
+
+    move-object/from16 v1, v32
+
+    iput-object v0, v1, Landroid/os/BatteryStats$HistoryStepDetails;->statPlatformIdleState:Ljava/lang/String;
+
+    :cond_19
+    move-object/from16 v0, p0
+
+    iget-object v0, v0, Lcom/android/internal/os/BatteryStatsImpl;->mCurHistoryStepDetails:Landroid/os/BatteryStats$HistoryStepDetails;
+
+    move-object/from16 v32, v0
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/os/BatteryStatsImpl;->mLastHistoryStepDetails:Landroid/os/BatteryStats$HistoryStepDetails;
 
-    move-object/from16 v32, v0
+    move-object/from16 v33, v0
 
     move-object/from16 v0, p0
 
-    move-object/from16 v1, v31
+    move-object/from16 v1, v32
 
-    move-object/from16 v2, v32
+    move-object/from16 v2, v33
 
     invoke-direct {v0, v1, v2}, Lcom/android/internal/os/BatteryStatsImpl;->computeHistoryStepDetails(Landroid/os/BatteryStats$HistoryStepDetails;Landroid/os/BatteryStats$HistoryStepDetails;)V
 
-    if-eqz v19, :cond_18
+    if-eqz v20, :cond_1a
 
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/os/BatteryStatsImpl;->mCurHistoryStepDetails:Landroid/os/BatteryStats$HistoryStepDetails;
 
-    move-object/from16 v31, v0
+    move-object/from16 v32, v0
 
-    move-object/from16 v0, v31
+    move-object/from16 v0, v32
 
     move-object/from16 v1, p1
 
     invoke-virtual {v0, v1}, Landroid/os/BatteryStats$HistoryStepDetails;->writeToParcel(Landroid/os/Parcel;)V
 
-    :cond_18
+    :cond_1a
     move-object/from16 v0, p0
 
     iget-object v0, v0, Lcom/android/internal/os/BatteryStatsImpl;->mCurHistoryStepDetails:Landroid/os/BatteryStats$HistoryStepDetails;
 
-    move-object/from16 v31, v0
+    move-object/from16 v32, v0
 
-    move-object/from16 v0, v31
+    move-object/from16 v0, v32
 
     move-object/from16 v1, p2
 
@@ -28702,168 +28950,175 @@
 
     iget-object v0, v0, Lcom/android/internal/os/BatteryStatsImpl;->mCurHistoryStepDetails:Landroid/os/BatteryStats$HistoryStepDetails;
 
-    move-object/from16 v31, v0
+    move-object/from16 v32, v0
 
-    move-object/from16 v0, v31
+    move-object/from16 v0, v32
 
     move-object/from16 v1, p0
 
     iput-object v0, v1, Lcom/android/internal/os/BatteryStatsImpl;->mLastHistoryStepDetails:Landroid/os/BatteryStats$HistoryStepDetails;
 
-    :goto_d
+    :goto_e
     move-object/from16 v0, p0
 
     iget-byte v0, v0, Lcom/android/internal/os/BatteryStatsImpl;->mLastHistoryStepLevel:B
 
-    move/from16 v31, v0
+    move/from16 v32, v0
 
+    move-object/from16 v0, p2
+
+    iget-byte v0, v0, Landroid/os/BatteryStats$HistoryItem;->batteryLevel:B
+
+    move/from16 v33, v0
+
+    move/from16 v0, v32
+
+    move/from16 v1, v33
+
+    if-ge v0, v1, :cond_1b
+
+    const/16 v32, 0x0
+
+    move-object/from16 v0, v32
+
+    move-object/from16 v1, p0
+
+    iput-object v0, v1, Lcom/android/internal/os/BatteryStatsImpl;->mLastHistoryStepDetails:Landroid/os/BatteryStats$HistoryStepDetails;
+
+    :cond_1b
     move-object/from16 v0, p2
 
     iget-byte v0, v0, Landroid/os/BatteryStats$HistoryItem;->batteryLevel:B
 
     move/from16 v32, v0
 
-    move/from16 v0, v31
-
-    move/from16 v1, v32
-
-    if-ge v0, v1, :cond_19
-
-    const/16 v31, 0x0
-
-    move-object/from16 v0, v31
-
-    move-object/from16 v1, p0
-
-    iput-object v0, v1, Lcom/android/internal/os/BatteryStatsImpl;->mLastHistoryStepDetails:Landroid/os/BatteryStats$HistoryStepDetails;
-
-    :cond_19
-    move-object/from16 v0, p2
-
-    iget-byte v0, v0, Landroid/os/BatteryStats$HistoryItem;->batteryLevel:B
-
-    move/from16 v31, v0
-
-    move/from16 v0, v31
+    move/from16 v0, v32
 
     move-object/from16 v1, p0
 
     iput-byte v0, v1, Lcom/android/internal/os/BatteryStatsImpl;->mLastHistoryStepLevel:B
 
-    if-eqz v8, :cond_1a
+    if-eqz v8, :cond_1c
 
     move-object/from16 v0, p2
 
     iget v0, v0, Landroid/os/BatteryStats$HistoryItem;->batteryChargeUAh:I
 
-    move/from16 v31, v0
+    move/from16 v32, v0
 
     move-object/from16 v0, p1
 
-    move/from16 v1, v31
+    move/from16 v1, v32
 
     invoke-virtual {v0, v1}, Landroid/os/Parcel;->writeInt(I)V
 
-    :cond_1a
+    :cond_1c
     return-void
 
-    :cond_1b
+    :cond_1d
     const-wide/32 v32, 0x1fffd
 
-    cmp-long v31, v16, v32
+    cmp-long v32, v16, v32
 
-    if-ltz v31, :cond_1c
+    if-ltz v32, :cond_1e
 
-    const v15, 0x1fffe
+    const v18, 0x1fffe
 
     goto/16 :goto_0
 
-    :cond_1c
+    :cond_1e
     move-wide/from16 v0, v16
 
-    long-to-int v15, v0
+    long-to-int v0, v0
+
+    move/from16 v18, v0
 
     goto/16 :goto_0
 
-    :cond_1d
-    const/16 v19, 0x0
+    :cond_1f
+    const/16 v20, 0x0
 
     goto/16 :goto_1
 
-    :cond_1e
-    const/4 v14, 0x1
-
-    goto/16 :goto_2
-
-    :cond_1f
-    const/4 v14, 0x0
-
-    goto/16 :goto_2
-
     :cond_20
+    const/4 v15, 0x1
+
+    goto/16 :goto_2
+
+    :cond_21
+    const/4 v15, 0x0
+
+    goto/16 :goto_2
+
+    :cond_22
     const/4 v10, 0x0
 
     goto/16 :goto_3
 
-    :cond_21
+    :cond_23
     const/4 v5, 0x0
 
     goto/16 :goto_4
 
-    :cond_22
+    :cond_24
     const/4 v7, 0x0
 
     goto/16 :goto_5
 
-    :cond_23
-    const/4 v12, 0x0
+    :cond_25
+    const/4 v13, 0x0
 
     goto/16 :goto_6
 
-    :cond_24
-    const/16 v28, 0x0
+    :cond_26
+    const/4 v11, 0x0
 
     goto/16 :goto_7
 
-    :cond_25
-    const/16 v26, 0x0
+    :cond_27
+    const/16 v29, 0x0
 
     goto/16 :goto_8
 
-    :cond_26
-    const/4 v8, 0x0
+    :cond_28
+    const/16 v27, 0x0
 
     goto/16 :goto_9
 
-    :cond_27
+    :cond_29
+    const/4 v8, 0x0
+
+    goto/16 :goto_a
+
+    :cond_2a
     move-object/from16 v0, p1
 
     move-wide/from16 v1, v16
 
     invoke-virtual {v0, v1, v2}, Landroid/os/Parcel;->writeLong(J)V
 
-    goto/16 :goto_a
-
-    :cond_28
-    const v29, 0xffff
-
     goto/16 :goto_b
 
-    :cond_29
+    :cond_2b
     const v30, 0xffff
 
     goto/16 :goto_c
 
-    :cond_2a
-    const/16 v31, 0x0
+    :cond_2c
+    const v31, 0xffff
 
-    move-object/from16 v0, v31
+    goto/16 :goto_d
+
+    :cond_2d
+    const/16 v32, 0x0
+
+    move-object/from16 v0, v32
 
     move-object/from16 v1, p2
 
     iput-object v0, v1, Landroid/os/BatteryStats$HistoryItem;->stepDetails:Landroid/os/BatteryStats$HistoryStepDetails;
 
-    goto/16 :goto_d
+    goto/16 :goto_e
 .end method
 
 .method writeLocked(Z)V
@@ -28976,7 +29231,7 @@
 
     mul-long v8, v4, v48
 
-    const v4, 0x60093
+    const v4, 0x70093
 
     move-object/from16 v0, p1
 

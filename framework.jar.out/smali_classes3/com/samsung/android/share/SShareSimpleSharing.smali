@@ -595,7 +595,7 @@
 
     move-result-object v3
 
-    const v4, 0x10406fe
+    const v4, 0x1040700
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -607,7 +607,7 @@
 
     move-result-object v3
 
-    const v4, 0x10406ff
+    const v4, 0x1040701
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -766,7 +766,7 @@
 
     move-result-object v7
 
-    const v8, 0x10406ff
+    const v8, 0x1040701
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1025,7 +1025,7 @@
 
     iget-object v7, v0, Lcom/samsung/android/share/SShareSimpleSharing;->mContext:Landroid/content/Context;
 
-    const v8, 0x1040700
+    const v8, 0x1040702
 
     invoke-virtual {v7, v8}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1718,7 +1718,7 @@
 
     move-result-object v7
 
-    const v8, 0x10406ff
+    const v8, 0x1040701
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 

@@ -1431,7 +1431,9 @@
 
     invoke-direct {v14, v0}, Lcom/samsung/android/widget/SemDatePicker$5;-><init>(Lcom/samsung/android/widget/SemDatePicker;)V
 
-    invoke-virtual {v13, v14}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->setOnSpinnerDateChangedListener(Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$OnSpinnerDateChangedListener;)V
+    move-object/from16 v0, p0
+
+    invoke-virtual {v13, v0, v14}, Lcom/samsung/android/widget/SemDatePickerSpinnerLayout;->setOnSpinnerDateChangedListener(Lcom/samsung/android/widget/SemDatePicker;Lcom/samsung/android/widget/SemDatePickerSpinnerLayout$OnSpinnerDateChangedListener;)V
 
     const/4 v13, 0x0
 
@@ -1613,7 +1615,7 @@
 
     iget-object v14, v0, Landroid/view/View;->mContext:Landroid/content/Context;
 
-    const v15, 0x1040903
+    const v15, 0x1040905
 
     invoke-virtual {v14, v15}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1629,7 +1631,7 @@
 
     iget-object v14, v0, Landroid/view/View;->mContext:Landroid/content/Context;
 
-    const v15, 0x1040904
+    const v15, 0x1040906
 
     invoke-virtual {v14, v15}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

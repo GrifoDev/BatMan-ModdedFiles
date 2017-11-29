@@ -5054,44 +5054,76 @@
 .end method
 
 .method public setMyanmarEncoding(Ljava/util/Locale;)V
-    .locals 4
+    .locals 5
 
-    iget-boolean v1, p0, Landroid/graphics/Paint;->mUseCustomMyanmarEncoding:Z
+    const/4 v3, 0x1
 
-    if-nez v1, :cond_1
+    iget-boolean v2, p0, Landroid/graphics/Paint;->mUseCustomMyanmarEncoding:Z
 
-    if-eqz p1, :cond_1
+    if-nez v2, :cond_3
 
-    sget-object v0, Landroid/graphics/Paint$MyanmarEncoding;->ME_UNICODE:Landroid/graphics/Paint$MyanmarEncoding;
+    if-eqz p1, :cond_3
 
-    const-string/jumbo v1, "ZG"
+    sget-object v1, Landroid/graphics/Paint$MyanmarEncoding;->ME_UNICODE:Landroid/graphics/Paint$MyanmarEncoding;
 
     invoke-virtual {p1}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
 
-    move-result-object v2
+    move-result-object v0
 
-    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+    iget-object v2, p0, Landroid/graphics/Paint;->mLocales:Landroid/os/LocaleList;
 
-    move-result v1
+    invoke-virtual {v2}, Landroid/os/LocaleList;->size()I
 
-    if-eqz v1, :cond_0
+    move-result v2
 
-    sget-object v0, Landroid/graphics/Paint$MyanmarEncoding;->ME_ZAWGYI:Landroid/graphics/Paint$MyanmarEncoding;
+    if-le v2, v3, :cond_1
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v2, ""
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_1
 
     :cond_0
-    iget-object v1, p0, Landroid/graphics/Paint;->mMyanmarEncoding:Landroid/graphics/Paint$MyanmarEncoding;
+    iget-object v2, p0, Landroid/graphics/Paint;->mLocales:Landroid/os/LocaleList;
 
-    if-eq v1, v0, :cond_1
+    invoke-virtual {v2, v3}, Landroid/os/LocaleList;->get(I)Ljava/util/Locale;
 
-    iput-object v0, p0, Landroid/graphics/Paint;->mMyanmarEncoding:Landroid/graphics/Paint$MyanmarEncoding;
+    move-result-object v2
+
+    invoke-virtual {v2}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
+
+    move-result-object v0
+
+    :cond_1
+    const-string/jumbo v2, "ZG"
+
+    invoke-virtual {v2, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v2
+
+    if-eqz v2, :cond_2
+
+    sget-object v1, Landroid/graphics/Paint$MyanmarEncoding;->ME_ZAWGYI:Landroid/graphics/Paint$MyanmarEncoding;
+
+    :cond_2
+    iget-object v2, p0, Landroid/graphics/Paint;->mMyanmarEncoding:Landroid/graphics/Paint$MyanmarEncoding;
+
+    if-eq v2, v1, :cond_3
+
+    iput-object v1, p0, Landroid/graphics/Paint;->mMyanmarEncoding:Landroid/graphics/Paint$MyanmarEncoding;
 
     iget-wide v2, p0, Landroid/graphics/Paint;->mNativePaint:J
 
-    iget v1, v0, Landroid/graphics/Paint$MyanmarEncoding;->nativeInt:I
+    iget v4, v1, Landroid/graphics/Paint$MyanmarEncoding;->nativeInt:I
 
-    invoke-static {v2, v3, v1}, Landroid/graphics/Paint;->nSetMyanmarEncoding(JI)V
+    invoke-static {v2, v3, v4}, Landroid/graphics/Paint;->nSetMyanmarEncoding(JI)V
 
-    :cond_1
+    :cond_3
     return-void
 .end method
 
@@ -5378,6 +5410,8 @@
 .method public setTextLocales(Landroid/os/LocaleList;)V
     .locals 4
 
+    const/4 v2, 0x1
+
     if-eqz p1, :cond_0
 
     invoke-virtual {p1}, Landroid/os/LocaleList;->isEmpty()Z
@@ -5398,7 +5432,7 @@
     :cond_1
     iget-boolean v1, p0, Landroid/graphics/Paint;->mUseCustomMyanmarEncoding:Z
 
-    if-nez v1, :cond_2
+    if-nez v1, :cond_4
 
     const/4 v1, 0x0
 
@@ -5410,7 +5444,15 @@
 
     move-result-object v0
 
-    const-string/jumbo v1, "ZG"
+    invoke-virtual {p1}, Landroid/os/LocaleList;->size()I
+
+    move-result v1
+
+    if-le v1, v2, :cond_3
+
+    if-eqz v0, :cond_2
+
+    const-string/jumbo v1, ""
 
     invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
 
@@ -5418,11 +5460,29 @@
 
     if-eqz v1, :cond_3
 
+    :cond_2
+    invoke-virtual {p1, v2}, Landroid/os/LocaleList;->get(I)Ljava/util/Locale;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/util/Locale;->getCountry()Ljava/lang/String;
+
+    move-result-object v0
+
+    :cond_3
+    const-string/jumbo v1, "ZG"
+
+    invoke-virtual {v1, v0}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-eqz v1, :cond_5
+
     iget-object v1, p0, Landroid/graphics/Paint;->mMyanmarEncoding:Landroid/graphics/Paint$MyanmarEncoding;
 
     sget-object v2, Landroid/graphics/Paint$MyanmarEncoding;->ME_ZAWGYI:Landroid/graphics/Paint$MyanmarEncoding;
 
-    if-eq v1, v2, :cond_2
+    if-eq v1, v2, :cond_4
 
     sget-object v1, Landroid/graphics/Paint$MyanmarEncoding;->ME_ZAWGYI:Landroid/graphics/Paint$MyanmarEncoding;
 
@@ -5436,7 +5496,7 @@
 
     invoke-static {v2, v3, v1}, Landroid/graphics/Paint;->nSetMyanmarEncoding(JI)V
 
-    :cond_2
+    :cond_4
     :goto_0
     iget-object v1, p0, Landroid/graphics/Paint;->mLocales:Landroid/os/LocaleList;
 
@@ -5444,16 +5504,16 @@
 
     move-result v1
 
-    if-eqz v1, :cond_4
+    if-eqz v1, :cond_6
 
     return-void
 
-    :cond_3
+    :cond_5
     iget-object v1, p0, Landroid/graphics/Paint;->mMyanmarEncoding:Landroid/graphics/Paint$MyanmarEncoding;
 
     sget-object v2, Landroid/graphics/Paint$MyanmarEncoding;->ME_UNICODE:Landroid/graphics/Paint$MyanmarEncoding;
 
-    if-eq v1, v2, :cond_2
+    if-eq v1, v2, :cond_4
 
     sget-object v1, Landroid/graphics/Paint$MyanmarEncoding;->ME_UNICODE:Landroid/graphics/Paint$MyanmarEncoding;
 
@@ -5469,7 +5529,7 @@
 
     goto :goto_0
 
-    :cond_4
+    :cond_6
     iput-object p1, p0, Landroid/graphics/Paint;->mLocales:Landroid/os/LocaleList;
 
     invoke-direct {p0}, Landroid/graphics/Paint;->syncTextLocalesWithMinikin()V

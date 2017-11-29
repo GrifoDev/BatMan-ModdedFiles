@@ -132,8 +132,8 @@
     return v0
 .end method
 
-.method public entrySet()Ljava/util/Set;
-    .locals 1
+.method public declared-synchronized entrySet()Ljava/util/Set;
+    .locals 2
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "()",
@@ -147,13 +147,33 @@
         }
     .end annotation
 
-    iget-object v0, p0, Landroid/net/wifi/WifiConfiguration$BssidWhitelist;->whitelist:Ljava/util/Map;
+    monitor-enter p0
 
-    invoke-interface {v0}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+    :try_start_0
+    new-instance v0, Landroid/util/ArraySet;
 
-    move-result-object v0
+    invoke-direct {v0}, Landroid/util/ArraySet;-><init>()V
+
+    iget-object v1, p0, Landroid/net/wifi/WifiConfiguration$BssidWhitelist;->whitelist:Ljava/util/Map;
+
+    invoke-interface {v1}, Ljava/util/Map;->entrySet()Ljava/util/Set;
+
+    move-result-object v1
+
+    invoke-interface {v0, v1}, Ljava/util/Set;->addAll(Ljava/util/Collection;)Z
+    :try_end_0
+    .catchall {:try_start_0 .. :try_end_0} :catchall_0
+
+    monitor-exit p0
 
     return-object v0
+
+    :catchall_0
+    move-exception v1
+
+    monitor-exit p0
+
+    throw v1
 .end method
 
 .method public get(Ljava/lang/String;)Ljava/lang/Long;

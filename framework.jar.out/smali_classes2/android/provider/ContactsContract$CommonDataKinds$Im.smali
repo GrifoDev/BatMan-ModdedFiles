@@ -149,12 +149,12 @@
     return v0
 
     :pswitch_9
-    const v0, 0x10408ea
+    const v0, 0x10408ec
 
     return v0
 
     :pswitch_a
-    const v0, 0x10408eb
+    const v0, 0x10408ed
 
     return v0
 

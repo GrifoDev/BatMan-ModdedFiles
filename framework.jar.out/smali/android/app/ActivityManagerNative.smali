@@ -14488,6 +14488,21 @@
 
     return v6
 
+    :sswitch_136
+    const-string/jumbo v6, "android.app.IActivityManager"
+
+    move-object/from16 v0, p2
+
+    invoke-virtual {v0, v6}, Landroid/os/Parcel;->enforceInterface(Ljava/lang/String;)V
+
+    invoke-virtual/range {p0 .. p0}, Landroid/app/ActivityManagerNative;->dismissUserSwitchingDialog()V
+
+    invoke-virtual/range {p3 .. p3}, Landroid/os/Parcel;->writeNoException()V
+
+    const/4 v6, 0x1
+
+    return v6
+
     nop
 
     :sswitch_data_0
@@ -14774,6 +14789,7 @@
         0x463 -> :sswitch_131
         0x464 -> :sswitch_132
         0x465 -> :sswitch_133
+        0x466 -> :sswitch_136
         0x4b1 -> :sswitch_8d
         0xc1d -> :sswitch_69
         0xc1e -> :sswitch_5a

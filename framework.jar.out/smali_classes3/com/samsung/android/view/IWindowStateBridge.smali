@@ -85,6 +85,9 @@
 .method public abstract setHideBySViewCover(Z)V
 .end method
 
+.method public abstract setNonImmersiveWindow(Z)V
+.end method
+
 .method public abstract setOwner(Ljava/lang/Object;)V
 .end method
 

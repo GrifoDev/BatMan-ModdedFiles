@@ -90,6 +90,8 @@
 
 .field public static final DELETE_ACTIVITY_CONTAINER_TRANSACTION:I = 0xba
 
+.field public static final DISMISS_USER_SWITCHING_DIALOG_TRANSACTION:I = 0x466
+
 .field public static final DUMP_DSS_TRANSACTION:I = 0x459
 
 .field public static final DUMP_HEAP_FINISHED_TRANSACTION:I = 0x121
@@ -931,6 +933,14 @@
 .end method
 
 .method public abstract deleteActivityContainer(Landroid/app/IActivityContainer;)V
+    .annotation system Ldalvik/annotation/Throws;
+        value = {
+            Landroid/os/RemoteException;
+        }
+    .end annotation
+.end method
+
+.method public abstract dismissUserSwitchingDialog()V
     .annotation system Ldalvik/annotation/Throws;
         value = {
             Landroid/os/RemoteException;

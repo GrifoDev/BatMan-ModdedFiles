@@ -1413,7 +1413,7 @@
 
     move-result-object v7
 
-    const v8, 0x104070f
+    const v8, 0x1040711
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -4883,7 +4883,7 @@
 
     if-eqz v27, :cond_12
 
-    const v27, 0x104070a
+    const v27, 0x104070c
 
     move-object/from16 v0, v24
 
@@ -5120,7 +5120,7 @@
     return-void
 
     :cond_12
-    const v27, 0x1040709
+    const v27, 0x104070b
 
     move-object/from16 v0, v24
 

@@ -1928,7 +1928,7 @@
 
     iput-object v0, v1, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->mPickerContentDescription:Ljava/lang/String;
 
-    const v19, 0x104090c
+    const v19, 0x104090e
 
     move-object/from16 v0, v17
 
@@ -4435,7 +4435,7 @@
 
     move-result v3
 
-    if-nez v3, :cond_0
+    if-ne v6, v3, :cond_0
 
     iget v3, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->mLastFocusedChildVirtualViewId:I
 
@@ -4463,7 +4463,7 @@
 
     invoke-direct {p0}, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->removeAllCallbacks()V
 
-    goto :goto_0
+    return v6
 
     :cond_4
     iget v3, p0, Lcom/samsung/android/widget/SemNumberPickerSpinnerDelegate;->mLastFocusedChildVirtualViewId:I
