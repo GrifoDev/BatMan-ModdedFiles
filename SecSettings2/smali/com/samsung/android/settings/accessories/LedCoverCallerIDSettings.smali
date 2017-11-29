@@ -1006,7 +1006,7 @@
 
     invoke-direct {v1, p0}, Lcom/samsung/android/settings/accessories/LedCoverCallerIDSettings$11;-><init>(Lcom/samsung/android/settings/accessories/LedCoverCallerIDSettings;)V
 
-    const v2, 0x7f0b06aa
+    const v2, 0x7f0b06ab
 
     invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -2119,7 +2119,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b1c0a
+    const v5, 0x7f0b1c0b
 
     invoke-virtual {v4, v5}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -2338,7 +2338,7 @@
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
     :goto_0
-    const v0, 0x7f0b04c3
+    const v0, 0x7f0b04c4
 
     invoke-interface {p1, v3, v4, v3, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2346,7 +2346,7 @@
 
     invoke-interface {v0, v4}, Landroid/view/MenuItem;->setShowAsAction(I)V
 
-    const v0, 0x7f0b04cb
+    const v0, 0x7f0b04cc
 
     invoke-interface {p1, v3, v5, v3, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 

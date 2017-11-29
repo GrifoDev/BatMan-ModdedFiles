@@ -544,7 +544,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/notification/SoundSettings$14;->this$0:Lcom/samsung/android/settings/notification/SoundSettings;
 
-    invoke-static {v10}, Lcom/samsung/android/settings/notification/SoundSettings;->-wrap6(Lcom/samsung/android/settings/notification/SoundSettings;)V
+    invoke-static {v10}, Lcom/samsung/android/settings/notification/SoundSettings;->-wrap7(Lcom/samsung/android/settings/notification/SoundSettings;)V
 
     :goto_1
     iget-object v10, p0, Lcom/samsung/android/settings/notification/SoundSettings$14;->this$0:Lcom/samsung/android/settings/notification/SoundSettings;
@@ -2665,9 +2665,13 @@
     if-eqz v10, :cond_4b
 
     :cond_48
-    invoke-static {}, Lcom/samsung/android/settings/notification/SoundSettings;->-get3()Landroid/media/AudioManager;
+    iget-object v10, p0, Lcom/samsung/android/settings/notification/SoundSettings$14;->this$0:Lcom/samsung/android/settings/notification/SoundSettings;
 
-    invoke-static {}, Landroid/media/AudioManager;->semIsMultiSoundSupported()Z
+    invoke-virtual {v10}, Lcom/samsung/android/settings/notification/SoundSettings;->getActivity()Landroid/app/Activity;
+
+    move-result-object v10
+
+    invoke-static {v10}, Lcom/samsung/android/settings/notification/SoundSettings;->-wrap2(Landroid/content/Context;)Z
 
     move-result v10
 

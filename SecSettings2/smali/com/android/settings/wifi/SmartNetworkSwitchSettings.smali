@@ -487,7 +487,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b14c9
+    const v7, 0x7f0b14ca
 
     invoke-virtual {v6, v7}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -764,7 +764,7 @@
 
     move-result-object v0
 
-    const v3, 0x7f0b0e8b
+    const v3, 0x7f0b0e8c
 
     invoke-virtual {v0, v3}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -910,7 +910,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b0e7b
+    const v5, 0x7f0b0e7c
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

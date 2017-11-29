@@ -418,7 +418,7 @@
     iput-boolean v8, p0, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->bIsForceWatingForShortModel:Z
 
     :goto_0
-    const v4, 0x7f0b0615
+    const v4, 0x7f0b0616
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->getString(I)Ljava/lang/String;
 
@@ -597,7 +597,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b061b
+    const v4, 0x7f0b061c
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->getString(I)Ljava/lang/String;
 
@@ -607,7 +607,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b061c
+    const v4, 0x7f0b061d
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->getString(I)Ljava/lang/String;
 
@@ -621,7 +621,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b04f3
+    const v4, 0x7f0b04f4
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->getString(I)Ljava/lang/String;
 
@@ -714,13 +714,13 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0621
+    const v4, 0x7f0b0622
 
     invoke-virtual {v3, v4}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v3
 
-    const v4, 0x7f0b0620
+    const v4, 0x7f0b0621
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->getString(I)Ljava/lang/String;
 
@@ -730,7 +730,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b04cd
+    const v4, 0x7f0b04ce
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/display/PocBalanceProgressActivity;->getString(I)Ljava/lang/String;
 

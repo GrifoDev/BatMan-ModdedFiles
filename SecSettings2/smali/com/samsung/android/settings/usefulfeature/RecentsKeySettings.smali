@@ -165,7 +165,7 @@
 
     check-cast v1, Landroid/widget/ImageView;
 
-    const v2, 0x7f0200e2
+    const v2, 0x7f0200e0
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -182,7 +182,7 @@
 
     check-cast v1, Landroid/widget/ImageView;
 
-    const v2, 0x7f0200e3
+    const v2, 0x7f0200e1
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -380,7 +380,7 @@
 
     check-cast v6, Landroid/widget/ImageView;
 
-    const v8, 0x7f0b0acd
+    const v8, 0x7f0b0ace
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/usefulfeature/RecentsKeySettings;->getString(I)Ljava/lang/String;
 
@@ -447,7 +447,7 @@
 
     check-cast v8, Landroid/widget/ImageView;
 
-    const v9, 0x7f0200e3
+    const v9, 0x7f0200e1
 
     invoke-virtual {v8, v9}, Landroid/widget/ImageView;->setImageResource(I)V
 

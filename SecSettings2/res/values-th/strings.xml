@@ -960,6 +960,7 @@ Wi-Fi และ Bluetooth จะถูกปิดด้วย แต่คุ�
     <string name="bluetooth_avc_available_description">อุปกรณ์ Bluetooth ที่เชื่อมต่อรองรับซิงค์ระดับเสียงมีเดีย และระดับเสียงที่ตั้งค่าไว้โดยอุปกรณ์ Bluetooth จะซิงค์กับโทรศัพท์ของคุณ</string>
     <string name="bluetooth_enter_pin_msg">ใส่ PIN ​เพื่อ​จับ​คู่​กับ %s (​ให้​ลอง 0000 ​หรือ 1234)</string>
     <string name="bluetooth_pin_maximum_number_message">มีจำนวนตัวอักษรสูงสุดแล้ว</string>
+    <string name="bluetooth_frp_permission_message">ไม่สามารถใช้อุปกรณ์ Bluetooth สำหรับการโทรนี้</string>
     <string name="settings_menu_done">เรียบร้อย</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>

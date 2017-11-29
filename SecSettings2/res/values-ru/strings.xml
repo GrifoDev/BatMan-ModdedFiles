@@ -959,6 +959,7 @@ Wi-Fi и Bluetooth также будут отключены, но их можн�
     <string name="bluetooth_avc_available_description">Подключенное устройство Bluetooth поддерживает функцию синхронизации громкости медиа. Громкость, установленная на устройстве Bluetooth, будет синхронизирована с телефоном.</string>
     <string name="bluetooth_enter_pin_msg">Введите PIN-код для соединения с %s (попробуйте ввести 0000 или 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Достигнуто максимальное число символов.</string>
+    <string name="bluetooth_frp_permission_message">Невозможно использовать устройство Bluetooth для этого звонка.</string>
     <string name="settings_menu_done">Готово</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>

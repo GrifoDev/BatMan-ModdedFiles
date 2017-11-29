@@ -1537,7 +1537,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1aa5
+    const v0, 0x7f0b1aa6
 
     return v0
 .end method
@@ -1561,7 +1561,7 @@
 .method public handleRingtonePicked(Landroid/net/Uri;I)V
     .locals 7
 
-    const v6, 0x7f0b0bb7
+    const v6, 0x7f0b0bb8
 
     const/4 v5, 0x0
 
@@ -1965,7 +1965,7 @@
 
     if-eqz v4, :cond_4
 
-    const-string/jumbo v4, "http://ringtoyou.olleh.com"
+    const-string/jumbo v4, "http://ringtoyou.kt.com"
 
     invoke-static {v4}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -2384,7 +2384,7 @@
 
     if-nez v1, :cond_b
 
-    const v9, 0x7f0b04f8
+    const v9, 0x7f0b04f9
 
     invoke-virtual {p0, v9}, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->getString(I)Ljava/lang/String;
 
@@ -2401,7 +2401,7 @@
 
     aput-object v1, v10, v11
 
-    const v11, 0x7f0b0b40
+    const v11, 0x7f0b0b41
 
     invoke-virtual {p0, v11, v10}, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2459,7 +2459,7 @@
 
     if-nez v1, :cond_e
 
-    const v9, 0x7f0b04fa
+    const v9, 0x7f0b04fb
 
     invoke-virtual {p0, v9}, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->getString(I)Ljava/lang/String;
 
@@ -2484,7 +2484,7 @@
 
     aput-object v1, v10, v11
 
-    const v11, 0x7f0b0b40
+    const v11, 0x7f0b0b41
 
     invoke-virtual {p0, v11, v10}, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2527,7 +2527,7 @@
 
     if-nez v1, :cond_10
 
-    const v9, 0x7f0b04f9
+    const v9, 0x7f0b04fa
 
     invoke-virtual {p0, v9}, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->getString(I)Ljava/lang/String;
 
@@ -2552,7 +2552,7 @@
 
     aput-object v1, v10, v11
 
-    const v11, 0x7f0b0b40
+    const v11, 0x7f0b0b41
 
     invoke-virtual {p0, v11, v10}, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2570,7 +2570,7 @@
 
     iget-object v9, p0, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->mEmail:Landroid/preference/Preference;
 
-    const v10, 0x7f0b0b41
+    const v10, 0x7f0b0b42
 
     invoke-virtual {v9, v10}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -2694,7 +2694,7 @@
 
     iget-object v9, p0, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->mRingtonePreference_DS:Landroid/preference/Preference;
 
-    const v10, 0x7f0b0b2e
+    const v10, 0x7f0b0b2f
 
     invoke-virtual {v9, v10}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -2795,7 +2795,7 @@
 
     iget-object v9, p0, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->mRingtoneCategory:Landroid/preference/PreferenceCategory;
 
-    const v10, 0x7f0b0b53
+    const v10, 0x7f0b0b54
 
     invoke-virtual {v9, v10}, Landroid/preference/PreferenceCategory;->setTitle(I)V
 
@@ -2996,7 +2996,7 @@
 
     const-string/jumbo v2, "extra_prefs_set_back_text"
 
-    const v3, 0x7f0b1957
+    const v3, 0x7f0b1958
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->getString(I)Ljava/lang/String;
 
@@ -3048,7 +3048,7 @@
 
     if-ne p2, v2, :cond_4
 
-    const-string/jumbo v2, "http://ringtoyou.olleh.com"
+    const-string/jumbo v2, "http://ringtoyou.kt.com"
 
     invoke-static {v2}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
 
@@ -3590,7 +3590,7 @@
 
     iget-object v4, v0, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0b1515
+    const v6, 0x7f0b1516
 
     invoke-virtual {v4, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -4463,7 +4463,7 @@
 
     iget-object v4, v0, Lcom/samsung/android/settings/notification/NotificationsSubSettings;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0b1515
+    const v6, 0x7f0b1516
 
     invoke-virtual {v4, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

@@ -45,9 +45,9 @@
 
     invoke-direct {p0, p2}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const v5, 0x7f02036c
+    const v5, 0x7f02036a
 
-    const v6, 0x7f0206f2
+    const v6, 0x7f0206f0
 
     filled-new-array {v5, v6}, [I
 
@@ -163,7 +163,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b105f
+    const v6, 0x7f0b1060
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

@@ -77,13 +77,13 @@
 
     sput-object v2, Lcom/samsung/android/settings/deviceinfo/SamsungAdIdAboutActivity;->textView:Landroid/widget/TextView;
 
-    const v2, 0x7f0b05f5
+    const v2, 0x7f0b05f6
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/deviceinfo/SamsungAdIdAboutActivity;->getString(I)Ljava/lang/String;
 
     move-result-object v0
 
-    const v2, 0x7f0b05f6
+    const v2, 0x7f0b05f7
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/deviceinfo/SamsungAdIdAboutActivity;->getString(I)Ljava/lang/String;
 

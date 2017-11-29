@@ -109,7 +109,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/notification/SecRedactionInterstitial$RedactionInterstitialFragment;->headerTextView:Landroid/widget/TextView;
 
-    const v2, 0x7f0b1b62
+    const v2, 0x7f0b1b63
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
@@ -316,7 +316,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/notification/SecRedactionInterstitial$RedactionInterstitialFragment;->headerImgView:Landroid/widget/ImageView;
 
-    const v3, 0x7f0203ac
+    const v3, 0x7f0203aa
 
     invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -338,7 +338,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/notification/SecRedactionInterstitial$RedactionInterstitialFragment;->headerImgView:Landroid/widget/ImageView;
 
-    const v3, 0x7f0203aa
+    const v3, 0x7f0203a8
 
     invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -347,7 +347,7 @@
     :cond_3
     iget-object v2, p0, Lcom/samsung/android/settings/notification/SecRedactionInterstitial$RedactionInterstitialFragment;->headerImgView:Landroid/widget/ImageView;
 
-    const v3, 0x7f0203ab
+    const v3, 0x7f0203a9
 
     invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -932,7 +932,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/notification/SecRedactionInterstitial$RedactionInterstitialFragment;->mSUWNextText:Landroid/widget/TextView;
 
-    const v5, 0x7f0b1b8f
+    const v5, 0x7f0b1b90
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(I)V
 

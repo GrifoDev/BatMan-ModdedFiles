@@ -167,7 +167,7 @@
 
     check-cast v1, Landroid/widget/ImageView;
 
-    const v2, 0x7f0200e2
+    const v2, 0x7f0200e0
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -184,7 +184,7 @@
 
     check-cast v1, Landroid/widget/ImageView;
 
-    const v2, 0x7f0200e3
+    const v2, 0x7f0200e1
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -509,7 +509,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b0d51
+    const v9, 0x7f0b0d52
 
     invoke-virtual {v8, v9}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -783,7 +783,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b17fe
+    const v9, 0x7f0b17ff
 
     invoke-virtual {v8, v9}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -803,7 +803,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b1812
+    const v9, 0x7f0b1813
 
     invoke-virtual {v8, v9}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -863,7 +863,7 @@
 
     move-result-object v8
 
-    const v9, 0x7f0b0d52
+    const v9, 0x7f0b0d53
 
     invoke-virtual {v8, v9}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -1121,7 +1121,7 @@
 
     check-cast v6, Landroid/widget/ImageView;
 
-    const v8, 0x7f0b0acd
+    const v8, 0x7f0b0ace
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/NewOneHandOperationSettings;->getString(I)Ljava/lang/String;
 
@@ -1188,7 +1188,7 @@
 
     check-cast v8, Landroid/widget/ImageView;
 
-    const v9, 0x7f0200e3
+    const v9, 0x7f0200e1
 
     invoke-virtual {v8, v9}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -1413,7 +1413,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/NewOneHandOperationSettings;->mButtonType:Lcom/samsung/android/settings/SecRadioButtonPreference;
 
-    const v2, 0x7f0b0d4e
+    const v2, 0x7f0b0d4f
 
     invoke-virtual {v1, v2}, Lcom/samsung/android/settings/SecRadioButtonPreference;->setSummary(I)V
 
@@ -1437,7 +1437,7 @@
 
     const/4 v1, 0x1
 
-    const v2, 0x7f0b04d1
+    const v2, 0x7f0b04d2
 
     invoke-interface {p1, v3, v1, v3, v2}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1932,7 +1932,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0d53
+    const v4, 0x7f0b0d54
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

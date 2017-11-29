@@ -178,7 +178,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/lockscreen/AdditionalInformationSettings;->mDndAnimator:Lcom/samsung/android/animation/SemDragAndDropListAnimator;
 
-    const v1, 0x7f020398
+    const v1, 0x7f020396
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/animation/SemDragAndDropListAnimator;->setDragGrabHandleDrawable(I)V
 
@@ -412,7 +412,7 @@
 
     const/4 v1, 0x1
 
-    const v2, 0x7f0b09d9
+    const v2, 0x7f0b09da
 
     invoke-interface {p1, v3, v1, v3, v2}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -480,7 +480,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/lockscreen/AdditionalInformationSettings;->imgView:Landroid/widget/ImageView;
 
-    const v5, 0x7f020519
+    const v5, 0x7f020517
 
     invoke-virtual {v4, v5}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 

@@ -957,6 +957,7 @@ Wi-Fi і Bluetooth таксама будуць выключаны, але іх �
     <string name="bluetooth_avc_available_description">Падлучаная прылада Bluetooth падтрымлівае сінхранізацыю гучнасці медыя, і ўзровень гучнасці, зададзены прыладай Bluetooth, будзе сінхранізаваны з вашым тэлефонам.</string>
     <string name="bluetooth_enter_pin_msg">Увядзіце PIN-код для спалучэння з «%s» (паспрабуйце ўвесці 0000 або 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Дасягнута максімальная колькасць сімвалаў.</string>
+    <string name="bluetooth_frp_permission_message">Немагчыма выкарыстоўваць Bluetooth для гэтага выкліку.</string>
     <string name="settings_menu_done">Гатова</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>

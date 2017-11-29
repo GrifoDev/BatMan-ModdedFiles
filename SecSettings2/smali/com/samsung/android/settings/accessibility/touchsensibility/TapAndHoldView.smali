@@ -199,25 +199,25 @@
 
     move-result-object v2
 
-    const v5, 0x7f0200e7
+    const v5, 0x7f0200e5
 
     invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v4
 
-    const v5, 0x7f0200e6
+    const v5, 0x7f0200e4
 
     invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v3
 
-    const v5, 0x7f0200e1
+    const v5, 0x7f0200df
 
     invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
     move-result-object v1
 
-    const v5, 0x7f0200e0
+    const v5, 0x7f0200de
 
     invoke-virtual {v2, v5}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

@@ -957,6 +957,7 @@ Maaaring makaranas ang 2 nakakonektang device ng kaunting pagkakaiba sa inilalab
     <string name="bluetooth_avc_available_description">Suportado ng nakakonektang Bluetooth device ang Media volume sync at isi-sync sa telepono mo ang level ng volume na nai-set ng Bluetooth device.</string>
     <string name="bluetooth_enter_pin_msg">Maglagay ng PIN na ipe-pair sa %s (Subukan ang 0000 o ang 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Naabot na ang maximum na bilang ng mga character.</string>
+    <string name="bluetooth_frp_permission_message">Hindi magagamit ang Bluetooth device para sa tawag na ito.</string>
     <string name="settings_menu_done">Tapos na</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>

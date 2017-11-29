@@ -292,7 +292,7 @@
 
     iget-object v10, p0, Lcom/android/settings/datausage/WarningSettingsGraceActivity$OnSeekBarChangeListenerImp;->this$0:Lcom/android/settings/datausage/WarningSettingsGraceActivity;
 
-    const v11, 0x7f0b0566
+    const v11, 0x7f0b0567
 
     invoke-virtual {v10, v11}, Lcom/android/settings/datausage/WarningSettingsGraceActivity;->getString(I)Ljava/lang/String;
 

@@ -955,6 +955,7 @@ Wi-Fi и Bluetooth исто така ќе се исклучат, но може �
     <string name="bluetooth_avc_available_description">Поврзаниот уред Bluetooth поддржува Синхронизирање на јачината на звукот на медиумите и јачината на звукот поставена од уредот Bluetooth ќе се синхронизира со Вашиот телефон.</string>
     <string name="bluetooth_enter_pin_msg">Внесете PIN за поврзување со %s (Обидете се со 0000 или 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Достигнат е максималниот број знаци.</string>
+    <string name="bluetooth_frp_permission_message">Не може да се користи уред Bluetooth за овој повик.</string>
     <string name="settings_menu_done">Извршено</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>

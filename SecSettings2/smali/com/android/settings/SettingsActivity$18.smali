@@ -171,7 +171,7 @@
 
     move-result-object v30
 
-    const v31, 0x7f02068b
+    const v31, 0x7f020689
 
     invoke-virtual/range {v30 .. v31}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1343,7 +1343,7 @@
 
     move-result-object v30
 
-    const v31, 0x7f02068a
+    const v31, 0x7f020688
 
     invoke-virtual/range {v30 .. v31}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1460,7 +1460,7 @@
 
     move-result-object v30
 
-    const v31, 0x7f02068a
+    const v31, 0x7f020688
 
     invoke-virtual/range {v30 .. v31}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

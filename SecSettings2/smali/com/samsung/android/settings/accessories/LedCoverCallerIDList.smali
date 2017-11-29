@@ -2572,7 +2572,7 @@
 
     invoke-interface {v0}, Landroid/view/Menu;->clear()V
 
-    const v0, 0x7f0b04ca
+    const v0, 0x7f0b04cb
 
     invoke-interface {p1, v2, v3, v2, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2582,7 +2582,7 @@
 
     const/4 v0, 0x2
 
-    const v1, 0x7f0b04c3
+    const v1, 0x7f0b04c4
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2592,7 +2592,7 @@
 
     const/4 v0, 0x3
 
-    const v1, 0x7f0b1c0a
+    const v1, 0x7f0b1c0b
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2602,7 +2602,7 @@
 
     const/4 v0, 0x4
 
-    const v1, 0x7f0b04cb
+    const v1, 0x7f0b04cc
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 

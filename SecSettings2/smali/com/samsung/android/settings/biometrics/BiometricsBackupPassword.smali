@@ -215,7 +215,7 @@
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/biometrics/BiometricsBackupPassword;->setFinishOnTouchOutside(Z)V
 
     :cond_0
-    const v2, 0x7f0b16b3
+    const v2, 0x7f0b16b4
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/biometrics/BiometricsBackupPassword;->getText(I)Ljava/lang/CharSequence;
 

@@ -957,6 +957,7 @@ Wi-Fi болон Bluetooth мөн унтрах боловч тэднийг То�
     <string name="bluetooth_avc_available_description">Холбогдсон Bluetooth төхөөрөмж Медиа дууны түвшин синхрончлохыг дэмждэг, Bluetooth төхөөрөмж дээр тохируулсан дууны түвшинг таны утастай синхрончилно.</string>
     <string name="bluetooth_enter_pin_msg">%s-тай хослуулахын тулд PIN оруул (0000 эсвэл 1234 гэж оруулж үз).</string>
     <string name="bluetooth_pin_maximum_number_message">Тэмдэгтийн дээд хязгаарт хүрсэн.</string>
+    <string name="bluetooth_frp_permission_message">Энэ дуудлагад Bluetooth төхөөрөмж ашиглах боломжгүй.</string>
     <string name="settings_menu_done">Дууслаа</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>

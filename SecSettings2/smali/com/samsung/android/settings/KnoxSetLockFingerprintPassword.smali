@@ -581,7 +581,7 @@
     :cond_2
     iget-object v4, p0, Lcom/samsung/android/settings/KnoxSetLockFingerprintPassword;->mHeading:Landroid/widget/TextView;
 
-    const v5, 0x7f0b16b9
+    const v5, 0x7f0b16ba
 
     invoke-virtual {v4, v5}, Landroid/widget/TextView;->setText(I)V
 
@@ -879,7 +879,7 @@
 
     aput-object v28, v27, v29
 
-    const v28, 0x7f0b0a24
+    const v28, 0x7f0b0a25
 
     move-object/from16 v0, p0
 
@@ -918,7 +918,7 @@
 
     aput-object v28, v27, v29
 
-    const v28, 0x7f0b0a23
+    const v28, 0x7f0b0a24
 
     move-object/from16 v0, p0
 
@@ -955,7 +955,7 @@
 
     aput-object v28, v27, v29
 
-    const v28, 0x7f0b0a26
+    const v28, 0x7f0b0a27
 
     move-object/from16 v0, p0
 
@@ -976,7 +976,7 @@
 
     if-ne v12, v0, :cond_3
 
-    const v27, 0x7f0b0a25
+    const v27, 0x7f0b0a26
 
     move-object/from16 v0, p0
 
@@ -1011,7 +1011,7 @@
 
     aput-object v28, v27, v29
 
-    const v28, 0x7f0b0a27
+    const v28, 0x7f0b0a28
 
     move-object/from16 v0, p0
 
@@ -1028,7 +1028,7 @@
     :cond_4
     if-nez v17, :cond_5
 
-    const v27, 0x7f0b0a28
+    const v27, 0x7f0b0a29
 
     move-object/from16 v0, p0
 
@@ -1068,7 +1068,7 @@
 
     if-eqz v27, :cond_7
 
-    const v27, 0x7f0b080e
+    const v27, 0x7f0b080f
 
     :goto_0
     move-object/from16 v0, p0
@@ -1082,7 +1082,7 @@
     return-object v27
 
     :cond_7
-    const v27, 0x7f0b0a6d
+    const v27, 0x7f0b0a6e
 
     goto :goto_0
 
@@ -1101,7 +1101,7 @@
 
     if-eqz v27, :cond_9
 
-    const v27, 0x7f0b082c
+    const v27, 0x7f0b082d
 
     :goto_1
     move-object/from16 v0, p0
@@ -1115,7 +1115,7 @@
     return-object v27
 
     :cond_9
-    const v27, 0x7f0b0a6c
+    const v27, 0x7f0b0a6d
 
     goto :goto_1
 
@@ -1158,7 +1158,7 @@
 
     aput-object v28, v27, v29
 
-    const v28, 0x7f0b13ae
+    const v28, 0x7f0b13af
 
     move-object/from16 v0, p0
 
@@ -1211,7 +1211,7 @@
 
     aput-object v28, v27, v29
 
-    const v28, 0x7f0b13b1
+    const v28, 0x7f0b13b2
 
     move-object/from16 v0, p0
 
@@ -1272,7 +1272,7 @@
     if-le v6, v0, :cond_e
 
     :cond_d
-    const v27, 0x7f0b13b5
+    const v27, 0x7f0b13b6
 
     move-object/from16 v0, p0
 
@@ -1394,7 +1394,7 @@
 
     if-gtz v27, :cond_15
 
-    const v27, 0x7f0b13b3
+    const v27, 0x7f0b13b4
 
     move-object/from16 v0, p0
 
@@ -1433,7 +1433,7 @@
 
     if-le v0, v1, :cond_24
 
-    const v27, 0x7f0b13ba
+    const v27, 0x7f0b13bb
 
     move-object/from16 v0, p0
 
@@ -1869,7 +1869,7 @@
     if-lez v25, :cond_1e
 
     :cond_1d
-    const v27, 0x7f0b0a1c
+    const v27, 0x7f0b0a1d
 
     move-object/from16 v0, p0
 
@@ -1928,7 +1928,7 @@
     :cond_20
     if-nez v18, :cond_23
 
-    const v27, 0x7f0b13b6
+    const v27, 0x7f0b13b7
 
     move-object/from16 v0, p0
 
@@ -1955,7 +1955,7 @@
 
     if-nez v21, :cond_24
 
-    const v27, 0x7f0b13b7
+    const v27, 0x7f0b13b8
 
     move-object/from16 v0, p0
 
@@ -1992,7 +1992,7 @@
 
     if-eqz v27, :cond_25
 
-    const v27, 0x7f0b13b1
+    const v27, 0x7f0b13b2
 
     :goto_6
     const/16 v28, 0x1
@@ -2030,7 +2030,7 @@
     return-object v27
 
     :cond_25
-    const v27, 0x7f0b13b2
+    const v27, 0x7f0b13b3
 
     goto :goto_6
 
@@ -2102,7 +2102,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b093b
+    const v3, 0x7f0b093c
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2183,7 +2183,7 @@
 
     aput-object v8, v5, v7
 
-    const v8, 0x7f0b093c
+    const v8, 0x7f0b093d
 
     invoke-virtual {p0, v8, v5}, Lcom/samsung/android/settings/KnoxSetLockFingerprintPassword;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2571,7 +2571,7 @@
 
     aput-object v8, v6, v7
 
-    const v8, 0x7f0b08f5
+    const v8, 0x7f0b08f6
 
     invoke-virtual {p0, v8, v6}, Lcom/samsung/android/settings/KnoxSetLockFingerprintPassword;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2771,7 +2771,7 @@
 
     aput-object v8, v6, v7
 
-    const v8, 0x7f0b0795
+    const v8, 0x7f0b0796
 
     invoke-virtual {p0, v8, v6}, Lcom/samsung/android/settings/KnoxSetLockFingerprintPassword;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

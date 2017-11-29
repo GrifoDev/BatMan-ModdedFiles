@@ -157,7 +157,7 @@
 
     const/4 v1, 0x0
 
-    const v2, 0x7f0b1d7c
+    const v2, 0x7f0b1d7d
 
     invoke-virtual {p0, v2}, Lcom/android/settings/autostarts/LewaManageAutostarts;->getString(I)Ljava/lang/String;
 
@@ -472,7 +472,7 @@
 
     if-eqz v1, :cond_0
 
-    const v0, 0x7f0b1d80
+    const v0, 0x7f0b1d81
 
     :goto_0
     invoke-interface {p1, v2, v3, v2, v0}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
@@ -494,7 +494,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f0b1d7f
+    const v0, 0x7f0b1d80
 
     goto :goto_0
 .end method
@@ -558,7 +558,7 @@
 
     iget-object v0, p0, Lcom/android/settings/autostarts/LewaManageAutostarts;->emptyView:Landroid/widget/TextView;
 
-    const v1, 0x7f0b1d7d
+    const v1, 0x7f0b1d7e
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
 
@@ -623,13 +623,13 @@
 
     iget-object v1, p0, Lcom/android/settings/autostarts/LewaManageAutostarts;->menuItem:Landroid/view/MenuItem;
 
-    const v2, 0x7f0b1d7f
+    const v2, 0x7f0b1d80
 
     invoke-interface {v1, v2}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
 
     iget-object v1, p0, Lcom/android/settings/autostarts/LewaManageAutostarts;->emptyView:Landroid/widget/TextView;
 
-    const v2, 0x7f0b1d7d
+    const v2, 0x7f0b1d7e
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
@@ -646,13 +646,13 @@
 
     iget-object v1, p0, Lcom/android/settings/autostarts/LewaManageAutostarts;->menuItem:Landroid/view/MenuItem;
 
-    const v2, 0x7f0b1d80
+    const v2, 0x7f0b1d81
 
     invoke-interface {v1, v2}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
 
     iget-object v1, p0, Lcom/android/settings/autostarts/LewaManageAutostarts;->emptyView:Landroid/widget/TextView;
 
-    const v2, 0x7f0b1d7e
+    const v2, 0x7f0b1d7f
 
     invoke-virtual {v1, v2}, Landroid/widget/TextView;->setText(I)V
 
@@ -872,7 +872,7 @@
 
     const/4 v1, 0x0
 
-    const v2, 0x7f0b1d7c
+    const v2, 0x7f0b1d7d
 
     invoke-virtual {p0, v2}, Lcom/android/settings/autostarts/LewaManageAutostarts;->getString(I)Ljava/lang/String;
 

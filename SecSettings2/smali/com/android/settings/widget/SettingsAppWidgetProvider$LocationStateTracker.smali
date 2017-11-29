@@ -76,7 +76,7 @@
 .method public getButtonDescription()I
     .locals 1
 
-    const v0, 0x7f0b18ff
+    const v0, 0x7f0b1900
 
     return v0
 .end method
@@ -99,17 +99,17 @@
     packed-switch v0, :pswitch_data_0
 
     :pswitch_0
-    const v0, 0x7f0201d9
+    const v0, 0x7f0201d7
 
     return v0
 
     :pswitch_1
-    const v0, 0x7f0201d8
+    const v0, 0x7f0201d6
 
     return v0
 
     :cond_0
-    const v0, 0x7f0201d7
+    const v0, 0x7f0201d5
 
     return v0
 

@@ -92,6 +92,21 @@
     return-void
 
     :cond_1
+    if-nez v0, :cond_2
+
+    iget-object v3, p0, Lcom/samsung/android/settings/notification/VolumeSettings$2;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
+
+    invoke-static {v3}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get2(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/os/Handler;
+
+    move-result-object v3
+
+    const-wide/16 v4, 0x1f4
+
+    invoke-virtual {v3, v1, v4, v5}, Landroid/os/Handler;->sendMessageDelayed(Landroid/os/Message;J)Z
+
+    goto :goto_0
+
+    :cond_2
     iget-object v3, p0, Lcom/samsung/android/settings/notification/VolumeSettings$2;->this$0:Lcom/samsung/android/settings/notification/VolumeSettings;
 
     invoke-static {v3}, Lcom/samsung/android/settings/notification/VolumeSettings;->-get2(Lcom/samsung/android/settings/notification/VolumeSettings;)Landroid/os/Handler;

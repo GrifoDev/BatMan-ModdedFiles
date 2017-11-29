@@ -70,12 +70,12 @@
 
     if-eqz v1, :cond_0
 
-    const v1, 0x7f0205b6
+    const v1, 0x7f0205b4
 
     iput v1, v0, Lcom/samsung/android/settings/spen/PenAirViewPagerAdapter$Description;->animation:I
 
     :goto_0
-    const v1, 0x7f0b0957
+    const v1, 0x7f0b0958
 
     iput v1, v0, Lcom/samsung/android/settings/spen/PenAirViewPagerAdapter$Description;->summary:I
 
@@ -93,12 +93,12 @@
 
     if-eqz v1, :cond_1
 
-    const v1, 0x7f0205b7
+    const v1, 0x7f0205b5
 
     iput v1, v0, Lcom/samsung/android/settings/spen/PenAirViewPagerAdapter$Description;->animation:I
 
     :goto_1
-    const v1, 0x7f0b0958
+    const v1, 0x7f0b0959
 
     iput v1, v0, Lcom/samsung/android/settings/spen/PenAirViewPagerAdapter$Description;->summary:I
 
@@ -116,12 +116,12 @@
 
     if-eqz v1, :cond_2
 
-    const v1, 0x7f0205b8
+    const v1, 0x7f0205b6
 
     iput v1, v0, Lcom/samsung/android/settings/spen/PenAirViewPagerAdapter$Description;->animation:I
 
     :goto_2
-    const v1, 0x7f0b0959
+    const v1, 0x7f0b095a
 
     iput v1, v0, Lcom/samsung/android/settings/spen/PenAirViewPagerAdapter$Description;->summary:I
 
@@ -139,12 +139,12 @@
 
     if-eqz v1, :cond_3
 
-    const v1, 0x7f0205b9
+    const v1, 0x7f0205b7
 
     iput v1, v0, Lcom/samsung/android/settings/spen/PenAirViewPagerAdapter$Description;->animation:I
 
     :goto_3
-    const v1, 0x7f0b095a
+    const v1, 0x7f0b095b
 
     iput v1, v0, Lcom/samsung/android/settings/spen/PenAirViewPagerAdapter$Description;->summary:I
 
@@ -155,28 +155,28 @@
     return-void
 
     :cond_0
-    const v1, 0x7f0205b1
+    const v1, 0x7f0205af
 
     iput v1, v0, Lcom/samsung/android/settings/spen/PenAirViewPagerAdapter$Description;->animation:I
 
     goto :goto_0
 
     :cond_1
-    const v1, 0x7f0205b2
+    const v1, 0x7f0205b0
 
     iput v1, v0, Lcom/samsung/android/settings/spen/PenAirViewPagerAdapter$Description;->animation:I
 
     goto :goto_1
 
     :cond_2
-    const v1, 0x7f0205b4
+    const v1, 0x7f0205b2
 
     iput v1, v0, Lcom/samsung/android/settings/spen/PenAirViewPagerAdapter$Description;->animation:I
 
     goto :goto_2
 
     :cond_3
-    const v1, 0x7f0205b5
+    const v1, 0x7f0205b3
 
     iput v1, v0, Lcom/samsung/android/settings/spen/PenAirViewPagerAdapter$Description;->animation:I
 

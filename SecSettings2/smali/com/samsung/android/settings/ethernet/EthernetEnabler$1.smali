@@ -104,7 +104,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b123a
+    const v2, 0x7f0b123b
 
     invoke-virtual {v1, v2}, Landroid/preference/CheckBoxPreference;->setSummary(I)V
 
@@ -163,7 +163,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1238
+    const v2, 0x7f0b1239
 
     invoke-virtual {v1, v2}, Landroid/preference/CheckBoxPreference;->setSummary(I)V
 

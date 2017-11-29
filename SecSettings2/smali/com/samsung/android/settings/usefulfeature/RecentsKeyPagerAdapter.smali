@@ -56,9 +56,9 @@
 .method private setDescriptions()V
     .locals 6
 
-    const v4, 0x7f020408
+    const v4, 0x7f020406
 
-    const v5, 0x7f020407
+    const v5, 0x7f020405
 
     new-instance v0, Lcom/samsung/android/settings/usefulfeature/RecentsKeyPagerAdapter$Description;
 
@@ -84,7 +84,7 @@
 
     iput-object v2, v0, Lcom/samsung/android/settings/usefulfeature/RecentsKeyPagerAdapter$Description;->key:Ljava/lang/String;
 
-    const v2, 0x7f0b0ac3
+    const v2, 0x7f0b0ac4
 
     iput v2, v0, Lcom/samsung/android/settings/usefulfeature/RecentsKeyPagerAdapter$Description;->title:I
 
@@ -98,7 +98,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/usefulfeature/RecentsKeyPagerAdapter;->context:Landroid/content/Context;
 
-    const v4, 0x7f0b0ab8
+    const v4, 0x7f0b0ab9
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -116,7 +116,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/usefulfeature/RecentsKeyPagerAdapter;->context:Landroid/content/Context;
 
-    const v4, 0x7f0b0ab9
+    const v4, 0x7f0b0aba
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -145,7 +145,7 @@
 
     iput-object v2, v0, Lcom/samsung/android/settings/usefulfeature/RecentsKeyPagerAdapter$Description;->key:Ljava/lang/String;
 
-    const v2, 0x7f0b0ac4
+    const v2, 0x7f0b0ac5
 
     iput v2, v0, Lcom/samsung/android/settings/usefulfeature/RecentsKeyPagerAdapter$Description;->title:I
 
@@ -159,7 +159,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/usefulfeature/RecentsKeyPagerAdapter;->context:Landroid/content/Context;
 
-    const v4, 0x7f0b0ac0
+    const v4, 0x7f0b0ac1
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -177,7 +177,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/usefulfeature/RecentsKeyPagerAdapter;->context:Landroid/content/Context;
 
-    const v4, 0x7f0b0ac1
+    const v4, 0x7f0b0ac2
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -209,7 +209,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/usefulfeature/RecentsKeyPagerAdapter;->context:Landroid/content/Context;
 
-    const v4, 0x7f0b0ab6
+    const v4, 0x7f0b0ab7
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -227,7 +227,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/usefulfeature/RecentsKeyPagerAdapter;->context:Landroid/content/Context;
 
-    const v4, 0x7f0b0ab7
+    const v4, 0x7f0b0ab8
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -254,7 +254,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/usefulfeature/RecentsKeyPagerAdapter;->context:Landroid/content/Context;
 
-    const v4, 0x7f0b0abe
+    const v4, 0x7f0b0abf
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -272,7 +272,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/usefulfeature/RecentsKeyPagerAdapter;->context:Landroid/content/Context;
 
-    const v4, 0x7f0b0abf
+    const v4, 0x7f0b0ac0
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

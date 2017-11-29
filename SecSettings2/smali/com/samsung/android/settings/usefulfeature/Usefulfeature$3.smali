@@ -34,9 +34,9 @@
 .method public onChange(Z)V
     .locals 11
 
-    const v7, 0x7f0b1bda
+    const v7, 0x7f0b1bdb
 
-    const v6, 0x7f0b1bd9
+    const v6, 0x7f0b1bda
 
     const/4 v10, 0x1
 
@@ -100,7 +100,7 @@
 
     move-result-object v5
 
-    const v8, 0x7f0b04ad
+    const v8, 0x7f0b04ae
 
     invoke-virtual {v5, v8}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
 
@@ -158,7 +158,7 @@
 
     move-result-object v5
 
-    const v8, 0x7f0b0ac8
+    const v8, 0x7f0b0ac9
 
     invoke-virtual {v5, v8}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
 
@@ -216,7 +216,7 @@
 
     move-result-object v5
 
-    const v8, 0x7f0b0ac6
+    const v8, 0x7f0b0ac7
 
     invoke-virtual {v5, v8}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
 
@@ -382,7 +382,7 @@
     goto :goto_5
 
     :cond_8
-    const v5, 0x7f0b04ad
+    const v5, 0x7f0b04ae
 
     goto :goto_6
 
@@ -414,7 +414,7 @@
 
     move-result-object v5
 
-    const v8, 0x7f0b0ac7
+    const v8, 0x7f0b0ac8
 
     invoke-virtual {v5, v8}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
 
@@ -506,12 +506,12 @@
 
     if-eqz v5, :cond_10
 
-    const v5, 0x7f0b0ac8
+    const v5, 0x7f0b0ac9
 
     goto :goto_9
 
     :cond_10
-    const v5, 0x7f0b0ac7
+    const v5, 0x7f0b0ac8
 
     goto :goto_9
 
@@ -543,7 +543,7 @@
 
     move-result-object v5
 
-    const v8, 0x7f0b0ac5
+    const v8, 0x7f0b0ac6
 
     invoke-virtual {v5, v8}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
 
@@ -635,12 +635,12 @@
 
     if-eqz v5, :cond_18
 
-    const v5, 0x7f0b0ac6
+    const v5, 0x7f0b0ac7
 
     goto :goto_c
 
     :cond_18
-    const v5, 0x7f0b0ac5
+    const v5, 0x7f0b0ac6
 
     goto :goto_c
 

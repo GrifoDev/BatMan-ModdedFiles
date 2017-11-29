@@ -613,7 +613,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1aa2
+    const v0, 0x7f0b1aa3
 
     return v0
 .end method
@@ -760,7 +760,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0b18e1
+    const v0, 0x7f0b18e2
 
     :goto_0
     const/16 v1, 0x2b
@@ -769,7 +769,7 @@
 
     const/16 v0, 0x2c
 
-    const v1, 0x7f0b1141
+    const v1, 0x7f0b1142
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -780,7 +780,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f0b18e0
+    const v0, 0x7f0b18e1
 
     goto :goto_0
 .end method
@@ -881,7 +881,7 @@
 
     if-eqz v0, :cond_2
 
-    const v0, 0x7f0b18e1
+    const v0, 0x7f0b18e2
 
     :goto_2
     invoke-interface {p1, v0}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
@@ -934,7 +934,7 @@
     goto :goto_1
 
     :cond_2
-    const v0, 0x7f0b18e0
+    const v0, 0x7f0b18e1
 
     goto :goto_2
 
@@ -955,7 +955,7 @@
 
     if-eqz v0, :cond_6
 
-    const v0, 0x7f0b1720
+    const v0, 0x7f0b1721
 
     :goto_5
     invoke-interface {p1, v0}, Landroid/view/MenuItem;->setTitle(I)Landroid/view/MenuItem;
@@ -999,7 +999,7 @@
     goto :goto_4
 
     :cond_6
-    const v0, 0x7f0b1141
+    const v0, 0x7f0b1142
 
     goto :goto_5
 

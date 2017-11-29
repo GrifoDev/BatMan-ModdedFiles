@@ -553,7 +553,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/PrivacyResetSettings;->mSamsungAutoClean:Lcom/android/settings/SecSettingsSwitchPreference;
 
-    const v1, 0x7f0b1bd9
+    const v1, 0x7f0b1bda
 
     invoke-virtual {v0, v1}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
 
@@ -684,7 +684,7 @@
 
     if-eqz v13, :cond_5
 
-    const v13, 0x7f0b0cae
+    const v13, 0x7f0b0caf
 
     :goto_0
     invoke-virtual {v7, v13}, Landroid/preference/PreferenceCategory;->setTitle(I)V
@@ -802,7 +802,7 @@
     goto :goto_2
 
     :cond_5
-    const v13, 0x7f0b0cad
+    const v13, 0x7f0b0cae
 
     goto :goto_0
 

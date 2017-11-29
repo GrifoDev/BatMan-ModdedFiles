@@ -792,7 +792,7 @@
 
     const v4, 0x7f110761
 
-    const v3, 0x7f0203cb
+    const v3, 0x7f0203c9
 
     const/4 v2, -0x1
 
@@ -2939,7 +2939,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/accessibility/assistantmenu/SettingsMenuEditorFragment;->mControlBar:Landroid/widget/ImageView;
 
-    const v1, 0x7f0203c1
+    const v1, 0x7f0203bf
 
     invoke-virtual {v0, v1}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
@@ -5280,7 +5280,7 @@
 .method public onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
     .locals 2
 
-    const v0, 0x7f0b04c8
+    const v0, 0x7f0b04c9
 
     invoke-interface {p1, v0}, Landroid/view/Menu;->add(I)Landroid/view/MenuItem;
 

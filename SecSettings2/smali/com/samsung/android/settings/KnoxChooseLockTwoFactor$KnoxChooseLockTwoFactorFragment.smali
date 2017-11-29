@@ -1436,13 +1436,13 @@
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b076e
+    const v2, 0x7f0b076f
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v1
 
-    const v2, 0x7f0b0771
+    const v2, 0x7f0b0772
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -1814,7 +1814,7 @@
 .method public onCreate(Landroid/os/Bundle;)V
     .locals 11
 
-    const v10, 0x7f0b0925
+    const v10, 0x7f0b0926
 
     const/4 v9, -0x1
 
@@ -2093,7 +2093,7 @@
 
     aput-object v0, v6, v4
 
-    const v7, 0x7f0b091e
+    const v7, 0x7f0b091f
 
     invoke-virtual {v5, v7, v6}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2260,7 +2260,7 @@
 
     new-array v6, v3, [Ljava/lang/Object;
 
-    const v7, 0x7f0b08bd
+    const v7, 0x7f0b08be
 
     invoke-virtual {p0, v7}, Lcom/samsung/android/settings/KnoxChooseLockTwoFactor$KnoxChooseLockTwoFactorFragment;->getString(I)Ljava/lang/String;
 
@@ -2289,7 +2289,7 @@
 
     new-array v6, v3, [Ljava/lang/Object;
 
-    const v7, 0x7f0b0769
+    const v7, 0x7f0b076a
 
     invoke-virtual {p0, v7}, Lcom/samsung/android/settings/KnoxChooseLockTwoFactor$KnoxChooseLockTwoFactorFragment;->getString(I)Ljava/lang/String;
 
@@ -2375,7 +2375,7 @@
 
     move-result-object v3
 
-    const v5, 0x7f0b1389
+    const v5, 0x7f0b138a
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2403,7 +2403,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b1389
+    const v4, 0x7f0b138a
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2437,7 +2437,7 @@
 
     aput-object v0, v6, v4
 
-    const v7, 0x7f0b091f
+    const v7, 0x7f0b0920
 
     invoke-virtual {v5, v7, v6}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2534,7 +2534,7 @@
 
     new-array v6, v3, [Ljava/lang/Object;
 
-    const v7, 0x7f0b0769
+    const v7, 0x7f0b076a
 
     invoke-virtual {p0, v7}, Lcom/samsung/android/settings/KnoxChooseLockTwoFactor$KnoxChooseLockTwoFactorFragment;->getString(I)Ljava/lang/String;
 
@@ -2772,7 +2772,7 @@
 
     move-result-object v3
 
-    const v5, 0x7f0b05d7
+    const v5, 0x7f0b05d8
 
     invoke-virtual {v3, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2810,7 +2810,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b05d7
+    const v4, 0x7f0b05d8
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3382,7 +3382,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f020654
+    const v2, 0x7f020652
 
     invoke-virtual {v1, v2}, Landroid/app/Activity;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

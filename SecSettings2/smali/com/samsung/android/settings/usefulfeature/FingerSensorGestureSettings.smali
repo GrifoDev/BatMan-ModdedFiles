@@ -151,7 +151,7 @@
 
     const/4 v8, 0x0
 
-    const v7, 0x7f0b04bd
+    const v7, 0x7f0b04be
 
     iget-object v5, p0, Lcom/samsung/android/settings/usefulfeature/FingerSensorGestureSettings;->mContext:Landroid/content/Context;
 
@@ -217,7 +217,7 @@
 
     invoke-virtual {v5, v7}, Landroid/app/ActionBar;->setTitle(I)V
 
-    const v5, 0x7f0b04c0
+    const v5, 0x7f0b04c1
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/usefulfeature/FingerSensorGestureSettings;->getString(I)Ljava/lang/String;
 
@@ -225,7 +225,7 @@
 
     invoke-virtual {v3, v5}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;)V
 
-    const v5, 0x7f02015e
+    const v5, 0x7f02015c
 
     invoke-virtual {v2, v5}, Landroid/widget/ImageView;->setImageResource(I)V
 

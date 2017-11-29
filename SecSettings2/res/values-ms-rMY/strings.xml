@@ -957,6 +957,7 @@ Anda boleh mengubah ini kemudian dengan pergi ke aturan Bluetooth."</string>
     <string name="bluetooth_avc_available_description">Peranti Bluetooth yang disambungkan menyokong Penyelarasan kelantangan media dan aras kelantangan ditetapkan oleh peranti Bluetooth akan diselaraskan dengan telefon anda.</string>
     <string name="bluetooth_enter_pin_msg">Masukkan PIN untuk memasangkan dengan %s (Cuba 0000 atau 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Bilangan maksimum aksara dicapai.</string>
+    <string name="bluetooth_frp_permission_message">Tidak dapat menggunakan peranti Bluetooth untuk panggilan ini.</string>
     <string name="settings_menu_done">Selesai</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>

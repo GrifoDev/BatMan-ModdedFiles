@@ -240,7 +240,7 @@
 
     iget-object v0, p0, Lcom/android/settings/applications/SpecialAccessSettings;->mDataSaver:Landroid/preference/PreferenceScreen;
 
-    const v1, 0x7f0b054a
+    const v1, 0x7f0b054b
 
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->setTitle(I)V
 

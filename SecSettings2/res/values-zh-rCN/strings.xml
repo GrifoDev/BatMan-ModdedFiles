@@ -956,6 +956,7 @@
     <string name="bluetooth_avc_available_description">所连接的蓝牙设备支持媒体音量同步，且由蓝牙设备设置的音量水平将与您的手机同步。</string>
     <string name="bluetooth_enter_pin_msg">输入蓝牙密码与%s配对(尝试 0000 或 1234)。</string>
     <string name="bluetooth_pin_maximum_number_message">已达到最大字符数</string>
+    <string name="bluetooth_frp_permission_message">此通话无法使用蓝牙设备</string>
     <string name="settings_menu_done">完成</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB 未连接</string>
     <string name="usb_tethering_available_subtext_tmo">已连接 USB，选择即可进行网络共享。</string>

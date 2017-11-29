@@ -147,7 +147,7 @@
 
     iput-object v0, v1, Lcom/samsung/android/settings/deviceinfo/ShowRegulatoryInformationActivity;->mContext:Landroid/content/Context;
 
-    const v31, 0x7f0b16a3
+    const v31, 0x7f0b16a4
 
     move-object/from16 v0, p0
 
@@ -186,7 +186,7 @@
 
     move-result-object v31
 
-    const v32, 0x7f02051d
+    const v32, 0x7f02051b
 
     invoke-static/range {v31 .. v32}, Landroid/graphics/BitmapFactory;->decodeResource(Landroid/content/res/Resources;I)Landroid/graphics/Bitmap;
 
@@ -212,7 +212,7 @@
 
     move-result-object v23
 
-    const v31, 0x7f0b1207
+    const v31, 0x7f0b1208
 
     move-object/from16 v0, p0
 
@@ -222,7 +222,7 @@
 
     move-result-object v21
 
-    const v31, 0x7f0b1208
+    const v31, 0x7f0b1209
 
     move-object/from16 v0, p0
 
@@ -232,7 +232,7 @@
 
     move-result-object v22
 
-    const v31, 0x7f0b1209
+    const v31, 0x7f0b120a
 
     move-object/from16 v0, p0
 
@@ -242,7 +242,7 @@
 
     move-result-object v19
 
-    const v31, 0x7f0b120a
+    const v31, 0x7f0b120b
 
     move-object/from16 v0, p0
 
@@ -439,7 +439,7 @@
 
     invoke-direct/range {v27 .. v27}, Ljava/lang/StringBuilder;-><init>()V
 
-    const v31, 0x7f0b11fc
+    const v31, 0x7f0b11fd
 
     move-object/from16 v0, p0
 
@@ -475,7 +475,7 @@
 
     invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const v31, 0x7f0b11fd
+    const v31, 0x7f0b11fe
 
     move-object/from16 v0, p0
 
@@ -511,7 +511,7 @@
 
     invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const v31, 0x7f0b11fe
+    const v31, 0x7f0b11ff
 
     move-object/from16 v0, p0
 
@@ -547,7 +547,7 @@
 
     invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const v31, 0x7f0b11ff
+    const v31, 0x7f0b1200
 
     move-object/from16 v0, p0
 
@@ -583,7 +583,7 @@
 
     invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const v31, 0x7f0b1200
+    const v31, 0x7f0b1201
 
     move-object/from16 v0, p0
 
@@ -617,7 +617,7 @@
 
     invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const v31, 0x7f0b1201
+    const v31, 0x7f0b1202
 
     move-object/from16 v0, p0
 
@@ -661,7 +661,7 @@
 
     invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const v31, 0x7f0b1202
+    const v31, 0x7f0b1203
 
     move-object/from16 v0, p0
 
@@ -717,7 +717,7 @@
 
     :cond_5
     :goto_2
-    const v31, 0x7f0b1205
+    const v31, 0x7f0b1206
 
     move-object/from16 v0, p0
 
@@ -753,7 +753,7 @@
 
     invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const v31, 0x7f0b1206
+    const v31, 0x7f0b1207
 
     move-object/from16 v0, p0
 
@@ -819,7 +819,7 @@
     goto/16 :goto_1
 
     :cond_8
-    const v31, 0x7f0b1203
+    const v31, 0x7f0b1204
 
     move-object/from16 v0, p0
 
@@ -853,7 +853,7 @@
 
     invoke-virtual/range {v31 .. v32}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const v31, 0x7f0b1204
+    const v31, 0x7f0b1205
 
     move-object/from16 v0, p0
 

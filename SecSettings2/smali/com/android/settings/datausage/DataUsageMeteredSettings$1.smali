@@ -64,7 +64,7 @@
         }
     .end annotation
 
-    const v10, 0x7f0b19b2
+    const v10, 0x7f0b19b3
 
     new-instance v7, Ljava/util/ArrayList;
 
@@ -96,7 +96,7 @@
 
     invoke-direct {v2, p1}, Lcom/android/settings/search/SearchIndexableRaw;-><init>(Landroid/content/Context;)V
 
-    const v9, 0x7f0b19ec
+    const v9, 0x7f0b19ed
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -120,7 +120,7 @@
 
     iput-object v9, v2, Lcom/android/settings/search/SearchIndexableRaw;->key:Ljava/lang/String;
 
-    const v9, 0x7f0b19ee
+    const v9, 0x7f0b19ef
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -202,7 +202,7 @@
 
     iput-object v9, v2, Lcom/android/settings/search/SearchIndexableRaw;->title:Ljava/lang/String;
 
-    const v9, 0x7f0b19b2
+    const v9, 0x7f0b19b3
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -242,7 +242,7 @@
 
     invoke-direct {v2, p1}, Lcom/android/settings/search/SearchIndexableRaw;-><init>(Landroid/content/Context;)V
 
-    const v9, 0x7f0b19ef
+    const v9, 0x7f0b19f0
 
     invoke-virtual {v6, v9}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

@@ -828,6 +828,7 @@ Enter the code you get from Verizon:"</string>
     <string name="bluetooth_avc_available_description">ସଂଯୋଜିତ ବ୍ଲୁଟୁଥ୍ ଡିଭାଇସ୍ ମିଡିଆ ଭଲ୍ୟୁମ୍ ସିଙ୍କ୍ ଏବଂ ସମର୍ଥନ କରି ବ୍ଲୁଟୁଥ୍ ଡିଭାଇସ୍ ଦ୍ୱାରା ସେଟ୍ ହୋଇଥିବା ଭଲ୍ୟୁମ୍ ସ୍ତର ଆପଣଙ୍କ ଫୋନ୍ ସହ ସିଙ୍କ୍ ହେବ।</string>
     <string name="bluetooth_enter_pin_msg">%s (0000 କିମ୍ଵା 1234 ଚେଷ୍ଟା କରନ୍ତୁ) ସହ ପେୟାର୍ କରିବାକୁ PIN ପ୍ରବେଶ କରନ୍ତୁ।</string>
     <string name="bluetooth_pin_maximum_number_message">ସର୍ବାଧିକ ସଂଖ୍ୟର ବର୍ଣ୍ଣରେ ପହଞ୍ଚିଛି।</string>
+    <string name="bluetooth_frp_permission_message">ଏହି କଲ୍ ପାଇଁ ବ୍ଲୁଟୁଥ୍ ଡିଭାଇସ୍ ବ୍ୟବହାର କରିପାରିବେ ନାହିଁ।</string>
     <string name="settings_menu_done">ସମାପ୍ତ</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>

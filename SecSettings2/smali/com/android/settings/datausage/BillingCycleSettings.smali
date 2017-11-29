@@ -457,7 +457,7 @@
 
     aput-object v3, v6, v9
 
-    const v3, 0x7f0b1d06
+    const v3, 0x7f0b1d07    # 1.849134E38f
 
     invoke-virtual {p0, v3, v6}, Lcom/android/settings/datausage/BillingCycleSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -763,7 +763,7 @@
     :cond_4
     iget-object v2, p0, Lcom/android/settings/datausage/BillingCycleSettings;->mEnableDataLimit:Landroid/preference/SwitchPreference;
 
-    const v3, 0x7f0b0552
+    const v3, 0x7f0b0553
 
     invoke-virtual {v2, v3}, Landroid/preference/SwitchPreference;->setTitle(I)V
 
@@ -774,7 +774,7 @@
 
     iget-object v2, p0, Lcom/android/settings/datausage/BillingCycleSettings;->mEnableDataLimit:Landroid/preference/SwitchPreference;
 
-    const v3, 0x7f0b0553
+    const v3, 0x7f0b0554
 
     invoke-virtual {p0, v3}, Lcom/android/settings/datausage/BillingCycleSettings;->getString(I)Ljava/lang/String;
 

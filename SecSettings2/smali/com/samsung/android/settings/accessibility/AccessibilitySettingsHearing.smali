@@ -795,7 +795,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b04cd
+    const v3, 0x7f0b04ce
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -911,9 +911,9 @@
 .method private updateDefaultPreferences()V
     .locals 8
 
-    const v7, 0x7f0b1bda
+    const v7, 0x7f0b1bdb
 
-    const v6, 0x7f0b1bd9
+    const v6, 0x7f0b1bda
 
     const/4 v2, 0x1
 
@@ -1394,7 +1394,7 @@
 
     invoke-direct {v11, p0, v2, v8}, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsHearing$6;-><init>(Lcom/samsung/android/settings/accessibility/AccessibilitySettingsHearing;Landroid/content/SharedPreferences$Editor;Landroid/widget/CheckBox;)V
 
-    const v12, 0x7f0b1716
+    const v12, 0x7f0b1717
 
     invoke-virtual {v10, v12, v11}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1467,7 +1467,7 @@
 
     aput-object v9, v12, v13
 
-    const v13, 0x7f0b04b4
+    const v13, 0x7f0b04b5
 
     invoke-virtual {v11, v13, v12}, Landroid/app/Activity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1611,7 +1611,7 @@
 .method public onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
     .locals 12
 
-    const v11, 0x7f0b1bd9
+    const v11, 0x7f0b1bda
 
     const/4 v10, 0x2
 
@@ -2122,7 +2122,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsHearing;->mCaptioningPreferenceScreen:Lcom/samsung/android/settings/SettingsSwitchPreference;
 
-    const v9, 0x7f0b1bda
+    const v9, 0x7f0b1bdb
 
     invoke-virtual {v5, v9}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setSummary(I)V
 
@@ -2214,7 +2214,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/accessibility/AccessibilitySettingsHearing;->mSamsungCaptioningPreferenceScreen:Lcom/samsung/android/settings/SettingsSwitchPreference;
 
-    const v9, 0x7f0b1bda
+    const v9, 0x7f0b1bdb
 
     invoke-virtual {v5, v9}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setSummary(I)V
 

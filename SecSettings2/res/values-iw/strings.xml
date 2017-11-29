@@ -957,6 +957,7 @@ Enter the code you get from Verizon:"</string>
     <string name="bluetooth_avc_available_description">מכשיר ה-Bluetooth המחובר תומך בסינכרון עוצמת קול במדיה, לכן עוצמת הקול שתיקבע במכשיר ה-Bluetooth תסתנכרן עם הטלפון שלך.</string>
     <string name="bluetooth_enter_pin_msg">הקלד PIN להתאמה עם %s (נסה את 0000 או 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">הגעת למספר התווים המרבי המותר.</string>
+    <string name="bluetooth_frp_permission_message">לא ניתן להשתמש במכשיר Bluetooth לשיחה זאת.</string>
     <string name="settings_menu_done">בצע</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>

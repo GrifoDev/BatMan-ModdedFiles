@@ -70,7 +70,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0903
+    const v11, 0x7f0b0904
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -112,7 +112,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0907
+    const v11, 0x7f0b0908
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -162,7 +162,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0905
+    const v11, 0x7f0b0906
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -181,7 +181,7 @@
 
     move-result-object v11
 
-    const v12, 0x7f0b0906
+    const v12, 0x7f0b0907
 
     invoke-virtual {v11, v12}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -209,7 +209,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0908
+    const v11, 0x7f0b0909
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -279,7 +279,7 @@
 
     iget-object v10, p0, Lcom/samsung/android/settings/iris/SecSetupIrisDisclaimerActivity;->mSUWNextText:Landroid/widget/TextView;
 
-    const v11, 0x7f0b13b0
+    const v11, 0x7f0b13b1
 
     invoke-virtual {v10, v11}, Landroid/widget/TextView;->setText(I)V
 
@@ -322,7 +322,7 @@
 
     move-result-object v10
 
-    const v11, 0x7f0b0904
+    const v11, 0x7f0b0905
 
     invoke-virtual {v10, v11}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

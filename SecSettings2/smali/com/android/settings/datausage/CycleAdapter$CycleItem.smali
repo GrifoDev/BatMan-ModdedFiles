@@ -51,7 +51,7 @@
 
     iput-boolean v0, p0, Lcom/android/settings/datausage/CycleAdapter$CycleItem;->isUserSettedItem:Z
 
-    const v0, 0x7f0b1211
+    const v0, 0x7f0b1212
 
     invoke-virtual {p1, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

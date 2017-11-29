@@ -210,7 +210,7 @@
 
     sget-object v0, Lcom/samsung/android/settings/GlobalRoamingSettings;->mContext:Landroid/content/Context;
 
-    const v1, 0x7f0b10be
+    const v1, 0x7f0b10bf
 
     const/4 v2, 0x1
 
@@ -414,7 +414,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b0c6a
+    const v1, 0x7f0b0c6b
 
     invoke-virtual {v0, v1}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -652,7 +652,7 @@
 
     invoke-direct {v0, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0b0c77
+    const v3, 0x7f0b0c78
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/GlobalRoamingSettings;->getString(I)Ljava/lang/String;
 
@@ -670,7 +670,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0c78
+    const v4, 0x7f0b0c79
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/GlobalRoamingSettings;->getString(I)Ljava/lang/String;
 
@@ -835,7 +835,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/GlobalRoamingSettings;->mButtonDataRoaming:Lcom/android/settingslib/SecRestrictedSwitchPreference;
 
-    const v2, 0x7f0b10bf
+    const v2, 0x7f0b10c0
 
     invoke-virtual {v1, v2}, Lcom/android/settingslib/SecRestrictedSwitchPreference;->setSummary(I)V
 
@@ -919,7 +919,7 @@
     :cond_2
     iget-object v1, p0, Lcom/samsung/android/settings/GlobalRoamingSettings;->mButtonDataRoaming:Lcom/android/settingslib/SecRestrictedSwitchPreference;
 
-    const v2, 0x7f0b10be
+    const v2, 0x7f0b10bf
 
     invoke-virtual {v1, v2}, Lcom/android/settingslib/SecRestrictedSwitchPreference;->setSummary(I)V
 

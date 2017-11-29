@@ -57,7 +57,7 @@
 .method private launchConfirmLock()V
     .locals 9
 
-    const v8, 0x7f0b1337
+    const v8, 0x7f0b1338
 
     const/4 v2, 0x1
 
@@ -258,9 +258,9 @@
 
     iput-object v3, p0, Lcom/android/settings/fingerprint/FingerprintEnrollFindSensor;->mToken:[B
 
-    const v3, 0x7f05003c
+    const v3, 0x7f05003a
 
-    const v4, 0x7f05003d
+    const v4, 0x7f05003b
 
     invoke-virtual {p0, v3, v4}, Lcom/android/settings/fingerprint/FingerprintEnrollFindSensor;->overridePendingTransition(II)V
 
@@ -368,7 +368,7 @@
 
     invoke-virtual {p0, v0}, Lcom/android/settings/fingerprint/FingerprintEnrollFindSensor;->setContentView(I)V
 
-    const v0, 0x7f0b1347
+    const v0, 0x7f0b1348
 
     invoke-virtual {p0, v0}, Lcom/android/settings/fingerprint/FingerprintEnrollFindSensor;->setHeaderText(I)V
 

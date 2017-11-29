@@ -117,7 +117,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b08f3
+    const v3, 0x7f0b08f4
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -169,7 +169,7 @@
 
     aput-object v5, v4, v6
 
-    const v5, 0x7f0b08ed
+    const v5, 0x7f0b08ee
 
     invoke-virtual {v3, v5, v4}, Lcom/samsung/android/settings/biometrics/BiometricsAuthenticationActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

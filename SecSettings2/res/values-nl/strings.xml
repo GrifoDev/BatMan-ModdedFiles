@@ -958,6 +958,7 @@ Er kan een klein verschil optreden in de geluidsuitvoer tussen de 2 verbonden ap
     <string name="bluetooth_avc_available_description">Het verbonden Bluetooth-apparaat ondersteunt Mediavolume synchroniseren en het volume van het Bluetooth-apparaat wordt gesynchroniseerd met uw telefoon.</string>
     <string name="bluetooth_enter_pin_msg">Geef pincode in om te koppelen met %s (probeer 0000 of 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Maximumaantal tekens bereikt.</string>
+    <string name="bluetooth_frp_permission_message">Kan Bluetooth-apparaat niet gebruiken voor deze oproep.</string>
     <string name="settings_menu_done">Gereed</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>

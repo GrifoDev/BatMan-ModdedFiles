@@ -103,7 +103,7 @@
 
     if-ne v0, v2, :cond_2
 
-    const v1, 0x7f0b1bd9
+    const v1, 0x7f0b1bda
 
     :goto_1
     invoke-virtual {v4, v1}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
@@ -129,7 +129,7 @@
     goto :goto_0
 
     :cond_2
-    const v1, 0x7f0b1bda
+    const v1, 0x7f0b1bdb
 
     goto :goto_1
 

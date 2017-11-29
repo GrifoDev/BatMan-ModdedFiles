@@ -119,7 +119,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b100a
+    const v7, 0x7f0b100b
 
     invoke-static {v6, v7}, Lcom/samsung/android/settings/WifiApUtils;->getString(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -151,7 +151,7 @@
 
     aput-object v8, v7, v9
 
-    const v8, 0x7f0b100d
+    const v8, 0x7f0b100e
 
     invoke-virtual {v6, v8, v7}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -187,7 +187,7 @@
 
     aput-object v8, v7, v9
 
-    const v8, 0x7f0b1010
+    const v8, 0x7f0b1011
 
     invoke-virtual {v6, v8, v7}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -213,7 +213,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b1012
+    const v7, 0x7f0b1013
 
     invoke-static {v6, v7}, Lcom/samsung/android/settings/WifiApUtils;->getString(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -239,7 +239,7 @@
 
     if-eqz v6, :cond_9
 
-    const v6, 0x7f0b0f83
+    const v6, 0x7f0b0f84
 
     invoke-virtual {v1, v6}, Landroid/widget/TextView;->setText(I)V
 
@@ -255,7 +255,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b0fe5
+    const v7, 0x7f0b0fe6
 
     invoke-static {v6, v7}, Lcom/samsung/android/settings/WifiApUtils;->getString(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -277,7 +277,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b0fe9
+    const v7, 0x7f0b0fea
 
     invoke-static {v6, v7}, Lcom/samsung/android/settings/WifiApUtils;->getString(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -290,7 +290,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b0fed
+    const v7, 0x7f0b0fee
 
     invoke-static {v7}, Lcom/samsung/android/settings/WifiApUtils;->getStringID(I)I
 
@@ -391,7 +391,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b0ff3
+    const v7, 0x7f0b0ff4
 
     invoke-static {v6, v7}, Lcom/samsung/android/settings/WifiApUtils;->getString(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -410,7 +410,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b0fe9
+    const v7, 0x7f0b0fea
 
     invoke-static {v7}, Lcom/samsung/android/settings/WifiApUtils;->getStringID(I)I
 
@@ -457,7 +457,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b1015
+    const v7, 0x7f0b1016
 
     invoke-static {v6, v7}, Lcom/samsung/android/settings/WifiApUtils;->getString(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -489,7 +489,7 @@
 
     aput-object v8, v7, v9
 
-    const v8, 0x7f0b1018
+    const v8, 0x7f0b1019
 
     invoke-virtual {v6, v8, v7}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -535,7 +535,7 @@
 
     aput-object v8, v7, v9
 
-    const v8, 0x7f0b101b
+    const v8, 0x7f0b101c
 
     invoke-virtual {v6, v8, v7}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -561,7 +561,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b101d
+    const v7, 0x7f0b101e
 
     invoke-static {v6, v7}, Lcom/samsung/android/settings/WifiApUtils;->getString(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -580,7 +580,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b0ff9
+    const v7, 0x7f0b0ffa
 
     invoke-static {v6, v7}, Lcom/samsung/android/settings/WifiApUtils;->getString(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -602,7 +602,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b0ffd
+    const v7, 0x7f0b0ffe
 
     invoke-static {v6, v7}, Lcom/samsung/android/settings/WifiApUtils;->getString(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -615,7 +615,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b1001
+    const v7, 0x7f0b1002
 
     invoke-static {v7}, Lcom/samsung/android/settings/WifiApUtils;->getStringID(I)I
 
@@ -736,7 +736,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b1007
+    const v7, 0x7f0b1008
 
     invoke-static {v7}, Lcom/samsung/android/settings/WifiApUtils;->getStringID(I)I
 
@@ -800,7 +800,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b0ffd
+    const v7, 0x7f0b0ffe
 
     invoke-static {v7}, Lcom/samsung/android/settings/WifiApUtils;->getStringID(I)I
 
@@ -843,7 +843,7 @@
 
     move-result-object v6
 
-    const v7, 0x7f0b0ff3
+    const v7, 0x7f0b0ff4
 
     invoke-static {v6, v7}, Lcom/samsung/android/settings/WifiApUtils;->getString(Landroid/content/Context;I)Ljava/lang/String;
 

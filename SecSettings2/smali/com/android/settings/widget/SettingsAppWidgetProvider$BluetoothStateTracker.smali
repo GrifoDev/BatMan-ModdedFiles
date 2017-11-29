@@ -128,7 +128,7 @@
 .method public getButtonDescription()I
     .locals 1
 
-    const v0, 0x7f0b18fe
+    const v0, 0x7f0b18ff
 
     return v0
 .end method
@@ -146,13 +146,13 @@
 
     if-eqz p1, :cond_0
 
-    const v0, 0x7f0201d2
+    const v0, 0x7f0201d0
 
     :goto_0
     return v0
 
     :cond_0
-    const v0, 0x7f0201d1
+    const v0, 0x7f0201cf
 
     goto :goto_0
 .end method

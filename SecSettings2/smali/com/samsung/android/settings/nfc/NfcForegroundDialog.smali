@@ -208,7 +208,7 @@
     :cond_1
     iget-object v0, p0, Lcom/samsung/android/settings/nfc/NfcForegroundDialog;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    const v6, 0x7f0b04c4
+    const v6, 0x7f0b04c5
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/nfc/NfcForegroundDialog;->getString(I)Ljava/lang/String;
 
@@ -216,7 +216,7 @@
 
     iput-object v6, v0, Lcom/android/internal/app/AlertController$AlertParams;->mNegativeButtonText:Ljava/lang/CharSequence;
 
-    const v6, 0x7f0b04cd
+    const v6, 0x7f0b04ce
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/nfc/NfcForegroundDialog;->getString(I)Ljava/lang/String;
 
@@ -238,7 +238,7 @@
 
     aput-object v1, v6, v7
 
-    const v7, 0x7f0b0b28
+    const v7, 0x7f0b0b29
 
     invoke-virtual {p0, v7, v6}, Lcom/samsung/android/settings/nfc/NfcForegroundDialog;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -262,7 +262,7 @@
     return-void
 
     :cond_3
-    const v6, 0x7f0b0b29
+    const v6, 0x7f0b0b2a
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/nfc/NfcForegroundDialog;->getString(I)Ljava/lang/String;
 

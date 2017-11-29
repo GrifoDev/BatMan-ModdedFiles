@@ -48,7 +48,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/notification/SoundSettings$21;->this$0:Lcom/samsung/android/settings/notification/SoundSettings;
 
-    invoke-static {v1}, Lcom/samsung/android/settings/notification/SoundSettings;->-wrap5(Lcom/samsung/android/settings/notification/SoundSettings;)V
+    invoke-static {v1}, Lcom/samsung/android/settings/notification/SoundSettings;->-wrap6(Lcom/samsung/android/settings/notification/SoundSettings;)V
 
     :cond_0
     return-void

@@ -182,7 +182,7 @@
 
     move-result-object v5
 
-    const v6, 0x7f0b1060
+    const v6, 0x7f0b1061
 
     invoke-virtual {v5, v6}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -340,22 +340,22 @@
 
     :array_0
     .array-data 4
-        0x7f0206e3
-        0x7f0206db
-        0x7f0206e5
-        0x7f0206d7
-        0x7f0206ef
         0x7f0206e1
-        0x7f0206f2
+        0x7f0206d9
+        0x7f0206e3
+        0x7f0206d5
         0x7f0206ed
-        0x7f0206da
-        0x7f0206de
+        0x7f0206df
+        0x7f0206f0
+        0x7f0206eb
+        0x7f0206d8
         0x7f0206dc
-        0x7f0202d9
-        0x7f0202d2
-        0x7f0202da
-        0x7f0202ce
-        0x7f0202cf
+        0x7f0206da
+        0x7f0202d7
+        0x7f0202d0
+        0x7f0202d8
+        0x7f0202cc
+        0x7f0202cd
     .end array-data
 .end method
 
@@ -403,7 +403,7 @@
 
     if-eqz v2, :cond_1
 
-    const v3, 0x7f020305
+    const v3, 0x7f020303
 
     invoke-virtual {v2, v3}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 

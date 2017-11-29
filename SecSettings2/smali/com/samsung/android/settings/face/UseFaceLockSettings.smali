@@ -73,7 +73,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b086f
+    const v4, 0x7f0b0870
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -113,7 +113,7 @@
 
     aput-object v1, v4, v5
 
-    const v5, 0x7f0b086e
+    const v5, 0x7f0b086f
 
     invoke-virtual {v3, v5, v4}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -148,7 +148,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b1380
+    const v4, 0x7f0b1381
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -161,7 +161,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b1382
+    const v4, 0x7f0b1383
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -174,7 +174,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b137e
+    const v4, 0x7f0b137f
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -199,7 +199,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b137b
+    const v4, 0x7f0b137c
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -212,7 +212,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b137c
+    const v4, 0x7f0b137d
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -528,7 +528,7 @@
 
     const-string/jumbo v0, "FcstUseFaceLockSettings"
 
-    const v1, 0x7f0b0912
+    const v1, 0x7f0b0913
 
     invoke-static {p0, v1, v0}, Lcom/android/settings/Utils;->isNotAvailableBiometricsWithDexAndMultiWindow(Landroid/app/Activity;ILjava/lang/String;)Z
 
@@ -741,7 +741,7 @@
 
     if-eqz v0, :cond_2
 
-    const v0, 0x7f0b086d
+    const v0, 0x7f0b086e
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/face/UseFaceLockSettings;->setTitle(I)V
 
@@ -798,7 +798,7 @@
     return-void
 
     :cond_2
-    const v0, 0x7f0b086c
+    const v0, 0x7f0b086d
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/face/UseFaceLockSettings;->setTitle(I)V
 

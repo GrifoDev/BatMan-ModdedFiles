@@ -776,7 +776,7 @@
 
     check-cast v1, Landroid/widget/LinearLayout;
 
-    const v2, 0x7f020125
+    const v2, 0x7f020123
 
     invoke-virtual {v1, v2}, Landroid/widget/LinearLayout;->setBackgroundResource(I)V
 
@@ -828,7 +828,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/easymode/EasyModeApp;->mSaveButton:Landroid/widget/Button;
 
-    const v3, 0x7f0b04cc
+    const v3, 0x7f0b04cd
 
     invoke-virtual {v2, v3}, Landroid/widget/Button;->setText(I)V
 
@@ -1029,7 +1029,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b06dc
+    const v5, 0x7f0b06dd
 
     invoke-virtual {v4, v5}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1037,7 +1037,7 @@
 
     aput-object v4, v3, v7
 
-    const v4, 0x7f0b0690
+    const v4, 0x7f0b0691
 
     invoke-virtual {v2, v4, v3}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1977,7 +1977,7 @@
 .method public onCreateOptionsMenu(Landroid/view/Menu;Landroid/view/MenuInflater;)V
     .locals 6
 
-    const v5, 0x7f02069a
+    const v5, 0x7f020698
 
     const/4 v4, 0x0
 
@@ -2318,7 +2318,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/easymode/EasyModeApp;->mPreviewImageView:Landroid/widget/ImageView;
 
-    const v2, 0x7f020147
+    const v2, 0x7f020145
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -2332,7 +2332,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0cb3
+    const v3, 0x7f0b0cb4
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2354,7 +2354,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0cb4
+    const v3, 0x7f0b0cb5
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

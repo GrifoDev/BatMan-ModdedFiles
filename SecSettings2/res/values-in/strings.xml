@@ -957,6 +957,7 @@ Kedua output suara dari perangkat yang tersambung tersebut mungkin mengalami sed
     <string name="bluetooth_avc_available_description">Perangkat Bluetooth tersambung mendukung Sinkronisasi volume media dan tingkat volume yang diatur perangkat Bluetooth akan disinkronkan dengan ponsel.</string>
     <string name="bluetooth_enter_pin_msg">Masukkan PIN untuk dipasangkan dengan %s (Coba 0000 atau 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Jumlah maksimum karakter tercapai.</string>
+    <string name="bluetooth_frp_permission_message">Tidak dapat menggunakan perangkat Bluetooth untuk panggilan ini.</string>
     <string name="settings_menu_done">Selesai</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>

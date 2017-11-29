@@ -957,6 +957,7 @@ Enter the code you get from Verizon:"</string>
     <string name="bluetooth_avc_available_description">Η συνδεδεμένη συσκευή Bluetooth υποστηρίζει τη λειτουργία «Συγχρονισμός έντασης πολυμέσων» και το επίπεδο έντασης που καθορίστηκε από τη συσκευή Bluetooth θα συγχρονιστεί με το τηλέφωνό σας.</string>
     <string name="bluetooth_enter_pin_msg">Πληκτρολογήστε το PIN για τη δημιουργία ζεύγους με %s. (Δοκιμάστε 0000 ή 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Συμπληρώθηκε ο μέγιστος αριθμός χαρακτήρων.</string>
+    <string name="bluetooth_frp_permission_message">Δεν είναι δυνατή η χρήση της συσκευής Bluetooth για αυτήν την κλήση.</string>
     <string name="settings_menu_done">Τέλος</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>

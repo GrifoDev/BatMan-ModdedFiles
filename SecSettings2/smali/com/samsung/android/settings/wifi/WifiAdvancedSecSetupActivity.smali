@@ -327,13 +327,13 @@
 .method private refreshWifiInfo()V
     .locals 13
 
-    const v12, 0x7f0b15a0
+    const v12, 0x7f0b15a1
 
-    const v11, 0x7f0b149e
+    const v11, 0x7f0b149f
 
-    const v9, 0x7f0b149d
+    const v9, 0x7f0b149e
 
-    const v10, 0x7f0b0e24
+    const v10, 0x7f0b0e25
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/wifi/WifiAdvancedSecSetupActivity;->getActivity()Landroid/app/Activity;
 
@@ -752,7 +752,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/wifi/WifiAdvancedSecSetupActivity;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0b055a
+    const v5, 0x7f0b055b
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -773,7 +773,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/wifi/WifiAdvancedSecSetupActivity;->mContext:Landroid/content/Context;
 
-    const v5, 0x7f0b055b
+    const v5, 0x7f0b055c
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1038,13 +1038,13 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b0e66
+    const v1, 0x7f0b0e67
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     move-result-object v0
 
-    const v1, 0x7f0b0e67
+    const v1, 0x7f0b0e68
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -1189,7 +1189,7 @@
     :catch_0
     move-exception v2
 
-    const v5, 0x7f0b1438
+    const v5, 0x7f0b1439
 
     invoke-static {v1, v5, v8}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 

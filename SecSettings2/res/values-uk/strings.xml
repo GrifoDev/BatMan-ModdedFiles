@@ -960,6 +960,7 @@ Wi-Fi та Bluetooth також буде вимкнено, але їх можн�
     <string name="bluetooth_avc_available_description">Підключений пристрій Bluetooth підтримує функцію синхронізації гучності звуку. Гучність, установлену на пристрої Bluetooth, буде синхронізовано з телефоном.</string>
     <string name="bluetooth_enter_pin_msg">Введіть PIN-код, щоб утворити пару з %s (спробуйте 0000 або 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Досягнуто максимальної кількості символів.</string>
+    <string name="bluetooth_frp_permission_message">Неможливо використати пристрій Bluetooth під час цього виклику.</string>
     <string name="settings_menu_done">Готово</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>

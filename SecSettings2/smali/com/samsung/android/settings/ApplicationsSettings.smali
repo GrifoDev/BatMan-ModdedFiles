@@ -453,27 +453,27 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/ApplicationsSettings;->mAppManager:Landroid/preference/PreferenceScreen;
 
+    const v1, 0x7f0205ba
+
+    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->setIcon(I)V
+
+    sget-object v0, Lcom/samsung/android/settings/ApplicationsSettings;->mAppPermission:Landroid/preference/PreferenceScreen;
+
+    invoke-virtual {v0, v2}, Landroid/preference/PreferenceScreen;->setLayoutResource(I)V
+
+    sget-object v0, Lcom/samsung/android/settings/ApplicationsSettings;->mAppPermission:Landroid/preference/PreferenceScreen;
+
+    const v1, 0x7f0205bb
+
+    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->setIcon(I)V
+
+    iget-object v0, p0, Lcom/samsung/android/settings/ApplicationsSettings;->mAppLauncher:Landroid/preference/PreferenceScreen;
+
+    invoke-virtual {v0, v2}, Landroid/preference/PreferenceScreen;->setLayoutResource(I)V
+
+    iget-object v0, p0, Lcom/samsung/android/settings/ApplicationsSettings;->mAppLauncher:Landroid/preference/PreferenceScreen;
+
     const v1, 0x7f0205bc
-
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->setIcon(I)V
-
-    sget-object v0, Lcom/samsung/android/settings/ApplicationsSettings;->mAppPermission:Landroid/preference/PreferenceScreen;
-
-    invoke-virtual {v0, v2}, Landroid/preference/PreferenceScreen;->setLayoutResource(I)V
-
-    sget-object v0, Lcom/samsung/android/settings/ApplicationsSettings;->mAppPermission:Landroid/preference/PreferenceScreen;
-
-    const v1, 0x7f0205bd
-
-    invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->setIcon(I)V
-
-    iget-object v0, p0, Lcom/samsung/android/settings/ApplicationsSettings;->mAppLauncher:Landroid/preference/PreferenceScreen;
-
-    invoke-virtual {v0, v2}, Landroid/preference/PreferenceScreen;->setLayoutResource(I)V
-
-    iget-object v0, p0, Lcom/samsung/android/settings/ApplicationsSettings;->mAppLauncher:Landroid/preference/PreferenceScreen;
-
-    const v1, 0x7f0205be
 
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->setIcon(I)V
 

@@ -485,9 +485,9 @@
 .method private addMyDeviceCenterText(Z)V
     .locals 3
 
-    const v0, 0x7f0b0e5c
+    const v0, 0x7f0b0e5d
 
-    const v1, 0x7f0b0e5f
+    const v1, 0x7f0b0e60
 
     const/4 v2, 0x0
 
@@ -665,7 +665,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0ec4
+    const v3, 0x7f0b0ec5
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -1262,7 +1262,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0206c2
+    const v3, 0x7f0206c0
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1297,7 +1297,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0ec5
+    const v2, 0x7f0b0ec6
 
     invoke-virtual {v1, v2}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -1358,7 +1358,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0206c1
+    const v3, 0x7f0206bf
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1493,7 +1493,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0206c4
+    const v2, 0x7f0206c2
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1554,7 +1554,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0206c3
+    const v2, 0x7f0206c1
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -1676,7 +1676,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b0e5d
+    const v8, 0x7f0b0e5e
 
     invoke-static {v7, v8, v9}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -2012,7 +2012,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/p2p/WifiP2pDevicePicker;->mTextToSpeech:Landroid/speech/tts/TextToSpeech;
 
-    const v2, 0x7f0b0e55
+    const v2, 0x7f0b0e56
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/wifi/p2p/WifiP2pDevicePicker;->getString(I)Ljava/lang/String;
 
@@ -2120,7 +2120,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0206c2
+    const v4, 0x7f0206c0
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -2148,7 +2148,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0206c4
+    const v4, 0x7f0206c2
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -2173,7 +2173,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0206c1
+    const v4, 0x7f0206bf
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -2192,7 +2192,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0206c3
+    const v4, 0x7f0206c1
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -2557,7 +2557,7 @@
 
     const/4 v3, 0x0
 
-    const v1, 0x7f0b0e5a
+    const v1, 0x7f0b0e5b
 
     invoke-interface {p1, v3, v2, v3, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -2717,7 +2717,7 @@
 
     move-result-object v1
 
-    const v4, 0x7f0b0ec5
+    const v4, 0x7f0b0ec6
 
     invoke-virtual {v1, v4}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -2743,7 +2743,7 @@
 .method public onCreateView(Landroid/view/LayoutInflater;Landroid/view/ViewGroup;Landroid/os/Bundle;)Landroid/view/View;
     .locals 11
 
-    const v10, 0x7f0b0ec5
+    const v10, 0x7f0b0ec6
 
     const/4 v7, 0x0
 
@@ -4073,7 +4073,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0e5b
+    const v4, 0x7f0b0e5c
 
     invoke-static {v3, v4, v6}, Landroid/widget/Toast;->makeText(Landroid/content/Context;II)Landroid/widget/Toast;
 
@@ -4168,7 +4168,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0ec5
+    const v4, 0x7f0b0ec6
 
     invoke-virtual {v3, v4}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 

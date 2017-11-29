@@ -958,6 +958,7 @@ Die Tonausgabe der 2 verbundenen Geräte kann leichte Unterschiede aufweisen."</
     <string name="bluetooth_avc_available_description">Das verbundene Bluetooth-Gerät unterstützt Medienlautstärkesynchronisierung und die Lautstärke des Bluetooth-Geräts wird mit Ihrem Telefon synchronisiert.</string>
     <string name="bluetooth_enter_pin_msg">PIN eingeben, um mit %s zu koppeln (Versuchen Sie 0000 oder 1234)</string>
     <string name="bluetooth_pin_maximum_number_message">Maximale Anzahl von Zeichen erreicht.</string>
+    <string name="bluetooth_frp_permission_message">Es kann kein Bluetooth-Gerät für diesen Anruf verwendet werden.</string>
     <string name="settings_menu_done">OK</string>
     <string name="usb_tethering_unavailable_subtext_tmo">Keine USB-Verbindung</string>
     <string name="usb_tethering_available_subtext_tmo">USB verbunden, Tethering auswählen</string>

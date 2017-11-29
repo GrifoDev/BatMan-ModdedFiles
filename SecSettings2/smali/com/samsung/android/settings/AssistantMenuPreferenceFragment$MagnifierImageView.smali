@@ -56,14 +56,14 @@
 
     :array_0
     .array-data 4
+        0x7f0203b7
+        0x7f0203b8
         0x7f0203b9
         0x7f0203ba
         0x7f0203bb
         0x7f0203bc
         0x7f0203bd
         0x7f0203be
-        0x7f0203bf
-        0x7f0203c0
     .end array-data
 .end method
 

@@ -329,7 +329,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/GigaLteSettings;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b0e8b
+    const v3, 0x7f0b0e8c
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -337,7 +337,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/GigaLteSettings;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b14ac
+    const v3, 0x7f0b14ad
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1050,7 +1050,7 @@
 
     const/4 v5, 0x0
 
-    const v4, 0x7f0b0d7a
+    const v4, 0x7f0b0d7b
 
     const v3, 0x104000a
 
@@ -1198,7 +1198,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/GigaLteSettings;->mAlertDialog:Landroid/app/AlertDialog$Builder;
 
-    const v1, 0x7f0b0d80
+    const v1, 0x7f0b0d81
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -1237,7 +1237,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/GigaLteSettings;->mAlertDialog:Landroid/app/AlertDialog$Builder;
 
-    const v1, 0x7f0b0d81
+    const v1, 0x7f0b0d82
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -1276,7 +1276,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/GigaLteSettings;->mAlertDialog:Landroid/app/AlertDialog$Builder;
 
-    const v1, 0x7f0b0d82
+    const v1, 0x7f0b0d83
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -1310,7 +1310,7 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    const v1, 0x7f0b0d79
+    const v1, 0x7f0b0d7a
 
     invoke-static {}, Lcom/android/settings/Utils;->isDomesticSKTModel()Z
 
@@ -1318,7 +1318,7 @@
 
     if-eqz v4, :cond_1
 
-    const v1, 0x7f0b0d88
+    const v1, 0x7f0b0d89
 
     :cond_0
     :goto_0
@@ -1350,7 +1350,7 @@
 
     if-eqz v4, :cond_2
 
-    const v1, 0x7f0b0d9e
+    const v1, 0x7f0b0d9f
 
     goto :goto_0
 
@@ -1363,7 +1363,7 @@
 
     if-eqz v4, :cond_3
 
-    const v1, 0x7f0b0da3
+    const v1, 0x7f0b0da4
 
     goto :goto_0
 
@@ -1376,7 +1376,7 @@
 
     if-eqz v4, :cond_0
 
-    const v1, 0x7f0b0da9
+    const v1, 0x7f0b0daa
 
     goto :goto_0
 
@@ -1681,7 +1681,7 @@
 
     iget-object v12, p0, Lcom/samsung/android/settings/GigaLteSettings;->mAlertDialog:Landroid/app/AlertDialog$Builder;
 
-    const v13, 0x7f0b0daa
+    const v13, 0x7f0b0dab
 
     invoke-virtual {v12, v13}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -1715,7 +1715,7 @@
 
     new-array v12, v12, [Ljava/lang/Object;
 
-    const v13, 0x7f0b0db9
+    const v13, 0x7f0b0dba
 
     invoke-virtual {p0, v13}, Lcom/samsung/android/settings/GigaLteSettings;->getString(I)Ljava/lang/String;
 
@@ -1725,7 +1725,7 @@
 
     aput-object v13, v12, v14
 
-    const v13, 0x7f0b0db0
+    const v13, 0x7f0b0db1
 
     invoke-virtual {p0, v13, v12}, Lcom/samsung/android/settings/GigaLteSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -1797,7 +1797,7 @@
 
     iget-object v12, p0, Lcom/samsung/android/settings/GigaLteSettings;->mAlertDialog:Landroid/app/AlertDialog$Builder;
 
-    const v13, 0x7f0b0d7a
+    const v13, 0x7f0b0d7b
 
     invoke-virtual {v12, v13}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -1827,7 +1827,7 @@
 
     if-eqz v12, :cond_4
 
-    const v4, 0x7f0b0d83
+    const v4, 0x7f0b0d84
 
     :goto_2
     iget-object v12, p0, Lcom/samsung/android/settings/GigaLteSettings;->mAlertDialog:Landroid/app/AlertDialog$Builder;
@@ -1882,7 +1882,7 @@
     return-void
 
     :cond_4
-    const v4, 0x7f0b0d84
+    const v4, 0x7f0b0d85
 
     goto :goto_2
 
@@ -1913,17 +1913,17 @@
 
     if-eqz v12, :cond_6
 
-    const v4, 0x7f0b0d85
-
-    goto :goto_2
-
-    :cond_6
     const v4, 0x7f0b0d86
 
     goto :goto_2
 
+    :cond_6
+    const v4, 0x7f0b0d87
+
+    goto :goto_2
+
     :cond_7
-    const v4, 0x7f0b0d7e
+    const v4, 0x7f0b0d7f
 
     goto :goto_2
 
@@ -1978,7 +1978,7 @@
 
     iget-object v12, p0, Lcom/samsung/android/settings/GigaLteSettings;->mAlertDialog:Landroid/app/AlertDialog$Builder;
 
-    const v13, 0x7f0b0d7a
+    const v13, 0x7f0b0d7b
 
     invoke-virtual {v12, v13}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -1988,7 +1988,7 @@
 
     if-eqz v12, :cond_d
 
-    const v12, 0x7f0b0d7c
+    const v12, 0x7f0b0d7d
 
     invoke-virtual {p0, v12}, Lcom/samsung/android/settings/GigaLteSettings;->getString(I)Ljava/lang/String;
 
@@ -2009,7 +2009,7 @@
 
     invoke-direct {v13, p0}, Lcom/samsung/android/settings/GigaLteSettings$8;-><init>(Lcom/samsung/android/settings/GigaLteSettings;)V
 
-    const v14, 0x7f0b0dca
+    const v14, 0x7f0b0dcb
 
     invoke-virtual {v12, v14, v13}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -2048,7 +2048,7 @@
 
     iget-object v12, p0, Lcom/samsung/android/settings/GigaLteSettings;->mAlertDialog:Landroid/app/AlertDialog$Builder;
 
-    const v13, 0x7f0b0d7a
+    const v13, 0x7f0b0d7b
 
     invoke-virtual {v12, v13}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -2058,7 +2058,7 @@
 
     if-eqz v12, :cond_c
 
-    const v12, 0x7f0b0d7b
+    const v12, 0x7f0b0d7c
 
     invoke-virtual {p0, v12}, Lcom/samsung/android/settings/GigaLteSettings;->getString(I)Ljava/lang/String;
 
@@ -2079,7 +2079,7 @@
 
     invoke-direct {v13, p0}, Lcom/samsung/android/settings/GigaLteSettings$6;-><init>(Lcom/samsung/android/settings/GigaLteSettings;)V
 
-    const v14, 0x7f0b0dcc
+    const v14, 0x7f0b0dcd
 
     invoke-virtual {v12, v14, v13}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -2108,7 +2108,7 @@
     :cond_c
     iget-object v12, p0, Lcom/samsung/android/settings/GigaLteSettings;->mAlertDialog:Landroid/app/AlertDialog$Builder;
 
-    const v13, 0x7f0b0d7b
+    const v13, 0x7f0b0d7c
 
     invoke-virtual {v12, v13}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -2117,7 +2117,7 @@
     :cond_d
     iget-object v12, p0, Lcom/samsung/android/settings/GigaLteSettings;->mAlertDialog:Landroid/app/AlertDialog$Builder;
 
-    const v13, 0x7f0b0d7c
+    const v13, 0x7f0b0d7d
 
     invoke-virtual {v12, v13}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -2146,7 +2146,7 @@
 
     iget-object v12, p0, Lcom/samsung/android/settings/GigaLteSettings;->mAlertDialog:Landroid/app/AlertDialog$Builder;
 
-    const v13, 0x7f0b0d7a
+    const v13, 0x7f0b0d7b
 
     invoke-virtual {v12, v13}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -2156,7 +2156,7 @@
 
     if-eqz v12, :cond_f
 
-    const v12, 0x7f0b0d7d
+    const v12, 0x7f0b0d7e
 
     invoke-virtual {p0, v12}, Lcom/samsung/android/settings/GigaLteSettings;->getString(I)Ljava/lang/String;
 
@@ -2177,7 +2177,7 @@
 
     invoke-direct {v13, p0}, Lcom/samsung/android/settings/GigaLteSettings$10;-><init>(Lcom/samsung/android/settings/GigaLteSettings;)V
 
-    const v14, 0x7f0b0dcb
+    const v14, 0x7f0b0dcc
 
     invoke-virtual {v12, v14, v13}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -2206,7 +2206,7 @@
     :cond_f
     iget-object v12, p0, Lcom/samsung/android/settings/GigaLteSettings;->mAlertDialog:Landroid/app/AlertDialog$Builder;
 
-    const v13, 0x7f0b0d7d
+    const v13, 0x7f0b0d7e
 
     invoke-virtual {v12, v13}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -2217,7 +2217,7 @@
 
     new-array v12, v12, [Ljava/lang/Object;
 
-    const v13, 0x7f0b0db9
+    const v13, 0x7f0b0dba
 
     invoke-virtual {p0, v13}, Lcom/samsung/android/settings/GigaLteSettings;->getString(I)Ljava/lang/String;
 
@@ -2227,7 +2227,7 @@
 
     aput-object v13, v12, v14
 
-    const v13, 0x7f0b0e8b
+    const v13, 0x7f0b0e8c
 
     invoke-virtual {p0, v13}, Lcom/samsung/android/settings/GigaLteSettings;->getString(I)Ljava/lang/String;
 
@@ -2237,7 +2237,7 @@
 
     aput-object v13, v12, v14
 
-    const v13, 0x7f0b0db1
+    const v13, 0x7f0b0db2
 
     invoke-virtual {p0, v13, v12}, Lcom/samsung/android/settings/GigaLteSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2276,7 +2276,7 @@
 
     new-array v12, v12, [Ljava/lang/Object;
 
-    const v13, 0x7f0b0db9
+    const v13, 0x7f0b0dba
 
     invoke-virtual {p0, v13}, Lcom/samsung/android/settings/GigaLteSettings;->getString(I)Ljava/lang/String;
 
@@ -2286,7 +2286,7 @@
 
     aput-object v13, v12, v14
 
-    const v13, 0x7f0b0db2
+    const v13, 0x7f0b0db3
 
     invoke-virtual {p0, v13, v12}, Lcom/samsung/android/settings/GigaLteSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2299,7 +2299,7 @@
 
     new-array v12, v12, [Ljava/lang/Object;
 
-    const v13, 0x7f0b0db9
+    const v13, 0x7f0b0dba
 
     invoke-virtual {p0, v13}, Lcom/samsung/android/settings/GigaLteSettings;->getString(I)Ljava/lang/String;
 
@@ -2309,7 +2309,7 @@
 
     aput-object v13, v12, v14
 
-    const v13, 0x7f0b0e8b
+    const v13, 0x7f0b0e8c
 
     invoke-virtual {p0, v13}, Lcom/samsung/android/settings/GigaLteSettings;->getString(I)Ljava/lang/String;
 
@@ -2319,7 +2319,7 @@
 
     aput-object v13, v12, v14
 
-    const v13, 0x7f0b0db3
+    const v13, 0x7f0b0db4
 
     invoke-virtual {p0, v13, v12}, Lcom/samsung/android/settings/GigaLteSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2332,7 +2332,7 @@
 
     new-array v12, v12, [Ljava/lang/Object;
 
-    const v13, 0x7f0b0db9
+    const v13, 0x7f0b0dba
 
     invoke-virtual {p0, v13}, Lcom/samsung/android/settings/GigaLteSettings;->getString(I)Ljava/lang/String;
 
@@ -2342,7 +2342,7 @@
 
     aput-object v13, v12, v14
 
-    const v13, 0x7f0b0dae
+    const v13, 0x7f0b0daf
 
     invoke-virtual {p0, v13, v12}, Lcom/samsung/android/settings/GigaLteSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2394,7 +2394,7 @@
 
     iget-object v12, p0, Lcom/samsung/android/settings/GigaLteSettings;->mAlertDialog:Landroid/app/AlertDialog$Builder;
 
-    const v13, 0x7f0b0daa
+    const v13, 0x7f0b0dab
 
     invoke-virtual {v12, v13}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -2402,7 +2402,7 @@
 
     new-array v12, v12, [Ljava/lang/Object;
 
-    const v13, 0x7f0b0e8b
+    const v13, 0x7f0b0e8c
 
     invoke-virtual {p0, v13}, Lcom/samsung/android/settings/GigaLteSettings;->getString(I)Ljava/lang/String;
 
@@ -2412,7 +2412,7 @@
 
     aput-object v13, v12, v14
 
-    const v13, 0x7f0b0dac
+    const v13, 0x7f0b0dad
 
     invoke-virtual {p0, v13, v12}, Lcom/samsung/android/settings/GigaLteSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2428,7 +2428,7 @@
 
     invoke-direct {v13, p0}, Lcom/samsung/android/settings/GigaLteSettings$16;-><init>(Lcom/samsung/android/settings/GigaLteSettings;)V
 
-    const v14, 0x7f0b0dca
+    const v14, 0x7f0b0dcb
 
     invoke-virtual {v12, v14, v13}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -2467,7 +2467,7 @@
 
     iget-object v12, p0, Lcom/samsung/android/settings/GigaLteSettings;->mAlertDialog:Landroid/app/AlertDialog$Builder;
 
-    const v13, 0x7f0b0daa
+    const v13, 0x7f0b0dab
 
     invoke-virtual {v12, v13}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -2475,7 +2475,7 @@
 
     new-array v12, v12, [Ljava/lang/Object;
 
-    const v13, 0x7f0b0e8b
+    const v13, 0x7f0b0e8c
 
     invoke-virtual {p0, v13}, Lcom/samsung/android/settings/GigaLteSettings;->getString(I)Ljava/lang/String;
 
@@ -2485,7 +2485,7 @@
 
     aput-object v13, v12, v14
 
-    const v13, 0x7f0b0dab
+    const v13, 0x7f0b0dac
 
     invoke-virtual {p0, v13, v12}, Lcom/samsung/android/settings/GigaLteSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2501,7 +2501,7 @@
 
     invoke-direct {v13, p0}, Lcom/samsung/android/settings/GigaLteSettings$14;-><init>(Lcom/samsung/android/settings/GigaLteSettings;)V
 
-    const v14, 0x7f0b0dcc
+    const v14, 0x7f0b0dcd
 
     invoke-virtual {v12, v14, v13}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -2550,7 +2550,7 @@
 
     iget-object v12, p0, Lcom/samsung/android/settings/GigaLteSettings;->mAlertDialog:Landroid/app/AlertDialog$Builder;
 
-    const v13, 0x7f0b0daa
+    const v13, 0x7f0b0dab
 
     invoke-virtual {v12, v13}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -2558,7 +2558,7 @@
 
     new-array v12, v12, [Ljava/lang/Object;
 
-    const v13, 0x7f0b0e8b
+    const v13, 0x7f0b0e8c
 
     invoke-virtual {p0, v13}, Lcom/samsung/android/settings/GigaLteSettings;->getString(I)Ljava/lang/String;
 
@@ -2568,7 +2568,7 @@
 
     aput-object v13, v12, v14
 
-    const v13, 0x7f0b0dad
+    const v13, 0x7f0b0dae
 
     invoke-virtual {p0, v13, v12}, Lcom/samsung/android/settings/GigaLteSettings;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -2584,7 +2584,7 @@
 
     invoke-direct {v13, p0}, Lcom/samsung/android/settings/GigaLteSettings$18;-><init>(Lcom/samsung/android/settings/GigaLteSettings;)V
 
-    const v14, 0x7f0b0dcb
+    const v14, 0x7f0b0dcc
 
     invoke-virtual {v12, v14, v13}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -2631,7 +2631,7 @@
 
     iget-object v12, p0, Lcom/samsung/android/settings/GigaLteSettings;->mAlertDialog:Landroid/app/AlertDialog$Builder;
 
-    const v13, 0x7f0b0d87
+    const v13, 0x7f0b0d88
 
     invoke-virtual {v12, v13}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -2643,7 +2643,7 @@
 
     iget-object v12, p0, Lcom/samsung/android/settings/GigaLteSettings;->mAlertDialog:Landroid/app/AlertDialog$Builder;
 
-    const v13, 0x7f0b0d89
+    const v13, 0x7f0b0d8a
 
     invoke-virtual {v12, v13}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -2679,7 +2679,7 @@
 
     iget-object v12, p0, Lcom/samsung/android/settings/GigaLteSettings;->mAlertDialog:Landroid/app/AlertDialog$Builder;
 
-    const v13, 0x7f0b0d8a
+    const v13, 0x7f0b0d8b
 
     invoke-virtual {v12, v13}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -2721,7 +2721,7 @@
     :cond_1b
     iget-object v12, p0, Lcom/samsung/android/settings/GigaLteSettings;->mAlertDialog:Landroid/app/AlertDialog$Builder;
 
-    const v13, 0x7f0b0d8b
+    const v13, 0x7f0b0d8c
 
     invoke-virtual {v12, v13}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -2762,7 +2762,7 @@
 
     iget-object v12, p0, Lcom/samsung/android/settings/GigaLteSettings;->mAlertDialog:Landroid/app/AlertDialog$Builder;
 
-    const v13, 0x7f0b0d8c
+    const v13, 0x7f0b0d8d
 
     invoke-virtual {v12, v13}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -2817,7 +2817,7 @@
 
     iget-object v12, p0, Lcom/samsung/android/settings/GigaLteSettings;->mAlertDialog:Landroid/app/AlertDialog$Builder;
 
-    const v13, 0x7f0b0d8e
+    const v13, 0x7f0b0d8f
 
     invoke-virtual {v12, v13}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -2852,7 +2852,7 @@
     :cond_1e
     iget-object v12, p0, Lcom/samsung/android/settings/GigaLteSettings;->mAlertDialog:Landroid/app/AlertDialog$Builder;
 
-    const v13, 0x7f0b0d8f
+    const v13, 0x7f0b0d90
 
     invoke-virtual {v12, v13}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -2954,17 +2954,17 @@
 
     if-eqz v12, :cond_24
 
-    const v7, 0x7f0b0cb0
+    const v7, 0x7f0b0cb1
 
-    const v5, 0x7f0b0cb1
+    const v5, 0x7f0b0cb2
 
-    const v9, 0x7f0b0d9d
+    const v9, 0x7f0b0d9e
 
-    const v6, 0x7f0b0d9f
+    const v6, 0x7f0b0da0
 
-    const v11, 0x7f0b0da0
+    const v11, 0x7f0b0da1
 
-    const v3, 0x7f0b0da1
+    const v3, 0x7f0b0da2
 
     :goto_9
     new-instance v12, Landroid/app/AlertDialog$Builder;
@@ -3054,17 +3054,17 @@
     goto :goto_8
 
     :cond_24
-    const v7, 0x7f0b1bd9
+    const v7, 0x7f0b1bda
 
-    const v5, 0x7f0b1bda
+    const v5, 0x7f0b1bdb
 
-    const v9, 0x7f0b0da2
+    const v9, 0x7f0b0da3
 
-    const v6, 0x7f0b0da4
+    const v6, 0x7f0b0da5
 
-    const v11, 0x7f0b0da5
+    const v11, 0x7f0b0da6
 
-    const v3, 0x7f0b0da7
+    const v3, 0x7f0b0da8
 
     goto :goto_9
 
@@ -3195,7 +3195,7 @@
     :cond_29
     iget-object v12, p0, Lcom/samsung/android/settings/GigaLteSettings;->mAlertDialog:Landroid/app/AlertDialog$Builder;
 
-    const v13, 0x7f0b0da6
+    const v13, 0x7f0b0da7
 
     invoke-virtual {v12, v13}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -3261,7 +3261,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/GigaLteSettings;->progressDialog:Landroid/app/ProgressDialog;
 
-    const v1, 0x7f0b1239
+    const v1, 0x7f0b123a
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/GigaLteSettings;->getText(I)Ljava/lang/CharSequence;
 

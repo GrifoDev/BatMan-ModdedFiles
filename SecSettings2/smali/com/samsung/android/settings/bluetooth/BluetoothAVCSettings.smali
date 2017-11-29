@@ -410,7 +410,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b04b6
+    const v1, 0x7f0b04b7
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/bluetooth/BluetoothAVCSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -422,7 +422,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b04c4
+    const v1, 0x7f0b04c5
 
     invoke-virtual {p0, v1}, Lcom/samsung/android/settings/bluetooth/BluetoothAVCSettings;->getText(I)Ljava/lang/CharSequence;
 

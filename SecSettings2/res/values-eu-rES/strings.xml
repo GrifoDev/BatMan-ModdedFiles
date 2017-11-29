@@ -957,6 +957,7 @@ Konektatutako bi gailuen audio irteeren artean alde txiki bat egon daiteke."</st
     <string name="bluetooth_avc_available_description">Konektatutako Bluetooth gailuak Multimedia edukiaren bolumena sinkronizatzeko gaitasuna du, eta Bluetooth gailuak ezarritako bolumen maila telefonoarekin sinkronizatuko da.</string>
     <string name="bluetooth_enter_pin_msg">Idatzi PINa %s-erekin parekatzeko (saiatu 0000 edo 1234 erabilita)</string>
     <string name="bluetooth_pin_maximum_number_message">Gehieneko karaktere kopurura iritsi zara.</string>
+    <string name="bluetooth_frp_permission_message">Ezin da erabili Bluetooth gailua dei honetan.</string>
     <string name="settings_menu_done">Amaituta</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>

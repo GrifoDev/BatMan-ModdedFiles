@@ -253,7 +253,7 @@
 
     iput-boolean v0, p0, Lcom/samsung/android/settings/face/FaceEntry;->mIsWaitingResult:Z
 
-    const v0, 0x7f0b1337
+    const v0, 0x7f0b1338
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/face/FaceEntry;->getString(I)Ljava/lang/String;
 
@@ -330,7 +330,7 @@
 
     aput-object v6, v5, v7
 
-    const v6, 0x7f0b0777
+    const v6, 0x7f0b0778
 
     invoke-virtual {v4, v6, v5}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -342,7 +342,7 @@
 
     invoke-direct {v4, v5}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v5, 0x7f0b076e
+    const v5, 0x7f0b076f
 
     invoke-virtual {v4, v5}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -380,7 +380,7 @@
     :cond_0
     const-string/jumbo v4, "FcstFaceEntry"
 
-    const v5, 0x7f0b0912
+    const v5, 0x7f0b0913
 
     invoke-static {p0, v5, v4}, Lcom/android/settings/Utils;->isNotAvailableBiometricsWithDexAndMultiWindow(Landroid/app/Activity;ILjava/lang/String;)Z
 
@@ -516,7 +516,7 @@
 .method private showSensorErrorDialog(I)V
     .locals 4
 
-    const v1, 0x7f0b0771
+    const v1, 0x7f0b0772
 
     if-ne p1, v1, :cond_0
 
@@ -532,7 +532,7 @@
 
     if-eqz v1, :cond_0
 
-    const p1, 0x7f0b0772
+    const p1, 0x7f0b0773
 
     :cond_0
     new-instance v1, Landroid/app/AlertDialog$Builder;
@@ -541,7 +541,7 @@
 
     invoke-direct {v1, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b076e
+    const v2, 0x7f0b076f
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -579,7 +579,7 @@
 .method private startFragment(Landroid/content/Context;)V
     .locals 14
 
-    const v5, 0x7f0b0912
+    const v5, 0x7f0b0913
 
     const/4 v4, 0x0
 
@@ -1002,7 +1002,7 @@
 
     invoke-static {v2, v3}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v2, 0x7f0b091a
+    const v2, 0x7f0b091b
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/face/FaceEntry;->getString(I)Ljava/lang/String;
 
@@ -1010,7 +1010,7 @@
 
     new-array v3, v6, [Ljava/lang/Object;
 
-    const v4, 0x7f0b0912
+    const v4, 0x7f0b0913
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/face/FaceEntry;->getString(I)Ljava/lang/String;
 
@@ -1040,7 +1040,7 @@
 
     invoke-static {v2, v3}, Landroid/util/secutil/Log;->d(Ljava/lang/String;Ljava/lang/String;)I
 
-    const v2, 0x7f0b0800
+    const v2, 0x7f0b0801
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/face/FaceEntry;->getString(I)Ljava/lang/String;
 
@@ -1261,7 +1261,7 @@
 
     if-nez v2, :cond_7
 
-    const v2, 0x7f0b0774
+    const v2, 0x7f0b0775
 
     invoke-direct {p0, v2}, Lcom/samsung/android/settings/face/FaceEntry;->showSensorErrorDialog(I)V
 

@@ -215,7 +215,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/multisound/AudioDeviceType;->mContext:Landroid/content/Context;
 
-    const v6, 0x7f0b1bb1
+    const v6, 0x7f0b1bb2
 
     invoke-virtual {v5, v6}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -265,7 +265,7 @@
     :cond_4
     iget-object v5, p0, Lcom/samsung/android/settings/multisound/AudioDeviceType;->mBluetoothDevice:Lcom/samsung/android/settings/notification/RadioPreference;
 
-    const v6, 0x7f0b0ba4
+    const v6, 0x7f0b0ba5
 
     invoke-virtual {v5, v6}, Lcom/samsung/android/settings/notification/RadioPreference;->setSummary(I)V
 

@@ -153,7 +153,7 @@
 .method initswitchBtn()V
     .locals 8
 
-    const v7, 0x7f020698
+    const v7, 0x7f020696
 
     const/4 v3, 0x0
 
@@ -221,7 +221,7 @@
 
     check-cast v2, Landroid/widget/LinearLayout;
 
-    const v5, 0x7f020125
+    const v5, 0x7f020123
 
     invoke-virtual {v2, v5}, Landroid/widget/LinearLayout;->setBackgroundResource(I)V
 
@@ -268,7 +268,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/display/ScreenResolutionSettings;->mSaveButton:Landroid/widget/Button;
 
-    const v6, 0x7f0b04cc
+    const v6, 0x7f0b04cd
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/display/ScreenResolutionSettings;->getString(I)Ljava/lang/String;
 

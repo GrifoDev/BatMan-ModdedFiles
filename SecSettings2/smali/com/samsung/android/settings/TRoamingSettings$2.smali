@@ -32,7 +32,9 @@
 
 # virtual methods
 .method public onChange(Z)V
-    .locals 4
+    .locals 5
+
+    const/4 v4, 0x1
 
     const/4 v3, 0x0
 
@@ -84,7 +86,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_0
+    if-nez v0, :cond_1
 
     iget-object v0, p0, Lcom/samsung/android/settings/TRoamingSettings$2;->this$0:Lcom/samsung/android/settings/TRoamingSettings;
 
@@ -112,19 +114,48 @@
 
     invoke-static {v0, v1, v3}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
+    :cond_0
     :goto_0
     return-void
 
-    :cond_0
+    :cond_1
     iget-object v0, p0, Lcom/samsung/android/settings/TRoamingSettings$2;->this$0:Lcom/samsung/android/settings/TRoamingSettings;
 
     invoke-static {v0}, Lcom/samsung/android/settings/TRoamingSettings;->-get3(Lcom/samsung/android/settings/TRoamingSettings;)Landroid/preference/SwitchPreference;
 
     move-result-object v0
 
-    const/4 v1, 0x1
+    invoke-virtual {v0, v4}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
 
-    invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+    invoke-static {}, Lcom/android/settings/Utils;->isDomesticKTTModel()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    const-string/jumbo v0, "TRoamingSettings"
+
+    const-string/jumbo v1, "KKK KT auto set HD voice"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/samsung/android/settings/TRoamingSettings$2;->this$0:Lcom/samsung/android/settings/TRoamingSettings;
+
+    invoke-static {v0}, Lcom/samsung/android/settings/TRoamingSettings;->-get3(Lcom/samsung/android/settings/TRoamingSettings;)Landroid/preference/SwitchPreference;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v4}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+
+    iget-object v0, p0, Lcom/samsung/android/settings/TRoamingSettings$2;->this$0:Lcom/samsung/android/settings/TRoamingSettings;
+
+    invoke-virtual {v0}, Lcom/samsung/android/settings/TRoamingSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "hd_voice_roaming_enabled"
+
+    invoke-static {v0, v1, v4}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     goto :goto_0
 .end method

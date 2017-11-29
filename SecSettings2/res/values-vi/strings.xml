@@ -957,6 +957,7 @@ Có thể có chút khác biệt giữa âm thanh phát ra từ 2 thiết bị �
     <string name="bluetooth_avc_available_description">Thiết bị Bluetooth được kết nối hỗ trợ Đồng bộ âm lượng media và mức âm lượng được thiết lập bởi thiết bị Bluetooth sẽ đồng bộ với điện thoại của bạn.</string>
     <string name="bluetooth_enter_pin_msg">Nhập mã PIN để ghép đôi với %s (thử 0000 hoặc 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Đã đạt số ký tự tối đa.</string>
+    <string name="bluetooth_frp_permission_message">Không thể sử dụng thiết bị Bluetooth cho cuộc gọi này.</string>
     <string name="settings_menu_done">Hoàn tất</string>
     <string name="usb_tethering_unavailable_subtext_tmo">Chưa kết nối USB</string>
     <string name="usb_tethering_available_subtext_tmo">Đã kết nối USB, hãy chọn để chia sẻ kết nối internet</string>

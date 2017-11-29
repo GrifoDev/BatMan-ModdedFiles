@@ -160,6 +160,8 @@
     <uses-permission android:name="com.samsung.android.app.ledcover.LAUNCH"/>
     <uses-permission android:name="com.samsung.permission.SIMHOTSWAP"/>
     <uses-permission android:name="com.samsung.android.unifiedwfc.VOWIFI_PROVISIONING_PERMISSION"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.ACCOUNT_MANAGER"/>
     <application android:allowBackup="false" android:defaultToDeviceProtectedStorage="true" android:directBootAware="true" android:hardwareAccelerated="@bool/hardwareAccelerated" android:icon="@mipmap/ic_launcher_settings" android:label="@string/settings_label" android:largeHeap="true" android:name="com.samsung.android.settings.SettingsApplication" android:requiredForAllUsers="true" android:supportsRtl="true" android:taskAffinity="" android:theme="@style/Theme.Settings" android:usesCleartextTraffic="true">
         <meta-data android:name="com.samsung.android.icon_container.has_icon_container" android:value="true"/>
         <meta-data android:name="settings_apk_name" android:value="SecSettings2"/>

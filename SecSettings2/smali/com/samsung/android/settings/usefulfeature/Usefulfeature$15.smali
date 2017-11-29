@@ -34,7 +34,7 @@
 .method public onChange(Z)V
     .locals 5
 
-    const v1, 0x7f0b04b8
+    const v1, 0x7f0b04b9
 
     iget-object v2, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$15;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
 
@@ -93,7 +93,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1bd9
+    const v2, 0x7f0b1bda
 
     invoke-virtual {v1, v2}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
 
@@ -132,7 +132,7 @@
 
     if-eqz v3, :cond_5
 
-    const v1, 0x7f0b04b9
+    const v1, 0x7f0b04ba
 
     goto :goto_2
 
@@ -143,7 +143,7 @@
 
     if-eqz v3, :cond_3
 
-    const v1, 0x7f0b04ba
+    const v1, 0x7f0b04bb
 
     goto :goto_2
 .end method

@@ -1631,7 +1631,7 @@
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/settings/PrivacySettings;->mConfigure:Landroid/preference/PreferenceScreen;
 
-    const v1, 0x7f0b1931
+    const v1, 0x7f0b1932
 
     invoke-virtual {v0, v1}, Landroid/preference/PreferenceScreen;->setSummary(I)V
 
@@ -1730,7 +1730,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1934
+    const v2, 0x7f0b1935
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1753,7 +1753,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1932
+    const v2, 0x7f0b1933
 
     invoke-virtual {v1, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -1788,7 +1788,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1933
+    const v2, 0x7f0b1934
 
     invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getText(I)Ljava/lang/CharSequence;
 
@@ -1829,7 +1829,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/PrivacySettings;->mSamsungAutoClean:Lcom/android/settings/SecSettingsSwitchPreference;
 
-    const v1, 0x7f0b1bd9
+    const v1, 0x7f0b1bda
 
     invoke-virtual {v0, v1}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
 
@@ -2190,7 +2190,7 @@
 
     if-eqz v1, :cond_9
 
-    const v13, 0x7f0b1bd9
+    const v13, 0x7f0b1bda
 
     :goto_8
     invoke-virtual {v14, v13}, Lcom/android/settings/SecSettingsSwitchPreference;->setSummary(I)V
@@ -2213,7 +2213,7 @@
     goto/16 :goto_3
 
     :cond_9
-    const v13, 0x7f0b1bda
+    const v13, 0x7f0b1bdb
 
     goto :goto_8
 
@@ -2323,7 +2323,7 @@
 .method protected getHelpResource()I
     .locals 1
 
-    const v0, 0x7f0b1aa9
+    const v0, 0x7f0b1aaa
 
     return v0
 .end method
@@ -2373,7 +2373,7 @@
 
     invoke-direct {v2}, Landroid/os/Bundle;-><init>()V
 
-    const v3, 0x7f0b1647
+    const v3, 0x7f0b1648
 
     move-object v5, v4
 
@@ -2551,7 +2551,7 @@
 
     if-eqz v4, :cond_1
 
-    const v23, 0x7f0b04c8
+    const v23, 0x7f0b04c9
 
     move/from16 v0, v23
 
@@ -2725,7 +2725,7 @@
 
     if-eqz v23, :cond_9
 
-    const v23, 0x7f0b0cae
+    const v23, 0x7f0b0caf
 
     :goto_0
     move-object/from16 v0, v16
@@ -2961,7 +2961,7 @@
 
     move-object/from16 v23, v0
 
-    const v24, 0x7f0b0db4
+    const v24, 0x7f0b0db5
 
     move-object/from16 v0, p0
 
@@ -3180,7 +3180,7 @@
     goto :goto_3
 
     :cond_9
-    const v23, 0x7f0b0cad
+    const v23, 0x7f0b0cae
 
     goto/16 :goto_0
 
@@ -3304,7 +3304,7 @@
 
     if-eqz v4, :cond_f
 
-    const v23, 0x7f0b0c5c
+    const v23, 0x7f0b0c5d
 
     move/from16 v0, v23
 

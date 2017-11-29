@@ -958,6 +958,7 @@ Tengdu tækin tvö kunna að skila örlítið mismunandi hljóðúttaki."</strin
     <string name="bluetooth_avc_available_description">Tengda Bluetooth-tækið styður samstillingu hljóðstyrks efnisspilunar og hljóðstyrkur Bluetooth-tækisins verður samstilltur við símann þinn.</string>
     <string name="bluetooth_enter_pin_msg">Sláðu inn PIN-númer til að para við %s (prófaðu 0000 eða 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Hámarksfjölda stafa hefur verið náð.</string>
+    <string name="bluetooth_frp_permission_message">Ekki er hægt að nota Bluetooth-tæki í þessu símtali.</string>
     <string name="settings_menu_done">Lokið</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>

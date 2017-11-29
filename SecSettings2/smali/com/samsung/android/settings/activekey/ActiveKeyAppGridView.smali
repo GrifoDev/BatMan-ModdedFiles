@@ -586,7 +586,7 @@
 
     move-result-object v5
 
-    const v11, 0x7f0206fa
+    const v11, 0x7f0206f8
 
     invoke-virtual {v5, v11}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -925,7 +925,7 @@
     goto/16 :goto_0
 
     :cond_2
-    const v3, 0x7f0b09c5
+    const v3, 0x7f0b09c6
 
     invoke-virtual {v0, v3}, Landroid/widget/TextView;->setText(I)V
 

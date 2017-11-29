@@ -957,6 +957,7 @@ Bluetooth設定に移動すると、後からこの設定を変更すること�
     <string name="bluetooth_avc_available_description">接続されたBluetoothデバイスは[メディア音量の同期]に対応しているため、Bluetoothデバイスで設定された音量レベルを端末と同期します。</string>
     <string name="bluetooth_enter_pin_msg">%sとペアリングするためのPIN(0000または1234)を入力してください。</string>
     <string name="bluetooth_pin_maximum_number_message">最大文字数に達しました。</string>
+    <string name="bluetooth_frp_permission_message">この通話でBluetoothデバイスを使用することはできません。</string>
     <string name="settings_menu_done">完了</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB未接続</string>
     <string name="usb_tethering_available_subtext_tmo">USB接続中、テザリング可能</string>

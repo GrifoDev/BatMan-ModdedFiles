@@ -956,6 +956,7 @@
     <string name="bluetooth_avc_available_description">若連接的藍牙裝置支援媒體音量同步，將與您的手機同步藍牙裝置設定的音量。</string>
     <string name="bluetooth_enter_pin_msg">輸入與%s密碼配對（試用 0000 或 1234）。</string>
     <string name="bluetooth_pin_maximum_number_message">已達字元數量上限。</string>
+    <string name="bluetooth_frp_permission_message">無法對此通話使用藍牙裝置。</string>
     <string name="settings_menu_done">完成</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB 未連接</string>
     <string name="usb_tethering_available_subtext_tmo">已連接 USB，檢查以共享</string>

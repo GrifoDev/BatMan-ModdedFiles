@@ -266,7 +266,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/safetycare/ReportDiagnosticinfo;->mLearnMoreImage:Landroid/widget/ImageView;
 
-    const v2, 0x7f02051b
+    const v2, 0x7f020519
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -279,7 +279,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/safetycare/ReportDiagnosticinfo;->mLearnMoreImage:Landroid/widget/ImageView;
 
-    const v2, 0x7f02051a
+    const v2, 0x7f020518
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -320,7 +320,7 @@
 
     iget-object v12, v0, Lcom/samsung/android/settings/safetycare/ReportDiagnosticinfo;->mAlertParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    const v19, 0x7f0b059a
+    const v19, 0x7f0b059b
 
     move-object/from16 v0, p0
 
@@ -474,7 +474,7 @@
 
     new-instance v6, Landroid/text/SpannableString;
 
-    const v19, 0x7f0b04cf
+    const v19, 0x7f0b04d0
 
     move-object/from16 v0, p0
 
@@ -544,7 +544,7 @@
 
     move-object/from16 v19, v0
 
-    const v20, 0x7f02051a
+    const v20, 0x7f020518
 
     invoke-virtual/range {v19 .. v20}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -807,7 +807,7 @@
 
     move-object/from16 v19, v0
 
-    const v20, 0x7f0b059c
+    const v20, 0x7f0b059d
 
     move-object/from16 v0, p0
 
@@ -980,7 +980,7 @@
 
     move-object/from16 v19, v0
 
-    const v20, 0x7f0b059d
+    const v20, 0x7f0b059e
 
     move-object/from16 v0, p0
 

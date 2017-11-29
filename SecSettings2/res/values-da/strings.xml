@@ -958,6 +958,7 @@ De 2 forbundne enheder kan have en lille forskel i lydoutputtet."</string>
     <string name="bluetooth_avc_available_description">Den tilsluttede Bluetooth-enhed understøtter Medielydstyrkesynkronisering, og den lydstyrke, der er indstillet af Bluetooth-enheden, vil blive synkroniseret med din telefon.</string>
     <string name="bluetooth_enter_pin_msg">Angiv PIN-kode for at parre med %s (Prøv 0000 eller 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Det maksimale antal tegn er nået.</string>
+    <string name="bluetooth_frp_permission_message">Det er ikke muligt at bruge Bluetooth-enheden til dette opkald.</string>
     <string name="settings_menu_done">Udført</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>

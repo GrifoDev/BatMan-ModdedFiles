@@ -1296,7 +1296,7 @@
 
     if-eqz v3, :cond_4
 
-    const v9, 0x7f02014c
+    const v9, 0x7f02014a
 
     :goto_1
     new-instance v3, Lcom/android/settings/dashboard/SecSearchResultsSummary$SearchResult;
@@ -1811,7 +1811,7 @@
 
     if-eqz v18, :cond_a
 
-    const v18, 0x7f0205dd
+    const v18, 0x7f0205db
 
     move/from16 v0, v18
 
@@ -1834,7 +1834,7 @@
 
     move/from16 v18, v0
 
-    const v19, 0x7f02014c
+    const v19, 0x7f02014a
 
     move/from16 v0, v18
 
@@ -2112,7 +2112,7 @@
 
     invoke-virtual {v8, v0}, Landroid/widget/ImageView;->setImageDrawable(Landroid/graphics/drawable/Drawable;)V
 
-    const v18, 0x7f02014c
+    const v18, 0x7f02014a
 
     move/from16 v0, v18
 

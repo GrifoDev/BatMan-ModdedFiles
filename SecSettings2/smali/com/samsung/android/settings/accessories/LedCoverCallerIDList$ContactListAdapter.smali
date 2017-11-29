@@ -177,7 +177,7 @@
 
     iget-object v3, v0, Lcom/samsung/android/settings/accessories/LedCoverCallerIDList$ViewHolder;->icon:Landroid/widget/ImageView;
 
-    const v4, 0x7f020296
+    const v4, 0x7f020294
 
     invoke-virtual {v3, v4}, Landroid/widget/ImageView;->setImageResource(I)V
 

@@ -1887,7 +1887,7 @@
 
     iget v3, p0, Lcom/samsung/android/settings/accessibility/directionlock/ChooseLockDirection;->mHelpBitmapHeight:I
 
-    const v4, 0x7f02013e
+    const v4, 0x7f02013c
 
     invoke-virtual {v0, v1, v4, v2, v3}, Lcom/samsung/android/settings/accessibility/directionlock/DirectionLockSettingsHelper;->getBitmapFromResource(Landroid/content/res/Resources;III)Landroid/graphics/Bitmap;
 
@@ -1909,7 +1909,7 @@
 
     iget v3, p0, Lcom/samsung/android/settings/accessibility/directionlock/ChooseLockDirection;->STEP_CIRCLE_SIZE:I
 
-    const v4, 0x7f02013f
+    const v4, 0x7f02013d
 
     invoke-virtual {v0, v1, v4, v2, v3}, Lcom/samsung/android/settings/accessibility/directionlock/DirectionLockSettingsHelper;->getBitmapFromResource(Landroid/content/res/Resources;III)Landroid/graphics/Bitmap;
 
@@ -1931,7 +1931,7 @@
 
     iget v3, p0, Lcom/samsung/android/settings/accessibility/directionlock/ChooseLockDirection;->STEP_CIRCLE_SIZE:I
 
-    const v4, 0x7f020142
+    const v4, 0x7f020140
 
     invoke-virtual {v0, v1, v4, v2, v3}, Lcom/samsung/android/settings/accessibility/directionlock/DirectionLockSettingsHelper;->getBitmapFromResource(Landroid/content/res/Resources;III)Landroid/graphics/Bitmap;
 
@@ -1953,7 +1953,7 @@
 
     iget v3, p0, Lcom/samsung/android/settings/accessibility/directionlock/ChooseLockDirection;->STEP_CIRCLE_SIZE:I
 
-    const v4, 0x7f020140
+    const v4, 0x7f02013e
 
     invoke-virtual {v0, v1, v4, v2, v3}, Lcom/samsung/android/settings/accessibility/directionlock/DirectionLockSettingsHelper;->getBitmapFromResource(Landroid/content/res/Resources;III)Landroid/graphics/Bitmap;
 
@@ -1975,7 +1975,7 @@
 
     iget v3, p0, Lcom/samsung/android/settings/accessibility/directionlock/ChooseLockDirection;->STEP_CIRCLE_SIZE:I
 
-    const v4, 0x7f020141
+    const v4, 0x7f02013f
 
     invoke-virtual {v0, v1, v4, v2, v3}, Lcom/samsung/android/settings/accessibility/directionlock/DirectionLockSettingsHelper;->getBitmapFromResource(Landroid/content/res/Resources;III)Landroid/graphics/Bitmap;
 
@@ -1988,7 +1988,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0200df
+    const v1, 0x7f0200dd
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -2000,7 +2000,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0200de
+    const v1, 0x7f0200dc
 
     invoke-virtual {v0, v1}, Landroid/content/res/Resources;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 
@@ -2211,7 +2211,7 @@
 
     iget v3, p0, Lcom/samsung/android/settings/accessibility/directionlock/ChooseLockDirection;->mHelpBitmapHeight:I
 
-    const v4, 0x7f02013e
+    const v4, 0x7f02013c
 
     invoke-virtual {v0, v1, v4, v2, v3}, Lcom/samsung/android/settings/accessibility/directionlock/DirectionLockSettingsHelper;->getBitmapFromResource(Landroid/content/res/Resources;III)Landroid/graphics/Bitmap;
 
@@ -2431,7 +2431,7 @@
 
     aput-object v7, v6, v9
 
-    const v7, 0x7f0b0a6a
+    const v7, 0x7f0b0a6b
 
     invoke-virtual {v5, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

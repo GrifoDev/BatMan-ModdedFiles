@@ -956,6 +956,7 @@ Wi-Fi 與藍牙也將關閉，但您可在設定或快速設定面板中再次�
     <string name="bluetooth_avc_available_description">已連接的藍牙裝置支援媒體音量同步且由藍牙裝置設定的音量將與您的手機同步。</string>
     <string name="bluetooth_enter_pin_msg">輸入密碼與%s配對 (嘗試 0000 或 1234)。</string>
     <string name="bluetooth_pin_maximum_number_message">已達字元數量上限。</string>
+    <string name="bluetooth_frp_permission_message">無法使用藍牙裝置進行此通話。</string>
     <string name="settings_menu_done">完成</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB 未連接</string>
     <string name="usb_tethering_available_subtext_tmo">USB 已連接，請勾選以網絡共享</string>

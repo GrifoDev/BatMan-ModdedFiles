@@ -236,7 +236,7 @@
 
     aput-object v5, v4, v6
 
-    const v5, 0x7f0b0911
+    const v5, 0x7f0b0912
 
     invoke-virtual {v3, v5, v4}, Lcom/samsung/android/settings/iris/IrisPreveiwStyleFragment;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

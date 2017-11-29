@@ -178,7 +178,7 @@
 
     iget-object v1, v1, Lcom/samsung/android/settings/iris/IrisAuthenticateDialog;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0b08fe
+    const v2, 0x7f0b08ff
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

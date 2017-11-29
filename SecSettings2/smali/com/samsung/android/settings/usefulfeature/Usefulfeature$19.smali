@@ -834,7 +834,7 @@
 
     iput-object v14, v1, Lcom/android/settings/search/SearchIndexableRaw;->title:Ljava/lang/String;
 
-    const v14, 0x7f0b047f
+    const v14, 0x7f0b0480
 
     invoke-virtual {v12, v14}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

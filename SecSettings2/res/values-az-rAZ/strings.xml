@@ -956,6 +956,7 @@ Siz bunu daha sonra Bluetooth parametrlərindən dəyişə bilərsiniz."</string
     <string name="bluetooth_avc_available_description">Qoşulan Bluetooth cihazı Media səs sinx dəstəkləyir və Bluetooth cihazı ilə qurulan səs səviyyəsi telefonda sinxronlaşacaq.</string>
     <string name="bluetooth_enter_pin_msg">%s ilə qoşmaq üçün PIN daxil et (0000 və ya 1234 daxil et).</string>
     <string name="bluetooth_pin_maximum_number_message">Simvolların sayı maksimuma çatıb.</string>
+    <string name="bluetooth_frp_permission_message">Bu zəng üçün Bluetooth cihazdan istifadə etmək olmur.</string>
     <string name="settings_menu_done">Yerinə yetirildi</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>

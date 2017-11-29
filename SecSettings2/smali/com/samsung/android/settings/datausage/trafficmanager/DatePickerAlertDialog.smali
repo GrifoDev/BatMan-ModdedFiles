@@ -125,7 +125,7 @@
 
     invoke-virtual {v0, v1}, Landroid/view/Window;->addFlags(I)V
 
-    const v0, 0x7f0b04c5
+    const v0, 0x7f0b04c6
 
     invoke-virtual {v7, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -135,7 +135,7 @@
 
     invoke-virtual {p0, v1, v0, p0}, Lcom/samsung/android/settings/datausage/trafficmanager/DatePickerAlertDialog;->setButton(ILjava/lang/CharSequence;Landroid/content/DialogInterface$OnClickListener;)V
 
-    const v0, 0x7f0b04c4
+    const v0, 0x7f0b04c5
 
     invoke-virtual {v7, v0}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -203,7 +203,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b120f
+    const v5, 0x7f0b1210
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -235,7 +235,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b1210
+    const v5, 0x7f0b1211
 
     invoke-virtual {v4, v5}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -456,7 +456,7 @@
 .method public onDateChanged(Lcom/samsung/android/widget/SemDatePicker;III)V
     .locals 8
 
-    const v7, 0x7f0b120f
+    const v7, 0x7f0b1210
 
     const/4 v6, 0x0
 

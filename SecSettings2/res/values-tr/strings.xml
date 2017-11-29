@@ -957,6 +957,7 @@ Bağlı 2 cihazın ses çıkışında ufak bir farklılık yaşayabilirsiniz."</
     <string name="bluetooth_avc_available_description">Bağlı Bluetooth cihazı, Medya ses düzeyini eşitlemeyi destekliyor ve Bluetooth cihazı tarafından belirlenen ses düzeyi telefonunuzla eşitlenecek.</string>
     <string name="bluetooth_enter_pin_msg">%s ile eşleşme için PIN girin (0000 veya 1234’ü deneyin).</string>
     <string name="bluetooth_pin_maximum_number_message">Maksimum karakter sayısına ulaşıldı.</string>
+    <string name="bluetooth_frp_permission_message">Bu arama için Bluetooth cihazı kullanılamaz.</string>
     <string name="settings_menu_done">Tamamlandı</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>

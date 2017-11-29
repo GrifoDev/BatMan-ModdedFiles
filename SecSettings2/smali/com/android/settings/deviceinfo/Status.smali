@@ -412,7 +412,7 @@
 .method private changeSysScopeStatus()V
     .locals 15
 
-    const v14, 0x7f0b05dd
+    const v14, 0x7f0b05de
 
     const/4 v13, 0x2
 
@@ -464,7 +464,7 @@
 
     aput-object v7, v6, v10
 
-    const v7, 0x7f0b05df
+    const v7, 0x7f0b05e0
 
     invoke-virtual {v3, v7, v6}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -487,7 +487,7 @@
     return-void
 
     :cond_0
-    const v3, 0x7f0b05de
+    const v3, 0x7f0b05df
 
     invoke-virtual {p0, v3}, Lcom/android/settings/deviceinfo/Status;->getString(I)Ljava/lang/String;
 
@@ -521,7 +521,7 @@
 
     aput-object v7, v6, v10
 
-    const v7, 0x7f0b05df
+    const v7, 0x7f0b05e0
 
     invoke-virtual {v3, v7, v6}, Landroid/content/res/Resources;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -542,7 +542,7 @@
 
     invoke-virtual {v3, v10}, Lcom/samsung/android/settings/deviceinfo/AvoidRootPreference;->setAvoidRootVisible(Z)V
 
-    const v3, 0x7f0b05e0
+    const v3, 0x7f0b05e1
 
     invoke-virtual {p0, v3}, Lcom/android/settings/deviceinfo/Status;->getString(I)Ljava/lang/String;
 
@@ -566,7 +566,7 @@
 
     if-ne v3, v13, :cond_6
 
-    const v3, 0x7f0b05de
+    const v3, 0x7f0b05df
 
     invoke-virtual {p0, v3}, Lcom/android/settings/deviceinfo/Status;->getString(I)Ljava/lang/String;
 
@@ -579,7 +579,7 @@
 
     if-ne v3, v12, :cond_7
 
-    const v3, 0x7f0b05e0
+    const v3, 0x7f0b05e1
 
     invoke-virtual {p0, v3}, Lcom/android/settings/deviceinfo/Status;->getString(I)Ljava/lang/String;
 
@@ -1442,7 +1442,7 @@
 .method private setSysScopeStatus()V
     .locals 2
 
-    const v1, 0x7f0b05e0
+    const v1, 0x7f0b05e1
 
     iget-boolean v0, p0, Lcom/android/settings/deviceinfo/Status;->sysscopeForChnRoot:Z
 
@@ -2191,7 +2191,7 @@
 
     iget-object v9, p0, Lcom/android/settings/deviceinfo/Status;->mBatteryLife:Landroid/preference/Preference;
 
-    const v10, 0x7f0b05d9
+    const v10, 0x7f0b05da
 
     invoke-virtual {v9, v10}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -2383,7 +2383,7 @@
 
     iget-object v9, p0, Lcom/android/settings/deviceinfo/Status;->mBatteryLife:Landroid/preference/Preference;
 
-    const v10, 0x7f0b05da
+    const v10, 0x7f0b05db
 
     invoke-virtual {v9, v10}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -2392,7 +2392,7 @@
     :cond_5
     iget-object v9, p0, Lcom/android/settings/deviceinfo/Status;->mBatteryLife:Landroid/preference/Preference;
 
-    const v10, 0x7f0b05db
+    const v10, 0x7f0b05dc
 
     invoke-virtual {v9, v10}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -2934,7 +2934,7 @@
 
     iget-object v2, p0, Lcom/android/settings/deviceinfo/Status;->mRes:Landroid/content/res/Resources;
 
-    const v3, 0x7f0b121e
+    const v3, 0x7f0b121f
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -2944,7 +2944,7 @@
 
     iget-object v2, p0, Lcom/android/settings/deviceinfo/Status;->mRes:Landroid/content/res/Resources;
 
-    const v3, 0x7f0b15a0
+    const v3, 0x7f0b15a1
 
     invoke-virtual {v2, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -3571,7 +3571,7 @@
 
     if-eqz p1, :cond_0
 
-    const v0, 0x7f0b0ea7
+    const v0, 0x7f0b0ea8
 
     :goto_0
     const-string/jumbo v1, "ims_reg"
@@ -3587,19 +3587,19 @@
     return-void
 
     :cond_0
-    const v0, 0x7f0b0ea8
+    const v0, 0x7f0b0ea9
 
     goto :goto_0
 
     :cond_1
     if-eqz p1, :cond_2
 
-    const v0, 0x7f0b05d7
+    const v0, 0x7f0b05d8
 
     goto :goto_0
 
     :cond_2
-    const v0, 0x7f0b05d8
+    const v0, 0x7f0b05d9
 
     goto :goto_0
 .end method

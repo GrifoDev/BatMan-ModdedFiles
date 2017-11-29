@@ -168,7 +168,7 @@
 .method private InitValue()V
     .locals 11
 
-    const v10, 0x7f0b0a0b
+    const v10, 0x7f0b0a0c
 
     const/4 v5, 0x1
 
@@ -265,7 +265,7 @@
 
     move-result-object v7
 
-    const v8, 0x7f0b0cbd
+    const v8, 0x7f0b0cbe
 
     invoke-virtual {v7, v8}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -302,7 +302,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->mDualclock:Lcom/samsung/android/settings/SettingsSwitchPreference;
 
-    const v7, 0x7f0b0a0a
+    const v7, 0x7f0b0a0b
 
     invoke-virtual {v4, v7}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setTitle(I)V
 
@@ -374,7 +374,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->mOwnerInfo:Lcom/samsung/android/settingslib/RestrictedPreference;
 
-    const v5, 0x7f0b0a0f
+    const v5, 0x7f0b0a10
 
     invoke-virtual {v4, v5}, Lcom/samsung/android/settingslib/RestrictedPreference;->setTitle(I)V
 
@@ -455,7 +455,7 @@
 
     if-eqz v4, :cond_10
 
-    const v4, 0x7f0b1bd9
+    const v4, 0x7f0b1bda
 
     :goto_4
     invoke-virtual {v5, v4}, Landroid/preference/PreferenceScreen;->setSummary(I)V
@@ -649,7 +649,7 @@
     goto/16 :goto_3
 
     :cond_10
-    const v4, 0x7f0b1bda
+    const v4, 0x7f0b1bdb
 
     goto/16 :goto_4
 
@@ -1155,14 +1155,14 @@
 
     if-eqz v2, :cond_1
 
-    const v2, 0x7f0b09e8
+    const v2, 0x7f0b09e9
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
     move-result-object v1
 
     :goto_0
-    const v2, 0x7f0b09e5
+    const v2, 0x7f0b09e6
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -1182,7 +1182,7 @@
 
     invoke-direct {v3}, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu$3;-><init>()V
 
-    const v4, 0x7f0b04cd
+    const v4, 0x7f0b04ce
 
     invoke-virtual {v2, v4, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1191,7 +1191,7 @@
     return-void
 
     :cond_1
-    const v2, 0x7f0b09e9
+    const v2, 0x7f0b09ea
 
     invoke-virtual {p0, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -1283,11 +1283,11 @@
 
     move-result v1
 
-    const v2, 0x7f0b0a10
+    const v2, 0x7f0b0a11
 
     if-eqz v1, :cond_3
 
-    const v2, 0x7f0b0a11
+    const v2, 0x7f0b0a12
 
     :cond_3
     iget-object v3, p0, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->mOwnerInfo:Lcom/samsung/android/settingslib/RestrictedPreference;
@@ -1473,7 +1473,7 @@
     :cond_1
     iget-object v2, p0, Lcom/samsung/android/settings/lockscreen/ShowInfomationMenu;->mDualclock:Lcom/samsung/android/settings/SettingsSwitchPreference;
 
-    const v4, 0x7f0b0a0b
+    const v4, 0x7f0b0a0c
 
     invoke-virtual {v2, v4}, Lcom/samsung/android/settings/SettingsSwitchPreference;->setSummary(I)V
 
@@ -1701,7 +1701,7 @@
 
     const-string/jumbo v2, "com.android.settings.WeatherSettings"
 
-    const v3, 0x7f0b09e5
+    const v3, 0x7f0b09e6
 
     const/4 v4, 0x0
 
@@ -1760,11 +1760,11 @@
 
     move-result v13
 
-    const v12, 0x7f0b1326
+    const v12, 0x7f0b1327
 
     if-eqz v13, :cond_b
 
-    const v12, 0x7f0b0a0f
+    const v12, 0x7f0b0a10
 
     :cond_b
     invoke-static {v12}, Lcom/samsung/android/settings/lockscreen/OwnerInfo;->newInstance(I)Lcom/samsung/android/settings/lockscreen/OwnerInfo;

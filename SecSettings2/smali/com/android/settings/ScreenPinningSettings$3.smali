@@ -41,7 +41,7 @@
 
     iget-object v1, p0, Lcom/android/settings/ScreenPinningSettings$3;->this$0:Lcom/android/settings/ScreenPinningSettings;
 
-    const v3, 0x7f0b0a36
+    const v3, 0x7f0b0a37
 
     invoke-virtual {v1, v3}, Lcom/android/settings/ScreenPinningSettings;->getString(I)Ljava/lang/String;
 

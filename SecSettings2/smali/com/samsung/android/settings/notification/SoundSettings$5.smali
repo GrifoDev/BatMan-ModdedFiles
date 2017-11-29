@@ -28,7 +28,7 @@
 .method public isApplicable(Landroid/content/Context;)Z
     .locals 1
 
-    invoke-static {p1}, Lcom/samsung/android/settings/notification/SoundSettings;->-wrap2(Landroid/content/Context;)Z
+    invoke-static {p1}, Lcom/samsung/android/settings/notification/SoundSettings;->-wrap3(Landroid/content/Context;)Z
 
     move-result v0
 

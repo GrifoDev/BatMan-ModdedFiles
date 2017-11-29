@@ -957,6 +957,7 @@ Podes cambiar isto máis tarde nos axustes do Bluetooth."</string>
     <string name="bluetooth_avc_available_description">O dispositivo Bluetooth conectado admite Sincronización do volume multimedia e o nivel de volume definido polo dispositivo Bluetooth sincronizarase co teléfono.</string>
     <string name="bluetooth_enter_pin_msg">Introduce o PIN para vincularte con %s. (Proba con 0000 ou 1234)</string>
     <string name="bluetooth_pin_maximum_number_message">Alcanzouse o número máximo de carácteres.</string>
+    <string name="bluetooth_frp_permission_message">Non se pode usar un dispositivo Bluetooth para esta chamada.</string>
     <string name="settings_menu_done">Finalizado</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>

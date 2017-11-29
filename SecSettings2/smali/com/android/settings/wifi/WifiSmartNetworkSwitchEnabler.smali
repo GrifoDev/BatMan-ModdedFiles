@@ -416,7 +416,7 @@
     :pswitch_1
     iget-object v0, p0, Lcom/android/settings/wifi/WifiSmartNetworkSwitchEnabler;->mSwitchPreferences:Landroid/preference/SwitchPreference;
 
-    const v1, 0x7f0b14ca
+    const v1, 0x7f0b14cb
 
     invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -433,7 +433,7 @@
     :pswitch_2
     iget-object v0, p0, Lcom/android/settings/wifi/WifiSmartNetworkSwitchEnabler;->mSwitchPreferences:Landroid/preference/SwitchPreference;
 
-    const v1, 0x7f0b14cb
+    const v1, 0x7f0b14cc
 
     invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -450,7 +450,7 @@
     :pswitch_3
     iget-object v0, p0, Lcom/android/settings/wifi/WifiSmartNetworkSwitchEnabler;->mSwitchPreferences:Landroid/preference/SwitchPreference;
 
-    const v1, 0x7f0b14cc
+    const v1, 0x7f0b14cd
 
     invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -741,7 +741,7 @@
     :cond_1
     iget-object v3, p0, Lcom/android/settings/wifi/WifiSmartNetworkSwitchEnabler;->mSwitchPreferences:Landroid/preference/SwitchPreference;
 
-    const v4, 0x7f0b0e7b
+    const v4, 0x7f0b0e7c
 
     invoke-virtual {v3, v4}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -761,7 +761,7 @@
     :cond_3
     iget-object v3, p0, Lcom/android/settings/wifi/WifiSmartNetworkSwitchEnabler;->mSwitchPreferences:Landroid/preference/SwitchPreference;
 
-    const v4, 0x7f0b0e7c
+    const v4, 0x7f0b0e7d
 
     invoke-virtual {v3, v4}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -770,7 +770,7 @@
     :cond_4
     iget-object v3, p0, Lcom/android/settings/wifi/WifiSmartNetworkSwitchEnabler;->mSwitchPreferences:Landroid/preference/SwitchPreference;
 
-    const v4, 0x7f0b0e7d
+    const v4, 0x7f0b0e7e
 
     invoke-virtual {v3, v4}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -779,7 +779,7 @@
     :cond_5
     iget-object v3, p0, Lcom/android/settings/wifi/WifiSmartNetworkSwitchEnabler;->mSwitchPreferences:Landroid/preference/SwitchPreference;
 
-    const v4, 0x7f0b14af
+    const v4, 0x7f0b14b0
 
     invoke-virtual {v3, v4}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -798,7 +798,7 @@
 
     iget-object v2, p0, Lcom/android/settings/wifi/WifiSmartNetworkSwitchEnabler;->mSwitchPreferences:Landroid/preference/SwitchPreference;
 
-    const v3, 0x7f0b14ad
+    const v3, 0x7f0b14ae
 
     invoke-virtual {v2, v3}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -812,7 +812,7 @@
     :cond_7
     iget-object v2, p0, Lcom/android/settings/wifi/WifiSmartNetworkSwitchEnabler;->mSwitchPreferences:Landroid/preference/SwitchPreference;
 
-    const v3, 0x7f0b14ae
+    const v3, 0x7f0b14af
 
     invoke-virtual {v2, v3}, Landroid/preference/SwitchPreference;->setSummary(I)V
 

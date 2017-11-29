@@ -18,7 +18,6 @@
         Lcom/samsung/android/settings/TRoamingSettings$6;,
         Lcom/samsung/android/settings/TRoamingSettings$7;,
         Lcom/samsung/android/settings/TRoamingSettings$IsNotRoamingFragment;,
-        Lcom/samsung/android/settings/TRoamingSettings$LTERoamingSetFragment;,
         Lcom/samsung/android/settings/TRoamingSettings$NetworkNotAvailableFragment;,
         Lcom/samsung/android/settings/TRoamingSettings$SummaryProvider;
     }
@@ -1065,7 +1064,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0c6a
+    const v2, 0x7f0b0c6b
 
     invoke-virtual {v1, v2}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -1210,7 +1209,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b0c89
+    const v2, 0x7f0b0c8a
 
     invoke-virtual {v1, v2}, Landroid/app/ActionBar;->setTitle(I)V
 
@@ -1454,7 +1453,13 @@
 
     if-eqz v5, :cond_4
 
-    invoke-static {p0}, Lcom/samsung/android/settings/TRoamingSettings$LTERoamingSetFragment;->show(Lcom/samsung/android/settings/TRoamingSettings;)V
+    invoke-virtual {p0}, Lcom/samsung/android/settings/TRoamingSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v3
+
+    const-string/jumbo v5, "lte_roaming_mode_on"
+
+    invoke-static {v3, v5, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
 
     goto :goto_0
 
@@ -1859,11 +1864,11 @@
 
     invoke-direct {v0, v6}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v6, 0x7f0b0c8a
+    const v6, 0x7f0b0c8b
 
     invoke-virtual {v0, v6}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    const v6, 0x7f0b0c8b
+    const v6, 0x7f0b0c8c
 
     invoke-virtual {v0, v6}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -1871,7 +1876,7 @@
 
     invoke-direct {v6, p0}, Lcom/samsung/android/settings/TRoamingSettings$8;-><init>(Lcom/samsung/android/settings/TRoamingSettings;)V
 
-    const v7, 0x7f0b04f2
+    const v7, 0x7f0b04f3
 
     invoke-virtual {v0, v7, v6}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -2086,13 +2091,13 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/TRoamingSettings;->mMobileTRoaming:Landroid/preference/Preference;
 
-    const v3, 0x7f0b1cb5
+    const v3, 0x7f0b1cb6
 
     invoke-virtual {v2, v3}, Landroid/preference/Preference;->setSummary(I)V
 
     iget-object v2, p0, Lcom/samsung/android/settings/TRoamingSettings;->mUseDataRoaming:Lcom/android/settingslib/SecRestrictedSwitchPreference;
 
-    const v3, 0x7f0b10a1
+    const v3, 0x7f0b10a2
 
     invoke-virtual {v2, v3}, Lcom/android/settingslib/SecRestrictedSwitchPreference;->setTitle(I)V
 

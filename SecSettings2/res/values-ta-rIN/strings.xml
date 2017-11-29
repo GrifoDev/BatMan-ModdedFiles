@@ -957,6 +957,7 @@ Wi-Fi மற்றும் ப்ளூடூத் ஆகியவையும
     <string name="bluetooth_avc_available_description">இணைக்கப்பட்ட ப்ளூடூத் சாதனம், ஊடக ஒலியளவு ஒத்திசைவை ஆதரிக்கிறது, மேலும் ப்ளூடூத் சாதனத்தால் அமைக்கப்பட்ட ஒலியளவு நிலை, உங்கள் ஃபோனுடன் ஒத்திசைக்கப்படும்.</string>
     <string name="bluetooth_enter_pin_msg">%s உடன் இணைப்பதற்கு PIN உள்ளிடுக (0000 அல்லது 1234 முயற்சிக்கவும்).</string>
     <string name="bluetooth_pin_maximum_number_message">எழுத்துகளின் அதிகபட்ச எண்ணிக்கை அடையப்பட்டது.</string>
+    <string name="bluetooth_frp_permission_message">இந்த அழைப்பிற்காக ப்ளூடூத் சாதனத்தை பயன்படுத்த இயலாது.</string>
     <string name="settings_menu_done">முடிந்தது</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>

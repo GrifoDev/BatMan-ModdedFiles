@@ -1185,6 +1185,7 @@ The 2 connected devices may experience a slight difference in sound output."</st
     <string name="bt_error_btn_ok">OK</string>
     <string name="bluetooth_move_to_my_place">Copy to My place</string>
     <string name="bluetooth_pin_maximum_number_message">Maximum number of characters reached.</string>
+    <string name="bluetooth_frp_permission_message">"Can't use Bluetooth device for this call."</string>
     <string name="settings_menu_done">Done</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>
@@ -8084,9 +8085,9 @@ To ensure the most up-to-date protection, enable automatic updates by accepting 
     <string name="rom_name">Rom Name</string>
     <string name="rom_name_details">BatMan-Rom</string>
     <string name="rom_ver">Rom Version</string>
-    <string name="rom_ver_details">V1.4.0</string>
+    <string name="rom_ver_details">V1.5.0</string>
     <string name="rom_date">Rom Date</string>
-    <string name="rom_date_details">14.10.17</string>
+    <string name="rom_date_details">01.12.17</string>
     <string name="rom_developer">Rom Developer</string>
     <string name="rom_developer_name">Tkkg1994</string>
     <string name="led_indicator_charging">Charging</string>

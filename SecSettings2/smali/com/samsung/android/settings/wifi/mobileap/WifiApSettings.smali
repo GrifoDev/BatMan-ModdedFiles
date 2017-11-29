@@ -1109,13 +1109,13 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;->mQRCodePreference:Landroid/preference/Preference;
 
-    const v1, 0x7f0b0f63
+    const v1, 0x7f0b0f64
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setTitle(I)V
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;->mQRCodePreference:Landroid/preference/Preference;
 
-    const v1, 0x7f0b0f64
+    const v1, 0x7f0b0f65
 
     invoke-virtual {v0, v1}, Landroid/preference/Preference;->setSummary(I)V
 
@@ -1619,11 +1619,11 @@
 
     invoke-direct {v0, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0b0f35
+    const v3, 0x7f0b0f36
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    const v3, 0x7f0b0f36
+    const v3, 0x7f0b0f37
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -1633,7 +1633,7 @@
 
     invoke-direct {v3, p0, v2}, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings$37;-><init>(Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;Landroid/net/wifi/WifiConfiguration;)V
 
-    const v4, 0x7f0b04c9
+    const v4, 0x7f0b04ca
 
     invoke-virtual {v0, v4, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1641,7 +1641,7 @@
 
     invoke-direct {v3, p0}, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings$38;-><init>(Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;)V
 
-    const v4, 0x7f0b12f0
+    const v4, 0x7f0b12f1
 
     invoke-virtual {v0, v4, v3}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -1801,7 +1801,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;->mContext:Landroid/content/Context;
 
-    const v4, 0x7f0b0ee1
+    const v4, 0x7f0b0ee2
 
     invoke-static {v3, v4}, Lcom/samsung/android/settings/WifiApUtils;->getString(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -3993,7 +3993,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b0f70
+    const v3, 0x7f0b0f71
 
     invoke-static {v2, v3}, Lcom/samsung/android/settings/WifiApUtils;->getString(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -4099,7 +4099,7 @@
     :cond_7
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;->mHowToCategory:Landroid/preference/PreferenceCategory;
 
-    const v2, 0x7f0b1a90
+    const v2, 0x7f0b1a91
 
     invoke-virtual {v1, v2}, Landroid/preference/PreferenceCategory;->setTitle(I)V
 
@@ -4705,7 +4705,7 @@
 .method private showInvalidActionToast()V
     .locals 3
 
-    const v2, 0x7f0b1046
+    const v2, 0x7f0b1047
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;->toast:Landroid/widget/Toast;
 
@@ -4766,13 +4766,13 @@
 
     invoke-direct {v0, v1}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v1, 0x7f0b104b
+    const v1, 0x7f0b104c
 
     invoke-virtual {v0, v1}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
     iget-object v1, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;->mContext:Landroid/content/Context;
 
-    const v2, 0x7f0b102d
+    const v2, 0x7f0b102e
 
     invoke-static {v1, v2}, Lcom/samsung/android/settings/WifiApUtils;->getString(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -4784,7 +4784,7 @@
 
     invoke-direct {v1, p0}, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings$32;-><init>(Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;)V
 
-    const v2, 0x7f0b173a
+    const v2, 0x7f0b173b
 
     invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -4792,7 +4792,7 @@
 
     invoke-direct {v1, p0}, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings$33;-><init>(Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;)V
 
-    const v2, 0x7f0b173b
+    const v2, 0x7f0b173c
 
     invoke-virtual {v0, v2, v1}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -5287,7 +5287,7 @@
 
     if-eqz v3, :cond_a
 
-    const v3, 0x7f0b0f6b
+    const v3, 0x7f0b0f6c
 
     move-object/from16 v0, p0
 
@@ -5613,7 +5613,7 @@
 
     invoke-direct {v0, v3}, Landroid/preference/Preference;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0b0f75
+    const v3, 0x7f0b0f76
 
     move-object/from16 v0, v25
 
@@ -5748,7 +5748,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;->mAllowedMenuItem:Landroid/view/MenuItem;
 
-    const v5, 0x7f0201ab
+    const v5, 0x7f0201a9
 
     invoke-interface {v2, v5}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -5848,7 +5848,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;->mConfigureMenuItem:Landroid/view/MenuItem;
 
-    const v3, 0x7f02045b
+    const v3, 0x7f020459
 
     invoke-interface {v2, v3}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -6166,7 +6166,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;->mWifiSharingSwitchPreference:Landroid/preference/SwitchPreference;
 
-    const v1, 0x7f0b0eff
+    const v1, 0x7f0b0f00
 
     invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -6186,7 +6186,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;->mWifiSharingSwitchPreference:Landroid/preference/SwitchPreference;
 
-    const v1, 0x7f0b0f00
+    const v1, 0x7f0b0f01
 
     invoke-virtual {v0, v1}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -6282,7 +6282,7 @@
 
     invoke-direct {v0, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b1048
+    const v2, 0x7f0b1049
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -6294,7 +6294,7 @@
 
     invoke-direct {v2, p0}, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings$26;-><init>(Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;)V
 
-    const v3, 0x7f0b04cd
+    const v3, 0x7f0b04ce
 
     invoke-virtual {v0, v3, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -6302,7 +6302,7 @@
 
     invoke-direct {v2, p0}, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings$27;-><init>(Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;)V
 
-    const v3, 0x7f0b12f0
+    const v3, 0x7f0b12f1
 
     invoke-virtual {v0, v3, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -6332,7 +6332,7 @@
 
     invoke-direct {v0, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b1047
+    const v2, 0x7f0b1048
 
     invoke-virtual {v0, v2}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -6344,7 +6344,7 @@
 
     invoke-direct {v2, p0}, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings$29;-><init>(Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;)V
 
-    const v3, 0x7f0b04cd
+    const v3, 0x7f0b04ce
 
     invoke-virtual {v0, v3, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -6352,7 +6352,7 @@
 
     invoke-direct {v2, p0}, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings$30;-><init>(Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;)V
 
-    const v3, 0x7f0b12f0
+    const v3, 0x7f0b12f1
 
     invoke-virtual {v0, v3, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -6555,11 +6555,11 @@
 
     invoke-direct {v0, v3}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v3, 0x7f0b0f35
+    const v3, 0x7f0b0f36
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
-    const v3, 0x7f0b0f36
+    const v3, 0x7f0b0f37
 
     invoke-virtual {v0, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -6569,7 +6569,7 @@
 
     invoke-direct {v3, p0, v2}, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings$40;-><init>(Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;Landroid/net/wifi/WifiConfiguration;)V
 
-    const v4, 0x7f0b04c9
+    const v4, 0x7f0b04ca
 
     invoke-virtual {v0, v4, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -6577,7 +6577,7 @@
 
     invoke-direct {v3, p0}, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings$41;-><init>(Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;)V
 
-    const v4, 0x7f0b12f0
+    const v4, 0x7f0b12f1
 
     invoke-virtual {v0, v4, v3}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -6821,7 +6821,7 @@
 
     move-result-object v5
 
-    const v8, 0x7f020591
+    const v8, 0x7f02058f
 
     invoke-virtual {v5, v8}, Landroid/app/ActionBar;->setIcon(I)V
 
@@ -6999,7 +6999,7 @@
 
     move-result-object v5
 
-    const v8, 0x7f0b0fb7
+    const v8, 0x7f0b0fb8
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -7041,7 +7041,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;->mPasswordPreference:Landroid/preference/Preference;
 
-    const v8, 0x7f0b1473
+    const v8, 0x7f0b1474
 
     invoke-virtual {p0, v8}, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;->getText(I)Ljava/lang/CharSequence;
 
@@ -7287,7 +7287,7 @@
 
     if-eqz v5, :cond_1e
 
-    const v5, 0x7f0b0eff
+    const v5, 0x7f0b0f00
 
     :goto_4
     invoke-virtual {v6, v5}, Landroid/preference/SwitchPreference;->setSummary(I)V
@@ -7468,7 +7468,7 @@
     goto/16 :goto_3
 
     :cond_1e
-    const v5, 0x7f0b0f00
+    const v5, 0x7f0b0f01
 
     goto/16 :goto_4
 
@@ -8365,7 +8365,7 @@
 
     invoke-direct {v0, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b0f47
+    const v2, 0x7f0b0f48
 
     move-object/from16 v0, v21
 
@@ -8395,7 +8395,7 @@
 
     invoke-direct {v3, v0}, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings$16;-><init>(Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;)V
 
-    const v4, 0x7f0b12f0
+    const v4, 0x7f0b12f1
 
     invoke-virtual {v2, v4, v3}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -8431,7 +8431,7 @@
 
     iget-object v2, v0, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;->mContext:Landroid/content/Context;
 
-    const v3, 0x7f0b0f5a
+    const v3, 0x7f0b0f5b
 
     invoke-static {v2, v3}, Lcom/samsung/android/settings/WifiApUtils;->getString(Landroid/content/Context;I)Ljava/lang/String;
 
@@ -8535,7 +8535,7 @@
 
     invoke-direct {v2, v0}, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings$17;-><init>(Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;)V
 
-    const v3, 0x7f0b04c9
+    const v3, 0x7f0b04ca
 
     invoke-virtual {v9, v3, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -8545,7 +8545,7 @@
 
     invoke-direct {v2, v0}, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings$18;-><init>(Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;)V
 
-    const v3, 0x7f0b12f0
+    const v3, 0x7f0b12f1
 
     invoke-virtual {v9, v3, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -8596,7 +8596,7 @@
 
     invoke-direct {v11, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b12a1
+    const v2, 0x7f0b12a2
 
     invoke-virtual {v11, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -8614,7 +8614,7 @@
 
     invoke-direct {v2, v0, v1}, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings$19;-><init>(Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;Landroid/widget/CheckBox;)V
 
-    const v3, 0x7f0b173a
+    const v3, 0x7f0b173b
 
     invoke-virtual {v11, v3, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -8880,7 +8880,7 @@
 
     invoke-direct {v10, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b0eec
+    const v2, 0x7f0b0eed
 
     invoke-virtual {v10, v2}, Landroid/app/AlertDialog$Builder;->setTitle(I)Landroid/app/AlertDialog$Builder;
 
@@ -8892,7 +8892,7 @@
 
     invoke-direct {v2, v0}, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings$20;-><init>(Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;)V
 
-    const v3, 0x7f0b1492
+    const v3, 0x7f0b1493
 
     invoke-virtual {v10, v3, v2}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -8902,7 +8902,7 @@
 
     invoke-direct {v2, v0}, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings$21;-><init>(Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;)V
 
-    const v3, 0x7f0b1494
+    const v3, 0x7f0b1495
 
     invoke-virtual {v10, v3, v2}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -8991,7 +8991,7 @@
 
     invoke-direct {v0, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b0efe
+    const v2, 0x7f0b0eff
 
     move-object/from16 v0, v25
 
@@ -8999,7 +8999,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0eed
+    const v3, 0x7f0b0eee
 
     invoke-virtual {v2, v3}, Landroid/app/AlertDialog$Builder;->setMessage(I)Landroid/app/AlertDialog$Builder;
 
@@ -9011,7 +9011,7 @@
 
     invoke-direct {v3, v0}, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings$22;-><init>(Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;)V
 
-    const v4, 0x7f0b12f0
+    const v4, 0x7f0b12f1
 
     invoke-virtual {v2, v4, v3}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -9023,7 +9023,7 @@
 
     invoke-direct {v3, v0, v12}, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings$23;-><init>(Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;Landroid/content/ContentResolver;)V
 
-    const v4, 0x7f0b04cd
+    const v4, 0x7f0b04ce
 
     invoke-virtual {v2, v4, v3}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -9100,7 +9100,7 @@
 
     invoke-direct {v0, v2}, Landroid/app/AlertDialog$Builder;-><init>(Landroid/content/Context;)V
 
-    const v2, 0x7f0b0ef0
+    const v2, 0x7f0b0ef1
 
     move-object/from16 v0, v25
 
@@ -9128,7 +9128,7 @@
 
     invoke-direct {v3, v0}, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings$25;-><init>(Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;)V
 
-    const v4, 0x7f0b12f0
+    const v4, 0x7f0b12f1
 
     invoke-virtual {v2, v4, v3}, Landroid/app/AlertDialog$Builder;->setNegativeButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 
@@ -9216,7 +9216,7 @@
 
     const/4 v6, 0x0
 
-    const v4, 0x7f0b0f48
+    const v4, 0x7f0b0f49
 
     invoke-interface {p1, v6, v5, v6, v4}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -9224,7 +9224,7 @@
 
     iput-object v4, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;->mAllowedMenuItem:Landroid/view/MenuItem;
 
-    const v4, 0x7f0b0f46
+    const v4, 0x7f0b0f47
 
     invoke-static {v4}, Lcom/samsung/android/settings/WifiApUtils;->getStringID(I)I
 
@@ -9248,7 +9248,7 @@
 
     const/4 v4, 0x6
 
-    const v7, 0x7f0b1441
+    const v7, 0x7f0b1442
 
     invoke-interface {p1, v6, v4, v6, v7}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -9258,7 +9258,7 @@
 
     iget-object v4, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;->mWpsSwitch:Landroid/view/MenuItem;
 
-    const v7, 0x7f0201a6
+    const v7, 0x7f0201a4
 
     invoke-interface {v4, v7}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -9290,7 +9290,7 @@
 
     const/4 v4, 0x7
 
-    const v7, 0x7f0b0fb6
+    const v7, 0x7f0b0fb7
 
     invoke-interface {p1, v6, v4, v6, v7}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -9350,7 +9350,7 @@
 
     if-nez v4, :cond_4
 
-    const v0, 0x7f0b0ef0
+    const v0, 0x7f0b0ef1
 
     const-string/jumbo v4, "VZW"
 
@@ -9368,7 +9368,7 @@
 
     if-eqz v4, :cond_b
 
-    const v0, 0x7f0b0ef2
+    const v0, 0x7f0b0ef3
 
     :cond_3
     :goto_3
@@ -9461,13 +9461,13 @@
 
     if-nez v4, :cond_2
 
-    const v4, 0x7f0b0f47
+    const v4, 0x7f0b0f48
 
     invoke-interface {p1, v6, v9, v6, v4}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v2
 
-    const v4, 0x7f02045d
+    const v4, 0x7f02045b
 
     invoke-interface {v2, v4}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -9476,20 +9476,20 @@
     goto/16 :goto_2
 
     :cond_b
-    const v0, 0x7f0b0ef1
+    const v0, 0x7f0b0ef2
 
     goto :goto_3
 
     :cond_c
     const/4 v4, 0x5
 
-    const v7, 0x7f0b04d1
+    const v7, 0x7f0b04d2
 
     invoke-interface {p1, v6, v4, v6, v7}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
     move-result-object v1
 
-    const v4, 0x7f0201fe
+    const v4, 0x7f0201fc
 
     invoke-interface {v1, v4}, Landroid/view/MenuItem;->setIcon(I)Landroid/view/MenuItem;
 
@@ -9768,7 +9768,7 @@
 
     const/4 v2, 0x0
 
-    const v3, 0x7f0b0f48
+    const v3, 0x7f0b0f49
 
     const/4 v4, 0x0
 
@@ -9844,7 +9844,7 @@
 
     const/4 v2, 0x0
 
-    const v3, 0x7f0b0f87
+    const v3, 0x7f0b0f88
 
     const/4 v4, 0x0
 
@@ -9874,7 +9874,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b0f87
+    const v3, 0x7f0b0f88
 
     const/4 v4, -0x1
 
@@ -10290,7 +10290,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/wifi/mobileap/WifiApSettings;->mWifiSharingSwitchPreference:Landroid/preference/SwitchPreference;
 
-    const v3, 0x7f0b0f00
+    const v3, 0x7f0b0f01
 
     invoke-virtual {v2, v3}, Landroid/preference/SwitchPreference;->setSummary(I)V
 
@@ -10972,7 +10972,7 @@
 .method public showQrCodeGenerated()V
     .locals 10
 
-    const v3, 0x7f0b0f63
+    const v3, 0x7f0b0f64
 
     const/4 v2, 0x0
 

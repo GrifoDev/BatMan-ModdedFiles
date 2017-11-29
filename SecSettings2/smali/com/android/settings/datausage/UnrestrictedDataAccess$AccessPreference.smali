@@ -120,7 +120,7 @@
 
     if-eqz v0, :cond_1
 
-    const v0, 0x7f0b1d13
+    const v0, 0x7f0b1d14
 
     invoke-virtual {p0, v0}, Lcom/android/settings/datausage/UnrestrictedDataAccess$AccessPreference;->setSummary(I)V
 
@@ -244,7 +244,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0b1c07
+    const v2, 0x7f0b1c08
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 

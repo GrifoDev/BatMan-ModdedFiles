@@ -32,7 +32,7 @@
     return v0
 
     :cond_0
-    const v0, 0x7f0b1ca4
+    const v0, 0x7f0b1ca5
 
     return v0
 .end method
@@ -57,7 +57,7 @@
     return v0
 
     :cond_0
-    const v0, 0x7f0b1cae
+    const v0, 0x7f0b1caf
 
     return v0
 .end method

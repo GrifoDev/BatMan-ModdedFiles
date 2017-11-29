@@ -88,7 +88,7 @@
 
     aput-object v7, v6, v8
 
-    const v7, 0x7f0b1837
+    const v7, 0x7f0b1838
 
     invoke-virtual {v5, v7, v6}, Landroid/content/Context;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 
@@ -126,7 +126,7 @@
 
     if-ge v0, v9, :cond_2
 
-    const v6, 0x7f020639
+    const v6, 0x7f020637
 
     invoke-virtual {v4, v6}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 
@@ -222,7 +222,7 @@
 
     if-ge v3, v4, :cond_1
 
-    const v3, 0x7f020639
+    const v3, 0x7f020637
 
     invoke-virtual {v1, v3}, Landroid/widget/ImageView;->setBackgroundResource(I)V
 

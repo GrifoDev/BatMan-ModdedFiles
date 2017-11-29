@@ -958,6 +958,7 @@ Ljudet som spelas upp av de två anslutna enheterna kan skilja sig en aning."</s
     <string name="bluetooth_avc_available_description">Den anslutna Bluetooth-enheten stöder Medievolymsynkning och volymenheten som har ställts in av Bluetooth-enheten synkroniseras med din telefon.</string>
     <string name="bluetooth_enter_pin_msg">Ange PIN-kod för att sammankoppla med %s (försök med 0000 eller 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Högsta antal tecken har uppnåtts.</string>
+    <string name="bluetooth_frp_permission_message">Det går inte att använda en Bluetooth-enhet för detta samtal.</string>
     <string name="settings_menu_done">Klar</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>

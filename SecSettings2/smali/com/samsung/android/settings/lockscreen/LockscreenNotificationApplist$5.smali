@@ -64,7 +64,7 @@
     :cond_0
     iget-object v0, p0, Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist$5;->this$0:Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist;
 
-    const v1, 0x7f0b1b61
+    const v1, 0x7f0b1b62
 
     invoke-static {v0, v1}, Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist;->-wrap2(Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist;I)I
 
@@ -77,7 +77,7 @@
     :goto_0
     iget-object v0, p0, Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist$5;->this$0:Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist;
 
-    const v1, 0x7f0b1b5f
+    const v1, 0x7f0b1b60
 
     invoke-static {v0, v1}, Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist;->-wrap2(Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist;I)I
 
@@ -221,7 +221,7 @@
     :pswitch_0
     iget-object v0, p0, Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist$5;->this$0:Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist;
 
-    const v1, 0x7f0b1b5f
+    const v1, 0x7f0b1b60
 
     invoke-static {v0, v1}, Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist;->-set0(Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist;I)I
 
@@ -230,7 +230,7 @@
     :pswitch_1
     iget-object v0, p0, Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist$5;->this$0:Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist;
 
-    const v1, 0x7f0b1b60
+    const v1, 0x7f0b1b61
 
     invoke-static {v0, v1}, Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist;->-set0(Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist;I)I
 
@@ -239,7 +239,7 @@
     :pswitch_2
     iget-object v0, p0, Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist$5;->this$0:Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist;
 
-    const v1, 0x7f0b1b61
+    const v1, 0x7f0b1b62
 
     invoke-static {v0, v1}, Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist;->-set0(Lcom/samsung/android/settings/lockscreen/LockscreenNotificationApplist;I)I
 

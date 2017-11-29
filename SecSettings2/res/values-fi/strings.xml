@@ -957,6 +957,7 @@ Kaksi yhdistettyä laitetta voivat toistaa äänen hieman eri tavalla."</string>
     <string name="bluetooth_avc_available_description">Yhdistetty Bluetooth-laite tukee Mediasisältöjen äänenvoimakkuuden synkronointi -toimintoa, ja Bluetooth-laitteen asettama äänenvoimakkuustaso synkronoidaan puhelimen kanssa.</string>
     <string name="bluetooth_enter_pin_msg">Muodosta pariliitos laitteen %s kanssa antamalla PIN-koodi (esim. 0000 tai 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">Merkkien enimmäismäärä on saavutettu.</string>
+    <string name="bluetooth_frp_permission_message">Tähän puheluun ei voi käyttää Bluetooth-laitetta.</string>
     <string name="settings_menu_done">Valmis</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>

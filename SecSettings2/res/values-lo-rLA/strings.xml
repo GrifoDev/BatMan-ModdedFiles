@@ -956,6 +956,7 @@ Enter the code you get from Verizon:"</string>
     <string name="bluetooth_avc_available_description">ຖ້າອຸປະກອນບລູທູດທີ່ຖືກເຊື່ອມຕໍ່ຮອງຮັບການຊິງຄ໌ລະດັບສຽງມີເດຍ ແລະລະດັບສຽງທີ່ຖືກຕັ້ງໂດຍອຸປະກອນບລູທູດຈະຊິງຄ໌ກັບໂທລະສັບຂອງທ່ານ.</string>
     <string name="bluetooth_enter_pin_msg">ໃສ່ລະຫັດ PIN ເພື່ອຈັບຄູ່ກັບ %s (ລອງ 0000 ຫຼື 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">ຮອດຈໍານວນຕົວອັກສອນສູງສຸດແລ້ວ.</string>
+    <string name="bluetooth_frp_permission_message">ບໍ່ສາມາດໃຊ້ອຸປະກອນບລູທູດສຳລັບການໂທນີ້.</string>
     <string name="settings_menu_done">ສຳ​ເລັດ</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>

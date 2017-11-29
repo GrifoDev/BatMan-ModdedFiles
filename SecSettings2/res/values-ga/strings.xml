@@ -828,6 +828,7 @@ Is féidir go mbeidh difríocht bheag idir an 2 ghléas nasctha maidir le haschu
     <string name="bluetooth_avc_available_description">"Tá tacú sa ghléas Bluetooth atá nasctha do Shioncronú airde meán agus déanfar an leibhéal airde arna shocrú ag an ngléas Bluetooth a shioncronú le d'fhón."</string>
     <string name="bluetooth_enter_pin_msg">Iontráil PIN le péireáil le %s (Triail 0000 nó 1234)</string>
     <string name="bluetooth_pin_maximum_number_message">Uaslíon na gcarachtar bainte amach.</string>
+    <string name="bluetooth_frp_permission_message">Ní féidir an gléas Bluetooth a úsáid don ghlao seo.</string>
     <string name="settings_menu_done">Déanta</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>

@@ -1528,7 +1528,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/notification/VolumeSettings;->mRingOrNotificationPreference:Lcom/android/settings/notification/SecVolumeSeekBarPreference;
 
-    const v4, 0x7f0b1511
+    const v4, 0x7f0b1512
 
     invoke-virtual {p0, v4}, Lcom/samsung/android/settings/notification/VolumeSettings;->getString(I)Ljava/lang/String;
 
@@ -1647,7 +1647,7 @@
 
     const/4 v0, 0x1
 
-    const v1, 0x7f0b0b8c
+    const v1, 0x7f0b0b8d
 
     invoke-interface {p1, v2, v0, v2, v1}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1684,7 +1684,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b0b8c
+    const v3, 0x7f0b0b8d
 
     move-object v4, v2
 
@@ -1705,6 +1705,8 @@
 .method public onPause()V
     .locals 2
 
+    const/4 v1, 0x0
+
     invoke-super {p0}, Lcom/samsung/android/settings/SecSettingsPreferenceFragment;->onPause()V
 
     iget-object v0, p0, Lcom/samsung/android/settings/notification/VolumeSettings;->mVolumeCallback:Lcom/samsung/android/settings/notification/VolumeSettings$VolumePreferenceCallback;
@@ -1713,9 +1715,11 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/notification/VolumeSettings;->mReceiver:Lcom/samsung/android/settings/notification/VolumeSettings$Receiver;
 
-    const/4 v1, 0x0
-
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/notification/VolumeSettings$Receiver;->register(Z)V
+
+    iget-object v0, p0, Lcom/samsung/android/settings/notification/VolumeSettings;->mBixbyMsgHandler:Landroid/os/Handler;
+
+    invoke-virtual {v0, v1}, Landroid/os/Handler;->removeMessages(I)V
 
     iget-object v0, p0, Lcom/samsung/android/settings/notification/VolumeSettings;->mEmSettingsManager:Lcom/samsung/android/settings/bixby/EmSettingsManager;
 

@@ -58,15 +58,15 @@
 .method private setDescriptions()V
     .locals 9
 
-    const v8, 0x7f0b0ab7
+    const v8, 0x7f0b0ab8
 
-    const v7, 0x7f020414
+    const v7, 0x7f020412
 
-    const v6, 0x7f020413
+    const v6, 0x7f020411
 
-    const v5, 0x7f020412
+    const v5, 0x7f020410
 
-    const v4, 0x7f0b0ab6
+    const v4, 0x7f0b0ab7
 
     new-instance v0, Lcom/samsung/android/settings/usefulfeature/MultiWindowViewPagerAdapter$Description;
 
@@ -160,7 +160,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/usefulfeature/MultiWindowViewPagerAdapter;->context:Landroid/content/Context;
 
-    const v3, 0x7f0b0ab8
+    const v3, 0x7f0b0ab9
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -245,7 +245,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/usefulfeature/MultiWindowViewPagerAdapter;->context:Landroid/content/Context;
 
-    const v4, 0x7f0b0ab8
+    const v4, 0x7f0b0ab9
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -263,7 +263,7 @@
 
     iget-object v3, p0, Lcom/samsung/android/settings/usefulfeature/MultiWindowViewPagerAdapter;->context:Landroid/content/Context;
 
-    const v4, 0x7f0b0ab9
+    const v4, 0x7f0b0aba
 
     invoke-virtual {v3, v4}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -337,14 +337,14 @@
 
     if-eqz v2, :cond_7
 
-    const v2, 0x7f02040f
+    const v2, 0x7f02040d
 
     iput v2, v0, Lcom/samsung/android/settings/usefulfeature/MultiWindowViewPagerAdapter$Description;->animation:I
 
     :goto_2
     iget-object v2, p0, Lcom/samsung/android/settings/usefulfeature/MultiWindowViewPagerAdapter;->context:Landroid/content/Context;
 
-    const v3, 0x7f0b0ab2
+    const v3, 0x7f0b0ab3
 
     invoke-virtual {v2, v3}, Landroid/content/Context;->getString(I)Ljava/lang/String;
 
@@ -361,14 +361,14 @@
     :cond_7
     if-eqz v1, :cond_8
 
-    const v2, 0x7f02040c
+    const v2, 0x7f02040a
 
     iput v2, v0, Lcom/samsung/android/settings/usefulfeature/MultiWindowViewPagerAdapter$Description;->animation:I
 
     goto :goto_2
 
     :cond_8
-    const v2, 0x7f020409
+    const v2, 0x7f020407
 
     iput v2, v0, Lcom/samsung/android/settings/usefulfeature/MultiWindowViewPagerAdapter$Description;->animation:I
 

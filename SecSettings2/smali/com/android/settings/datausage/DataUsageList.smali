@@ -1114,7 +1114,7 @@
 
     move-result-object v2
 
-    const v3, 0x7f0b1c07
+    const v3, 0x7f0b1c08
 
     const/4 v4, 0x0
 
@@ -1366,7 +1366,7 @@
 
     aput-object v16, v10, v17
 
-    const v17, 0x7f0b1d0a
+    const v17, 0x7f0b1d0b
 
     move-object/from16 v0, p0
 
@@ -1534,7 +1534,7 @@
 
     invoke-virtual {v0, v2, v3}, Landroid/widget/TextView;->setTextAppearance(Landroid/content/Context;I)V
 
-    const v2, 0x7f0b04f6
+    const v2, 0x7f0b04f7
 
     invoke-virtual {v0, v2}, Landroid/widget/TextView;->setText(I)V
 

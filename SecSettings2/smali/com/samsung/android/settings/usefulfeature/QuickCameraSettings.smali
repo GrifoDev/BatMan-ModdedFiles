@@ -136,7 +136,7 @@
 
     invoke-direct {p0}, Lcom/samsung/android/settings/usefulfeature/QuickCameraSettings;->dismissAllDialog()V
 
-    const v3, 0x7f0b04b4
+    const v3, 0x7f0b04b5
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/usefulfeature/QuickCameraSettings;->getString(I)Ljava/lang/String;
 
@@ -154,7 +154,7 @@
 
     move-result-object v1
 
-    const v3, 0x7f0b04b5
+    const v3, 0x7f0b04b6
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/usefulfeature/QuickCameraSettings;->getString(I)Ljava/lang/String;
 
@@ -164,7 +164,7 @@
 
     new-array v4, v4, [Ljava/lang/Object;
 
-    const v5, 0x7f0b0484
+    const v5, 0x7f0b0485
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/usefulfeature/QuickCameraSettings;->getString(I)Ljava/lang/String;
 
@@ -214,7 +214,7 @@
 
     move-result-object v4
 
-    const v5, 0x7f0b04b6
+    const v5, 0x7f0b04b7
 
     invoke-virtual {v4, v5}, Landroid/app/Activity;->getString(I)Ljava/lang/String;
 
@@ -396,7 +396,7 @@
 
     invoke-virtual {v4, v8}, Landroid/widget/TextView;->setVisibility(I)V
 
-    const v6, 0x7f0b0487
+    const v6, 0x7f0b0488
 
     invoke-virtual {v3, v6}, Landroid/widget/TextView;->setText(I)V
 

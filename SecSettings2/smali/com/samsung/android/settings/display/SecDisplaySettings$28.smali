@@ -197,18 +197,18 @@
     goto/16 :goto_0
 
     :pswitch_data_0
-    .packed-switch 0x7f0b048a
+    .packed-switch 0x7f0b048b
         :pswitch_1
         :pswitch_0
     .end packed-switch
 
     :pswitch_data_1
-    .packed-switch 0x7f0b048b
+    .packed-switch 0x7f0b048c
         :pswitch_2
     .end packed-switch
 
     :pswitch_data_2
-    .packed-switch 0x7f0b048b
+    .packed-switch 0x7f0b048c
         :pswitch_3
     .end packed-switch
 .end method

@@ -165,7 +165,7 @@
 .method private updatePopupGestureState(Z)V
     .locals 5
 
-    const v1, 0x7f0b1bda
+    const v1, 0x7f0b1bdb
 
     const/4 v4, 0x1
 
@@ -229,7 +229,7 @@
 
     if-eqz v0, :cond_2
 
-    const v1, 0x7f0b1bd9
+    const v1, 0x7f0b1bda
 
     :cond_2
     invoke-virtual {v2, v1}, Landroid/preference/SwitchPreference;->setSummary(I)V
@@ -306,7 +306,7 @@
     const/4 v0, 0x1
 
     :goto_2
-    const v3, 0x7f0b0ac3
+    const v3, 0x7f0b0ac4
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/usefulfeature/MultiWindowSettings;->getString(I)Ljava/lang/String;
 
@@ -314,7 +314,7 @@
 
     if-eqz v0, :cond_2
 
-    const v3, 0x7f0b0ac4
+    const v3, 0x7f0b0ac5
 
     invoke-virtual {p0, v3}, Lcom/samsung/android/settings/usefulfeature/MultiWindowSettings;->getString(I)Ljava/lang/String;
 
@@ -357,7 +357,7 @@
 .method private updateSplitScreenState(Z)V
     .locals 5
 
-    const v1, 0x7f0b1bda
+    const v1, 0x7f0b1bdb
 
     const/4 v4, 0x0
 
@@ -421,7 +421,7 @@
 
     if-eqz v0, :cond_2
 
-    const v1, 0x7f0b1bd9
+    const v1, 0x7f0b1bda
 
     :cond_2
     invoke-virtual {v2, v1}, Landroid/preference/SwitchPreference;->setSummary(I)V
@@ -458,7 +458,7 @@
 
     check-cast v1, Landroid/widget/ImageView;
 
-    const v2, 0x7f0200e2
+    const v2, 0x7f0200e0
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -475,7 +475,7 @@
 
     check-cast v1, Landroid/widget/ImageView;
 
-    const v2, 0x7f0200e3
+    const v2, 0x7f0200e1
 
     invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -606,7 +606,7 @@
 
     check-cast v4, Landroid/widget/ImageView;
 
-    const v6, 0x7f0b0acd
+    const v6, 0x7f0b0ace
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/usefulfeature/MultiWindowSettings;->getString(I)Ljava/lang/String;
 
@@ -667,7 +667,7 @@
 
     check-cast v6, Landroid/widget/ImageView;
 
-    const v7, 0x7f0200e3
+    const v7, 0x7f0200e1
 
     invoke-virtual {v6, v7}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -867,7 +867,7 @@
 
     if-eqz v0, :cond_0
 
-    const v0, 0x7f0b0abd
+    const v0, 0x7f0b0abe
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/usefulfeature/MultiWindowSettings;->getString(I)Ljava/lang/String;
 
@@ -877,7 +877,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/usefulfeature/MultiWindowSettings;->mRecentsKey:Lcom/android/settings/SecSettingsSwitchPreference;
 
-    const v1, 0x7f0b0aba
+    const v1, 0x7f0b0abb
 
     invoke-virtual {v0, v1}, Lcom/android/settings/SecSettingsSwitchPreference;->setTitle(I)V
 
@@ -914,7 +914,7 @@
     return-void
 
     :cond_0
-    const v0, 0x7f0b0abc
+    const v0, 0x7f0b0abd
 
     invoke-virtual {p0, v0}, Lcom/samsung/android/settings/usefulfeature/MultiWindowSettings;->getString(I)Ljava/lang/String;
 
@@ -924,7 +924,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/usefulfeature/MultiWindowSettings;->mRecentsKey:Lcom/android/settings/SecSettingsSwitchPreference;
 
-    const v1, 0x7f0b0abb
+    const v1, 0x7f0b0abc
 
     invoke-virtual {v0, v1}, Lcom/android/settings/SecSettingsSwitchPreference;->setTitle(I)V
 
@@ -955,7 +955,7 @@
 
     const/4 v1, 0x1
 
-    const v2, 0x7f0b04d1
+    const v2, 0x7f0b04d2
 
     invoke-interface {p1, v3, v1, v3, v2}, Landroid/view/Menu;->add(IIII)Landroid/view/MenuItem;
 
@@ -1056,9 +1056,9 @@
 .method public onPreferenceChange(Landroid/preference/Preference;Ljava/lang/Object;)Z
     .locals 13
 
-    const v9, 0x7f0b1bda
+    const v9, 0x7f0b1bdb
 
-    const v8, 0x7f0b1bd9
+    const v8, 0x7f0b1bda
 
     const/16 v10, 0x3e8
 
@@ -1274,7 +1274,7 @@
     const/4 v2, 0x1
 
     :goto_4
-    const v5, 0x7f0b0ac3
+    const v5, 0x7f0b0ac4
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/usefulfeature/MultiWindowSettings;->getString(I)Ljava/lang/String;
 
@@ -1282,7 +1282,7 @@
 
     if-eqz v2, :cond_9
 
-    const v5, 0x7f0b0ac4
+    const v5, 0x7f0b0ac5
 
     invoke-virtual {p0, v5}, Lcom/samsung/android/settings/usefulfeature/MultiWindowSettings;->getString(I)Ljava/lang/String;
 

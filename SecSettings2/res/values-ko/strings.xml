@@ -956,6 +956,7 @@ Wi-Fi 및 블루투스 기능도 함께 해제되지만, 설정 또는 빠른 �
     <string name="bluetooth_avc_available_description">연결된 블루투스 디바이스에서 미디어 음량 동기화 기능이 지원되어 휴대전화의 음량이 블루투스 디바이스에 설정된 음량으로 적용됩니다.</string>
     <string name="bluetooth_enter_pin_msg">%s 디바이스를 등록하려면 비밀번호(0000 또는 1234)를 입력하세요.</string>
     <string name="bluetooth_pin_maximum_number_message">최대 글자 수에 도달했습니다.</string>
+    <string name="bluetooth_frp_permission_message">이 통화에 블루투스 디바이스를 사용할 수 없습니다.</string>
     <string name="settings_menu_done">완료</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB 연결 안 됨</string>
     <string name="usb_tethering_available_subtext_tmo">USB 연결됨, 테더링 가능</string>

@@ -138,12 +138,6 @@
 
     if-eqz v4, :cond_5
 
-    invoke-static {p1}, Lcom/android/settings/Utils;->isRestrictedProfile(Landroid/content/Context;)Z
-
-    move-result v4
-
-    if-nez v4, :cond_5
-
     invoke-static {p1}, Lcom/android/settings/Utils;->isGuestUser(Landroid/content/Context;)Z
 
     move-result v4

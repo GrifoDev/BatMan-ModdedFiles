@@ -957,6 +957,7 @@ Buni keyinroq Bluetooth parametrlarida o‘zgartirishingiz mumkin."</string>
     <string name="bluetooth_avc_available_description">Ulangan Bluetooth qurilma Media ovozi sinxronlanishini qo‘llab-quvvatlaydi va Bluetooth qurilma tomonidan o‘rnatilgan ovoz balandligi telefoningiz bilan sinxronalanadi.</string>
     <string name="bluetooth_enter_pin_msg">%s bilan juftlash uchun PIN-kodni kiriting. (0000 yoki 1234 kiritib ko‘ring)</string>
     <string name="bluetooth_pin_maximum_number_message">Belgilar soni maksimal miqdorga yetdi.</string>
+    <string name="bluetooth_frp_permission_message">Bu qo‘ng‘iroq uchun Bluetooth qurilmadan foydalanib bo‘lmaydi.</string>
     <string name="settings_menu_done">Bajarildi</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>

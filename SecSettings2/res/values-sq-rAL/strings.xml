@@ -956,6 +956,7 @@ Mund ta ndryshosh këtë më vonë që nga cilësimet Bluetooth."</string>
     <string name="bluetooth_avc_available_description">Pajisja e lidhur Bluetooth e mbështet Sinkronizimin e volumit media dhe niveli i volumit i cilësuar nga pajisja Bluetooth do të sinkronizohet me telefonin.</string>
     <string name="bluetooth_enter_pin_msg">"Fut kodin PIN për t'u çiftuar me %s (provo 0000 ose 1234)."</string>
     <string name="bluetooth_pin_maximum_number_message">U arrit numri maksimal i shenjave.</string>
+    <string name="bluetooth_frp_permission_message">S’mund të përdorësh pajisje Bluetooth për këtë thirrje.</string>
     <string name="settings_menu_done">Kryer</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>

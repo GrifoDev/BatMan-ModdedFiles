@@ -57,9 +57,9 @@
 .method private getSimName(I)Ljava/lang/String;
     .locals 8
 
-    const v7, 0x7f0b05e8
+    const v7, 0x7f0b05e9
 
-    const v6, 0x7f0b05e7
+    const v6, 0x7f0b05e8
 
     const/4 v5, 0x0
 

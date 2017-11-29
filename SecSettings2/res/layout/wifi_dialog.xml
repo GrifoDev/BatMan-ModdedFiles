@@ -86,8 +86,8 @@
         <LinearLayout android:id="@id/auto_reconnect_layout" android:visibility="gone" style="@style/wifi_dialog_checkbox_layout_style">
             <CheckBox android:id="@id/auto_reconnect" android:checked="true" android:text="@string/wifi_auto_reconnect" style="@style/wifi_dialog_checkbox_style" />
         </LinearLayout>
-        <LinearLayout android:id="@id/wifi_advanced_checkbox_layout" android:visibility="gone" android:layout_height="wrap_content" android:contentDescription="@string/wifi_advanced_toggle_description_collapsed" android:importantForAccessibility="yes" style="@style/wifi_dialog_checkbox_layout_style">
-            <CheckBox android:id="@id/wifi_advanced_togglebox" android:text="@string/wifi_show_advanced" android:importantForAccessibility="noHideDescendants" style="@style/wifi_dialog_checkbox_style" />
+        <LinearLayout android:id="@id/wifi_advanced_checkbox_layout" android:visibility="gone" android:layout_height="wrap_content" style="@style/wifi_dialog_checkbox_layout_style">
+            <CheckBox android:id="@id/wifi_advanced_togglebox" android:text="@string/wifi_show_advanced" style="@style/wifi_dialog_checkbox_style" />
         </LinearLayout>
         <LinearLayout android:id="@id/wifi_advanced_fields" android:visibility="gone" style="@style/wifi_section">
             <LinearLayout android:id="@id/ip_fields" android:visibility="gone" style="@style/wifi_dialog_spinner_layout_style">

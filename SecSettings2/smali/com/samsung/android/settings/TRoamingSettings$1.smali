@@ -179,13 +179,84 @@
 
     invoke-virtual {v0, v4}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
 
+    const-string/jumbo v0, "TRoamingSettings"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Data roaming enable:"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {}, Lcom/android/settings/Utils;->isSupportLTERoaming()Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    const-string/jumbo v0, "TRoamingSettings"
+
+    new-instance v1, Ljava/lang/StringBuilder;
+
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string/jumbo v2, "Data roaming enable:"
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-static {}, Lcom/android/settings/Utils;->isExceptionalUSIM()Z
+
+    move-result v2
+
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+
+    move-result-object v1
+
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v1
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    invoke-static {}, Lcom/android/settings/Utils;->isDomesticKTTModel()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-static {}, Lcom/android/settings/Utils;->isSupportLTERoaming()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_2
+
+    invoke-static {}, Lcom/android/settings/Utils;->isExceptionalUSIM()Z
+
+    move-result v0
+
+    if-eqz v0, :cond_3
+
+    :cond_2
     iget-object v0, p0, Lcom/samsung/android/settings/TRoamingSettings$1;->this$0:Lcom/samsung/android/settings/TRoamingSettings;
 
     invoke-static {v0}, Lcom/samsung/android/settings/TRoamingSettings;->-wrap0(Lcom/samsung/android/settings/TRoamingSettings;)Z
 
     move-result v0
 
-    if-nez v0, :cond_2
+    if-nez v0, :cond_4
 
     const-string/jumbo v0, "TRoamingSettings"
 
@@ -203,7 +274,31 @@
 
     goto :goto_0
 
-    :cond_2
+    :cond_3
+    const-string/jumbo v0, "TRoamingSettings"
+
+    const-string/jumbo v1, "Data roaming enable:auto enable LTE/HD voice"
+
+    invoke-static {v0, v1}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
+    iget-object v0, p0, Lcom/samsung/android/settings/TRoamingSettings$1;->this$0:Lcom/samsung/android/settings/TRoamingSettings;
+
+    invoke-static {v0}, Lcom/samsung/android/settings/TRoamingSettings;->-get8(Lcom/samsung/android/settings/TRoamingSettings;)Landroid/preference/SwitchPreference;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v4}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+
+    iget-object v0, p0, Lcom/samsung/android/settings/TRoamingSettings$1;->this$0:Lcom/samsung/android/settings/TRoamingSettings;
+
+    invoke-virtual {v0}, Lcom/samsung/android/settings/TRoamingSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "lte_roaming_mode_on"
+
+    invoke-static {v0, v1, v4}, Landroid/provider/Settings$System;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
     iget-object v0, p0, Lcom/samsung/android/settings/TRoamingSettings$1;->this$0:Lcom/samsung/android/settings/TRoamingSettings;
 
     invoke-static {v0}, Lcom/samsung/android/settings/TRoamingSettings;->-get3(Lcom/samsung/android/settings/TRoamingSettings;)Landroid/preference/SwitchPreference;
@@ -212,5 +307,34 @@
 
     invoke-virtual {v0, v4}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
 
-    goto :goto_0
+    iget-object v0, p0, Lcom/samsung/android/settings/TRoamingSettings$1;->this$0:Lcom/samsung/android/settings/TRoamingSettings;
+
+    invoke-static {v0}, Lcom/samsung/android/settings/TRoamingSettings;->-get3(Lcom/samsung/android/settings/TRoamingSettings;)Landroid/preference/SwitchPreference;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v4}, Landroid/preference/SwitchPreference;->setChecked(Z)V
+
+    iget-object v0, p0, Lcom/samsung/android/settings/TRoamingSettings$1;->this$0:Lcom/samsung/android/settings/TRoamingSettings;
+
+    invoke-virtual {v0}, Lcom/samsung/android/settings/TRoamingSettings;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    const-string/jumbo v1, "hd_voice_roaming_enabled"
+
+    invoke-static {v0, v1, v4}, Landroid/provider/Settings$Global;->putInt(Landroid/content/ContentResolver;Ljava/lang/String;I)Z
+
+    goto/16 :goto_0
+
+    :cond_4
+    iget-object v0, p0, Lcom/samsung/android/settings/TRoamingSettings$1;->this$0:Lcom/samsung/android/settings/TRoamingSettings;
+
+    invoke-static {v0}, Lcom/samsung/android/settings/TRoamingSettings;->-get3(Lcom/samsung/android/settings/TRoamingSettings;)Landroid/preference/SwitchPreference;
+
+    move-result-object v0
+
+    invoke-virtual {v0, v4}, Landroid/preference/SwitchPreference;->setEnabled(Z)V
+
+    goto/16 :goto_0
 .end method

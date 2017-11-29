@@ -141,23 +141,9 @@
 
     check-cast v0, Landroid/widget/TextView;
 
-    const v1, 0x7f0b0b9e
+    const v1, 0x7f0b0b9f
 
     invoke-virtual {v0, v1}, Landroid/widget/TextView;->setText(I)V
-
-    invoke-virtual {p0}, Lcom/samsung/android/settings/multisound/SelectAudioApplications;->getResources()Landroid/content/res/Resources;
-
-    move-result-object v1
-
-    const v2, 0x7f1003f7
-
-    invoke-virtual {v1, v2}, Landroid/content/res/Resources;->getInteger(I)I
-
-    move-result v1
-
-    int-to-float v1, v1
-
-    invoke-virtual {v0, v1}, Landroid/widget/TextView;->setTextSize(F)V
 
     new-instance v1, Lcom/samsung/android/settings/multisound/SelectAudioApplications$4;
 
@@ -306,6 +292,12 @@
     invoke-virtual {v8, v12}, Landroid/view/View;->setEnabled(Z)V
 
     invoke-virtual {p0, v11}, Lcom/samsung/android/settings/multisound/SelectAudioApplications;->setHasOptionsMenu(Z)V
+
+    invoke-virtual {p0}, Lcom/samsung/android/settings/multisound/SelectAudioApplications;->getListView()Landroid/widget/ListView;
+
+    move-result-object v8
+
+    invoke-virtual {v8}, Landroid/widget/ListView;->requestFocus()Z
 
     invoke-virtual {p0}, Lcom/samsung/android/settings/multisound/SelectAudioApplications;->updateCheckState()V
 
@@ -567,7 +559,7 @@
 
     iget-object v0, p0, Lcom/samsung/android/settings/multisound/SelectAudioApplications;->mDescryptionPreference:Lcom/samsung/android/settings/UnclickablePreference;
 
-    const v1, 0x7f0b0b96
+    const v1, 0x7f0b0b97
 
     invoke-virtual {v0, v1}, Lcom/samsung/android/settings/UnclickablePreference;->setTitle(I)V
 

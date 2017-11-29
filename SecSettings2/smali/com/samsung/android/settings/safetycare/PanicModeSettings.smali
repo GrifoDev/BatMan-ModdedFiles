@@ -154,7 +154,7 @@
 
     if-eqz v0, :cond_2
 
-    const v1, 0x7f0b1bd9
+    const v1, 0x7f0b1bda
 
     :goto_1
     invoke-virtual {v2, v1}, Landroid/preference/PreferenceScreen;->setSummary(I)V
@@ -168,7 +168,7 @@
     goto :goto_0
 
     :cond_2
-    const v1, 0x7f0b1bda
+    const v1, 0x7f0b1bdb
 
     goto :goto_1
 .end method
@@ -453,12 +453,12 @@
 
     if-nez v4, :cond_1
 
-    const v4, 0x7f0b052b
+    const v4, 0x7f0b052c
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setText(I)V
 
     :goto_0
-    const v4, 0x7f020486
+    const v4, 0x7f020484
 
     invoke-virtual {v1, v4}, Landroid/widget/ImageView;->setImageResource(I)V
 
@@ -476,7 +476,7 @@
     return-void
 
     :cond_1
-    const v4, 0x7f0b052a
+    const v4, 0x7f0b052b
 
     invoke-virtual {v2, v4}, Landroid/widget/TextView;->setText(I)V
 

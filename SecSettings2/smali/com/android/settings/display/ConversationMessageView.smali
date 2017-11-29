@@ -299,7 +299,7 @@
 
     if-eqz v17, :cond_2
 
-    const v5, 0x7f0203cc
+    const v5, 0x7f0203ca
 
     :goto_2
     invoke-virtual/range {p0 .. p0}, Lcom/android/settings/display/ConversationMessageView;->getContext()Landroid/content/Context;
@@ -388,7 +388,7 @@
     goto :goto_1
 
     :cond_2
-    const v5, 0x7f0203cd
+    const v5, 0x7f0203cb
 
     goto :goto_2
 
@@ -439,7 +439,7 @@
 
     move-result-object v1
 
-    const v2, 0x7f0200f7
+    const v2, 0x7f0200f5
 
     invoke-virtual {v1, v2}, Landroid/content/Context;->getDrawable(I)Landroid/graphics/drawable/Drawable;
 

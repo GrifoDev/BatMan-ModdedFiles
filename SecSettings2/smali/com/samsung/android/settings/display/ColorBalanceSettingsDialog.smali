@@ -53,7 +53,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/display/ColorBalanceSettingsDialog;->mParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    const v2, 0x7f0b060b
+    const v2, 0x7f0b060c
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/display/ColorBalanceSettingsDialog;->getString(I)Ljava/lang/String;
 
@@ -77,7 +77,7 @@
 
     iget-object v1, p0, Lcom/samsung/android/settings/display/ColorBalanceSettingsDialog;->mParams:Lcom/android/internal/app/AlertController$AlertParams;
 
-    const v2, 0x7f0b0c5d
+    const v2, 0x7f0b0c5e
 
     invoke-virtual {p0, v2}, Lcom/samsung/android/settings/display/ColorBalanceSettingsDialog;->getString(I)Ljava/lang/String;
 

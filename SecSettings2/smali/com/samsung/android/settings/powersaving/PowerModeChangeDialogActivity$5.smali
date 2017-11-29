@@ -89,7 +89,7 @@
 
     iget-object v5, p0, Lcom/samsung/android/settings/powersaving/PowerModeChangeDialogActivity$5;->this$0:Lcom/samsung/android/settings/powersaving/PowerModeChangeDialogActivity;
 
-    const v6, 0x7f0b0be8
+    const v6, 0x7f0b0be9
 
     invoke-virtual {v5, v6}, Lcom/samsung/android/settings/powersaving/PowerModeChangeDialogActivity;->getString(I)Ljava/lang/String;
 
@@ -97,7 +97,7 @@
 
     aput-object v5, v4, v7
 
-    const v5, 0x7f0b0c20
+    const v5, 0x7f0b0c21
 
     invoke-virtual {v3, v5, v4}, Lcom/samsung/android/settings/powersaving/PowerModeChangeDialogActivity;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

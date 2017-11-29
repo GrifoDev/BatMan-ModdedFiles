@@ -957,6 +957,7 @@ Wi-Fi اور بلیوٹوتھ بھی آف ہو جائے گا، لیکن آپ س�
     <string name="bluetooth_avc_available_description">مربوط بلیوٹوتھ آلہ میڈیا والیوم سنک کا تعاون کرتا ہے اور بلیوٹوتھ آلہ کے ذریعے سیٹ کیے گئے والیوم کی سطح آپ کے فون کے ساتھ سنک کیا جائے گا۔</string>
     <string name="bluetooth_enter_pin_msg">‏%s کے ساتھ جوڑی بنانے کے لئے پن درج کریں (آزمائیں 0000 یا 1234)</string>
     <string name="bluetooth_pin_maximum_number_message">حروف کی زیادہ سے زیادہ تعداد پہنچ گئی۔</string>
+    <string name="bluetooth_frp_permission_message">اس کال کے لیے بلیوٹوتھ آلہ کا استعمال نہیں کیا جاسکتا۔</string>
     <string name="settings_menu_done">مکمل</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>

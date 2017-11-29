@@ -216,7 +216,7 @@
 
     new-array v5, v3, [Ljava/lang/Object;
 
-    const v6, 0x7f0b04e8
+    const v6, 0x7f0b04e9
 
     invoke-virtual {p0, v6}, Lcom/samsung/android/settings/display/StatusBar;->getString(I)Ljava/lang/String;
 
@@ -232,7 +232,7 @@
 
     aput-object v6, v5, v4
 
-    const v6, 0x7f0b0645
+    const v6, 0x7f0b0646
 
     invoke-virtual {p0, v6, v5}, Lcom/samsung/android/settings/display/StatusBar;->getString(I[Ljava/lang/Object;)Ljava/lang/String;
 

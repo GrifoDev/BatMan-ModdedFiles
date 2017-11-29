@@ -150,7 +150,7 @@
 
     const-string/jumbo v1, "FpstFingerprintDeleteDialog"
 
-    const v2, 0x7f0b0913
+    const v2, 0x7f0b0914
 
     invoke-static {v0, v2, v1}, Lcom/android/settings/Utils;->isNotAvailableBiometricsWithDexAndMultiWindow(Landroid/app/Activity;ILjava/lang/String;)Z
 
@@ -206,7 +206,7 @@
 
     move-result-object v0
 
-    const v1, 0x7f0b04cb
+    const v1, 0x7f0b04cc
 
     invoke-virtual {v0, v1, p0}, Landroid/app/AlertDialog$Builder;->setPositiveButton(ILandroid/content/DialogInterface$OnClickListener;)Landroid/app/AlertDialog$Builder;
 

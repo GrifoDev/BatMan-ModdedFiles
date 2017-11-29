@@ -73,7 +73,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$16;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
 
-    const v3, 0x7f0b1bd9
+    const v3, 0x7f0b1bda
 
     invoke-virtual {v2, v3}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->getString(I)Ljava/lang/String;
 
@@ -125,7 +125,7 @@
 
     iget-object v2, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$16;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
 
-    const v3, 0x7f0b04be
+    const v3, 0x7f0b04bf
 
     invoke-virtual {v2, v3}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->getString(I)Ljava/lang/String;
 
@@ -136,7 +136,7 @@
     :cond_3
     iget-object v2, p0, Lcom/samsung/android/settings/usefulfeature/Usefulfeature$16;->this$0:Lcom/samsung/android/settings/usefulfeature/Usefulfeature;
 
-    const v3, 0x7f0b04bf
+    const v3, 0x7f0b04c0
 
     invoke-virtual {v2, v3}, Lcom/samsung/android/settings/usefulfeature/Usefulfeature;->getString(I)Ljava/lang/String;
 

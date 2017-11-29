@@ -37,7 +37,7 @@
     throw v0
 
     :pswitch_0
-    const v0, 0x7f0b1b4b
+    const v0, 0x7f0b1b4c
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -46,7 +46,7 @@
     return-object v0
 
     :pswitch_1
-    const v0, 0x7f0b1b4c
+    const v0, 0x7f0b1b4d
 
     invoke-virtual {p1, v0}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -66,7 +66,7 @@
 .method public isApplicable(Landroid/content/Context;)Z
     .locals 1
 
-    invoke-static {p1}, Lcom/samsung/android/settings/notification/SoundSettings;->-wrap2(Landroid/content/Context;)Z
+    invoke-static {p1}, Lcom/samsung/android/settings/notification/SoundSettings;->-wrap3(Landroid/content/Context;)Z
 
     move-result v0
 

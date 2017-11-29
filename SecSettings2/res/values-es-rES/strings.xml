@@ -828,6 +828,7 @@ Es posible que se note una ligera diferencia en la salida de sonido de los 2 dis
     <string name="bluetooth_avc_available_description">El dispositivo Bluetooth conectado admite Sincronizar volumen multimedia y el nivel de volumen establecido por el dispositivo Bluetooth se sincronizará con el teléfono.</string>
     <string name="bluetooth_enter_pin_msg">Introduzca el PIN para vincular con %s (intente 0000 o 1234)</string>
     <string name="bluetooth_pin_maximum_number_message">Número máximo de caracteres alcanzado.</string>
+    <string name="bluetooth_frp_permission_message">No se puede usar el dispositivo Bluetooth para esta llamada.</string>
     <string name="settings_menu_done">Hecho</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>

@@ -957,6 +957,7 @@ Este posibil să experimentați o mică diferență între cele 2 surse de ieși
     <string name="bluetooth_avc_available_description">Dispozitivul Bluetooth conectat acceptă funcția Sincronizare volum media, iar nivelul volumului setat de dispozitivul Bluetooth se va sincroniza cu telefonul dvs.</string>
     <string name="bluetooth_enter_pin_msg">Introduceți codul PIN pentru asocierea cu %s (încercați 0000 sau 1234).</string>
     <string name="bluetooth_pin_maximum_number_message">A fost atins numărul maxim de caractere.</string>
+    <string name="bluetooth_frp_permission_message">Nu se poate utiliza dispozitivul Bluetooth pentru acest apel.</string>
     <string name="settings_menu_done">Efectuat</string>
     <string name="usb_tethering_unavailable_subtext_tmo">USB not connected</string>
     <string name="usb_tethering_available_subtext_tmo">USB connected, check to tether</string>

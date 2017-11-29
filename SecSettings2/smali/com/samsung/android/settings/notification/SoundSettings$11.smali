@@ -55,7 +55,7 @@
 
     move-result-object v1
 
-    invoke-static {v1, v2}, Lcom/samsung/android/settings/notification/SoundSettings;->-wrap3(Landroid/content/Context;I)Ljava/lang/CharSequence;
+    invoke-static {v1, v2}, Lcom/samsung/android/settings/notification/SoundSettings;->-wrap4(Landroid/content/Context;I)Ljava/lang/CharSequence;
 
     move-result-object v0
 
@@ -90,7 +90,7 @@
 
     const/16 v2, 0x80
 
-    invoke-static {v1, v2}, Lcom/samsung/android/settings/notification/SoundSettings;->-wrap3(Landroid/content/Context;I)Ljava/lang/CharSequence;
+    invoke-static {v1, v2}, Lcom/samsung/android/settings/notification/SoundSettings;->-wrap4(Landroid/content/Context;I)Ljava/lang/CharSequence;
 
     move-result-object v0
 
@@ -125,7 +125,7 @@
 
     move-result-object v1
 
-    invoke-static {v1, v3}, Lcom/samsung/android/settings/notification/SoundSettings;->-wrap3(Landroid/content/Context;I)Ljava/lang/CharSequence;
+    invoke-static {v1, v3}, Lcom/samsung/android/settings/notification/SoundSettings;->-wrap4(Landroid/content/Context;I)Ljava/lang/CharSequence;
 
     move-result-object v0
 

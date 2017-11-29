@@ -304,19 +304,7 @@
     invoke-virtual {v4, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
 
     :cond_c
-    const-string/jumbo v5, "audio"
-
-    invoke-virtual {p1, v5}, Landroid/content/Context;->getSystemService(Ljava/lang/String;)Ljava/lang/Object;
-
-    move-result-object v5
-
-    check-cast v5, Landroid/media/AudioManager;
-
-    invoke-static {v5}, Lcom/samsung/android/settings/notification/SoundSettings;->-set2(Landroid/media/AudioManager;)Landroid/media/AudioManager;
-
-    invoke-static {}, Lcom/samsung/android/settings/notification/SoundSettings;->-get3()Landroid/media/AudioManager;
-
-    invoke-static {}, Landroid/media/AudioManager;->semIsMultiSoundSupported()Z
+    invoke-static {p1}, Lcom/samsung/android/settings/notification/SoundSettings;->-wrap2(Landroid/content/Context;)Z
 
     move-result v5
 
@@ -370,7 +358,7 @@
         }
     .end annotation
 
-    const v5, 0x7f0b0b53
+    const v5, 0x7f0b0b54
 
     new-instance v2, Ljava/util/ArrayList;
 
@@ -413,7 +401,7 @@
 
     iput-object v3, v0, Lcom/android/settings/search/SearchIndexableRaw;->title:Ljava/lang/String;
 
-    const v3, 0x7f0b0b55
+    const v3, 0x7f0b0b56
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -425,7 +413,7 @@
 
     move-result-object v3
 
-    invoke-static {v3}, Lcom/samsung/android/settings/notification/SoundSettings;->-set3(Ljava/lang/String;)Ljava/lang/String;
+    invoke-static {v3}, Lcom/samsung/android/settings/notification/SoundSettings;->-set2(Ljava/lang/String;)Ljava/lang/String;
 
     invoke-static {}, Lcom/samsung/android/settings/notification/SoundSettings;->-get13()Ljava/lang/String;
 
@@ -478,7 +466,7 @@
     if-eqz v3, :cond_2
 
     :cond_1
-    const v3, 0x7f0b0b58
+    const v3, 0x7f0b0b59
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -528,7 +516,7 @@
 
     iput-object v3, v0, Lcom/android/settings/search/SearchIndexableRaw;->title:Ljava/lang/String;
 
-    const v3, 0x7f0b0b56
+    const v3, 0x7f0b0b57
 
     invoke-virtual {v1, v3}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 

@@ -216,7 +216,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0544
+    const v4, 0x7f0b0545
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -230,7 +230,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0545
+    const v4, 0x7f0b0546
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -244,7 +244,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0546
+    const v4, 0x7f0b0547
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -273,7 +273,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0548
+    const v4, 0x7f0b0549
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
@@ -287,7 +287,7 @@
 
     move-result-object v3
 
-    const v4, 0x7f0b0549
+    const v4, 0x7f0b054a
 
     invoke-virtual {v3, v4}, Landroid/content/res/Resources;->getString(I)Ljava/lang/String;
 
