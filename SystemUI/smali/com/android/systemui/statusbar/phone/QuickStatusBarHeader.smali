@@ -7,6 +7,7 @@
 .implements Landroid/view/View$OnClickListener;
 .implements Lcom/android/systemui/statusbar/policy/UserInfoController$OnUserInfoChangedListener;
 .implements Landroid/view/View$OnFocusChangeListener;
+.implements Lcom/android/wubydax/GearContentObserver$OnContentChangedListener;
 
 
 # annotations
@@ -225,6 +226,8 @@
     iput-object v1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mBadgeCountUpdateReceiver:Landroid/content/BroadcastReceiver;
 
     iput-object v1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mBadgeAsyncTask:Landroid/os/AsyncTask;
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->registerObserver()V
 
     return-void
 .end method
@@ -1184,6 +1187,34 @@
     return-void
 .end method
 
+.method public onContentChanged(Ljava/lang/String;)V
+    .locals 1
+
+    const-string v0, "quick_qs_buttons"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_0
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->setQuickQsIcons()V
+
+    :cond_0
+    const-string v0, "quick_qs_buttons_landscape"
+
+    invoke-virtual {v0, p1}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v0
+
+    if-eqz v0, :cond_1
+
+    invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->setQuickQsIcons()V
+
+    :cond_1
+    return-void
+.end method
+
 .method protected onDetachedFromWindow()V
     .locals 1
 
@@ -1555,6 +1586,68 @@
     return-void
 .end method
 
+.method registerObserver()V
+    .locals 7
+
+    new-instance v3, Ljava/util/ArrayList;
+
+    invoke-direct {v3}, Ljava/util/ArrayList;-><init>()V
+
+    const-string v4, "quick_qs_buttons"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    const-string v4, "quick_qs_buttons_landscape"
+
+    invoke-virtual {v3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+    new-instance v1, Lcom/android/wubydax/GearContentObserver;
+
+    new-instance v4, Landroid/os/Handler;
+
+    invoke-direct {v4}, Landroid/os/Handler;-><init>()V
+
+    invoke-direct {v1, v4, p0}, Lcom/android/wubydax/GearContentObserver;-><init>(Landroid/os/Handler;Lcom/android/wubydax/GearContentObserver$OnContentChangedListener;)V
+
+    invoke-static {}, Lcom/android/systemui/SystemUIApplication;->getContext()Landroid/content/Context;
+
+    move-result-object v4
+
+    invoke-virtual {v4}, Landroid/content/Context;->getContentResolver()Landroid/content/ContentResolver;
+
+    move-result-object v0
+
+    invoke-virtual {v3}, Ljava/util/ArrayList;->iterator()Ljava/util/Iterator;
+
+    move-result-object v4
+
+    :goto_0
+    invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
+
+    move-result v5
+
+    if-eqz v5, :cond_0
+
+    invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
+
+    move-result-object v2
+
+    check-cast v2, Ljava/lang/String;
+
+    invoke-static {v2}, Landroid/provider/Settings$System;->getUriFor(Ljava/lang/String;)Landroid/net/Uri;
+
+    move-result-object v5
+
+    const/4 v6, 0x0
+
+    invoke-virtual {v0, v5, v6, v1}, Landroid/content/ContentResolver;->registerContentObserver(Landroid/net/Uri;ZLandroid/database/ContentObserver;)V
+
+    goto :goto_0
+
+    :cond_0
+    return-void
+.end method
+
 .method public setActivityStarter(Lcom/android/systemui/statusbar/phone/ActivityStarter;)V
     .locals 0
 
@@ -1730,6 +1823,44 @@
     :cond_1
     invoke-virtual {p0}, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->updateVisibilities()V
 
+    return-void
+.end method
+
+.method setQuickQsIcons()V
+    .locals 3
+
+    const-string v0, "quick_qs_buttons"
+
+    const/4 v1, 0x6
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mHeaderQsPanel:Lcom/android/systemui/qs/QuickQSPanel;
+
+    if-eqz v1, :cond_0
+
+    iput v0, v1, Lcom/android/systemui/qs/QuickQSPanel;->mQuickQSNumber:I
+
+    invoke-virtual {v1}, Lcom/android/systemui/qs/QuickQSPanel;->reloadQuickQsTiles()V
+
+    :cond_0
+    const-string v0, "quick_qs_buttons_landscape"
+
+    const/4 v1, 0x6
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    iget-object v1, p0, Lcom/android/systemui/statusbar/phone/QuickStatusBarHeader;->mHeaderQsPanel:Lcom/android/systemui/qs/QuickQSPanel;
+
+    if-eqz v1, :cond_1
+
+    iput v0, v1, Lcom/android/systemui/qs/QuickQSPanel;->mQuickQSNumberLandscape:I
+
+    :cond_1
     return-void
 .end method
 
