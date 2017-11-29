@@ -84,7 +84,17 @@
 
 .field public static final USER:Ljava/lang/String;
 
+.field public static renovateDream2Device:Z
+
+.field public static renovateDreamDevice:Z
+
+.field public static renovateGreatDevice:Z
+
+.field public static renovateHero2Device:Z
+
 .field public static renovateHeroDevice:Z
+
+.field public static renovateHeroSeries:Z
 
 
 # direct methods
@@ -109,34 +119,14 @@
 .end method
 
 .method static constructor <clinit>()V
-    .locals 9
+    .locals 8
 
     const/4 v2, 0x1
 
     const/4 v3, 0x0
 
-    const-string/jumbo v1, "ro.chipname"
+    invoke-static {}, Landroid/os/Build;->getRenovateSetup()V
 
-    invoke-static {v1}, Landroid/os/Build;->getString(Ljava/lang/String;)Ljava/lang/String;
-
-    move-result-object v1
-
-    const-string/jumbo v8, "exynos8890"
-
-    invoke-virtual {v1, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v1
-
-    if-nez v1, :cond_0
-
-    sput-boolean v3, Landroid/os/Build;->renovateHeroDevice:Z
-
-    goto :goto_0
-
-    :cond_0
-    sput-boolean v2, Landroid/os/Build;->renovateHeroDevice:Z
-
-    :goto_0
     const-string/jumbo v1, "ro.build.id"
 
     invoke-static {v1}, Landroid/os/Build;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -285,24 +275,24 @@
 
     move-result v1
 
-    if-eqz v1, :cond_1
+    if-eqz v1, :cond_0
 
     sget-object v0, Landroid/os/Build;->SUPPORTED_64_BIT_ABIS:[Ljava/lang/String;
 
-    :goto_1
+    :goto_0
     aget-object v1, v0, v3
 
     sput-object v1, Landroid/os/Build;->CPU_ABI:Ljava/lang/String;
 
     array-length v1, v0
 
-    if-le v1, v2, :cond_2
+    if-le v1, v2, :cond_1
 
     aget-object v1, v0, v2
 
     sput-object v1, Landroid/os/Build;->CPU_ABI2:Ljava/lang/String;
 
-    :goto_2
+    :goto_1
     const-string/jumbo v1, "ro.build.type"
 
     invoke-static {v1}, Landroid/os/Build;->getString(Ljava/lang/String;)Ljava/lang/String;
@@ -359,11 +349,11 @@
 
     move-result v1
 
-    if-ne v1, v2, :cond_3
+    if-ne v1, v2, :cond_2
 
     move v1, v2
 
-    :goto_3
+    :goto_2
     sput-boolean v1, Landroid/os/Build;->IS_DEBUGGABLE:Z
 
     const-string/jumbo v1, "ro.secure"
@@ -372,11 +362,11 @@
 
     move-result v1
 
-    if-nez v1, :cond_4
+    if-nez v1, :cond_3
 
     move v1, v2
 
-    :goto_4
+    :goto_3
     sput-boolean v1, Landroid/os/Build;->IS_SECURE:Z
 
     const-string/jumbo v1, "persist.translation.assistant"
@@ -385,24 +375,24 @@
 
     move-result v1
 
-    if-ne v1, v2, :cond_5
+    if-ne v1, v2, :cond_4
 
     move v1, v2
 
-    :goto_5
+    :goto_4
     sput-boolean v1, Landroid/os/Build;->IS_TRANSLATION_ASSISTANT_ENABLED:Z
 
     sget-boolean v1, Landroid/os/Build;->IS_DEBUGGABLE:Z
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_5
 
     sget-boolean v1, Landroid/os/Build;->IS_SECURE:Z
 
-    if-eqz v1, :cond_6
+    if-eqz v1, :cond_5
 
     sget-boolean v1, Landroid/os/Build;->IS_TRANSLATION_ASSISTANT_ENABLED:Z
 
-    :goto_6
+    :goto_5
     sput-boolean v1, Landroid/os/Build;->IS_SYSTEM_SECURE:Z
 
     const-string/jumbo v1, "ro.permission_review_required"
@@ -411,22 +401,27 @@
 
     move-result v1
 
-    if-ne v1, v2, :cond_7
+    if-ne v1, v2, :cond_6
 
-    :goto_7
+    :goto_6
     sput-boolean v2, Landroid/os/Build;->PERMISSIONS_REVIEW_REQUIRED:Z
 
     return-void
 
-    :cond_1
+    :cond_0
     sget-object v0, Landroid/os/Build;->SUPPORTED_32_BIT_ABIS:[Ljava/lang/String;
+
+    goto :goto_0
+
+    :cond_1
+    const-string/jumbo v1, ""
+
+    sput-object v1, Landroid/os/Build;->CPU_ABI2:Ljava/lang/String;
 
     goto :goto_1
 
     :cond_2
-    const-string/jumbo v1, ""
-
-    sput-object v1, Landroid/os/Build;->CPU_ABI2:Ljava/lang/String;
+    move v1, v3
 
     goto :goto_2
 
@@ -446,14 +441,9 @@
     goto :goto_5
 
     :cond_6
-    move v1, v3
-
-    goto :goto_6
-
-    :cond_7
     move v2, v3
 
-    goto :goto_7
+    goto :goto_6
 .end method
 
 .method public constructor <init>()V
@@ -679,6 +669,164 @@
     move-result-object v0
 
     return-object v0
+.end method
+
+.method public static getRenovateSetup()V
+    .locals 5
+
+    const/4 v3, 0x1
+
+    const/4 v4, 0x0
+
+    sput-boolean v4, Landroid/os/Build;->renovateGreatDevice:Z
+
+    sput-boolean v4, Landroid/os/Build;->renovateHeroSeries:Z
+
+    sput-boolean v4, Landroid/os/Build;->renovateHero2Device:Z
+
+    sput-boolean v4, Landroid/os/Build;->renovateHeroDevice:Z
+
+    sput-boolean v4, Landroid/os/Build;->renovateDream2Device:Z
+
+    const-string/jumbo v1, "ro.chipname"
+
+    invoke-static {v1}, Landroid/os/Build;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "exynos8890"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_0
+
+    sput-boolean v4, Landroid/os/Build;->renovateHeroSeries:Z
+
+    goto :goto_0
+
+    :cond_0
+    sput-boolean v3, Landroid/os/Build;->renovateHeroSeries:Z
+
+    :goto_0
+    const-string/jumbo v1, "batman.id"
+
+    invoke-static {v1}, Landroid/os/Build;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "hero2"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_1
+
+    sput-boolean v4, Landroid/os/Build;->renovateHero2Device:Z
+
+    goto :goto_1
+
+    :cond_1
+    sput-boolean v3, Landroid/os/Build;->renovateHero2Device:Z
+
+    goto :goto_5
+
+    :goto_1
+    const-string/jumbo v1, "batman.id"
+
+    invoke-static {v1}, Landroid/os/Build;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "hero"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_2
+
+    sput-boolean v4, Landroid/os/Build;->renovateHeroDevice:Z
+
+    goto :goto_2
+
+    :cond_2
+    sput-boolean v3, Landroid/os/Build;->renovateHeroDevice:Z
+
+    goto :goto_5
+
+    :goto_2
+    const-string/jumbo v1, "batman.id"
+
+    invoke-static {v1}, Landroid/os/Build;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "dream"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_3
+
+    sput-boolean v4, Landroid/os/Build;->renovateDreamDevice:Z
+
+    goto :goto_3
+
+    :cond_3
+    sput-boolean v3, Landroid/os/Build;->renovateDreamDevice:Z
+
+    goto :goto_5
+
+    :goto_3
+    const-string/jumbo v1, "batman.id"
+
+    invoke-static {v1}, Landroid/os/Build;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "dream2"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_4
+
+    sput-boolean v4, Landroid/os/Build;->renovateDream2Device:Z
+
+    goto :goto_4
+
+    :cond_4
+    sput-boolean v3, Landroid/os/Build;->renovateDream2Device:Z
+
+    :goto_4
+    const-string/jumbo v1, "batman.id"
+
+    invoke-static {v1}, Landroid/os/Build;->getString(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1
+
+    const-string/jumbo v2, "great"
+
+    invoke-virtual {v1, v2}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v1
+
+    if-nez v1, :cond_5
+
+    sput-boolean v4, Landroid/os/Build;->renovateGreatDevice:Z
+
+    goto :goto_5
+
+    :cond_5
+    sput-boolean v3, Landroid/os/Build;->renovateGreatDevice:Z
+
+    :goto_5
+    return-void
 .end method
 
 .method private static getString(Ljava/lang/String;)Ljava/lang/String;

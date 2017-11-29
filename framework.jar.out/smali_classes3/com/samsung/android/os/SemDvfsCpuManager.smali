@@ -43,17 +43,61 @@
 .end method
 
 .method private adjustCPUFreqTable()V
-    .locals 6
+    .locals 7
 
+    sget-boolean v6, Landroid/os/Build;->renovateDreamDevice:Z
+
+    if-nez v6, :cond_0
+
+    sget-boolean v6, Landroid/os/Build;->renovateDream2Device:Z
+
+    if-nez v6, :cond_1
+
+    sget-boolean v6, Landroid/os/Build;->renovateHeroDevice:Z
+
+    if-nez v6, :cond_2
+
+    sget-boolean v6, Landroid/os/Build;->renovateHero2Device:Z
+
+    if-nez v6, :cond_3
+
+    sget-boolean v6, Landroid/os/Build;->renovateGreatDevice:Z
+
+    if-nez v6, :cond_4
+
+    :cond_0
+    const-string/jumbo v6, "ssrm_dreaml_xx"
+
+    goto :goto_0
+
+    :cond_1
+    const-string/jumbo v6, "ssrm_dream2_xx"
+
+    goto :goto_0
+
+    :cond_2
+    const-string/jumbo v6, "ssrm_herol_xx"
+
+    goto :goto_0
+
+    :cond_3
+    const-string/jumbo v6, "ssrm_hero2_xx"
+
+    goto :goto_0
+
+    :cond_4
+    const-string/jumbo v6, "ssrm_greatl_xx"
+
+    :goto_0
     const/4 v5, 0x0
 
     iget-object v3, p0, Lcom/samsung/android/os/SemDvfsManager;->mSupportedValues:[I
 
-    if-nez v3, :cond_0
+    if-nez v3, :cond_5
 
     return-void
 
-    :cond_0
+    :cond_5
     const/4 v0, 0x0
 
     const-string/jumbo v3, "hf"
@@ -64,31 +108,27 @@
 
     move-result v3
 
-    if-eqz v3, :cond_4
+    if-eqz v3, :cond_9
 
     const/4 v0, 0x1
 
-    :cond_1
-    :goto_0
-    const-string/jumbo v3, "ssrm_dream2l_xx"
-
+    :cond_6
+    :goto_1
     const-string/jumbo v4, "lentis"
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    invoke-virtual {v6, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
-    if-nez v3, :cond_2
-
-    const-string/jumbo v3, "ssrm_dream2l_xx"
+    if-nez v3, :cond_7
 
     const-string/jumbo v4, "kcat6"
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    invoke-virtual {v6, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
-    if-nez v3, :cond_2
+    if-nez v3, :cond_7
 
     const-string/jumbo v3, "ta"
 
@@ -98,20 +138,20 @@
 
     move-result v3
 
-    if-eqz v3, :cond_b
+    if-eqz v3, :cond_10
 
-    :cond_2
+    :cond_7
     const/4 v0, 0x2
 
-    :cond_3
-    :goto_1
-    if-lez v0, :cond_d
+    :cond_8
+    :goto_2
+    if-lez v0, :cond_12
 
     iget-object v3, p0, Lcom/samsung/android/os/SemDvfsManager;->mSupportedValues:[I
 
     array-length v3, v3
 
-    if-le v3, v0, :cond_d
+    if-le v3, v0, :cond_12
 
     iget-object v3, p0, Lcom/samsung/android/os/SemDvfsManager;->mSupportedValues:[I
 
@@ -123,14 +163,14 @@
 
     const/4 v1, 0x0
 
-    :goto_2
+    :goto_3
     iget-object v3, p0, Lcom/samsung/android/os/SemDvfsManager;->mSupportedValues:[I
 
     array-length v3, v3
 
     sub-int/2addr v3, v0
 
-    if-ge v1, v3, :cond_c
+    if-ge v1, v3, :cond_11
 
     iget-object v3, p0, Lcom/samsung/android/os/SemDvfsManager;->mSupportedValues:[I
 
@@ -142,136 +182,10 @@
 
     add-int/lit8 v1, v1, 0x1
 
-    goto :goto_2
+    goto :goto_3
 
-    :cond_4
+    :cond_9
     const-string/jumbo v3, "hrl"
-
-    const-string/jumbo v4, ""
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_5
-
-    const/4 v0, 0x6
-
-    goto :goto_0
-
-    :cond_5
-    const-string/jumbo v3, "island"
-
-    const-string/jumbo v4, ""
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_6
-
-    const-string/jumbo v3, "ssrm_dream2l_xx"
-
-    const-string/jumbo v4, "novel"
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_1
-
-    const/4 v0, 0x1
-
-    goto :goto_0
-
-    :cond_6
-    const-string/jumbo v3, "hrq"
-
-    const-string/jumbo v4, ""
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_7
-
-    const-string/jumbo v3, "kf"
-
-    const-string/jumbo v4, ""
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_7
-
-    const-string/jumbo v3, "ka"
-
-    const-string/jumbo v4, ""
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_7
-
-    const-string/jumbo v3, "tr3ca"
-
-    const-string/jumbo v4, ""
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_7
-
-    const-string/jumbo v3, "zl"
-
-    const-string/jumbo v4, ""
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_7
-
-    const-string/jumbo v3, "dvfs_policy_kangchen_xx"
-
-    const-string/jumbo v4, "msm8996"
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_7
-
-    const-string/jumbo v3, "dvfs_policy_kangchen_xx"
-
-    const-string/jumbo v4, "kangchen"
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-
-    move-result v3
-
-    if-nez v3, :cond_7
-
-    const-string/jumbo v3, "zq"
-
-    const-string/jumbo v4, ""
-
-    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-
-    move-result v3
-
-    if-eqz v3, :cond_8
-
-    :cond_7
-    const/4 v0, 0x2
-
-    goto/16 :goto_0
-
-    :cond_8
-    const-string/jumbo v3, "tf"
 
     const-string/jumbo v4, ""
 
@@ -281,24 +195,148 @@
 
     if-eqz v3, :cond_a
 
+    const/4 v0, 0x6
+
+    goto :goto_1
+
+    :cond_a
+    const-string/jumbo v3, "island"
+
+    const-string/jumbo v4, ""
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_b
+
+    const-string/jumbo v4, "novel"
+
+    invoke-virtual {v6, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_6
+
+    const/4 v0, 0x1
+
+    goto :goto_1
+
+    :cond_b
+    const-string/jumbo v3, "hrq"
+
+    const-string/jumbo v4, ""
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_c
+
+    const-string/jumbo v3, "kf"
+
+    const-string/jumbo v4, ""
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_c
+
+    const-string/jumbo v3, "ka"
+
+    const-string/jumbo v4, ""
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_c
+
+    const-string/jumbo v3, "tr3ca"
+
+    const-string/jumbo v4, ""
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_c
+
+    const-string/jumbo v3, "zl"
+
+    const-string/jumbo v4, ""
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_c
+
+    const-string/jumbo v3, "dvfs_policy_kangchen_xx"
+
+    const-string/jumbo v4, "msm8996"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_c
+
+    const-string/jumbo v3, "dvfs_policy_kangchen_xx"
+
+    const-string/jumbo v4, "kangchen"
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
+    move-result v3
+
+    if-nez v3, :cond_c
+
+    const-string/jumbo v3, "zq"
+
+    const-string/jumbo v4, ""
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_d
+
+    :cond_c
+    const/4 v0, 0x2
+
+    goto/16 :goto_1
+
+    :cond_d
+    const-string/jumbo v3, "tf"
+
+    const-string/jumbo v4, ""
+
+    invoke-virtual {v3, v4}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
+
+    move-result v3
+
+    if-eqz v3, :cond_f
+
     iget-object v3, p0, Lcom/samsung/android/os/SemDvfsManager;->mSupportedValues:[I
 
     aget v3, v3, v5
 
     const v4, 0x286e00
 
-    if-ne v3, v4, :cond_9
+    if-ne v3, v4, :cond_e
 
     const/4 v0, 0x5
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 
-    :cond_9
+    :cond_e
     const/4 v0, 0x2
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 
-    :cond_a
+    :cond_f
     const-string/jumbo v3, "dvfs_policy_kangchen_xx"
 
     const-string/jumbo v4, "dvfs"
@@ -307,31 +345,29 @@
 
     move-result v3
 
-    if-eqz v3, :cond_1
+    if-eqz v3, :cond_6
 
     const/4 v0, 0x2
 
-    goto/16 :goto_0
+    goto/16 :goto_1
 
-    :cond_b
-    const-string/jumbo v3, "ssrm_dream2l_xx"
-
+    :cond_10
     const-string/jumbo v4, "ja_kor"
 
-    invoke-virtual {v3, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    invoke-virtual {v6, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
 
     move-result v3
 
-    if-eqz v3, :cond_3
+    if-eqz v3, :cond_8
 
     const/4 v0, 0x3
 
-    goto/16 :goto_1
+    goto/16 :goto_2
 
-    :cond_c
+    :cond_11
     iput-object v2, p0, Lcom/samsung/android/os/SemDvfsManager;->mSupportedValues:[I
 
-    :cond_d
+    :cond_12
     return-void
 .end method
 

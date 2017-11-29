@@ -56,7 +56,7 @@
 
 .field static final ROTATION_GPU_BOOSTING_TIMEOUT:I = 0x7d0
 
-.field static final SIOP_MODEL:Ljava/lang/String; = "ssrm_dream2l_xx"
+.field static SIOP_MODEL:Ljava/lang/String; = ""
 
 .field private static volatile mAMSCState:Lcom/samsung/android/os/SemDvfsManager;
 
@@ -79,7 +79,53 @@
 
 # direct methods
 .method static constructor <clinit>()V
-    .locals 4
+    .locals 5
+
+    sget-boolean v4, Landroid/os/Build;->renovateDreamDevice:Z
+
+    if-nez v4, :cond_0
+
+    sget-boolean v4, Landroid/os/Build;->renovateDream2Device:Z
+
+    if-nez v4, :cond_1
+
+    sget-boolean v4, Landroid/os/Build;->renovateHeroDevice:Z
+
+    if-nez v4, :cond_2
+
+    sget-boolean v4, Landroid/os/Build;->renovateHero2Device:Z
+
+    if-nez v4, :cond_3
+
+    sget-boolean v4, Landroid/os/Build;->renovateGreatDevice:Z
+
+    if-nez v4, :cond_4
+
+    :cond_0
+    const-string/jumbo v4, "ssrm_dreaml_xx"
+
+    goto :goto_0
+
+    :cond_1
+    const-string/jumbo v4, "ssrm_dream2_xx"
+
+    goto :goto_0
+
+    :cond_2
+    const-string/jumbo v4, "ssrm_herol_xx"
+
+    goto :goto_0
+
+    :cond_3
+    const-string/jumbo v4, "ssrm_hero2_xx"
+
+    goto :goto_0
+
+    :cond_4
+    const-string/jumbo v4, "ssrm_greatl_xx"
+
+    :goto_0
+    sput-object v4, Lcom/samsung/android/os/SemPerfManager;->SIOP_MODEL:Ljava/lang/String;
 
     const/4 v3, 0x0
 
