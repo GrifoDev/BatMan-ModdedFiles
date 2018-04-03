@@ -1702,6 +1702,14 @@
 .method private onShowSafetyWarningW(I)V
     .locals 2
 
+    invoke-virtual {p0}, Lcom/android/systemui/volume/VolumeDialogControllerImpl;->disableVolumeWarning()Z
+
+    move-result v0
+
+    if-nez v0, :cond_0
+
+    goto :goto_0
+
     iget-object v0, p0, Lcom/android/systemui/volume/VolumeDialogControllerImpl;->mKnoxStateMonitor:Lcom/android/systemui/KnoxStateMonitor;
 
     invoke-virtual {v0}, Lcom/android/systemui/KnoxStateMonitor;->isSafetyWarningDialogEnabled()Z
@@ -1710,8 +1718,9 @@
 
     xor-int/lit8 v0, v0, 0x1
 
-    if-eqz v0, :cond_0
+    if-eqz v0, :cond_1
 
+    :cond_0
     sget-object v0, Lcom/android/systemui/volume/VolumeDialogControllerImpl;->TAG:Ljava/lang/String;
 
     const-string/jumbo v1, "KnoxStateMonitor : Disable SafetyWarningDialog"
@@ -1724,7 +1733,8 @@
 
     return-void
 
-    :cond_0
+    :cond_1
+    :goto_0
     iget-object v0, p0, Lcom/android/systemui/volume/VolumeDialogControllerImpl;->mCallbacks:Lcom/android/systemui/volume/VolumeDialogControllerImpl$C;
 
     invoke-virtual {v0, p1}, Lcom/android/systemui/volume/VolumeDialogControllerImpl$C;->onShowSafetyWarning(I)V
@@ -2810,6 +2820,20 @@
     invoke-direct {v0, p1, p2, p3}, Lcom/android/systemui/volume/MediaSessions;-><init>(Landroid/content/Context;Landroid/os/Looper;Lcom/android/systemui/volume/MediaSessions$Callbacks;)V
 
     return-object v0
+.end method
+
+.method public disableVolumeWarning()Z
+    .locals 2
+
+    const-string/jumbo v0, "disable_volume_warning"
+
+    const/4 v1, 0x0
+
+    invoke-static {v0, v1}, Lcom/android/wubydax/GearUtils;->getDbIntForKey(Ljava/lang/String;I)I
+
+    move-result v0
+
+    return v0
 .end method
 
 .method public dismiss()V
